@@ -34,7 +34,7 @@ If you enabled the Snapshot debugger using the site extension, you can upgrade u
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/app-service-resource.png" alt-text="Screenshot of individual App Service resource named DiagService01.":::
 
-1. After you've navigated to your resource, click on the **Extensions** blade and wait for the list of extensions to populate:
+1. After you've navigated to your resource, click on the **Extensions** pane and wait for the list of extensions to populate:
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png" alt-text="Screenshot of App Service Extensions showing Application Insights extension for Azure App Service installed.":::
 
@@ -42,17 +42,17 @@ If you enabled the Snapshot debugger using the site extension, you can upgrade u
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png" alt-text="Screenshot of App Service Extensions showing Application Insights extension for Azure App Service with the Delete button highlighted.":::
 
-1. Go to the **Overview** blade of your resource and select **Application Insights**:
+1. Go to the **Overview** pane of your resource and select **Application Insights**:
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/application-insights-button.png" alt-text="Screenshot of three buttons. Center button with name Application Insights is selected.":::
 
-1. If this is the first time you've viewed the Application Insights blade for this App Service, you'll be prompted to turn on Application Insights. Select **Turn on Application Insights**.
+1. If this is the first time you've viewed the Application Insights pane for this App Service, you'll be prompted to turn on Application Insights. Select **Turn on Application Insights**.
 
-   :::image type="content" source="./media/snapshot-debugger-upgrade/turn-on-application-insights.png" alt-text="Screenshot of the first-time experience for the Application Insights blade with the Turn on Application Insights button highlighted.":::
+   :::image type="content" source="./media/snapshot-debugger-upgrade/turn-on-application-insights.png" alt-text="Screenshot of the first-time experience for the Application Insights pane with the Turn on Application Insights button highlighted.":::
 
-1. In the Application Insights settings blade, switch the Snapshot Debugger setting toggles to **On** and select **Apply**.
+1. In the Application Insights settings pane, switch the Snapshot Debugger setting toggles to **On** and select **Apply**.
 
-   If you decide to change *any* Application Insights settings, the **Apply** button on the bottom of the blade will be activated.
+   If you decide to change *any* Application Insights settings, the **Apply** button on the bottom of the pane will be activated.
 
    :::image type="content" source="./media/snapshot-debugger-upgrade/view-application-insights-data.png" alt-text="Screenshot of Application Insights App Service Configuration page with Apply button highlighted in red.":::
 

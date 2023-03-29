@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/24/2022
+ms.date: 11/12/2022
 ms.author: eur
-zone_pivot_groups: acs-js-csharp
+zone_pivot_groups: acs-js-csharp-python
 ms.devlang: csharp, javascript
 ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 ---
@@ -33,6 +33,10 @@ You can transcribe meetings and other conversations with the ability to add, rem
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/conversation-transcription/real-time-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python Basics include](includes/how-to/conversation-transcription/real-time-python.md)]
 ::: zone-end
 
 ## Next steps

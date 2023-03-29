@@ -30,10 +30,12 @@ ms.custom: include file
 | Service endpoint VNet access | N/A | N/A | [Preview][vnet] |
 | &bull; Virtual network rules | N/A | N/A | 100 |
 | Customer-managed keys | N/A | N/A | [Supported][cmk] |
-| Repository-scoped permissions | N/A | N/A | [Preview][token]|
-| &bull; Tokens | N/A | N/A | 20,000 |
-| &bull; Scope maps | N/A | N/A | 20,000 |
-| &bull; Repositories per scope map<sup>5</sup> | N/A | N/A | 500 |
+| Repository-scoped permissions | [Supported][token] | [Supported][token] | [Supported][token]|
+| &bull; Tokens | 100 | 500 | 50,000 |
+| &bull; Scope maps | 100 | 500 | 50,000 |
+| &bull; Actions| 500 | 500 | 500 |
+| &bull; Repositories per scope map<sup>5</sup> | 500 | 500 | 500 |
+| Anonymous pull access | N/A | [Preview][anonymous-pull-access] | [Preview][anonymous-pull-access] |
 
 
 <sup>1</sup> Storage included in the daily rate for each tier. Additional storage may be used, up to the registry storage limit, at an additional daily rate per GiB. For rate information, see [Azure Container Registry pricing][pricing]. If you need storage beyond the registry storage limit, please contact Azure Support.
@@ -57,3 +59,4 @@ ms.custom: include file
 [cmk]: ../articles/container-registry/tutorial-enable-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
 [zones]: ../articles/container-registry/zone-redundancy.md
+[anonymous-pull-access]: ../articles/container-registry/anonymous-pull-access.md

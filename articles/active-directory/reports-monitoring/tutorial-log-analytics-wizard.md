@@ -1,5 +1,5 @@
 ---
-title: Configure a log analytics workspace in Azure AD | Microsoft Docs
+title: Configure a log analytics workspace in Azure AD
 description: Learn how to configure log analytics.
 
 services: active-directory

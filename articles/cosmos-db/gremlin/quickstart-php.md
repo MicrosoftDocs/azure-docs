@@ -2,7 +2,7 @@
 title: 'Quickstart: Gremlin API with PHP - Azure Cosmos DB'
 description: Follow this quickstart to run a PHP console application that populates an Azure Cosmos DB for Gremlin database in the Azure portal.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 06/29/2022
@@ -102,7 +102,7 @@ Optionally, you can also configure the following settings on the **Create Azure 
 - Other tabs:
 
   - **Networking**: Configure [access from a virtual network](../how-to-configure-vnet-service-endpoint.md).
-  - **Backup Policy**: Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../provision-account-continuous-backup.md) backup policy.
+  - **Backup Policy**: Configure either [periodic](../periodic-backup-restore-introduction.md) or [continuous](../provision-account-continuous-backup.md) backup policy.
   - **Encryption**: Use either a service-managed key or a [customer-managed key](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
   - **Tags**: Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 

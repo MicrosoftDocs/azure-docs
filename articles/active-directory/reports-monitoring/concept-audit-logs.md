@@ -1,6 +1,6 @@
 ---
 
-title: Audit logs in Azure Active Directory | Microsoft Docs
+title: Audit logs in Azure Active Directory
 description: Overview of the audit logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3
@@ -68,7 +68,7 @@ With an application-centric view, you can get answers to questions such as:
 
 The audit activity report is available in all editions of Azure AD. To access the audit logs, you need to have one of the following roles: 
 
-- Report Reader
+- Reports Reader
 - Security Reader
 - Security Administrator
 - Global Reader

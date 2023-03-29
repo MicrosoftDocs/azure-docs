@@ -2,8 +2,6 @@
 title: Troubleshoot the Azure Monitor agent on Linux virtual machines and scale sets
 description: Guidance for troubleshooting issues on Linux virtual machines, scale sets with Azure Monitor agent and Data Collection Rules.
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
 ms.date: 5/3/2022
 ms.custom: references_region
 ms.reviewer: shseth
@@ -20,7 +18,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
 
 2. **Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine**:  
-	1. Open Azure portal > select your virtual machine > Open **Settings** : **Extensions + applications** blade from left menu > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
+	1. Open Azure portal > select your virtual machine > Open **Settings** : **Extensions + applications** from the pane on the left > 'AzureMonitorLinuxAgent'should show up with Status: 'Provisioning succeeded'  
 	2. If you don't see the extension listed, check if machine can reach Azure and find the extension to install using the command below:  
 		```azurecli
 		az vm extension image list-versions --location <machine-region> --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor
@@ -32,7 +30,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 3. **Verify that the agent is running**:  
 	1. Check if the agent is emitting heartbeat logs to Log Analytics workspace using the query below. Skip if 'Custom Metrics' is the only destination in the DCR:
 		```Kusto
-		Heartbeat | where Category == "Azure Monitor Agent" and 'Computer' == "<computer-name>" | take 10
+		Heartbeat | where Category == "Azure Monitor Agent" and Computer == "<computer-name>" | take 10
 		```	 
 	2. Check if the agent service is running
 		```
@@ -43,7 +41,7 @@ Follow the steps below to troubleshoot the latest version of the Azure Monitor a
 	
 4. **Verify that the DCR exists and is associated with the virtual machine:**  
 	1. If using Log Analytics workspace as destination, verify that DCR exists in the same physical region as the Log Analytics workspace.  
-	2. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** blade from left menu > You should see the virtual machine listed here. 
+	2. Open Azure portal > select your data collection rule > Open **Configuration** : **Resources** from the pane on the left > You should see the virtual machine listed here. 
 	3. If not listed, click 'Add' and select your virtual machine from the resource picker. Repeat across all DCRs. 
 	4. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'DCR not found or associated' and **Problem type** as 'I need help configuring data collection from a VM'.
 

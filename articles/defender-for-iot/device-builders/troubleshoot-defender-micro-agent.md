@@ -1,11 +1,11 @@
 ---
-title: Defender for IoT micro agent troubleshooting (Preview)
+title: Defender for IoT micro agent troubleshooting 
 description: Learn how to handle unexpected or unexplained errors.
 ms.date: 11/09/2021
 ms.topic: reference
 ---
 
-# Defender for IoT micro agent troubleshooting (Preview)
+# Defender for IoT micro agent troubleshooting
 
 If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. 
 

@@ -63,6 +63,9 @@ Here are some of the metrics emitted by dedicated SQL pools created in Azure Syn
 | WLGEffectiveCapResourcePercent | Effective cap resource percent | Percent | Max (default), Min, Avg | The effective cap resource percent for the workload group. If there are other workload groups with min_percentage_resource > 0, the effective_cap_percentage_resource is lowered proportionally |
 | WLGEffectiveMinResourcePercent | Effective min resource percent | Percent | Max (default), Min, Avg, Sum | The effective min resource percentage setting allowed considering the service level and the workload group settings. The effective min_percentage_resource can be adjusted higher on lower service levels |
 
+> [!NOTE]
+> Dedicated SQL pool measures performance in compute data warehouse units (cDWUs). Even though we do not surface details of individual nodes such as memory per node or number of CPUs per node, the intent behind emitting metrics such as `MemoryUsedPercent`; `CPUPercent` etc. is to show general usage trend over a period of time. These trends will help administrators understand how an instance of dedicated SQL pool is utilized, and changes in footprint of memory and/or CPU could be a trigger for one or more actions such as scale-up or scale-down cDWUs, investigating a query (or queries) which may require optimization, etcetera.
+
 ### Apache Spark pool metrics
 
 Here are some of the metrics emitted by Apache Spark pools:
@@ -101,10 +104,14 @@ Here are the logs emitted by Azure Synapse Analytics workspaces:
 | --- | --- | --- |
 | SynapseGatewayApiRequests | GatewayApiRequests | Azure Synapse gateway API requests. |
 | SynapseRbacOperations | SynapseRbacOperations | Azure Synapse role-based access control (SRBAC) operations. |
-| SynapseBuiltinSqlReqsEnded | BuiltinSqlReqsEnded | Azure Synapse built-in serverless SQL pool ended requests. |
+| SynapseBuiltinSqlPoolRequestsEnded | BuiltinSqlReqsEnded | Azure Synapse built-in serverless SQL pool ended requests. |
 | SynapseIntegrationPipelineRuns | IntegrationPipelineRuns | Azure Synapse integration pipeline runs. |
 | SynapseIntegrationActivityRuns | IntegrationActivityRuns | Azure Synapse integration activity runs. |
 | SynapseIntegrationTriggerRuns | IntegrationTriggerRuns | Azure Synapse integration trigger runs. |
+
+   > [!NOTE]  
+   > The event **SynapseBuiltinSqlPoolRequestsEnded** is only emitted for queries that read data from storage. It will not be emitted for queries that only process metadata.
+
 
 ### Dedicated SQL pool logs
 

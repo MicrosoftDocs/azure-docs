@@ -3,9 +3,9 @@ title: Azure Monitor Network Insights
 description: An overview of Azure Monitor Network Insights, which provides a comprehensive view of health and metrics for all deployed network resources without any configuration.
 ms.topic: conceptual
 ms.service: network-watcher
-author: Sagav28
-ms.author: saggupta
-ms.date: 11/25/2020
+author: halkazwini
+ms.author: halkazwini
+ms.date: 09/28/2022
 ms.reviewer: shijain
 ms.custom: subject-monitoring, ignite-2022
 ---
@@ -57,7 +57,7 @@ The Resource view helps you visualize how a resource is configured. The Resource
 
 ![Sreenshot that shows Application Gateway view in Azure Monitor Network Insights.](media/network-insights-overview/application-gateway.png)
 
-The resource view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules, and backend pool. The connecting lines are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools, like virtual machine scale set and VM instances.
+The resource view for Application Gateway provides a simplified view of how the front-end IPs are connected to the listeners, rules, and backend pool. The connecting lines are color coded and provide additional details based on the backend pool health. The view also provides a detailed view of Application Gateway metrics and metrics for all related backend pools, like Virtual Machine Scale Sets and VM instances.
 
 [![Screenshot that shows dependency view in Azure Monitor Network Insights.](media/network-insights-overview/dependency-view.png)](media/network-insights-overview/dependency-view.png#lightbox)
 

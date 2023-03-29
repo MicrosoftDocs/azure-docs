@@ -6,8 +6,9 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 08/01/2022
+ms.date: 3/29/2023
 ms.author: cynthn
+ms.reviewer: mattmcinnes
 ms.custom: mvc, mode-ui
 ---
 
@@ -70,7 +71,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Connect to virtual machine
 
-Create an SSH connection with the VM.
+Create an [SSH connection](/azure/virtual-machines/linux-vm-connect) with the VM.
 
 1. If you are on a Mac or Linux machine, open a Bash prompt and set read-only permission on the .pem file using `chmod 400 ~/Downloads/myKey.pem`. If you are on a Windows machine, open a PowerShell prompt. 
 
@@ -87,11 +88,27 @@ ssh -i ~/Downloads/myKey.pem azureuser@10.111.12.123
 
 To see your VM in action, install the NGINX web server. From your SSH session, update your package sources and then install the latest NGINX package.
 
+# [Ubuntu](#tab/ubuntu)
+
 ```bash
 sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
+# [SUSE Linux (SLES)](#tab/SLES)
+
+```bash
+sudo zypper --non-interactive update
+sudo zypper --non-interactive install nginx
+```
+
+# [Red Hat Enterprise Linux (RHEL)](#tab/rhel)
+
+```bash
+sudo dnf update
+sudo dnf install nginx
+```
+---
 When done, type `exit` to leave the SSH session.
 
 

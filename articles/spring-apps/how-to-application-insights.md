@@ -15,7 +15,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌️ Enterprise tier
+**This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard tier ❌️ Enterprise tier
 
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Apps.
 
@@ -67,7 +67,7 @@ When the **Application Insights** feature is enabled, you can:
 
    :::image type="content" source="media/how-to-application-insights/petclinic-microservices-live-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Live Metrics page showing." lightbox="media/how-to-application-insights/petclinic-microservices-live-metrics.png":::
 
-* In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
+* In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
    :::image type="content" source="media/how-to-application-insights/petclinic-microservices-availability.png" alt-text="Screenshot of Azure portal Application Insights with Availability page showing." lightbox="media/how-to-application-insights/petclinic-microservices-availability.png":::
 
@@ -281,7 +281,7 @@ az spring app-insights update \
 
 This section applies to the Enterprise Tier only, and provides instructions that that supplement the previous section.
 
-Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`.
+Azure Enterprise tier uses buildpack bindings to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 To create an Application Insights buildpack binding, use the following command:
 

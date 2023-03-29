@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
 ms.date: 02/05/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -62,18 +62,20 @@ A distribution that lists only major versions, like Debian 7, is also supported 
 Supported distributions and versions:
 
 - Ubuntu 18.04, 16.04, 14.04
-- CentOS 7, 6.5+
+- CentOS 8, 7, 6.5+
 - Oracle Linux 7, 6.4+
 - OpenSUSE 13.1+
 - SUSE Linux Enterprise Server 12
 - Debian 9, 8, 7
 - Red Hat Enterprise Linux (RHEL) 7, 6.7+
+- Alma Linux 8
+- Rocky Linux 8
 
 ### Prerequisites
 
 * **Azure Linux agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version of the guest agent, [update the Linux agent](./update-linux-agent.md).
 * **Azure CLI**. [Set up the Azure CLI](/cli/azure/install-azure-cli) environment on your machine.
-* **The `wget` command**. If you don't already have it, run `sudo apt-get install wget`.
+* **The `wget` command**. If you don't already have it, install it using the corresponding package manager.
 * **An Azure subscription and general purpose storage account** to store the data.  General purpose storage accounts support table storage, which is required.  A blob storage account won't work.
 * **Python 2**.
 
@@ -95,13 +97,13 @@ The `python2` executable file must be aliased to *python*. Here's one way to ach
 
 1. Run the following command to remove any existing aliases.
 
-    ```
+    ```bash
     sudo update-alternatives --remove-all python
     ```
 
 2. Run the following command to create the new alias.
 
-    ```
+    ```bash
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     ```
 
@@ -278,6 +280,7 @@ The latest version of the extension is 4.0, *which is currently in public previe
 > To migrate from 3.x to the newest version of the extension, uninstall the old extension. Then install version 4, which includes the updated configuration for system-assigned identity and sinks for sending metrics to the Azure Monitor sink.
 
 When you install the new extension, enable automatic minor version upgrades:
+
 * On Azure Resource Manager deployment model VMs, include `"autoUpgradeMinorVersion": true` in the VM deployment template.
 * On classic deployment model VMs, specify version `4.*` if you're installing the extension through the Azure CLI or PowerShell.
 

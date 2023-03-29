@@ -10,7 +10,7 @@ ms.date: 09/01/2022
 
 # Migrate pools without public IP addresses (classic) in Batch
 
-The Azure Batch feature pools without public IP addresses (classic) will be retired on *March 31, 2023*. Learn how to migrate eligible pools to simplified compute node communication (preview) pools without public IP addresses. You must opt in to migrate your Batch pools.
+The Azure Batch feature pools without public IP addresses (classic) will be retired on *March 31, 2023*. Learn how to migrate eligible pools to simplified compute node communication pools without public IP addresses. You must opt in to migrate your Batch pools.
 
 ## About the feature
 
@@ -44,7 +44,7 @@ When the Batch pools without public IP addresses (classic) feature retires on Ma
 
    :::image type="content" source="media/certificates/scale-down-pool.png" alt-text="Screenshot that shows how to scale down a pool.":::
 
-1. Scale out the pool again. The pool is then automatically migrated to the new version of the preview.
+1. Scale out the pool again. The pool is then automatically migrated to the new version.
 
    :::image type="content" source="media/certificates/scale-out-pool.png" alt-text="Screenshot that shows how to scale out a pool.":::
 

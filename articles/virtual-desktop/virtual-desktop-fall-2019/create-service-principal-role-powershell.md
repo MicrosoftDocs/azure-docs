@@ -100,7 +100,7 @@ $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppI
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.Tenant.Id
 ```
 
-After you've signed in, make sure everything works by testing a few Azure Virtual Desktop PowerShell cmdlets with the service principal.
+If you can sign in successfully, your service principal is configured correctly.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/28/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -99,7 +99,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
 
-1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights
+1. Sign-in to the [Azure portal](https://portal.azure.com/) using an account with Application Administrative rights
 
 2. From the left navigation pane, select the **Azure Active Directory** service
 

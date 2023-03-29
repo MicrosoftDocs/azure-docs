@@ -4,13 +4,9 @@ description: Deploy your first HTML Hello World to Azure App Service in minutes.
 author: msangapu-msft
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
-ms.date: 08/23/2019
+ms.date: 11/18/2022
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18, mode-other
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./quickstart-html-uiex
 ---
 
 # Create a static HTML web app in Azure
@@ -24,7 +20,7 @@ adobe-target-content: ./quickstart-html-uiex
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Download the sample
 
@@ -100,11 +96,11 @@ The page is running as an Azure App Service web app.
 
 ## Update and redeploy the app
 
-In the Cloud Shell, type `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
+In the Cloud Shell, use `sed` to change "Azure App Service - Sample Static HTML Site" to "Azure App Service".
 
-![Nano index.html](media/quickstart-html/nano-index-html.png)
-
-Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
+```bash
+sed  -i 's/Azure App Service - Sample Static HTML Site/Azure App Service/' index.html
+```
 
 You'll now redeploy the app with the same `az webapp up` command.
 
@@ -145,4 +141,4 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

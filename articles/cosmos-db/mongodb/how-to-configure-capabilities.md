@@ -7,7 +7,7 @@ ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 12/2/2022
 ms.custom: ignite-2022
 ---
 
@@ -62,8 +62,11 @@ Capabilities are features that can be added or removed to your API for MongoDB a
     az cosmosdb update \
         --resource-group <azure_resource_group> \
         --name <azure_cosmos_db_account_name> \
-        --capabilities EnableMongo, DisableRateLimitingResponses
+        --capabilities EnableMongo DisableRateLimitingResponses
     ```
+    
+    > [!IMPORTANT]
+    > The list of capabilities must always specify all capabilities you wish to enable, inclusively. This includes capabilities already enabled for the account. In this example, the `EnableMongo` capability was already enabled, so both the `EnableMongo` and `DisableRateLimitingResponses` capabilities must be specified.
 
     > [!TIP]
     > If you're using PowerShell and receive an error using the command above, try using a PowerShell array instead to list the capabilities:

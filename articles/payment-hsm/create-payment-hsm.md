@@ -7,6 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 09/12/2022
 ---
 
@@ -48,7 +49,7 @@ In this tutorial, you learn how to:
   You can continue with this quick start if all four of these commands return "Registered".
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]  
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -244,4 +245,3 @@ Additional information:
 - See some common [deployment scenarios](deployment-scenarios.md)
 - Learn about [Certification and compliance](certification-compliance.md)
 - Read the [frequently asked questions](faq.yml)
-

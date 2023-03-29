@@ -1,5 +1,5 @@
 ---
-title: Enable and manage Azure Storage Analytics metrics (classic) | Microsoft Docs
+title: Enable and manage Azure Storage Analytics metrics (classic)
 description: Learn how to enable, edit, and view Azure Storage Analytics metrics.
 author: normesta
 ms.service: storage
@@ -8,7 +8,8 @@ ms.date: 10/03/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring, devx-track-azurepowershell
+ms.devlang: csharp
+ms.custom: monitoring
 ---
 
 # Enable and manage Azure Storage Analytics metrics (classic)

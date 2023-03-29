@@ -1,5 +1,5 @@
 ---
-title: 'Attributes synchronized by Azure AD Connect | Microsoft Docs'
+title: 'Attributes synchronized by Azure AD Connect'
 description: Lists the attributes that are synchronized to Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 04/15/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -158,7 +158,7 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premises. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
@@ -240,7 +240,7 @@ In this case, start with the list of attributes in this topic and identify those
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premises. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
@@ -291,7 +291,7 @@ In this case, start with the list of attributes in this topic and identify those
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | |synced only once from Azure AD to Exchange Online after which Exchange Online becomes source of authority for this attribute and any later changes can't be synced from on-premises. See ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) for more.|
+| thumbnailphoto |X |X | |Synced to M365 profile photo periodically. Admins can set the frequency of the sync by changing the Azure AD Connect value. Please note that if users change their photo both on-premises and in cloud in a time span that is less than the Azure AD Connect value, we do not guarantee that the latest photo will be served.|
 | title |X |X | | |
 | usageLocation |X | | |mechanical property. The user’s country/region. Used for license assignment. |
 | userPrincipalName |X | | |UPN is the login ID for the user. Most often the same as [mail] value. |

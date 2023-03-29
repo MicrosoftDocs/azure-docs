@@ -1,15 +1,17 @@
 ---
 title: U-SQL programmability guide for Azure Data Lake
-description: Learn about the U-SQL overview and UDF programmability in Azure Data Lake Analytics to enable you create good USQL script.
+description: Learn about the U-SQL overview and UDF programmability in Azure Data Lake Analytics to enable you to create good USQL scripts.
 ms.service: data-lake-analytics
-ms.reviewer: jasonh
+ms.reviewer: whhender
 ms.topic: how-to
-ms.date: 06/30/2017
+ms.date: 01/20/2023
 ---
 
 # U-SQL programmability guide overview
 
-U-SQL is a query language that's designed for big data-type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#. In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
+
+U-SQL is a query language that's designed for big data type of workloads. One of the unique features of U-SQL is the combination of the SQL-like declarative language with the extensibility and programmability that's provided by C#. In this guide, we concentrate on the extensibility and programmability of the U-SQL language that's enabled by C#.
 
 ## Requirements
 
@@ -122,9 +124,9 @@ Currently, U-SQL uses the .NET Framework version 4.7.2. So ensure that your own 
 
 As mentioned earlier, U-SQL runs code in a 64-bit (x64) format. So make sure that your code is compiled to run on x64. Otherwise you get the incorrect format error shown earlier.
 
-Each uploaded assembly DLL and resource file, such as a different runtime, a native assembly, or a config file, can be at most 400 MB. The total size of deployed resources, either via DEPLOY RESOURCE or via references to assemblies and their additional files, cannot exceed 3 GB.
+Each uploaded assembly DLL and resource file, such as a different runtime, a native assembly, or a config file, can be at most 400 MB. The total size of deployed resources, either via DEPLOY RESOURCE or via references to assemblies and their other files, can't exceed 3 GB.
 
-Finally, note that each U-SQL database can only contain one version of any given assembly. For example, if you need both version 7 and version 8 of the NewtonSoft Json.NET library, you need to register them in two different databases. Furthermore, each script can only refer to one version of a given assembly DLL. In this respect, U-SQL follows the C# assembly management and versioning semantics.
+Finally, each U-SQL database can only contain one version of any given assembly. For example, if you need both version 7 and version 8 of the NewtonSoft Json.NET library, you need to register them in two different databases. Furthermore, each script can only refer to one version of a given assembly DLL. In this respect, U-SQL follows the C# assembly management and versioning semantics.
 
 ## Use user-defined functions: UDF
 U-SQL user-defined functions, or UDF, are programming routines that accept parameters, perform an action (such as a complex calculation), and return the result of that action as a value. The return value of UDF can only be a single scalar. U-SQL UDF can be called in U-SQL base script like any other C# scalar function.
@@ -181,9 +183,9 @@ public static string GetFiscalPeriod(DateTime dt)
 
 It simply calculates fiscal month and quarter and returns a string value. For June, the first month of the first fiscal quarter, we use "Q1:P1". For July, we use "Q1:P2", and so on.
 
-This is a regular C# function that we are going to use in our U-SQL project.
+This is a regular C# function that we're going to use in our U-SQL project.
 
-Here is how the code-behind section looks in this scenario:
+Here's how the code-behind section looks in this scenario:
 
 ```usql
 using Microsoft.Analytics.Interfaces;
@@ -233,7 +235,7 @@ namespace USQL_Programmability
 }
 ```
 
-Now we are going to call this function from the base U-SQL script. To do this, we have to provide a fully qualified name for the function, including the namespace, which in this case is NameSpace.Class.Function(parameter).
+Now we're going to call this function from the base U-SQL script. To do this, we have to provide a fully qualified name for the function, including the namespace, which in this case is NameSpace.Class.Function(parameter).
 ```usql
 USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
 ```
@@ -294,7 +296,7 @@ To solve this problem, we use a global variable inside a code-behind section: `s
 
 This global variable is applied to the entire rowset during our script execution.
 
-Here is the code-behind section of our U-SQL program:
+Here's the code-behind section of our U-SQL program:
 
 ```csharp
 using Microsoft.Analytics.Interfaces;

@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/20/2022
+ms.date: 12/28/2022
 ms.author: davidmu
-ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
+ms.reviewer: ludwignick
 ---
 
 # Microsoft identity platform access tokens
@@ -44,7 +44,7 @@ Web APIs have one of the following versions selected as a default during registr
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiJlZjFkYTlkNC1mZjc3LTRjM2UtYTAwNS04NDBjM2Y4MzA3NDUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTUyMjIyOS8iLCJpYXQiOjE1MzcyMzMxMDYsIm5iZiI6MTUzNzIzMzEwNiwiZXhwIjoxNTM3MjM3MDA2LCJhY3IiOiIxIiwiYWlvIjoiQVhRQWkvOElBQUFBRm0rRS9RVEcrZ0ZuVnhMaldkdzhLKzYxQUdyU091TU1GNmViYU1qN1hPM0libUQzZkdtck95RCtOdlp5R24yVmFUL2tES1h3NE1JaHJnR1ZxNkJuOHdMWG9UMUxrSVorRnpRVmtKUFBMUU9WNEtjWHFTbENWUERTL0RpQ0RnRTIyMlRJbU12V05hRU1hVU9Uc0lHdlRRPT0iLCJhbXIiOlsid2lhIl0sImFwcGlkIjoiNzVkYmU3N2YtMTBhMy00ZTU5LTg1ZmQtOGMxMjc1NDRmMTdjIiwiYXBwaWRhY3IiOiIwIiwiZW1haWwiOiJBYmVMaUBtaWNyb3NvZnQuY29tIiwiZmFtaWx5X25hbWUiOiJMaW5jb2xuIiwiZ2l2ZW5fbmFtZSI6IkFiZSAoTVNGVCkiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMjIyNDcvIiwiaXBhZGRyIjoiMjIyLjIyMi4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJvaWQiOiIwMjIyM2I2Yi1hYTFkLTQyZDQtOWVjMC0xYjJiYjkxOTQ0MzgiLCJyaCI6IkkiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJsM19yb0lTUVUyMjJiVUxTOXlpMmswWHBxcE9pTXo1SDNaQUNvMUdlWEEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6ImFiZWxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJGVnNHeFlYSTMwLVR1aWt1dVVvRkFBIiwidmVyIjoiMS4wIn0.D3H6pMUtQnoJAGq6AHd
     ```
 
-- v2.0 for applications that support consumer accounts. The following example shows a v1.0 token (this token example won't validate because the keys have rotated prior to publication and personal information has been removed):  
+- v2.0 for applications that support consumer accounts. The following example shows a v2.0 token (this token example won't validate because the keys have rotated prior to publication and personal information has been removed):  
 
     ```
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiI2ZTc0MTcyYi1iZTU2LTQ4NDMtOWZmNC1lNjZhMzliYjEyZTMiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE1MzcyMzEwNDgsIm5iZiI6MTUzNzIzMTA0OCwiZXhwIjoxNTM3MjM0OTQ4LCJhaW8iOiJBWFFBaS84SUFBQUF0QWFaTG8zQ2hNaWY2S09udHRSQjdlQnE0L0RjY1F6amNKR3hQWXkvQzNqRGFOR3hYZDZ3TklJVkdSZ2hOUm53SjFsT2NBbk5aY2p2a295ckZ4Q3R0djMzMTQwUmlvT0ZKNGJDQ0dWdW9DYWcxdU9UVDIyMjIyZ0h3TFBZUS91Zjc5UVgrMEtJaWpkcm1wNjlSY3R6bVE9PSIsImF6cCI6IjZlNzQxNzJiLWJlNTYtNDg0My05ZmY0LWU2NmEzOWJiMTJlMyIsImF6cGFjciI6IjAiLCJuYW1lIjoiQWJlIExpbmNvbG4iLCJvaWQiOiI2OTAyMjJiZS1mZjFhLTRkNTYtYWJkMS03ZTRmN2QzOGU0NzQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhYmVsaUBtaWNyb3NvZnQuY29tIiwicmgiOiJJIiwic2NwIjoiYWNjZXNzX2FzX3VzZXIiLCJzdWIiOiJIS1pwZmFIeVdhZGVPb3VZbGl0anJJLUtmZlRtMjIyWDVyclYzeERxZktRIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoiZnFpQnFYTFBqMGVRYTgyUy1JWUZBQSIsInZlciI6IjIuMCJ9.pj4N-w_3Us9DrBLfpCt
@@ -85,36 +85,36 @@ Some claims are used to help the Microsoft identity platform secure tokens for r
 
 ### Payload claims
 
-| Claim | Format | Description |
-|-------|--------|-------------|
-| `aud` | String, an Application ID URI or GUID | Identifies the intended audience of the token. The API must validate this value and reject the token if the value doesn't match. In v2.0 tokens, this value is always the client ID of the API. In v1.0 tokens, it can be the client ID or the resource URI used in the request. The value can depend on how the client requested the token. |
-| `iss` | String, a security token service (STS) URI | Identifies the STS that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI ends in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. The application can use the GUID portion of the claim to restrict the set of tenants that can sign in to the application, if applicable. |
-|`idp`| String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account isn't in the same tenant as the issuer, such as guests. If the claim isn't present, the value of `iss` can be used instead. For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
-| `iat` | int, a Unix timestamp | Specifies when the authentication for this token occurred. |
-| `nbf` | int, a Unix timestamp | Specifies the time before which the JWT must not be accepted for processing. |
-| `exp` | int, a Unix timestamp | Specifies the expiration time on or after which the JWT must not be accepted for processing. A resource may reject the token before this time as well. The rejection can occur when a change in authentication is required or a token revocation has been detected. |
-| `aio` | Opaque String | An internal claim used by Azure AD to record data for token reuse. Resources shouldn't use this claim. |
-| `acr` | String, a `0` or `1`, only present in v1.0 tokens | A value of `0` for the "Authentication context class" claim indicates the end-user authentication didn't meet the requirements of ISO/IEC 29115. |
-| `amr` | JSON array of strings, only present in v1.0 tokens | Identifies how the subject of the token was authenticated. |
-| `appid` | String, a GUID, only present in v1.0 tokens | The application ID of the client using the token. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. |
-| `azp` | String, a GUID, only present in v2.0 tokens | A replacement for `appid`. The application ID of the client using the token. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. |
-| `appidacr` | String, a `0`, `1`, or `2`, only present in v1.0 tokens | Indicates how the client was authenticated. For a public client, the value is `0`. If client ID and client secret are used, the value is `1`. If a client certificate was used for authentication, the value is `2`. |
-| `azpacr` | String, a `0`, `1`, or `2`, only present in v2.0 tokens | A replacement for `appidacr`. Indicates how the client was authenticated. For a public client, the value is `0`. If client ID and client secret are used, the value is `1`. If a client certificate was used for authentication, the value is `2`. |
-| `preferred_username` | String, only present in v2.0 tokens. | The primary username that represents the user. The value could be an email address, phone number, or a generic username without a specified format. The value is mutable and might change over time. Since the value is mutable, it must not be used to make authorization decisions. The value can be used for username hints, however, and in human-readable UI as a username. The `profile` scope is required in order to receive this claim. |
-| `name` | String | Provides a human-readable value that identifies the subject of the token. The value isn't guaranteed to be unique, it's mutable, and is only used for display purposes. The `profile` scope is required in order to receive this claim. |
-| `scp` | String, a space separated list of scopes | The set of scopes exposed by the application for which the client application has requested (and received) consent. The application should verify that these scopes are valid ones exposed by the application, and make authorization decisions based on the value of these scopes. Only included for user tokens. |
-| `roles` | Array of strings, a list of permissions | The set of permissions exposed by the application that the requesting application or user has been given permission to call. For application tokens, this set of permissions is used during the client credential flow ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) in place of user scopes. For user tokens, this set of values is populated with the roles the user was assigned to on the target application. |
-| `wids` | Array of [RoleTemplateID](../roles/permissions-reference.md#all-roles) GUIDs | Denotes the tenant-wide roles assigned to this user, from the section of roles present in [Azure AD built-in roles](../roles/permissions-reference.md#all-roles).  This claim is configured on a per-application basis, through the `groupMembershipClaims` property of the [application manifest](reference-app-manifest.md). Setting it to `All` or `DirectoryRole` is required. May not be present in tokens obtained through the implicit flow due to token length concerns. |
-| `groups` | JSON array of GUIDs | Provides object IDs that represent the group memberships of the subject. These values are unique and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the `groupMembershipClaims` property of the [application manifest](reference-app-manifest.md). A value of `null` excludes all groups, a value of `SecurityGroup` includes only Active Directory Security Group memberships, and a value of `All` includes both Security Groups and Microsoft 365 Distribution Lists. <br><br>See the `hasgroups` claim for details on using the `groups` claim with the implicit grant. For other flows, if the number of groups the user is in goes over 150 for SAML and 200 for JWT, then Azure AD adds an overage claim to the claim sources. The claim sources point to the Microsoft Graph endpoint that contains the list of groups for the user. |
-| `hasgroups` | Boolean | If present, always `true`, indicates whether the user is in at least one group. Used in place of the `groups` claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently six or more groups). Indicates that the client should use the Microsoft Graph API to determine the groups (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`) of the user. |
-| `groups:src1` | JSON object | For token requests that aren't length limited (see `hasgroups`) but still too large for the token, a link to the full groups list for the user is included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
-| `sub` | String | The principal about which the token asserts information, such as the user of an application. This value is immutable and can't be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, use this value in a general-purpose authorization system. The subject is, however, a pairwise identifier that is unique to a particular application ID. If a single user signs into two different applications using two different client IDs, those applications receive two different values for the subject claim. Two different values may or may not be desired depending on architecture and privacy requirements. See also the `oid` claim (which does remain the same across applications within a tenant). |
-| `oid` | String, a GUID | The immutable identifier for the requestor, which is the user or service principal whose identity has been verified. It can also be used to perform authorization checks safely and as a key in database tables. This ID uniquely identifies the requestor across applications. Two different applications signing in the same user receive the same value in the `oid` claim. The `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph returns this ID as the `id` property for a given user account. Because the `oid` allows multiple applications to correlate principals, the `profile` scope is required in order to receive this claim for users. If a single user exists in multiple tenants, the user contains a different object ID in each tenant. The accounts are considered different, even though the user logs into each account with the same credentials. |
-|`tid` | String, a GUID | Represents the tenant that the user is signing in to. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing in to. For sign-ins to the personal Microsoft account tenant (services like Xbox, Teams for Life, or Outlook), the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. To receive this claim, the application must request the `profile` scope. |
-| `unique_name` | String, only present in v1.0 tokens | Provides a human readable value that identifies the subject of the token. This value isn't guaranteed to be unique within a tenant and should be used only for display purposes. |
-| `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive. |
-| `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. |
-| `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. |
+| Claim | Format | Description | Authorization considerations |
+|-------|--------|-------------|------------------------------|
+| `aud` | String, an Application ID URI or GUID | Identifies the intended audience of the token. In v2.0 tokens, this value is always the client ID of the API. In v1.0 tokens, it can be the client ID or the resource URI used in the request. The value can depend on how the client requested the token. | This value must be validated, reject the token if the value doesn't match the intended audience. |
+| `iss` | String, a security token service (STS) URI | Identifies the STS that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI ends in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. | The application can use the GUID portion of the claim to restrict the set of tenants that can sign in to the application, if applicable. |
+|`idp`| String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account isn't in the same tenant as the issuer, such as guests. If the claim isn't present, the value of `iss` can be used instead. For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. | |
+| `iat` | int, a Unix timestamp | Specifies when the authentication for this token occurred. | |
+| `nbf` | int, a Unix timestamp | Specifies the time before which the JWT must not be accepted for processing. | |
+| `exp` | int, a Unix timestamp | Specifies the expiration time on or after which the JWT must not be accepted for processing. A resource may reject the token before this time as well. The rejection can occur when a change in authentication is required or a token revocation has been detected. | |
+| `aio` | Opaque String | An internal claim used by Azure AD to record data for token reuse. Resources shouldn't use this claim. | |
+| `acr` | String, a `0` or `1`, only present in v1.0 tokens | A value of `0` for the "Authentication context class" claim indicates the end-user authentication didn't meet the requirements of ISO/IEC 29115. | |
+| `amr` | JSON array of strings, only present in v1.0 tokens | Identifies how the subject of the token was authenticated. | |
+| `appid` | String, a GUID, only present in v1.0 tokens | The application ID of the client using the token. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. | `appid` may be used in authorization decisions. |
+| `azp` | String, a GUID, only present in v2.0 tokens | A replacement for `appid`. The application ID of the client using the token. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. | `azp` may be used in authorization decisions. |
+| `appidacr` | String, a `0`, `1`, or `2`, only present in v1.0 tokens | Indicates how the client was authenticated. For a public client, the value is `0`. If client ID and client secret are used, the value is `1`. If a client certificate was used for authentication, the value is `2`. | |
+| `azpacr` | String, a `0`, `1`, or `2`, only present in v2.0 tokens | A replacement for `appidacr`. Indicates how the client was authenticated. For a public client, the value is `0`. If client ID and client secret are used, the value is `1`. If a client certificate was used for authentication, the value is `2`. | |
+| `preferred_username` | String, only present in v2.0 tokens. | The primary username that represents the user. The value could be an email address, phone number, or a generic username without a specified format. The value is mutable and might change over time. The value can be used for username hints, however, and in human-readable UI as a username. The `profile` scope is required in order to receive this claim. | Since this value is mutable, it must not be used to make authorization decisions. |
+| `name` | String | Provides a human-readable value that identifies the subject of the token. The value isn't guaranteed to be unique, it's mutable, and is only used for display purposes. The `profile` scope is required in order to receive this claim. | This value must not be used to make authorization decisions. |
+| `scp` | String, a space separated list of scopes | The set of scopes exposed by the application for which the client application has requested (and received) consent. Only included for user tokens. | The application should verify that these scopes are valid ones exposed by the application, and make authorization decisions based on the value of these scopes. |
+| `roles` | Array of strings, a list of permissions | The set of permissions exposed by the application that the requesting application or user has been given permission to call. For application tokens, this set of permissions is used during the [client credential flow](v2-oauth2-client-creds-grant-flow.md) in place of user scopes. For user tokens, this set of values is populated with the roles the user was assigned to on the target application. | These values can be used for managing access, such as enforcing authorization to access a resource. |
+| `wids` | Array of [RoleTemplateID](../roles/permissions-reference.md#all-roles) GUIDs | Denotes the tenant-wide roles assigned to this user, from the section of roles present in [Azure AD built-in roles](../roles/permissions-reference.md#all-roles).  This claim is configured on a per-application basis, through the `groupMembershipClaims` property of the [application manifest](reference-app-manifest.md). Setting it to `All` or `DirectoryRole` is required. May not be present in tokens obtained through the implicit flow due to token length concerns. | These values can be used for managing access, such as enforcing authorization to access a resource. |
+| `groups` | JSON array of GUIDs | Provides object IDs that represent the group memberships of the subject. The groups included in the groups claim are configured on a per-application basis, through the `groupMembershipClaims` property of the [application manifest](reference-app-manifest.md). A value of `null` excludes all groups, a value of `SecurityGroup` includes only Active Directory Security Group memberships, and a value of `All` includes both Security Groups and Microsoft 365 Distribution Lists. <br><br>See the `hasgroups` claim for details on using the `groups` claim with the implicit grant. For other flows, if the number of groups the user is in goes over 150 for SAML and 200 for JWT, then Azure AD adds an overage claim to the claim sources. The claim sources point to the Microsoft Graph endpoint that contains the list of groups for the user. | These values can be used for managing access, such as enforcing authorization to access a resource. |
+| `hasgroups` | Boolean | If present, always `true`, indicates whether the user is in at least one group. Used in place of the `groups` claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently six or more groups). Indicates that the client should use the Microsoft Graph API to determine the groups (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`) of the user. | |
+| `groups:src1` | JSON object | For token requests that aren't length limited (see `hasgroups`) but still too large for the token, a link to the full groups list for the user is included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br>**Example JWT Value**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` | |
+| `sub` | String | The principal about which the token asserts information, such as the user of an application. This value is immutable and can't be reassigned or reused. The subject is a pairwise identifier that is unique to a particular application ID. If a single user signs into two different applications using two different client IDs, those applications receive two different values for the subject claim. Two different values may or may not be desired depending on architecture and privacy requirements. See also the `oid` claim (which does remain the same across applications within a tenant). | This value can be used to perform authorization checks, such as when the token is used to access a resource, and can be used as a key in database tables. |
+| `oid` | String, a GUID | The immutable identifier for the requestor, which is the user or service principal whose identity has been verified. This ID uniquely identifies the requestor across applications. Two different applications signing in the same user receive the same value in the `oid` claim. The `oid` can be used when making queries to Microsoft online services, such as the Microsoft Graph. The Microsoft Graph returns this ID as the `id` property for a given user account. Because the `oid` allows multiple applications to correlate principals, the `profile` scope is required in order to receive this claim for users. If a single user exists in multiple tenants, the user contains a different object ID in each tenant. The accounts are considered different, even though the user logs into each account with the same credentials. | This value can be used to perform authorization checks, such as when the token is used to access a resource, and can be used as a key in database tables. |
+| `tid` | String, a GUID | Represents the tenant that the user is signing in to. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user is signing in to. For sign-ins to the personal Microsoft account tenant (services like Xbox, Teams for Life, or Outlook), the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. To receive this claim, the application must request the `profile` scope. | This value should be considered in combination with other claims in authorization decisions. |
+| `unique_name` | String, only present in v1.0 tokens | Provides a human readable value that identifies the subject of the token. | This value isn't guaranteed to be unique within a tenant and should be used only for display purposes. |
+| `uti` | String | Token identifier claim, equivalent to `jti` in the JWT specification. Unique, per-token identifier that is case-sensitive. | |
+| `rh` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources shouldn't use this claim. | |
+| `ver` | String, either `1.0` or `2.0` | Indicates the version of the access token. | |
 
 #### Groups overage claim
 
@@ -242,45 +242,34 @@ If the application has custom signing keys as a result of using the [claims-mapp
 
 ### Claims based authorization
 
-The business logic of the application dictates claims based authorization. Some common authorization methods are listed below.
+The business logic of an application determines how authorization should be handled. The general approach to authorization based on token claims, and which claims should be used, is described below.
 
-#### Validate the token
+After a token is validated with the correct `aud` claim, the token tenant, subject, actor must be authorized.
 
-Use the `aud` claim to ensure that the user intended to call the application. If the identifier of the resource isn't in the `aud` claim, reject it.
+#### Tenant
 
-#### Validate user permission
+First, always check that the `tid` in a token matches the tenant ID used to store data with the application. When information is stored for an application in the context of a tenant, it should only be accessed again later in the same tenant. Never allow data in one tenant to be accessed from another tenant.
 
-Use the `roles` and `wids` claims to validate that the user has authorization to call the API.  For example, an administrator may have permission to write to the API, but not a normal user. Check that the `tid` inside the token matches the tenant ID used to store the data in the API.
+#### Subject
 
-When a user stores data in the API from one tenant, they must sign into that tenant again to access that data. Never allow data in one tenant to be accessed from another tenant.
+Next, to determine if the token subject, such as the user (or app itself in the case of an app-only token), is authorized, either check for specific `sub` or `oid` claims, or check that the subject belongs to an appropriate role or group with the `roles`, `groups`, `wids` claims.
 
-Use the `amr` claim to verify the user has performed MFA. The enforcement of MFA is done using [Conditional Access](../conditional-access/overview.md). If `roles` or `groups` claims are requested in the access token, verify that the user is in the group allowed to do this action.
+For example, use the immutable claim values `tid` and `oid` as a combined key for application data and determining whether a user should be granted access.
 
-For tokens retrieved using the implicit flow, query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
+The `roles`, `groups` or `wids` claims can also be used to determine if the subject has authorization to perform an operation. For example, an administrator may have permission to write to an API, but not a normal user, or the user may be in a group allowed to do some action.
 
-Don't use `email` or `upn` claim values to determine whether the user in an access token should have access to data. Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
+> [!WARNING]
+> Never use `email` or `upn` claim values to store or determine whether the user in an access token should have access to data. Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
 
-Use immutable claim values `tid` and `sub` or `oid` as a combined key for uniquely identifying the API's data and determining whether a user should be granted access to that data.
+#### Actor
 
-- Good: `tid` + `sub`
-- Better: `tid` + `oid` - the `oid` is consistent across applications, so an ecosystem of applications can audit user access to data.
+Lastly, when an app is acting for a user, this client app (the actor), must also be authorized. Use the `scp` claim (scope) to validate that the app has permission to perform an operation.
 
-Don't use mutable, human-readable identifiers like `email` or `upn` for uniquely identifying data.
+Scopes are defined by the application, and the absence of `scp` claim means full actor permissions.	
 
-#### Validate application sign-in
+> [!NOTE]
+> An application may handle app-only tokens (requests from applications without users, such as daemon apps) and want to authorize a specific application across multiple tenants, rather than individual service principal IDs. In that case, check for an app-only token using the `idtyp` optional claim and use the `appid` claim (for v1.0 tokens) or the `azp` claim (for v2.0 tokens) along with `tid` to determine authorization based on tenant and application ID.
 
-* Use the `scp` claim to validate that the user has granted the calling app permission to call your API.
-* Ensure the calling client is allowed to call your API using the `appid` claim (for v1.0 tokens) or the `azp` claim (for v2.0 tokens).
-    * You only need to validate these claims (`appid`, `azp`) if you want to restrict your web API to be called only by pre-determined applications (e.g., line-of-business applications or web APIs called by well-known frontends). APIs intended to allow access from any calling application do not need to validate these claims.
-
-## User and application tokens
-
-An application may receive tokens for a user or directly from an application through the client credentials flow. These app-only tokens indicate that this call is coming from an application and doesn't have a user backing it. These tokens are handled largely the same:
-
-- Use `roles` to see permissions that have been granted to the subject of the token.
-- Use `oid` or `sub` to validate that the calling service principal is the expected one.
-
-If the application needs to distinguish between app-only access tokens and access tokens for users, use the `idtyp` [optional claim](active-directory-optional-claims.md). To detect app-only access tokens, add the `idtyp` claim to the `accessToken` field, and check for the value `app`. ID tokens and access tokens for users won't have the `idtyp` claim included.
 
 ## Token revocation
 
@@ -307,7 +296,7 @@ Refresh tokens can be revoked by the server due to a change in credentials, or d
 | Admin resets password | Revoked | Revoked | Stays alive | Stays alive | Stays alive |
 | User revokes their refresh tokens by using [PowerShell](/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked | Revoked | Revoked | Revoked |
 | Admin revokes all refresh tokens for a user by using [PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked | Revoked |
-| Single sign-out ([v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v2.0](v2-protocols-oidc.md#single-sign-out) ) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
+| [Single sign-out](v2-protocols-oidc.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 #### Non-password-based
 
@@ -319,9 +308,9 @@ A *non-password-based* login is one where the user didn't type in a password to 
 - Voice
 - PIN
 
-Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) for more details on primary refresh tokens.
+For more information, see [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md).
 
 ## Next steps
 
 - Learn about [`id_tokens` in Azure AD](id-tokens.md).
-- Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](permissions-consent-overview.md)).
+- Learn about [permission and consent](permissions-consent-overview.md).

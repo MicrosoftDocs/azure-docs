@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/22/2022
+ms.date: 11/16/2022
 ms.custom: mode-ui
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
@@ -24,7 +24,7 @@ Although you won't use the options in this quickstart, the wizard includes a pag
 
 ### Check for space
 
-Many customers start with the free service. The free tier is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object.
+Many customers start with the free service. The free tier is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
 
 Check the service overview page to find out how many indexes, indexers, and data sources you already have. 
 
@@ -34,7 +34,7 @@ Check the service overview page to find out how many indexes, indexers, and data
 
 Search queries iterate over an [*index*](search-what-is-an-index.md) that contains searchable data, metadata, and other constructs that optimize certain search behaviors.
 
-For this tutorial, we'll create and load the index using a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the [**Import data wizard**](search-import-data-portal.md). The hotels-sample data set is hosted by Microsoft on Azure Cosmos DB and accessed over an internal connection. You don't need your own Cosmos DB account or source files to access the data.
+For this quickstart, we'll create and load the index using a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the [**Import data wizard**](search-import-data-portal.md). The hotels-sample data set is hosted on Microsoft on Azure Cosmos DB and accessed over an internal connection. You don't need your own Cosmos DB account or source files to access the data.
 
 An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. Normally, indexers are created programmatically, but in the portal, you can create them through the **Import data wizard**. 
 
@@ -69,16 +69,16 @@ For the built-in hotels sample index, a default index schema is defined for you.
 
 :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Screenshot of the generated hotels index definition in the wizard." border="true":::
 
-Typically, in a code-based exercise, index creation is completed prior to loading data. The Import data wizard condenses these steps by generating a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
+Typically, in a code-based exercise, index creation is completed prior to loading data. The Import data wizard condenses these steps by generating a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection. One of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
 
 Fields have a data type and attributes. The check boxes across the top are *attributes* controlling how the field is used.
 
-+ **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example for fields used only in filter expressions.
 + **Key** is the unique document identifier. It's always a string, and it's required. Only one field can be the key.
++ **Retrievable** means that field contents show up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example for fields used only in filter expressions.
 + **Filterable**, **Sortable**, and **Facetable** determine whether fields are used in a filter, sort, or faceted navigation structure.
 + **Searchable** means that a field is included in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
 
-[Storage requirements](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters) can vary as a result of attribute selection. For example, **filterable** requires more storage, but **Retrievable** doesn't.
+[Storage requirements](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters) can vary as a result of attribute selection. For example, **Filterable** requires more storage, but **Retrievable** doesn't.
 
 By default, the wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
@@ -161,7 +161,7 @@ All of the queries in this section are designed for **Search Explorer** and the 
 
 ## Takeaways
 
-This tutorial provided a quick introduction to Azure Cognitive Search using the Azure portal.
+This quickstart provided a quick introduction to Azure Cognitive Search using the Azure portal.
 
 You learned how to create a search index using the **Import data** wizard. You created your first [indexer](search-indexer-overview.md) and learned the basic workflow for index design. See [Import data wizard in Azure Cognitive Search](search-import-data-portal.md) for more information about the wizard's benefits and limitations.
 

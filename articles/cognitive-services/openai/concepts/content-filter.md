@@ -1,7 +1,7 @@
 ---
-title: Azure OpenAI content filtering
+title: Azure OpenAI Service content filtering
 titleSuffix: Azure OpenAI
-description: Learn about the content filtering capabilities of the OpenAI service in Azure Cognitive Services
+description: Learn about the content filtering capabilities of Azure OpenAI in Azure Cognitive Services
 author: chrishMSFT
 ms.author: chrhoder
 ms.service: cognitive-services
@@ -14,9 +14,7 @@ keywords:
 
 # Content filtering
 
-Azure OpenAI Service includes a content management system that works alongside core models to filter content. This system works by running both the input prompt and generated content through an ensemble of classification models aimed at detecting misuse. If the system identifies harmful content, you'll receive either an error on the API call if the prompt was deemed inappropriate or the finish_reason on the response will be `content_filter` to signify that some of the generation was filtered.
-
-You can generate content with the completions API using many different configurations that will alter the filtering behavior you should expect. The following section aims to enumerate all of these scenarios for you to appropriately design your solution.
+Azure OpenAI Service includes a content management system that works alongside core models to filter content. This system works by running both the input prompt and generated content through an ensemble of classification models aimed at detecting misuse. If the system identifies harmful content, you'll receive either an error on the API call if the prompt was deemed inappropriate or the finish_reason on the response will be `content_filter` to signify that some of the generation was filtered. You can generate content with the completions API using many different configurations that will alter the filtering behavior you should expect. The following section aims to enumerate all of these scenarios for you to appropriately design your solution.
 
 To ensure you have properly mitigated risks in your application, you should evaluate all potential harms carefully, follow guidance in the [Transparency Note](https://go.microsoft.com/fwlink/?linkid=2200003) and add scenario-specific mitigation as needed.
 
@@ -35,13 +33,13 @@ The table below outlines the various ways content filtering can appear:
 |------------------------|-------------------|
 | 200 |    In the cases when all generation passes the filter models no content moderation details are added to the response. The finish_reason for each generation will be either stop or length. |
 
-**Example response:**
+**Example request payload:**
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": false
+    "prompt":"Text example", 
+    "n": 3,
+    "stream": false
 }
 ```
 
@@ -75,9 +73,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": false
+    "prompt":"Text example",
+    "n": 3,
+    "stream": false
 }
 ```
 
@@ -142,9 +140,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": true
+    "prompt":"Text example",
+    "n": 3,
+    "stream": true
 }
 ```
 
@@ -177,9 +175,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 3
-    , "stream": true
+    "prompt":"Text example",
+    "n": 3,
+    "stream": true
 }
 ```
 
@@ -212,9 +210,9 @@ The table below outlines the various ways content filtering can appear:
 
 ```json
 {
-    "prompt":"Text example"
-    , "n": 1
-    , "stream": false
+    "prompt":"Text example",
+    "n": 1,
+    "stream": false
 }
 ```
 

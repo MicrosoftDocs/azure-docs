@@ -81,7 +81,7 @@ The following table describes the fields in the previous JSON snippet:
 | `cancellationThreshold/type` | The cancellation threshold for the job is either a `percentage` or a `number` of devices. |
 | `cancellationThreshold/value` | Either the percentage of devices or the number of devices that define the cancellation threshold. |
 | `data` | An array of operations the job performs. |
-| `data/type` | One of `PropertyJobData`, `CommandJobData`, or `CloudPropertyJobData` |
+| `data/type` | One of `PropertyJobData`, `CommandJobData`, `CloudPropertyJobData`, or `DeviceTemplateMigrationJobData`. The preview version of the API includes `DeviceManifestMigrationJobData`. |
 | `data/target` | The model ID of the target devices. |
 | `data/path` | The name of the property, command, or cloud property. |
 | `data/value` | The property value to set or the command parameter to send. |
@@ -233,11 +233,10 @@ PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-versio
 
 The `group` field in the request body identifies a device group in your IoT Central application. A job uses a device group to identify the set of devices the job operates on.
 
-
 If you don't already have a suitable device group, you can create one with REST API call. The following example creates a device group with `group1` as the group ID:
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceGroups/group1?api-version=2022-07-31
+PUT https://{your app subdomain}/api/deviceGroups/group1?api-version=2022-07-31
 ```
 
 When you create a device group, you define a `filter` that selects the devices to include in the group. A filter identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" device template where the `provisioned` property is `true`.
@@ -250,7 +249,7 @@ When you create a device group, you define a `filter` that selects the devices t
 }
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -262,7 +261,6 @@ The response to this request looks like the following example:
 ```
 
 You can now use the `id` value from the response to create a new job.
-
 
 ```json
 {
@@ -558,4 +556,4 @@ GET https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs/scheduled
 
 ## Next steps
 
-Now that you've learned how to manage jobs with the REST API, a suggested next step is to learn how to [Manage IoT Central applications with the REST API](/training/modules/manage-iot-central-apps-with-rest-api/).
+Now that you've learned how to manage jobs with the REST API, a suggested next step is to learn how to [Tutorial: Use the REST API to manage an Azure IoT Central application](tutorial-use-rest-api.md).

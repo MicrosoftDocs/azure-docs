@@ -2,7 +2,7 @@
 title: Overview of deployment troubleshooting for Bicep files and ARM templates
 description: Describes deployment troubleshooting when you use Bicep files or Azure Resource Manager templates (ARM templates) to deploy Azure resources.
 ms.topic: overview
-ms.date: 09/14/2022
+ms.date: 01/03/2023
 ms.custom: troubleshooting-overview
 ---
 

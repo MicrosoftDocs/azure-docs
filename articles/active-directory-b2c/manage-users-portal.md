@@ -2,14 +2,14 @@
 title: Create & delete Azure AD B2C consumer user accounts in the Azure portal
 description: Learn how to use the Azure portal to create and delete consumer users in your Azure AD B2C directory.
 services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
-ms.author: kengaderdus
+ms.date: 02/24/2023
+ms.author: godonnell
 ms.subservice: B2C
 ---
 
@@ -59,9 +59,7 @@ To reset a user's password:
 1. In your Azure AD B2C directory, select **Users**, and then select the user you want to reset the password.
 1. Search for and select the user that needs the reset, and then select **Reset Password**.
 
-    The **Alain Charon - Profile** page appears with the **Reset password** option.
-
-    ![User's profile page, with Reset password option highlighted](media/manage-users-portal/user-profile-reset-password-link.png)
+:::image type="content" source="media/manage-users-portal/user-profile-reset-password-link.png" alt-text="Screenshot User's profile page with Reset Password option highlighted." lightbox="media/manage-users-portal/user-profile-reset-password-link.png":::
 
 1. In the **Reset password** page, select **Reset password**.
 1. Copy the password and give it to the user. The user will be required to change the password during the next sign-in process.

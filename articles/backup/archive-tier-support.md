@@ -2,11 +2,11 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 06/06/2022
+ms.date: 03/17/2023
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Overview of Archive tier in Azure Backup
@@ -42,10 +42,10 @@ Archive tier supports the following clients:
 
 ### Supported regions
 
-| Workloads | Preview | Generally available |
+| Workloads | Generally available |
 | --- | --- | --- |
-| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | All regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West. |
-| Azure Virtual Machines | US Gov Virginia, US Gov Texas, US Gov Arizona, China North 2, China East 2. | All public regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West, UAE North. |
+| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines |  All regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West. |
+| Azure Virtual Machines |      All regions, except West US 3, West India, Switzerland North, Switzerland West, Sweden Central, Sweden South, Australia Central, Australia Central 2, Brazil Southeast, Norway West, Germany Central, Germany North, Germany Northeast, South Africa North, South Africa West, UAE North. |
 
 ## How Azure Backup moves recovery points to the Vault-archive tier?
 
@@ -74,9 +74,7 @@ Azure Backup offers two ways to modify protection for a data-source:
 
 In both scenarios, the new policy is applied to all older recovery points, which are in standard tier and archive tier. So, older recovery points might get deleted if there's a policy change.
 
-When you move recovery points to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If a recovery point that hasn’t stayed in archive for 180 days is deleted, it incurs cost equivalent to 180 minus the number of days it has spent in standard tier.
-
-If you delete recovery points that haven't stayed in archive for a minimum of 180 days,  they incur early deletion cost.
+When you move recovery points to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If you delete a recovery point that hasn't stayed in vault-archive for 180 days, then you're charged for the remaining retention period selected at vault-archive tier price.
 
 ## Stop protection and delete data
 
@@ -96,7 +94,7 @@ The recovery point will remain in archive forever. For more information, see [Im
 
 When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once the backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
 
-While restoring from recovery point in Archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
+When you restore from recovery point in Archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
 
 ### I can see eligible recovery points for my Virtual Machine, but I can't seeing any recommendation. What can be the reason?
 

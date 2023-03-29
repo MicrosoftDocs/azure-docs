@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article walks you though assigning permission to Cost Management data for various access scopes.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2021
+ms.date: 12/06/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: sapnakeshari
+ms.reviewer: micflan
 ms.custom: secdec18
 ---
 
@@ -71,6 +71,9 @@ To enable an option in the Azure portal:
 After the view charge options are enabled, most scopes also require Azure role-based access control (Azure RBAC) permission configuration in the Azure portal.
 
 ## Enable access to costs in the EA portal
+
+> [!NOTE]
+> The information in the section applies only to users that have an Enterprise Agreement with a Microsoft partner (indirect EA).
 
 The department scope requires the **DA view charges** option **Enabled** in the EA portal. Configure the option in either the Azure portal or the EA portal. All other scopes require the **AO view charges** option **Enabled** in the EA portal.
 

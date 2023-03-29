@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Version release history | Microsoft Docs'
+title: 'Azure AD Connect: Version release history'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync.
 author: billmath
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
@@ -24,7 +24,9 @@ This article helps you keep track of the versions that have been released and un
 
 You can upgrade your Azure AD Connect server from all supported versions with the latest versions:
 
-You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).
+You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).\
+
+Get notified about when to revisit this page for updates by copying and pasting this URL: `https://aka.ms/aadconnectrss` into your ![RSS feed reader icon](../fundamentals/media/whats-new/feed-icon-16x16.png) feed reader.
 
 The following table lists related topics:
 
@@ -45,7 +47,6 @@ Required permissions | For permissions required to apply an update, see [Azure A
 > 
 > The following versions will retire on 15 March 2023:
 >
-> - 2.0.91.0
 > - 2.0.89.0
 > - 2.0.88.0
 > - 2.0.28.0
@@ -434,6 +435,9 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as
 - We added the following new user properties to sync from on-premises Active Directory to Azure AD:
   - employeeType
   - employeeHireDate
+    >[!NOTE]
+    > There's no corresponding EmployeeHireDate or EmployeeLeaveDateTime attribute in Active Directory. If you're importing from on-premises AD, you'll need to identify an attribute in AD that can be used. This attribute must be a string.  For more information see, [Synchronizing lifecycle workflow attributes](../governance/how-to-lifecycle-workflow-sync-attributes.md)
+
 - This release requires PowerShell version 5.0 or newer to be installed on the Windows server. This version is part of Windows Server 2016 and newer.
 - We increased the group sync membership limits to 250,000 with the new V2 endpoint.
 - We updated the Generic LDAP Connector and the Generic SQL Connector to the latest versions. To learn more about these connectors, see the reference documentation for:
