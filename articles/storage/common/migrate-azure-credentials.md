@@ -163,7 +163,7 @@ az role assignment create \
 
 ### [Service Connector](#tab/assign-role-service-connector)
 
-If you connected your services using the Service Connector you don't need to complete this step. The necessary role configurations were handled for you when you ran the service connector CLI commands.
+If you connected your services using Service Connector you don't need to complete this step. The necessary role configurations were handled for you when you ran the Service Connector CLI commands.
 
 ---
 
