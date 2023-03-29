@@ -18,7 +18,7 @@ This article provides an overview of the MedTech service device mapping.
 
 The MedTech service requires two types of [JSON](https://www.json.org/) mappings that are added to your MedTech service through the Azure portal or Azure Resource Manager API.
 
-The device mapping is the first type and is responsible for mapping values in the device message data sent to the MedTech service event hub to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The [FHIR destination mapping](link to our Azure doc for FHIR destination mapping here) is the second type and controls the mapping for [FHIR Observations](https://www.hl7.org/fhir/observation.html).
+The device mapping is the first type and is responsible for mapping values in the device message data sent to the MedTech service event hub to an internal, normalized data object. The device mapping contains expressions that the MedTech service uses to extract types, device identifiers, measurement date time, and measurement value(s). The [FHIR destination mapping](how-to-configure-fhir-mappings.md) is the second type and controls the mapping for [FHIR Observations](https://www.hl7.org/fhir/observation.html).
 
 > [!NOTE]
 > The device and FHIR destination mappings are re-evaluated each time a message is processed. Any updates to either mapping will take effect immediately.
@@ -130,7 +130,7 @@ The resulting normalized message looks like this after the normalization stage:
   }
 ]
 ```
-When the device message is processed by the MedTech service, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `deviceIdExpression`, `timestampExpression`, and `valueExpression` values are used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath, however, it would be valid to write all the expressions in JMESPath. It's up to the template author to determine which expression language is most appropriate.
+When the MedTech service is processing the device message, the templates in the CollectionContent are used to evaluate the message. The `typeMatchExpression` is used to determine whether or not the template should be used to create a normalized message from the device message. If the `typeMatchExpression` evaluates to true, then the `deviceIdExpression`, `timestampExpression`, and `valueExpression` values are used to locate and extract the JSON values from the device message and create a normalized message. In this example, all expressions are written in JSONPath, however, it would be valid to write all the expressions in JMESPath. It's up to the template author to determine which expression language is most appropriate.
 
 > [!TIP]
 > See [Troubleshoot MedTech service deployment errors](troubleshoot-errors-deployment.md) for assistance fixing common MedTech service deployment errors.
