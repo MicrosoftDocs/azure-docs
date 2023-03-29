@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ABBYY FlexiCapture Cloud | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ABBYY FlexiCapture Cloud'
 description: Learn how to configure single sign-on between Azure Active Directory and ABBYY FlexiCapture Cloud.
 services: active-directory
 author: jeevansd

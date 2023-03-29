@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Pluralsight | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Pluralsight'
 description: Learn how to configure single sign-on between Azure Active Directory and Pluralsight.
 services: active-directory
 author: jeevansd

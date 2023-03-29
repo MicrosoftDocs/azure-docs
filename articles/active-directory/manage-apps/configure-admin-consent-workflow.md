@@ -52,8 +52,8 @@ To enable the admin consent workflow and choose reviewers:
 
 1. Select **Save**. It can take up to an hour for the workflow to become enabled.
 
- > [!NOTE]
- > You can add or remove reviewers for this workflow by modifying the **Select admin consent requests reviewers** list. A current limitation of this feature is that a reviewer can retain the ability to review requests that were made while they were designated as a reviewer.
+> [!NOTE]
+> You can add or remove reviewers for this workflow by modifying the **Who can review admin consent requests** list. A current limitation of this feature is that a reviewer can retain the ability to review requests that were made while they were designated as a reviewer.
 
 ## Configure the admin consent workflow using Microsoft Graph
 

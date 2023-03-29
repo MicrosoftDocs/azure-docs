@@ -46,7 +46,7 @@ A zone redundant App Service Environment will only store customer data within th
 
 ### How to redeploy
 
-To redeploy your new App Service Environment, you'll need to create the App Service Environment v3 on Isolated v2 plan. For instructions on how to create your App Service Environment, see [Create an App Service Environment](/azure/app-service/environment/creation).
+To redeploy your new App Service Environment, you'll need to create the App Service Environment v3 on Isolated v2 plan. For instructions on how to create your App Service Environment, see [Create an App Service Environment](../app-service/environment/creation.md).
 
 ## Pricing
 

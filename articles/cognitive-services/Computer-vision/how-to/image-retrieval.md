@@ -31,6 +31,9 @@ The Image Retrieval APIs enable the _vectorization_ of images and text queries. 
 
 You can try out the Image Retrieval feature quickly and easily in your browser using Vision Studio.
 
+> [!IMPORTANT]
+> The Vision Studio experience is limited to 500 images. To use a larger image set, create your own search application using the APIs in this guide.
+
 > [!div class="nextstepaction"]
 > [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 

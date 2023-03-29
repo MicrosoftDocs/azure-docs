@@ -129,6 +129,12 @@ Chat messages are stored for 90 days. Submit [a request to Azure Support](../../
 
 ## Voice and video calling
 
+### PSTN Call limitations
+
+| **Name**         | Limit  |
+|--|--|
+|Number of outbound concurrent calls | 2 
+
 ### Call maximum limitations
 
 | **Name**         | Limit  |

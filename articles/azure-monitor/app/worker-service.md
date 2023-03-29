@@ -232,6 +232,7 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
     ```csharp
         using Microsoft.ApplicationInsights;
         using Microsoft.ApplicationInsights.DataContracts;
+        using Microsoft.ApplicationInsights.WorkerService;
         using Microsoft.Extensions.DependencyInjection;
         using Microsoft.Extensions.Logging;
         using System;
@@ -250,7 +251,7 @@ The full example is shared at this [GitHub page](https://github.com/microsoft/Ap
                     // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
                     // Hence instrumentation key/ connection string and any changes to default logging level must be specified here.
                     services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
-                    services.AddApplicationInsightsTelemetryWorkerService("instrumentation key here");
+                    services.AddApplicationInsightsTelemetryWorkerService((ApplicationInsightsServiceOptions options) => options.ConnectionString = "InstrumentationKey=<instrumentation key here>");
     
                     // To pass a connection string
                     // - aiserviceoptions must be created

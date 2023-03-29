@@ -38,26 +38,8 @@ The recommendations engine calculates savings plan purchases for the selected te
 
 ## Recommendations for management groups
 
-Currently, the Azure portal doesn't provide savings plan recommendations for management groups. However, you can manually calculate your own per-hour commitment for management groups using the following steps.
+Currently, the Azure portal doesn't provide savings plan recommendations for management groups. However, you can get the details of per hour commitment of Subscriptions based recommendation from Azure portal and combine the amount based on Subscriptions grouping as part of Management group and apply the Savings Plan.
 
-1. Download the Usage Detail report from the EA portal or Azure portal to get your usage and cost.
-    - EA portal - Sign in to ea.azure.com, navigate to the Reports section, and then download the Usage Details report for the current and previous two months.
-    - Azure portal - Sign in to the Azure portal and navigate to Cost Management + Billing. Under Billing, select **Usage + charges** and then download for the current and previous two months.
-1. Open the downloaded file in Excel. Or, if the file size is too large to open in Excel, you can use Power BI Desktop.
-1. Create the `cost` column by multiplying `PayG Price` * `Quantity` to create `CalculatedCost`.
-1. Filter `Charge Type` = `Usage`.
-1. Filter `Meter Category` = `Virtual Machines`, `App Service`, `Functions`, `Container Instance` because the savings plan applies to only those services.
-1. Filter `ProductOrderName` = `Blank`.
-1. Filter `Quantity` >= `23` to consider only items used for 24 hours because a savings plan is per hour commitment, and we have the granularity of per day, not per hour. This step avoids sparse compute records.
-1. Filter `Months` for the current and previous two months.
-1. If you're using Power BI, export the data to a CSV file and open it in Excel.
-1. Copy the subscription names that belong to the management group where you want to apply a savings plan to an Excel sheet.
-1. In Excel, use the `Vlookup` function for the subscriptions against the filtered data.
-1. Divide `CalculatedCost` by `24` hours to get `PerHour` cost.
-1. Create a PivotTable to group the data by subscription and by month and day, and then copy the PivotTable data to a new sheet.
-1. Multiply the `PerHour` cost by `0.4`.  
-    This step determines the discount for the usage. For example, you committed $100.00 USD and you are charged based on a one or three-year savings plan discount. The discount applies per SKU, so your cost per hour is less than 100 hours. You need more compute cost to get the $100.00 US value. So, 40% is a safe limit.
-1. View the range of cost per hour, per day, and per month to determine a safe commitment to make.
 
 ## Need help? Contact us
 

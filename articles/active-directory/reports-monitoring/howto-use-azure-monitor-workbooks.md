@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor workbooks for Azure Active Directory | Microsoft Docs
+title: Azure Monitor workbooks for Azure Active Directory
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
 author: shlipsey3
