@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 03/26/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,34 +20,106 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in March include:
 
+- [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
+- [Data-aware security posture (preview)](#data-aware-security-posture-preview)
+- [New experience for managing the Azure default security policy](#new-experience-for-managing-the-azure-default-security-policy)
+- [Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)](#defender-for-cspm-cloud-security-posture-management-is-now-generally-available-ga)
+- [Option to create custom recommendations and security standards in Microsoft Defender for Cloud](#option-to-create-custom-recommendations-and-security-standards-in-microsoft-defender-for-cloud)
+- [Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)](#microsoft-cloud-security-benchmark-mcsb-version-10-is-now-generally-available-ga)
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
 
+### A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection
+
+Cloud storage plays a key role in the organization and stores large volumes of valuable and sensitive data. Today we are announcing a new Defender for Storage plan. If you’re using the previous plan (now renamed to "Defender for Storage (classic)"), you will need to proactively [migrate to the new plan](defender-for-storage-classic-migrate.md) in order to use the new features and benefits.
+
+The new plan includes advanced security capabilities to help protect against malicious file uploads, sensitive data exfiltration, and data corruption. It also provides a more predictable and flexible pricing structure for better control over coverage and costs.
+
+The new plan has new capabilities now in public preview:
+
+- Detecting sensitive data exposure and exfiltration events
+
+- Near real-time blob on-upload malware scanning across all file types
+
+- Detecting entities with no identities using SAS tokens
+
+These capabilities will enhance the existing Activity Monitoring capability, based on control and data plane log analysis and behavioral modeling to identify early signs of breach.
+
+All these capabilities are available in a new predictable and flexible pricing plan that provides granular control over data protection at both the subscription and resource levels. 
+
+Learn more at [Overview of Microsoft Defender for Storage](defender-for-storage-introduction.md).
+
+### Data-aware security posture (preview)
+
+Microsoft Defender for Cloud helps security teams to be more productive at reducing risks and responding to data breaches in the cloud. It allows them to cut through the noise with data context and prioritize the most critical security risks, preventing a costly data breach.
+
+- Automatically discover data resources across cloud estate and evaluate their accessibility, data sensitivity and configured data flows.
+-Continuously uncover risks to data breaches of sensitive data resources, exposure or attack paths that could lead to a data resource using a lateral movement technique.
+- Detect suspicious activities that may indicate an ongoing threat to sensitive data resources.
+
+[Learn more](concept-data-security-posture.md) about data-aware security posture.
+
+### New experience for managing the Azure default security policy
+
+We introduce an improved Azure security policy management experience for built-in recommendations that simplifies the way Defender for Cloud customers fine tune their security requirements. The new experience includes the following new capabilities:
+
+- A simple interface allows better performance and fewer clicks when managing default security policies within Defender for Cloud, including enabling/disabling, denying, setting parameters and managing exemptions.
+- A single view of all built-in security recommendations offered by the Microsoft cloud security benchmark (formerly the Azure security benchmark). Recommendations are organized into logical groups, making it easier to understand the types of resources covered, and the relationship between parameters and recommendations.
+- New features such as filters and search have been added.
+
+Learn how to  [manage security policies](tutorial-security-policy.md). 
+
+Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog).
+
+### Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)
+
+We are announcing that Defender for CSPM is now Generally Available (GA). Defender for CSPM offers all of the services available under the Foundational CSPM capabilities and adds the following benefits:
+
+- **Attack path analysis and ARG API** - Attack path analysis uses a graph-based algorithm that scans the cloud security graph to expose attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach. You can also consume attack paths programmatically by querying Azure Resource Graph (ARG) API. Learn how to use [attack path analysis](how-to-manage-attack-path.md)
+- **Cloud Security explorer** - Use the Cloud Security Explorer to run graph-based queries on the cloud security graph, to proactively identify security risks in your multicloud environments.  Learn more about [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer). 
+
+Learn more about [Defender for CSPM](overview-page.md).
+
+### Option to create custom recommendations and security standards in Microsoft Defender for Cloud
+
+Microsoft Defender for Cloud provides the option of creating custom recommendations and standards for AWS and GCP using KQL queries. You can use a query editor to build and test queries over your data.
+This feature is part of the Defender CSPM (Cloud Security Posture Management) plan. Learn how to [create custom recommendations and standards](create-custom-recommendations.md).
+
+### Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)
+
+Microsoft Defender for Cloud is announcing that the Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA). 
+
+MCSB version 1.0 replaces the Azure Security Benchmark (ASB) version 3 as Microsoft Defender for Cloud's default security policy for identifying security vulnerabilities in your cloud environments according to common security frameworks and best practices. MCSB version 1.0 appears as the default compliance standard in the compliance dashboard and is enabled by default for all Defender for Cloud customers.
+
+You can also learn [How Microsoft cloud security benchmark (MCSB) helps you succeed in your cloud security journey](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/announcing-microsoft-cloud-security-benchmark-v1-general/ba-p/3763013).
+
+Learn more about [MCSB](https://aka.ms/mcsb).
+
 ### Some regulatory compliance standards are now available in government clouds
 
-We are announcing that the following regulatory standards are being updated with latest version and are available for customers in Azure Government and Azure China 21Vianet.
+We're announcing that the following regulatory standards are being updated with latest version and are available for customers in Azure Government and Azure China 21Vianet.
 
 **Azure Government**:
 - [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss)
-- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) 
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
 - [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
 
 **Azure China 21Vianet**:
-- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) 
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2)
 - [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
 
 Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-### New preview recommendation for Azure SQL Servers 
+### New preview recommendation for Azure SQL Servers
 
-We have added a new recommendation for Azure SQL Servers, `Azure SQL Server authentication mode should be Azure Active Directory Only (Preview)`.
+We've added a new recommendation for Azure SQL Servers, `Azure SQL Server authentication mode should be Azure Active Directory Only (Preview)`.
 
 The recommendation is based on the existing policy [`Azure SQL Database should have Azure Active Directory Only Authentication enabled`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fabda6d70-9778-44e7-84a8-06713e6db027)
 
-This recommendation disables local authentication methods and allows only Azure Active Directory Authentication which improves security by ensuring that Azure SQL Databases can exclusively be accessed by Azure Active Directory identities. 
+This recommendation disables local authentication methods and allows only Azure Active Directory Authentication which improves security by ensuring that Azure SQL Databases can exclusively be accessed by Azure Active Directory identities.
 
-Learn how to [create servers with Azure AD-only authentication enabled in Azure SQL](/azure/azure-sql/database/authentication-azure-ad-only-authentication-create-server?tabs=azure-cli&view=azuresql).
+Learn how to [create servers with Azure AD-only authentication enabled in Azure SQL](/azure/azure-sql/database/authentication-azure-ad-only-authentication-create-server).
 
 ### New alert in Defender for Key Vault
 
@@ -63,7 +135,7 @@ You can see a list of all of the [alerts available for Key Vault](alerts-referen
 
 Updates in February include:
 
-- [Enhanced Cloud Security Explorer](#enhanced-cloud-security-explorer) 
+- [Enhanced Cloud Security Explorer](#enhanced-cloud-security-explorer)
 - [Recommendation to find vulnerabilities in running container images for Linux released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-released-for-general-availability-ga)
 - [Announcing support for the AWS CIS 1.5.0 compliance standard](#announcing-support-for-the-aws-cis-150-compliance-standard)
 - [Microsoft Defender for DevOps (preview) is now available in other regions](#microsoft-defender-for-devops-preview-is-now-available-in-other-regions)
@@ -91,7 +163,7 @@ Learn how to [Manage AWS assessments and standards](how-to-manage-aws-assessment
 
 ### Microsoft Defender for DevOps (preview) is now available in other regions
 
-Microsoft Defender for DevOps has expanded its preview and is now available in the West Europe and East Australia regions, when you onboard your Azure DevOps and GitHub resources.  
+Microsoft Defender for DevOps has expanded its preview and is now available in the West Europe and East Australia regions, when you onboard your Azure DevOps and GitHub resources. 
 
 Learn more about [Microsoft Defender for DevOps](defender-for-devops-introduction.md).
 
@@ -152,17 +224,17 @@ The secure score control, `Protect your applications with Azure advanced network
 
 The updated name is reflected on Azure Resource Graph (ARG), Secure Score Controls API and the `Download CSV report`.
 
-### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports has been deprecated 
+### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports has been deprecated
 
-The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) has been deprecated. 
+The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) has been deprecated.
 
 The Defender for SQL vulnerability assessment email report is still available and existing email configurations haven't changed.
 
 ### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets has been deprecated
 
-The recommendation `Diagnostic logs in Virtual Machine Scale Sets should be enabled` has been deprecated. 
+The recommendation `Diagnostic logs in Virtual Machine Scale Sets should be enabled` has been deprecated.
 
-The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) has also been deprecated from any standards displayed in the regulatory compliance dashboard. 
+The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) has also been deprecated from any standards displayed in the regulatory compliance dashboard.
 
 | Recommendation | Description | Severity |
 |--|--|--|
@@ -211,20 +283,20 @@ Learn more about [alert validation](alert-validation.md).
 
 ### Governance rules at scale (Preview)
 
-We're happy to announce the new ability to apply governance rules at scale (Preview) in Defender for Cloud. 
+We're happy to announce the new ability to apply governance rules at scale (Preview) in Defender for Cloud.
 
 With this new experience, security teams are able to define governance rules in bulk for various scopes (subscriptions and connectors). Security teams can accomplish this task by using management scopes such as Azure management groups, AWS top level accounts or GCP organizations.
 
 Additionally, the Governance rules (Preview) page presents all of the available governance rules that are effective in the organization’s environments.
- 
+
 Learn more about the [new governance rules at-scale experience](governance-rules.md).
- 
+
 > [!NOTE]
 > As of January 1, 2023, in order to experience the capabilities offered by Governance, you must have the [Defender CSPM plan](concept-cloud-security-posture-management.md) enabled on your subscription or connector.
 
 ### The ability to create custom assessments in AWS and GCP (Preview) has been deprecated
 
-The ability to create custom assessments for [AWS accounts](how-to-manage-aws-assessments-standards.md) and [GCP projects](how-to-manage-gcp-assessments-standards.md), which was a Preview feature, has been deprecated. 
+The ability to create custom assessments for [AWS accounts](how-to-manage-aws-assessments-standards.md) and [GCP projects](how-to-manage-gcp-assessments-standards.md), which was a Preview feature, has been deprecated.
 
 ### The recommendation to configure dead-letter queues for Lambda functions has been deprecated
 
@@ -254,7 +326,7 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 You can now monitor your cloud security compliance posture per cloud in a single, integrated dashboard. You can see MCSB as the default compliance standard when you navigate to Defender for Cloud's regulatory compliance dashboard.
 
-Microsoft cloud security benchmark is automatically assigned to your Azure subscriptions and AWS accounts when you onboard Defender for Cloud. 
+Microsoft cloud security benchmark is automatically assigned to your Azure subscriptions and AWS accounts when you onboard Defender for Cloud.
 
 Learn more about the [Microsoft cloud security benchmark](concept-regulatory-compliance.md).
 
@@ -281,15 +353,15 @@ Agentless vulnerability scanning is available in both Defender Cloud Security Po
 
 ### Defender for DevOps (Preview)
 
-Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across hybrid and multicloud environments including Azure, AWS, Google, and on-premises resources. 
+Microsoft Defender for Cloud enables comprehensive visibility, posture management, and threat protection across hybrid and multicloud environments including Azure, AWS, Google, and on-premises resources.
 
 Now, the new Defender for DevOps plan integrates source code management systems, like GitHub and Azure DevOps, into Defender for Cloud. With this new integration, we're empowering security teams to protect their resources from code to cloud.
 
 Defender for DevOps allows you to gain visibility into and manage your connected developer environments and code resources. Currently, you can connect [Azure DevOps](quickstart-onboard-devops.md) and [GitHub](quickstart-onboard-github.md) systems to Defender for Cloud and onboard DevOps repositories to Inventory and the new DevOps Security page. It provides security teams with a high-level overview of the discovered security issues that exist within them in a unified DevOps Security page.
 
-Security teams, can now configure pull request annotations to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
+Security teams can now configure pull request annotations to help developers address secret scanning findings in Azure DevOps directly on their pull requests.
 
-You can configure the Microsoft Security DevOps tools on Azure Pipelines and GitHub workflows to enable the following security scans: 
+You can configure the Microsoft Security DevOps tools on Azure Pipelines and GitHub workflows to enable the following security scans:
 
 | Name | Language | License |
 |--|--|--|
@@ -303,7 +375,7 @@ You can configure the Microsoft Security DevOps tools on Azure Pipelines and Git
 
 The following new recommendations are now available for DevOps:
 
-| Recommendation | Description | Severity | 
+| Recommendation | Description | Severity |
 |--|--|--|
 | (Preview) [Code repositories should have code scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/c68a8c2a-6ed4-454b-9e37-4b7654f2165f/showSecurityCenterCommandBar~/false) | Defender for DevOps has found vulnerabilities in code repositories. To improve the security posture of the repositories, it's highly recommended to remediate these vulnerabilities. (No related policy) | Medium |
 | (Preview) [Code repositories should have secret scanning findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsWithRulesBlade/assessmentKey/4e07c7d0-e06c-47d7-a4a9-8c7b748d1b27/showSecurityCenterCommandBar~/false) | Defender for DevOps has found a secret in code repositories.  This should be remediated immediately to prevent a security breach.  Secrets found in repositories can be leaked or discovered by adversaries, leading to compromise of an application or service. For Azure DevOps, the Microsoft Security DevOps CredScan tool only scans builds on which it has been configured to run. Therefore, results may not reflect the complete status of secrets in your repositories. (No related policy) | High |
@@ -339,9 +411,9 @@ Learn more on how to [Improve your regulatory compliance](regulatory-compliance-
 
 ### Auto-provisioning has been renamed to Settings & monitoring and has an updated experience
 
-We've renamed the Auto-provisioning page to **Settings & monitoring**. 
+We've renamed the Auto-provisioning page to **Settings & monitoring**.
 
-Auto-provisioning was meant to allow at-scale enablement of prerequisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we're launching a new experience with the following changes: 
+Auto-provisioning was meant to allow at-scale enablement of prerequisites, which are needed by Defender for Cloud's advanced features and capabilities. To better support our expanded capabilities, we're launching a new experience with the following changes:
 
 **The Defender for Cloud's plans page now includes**:
 - When you enable a Defender plan that requires monitoring components, those components are enabled for automatic provisioning with default settings. These settings can optionally be edited at any time.
@@ -381,7 +453,7 @@ The MITRE ATT&CK framework has been integrated in three ways:
 - Recommendations map to MITRE ATT&CK tactics and techniques.
 - Query MITRE ATT&CK tactics and techniques on recommendations using the Azure Resource Graph.
 
-:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. "::: 
+:::image type="content" source="media/release-notes/mitre-screenshot.jpg" alt-text="Screenshot that shows where the MITRE attack exists in the Azure portal. ":::
 
 ### Defender for Containers now supports vulnerability assessment for Elastic Container Registry (Preview)
 

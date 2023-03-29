@@ -218,7 +218,7 @@ eastus - 52.142.4.99
 australiaeast - 20.248.180.252
 southeastasia - 20.24.186.80
 
-# Azure US Government
+# Azure US Government (To be deprecated after 10th April 2023. For RHUI 4 conections, use public RHUI IPs as provided above) 
 13.72.186.193
 13.72.14.155
 52.244.249.194

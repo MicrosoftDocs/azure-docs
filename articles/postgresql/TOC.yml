@@ -5,7 +5,7 @@
   - name: What is Azure DB for PostgreSQL?
     href: single-server/overview.md
   - name: Which PostgreSQL deployment option to choose?
-    href: single-server/overview-postgres-choose-server-options.md
+    href: flexible-server/overview-postgres-choose-server-options.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring
@@ -542,8 +542,8 @@
           displayName: logical decoding, logical replication
     - name: App Development
       items: 
-        - name: Best practices
-          href: flexible-server/application-best-practices.md
+        - name: Connection libraries
+          href: flexible-server/concepts-connection-libraries.md
         - name: Connection resilience
           href: flexible-server/concepts-connectivity.md
     - name: Azure Advisor recommendations

@@ -22,26 +22,38 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Azure Table Storage](../storage/tables/table-storage-overview.md)
 
-+ Tables containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
++ Tables containing text. If you have binary data, consider [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
 
-+ Read permissions to access Azure Storage. A "full access" connection string includes a key that gives access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
++ Read permissions on Azure Storage. A "full access" connection string includes a key that gives access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
 
-+ A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer.
++ Use a REST client, such as [Postman app](https://www.postman.com/downloads/), if you want to formulate REST calls similar to the ones shown in this article.
 
 ## Define the data source
 
-The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
+The data source definition specifies the source data to index, credentials, and policies for change detection. A data source is an independent resource that can be used by multiple indexers.
 
-1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
+1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition:
 
-    ```json
+   ```http
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30 
     {
-        "name" : "hotel-tables",
-        "type" : "azuretable",
-        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
-        "container" : { "name" : "tblHotels", "query" : "PartitionKey eq '123'" }
+        "name": "my-table-storage-ds",
+        "description": null,
+        "type": "azuretable",
+        "subtype": null,
+        "credentials": {
+           "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>"
+        },
+        "container": {
+           "name": "my-table-in-azure-storage",
+           "query": ""
+        },
+        "dataChangeDetectionPolicy": null,
+        "dataDeletionDetectionPolicy": null,
+        "encryptionKey": null,
+        "identity": null
     }
-    ```
+   ```
 
 1. Set "type" to `"azuretable"` (required).
 
@@ -49,7 +61,7 @@ The data source definition specifies the data to index, credentials, and policie
 
 1. Set "container" to the name of the table.
 
-1. Optionally, set "query" to a filter on PartitionKey. This is a best practice that improves performance. If "query" is specified any other way, the indexer will execute a full table scan, resulting in poor performance if the tables are large.
+1. Optionally, set "query" to a filter on PartitionKey. Setting this property is a best practice that improves performance. If "query" is null, the indexer executes a full table scan, which can result in poor performance if the tables are large.
 
 A data source definition can also include [soft deletion policies](search-howto-index-changed-deleted-blobs.md), if you want the indexer to delete a search document when the source document is flagged for deletion.
 
@@ -80,7 +92,7 @@ Indexers can connect to a table using the following connections.
 | The SAS should have the list and read permissions on the container. For more information, see [Using Shared Access Signatures](../storage/common/storage-sas-overview.md). |
 
 > [!NOTE]
-> If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
+> If you use SAS credentials, you'll need to update the data source credentials periodically with renewed signatures to prevent their expiration. When SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
 
 <a name="Performance"></a>
 
@@ -100,7 +112,7 @@ To avoid a full scan, you can use table partitions to narrow the scope of each i
 
   + Monitor indexer progress by using [Get Indexer Status API](/rest/api/searchservice/get-indexer-status), and periodically update the `<TimeStamp>` condition of the query based on the latest successful high-water-mark value. 
 
-  + With this approach, if you need to trigger a complete reindexing, you need to reset the data source query in addition to resetting the indexer. 
+  + With this approach, if you need to trigger a full reindex, reset the data source query in addition to [resetting the indexer](search-howto-run-reset-indexers.md). 
 
 ## Add search fields to an index
 
@@ -113,47 +125,72 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
     {
       "name" : "my-search-index",
       "fields": [
-        { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "Key", "type": "Edm.String", "key": true, "searchable": false },
         { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
       ]
     }
     ```
 
-1. Create a document key field ("key": true), but allow the indexer to populate it automatically. Do not define a field mapping to alternative unique string field in your table. 
+1. Create a document key field ("key": true), but allow the indexer to populate it automatically. A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `1` and RowKey is `1_123`, then the key value is `11_123`. If the partition key is null, just the row key is used.
 
-   A table indexer populates the key field with concatenated partition and row keys from the table. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the key value is `PK1RK1`. If the partition key is null, just the row key is used.
+   If you're using the Import data wizard to create the index, the portal infers a "Key" field for the search index and uses an implicit field mapping to connect the source and destination fields. You don't have to add the field yourself, and you don't need to set up a field mapping.
 
-1. Create additional fields that correspond to entity fields. For example, if an entity looks like the following example, your search index should have fields for HotelName, Description, and Category.
+   If you're using the REST APIs and you want implicit field mappings, create and name the document key field "Key" in the search index definition as shown in the previous step (`{ "name": "Key", "type": "Edm.String", "key": true, "searchable": false }`). The indexer populates the Key field automatically, with no field mappings required.
+
+   If you don't want a field named "Key" in your search index, add an explicit field mapping in the indexer definition with the field name you want, setting the source field to "Key":
+
+   ```json
+    "fieldMappings" : [
+      {
+        "sourceFieldName" : "Key",
+        "targetFieldName" : "MyDocumentKeyFieldName"
+      }
+   ]
+   ```
+
+1. Now add any other entity fields that you want in your index. For example, if an entity looks like the following example, your search index should have fields for HotelName, Description, and Category to receive those values.
 
    :::image type="content" source="media/search-howto-indexing-tables/table.png" alt-text="Screenshot of table content in Storage browser." border="true":::
 
-   Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md).
+   Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md). When names and types are the same, the indexer can determine the data path automatically.
 
 ## Configure and run the table indexer
 
-Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+Once you have an index and data source, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     {
-        "name" : "table-indexer",
-        "dataSourceName" : "my-table-datasource",
+        "name" : "my-table-indexer",
+        "dataSourceName" : "my-table-storage-ds",
         "targetIndexName" : "my-search-index",
-        "parameters": {
-            "batchSize": null,
-            "maxFailedItems": null,
-            "maxFailedItemsPerBatch": null,
-            "base64EncodeKeys": null,
-            "configuration:" { }
+        "disabled": null,
+        "schedule": null,
+        "parameters" : {
+            "batchSize" : null,
+            "maxFailedItems" : null,
+            "maxFailedItemsPerBatch" : null,
+            "base64EncodeKeys" : null,
+            "configuration" : { }
         },
-        "schedule" : { },
-        "fieldMappings" : [ ]
+        "fieldMappings" : [ ],
+        "cache": null,
+        "encryptionKey": null
     }
     ```
 
-1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index. The Target field is the name of the field in the search index.
+
+   ```json
+    "fieldMappings" : [
+      {
+        "sourceFieldName" : "Description",
+        "targetFieldName" : "HotelDescription"
+      }
+   ]
+   ```
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
@@ -177,8 +214,8 @@ The response includes status and the number of items processed. It should look s
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2022-02-21T00:23:24.957Z",
-            "endTime":"2022-02-21T00:36:47.752Z",
+            "startTime":"2023-02-21T00:23:24.957Z",
+            "endTime":"2023-02-21T00:36:47.752Z",
             "errors":[],
             "itemsProcessed":1599501,
             "itemsFailed":0,
@@ -190,8 +227,8 @@ The response includes status and the number of items processed. It should look s
             {
                 "status":"success",
                 "errorMessage":null,
-                "startTime":"2022-02-21T00:23:24.957Z",
-                "endTime":"2022-02-21T00:36:47.752Z",
+                "startTime":"2023-02-21T00:23:24.957Z",
+                "endTime":"2023-02-21T00:36:47.752Z",
                 "errors":[],
                 "itemsProcessed":1599501,
                 "itemsFailed":0,
@@ -207,7 +244,7 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 ## Next steps
 
-You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Storage:
+Learn more about how to [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Storage:
 
-+ [Index large data sets](search-howto-large-index.md)
-+ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)
++ [Tutorial: Index JSON blobs from Azure Storage](search-semi-structured-data.md)
++ [Tutorial: Index encrypted blobs in Azure Storage](search-howto-index-encrypted-blobs.md)

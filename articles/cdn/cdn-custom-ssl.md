@@ -114,21 +114,23 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 ### Register Azure CDN
 
-Register Azure CDN as an app in your Azure Active Directory via PowerShell.
+Register Azure CDN as an app in your Azure Active Directory.
+
+> [!NOTE]
+> * `205478c0-bd83-4e1b-a9d6-db63a3e1e1c8` is the service principal for `Microsoft.AzureFrontDoor-Cdn`.
+> * You need to have the **Global Administrator** role to run this command.
+> * The service principal name was changed from `Microsoft.Azure.Cdn` to `Microsoft.AzureFrontDoor-Cdn`.
+
+# [Azure PowerShell](#tab/powershell)
 
 1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
 
 2. In PowerShell, run the following command:
 
-     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor`
-
-    > [!NOTE]
-    > * `205478c0-bd83-4e1b-a9d6-db63a3e1e1c8` is the service principal for `Microsoft.AzureFrontDoor-Cdn`.
-    > * You need to have the **Global Administrator** role to run this command.
-    > * The service principal name was changed from `Microsoft.Azure.Cdn` to `Microsoft.AzureFrontDoor-Cdn`.
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
     ```bash
-    New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor
+    New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"
 
     Secret                :
     ServicePrincipalNames : {205478c0-bd83-4e1b-a9d6-db63a3e1e1c8,
@@ -136,9 +138,20 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
     ApplicationId         : 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
     ObjectType            : ServicePrincipal
     DisplayName           : Microsoft.AzureFrontDoor-Cdn
-    Id                    : c87be08f-686a-4d9f-8ef8-64707dbd413e
+    Id                    : abcdef12-3456-7890-abcd-ef1234567890
     Type                  :
     ```
+
+# [Azure CLI](#tab/cli)
+
+1. If needed, install [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
+
+1. Use the Azure CLI to run the following command:
+
+     ```azurecli-interactive
+     az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8
+     ```
+
 ### Grant Azure CDN access to your key vault
 
 Grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
