@@ -1244,6 +1244,12 @@ groups:
     title: iOS
   - id: platform-windows
     title: Windows
+- id: acs-plat-web-js
+  title: Platform
+  prompt: Choose a supported platform
+  pivots:
+  - id: platform-web
+    title: Web
 - id: acs-plat-android-web-ios
   title: Platform
   prompt: Choose a platform
