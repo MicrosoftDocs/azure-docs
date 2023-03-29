@@ -15,7 +15,7 @@ ms.custom: single server deprecation announcement
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
-**Azure Database for PostgreSQL - Single Server is on the retirement path** is on the retirement path and is scheduled for retirement by March 28, 2025.
+**Azure Database for PostgreSQL - Single Server is on the retirement path** and is scheduled for retirement by March 28, 2025.
 
 Azure Database for PostgreSQL – Single Server generally became available in 2018. However, given customer feedback and new advancements in the computation, availability, scalability, and performance capabilities in the Azure database landscape, the Single Server offering needs to be retired and upgraded with a new architecture – Azure Database for PostgreSQL Flexible Server to bring you the best of Azure’s open-source database platform.
 
