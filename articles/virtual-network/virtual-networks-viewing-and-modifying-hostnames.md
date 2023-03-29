@@ -1,21 +1,17 @@
 ---
-title: Viewing and Modifying Hostnames | Microsoft Docs
+title: Viewing and Modifying Hostnames
 description: How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: dcscontentpm
-
-
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/14/2021
 ms.author: allensu
-
 ---
+
 # Viewing and modifying hostnames
 To allow your role instances to be referenced by host name, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*. You do not need to specify a host name for virtual machines in the configuration file, because the host name for a virtual machine is populated based on the virtual machine name. For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100))
 

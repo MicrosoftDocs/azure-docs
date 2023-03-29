@@ -1,8 +1,7 @@
 ---
-title: 'Tutorial:  Setting up PHS as backup for AD FS in Azure AD Connect | Microsoft Docs'
-description: Demonstrates how to turn on password hash sync as a backup and for AD FS.
+title: 'Tutorial:  Set up password hash sync as backup for AD FS in Azure AD Connect'
+description: Learn how to turn on password hash sync as a backup for Azure Directory Federation Services (AD FS) in Azure AD Connect.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: amycolannino
 ms.service: active-directory
@@ -15,104 +14,112 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial:  Setting up PHS as backup for AD FS in Azure AD Connect
+# Tutorial:  Set up password hash sync as backup for Azure Directory Federation Services
 
-The following tutorial will walk you through setting up password hash sync as a backup and fail-over for AD FS.  This document will also demonstrate how to enable password hash sync as the primary authentication method, if AD FS has failed or become unavailable.
+This tutorial walks you through the steps to set up password hash sync as a backup and failover for Azure Directory Federation Services (AD FS) in Azure AD Connect. The tutorial also demonstrates how to set password hash sync as the primary authentication method if AD FS fails or becomes unavailable.
 
->[!NOTE] 
->Although these steps are usually performed during emergency or outage situations, it is recommended that you test these steps and verify your procedures before an outage occurs.
-
->[!NOTE]
->In the event that you do not have access to Azure AD Connect server or the server does not have access to the internet, you can contact [Microsoft Support](https://support.microsoft.com/en-us/contactus/) to assist with the changes to the Azure AD side.
+> [!NOTE]
+> Although these steps usually are taken in an emergency or outage situation, we recommend that you test these steps and verify your procedures before an outage occurs.
 
 ## Prerequisites
-This tutorial builds upon the [Tutorial: Federate a single AD forest environment to the cloud](tutorial-federation.md) and is a per-requisite before attempting this tutorial.  If you have not completed this tutorial, do so before attempting the steps in this document.
 
->[!IMPORTANT]
->Prior to switching to PHS you should create a backup of your AD FS environment.  This can be done using the [AD FS Rapid Restore Tool](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+This tutorial builds on [Tutorial: Use federation for hybrid identity in a single Active Directory forest](tutorial-federation.md). Completing the tutorial is a prerequisite to completing the steps in this tutorial.
 
-## Enable PHS in Azure AD Connect
-The first step, now that we have an Azure AD Connect environment that is using federation, is to turn on password hash sync and allow Azure AD Connect to synchronize the hashes.
+> [!NOTE]
+> If you don't have access to an Azure AD Connect server or the server doesn't have internet access, you can contact [Microsoft Support](https://support.microsoft.com/contactus/) to assist with the changes to Azure Active Directory (Azure AD).
 
-Do the following:
+## Enable password hash sync in Azure AD Connect
 
-1.  Double-click the Azure AD Connect icon that was created on the desktop
-2.  Click **Configure**.
-3.  On the Additional tasks page, select **Customize synchronization options** and click **Next**.
-4.  Enter the username and password for your Hybrid Identity Administrator or your hybrid identity administrator.  This account was created [here](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the previous tutorial.
-5.  On the **Connect your directories** screen, click **Next**.
-6.  On the **Domain and OU filtering** screen, click **Next**.
-7.  On the **Optional features** screen, check **Password hash synchronization** and click **Next**.
-![Select](media/tutorial-phs-backup/backup1.png)</br>
-8.  On the **Ready to configure** screen click **Configure**.
-9.  Once the configuration completes, click **Exit**.
-10. That's it!  You are done.  Password hash synchronization will now occur and can be used as a backup if AD FS becomes unavailable.
+In [Tutorial: Use federation for hybrid identity in a single Active Directory forest](tutorial-federation.md), you created an Azure AD Connect environment that's using federation.
 
-## Switch to password hash synchronization
-Now, we will show you how to switch over to password hash synchronization. Before you start, consider under which conditions should you make the switch. Don't make the switch for temporary reasons, like a network outage, a minor AD FS problem, or a problem that affects a subset of your users. If you decide to make the switch because fixing the problem will take too long, do the following:
+Your first step in setting up your backup for federation is to turn on password hash sync and set Azure AD Connect to sync the hashes:
+
+1. Double-click the Azure AD Connect icon that was created on the desktop during installation.
+1. Select **Configure**.
+1. In **Additional tasks**, select **Customize synchronization options**, and then select **Next**.
+
+      :::image type="content" source="media/tutorial-phs-backup/backup2.png" alt-text="Screenshot that shows the Additional tasks pane, with Customize synchronization options selected.":::
+1. Enter the username and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-account-in-azure-ad) in the tutorial to set up federation.
+1. In **Connect your directories**, select **Next**.
+1. In **Domain and OU filtering**, select **Next**.
+1. In **Optional features**, select **Password hash synchronization**, and then select **Next**.
+
+   :::image type="content" source="media/tutorial-phs-backup/backup1.png" alt-text="Screenshot that shows the Optional features pane, with Password hash synchronization selected.":::
+1. In **Ready to configure**, select **Configure**.
+1. When configuration is finished, select **Exit**.
+
+That's it!  You're done. Password hash sync will now occur, and it can be used as a backup if AD FS becomes unavailable.
+
+## Switch to password hash sync
 
 > [!IMPORTANT]
-> Be aware that it will take some time for the password hashes to synchronize to Azure AD.  This means that it may take up 3 hours for the synchronizations to complete and before you can start authenticating using the password hashes.
+>
+> - Before you switch to password hash sync, create a backup of your AD FS environment. You can create a backup by using the [AD FS Rapid Restore Tool](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>
+> - It takes some time for the password hashes to sync to Azure AD.  It might be up to three hours before the sync finishes and you can start authenticating by using the password hashes.
 
-1. Double-click the Azure AD Connect icon that was created on the desktop
-2.  Click **Configure**.
-3.  Select **Change user sign-in** and click **Next**.
-![Change](media/tutorial-phs-backup/backup2.png)</br>
-4.  Enter the username and password for your Hybrid Identity Administratoristrator or your hybrid identity administrator.  This account was created [here](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the previous tutorial.
-5.  On the **User sign-in** screen, select **Password Hash Synchronization** and place a check in the **Do not convert user accounts** box.  
-6.  Leave the default **Enable single sign-on** selected and click **Next**.
-7.  On the **Enable single sign-on** screen click **Next**.
-8.  On the **Ready to configure** screen, click **Configure**.
-9.  Once configuration is complete, click **Exit**.
-10. Users can now use their passwords to sign in to Azure and Azure services.
+Next, switch over to password hash synchronization. Before you start, consider in which conditions you should make the switch. Don't make the switch for temporary reasons, like a network outage, a minor AD FS problem, or a problem that affects a subset of your users.
 
-## Test signing in with one of our users
+If you decide to make the switch because fixing the problem will take too long, complete these steps:
 
-1. Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Sign in with a user account that was created in our new tenant.  You will need to sign in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign in on-premises.</br>
-   ![Screenshot that shows a successful message when testing the sign in. ](media/tutorial-password-hash-sync/verify1.png)</br>
+1. In Azure AD Connect, select **Configure**.
+1. Select **Change user sign-in**, and then select **Next**.
+1. Enter the username and password for the  [Hybrid Identity Administrator account you created](tutorial-federation.md#create-a-hybrid-identity-administrator-account-in-azure-ad) in the tutorial to set up federation.
+1. In **User sign-in**, select **Password hash synchronization**, and then select the **Do not convert user accounts** checkbox.  
+1. Leave the default **Enable single sign-on** selected and select **Next**.
+1. In **Enable single sign-on**, select **Next**.
+1. In **Ready to configure**, select **Configure**.
+1. When configuration is finished, select **Exit**.
+
+Users can now use their passwords to sign in to Azure and Azure services.
+
+## Sign in with a user account to test sync
+
+1. In a new web browser window, go to [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Sign in with a user account that was created in your new tenant.
+
+   For the username, use the format `user@domain.onmicrosoft.com`. Use the same password the user uses to sign in to on-premises Active Directory.
+
+   :::image type="content" source="media/tutorial-federation/verify1.png" alt-text="Screenshot that shows a successful message when testing the sign-in.":::
 
 ## Switch back to federation
-Now, we will show you how to switch back to federation.  To do this, do the following:
 
-1.  Double-click the Azure AD Connect icon that was created on the desktop
-2.  Click **Configure**.
-3.  Select **Change user sign-in** and click **Next**.
-4.  Enter the username and password for your Hybrid Identity Administrator or your hybrid identity administrator.  This is the account that was created [here](tutorial-federation.md#create-a-hybrid-identity-administrator-in-azure-ad) in the previous tutorial.
-5.  On the **User sign-in** screen, select **Federation with AD FS** and click **Next**.  
-6. On the Domain Administrator credentials page, enter the contoso\Administrator username and password and click **Next.**
-7. On the AD FS farm screen, click **Next**.
-8. On the **Azure AD domain** screen, select the domain from the drop-down and click **Next**.
-9. On the **Ready to configure** screen, click **Configure**.
-10. Once configuration is complete, click **Next**.
-![Configure](media/tutorial-phs-backup/backup4.png)</br>
-11. On the **Verify federation connectivity** screen, click **Verify**.  You may need to configure DNS records (add A and AAAA records) for this to complete successfully.
-![Screenshot that shows the Verify federation connectivity screen and the Verify button.](media/tutorial-phs-backup/backup5.png)</br>
-12. Click **Exit**.
+Now, switch back to federation:
+
+1. In Azure AD Connect, select **Configure**.
+1. Select **Change user sign-in**, and then select **Next**.
+1. Enter the username and password for your Hybrid Identity Administrator account.
+1. In  **User sign-in**, select **Federation with AD FS**, and then select **Next**.  
+1. In **Domain Administrator credentials**, enter the contoso\Administrator username and password, and then select **Next.**
+1. In **AD FS farm**, select **Next**.
+1. In **Azure AD domain**, select the domain and select **Next**.
+1. In **Ready to configure**, select **Configure**.
+1. When configuration is finished, select **Next**.
+
+   :::image type="content" source="media/tutorial-phs-backup/backup4.png" alt-text="Screenshot that shows the Configuration complete pane.":::
+1. In **Verify federation connectivity**, select **Verify**.  You might need to configure DNS records (add A and AAAA records) for verification to finish successfully.
+
+   :::image type="content" source="media/tutorial-phs-backup/backup5.png" alt-text="Screenshot that shows the Verify federation connectivity dialog and the Verify button.":::
+1. Select **Exit**.
 
 ## Reset the AD FS and Azure trust
-Now we need to reset the trust between AD FS and Azure.
 
-1.  Double-click the Azure AD Connect icon that was created on the desktop
-2.  Click **Configure**.
-3.  Select **Manage Federation** and click **Next**.
-4.  Select **Reset Azure AD trust** and click **Next**.
-![Reset](media/tutorial-phs-backup/backup6.png)</br>
-5.  On the **Connect to Azure AD** screen enter the username and password for your global administrator or your hybrid identity administrator.
-6.  On the **Connect to AD FS** screen, enter the contoso\Administrator username and password and click **Next.**
-7.  On the **Certificates** screen, click **Next**.
+The final task is to reset the trust between AD FS and Azure:
 
-## Test signing in with a user
+1. In Azure AD Connect, select **Configure**.
+1. Select **Manage federation**, and then select **Next**.
+1. Select **Reset Azure AD trust**, and then select **Next**.
 
-1.  Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.
-![Verify](media/tutorial-password-hash-sync/verify1.png)
+   :::image type="content" source="media/tutorial-phs-backup/backup6.png" alt-text="Screenshot that shows the Manage federation pane, with Reset Azure AD selected.":::
+1. In **Connect to Azure AD**, enter the username and password for your Global Administrator account or your Hybrid Identity Administrator account.
+1. In **Connect to AD FS**, enter the contoso\Administrator username and password, and then select **Next.**
+1. In **Certificates**, select **Next**.
+1. Repeat the steps in [Sign in with a user account to test sync](#sign-in-with-a-user-account-to-test-sync).
 
-You have now successfully setup a hybrid identity environment that you can use to test and familiarize yourself with what Azure has to offer.
+You've successfully set up a hybrid identity environment that you can use to test and to get familiar with what Azure has to offer.
 
 ## Next steps
 
-
-- [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
-- [Express settings](how-to-connect-install-express.md)
-- [Password hash synchronization](how-to-connect-password-hash-synchronization.md)
+- Review [Azure AD Connect hardware and prerequisites](how-to-connect-install-prerequisites.md).
+- Learn how to use [Express settings](how-to-connect-install-express.md) in Azure AD Connect.
+- Learn more about [password hash sync](how-to-connect-password-hash-synchronization.md) with Azure AD Connect.

@@ -30,7 +30,7 @@ Azure regions serve as hubs that you can choose to connect to. All hubs are conn
 
 For spoke connectivity with SD-WAN/VPN devices, users can either manually set it up in Azure Virtual WAN, or use the Virtual WAN CPE (SD-WAN/VPN) partner solution to set up connectivity to Azure. We have a list of partners that support connectivity automation (ability to export the device info into Azure, download the Azure configuration and establish connectivity) with Azure Virtual WAN. For more information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan1.png)
+:::image type="content" source="./media/virtual-wan-about/virtual-wan-diagram.png" alt-text="Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtual-wan-diagram.png":::
 
  Virtual WAN offers the following advantages:
 

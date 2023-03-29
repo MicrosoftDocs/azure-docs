@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 08/22/2022
+ms.date: 02/20/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 

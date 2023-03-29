@@ -115,7 +115,7 @@ Conditional Access policies are created on the **Conditional Access** page in th
 
 ### User and password reset configuration changes
 
-User settings changes are made on the Azure AD portal **User settings** page. Password reset changes are made on the **Password reset** page. Changes made on these pages are captured in the Audit log as detailed in the following table.
+User settings changes are made on the Azure portal **User settings** page. Password reset changes are made on the **Password reset** page. Changes made on these pages are captured in the Audit log as detailed in the following table.
 
 | Service filter| Activities| Potential impacts |
 | - | - | - |
@@ -129,7 +129,7 @@ User settings changes are made on the Azure AD portal **User settings** page. Pa
 
 ### External identities configuration changes
 
-You can make changes to these settings on the **External identities** or **External collaboration** settings pages in the Azure AD portal.
+You can make changes to these settings on the **External identities** or **External collaboration** settings pages in the Azure portal.
 
 | Service filter| Activities| Potential impacts |
 | - | - | - |

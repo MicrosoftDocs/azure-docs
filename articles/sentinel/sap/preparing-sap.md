@@ -45,13 +45,15 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
+
 1. **Prepare SAP environment (*You are here*)**
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
 
 1. [Deploy SAP security content](deploy-sap-security-content.md)
 
-1. [Configure Microsoft Sentinel Solution for SAP](deployment-solution-configuration.md)
+1. [Configure Microsoft Sentinel solution for SAP® applications](deployment-solution-configuration.md)
 
 1. Optional deployment steps
    - [Configure auditing](configure-audit.md)
@@ -216,7 +218,7 @@ The next step is to generate an active role profile for Microsoft Sentinel to us
 
 ### Create a user
 
-The Microsoft Sentinel Solution for SAP requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
+The Microsoft Sentinel solution for SAP® applications requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
 
 In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
 

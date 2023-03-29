@@ -91,11 +91,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 ## Configure Pennylane SSO
 
-To configure single sign-on on **Pennylane** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Pennylane support team](mailto:tech@pennylane.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Pennylane** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Pennylane support team](mailto:key-accounts-tech@pennylane.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Pennylane test user
 
-In this section, you create a user called Britta Simon at Pennylane. Work with [Pennylane support team](mailto:tech@pennylane.com) to add the users in the Pennylane platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at Pennylane. Work with [Pennylane support team](mailto:key-accounts-tech@pennylane.com) to add the users in the Pennylane platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

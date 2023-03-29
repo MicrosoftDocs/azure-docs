@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with HappyFox | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with HappyFox'
 description: Learn how to configure single sign-on between Azure Active Directory and HappyFox.
 services: active-directory
 author: jeevansd

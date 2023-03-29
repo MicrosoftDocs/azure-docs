@@ -20,7 +20,6 @@ This article provides an overview of the virtual array - here are some other res
 
 * For best practices, see [StorSimple Virtual Array best practices](storsimple-ova-best-practices.md).
 * For an overview of the StorSimple 8000 series devices, go to [StorSimple 8000 series: a hybrid cloud solution](storsimple-overview.md).
-* For information about the StorSimple 5000/7000 series devices, go to [StorSimple Online Help](http://onlinehelp.storsimple.com/).
 
 The virtual array supports the iSCSI or Server Message Block (SMB) protocol. It runs on your existing hypervisor infrastructure and provides tiering to the cloud, cloud backup, fast restore, item-level recovery, and disaster recovery features.
 

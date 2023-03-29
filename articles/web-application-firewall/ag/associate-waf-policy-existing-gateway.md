@@ -5,6 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
+ms.custom: devx-track-azurepowershell
 ms.date: 10/25/2019
 ms.author: victorh
 ---
@@ -12,6 +13,9 @@ ms.author: victorh
 # Associate a WAF policy with an existing Application Gateway
 
 You can use Azure PowerShell to [create a WAF Policy](create-waf-policy-ag.md), but you might already have an Application Gateway and just want to associate a WAF Policy to it. In this article, you do just that; you create a WAF Policy and associate it to an already existing Application Gateway. 
+
+ > [!NOTE]
+ > The WAF policy must be in the same region and subscription as the Application Gateway for it to be associated.
 
 1. Get your Application Gateway and Firewall Policy. If you don't have an existing Firewall Policy, see step 2. 
 

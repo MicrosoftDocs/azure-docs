@@ -28,7 +28,7 @@ Logging models has the following advantages:
 > * Models can be directly loaded for inference using `mlflow.<flavor>.load_model` and use the `predict` function.
 > * Models can be used as pipelines inputs directly.
 > * Models can be deployed without indicating a scoring script nor an environment.
-> * Swagger is enabled in deployed endpoints automatically and the __Test__ feature can be used in Azure ML studio.
+> * Swagger is enabled in deployed endpoints automatically and the __Test__ feature can be used in Azure Machine Learning studio.
 > * You can use the Responsible AI dashboard.
 
 There are different ways to start using the model's concept in Azure Machine Learning with MLflow, as explained in the following sections:
@@ -54,7 +54,7 @@ accuracy = accuracy_score(y_test, y_pred)
 ```
 
 > [!TIP]
-> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/train-with-mlflow/xgboost_classification_mlflow.ipynb) demonstrates how to log a model with preprocessing using pipelines.
+> If you are using Machine Learning pipelines, like for instance [Scikit-Learn pipelines](https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html), use the `autolog` functionality of that flavor for logging models. Models are automatically logged when the `fit()` method is called on the pipeline object. The notebook [Training and tracking an XGBoost classifier with MLflow](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/train-and-log/xgboost_classification_mlflow.ipynb) demonstrates how to log a model with preprocessing using pipelines.
 
 ## Logging models with a custom signature, environment or samples
 

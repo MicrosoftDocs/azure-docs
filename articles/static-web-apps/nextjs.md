@@ -64,6 +64,7 @@ Key features that are available in the preview are:
 - [Internationalization](https://nextjs.org/docs/advanced-features/i18n-routing)
 - [Middleware](https://nextjs.org/docs/advanced-features/middleware)
 - [Authentication](https://nextjs.org/docs/authentication)
+- [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing)
 
 Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutorial to learn how to deploy a hybrid Next.js application to Azure.
 

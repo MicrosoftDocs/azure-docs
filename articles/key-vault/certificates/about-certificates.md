@@ -102,7 +102,7 @@ At a high level, a certificate policy contains the following information:
 
   - Trigger: Specified as days before expiration or lifetime span percentage.  
   - Action: `emailContacts` or `autoRenew`.  
-
+- Certificates validation type: organization validated (OV-SSL) and extended validation (EV-SSL) for DigiCert and GlobalSign issuers.
 - Parameters about the certificate issuer to use for issuing X.509 certificates.  
 - Attributes associated with the policy. 
 

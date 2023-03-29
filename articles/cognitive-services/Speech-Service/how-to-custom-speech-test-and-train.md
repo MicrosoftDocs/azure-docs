@@ -30,7 +30,7 @@ Text and audio that you use to test and train a custom model should include samp
 
 The following table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you're creating a test or training a model.
 
-| Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
+| Data type | Used for testing | Recommended for testing | Used for training | Recommended for training |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio only](#audio-data-for-training-or-testing) | Yes (visual inspection) | 5+ audio files | Yes (Preview for `en-US`) | 1-20 hours of audio |
 | [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |

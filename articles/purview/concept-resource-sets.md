@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 01/23/2023
+ms.date: 02/17/2023
 ---
 
 # Understanding resource sets
@@ -15,7 +15,7 @@ This article helps you understand how Microsoft Purview uses resource sets to ma
 
 ## Background info
 
-At-scale data processing systems typically store a single table in storage as multiple files. In the Microsoft Purview data catalog, this concept is represented by using resource sets. A resource set is a single object in the catalog that represents a large number of assets in storage.
+At-scale data processing systems typically store a single table in storage as multiple files. In the Microsoft Purview Data Catalog, this concept is represented by using resource sets. A resource set is a single object in the catalog that represents a large number of assets in storage.
 
 For example, suppose your Spark cluster has persisted a DataFrame into an Azure Data Lake Storage (ADLS) Gen2 data source. Although in Spark the table looks like a single logical resource, on the disk there are likely thousands of Parquet files, each of which represents a partition of the total DataFrame's contents. IoT data and web log data have the same challenge. Imagine you have a sensor that outputs log files several times a second. It won't take long until you have hundreds of thousands of log files from that single sensor.
 
@@ -45,9 +45,9 @@ When Microsoft Purview detects resources that it thinks are part of a resource s
 
 ## Advanced resource sets
 
-Microsoft Purview can customize and further enrich your resource set assets through the **Advanced Resource Sets** capability. Advanced resource sets allows Microsoft Purview to understand the underlying partitions of data ingested and enables the creation of [resource set pattern rules](how-to-resource-set-pattern-rules.md) that customize how Microsoft Purview groups resource sets during scanning. 
+Microsoft Purview can customize and further enrich your resource set assets through the **Advanced Resource Sets** capability. Advanced resource sets allow Microsoft Purview to understand the underlying partitions of data ingested and enables the creation of [resource set pattern rules](how-to-resource-set-pattern-rules.md) that customize how Microsoft Purview groups resource sets during scanning. 
  
-When Advanced Resource Sets are enabled, Microsoft Purview run extra aggregations to compute the following information about resource set assets:
+When Advanced Resource Sets are enabled, Microsoft Purview runs extra aggregations to compute the following information about resource set assets:
 
 - A sample path from a file that comprises the resource set.
 - A partition count that shows how many files make up the resource set. 
@@ -59,14 +59,14 @@ These properties can be found on the asset details page of the resource set.
 
 ### Turning on advanced resource sets
 
-Advanced resource sets is off by default in all new Microsoft Purview instances. Advanced resource sets can be enabled from **Account information** in the management hub. Only those users who are added to the Data Curator role at root collection, can manage Advanced Resource Sets settings.
+Advanced resource sets are off by default in all new Microsoft Purview instances. Advanced resource sets can be enabled from **Account information** in the management hub. Only those users who are added to the Data Curator role at root collection, can manage Advanced Resource Sets settings.
 
 :::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="Turn on Advanced resource set." border="true":::
 
 After enabling advanced resource sets, the additional enrichments will occur on all newly ingested assets. The Microsoft Purview team recommends waiting an hour before scanning in new data lake data after toggling on the feature.
 
 > [!IMPORTANT]
-> Enabling advanced resource sets will impact the refresh rate of asset and classification insights. When advanced resource sets is on, asset and classification insights will only update twice a day.
+> Enabling advanced resource sets will impact the refresh rate of asset and classification insights. When advanced resource sets are on, asset and classification insights will only update twice a day.
 
 ## Built-in resource set patterns
 
@@ -89,7 +89,7 @@ Microsoft Purview supports the following resource set patterns. These patterns c
 | Date(yyyy/mm/dd)InPath  | {Year}/{Month}/{Day} | Year/month/day pattern spanning multiple folders |
 
 
-## How resource sets are displayed in the Microsoft Purview data catalog
+## How resource sets are displayed in the Microsoft Purview Data Catalog
 
 When Microsoft Purview matches a group of assets into a resource set, it attempts to extract the most useful information to use as a display name in the catalog. Some examples of the default naming convention applied: 
 
@@ -119,12 +119,11 @@ When scanning a storage account, Microsoft Purview uses a set of defined pattern
 - Putting an asset into the wrong resource set
 - Incorrectly marking an asset as not being a resource set
 
-To customize or override how Microsoft Purview detects which assets are grouped as resource sets and how they are displayed within the catalog, you can define pattern rules in the management center. For step-by-step instructions and syntax, please see [resource set pattern rules](how-to-resource-set-pattern-rules.md).
+To customize or override how Microsoft Purview detects which assets are grouped as resource sets and how they're displayed within the catalog, you can define pattern rules in the management center. For step-by-step instructions and syntax, see [resource set pattern rules](how-to-resource-set-pattern-rules.md).
 
 ## Known limitations with resource sets
 
 - By default, resource set assets will only be deleted by a scan if [Advanced Resource sets](#advanced-resource-sets) are enabled. If this capability is off, resource set assets can only be deleted manually or via API.
-- Currently, resource set assets will apply the first schema and classification discovered by the scan. Subsequent scans won't update the schema. 
 
 ## Next steps
 

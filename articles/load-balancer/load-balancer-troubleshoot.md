@@ -2,16 +2,14 @@
 title: Troubleshoot common issues Azure Load Balancer
 description: Learn how to troubleshoot common issues with Azure Load Balancer.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 manager: kumudD
 ms.service: load-balancer
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/05/2022
 ms.author: mbender
-ms.custom: FY23 content-maintenance
+ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure Load Balancer

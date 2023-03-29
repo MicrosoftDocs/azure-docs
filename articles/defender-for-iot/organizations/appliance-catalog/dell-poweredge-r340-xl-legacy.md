@@ -1,7 +1,7 @@
 ---
 title: Dell PowerEdge R340 XL for OT monitoring (legacy) - Microsoft Defender for IoT
 description: Learn about the Dell PowerEdge R340 XL appliance's legacy configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
-ms.date: 04/24/2022
+ms.date: 03/02/2023
 ms.topic: reference
 ---
 
@@ -88,12 +88,12 @@ To install the Dell PowerEdge R340XL appliance, you need:
 
 - One of the following server firmware versions:
 
-  - BIOS version 2.1.6
-  - iDrac version 3.23.23.23
+  - BIOS version 2.1.6 or later
+  - iDrac version 3.23.23.23 or later
 
 ### Configure the Dell BIOS
 
- An integrated iDRAC manages the Dell appliance with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances. 
+An integrated iDRAC manages the Dell appliance with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances. 
 
 To establish the communication between the Dell appliance and the management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
 
