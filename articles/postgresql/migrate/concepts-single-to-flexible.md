@@ -10,7 +10,7 @@ ms.date: 08/31/2022
 ms.custom: "mvc, references_regions"
 ---
 
-# Migration tool - Azure Database for PostgreSQL Single Server to Flexible Server (preview)
+# Migration tool - Azure Database for PostgreSQL Single Server to Flexible Server
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
