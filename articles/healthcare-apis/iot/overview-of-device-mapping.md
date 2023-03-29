@@ -141,15 +141,15 @@ When the MedTech service is processing the device message, the templates in the 
 
 In this article, you've been provided an overview of the MedTech service device mapping.
 
-To learn how to use CalculatedContent templates with the MedTech service device mapping, see
+To learn how to use CalculatedContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use CalculatedContent templates with the MedTech service device mapping](how-to-use-calculatedcontent-mappings.md)
+> [How to use CalculatedContent with the MedTech service device mapping](how-to-use-calculatedcontent-mappings.md)
 
-To learn how to use IotJsonPathContent templates with the MedTech service device mapping, see
+To learn how to use IotJsonPathContent with the MedTech service device mapping, see
 
 > [!div class="nextstepaction"] 
-> [How to use IotJsonPathContent templates with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md)
+> [How to use IotJsonPathContent with the MedTech service device mapping](how-to-use-iotjsonpathcontenttemplate-mappings.md)
 
 To learn how to use custom functions with the MedTech service device mapping, see
 
