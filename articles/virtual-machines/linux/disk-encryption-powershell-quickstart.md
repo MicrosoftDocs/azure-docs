@@ -29,7 +29,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 ## Create a virtual machine
 
-Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm), passing to it the VM configuration object you created above.
+Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm), passing to it the VM configuration object you created in the previous step.
 
 ```powershell-interactive
 $cred = Get-Credential
@@ -37,14 +37,14 @@ $cred = Get-Credential
 New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:18.04-LTS:latest -Size Standard_D2S_V3
 ```
 
-It will take a few minutes for your VM to be deployed. 
+It takes a few minutes for your VM to be deployed. 
 
 ## Create a Key Vault configured for encryption keys
 
 Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault). To enable the Key Vault to store encryption keys, use the -EnabledForDiskEncryption parameter.
 
 > [!Important]
-> Every key vault must have a name that is unique across Azure. In the examples below, replace \<your-unique-keyvault-name\> with the  name you choose.
+> Every key vault must have a name that is unique across Azure. In the following example, replace \<your-unique-keyvault-name\> with the  name you choose.
 
 ```azurepowershell-interactive
 New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location EastUS -EnabledForDiskEncryption
