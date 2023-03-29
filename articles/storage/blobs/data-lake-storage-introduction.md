@@ -18,7 +18,6 @@ Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data anal
 
 Data Lake Storage Gen2 converges the capabilities of [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
-
 Data Lake Storage Gen2 makes Azure Storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage Gen2 allows you to easily manage massive amounts of data.
 
 ## What is a Data Lake?
@@ -31,7 +30,7 @@ _Azure Data Lake Storage_ is a cloud-based, enterprise data lake solution. It's 
 
 _Azure Data Lake Storage Gen2_ refers to the current implementation of Azure's Data Lake Storage solution. The previous implementation, _Azure Data Lake Storage Gen1_, is scheduled to be retired on February 29, 2024. 
 
-Unlike Data Lake Storage Gen1, Data Lake Storage Gen2 isn't a dedicated service or account type. Instead, it's implemented as a set of capabilities that you use with the Blob Storage service of your Azure Storage account. You can unlock these capabilities by enabling the hierarchical namespace setting. This setting is not enabled by default. You can enable it when you create the account or after you created the account by using an account upgrade tool that you can run from the settings of your account. 
+Unlike Data Lake Storage Gen1, Data Lake Storage Gen2 isn't a dedicated service or account type. Instead, it's implemented as a set of capabilities that you use with the Blob Storage service of your Azure Storage account. You can unlock these capabilities by enabling the hierarchical namespace setting. This setting is not enabled by default. You must enable it either as you create the account or after you create the account.
 
 ## Data Lake Storage Gen2 capabilities
 
@@ -41,7 +40,7 @@ Azure Data Lake Storage Gen2 is primarily designed to work with Hadoop and all f
 
 Data analysis frameworks that use HDFS as their data access layer can directly access Azure Data Lake Storage Gen2 data through ABFS. The Apache Spark analytics engine and the Presto SQL query engine are examples of such frameworks. 
 
-For more information, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services) and [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+For more information, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md) and [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
 #### Hierarchical directory structure
 
@@ -69,11 +68,13 @@ This design means that Azure Data Lake Storage Gen2 can easily and quickly scale
 
 ## Built on Azure Blob Storage
 
-The data that you ingest persist as blobs in the storage account. The service that manages those blobs is the Azure Blob Storage service. Data Lake Storage Gen2 describes the capabilities or "enhancements" to this service that cater to the demands of big data analytic workloads. The Data Lake Storage Gen2 documentation provides best practices and guidance for using these capabilities.
+The data that you ingest persist as blobs in the storage account. The service that manages those blobs is the Azure Blob Storage service. Data Lake Storage Gen2 describes the capabilities or "enhancements" to this service that cater to the demands of big data analytic workloads. 
 
-Because these capabilities are built on Blob Storage, features such as diagnostic logging, access tiers, and lifecycle management policies are available to your account. 
+Because these capabilities are built on Blob Storage, features such as diagnostic logging, access tiers, and lifecycle management policies are available to your account. Most Blob Storage features are fully supported, but some features might be supported only at the preview level and there are a handful of them that are not yet supported. For a complete list of support statements, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md). The status of each listed feature will change over time as support continues to expand. 
 
-Most Blob Storage features are fully supported, but some features might be supported only at the preview level and there are a handful of them that are not yet supported. For a complete list of support statements, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md). The status of each listed feature will change over time as support continues to expand. The [Blob storage documentation](storage-blobs-introduction.md) provides guidance for account features not specific to Data Lake Storage Gen2.
+## Documentation and terminology
+
+The Data Lake Storage Gen2 documentation provides best practices and guidance for using Data Lake Storage Gen2 capabilities. The [Blob Storage documentation](storage-blobs-introduction.md) provides guidance for account features not specific to Data Lake Storage Gen2. 
 
 As you move between content sets, you notice some slight terminology differences. For example, content featured in the [Blob storage documentation](storage-blobs-introduction.md), will use the term _blob_ instead of _file_. Technically, the files that you ingest to your storage account become blobs in your account. Therefore, the term is correct. However, the term _blob_ can cause confusion if you're used to the term _file_. You'll also see the term _container_ used to refer to a _file system_. Consider these terms as synonymous. 
 
