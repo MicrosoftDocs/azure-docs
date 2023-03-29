@@ -119,7 +119,7 @@ To make the certificate available to the application, it must be uploaded into t
 
 The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. *appsettings.json* is a configuration file that is used to store application settings used during run-time. As the application will also call into a web API, it must also contain a reference to it.
 
-1. In your IDE, open *appsettings.json* and replace the file contents with the following snippet: 
+1. In your IDE, open *appsettings.json* and replace the file contents with the following snippet:
   
    :::code language="json" source="~/ms-identity-docs-code-dotnet/web-app-aspnet/appsettings.json" :::
 

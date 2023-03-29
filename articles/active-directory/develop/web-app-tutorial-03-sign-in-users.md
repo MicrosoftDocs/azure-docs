@@ -32,8 +32,7 @@ Identity related **NuGet packages** must be installed in the project for authent
 ### [Visual Studio](#tab/visual-studio)
 
 1. In the top menu of Visual Studio, select **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**.
-1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web**. Select the **Project** checkbox, and then select **Install**.
-1. Repeat the previous step for the **Microsoft.Identity.Web.UI** package.
+1. With the **Browse** tab selected, search for and select **Microsoft.Identity.Web.UI**. Select the **Project** checkbox, and then select **Install**.
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
@@ -41,7 +40,6 @@ Identity related **NuGet packages** must be installed in the project for authent
 1. Enter the following commands to install the relevant NuGet packages:
 
     ```powershell
-    dotnet add package Microsoft.Identity.Web
     dotnet add package Microsoft.Identity.Web.UI
     dotnet add package Microsoft.Identity.Web.Diagnostics
     ``` 
@@ -49,7 +47,7 @@ Identity related **NuGet packages** must be installed in the project for authent
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
 1. In the top menu, select **Tools** > **Manage NuGet Packages**.
-1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**. 
+1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**.
 1. Modify your search to read **Microsoft.Identity.Web.UI** and select **Add Packages**.
 1. In the pop-up, ensure the correct project is selected, then select **Ok**.
 1. Select **Accept** if additional **License Acceptance** windows appear.

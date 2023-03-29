@@ -23,7 +23,7 @@ In this tutorial:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/). 
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * This Azure account must have permissions to manage applications. Any of the following Azure AD roles include the required permissions:
   * Application administrator
   * Application developer
