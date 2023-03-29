@@ -1,12 +1,12 @@
 ---
-title: Azure Front Door | Microsoft Docs
+title: Azure Front Door
 description: This article provides an overview of Azure Front Door.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: overview
 ms.workload: infrastructure-services
-ms.date: 03/18/2022
+ms.date: 03/18/2023
 ms.author: duau
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for. 
 ---

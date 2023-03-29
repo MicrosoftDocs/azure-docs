@@ -7,6 +7,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/17/2022
 ms.author: mbender
+ms.custom: template-how-to
 ---
 
 # Upgrade an internal basic load balancer - Outbound connections required

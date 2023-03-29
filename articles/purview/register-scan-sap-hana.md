@@ -20,9 +20,6 @@ This article outlines how to register SAP HANA, and how to authenticate and inte
 |---|---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No|No | No |
 
->[!NOTE]
->Supported version for SAP HANA is 15.
-
 When scanning SAP HANA source, Microsoft Purview supports extracting technical metadata including:
 
 - Server

@@ -5,10 +5,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
 ms.date: 05/10/2018
-ms.custom: GGAL-freshness822
+ms.custom: GGAL-freshness822, devx-track-azurecli
 ---
 
 # Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI

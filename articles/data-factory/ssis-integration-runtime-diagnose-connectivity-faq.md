@@ -12,7 +12,7 @@ ms.date: 09/22/2022
 
 # Use the diagnose connectivity feature in the SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You might find connectivity problems while executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. These problems occur especially if your SSIS integration runtime joins the Azure virtual network.
 

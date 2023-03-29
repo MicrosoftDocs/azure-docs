@@ -11,7 +11,7 @@ ms.date: 01/17/2023
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: powershell, azurecli
-
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Rehydrate an archived blob to an online tier
@@ -381,7 +381,13 @@ N/A
 
 ---
 
-To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation. For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
+To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation. 
+
+> [!NOTE]
+> Rehydrating blobs by calling the [Blob Batch](/rest/api/storageservices/blob-batch) operation is not yet supported in accounts that have a hierarchial namespace.
+
+For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
+
 
 ## Check the status of a rehydration operation
 

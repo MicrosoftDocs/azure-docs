@@ -38,7 +38,8 @@ The following table shows all supported versions of REST API. You can also find 
 
 API Version | Status | Port | Doc | Spec 
 ---|---|---|---|---
-`1.0` | Latest | Standard | [Doc](./swagger/signalr-data-plane-rest-v1.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)
+`20220601` | Latest | Standard | [Doc](./swagger/signalr-data-plane-rest-v20220601.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/V20220601.json)
+`1.0` | Stable | Standard | [Doc](./swagger/signalr-data-plane-rest-v1.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)
 `1.0-preview` | Obsolete | Standard | [Doc](./swagger/signalr-data-plane-rest-v1-preview.md) | [swagger](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json)
 
 The available APIs are listed as following.

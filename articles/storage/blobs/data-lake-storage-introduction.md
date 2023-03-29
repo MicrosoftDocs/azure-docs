@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 03/09/2023
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
@@ -16,7 +16,7 @@ ms.subservice: data-lake-storage-gen2
 
 Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on [Azure Blob Storage](storage-blobs-introduction.md).
 
-Data Lake Storage Gen2 converges the capabilities of [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you'll also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
+Data Lake Storage Gen2 converges the capabilities of [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
 ## Designed for enterprise big data analytics
 
@@ -36,9 +36,9 @@ Also, Data Lake Storage Gen2 is very cost effective because it's built on top of
 
 ## Key features of Data Lake Storage Gen2
 
-- **Hadoop compatible access:** Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) (used to access data) is available within all Apache Hadoop environments. These environments include [Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/), and [Azure Synapse Analytics](../../synapse-analytics/index.yml).
+- **Hadoop compatible access:** Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The [ABFS driver](data-lake-storage-abfs-driver.md) (used to access data) is available within all Apache Hadoop environments. These environments include [Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/), and [Azure Synapse Analytics](../../synapse-analytics/index.yml).
 
-- **A superset of POSIX permissions:** The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through Storage Explorer or through frameworks like Hive and Spark.
+- **A superset of POSIX permissions:** The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings can be configured by using Storage Explorer, the Azure portal, PowerShell, Azure CLI, REST APIs, Azure Storage SDKs, or by using frameworks like Hive and Spark.
 
 - **Cost-effective:** Data Lake Storage Gen2 offers low-cost storage capacity and transactions. Features such as [Azure Blob Storage lifecycle](./lifecycle-management-overview.md) optimize costs as data transitions through its lifecycle.
 
@@ -81,6 +81,7 @@ Several open source platforms support Data Lake Storage Gen2. For a complete lis
 
 ## See also
 
+- [Introduction to Azure Data Lake Storage Gen2 (Training module)](/training/modules/introduction-to-azure-data-lake-storage/)
 - [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
 - [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

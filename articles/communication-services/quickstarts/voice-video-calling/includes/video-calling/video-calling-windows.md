@@ -1,23 +1,23 @@
 [!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
 
-In this quickstart, you'll learn how to start a 1:1 video call using the Azure Communication Services Calling SDK for Windows.
+In this quickstart, you learn how to start a 1:1 video call using the Azure Communication Services Calling SDK for Windows.
 
 ## UWP sample code
 
 ### Prerequisites
 
-To complete this tutorial, you’ll need the following prerequisites:
+To complete this tutorial, you need the following prerequisites:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload. 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 ### Setting up
 
@@ -29,7 +29,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or above. Make sure Include Preleased is checked.
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior version. Make sure Include Preleased is checked.
 
 #### Request access
 
@@ -52,10 +52,10 @@ Add the following code to your `Package.appxmanifest` by right-clicking and choo
 
 #### Set up the app framework
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button. 
+We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button.
 We also need to preview the local video and render the remote video of the other participant. So we need two elements to display the video streams.
 
-Open the `MainPage.xaml` of your project and replace the content with following implementation. 
+Open the `MainPage.xaml` of your project and replace the content with following implementation.
 
 ```C#
 <Page
@@ -164,18 +164,19 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling SDK.|
-| CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
-| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
+| `CallAgent` | The `CallAgent` is used to start and join calls. |
+| `Call` | The `Call` is used to manage placed or joined calls. |
+| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
+| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
 ### Authenticate the client
 
-To initialize a `CallAgent` you will need a User Access Token. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../../access-tokens.md) guide. 
+To initialize a `CallAgent`, you need a User Access Token. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../identity/access-tokens.md) guide.
 
 For the quickstart, replace `<AUTHENTICATION_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
-Once you have a token initialize a `CallAgent` instance with it which will enable us to make and receive calls. In order to access the cameras on the device we also need to get Device Manager instance. 
+Once you have a token, initialize a `CallAgent` instance with it, which enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
 
 Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
 ```C#
@@ -195,7 +196,8 @@ this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 
 ### Start a call with video
 
-Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaElement` we can see the preview of the local video. 
+Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaElement`, we can see the preview of the local video.
+
 ```C#
 var startCallOptions = new StartCallOptions();
 
@@ -256,7 +258,7 @@ call = await incomingCall.AcceptAsync(acceptCallOptions);
 
 ### Remote participant and remote video streams
 
-All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected we can access the remote participants of the call and handle the remote video streams. 
+All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
 
 ```C#
 
@@ -372,32 +374,31 @@ await this.call.HangUpAsync(new HangUpOptions());
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
 
-Note: Calling `8:echo123` will stop the video stream because echo bot does not support video streaming. 
+Note: Calling `8:echo123` stops the video stream because echo bot doesn't support video streaming. 
 
-For more information on user IDs (identity) check the [User Access Tokens](../../../access-tokens.md) guide. 
-
+For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide. 
 
 ## WinUI 3 sample code
 
 ### Prerequisites
 
-To complete this tutorial, you’ll need the following prerequisites:
+To complete this tutorial, you need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) and [Windows App SDK version 1.2 preview 2](https://learn.microsoft.com/windows/apps/windows-app-sdk/preview-channel#version-12-preview-2-120-preview2). 
 - Basic understanding of how to create a WinUI 3 app. [Create your first WinUI 3 (Windows App SDK) project](https://learn.microsoft.com/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) is a good resource to start with.
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You'll need to **record your connection string** for this quickstart.
-- A [User Access Token](../../../access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command below with your connection string to create a user and an access token.
+- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
+- A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
 
   ```azurecli-interactive
   az communication identity token issue --scope voip --connection-string "yourConnectionString"
   ```
 
-  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../access-tokens.md?pivots=platform-azcli).
+  For details, see [Use Azure CLI to Create and Manage Access Tokens](../../../identity/access-tokens.md?pivots=platform-azcli).
 
 ### Setting up
 
@@ -409,7 +410,7 @@ In Visual Studio, create a new project with the **Blank App, Packaged (WinUI 3 i
 
 #### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or above. Make sure Include Preleased is checked.
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling` [1.0.0-beta.33](https://www.nuget.org/packages/Azure.Communication.Calling/1.0.0-beta.33) or superior version. Make sure Include Preleased is checked.
 
 #### Request access
 
@@ -424,7 +425,7 @@ Add the following code to your `app.manifest`:
 
 #### Set up the app framework
 
-We need to configure a basic layout to attach our logic. In order to place an outbound call we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button. 
+We need to configure a basic layout to attach our logic. In order to place an outbound call, we need a `TextBox` to provide the User ID of the callee. We also need a `Start Call` button and a `Hang Up` button. 
 We also need to preview the local video and render the remote video of the other participant. So we need two elements to display the video streams.
 
 Open the `MainWindow.xaml` of your project and replace the content with following implementation. 
@@ -534,18 +535,19 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | The CallClient is the main entry point to the Calling SDK.|
-| CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.| 
-| CommunicationUserIdentifier | The CommunicationUserIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| `CallClient` | The `CallClient` is the main entry point to the Calling client library. |
+| `CallAgent` | The `CallAgent` is used to start and join calls. |
+| `Call` | The `Call` is used to manage placed or joined calls. |
+| `CommunicationTokenCredential` | The `CommunicationTokenCredential` is used as the token credential to instantiate the `CallAgent`.|
+| `CommunicationUserIdentifier` | The `CommunicationUserIdentifier` is used to represent the identity of the user, which can be one of the following options: `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `CallingApplication`. |
 
 ### Authenticate the client
 
-To initialize a `CallAgent` you will need a User Access Token. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../../access-tokens.md) guide. 
+To initialize a `CallAgent`, you need a User Access Token. Generally this token is generated from a service with authentication specific to the application. For more information on user access tokens, check the [User Access Tokens](../../../identity/access-tokens.md) guide.
 
 For the quickstart, replace `<AUTHENTICATION_TOKEN>` with a user access token generated for your Azure Communication Service resource.
 
-Once you have a token initialize a `CallAgent` instance with it which will enable us to make and receive calls. In order to access the cameras on the device we also need to get Device Manager instance. 
+Once you have a token initialize a `CallAgent` instance with it, which enable us to make and receive calls. In order to access the cameras on the device, we also need to get Device Manager instance. 
 
 Add the following code to the `InitCallAgentAndDeviceManagerAsync` function. 
 ```C#
@@ -565,7 +567,7 @@ this.callAgent.OnIncomingCall += Agent_OnIncomingCallAsync;
 
 ### Start a call with video
 
-Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaPlayerElement` we can see the preview of the local video. 
+Add the implementation to the `CallButton_Click` to start a call with video. We need to enumerate the cameras with device manager instance and construct `LocalVideoStream`. We need to set the `VideoOptions` with `LocalVideoStream` and pass it with `startCallOptions` to set initial options for the call. By attaching `LocalVideoStream` to a `MediaPlayerElement`, we can see the preview of the local video. 
 ```C#
 var startCallOptions = new StartCallOptions();
 
@@ -627,7 +629,7 @@ call = await incomingCall.AcceptAsync(acceptCallOptions);
 
 ### Remote participant and remote video streams
 
-All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected we can access the remote participants of the call and handle the remote video streams. 
+All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
 
 ```C#
 private async void Call_OnVideoStreamsUpdatedAsync(object sender, RemoteVideoStreamsEventArgs args)
@@ -741,10 +743,10 @@ await this.call.HangUpAsync(new HangUpOptions());
 
 ### Run the code
 
-You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
 
-Note: Calling `8:echo123` will stop the video stream because echo bot does not support video streaming. 
+Note: Calling `8:echo123` stops the video stream because echo bot doesn't support video streaming. 
 
-For more information on user IDs (identity) check the [User Access Tokens](../../../access-tokens.md) guide. 
+For more information on user IDs (identity) check the [User Access Tokens](../../../identity/access-tokens.md) guide. 

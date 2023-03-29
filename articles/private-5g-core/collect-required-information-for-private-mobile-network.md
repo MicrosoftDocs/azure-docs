@@ -28,7 +28,7 @@ Collect all of the following values for the mobile network resource that will re
    |Value  |Field name in Azure portal  |
    |---------|---------|
    |The Azure subscription to use to deploy the mobile network resource. You must use the same subscription for all resources in your private mobile network deployment. You identified this subscription in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).                 |**Project details: Subscription**
-   |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*).                |**Project details: Resource group**|
+   |The Azure resource group to use to deploy the mobile network resource. You should use a new resource group for this resource. It's useful to include the purpose of this resource group in its name for future identification (for example, *contoso-pmn-rg*). </br></br> Note: We recommend that this resource group is also used when [Collecting the required information for a site](collect-required-information-for-a-site.md).              |**Project details: Resource group**|
    |The name for the private mobile network.           |**Instance details: Mobile network name**|
    |The region in which you're deploying the private mobile network. This can be the East US or the West Europe region.                           |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
@@ -67,7 +67,6 @@ Note that once the SIM group is created, the encryption type cannot be changed.
    |---------|---------|
    |The name for the SIM group resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM group name**|
    |The region that the SIM group belongs to.|**Region**|
-   |The mobile network that the SIM group belongs to.|**Mobile network**|
    |The chosen encryption type for the SIM group. Microsoft-managed keys (MMK) by default, or customer-managed keys (CMK).|**Encryption Type**|
    |The Azure Key Vault URI containing the customer-managed Key for the SIM group.|**Key URI**|
    |The User-assigned identity for accessing the SIM group's customer-managed Key within the Azure Key Vault.|**User-assigned identity**|
@@ -119,7 +118,7 @@ The following example shows the file format you'll need if you want to provision
 
 - If you're using the ARM template in [Quickstart: Deploy a private mobile network and site - ARM template](deploy-private-mobile-network-with-site-arm-template.md), the default service and SIM policy are automatically included.
 
-- If you use the Azure portal to deploy your private mobile network, you'll be given the option of creating the default service and SIM policy. You'll need to decide whether the default service and SIM policy are suitable for the initial use of your private mobile network. You can find information on each of the specific settings for these resources in [Default service and SIM policy](default-service-sim-policy.md) if you need it.
+- If you use the Azure portal to deploy your private mobile network, you'll be given the option of creating the default service and SIM policy. You'll need to decide whether the default service and SIM policy are suitable for the initial use of your private mobile network. You can find information on each of the specific settings for these resources in [Default service and SIM policy](default-service-sim-policy.md) if you need it. If you choose this option, you will also need to provide the name of the data network that will be used by the default policy.
 
 - If they aren't suitable, you can choose to deploy the private mobile network without any services or SIM policies. In this case, any SIMs you provision won't be brought into service when you create your private mobile network. You'll need to create your own services and SIM policies later.  
 

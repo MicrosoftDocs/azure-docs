@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale, scalable, scalability, app serv
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18
+ms.custom: UpdateFrequency3
 
 ---
 # Azure App Service plan overview

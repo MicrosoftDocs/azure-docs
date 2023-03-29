@@ -69,7 +69,7 @@ This quickstart can be run on macOS, Windows, or Linux.
             {
               "type": "http",
               "direction": "out",
-              "name": "res"
+              "name": "$return"
             }
           ]
         }

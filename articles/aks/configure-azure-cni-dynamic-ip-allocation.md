@@ -1,7 +1,6 @@
 ---
 title: Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)
 description: Learn how to configure Azure CNI (advanced) networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 01/09/2023
 ms.custom: references_regions, devx-track-azurecli
@@ -26,8 +25,8 @@ This article shows you how to use Azure CNI networking for dynamic allocation of
 > [!NOTE]
 > When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service isn't supported.
 
-* Review the [prerequisites](/configure-azure-cni.md#prerequisites) for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
-* Review the [deployment parameters](/configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS, as the same parameters apply.
+* Review the [prerequisites](./configure-azure-cni.md#prerequisites) for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
+* Review the [deployment parameters](./configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS, as the same parameters apply.
 * AKS Engine and DIY clusters aren't supported.
 * Azure CLI version `2.37.0` or later.
 
@@ -52,7 +51,7 @@ All other guidance related to configuring the maximum pods per node remains the 
 
 ## Deployment parameters
 
-The [deployment parameters](/configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
+The [deployment parameters](./configure-azure-cni.md#deployment-parameters) for configuring basic Azure CNI networking in AKS are all valid, with two exceptions:
 
 * The **subnet** parameter now refers to the subnet related to the cluster's nodes.
 * An additional parameter **pod subnet** is used to specify the subnet whose IP addresses will be dynamically allocated to pods.
