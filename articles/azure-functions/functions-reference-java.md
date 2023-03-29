@@ -316,8 +316,8 @@ public class Function {
     }
 
     public static class TestInputData {
-        public String getKey() { return this.RowKey; }
-        private String RowKey;
+        public String getKey() { return this.rowKey; }
+        private String rowKey;
     }
     public static class Person {
         public String partitionKey;
@@ -325,9 +325,9 @@ public class Function {
         public String name;
 
         public Person(String p, String r, String n) {
-            this.PartitionKey = p;
-            this.RowKey = r;
-            this.Name = n;
+            this.partitionKey = p;
+            this.rowKey = r;
+            this.name = n;
         }
     }
 }
