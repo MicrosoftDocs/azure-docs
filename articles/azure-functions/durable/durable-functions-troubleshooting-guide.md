@@ -123,7 +123,7 @@ traces
 |LatencyMs|The number of milliseconds of a storage operation took.|
 |DequeueCount|The number of times a message has been dequeued. Under normal circumstances, this value is always 1. If it is more than one, then there is a problem.|
 |PartitionId|This is both a) the name of the partition and b) the name of the queue for all message-related trace events.|
-|logLevel||
+|logLevel|This indicates the message severity level. "Information" is for normal operations. "Warnings" or "Errors" means there is a problem.|
 |TotalEventCount|The total number of history events function is operating on.|
 |TaskHub|The name of your [task hub](./durable-functions-task-hubs.md)|
 |WorkerName|The name of the worker runs the function|
