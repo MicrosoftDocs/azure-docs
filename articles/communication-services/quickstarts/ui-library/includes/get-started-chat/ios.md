@@ -55,7 +55,7 @@ In Xcode, create a new project:
 
 1. Run `pod install --repo-update`.
 
-1. In Xcode, open the generated *.xcworkspace* file.
+1. In Xcode, open the generated *xcworkspace* file.
 
 ### Turn off Bitcode
 
