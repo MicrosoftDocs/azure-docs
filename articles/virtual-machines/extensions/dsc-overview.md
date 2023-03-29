@@ -36,9 +36,9 @@ Several versions of Desired State Configuration are available for implementation
 
 | Version | Availability | Description |
 | --- | --- | --- |
-| **DSC 2.0** | General availability | [Desired State Configuration 2.0](/powershell/dsc/overview?view=dsc-2.0&preserve-view=true) is supported for use with the Azure Automanage [Machine Configuration](../../governance/machine-configuration/overview.md) feature. The machine configuration feature combines features of the DSC extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md). |
-| **DSC 1.1** | General availability | If your implementation doesn't use the Azure Automanage machine configuration feature, you should choose Desired State Configuration 1.1. For more information, see [PSDesiredStateConfiguration v1.1](/powershell/dsc/overview?view=dsc-1.1&preserve-view=true). |
-| **DSC 3.0** | Public preview | [Desired State Configuration 3.0 is available in public beta](/powershell/dsc/overview?view=dsc-3.0&preserve-view=true). This version should be used only with Azure machine configuration, or for nonproduction environments to test migrating away from Desired State Configuration 1.1. |
+| **2.0** | General availability | [Desired State Configuration 2.0](/powershell/dsc/overview?view=dsc-2.0&preserve-view=true) is supported for use with the Azure Automanage [Machine Configuration](../../governance/machine-configuration/overview.md) feature. The machine configuration feature combines features of the DSC extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Machine configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md). |
+| **1.1** | General availability | If your implementation doesn't use the Azure Automanage machine configuration feature, you should choose Desired State Configuration 1.1. For more information, see [PSDesiredStateConfiguration v1.1](/powershell/dsc/overview?view=dsc-1.1&preserve-view=true). |
+| **3.0** | Public preview | [Desired State Configuration 3.0 is available in public beta](/powershell/dsc/overview?view=dsc-3.0&preserve-view=true). This version should be used only with Azure machine configuration, or for nonproduction environments to test migrating away from Desired State Configuration 1.1. |
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ The WMF installation process requires a restart. After you restart, the extensio
 
 ### Default configuration script
 
-The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager (ARM) templates](dsc-template.md). For the full script, see the [Azure Quickstart Template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/azmgmt-demo/nestedtemplates/scripts/UpdateLCMforAAPull.zip).
+The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation State Configuration service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager (ARM) templates](dsc-template.md). For the full script, see the [Azure Quickstart Template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/azmgmt-demo/nestedtemplates/scripts/UpdateLCMforAAPull.zip).
 
 ## Azure Automation State Configuration registration
 
@@ -204,24 +204,29 @@ To set up the DSC extension in the Azure portal, follow these steps:
 
 1. Select **PowerShell Desired State Configuration**, then select **Next**.
 
-1. Configure the following settings for the PowerShell DSC extension:
-
-   - **Configuration Modules or Script**: (Required) Configuration modules and scripts require a .ps1 file that has a configuration script or a .zip file with a .ps1 configuration script at the root. If you use a .zip file, all dependent resources must be included in module folders in the .zip file. You can create the .zip file by using the **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet that's included in the Azure PowerShell SDK. The .zip file is uploaded to your user Blob Storage and secured by an SAS token.
+1. Configure the following parameters for the DSC extension.
 
    > [!Note]
-   > The form isn't updated for the [default configuration script](#default-configuration-script).
+   > If you're working with a [default configuration script](#default-configuration-script), keep in mind that most of the following parameters must be defined directly in the Azure portal rather than through the script.
 
-   - **Module-qualified Name of Configuration**: Specify this setting to include multiple configuration functions in a single .ps1 script file. For this setting, enter the name of the configuration .ps1 script file followed by a slash `\` and then the name of the configuration function. For example, if the .ps1 script file has the name **configuration.ps1** and the configuration name is **IisInstall**, enter the value `configuration.ps1\IisInstall` for the setting.
+   - **Configuration Modules or Script**: (Required) Provide the Configuration modules or script file for your VM.
+   
+      Configuration modules and scripts require a .ps1 file that has a configuration script or a .zip file with a .ps1 configuration script at the root. If you use a .zip file, all dependent resources must be included in module folders in the .zip file. You can create the .zip file by using the **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet that's included in the Azure PowerShell SDK. The .zip file is uploaded to your user Blob Storage and secured by an SAS token.
 
-   - **Configuration Arguments**: If the configuration function takes arguments, enter the values by using the format `argumentName1=value1,argumentName2=value2`. Notice that this format differs from the format used to specify configuration arguments in PowerShell cmdlets or ARM templates.
+   - **Module-qualified Name of Configuration**: (Required) Specify this setting to include multiple configuration functions in a single .ps1 script file. For this setting, enter the name of the configuration .ps1 script file followed by a slash `\` and then the name of the configuration function. For example, if the .ps1 script file has the name **configuration.ps1** and the configuration name is **IisInstall**, enter the value `configuration.ps1\IisInstall` for the setting.
+
+   - **Configuration Arguments**: If the configuration function takes arguments, enter the values by using the format `argumentName1=value1,argumentName2=value2`. Notice that this format differs from the format that's used to specify configuration arguments in PowerShell cmdlets or ARM templates.
+
+      > [!Note]
+      > The configuration arguments can be defined in a [default configuration script](#default-configuration-script).
 
    - **Configuration Data PSD1 File**: If your configuration requires a configuration data file in .psd1 format, use this setting to select the data file and upload it to your user Blob Storage. The configuration data file is secured with an SAS token in Blob Storage.
 
-   - **WMF Version**: Use this setting to specify the version of Windows Management Framework to install on your VM. If you choose **latest**, which is the default value, the system installs the most recent version of WMF. Other possible values include 4.0, 5.0, and 5.1. The possible values are subject to updates.
+   - **WMF Version**: Specify the version of Windows Management Framework to install on your VM. If you choose **latest**, which is the default value, the system installs the most recent version of WMF. Other possible values include 4.0, 5.0, and 5.1. The possible values are subject to updates.
 
    - **Data Collection**: Enable this setting if you want the DSC extension to collect telemetry about your VM. For more information, see [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
 
-   - **Version**: This setting specifies the version of the DSC extension to install. For information about versions, see [Azure DSC extension version history](../../automation/automation-dsc-extension-history.md).
+   - **Version**: (Required) Specify the version of the DSC extension to install. For information about versions, see [Azure DSC extension version history](../../automation/automation-dsc-extension-history.md).
 
    - **Auto Upgrade Minor Version**: This setting maps to the `AutoUpdate` switch in the cmdlets. Configure this setting to enable the DSC extension to automatically update to the latest version during installation. **Yes** instructs the DSC extension handler to use the latest available version. **No** (default) forces installation of the version you specify in the **Version** setting.
 
@@ -229,7 +234,7 @@ To set up the DSC extension in the Azure portal, follow these steps:
 
 ## DSC extension logs
 
-You can view logs for the Azure DSC extension under `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`.
+You can view logs for the Azure DSC extension on the VM under `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`.
 
 ## Next steps
 
