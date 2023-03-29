@@ -125,7 +125,7 @@ resource cluster 'Microsoft.HDInsight/clusters@2021-06-01' = {
 
 You can fix the issue automatically by selecting **Quick Fix** as shown on the following screenshot:
 
-:::image type="content" source="./media/linter-rule-use-parent-property/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png" alt-text="Screenshot of use resource symbol reference quick fix.":::
+:::image type="content" source="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png" alt-text="Screenshot of use resource symbol reference quick fix.":::
 
 ## Next steps
 
