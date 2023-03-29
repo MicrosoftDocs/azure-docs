@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Access data with managed identity in Java'
+title: 'Tutorial: Access data with managed identity in Java JBoss EAP'
 description: Secure Azure Database for MySQL connectivity with managed identity from a sample Java JBoss EAP app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial

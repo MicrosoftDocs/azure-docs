@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Access data with managed identity in Java'
+title: 'Tutorial: Access data with managed identity in Java Tomcat'
 description: Secure Azure Database for MySQL connectivity with managed identity from a sample Java Tomcat app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.custom: passwordless-java, service-connector
 
 # Tutorial: Connect to a MySQL Database from Java Tomcat App Service without secrets using a managed identity
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](../mysql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn how to:
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](../mysql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Create a MySQL database.
@@ -208,9 +208,4 @@ az webapp browse \
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"]
-> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
-
-Learn how to secure your app with a custom domain and certificate.
-
-> [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+> [Java in App Service Linux dev guide](../app-service/configure-language-java.md?pivots=platform-linux)
