@@ -295,7 +295,7 @@ items:
     - name: Teams Interoperability 
       items:
       - name: Enable inline image support in your chat app
-        href: tutorials/meeting-interop-features-inline-image.md
+        href: tutorials/chat-interop/meeting-interop-features-inline-image.md
     - name: Mobile integrations
       items:
       - name: Enable push notifications in your chat app
