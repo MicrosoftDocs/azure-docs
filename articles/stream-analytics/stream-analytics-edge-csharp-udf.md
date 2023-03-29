@@ -5,7 +5,7 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 03/29/2023
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
