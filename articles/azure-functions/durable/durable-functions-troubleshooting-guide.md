@@ -112,6 +112,7 @@ traces
 
 |Column |Description |
 |-------|------------|
+|pid|Process ID of the function app. This is useful for understanding if a process was recycled while an orchestration was executing.|
 |eventType|The name of the event.|
 |eventId|An auto-incrementing integer value that identifies an activity, timer, or sub-orchestration for a particular orchestration instance.|
 |extendedSession|Boolean value indicating whether ExtendedSessions is enabled.|
@@ -138,10 +139,12 @@ let targetInstanceId = "XXXXXX"; // edit this
 let start = datetime(XXXX-XX-XXTXX:XX:XX); 
  traces  
 | where timestamp > start and timestamp < start + 1h
-| extend logLevel = customDimensions["LogLevel"] 
 | extend instanceId = customDimensions["prop__InstanceId"] 
+| extend logLevel = customDimensions["LogLevel"]
+| extend functionName = customDimensions["prop__functionName"]
+| extend status = customDimensions["prop__status"]
 | extend details = customDimensions["prop__Details"] 
-| where logLevel in ("Error", "Warning") 
+| where severityLevel > 1 //when severityLevel == 2, it's a warning; when severityLevel ==3, then it means a error. 
 | where instanceId == targetInstanceId
 | sort by timestamp asc 
 ```
