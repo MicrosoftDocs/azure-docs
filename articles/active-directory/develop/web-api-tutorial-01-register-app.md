@@ -1,5 +1,5 @@
 ---
-title: "Tutorial:  Register an application with the Microsoft identity platform"
+title: "Tutorial:  Register a web API with the Microsoft identity platform"
 description: In this tutorial, you learn how to register a web API with the Microsoft identity platform.
 author: cilwerner
 ms.author: cwerner
@@ -10,7 +10,7 @@ ms.date: 11/1/2022
 #Customer intent: As an application developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.
 ---
 
-# Tutorial: Register an application with the Microsoft identity platform 
+# Tutorial: Register a web API with the Microsoft identity platform 
 
 To interact with the Microsoft identity platform, Azure Active Directory (Azure AD) must be made aware of the application you create. This tutorial shows you how to register an application in a tenant on the Azure portal. 
 
@@ -61,7 +61,8 @@ Once the API is registered, you can configure its permission by defining the sco
     1. In the **Admin consent description** box, enter `Allows the application to read weather forecast data`. 
     1. In the **User consent display name** box, enter `Read forecast data`. 
     1. In the **User consent description** box, enter `Allows the application to read weather forecast data`. 
-1. Select **Add scope**. If the scope has been entered correctly, it will be listed in the **Expose an API** pane. 
+    1. Ensure that the **State** is set to **Enabled**.
+1. Select **Add scope**. If the scope has been entered correctly, it'll be listed in the **Expose an API** pane. 
 
     :::image type="content" source="./media/web-api-tutorial-01-register-app/add-a-scope-inline.png" alt-text="Screenshot that shows the field values when adding the scope to an API." lightbox="./media/web-api-tutorial-01-register-app/add-a-scope-expanded.png"::: 
 

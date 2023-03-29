@@ -74,8 +74,12 @@ You can use scoping filters to define attribute-based rules that determine which
 
 ### B2B (guest) users
 
-It's possible to use the Azure AD user provisioning service to provision B2B (guest) users in Azure AD to SaaS applications. 
-However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../external-identities/configure-saas-apps.md).
+It's possible to use the Azure AD user provisioning service to provision B2B (guest) users in Azure AD to SaaS applications. However, for B2B users to sign in to the SaaS application using Azure AD, you must manually configure the SaaS application to use Azure AD as a Security Assertion Markup Language (SAML) identity provider. 
+
+Follow these general guidelines when configuring SaaS apps for B2B (guest) users:  
+- For most of the apps, user setup needs to happen manually. Users must be created manually in the app as well.
+- For apps that support automatic setup, such as Dropbox, separate invitations are created from the apps. Users must be sure to accept each invitation.
+- In the user attributes, to mitigate any issues with mangled user profile disk (UPD) in guest users, always set the user identifier to **user.mail**.
 
 > [!NOTE]
 > The userPrincipalName for a B2B user represents the external user's email address alias@theirdomain as "alias_theirdomain#EXT#@yourdomain". When the userPrincipalName attribute is included in your attribute mappings as a source attribute, and a B2B user is being provisioned, the #EXT# and your domain is stripped from the userPrincipalName, so only their original alias@theirdomain is used for matching or provisioning. If you require the full user principal name including #EXT# and your domain to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. <br />

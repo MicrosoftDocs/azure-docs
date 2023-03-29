@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add live stream to your app
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add live stream calling capabilities to your app using Azure Communication Services.
+description: In this quickstart, you learn how to add live stream calling capabilities to your app using Azure Communication Services.
 author: sharifrahaman
 services: azure-communication-services
 
@@ -15,25 +15,25 @@ ms.custom: mode-other
 
 # Live stream quick start
 
-Live streaming will empower Contoso to engage thousands of online attendees by adding interactive live audio and video streaming functionality into their web and 
-mobile applications that their audiences will love, no matter where they are. Interactive Live Streaming is the ability to broadcast media content to thousands of online 
-attendees while enabling some attendees to share their live audio and video, interact via chat, and engage with metadata content such as reactions, polls, quizzes, ads, etc.
+Live streaming empower Contoso to engage thousands of online attendees by adding interactive live audio and video streaming functionality into their web and mobile applications that their audiences love, no matter where they are.
+
+Interactive Live Streaming is the ability to broadcast media content to thousands of online  attendees while enable some attendees to share their live audio and video, interact via chat, and engage with metadata content such as reactions, polls, quizzes, ads, etc.
 
 ## Prerequisites
 [!INCLUDE [Public Preview](../../includes/private-preview-include-section.md)]
 
-- [Rooms](../rooms/get-started-rooms.md) meeting will be needed for role-based streaming.
-- The quick start examples here are available with the private preview version [1.11.0-alpha.20230124.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-alpha.20230124.1) of the calling Web SDK. Make sure to use that or higher version when trying this quick start.
+- [Rooms](../rooms/get-started-rooms.md) meeting is needed for role-based streaming.
+- The quick start examples here are available with the preview version [1.11.0-alpha.20230124.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.11.0-alpha.20230124.1) of the calling Web SDK. Make sure to use that or higher version when trying this quick start.
 
 ## Live streaming with Rooms
 Room participants can be assigned one of the following roles: **Presenter**, **Attendee** and **Consumer**. By default, a user is assigned an **Consumer** role, if no other role is assigned.
 
-Participants with `Consumer` role will be receiving only the live stream. They won't be able to speak or share video or screen. Developers shouldn't show the unmute, share video, and screen option to end users/consumers. Live stream supports both open and closed Rooms. In Open Rooms the default role is `Consumer`.
+Participants with `Consumer` role receive only the live stream. They're not able to speak or share video or screen. Developers shouldn't show the unmute, share video, and screen option to end users/consumers. Live stream supports both open and closed Rooms. In Open Rooms, the default role is `Consumer`.
 On the other hand, Participants with other roles receive both real-time and live stream. Developers can choose either stream to play.
 Check [participant roles and permissions](../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions) to know more about the roles capabilities.
 
 ### Place a Rooms call (start live streaming)
-Live streaming will start when the Rooms call starts.
+Live streaming start when the Rooms call starts.
 
 ```js
 const context = { roomId: '<RoomId>' }
@@ -94,6 +94,6 @@ call.feature(Features.LiveStream).on('participantCountChanged', e => {
 For more information, see the following articles:
 
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
-- Get started with the [UI Library](https://aka.ms/acsstorybook)
+- Get started with the [UI Library](../../concepts/ui-library/ui-library-overview.md)
 - Learn about [Calling SDK capabilities](./getting-started-with-calling.md?pivots=platform-web)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

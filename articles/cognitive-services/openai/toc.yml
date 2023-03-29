@@ -20,10 +20,13 @@ items:
   items:
     - name: GPT-3
       href: quickstart.md
-    - name: ChatGPT
+    - name: GPT-35-Turbo (preview) & GPT-4 (preview)
       href: chatgpt-quickstart.md  
+      displayName: ChatGPT, chatgpt
 - name: Concepts
   items:
+    - name: Prompt engineering
+      href: ./concepts/prompt-engineering.md
     - name: Content filtering
       href: ./concepts/content-filter.md
     - name: Embeddings
@@ -32,8 +35,9 @@ items:
   items:
     - name: Resource creation & model deployment
       href: ./how-to/create-resource.md
-    - name: Use Chat Markup Language (ChatML)
+    - name: GPT-35-Turbo (preview) & GPT-4 (preview)
       href: ./how-to/chatgpt.md
+      displayName: ChatGPT, chatgpt
     - name: Completions
       href: ./how-to/completions.md
     - name: Work with code (Codex)

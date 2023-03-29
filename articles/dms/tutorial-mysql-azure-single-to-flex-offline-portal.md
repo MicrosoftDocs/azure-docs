@@ -188,6 +188,8 @@ To register the Microsoft.DataMigration resource provider, perform the following
 11. Select **Go to resource**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/9-1-go-to-resource.png" alt-text="Screenshot of a Select Go to resource.":::
 
+12. Identify the IP address of the DMS instance from the resource overview page and create a firewall rule for your source single server and target flexible server allow-listing the IP address of the DMS instance.
+
 ### Create a migration project
 
 To create a migration project, perform the following steps.  

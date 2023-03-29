@@ -7,7 +7,7 @@ author: balapv
 ms.author: balapv
 ms.reviewer: larryfr
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.date: 08/25/2022
 ms.topic: how-to
 ms.custom: sdkv2, ignite-2022

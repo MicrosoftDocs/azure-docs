@@ -1,20 +1,22 @@
 ---
-title: "Configuring Azure Policy with network groups in Azure Virtual Network Manager (Preview)"
+title: "Configuring Azure Policy with network groups in Azure Virtual Network Manager"
 description: Learn about how to utilize Azure Policy to configure a high scale and dynamic network group used with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 3/22/2023
 ms.custom: template-concept
 ---
 
-# Configuring Azure Policy with network groups in Azure Virtual Network Manager (Preview)
+# Configuring Azure Policy with network groups in Azure Virtual Network Manager
 
-In this article, you'll learn how [Azure Policy](../governance/policy/overview.md) is used in Azure Virtual Network Manager to define dynamic network group membership. Dynamic network groups allow you to create scalable and dynamically adapting virtual network environments in your organization. 
+In this article, you learn how [Azure Policy](../governance/policy/overview.md) is used in Azure Virtual Network Manager to define dynamic network group membership. Dynamic network groups allow you to create scalable and dynamically adapting virtual network environments in your organization. 
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -30,7 +32,7 @@ Azure Policy evaluates resources in Azure by comparing the properties of those r
 
 Creating and implementing a policy in Azure Policy begins with creating a policy definition resource. Every policy definition has conditions under which it's enforced, and a defined effect that takes place if the conditions are met.
 
-With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The `addToNetworkGroup` effect is used to accomplish this. The following is a sample of a policy rule definition with the `addToNetworkGroup` effect. 
+With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The `addToNetworkGroup` effect is used to accomplish this. Here's a sample of a policy rule definition with the `addToNetworkGroup` effect. 
 
 ```json
 
@@ -56,7 +58,7 @@ Learn more about [policy definition structure](../governance/policy/concepts/def
 
 ## Policy assignments
 
-Similar to Virtual Network Manager configurations, policy definitions don't immediately take effect when you create them. To begin applying, you must create a Policy Assignment, which assigns a definition to evaluate at a given scope. Currently, all resource within the scope will be evaluated against the definition. This allows you to have a single reusable definition that you can assign at multiple places for more granular group membership control. Learn more information on the [Assignment Structure](../governance/policy/concepts/assignment-structure.md) for Azure Policy.
+Similar to Virtual Network Manager configurations, policy definitions don't immediately take effect when you create them. To begin applying, you must create a Policy Assignment, which assigns a definition to evaluate at a given scope. Currently, all resources within the scope are evaluated against the definition. This allows you to have a single reusable definition that you can assign at multiple places for more granular group membership control. Learn more information on the [Assignment Structure](../governance/policy/concepts/assignment-structure.md) for Azure Policy.
   
 Policy definitions and assignment can be created through with API/PS/CLI or [Azure Policy Portal]().
 
@@ -72,22 +74,29 @@ To set the needed permissions, users can be assigned built-in roles with [role-b
 - **Resource Policy Contributor** role at the target scope level.
 
 For more granular role assignment, you can create [custom roles](../role-based-access-control/custom-roles-portal.md) using the `networkGroups/join/action` permission and `policy/write` permission.
+
+Along with the required permissions, your subscriptions and management groups must be registered with the following resource providers:
+- `Microsoft.Network` is required to create virtual networks.
+- `Microsoft.PolicyInsights` is required to use Azure Policy.
+
+To set register the needed providers, use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) in Azure PowerShell or [az provider register](/cli/azure/provider) in Azure CLI.
+
 ## Helpful tips
 
 ### Type filtering
 
-When configuring your policy definitions, it's recommended to always include a **type** condition to scope it to virtual networks. This will allow Policy to filter out non virtual network operations and improve the efficiency of your policy resources.
+When configuring your policy definitions, it's recommended to always include a **type** condition to scope it to virtual networks. This allows Policy to filter out non virtual network operations and improve the efficiency of your policy resources.
 
 ### Regional slicing
 
-Policy resources are global, which means that any change will take effect on all resources under the assignment scope, regardless of region. If regional slicing and gradual rollout is a concern for you, it's recommended to also include a `where location in []` condition. Then, you can incrementally expand the locations list to gradually roll out the effect.
+Policy resources are global, which means that any change takes effect on all resources under the assignment scope, regardless of region. If regional slicing and gradual rollout is a concern for you, it's recommended to also include a `where location in []` condition. Then, you can incrementally expand the locations list to gradually roll out the effect.
 
 ### Assignment scoping
 If you're following management group best practices using [Azure management groups](../governance/management-groups/overview.md), it's likely you already have your resources organized in a hierarchy structure. Using assignments, you can assign the same definition to multiple distinct scopes within your hierarchy, allowing you to have higher granularity control of which resources are eligible for your network group
 
 ### Deleting an Azure Policy definition associated with a network group
 
-You may come across instances where you no longer need an Azure Policy definition. This could be when a network group associated with a Policy is deleted, or you have a unused Policy no longer need. To delete the Policy, you need to delete the Policy association object and then delete the policy definition in [Azure Policy](../governance/policy/tutorials/create-custom-policy-definition.md#clean-up-resources). Once this has been completed, the definition cannot be reused or re-referenced by name when associating a new definition to a network group.
+You may come across instances where you no longer need an Azure Policy definition. This could be when a network group associated with a Policy is deleted, or you have an unused Policy that you no longer need. To delete the Policy, you need to delete the Policy association object, and then delete the policy definition in [Azure Policy](../governance/policy/tutorials/create-custom-policy-definition.md#clean-up-resources). Once this has been completed, the definition can't be reused or re-referenced by name when associating a new definition to a network group.
 
 ## Next steps
 

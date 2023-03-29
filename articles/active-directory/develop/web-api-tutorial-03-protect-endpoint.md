@@ -43,9 +43,10 @@ In this tutorial:
                 options.TokenValidationParameters.NameClaimType = "name";
             }, options => { builder.Configuration.Bind("AzureAd", options); });
 
-        builder.Services.AddAuthorization(options =>
+        builder.Services.AddAuthorization(config =>
         {
-            options.FallbackPolicy = options.DefaultPolicy;
+            config.AddPolicy("AuthZPolicy", policyBuilder =>
+                policyBuilder.Requirements.Add(new ScopeAuthorizationRequirement() { RequiredScopesConfigurationKey = $"AzureAd:Scopes" }));
         });
 
     // Add services to the container.
