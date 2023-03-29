@@ -81,7 +81,7 @@ Follow these steps to create a new console application.
     
         # Ask Azure OpenAI
         response = openai.Completion.create(engine=deployment_id, prompt=prompt, max_tokens=100)
-        text = response['choices'][0]['text'].replace('\n', '').replace(' .', '.').strip()
+        text = response['choices'][0]['text'].replace('\n', ' ').replace(' .', '.').strip()
         print('Azure OpenAI response:' + text)
         
         # Azure text-to-speech output
