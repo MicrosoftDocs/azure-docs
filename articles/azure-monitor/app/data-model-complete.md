@@ -279,7 +279,7 @@ The metric with the custom property `CustomPerfCounter` set to `true` indicates 
 PageView telemetry (in [Application Insights](./app-insights-overview.md)) is logged when an application user opens a new page of a monitored application. The `Page` in this context is a logical unit that's defined by the developer to be an application tab or a screen and isn't necessarily correlated to a browser webpage load or a refresh action. This distinction can be further understood in the context of single-page applications (SPAs), where the switch between pages isn't tied to browser page actions. The [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) is the time it takes for the application to present the page to the user.
 
 > [!NOTE]
-> * By default, Application Insights SDKs log single `PageView` events on each browser webpage load action, with [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) populated by [browser timing](#measuring-browsertiming-in-application-insights). Developers can extend additional tracking of `PageView` events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
+> * By default, Application Insights SDKs log single `PageView` events on each browser webpage load action, with [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) populated by [browser timing](#measure-browsertiming-in-application-insights). Developers can extend additional tracking of `PageView` events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
 > * The default logs retention is 30 days. If you want to view `PageView` statistics over a longer period of time, you must adjust the setting.
 
 ### Measure browserTiming in Application Insights

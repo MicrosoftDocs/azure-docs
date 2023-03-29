@@ -10,7 +10,7 @@ ms.reviewer: mmcc
 
 # Track incoming requests with OpenCensus Python
 
-OpenCensus Python and its integrations collect incoming request data. Track incoming request data sent to your web applications built on top of the popular web frameworks Django, Flask, and Pyramid. Application Insights receives the data as `requests` telemetry.
+OpenCensus Python and its integrations collect incoming request data. You can track incoming request data sent to your web applications built on top of the popular web frameworks Django, Flask, and Pyramid. Application Insights receives the data as `requests` telemetry.
 
 First, instrument your Python application with the latest [OpenCensus Python SDK](./opencensus-python.md).
 

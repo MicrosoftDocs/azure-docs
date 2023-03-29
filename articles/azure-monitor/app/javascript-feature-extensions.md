@@ -116,7 +116,7 @@ The following key properties are captured by default when the plug-in is enabled
 ### Custom event properties
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
-| Name                  | The name of the custom event. More information on how a name gets populated is shown in the [preceding section](#use-the-plugin).| About              |
+| Name                  | The name of the custom event. More information on how a name gets populated is shown in the [preceding section](#use-the-plug-in).| About              |
 | itemType              | Type of event.                                      | customEvent      |
 |sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
 
