@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/27/2023
+ms.date: 03/29/2023
 ms.author: jasteppe
 ---
 
@@ -30,9 +30,9 @@ The device mapping contains collections of expression templates used to extract 
 > [!TIP]
 > For more information about how the MedTech service processes device message data into FHIR Observations for persistence on the FHIR service, see [Understand the MedTech service device message processing stages](understand-service.md).
 
-This diagram provides an illustration of what happens during the normalization processing stage within the MedTech service.
+This diagram provides an illustration of what happens during the normalization stage within the MedTech service.
 
-:::image type="content" source="media/overview-of-device-mapping/normalization-processing-stage-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization processing stage." lightbox="media/overview-of-device-mapping/normalization-processing-stage-diagram.png":::
+:::image type="content" source="media/overview-of-device-mapping/normalization-stage-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization stage." lightbox="media/overview-of-device-mapping/normalization-stage-diagram.png":::
 
 ## Device mapping validations
 
@@ -40,31 +40,35 @@ The normalization process validates the device mapping before allowing it to be 
 
 **Device mapping**
 
-| Element                  | Required |
-| :----------------------- | :------- |
-| TypeName                 | True     |
-| TypeMatchExpression      | True     |
-| DeviceIdExpression       | True     |
-| TimestampExpression      | True     |
-| Values[].ValueName       | True     |
-| Values[].ValueExpression | True     |
+|Element                 |Required in CalculatedContent|Required in IotJsonPathContent|
+|:-----------------------|:----------------------------|:-----------------------------|
+|typeName                |True                         |True                          |
+|typeMatchExpression     |True                         |True                          |
+|deviceIdExpression      |True                         |False                         |
+|timestampExpression     |True                         |False                         |
+|patientIdExpression     |True when the MedTech services's resolution type is set to **Create**; False when the MedTech service's resolution type is set to **Lookup**.|True when the MedTech service's resolution type is set to **Create**; False when the MedTech service's resolution type is set to **Lookup**.|
+|encounterIdExpression   |False                        |False                         |
+|correlationIdExpression |False                        |False                         |
+|values[].valueName      |True                         |True                          |
+|values[].valueExpression|True                         |True                          |
+|values[].Required       |True                         |True                          |
 
 > [!NOTE] 
-> `Values[].ValueName and Values[].ValueExpression` elements are only required if you have a value entry in the array. It's valid to have no values mapped. These elements are used when the telemetry being sent is an event.
+> `values[].ValueName, values[].ValueExpression`, `values[].Required` and elements are only required if you have a value entry in the array. It's valid to have no values mapped. These elements are used when the telemetry being sent is an event.
 >
 > For example, some scenarios may require creating a FHIR Observation in the FHIR service that does not contain a value.
 
 ## CollectionContent
 
-CollectionContent is the root template type used by the MedTech service device mapping. CollectionContent is a list of all templates that are used during the normalization processing stage. You can define one or more templates within CollectionContent, with each device message received by the MedTech service being evaluated against all templates.
+CollectionContent is the root template type used by the MedTech service device mapping. CollectionContent is a list of all templates that are used during the normalization stage. You can define one or more templates within CollectionContent, with each device message received by the MedTech service being evaluated against all templates.
 
 You can use these template types within CollectionContent depending on your use case:
 
-- [CalculatedContent](how-to-use-calculatedcontent-mappings.md) for device messages sent directly to your MedTech service event hub. CalculatedContent supports [JSONPath](https://goessner.net/articles/JsonPath/), as well as the advanced features of [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions) and the MedTech service [custom functions](how-to-use-custom-functions.md).
+- [CalculatedContent](how-to-use-calculatedcontent-mappings.md) for device messages sent directly to your MedTech service event hub. CalculatedContent supports [JSONPath](https://goessner.net/articles/JsonPath/), [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions), and the MedTech service [custom functions](how-to-use-custom-functions.md).
 
 and/or
 
-- [IotJsonPathContent](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContent currently only supports [JSONPath](https://goessner.net/articles/JsonPath/), [JMESPath](https://jmespath.org/), [JMESPath functions](https://jmespath.org/specification.html#built-in-functions). The MedTech service [custom functions](how-to-use-custom-functions.md) aren't supported using IotJsonPathContent. 
+- [IotJsonPathContent](how-to-use-iotjsonpathcontenttemplate-mappings.md) for device messages being routed through [Azure IoT Hub](/azure/iot-hub/iot-concepts-and-iot-hub) to your MedTech service event hub. IotJsonPathContent supports [JSONPath](https://goessner.net/articles/JsonPath/), [JMESPath](https://jmespath.org/), and [JMESPath functions](https://jmespath.org/specification.html#built-in-functions). The MedTech service [custom functions](how-to-use-custom-functions.md) aren't supported using IotJsonPathContent. 
 
 :::image type="content" source="media/overview-of-device-mapping/device-mapping-templates-diagram.png" alt-text="Diagram showing MedTech service device mapping templates architecture." lightbox="media/overview-of-device-mapping/device-mapping-templates-diagram.png":::
 
@@ -83,7 +87,7 @@ In this example, we're using a device message that is capturing `heartRate` data
 }
 ```
 
-We're using this device mapping for the normalization processing stage:
+We're using this device mapping for the normalization stage:
 
 ```json
 {
@@ -109,7 +113,7 @@ We're using this device mapping for the normalization processing stage:
 }
 ```
 
-The resulting normalized message looks like this after the normalization processing stage:
+The resulting normalized message looks like this after the normalization stage:
 
 ```json
 [
