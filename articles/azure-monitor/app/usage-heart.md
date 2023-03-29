@@ -59,9 +59,9 @@ These dimensions are measured independently, but they interact with each other a
 
 - If you're setting up the authenticated user context, instrument the below attributes:
 
-  | Source                               | Attribute            | Description                                |
-  |--------------------------------------|----------------------|--------------------------------------------|
-  | customEvents                         | user_AuthenticatedId | Unique authenticated user identifier       |
+| Source                               | Attribute            | Description                                |
+|--------------------------------------|----------------------|--------------------------------------------|
+| customEvents                         | user_AuthenticatedId | Unique authenticated user identifier       |
 
 **Footnotes**
 
