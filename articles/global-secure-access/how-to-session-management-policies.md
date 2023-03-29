@@ -23,8 +23,14 @@ Required. Lead with a light intro that describes what the article covers. Answer
 fundamental “why would I want to know this?” question. Keep it short.
 -->
 
-A l
+Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
 
+| Feature   | Microsoft Entra Private Access | Microsoft Entra Internet Access |
+|----------|-----------|------------|
+| Feature A | X |   |
+| Feature B |   | X |
+| Feature C | X | X |
+| Feature D | X |   |
 <!-- 3. H2s
 Required. Give each H2 a heading that sets expectations for the content that follows. 
 Follow the H2 headings with a sentence about how the section contributes to the whole.
