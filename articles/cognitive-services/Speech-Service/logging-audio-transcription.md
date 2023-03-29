@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # How to log audio and transcriptions for speech recognition
 
-You can enable logging for both audio input and recognized speech when using [speech-to-text](get-started-speech-to-text.md) or [speech translation](get-started-speech-to-text.md). For speech translation, only the audio and transcription of the original audio will be logged. The translations are not logged. This article describes how to enable, access and delete the audio and transcription logs.
+You can enable logging for both audio input and recognized speech when using [speech-to-text](get-started-speech-to-text.md) or [speech translation](get-started-speech-to-text.md). For speech translation, only the audio and transcription of the original audio will be logged. The translations aren't logged. This article describes how to enable, access and delete the audio and transcription logs.
 
 Audio and transcription logs can be used as input for [Custom Speech](custom-speech-overview.md) training. You might have other use cases.
 
@@ -147,7 +147,7 @@ Use the speech configuration with each [SpeechRecognizer](/objectivec/cognitive-
 
 #### Enable logging for speech translation with the Speech SDK
 
-For speech translation, only the audio and transcription of the original audio will be logged. The translations are not logged.
+For speech translation, only the audio and transcription of the original audio will be logged. The translations aren't logged.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -276,7 +276,7 @@ When logging is enabled (turned on) for a custom model endpoint, then you don't 
 
 You can enable audio and transcription logging for a custom model endpoint:
 - When you create the endpoint using the Speech Studio, REST API, or Speech CLI. For details about how to enable logging for a Custom Speech endpoint, see [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md#add-a-deployment-endpoint).
-- When you update the endpoint ([Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update)) using the [Speech-to-text REST API](rest-speech-to-text.md). For an example of how to update the logging setting for an endpoint, see [Turn off logging for a custom model endpoint](#turn-off-logging-for-a-custom-model-endpoint). Instead of setting the `contentLoggingEnabled` property to `true`, set it to `false` to disable logging for the endpoint.
+- When you update the endpoint ([Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_Update)) using the [Speech-to-text REST API](rest-speech-to-text.md). For an example of how to update the logging setting for an endpoint, see [Turn off logging for a custom model endpoint](#turn-off-logging-for-a-custom-model-endpoint). But instead of setting the `contentLoggingEnabled` property to `true`, set it to `false` to disable logging for the endpoint.
 
 ## Turn off logging for a custom model endpoint
 
@@ -328,7 +328,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The response body should reflect the new setting. Note that the name of the logging property in the response (`loggingEnabled`) is different from the name of the logging property that you set in the request (`contentLoggingEnabled`).
+The response body should reflect the new setting. The name of the logging property in the response (`loggingEnabled`) is different from the name of the logging property that you set in the request (`contentLoggingEnabled`).
 
 ## Get audio and transcription logs 
 
@@ -348,7 +348,7 @@ To download the endpoint logs:
 1. Select the link by endpoint name.
 1. Under **Content logging**, select **Download log**.
 
-With this approach you can download all available log sets at once. There is no way to download selected log sets in Speech Studio.
+With this approach you can download all available log sets at once. There's no way to download selected log sets in Speech Studio.
 
 ### Get audio and transcription logs with Speech-to-text REST API
 
@@ -410,7 +410,7 @@ Log ID for each log file is the last part of the URL in `"self"` element value. 
 
 Logging data is kept for 30 days. After this period, the logs are automatically deleted. However you can delete specific logs or a range of available logs at any time. 
 
-For any base or [custom model](how-to-custom-speech-deploy-model.md) endpoint you can delete all available logs, logs for a given time frame, or a particular log based on its Log ID. The deletion process is done asynchronously and can take up to one day depending on the amount of log files.
+For any base or [custom model](how-to-custom-speech-deploy-model.md) endpoint you can delete all available logs, logs for a given time frame, or a particular log based on its Log ID. The deletion process is done asynchronously and can take up to one day depending on the number of log files.
 
 To delete audio and transcription logs you must use the [Speech-to-text REST API](rest-speech-to-text.md). There isn't a way to delete logs using the Speech Studio.
 
@@ -421,7 +421,7 @@ To delete all logs or logs for a given time frame:
 - Base models: Use the [Endpoints_DeleteBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteBaseModelLogs) operation of the [Speech-to-text REST API](rest-speech-to-text.md). 
 - Custom model endpoints: Use the [Endpoints_DeleteLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteLogs) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
 
-Optionally, set the `endDate` of the audio logs deletion (specific day, UTC). Expected format: "yyyy-mm-dd". For instance, "2023-03-15" results in deleting all logs on March 15th, 2023 and before. 
+Optionally, set the `endDate` of the audio logs deletion (specific day, UTC). Expected format: "yyyy-mm-dd". For instance, "2023-03-15" results in deleting all logs on March 15, 2023 and before. 
 
 ### Delete specific log
 
