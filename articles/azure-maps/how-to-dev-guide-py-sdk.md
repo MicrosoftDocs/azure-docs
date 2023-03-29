@@ -350,7 +350,7 @@ The [Azure Maps Search package client library] in the *Azure SDK for Python Prev
 
 <!--------------------------------------------------------------------------------------------------------------->
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication]: azure-maps-authentication.md
 
 [Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview

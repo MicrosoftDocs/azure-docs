@@ -85,7 +85,7 @@ Users can register for passwordless phone sign-in directly within the Microsoft 
 1. Acquire a [Temporary Access Pass](../authentication/howto-authentication-temporary-access-pass.md) from your Admin or Organization. 
 2. Download and install the Microsoft Authenticator app on your mobile device. 
 3. Open Microsoft Authenticator and click **Add account** and then choose **Work or school account.**
-4. Choose **Sign in." 
+4. Choose **Sign in**. 
 5. Follow the instructions to sign-in with your account using the Temporary Access Pass provided by your Admin or Organization. 
 6. Once signed-in, continue following the additional steps to set up phone sign-in. 
 
