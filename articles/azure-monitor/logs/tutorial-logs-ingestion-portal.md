@@ -843,6 +843,6 @@ You can use the following sample data for the tutorial. Alternatively, you can u
 
 ## Next steps
 
-- [Complete a similar tutorial by using the Azure portal](tutorial-logs-ingestion-api.md)
+- [Complete a similar tutorial by using ARM templates](tutorial-logs-ingestion-api.md)
 - [Read more about custom logs](logs-ingestion-api-overview.md)
 - [Learn more about writing transformation queries](../essentials//data-collection-transformations.md)
