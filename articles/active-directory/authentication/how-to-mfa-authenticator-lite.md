@@ -58,12 +58,12 @@ To enable Authenticator Lite in the Azure portal, complete the following steps:
 
   Only users who are enabled for Microsoft Authenticator here can be enabled to use Authenticator Lite for sign-in, or excluded from it. Users who aren't enabled for Microsoft Authenticator can't see the feature. Users who have Microsoft Authenticator downloaded on the same device Outlook is downloaded on will not be prompted to register for Authenticator Lite in Outlook.
 
-<img width="1112" alt="image" src="https://user-images.githubusercontent.com/108090297/228603771-52c5933c-f95e-4f19-82db-eda2ba640b94.png">
+<img width="1112" alt="Entra portal Authenticator settings" src="https://user-images.githubusercontent.com/108090297/228603771-52c5933c-f95e-4f19-82db-eda2ba640b94.png">
 
 
   3. On the Configure tab, for **Microsoft Authenticator on companion applications**, change Status to Enabled, choose who to include or exclude from Authenticator Lite, and click Save.
 
-<img width="664" alt="image" src="https://user-images.githubusercontent.com/108090297/228603364-53f2581f-a4e0-42ee-8016-79b23e5eff6c.png">
+<img width="664" alt="Authenticator Lite configuration settings" src="https://user-images.githubusercontent.com/108090297/228603364-53f2581f-a4e0-42ee-8016-79b23e5eff6c.png">
 
 ### Enable Authenticator Lite via Graph APIs
 
