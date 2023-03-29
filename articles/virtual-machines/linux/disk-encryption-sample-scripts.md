@@ -78,7 +78,7 @@ The following table shows which parameters can be used in the PowerShell script:
 
 ### Prerequisites for OS disk encryption
 
-* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption supported operating systems](azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems)
+* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption supported operating systems](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems)
 * The VM must be created from the Marketplace image in Azure Resource Manager.
 * Azure VM with at least 4 GB of RAM (recommended size is 7 GB). See [Memory requirements](/azure/virtual-machines/linux/disk-encryption-overview#memory-requirements) for further information.
 * (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/sect-security-enhanced_linux-working_with_selinux-changing_selinux_modes#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
@@ -341,7 +341,7 @@ To configure encryption to work with Azure, do the following steps:
 
 6. Now you can deprovision the VM and upload your VHD into Azure.
 
-# [CentOS 7 and RHEL 7](tab/rhel)
+# [CentOS 7 and RHEL 7](#tab/rhel)
 
 To configure encryption during the distribution installation, do the following steps:
 
