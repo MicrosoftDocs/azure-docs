@@ -109,7 +109,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **Marketplace** | Represents the entire suite of Azure 'Commercial Marketplace Experiences' services. | Both | No | Yes |
 | **M365ManagementActivityApi** | The Office 365 Management Activity API provides information about various user, admin, system, and policy actions and events from Office 365 and Azure Active Directory activity logs. Customers and partners can use this information to create new or enhance existing operations, security, and compliance-monitoring solutions for the enterprise.<br/><br/>**Note**: This tag has a dependency on the **AzureActiveDirectory** tag. | Outbound | Yes | Yes |
 | **M365ManagementActivityApiWebhook** | Notifications are sent to the configured webhook for a subscription as new content becomes available. | Inbound | Yes | Yes |
-| **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. | Outbound | No | Yes |
+| **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. </br> **Note**: This tag has a dependency on the **AzureFrontDoor.Frontend** tag. | Outbound | No | Yes |
 | **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | Yes |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
 | **MicrosoftDefenderForEndpoint** | Microsoft Defender for Endpoint <br/></br>**Please note this service tag is currently not available and in progress. We will update once it is ready for use.**| Both | No | Yes |
