@@ -196,7 +196,7 @@ Do several updates to the web app project you created.
 ## Create Kubernetes resources
 
 1. Create a *AKS-AppConfiguration-Demo* directory in the root directory of your project.
-2. Create *appConfigurationProvider.yaml* in *AKS-AppConfiguration-Demo* directory with following yaml content. Replace the value of `endpoint` field with the endpoint of Azure AppConfiguration store you created in the previous step.
+2. Create *appConfigurationProvider.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of the `endpoint` field with the endpoint of the Azure AppConfiguration store you created in the previous step.
     ``` yaml
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
@@ -207,7 +207,7 @@ Do several updates to the web app project you created.
       target:
         configMapName: demo-configmap
     ```
-3. Create *deployment.yaml* in *AKS-AppConfiguration-Demo* directory with the following yaml content. Replace the value of `template.containers.image` with the image you created in the previous step.
+3. Create *deployment.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of `template.containers.image` with the image you created in the previous step.
     ``` yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -234,7 +234,7 @@ Do several updates to the web app project you created.
             - configMapRef:
                 name: demo-configmap
     ```
-4. Create *service.yaml* in *AKS-AppConfiguration-Demo* with the following yaml content. 
+4. Create *service.yaml* in the *AKS-AppConfiguration-Demo* with the following YAML content. 
     ``` yaml
     apiVersion: v1
     kind: Service
@@ -248,7 +248,7 @@ Do several updates to the web app project you created.
         app: configmap-demo-app
     ```
 
-## Apply the yaml files to AKS cluster and validate it works
+## Apply the YAML files to the AKS cluster and validate that it works
 
 Apply the resources to AKS cluster by running：
 ``` bash
@@ -256,36 +256,36 @@ kubectl create namespace quickstart-appconfig
 kubectl apply -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
 ```
 
-To check the synchronization status of AppConfigurationProvider, run the following command in your terminal, if the `phase` property in the `status` section of the output is `COMPLETE` , means the key-values have been successfully synced from Azure App Configuration. 
+To check the synchronization status of AppConfigurationProvider, run the following command in your terminal. If the `phase` property in the `status` section of the output is `COMPLETE` , it means that the key-values have been successfully synced from Azure App Configuration. 
 ``` bash
 kubectl get AppConfigurationProvider appconfigurationprovider-sample -n quickstart-appconfig -o yaml
 ```
 > [!TIP]
-> If you see other status in `phase`, you are presumably confronting some issue, you can run the following command to check what really happened in the provider.
+> If you see another status is displayed for `phase`, you are presumably confronting some issue. You can run the following command to check what happened with the provider.
 > ``` bash    
 > kubectl logs deployment/az-appconfig-k8s-provider -n azappconfig-system
 > ```   
 >
  
-There's a configMap *demo-configmap* being created in *quickstart-appconfig* namespace
+A configMap *demo-configmap* is being created in the *quickstart-appconfig* namespace
 ``` bash
 kubectl get configmap demo-configmap -n quickstart-appconfig
 ```
-Run the following command, you get the External IP that exposed by the LoadBalancer service, use it to visit the web app, you'll see the configuration settings in Azure AppConfiguration are taking effect on page.
+Run the following command and get the External IP that exposed by the LoadBalancer service. Use it to visit the web app,  You'll see that the configuration settings from the Azure App Configuration store are affecting the page.
 ``` bash
 kubectl get service configmap-demo-service -n quickstart-appconfig
 ```
 
 > [!TIP]
-> Currently, the provider doesn't support real-time configuration updating, if you update the configuration in Azure App Configuration, the setting in ConfigMap would not be updated automatically, you have three options to update the ConfigMap accordingly.
+> Currently, the provider doesn't support real-time configuration updating. Updating configuration in Azure App Configuration doesn't automatically update settings in ConfigMap. There are three options to update the ConfigMap:
 > 
-> Option 1: Delete and re-deploy that AzureAppConfigurationProvider.
+> Option 1: Delete and re-deploy that AzureAppConfigurationProvider resource.
 > 
-> Option 2: Delete the ConfigMap, it will automatically generate a new one.
+> Option 2: Delete the ConfigMap being created by the provider. It will automatically generate a new one.
 > 
-> Option 3: Set a dedicated annotation in the AzureAppConfigurationProvider, trigger settings update in ConfigMap via updating the value of that annotation
+> Option 3: Set a dedicated annotation in the AzureAppConfigurationProvider to trigger a settings update in ConfigMap.
 >
-> For example, set an annotation dynamic/timestamp with a time stamp, just need to refresh the time to trigger a setting update in ConfigMap
+> For example, set an annotation dynamic/timestamp with a time stamp and refresh the time to trigger a settings update in ConfigMap.
 > 
 > ``` yaml
 > apiVersion: azconfig.io/v1beta1
@@ -301,7 +301,7 @@ kubectl get service configmap-demo-service -n quickstart-appconfig
 > ```
 
 > [!NOTE]
-> In spite of the data in ConfigMap being updated, if the ConfigMap change is not watched by your workload (Deployment, Pod, etc.), your workload will not be able to apply the updated key-values in ConfigMap. We recommend using 3rd-party tools like [stakater/Reloader](https://github.com/stakater/Reloader) to watch the changes in ConfigMap, perform automatic rolling update of correlated workloads.
+> In spite of the data in ConfigMap being updated, if the ConfigMap change is not watched by your workload (Deployment, Pod, etc.), your workload will not be able to apply the updated key-values in ConfigMap. We recommend using 3rd-party tools like [stakater/Reloader](https://github.com/stakater/Reloader) to watch the changes in ConfigMap and perform automatic rolling update of correlated workloads.
 
 
 
