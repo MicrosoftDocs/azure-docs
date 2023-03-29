@@ -14,7 +14,7 @@ ms.author: allensu
 
 # View and modify the hostname
 
-The hostname of a virtual machine is the **Virtual machine name** that you assign to your virtual machine during creation in the Azure portal. After you create a virtual machine, you can view and modify the hostname either through a remote connection or in the Azure portal.
+The hostname identifies your virtual machine in the user interface and Azure operations. You first assign the hostname of a virtual machine in the **Virtual machine name** field during the creation process in the Azure portal. After you create a virtual machine, you can view and modify the hostname either through a remote connection or in the Azure portal.
 
 ## View hostnames
 You can view the hostnames of virtual machines and role instances in a cloud service by using any of the following tools.
@@ -45,9 +45,9 @@ From a REST client, follow these instructions:
 ## Modify a hostname
 You can modify the hostname for any virtual machine or role instance by renaming the computer from a remote desktop session or by using **Run command** in the Azure portal.
 
-* In Windows, you can change the hostname from PowerShell by using [Rename-Computer](/powershell/module/microsoft.powershell.management/rename-computer).
+* For a Windows virtual, you can change the hostname from PowerShell by using the [Rename-Computer](/powershell/module/microsoft.powershell.management/rename-computer) command. You can also run this command by selecting **RunPowerShellScript** and entering the command in the **Run Command Script** pane.
 
-* In Linux, you can change the hostname by using `hostnamectl`. 
+* In Linux, you can change the hostname by using `hostnamectl`. You can also run this command by selecting **RunShellScript** and entering the command in the **Run Command Script** pane.
 
 ## Azure classic deployment model
 
