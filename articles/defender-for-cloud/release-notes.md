@@ -60,7 +60,7 @@ Microsoft Defender for Cloud helps security teams to be more productive at reduc
 
 [Learn more](concept-data-security-posture.md) about data-aware security posture.
 
-### New experience for managing the Azure default security policy
+### Improved experience for managing the default Azure security policies
 
 We introduce an improved Azure security policy management experience for built-in recommendations that simplifies the way Defender for Cloud customers fine tune their security requirements. The new experience includes the following new capabilities:
 
@@ -70,7 +70,7 @@ We introduce an improved Azure security policy management experience for built-i
 
 Learn how to  [manage security policies](tutorial-security-policy.md). 
 
-Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog).
+Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/improved-experience-for-managing-the-default-azure-security/ba-p/3776522).
 
 ### Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)
 
