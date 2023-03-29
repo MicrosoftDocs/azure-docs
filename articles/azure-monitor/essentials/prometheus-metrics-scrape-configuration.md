@@ -11,24 +11,6 @@ ms.reviewer: aul
 
 This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the [metrics addon](prometheus-metrics-enable.md) in Azure Monitor.
 
-## Case sensitivity
-Azure managed Prometheus is a case insensitive system. If one time series differs from another only by a difference in the case of a string - metric name, label name, label value etc, it is treated as the same time series. This behavior is different from native open source Prometheus which is a case sensitive system.   
-
-In Azure managed Prometheus the follow time series are considered the same: 
-
-  `diskSize(cluster=”eastus”, node=”node1”, filesystem=”usr_mnt”)`  
-  `diskSize(cluster=”eastus”, node=”node1”, filesystem=”usr_MNT”)` 
-
-The above examples are a single time series in time series database.
--	Any samples ingested against them are be stored as if they're scraped/ingested against a single time series.
--	If the examples above are ingested with the same timestamp, one of them is randomly dropped.
--	The casing that's stored in the time series database and returned in query, is unpredictable. Different casing may be returned at different times for the same time series.
--	Any metric name or label name/value matcher present in the query, is retrieved from time series database by making a case-insensitive comparison. If there is a case sensitive matcher in a query, it's automatically treated as a case-insensitive matcher when making string comparisons.
-
-It is best practice to insure that a time series is produced or scraped using a single consistent case.
-
-In OSS Prometheus the above time series are treated as two different time series. Any samples scraped/ingested against them are stored separately.
-
 ## Configmaps
 
 Three different configmaps can be configured to change the default settings of the metrics addon:
