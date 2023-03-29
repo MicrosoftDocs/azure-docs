@@ -24,7 +24,7 @@ You must write the storage container name, blob path, tag name, or values in the
 
 **Can you pick the `Exists` operator in the visual ABAC condition builder in the Azure portal?**
 
-The `Exists` operator is only supported in the visual ABAC condition builder for some attributes. For a list of attributes for which it is supported, see [the *Exists* function operator](conditions-format.md#exists). To use the `Exists` operator with other attributes, you will need to add it to an expression using the **Code** editor.
+The `Exists` operator is only supported in the visual ABAC condition builder for some attributes. For a list of attributes for which it is supported, see [the *Exists* function operator](conditions-format.md#exists). To use the `Exists` operator with other attributes, you will need to add it to an expression using the **Code** editor in the portal.
 
 **Can you group expressions?**
 
