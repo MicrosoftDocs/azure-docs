@@ -83,9 +83,9 @@ However, there's an alternative, more dynamic approach. It's possible using diff
 
 :::image type="content" source="./media/scenarios/route-injection-split-route-server.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via ExpressRoute and two Route Servers.":::
 
-Route Server 1 in the hub is used to inject the prefixes from the SDWAN into ExpressRoute. Since the spoke VNets are peered with the hub VNet without the *Use the remote virtual network's gateway or Route Server* and *Allow gateway transit* VNet peering options, the spoke VNets don't learn these routes (neither the SDWAN prefixes nor the ExpressRoute prefixes).
+Route Server 1 in the hub is used to inject the prefixes from the SDWAN into ExpressRoute. Since the spoke VNets are peered with the hub VNet without the *Use the remote virtual network's gateway or Route Server* (in the spoke VNet peering) and *Use this virtual network's gateway or Route Server* (in the hub VNet peering), the spoke VNets don't learn these routes (neither the SDWAN prefixes nor the ExpressRoute prefixes).
 
-To propagate routes to the spoke VNets, the NVA uses Route Server 2, deployed in a new auxiliary VNet. The NVA will only propagate a single `0.0.0.0/0` route to Route Server 2. Since the spoke VNets are peered with this auxiliary VNet with *Use the remote virtual network's gateway or Route Server* and *Allow gateway transit* VNet peering options, the `0.0.0.0/0` route will be learned by all the virtual machines in the spokes.
+To propagate routes to the spoke VNets, the NVA uses Route Server 2, deployed in a new auxiliary VNet. The NVA will only propagate a single `0.0.0.0/0` route to Route Server 2. Since the spoke VNets are peered with this auxiliary VNet with *Use the remote virtual network's gateway or Route Server* (in the spoke VNet peering) and *Use this virtual network's gateway or Route Server* (in the hub VNet peering), the `0.0.0.0/0` route will be learned by all the virtual machines in the spokes.
 
 The next hop for the `0.0.0.0/0` route is the NVA, so the spoke VNets still need to be peered to the hub VNet. Another important aspect to notice is that the hub VNet needs to be peered to the VNet where Route Server 2 is deployed, otherwise it won't be able to create the BGP adjacency.
 
