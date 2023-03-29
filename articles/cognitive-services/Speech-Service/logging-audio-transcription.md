@@ -24,9 +24,9 @@ Audio and transcription logs can be used as input for [Custom Speech](custom-spe
 
 Logging is done asynchronously for both base and custom model endpoints. Audio and transcription logs are stored by the Speech service and not written locally. The logs are retained for 30 days. After this period, the logs are automatically deleted. However you can [delete](#delete-audio-and-transcription-logs) specific logs or a range of available logs at any time.
 
-## Enable audio and transcription logs
+## Enable audio and transcription logging
 
-Logging is disabled by default. Logging can be enabled [per transcription](#enable-logging-for-a-single-transcription) or [per custom model endpoint](#enable-audio-and-transcription-logs-for-a-custom-model-endpoint). 
+Logging is disabled by default. Logging can be enabled [per transcription](#enable-logging-for-a-single-transcription) or [per custom model endpoint](#enable-audio-and-transcription-logging-for-a-custom-model-endpoint). 
 
 ### Enable logging for a single transcription
 
@@ -265,7 +265,7 @@ If you use [Speech-to-text REST API for short audio](rest-speech-to-text-short.m
 https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&storeAudio=true
 ```
 
-### Enable audio and transcription logs for a custom model endpoint
+### Enable audio and transcription logging for a custom model endpoint
 
 This method is applicable for [Custom Speech](custom-speech-overview.md) endpoints only.
 
@@ -408,18 +408,26 @@ Log ID for each log file is the last part of the URL in `"self"` element value. 
 
 ## Delete audio and transcription logs
 
-Logging data is kept for 30 days. After this period, the logs are automatically deleted. However you can delete specific logs or a range of available logs at any time.
+Logging data is kept for 30 days. After this period, the logs are automatically deleted. However you can delete specific logs or a range of available logs at any time. 
 
-To delete audio and transcription logs for either a base or [custom model](how-to-custom-speech-deploy-model.md) endpoint, you must use the [Speech-to-text REST API](rest-speech-to-text.md). There isn't a way to delete logs using the Speech Studio.
+For any base or [custom model](how-to-custom-speech-deploy-model.md) endpoint you can delete all available logs, logs for a given time frame, or a particular log based on its Log ID. The deletion process is done asynchronously and can take up to one day depending on the amount of log files.
 
-For any endpoint you can delete all available logs, logs for a given time frame, or a particular log based on its Log ID.
+To delete audio and transcription logs you must use the [Speech-to-text REST API](rest-speech-to-text.md). There isn't a way to delete logs using the Speech Studio.
 
 ### Delete all logs or logs for a given time frame
 
-To delete all logs or logs for a given time frame, you use [Endpoints_DeleteBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteBaseModelLogs) (for base model endpoint) or [Endpoints_DeleteLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteLogs) (for custom model endpoints) request of the [Speech-to-text REST API](rest-speech-to-text.md).
+To delete all logs or logs for a given time frame:
+
+- Base models: Use the [Endpoints_DeleteBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteBaseModelLogs) operation of the [Speech-to-text REST API](rest-speech-to-text.md). 
+- Custom model endpoints: Use the [Endpoints_DeleteLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteLogs) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
+
+Optionally, set the `endDate` of the audio logs deletion (specific day, UTC). Expected format: "yyyy-mm-dd". For instance, "2023-03-15" results in deleting all logs on March 15th, 2023 and before. 
 
 ### Delete specific log
 
-To delete a specific log by ID, you use [Endpoints_DeleteBaseModelLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteBaseModelLog) (for base model endpoint) or [Endpoints_DeleteLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteLog) (for custom model endpoints) request of the [Speech-to-text REST API](rest-speech-to-text.md).
+To delete a specific log by ID:
+
+- Base models: Use the [Endpoints_DeleteBaseModelLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteBaseModelLog) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
+- Custom model endpoints: Use the [Endpoints_DeleteLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Endpoints_DeleteLog) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
 
 For details about how to get Log IDs, see a previous section [Get log IDs with Speech-to-text REST API](#get-log-ids-with-speech-to-text-rest-api).
