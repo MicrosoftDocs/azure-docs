@@ -54,21 +54,21 @@ The installation process takes about 20 minutes. After the installation, the sys
 
     - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-1. The initial console window lists installation languages. Select the language you want to use and press ENTER. For example:
+1. The initial console window lists installation languages. Select the language you want to use. For example:
 1. 
    :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Screenshot of selecting your preferred language for the installation process.":::
 
-1. The console lists a series of installation options. Select the option that best matches your requirements and then press ENTER. For example:
+1. The console lists a series of installation options. Select the option that best matches your requirements. <!--these are the old hw profiles. how to match them up?--> For example:
 
    :::image type="content" source="../media/tutorial-install-components/on-prem-install-screen.png" alt-text="Screenshot of selecting your management release version.":::
 
-    The installation wizard starts running, loading components and installing components. This step takes several minutes to complete, and includes system reboots.
+    The installation wizard starts running. This step takes several minutes to complete, and includes system reboots. <!--how many?-->
 
-    When complete, the following screen appears appears, prompting you to enter your management interface:
+    When complete, the a screen similar to the following appears, prompting you to enter your management interface:
 
    :::image type="content" source="../media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot of the management interface prompt.":::
 
-1. At each prompt, enter the following values and then press ENTER:
+1. At each prompt, enter the following values:
 
     |Prompt  |Value  |
     |---------|---------|
@@ -86,16 +86,21 @@ The installation process takes about 20 minutes. After the installation, the sys
     |`configure an IP address for the sensor monitoring interface`     |    Enter the secondary NIC's IP address |
     |`configure a subnet mask for the sensor monitoring interface`     | Enter the secondary NIC's subnet mask address.        |
 
-
     If you choose not to install the secondary NIC now, you can [do so at a later time](#add-a-secondary-nic-after-installation-optional).
 
 1. When prompted, enter `Y` to accept the settings. The installation process runs for about 10 minutes.
 
-1. When the installation process is complete, two sets of credentials appear for the default privileged users.
+1. When the installation process is complete, an appliance ID is displayed with a set of credentials for the *cyberx* privileged user. Save the credentials carefully as they won't be displayed again.
 
-    Save the usernames and passwords carefully as you'll need them to access the on-premises management console for the first time. For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
+    When you're ready, press **ENTER** to continue. An appliance ID is displayed with a set of credentials for the *support* privileged user. Save these credentials carefully as well, as they won't be displayed again either.
 
-1. Select **Enter** to continue.
+    For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
+
+1. When you're ready, press **ENTER** to continue.
+
+    You're prompted to sign in and the installation is complete.
+
+    Sign in using one of the privileged user credentials you'd saved earlier. Alternately, browse to the on-premises management console's IP address in a browser, and sign in to the UI using one of the privileged user credentials.
 
 ### Add a secondary NIC after installation (optional)
 
