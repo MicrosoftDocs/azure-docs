@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Scenarios 
-description: Learn how Azure Functions can help build robust serverless apps.
+description: Identify key scenarios that leverage Azure Functions to provide serverless compute resources in aa Azur cloud-based topology. 
 ms.topic: conceptual
 ms.date: 03/23/2023
 ---
