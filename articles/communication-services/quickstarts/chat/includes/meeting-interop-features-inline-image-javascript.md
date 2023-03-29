@@ -162,7 +162,113 @@ async function fetchPreviewImages(attachments) {
   });
 }
 ```
+
 Noticing in this example, we've created two helper functions - `fetchPreviewImages` and `setImgHandler` - where the first one fetches preview image directly from the `previewURL` provided in each `ChatAttachment` object with an auth header. Similarly, we set up a `onclick` event for each image in the function `setImgHandler`, and in the event handler, we fetch a full scale image from property `url` from the `ChatAttachment` object with an auth header.
+
+
+Another thing we need to do is to expose token on to global level since we need to construct an auth header with it. So we need to modify the following code: 
+
+```js
+// new variable for token string
+var tokenString = '';
+
+async function init() {
+
+   ....
+   
+   let tokenResponse = await identityClient.getToken(identityResponse, [
+      "voip",
+      "chat"
+	]);
+	const { token, expiresOn } = tokenResponse;
+   
+   // save to token string
+   tokenString = token;
+   
+   ...
+}
+
+```
+
+To show full scale image in an overlay, we need to add a new component as well:
+
+```html
+
+<div class="overlay" id="overlay-container">
+   <div class="content">
+      <img id="full-scale-image" src="" alt="" />
+   </div>
+</div>
+
+```
+
+with some CSS:
+
+```css
+.overlay .content {
+   position: fixed; 
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   overflow: hidden;
+   z-index: 100;
+   margin: auto;
+}
+
+.overlay img {
+   position: absolute;
+   display: block;
+   max-height: 90%;
+   max-width: 90%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+#overlay-container {
+   display: none
+}
+```
+
+Now we have an overlay set up, it's time to work on the logic to render full scale images. Recall that we have created a `onlick` event handler to call a function `fetchFullScaleImage`:
+
+```js
+
+const overlayContainer = document.getElementById('overlay-container');
+const loadingImageOverlay = document.getElementById('full-scale-image');
+
+function fetchFullScaleImage(e, imageAttachments) {
+  // get the image ID from the clicked image element
+  const link = imageAttachments.filter((attachment) =>
+    attachment.id === e.target.id)[0].url;
+  loadingImageOverlay.src = '';
+  
+  // fetch the image
+  fetch(walkaround(link), {
+    method: 'GET',
+    headers: {'Authorization': 'Bearer ' + tokenString},
+  }).then(async (result) => {
+   
+    // now we set image blob to our overlay element
+    const content = await result.blob();
+    const urlCreator = window.URL || window.webkitURL;
+    const url = urlCreator.createObjectURL(content);
+    loadingImageOverlay.src = url;
+  });
+  // show overlay
+  overlayContainer.style.display = 'block';
+}
+
+```
+
+One last thing we wanted to add is the ability to dismiss the overlay when clicking on the image:
+
+```js
+loadingImageOverlay.addEventListener('click', () => {
+  overlayContainer.style.display = 'none';
+});
+
+```
 
 Now we've concluded all the changes we need to render inline images for messages coming from real time notifications.
 
@@ -179,6 +285,7 @@ Webpack users can use the `webpack-dev-server` to build and run your app. Run th
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
+## Run the code 
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Screenshot of the completed JavaScript Application.":::
