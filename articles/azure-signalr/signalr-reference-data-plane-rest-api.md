@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: signalr
 ms.topic: reference
-ms.date: 03/29/3023
+ms.date: 03/29/2023
 ---
 
 # Azure SignalR service data plane REST API reference

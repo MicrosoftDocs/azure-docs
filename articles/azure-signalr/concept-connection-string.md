@@ -188,7 +188,7 @@ Endpoint=https://<resource_name>.service.signalr.net;AccessKey=<access_key>;Clie
 
 The app server returns a response to the client's negotiate request containing the correct endpoint URL for the client to connect to. For more information about client connections, see [Azure SignalR Service internals](signalr-concept-internals.md#client-connections).
 
-Similarly, the server wants to make [server connections](signalr-concept-internals.md#azure-signalr-service-internals) or call [REST APIs](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to the service, the SignalR service may also be behind another service like [Azure Application Gateway](/application-gateway/overview). In that case, you can use `ServerEndpoint` to specify the actual endpoint for server connections and REST APIs:
+Similarly, the server wants to make [server connections](signalr-concept-internals.md#azure-signalr-service-internals) or call [REST APIs](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) to the service, the SignalR service may also be behind another service like [Azure Application Gateway](../application-gateway/overview). In that case, you can use `ServerEndpoint` to specify the actual endpoint for server connections and REST APIs:
 
 ```text
 Endpoint=https://<resource_name>.service.signalr.net;AccessKey=<access_key>;ServerEndpoint=https://<url_to_app_gateway>;Version=1.0;

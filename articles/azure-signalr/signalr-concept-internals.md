@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 03/29/2023
-ms.author: lanwei
+ms.author: lianwei
 ---
 # Azure SignalR Service internals
 
