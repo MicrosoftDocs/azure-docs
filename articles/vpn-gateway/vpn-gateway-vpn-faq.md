@@ -30,7 +30,7 @@ You can connect to multiple sites by using Windows PowerShell and the Azure REST
 
 ### Is there an additional cost for setting up a VPN gateway as active-active?
 
-No.
+No.However, charges for additoinal public IP addresses still apply.
 
 ### What are my cross-premises connection options?
 
