@@ -301,7 +301,7 @@ Open your browser and navigate to http://localhost:8080/. Enter the meeting URL 
 
 | Preview Image shown | Full Scale Image shown after clicking on preview image |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-|:::image type="content" source="../meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images that reads - Clippy says hi from M365+"::: | :::image type="content" source="../meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an incoming message with inline images that reads - Clippy says hi from M365+"::: |
+|:::image type="content" source="../meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images that reads - Clippy says hi from M365+"::: | :::image type="content" source="../meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image of Clippy"::: |
 
 
 
