@@ -101,7 +101,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | {keyName} |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -425,7 +425,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | {containerName} |
@@ -518,13 +518,13 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | {containerName} |
 > | **Expression 2** |  |
 > | Operator | And |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob path](storage-auth-abac-attributes.md#blob-path) |
 > | Operator | [StringLike](../../role-based-access-control/conditions-format.md#stringlike) |
 > | Value | {pathString} |
@@ -640,13 +640,13 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | {containerName} |
 > | **Expression 2** |  |
 > | Operator | And |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob path](storage-auth-abac-attributes.md#blob-path) |
 > | Operator | [StringStartsWith](../../role-based-access-control/conditions-format.md#stringstartswith) |
 > | Value | {pathString} |
@@ -655,7 +655,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #2 | Setting |
 > | --- | --- |
 > | Actions | [List blobs](storage-auth-abac-attributes.md#list-blobs)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | {containerName} |
@@ -727,13 +727,13 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | {containerName} |
 > | **Expression 2** |  |
 > | Operator | And |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob path](storage-auth-abac-attributes.md#blob-path) |
 > | Operator | [StringLike](../../role-based-access-control/conditions-format.md#stringlike) |
 > | Value | {pathString} |
@@ -808,7 +808,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | {keyName} |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
@@ -820,7 +820,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #2 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob path](storage-auth-abac-attributes.md#blob-path) |
 > | Operator | [StringLike](../../role-based-access-control/conditions-format.md#stringlike) |
 > | Value | {pathString} |
@@ -910,7 +910,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Is Current Version](storage-auth-abac-attributes.md#is-current-version) |
 > | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | Value | True |
@@ -956,7 +956,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Value | &lt;blobVersionId&gt; |
 > | **Expression 2** |  |
 > | Operator | Or |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Is Current Version](storage-auth-abac-attributes.md#is-current-version) |
 > | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | Value | True |
@@ -1063,7 +1063,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Exists | [Checked](../../role-based-access-control/conditions-format.md#exists) |
 > | **Expression 2** |  |
 > | Operator | Or |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Is Current Version](storage-auth-abac-attributes.md#is-current-version) |
 > | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | Value | True |
@@ -1124,7 +1124,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Is hierarchical namespace enabled](storage-auth-abac-attributes.md#is-hierarchical-namespace-enabled) |
 > | Operator | [BoolEquals](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | Value | True |
@@ -1167,7 +1167,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Encryption scope name](storage-auth-abac-attributes.md#encryption-scope-name) |
 > | Operator | [ForAnyOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
 > | Value | &lt;scopeName&gt; |
@@ -1217,13 +1217,13 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Account name](storage-auth-abac-attributes.md#account-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | &lt;accountName&gt; |
 > | **Expression 2** |  |
 > | Operator | And |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Encryption scope name](storage-auth-abac-attributes.md#encryption-scope-name) |
 > | Operator | [ForAnyOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
 > | Value | &lt;scopeName&gt; |
@@ -1288,7 +1288,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Option | Attribute |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 
@@ -1342,7 +1342,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Read a blob conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 > | Operator | [ForAnyOfAnyValues:StringEquals](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
@@ -1358,7 +1358,7 @@ This section includes examples showing how to restrict access to objects based o
 
 This condition requires that all read, write and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
 
-There are five actions for read, write and delete of existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to any role assignments that include one of the following actions.
+There are five actions for read, write and delete of existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include one of the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
@@ -1368,8 +1368,6 @@ There are five actions for read, write and delete of existing blobs. To make thi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
-
-Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
 
 Storage Blob Data Owner
 
@@ -1436,15 +1434,22 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition #1 | Setting |
 > | --- | --- |
 > | Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | Attribute source | Resource |
+> | **Group #1** |  |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | `container1` |
 > | Logical operator | 'AND' |
-> | Attribute source | Environment |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
 > | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Value | `privateendpoint1` |
+> | **End Group #1** |  |
+> | Logical operator | 'OR' |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
+> | Value | `container1` |
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
@@ -1535,7 +1540,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Option | Attribute |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 
@@ -1605,7 +1610,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Option | Attribute |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 
@@ -1672,7 +1677,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Option | Attribute |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 
@@ -1740,7 +1745,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Option | Attribute |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 
@@ -1798,7 +1803,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | Option | Attribute |
-> | Attribute source | Resource |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 
