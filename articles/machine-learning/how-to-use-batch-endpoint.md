@@ -195,7 +195,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     
     __mnist-endpoint.yml__
 
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-endpoint.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/endpoint.yml":::
 
     The following table describes the key properties of the endpoint. For the full batch endpoint YAML schema, see [CLI (v2) batch endpoint YAML schema](./reference-yaml-endpoint-batch.md).
     
@@ -263,13 +263,13 @@ A deployment is a set of resources required for hosting the model that does the 
 
    __mnist/code/batch_driver.py__
 
-   :::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist/code/batch_driver.py" :::
+   :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/code/batch_driver.py" :::
 
 1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]`, which are required by batch endpoints, plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
     
     __mnist/environment/conda.yml__
         
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yml":::
     
     > [!IMPORTANT]
     > The packages `azureml-core` and `azureml-dataset-runtime[fuse]` are required by batch deployments and should be included in the environment dependencies.
@@ -280,7 +280,7 @@ A deployment is a set of resources required for hosting the model that does the 
    
     The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml" range="10-12":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="10-12":::
    
     # [Python](#tab/python)
    
@@ -317,7 +317,7 @@ A deployment is a set of resources required for hosting the model that does the 
     
     __mnist-torch-deployment.yml__
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-torch-deployment.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml":::
     
     For the full batch deployment YAML schema, see [CLI (v2) batch deployment YAML schema](./reference-yaml-deployment-batch.md).
     
@@ -736,13 +736,13 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     __mnist-keras/environment/conda.yml__
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-keras/environment/conda.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/environment/conda.yml":::
     
 1. Create a scoring script for the model:
    
    __mnist-keras/code/batch_driver.py__
    
-   :::code language="python" source="~/azureml-examples-main/sdk/python/endpoints/batch/mnist-keras/code/batch_driver.py" :::
+   :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/code/batch_driver.py" :::
    
 3. Create a deployment definition
 
@@ -750,7 +750,7 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     __mnist-keras-deployment.yml__
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist-keras-deployment.yml":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/deployment.yml":::
     
     # [Python](#tab/python)
     
