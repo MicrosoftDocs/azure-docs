@@ -1,6 +1,6 @@
 You can use Service Connector to create a connection between an Azure compute hosting environment and a target service using the Azure CLI. The Service Connector CLI commands automatically assign the proper role to your identity. You can learn more about Service Connector and which scenarios are supported on the [overview page](../../../articles/service-connector/overview.md).
 
-1. Retrieve the client-id of the managed identity you created using the `az identity show` command. Copy the value for later use.
+1. Retrieve the client ID of the managed identity you created using the `az identity show` command. Copy the value for later use.
 
     ```azurecli
     az identity show --name MigrationIdentity --resource-group <your-resource-group> --query clientId
@@ -21,7 +21,7 @@ You can use Service Connector to create a connection between an Azure compute ho
         --user-identity "client-id=<your-identity-client-id>" "subs-id=<your-subscription-id>"
     ```
     
-    # [Azure Spring](#tab/spring-connector)
+    # [Azure Spring Apps](#tab/spring-connector)
     
     If you're using Azure Spring Apps, use the [az spring-cloud connection](/cli/azure/spring-cloud/connection/create) command:
     
