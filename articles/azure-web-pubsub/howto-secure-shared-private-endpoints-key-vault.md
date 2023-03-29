@@ -85,7 +85,7 @@ You can poll this URI periodically to obtain the status of the operation. Wait f
 
 You can poll for the status by manually querying the `Azure-AsyncOperationHeader` value:
 
-```azxurecli
+```azurecli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webpubsub/contoso-webpubsub/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2022-08-01-preview
 ```
 

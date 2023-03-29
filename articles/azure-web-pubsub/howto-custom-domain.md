@@ -115,7 +115,7 @@ If you're using Azure role-based access control as Key Vault permission model:
 
    :::image type="content" alt-text="Screenshot of adding a custom certificate." source="media\howto-custom-domain\portal-custom-certificate-add.png" :::
 
-Azure Web PubSub Service fetches the certificate and validates its contents. the validation succeeds, the **Provisioning State** is **Succeeded**.
+Azure Web PubSub Service fetches the certificate and validates its contents. When it succeeds,  the certificate's **Provisioning State** will be **Succeeded**.
 
    :::image type="content" alt-text="Screenshot of an added custom certificate." source="media\howto-custom-domain\portal-custom-certificate-added.png" :::
 
