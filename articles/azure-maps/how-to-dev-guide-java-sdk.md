@@ -109,7 +109,7 @@ New-Item demo.java
 | [Rendering][java rendering readme]| [azure-maps-rendering][java rendering package]|[rendering sample][java rendering sample] |
 | [Geolocation][java geolocation readme]|[azure-maps-geolocation][java geolocation package]|[geolocation sample][java geolocation sample] |
 | [Timezone][java timezone readme] | [azure-maps-timezone][java timezone package] | [timezone samples][java timezone sample] |
-| [Elevation][java elevation readme] ([deprecated](https://azure.microsoft.com/en-us/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023))| [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
+| [Elevation][java elevation readme] ([deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023))| [azure-maps-elevation][java elevation package] | [elevation samples][java elevation sample] |
 
 ## Create and authenticate a MapsSearchClient
 

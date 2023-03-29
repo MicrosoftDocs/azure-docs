@@ -62,7 +62,7 @@ The table provides a high-level list of Azure Maps features, which correspond to
 | Maps Embedded API           | N/A                                    |
 | Map URLs                    | N/A                                    |
 
-<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/en-us/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
+<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 Google Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and Azure Active Directory authentication. Azure Active Directory authentication provides more security features, compared to the basic key-based authentication.
 
