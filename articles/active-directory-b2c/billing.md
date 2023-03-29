@@ -59,6 +59,8 @@ Usage charges for Azure Active Directory B2C (Azure AD B2C) are billed to an Azu
 
 A subscription linked to an Azure AD B2C tenant can be used for the billing of Azure AD B2C usage or other Azure resources, including additional Azure AD B2C resources. It can't be used to add other Azure license-based services or Office 365 licenses within the Azure AD B2C tenant.
 
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-azure-resource.md)]
+
 ### Prerequisites
 
 * [Azure subscription](https://azure.microsoft.com/free/)
