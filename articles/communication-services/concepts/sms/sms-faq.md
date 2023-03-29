@@ -68,6 +68,10 @@ Azure communication service offers an opt-out management service for short codes
 
 Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
+### How does Azure Communication Services handle opt-outs for alphanumeric sender ID?
+
+Alphanumeric sender ID is not capable of receiving inbound messages or STOP messages. Azure Communication Services does not enforce or manage opt-out lists for alphanumeric sender ID. You must provide customers with instructions to opt-out using other channels such as, calling support, providing an opt-out link in the message, or emailing support. See [messaging policy guidelines](./messaging-policy.md#how-we-handle-opt-out-requests-for-sms) for further details.
+
 ## Short codes
 ### What is the eligibility to apply for a short code?
 Short Code availability is currently restricted to paid Azure subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. For more details, check out our [subscription eligibility page](../numbers/sub-eligibility-number-capability.md). 
@@ -81,6 +85,25 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 ### How long does it take to get a short code? What happens after a short code program brief application is submitted?
 Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. All updates and the status changes for your applications are communicated via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
+## Alphanumeric Sender ID
+### How should an alphanumeric sender Id be formatted?
+**Formatting guidelines**:
+- Must contain at least one letter
+- Upto 11 characters
+- Characters can include    
+    - Upper case letters: A - Z
+    - Lower case letters: a - z
+    - Numbers: 0-9
+    - Spaces
+    - Special characters: 
+        - *+* 
+        - *-*
+        - _  
+        - &
+
+### Is a number purchase required to use alphanumeric sender ID?
+The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-senderID.md) for instructions.
+
 ## Toll-Free Verification
 ### What is toll free verification?
 The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
@@ -92,8 +115,8 @@ This verification is **required** for best SMS delivery experience.
 #### SMS to US phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to the following: 
 
-1. **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (that is, SMS messages with URLs might be blocked).  
-2. **SMS volume thresholds**:
+- **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (that is, SMS messages with URLs might be blocked).  
+- **SMS volume thresholds**:
 Effective April 1, 2023, the industry’s toll-free aggregator is implementing new limits to messaging traffic for restricted and pending toll-free numbers. Messaging that exceeds a limit returns Error Code 795/ 4795: tfn-not-verified.
 
 New limits are as follows:
