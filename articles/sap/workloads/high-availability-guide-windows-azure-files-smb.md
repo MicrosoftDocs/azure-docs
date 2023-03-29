@@ -96,7 +96,8 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
          > When executing the PowerShell script command **Connect-AzAccount**, it is highly recommended to enter the Azure Active Directory user account that corresponds and maps to the Active Directory Domain user account used to logon to a Windows Server, in this example this is the user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**
          >
          In this example scenario the Active Directory Administrator would logon to the Windows Server as **SAPCONT_ADMIN@SAPCONTOSO.local** and when using the **PS command Connect-AzAccount** connect as user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.  Ideally the Active Directory Administrator and the Azure Administrator should work together on this task.
-         ![powershell-script-1](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)Screenshot of the PowerShell script creating local AD account.
+         ![
+PowerShell-script-1](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)Screenshot of the PowerShell script creating local AD account.
 
          ![smb-configured-screenshot](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)Azure portal screenshot after successful PowerShell script execution. 
 
@@ -145,9 +146,9 @@ The PowerShell scripts downloaded in step 3.c contain a debug script to conduct 
 ```powershell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
-![Powershell-script-output](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-2.png)PowerShell screenshot of the debug script output.
+![PowerShell-script-output](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-2.png)PowerShell screenshot of the debug script output.
 
-![Powershell-script-technical-info](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-1.png)The following screen shows the technical information to validate a successful domain join.
+![PowerShell-script-technical-info](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-1.png)The following screen shows the technical information to validate a successful domain join.
 ## Useful links & resources
 
 * SAP Note [2273806][2273806] SAP support for storage or file system related solutions 
@@ -158,3 +159,39 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 [16083]:https://launchpad.support.sap.com/#/notes/16083
 [2273806]:https://launchpad.support.sap.com/#/notes/2273806
+
+## Optional configurations
+
+The following diagrams show multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs.
+
+This can either be local SAP Application Servers on a SAP ASCS/SCS cluster or a SAP ASCS/SCS Cluster Role on Microsoft SQL Server Always On nodes.
+
+> [!IMPORTANT]
+> Installing a local SAP Application Server on a SQL Server Always On node is not supported.
+>
+
+Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment Azure Files SMB is used.
+
+While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
+
+### <a name="5121771a-7618-4f36-ae14-ccf9ee5f2031"></a>SAP Application Servers on WSFC nodes using Azure Files SMB
+
+![Test](media/virtual-machines-shared-sap-high-availability-guide/smb-ha-afsmb-as.png)SAP application Servers locally installed.
+
+> [!NOTE]
+> The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
+>
+
+### <a name="01541cf2-0a03-48e3-971e-e03575fa7b4f"></a> SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB
+
+> [!IMPORTANT]
+> Using Azure Files SMB for any SQL Server volume is not supported.
+> 
+
+![SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB](media/virtual-machines-shared-sap-high-availability-guide/smb-ha-sql+ascs-afsmb.png)SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB
+
+> [!NOTE]
+> The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
+>
+### Using Windows DFS-N to support flexible SAPMNT share creation for SMB based file share
+Using DFS-N allows you to utilize individual sapmnt volumes for SAP systems deployed within the same Azure region and subscription. [Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share][dfs-n-reference] shows how to set this up.

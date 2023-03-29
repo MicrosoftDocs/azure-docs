@@ -264,17 +264,9 @@ Add the following profile parameter to the SAP Host Agent profile, which is loca
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
 
-#### Install SAP NetWeaver ASCS for SAP HANA on Azure NetAppFiles (ANF) BETA
-
-> [!NOTE]
-> This functionality is nor GA yet. For more information refer to SAP Note [2815988] (only visible to preview customers).
-Open an SAP incident on component BC-VCM-LVM-HYPERV and request to join the LaMa storage adapter for Azure NetApp Files preview
+#### Install SAP NetWeaver ASCS for SAP HANA on Azure NetAppFiles (ANF)
 
 ANF provides NFS for Azure. In the context of SAP LaMa this simplifies the creation of the ABAP Central Services (ASCS) instances and the subsequent installation of application servers. Previously the ASCS instance had to act as NFS server as well and the parameter acosprep/nfs_paths had to be added to the host_profile of the SAP Hostagent.
-
-#### ANF is currently available in these regions:
-
-Australia East, Central US, East US, East US 2, North Europe, South Central US, West Europe and West US 2.
 
 #### Network Requirements
 
