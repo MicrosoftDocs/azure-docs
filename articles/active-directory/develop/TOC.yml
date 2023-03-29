@@ -260,12 +260,6 @@
               href: scenario-web-api-call-api-call-api.md
             - name: Move to production
               href: scenario-web-api-call-api-production.md
-    - name: Reference
-      items:
-        - name: Scopes for web API accepting v1.0 tokens
-          href: msal-v1-app-scopes.md
-        - name: Spring Cloud Azure
-          href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/active-directory/develop/toc.json#spring-security-support
 - name: Desktop
   items:
     - name: Desktop app authentication
@@ -370,36 +364,6 @@
           href: msal-net-migration-android-broker.md
         - name: Migrate broker-enabled Xamarin iOS app MSAL.NET
           href: msal-net-migration-ios-broker.md
-    - name: Reference
-      items:
-        - name: MSAL Android
-          items:
-            - name: Library initialization
-              items:
-                - name: Android MSAL configuration file
-                  href: msal-configuration.md
-                - name: Shared device mode
-                  displayName: firstline worker, frontline worker, flw
-                  href: msal-android-shared-devices.md
-                - name: Integrate with Azure AD B2C
-                  href: msal-android-b2c.md
-            - name: Authentication and single sign-on (SSO)
-              items:
-                - name: SSO with MSAL Android
-                  href: msal-android-single-sign-on.md
-                - name: Accounts and tenant profiles
-                  href: accounts-overview.md
-                - name: Single- and multi-account public client apps
-                  href: single-multi-account.md
-            - name: Logging and error handling
-              items:
-                - name: Logging in MSAL for Android
-                  href: msal-logging-android.md
-                - name: Handle errors and exceptions in MSAL for Android
-                  displayName: android, mobile, handling, catch
-                  href: msal-android-handling-exceptions.md
-            - name: Migrate from ADAL to MSAL Android
-              href: migrate-android-adal-msal.md
 - name: Service, daemon, script
   items:
     - name: Service/daemon authentication
