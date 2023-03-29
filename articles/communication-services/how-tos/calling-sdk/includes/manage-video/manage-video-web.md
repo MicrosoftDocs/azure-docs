@@ -329,7 +329,7 @@ optimalVideoCountFeature.on('optimalVideoCountChanged', () => {
 })
 ```
 
-Examples usage: Application should subscribe to changes of OVC and handle it in group calls by either creating new rendererer ( [createView](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js?preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) or dispose views ([dispose](https://learn.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrendererview?view=azure-communication-services-js?preserve-view=true#@azure-communication-calling-videostreamrendererview-dispose)
+Examples usage: Application should subscribe to changes of OVC and handle it in group calls by either creating new rendererer ( [createView](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js?preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) or dispose views ([dispose](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrendererview?view=azure-communication-services-js?preserve-view=true#@azure-communication-calling-videostreamrendererview-dispose)
 and update layout accordingly either by removing participants from the main call screen area (often called stage or roster ) or replacing their video elements with an avatar and a name of the user.
 
 
