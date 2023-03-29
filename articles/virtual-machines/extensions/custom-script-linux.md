@@ -12,7 +12,7 @@ ms.date: 03/29/2023
 ---
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
 
-The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines (VMs). Use this for post-deployment configuration, software installation, or any other configuration or management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime.
+The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines (VMs). Use this extension for post-deployment configuration, software installation, or any other configuration or management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime.
 
 The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using the Azure CLI, PowerShell, or the Azure Virtual Machines REST API.
 
@@ -305,6 +305,8 @@ az vm extension set \
 
 ### Example: Public configuration with script file
 
+This example uses the following script file named *script-config.json*:
+
 ```json
 {
   "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],
@@ -312,7 +314,18 @@ az vm extension set \
 }
 ```
 
-Azure CLI command:
+1. Create the script file by using the text editor of your choice or by using the following CLI command:
+
+```azurecli
+cat <<EOF > script-config.json
+{
+  "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],
+  "commandToExecute": "./config-music.sh"
+}
+EOF
+```
+
+1. Run the following command:
 
 ```azurecli
 az vm extension set \
@@ -324,13 +337,25 @@ az vm extension set \
 
 ### Example: Public configuration with no script file
 
+This example uses the following script file named *script-config.json*:
+
 ```json
 {
   "commandToExecute": "apt-get -y update && apt-get install -y apache2"
 }
 ```
 
-Azure CLI command:
+1. Create the script file by using the text editor of your choice or by using the following CLI command:
+
+```azurecli
+cat <<EOF > script-config.json
+{
+  "commandToExecute": "apt-get -y update && apt-get install -y apache2"
+}
+EOF
+```
+
+1. Run the following command:
 
 ```azurecli
 az vm extension set \
@@ -342,9 +367,7 @@ az vm extension set \
 
 ### Example: Public and protected configuration files
 
-You use a public configuration file to specify the script file's URI. You use a protected configuration file to specify the command to be run.
-
-Public configuration file:
+Use a public configuration file to specify the script file's URI:
 
 ```json
 {
@@ -352,7 +375,7 @@ Public configuration file:
 }
 ```
 
-Protected configuration file:  
+Use a protected configuration file to specify the command to be run:
 
 ```json
 {
@@ -360,7 +383,27 @@ Protected configuration file:
 }
 ```
 
-Azure CLI command:
+1. Create the public configuration file by using the text editor of your choice or by using the following CLI command:
+
+```azurecli
+cat <<EOF > script-config.json
+{
+  "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"]
+}
+EOF
+```
+
+1. Create the protected configuration file by using the text editor of your choice or by using the following CLI command:
+
+```azurecli
+cat <<EOF > protected-config.json
+{
+  "commandToExecute": "./config-music.sh <param1>"
+}
+EOF
+```
+
+1. Run the following command:
 
 ```azurecli
 az vm extension set \
@@ -374,7 +417,7 @@ az vm extension set \
 
 ## Virtual Machine Scale Sets
 
-If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the SAS token to access the script in your storage account. The result is that the initial deployment works, but when the storage account's SAS token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
+If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the SAS token to access the script in your storage account. The initial deployment works, but when the storage account's SAS token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
 
 We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension), the [Azure CLI](/cli/azure/vmss/extension), or an [Azure Resource Manager template](/azure/templates/microsoft.compute/virtualmachinescalesets/extensions) when you deploy the Custom Script Extension on a Virtual Machine Scale Set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
 
