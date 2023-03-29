@@ -94,7 +94,7 @@ This logic app now sends mail only when the new items in the RSS feed meet your 
 
 ## JSON definition
 
-The following shows the high-level code definition behind the **Condition** action, but for the find full definition, see [If condition - Schema reference guide for trigger and action types in Azure Logic Apps](logic-apps-workflow-actions-triggers.md#if-action).
+The following shows the high-level code definition behind the **Condition** action, but for the find full definition, see [If action - Schema reference guide for trigger and action types in Azure Logic Apps](logic-apps-workflow-actions-triggers.md#if-action).
 
 ``` json
 "actions": {
