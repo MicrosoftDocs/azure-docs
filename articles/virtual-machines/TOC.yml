@@ -117,14 +117,10 @@
     href: ./workloads/redhat/overview.md
   - name: OpenShift
     items:
-    - name: OpenShift overview
-      href: ./linux/openshift-get-started.md
     - name: OpenShift Container Platform 4.x
       href: ./linux/openshift-container-platform-4x.md
     - name: Azure Stack
       href: ./linux/openshift-azure-stack.md
-    - name: Deploy OKD
-      href: ./linux/openshift-okd.md
   - name: SAP on Azure
     href: ../sap/index.yml
   - name: Oracle
