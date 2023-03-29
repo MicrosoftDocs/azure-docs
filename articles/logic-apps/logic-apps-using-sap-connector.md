@@ -2181,4 +2181,5 @@ For more information about the SAP connector, review the [connector reference](/
 
 * [Connect to on-premises systems](logic-apps-gateway-connection.md) from Azure Logic Apps
 * Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+* [Managed connectors for Azure Logic Apps](../connectors/managed.md)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)

@@ -1,6 +1,6 @@
 ---
-title: "Workplace from Facebook (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Workplace from Facebook (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Workplace from Facebook (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Workplace from Facebook (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Workplace from Facebook (using Azure Function) connector for Microsoft Sentinel
+# Workplace from Facebook (using Azure Functions) connector for Microsoft Sentinel
 
 The [Workplace](https://www.workplace.com/) data connector provides the capability to ingest common Workplace events into Azure Sentinel through Webhooks. Webhooks enable custom integration apps to subscribe to events in Workplace and receive updates in real time. When a change occurs in Workplace, an HTTPS POST request with event information is sent to a callback data connector URL.  Refer to [Webhooks documentation](https://developers.facebook.com/docs/workplace/reference/webhooks) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [Workplace](https://www.workplace.com/) data connector provides the capabili
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | WorkplaceAppSecret<br/>WorkplaceVerifyToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-WorkplaceFacebook-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-WorkplaceFacebook-functionapp |
 | **Kusto function alias** | Workplace_Facebook |
 | **Kusto function url** | https://aka.ms/sentinel-WorkplaceFacebook-parser |
 | **Log Analytics table(s)** | Workplace_Facebook_CL<br/> |
@@ -37,7 +37,7 @@ Workplace_Facebook
 
 ## Prerequisites
 
-To integrate with Workplace from Facebook (using Azure Function) make sure you have: 
+To integrate with Workplace from Facebook (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Webhooks Credentials/permissions**: WorkplaceAppSecret, WorkplaceVerifyToken, Callback URL are required for working Webhooks. See the documentation to learn more about [configuring Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks), [configuring permissions](https://developers.facebook.com/docs/workplace/reference/permissions). 

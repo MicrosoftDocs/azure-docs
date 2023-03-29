@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Zscaler Private Access (ZPA) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Zscaler Private Access (ZPA)'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Private Access (ZPA).
 services: active-directory
 author: jeevansd

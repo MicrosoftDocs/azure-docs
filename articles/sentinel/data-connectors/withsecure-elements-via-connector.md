@@ -3,7 +3,7 @@ title: "WithSecure Elements via connector for Microsoft Sentinel"
 description: "Learn how to install the connector WithSecure Elements via to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -29,7 +29,7 @@ The Common Event Format (CEF) provides natively search & correlation, alerting a
    ```kusto
 CommonSecurityLog
 
-   | where DeviceVendor == "F-Secure"
+   | where DeviceVendor == "WithSecure™"
 
    | sort by TimeGenerated
    ```

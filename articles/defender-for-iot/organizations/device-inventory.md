@@ -140,7 +140,7 @@ The following columns are available on OT sensors only:
 - The number of **Unacknowledged Alerts** alerts associated with the device
 
 > [!NOTE]
-> The additional **Agent type** and **Agent version** columns are used for by device builders. For more information, see [Microsoft Defender for IoT for device builders documentation](/azure/defender-for-iot/device-builders/).
+> The additional **Agent type** and **Agent version** columns are used for by device builders. For more information, see [Microsoft Defender for IoT for device builders documentation](../device-builders/index.yml).
 
 ## Next steps
 

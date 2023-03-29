@@ -49,6 +49,10 @@ Incorrect network configuration is often the cause of this behavior. Make sure t
 
 Finally, make sure the appropriate roles are granted and have not been revoked.
 
+### Synapse serverless SQL pool is unavailable after transfering a subscription to a different Azure AD tenant
+
+If you moved a subscription to another Azure AD tenant, you might experience some issues with serverless SQL pool. Create a support ticket and Azure suport will contact you to resolve the issue.
+
 ## Storage access
 
 If you get errors while you try to access files in Azure storage, make sure that you have permission to access data. You should be able to access publicly available files. If you try to access data without credentials, make sure that your Azure Active Directory (Azure AD) identity can directly access the files.
@@ -1102,7 +1106,7 @@ Some general system constraints might affect your workload:
 | Maximum identifier length in characters | 128. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects).|
 | Maximum query duration | 30 minutes. |
 | Maximum size of the result set | Up to 400 GB shared between concurrent queries. |
-| Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data. |
+| Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in thatcase consider decreasing concurrency and execute queries over a longer period of time if possible.|
 | Maximum size of External Table name | 100 characters. |
 
 ### Can't create a database in serverless SQL pool

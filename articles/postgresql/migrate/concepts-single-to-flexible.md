@@ -196,9 +196,9 @@ Search for the **azure.extensions** parameter on the Server Parameters blade on 
 :::image type="content" source="./media/concepts-single-to-flexible/allowlist-extensions.png" alt-text="Diagram that shows allow listing of extensions on Flexible Server." lightbox="./media/concepts-single-to-flexible/allowlist-extensions.png":::
 
 >[!NOTE]
-> If TIMESCALEDB, PG_PARTMAN or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.  
+> If TIMESCALEDB, PG_PARTMAN, POSTGRES_FDW or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
-Check if the list contains any of the following extensions: 
+Check if the list contains any of the following extensions:
 * PG_CRON
 * PG_HINT_PLAN
 * PG_PARTMAN_BGW

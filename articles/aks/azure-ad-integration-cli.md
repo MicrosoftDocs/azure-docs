@@ -283,4 +283,4 @@ For best practices on identity and resource control, see [Best practices for aut
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [managed-aad]: managed-aad.md
-[managed-aad-migrate]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
+[managed-aad-migrate]: managed-aad.md#upgrade-to-aks-managed-azure-ad-integration

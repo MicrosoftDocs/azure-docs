@@ -6,11 +6,17 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 03/13/2023
 ---
 # How to connect Azure Data Factory and Microsoft Purview
 
-This document explains the steps required for connecting an Azure Data Factory account with a Microsoft Purview account to track data lineage. The document also gets into the details of the coverage scope and supported lineage patterns.
+This document explains the steps required for connecting an Azure Data Factory account with a Microsoft Purview account to track [data lineage](concept-data-lineage.md) and [ingest data sources](concept-scans-and-ingestion.md#ingestion). The document also gets into the details of the activity coverage scope and supported lineage patterns.
+
+When you connect an Azure Data Factory to Microsoft Purview, whenever a [supported Azure Data Factory activity](#supported-azure-data-factory-activities) is run, metadata about the activity's source data, output data, and the activity will be automatically [ingested](concept-scans-and-ingestion.md#ingestion) into the Microsoft Purview Data Map.
+
+If a data source has already been scanned and exists in the data map, the ingestion process will add the lineage information from Azure Data Factory to that existing source. If the source or output doesn't exist in the data map and is [supported by Azure Data Factory lineage](#supported-azure-data-factory-activities) Microsoft Purview will automatically add their metadata from Azure Data Factory into the data map under the root collection.
+
+This can be an excellent way to monitor your data estate as users move and transform information using Azure Data Factory.
 
 ## View existing Data Factory connections
 
@@ -98,7 +104,7 @@ The integration between Data Factory and Microsoft Purview supports only a subse
 Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
 ## Access secured Microsoft Purview account
-      
+
 If your Microsoft Purview account is protected by firewall, learn how to let Data Factory [access a secured Microsoft Purview account](../data-factory/how-to-access-secured-purview-account.md) through Microsoft Purview private endpoints.
 
 ## Bring Data Factory lineage into Microsoft Purview
