@@ -20,7 +20,7 @@ See these [important announcements](#announcements) about recent changes to feat
 ## March 2023
 
 - [Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces (Preview)](#work-with-the-microsoft-sentinel-solution-for-sap-applications-across-multiple-workspaces-preview)
-- [Protection against risky configuration of SAP security parameters]
+- [Protection against risky configuration of SAP security parameters](#protection-against-risky-configuration-of-sap-security-parameters)
 - [Stream log data from the Google Cloud Platform into Microsoft Sentinel (Preview)](#stream-log-data-from-the-google-cloud-platform-into-microsoft-sentinel-preview)
 - [Microsoft Defender Threat Intelligence data connector (Preview)](#microsoft-defender-threat-intelligence-data-connector-preview)
 - [Microsoft Defender Threat Intelligence solution (Preview)](#microsoft-defender-threat-intelligence-solution-preview)
@@ -32,7 +32,9 @@ You can now [work with the Microsoft Sentinel solution for SAP® applications ac
 
 ### Protection against risky configuration of SAP security parameters
 
-To secure the SAP system, SAP has identified security-related parameters that need to be monitored for changes. With the ["Risky Configuration" analytics rule](sap/sap-solution-security-content.md#risky-configuration-of-security-parameters), the Microsoft Sentinel solution for SAP® applications tracks [over 52 security-related parameters](sap-risky-configuration-parameters.md) in the SAP system, and triggers an alert once these parameters are changed not according to the policy.  
+To secure the SAP system, SAP has identified security-related parameters that need to be monitored for changes. With the ["Risky Configuration" analytics rule](sap/sap-solution-security-content.md#risky-configuration-of-security-parameters), the Microsoft Sentinel solution for SAP® applications tracks [over 52 security-related parameters](sap-risky-configuration-parameters.md) in the SAP system, and triggers an alert once these parameters are changed not according to the policy.
+
+For the Microsoft Sentinel solution for SAP® applications to successfully monitor the SAP security parameters, the solution needs to successfully monitor the SAP PAHI table at regular intervals. [Verify that the solution can successfully monitor the PAHI table](sap/preparing-sap.md#verify-that-the-pahi-table-history-of-system-database-and-sap-parameters-is-updated-at-regular-intervals).
 
 ### Stream log data from the Google Cloud Platform into Microsoft Sentinel (Preview)
 
