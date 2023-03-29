@@ -35,7 +35,7 @@ Head to the [blog here to learn more](https://techcommunity.microsoft.com/t5/azu
 
 You can learn more and get started with these [Azure Marketplace solutions, here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/edgelesssystems.edb?tab=Overview). You can also find code and the docs on their [GitHub](https://github.com/edgelesssys).
 
-## Next step
+## Learn more
 
 > Learn more about [Edgeless Systems](https://www.edgeless.systems/)
 > Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
