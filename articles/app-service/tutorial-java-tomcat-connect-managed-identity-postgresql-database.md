@@ -149,7 +149,7 @@ Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat
        --resource-group $RESOURCE_GROUP \
        --name $APPSERVICE_NAME \
        --plan $APPSERVICE_PLAN \
-       --runtime "TOMCAT:9.0-jre8" 
+       --runtime "TOMCAT:10.0-java11"
    ```
 
 1. Deploy the WAR package to App Service.
