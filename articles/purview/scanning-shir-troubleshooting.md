@@ -4,7 +4,7 @@ titleSuffix: Microsoft Purview, Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot self-hosted integration runtime issues in Microsoft Purview. 
 author: abandyop
 ms.service: purview
-ms.subservice: integration-runtime
+ms.subservice: purview-data-map
 ms.custom: purview
 ms.topic: troubleshooting
 ms.date: 04/01/2023
