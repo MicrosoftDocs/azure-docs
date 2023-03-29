@@ -70,7 +70,7 @@ Use the following commands to create an environment with a workload profile.
 
       ```bash
       az containerapp env create \
-        --enableWorkloadProfiles \
+        --enable-workload-profiles \
         --resource-group "<RESOURCE_GROUP>" \
         --name "<NAME>" \
         --location "<LOCATION>" \

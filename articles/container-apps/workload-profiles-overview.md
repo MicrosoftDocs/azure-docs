@@ -11,9 +11,9 @@ ms.author: cshoe
 
 # Workload profiles in Consumption + Dedicated plan environments in Azure Container Apps
 
-Under the [Consumption + Dedicated plan](./plans.md#dedicated-plan), you select a workload profile as you create a container app. Workload profiles determine the amount of compute and memory resources available to container apps deployed to an instance of the workload profile.
+Under the [Consumption + Dedicated plan](./plans.md#consumption-dedicated), you can use different workload profiles in your environment. Workload profiles determine the amount of compute and memory resources available to container apps deployed in an environment.
 
-Profiles are configured to fit the needs of your applications.
+Profiles are configured to fit the different needs of your applications.
 
 | Profile type  | Description | Potential use |
 |--|--|--|
@@ -22,7 +22,35 @@ Profiles are configured to fit the needs of your applications.
 | Compute optimized | Increased compute resources | Cryptography |
 | Consumption |  Added to any new environment by default. | |
 
-By default, a Consumption workload profile is included with every Consumption + Dedicated plan environment. You can add more workload profiles of any type as you create an environment or after it is created.
+By default, a Consumption workload profile is included with every Consumption + Dedicated plan environment. You can add more workload profiles of any type as you create an environment or after it's created.
+
+## Supported regions
+
+The following regions support workload profiles during preview:
+
+- North Central US
+- North Europe
+- West Europe
+- East US
+
+## Profile types
+
+There are a series of different types of workload profiles available by region. By default each Consumption + Dedicated plan includes a Consumption profile, but you can also add any of the following profiles:
+
+| Title | Description |
+|---|---|
+| D-Series v5 | The latest generation D family sizes recommended for your general purpose needs |
+| D-Series v4 | The 4th generation D family sizes for your general purpose needs |
+| B-Series | Ideal for workloads that don't need continuous full CPU performance |
+| E-Series v5 | The latest generation E family sizes for your high memory needs |
+| E-Series v4 | The 4th generation E family sizes for your high memory needs |
+| F-Series v2 | Up to 2X performance boost for vector processing workloads |
+| L-Series | High throughput, low latency, directly mapped to local NVMe storage |
+| D-Series v3 | The 3rd generation D family sizes for your general purpose needs |
+| E-Series v3 | The 3rd generation E family sizes for your high memory needs |
+| D-Series v2 | The 2nd generation D family sizes for your general purpose needs |
+
+The availability of different profiles varies by region.
 
 ## Resource consumption
 
@@ -34,9 +62,13 @@ Workload profiles scale in two ways. As demand for your app fluctuates, replicas
 
 When demand for new apps or more replicas of an existing app exceeds the profile's current resources, profile instances may be added. You have control over the constraints on the minimum and maximum number of profile instances. Azure calculates [billing](billing.md#dedicated-plan) largely based on the number of running profile instances.
 
-## Profile types
+## List supported profiles
 
-TODO
+Use the `list-supported` command to display the supported profiles by region.
+
+```azcli
+az containerapp env workload-profile list-supported --location <LOCATION>  --query "[].{Name: name, Cores: properties.cores, MemoryGiB: properties.memoryGiB, Category: properties.category}" -o table
+```
 
 ## Next steps
 

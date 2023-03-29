@@ -13,7 +13,7 @@ ms.author: cshoe
 
 Azure Container Apps features two different plan types.
 
-| Plan type | Description | Is in Preview |
+| Plan type | Description | In Preview |
 |--|--|--|
 | [Consumption](#consumption-plan) | Serverless environment where apps can scale to zero. You only pay for compute apps as they're running. | No |
 | [Consumption with Dedicated workload profiles](#consumption-dedicated) | Serverless environment where apps can scale to zero. You only pay for compute apps as they're running. In addition, you can run apps with customized hardware or increased cost control requirements on Dedicated workload profiles. | Yes |
@@ -52,7 +52,7 @@ You can deploy multiple apps to each WP instance, which means you can create man
 
 ## Next steps
 
-Deploy your first app with:
+Deploy an app with:
 
 - [Consumption plan](quickstart-portal.md)
-- [Consumption + Dedicated plan](dedicated-workload-profile.md)
+- [Consumption + Dedicated plan](workload-profiles-manage-cli.md)
