@@ -39,8 +39,6 @@ As you prepare for migration, there are some considerations around the availabil
 
 The domain controller IP addresses for a managed domain change after migration. This change includes the public IP address for the secure LDAP endpoint. The new IP addresses are inside the address range for the new subnet in the Resource Manager virtual network.
 
-If you need to roll back, the IP addresses may change after rolling back.
-
 Azure AD DS typically uses the first two available IP addresses in the address range, but this isn't guaranteed. You can't currently specify the IP addresses to use after migration.
 
 ### Account lockout
