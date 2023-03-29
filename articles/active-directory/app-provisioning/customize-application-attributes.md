@@ -206,7 +206,7 @@ Use the steps in the example to provision roles for a user to your application. 
 
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
-    - Ensure that multiple roles aren't assigned to a user. There is no guarantee which role is provisioned.
+    - Ensure that multiple roles aren't assigned to a user. There's no guarantee which role is provisioned.
     - SingleAppRoleAssignments isn't compatible with setting scope to "Sync All users and groups." 
   - **Example request (POST)** 
 
