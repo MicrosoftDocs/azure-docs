@@ -22,7 +22,7 @@ conversations, maintain an archive for compliance reasons and/or integrate with 
 
 - An Azure account with an active subscription. Create an account for free.
 - An active Communication Services resource and connection string. Create a Communication Services resource.
-- A storage account, for example, Azure Blob Storage. You can use the portal to set up an [account](../../../event-grid/blob-event-quickstart-portal).
+- A storage account, for example, Azure Blob Storage. You can use the portal to set up an [account](../../event-grid/blob-event-quickstart-portal).
 - Enable Azure Event Grid (only if you want to archive messages in real-time).
 
 You have a couple of options for archiving chat threads.
@@ -35,9 +35,9 @@ To do this, you need to use [Azure Event Grid](../../../event-grid/overview).
 
 Follow these steps for archiving messages:
 
-- Subscribe to Event Grid events, Chat supports the following [events](../../../../../concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event).
-- Validate the [events](../../../event-grid/view-events-request-bin#configure-your-azure-communication-services-resource-to-send-events-to-your-endpoint) by configuring your resource to receive these events
-- Test your Event Grid handler [locally](../../../../how-tos/event-grid/local-testing-event-grid)
+- Subscribe to Event Grid events, Chat supports the following [events](../../../../concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event).
+- Validate the [events](../../event-grid/view-events-request-bin#configure-your-azure-communication-services-resource-to-send-events-to-your-endpoint) by configuring your resource to receive these events
+- Test your Event Grid handler [locally](../../how-tos/event-grid/local-testing-event-grid)
 
 Note: you would have to pay for [events](../pricing/details/event-grid/). 
 
