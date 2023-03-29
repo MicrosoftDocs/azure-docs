@@ -81,7 +81,7 @@ Standard consumption simplifies the virtual network experience for running polyg
 
 ## Enterprise plan
 
-Based on our learnings from customer engagements, we built Azure Spring Apps Enterprise tier with commercially supported Spring runtime components to help enterprise customers to ship faster and unlock Spring’s full potential, including feature parity and region parity with Standard tier.
+The Enterprise plan provides commercially supported Tanzu components and 99.95% SLA assurance to help enterprise customers ship faster for mission-critical workloads with peace of mind and unlock Spring’s full potential while including feature parity and region parity with Standard tier.
 
 The following video introduces Azure Spring Apps Enterprise tier.
 
@@ -109,15 +109,13 @@ API Portal for VMware Tanzu provides API consumers with the ability to find and 
 
 ### Use flexible and configurable VMware Tanzu components
 
-With Azure Spring Apps Enterprise tier, you can use fully managed VMware Tanzu components on Azure. You can select which VMware Tanzu components you want to use in your environment during Enterprise instance creation. Tanzu Build Service, Spring Cloud Gateway for Tanzu, API Portal for VMware Tanzu, Application Configuration Service for VMware Tanzu®, and VMware Tanzu® Service Registry are available during public preview.
+With Azure Spring Apps Enterprise tier, you can use fully managed VMware Tanzu components on Azure without operation hassling. You can select which VMware Tanzu components you want to use in your environment either during or after Enterprise instance creation. Tanzu Build Service, Spring Cloud Gateway for Tanzu, API Portal for VMware Tanzu, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Application Live View for VMware Tanzu® and Application Accelerator for VMware Tanzu® are available today.
 
 VMware Tanzu components deliver increased value so you can:
 
 * Grow your enterprise grade application portfolio from a few applications to thousands with end-to-end observability while delegating operational complexity to Microsoft and VMware.
 * Lift and shift Spring applications across Azure Spring Apps and any other compute environment.
 * Control your build dependencies, deploy polyglot applications, and deploy Spring Cloud middleware components as needed.
-
-Microsoft and VMware will continue to add more enterprise-grade features, including Tanzu components such as Application Live View for VMware Tanzu®, Application Accelerator for VMware Tanzu®, and Spring Cloud Data Flow for VMware Tanzu®, although the Azure Spring Apps Enterprise tier roadmap is not confirmed and is subject to change.
 
 ### Unlock Spring’s full potential with Long-Term Support (LTS)
 
@@ -154,7 +152,7 @@ The following quickstarts and articles will help you get started using the Stand
 * [Enable your own persistent storage](how-to-custom-persistent-storage-with-standard-consumption.md)
 * [Customer responsibilities for Standard consumption plan in a virtual network](standard-consumption-customer-responsibilities.md)
 
-### Get started with Enterprise tier
+### Get started with the Enterprise plan
 
 The following quickstarts will help you get started using the Enterprise tier:
 
