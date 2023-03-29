@@ -13,7 +13,8 @@ ms.date: 03/28/2023
 ---
 # Understanding and using the Azure Linux Agent
 
-The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning, and virtual machine interaction with the Azure Fabric controller. In addition to the Linux agent providing provisioning functionality, Azure also provides the option of using `cloud-init` for some Linux operating systems.
+The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning, and virtual machine (VM) interaction with the Azure Fabric controller. In addition to the Linux agent providing provisioning functionality, Azure also provides the option of using `cloud-init` for some Linux operating systems.
+
 
 The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 
