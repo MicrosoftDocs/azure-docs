@@ -1,4 +1,4 @@
-The following steps demonstrate how to create a user-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure Services using the app configurations you set up previously.
+The following steps demonstrate how to create a user-assigned managed identity for various web hosting services. The managed identity can securely connect to other Azure services using the app configurations you set up previously.
 
 ### [Service Connector](#tab/service-connector)
 
@@ -10,7 +10,7 @@ The following compute services are currently supported:
 * Azure Spring Cloud
 * Azure Container Apps (preview)
 
-For this migration guide you'll use App Service, but the steps are similar on Azure Spring Apps and Azure Container Apps.
+For this migration guide, you'll use App Service. The steps are similar on Azure Spring Apps and Azure Container Apps.
 
 > [!NOTE]
 > Azure Spring Apps currently only supports Service Connector using connection strings.
@@ -32,11 +32,11 @@ For this migration guide you'll use App Service, but the steps are similar on Az
 1. Leave the default values selected, and then choose **Next: Review + Create**.
 1. After Azure validates your settings, select **Create**.
 
-The Service Connector will automatically assign the managed identity a **Azure Service Bus Data Owner** role for the service bus you selected.
+The Service Connector will automatically assign the managed identity an **Azure Service Bus Data Owner** role for the service bus you selected.
 
-### [Azure Portal](#tab/app-service)
+### [Azure portal](#tab/app-service)
 
-You can assign the correct roles to your user-assigned identity through the storage account settings pages.
+You can assign the correct roles to your user-assigned managed identity through the storage account settings pages.
 
 1. On the overview page of your storage account, select **Access control (IAM)**.
 1. Select **+ Add** at the top of the page and then choose **Add role assignment** from the drop down menu.
