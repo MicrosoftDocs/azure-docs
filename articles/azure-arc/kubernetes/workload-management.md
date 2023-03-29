@@ -14,22 +14,11 @@ Enterprise organizations, developing cloud native applications, face challenges 
 
 This article walks you through an example scenario of the workload deployment and configuration in a multi-cluster Kubernetes environment. First, you deploy a sample infrastructure with a few GitHub repositories and AKS clusters. Next, you work through a set of use cases where you act as different personas working in the same environment: the Platform Team and the Application Team.
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Onboard a new application
-> * Schedule an application on the cluster types 
-> * Promote an application across rollout environemnts
-> * Build and deploy an application
-> * Provide platform configurations
-> * Add a new cluster type to your environment
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
 
 In order to successfully deploy the sample, you need:
 
+- An Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [GitHub CLI](https://cli.github.com)
 - [Helm](https://helm.sh/docs/helm/helm_install/)
@@ -121,7 +110,7 @@ The `dev` and `stage` branches:
 |gitops-repo.yaml| A pointer to the place in the `Platform GitOps` repository to where the scheduler should PR generated manifests.|
 
 > [!TIP]
-> The folder structure in the `Control Plane` repository doesn't really matter. This tutorial provides a sample of how you can organize files in the repository, but feel free to do it in your own preferred way. The scheduler is interested in the content of the files, rather than where the files are located.    
+> The folder structure in the `Control Plane` repository doesn't really matter. This example provides one way of organizing files in the repository, but feel free to do it in your own preferred way. The scheduler is interested in the content of the files, rather than where the files are located.
 
 ## 2 - Platform Team: Onboard a new application
 
@@ -204,7 +193,7 @@ git push
 ```
 
 > [!NOTE]
-> For simplicity, this tutorial pushes changes directly to `main`. In practice, you'd create a pull request to submit the changes.  
+> For simplicity, this example pushes changes directly to `main`. In practice, you'd create a pull request to submit the changes.  
 
 With that in place, the application is onboarded in the control plane. But the control plane still doesn't know how to map the application deployment targets to all of the cluster types.
 
@@ -354,7 +343,7 @@ Once you approve and merge the PR to the `Platform GitOps` repository, the `dron
 
 :::image type="content" source="media/workload-management/drone-compliance-state.png" alt-text="Screenshot showing compliance state details for the drone cluster.":::
 
-The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository. This workflow waits until all clusters with the [GitOps extension](conceptual-gitops-flux2.md) installed that are looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this tutorial, the only such cluster is `drone`. 
+The PR merging event starts a GitHub workflow `checkpromote` in the `control plane` repository. This workflow waits until all clusters with the [GitOps extension](conceptual-gitops-flux2.md) installed that are looking at the `dev` branch in the `Platform GitOps` repository are compliant with the PR commit. In this example, the only such cluster is `drone`.
 
 :::image type="content" source="media/workload-management/checkpromote-to-dev.png" alt-text="Screenshot showing promotion to dev.":::
 
@@ -409,8 +398,8 @@ On successful execution, the commit status is updated.
 
 ## 3 - Application Dev Team: Build and deploy application
 
-The Application Team regularly submits pull requests to the `main` branch in the `Application Source` repository. Once a PR is merged to `main`, it starts a CI/CD workflow. In this tutorial, the workflow will be started manually.
- 
+The Application Team regularly submits pull requests to the `main` branch in the `Application Source` repository. Once a PR is merged to `main`, it starts a CI/CD workflow. Here, the workflow will be started manually.
+
  Go to the `Application Source` repository in GitHub. On the `Actions` tab, select `Run workflow`.
 
 :::image type="content" source="media/workload-management/run-workflow-button.png" alt-text="Screenshot showing the Run workflow option.":::
@@ -579,7 +568,7 @@ In a few seconds, the scheduler submits a PR to the `Platform GitOps` repository
 :::image type="content" source="media/workload-management/small-cluster-type-assignment.png" alt-text="Screenshot showing the assignment for the small cluster type." lightbox="media/workload-management/small-cluster-type-assignment.png":::
 
 ## Clean up resources
-When no longer needed, delete the resources that you created for this tutorial. To do so, run the following command:
+When no longer needed, delete the resources that you created. To do so, run the following command:
 
 ```bash
 # In kalypso folder
@@ -588,7 +577,7 @@ When no longer needed, delete the resources that you created for this tutorial. 
 
 ## Next steps
 
-In this tutorial, you have performed tasks for a few of the most common workload management scenarios in a multi-cluster Kubernetes environment. There are many other scenarios you may want to explore. Continue to use the sample and see how you can implement use cases that are most common in your daily activities.
+You have performed tasks for a few common workload management scenarios in a multi-cluster Kubernetes environment. There are many other scenarios you may want to explore. Continue to use the sample and see how you can implement use cases that are most common in your daily activities.
 
 To understand the underlying concepts and mechanics deeper, refer to the following resources:
 
