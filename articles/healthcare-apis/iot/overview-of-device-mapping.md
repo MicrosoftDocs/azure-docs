@@ -46,7 +46,7 @@ The normalization process validates the device mapping before allowing it to be 
 |typeMatchExpression     |True                         |True                          |
 |deviceIdExpression      |True                         |False                         |
 |timestampExpression     |True                         |False                         |
-|patientIdExpression     |True when the MedTech services's resolution type is set to **Create**; False when the MedTech service's resolution type is set to **Lookup**.|True when the MedTech service's resolution type is set to **Create**; False when the MedTech service's resolution type is set to **Lookup**.|
+|patientIdExpression     |True when the MedTech services's **Resolution type** is set to **Create**; False when the MedTech service's **Resolution type** is set to **Lookup**.|True when the MedTech service's **Resolution type** is set to **Create**; False when the MedTech service's **Resolution type** is set to **Lookup**.|
 |encounterIdExpression   |False                        |False                         |
 |correlationIdExpression |False                        |False                         |
 |values[].valueName      |True                         |True                          |
