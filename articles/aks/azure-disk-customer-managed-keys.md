@@ -78,7 +78,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 Create a **new resource group** and AKS cluster, then use your key to encrypt the OS disk.
 
 > [!IMPORTANT]
-> Ensure you create a new resoruce group for your AKS cluster
+> Ensure you create a new resource group for your AKS cluster
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
