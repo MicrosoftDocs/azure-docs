@@ -36,7 +36,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 | ignore-error     | If set to `true`, instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime. Policy expressions aren't allowed. | No | `false` |
 | response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime. Policy expressions aren't allowed. | No | None |
 | timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. Policy expressions are allowed. | No | 5 |
-| template | Templating engine to use for transforming the message content. "Liquid" is the only supported value. Policy expressions aren't allowed.| No | None |
+| template | Templating engine to use for transforming the message content. "Liquid" is the only supported value. | No | None |
 | content-type | Type of the message content. "application/json" is the only supported value. | No | None |
 
 ## Usage
