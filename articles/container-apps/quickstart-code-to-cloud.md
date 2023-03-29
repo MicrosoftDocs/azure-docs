@@ -16,7 +16,7 @@ zone_pivot_groups: container-apps-image-build-from-repo
 
 This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
 
-In this quickstart, you create a backend web API service that returns a static collection of music albums.  After this completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
+In this quickstart, you create a backend web API service that returns a static collection of music albums.  After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
 > [!NOTE]
 > You can also build and deploy this sample application using the `az containerapp up` command. For more information, see [Tutorial: Build and deploy your app to Azure Container Apps](tutorial-code-to-cloud.md).
@@ -103,6 +103,7 @@ $ACR_NAME="acaalbums"+$GITHUB_USERNAME
 ---
 
 ::: zone-end
+
 ::: zone pivot="github-build"
 
 # [Bash](#tab/bash)
@@ -280,6 +281,8 @@ az containerapp up `
     --context-path ./src `
     --repo <YOUR_GITHUB_REPOSITORY_NAME>
 ```
+
+---
 
 Using the URL and the user code displayed in the terminal, go to the GitHub device activation page in a browser and enter the user code to the page.  Follow the prompts to authorize the Azure CLI to access your GitHub repository.  
 
