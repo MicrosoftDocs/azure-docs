@@ -1356,15 +1356,50 @@ This section includes examples showing how to restrict access to objects based o
 
 ### Example: Allow access to a container only from a specific private endpoint
 
-This condition requires that all read, write and delete operations for storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
+This condition requires that all read, write and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
 
-You must add this condition to any role assignments that include the following action.
+There are five actions for read, write and delete of existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to any role assignments that include one of the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
 > | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
+
+Suboperations are not used in this condition because the subOperation is needed only when conditions are authored based on tags.
+
+Storage Blob Data Owner
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) 
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
+ )
+ OR 
+ (
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
+   AND
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+  )
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container1'
+ )
+)
+```
+
+Storage Blob Data Contributor
 
 ```
 (
@@ -1391,7 +1426,7 @@ You must add this condition to any role assignments that include the following a
 ```
 
 > [!NOTE]
-> Without the last expression, access to all other containers not named `container1` will fail.
+> Without the last expression in each code sample, access to all other containers not named `container1` will fail.
 
 #### Azure portal
 
@@ -1400,30 +1435,48 @@ Here are the settings to add this condition using the Azure portal.
 > [!div class="mx-tableFixed"]
 > | Condition #1 | Setting |
 > | --- | --- |
-> | Actions | [Read a blob conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
-> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Option | Attribute |
+> | Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
 > | Attribute source | Resource |
-> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | Key | &lt;key&gt; |
-
-> [!div class="mx-tableFixed"]
-> | Condition #2 | Setting |
-> | --- | --- |
-> | Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
-> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
+> | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
 > | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Option | Attribute |
-> | Attribute source | Request |
-> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | Key | &lt;key&gt; |
+> | Value | `container1` |
+> | Logical operator | 'AND' |
+> | Attribute source | Environment |
+> | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
+> | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+> | Value | `privateendpoint1` |
 
-The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
-(image)
+#### Azure PowerShell
+
+Here's how to add this condition using Azure PowerShell.
+
+```azurepowershell
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'))"
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
+Here's how to test this condition.
+
+```azurepowershell
+$localSrcFile = <pathToLocalFile>
+$grantedContainer = "container1"
+$ungrantedContainer = "ungranted"
+# Get new context for request
+$bearerCtx = New-AzStorageContext -StorageAccountName $storageAccountName
+# Ungranted Container actions
+$content = Set-AzStorageBlobContent -File $localSrcFile -Container $ungrantedContainer -Blob "Example19.txt" -Context $bearerCtx
+$content = Get-AzStorageBlobContent -Container $ungrantedContainer -Blob "Example19.txt" -Context $bearerCtx
+$content = Remove-AzStorageBlob -Container $ungrantedContainer -Blob "Example19.txt" -Context $bearerCtx
+# Granted Container actions
+$content = Set-AzStorageBlobContent -File $localSrcFile -Container $grantedContainer -Blob "Example19.txt" -Context $bearerCtx
+$content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "Example19.txt" -Context $bearerCtx
+$content = Remove-AzStorageBlob -Container $grantedContainer -Blob "Example19.txt" -Context $bearerCtx
+```
 
 ### Example: Allow read access to blobs based on private link and tags
 
