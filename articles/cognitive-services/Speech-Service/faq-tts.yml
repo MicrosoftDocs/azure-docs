@@ -1,6 +1,3 @@
-
-
-
 ### YamlMime:FAQ
 metadata:
   title: Text-to-speech FAQ
@@ -61,7 +58,7 @@ sections:
       - question: |
           How much data is required to create a custom neural voice?
         answer: |
-          Custom Neural Voice (CNV) supports two project types: CNV Pro and CNV Lite. With CNV Pro, at least 300 lines of recordings (or approximately 30 minutes of speech) are required as training data for Custom Neural Voice. We recommend 2,000 lines of recordings (or approximately 2-3 hours of speech) to create a voice for production use. With CNV Lite, you can create a voice with just 20 recorded samples. CNV Lite is best for quick trials, or when you don’t have access to professional voice actors. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
+          Custom Neural Voice (CNV) supports two project types: CNV Pro and CNV Lite. With CNV Pro, at least 300 lines of recordings (or approximately 30 minutes of speech) are required as training data for Custom Neural Voice. We recommend 2,000 lines of recordings (or approximately 2-3 hours of speech) to create a voice for production use. With CNV Lite, you can create a voice with just 20 recorded samples. CNV Lite is best for quick trials, or when you don't have access to professional voice actors. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
       - question: |
           Can we include duplicate text sentences in the same set of training data?
         answer: |
