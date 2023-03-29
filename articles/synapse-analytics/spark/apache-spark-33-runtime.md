@@ -12,7 +12,7 @@ ms.reviewer: ekote
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.3 (GA)
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
 
 > [!NOTE]
 > * Azure Synapse Runtime for Apache Spark 3.3 has been in public preview since Nov 2022. As of Feb 23, 2023, we are excited to announce that after notable improvements in performance and stability, Azure Synapse Runtime for Apache Spark 3.3 now becomes generally available and ready for production workloads.
