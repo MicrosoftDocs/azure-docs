@@ -63,7 +63,7 @@ landingContent:
             url: how-to-use-mapping-debugger.md
           - text: CalculatedContent
             url: how-to-use-calculatedcontent-mappings.md
-          - text: IotJsonPathContentTemplate
+          - text: IotJsonPathContent
             url: how-to-use-iotjsonpathcontenttemplate-mappings.md
           - text: Custom functions
             url: how-to-use-custom-functions.md
