@@ -173,7 +173,7 @@ async function fetchPreviewImages(attachments) {
 Noticing in this example, we've created two helper functions - `fetchPreviewImages` and `setImgHandler` - where the first one fetches preview image directly from the `previewURL` provided in each `ChatAttachment` object with an auth header. Similarly, we set up a `onclick` event for each image in the function `setImgHandler`, and in the event handler, we fetch a full scale image from property `url` from the `ChatAttachment` object with an auth header.
 
 
-Another thing we need to do is to expose token on to global level since we need to construct an auth header with it. So we need to modify the following code: 
+Another thing we need to do is to expose token on to the global level since we need to construct an auth header with it. So we need to modify the following code: 
 
 ```js
 // new variable for token string
