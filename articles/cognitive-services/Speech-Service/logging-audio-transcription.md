@@ -434,3 +434,9 @@ To delete a specific log by ID:
 For details about how to get Log IDs, see a previous section [Get log IDs with Speech-to-text REST API](#get-log-ids-with-speech-to-text-rest-api).
 
 Since audio and transcription logs have separate IDs (such as IDs `2023-03-13_163715__0420c53d-e6ac-4857-bce0-f39c3f9f5ff9_v2_json` and `2023-03-13_163715__0420c53d-e6ac-4857-bce0-f39c3f9f5ff9_wav` from a [previous example in this article](#get-log-ids-with-speech-to-text-rest-api)), when you want to delete both audio and transcription logs you execute separate [delete by ID](#delete-specific-log) requests. 
+
+## Next steps
+
+* [Speech-to-text quickstart](get-started-speech-to-text.md)
+* [Speech translation quickstart](./get-started-speech-translation.md)
+* [Create and train custom speech models](custom-speech-overview.md)
