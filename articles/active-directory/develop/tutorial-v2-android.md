@@ -171,11 +171,11 @@ Follow these steps to set up a new project if you don't already have an Android 
 ### Create required fragment
 
 
-In **app** > **src** > **main**> **java** > **com.example(your app name)**. Create the following Android fragments:
+1. In **app** > **src** > **main**> **java** > **com.example(your app name)**. Create the following Android fragments:
 
-- _MSGraphRequestWrapper_
-- _OnFragmentInteractionListener_
-- _SingleAccountModeFragment_
+   - _MSGraphRequestWrapper_
+   - _OnFragmentInteractionListener_
+   - _SingleAccountModeFragment_
 
 1. Open _MSGraphRequestWrapper_ and add the following code to call the Microsoft Graph API using the token provided by MSAL:
 
