@@ -6,14 +6,14 @@ ms.service: signalr
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 01/05/2023
-ms.author: lianwei
+ms.date: 03/29/2023
+ms.author: lanwei
 ---
 # Azure SignalR Service internals
 
 Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR by reimplementing ASP.NET SignalR's data protocol on top of the ASP.NET Core framework.
 
-You can easily migrate a local ASP.NET Core SignalR or an ASP.NET SignalR application to work with SignalR Service, with a few lines of code change.
+You can easily migrate a local ASP.NET Core SignalR or an ASP.NET SignalR application to work with SignalR Service, with by changing few lines of code.
 
 The diagram describes the typical architecture when you use the SignalR Service with your application server.
 
@@ -28,7 +28,7 @@ A self-hosted ASP.NET Core SignalR application server listens to and connects cl
 With SignalR Service, the application server no longer accepts persistent client connections, instead:
 
 1. A `negotiate` endpoint is exposed by Azure SignalR Service SDK for each hub.
-1. The endpoint responds to client's negotiation requests and redirect clients to SignalR Service.
+1. The endpoint responds to client negotiation requests and redirect clients to SignalR Service.
 1. The clients connect to SignalR Service.
 
 For more information, see [Client connections](#client-connections).
@@ -41,15 +41,11 @@ Once the application server is started:
 
 The initial number of connections defaults to 5 and is configurable using the `InitialHubServerConnectionCount` option in the SignalR Service SDK.  For more information, see  [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/run-asp-net-core.md#maxhubserverconnectioncount). 
 
-While the application server is connected to the SignalR service, the Azure SignalR service may send load-balancing messages to the server.  Then, the SDK starts new server connections to the service for better performance. 
-
-<!-- Question: What does this mean?  Are the connections client <-> service? -->
-Messages to and from clients are multiplexed into these connections.
-
+While the application server is connected to the SignalR service, the Azure SignalR service may send load-balancing messages to the server.  Then, the SDK starts new server connections to the service for better performance. Messages to and from clients are multiplexed into these connections.
 
 Server connections are persistently connected to the SignalR Service. If a server connection is disconnected due to a network issue:
 
-- All clients served by this server connection disconnect (for more information, see [Data transmission between client and server](#data-transmission-between-client-and-server)).
+- All clients served by this server connection disconnect. For more information, see [Data transmission between client and server](#data-transmission-between-client-and-server).
 - The server automatically reconnects the clients.
 
 ## Client connections
@@ -91,7 +87,7 @@ At this point, the application server receives an event with information from th
 
 SignalR Service transmits data from the client to the pairing application server. Data from the application server is sent to the mapped clients.
 
-SignalR Service doesn't save or store customer data, all customer data received is transmitted to target server or clients in real-time.
+SignalR Service doesn't save or store customer data, all customer data received is transmitted to the target server or clients in real-time.
 
 The Azure SignalR Service acts as a logical transport layer between  application server and clients. All persistent connections are offloaded to SignalR Service.  As a result, the application server only needs to handle the business logic in the hub class, without worrying about client connections.
 

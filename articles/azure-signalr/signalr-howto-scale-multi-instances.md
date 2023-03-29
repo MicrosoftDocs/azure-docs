@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 07/18/2022
+ms.date: 03/23/2023
 ms.author: lianwei
 ---
 # Scale SignalR Service with multiple instances
@@ -17,9 +17,9 @@ SignalR Service SDK supports multiple endpoints for SignalR Service instances. Y
 
 ### Add multiple endpoints from config
 
-Config with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
+Configure with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
 
-If the key starts with `Azure:SignalR:ConnectionString:`, it should be in format `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, where `Name` and `EndpointType` are properties of the `ServiceEndpoint` object, and are accessible from code.
+If the key starts with `Azure:SignalR:ConnectionString:`, it should be in the format `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, where `Name` and `EndpointType` are properties of the `ServiceEndpoint` object, and are accessible from code.
 
 You can add multiple instance connection strings using the following `dotnet` commands:
 
@@ -129,7 +129,7 @@ services.AddSignalR()
 
 ### Add multiple endpoints from config
 
-Config with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
+Configuration with key `Azure:SignalR:ConnectionString` or `Azure:SignalR:ConnectionString:` for SignalR Service connection string.
 
 If the key starts with `Azure:SignalR:ConnectionString:`, it should be in format `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, where `Name` and `EndpointType` are properties of the `ServiceEndpoint` object, and are accessible from code.
 
@@ -150,7 +150,7 @@ You can add multiple instance connection strings to `web.config`:
 
 ### Add multiple endpoints from code
 
-A `ServicEndpoint` class describes the properties of an Azure SignalR Service endpoint.
+A `ServiceEndpoint` class describes the properties of an Azure SignalR Service endpoint.
 You can configure multiple instance endpoints when using Azure SignalR Service SDK through:
 
 ```cs
@@ -159,8 +159,8 @@ app.MapAzureSignalR(
     options => {
             options.Endpoints = new ServiceEndpoint[]
             {
-                // Note: this is just a demonstration of how to set options.Endpoints
-                // Having ConnectionStrings explicitly set inside the code is not encouraged
+                // Note: this is just a demonstration of how to set options. Endpoints
+                // Having ConnectionStrings explicitly set inside the code is not encouraged.
                 // You can fetch it from a safe place such as Azure KeyVault
                 new ServiceEndpoint("<ConnectionString1>"),
                 new ServiceEndpoint("<ConnectionString2>"),
@@ -217,7 +217,7 @@ To enable an advanced router, SignalR server SDK provides multiple metrics to he
 
 | Metric Name | Description |
 |--|--|
-| `ClientConnectionCount` | Total count concurrent client connections on all hubs for the service endpoint |
+| `ClientConnectionCount` | Total count of concurrent client connections on all hubs for the service endpoint |
 | `ServerConnectionCount` | Total count of concurrent server connections on all hubs for the service endpoint |
 | `ConnectionCapacity` | Total connection quota for the service endpoint, including client and server connections |
 
@@ -240,16 +240,18 @@ From SDK version 1.5.0, we're enabling dynamic scale ServiceEndpoints for ASP.NE
 
 > [!NOTE]
 > 
-> Considering the time of connection set-up between server/service and client/service may be different, to ensure no message loss during the scale process, we have a staging period waiting for server connections be ready before open the new ServiceEndpoint to clients. Usually it takes seconds to complete and you'll be able to see log like `Succeed in adding endpoint: '{endpoint}'` which indicates the process complete. But for some unexpected reasons like cross-region network issue or configuration inconsistent on different app servers, the staging period will not be able to finish correctly. Since limited things can be done in these cases, we choose to promote the scale as it is. It's suggested to restart App Server when you find the scaling process not working correctly.
-> 
->  The default timeout period for the scale is 5 minutes, and it can be customized by changing the value in `ServiceOptions.ServiceScaleTimeout`. If you have a lot of app servers, it's suggested to extend the value a little bit more.
+> Considering the time of connection set-up between server/service and client/service may be different, to ensure no message loss during the scale process, we have a staging period waiting for server connections to be ready before opening the new ServiceEndpoint to clients. Usually it takes seconds to complete and you'll be able to see a log message like `Succeed in adding endpoint: '{endpoint}'` which indicates the process complete. 
+>
+> In some expected situations, like cross-region network issues or configuration inconsistencies on different app servers, the staging period may not finish correctly.  In these cases, it's suggested to restart the app server when you find the scaling process not working correctly. 
+>
+> The default timeout period for the scale is 5 minutes, and it can be customized by changing the value in `ServiceOptions.ServiceScaleTimeout`. If you have a lot of app servers, it's suggested to extend the value a little bit more.
 
 
 ## Configuration in cross-region scenarios
 
 The `ServiceEndpoint` object has an `EndpointType` property with value `primary` or `secondary`.
 
-`primary` endpoints are preferred endpoints to receive client traffic because they've have more reliable network connections. `secondary` endpoints have less reliable network connections and are used only for server to client traffic.  For example, secondary endpoints are used for broadcasting messages instead of client to server traffic.
+Primary endpoints are preferred endpoints to receive client traffic because they've have more reliable network connections. Secondary endpoints have less reliable network connections and are used only for server to client traffic.  For example, secondary endpoints are used for broadcasting messages instead of client to server traffic.
 
 In cross-region cases, the network can be unstable. For an app server located in *East US*, the SignalR Service endpoint located in the same *East US* region is `primary` and endpoints in other regions marked as `secondary`. In this configuration, service endpoints in other regions can **receive** messages from this *East US* app server, but no **cross-region** clients are routed to this app server. The following diagram shows the architecture:
 
@@ -257,7 +259,7 @@ In cross-region cases, the network can be unstable. For an app server located in
 
 When a client tries `/negotiate` with the app server with a default router, the SDK **randomly selects** one endpoint from the set of available `primary` endpoints. When the primary endpoint isn't available, the SDK then **randomly selects** from all available `secondary` endpoints. The endpoint is marked as **available** when the connection between server and the service endpoint is alive.
 
-In cross-region scenario, when a client tries `/negotiate` with the app server hosted in *East US*, by default it always returns the `primary` endpoint located in the same region. When all *East US* endpoints aren't available, the router redirects the client to endpoints in other regions. The following [failover](#failover) section describes the scenario in detail.
+In a cross-region scenario, when a client tries `/negotiate` with the app server hosted in *East US*, by default it always returns the `primary` endpoint located in the same region. When all *East US* endpoints aren't available, the router redirects the client to endpoints in other regions. The following [failover](#failover) section describes the scenario in detail.
 
 ![Normal Negotiate](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
