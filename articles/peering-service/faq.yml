@@ -33,9 +33,9 @@ sections:
           Azure ExpressRoute is a private, dedicated connection from one or multiple customer locations. While Peering Service offers optimized public connectivity and doesn't support any private connectivity, it also offers optimized connectivity for local internet breakouts.
 
       - question: |
-          What Microsoft routes will we receive over these interconnects?
+          What Microsoft routes will be advertised over Peering Service connections?
         answer: |
-          Microsoft announces all of Microsoft's public service prefixes over these interconnects. This will ensure not only communications, but other cloud services are accessible from the same interconnect.
+          Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This will ensure not only communications, but other cloud services are accessible from the same interconnect.
    
       - question: |
           Can customers sign up for Peering Service with multiple providers?
