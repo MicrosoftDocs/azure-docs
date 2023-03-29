@@ -26,8 +26,15 @@
       expanded: true
   - name: DDoS IP Protection
     items:
+    - name: Portal
+      href: manage-ddos-ip-protection-portal.md
     - name: PowerShell
       href: manage-ddos-protection-powershell-ip.md
+    - name: CLI
+      href: manage-ddos-ip-protection-cli.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: manage-ddos-ip-protection-template.md           
       expanded: true
 
 - name: Tutorials
