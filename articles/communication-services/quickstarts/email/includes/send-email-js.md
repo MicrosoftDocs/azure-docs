@@ -283,3 +283,37 @@ const response = await emailClient.send(message);
 ```
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-attachments)
+
+### Throw an exception when email sending tier limit is reached
+
+There are per minute and per hour limits to the amount of emails you can send using the Azure Communication Email Service. When you have reached these limits, any further `beginSend` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/en-us/javascript/api/overview/azure/logger-readme?view=azure-node-latest) to capture these response codes.
+
+If setting up logging is not an option, you can manually define a custom policy as shown below. 
+
+```javascript
+const catch429Policy = {
+  name: "catch429Policy",
+  async sendRequest(request, next) {
+    const response = await next(request);
+    if (response.status === 429) {
+      throw new Error("Tier limit reached");
+    }
+    return response;
+  }
+};
+```
+
+Add this policy to your email client. This will ensure that 429 response codes throw an exception rather than being retried.
+
+```java
+const clientOptions = {
+  additionalPolicies: [
+    {
+      policy: catch429Policy,
+      position: "perRetry"
+    }
+  ]
+}
+
+const emailClient = new EmailClient(connectionString, clientOptions);
+```

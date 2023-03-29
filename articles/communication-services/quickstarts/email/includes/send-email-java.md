@@ -263,3 +263,39 @@ System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+
+### Throw an exception when email sending tier limit is reached
+
+There are per minute and per hour limits to the amount of emails you can send using the Azure Communication Email Service. When you have reached these limits, any further `beginSend` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/en-us/azure/developer/java/sdk/logging-overview) to capture these response codes.
+
+If setting up logging is not an option, you can manually define a custom retry policy as shown below. 
+
+```java
+import com.azure.core.http.HttpResponse;
+import com.azure.core.http.policy.ExponentialBackoff;
+
+public class CustomStrategy extends ExponentialBackoff {
+    @Override
+    public boolean shouldRetry(HttpResponse httpResponse) {
+        int code = httpResponse.getStatusCode();
+
+        if (code == HTTP_STATUS_TOO_MANY_REQUESTS) {
+            throw new RuntimeException("Tier limit reached");
+        }
+        else {
+            return super.shouldRetry(httpResponse);
+        }
+    }
+}
+```
+
+Add this retry policy to your email client. This will ensure that 429 response codes throw an exception rather than being retried.
+
+```java
+import com.azure.core.http.policy.RetryPolicy;
+
+EmailClient emailClient = new EmailClientBuilder()
+    .connectionString(connectionString)
+    .retryPolicy(new RetryPolicy(new CustomStrategy()))
+    .buildClient();
+```
