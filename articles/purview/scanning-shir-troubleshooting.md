@@ -52,9 +52,9 @@ To get support and troubleshooting guidance for SHIR issues, you may need to gen
 
 There are lots of common errors, warnings, issues between Purview SHIR and Azure Data Factory or Azure Synapse SHIR.
 
-If your SHIR issues are not resolved, refer to the [Azure Data Factory ADF or Azure Synapse SHIR troubleshooting guide](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md)
+If your SHIR issues are not resolved, refer to the [Azure Data Factory ADF or Azure Synapse SHIR troubleshooting guide](../data-factory/troubleshoot-shir.md)
 
-[!INCLUDE[SHIR](../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md)]
+[!INCLUDE[SHIR](../data-factory/troubleshoot-shir.md)]
 
 ## Manage your Purview SHIR - next steps
 
