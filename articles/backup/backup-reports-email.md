@@ -27,7 +27,7 @@ To configure email tasks via Backup Reports, perform the following steps:
 3.	After you click **Submit** and **Confirm**, the logic app will get created. The logic app and the associated API connections are created with the tag **UsedByBackupReports: true** for easy discoverability. You'll need to perform a one-time authorization step for the logic app to run successfully, as described in the section below.
 
 > [!NOTE]
-> Support for Backup vault workloads (Azure Database for PostgreSQL Server, Azure Blobs, Azure Disks) was added to the logic app templates in April 2023. Hence, if you have deployed these logic apps on an earlier date, you will have to redeploy these using the above steps if you wish to see data for Backup vault workloads in your email reports.
+> Support for Backup vault workloads (Azure Database for PostgreSQL Server, Azure Blobs, Azure Disks) is added to the logic app templates in April 2023. So, if you've deployed these logic apps on an earlier date, you'll have to redeploy these using the above steps if you want to see data for Backup vault workloads in your email reports.
 
 ## Authorize connections to Azure Monitor Logs and Office 365
 

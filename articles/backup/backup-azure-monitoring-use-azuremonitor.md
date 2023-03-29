@@ -57,9 +57,9 @@ For more information, see [Create, view, and manage log alerts by using Azure Mo
 
 ### Sample Kusto queries
 
-The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to get the data you want to be alerted on. Paste the following sample Kusto queries in the **Logs** page and then create alerts on the queries.
+The default graphs give you Kusto queries for basic scenarios on which you can build alerts. You can also modify the queries to fetch the data you want to be alerted on. Paste the following sample Kusto queries on the **Logs** page, and then create alerts on the queries.
 
-Recovery Services vaults and Backup vaults send data to a common set of tables that are listed in this article. However, there are slight differences in the schema for Recovery Services vaults and Backup vaults (refer [this page](backup-azure-monitoring-built-in-monitor.md) for more details). Hence this section is split into multiple sub-sections, so that you can use the right queries depending on which workload or vault types you are looking to query.
+Recovery Services vaults and Backup vaults send data to a common set of tables that are listed in this article. However, there are slight differences in the schema for Recovery Services vaults and Backup vaults ([learn more](backup-azure-monitoring-built-in-monitor.md)). So, this section is split into multiple sub-sections that helps you to use the right queries depending on which workload or vault types you want to query.
 
 #### Queries common across Recovery Services vaults and Backup vaults 
 
