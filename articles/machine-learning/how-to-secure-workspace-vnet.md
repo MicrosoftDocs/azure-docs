@@ -84,7 +84,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 
 ### Azure Container Registry
 
-When ACR is behind a virtual network, Azure Machine Learning can’t use it to directly build Docker images. Instead, the compute cluster is used to build the images.
+When ACR is behind a virtual network, Azure Machine Learning can't use it to directly build Docker images. Instead, the compute cluster is used to build the images.
 
 > [!IMPORTANT]
 > The compute cluster used to build Docker images needs to be able to access the package repositories that are used to train and deploy your models. You may need to add network security rules that allow access to public repos, [use private Python packages](how-to-use-private-python-packages.md), or use [custom Docker images](v1/how-to-train-with-custom-image.md) that already include the packages.
@@ -338,6 +338,18 @@ To enable network isolation for Azure Monitor and the Application Insights insta
 ## Workspace diagnostics
 
 [!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+
+## Public access to workspace
+
+> [!IMPORTANT]
+> While this is a supported configuration for Azure Machine Learning, Microsoft doesn't recommend it. You should verify this configuration with your security team before using it in production.
+
+In some cases, you may need to allow access to the workspace from the public network (without connecting through the VNet using the methods detailed the [Securely connect to your workspace](#securely-connect-to-your-workspace) section). Access over the public internet is secured using TLS.
+
+To enable public network access to the workspace, use the following steps:
+
+1. [Enable public access](how-to-configure-private-link.md#enable-public-access) to the workspace after configuring the workspace's private endpoint.
+1. [Configure the Azure Storage firewall](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#grant-access-from-an-internet-ip-range) to allow communication with the IP address of clients that connect over the public internet. You may need to change the allowed IP address if the clients don't have a static IP. For example, if one of your Data Scientists is traveling and using the WIFI connection from a hotel.
 
 ## Next steps
 
