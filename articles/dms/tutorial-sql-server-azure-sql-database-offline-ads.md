@@ -85,7 +85,7 @@ To open the Migrate to Azure SQL wizard:
 
 1. In **Step 2: Assessment results and recommendations**, complete the following steps:
 
-   1. In **Choose your Azure SQL target**, select **Azure SQL Database (PREVIEW)**.
+   1. In **Choose your Azure SQL target**, select **Azure SQL Database**.
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/assessment-target-selection.png" alt-text="Screenshot that shows selecting the Azure SQL Database target.":::
 
@@ -111,7 +111,7 @@ To open the Migrate to Azure SQL wizard:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-collected.png" alt-text="Screenshot that shows performance data collected.":::
 
-   1. In the selected **Azure SQL Database (PREVIEW)** target, select **View details** to open the detailed SKU recommendation report:
+   1. In the selected **Azure SQL Database** target, select **View details** to open the detailed SKU recommendation report:
 
       :::image type="content" source="media/tutorial-sql-server-azure-sql-database-offline-ads/get-azure-recommendation-view-details.png" alt-text="Screenshot that shows the View details link for the target database recommendations.":::
 

@@ -9,7 +9,7 @@ ms.author: vamehta
 ms.date: 04/01/2021
 ---
 
-# Point-in-time restore of an Azure Database for MySQL Flexible Server with Azure CLI
+# Point-in-time restore of an Azure Database for MySQL - Flexible Server with Azure CLI
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

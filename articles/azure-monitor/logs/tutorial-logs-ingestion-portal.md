@@ -1,9 +1,10 @@
 ---
 title: 'Tutorial: Send data to Azure Monitor Logs by using a REST API (Azure portal)'
 description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using a REST API (Azure portal version).
+author: bwren
+ms.author: bwren
 ms.topic: tutorial
 ms.date: 07/15/2022
-ms.author: guywild
 ms.reviewer: ivkhrul 
 ms.service: azure-monitor
 ---
@@ -259,17 +260,16 @@ Instead of directly configuring the schema of the table, you can upload a file w
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with 
+    | parse kind = regex RawData with *
+    ':"'
     ClientIP:string
-    ' ' *
-    ' ' *
-    ' [' * '] "' RequestType:string
-    " " Resource:string
+    " - -" * '"'
+    RequestType:string
+    ' '
+    Resource:string
     " " *
     '" ' ResponseCode:int
     " " *
-    | where ResponseCode != 200
-    | project-away Time, RawData
     ```
 
 1. Select **Run** to view the results.

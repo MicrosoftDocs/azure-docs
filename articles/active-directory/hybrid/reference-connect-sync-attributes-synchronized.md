@@ -1,5 +1,5 @@
 ---
-title: 'Attributes synchronized by Azure AD Connect | Microsoft Docs'
+title: 'Attributes synchronized by Azure AD Connect'
 description: Lists the attributes that are synchronized to Azure Active Directory.
 services: active-directory
 documentationcenter: ''

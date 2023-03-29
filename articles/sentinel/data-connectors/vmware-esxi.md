@@ -19,7 +19,7 @@ The [VMware ESXi](https://www.vmware.com/products/esxi-and-esx.html) connector a
 | **Kusto function alias** | VMwareESXi |
 | **Kusto function url** | https://aka.ms/sentinel-vmwareesxi-parser |
 | **Log Analytics table(s)** | Syslog (VMwareESXi)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

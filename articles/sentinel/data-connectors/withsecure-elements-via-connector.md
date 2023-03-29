@@ -20,7 +20,7 @@ The Common Event Format (CEF) provides natively search & correlation, alerting a
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (WithSecure Events)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [WithSecure](https://www.withsecure.com/en/support) |
 
 ## Query samples

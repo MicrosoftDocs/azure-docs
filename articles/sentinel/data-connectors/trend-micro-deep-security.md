@@ -18,7 +18,7 @@ The Trend Micro Deep Security connector allows you to easily connect your Deep S
 | --- | --- |
 | **Kusto function url** | https://aka.ms/TrendMicroDeepSecurityFunction |
 | **Log Analytics table(s)** | CommonSecurityLog (TrendMicroDeepSecurity)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Trend Micro](https://success.trendmicro.com/dcx/s/?language=en_US) |
 
 ## Query samples

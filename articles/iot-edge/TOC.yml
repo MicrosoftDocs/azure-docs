@@ -38,7 +38,7 @@
     items:
     - name: Filter data with Azure Functions
       href: tutorial-deploy-function.md
-    - name: Find averages with Azure Stream Analytics
+    - name: Deploy a Stream Analytics module
       href: tutorial-deploy-stream-analytics.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md

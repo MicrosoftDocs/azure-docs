@@ -1,5 +1,5 @@
 ---
-title: Passwordless sign-in with Microsoft Authenticator - Azure Active Directory
+title: Passwordless sign-in with Microsoft Authenticator
 description: Enable passwordless sign-in to Azure AD using Microsoft Authenticator
 
 

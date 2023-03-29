@@ -75,7 +75,7 @@ Provide the following properties when creating new dedicated cluster:
 
 After you create your cluster resource, you can edit properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
-You can have up to five active clusters per subscription per region. If the cluster is deleted, it's still reserved for 14 days. You can have up to seven clusters per subscription and region, five active, plus two deleted in past 14 days.
+Deleted clusters take two weeks to be completely removed. You can have up to seven clusters per subscription and region, five active, and two deleted in past two weeks.
 
 > [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
@@ -577,13 +577,13 @@ N/A
 
 You need to have *write* permissions on the cluster resource. 
 
-When deleting a cluster, you're losing access to all data in cluster, which was ingested from workspaces that were linked to it. This operation isn't reversible.
-The cluster's billing stops when deleted, regardless of the 30-days commitment tier in cluster. 
+When deleting a cluster, you're losing access to all data, which was ingested from workspaces that were linked to it. This operation isn't reversible.
+The cluster's billing stops when cluster is deleted, regardless of the 30-days commitment tier defined in cluster. 
 
-If you delete your cluster while workspaces are linked, Workspaces get automatically unlinked from the cluster before the cluster delete, and new data sent to workspaces gets ingested to Log Analytics store instead. If the retention of data in workspaces older than the period it was linked to the cluster, you can query workspace for the time range before the link to cluster and after the unlink, and the service performs cross-cluster queries seamlessly.
+If you delete your cluster while workspaces are linked, workspaces get automatically unlinked from the cluster before the cluster delete, and new data to workspaces gets ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.
 
 > [!NOTE] 
-> - There is a limit of seven clusters per subscription and region, five active, plus two deleted in past 14 days.
+> - There is a limit of seven clusters per subscription and region, five active, plus two that were deleted in past two weeks.
 > - Cluster's name remain reserved for 14 days after deletion, and can't be used for creating a new cluster.
 
 Use the following commands to delete a cluster:
@@ -625,7 +625,7 @@ Authorization: Bearer <token>
 
 - A maximum of five active clusters can be created in each region and subscription.
 
-- A maximum of seven clusters allowed per subscription and region, five active, plus two deleted in past 14 days.
+- A maximum of seven clusters allowed per subscription and region, five active, plus two that were deleted in past 2 weeks.
 
 - A maximum of 1,000 Log Analytics workspaces can be linked to a cluster.
 
@@ -641,11 +641,11 @@ Authorization: Bearer <token>
   - If you create a cluster and get an error "region-name doesn't support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can't be changed after the cluster has been created.
 
-- Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) the workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
+- Deleting a linked workspace is permitted while linked to cluster. If you decide to [recover](./delete-workspace.md#recover-a-workspace) a workspace during the [soft-delete](./delete-workspace.md#soft-delete-behavior) period, it returns to previous state and remains linked to cluster.
 
 ## Troubleshooting
 
-- If you get conflict error when creating a cluster, it may be that you've deleted your cluster in the last 14 days and it's in a soft-delete state. The cluster name remains reserved during the soft-delete period and you can't create a new cluster with that name. The name is released after the soft-delete period when the cluster is permanently deleted.
+- If you get conflict error when creating a cluster, it might have been deleted in past 2 weeks and in deletion process yet. The cluster name remains reserved during the 2 weeks deletion period and you can't create a new cluster with that name.
 
 - If you update your cluster while the cluster is at provisioning or updating state, the update will fail.
 
@@ -679,7 +679,7 @@ Authorization: Bearer <token>
 
 ### Cluster Get
 
- -  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it, or use another name to create a new cluster. 
+ -  404--Cluster not found, the cluster might have been deleted. If you try to create a cluster with that name and get conflict, the cluster is in deletion process.
 
 ### Cluster Delete
 
@@ -689,7 +689,7 @@ Authorization: Bearer <token>
 
 -  404--Workspace not found. The workspace you specified doesn't exist or was deleted.
 -  409--Workspace link or unlink operation in process.
--  400--Cluster not found, the cluster you specified doesn't exist or was deleted. If you try to create a cluster with that name and get conflict, the cluster is in soft-delete for 14 days. You can contact support to recover it.
+-  400--Cluster not found, the cluster you specified doesn't exist or was deleted.
 
 ### Workspace unlink
 -  404--Workspace not found. The workspace you specified doesn't exist or was deleted.

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/14/2023
+ms.date: 03/17/2023
 ---
 
 # Create a Translator resource
@@ -34,7 +34,7 @@ The Translator service can be accessed through two different resource types:
 
 1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using the Document Translation feature with managed identity authentication, choose a non-global region.
+1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using the Document Translation feature with [managed identity authorization](document-translation/how-to-guides/create-use-managed-identities.md), choose a geographic region such as **East US**.
 
 1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 

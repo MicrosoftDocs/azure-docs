@@ -18,11 +18,11 @@ This article explains the data model used by Application Insights to correlate t
 
 ## Data model for telemetry correlation
 
-Application Insights defines a [data model](../../azure-monitor/app/data-model.md) for distributed telemetry correlation. To associate telemetry with a logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even if you lose telemetry from a single layer, you can still associate telemetry reported by other components.
+Application Insights defines a [data model](../../azure-monitor/app/data-model-complete.md) for distributed telemetry correlation. To associate telemetry with a logical operation, every telemetry item has a context field called `operation_Id`. This identifier is shared by every telemetry item in the distributed trace. So even if you lose telemetry from a single layer, you can still associate telemetry reported by other components.
 
-A distributed logical operation typically consists of a set of smaller operations that are requests processed by one of the components. These operations are defined by [request telemetry](../../azure-monitor/app/data-model-request-telemetry.md). Every request telemetry item has its own `id` that identifies it uniquely and globally. And all telemetry items (such as traces and exceptions) that are associated with the request should set the `operation_parentId` to the value of the request `id`.
+A distributed logical operation typically consists of a set of smaller operations that are requests processed by one of the components. These operations are defined by [request telemetry](../../azure-monitor/app/data-model-complete.md#request). Every request telemetry item has its own `id` that identifies it uniquely and globally. And all telemetry items (such as traces and exceptions) that are associated with the request should set the `operation_parentId` to the value of the request `id`.
 
-Every outgoing operation, such as an HTTP call to another component, is represented by [dependency telemetry](../../azure-monitor/app/data-model-dependency-telemetry.md). Dependency telemetry also defines its own `id` that's globally unique. Request telemetry, initiated by this dependency call, uses this `id` as its `operation_parentId`.
+Every outgoing operation, such as an HTTP call to another component, is represented by [dependency telemetry](../../azure-monitor/app/data-model-complete.md#dependency). Dependency telemetry also defines its own `id` that's globally unique. Request telemetry, initiated by this dependency call, uses this `id` as its `operation_parentId`.
 
 You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
@@ -79,7 +79,7 @@ The [W3C Trace-Context](https://w3c.github.io/trace-context/) and Application In
 | `Operation_Id`                         | [trace-id](https://w3c.github.io/trace-context/#trace-id)                                           |
 | `Operation_ParentId`                   | [parent-id](https://w3c.github.io/trace-context/#parent-id) of this span's parent span. This field must be empty if it's a root span.|
 
-For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
+For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model-complete.md).
 
 ### Enable W3C distributed tracing support for .NET apps
 
@@ -383,6 +383,6 @@ You can also set the cloud role name via environment variable or system property
 - For advanced correlation scenarios in ASP.NET Core and ASP.NET, see [Track custom operations](custom-operations-tracking.md).
 - Learn more about [setting cloud_RoleName](./app-map.md#set-or-override-cloud-role-name) for other SDKs.
 - Onboard all components of your microservice on Application Insights. Check out the [supported platforms](./app-insights-overview.md#supported-languages).
-- See the [data model](./data-model.md) for Application Insights types.
+- See the [data model](./data-model-complete.md) for Application Insights types.
 - Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
 - Review the [Application Insights config reference](configuration-with-applicationinsights-config.md).

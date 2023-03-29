@@ -394,7 +394,7 @@ az webapp config connection-string list --resource-group <group-name> --name <ap
 ...
 
 # Update the app with the JSON file
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings @settings.json
+az webapp config connection-string set --resource-group <group-name> --name <app-name> --settings @settings.json
 ```
 
 # [Azure PowerShell](#tab/ps)

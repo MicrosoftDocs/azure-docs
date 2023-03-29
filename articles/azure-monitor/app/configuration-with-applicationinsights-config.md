@@ -314,5 +314,5 @@ Configure a [snapshot collection for ASP.NET applications](snapshot-debugger-vm.
 [exceptions]: ./asp-net-exceptions.md
 [netlogs]: ./asp-net-trace-logs.md
 [new]: ./create-new-resource.md
-[redfield]: ./status-monitor-v2-overview.md
+[redfield]: ./application-insights-asp-net-agent.md
 [start]: ./app-insights-overview.md

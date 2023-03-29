@@ -19,6 +19,9 @@ If you're deploying on VMware, a x64 Python environment is required. The [pip](h
 
 If you're deploying on Azure Stack HCI, the x32 Azure CLI installer can be used to install Azure CLI.
 
+
+Arc Appliance CLI extension, 'arcappliance', needs to be installed on the CLI. This can be done by running: `az extension add --name arcappliance`
+
 ## Minimum resource requirements
 
 Arc resource bridge has the following minimum resource requirements:
@@ -122,3 +125,4 @@ When deploying Arc resource bridge with AKS on Azure Stack HCI (AKS Hybrid), the
 
 - Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
 - Learn about [security configuration and considerations for Azure Arc resource bridge (preview)](security-overview.md).
+

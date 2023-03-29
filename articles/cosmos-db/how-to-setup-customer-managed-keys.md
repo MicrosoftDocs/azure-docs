@@ -713,6 +713,12 @@ Alternatively, to revoke all keys from an Azure Key Vault instance, you can dele
 
 The only operation possible when the encryption key has been revoked is account deletion.
 
+### Assign a new managed-identity to the restored database account to continue accessing or recover access to the database account
+
+- [Create a new user-assigned managed identity.](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)
+- [Grant KeyVault key access to this identity.](#choosing-the-preferred-security-model)
+- [Assign this new identity to your restored database account.](/cli/azure/cosmosdb/identity#az-cosmosdb-identity-assign)
+
 ## Next steps
 
 - Learn more about [data encryption in Azure Cosmos DB](database-encryption-at-rest.md).

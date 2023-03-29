@@ -19,7 +19,7 @@ OSSEC data connector provides the capability to ingest [OSSEC](https://www.ossec
 | **Kusto function alias** | OSSECEvent |
 | **Kusto function url** | https://aka.ms/sentinel-OSSEC-parser |
 | **Log Analytics table(s)** | CommonSecurityLog (OSSEC)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples

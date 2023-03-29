@@ -145,7 +145,7 @@ When you want the user to enter information themselves. This type is also called
 
 | Property | Type | Description |
 | -------- | -------- | -------- |
-|`url`| string (url) | url of the logo (optional if image is specified) |
+|`uri`| string (url) | url of the logo (optional if image is specified) |
 |`description` | string | the description of the logo |
 |`image` | string | the base-64 encoded image (optional if url is specified) |
 

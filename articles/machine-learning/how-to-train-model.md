@@ -175,7 +175,7 @@ curl -X PUT \
 
 # [Python SDK](#tab/python)
 
-To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure Machine Learning. 
+To run this script, you'll use a `command` that executes main.py Python script located under ./sdk/python/jobs/single-step/lightgbm/iris/src/. The command will be run by submitting it as a `job` to Azure ML. 
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
@@ -299,13 +299,13 @@ The following examples demonstrate how to register a model in your Azure Machine
 
 ```python
 from azure.ai.ml.entities import Model
-from azure.ai.ml.constants import ModelType
+from azure.ai.ml.constants import AssetTypes
 
 run_model = Model(
     path="azureml://jobs/{}/outputs/artifacts/paths/model/".format(returned_job.name),
     name="run-model-example",
     description="Model created from run.",
-    type=ModelType.MLFLOW
+    type=AssetTypes.MLFLOW_MODEL
 )
 
 ml_client.models.create_or_update(run_model)

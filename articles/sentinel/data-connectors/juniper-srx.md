@@ -19,7 +19,7 @@ The [Juniper SRX](https://www.juniper.net/us/en/products-services/security/srx-s
 | **Kusto function alias** | JuniperSRX |
 | **Kusto function url** | https://aka.ms/sentinel-junipersrx-parser |
 | **Log Analytics table(s)** | Syslog (JuniperSRX)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

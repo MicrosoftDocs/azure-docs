@@ -551,3 +551,5 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Azure Maps on IoT School
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+  - name: Create elevation data & services
+    href: elevation-data-services.md

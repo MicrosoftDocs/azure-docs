@@ -19,7 +19,7 @@ The [Symantec VIP](https://vip.symantec.com/) connector allows you to easily con
 | **Kusto function alias** | SymantecVIP |
 | **Kusto function url** | https://aka.ms/sentinelgithubparserssymantecvip |
 | **Log Analytics table(s)** | Syslog (SymantecVIP)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

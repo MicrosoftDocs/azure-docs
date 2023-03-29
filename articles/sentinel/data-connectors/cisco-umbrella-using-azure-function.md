@@ -1,6 +1,6 @@
 ---
-title: "Cisco Umbrella (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Cisco Umbrella (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Cisco Umbrella (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Cisco Umbrella (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Cisco Umbrella (using Azure Function) connector for Microsoft Sentinel
+# Cisco Umbrella (using Azure Functions) connector for Microsoft Sentinel
 
 The Cisco Umbrella data connector provides the capability to ingest [Cisco Umbrella](https://docs.umbrella.com/) events stored in Amazon S3 into Microsoft Sentinel using the Amazon S3 REST API. Refer to [Cisco Umbrella log management documentation](https://docs.umbrella.com/deployment-umbrella/docs/log-management) for more information.
 
@@ -17,7 +17,7 @@ The Cisco Umbrella data connector provides the capability to ingest [Cisco Umbre
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | WorkspaceID<br/>WorkspaceKey<br/>S3Bucket<br/>AWSAccessKeyId<br/>AWSSecretAccessKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-CiscoUmbrellaConn-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-CiscoUmbrellaConn-functionapp |
 | **Kusto function alias** | Cisco_Umbrella |
 | **Kusto function url** | https://aka.ms/sentinel-ciscoumbrella-function |
 | **Log Analytics table(s)** | Cisco_Umbrella_dns_CL<br/> Cisco_Umbrella_proxy_CL<br/> Cisco_Umbrella_ip_CL<br/> Cisco_Umbrella_cloudfirewall_CL<br/> |

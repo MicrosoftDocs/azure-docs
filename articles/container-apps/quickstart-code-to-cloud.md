@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
-ms.date: 02/09/2023
+ms.date: 03/29/2023
 ms.author: v-bcatherine
 zone_pivot_groups: container-apps-image-build-from-repo
 ---

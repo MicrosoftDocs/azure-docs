@@ -19,7 +19,7 @@ The [Symantec ProxySG](https://www.broadcom.com/products/cyber-security/network/
 | **Kusto function alias** | SymantecProxySG |
 | **Kusto function url** | https://aka.ms/sentinelgithubparserssymantecproxysg |
 | **Log Analytics table(s)** | Syslog (SymantecProxySG)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
 
 ## Query samples

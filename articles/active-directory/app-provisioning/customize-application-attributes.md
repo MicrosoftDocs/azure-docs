@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/06/2022
+ms.date: 03/20/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -17,7 +17,7 @@ ms.reviewer: arvinh
 
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, G Suite and others. If you enable user provisioning for a third-party SaaS application, the Azure portal controls its attribute values through attribute-mappings.
 
-Before you get started, make sure you are familiar with app management and **single sign-on (SSO)** concepts. Check out the following links:
+Before you get started, make sure you're familiar with app management and **single sign-on (SSO)** concepts. Check out the following links:
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
 - [What is single sign-on (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
@@ -71,15 +71,15 @@ Along with this property, attribute-mappings also support the following attribut
 
 - **Source attribute** - The user attribute from the source system (example: Azure Active Directory).
 - **Target attribute** – The user attribute in the target system (example: ServiceNow).
-- **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" will not be provisioned when updating an existing user. If for example, you want to provision all existing users in the target system with a particular Job Title (when it is null in the source system), you can use the following [expression](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
+- **Default value if null (optional)** - The value that will be passed to the target system if the source attribute is null. This value will only be provisioned when a user is created. The "default value when null" won't be provisioned when updating an existing user. If for example, you want to provision all existing users in the target system with a particular Job Title (when it's null in the source system), you can use the following [expression](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with what you would like to provision when null in the source system. 
 - **Match objects using this attribute** – Whether this mapping should be used to uniquely identify users between the source and target systems. It's typically set on the userPrincipalName or mail attribute in Azure AD, which is typically mapped to a username field in a target application.
-- **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they're evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated. While you can set as many matching attributes as you would like, consider whether the attributes you are using as matching attributes are truly unique and need to be matching attributes. Generally customers have 1 or 2 matching attributes in their configuration. 
+- **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they're evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated. While you can set as many matching attributes as you would like, consider whether the attributes you're using as matching attributes are truly unique and need to be matching attributes. Generally customers have 1 or 2 matching attributes in their configuration. 
 - **Apply this mapping**
   - **Always** – Apply this mapping on both user creation and update actions.
   - **Only during creation** - Apply this mapping only on user creation actions.
 
 ## Matching users in the source and target  systems
-The Azure AD provisioning service can be deployed in both "green field" scenarios (where users do not exist in the target system) and "brownfield" scenarios (where users already exist in the target system). To support both scenarios, the provisioning service uses the concept of matching attributes. Matching attributes allow you to determine how to uniquely identify a user in the source and match the user in the target. As part of planning your deployment, identify the attribute that can be used to uniquely identify a user in the source and target systems. Things to note:
+The Azure AD provisioning service can be deployed in both "green field" scenarios (where users don't exist in the target system) and "brownfield" scenarios (where users already exist in the target system). To support both scenarios, the provisioning service uses the concept of matching attributes. Matching attributes allow you to determine how to uniquely identify a user in the source and match the user in the target. As part of planning your deployment, identify the attribute that can be used to uniquely identify a user in the source and target systems. Things to note:
 
 - **Matching attributes should be unique:** Customers often use attributes such as userPrincipalName, mail, or object ID as the matching attribute.
 - **Multiple attributes can be used as matching attributes:** You can define multiple attributes to be evaluated when matching users and the order in which they are evaluated (defined as matching precedence in the UI). If for example, you define three attributes as matching attributes, and a user is uniquely matched after evaluating the first two attributes, the service will not evaluate the third attribute. The service will evaluate matching attributes in the order specified and stop evaluating when a match is found.  

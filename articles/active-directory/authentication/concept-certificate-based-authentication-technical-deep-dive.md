@@ -1,5 +1,5 @@
 ---
-title: Azure AD certificate-based authentication technical deep dive - Azure Active Directory
+title: Azure AD certificate-based authentication technical deep dive
 description: Learn how Azure AD certificate-based authentication works
 
 services: active-directory

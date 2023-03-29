@@ -17,7 +17,7 @@ The Forcepoint NGFW (Next Generation Firewall) connector allows you to automatic
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (ForcePointNGFW)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Community](https://github.com/Azure/Azure-Sentinel/issues) |
 
 ## Query samples

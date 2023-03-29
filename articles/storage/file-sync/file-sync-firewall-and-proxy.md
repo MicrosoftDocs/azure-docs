@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 03/17/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -43,7 +43,7 @@ Azure File Sync will work through any means available that allow reach into Azur
 
 Azure File Sync supports app-specific and machine-wide proxy settings.
 
-**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or newer and can be configured during the agent installation or by using the Set-StorageSyncProxyConfiguration PowerShell cmdlet.
+**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or newer and can be configured during the agent installation or by using the `Set-StorageSyncProxyConfiguration` PowerShell cmdlet.
 
 PowerShell commands to configure app-specific proxy settings:
 
@@ -100,19 +100,19 @@ To configure machine-wide proxy settings, follow the steps below:
 2. Set the WinHTTP proxy settings
 
    > [!NOTE]
-   > There are several methods (WPAD, PAC file, netsh, etc.) to configure a Windows Server to use a proxy server. The steps below cover how to configure the proxy settings using netsh but any method listed in the [Configure proxy server settings in Windows](/troubleshoot/windows-server/networking/configure-proxy-server-settings) documentation is supported.
+   > There are several methods (WPAD, PAC file, netsh, etc.) to configure a Windows Server to use a proxy server. The steps below cover how to configure the proxy settings using `netsh` but any method listed in the [Configure proxy server settings in Windows](/troubleshoot/windows-server/networking/configure-proxy-server-settings) documentation is supported.
 
    - Run the following command from an elevated command prompt or PowerShell to see the existing proxy setting:
 
-     netsh winhttp show proxy
+     `netsh winhttp show proxy`
 
    - Run the following command from an elevated command prompt or PowerShell to set the proxy setting (change 127.0.01:8888 to the IP address and port for the proxy server):
 
-     netsh winhttp set proxy 127.0.0.1:8888
+     `netsh winhttp set proxy 127.0.0.1:8888`
 
 3. Restart the Storage Sync Agent service by running the following command from an elevated command prompt or PowerShell:
 
-      net stop filesyncsvc
+      `net stop filesyncsvc`
 
       Note: The Storage Sync Agent (filesyncsvc) service will auto-start once stopped.
 
@@ -150,6 +150,8 @@ For business continuity and disaster recovery (BCDR) reasons you may have create
 | Public | Canada East | https:\//canadaeast01.afs.azure.net<br>https:\//kailani-cae.one.microsoft.com | Canada Central | https:\//tm-canadaeast01.afs.azure.net<br>https:\//tm-kailani.cae.one.microsoft.com |
 | Public | Central India | https:\//centralindia01.afs.azure.net<br>https:\//kailani-cin.one.microsoft.com | South India | https:\//tm-centralindia01.afs.azure.net<br>https:\//tm-kailani-cin.one.microsoft.com |
 | Public | Central US | https:\//centralus01.afs.azure.net<br>https:\//kailani-cus.one.microsoft.com | East US 2 | https:\//tm-centralus01.afs.azure.net<br>https:\//tm-kailani-cus.one.microsoft.com |
+| Azure China 21Vianet | China East 2 | https:\//chinaeast201.afs.azure.cn | China North 2 | https:\//tm-chinaeast201.afs.azure.cn |
+| Azure China 21Vianet | China North 2 | https:\//chinanorth201.afs.azure.cn | China East 2 | https:\//tm-chinanorth201.afs.azure.cn |
 | Public | East Asia | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | Southeast Asia | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
 | Public | East US | https:\//eastus01.afs.azure.net<br>https:\//kailani1.one.microsoft.com | West US | https:\//tm-eastus01.afs.azure.net<br>https:\//tm-kailani1.one.microsoft.com |
 | Public | East US 2 | https:\//eastus201.afs.azure.net<br>https:\//kailani-ess.one.microsoft.com | Central US | https:\//tm-eastus201.afs.azure.net<br>https:\//tm-kailani-ess.one.microsoft.com |
@@ -304,7 +306,7 @@ You can then use the IP address ranges in `$ipAddressRanges` to update your fire
 
 ## Test network connectivity to service endpoints
 
-Once a server is registered with the Azure File Sync service, the Test-StorageSyncNetworkConnectivity cmdlet and ServerRegistration.exe can be used to test communications with all endpoints (URLs) specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine-tune proxy and firewall configurations.
+Once a server is registered with the Azure File Sync service, the `Test-StorageSyncNetworkConnectivity` cmdlet and ServerRegistration.exe can be used to test communications with all endpoints (URLs) specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine-tune proxy and firewall configurations.
 
 To run the network connectivity test, run the following PowerShell commands:
 
@@ -317,7 +319,7 @@ Test-StorageSyncNetworkConnectivity
 
 The lists earlier in this document contain the URLs Azure File Sync currently communicates with. Firewalls must be able to allow traffic outbound to these domains. Microsoft strives to keep this list updated.
 
-Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, one needs to keep in mind that URLs will be added and might even change over time. Check this article periodically.
+Setting up domain restricting firewall rules can be a measure to improve security. If these firewall configurations are used, keep in mind that URLs will be added and might even change over time. Check this article periodically.
 
 ## Next steps
 

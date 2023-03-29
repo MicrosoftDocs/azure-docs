@@ -1,5 +1,5 @@
 ---
-title: Govern access for external users in entitlement management - Azure AD
+title: Govern access for external users in entitlement management
 description: Learn about the settings you can specify to govern access for external users in entitlement management.
 services: active-directory
 documentationCenter: ''

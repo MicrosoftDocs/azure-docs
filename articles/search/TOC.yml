@@ -45,7 +45,7 @@
     href: search-get-started-arm.md
 - name: Tutorials
   items:
-  - name: Add search to web apps
+  - name: Add search to static web apps
     items: 
     - name: C#
       items: 

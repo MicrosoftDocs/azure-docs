@@ -1,5 +1,5 @@
 ---
-title: Getting started Azure MFA Server - Azure Active Directory
+title: Getting started Azure MFA Server
 description: Step-by-step get started with Azure MFA Server on-premises
 
 services: multi-factor-authentication

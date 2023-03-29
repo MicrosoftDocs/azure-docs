@@ -19,7 +19,7 @@ The [Broadcom Symantec Endpoint Protection (SEP)](https://www.broadcom.com/produ
 | **Kusto function alias** | SEP |
 | **Kusto function url** | https://aka.ms/sentinel-SymantecEndpointProtection-parser |
 | **Log Analytics table(s)** | Syslog (SymantecEndpointProtection)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

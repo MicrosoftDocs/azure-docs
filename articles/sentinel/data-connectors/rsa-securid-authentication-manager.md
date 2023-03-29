@@ -17,7 +17,7 @@ The [RSA® SecurID Authentication Manager](https://www.securid.com/) data connec
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | Syslog (RSASecurIDAMEvent)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

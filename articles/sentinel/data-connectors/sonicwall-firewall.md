@@ -17,7 +17,7 @@ Common Event Format (CEF) is an industry standard format on top of Syslog messag
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (SonicWall)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [SonicWall](https://www.sonicwall.com/support/) |
 
 ## Query samples

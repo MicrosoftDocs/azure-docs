@@ -131,8 +131,8 @@ To get the correct query result queries might move data from one Compute node to
 To minimize data movement, select a distribution column or set of columns that:
 
 - Is used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER`, and `HAVING` clauses. When two large fact tables have frequent joins, query performance improves when you distribute both tables on one of the join columns.  When a table is not used in joins, consider distributing the table on a column or column set that is frequently in the `GROUP BY` clause.
-- Is *not* used in `WHERE` clauses. This could narrow the query to not run on all the distributions.
-- Is *not* a date column. `WHERE` clauses often filter by date.  When this happens, all the processing could run on only a few distributions.
+- Is *not* used in `WHERE` clauses. When a query's `WHERE` clause and the table's distribution columns are on the same column, the query could encounter high data skew, leading to processing load falling on only few distributions. This impacts query performance, ideally many distributions share the processing load.
+- Is *not* a date column. `WHERE` clauses often filter by date.  When this happens, all the processing could run on only a few distributions affecting query performance. Ideally, many distributions share the processing load.
 
 Once you design a hash-distributed table, the next step is to load data into the table. For loading guidance, see [Loading overview](design-elt-data-loading.md).
 

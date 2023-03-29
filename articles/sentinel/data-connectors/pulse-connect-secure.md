@@ -19,7 +19,7 @@ The [Pulse Connect Secure](https://www.pulsesecure.net/products/pulse-connect-se
 | **Kusto function alias** | PulseConnectSecure |
 | **Kusto function url** | https://aka.ms/sentinelgithubparserspulsesecurevpn |
 | **Log Analytics table(s)** | Syslog (PulseConnectSecure)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

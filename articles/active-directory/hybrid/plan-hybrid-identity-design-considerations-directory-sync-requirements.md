@@ -1,5 +1,5 @@
 ---
-title: Hybrid identity design - directory sync requirements Azure | Microsoft Docs
+title: Hybrid identity design - directory sync requirements Azure
 description: Identify what requirements are needed for synchronizing all the users between on=premises and cloud for the enterprise.
 documentationcenter: ''
 services: active-directory

@@ -274,7 +274,7 @@ kubectl delete pod pod-name
 
 <!-- EXTERNAL LINKS -->
 [kata-containers-overview]: https://katacontainers.io/
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
 [kubectl-get-pods]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
@@ -286,7 +286,7 @@ kubectl delete pod pod-name
 [kata-container]: https://katacontainers.io 
 
 <!-- INTERNAL LINKS -->
-[install-azure-cli]: /cli/azu
+[install-azure-cli]: /cli/azure
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-show]: /cli/azure/feature#az-feature-show

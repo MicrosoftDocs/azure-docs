@@ -18,8 +18,7 @@ The Azure Container Apps service enables you to run microservices and containeri
 In this tutorial, you create a secure Container Apps environment and deploy your first container app.
 
 > [!NOTE]
-> You can also deploy this app using the [az containerapp up](/cli/azure/containerapp#az_containerapp_up) by following the instructions in the [Quickstart: Deploy your first container app with containerapp up
-](get-started.md) article.  The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command.  However, it doesn't provide the same level of customization for your container app.
+> You can also deploy this app using the [az containerapp up](/cli/azure/containerapp#az_containerapp_up) by following the instructions in the [Quickstart: Deploy your first container app with containerapp up](get-started.md) article.  The `az containerapp up` command is a fast and convenient way to build and deploy your app to Azure Container Apps using a single command.  However, it doesn't provide the same level of customization for your container app.
 
 
 ## Prerequisites

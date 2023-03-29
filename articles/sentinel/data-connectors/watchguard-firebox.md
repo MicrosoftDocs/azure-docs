@@ -19,7 +19,7 @@ WatchGuard Firebox (https://www.watchguard.com/wgrd-products/firewall-appliances
 | **Kusto function alias** | WatchGuardFirebox |
 | **Kusto function url** | https://aka.ms/sentinel-watchguardfirebox-parser |
 | **Log Analytics table(s)** | Syslog (WatchGuardFirebox)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [WatchGuard](https://www.watchguard.com/wgrd-support/contact-support) |
 
 ## Query samples

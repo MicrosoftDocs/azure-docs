@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 12/16/2022
+ms.date: 3/20/2023
 ms.author: v-bcatherine
 ---
 ---
@@ -48,7 +48,7 @@ az extension add --name connectedk8s  --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
 az extension remove --name containerapp
-az extension add --source https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-4615-a574-a1b7c8e22f40/containerapp-0.0.1-py2.py3-none-any.whl --yes
+az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -57,8 +57,8 @@ az extension add --source https://download.microsoft.com/download/5/c/2/5c2ec3fc
 az extension add --name connectedk8s  --upgrade --yes
 az extension add --name k8s-extension --upgrade --yes
 az extension add --name customlocation --upgrade --yes
-az extension az extension remove --name containerapp
-az extension add --source https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-4615-a574-a1b7c8e22f40/containerapp-0.0.1-py2.py3-none-any.whl --yes
+az extension remove --name containerapp
+az extension add --source https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
 ```
 
 ---

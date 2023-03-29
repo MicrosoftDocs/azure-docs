@@ -2,6 +2,8 @@
 title: 'Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)'
 description: Tutorial on how to send data to a Log Analytics workspace in Azure Monitor by using the REST API Azure Resource Manager template version.
 ms.topic: tutorial
+author: bwren
+ms.author: bwren
 ms.date: 02/01/2023
 ---
 

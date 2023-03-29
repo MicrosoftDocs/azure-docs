@@ -35,7 +35,7 @@ The following list presents the set of features that are currently available in 
 | Group of features | Capability                                                                                                          | JS  | Windows | Java (Android) | Objective-C (iOS) |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ------- | -------------- | ----------------- |
 | Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️       | ✔️              | ✔️                 |
-|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
+|                   | Place a group call with more than two users (up to 100 users)                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Join a group call after it has started                                                                              | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️       | ✔️              | ✔️                 |
@@ -120,7 +120,7 @@ The following table represents the set of supported browsers which are currently
 
 * Outgoing Screen Sharing is not supported on iOS or Android.
 * Firefox support is in public preview.
-* ACS only supports Android System WebView on Android in public preview. Other types of embedded browsers or WebView on other OS platforms are not officially supported, for example, iOS WKWebView, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
+* ACS only supports Android System WebView on Android, iOS WebView(WKWebView) in public preview. Other types of embedded browsers or WebView on other OS platforms are not officially supported, for example, GeckoView, Chromium Embedded Framework (CEF), Microsoft Edge WebView2.
 Running JavaScript Calling SDK on these platforms is not actively tested, it may or may not work.
 * [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
 

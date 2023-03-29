@@ -1,7 +1,7 @@
 ---
-title: Attach or detach a compute gallery to a lab plan
+title: "Attach/detach a compute gallery to a lab plan"
 titleSuffix: Azure Lab Services
-description: This article describes how to attach an Azure Compute Gallery to a lab in Azure Lab Services. 
+description: This article describes how to attach or detach an Azure compute gallery to a lab plan in Azure Lab Services.
 services: lab-services
 ms.service: lab-services
 author: ntrogh
@@ -14,24 +14,25 @@ ms.date: 03/01/2023
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
-> [!NOTE]
-> If using a version of Azure Lab Services prior to the [August 2022 Update](lab-services-whats-new.md), see [Attach or detach a shared image gallery to a lab account in Azure Lab Services](how-to-attach-detach-shared-image-gallery-1.md).
-
-This article shows you how to attach or detach an Azure Compute Gallery to a lab plan.
+This article shows how to attach or detach an Azure compute gallery to a lab plan. If you use a lab account, see how to [attach or detach a compute gallery to a lab account](how-to-attach-detach-shared-image-gallery-1.md).
 
 > [!IMPORTANT]
-> Lab plan administrators must manually [replicate images](../virtual-machines/shared-image-galleries.md) to other regions in the compute gallery. Replicate an Azure Compute Gallery image to the same region as the lab plan to be shown in the list of virtual machine images during lab creation.
+> To show a virtual machine image in the list of images during lab creation, you need to replicate the compute gallery image to the same region as the lab plan. You need to manually [replicate images](../virtual-machines/shared-image-galleries.md) to other regions in the compute gallery.
 
-Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. For more information about Azure Compute Gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/azure-compute-gallery.md#billing).
+Saving images to a compute gallery and replicating those images incurs additional cost. This cost is separate from the Azure Lab Services usage cost. Learn more about [Azure Compute Gallery pricing](../virtual-machines/azure-compute-gallery.md#billing).
 
 ## Prerequisites
 
 - To change settings for the lab plan, your Azure account needs the [Owner](/azure/role-based-access-control/built-in-roles#owner), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Lab Services Contributor](/azure/role-based-access-control/built-in-roles#lab-services-contributor) role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
 
-- To attach an Azure compute gallery to a lab plan, your Azure account needs the following permissions:
+- To attach an Azure compute gallery to a lab plan, your Azure account needs to have the following permissions:
 
-    - [Owner](/azure/role-based-access-control/built-in-roles#owner) role on the Azure compute gallery resource, if you're using an existing compute gallery
-    - [Owner](/azure/role-based-access-control/built-in-roles#owner) role on the resource group, if you're creating a new compute gallery
+    | Azure role | Scope | Note |
+    | ---- | ----- | ---- |
+    | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Azure compute gallery | If you attach an existing compute gallery. |
+    | [Owner](/azure/role-based-access-control/built-in-roles#owner) | Resource group | If you create a new compute gallery. |
+
+    Learn how to [assign an Azure role in Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-steps#step-5-assign-role).
 
 ## Scenarios
 
@@ -45,9 +46,9 @@ When you [save a template image of a lab](how-to-use-shared-image-gallery.md#sav
 A lab creator can create a template VM based on both generalized and specialized images in Azure Lab Services.
 
 > [!IMPORTANT]
-> While using an Azure Compute Gallery, Azure Lab Services supports only images that use less than 128 GB of disk space on their OS drive. Images with more than 128 GB of disk space or multiple disks won't be shown in the list of virtual machine images during lab creation.
+> While using an Azure compute gallery, Azure Lab Services supports only images that use less than 128 GB of disk space on their OS drive. Images with more than 128 GB of disk space or multiple disks won't be shown in the list of virtual machine images during lab creation.
 
-## Create and attach a compute gallery
+## Attach a new compute gallery to a lab plan
 
 1. Open your lab plan in the [Azure portal](https://portal.azure.com).
 
@@ -67,7 +68,57 @@ In the bottom pane, you see images in the compute gallery. There are no images i
 
 :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-empty-list.png" alt-text="Screenshot of the attached image gallery list of images." lightbox="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-empty-list.png":::
 
-## Attach an existing compute gallery
+## Attach an existing compute gallery to a lab plan
+
+If you already have an Azure compute gallery, you can also attach it to your lab plan. To attach an existing compute gallery, you first need to grant the Azure Lab Services service principal permissions to the compute gallery. Next, you can attach the existing compute gallery to your lab plan.
+
+### Configure compute gallery permissions
+
+The Azure Lab Services service principal needs to have the Owner Azure RBAC role on the Azure compute gallery. There are two Azure Lab Services service principals:
+
+| Name | Application ID | Description |
+| ---- | ----- | ---- |
+| Azure Lab Services | c7bb12bf-0b39-4f7f-9171-f418ff39b76a | Service principal for Azure Lab Services lab plans (V2). |
+| Azure Lab Services | 1a14be2a-e903-4cec-99cf-b2e209259a0f | Service principal for Azure Lab Services lab accounts (V1). |
+
+To attach a compute gallery to a lab plan, assign the Owner role to the service principal with application ID `c7bb12bf-0b39-4f7f-9171-f418ff39b76a`.
+
+> [!NOTE]
+> When you add a role assignment in the Azure portal, the user interface shows the *object ID* of the service principal, which is different from the *application ID*. The object ID for a service principal can be different in each Azure subscription. You can find the service principal object ID in Azure Active Directory, based on its application ID. Learn more about [Service principal objects](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+
+Follow these steps to grant permissions to the Azure Lab Service service principal by using the Azure CLI:
+
+1. Open [Azure Cloud Shell](https://shell.azure.com). Alternately, select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com).
+
+    Azure Cloud Shell is an interactive, authenticated, browser-accessible terminal for managing Azure resources. Learn how to get started with [Azure Cloud Shell](/azure/cloud-shell/quickstart).
+
+1. Enter the following commands in Cloud Shell:
+ 
+    1. Select the service principal object ID, based on the application ID:
+
+        ```azurecli-interactive
+        az ad sp show --id c7bb12bf-0b39-4f7f-9171-f418ff39b76a --query "id" -o tsv
+        ```
+
+    1. Select the ID of the compute gallery, based on the gallery name:
+
+        ```azurecli-interactive
+        az sig show --gallery-name <gallery-name> --resource-group <gallery-resource-group> --query id -o tsv
+        ```
+
+        Replace the text placeholders *`<gallery-name>`* and *`<gallery-resource-group>`* with the compute gallery name and the name of the resource group that contains the compute gallery. Make sure to remove the angle brackets when replacing the text.
+
+    1. Assign the Owner role to service principal on the compute gallery:
+
+        ```azurecli-interactive
+        az role assignment create --assignee-object-id <service-principal-object-id> --role Owner --scope <gallery-id>
+        ```
+
+        Replace the text placeholders *`<service-principal-object-id>`* and *`<gallery-id>`* with the outcomes of the previous commands.
+
+Learn more about how to [assign an Azure role in Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-steps#step-5-assign-role).
+
+### Attach the compute gallery
 
 The following procedure shows you how to attach an existing compute gallery to a lab plan.
 
@@ -105,7 +156,7 @@ To detach a compute gallery from your lab, select **Detach** on the toolbar. Con
 
 :::image type="content" source="./media/how-to-attach-detach-shared-image-gallery/attached-gallery-detach.png" alt-text="Screenshot of how to detach the compute gallery from the lab plan.":::
 
-Only one Azure compute gallery can be attached to a lab plan. To attach another compute gallery, follow the steps to [attach an existing compute gallery](#attach-an-existing-compute-gallery).
+Only one Azure compute gallery can be attached to a lab plan. To attach another compute gallery, follow the steps to [attach an existing compute gallery](#attach-an-existing-compute-gallery-to-a-lab-plan).
 
 ## Next steps
 

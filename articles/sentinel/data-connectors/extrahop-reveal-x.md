@@ -17,7 +17,7 @@ The ExtraHop Reveal(x) data connector enables you to easily connect your Reveal(
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (‘ExtraHop’)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [ExtraHop](https://www.extrahop.com/support/) |
 
 ## Query samples
