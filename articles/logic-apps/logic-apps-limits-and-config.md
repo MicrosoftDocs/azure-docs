@@ -530,8 +530,8 @@ For Azure Logic Apps to receive incoming communication through your firewall, yo
 
 > [!NOTE]
 > 
-> Some managed connectors make inbound webhook callbacks to Azure Logic Apps. If you use role-based access control 
-> on the logic app resource, you must make sure that the calls from these target systems (IP addresses) have permissions 
+> Some managed connectors make inbound webhook callbacks to Azure Logic Apps. If you use access control (IAM) on 
+> the logic app resource, you must make sure that the calls from these target systems (IP addresses) have permissions 
 > to access your logic app. The following connectors make inbound webhook callbacks to Azure Logic Apps:
 >
 > Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Event Grid, 
