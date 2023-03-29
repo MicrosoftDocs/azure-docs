@@ -33,24 +33,23 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 ## Built-in analytics rules
 
-### Risky configuration manipulation
+### Risky configuration of security parameters
 
-To ensure the security of the SAP system, SAP has identified security-relevant parameters that need to be monitored for changes. With the TBD rule, the Microsoft Sentinel solution for SAP® applications tracks over 52 security-related parameters in the SAP system, and triggers an alert once these parameters are changed not according to the policy.  
+To ensure the security of the SAP system, SAP has identified security-relevant parameters that need to be monitored for changes. With the "Risky Configuration" rule, the Microsoft Sentinel solution for SAP® applications tracks over 52 security-related parameters in the SAP system, and triggers an alert once these parameters are changed not according to the policy.  
 
 To understand parameter changes in the system, the Microsoft Sentinel solution for SAP® applications uses the parameter history table, which records changes made to both static and dynamic parameters in the system every hour.  
 
 These parameters can have different severities for production and non-production systems, as well as different recommended values for each parameter. When a change is made to a security-related parameter, Microsoft Sentinel checks to see if the change is security-related and if the value is set according to the recommended values. If the change is suspected as outside the safe zone, Microsoft Sentinel creates an incident detailing the change, and identifies who made the change.  
-
-You can also add new configurations to create alerts for specific parameters and values.
 
 Review the [list of parameters](sap-risky-configuration-parameters.md) that this rule monitors. 
 
 ### Monitoring the SAP audit log
 
 The SAP Audit log data is used across many of the analytics rules of the Microsoft Sentinel solution for SAP® applications. Some analytics rules look for specific events on the log, while others correlate indications from several logs to produce high fidelity alerts and incidents.
+
 In addition, there are two analytics rules which are designed to accommodate the entire set of standard SAP audit log events (183 different events), and any other custom events you may choose to log using the SAP audit log.
 
-Both SAP audit log monitoring analytics rules share the same data sources and the same configuration but differ in one critical aspect. While the “SAP - Dynamic Deterministic Audit Log Monitor” requires deterministic alert thresholds and user exclusion rules, the “SAP - Dynamic Anomaly-based Audit Log Monitor Alerts (PREVIEW)” applies additional machine learning algorithms to filter out background noise in an unsupervised manner. For this reason, by default, most event types (or SAP message IDs) of the SAP audit log are being sent to the "Anomaly based" analytics rule, while the easier to define event types are sent to the deterministic analytics rule. This setting, along with other related settings, can be further configured to suit any system conditions. 
+Both SAP audit log monitoring analytics rules share the same data sources and the same configuration but differ in one critical aspect. While the "SAP - Dynamic Deterministic Audit Log Monitor" rule requires deterministic alert thresholds and user exclusion rules, the "SAP - Dynamic Anomaly-based Audit Log Monitor Alerts (PREVIEW)" rule applies additional machine learning algorithms to filter out background noise in an unsupervised manner. For this reason, by default, most event types (or SAP message IDs) of the SAP audit log are being sent to the "Anomaly based" analytics rule, while the easier to define event types are sent to the deterministic analytics rule. This setting, along with other related settings, can be further configured to suit any system conditions. 
 
 #### SAP - Dynamic Deterministic Audit Log Monitor
 
