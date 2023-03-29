@@ -1,6 +1,6 @@
 ---
 title: Configure client certificate authentication in Azure Container Apps
-description: How to configure client authentication in Azure Container Apps
+description: How to configure client authentication in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps

@@ -1,6 +1,6 @@
 ---
 title: Revisions in Azure Container Apps
-description: Learn how revisions are created in Azure Container Apps
+description: Learn how revisions are created in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps

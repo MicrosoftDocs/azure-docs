@@ -1,6 +1,6 @@
 ---
 title: Traffic splitting in Azure Container Apps
-description: Send a portion of an apps traffic to different revisions in Azure Container Apps
+description: Send a portion of an apps traffic to different revisions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
