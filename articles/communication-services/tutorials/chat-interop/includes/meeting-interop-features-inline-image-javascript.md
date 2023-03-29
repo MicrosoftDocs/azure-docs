@@ -301,10 +301,6 @@ loadingImageOverlay.addEventListener('click', () => {
 Now we've concluded all the changes we need to render inline images for messages coming from real time notifications.
 
 
-## Handle inline images for past messages
-
-The Chat SDK for JavaScript also provides an API to let you retrieve a list of messages in a chat thread. It's important to note that the ACS user would only be able to retrieve messages after they've been admitted to a call. They won't be able to access the chat thread after leaving the call. So the use case of this functionality is relatively limited.
-
 ## Run the code 
 
 Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
