@@ -48,7 +48,7 @@ If you provision a VM from a RHEL image that is connected to non-EUS repositorie
 
 Images that are connected to non-EUS repositories will not contain a minor version number in the SKU. The SKU is the third element in the URN (full name of the image). For example, all of the following images come attached to non-EUS repositories:
 
-```text
+```output
 RedHat:RHEL:7-LVM:7.9.2023032012
 RedHat:RHEL:8-LVM:8.7.2023022813
 RedHat:RHEL:9-lvm:9.1.2022112101
@@ -65,7 +65,7 @@ If you provision a VM from a RHEL image that is connected to EUS repositories, y
 
 Images connected to EUS repositories will contain a minor version number in the SKU. For example, all of the following images come attached to EUS repositories:
 
-```text
+```output
 RedHat:RHEL:7_9:7.9.20230301107
 RedHat:RHEL:8_7:8.7.2023022801
 RedHat:RHEL:9_1:9.1.2022112113 
@@ -205,7 +205,7 @@ RHUI is available in all regions where RHEL on-demand images are available. It c
 If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on the environment you're in:
 
 
-```
+```output
 # Azure Global
 RHUI 3 
 13.91.47.76
