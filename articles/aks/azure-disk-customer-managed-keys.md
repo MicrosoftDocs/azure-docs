@@ -128,7 +128,7 @@ someuser@Azure:~$ az account list
 
 Create a file called **byok-azure-disk.yaml** that contains the following information.  Replace *myAzureSubscriptionId*, *myResourceGroup*, and *myDiskEncrptionSetName* with your values, and apply the yaml.  Make sure to use the resource group where your DiskEncryptionSet is deployed.  
 
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1  
 metadata:
