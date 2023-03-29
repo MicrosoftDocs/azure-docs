@@ -17,7 +17,7 @@ This article helps a Microsoft Partner with a [Microsoft Partner Agreement](http
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
 
-[!INCLUDE [cost-management-billing-subscription-b2b-b2c-note](../../includes/cost-management-billing-subscription-b2b-b2c-note.md)]
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-note](../../../includes/cost-management-billing-subscription-b2b-b2c-note.md)]
 
 ## Permission required to create Azure subscriptions
 

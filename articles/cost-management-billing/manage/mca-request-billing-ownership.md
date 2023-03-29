@@ -40,7 +40,7 @@ When you send or accept a transfer request, you agree to terms and conditions. F
 
 Before you transfer billing products, read [Supplemental information about transfers](subscription-transfer.md#supplemental-information-about-transfers).
 
-[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
 ## Prerequisites
 

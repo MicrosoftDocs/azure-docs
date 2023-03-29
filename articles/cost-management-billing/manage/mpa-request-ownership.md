@@ -34,7 +34,7 @@ There are three options to transfer products:
 - Transfer only reservations
 - Transfer both subscriptions and reservations
 
-[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
 ## Prerequisites
 

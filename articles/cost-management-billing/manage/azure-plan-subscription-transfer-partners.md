@@ -16,7 +16,7 @@ This article helps customers of Microsoft partners to understand what they need 
 
 The steps that a partner takes are documented at [Transfer a customer's Azure subscriptions and/or Reservations (under an Azure plan) to a different CSP](/partner-center/transfer-azure-subscriptions-under-azure-plan).
 
-[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 
 ## User access
 
