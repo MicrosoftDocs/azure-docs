@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Desktop Remote Desktop client Intune Configuration Manager - Azure
-description: How to set up the Azure Virtual Desktop client with InTune or Configuration Manager. (placeholder)
+title: Install Per-User Azure Virtual Desktop Remote Desktop client Intune Configuration Manager - Azure
+description: How to install the Azure Virtual Desktop client on a per-user basis with InTune or Configuration Manager.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/22/2023
@@ -19,7 +19,6 @@ In order to install the Remote Desktop client on a per-user basis, you'll need t
 
 - An Azure Virtual Desktop deployment
 - Your machine must be joined to an Azure Active Directory deployment
-- 
 
 ## Install the Remote Desktop client
 
@@ -106,5 +105,5 @@ msiexec /i RemoteDesktop_x64.msi /qn ALLUSERS=2 MSIINSTALLPERUSER=1
 
 ## Next steps
 
-- To learn how to install the client on a per-system basis, see []().
-- See []() to learn how to start using the Remote Desktop client.
+- To learn how to install the client on a per-system basis, see [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](connect-windows.md).
+- Learn more about the Remote Desktop client at [Use features of the Remote Desktop client for Windows](client-features-windows.md).
