@@ -323,7 +323,7 @@ Certain attributes such as phoneNumbers and emails are multi-value attributes wh
 
 Should you need to start over and reset your existing mappings back to their default state, you can select the **Restore default mappings** check box and save the configuration. Doing so sets all mappings and scoping filters as if the application was added to your Azure AD tenant from the application gallery.
 
-Selecting this option will effectively force a resynchronization of all users while the provisioning service is running.
+Selecting this option forces a resynchronization of all users while the provisioning service is running.
 
 > [!IMPORTANT]
 > We strongly recommend that **Provisioning status** be set to **Off** before invoking this option.
