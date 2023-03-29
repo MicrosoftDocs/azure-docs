@@ -15,7 +15,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 ## Prerequisites 
 
 * You've gone through previous quickstart - [Join your chat app to a Teams meeting](../meeting-interop.md). 
-* You're able to obtain an Azure Communication Resource connection string
+* Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint and connection string** for this quickstart.
 * You've set up a Teams meeting using your business account and have the meeting URL ready
 * You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.1 or latest.
 
