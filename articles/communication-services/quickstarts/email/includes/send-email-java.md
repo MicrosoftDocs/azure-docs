@@ -189,6 +189,8 @@ Make these replacements in the code:
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
+If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
+
 ### Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
@@ -263,3 +265,39 @@ System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+
+### Throw an exception when email sending tier limit is reached
+
+There are per minute and per hour [limits to the amount of emails you can send using the Azure Communication Email Service](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, any further `beginSend` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you set up logging with the Azure SDK to capture these response codes.
+
+If setting up logging is not an option, you can manually define a custom retry policy as shown below. 
+
+```java
+import com.azure.core.http.HttpResponse;
+import com.azure.core.http.policy.ExponentialBackoff;
+
+public class CustomStrategy extends ExponentialBackoff {
+    @Override
+    public boolean shouldRetry(HttpResponse httpResponse) {
+        int code = httpResponse.getStatusCode();
+
+        if (code == HTTP_STATUS_TOO_MANY_REQUESTS) {
+            throw new RuntimeException(httpResponse);
+        }
+        else {
+            return super.shouldRetry(httpResponse);
+        }
+    }
+}
+```
+
+Add this retry policy to your email client. This will ensure that 429 response codes throw an exception rather than being retried.
+
+```java
+import com.azure.core.http.policy.RetryPolicy;
+
+EmailClient emailClient = new EmailClientBuilder()
+    .connectionString(connectionString)
+    .retryPolicy(new RetryPolicy(new CustomStrategy()))
+    .buildClient();
+```
