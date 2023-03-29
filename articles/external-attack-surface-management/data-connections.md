@@ -96,11 +96,13 @@ A configuration pane will open on the right-hand side of the Data Connections sc
 - **Connection String**: enter the details required to connect your Defender EASM resource to another tool.  For Log Analytics, users enter the workspaceID and coinciding API key associated to their account. For Azure Data Explorer, users enter the cluster name, region and database name associated to their account. Both values must be entered in the format shown when the field is blank.
 - **Content**: users can select to integrate asset data, attack surface insights or both datasets. 
 - **Frequency**: select the frequency that the Defender EASM connection sends updated data to the tool of your choice. Available options are daily, weekly and monthly.
-Once all four fields are configured, select **Add** to create the data connection. At this point, the Data Connections page will display a banner that indicates the resource has been successfully created and data will begin populating within 30 minutes. Once connections are created, they will be listed under the applicable tool on the main Data Connections page. 
+   
+   ![Screenshot of add data connection.](media/data-connections/data-connector-7.png)
 
-
-
-
+   
+   
+   Once all four fields are configured, select **Add** to create the data connection. At this point, the Data Connections page will display a banner that indicates the resource has been successfully created and data will begin populating within 30 minutes. Once connections are created, they will be listed under the applicable tool on the main Data Connections page. 
+   
 **Edit or delete a data connection**
 Users can edit or delete a data connection. For example, you may notice that a connection is listed as “Disconnected” and would therefore need to re-enter the configuration details to fix the issue.
 To edit or delete a data connection: 
@@ -119,6 +121,7 @@ To edit or delete a data connection:
    •	**Edit**: this option allows users to change the configuration for the data connection.
    •	**Delete**: this option deletes the data connection. 
    
+
 
 
 
