@@ -222,9 +222,10 @@ Run the following command to open the deployed web app in your browser.
 ```azurecli-interactive
 az webapp browse \
     --resource-group $RESOURCE_GROUP \
-    --name MyWebapp \
     --name $APPSERVICE_NAME
 ```
+
+Then go to the `/checklist` page to see the app response.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
