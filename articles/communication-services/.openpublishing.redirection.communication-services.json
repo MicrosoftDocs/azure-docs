@@ -176,7 +176,7 @@
       },
       {
         "source_path_from_root": "/articles/communication-services/quickstarts/sms/logic-app.md",
-        "redirect_url": "/azure/communication-services/quickstarts/chat/send?pivots=programming-language-power-platform",
+        "redirect_url": "/azure/communication-services/quickstarts/sms/send?pivots=programming-language-power-platform",
         "redirect_document_id": true
       }
     ]
