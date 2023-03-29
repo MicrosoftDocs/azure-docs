@@ -36,7 +36,7 @@ April 2023 test release is now available.
 |Arc-enabled Kubernetes helm chart extension version|1.18.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 
-### Release Notes
+### Release notes
 
 - Arc Data Services | Arc SQL MI | az CLI | Direct Mode for Failover Groups | GA
 - Arc SQL Server | I can see that my SQL Server meta-data automatically being discovered and populated into default purview account soon my SQL Server is Arc-enabled
