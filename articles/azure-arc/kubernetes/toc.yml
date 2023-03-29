@@ -99,9 +99,9 @@
     href: kubernetes-resource-view.md
   - name: Deploy applications consistently
     displayName: GitOps, flux, configuration, policy
-  - name: Manage multi-cluster workloads with GitOps  
-    href: tutorial-workload-management.md
     href: use-azure-policy-flux-2.md
+  - name: Explore multi-cluster workload management
+    href: tutorial-workload-management.md
   - name: Manage identity and access
     items:
     - name: Securely connect to cluster from anywhere

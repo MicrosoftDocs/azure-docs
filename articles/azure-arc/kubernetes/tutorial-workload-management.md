@@ -1,5 +1,5 @@
 ---
-title: 'Workload management in a multi-cluster environment with GitOps'
+title: 'Explore workload management in a multi-cluster environment with GitOps'
 description: Explore typical use-cases that Platform and Application teams face on a daily basis working with Kubernetes workloads in a multi-cluster environment.
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
 author: eedorenko
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/29/2023
 ---
 
-# Tutorial: Workload management in a multi-cluster environment with GitOps
+# Explore workload management in a multi-cluster environment with GitOps
 
 Enterprise organizations, developing cloud native applications, face challenges to deploy, configure and promote a great variety of applications and services across multiple Kubernetes clusters at scale. This environment may include Azure Kubernetes Service (AKS) clusters, clusters running on other public cloud providers, or clusters in on-premises data centers that are connected to Azure through the Azure Arc. Refer to the [conceptual article](conceptual-workload-management.md) exploring the business process, challenges and solution architecture.
 
