@@ -1,5 +1,5 @@
 ---
-title: How to log Speech-to-text audio and transcriptions
+title: How to log audio and transcriptions for speech recognition
 titleSuffix: Azure Cognitive Services
 description: Learn how to use audio and transcription logging for speech-to-text and speech translation.
 services: cognitive-services
@@ -259,7 +259,7 @@ Use the speech translation configuration with each [TranslationRecognizer](/obje
 
 #### Enable logging for speech-to-text REST API for short audio
 
-If you use [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and want to enable audio and transcription logging, you need to use expression `storeAudio=true` as a part of your REST request. A sample request looks like this:
+If you use [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and want to enable audio and transcription logging, you need to use the query parameter and value `storeAudio=true` as a part of your REST request. A sample request looks like this:
 
 ```http
 https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&storeAudio=true
