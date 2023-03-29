@@ -50,7 +50,7 @@ When the status reflects *Registered*, refresh the registration of the *Microsof
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### Create config files for kubelet configuration, OS configutation, or both
+### Create config files for kubelet configuration, OS configuration, or both
 
 Create a `linuxkubeletconfig.json` file with the following contents (for Linux node pools):
 
