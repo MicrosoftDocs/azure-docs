@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/30/2023
+ms.date: 03/29/2023
 ms.author: abell
 ---
 
