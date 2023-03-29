@@ -134,7 +134,7 @@ You can include as many L2 and L3 Isolation Domains as needed.
 
 ### Create Cloud Services Network
 
-Your VM requires at least one Cloud Services Network. You need the egress endpoints you want to add to the proxy for your VM to access.
+Your VM requires at least one Cloud Services Network. You need the egress endpoints you want to add to the proxy for your VM to access. This list should include any domains needed to pull images or access data, such as ".azurecr.io" or ".docker.io". 
 
 ```azurecli
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
@@ -440,7 +440,7 @@ You need the following information:
 
 ##### Create Cloud Services Network for AKS-Hybrid cluster
 
-You need the egress endpoints you want to add to the proxy for your VM to access.
+You need the egress endpoints you want to add to the proxy for your VM to access.  This list should include any domains needed to pull images or access data, such as ".azurecr.io" or ".docker.io". 
 
 ```azurecli
   az networkcloud cloudservicesnetwork create --name "<YourCloudServicesNetworkName>" \
