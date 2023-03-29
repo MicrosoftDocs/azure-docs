@@ -131,11 +131,6 @@
       "redirect_document_id": false
     },          
     {
-      "source_path": "edge/toc.yml",
-      "redirect_url": "/azure/event-grid/faq",
-      "redirect_document_id": false
-    },          
-    {
       "source_path": "edge/forward-events-event-grid-cloud.md",
       "redirect_url": "/azure/event-grid/edge/forward-events-cloud",
       "redirect_document_id": false
