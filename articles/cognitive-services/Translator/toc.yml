@@ -247,7 +247,7 @@ items:
     - name: Release notes
       href: custom-translator/release-notes.md
     - name: Platform upgrade
-      href: custom-translator/v1-platform-upgrade.md
+      href: custom-translator/platform-upgrade.md
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
 - name: Resources
