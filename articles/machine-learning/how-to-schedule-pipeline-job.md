@@ -39,6 +39,8 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 - An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 - Understanding of Azure Machine Learning pipelines. See [what are machine learning pipelines](concept-ml-pipelines.md), and how to create pipeline job in [CLI v2](how-to-create-component-pipelines-cli.md) or [SDK v2](how-to-create-component-pipeline-python.md).
 
+---
+
 ## Schedule a pipeline job
 
 To run a pipeline job on a recurring basis, you'll need to create a schedule. A `Schedule` associates a job, and a trigger. The trigger can either be `cron` that use cron expression to describe the wait between runs or `recurrence` that specify using what frequency to trigger job. In each case, you need to define a pipeline job first, it can be existing pipeline jobs or a pipeline job define inline, refer to [Create a pipeline job in CLI](how-to-create-component-pipelines-cli.md) and [Create a pipeline job in SDK](how-to-create-component-pipeline-python.md).
