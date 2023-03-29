@@ -125,16 +125,18 @@ Instead of directly configuring the schema of the table, you can upload a file w
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with 
+    | parse RawData with *
+    '":"'
     ClientIP:string
+    ' - -' * '"'
+    RequestType:string
+    ' '
+    Resource:string
     ' ' *
+    '" '
+    ResponseCode:int
     ' ' *
-    ' [' * '] "' RequestType:string
-    " " Resource:string
-    " " *
-    '" ' ResponseCode:int
-    " " *
-    ```
+```
 
 1. Select **Run** to view the results. This action extracts the contents of `RawData` into the separate columns `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`.
 
@@ -145,16 +147,19 @@ Instead of directly configuring the schema of the table, you can upload a file w
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse kind = regex RawData with *
-    ':"'
+    | parse RawData with *
+    '":"'
     ClientIP:string
-    " - -" * '"'
+    ' - -' * '"'
     RequestType:string
     ' '
     Resource:string
-    " " *
-    '" ' ResponseCode:int
-    " " *
+    ' ' *
+    '" '
+    ResponseCode:int
+    ' ' *
+    | project-away RawData, Time
+    | where ResponseCode != 200
     ```
 
 1. Select **Run** to view the results.
