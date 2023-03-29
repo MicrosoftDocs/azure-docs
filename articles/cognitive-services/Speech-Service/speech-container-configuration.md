@@ -129,8 +129,9 @@ The following Docker examples are for the Speech container.
 
 ### Basic example for Speech-to-text
 
+
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
 mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -139,8 +140,9 @@ ApiKey={API_KEY}
 
 ### Logging example for Speech-to-text
 
+
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
 mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -152,8 +154,9 @@ Logging:Console:LogLevel:Default=Information
 
 ### Basic example for Custom Speech-to-text
 
+
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
@@ -164,8 +167,9 @@ ApiKey={API_KEY}
 
 ### Logging example for Custom Speech-to-text
 
+
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
+docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
@@ -202,8 +206,9 @@ Logging:Console:LogLevel:Default=Information
 
 ### Basic example for Speech language identification
 
+
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+docker run --rm -it -p 5000:5000 --memory 1g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -212,8 +217,9 @@ ApiKey={API_KEY}
 
 ### Logging example for Speech language identification
 
+
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+docker run --rm -it -p 5000:5000 --memory 1g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -225,4 +231,5 @@ Logging:Console:LogLevel:Default=Information
 ## Next steps
 
 - Review [How to install and run containers](speech-container-howto.md)
+
 

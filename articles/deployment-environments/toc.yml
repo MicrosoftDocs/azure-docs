@@ -5,7 +5,7 @@ items:
   expanded: true
   items: 
     - name: What is Azure Deployment Environments Preview?
-      displayName: ADE Overview
+      displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
 - name: Quickstarts
   displayName: Quickstarts
@@ -22,8 +22,10 @@ items:
   items:
     - name: Key concepts
       href: concept-environments-key-concepts.md
-    - name: Usage scenarios
+    - name: Use scenarios
       href: concept-environments-scenarios.md
+    - name: Components common to Deployment Environments & Dev Box
+      href: concept-common-components.md
 - name: How-to guides
   expanded: true
   items:
@@ -41,12 +43,18 @@ items:
       href: how-to-configure-project-admin.md
     - name: Provide access to developers
       href: how-to-configure-deployment-environments-user.md
+    - name: Manage environments as a developer
+      href: how-to-manage-environments.md
+    - name: Use Azure CLI devcenter extension
+      href: how-to-install-devcenter-cli-extension.md  
+    - name: Create environments with the CLI
+      href: how-to-create-access-environments.md  
 - name: Reference
   items:
+    - name: Azure CLI
+      href: https://aka.ms/CLI-reference
     - name: REST API
       href: /rest/api/devcenter/
-    - name: CLI
-      href: how-to-configure-use-cli.md
 - name: Resources
   items: 
     - name: Azure roadmap
@@ -56,4 +64,4 @@ items:
     - name: Report a problem
       href: https://aka.ms/deployment-environments/reportproblem
     - name: Suggest a feature
-      href: https://aka.ms/deployment-environments/suggestfeature
+      href: https://aka.ms/deployment-environments/suggestfeature 

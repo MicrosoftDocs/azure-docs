@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door | Microsoft Docs
+title: Azure Front Door
 description: This article provides an overview of Azure Front Door.
 services: frontdoor
 author: duongau

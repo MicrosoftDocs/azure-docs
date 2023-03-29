@@ -123,9 +123,9 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 ## Install Azure DCAP Client
 
-[Azure Data Center Attestation Primitives (DCAP)](https://learn.microsoft.com/azure/security/fundamentals/trusted-hardware-identity-management#what-is-the-azure-dcap-library), a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the THIM Service.
+[Azure Data Center Attestation Primitives (DCAP)](../security/fundamentals/trusted-hardware-identity-management.md#what-is-the-azure-dcap-library), a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the THIM Service.
 
-The [Trusted Hardware Identity Management (THIM)](https://learn.microsoft.com/azure/security/fundamentals/trusted-hardware-identity-management) service handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions. 
+The [Trusted Hardware Identity Management (THIM)](../security/fundamentals/trusted-hardware-identity-management.md) service handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions. 
 
 DCsv3 and DCdsv3 only support [ECDSA-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html) and the users are required to install [Azure DCAP](https://github.com/Microsoft/Azure-DCAP-Client) client to interact with THIM and fetch TEE collateral for quote generation during attestation process. DCsv2 continues to support [EPID-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
 

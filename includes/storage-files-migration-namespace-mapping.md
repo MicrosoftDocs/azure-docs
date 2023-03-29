@@ -5,7 +5,7 @@ services: storage
 author: khdownie
 ms.service: storage
 ms.topic: include
-ms.date: 2/20/2020
+ms.date: 01/19/2023
 ms.author: kendownie
 ms.custom: include file
 ---
@@ -43,7 +43,7 @@ To decide how many Azure file shares you need, review the following limits and b
 * A server on which the Azure File Sync agent is installed can sync with up to 30 Azure file shares.
 * An Azure file share is deployed in a storage account. That arrangement makes the storage account a scale target for performance numbers like IOPS and throughput.
 
-  One standard Azure file share can theoretically saturate the maximum performance that a storage account can deliver. If you place multiple shares in a single storage account, you're creating a shared pool of IOPS and throughput for these shares. If you plan to only attach Azure File Sync to these file shares, grouping several Azure file shares into the same storage account won't create a problem. Review the Azure file share performance targets for deeper insight into the relevant metrics. These limitations don't apply to premium storage, where performance is explicitly provisioned and guaranteed for each share.
+  Pay attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you should map file shares 1:1 with storage accounts. However, this might not always be possible due to various limits and restrictions, both from your organization and from Azure. When it's not possible to have only one file share deployed in one storage account, consider which shares will be highly active and which shares will be less active to ensure that the hottest file shares don't get put in the same storage account together.
 
   If you plan to lift an app to Azure that will use the Azure file share natively, you might need more performance from your Azure file share. If this type of use is a possibility, even in the future, it's best to create a single standard Azure file share in its own storage account.
 * There's a limit of 250 storage accounts per subscription per Azure region.

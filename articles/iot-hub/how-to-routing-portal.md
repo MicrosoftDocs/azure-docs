@@ -219,9 +219,18 @@ To learn how to create an Azure Cosmos DB resource, see [Create an Azure Cosmos 
   
    * **Collection**: Select your Azure Cosmos DB collection.
 
-   * **Partition key name** and **Partition key template**: These values are created automatically based on your previous selections. You can leave the auto-generated values or you can change the partition template based on your business logic. For more information about partitioning, see [Partitioning and horizontal scaling in Azure Cosmos DB](../cosmos-db/partitioning-overview.md).
+   * **Generate a synthetic partition key for messages**: Select **Enable** if needed.
+
+     To effectively support high-scale scenarios, you can enable [synthetic partition keys](../cosmos-db/nosql/synthetic-partition-keys.md) for the Cosmos DB endpoint. You can specify the partition key property name in **Partition key name**. The partition key property name is defined at the container level and can't be changed once it has been set.  
+
+     You can configure the synthetic partition key value by specifying a template in **Partition key template** based on your estimated data volume. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record.
+
+     For more information about partitioning, see [Partitioning and horizontal scaling in Azure Cosmos DB](../cosmos-db/partitioning-overview.md).
 
    :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png":::  
+
+   > [!CAUTION]
+   > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
 1. Select **Save**.
   

@@ -2,7 +2,7 @@
 title: Usage analysis with Application Insights | Azure Monitor
 description: Understand your users and what they do with your app.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 02/14/2023
 ms.reviewer: mmcc
 ---
 
@@ -14,7 +14,7 @@ Which features of your web or mobile app are most popular? Do your users achieve
 
 The best experience is obtained by installing Application Insights both in your app server code and in your webpages. The client and server components of your app send telemetry back to the Azure portal for analysis.
 
-1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./java-in-process-agent.md), [Node.js](./nodejs.md), or [other](./app-insights-overview.md#supported-languages) app.
+1. **Server code:** Install the appropriate module for your [ASP.NET](./asp-net.md), [Azure](./app-insights-overview.md), [Java](./opentelemetry-enable.md?tabs=java), [Node.js](./nodejs.md), or [other](./app-insights-overview.md#supported-languages) app.
 
     * If you don't want to install server code, [create an Application Insights resource](./create-new-resource.md).
 
@@ -40,7 +40,7 @@ The best experience is obtained by installing Application Insights both in your 
 
    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
-1. **Mobile app code:** Use the App Center SDK to collect events from your app. Then send copies of these events to Application Insights for analysis by [following this guide](../app/mobile-center-quickstart.md).
+1. **Mobile app code:** Use the App Center SDK to collect events from your app. Then send copies of these events to Application Insights for analysis by [following this guide](https://github.com/Microsoft/appcenter).
 
 1. **Get telemetry:** Run your project in debug mode for a few minutes. Then look for results in the **Overview** pane in Application Insights.
 
@@ -79,7 +79,7 @@ For more information about the Retention workbook, see [User retention analysis 
 
 To get a clear understanding of what users do with your app, it's useful to insert lines of code to log custom events. These events can track anything from detailed user actions, such as selecting specific buttons, to more significant business events, such as making a purchase or winning a game.
 
-You can also use the [Click Analytics Auto-collection plug-in](javascript-click-analytics-plugin.md) to collect custom events.
+You can also use the [Click Analytics Auto-collection plug-in](javascript-feature-extensions.md) to collect custom events.
 
 In some cases, page views can represent useful events, but it isn't true in general. A user can open a product page without buying the product.
 

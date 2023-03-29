@@ -1,14 +1,14 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
 description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
-ms.date: 11/03/2022
+ms.date: 01/24/2023
 ms.topic: how-to
 ms.custom: ignite-2022
 ---
 
 # Configure the Microsoft Security DevOps Azure DevOps extension
 
-> [!Note]
+> [!NOTE]
 > Effective December 31, 2022, the Microsoft Security Code Analysis (MSCA) extension is retired. MSCA is replaced by the Microsoft Security DevOps Azure DevOps extension. MSCA customers should follow the instructions in this article to install and configure the extension.
 
 Microsoft Security DevOps is a command line application that integrates static analysis tools into the development lifecycle. Microsoft Security DevOps installs, configures, and runs the latest versions of static analysis tools (including, but not limited to, SDL/security and compliance tools). Microsoft Security DevOps is data-driven with portable configurations that enable deterministic execution across multiple environments.
@@ -111,6 +111,9 @@ If you don't have access to install the extension, you must request access from 
       displayName: 'Microsoft Security DevOps'
     ```
 
+> [!Note] 
+> The MicrosoftSecurityDevOps build task depends on .NET 6. The CredScan analyzer depends on .NET 3.1. See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops).
+
 1. Select **Save and run**.
 
 1. To commit the pipeline, select **Save and run**.
@@ -127,6 +130,7 @@ The pipeline will run for a few minutes and save the results.
 - Learn how to [deploy pipelines to Azure](/azure/devops/pipelines/overview-azure?toc=%2Fazure%2Fdevops%2Fcross-service%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fcross-service%2Fbreadcrumb%2Ftoc.json&view=azure-devops).
 
 ## Next steps
+
 Learn more about [Defender for DevOps](defender-for-devops-introduction.md).
 
 Learn how to [connect your Azure DevOps](quickstart-onboard-devops.md) to Defender for Cloud.

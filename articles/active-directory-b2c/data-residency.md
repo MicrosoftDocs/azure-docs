@@ -42,7 +42,7 @@ Data resides in the **United States** for the following locations:
 
 Data resides in **Europe** for the following locations:
 
-> Algeria (DZ), Austria (AT), Azerbaijan (AZ), Bahrain (BH), Belarus (BY), Belgium (BE), Bulgaria (BG), Croatia (HR), Cyprus (CY), Czech Republic (CZ), Denmark (DK), Egypt (EG), Estonia (EE), Finland (FT), France (FR), Germany (DE), Greece (GR), Hungary (HU), Iceland (IS), Ireland (IE), Israel (IL), Italy (IT), Jordan (JO), Kazakhstan (KZ), Kenya (KE), Kuwait (KW), Latvia (LV), Lebanon (LB), Liechtenstein (LI), Lithuania (LT), Luxembourg (LU), North Macedonia (ML), Malta (MT), Montenegro (ME), Morocco (MA), Netherlands (NL), Nigeria (NG), Norway (NO), Oman (OM), Pakistan (PK), Poland (PL), Portugal (PT), Qatar (QA), Romania (RO), Russia (RU), Saudi Arabia (SA), Serbia (RS), Slovakia (SK), Slovenia (ST), South Africa (ZA), Spain (ES), Sweden (SE), Switzerland (CH), Tunisia (TN), Turkey (TR), Ukraine (UA), United Arab Emirates (AE) and United Kingdom (GB)
+> Algeria (DZ), Austria (AT), Azerbaijan (AZ), Bahrain (BH), Belarus (BY), Belgium (BE), Bulgaria (BG), Croatia (HR), Cyprus (CY), Czech Republic (CZ), Denmark (DK), Egypt (EG), Estonia (EE), Finland (FT), France (FR), Germany (DE), Greece (GR), Hungary (HU), Iceland (IS), Ireland (IE), Israel (IL), Italy (IT), Jordan (JO), Kazakhstan (KZ), Kenya (KE), Kuwait (KW), Latvia (LV), Lebanon (LB), Liechtenstein (LI), Lithuania (LT), Luxembourg (LU), North Macedonia (ML), Malta (MT), Montenegro (ME), Morocco (MA), Netherlands (NL), Nigeria (NG), Norway (NO), Oman (OM), Pakistan (PK), Poland (PL), Portugal (PT), Qatar (QA), Romania (RO), Russia (RU), Saudi Arabia (SA), Serbia (RS), Slovakia (SK), Slovenia (ST), South Africa (ZA), Spain (ES), Sweden (SE), Switzerland (CH), Tunisia (TN), Türkiye (TR), Ukraine (UA), United Arab Emirates (AE) and United Kingdom (GB)
 
 Data resides in **Asia Pacific** for the following locations:
 
@@ -58,17 +58,8 @@ The following locations are in the process of being added to the list. For now, 
 
 ## EU Data Boundary
 
-The EU Data Boundary is Microsoft's commitment for our public sector and commercial customers in the EU and EFTA to process and store their customer data in the EU.  
-
-### Services temporarily excluded from the EU Data Boundary
-
-Some services have work in progress to be EU Data Boundary compliant, but this work is delayed beyond January 1, 2023. The services listed will become compliant over the coming months. The following details explain the customer data that these features currently transfer out of the EU Data Boundary as part of their service operations:
-
-* **Reason for customer data egress** - These features haven't completed changes to fully process admin actions and user sign-in actions within the EU Data Boundary.
-* **Types of customer data being egressed** - User account and usage data, and service configuration such as policy.
-* **Customer data location at rest** - In the EU Data Boundary.
-* **Customer data processing** - Some processing may occur globally.
-* **Services** - Administrator actions in the Azure portal or APIs, and User Sign-In Service
+> [!IMPORTANT]
+> For comprehensive details about Microsoft's EU Data Boundary commitment, see [Microsoft's EU Data Boundary documentation](/privacy/eudb/eu-data-boundary-learn).
 
 ## Remote profile solution
 

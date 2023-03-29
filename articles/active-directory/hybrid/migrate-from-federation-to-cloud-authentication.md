@@ -6,12 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 01/06/2023
-
-ms.author: jricketts
-author: janicericketts
-manager: martinco
-
+ms.date: 01/30/2023
+ms.author: billmath
+author: jricketts
+manager: amycolannino
 ms.collection: M365-identity-device-management
 ---
 # Migrate from federation to cloud authentication  
@@ -228,7 +226,7 @@ To choose one of these options, you must know what your current settings are.
 
 #### Verify current Azure AD Connect settings
 
-Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure AD Connect** and verify the **USER SIGN_IN** settings as shown in this diagram:
+Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Active Directory** > **Azure AD Connect** and verify the **USER SIGN_IN** settings as shown in this diagram:
 
 ![Verify current Azure AD Connect settings](media/deploy-cloud-user-authentication/current-user-settings-on-azure-ad-portal.png)
 
@@ -285,7 +283,7 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
  > [!IMPORTANT] 
  > At this point, all your federated domains will change to managed authentication. Your selected User sign-in method is the new method of authentication.
 
-1. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
+1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
 2. Verify these settings:
 
@@ -326,7 +324,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
-1. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**. 
+1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**. 
 
 2. Verify these settings:
 
@@ -338,7 +336,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 
 **In case of PTA only**, follow these steps to install more PTA agent servers.
 
-1. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
+1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
 2. Select **Pass-through authentication**. Verify that the status is **Active**.
 
@@ -366,9 +364,9 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
    ```powershell
     Update-MgDomain -DomainId <domain name> -AuthenticationType "Managed"
     ```
-    See [Update-MgDomain](https://learn.microsoft.com/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0)
+    See [Update-MgDomain](/powershell/module/microsoft.graph.identity.directorymanagement/update-mgdomain?view=graph-powershell-1.0 &preserve-view=true)
 
-3. In the Azure AD portal, select **Azure Active Directory > Azure AD Connect**.
+3. In the Azure portal, select **Azure Active Directory > Azure AD Connect**.
 
 4. Verify that the domain has been converted to managed by running the following command:
     ```powershell
@@ -431,6 +429,8 @@ Your support team should understand how to troubleshoot any authentication issue
 
 Migration requires assessing how the application is configured on-premises, and then mapping that configuration to Azure AD.
 
+> [!VIDEO https://www.youtube.com/embed/D0M-N-RQw0I]
+
 If you plan to keep using AD FS with on-premises & SaaS Applications using SAML / WS-FED or Oauth protocol, you'll use both AD FS and Azure AD after you convert the domains for user authentication. In this case, you can protect your on-premises applications and resources with Secure Hybrid Access (SHA) through [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) or one of [Azure AD partner integrations](../manage-apps/secure-hybrid-access.md). Using Application Proxy or one of our partners can provide secure remote access to your on-premises applications. Users benefit by easily connecting to their applications from any device after a [single sign-on](../manage-apps/add-application-portal-setup-sso.md).
 
 You can move SaaS applications that are currently federated with ADFS to Azure AD. Reconfigure to authenticate with Azure AD either via a built-in connector from the [Azure App gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), or by [registering the application in Azure AD](../develop/quickstart-register-app.md).
@@ -448,7 +448,7 @@ If you don't use AD FS for other purposes (that is, for other relying party trus
 
 ### Remove AD FS
 
-For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommision guide](https://learn.microsoft.com/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
+For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommision guide](/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
 
 ## Next steps
 

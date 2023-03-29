@@ -3,16 +3,14 @@ title: Configure DHCPv6 for Linux VMs
 titleSuffix: Azure Load Balancer
 description: In this article, learn how to configure DHCPv6 for Linux VMs.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
-ms.topic: article
-ms.custom: FY23 content-maintenance
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/02/2022
 ms.author: mbender
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Configure DHCPv6 for Linux VMs
@@ -28,42 +26,43 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 > [!WARNING]
 > By improperly editing network configuration files, you can lose network access to your VM. We recommended that you test your configuration changes on non-production systems. The instructions in this article have been tested on the latest versions of the Linux images in the Azure Marketplace. For more detailed instructions, consult the documentation for your own version of Linux.
 
-## Ubuntu (17.10)
+## Ubuntu (17.10 or higher)
 
-1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:
+1. Edit the **`/etc/dhcp/dhclient.conf`** file, and add the following line:
 
     ```config
     timeout 10;
     ```
 
-2. Create a new file in the cloud.cfg.d folder that will retain your configuration through reboots.  The information in this file will override the default [NETPLAN]( https://netplan.io) config (in YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml).
+2. Create a new file in the cloud.cfg.d folder that will retain your configuration through reboots. **The information in this file will override the default [NETPLAN]( https://netplan.io) config (in YAML configuration files at this location: /etc/netplan/*.yaml)**.
 
-   For example, create a */etc/cloud/cloud.config.d/91-azure-network.cfg* file.  Ensure that "dhcp6: true" is reflected under the required interface, as shown by the sample below:
+   Create a */etc/cloud/cloud.config.d/91-azure-network.cfg* file.  Ensure that **`dhcp6: true`** is reflected under the required interface, as shown by the sample below:
 
    ```config
-     network:
+    network:
         version: 2
         ethernets:
-           eth0:
-              addresses: 172.16.0.30/24
-              dhcp4: true
-              dhcp6: true
-              match:
-                driver: hv_netvsc
-                macaddress: 00:00:00:00:00:00
-              set-name: eth0
+            eth0:
+                dhcp4: true
+                dhcp6: true
+                match:
+                     driver: hv_netvsc
+                set-name: eth0
     ```
 
-   The IP address range and MAC address would be specific to your configuration and should be replaced with the appropriate values.
+3. Save the file and reboot.
 
-3.  Save the file and reboot.
+4. Use **`ifconfig`** to verify virtual machine received IPv6 address.
 
-4. Renew the IPv6 address:
+    If **`ifconfig`** isn't installed, run the following commands:
 
     ```bash
-    sudo ifdown eth0 && sudo ifup eth0
+    sudo apt update
+    sudo apt install net-tools
     ```
- 
+
+    :::image type="content" source="./media/load-balancer-ipv6-for-linux/ipv6-ip-address-ifconfig.png" alt-text="Screenshot of ifconfig showing IPv6 IP address.":::
+
 ## Debian
 
 1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:

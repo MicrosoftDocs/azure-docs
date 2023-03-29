@@ -4,7 +4,7 @@ description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/12/2022
 ms.author: abell
@@ -128,4 +128,4 @@ For more information about hub-and-spoke topology, see [Hub-spoke network topolo
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).
+- Learn how to [configure Network Protection](manage-ddos-protection.md).

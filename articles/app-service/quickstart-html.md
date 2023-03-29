@@ -96,11 +96,11 @@ The page is running as an Azure App Service web app.
 
 ## Update and redeploy the app
 
-In the Cloud Shell, type `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
+In the Cloud Shell, use `sed` to change "Azure App Service - Sample Static HTML Site" to "Azure App Service".
 
-![Nano index.html](media/quickstart-html/nano-index-html.png)
-
-Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
+```bash
+sed  -i 's/Azure App Service - Sample Static HTML Site/Azure App Service/' index.html
+```
 
 You'll now redeploy the app with the same `az webapp up` command.
 
@@ -141,4 +141,4 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

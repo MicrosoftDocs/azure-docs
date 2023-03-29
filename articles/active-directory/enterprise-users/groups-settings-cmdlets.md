@@ -1,5 +1,5 @@
 ---
-title: Configure group settings using PowerShell - Azure AD | Microsoft Docs
+title: Configure group settings using PowerShell
 description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''

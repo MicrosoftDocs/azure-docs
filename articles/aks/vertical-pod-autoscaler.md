@@ -1,14 +1,14 @@
 ---
 title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
-services: container-service
 ms.topic: article
-ms.date: 09/30/2022
+ms.custom: devx-track-azurecli
+ms.date: 03/17/2023
 ---
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 
-This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. This ensures pods are scheduled onto nodes that have the required CPU and memory resources.  
+This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in Azure Kubernetes Service (AKS), which is based on the open source [Kubernetes](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) version. When configured, it automatically sets resource requests and limits on containers per workload based on past usage. VPA makes certain pods are scheduled onto nodes that have the required CPU and memory resources.  
 
 ## Benefits
 
@@ -181,7 +181,7 @@ The following steps create a deployment with two pods, each running a single con
 
     The pod has 100 millicpu and 50 Mibibytes of memory reserved in this example. For this sample application, the pod needs less than 100 millicpu to run, so there's no CPU capacity available. The pods also reserves much less memory than needed. The Vertical Pod Autoscaler *vpa-recommender* deployment analyzes the pods hosting the hamster application to see if the CPU and memory requirements are appropriate. If adjustments are needed, the vpa-updater relaunches the pods with updated values.
 
-1. Wait for the vpa-updater to launch a new hamster pod. This should take a few minutes. You can monitor the pods using the [kubectl get][kubectl-get] command.
+1. Wait for the vpa-updater to launch a new hamster pod, which should take a few minutes. You can monitor the pods using the [kubectl get][kubectl-get] command.
 
     ```bash
     kubectl get --watch pods -l app=hamster

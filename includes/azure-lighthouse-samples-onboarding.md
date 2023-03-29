@@ -5,7 +5,7 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/21/2022
+ms.date: 01/26/2023
 ms.author: jenhayes
 ms.custom: include file
 ---
@@ -25,3 +25,6 @@ Typically, a separate deployment is required for each subscription being onboard
 | **Template** | **Description** |
 |---------|---------|
 | [cross-subscription-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/cross-subscription-deployment) | Deploy Azure Resource Manager templates across multiple subscriptions. |
+
+> [!TIP]
+> While you can't onboard an entire management group in one deployment, you can deploy a policy to [onboard each subscription in a management group](../articles/lighthouse/how-to/onboard-management-group.md).

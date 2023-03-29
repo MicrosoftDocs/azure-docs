@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-    title: Deprecated Azure Marketplace images
-    description: "Learn about how the deprecation of Marketplace images can affect your deployment."
-    author: cynthn
-    ms.service: virtual-machines
-    ms.topic: faq
-    ms.subservice: imaging
-    ms.date: 09/27/2022
-    ms.author: cynthn
-    ms.reviewer: edewe
-    
+  title: Deprecated Azure Marketplace images
+  description: "Learn about how the deprecation of Marketplace images can affect your deployment."
+  author: cynthn
+  ms.service: virtual-machines
+  ms.topic: faq
+  ms.subservice: imaging
+  ms.custom: devx-track-azurepowershell
+  ms.date: 09/27/2022
+  ms.author: cynthn
+  ms.reviewer: edewe
 title: Deprecated Image FAQ
 summary: This article answers commonly asked questions about what happens when images in the Azure Marketplace are deprecated.
 

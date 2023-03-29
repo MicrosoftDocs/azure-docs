@@ -5,7 +5,7 @@ description: Learn about the OS functionality in Azure App Service on Windows. F
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 01/21/2022
-ms.custom: seodec18
+ms.custom: UpdateFrequency3
 
 ---
 # Operating system functionality on Azure App Service

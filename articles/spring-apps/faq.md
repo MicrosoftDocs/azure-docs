@@ -80,7 +80,7 @@ If you encounter any issues with Azure Spring Apps, create an [Azure Support Req
 Enterprise tier has built-in VMware Spring Runtime Support, so you can open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in the scope of VMware Spring Runtime Support. To better understand VMware Spring Runtime Support itself, see the [VMware Spring Runtime](https://tanzu.vmware.com/spring-runtime). To understand the details about how to register and use this support service, see the Support section in the [Enterprise tier FAQ from VMware](https://aka.ms/EnterpriseTierFAQ). For any other issues, open support tickets with Microsoft.
 
 > [!IMPORTANT]
-> After you create an Enterprise tier instance, your entitlement will be ready within three business days. If you encounter any exceptions, raise a support ticket with Microsoft to get help with it.
+> After you create an Enterprise tier instance, your entitlement will be ready within ten business days. If you encounter any exceptions, raise a support ticket with Microsoft to get help with it.
 
 ## Development
 

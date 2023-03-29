@@ -33,6 +33,11 @@ Text Analytics for health detects medical concepts that fall under the following
 
 **AGE** - All age terms and phrases, including ones for patients, family members, and others. For example, 40-year-old, 51 yo, 3 months old, adult, infant, elderly, young, minor, middle-aged.
 
+**ETHNICITY** - Phrases that indicate the ethnicity of the subject. For example, African American or Asian.
+
+:::image type="content" source="../media/entities/ethnicity-entity.png" alt-text="An example of an ethnicity entity." lightbox="../media/entities/ethnicity-entity.png":::
+
+
 **GENDER** - Terms that disclose the gender of the subject. For example, male, female, woman, gentleman, lady.
 
 :::image type="content" source="../media/entities/age-entity.png" alt-text="An example of an age entity." lightbox="../media/entities/age-entity.png":::
@@ -168,6 +173,23 @@ Text Analytics for health detects medical concepts that fall under the following
 **FAMILY_RELATION** – Mentions of family relatives of the subject. For example, father, daughter, siblings, parents.
 
 :::image type="content" source="../media/entities/family-relation.png" alt-text="Example of a family relation entity." lightbox="../media/entities/family-relation.png":::
+
+**EMPLOYMENT** – Mentions of employment status including specific profession, such as unemployed, retired, firefighter, student.
+
+:::image type="content" source="../media/entities/employment-entity.png" alt-text="Example of an employment entity." lightbox="../media/entities/employment-entity.png":::
+
+**LIVING_STATUS** – Mentions of the housing situation, including homeless, living with parents, living alone, living with others. 
+
+:::image type="content" source="../media/entities/living-status-entity.png" alt-text="Example of a living status entity." lightbox="../media/entities/living-status-entity.png":::
+
+**SUBSTANCE_USE** – Mentions of use of legal or illegal drugs, tobacco or alcohol. For example, smoking, drinking, or heroin use.
+
+:::image type="content" source="../media/entities/substance-use-entity.png" alt-text="Example of a substance use entity." lightbox="../media/entities/substance-use-entity.png":::
+
+**SUBSTANCE_USE_AMOUNT** – Mentions of specific amounts of substance use. For example, a pack (of cigarettes) or a few glasses (of wine). 
+
+:::image type="content" source="../media/entities/substance-use-amount-entity.png" alt-text="Example of a substance use amount entity." lightbox="../media/entities/substance-use-amount-entity.png":::
+
 
 ## Treatment
 
