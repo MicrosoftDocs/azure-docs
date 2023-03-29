@@ -24,27 +24,22 @@ Use a compute instance as your fully configured and managed development environm
 
 For compute instance Jupyter functionality to work, ensure that web socket communication isn't disabled. Ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms.
 
-> [!IMPORTANT]
-> Items marked (preview) in this article are currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Why use a compute instance?
 
 A compute instance is a fully managed cloud-based workstation optimized for your machine learning development environment. It provides the following benefits:
 
 |Key benefits|Description|
 |----|----|
-|Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace.<br/> 
+|Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  VS Code<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace.<br/> 
 |Managed & secure|Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:<br/><br/>- Autoprovisioning from Resource Manager templates or Azure Machine Learning SDK<br/>- [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Virtual network support](./how-to-secure-training-vnet.md)<br/> - Azure policy to disable SSH access<br/> - Azure policy to enforce creation in a virtual network <br/> - Auto-shutdown/auto-start based on schedule <br/>- TLS 1.2 enabled |
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. You can also use setup scripts to automate customization |
 
 * Secure your compute instance with **[No public IP](./how-to-secure-training-vnet.md)**.
 * The compute instance is also a secure training compute target similar to [compute clusters](how-to-create-attach-compute-cluster.md), but it's single node. 
-* You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)**.
+* You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of)**.
 * You can also **[use a setup script](how-to-customize-compute-instance.md)**  for an automated way to customize and configure the compute instance as per your needs.
-* To save on costs, **[create  a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop)** to automatically start and stop the compute instance, or [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview)
+* To save on costs, **[create  a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop)** to automatically start and stop the compute instance, or [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown)
 
 
 ## Tools and environments
@@ -72,7 +67,7 @@ Following tools and environments are already installed on the compute instance:
 |----|:----:|
 |R kernel||
 
-You can [Add RStudio or Posit Workbench (formerly RStudio Workbench)](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench-preview) when you create the instance.
+You can [Add RStudio or Posit Workbench (formerly RStudio Workbench)](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench) when you create the instance.
 
 |**PYTHON** tools & environments|Details|
 |----|----|
@@ -108,9 +103,9 @@ Follow the steps in the [Quickstart: Create workspace resources you need to get 
 
 For more options, see [create a new compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create).
 
-As an administrator, you can **[create a compute instance for others in the workspace (preview)](how-to-create-manage-compute-instance.md#create-on-behalf-of-preview)**.
+As an administrator, you can **[create a compute instance for others in the workspace](how-to-create-manage-compute-instance.md#create-on-behalf-of)**.
 
-You can also **[use a setup script (preview)](how-to-customize-compute-instance.md)** for an automated way to customize and configure the compute instance.
+You can also **[use a setup script](how-to-customize-compute-instance.md)** for an automated way to customize and configure the compute instance.
 
 Other ways to create a compute instance:
 * Directly from the integrated notebooks experience.
@@ -131,13 +126,13 @@ A compute instance:
 
 * Has a job queue.
 * Runs jobs securely in a virtual network environment, without requiring enterprises to open up SSH port. The job executes in a containerized environment and packages your model dependencies in a Docker container.
-* Can run multiple small jobs in parallel (preview).  One job per core can run in parallel while the rest of the jobs are queued.
+* Can run multiple small jobs in parallel.  One job per core can run in parallel while the rest of the jobs are queued.
 * Supports single-node multi-GPU [distributed training](how-to-train-distributed-gpu.md) jobs
 
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (mounted on /) through the compute instance terminal by removing files/folders and then do `sudo reboot`. Temporary disk will be freed after restart; you do not need to clear space on temp disk manually. To access the terminal go to compute list page or compute instance details page and click on **Terminal** link. You can check available disk space by running `df -h` on the terminal. Clear at least 5 GB space before doing `sudo reboot`. Please do not stop or restart the compute instance through the Studio until 5 GB disk space has been cleared. Auto shutdowns, including scheduled start or stop as well as idle shutdowns(preview), will not work if the CI disk is full.
+> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (mounted on /) through the compute instance terminal by removing files/folders and then do `sudo reboot`. Temporary disk will be freed after restart; you do not need to clear space on temp disk manually. To access the terminal go to compute list page or compute instance details page and click on **Terminal** link. You can check available disk space by running `df -h` on the terminal. Clear at least 5 GB space before doing `sudo reboot`. Please do not stop or restart the compute instance through the Studio until 5 GB disk space has been cleared. Auto shutdowns, including scheduled start or stop as well as idle shutdowns, will not work if the CI disk is full.
 
 ## Next steps
 
