@@ -1,3 +1,5 @@
+- name: Enabling data connections
+  href: data-connections.md
 - name: Concepts
   expanded: true
   items:
