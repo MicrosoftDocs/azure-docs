@@ -27,7 +27,7 @@ A monthly active user (MAU) is a unique user that performs an authentication wit
 - Active, interactive sign in by the user. For example, [sign-up or sign in](add-sign-up-and-sign-in-policy.md), [self-service password reset](add-password-reset-policy.md), or any type of [user flow](user-flow-overview.md) or [custom policy](custom-policy-overview.md).
 - Passive, non-interactive sign in such as [single sign-on (SSO)](session-behavior.md), or any type of token acquisition. For example, authorization code flow, token refresh, or [resource owner password credentials flow](add-ropc-policy.md).
 
-If Azure AD B2C [Go-Local add-on](data-residency.md#go-local-add-on) is available in your country, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About Local Data Residency add-on](#about-go-local-add-on)  
+If Azure AD B2C [Go-Local add-on](data-residency.md#go-local-add-on) is available in your country/region, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About Local Data Residency add-on](#about-go-local-add-on)  
 
 Also, if you choose to provide higher levels of assurance by using Multi-factor Authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
  
@@ -64,7 +64,7 @@ Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing ti
 Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). *Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country. This feature isn't available in all countries. 
 
 > [!NOTE]
-> If you enable  Go-Local add-on , the 50,000 free MAUs per month given by your AD B2C subscription doesn't apply for  Go-Local add-on . You'll incur a charge, **$0.02** per MAU, on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). 
+> If you enable  Go-Local add-on , the 50,000 free MAUs per month given by your AD B2C subscription doesn't apply for  Go-Local add-on . You'll incur a charge per MAU, on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). 
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-go-local-add-on-preview-label.md)] 
 
@@ -215,7 +215,7 @@ If the source and destination subscriptions are associated with different Azure 
 
 1. In the Azure AD B2C directory itself, [invite a guest user](user-overview.md#guest-user) from the destination Azure AD tenant (the one that the destination Azure subscription is linked to) and ensure this user has the **Global administrator** role in Azure AD B2C.
 1. Navigate to the *Azure resource* representing Azure AD B2C in your source Azure subscription as explained in the [Manage your Azure AD B2C tenant resources](#manage-your-azure-ad-b2c-tenant-resources) section above. Don't switch to the actual Azure AD B2C tenant.
-1. Select the **Delete** button on the **Overview** page. This *does't* delete the related Azure AD B2C tenant's users or applications. It merely removes the billing link from the source subscription.
+1. Select the **Delete** button on the **Overview** page. This action *doesn't* delete the related Azure AD B2C tenant's users or applications. It merely removes the billing link from the source subscription.
 1. Sign in to the Azure portal with the user account that was added as an administrator in Azure AD B2C in step 1. Then navigate to the destination Azure subscription, which is linked to the destination Azure Active Directory tenant. 
 1. Re-establish the billing link in the destination subscription by following the [Create the link](#create-the-link) procedure above.
 1. Your Azure AD B2C resource has now moved to the destination Azure subscription (linked to the target Azure Active Directory) and will be billed through this subscription from now on.
