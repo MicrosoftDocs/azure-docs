@@ -41,10 +41,10 @@ Tenant level setting that enables/disables federation between their tenant and s
 [Set-CsExternalAccessPolicy (SkypeForBusiness)](/powershell/module/skype/set-csexternalaccesspolicy)
 User policy that allows the admin to further control which users in their organization can participate in federated communications with ACS users.
 
-## Step 2: Use the Graph API to get AAD object ID for Teams users and optionally check their presence
-A Teams user’s Azure Active Directory (AAD) object ID (OID) is required to add them to or transfer to them from an ACS call. The OID can be retrieved through 1) Office portal, 2) Azure AD portal, 3) Azure AD Connect; or 4) Graph API. The example below uses Graph API.
+## Step 2: Use the Graph API to get Azure AD object ID for Teams users and optionally check their presence
+A Teams user’s Azure Active Directory (Azure AD) object ID (OID) is required to add them to or transfer to them from an ACS call. The OID can be retrieved through 1) Office portal, 2) Azure AD portal, 3) Azure AD Connect; or 4) Graph API. The example below uses Graph API.
 
-Consent must be granted by an AAD admin before Graph can be used to search for users, learn more by following on the [Microsoft Graph Security API overview](/graph/security-concept-overview) document. The OID can be retrieved using the list users API to search for users. The following shows a search by display name, but other properties can be searched as well:
+Consent must be granted by an Azure AD admin before Graph can be used to search for users, learn more by following on the [Microsoft Graph Security API overview](/graph/security-concept-overview) document. The OID can be retrieved using the list users API to search for users. The following shows a search by display name, but other properties can be searched as well:
 
 [List users using Microsoft Graph v1.0](/graph/api/user-list):
 ```rest
@@ -91,7 +91,7 @@ On the Microsoft Teams desktop client, Jack's call will be sent to the Microsoft
 ![Screenshot of Microsoft Teams desktop client, Jack's call is sent to the Microsoft Teams user through an incoming call toast notification.](./media/incoming-call-toast-notification-teams-user.png)
 
 After the Microsoft Teams user accepts the call, the in-call experience for the Microsoft Teams user will have all the participants displayed on the Microsoft Teams roster.
-![Screenshot of Microsoft Teams user accepting the call and entering the in-call experience for the Microsoft Teams user](./media/active-call-teams-user.png)
+![Screenshot of Microsoft Teams user accepting the call and entering the in-call experience for the Microsoft Teams user.](./media/active-call-teams-user.png)
 
 ## Step 4: Remove a Teams user from an existing ACS call controlled by Call Automation APIs
 ```csharp
@@ -103,7 +103,7 @@ await answer.Value.CallConnection.RemoveParticipantAsync(new MicrosoftTeamsUserI
 await answer.Value.CallConnection.TransferCallToParticipantAsync(new CallInvite(new MicrosoftTeamsUserIdentifier('<Teams_User_Guid>')));
 ```
 ### How to tell if your Tenant isn't enabled for this preview?
-![You will receive this error during Step 1.](./media/teams-federation-error.png)
+![Screenshot showing the error during Step 1.](./media/teams-federation-error.png)
 
 ## Clean up resources
 
