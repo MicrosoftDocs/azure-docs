@@ -121,7 +121,7 @@ Follow these steps to create a new project if you don't already have an Android 
    }
    ```
 
-As this tutorial only demonstrates how to configure an app in Single Account mode, see [single vs. multiple account mode](./single-multi-account.md) and [configuring your app](./msal-configuration.md) for more information
+   As this tutorial only demonstrates how to configure an app in Single Account mode, see [single vs. multiple account mode](./single-multi-account.md) and [configuring your app](./msal-configuration.md) for more information
 
 1. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below to the application body. This entry allows Azure AD to call back to your application after it completes the authentication:
 
