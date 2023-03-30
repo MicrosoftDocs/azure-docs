@@ -14,17 +14,17 @@ ms.author: sudhirsneha
 
 This article provides an overview of a new prerequisite for schedule patching in update management center (preview). 
 
-Currently, for Azure VMs, to define the schedule patching, you must set the patch orchestration mode as **Azure-orchestrated** if you are configuring from Azure portal, and **AutomaticByPlatform** if you are using the REST API. In Portal and REST API, you should have a schedule associated with the VM for the schedule patching to run. If the schedule is not associated, then the machine may get auto-patched. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
+Currently, for Azure VMs, to define the schedule patching, you must set the patch orchestration mode as **Azure-orchestrated** if you're configuring from Azure portal, and **AutomaticByPlatform** if you're using the REST API. In Portal and REST API, you should have a schedule associated with the VM for the schedule patching to run. If the schedule isn't associated, then the machine may get autopatched. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
 
 To avoid accidental or unintentional patching when a VM is disassociated from a schedule, a new property is introduced as a prerequisite to enable schedule patching on Azure VMs.  
 
 ## New prerequisite
 
-The new VM property - *BypassPlatformSafetyChecksOnUserSchedule* is introduced, allowing a complete control over your patching requirements. It implies that you can have a more reliable way to select the VMs that must be auto-patched and schedule-patched, removing the risk of accidental auto-patching.
+The new VM property - *BypassPlatformSafetyChecksOnUserSchedule* is introduced, allowing a complete control over your patching requirements. It implies that you can have a more reliable way to select the VMs that must be autopatched and schedule patched, removing the risk of accidental autopatching.
 
-Here, when the patch mode is set to **Azure orchestrated using Automatic guest patching**, **BypassPlatformSafetyChecksOnUserSchedule = True**, and no schedule is associated, your VM will not get auto-patched.
+Here, when the patch mode is set to **Azure orchestrated using Automatic guest patching**, **BypassPlatformSafetyChecksOnUserSchedule = True**, and no schedule is associated, your VM won't get auto-patched.
 
-To enable schedule patching on your VMs now, you must do the following:
+To enable schedule patching on your VMs now, follow these steps:
   
 
 # [Azure portal](#tab/new-prereq-portal)
@@ -47,7 +47,7 @@ The new patch orchestration option enables the following VM properties on your b
 The above settings will do the following:
 
 - **Patch Orchestration** set to **Azure orchestrated using Automatic guest patching** enables Auto patching on the VM. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
-- Setting the **BypassPlatformSafetyChecksOnUserSchedule** to **True** ensures that even if the schedule is removed from the VM, your VM will not be auto-patched.
+- Setting the **BypassPlatformSafetyChecksOnUserSchedule** to **True** ensures that even if the schedule is removed from the VM, your VM won't be autopatched.
 
 >[!NOTE]
 > - This prerequisite is applicable only for Azure VMs. 
