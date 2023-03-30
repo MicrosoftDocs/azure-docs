@@ -14,7 +14,7 @@ Using the new client installer described here, you can now collect telemetry dat
 Both the [extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
 
 > [!NOTE]
-> This article provides specific guidance for installing the Azure Monitor agent AMA on Windows client devices, subject to [limitations below](#limitations). For standard installation and management guidance for the agent, refer [the agent extension management guidance here](./azure-monitor-agent-manage.md)
+> This article provides specific guidance for installing the Azure Monitor agent on Windows client devices, subject to [limitations below](#limitations). For standard installation and management guidance for the agent, refer [the agent extension management guidance here](./azure-monitor-agent-manage.md)
 
 ### Comparison with virtual machine extension
 Here is a comparison between client installer and VM extension for Azure Monitor agent:
