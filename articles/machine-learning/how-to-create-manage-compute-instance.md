@@ -744,9 +744,11 @@ To create a compute instance, you'll need permissions for the following actions:
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
 * *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
-### Audit and observe compute instance version
+### Audit and observe compute instance version (preview)
 
 Once a compute instance is deployed, it does not get automatically updated. Microsoft [releases](azure-machine-learning-ci-image-release-notes.md) new VM images on a monthly basis. To understand options for keeping recent with the latest version, see [vulnerability management](concept-vulnerability-management.md#compute-instance). 
+
+ Enable 'audit and observe compute instance os version' under the previews management panel to see these preview properties.
 
 To keep track of whether an instance's operating system version is current, you could query its version using the Studio UI. In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system.
 
