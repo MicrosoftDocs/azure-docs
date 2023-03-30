@@ -1,3 +1,4 @@
+
 # Set up Oracle ASM on an Azure Linux virtual machine
 
 **Applies to:** :heavy_check_mark: Linux VMs 
@@ -17,21 +18,24 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Prepare the environment
 
-This lab uses two VMs on Azure: one of them (asmXServer) runs X Windows server used to run grid setup and second VM (asmVM) hosts the Oracle ASM installation. The Marketplace image you use to create the OracleVM is **Oracle:oracle-database-19-3:oracle-database-19-0904:19.3.1**, and XServer VM is **MicrosoftWindowsDesktop:Windows-10:win10-22h2-pro-g2:19045.2604.230207**
+This lab uses two VMs on Azure: **asmXServer** runs X Windows server used to run grid setup and **asmVM** hosts the Oracle Database and ASM installation. The Marketplace images used to create these virtual machines are
 
-You also need to be familiar with Unix editor vi and have a basic understanding of X Server.
+* asmVM : **Oracle:oracle-database-19-3:oracle-database-19-0904:19.3.1**
+* asmXServer : **MicrosoftWindowsDesktop:Windows-10:win10-22h2-pro-g2:19045.2604.230207**
+
+You also need to be familiar with Unix editor **vi** and have a basic understanding of [X Server](https://en.wikipedia.org/wiki/X_Window_System).
 
 ### Sign in to Azure
 
-Open you preferred shell on Windows, Linux or [Azure Shell](https://shell.azure.com).
+* Open you preferred shell on Windows, Linux or [Azure Shell](https://shell.azure.com).
 
-Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
+* Sign in to your Azure subscription with the [az login](/cli/azure/authenticate-azure-cli) command. Then follow the on-screen directions.
 
 ```azurecli
-az login
+$ az login
 ```
 
-Ensure you are connected to the correct subscription by verifying subscription name/id below
+* Ensure you are connected to the correct subscription by verifying subscription name/id below
 
 ```azurecli
 $ az account show
@@ -63,26 +67,28 @@ Linux: ~/.ssh
 
 If they don't exist you can use below command to create a new keyfile pair.
 
-ssh-keygen -m PEM -t rsa -b 4096
+```bash
+$ ssh-keygen -m PEM -t rsa -b 4096
+```
 
 This will create the .ssh directory and key files. For more information refer to [https://learn.microsoft.com/en-us/azure/virtual-machines/linux/create-ssh-keys-detailed](/azure/virtual-machines/linux/create-ssh-keys-detailed)
 
 ### Create a resource group
 
-To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. Use command below to create a resource group named *ASMOnAzureLab* in the *westus* region.
+* To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. Use command below to create a resource group named *ASMOnAzureLab* in the *westus* region.
 
 ```azurecli
-az group create --name ASMOnAzureLab --location westus
+$ az group create --name ASMOnAzureLab --location westus
 ```
 
 ### Create and configure network
 
 #### Create VNet
 
-Use following command to create the virtual network that will host resources we will create in this lab.
+* Use following command to create the virtual network that will host resources we will create in this lab.
 
 ```azurecli
-az network vnet create \
+$ az network vnet create \
   --name asmVnet \
   --resource-group ASMOnAzureLab \
   --address-prefixes "10.0.0.0/16" \
@@ -92,26 +98,28 @@ az network vnet create \
 
 #### Create a Network Security Group (NSG)
 
-NSG will be used to lock down you VNet.
+* Create network security group (NSG) to lock down you VNet.
 
 ```azurecli
-az network nsg create \
+$ az network nsg create \
   --resource-group ASMOnAzureLab \
   --name asmVnetNSG
 ```
 
-Create NSG rule to allow intra-vnet communication
+* Create NSG rule to allow intra-vnet communication
+
 ```azurecli
-az network nsg rule create  --resource-group ASMOnAzureLab --nsg-name asmVnetNSG \
+$ az network nsg rule create  --resource-group ASMOnAzureLab --nsg-name asmVnetNSG \
     --name asmAllowVnet \
     --protocol '*' --direction inbound --priority 3400 \
     --source-address-prefix 'VirtualNetwork' --source-port-range '*' \
     --destination-address-prefix 'VirtualNetwork' --destination-port-range '*' --access allow
 ```
 
-Create NSG rule to deny all inbound connections
+* Create NSG rule to deny all inbound connections
+
 ```azurecli
-az network nsg rule create \
+$ az network nsg rule create \
   --resource-group ASMOnAzureLab \
   --nsg-name asmVnetNSG \
   --name asmDenyAllInBound \
@@ -120,34 +128,37 @@ az network nsg rule create \
   --destination-address-prefix '*' --destination-port-range '*' --access deny
 ```
 
-Assign NSG to Subnet where we will host our servers.
+* Assign NSG to Subnet where we will host our servers.
+
 ```azurecli
-az network vnet subnet update --resource-group ASMOnAzureLab --vnet-name asmVNet --name asmSubnet1 --network-security-group asmVnetNSG
+$ az network vnet subnet update --resource-group ASMOnAzureLab --vnet-name asmVNet --name asmSubnet1 --network-security-group asmVnetNSG
 ```
+
 #### Create Bastion Network
 
-Create Bastion subnet. Note that name of the subnet must be **AzureBastionSubnet**
+* Create Bastion subnet. Note that name of the subnet must be **AzureBastionSubnet**
 
 ```azurecli
-az network vnet subnet create  \
+$ az network vnet subnet create  \
     --resource-group ASMOnAzureLab \
     --name AzureBastionSubnet \
     --vnet-name asmVnet \
     --address-prefixes 10.0.1.0/24 
 ```
 
-Create public IP for Bastion
+* Create public IP for Bastion
 
 ```azurecli
-az network public-ip create \
+$ az network public-ip create \
     --resource-group ASMOnAzureLab \
     --name asmBastionIP \
     --sku Standard 
 ```
 
-Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
+* Create Azure Bastion resource. It takes about 10 minutes for the resource to deploy.
+
 ```azurecli
-az network bastion create \
+$ az network bastion create \
     --resource-group ASMOnAzureLab \
     --name asmBastion \
     --public-ip-address asmBastionIP \
@@ -159,10 +170,10 @@ az network bastion create \
 
 ### Create X Server VM  (asmXServer)
 
-Replace you password and run following command to create a Windows workstation VM where we will deploy X Server.
+* Replace you password and run following command to create a Windows workstation VM where we will deploy X Server.
 
 ```azurecli
-az vm create \
+$ az vm create \
     --resource-group ASMOnAzureLab \
     --name asmXServer \
     --image MicrosoftWindowsDesktop:Windows-10:win10-22h2-pro-g2:19045.2604.230207 \
@@ -178,60 +189,62 @@ az vm create \
     --admin-password <ENTER_YOUR_PASSWORD_HERE>
 ```
 
-### Connect to asmXServer through Bastion
+### Connect to asmXServer
 
-You can connect to asmXServer using Bastion.
+Connect to **asmXServer** using Bastion.
 
-- Navigate to asmXServer from Azure Portal.
-- Select Settings > Connect on the left
-- Select Bastion tab
-- Click "Use Bastion"
+* Navigate to **asmXServer** from Azure Portal.
+* Go to **Overview** in the left blade
+* Select **Connect** > **Bastion** on the menu at the top
+* Select Bastion tab
+* Click **Use Bastion**
 
 ### Prepare asmXServer to run X Server
 
-X Server is required for later steps of this lab. To install X Server perform steps below
+X Server is required for later steps of this lab. To install and start X Server perform steps below
 
-1. [Download Xming X Server for Windows](https://sourceforge.net/projects/xming/) to asmXServer and install with all default options.
-2. Ensure you did not select "Launch XMing" at th end of installation
-3. Launch "xlaunch" from start menu.
-4. Select "Multiple Windows"
+1. [Download X Server for Windows](https://sourceforge.net/projects/xming/) to **asmXServer** and install with all default options.
+2. Ensure you did not select **Launch** at the end of installation.
+3. Launch **xlaunch** from start menu.
+4. Select **Multiple Windows**.
 ![Screenshot of XLaunch](./media/oracle-asm/xlaunch_01.png)
-5. Select "Start no client"
+5. Select **Start no client**.
 ![Screenshot of XLaunch](./media/oracle-asm/xlaunch_02.png)
-6. Select "No access control"
+6. Select **No access control**.
 ![Screenshot of XLaunch](./media/oracle-asm/xlaunch_03.png)
-7. Select "Allow Access" to allow X Server through Windows Firewall
+7. Select **Allow Access** to allow X Server through Windows Firewall.
 ![Screenshot of XLaunch](./media/oracle-asm/xlaunch_04.png)
 
-If you restart your asmXServer VM, follow steps 2-6 above to restart X Server.
+If you restart your **asmXServer** VM, follow steps 2-6 above to restart X Server application.
 
 ### Create Oracle Database VM
 
-For this lab, we will create one VM from Oracle Database 19c image. Run following to create asmVM that is Standard_DS2_v3 size with four attached data disks of 50 GB each. If they do not already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys will be used. 
+For this lab, we will create one VM from Oracle Database 19c image. Run following to create **asmVM** with multiple data disks attached. If they do not already exist in the default key location, this command also creates SSH keys. To use a specific set of keys, use the `--ssh-key-value` option. If you have already created your SSH keys in [Generate authentication keys](#generate-authentication-keys) section, those keys will be used.
 
-   ```azurecli
-   az vm create --resource-group ASMOnAzureLab \
-    --name asmVM \
-    --image Oracle:oracle-database-19-3:oracle-database-19-0904:19.3.1 \
-    --size Standard_D4_v5 \
-    --generate-ssh-keys \
-    --os-disk-size-gb 30 \
-    --data-disk-sizes-gb 20 50 50 50 50 \
-    --admin-username azureuser \
-    --vnet-name asmVnet \
-    --subnet asmSubnet1 \
-    --public-ip-sku Basic \
-    --nsg "" 
-   ```
+```azurecli
+az vm create --resource-group ASMOnAzureLab \
+   --name asmVM \
+   --image Oracle:oracle-database-19-3:oracle-database-19-0904:19.3.1 \
+   --size Standard_D4_v5 \
+   --generate-ssh-keys \
+   --os-disk-size-gb 30 \
+   --data-disk-sizes-gb 20 40 40 \
+   --admin-username azureuser \
+   --vnet-name asmVnet \
+   --subnet asmSubnet1 \
+   --public-ip-sku Basic \
+   --nsg "" 
+```
 
 ### Connect to asmVM
 
-Connect to asmVM using Bastion.
+Connect to **asmVM** using Bastion.
 
-* Navigate to asmVM from Azure Portal.
-* Select Settings > Connect on the left
+* Navigate to **asmVM** from Azure Portal.
+* Go to **Overview** in the left blade
+* Select **Connect** > **Bastion** on the menu at the top
 * Select Bastion tab
-* Click "Use Bastion"
+* Click **Use Bastion**
 
 ## Create swap file
 
@@ -239,21 +252,20 @@ This lab requires a swap file on the lab virtual machine. Complete following ste
 
 ### Prepare disk and mount point
 
-* When we created virtual machine (asmVM) above we included a 20GB data disk to place swap file. Run following command to find out the name for this 20GB disk. It will be **/dev/sdb** most of the time but in case it comes up different make sure you note the new name and use if for following steps.
+* When we created virtual machine (asmVM) above we included a 20GB data disk to place swap file. Run following command to find out the name for this 20GB disk. It will be **/dev/sdb** most of the time but in case it comes up different make sure you note the name for 20G disk and use if for following steps. Similarly you will use the names of 40G disks (which are named **/dev/sdc** and **/dev/sdd** below) later on.
 
 ```bash
-lsblk
+$ sudo su -
+$ lsblk
 ```
 
 ```output
 NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sdf       8:80   0   50G  0 disk 
-sdd       8:48   0   50G  0 disk 
-sdb       8:16   0   20G  0 disk 
+sdd       8:48   0   40G  0 disk             ====> Data disk 2 (40GB)
+sdb       8:16   0   20G  0 disk             ====> Swap file disk (20GB)
 sr0      11:0    1  628K  0 rom  
 fd0       2:0    1    4K  0 disk 
-sde       8:64   0   50G  0 disk 
-sdc       8:32   0   50G  0 disk 
+sdc       8:32   0   40G  0 disk             ====> Data disk 1 (40GB)
 sda       8:0    0   30G  0 disk 
 ├─sda2    8:2    0   29G  0 part /
 ├─sda14   8:14   0    4M  0 part 
@@ -261,27 +273,26 @@ sda       8:0    0   30G  0 disk
 └─sda1    8:1    0  500M  0 part /boot
 ```
 
-* Run following command to create the partition
+* Run following command to create the partition on the swap file disk, modify disk name (/dev/sdb) if necessary.
+
 ```bash
-parted /dev/sdb --script mklabel gpt mkpart xfspart xfs 0% 100%
+$ parted /dev/sdb --script mklabel gpt mkpart xfspart xfs 0% 100%
 ```
 
 * Check the name of the partition created. Below it is created as **sdb1**
 
 ```bash
-lsblk
+$ lsblk
 ```
 
 ```output
 NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sdf       8:80   0   50G  0 disk 
-sdd       8:48   0   50G  0 disk 
+sdd       8:48   0   40G  0 disk 
 sdb       8:16   0   20G  0 disk 
-└─sdb1    8:17   0   20G  0 part 
-sr0      11:0    1 1024M  0 rom  
+└─sdb1    8:17   0   20G  0 part             ====> Newly created partition
+sr0      11:0    1  628K  0 rom  
 fd0       2:0    1    4K  0 disk 
-sde       8:64   0   50G  0 disk 
-sdc       8:32   0   50G  0 disk 
+sdc       8:32   0   40G  0 disk 
 sda       8:0    0   30G  0 disk 
 ├─sda2    8:2    0   29G  0 part /
 ├─sda14   8:14   0    4M  0 part 
@@ -289,22 +300,22 @@ sda       8:0    0   30G  0 disk
 └─sda1    8:1    0  500M  0 part /boot
 ```
 
-* Run following commands to initialize file system and mount the drive as **/swap**
+* Run following commands to initialize file system (xfs) and mount the drive as **/swap**
 
 ```bash
-mkfs.xfs /dev/sdb1
-partprobe /dev/sdb1
-mkdir /swap
-mount /dev/sdb1 /swap
+$ mkfs.xfs /dev/sdb1
+$ partprobe /dev/sdb1
+$ mkdir /swap
+$ mount /dev/sdb1 /swap
 ```
 
 * Run following command
 
 ```bash
-blkid
+$ blkid
 ```
 
-In the output, you will see a line for **/dev/sdb1**, note down the **UUID**.
+In the output, you will see a line for swap disk partition **/dev/sdb1**, note down the **UUID**.
 
 ```output
 /dev/sdb1: UUID="00000000-0000-0000-0000-000000000000" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="...." 
@@ -313,32 +324,32 @@ In the output, you will see a line for **/dev/sdb1**, note down the **UUID**.
 * Paste UUID from previous step into the command below and run it. This will ensure proper mounting of drive every time system reboots.
 
 ```bash
-echo "UUID=00000000-0000-0000-0000-000000000000   /swap   xfs   defaults,nofail   1   2" >> /etc/fstab
+$ echo "UUID=00000000-0000-0000-0000-000000000000   /swap   xfs   defaults,nofail   1   2" >> /etc/fstab
 ```
 
 ### Configure swap file
 
-* Create and allocate the swap file (16GB)
+* Create and allocate the swap file (16GB). This command will take a couple of minutes to run.
 
 ```bash
-dd if=/dev/zero of=/swap/swapfile bs=1M count=16384
+$ dd if=/dev/zero of=/swap/swapfile bs=1M count=16384
 ```
 
 * Modify permissions and assign the swap file
 
 ```bash
-chmod 600 /swap/swapfile
-mkswap /swap/swapfile
-swapon /swap/swapfile
+$ chmod 600 /swap/swapfile
+$ mkswap /swap/swapfile
+$ swapon /swap/swapfile
 ```
 
 * Verify swap file is created
 
 ```bash
-cat /proc/swaps
+$ cat /proc/swaps
 ```
 
-```bash
+```output
 Filename        Type    Size        Used    Priority
 /swap/swapfile  file    16777212    0        -2
 ```
@@ -346,7 +357,7 @@ Filename        Type    Size        Used    Priority
 * Ensure swap file setting is retained across reboots
 
 ```bash
-echo "/swap/swapfile   none  swap  sw  0 0" >> /etc/fstab
+$ echo "/swap/swapfile   none  swap  sw  0 0" >> /etc/fstab
 ```
 
 ## Install Oracle ASM
@@ -355,16 +366,16 @@ To install Oracle ASM, complete the following steps.
 
 For more information about installing Oracle ASM, see [Oracle ASMLib Downloads for Oracle Linux 7](https://www.oracle.com/linux/downloads/linux-asmlib-v7-downloads.html).  
 
-1. You need to login as root in order to continue with ASM installation:
+1. You need to login as root in order to continue with ASM installation, if you have not already done so
 
    ```bash
-   sudo su -
+   $ sudo su -
    ```
 
 2. Run these additional commands to install Oracle ASM components:
 
    ```bash
-   yum list | grep oracleasm 
+   $ yum list | grep oracleasm 
    ```
 
    Output of the command looks like
@@ -377,17 +388,17 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
    Continue installation by running following commands
 
    ```bash
-   yum -y install kmod-oracleasm.x86_64 
-   yum -y install oracleasm-support.x86_64 
-   wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.15-1.el7.x86_64.rpm
-   yum -y install oracleasmlib-2.0.15-1.el7.x86_64.rpm 
-   rm -f oracleasmlib-2.0.15-1.el7.x86_64.rpm
+   $ yum -y install kmod-oracleasm.x86_64 
+   $ yum -y install oracleasm-support.x86_64 
+   $ wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.15-1.el7.x86_64.rpm
+   $ yum -y install oracleasmlib-2.0.15-1.el7.x86_64.rpm 
+   $ rm -f oracleasmlib-2.0.15-1.el7.x86_64.rpm
    ```
 
 3. Verify that Oracle ASM is installed:
 
    ```bash
-   rpm -qa |grep oracleasm
+   $ rpm -qa |grep oracleasm
    ```
 
     The output of this command should list the following components:
@@ -398,70 +409,63 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
    kmod-oracleasm-2.0.8-28.0.1.el7.x86_64
    ```
 
-4. ASM requires specific users and roles in order to function correctly. The following commands create the pre-requisite user accounts and groups: 
+4. ASM requires specific users and roles in order to function correctly. The following commands create the pre-requisite user accounts and groups.
 
    ```bash
-   groupadd -g 54345 asmadmin 
-   groupadd -g 54346 asmdba 
-   groupadd -g 54347 asmoper 
-   useradd -u 3000 -g oinstall -G dba,asmadmin,asmdba,asmoper grid 
-   usermod -g oinstall -G oinstall,dba,asmdba,asmadmin,asmoper oracle
+   $ groupadd -g 54345 asmadmin 
+   $ groupadd -g 54346 asmdba 
+   $ groupadd -g 54347 asmoper 
+   $ usermod -a -g oinstall -G oinstall,dba,asmdba,asmadmin,asmoper oracle
    ```
 
-5. Verify users and groups were created correctly:
+5. Verify users and groups were created correctly.
 
    ```bash
-   id grid
+   $ grep oracle /etc/group
    ```
 
-    The output of this command should list the following users and groups:
+   The output of this command should list the following users and groups.
 
-    ```output
-    uid=3000(grid) gid=54321(oinstall) groups=54321(oinstall),54322(dba),54345(asmadmin),54346(asmdba),54347(asmoper)
-    ```
+   ```output
+    oinstall:x:54321:oracle
+    dba:x:54322:oracle
+    oper:x:54323:oracle
+    backupdba:x:54324:oracle
+    dgdba:x:54325:oracle
+    kmdba:x:54326:oracle
+    racdba:x:54330:oracle
+    asmadmin:x:54345:oracle
+    asmdba:x:54346:oracle
+    asmoper:x:54347:oracle
+   ```
+
+6. Create the app folder change the owner.
 
    ```bash
-   grep oracle /etc/group
-   ```
-
-    The output of this command should list the following users and groups:
-
-    ```output
-   oinstall:x:54321:oracle
-   dba:x:54322:oracle,grid
-   asmadmin:x:54345:grid,oracle
-   asmdba:x:54346:grid,oracle
-   asmoper:x:54347:grid,oracle
-   ```
-
-
-6. Create a folder for user *grid* and change the owner:
-
-   ```bash
-   mkdir /u01/app/grid 
-   chown grid:oinstall /u01/app/grid
+   $ mkdir /u01/app/grid 
+   $ chown oracle:oinstall /u01/app/grid
    ```
 
 ## Set up Oracle ASM
 
-For this tutorial, the default user is *grid* and the default group is *asmadmin*. Ensure that the *oracle* user is part of the asmadmin group. 
+For this tutorial, the default user is **oracle** and the default group is **asmadmin**. Ensure that the **oracle** user is part of the **asmadmin** group.
 
-   ```bash
-   groups oracle
-   ```
+```bash
+$ groups oracle
+```
 
 The output of command should look like
 
-   ```output
-   oracle : oinstall dba asmadmin asmdba asmoper
-   ```
+```output
+oracle : oinstall dba oper backupdba dgdba kmdba racdba asmadmin asmdba asmoper
+```
 
 To set up Oracle ASM, complete the following steps:
 
-1. Setting up the Oracle ASM library driver involves defining the default user (grid) and default group (asmadmin) as well as configuring the drive to start on boot (choose y) and to scan for disks on boot (choose y). You need to answer the prompts from the following command:
+1. Setting up the Oracle ASM library driver involves defining the default user (oracle) and default group (asmadmin) as well as configuring the drive to start on boot (choose y) and to scan for disks on boot (choose y). You need to answer the prompts from the following command:
 
    ```bash
-   /usr/sbin/oracleasm configure -i
+   $ /usr/sbin/oracleasm configure -i
    ```
 
    The output of this command should look similar to the following, stopping with prompts to be answered.
@@ -475,7 +479,7 @@ To set up Oracle ASM, complete the following steps:
    will be shown in brackets ('[]'). Hitting <ENTER> without typing an
    answer will keep that current value. Ctrl-C will abort.
 
-   Default user to own the driver interface []: grid
+   Default user to own the driver interface []: oracle
    Default group to own the driver interface []: asmadmin
    Start Oracle ASM library driver on boot (y/n) [n]: y
    Scan for Oracle ASM disks on boot (y/n) [y]: y
@@ -484,7 +488,7 @@ To set up Oracle ASM, complete the following steps:
 
    >[!NOTE]
    >The `/usr/sbin/oracleasm configure -i` command asks for the user and group that default to owning the ASM driver access point. 
-   >The database will be running as the `grid` user and the `asmadmin` group.
+   >The database will be running as the `oracle` user and the `asmadmin` group.
    >By selecting **Start Oracle ASM library driver on boot = 'y'**, the system will always load the module and mount the filesystem on boot.
    >By selecting **Scan for Oracle ASM disks on boot = 'y'**, the system will always scan the Oracle ASM disks on boot.
    >The last two configurations are very important, otherwise, you will run into disk reboot problems.
@@ -492,45 +496,41 @@ To set up Oracle ASM, complete the following steps:
 2. View the disk configuration:
 
    ```bash
-   cat /proc/partitions
+   $ cat /proc/partitions
    ```
 
    The output of this command should look similar to the following listing of available disks
 
    ```output
     major minor  #blocks  name
+       8       16   20971520 sdb
+       8       17   20969472 sdb1
+       8       32   41943040 sdc
+       8       48   41943040 sdd
        8        0   31457280 sda
        8        1     512000 sda1
        8        2   30431232 sda2
        8       14       4096 sda14
        8       15     506880 sda15
-       8       16   20971520 sdb
-       8       17   20969472 sdb1
-       8       32   52428800 sdc
-       8       48   52428800 sdd
-       8       80   52428800 sdf
-       8       64   52428800 sde
-      11        0    1048575 sr0
+      11        0        628 sr0
        2        0          4 fd0
    ```
 
-
-3. Format disk */dev/sdc* by running the following command and answering the prompts with:
-   - *n* for new partition
-   - *p* for primary partition
-   - *1* to select the first partition
-   - press `enter` for the default first sector
-   - press `enter` for the default last sector
-   - press *w* to write the changes to the partition table  
+3. Format disk **/dev/sdc** by running the following command and answering the prompts with:
+   * **n** for new partition
+   * **p** for primary partition
+   * **1** to select the first partition
+   * press **enter** for the default first sector
+   * press **enter** for the default last sector
+   * press **w** to write the changes to the partition table  
 
    ```bash
-   fdisk /dev/sdc
+   $ fdisk /dev/sdc
    ```
 
    Using the answers provided above, the output for the `fdisk` command should look like the following:
 
    ```output
-    [root@asmVM ~]# fdisk /dev/sdc
     Welcome to fdisk (util-linux 2.23.2).
     
     Changes will remain in memory only, until you decide to write them.
@@ -562,51 +562,44 @@ To set up Oracle ASM, complete the following steps:
     Syncing disks.
    ```
 
-4. Repeat the preceding `fdisk` command for `/dev/sdd`, `/dev/sde`, and `/dev/sdf`.
+4. Repeat the preceding `fdisk` command for `/dev/sdd`.
 
    ```bash
-   fdisk /dev/sdd
-   fdisk /dev/sde
-   fdisk /dev/sdf
+   $ fdisk /dev/sdd
    ```
 
 5. Check the disk configuration:
 
    ```bash
-   cat /proc/partitions
+   $ cat /proc/partitions
    ```
 
    The output of the command should look like the following:
 
    ```output
     major minor  #blocks  name
+       8       16   20971520 sdb
+       8       17   20969472 sdb1
+       8       32   41943040 sdc
+       8       33   41942016 sdc1
+       8       48   41943040 sdd
+       8       49   41942016 sdd1
        8        0   31457280 sda
        8        1     512000 sda1
        8        2   30431232 sda2
        8       14       4096 sda14
        8       15     506880 sda15
-       8       16   20971520 sdb
-       8       17   20969472 sdb1
-       8       32   52428800 sdc
-       8       33   52427776 sdc1
-       8       48   52428800 sdd
-       8       49   52427776 sdd1
-       8       80   52428800 sdf
-       8       81   52427776 sdf1
-       8       64   52428800 sde
-       8       65   52427776 sde1
-      11        0    1048575 sr0
+      11        0        628 sr0
        2        0          4 fd0
    ```
 
    >[!NOTE]
    >Note that, in the following configuration, please use the exact commands as this document shows.
-   >Make sure you are calling the Oracle ASM service with `service oracleasm`.
 
 6. Check the Oracle ASM service status and start the Oracle ASM service:
 
    ```bash
-   oracleasm status 
+   $ oracleasm status 
    ```
 
    ```output
@@ -615,7 +608,7 @@ To set up Oracle ASM, complete the following steps:
    ```
 
    ```bash
-   oracleasm init
+   $ oracleasm init
    ```
 
    ```output
@@ -627,76 +620,68 @@ To set up Oracle ASM, complete the following steps:
 
 7. Create Oracle ASM disks
 
-   Create first disk
+   * Create first disk
 
    ```bash
-   oracleasm createdisk ASMSP /dev/sdc1 
+   $ oracleasm createdisk VOL1 /dev/sdc1 
    ```
 
-   The output of command should look like
+   * The output of command should look like
 
    ```output
     Writing disk header: done
     Instantiating disk: done
    ```
 
-   Create remaining disks
+   * Create remaining disks
 
    ```bash
-   oracleasm createdisk DATA  /dev/sdd1 
-   oracleasm createdisk DATA1 /dev/sde1 
-   oracleasm createdisk FRA   /dev/sdf1
+   $ oracleasm createdisk VOL2  /dev/sdd1 
    ```
 
    >[!NOTE]
    >Disks are marked for ASMLib using a process described in [ASMLib Installation](https://www.oracle.com/linux/technologies/install-asmlib.html). 
    >ASMLib learns what disk are marked during a process called disk scanning. ASMLib runs this scan every time it starts up. The system administrator can also force a scan via the `oracleasm scandisks` command.
    >ASMLib examines each disk in the system. It checks if the disk has been marked for ASMLib. Any disk that has been marked will be made available to ASMLib.
-   >You can visit documents [Configuring Storage Device Path Persistence Using Oracle ASMLIB](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/configuring-storage-device-path-persistence-using-oracle-asmlib.html#GUID-6B1DA5DB-2E93-4616-B517-18ABDEE72AE4) and [Configuring Oracle ASMLib on Multipath Disks](https://www.oracle.com/linux/technologies/multipath-disks.html) for more informations.
+   >You can visit documents [Configuring Storage Device Path Persistence Using Oracle ASMLIB](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/configuring-storage-device-path-persistence-using-oracle-asmlib.html#GUID-6B1DA5DB-2E93-4616-B517-18ABDEE72AE4) and [Configuring Oracle ASMLib on Multipath Disks](https://www.oracle.com/linux/technologies/multipath-disks.html) for more information.
 
 8. List Oracle ASM disks
 
    ```bash
-   oracleasm listdisks
+   $ oracleasm scandisks
+   $ oracleasm listdisks
    ```
 
    The output of the command should list off the following Oracle ASM disks:
 
    ```output
-    ASMSP
-    DATA
-    DATA1
-    FRA
+    VOL1
+    VOL2
    ```
 
-9. Change passwords for the root, oracle, and grid users. **Make note of these new passwords** as you are using them later during the installation.
+9. Change passwords for the root and oracle users. **Make note of these new passwords** as you are using them later during the installation.
 
    ```bash
    passwd oracle 
-   passwd grid 
    passwd root
    ```
 
 10. Change folder permissions
 
-   ```bash
-   chmod -R 775 /opt
-   chown grid:oinstall /opt
-   chown oracle:oinstall /dev/sdc1
-   chown oracle:oinstall /dev/sdd1
-   chown oracle:oinstall /dev/sde1
-   chown oracle:oinstall /dev/sdf1
-   chmod 600 /dev/sdc1
-   chmod 600 /dev/sdd1
-   chmod 600 /dev/sde1
-   chmod 600 /dev/sdf1
-   ```
+    ```bash
+    $ chmod -R 775 /opt
+    $ chown oracle:oinstall /opt
+    $ chown oracle:oinstall /dev/sdc1
+    $ chown oracle:oinstall /dev/sdd1
+    $ chmod 600 /dev/sdc1
+    $ chmod 600 /dev/sdd1
+    ```
 
 ## Download and Prepare Oracle Grid Infrastructure
 
 To download and prepare the Oracle Grid Infrastructure software, complete the following steps:
 
-1. Download Oracle Grid Infrastructure from the [Oracle ASM download page](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). Your download location should have Azure CLI installed because we will copy these files to asmVM using Bastion.
+1. Download Oracle Grid Infrastructure from the [Oracle ASM download page](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). Your download location should have Azure CLI installed because we will copy these files to asmVM using Bastion. Note that, because it uses a tunnel,  this step will not work over Azure Cloud Shell and it needs to be run on a workstation.
 
    Under the download titled **Oracle Database 19c Grid Infrastructure (19.3) for Linux x86-64**, download the .zip file.
 
@@ -706,69 +691,69 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
 
    * Open the tunnel to your target VM using the following PowerShell command
 
-   ```PowerShell
-   $asmVMid=$(az vm show --resource-group ASMOnAzureLab --name asmVM --query 'id' --output tsv)
-   
-   az network bastion tunnel --name asmBastion --resource-group ASMOnAzureLab --target-resource-id $asmVMid --resource-port 22 --port 57500
-   ```
-
+       ```PowerShell
+       $asmVMid=$(az vm show --resource-group ASMOnAzureLab --name asmVM --query 'id' --output tsv)
+       
+       az network bastion tunnel --name asmBastion --resource-group ASMOnAzureLab --target-resource-id $asmVMid --resource-port 22 --port 57500
+       ```
+    
    * Leave the first command prompt running and open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command. Note that the correct `id_rsa` keyfile to access asmVM must reside in `.ssh` directory or you can point to a different key file using `-i` parameter to `scp` command.
 
-   ```powershell
-   scp -P 57500 "LINUX.X64_193000_grid_home.zip"  azureuser@127.0.0.1:.
-   ```
-
-3. When upload is complete SSH back into your asmVM in Azure using Bastion in order to move the .zip files into the /opt folder and change the owner of the file.
+       ```powershell
+       scp -P 57500 "LINUX.X64_193000_grid_home.zip"  azureuser@127.0.0.1:.
+       ```
+    
+3. When upload is complete SSH back into your **asmVM** in Azure using Bastion in order to move the .zip files into the **/opt** folder and change the owner of the file.
 
    ```bash
-   sudo su -
-   mv /home/azureuser/*.zip /opt
-   cd /opt
-   chown grid:oinstall LINUX.X64_193000_grid_home.zip
+   $ sudo su -
+   $ mv /home/azureuser/*.zip /opt
+   $ cd /opt
+   $ chown oracle:oinstall LINUX.X64_193000_grid_home.zip
    ```
 
 4. Unzip the files. (Install the Linux unzip tool if it's not already installed.)
 
    ```bash
-   yum install unzip
-   unzip LINUX.X64_193000_grid_home.zip -d grid
+   $ yum install unzip
+   $ unzip LINUX.X64_193000_grid_home.zip -d grid
    ```
 
 5. Change permission
 
    ```bash
-   chown -R grid:oinstall /opt/grid
-   unzip LINUX.X64_193000_grid_home.zip -d grid
+   $ chown -R oracle:oinstall /opt/grid
    ```
+
 6. Cleanup
 
    ```bash
-   rm -f LINUX.X64_193000_grid_home.zip
+   $ rm -f LINUX.X64_193000_grid_home.zip
    ```
 
-  6. Exit *root*
+7. Exit **root**
 
    ```bash
-   exit
+   $ exit
    ```
 
 ## Install Oracle Grid Infrastructure
 
 To install Oracle Grid Infrastructure, complete the following steps:
 
-1. Sign in as **grid**. (You should be able to sign in without being prompted for a password.) 
+1. Sign in as **oracle**. (You should be able to sign in without being prompted for a password.)
 
    > [!NOTE]
    > Make sure you have [started X Server](#prepare-asmxserver-to-run-x-server) before you begin the installation.
 
    ```bash
-   sudo su - grid
-   export DISPLAY=10.0.0.4:0.0
-   cd /opt/grid 
-   ./gridSetup.sh 
+   $ sudo su - oracle
+   $ export DISPLAY=10.0.0.4:0.0
+   $ cd /opt/grid 
+   $ ./gridSetup.sh 
    ```
 
-   Oracle Grid Infrastructure 19c Installer opens on asmXServer VM. (It might take a few minutes for the  installer to start.)
+   Oracle Grid Infrastructure 19c Installer opens on **asmXServer** VM. (It might take a few minutes for the  installer to start.)
 
 2. On the **Select Configuration Option** page, select **Configure Oracle Grid Infrastructure for a Standalone Server (Oracle Restart)**.
 
@@ -776,12 +761,12 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
 3. On the **Create ASM Disk Group** page:
    * Click on **Change Discovery Path**
-   * Update the discovery path to be **/dev/oracleasm/disks/**
-   * Enter a name for the disk group **ASMSP**
+   * Update the discovery path to be **/dev/oracleasm/disks/***
+   * Enter a name for the disk group **DATA**
    * Under **Redundancy**, select **External**.
    * Under **Allocation Unit Size**, select **4**.
-   * Under **Select Disks**, select **/dev/oracleasm/disks/ASMSP**.
-   * Click `next`.
+   * Under **Select Disks**, select **/dev/oracleasm/disks/VOL1**.
+   * Click **Next**.
 
    ![Screenshot of the installer's Create ASM Disk Group page](./media/oracle-asm/gridinstall_02.png)
 
@@ -789,29 +774,25 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
    ![Screenshot of the installer's Specify ASM Password page](./media/oracle-asm/gridinstall_03.png)
 
-5. On the **Specify Management Options** page, make sure the option to configure EM Cloud Control is unselected. Click `next` to continue. 
+5. On the **Specify Management Options** page, make sure the option to configure EM Cloud Control is unselected. Click **Next** to continue.
 
    ![Screenshot of the installer's Specify Management Options page](./media/oracle-asm/gridinstall_04.png)
 
-6. On the **Privileged Operating System Groups** page, use the default settings. Click `next` to continue.
+6. On the **Privileged Operating System Groups** page, use the default settings. Click **Next** to continue.
 
    ![Screenshot of the installer's Privileged Operating System Groups page](./media/oracle-asm/gridinstall_05.png)
 
-7. On the **Specify Installation Location** page, use the default settings. Click `next` to continue.
+7. On the **Specify Installation Location** page, use the default settings. Click **Next** to continue.
 
    ![Screenshot of the installer's Specify Installation Location page](./media/oracle-asm/gridinstall_06.png)
-
-If you receive a warning like below, click **Yes** to continue.
-
-   ![Screenshot of the installer's installer space warning page](./media/oracle-asm/gridinstall_06_2.png)
 
 8. On the **Root script execution configuration** page, select the **Automatically run configuration scripts** check box. Then, select the **Use "root" user credential** option, and enter the root user password.
 
     ![Screenshot of the installer's Root script execution configuration page](./media/oracle-asm/gridinstall_07.png)
 
-9. On the **Perform Prerequisite Checks** page, the current setup will fail with errors. This is an expected behavior. Select `Fix & Check Again`.
+9. On the **Perform Prerequisite Checks** page, the current setup will fail with errors. This is an expected behavior. Select **Fix & Check Again**.
 
-10. In the **Fixup Script** dialog box, click `OK`.
+10. In the **Fixup Script** dialog box, click **OK**.
 
     ![Screenshot of the installer's Perform Prerequisite Checks page](./media/oracle-asm/gridinstall_08.png)
 
@@ -819,11 +800,11 @@ If you receive a warning like below, click **Yes** to continue.
 
     ![Screenshot of the installer's Summary page](./media/oracle-asm/gridinstall_09.png)
 
-12. A warning dialog box appears informing you configuration scripts need to be run as a privileged user. Click `Yes` to continue.
+12. A warning dialog box appears informing you configuration scripts need to be run as a privileged user. Click **Yes** to continue.
 
     ![Screenshot of the installer's warning page](./media/oracle-asm/gridinstall_10.png)
 
-13. On the **Finish** page, click `Close` to finish the installation.
+13. On the **Finish** page, click **Close** to finish the installation.
 
     ![Screenshot of the installer's Finish page](./media/oracle-asm/gridinstall_11.png)
 
@@ -831,67 +812,67 @@ If you receive a warning like below, click **Yes** to continue.
 
 Complete following steps to setup Oracle ASM.
 
-1. Ensure you are still signed in as **grid**, to asmVM from Bastion ssh session and launch the Oracle Automatic Storage Management Configuration Assistant:
+1. Ensure you are still signed in as **oracle**, to asmVM from Bastion ssh session.
+
+   * Run following to set context. If you still have the shell open from previous command this may not be necessary.
 
    ```bash
-   sudo su - grid   
-   export DISPLAY=10.0.0.4:0.0
-   cd /opt/grid/bin 
-   ./asmca
+   $ sudo su - oracle   
+   $ export DISPLAY=10.0.0.4:0.0
    ```
 
-   In a few minutes, Oracle ASM Configuration Assistant window opens on asmXServer VM.
+   * Launch the Oracle Automatic Storage Management Configuration Assistant
 
-2. Select `DATA` under `Disk Groups` in the tree and click the `Create` button at the bottom.
- 
-![Screenshot of the ASMCA](./media/oracle-asm/asmca_01.png)
+   ```bash
+   $ cd /opt/grid/bin 
+   $ ./asmca
+   ```
+
+   In a few minutes, Oracle ASM Configuration Assistant window opens on **asmXServer** VM.
+
+2. Select **DATA** under **Disk Groups** in the tree and click the **Create** button at the bottom.
+
+   ![Screenshot of the ASMCA](./media/oracle-asm/asmca_01.png)
 
 3. In the **Create Disk Group** dialog box:
 
-   - Enter the disk group name **DATA**.
-   - Under **Select Member Disks**, select **/dev/oracleasm/disks/DATA** and **/dev/oracleasm/disks/DATA1**.
-   - Under **Allocation Unit Size**, select **4**.
-   - Click `ok` to create the disk group.
-   - Click `ok` to close the confirmation window.
+   * Enter the disk group name **FRA**.
+   * Under **Select Member Disks**, select **/dev/oracleasm/disks/VOL2**
+   * Under **Allocation Unit Size**, select **4**.
+   * Click **ok** to create the disk group.
+   * Click **ok** to close the confirmation window.
 
    ![Screenshot of the Create Disk Group dialog box](./media/oracle-asm/asmca_02.png)
 
-4. In the **Configure ASM: Disk Groups** dialog box, click the `Create` button, and then click `Show Advanced Options`.
+4. Select **Exit** to close ASM Configuration Assistant.
 
-5. In the **Create Disk Group** dialog box:
-
-   - Enter the disk group name **FRA**.
-   - Under **Redundancy**, select **External (none)**.
-   - Under **Select Member Disks**, select **/dev/oracleasm/disks/FRA**.
-   - Under **Allocation Unit Size**, select **4**.
-   - Click `ok` to create the disk group.
-   - Click `ok` to close the confirmation window.
-
-   ![Screenshot of the Create Disk Group dialog box and highlights the External (none) option.](./media/oracle-asm/asmca_03.png)
-
-6. Select **Exit** to close ASM Configuration Assistant.
-
-   ![Screenshot of the Configure ASM: Disk Groups dialog box with Exit button](./media/oracle-asm/asmca_04.png)
+   ![Screenshot of the Configure ASM: Disk Groups dialog box with Exit button](./media/oracle-asm/asmca_03.png)
 
 ## Create the database
 
 The Oracle database software is already installed on the Azure Marketplace image. To create a database, complete the following steps:
 
-1. Switch users to the Oracle superuser, and then initialize the listener for logging:
+1. Ensure the context is set to **oracle** user
+
+   * Run following to set context. If you still have the shell open from previous command this may not be necessary.
 
    ```bash
-   exit
-   sudo su - oracle
-   export DISPLAY=10.0.0.4:0.0 
-   cd /u01/app/oracle/product/19.0.0/dbhome_1/bin
-   ./dbca
+   $ sudo su - oracle   
+   $ export DISPLAY=10.0.0.4:0.0
    ```
 
-   In a few seconds, Database Configuration Assistant window opens on asmXServer VM.
+   Run Database Configuration Assistant
 
-2. On the **Database Operation** page, click `Create Database`.
+   ```bash
+   $ cd /u01/app/oracle/product/19.0.0/dbhome_1/bin
+   $ ./dbca
+   ```
 
-![Screenshot of the Database Operation page](./media/oracle-asm/dbca_01.png)
+   In a few seconds, Database Configuration Assistant window opens on **asmXServer** VM.
+
+2. On the **Database Operation** page, click **Create Database**.
+
+   ![Screenshot of the Database Operation page](./media/oracle-asm/dbca_01.png)
 
 3. On the **Creation Mode** page:
 
@@ -901,26 +882,25 @@ The Oracle database software is already installed on the Azure Marketplace image
    * For **Database Files Location**, browse and select **DATA** location.
    * For **Fast Recovery Area**, browse and select **FRA** location.
    * Type in an **Administrative Password** and **confirm password**.
-   * Ensure `create as container database` is selected.
-   * Type in a `pluggable database name` value: **pasmdb**
+   * Ensure **create as container database** is selected.
+   * Type in a **pluggable database name** value: **pasmdb**
 
-![Screenshot of the Database Creation page](./media/oracle-asm/dbca_02.png)
+   ![Screenshot of the Database Creation page](./media/oracle-asm/dbca_02.png)
 
-4. On the **Summary** page, review your selected settings, and then click `Finish` to create the database. Note that database creation may take more than 10 minutes.
+4. On the **Summary** page, review your selected settings, and then click **Finish** to create the database. Note that database creation may take more than 10 minutes.
 
    ![Screenshot of the Summary page](./media/oracle-asm/dbca_03.png)
 
-5. The Database has been created. On the **Finish** page, you have the option to unlock additional accounts to use this database and change the passwords. If you wish to do so, select **Password Management** - otherwise click on `close`.
+5. The Database has been created. On the **Finish** page, you have the option to unlock additional accounts to use this database and change the passwords. If you wish to do so, select **Password Management** - otherwise click on **Close**.
 
 ## Delete the asmXServer VM
 
-asmXServer VM is only used during setup. You can safely delete it after completing this lab document but keep you ASM on Azure lab setup intact.
+**asmXServer** VM is only used during setup. You can safely delete it after completing this lab document but keep you ASM on Azure lab setup intact.
 
 ```azurecli
-az vm delete --resource-group ASMOnAzureLab --name asmXServer --force-deletion yes
+$ az vm delete --resource-group ASMOnAzureLab --name asmXServer --force-deletion yes
 
-az network public-ip delete --resource-group ASMOnAzureLab --name asmXServerPublicIP 
-
+$ az network public-ip delete --resource-group ASMOnAzureLab --name asmXServerPublicIP 
 ```
 
 ## Delete ASM On Azure Lab Setup
@@ -928,7 +908,7 @@ az network public-ip delete --resource-group ASMOnAzureLab --name asmXServerPubl
 You have successfully configured Oracle Automatic Storage Management on the Oracle DB image from the Azure Marketplace.  When you no longer need this environment, you can use the following command to remove the resource group and all related resources:
 
 ```azurecli
-az group delete --name ASMOnAzureLab
+$ az group delete --name ASMOnAzureLab
 ```
 
 ## Next steps
