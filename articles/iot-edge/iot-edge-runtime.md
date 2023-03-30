@@ -126,7 +126,7 @@ By default, the IoT Edge hub only accepts connections secured with Transport Lay
 
 If a client connects on port 8883 (MQTTS) or 5671 (AMQPS) to the IoT Edge hub, a TLS channel must be built. During the TLS handshake, the IoT Edge hub sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the IoT Edge hub must be installed as a trusted certificate on the client. If the root certificate isn't trusted, the client library will be rejected by the IoT Edge hub with a certificate verification error.
 
-The steps to follow to install this root certificate of the broker on device clients are described in the [transparent gateway](how-to-create-transparent-gateway.md) and in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) documentation. Modules can use the same root certificate as the IoT Edge hub by using the IoT Edge daemon API.
+The steps to follow to install this root certificate of the broker on device clients are described in the [transparent gateway](how-to-create-transparent-gateway.md) and in the [prepare a downstream device](how-to-connect-downstream-device.md#prerequisites) documentation. Modules can use the same root certificate as the IoT Edge hub by using the IoT Edge daemon API.
 
 #### Authentication
 

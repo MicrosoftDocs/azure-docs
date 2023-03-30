@@ -33,9 +33,11 @@ This article explains downstream device connections, such as:
 * Transport layer security (TLS) and certificate fundamentals.
 * How TLS libraries work across different operating systems and how each operating system deals with certificates.
 
-You then walk through Azure IoT samples in several languages to help get you started.
+You then walk through Azure IoT samples in several languages to help your device send messages to the gateway.
 
 ## Prerequisites
+
+Acquire the following to prepare your downstream device:
 
 * A downstream device.
 
@@ -124,7 +126,7 @@ Typically applications use the Windows provided TLS stack called [Schannel](/win
 
 ## Use certificates with Azure IoT SDKs
 
-Azure IoT SDKs connect to an IoT Edge device using simple sample applications. The samples goal is to connect the device client and send telemetry messages to the gateway, then close the connection and exit.
+Azure IoT SDKs connect to an IoT Edge device using simple sample applications. The samples' goal is to connect the device client and send telemetry messages to the gateway, then close the connection and exit.
 
 Before using the application-level samples, have the following:
 
@@ -136,7 +138,7 @@ Before using the application-level samples, have the following:
 
   For example: `<file path>/azure-iot-test-only.root.ca.cert.pem`.
 
-Now you're ready to use certificates through a sample in the language of your choice:
+Now you're ready to use certificates with a sample in the language of your choice:
 
 # [NodeJS](#tab/nodejs)
 
@@ -215,7 +217,7 @@ Use this sample command on the downstream device to test that it can connect to 
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
 
-This command tests connections over MQTTS (port 8883). If you're using a different protocol, adjust the command as necessary for AMQPS (5671) or HTTPS (443)
+This command tests connections over MQTTS (port 8883). If you're using a different protocol, adjust the command as necessary for AMQPS (5671) or HTTPS (443).
 
 The output of this command may be long, including information about all the certificates in the chain. If your connection is successful, you'll see a line like `Verification: OK` or `Verify return code: 0 (ok)`.
 
