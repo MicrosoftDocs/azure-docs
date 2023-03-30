@@ -25,6 +25,14 @@ See these [important announcements](#announcements) about recent changes to feat
 - [Microsoft Defender Threat Intelligence solution (Preview)](#microsoft-defender-threat-intelligence-solution-preview)
 - [Automatically update the SAP data connector agent](#automatically-update-the-sap-data-connector-agent)
 
+### Microsoft Sentinel for SAP BTP solution
+
+The Microsoft Sentinel Solution for SAP BTP monitors and protects your SAP Business Technology Platform (BTP) system, by collecting audits and activity logs from the BTP infrastructure and BTP based apps, and detecting threats, suspicious activities, illegitimate activities, and more. 
+
+The solution includes the **SAP BTP** connector, [built-in analytics rules](sap-btp-security-content.md#built-in-analytics-rules) for identity management and low-code application development scenarios, and the [BTP activity workbook](sap-btp-security-content.md#sap-btp-workbook), which provides a dashboard overview of sub-accounts and a grid of identity management events.
+
+[Learn more about the solution](sap/sap-btp-solution-overview.md).
+
 ### Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces (Preview)
 
 You can now [work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces](sap/cross-workspace.md) in different scenarios. This feature allows improved flexibility for managed security service providers (MSSPs) or a global or federated SOC, data residency requirements, organizational hierarchy/IT design, and insufficient role-based access control (RBAC) in a single workspace. One common use case is the need for collaboration between the security operations center (SOC) and SAP teams in your organization. Read about [the scenarios that address this use case](sap/cross-workspace.md).
