@@ -33,18 +33,20 @@ You will also learn:
 
 The table shows the Azure Maps service APIs, which have a similar functionality to the listed Google Maps service APIs.
 
-| Google Maps service API | Azure Maps service API                                                                      |
-|-------------------------|---------------------------------------------------------------------------------------------|
-| Directions              | [Route](/rest/api/maps/route)                                     |                         
-| Distance Matrix         | [Route Matrix](/rest/api/maps/route/postroutematrixpreview)       |                         
-| Geocoding               | [Search](/rest/api/maps/search)                                   |                         
-| Places Search           | [Search](/rest/api/maps/search)                                   |                         
-| Place Autocomplete      | [Search](/rest/api/maps/search)                                   |                         
-| Snap to Road            | See [Calculate routes and directions](#calculate-routes-and-directions) section.  |        
-| Speed Limits            | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.         |         
-| Static Map              | [Render](/rest/api/maps/render/getmapimage)                       |                         
-| Time Zone               | [Time Zone](/rest/api/maps/timezone)                              |                         
-| Elevation               | [Elevation](/rest/api/maps/elevation)                   | 
+| Google Maps service API | Azure Maps service API                                                      |
+|-------------------------|-----------------------------------------------------------------------------|
+| Directions         | [Route](/rest/api/maps/route)                                                    |
+| Distance Matrix    | [Route Matrix](/rest/api/maps/route/postroutematrixpreview)                      |
+| Geocoding          | [Search](/rest/api/maps/search)                                                  |
+| Places Search      | [Search](/rest/api/maps/search)                                                  |
+| Place Autocomplete | [Search](/rest/api/maps/search)                                                  |
+| Snap to Road       | See [Calculate routes and directions](#calculate-routes-and-directions) section. |
+| Speed Limits       | See [Reverse geocode a coordinate](#reverse-geocode-a-coordinate) section.       |
+| Static Map         | [Render](/rest/api/maps/render/getmapimage)                                      |
+| Time Zone          | [Time Zone](/rest/api/maps/timezone)                                             |
+| Elevation          | [Elevation](/rest/api/maps/elevation)<sup>1</sup>                                |
+
+<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 The following service APIs aren't currently available in Azure Maps:
 
