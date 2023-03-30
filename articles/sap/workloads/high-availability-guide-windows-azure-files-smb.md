@@ -34,16 +34,16 @@ High Availability SAP solutions need a highly available File share for hosting *
 The following points should be evaluated when planning the deployment of Azure Files Premium SMB:
 * The File share name **sapmnt** can be created once per storage account.  It is possible to create additional SIDs as directories on the same **/sapmnt** share such as - **/sapmnt/\<SID1\>** and **/sapmnt/\<SID2\>** 
 * Choose an appropriate size, IOPS and throughput.  A suggested size for the share is 256GB per SID.  The maximum size for a Share is 5120 GB
-* Azure Files Premium SMB may not perform optimally for very large **sapmnt** shares with more than 1-2 million files per storage account.  Customers that have millions of batch jobs creating millions of job log files should regularly reorganize them as per [SAP Note 16083][16083] If needed, old job logs may be moved/archived to another Azure Files Premium SMB.  If **sapmnt** is expected to be very large then alternate options (such as Azure ANF) should be considered.
+* Azure Files Premium SMB may not perform well for `very` large **sapmnt** shares with more than 1-2 million files per storage account.  Customers that have millions of batch jobs creating millions of job log files should regularly reorganize them as per [SAP Note 16083][16083] If needed, old job logs may be moved/archived to another Azure Files Premium SMB.  If **sapmnt** is expected to be very large then other options (such as Azure ANF) should be considered.
 * It is recommended to use a Private Network Endpoint
-* Avoid consolidating too many SIDs to a single storage account and its file share.
+* Avoid putting too many SIDs to a single storage account and its file share.
 * As general guidance no more than between 2 to 4 non-prod SIDs can be consolidated together.
-* Do not consolidate the entire Development, QAS + Production landscape to one storage account and/or file share.  Failure of the share will lead to downtime of the entire SAP landscape.
-* It is not advisable to consolidate the **sapmnt** and **transport directories** on the same storage account except for very small systems. During the installation of the SAP PAS Instance, SAPInst will request a Transport Hostname.  The FQDN of a different storage account should be entered <storage_account>.file.core.windows.net.
-* Do not consolidate the file system used for Interfaces onto the same storage account as **/sapmnt/\<SID>** 
+* Do not put the entire Development, QAS + Production landscape in one storage account and/or file share.  Failure of the share leads to downtime of the entire SAP landscape.
+* It is not recommended to put the **sapmnt** and **transport directories** on the same storage account except for smaller systems. During the installation of the SAP PAS Instance, SAPInst will request a Transport Hostname.  The FQDN of a different storage account should be entered <storage_account>.file.core.windows.net.
+* Do not put the file system used for Interfaces onto the same storage account as **/sapmnt/\<SID>** 
 * The SAP users/groups must be added to the ‘sapmnt’ share and should have this permission set in the Azure portal: **Storage File Data SMB Share Elevated Contributor**.
 
-There are important reasons for separating **Transport**, **Interface** and **sapmnt** among separate storage accounts.  Distributing these components among separate storage accounts improves throughput, resiliency and simplifies the performance analysis.  If many SIDs and other file systems are consolidated wihin a single Azure Files Storage account and the storage account performance is poor due to hitting the throughput limits, it is extremely difficult to identify which SID or application is causing the problem. 
+There are important reasons for splitting **Transport**, **Interface** and **sapmnt** among separate storage accounts.  Distributing these components among separate storage accounts improves throughput, resiliency and simplifies the performance analysis.  If many SIDs and other file systems are consolidated wihin a single Azure Files Storage account and the storage account performance is poor due to hitting the throughput limits, it is extremely difficult to identify which SID or application is causing the problem. 
 
 ## Planning 
 > [!IMPORTANT]
