@@ -60,7 +60,9 @@ The Validation step is the first step in the migration process. The goal of this
 
 The Validation step analyzes the state of resources in the classic deployment model. It checks for failures and unsupported scenarios due to different configurations of the storage account in the classic deployment model.
 
-Keep in mind that it's not possible to check for every issues that the Azure Resource Manager stack might impose on the storage account during migration. Some issues are only checked when the resources undergo transformation in the next step of migration (the Prepare step).
+The Validation step does not check for virtual machine (VM) disks that may be associated with the storage account. You must check your storage accounts manually to determine whether they support VM disks.
+
+Keep in mind that it's not possible to check for every constraint that the Azure Resource Manager stack might impose on the storage account during migration. Some constraints are only checked when the resources undergo transformation in the next step of migration (the Prepare step).
 
 ### Prepare
 
@@ -98,9 +100,27 @@ After you are satisfied that your classic storage account has been migrated succ
 > [!NOTE]
 > Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html)
 
-### After the migration
+## After the migration
+
+After the migration is complete, your new storage account is ready for use. You can resume write operations at this point to the storage account.
+
+### Migrated account type
 
 After the migration is complete, your new storage account is a general-purpose v1 storage account. We recommend upgrading to a general-purpose v2 account to take advantage of the newest features that Azure Storage has to offer for security, data protection, lifecycle management, and more. To learn how to upgrade to a general-purpose v2 storage account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).
+
+### Account properties
+
+Any properties that are set on the classic storage account are migrated with their values to the new storage account.
+
+### RBAC role assignments
+
+Any RBAC role assignments that are scoped to the classic storage account are maintained after the migration.
+
+### Account keys
+
+The account keys are not changed or rotated during the migration. You do not need to regenerate your account keys after the migration is complete. You will not need to update connection strings in any applications that are using the account keys after the migration.
+
+### Portal support
 
 You can manage your migrated storage accounts in the [Azure portal](https://portal.azure.com). You will not be able to use the classic portal to manage your migrated storage accounts.
 
