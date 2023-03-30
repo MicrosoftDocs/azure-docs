@@ -23,7 +23,7 @@ For example :
 
 - If you purchase a Basic tier registry, it includes a storage of 10 GB. The price you pay here is $0.167 per day. 
 - If you have a Basic tier registry and use 25 GB storage, you are paying $0.003/day*15 = $0.045 per day for the additional 15 GB.
-- So, the pricing for the Basic ACR with 25 GB storage is $0.167+$0.045= $0.212 per day with other related charges like networking, builds etc; according to the [Pricing - Container Registry.](https://azure.microsoft.com/pricing/details/container-registry/)
+- So, the pricing for the Basic ACR with 25 GB storage is $0.167+$0.045= $0.212 per day with other related charges like networking, builds, etc, according to the [Pricing - Container Registry.](https://azure.microsoft.com/pricing/details/container-registry/)
 
 
 ## Service tier features and limits
