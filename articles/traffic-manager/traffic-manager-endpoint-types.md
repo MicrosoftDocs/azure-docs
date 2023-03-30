@@ -44,7 +44,7 @@ External endpoints are used for either IPv4/IPv6 addresses, FQDNs, or for servic
 
 * Provide increased redundancy for an existing on-premises application in either an active-active or active-passive failover model using Azure. 
 * Route traffic to endpoints that don't have a DNS name associated with them. Also reduces the overall DNS lookup latency by removing the need to run a second DNS query to get an IP address of a DNS name returned.
-* Reduce application latency for users around the world, extend an existing on-premises application to other geographic locations in Azure. For more information, see [Traffic Manager **Performance** traffic routing](traffic-manager-routing-methods.md#performance).
+* Reduce application latency for users around the world, extend an existing on-premises application to other geographic locations in Azure. For more information, see [Performance traffic routing](traffic-manager-routing-methods.md#performance).
 * Provide more capacity for an existing on-premises application, either continuously or as a 'burst-to-cloud' solution to meet a spike in demand using Azure.
 
 In some cases, it's useful to use External endpoints to reference Azure services. See the [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints) for examples. Health checks are billed at the Azure endpoints rate, not the External endpoints rate. Unlike Azure endpoints, if you stop or delete the underlying service, the health check billing continues. The billing stops once you disable or delete the endpoint in Traffic Manager.
