@@ -20,7 +20,6 @@ zone_pivot_groups: spring-apps-plan-selection
 
 **This article applies to:** ✔️ Standard consumption (Preview) ✔️ Basic/Standard ✔️ Enterprise
 
-::: zone pivot="sc-consumption-plan"
 This article explains how to deploy a small application to run on Azure Spring Apps.
 
 The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
@@ -36,7 +35,7 @@ This quickstart explains how to:
 
 At the end of this quickstart, you have a working Spring app running on Azure Spring Apps.
 
-## [Standard consumption plan with Azure CLI](#tab/Consumption-Plan)
+::: zone pivot="sc-consumption-plan"
 
 ## Prerequisites
 
@@ -197,20 +196,6 @@ Deploying the application can take a few minutes.
 ::: zone-end
 
 ::: zone pivot="sc-standard"
-This article explains how to deploy a small application to run on Azure Spring Apps.
-
-The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
-
-This quickstart explains how to:
-
-> [!div class="checklist"]
-
-> - Generate a basic Spring project.
-> - Provision a service instance.
-> - Build and deploy an app with a public endpoint.
-> - Clean up the resources.
-
-At the end of this quickstart, you have a working Spring app running on Azure Spring Apps.
 
 ## [Azure CLI](#tab/Azure-CLI)
 
@@ -230,7 +215,7 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to select an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
 
    :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
 
@@ -440,23 +425,10 @@ Use the following steps to build and deploy your app.
 To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
 ---
+
 ::: zone-end
 
 ::: zone pivot="sc-enterprise"
-This article explains how to deploy a small application to run on Azure Spring Apps.
-
-The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
-
-This quickstart explains how to:
-
-> [!div class="checklist"]
-
-> - Generate a basic Spring project.
-> - Provision a service instance.
-> - Build and deploy an app with a public endpoint.
-> - Clean up the resources.
-
-At the end of this quickstart, you have a working Spring app running on Azure Spring Apps.
 
 ## [Azure CLI](#tab/Azure-CLI)
 
@@ -477,7 +449,7 @@ Use the following steps to create an Azure Spring Apps service instance.
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to select an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. When first started, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
 
    :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
 
@@ -692,6 +664,7 @@ Use the following steps to build and deploy your app.
 To deploy a Spring Boot web app to Azure Spring Apps, follow the steps in [Java on Azure Spring Apps](https://code.visualstudio.com/docs/java/java-spring-apps).
 
 ---
+
 ::: zone-end
 
 Once deployment has completed, you can access the app at `https://<service-instance-name>-hellospring.azuremicroservices.io/`.
@@ -719,10 +692,12 @@ To learn how to use more Azure Spring capabilities, advance to the quickstart se
 > [Introduction to the sample app](./quickstart-sample-app-introduction.md)
 
 ::: zone pivot="sc-consumption-plan"
+
 To learn how to create a Standard consumption plan in Azure Spring Apps for app deployment, advance to the Standard consumption quickstart series:
 
 > [!div class="nextstepaction"]
 > [Provision an Azure Spring Apps Standard consumption plan service instance](./quickstart-provision-standard-consumption-service-instance.md)
+
 ::: zone-end
 
 For a packaged app template with Azure Spring Apps infrastructure provisioned using Bicep, see [Spring Boot PetClinic Microservices Application Deployed to Azure Spring Apps](https://github.com/Azure-Samples/apptemplates-microservices-spring-app-on-AzureSpringApps).
