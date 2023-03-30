@@ -7,31 +7,31 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Consumption logic apps
+  - name: Consumption logic app workflows
     expanded: true
     items:
-    - name: Create Consumption workflow - Portal
+    - name: Portal
       href: quickstart-create-example-consumption-workflow.md
-    - name: Create Consumption workflow - Visual Studio
+    - name: Visual Studio
       href: quickstart-create-logic-apps-with-visual-studio.md
-    - name: Create Consumption workflow - Visual Studio Code
+    - name: Visual Studio Code
       href: quickstart-create-logic-apps-visual-studio-code.md
-    - name: Create Consumption workflow - Bicep
+    - name: Bicep
       displayName: ARM, Resource Manager, Template
       href: quickstart-create-deploy-bicep.md
-    - name: Create Consumption workflow - ARM template
+    - name: ARM template
       displayName: Resource Manager
       href: quickstart-create-deploy-azure-resource-manager-template.md
-    - name: Create and manage Consumption logic apps - Azure CLI
+    - name: Azure CLI
       href: quickstart-logic-apps-azure-cli.md
-    - name: Create and manage Consumption logic apps - Azure PowerShell
+    - name: Azure PowerShell
       href: quickstart-logic-apps-azure-powershell.md
-  - name: Standard logic apps
+  - name: Standard logic app workflows
     expanded: true
     items:
-    - name: Create Standard workflow - Portal
+    - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
-    - name: Create Standard workflow - Visual Studio Code
+    - name: Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
 - name: Tutorials
   items:
@@ -43,11 +43,11 @@
     href: tutorial-process-email-attachments-workflow.md
 - name: Samples
   items:
-  - name: Create Consumption logic app workflow - sample script
+  - name: Azure CLI - Consumption workflow sample script
     href: sample-logic-apps-cli-script.md
   - name: Azure code samples
     href: /samples/browse/?products=azure-logic-apps
-  - name: Resource Manager - Consumption quickstart templates
+  - name: Resource Manager - Consumption workflow quickstart templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:

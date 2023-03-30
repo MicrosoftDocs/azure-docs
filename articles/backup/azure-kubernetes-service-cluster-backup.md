@@ -3,7 +3,7 @@ title: Back up Azure Kubernetes Service (AKS) using Azure Backup
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure Backup.
 ms.topic: how-to
 ms.service: backup
-ms.date: 03/15/2023
+ms.date: 03/20/2023
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -89,48 +89,27 @@ To configure backups for AKS cluster, follow these steps:
 
 5. Select **Install/Fix Extension** to install the **Backup Extension** on the cluster.
 
-6. In the *context* pane, provide the *storage account* and *blob container* where you need to store the backup, and then select **Generate Command**.
+6. In the *context* pane, provide the *storage account* and *blob container* where you need to store the backup, and then select **Click on Install Extension**.
 
-   >[!Note]
-   >Before you install the AKS Backup Extension via *Azure CLI*, you must enable the `Microsoft.KubernetesConfiguration` resource provider on the subscription.
-   >
-   >To register the resource provider before the extension installation (don't initiate extension installation before registering resource provider), run the following commands:
-   >
-   >1. Register the resource provider.
-   >   `az provider register --namespace Microsoft.KubernetesConfiguration`
-   >2. Monitor the registration process. The registration may take up to *10 minutes*.
-   >   `az provider show -n Microsoft.KubernetesConfiguration -o table`
+7. To enable *Trusted Access* and *other role permissions*, select **Grant Permission** > **Next**.
 
-7. Open the PowerShell console, and then upgrade the CLI to version *2.24.0* or later using the command `az upgrade`.
+8. Select the backup policy that defines the schedule and retention policy for AKS backup, and then select **Next**.
 
-   Sign in to the Azure portal (using the command `az login`), and then copy and run the generated commands.
+9. Select **Add/Edit** to define the *backup instance configuration*.
 
-   The commands install the *Backup Extension* and *Assign Extension* managed identity permissions on the storage account.
-
-   Once done, select **Revalidate**.
-
-   >[!Note]
-   >We're using the Extension managed identity attached to the underlying compute of the AKS cluster. After running the `az role assignment` command, it may take some time (up to *1 hour*) to propagate permission to the AKS cluster (due to caching issue). If revalidation fails, try again after some time.
-
-8. To enable *Trusted Access* and *other role permissions*, select **Grant Permission** > **Next**.
-
-9. Select the backup policy that defines the schedule and retention policy for AKS backup, and then select **Next**.
-
-10. Select **Add/Edit** to define the *backup instance configuration*.
-
-11. In the *context* pane, enter the *cluster resources* that you want to back up.
+10. In the *context* pane, enter the *cluster resources* that you want to back up.
 
     Learn about the [backup configurations](#backup-configurations).
 
-12. Select the *snapshot resource group* where *persistent volume (Azure Disk) snapshots* need to be stored, and then select **Validate**.
+11. Select the *snapshot resource group* where *persistent volume (Azure Disk) snapshots* need to be stored, and then select **Validate**.
 
    After validation, if the appropriate roles aren't assigned to the vault over snapshot resource group, the error **Role assignment not done** appears.
 
-14. To resolve the error, select the *checkbox* corresponding to the *Datasource*, and then select **Assign Missing Role**.
+12. To resolve the error, select the *checkbox* corresponding to the *Datasource*, and then select **Assign Missing Role**.
 
-15. Once the *role assignment* is successful, select **Next**.
+13. Once the *role assignment* is successful, select **Next**.
 
-16. Select **Configure Backup**. 
+14. Select **Configure Backup**. 
 
    Once the configuration is complete, the **Backup Instance** gets created.
 

@@ -115,7 +115,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Competitive Innovations, LLC](https://www.cillc.com)|
 |[CompuNet Inc.](https://compunet.biz/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
-|[Computex Technology Solutions](http://www.computex-inc.com/)|
 |[Communication Square LLC](https://www.communicationsquare.com)|
 |[ConvergeOne](https://www.convergeone.com)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
@@ -149,7 +148,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
 |[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
-|[Derek Coleman & Associates Corporation](https://www.dcassociatesgroup.com/index.html)|
+|[Derek Coleman & Associates Corporation](https://www.dcassociatesgroup.com/)|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
 |Diamond Capture Associates LLC|
@@ -326,7 +325,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[PA-Group](https://pa-group.us/)|
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
-|[Parachute Technology](https://www.parachutech.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
 |[Patrocinium Systems, Inc.](https://www.patrocinium.com)|
 |[PCM](https://www.pcm.com/)|
@@ -511,8 +509,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Pax8](https://www.pax8.com/en-us/microsoft/)|
 |[Synnex](https://www.synnexcorp.com)|
 |[Tech Data Corporation](https://www.techdata.com/)|
-|[Tech Data Government Solutions, LLC](https://gov.as.techdata.com/en-us/Pages/default.aspx)|
-
 
 ## Approved LSPs
 

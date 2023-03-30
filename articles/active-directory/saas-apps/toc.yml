@@ -1247,6 +1247,8 @@
         href: international-sos-assistance-products-tutorial.md
       - name: InTime
         href: intime-tutorial.md
+      - name: Intradiem
+        href: intradiem-tutorial.md
       - name: Intralinks
         href: intralinks-tutorial.md
       - name: IntSights
@@ -1413,6 +1415,8 @@
       items:
       - name: LabLog
         href: lablog-tutorial.md
+      - name: LambdaTest Single Sign on
+        href: lambda-test-single-sign-on-tutorial.md
       - name: Land Gorilla Client
         href: landgorilla-tutorial.md
       - name: LanSchool Air

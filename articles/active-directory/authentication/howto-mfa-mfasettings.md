@@ -1,5 +1,5 @@
 ---
-title: Configure Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Configure Azure AD Multi-Factor Authentication
 description: Learn how to configure settings for Azure AD Multi-Factor Authentication in the Azure portal
 
 services: multi-factor-authentication

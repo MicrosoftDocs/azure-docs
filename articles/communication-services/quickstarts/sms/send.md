@@ -66,7 +66,7 @@ In this quickstart, you learned how to send SMS messages by using Communication 
 > [Receive and reply to SMS](./receive-sms.md)
 
 > [!div class="nextstepaction"]
-> [Phone number types](../../concepts/telephony/plan-solution.md)
+> [Enable SMS analytics](../../concepts/analytics/insights/sms-insights.md)
 
 > [!div class="nextstepaction"]
-> [Learn more about SMS](../../concepts/sms/concepts.md)
+> [Phone number types](../../concepts/telephony/plan-solution.md)

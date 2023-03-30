@@ -41,9 +41,10 @@ If developing using a JavaScript framework, one of the following open-source pro
 
 ## Prerequisites
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+* An [Azure Maps account]
+* A [subscription key]
 
 ## Key features support
 
@@ -125,7 +126,7 @@ The following is a collection of code samples for each platform that cover commo
 
 ### Load a map
 
-Loading a map in both SDK’s follows the same set of steps;
+Loading a map in both SDKs follows the same set of steps;
 
 * Add a reference to the Map SDK.
 * Add a `div` tag to the body of the page that will act as a placeholder for the map.
@@ -1519,7 +1520,7 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, additional s
 
 ### Add drawing tools
 
-Both Bing and Azure Maps provide a module that add the ability for the user to draw and edit shapes on the map using the mouse or other input device. They both support drawing pushpins, lines, and polygons. Azure Maps also provides options for drawing circles and rectangles.
+Both Bing and Azure Maps provide a module that adds the ability for the user to draw and edit shapes on the map using the mouse or other input device. They both support drawing pushpins, lines, and polygons. Azure Maps also provides options for drawing circles and rectangles.
 
 **Before: Bing Maps**
 
@@ -1689,3 +1690,6 @@ Learn more about migrating from Bing Maps to Azure Maps.
 
 > [!div class="nextstepaction"]
 > [Migrate a web service](migrate-from-bing-maps-web-services.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

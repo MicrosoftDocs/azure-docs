@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 02/20/2023
+ms.date: 03/20/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -19,8 +19,25 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 ## March 2023
 
 Updates in March include:
+
+- [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
 - [New preview recommendation for Azure SQL Servers](#new-preview-recommendation-for-azure-sql-servers)
 - [New alert in Defender for Key Vault](#new-alert-in-defender-for-key-vault)
+
+### Some regulatory compliance standards are now available in government clouds
+
+We are announcing that the following regulatory standards are being updated with latest version and are available for customers in Azure Government and Azure China 21Vianet.
+
+**Azure Government**:
+- [PCI DSS v4](/azure/compliance/offerings/offering-pci-dss)
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) 
+- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
+
+**Azure China 21Vianet**:
+- [SOC 2 Type 2](/azure/compliance/offerings/offering-soc-2) 
+- [ISO 27001:2013](/azure/compliance/offerings/offering-iso-27001)
+
+Learn how to [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
 ### New preview recommendation for Azure SQL Servers 
 

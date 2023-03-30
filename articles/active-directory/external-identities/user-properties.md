@@ -1,5 +1,5 @@
 ---
-title: Properties of a B2B guest user - Azure Active Directory
+title: Properties of a B2B guest user
 description: Azure Active Directory B2B invited guest user properties and states before and after invitation redemption
 
 services: active-directory
