@@ -124,12 +124,12 @@ EmailClient emailClient = new EmailClient(connectionString);
 
 ### Option 2: Authenticate using Azure Active Directory
 
-To authenticate using Azure Active Directory, install the `Azure.Identity` library package for .NET by using the `dotnet add package` command.
+To authenticate using [Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity), install the `Azure.Identity` library package for .NET by using the `dotnet add package` command.
 
 ```console
 dotnet add package Azure.Identity
 ```
-Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using `DefaultAzureCredential`. The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
+Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#defaultazurecredential). The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
 
 ```csharp
 // This code demonstrates how to authenticate to your Communication Service resource using
