@@ -2,10 +2,10 @@
 title: Deploy SAP Change Requests (CRs) and configure authorization
 titleSuffix: Microsoft Sentinel
 description: This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
-author: MSFTandrelom
-ms.author: andrelom
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
-ms.date: 04/07/2022
+ms.date: 03/10/2023
 ---
 # Deploy SAP Change Requests and configure authorization
 
@@ -353,10 +353,54 @@ The required authorizations are listed here by log type. Only the authorizations
 | S_TABU_NAM | TABLE | SNCSYSACL |
 | S_TABU_NAM | TABLE | USRACL |
 
+If needed, you can [remove the user role and the optional CR installed on your ABAP system](deployment-solution-configuration.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system).
 
-## Remove the user role and the optional CR installed on your ABAP system
+## Verify that the PAHI table (history of system, database, and SAP parameters) is updated at regular intervals
 
-To remove the user role and optional CR imported to your system, import the deletion CR *NPLK900259* into your ABAP system.
+The SAP PAHI table includes data on the history of the SAP system, the database, and SAP parameters. In some cases, the Microsoft Sentinel solution for SAP® applications can't monitor the SAP PAHI table at regular intervals, due to missing or faulty configuration (see the [SAP note](https://launchpad.support.sap.com/#/notes/12103) with more details on this issue). It's important to update the PAHI table and to monitor it frequently, so that the Microsoft Sentinel solution for SAP® applications can alert on suspicious actions that might happen at any time throughout the day. 
+
+> [!NOTE]
+> For optimal results, in your machine's *systemconfig.ini* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. 
+
+**To verify that the PAHI table is updated at regular intervals**:
+
+1. Check whether the `SAP_COLLECTOR_FOR_PERFMONITOR` job, based on the RSCOLL00 program, is scheduled and running hourly, by the DDIC user in the 000 client.
+1. Check whether the `RSHOSTPH`, `RSSTATPH` and `RSDB_PAR` report names are maintained in the TCOLL table. 
+    - `RSHOSTPH` report: Reads the operating system kernel parameters and stores this data in the PAHI table. 
+    - `RSSTATPH` report: Reads the SAP profile parameters and stores this data in the PAHI table. 
+    - `RSDB_PAR` report: Reads the database parameters and stores them in the PAHI table.
+
+If the job exists and is configured correctly, no further steps are needed.
+
+**If the job doesn’t exist**: 
+
+1. Log in to your SAP system in the 000 client.
+1. Execute the SM36 transaction. 
+1. Under **Job Name**, type *SAP_COLLECTOR_FOR_PERFMONITOR*.
+
+    :::image type="content" source="media/preparing-sap/pahi-table-job-name.png" alt-text="Screenshot of adding the job used to monitor the SAP PAHI table.":::
+
+1. Select **Step** and fill in this information:
+    - Under **User**, type *DDIC*. 
+    - Under *ABAP Program Name*, type *RSCOLL00*.
+1. Save the configuration. 
+
+    :::image type="content" source="media/preparing-sap/pahi-table-define-user.png" alt-text="Screenshot of defining a user for the job used to monitor the SAP PAHI table.":::
+
+1. Select <kbd>F3</kbd> to go back to the previous screen.
+1. Select **Start Condition** to define the start condition. 
+1. Select **Immediate** and select the **Periodic job** checkbox.
+
+    :::image type="content" source="media/preparing-sap/pahi-table-periodic-job.png" alt-text="Screenshot of defining the job used to monitor the SAP PAHI table as periodic.":::    
+
+1. Select **Period values** and select **Hourly**. 
+1. Select **Save** inside the dialog, and then select **Save** at the bottom. 
+
+    :::image type="content" source="media/preparing-sap/pahi-table-hourly-job.png" alt-text="Screenshot of defining the job used to monitor the SAP PAHI table as hourly.":::       
+
+1. To release the job, select **Save** at the top. 
+
+    :::image type="content" source="media/preparing-sap/pahi-table-release-job.png" alt-text="Screenshot of releasing the job used to monitor the SAP PAHI table as hourly.":::
 
 ## Next steps
 
