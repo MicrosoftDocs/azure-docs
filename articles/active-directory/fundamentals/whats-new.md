@@ -553,11 +553,11 @@ For listing your application in the Azure AD app gallery, read the details here 
 **Service category:** Other               
 **Product capability:** Developer Experience         
 
-As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we'll end support for the Microsoft Authentication Library (ADAL). The final deadline to migrate your applications to Microsoft Authentication Library (MSAL) has been extended to **June 30, 2023**. 
+As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we'll end support for the Azure Active Directory Authentication Library (ADAL). The final deadline to migrate your applications to Azure Active Directory Authentication Library (MSAL) has been extended to **June 30, 2023**. 
 
 ### Why are we doing this?
 
-As we consolidate and evolve the Microsoft Identity platform, we're also investing in making significant improvements to the developer experience and service features that make it possible to build secure, robust and resilient applications. To make these features available to our customers, we needed to update the architecture of our software development kits. As a result of this change, we’ve decided that the path forward requires us to sunset Azure Active Directory Authentication Library. This allows us to focus on developer experience investments with Microsoft Authentication Library. 
+As we consolidate and evolve the Microsoft Identity platform, we're also investing in making significant improvements to the developer experience and service features that make it possible to build secure, robust and resilient applications. To make these features available to our customers, we needed to update the architecture of our software development kits. As a result of this change, we’ve decided that the path forward requires us to sunset Azure Active Directory Authentication Library. This allows us to focus on developer experience investments with Azure Active Directory Authentication Library. 
 
 ### What happens?
 
