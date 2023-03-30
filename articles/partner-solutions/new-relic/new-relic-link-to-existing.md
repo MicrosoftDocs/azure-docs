@@ -69,13 +69,18 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab and New Relic account details in a red box.":::
 
 1. If the New Relic account you selected has a parent New Relic organization that was created from New Relic portal, your billing is managed by New Relic and continues to to be managed by New Relic. 
+
+
     <!-- Inserted an item 5 - Need a new screenshot -->
+
+
      > [!NOTE]
      > Linking requires:
      > - The account and the New Relic resource reside in the same Azure region 
      > - The user who is the linking the account and resource must have Global administrator permissions on the New Relic account being linked
      >
      > If the account that you want to link to does not appear in the dropdown list, verify that these conditions are satisfied.
+
 
 1. Select **Next**.
 

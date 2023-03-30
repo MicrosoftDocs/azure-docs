@@ -15,7 +15,7 @@ This article describes how to manage the settings for Azure Native New Relic Ser
 
 To see the details of your New Relic resource, select **Overview** on the left pane.
 
-<!-- update screenshot -->
+<!-- updated screenshot -->
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-overview.png" alt-text="Screenshot that shows an overview for a New Relic resource.":::
 
 The details include:
@@ -37,7 +37,7 @@ At the bottom:
 
 If you select **Monitored resources**, the pane that opens includes a table with information about the Azure resources that are sending logs and metrics to New Relic.
 
-<!-- update screenshot? -->
+<!-- updated screenshot -->
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot showing a table of monitored resources below properties.":::
 
 The columns in the table denote valuable information for your resource:
@@ -51,7 +51,7 @@ The columns in the table denote valuable information for your resource:
 
 If you are currently billed by New Relic and want to change to Azure Marketplace billing to consume your Azure commitment, you should work with New Relic to align on timeline as per the current contract tenure. Then, switch your billing using the **Bill via Azure Marketplace**  from the working pane of the Overview page or your New Relic resource.
 
-<!-- TODO: Add Screenshot with 'Bill via Azure Marketplace' button highlighted and right hand blade to select plan open -->
+:::image type="content" source="media/new-relic-how-to-manage/new-relic-bill-marketplace.png" alt-text="Screenshot with 'Bill via Azure Marketplace' selection highlighted.":::
 
 ## Reconfigure rules for logs or metrics
 
@@ -65,7 +65,7 @@ For more information, see [Configure metrics and logs](new-relic-how-to-configur
 
 To see the list of resources that are sending metrics and logs to New Relic, select **Monitored resources** on the left pane.
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot that shows monitored resources for a New Relic resource.":::
+:::image type="content" source="media/new-relic-how-to-manage/new-relic-monitoring.png" alt-text="Screenshot that shows monitored resources for a New Relic resource.":::
 
 You can filter the list of resources by resource type, resource group name, region, and whether the resource is sending metrics and logs.
 
@@ -83,6 +83,7 @@ The column **Metrics to New Relic** indicates whether New Relic is receiving met
 
 You can install the New Relic agent on virtual machines as an extension. Select **Virtual Machines** on the left pane. The **Virtual machine agent** pane shows a list of all virtual machines in the subscription.
 
+<!-- updated -->
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-virtual-machines.png" alt-text="Screenshot that shows virtual machines for a New Relic resource.":::
 
 For each virtual machine, the following info appears:
@@ -101,6 +102,7 @@ For each virtual machine, the following info appears:
 
 You can install the New Relic agent on app services as an extension. Select **App Services** on the left pane. The working pane shows a list of all app services in the subscription.
 
+<!-- no update -->
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-app-services.png" alt-text="Screenshot that shows app services for a New Relic resource.":::
 
 For each app service, the following information appears:
@@ -123,7 +125,7 @@ To install the New Relic agent, select the app service and then select **Install
 ## Delete a New Relic resource
 
 1. Select **Overview** on the left pane. Then, select **Delete**. 
-
+    <!-- updated -->
    :::image type="content" source="media/new-relic-how-to-manage/new-relic-delete.png" alt-text="Screenshot of the delete button on a resource overview.":::
 
 1. Confirm that you want to delete the New Relic resource. Select **Delete**.
