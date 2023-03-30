@@ -20,6 +20,8 @@ The following regions support workload profiles during preview:
 - West Europe
 - East US
 
+<a id="create"></a>
+
 ## Create a container app in a profile
 
 At a high level, when you create a container app into a workload profile, you go through the following steps:

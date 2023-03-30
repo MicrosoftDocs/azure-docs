@@ -28,7 +28,7 @@ Use the Consumption plan when you don't have specific hardware requirement for y
 
 ## Consumption + Dedicated plan structure
 
-The Consumption + Dedicated plan structure features fully managed, isolated environments with access to customized infrastructure using general purpose, memory optimized, and compute optimized [workflow profiles](workload-profiles-overview.md). Each workload profile can scale in and out as demand requires. When demand falls, profiles created on-demand are shut down, while the [minimum threshold of resources](billing.md#dedicated-plan) stays running.
+The Consumption + Dedicated plan structure features fully managed, isolated environments with access to customized infrastructure using general purpose, memory optimized, and compute optimized [workflow profiles](workload-profiles-overview.md). Each workload profile can scale in and out as demand requires. When demand falls, profiles created on-demand are shut down, while the [minimum threshold of resources](billing.md#consumption-dedicated) stays running.
 
 Use the Consumption + Dedicated plan structure when you need:
 
