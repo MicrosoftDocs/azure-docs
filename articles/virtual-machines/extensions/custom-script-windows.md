@@ -293,7 +293,7 @@ If you deploy the Custom Script Extension from the Azure portal, you don't have 
 
 We recommend that you use [PowerShell](/powershell/module/az.compute/add-azvmssextension), the [Azure CLI](/cli/azure/vmss/extension), or an Azure Resource Manager template when you deploy the Custom Script Extension on a Virtual Machine Scale Set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
 
-## Troubleshooting
+## Troubleshoot and support
 
 You can retrieve data about the state of extension deployments from the Azure portal and by using the Azure PowerShell module. To see the deployment state of extensions for a VM, run the following command:
 
