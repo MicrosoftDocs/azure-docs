@@ -64,7 +64,7 @@ Before you connect to Azure Machine Learning, you need an Azure Machine Learning
 
 1. Select **Connect to Azure Machine Learning** to start the connection process.
 
-    :::image type="content" source="./media/activity-pane.png" alt-text="A screenshot showing the selection for a label file in Language Studio." lightbox="./media/activity-pane.png":::
+    :::image type="content" source="./media/activity-pane.png" alt-text="A screenshot showing the Azure Machine Learning connection button in Language Studio." lightbox="./media/activity-pane.png":::
 
 1. In the window that appears, follow the prompts. Select the Azure Machine Learning workspace you’ve created previously under the same Azure subscription. Enter a name for the new Azure Machine Learning project that will be created to enable labeling in Azure Machine Learning.
 
