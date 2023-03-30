@@ -24,11 +24,11 @@ The data connector sends Defender EASM asset data to two different platforms: Mi
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a big data analytics platform that helps users analyze high volumes of data from various sources with flexible customization capabilities. Defender EASM asset and insights data can be integrated to leverage visualization, query, ingestion and management capabilities within the platform. Whether building custom reports with Power BI or hunting for assets that match precise KQL queries, exporting Defender EASM data to Azure Data Explorer enables users to leverage their attack surface data with endless customization potential.
 
 
-**Data content options**
+## Data content options
+
 <br>Defender EASM data connections offers users the ability to integrate two different kinds of attack surface data into the tool of their choice. Users can elect to migrate asset data, attack surface insights or both data types. Asset data provides granular details about your entire inventory, whereas attack surface insights provide immediately actionable insights based on Defender EASM dashboards. 
 
 To accurately present the infrastructure that matters most to your organization, please note that both content options will only include assets in the “Approved Inventory” state.
-
 
 
 **Asset data**
