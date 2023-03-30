@@ -101,7 +101,7 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
          
 ### Standard tier
 
-| Instance | Size | vCPUs | Network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
+| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
 | --- | --- | --- | --- | --- | --- |
 | C0 | 250 MB | Shared | 100 |  15,000 |   7,500 |
 | C1 |   1 GB | 1      | 500 |  38,000 |  20,720 |
@@ -112,7 +112,7 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 | C6 |  53 GB | 8      | 2,000 | 126,000 | 120,000 |
 
 ### Premium tier
-| Instance | Size | vCPUs | Network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
+| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
 | --- | --- | --- | --- | --- | --- |
 | P1 |   6 GB |  2 | 1,500 | 180,000 | 172,000 |
 | P2 |  13 GB |  4 | 3,000 | 350,000 | 341,000 |
@@ -123,21 +123,34 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 > [!Important]
 > P5 instances in the China East and China North regions use 20 cores, not 32 cores. 
 
-### Enterprise tier - Enterprise Cluster Policy
+### Enterprise & Enterprise Flash tiers
 
-> [!IMPORTANT]
-> The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_.  
+The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughputs. We recommend using OSS cluster policy in most cases. See [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise) for more information. Benchmarks for both cluster policies are shown below.
 
-| Instance | Size | vCPUs | Network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
+**Enterprise Cluster Policy**
+
+| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
 | --- | --- | --- | --- | --- | --- |
-| P1 |   6 GB |  2 | 1,500 | 180,000 | 172,000 |
-| P2 |  13 GB |  4 | 3,000 | 350,000 | 341,000 |
-| P3 |  26 GB |  4 | 3,000 | 350,000 | 341,000 |
-| P4 |  53 GB |  8 | 6,000 | 400,000 | 373,000 |
-| P5 | 120 GB | 32 | 6,000 | 400,000 | 373,000 |
+| E10 |  12 GB |  4 | 4,000 | 300,000 | 200,000 |
+| E20 |  25 GB |  4 | 4,000 | 550,00 | 390,000 |
+| E50 |  50 GB |  8 | 8,000 | 950,000 | 530,000 |
+| E100 |  100 GB |  16 | 10,000 | 1,300,000 | 580,000 |
+| F300 | 384 GB | 8 | 3,200 | 650,000 | 310,000 |
+| F700 | 715 GB | 16 | 6,400 | 650,000 | 350,000 |
+| F1500 | 1455 GB | 32 | 12,800 | 650,000 | 360,000 |
 
-### Enterprise tier - OSS Cluster Policy
-          
+**OSS Cluster Policy**
+
+| Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
+| --- | --- | --- | --- | --- | --- |
+| E10 |  12 GB |  4 | 4,000 | 300,000 | 200,000 |
+| E20 |  25 GB |  4 | 4,000 | 550,00 | 390,000 |
+| E50 |  50 GB |  8 | 8,000 | 950,000 | 530,000 |
+| E100 |  100 GB |  16 | 10,000 | 1,300,000 | 580,000 |
+| F300 | 384 GB | 8 | 3,200 | 650,000 | 310,000 |
+| F700 | 715 GB | 16 | 6,400 | 650,000 | 350,000 |
+| F1500 | 1455 GB | 32 | 12,800 | 650,000 | 360,000 |
+
 ## Next steps
 
 - [Development](cache-best-practices-development.md)
