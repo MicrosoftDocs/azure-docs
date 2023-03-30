@@ -1905,6 +1905,15 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: cshoe
+- id: arm-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-resource-manager
+    title: ARM template
 # Owner: cebundy
 - id: container-apps-interface-types
   title: Interaction type

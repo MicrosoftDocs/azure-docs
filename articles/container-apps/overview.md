@@ -1,6 +1,6 @@
 ---
 title: Azure Container Apps overview
-description: Learn about common scenarios and uses for Azure Container Apps
+description: Learn about common scenarios and uses for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -36,7 +36,7 @@ With Azure Container Apps, you can:
 
 - [**Use the Azure CLI extension, Azure portal or ARM templates**](get-started.md) to manage your applications.
 
-- [**Enable HTTPS ingress**](ingress.md) without having to manage other Azure infrastructure.
+- [**Enable HTTPS or TCP ingress**](ingress.md) without having to manage other Azure infrastructure.
 
 - [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
 
@@ -58,7 +58,7 @@ With Azure Container Apps, you can:
 
 - [**Monitor logs**](log-monitoring.md) using Azure Log Analytics.
 
-- [**Generous quotas**](quotas.md) which are overridable to increase limits on a per-account basis.
+- [**Generous quotas**](quotas.md) which can be overridden to increase limits on a per-account basis.
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 
