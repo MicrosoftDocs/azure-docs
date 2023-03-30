@@ -22,7 +22,7 @@ This quickstart can be run on macOS, Windows, or Linux.
 
 | Prerequisite | Description |
 | --- | --- |
-| An Azure subsription |If you don't have a subscription, create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|
+| An Azure subscription |If you don't have a subscription, create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|
 | A code editor | You'll need a code editor such as [Visual Studio Code](https://code.visualstudio.com/). |
 | [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)| Requires version 2.7.1505 or higher to run Python Azure Function apps locally.|
 |[Node.js](https://nodejs.org/en/download/)| See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).|
