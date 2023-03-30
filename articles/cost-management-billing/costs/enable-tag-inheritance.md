@@ -23,6 +23,10 @@ Tag inheritance is available for the following billing account types:
 - Microsoft Customer Agreement (MCA)
 - Microsoft Partner Agreement (MPA) with Azure plan subscriptions
 
+Here's an example diagram showing how a tag is inherited.
+
+:::image type="content" source="./media/enable-tag-inheritance/tag-example-01.svg" alt-text="Example diagram showing how a tag is inherited." border="false" lightbox="./media/enable-tag-inheritance/tag-example-01.svg":::
+
 ## Required permissions
 
 - For subscriptions:
@@ -39,21 +43,26 @@ Tag inheritance is available for the following billing account types:
 
 You can enable the tag inheritance setting in the Azure portal. You apply the setting at the EA billing account, MCA billing profile, and subscription scopes. After the setting is enabled, all resource group and subscription tags are automatically applied to child resource usage records.
 
-To enable tag inheritance in the Azure portal:
+### To enable tag inheritance in the Azure portal for an EA billing account
 
 1. In the Azure portal, search for **Cost Management** and select it (the green hexagon-shaped symbol, *not* Cost Management + Billing).
-2. Select a scope.
-3. In the left menu under **Settings**:
-    1. For EA, select **Manage billing account**. 
-    1. For MCA, select **Manage subscription**.
+1. Select a scope.
+1. In the left menu under **Settings**, select **Manage billing account**.
 1. Under **Tag inheritance**, select **Edit**.  
-    :::image type="content" source="./media/enable-tag-inheritance/edit-tag-inheritance.png" alt-text="Screenshot showing the Edit option for Tag inheritance." :::
+    :::image type="content" source="./media/enable-tag-inheritance/edit-tag-inheritance.png" alt-text="Screenshot showing the Edit option for Tag inheritance for an EA billing account." :::
 1. In the Tag inheritance (Preview) window, select **Automatically apply subscription and resource group tags to new data**.  
-    :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option." :::
+    :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option for a billing account." :::
 
-Here's an example diagram showing how a tag is inherited.
+### To enable tag inheritance in the Azure portal for an MCA billing profile
 
-:::image type="content" source="./media/enable-tag-inheritance/tag-example-01.svg" alt-text="Example diagram showing how a tag is inherited." border="false" lightbox="./media/enable-tag-inheritance/tag-example-01.svg":::
+1. In the Azure portal, search for **Cost Management** and select it (the green hexagon-shaped symbol, *not* Cost Management + Billing).
+1. Select a scope.
+1. In the left menu under **Settings**, select **Manage billing profile**.
+1. Under **Tag inheritance**, select **Edit**.  
+    :::image type="content" source="./media/enable-tag-inheritance/edit-tag-inheritance-billing-profile.png" alt-text="Screenshot showing the Edit option for Tag inheritance for an MCA billing profile." :::
+1. In the Tag inheritance (Preview) window, select **Automatically apply subscription and resource group tags to new data**.  
+    :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data-billing-profile.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option for a billing profile." :::
+
 
 ## Choose between resource and inherited tags
 
