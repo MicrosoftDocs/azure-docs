@@ -13,5 +13,5 @@ ms.custom: include file
 | Maximum test groups per a connection monitor | 20 |
 | Maximum sources and destinations per a connection monitor | 100 |
 | Maximum test configurations per a connection monitor | 20 |
-| Packet capture sessions per region | 10,000 (Number of sessions only, not saved captures) |
+| Packet capture sessions per region per subscription | 10,000 (Number of sessions only, not saved captures) |
 | VPN troubleshoot operations per subscription | 1 (Number of operations at one time) |
