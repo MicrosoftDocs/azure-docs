@@ -388,7 +388,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
     
     3. Locate the bin\server folder in the following path: 
     
-        `C:\Program Files\Java\jre1.8.0_74`
+        `C:\Program Files\Java\jre1.xx.xxx`
         
         :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/folder-of-jre.png" alt-text="Screenshot showing the JRE folder.":::
     
@@ -397,7 +397,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
         :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/file-location-image.png" alt-text="Screenshot showing a jvm.dll file location.":::
     
     > [!NOTE]
-    > - If any of these configurations are not as described in these steps, use the [JRE windows installer](https://java.co../download/manual.jsp) to fix the problems.
+    > - If any of these configurations are not as described in these steps, use the [JRE windows installer](https://www.java.com/download/) to fix the problems.
     > - If all the configurations in these steps are correct as described, there may be a VC++ runtime library missing in the system. You can fix this problem by installing the VC++ 2010 Redistributable Package.
 
 ## Self-hosted IR setup
@@ -655,7 +655,7 @@ For Azure Data Factory v1 customers:
     
     > [!NOTE] 
     > Proxy considerations:
-    > * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](./data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
+    > * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](../data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
     > * Check to see whether SSL/TLS certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
     > * If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
@@ -823,11 +823,11 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](../data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - You *are* affected if you're explicitly enabling the allowlist for outbound IPs on your corporate firewall.
 
-   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update your network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update your network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### Scenario 2: Outbound communication from a self-hosted integration runtime that's running on an Azure VM inside a customer-managed Azure virtual network
 
@@ -841,7 +841,7 @@ How to determine whether you're affected:
 
 - You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
-   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### Scenario 3: Outbound communication from SSIS Integration Runtime in a customer-managed Azure virtual network
 
@@ -853,7 +853,7 @@ How to determine whether you're affected:
 
 - You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
-  If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+  If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ### Couldn't establish a trust relationship for the SSL/TLS secure channel 
 
