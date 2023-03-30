@@ -14,11 +14,14 @@ ms.author: junbchen
 # Quickstart: Use Azure App Configuration in Azure Kubernetes Service (preview)
 In Kubernetes, you set up pods to consume ConfigMaps for configuration. It lets you decouple configuration from your container images, making your applications easily portable. Azure App Configuration Kubernetes Provider can construct ConfigMaps based on your data in Azure App Configuration. It enables you to take advantage of Azure App Configuration for the centralized storage and management of your configuration without any changes to your application code.
 
-In this quickstart, you will incorporate Azure App Configuration provider for Kubernetes in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from environment variables.
+In this quickstart, you will incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from environment variables.
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+* An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+* An Azure Container Registry. [Create a registry](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli#create-an-azure-container-registry).
+* An Azure Kubernetes Service (AKS) cluster that integrates with the Azure Container Registry you created. [Create an AKS cluster](/azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli#create-a-kubernetes-cluster).
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [helm](https://helm.sh/docs/intro/install/)
@@ -26,115 +29,34 @@ In this quickstart, you will incorporate Azure App Configuration provider for Ku
 
 > [!TIP]
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
+>
 
-## Create an Azure App Configuration store
-[!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
+## Create an application consuming environment variables
+If you already have an application that is consuming environment variables as configuration, you can just skip this step. We just create an ASP.NET Core Web App `MyWebApp` as an example.
 
-1. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-values:
-
-    |**Key**|**Value**|
-    |---|---|
-    |TestApp__Settings__BackgroundColor|*white*|
-    |TestApp__Settings__FontColor|*black*|
-    |TestApp__Settings__FontSize|*24*|
-    |TestApp__Settings__Message|*Data from Azure App Configuration*|
-
-Leave **Label** and **Content type** empty for now. Select **Apply**.
-
-## Create a Container Registry and AKS cluster
-
-1. Create an Azure Container Registry (ACR) by following this [doc](/azure/aks/tutorial-kubernetes-prepare-acr?tabs=azure-cli#create-an-azure-container-registry).
-
-2. Create an Azure Kubernetes Service (AKS) cluster, which integrates with the ACR you created by following this [doc](/azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli#create-a-kubernetes-cluster).
-
-3. Run the following command to set environment variables, set **ACR_Name** with the name of ACR you created, **AKS_Name** with the name of AKS you created, **AKS_Resource_Group** with the resource group of AKS you created:
-
-    ```bash
-    export ACR_Name='name-of-acr-you-just-created'
-    export AKS_Name='name-of-aks-you-just-created'
-    export AKS_Resource_Group='resource-group-of-aks-you-just-created'
+1. Use the .NET Core command-line interface (CLI) to create a new ASP.NET Core web app project. Run the following command to create an ASP.NET Core web app in a new TestAppConfig folder:
+    ``` dotnetcli
+    dotnet new webapp --output MyWebApp --framework net6.0
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
-
-## Enable System Assigned Managed Identity of AKS NodePool
-
-Go to the corresponding Virtual Machine Scale Sets resource of AKS, and enable system-assigned managed identity on the Virtual Machine Scale Sets by following this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set).
-
-## System Assigned Managed Identity role assignment
-
-Once the system-assigned managed identity has been enabled, you need to grant it read access to Azure AppConfiguration. You can do it by following the instructions in this [doc](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core5x&pivots=framework-dotnet#grant-access-to-app-configuration).
-
-## Install App Configuration Kubernetes Provider to your AKS cluster
-
-Install the Azure App Configuration Kubernetes Provider to your AKS cluster, which was created in the previous step.
-1. Get the credential to manage your AKS cluster:
-    ```bash
-    az aks get-credentials --name $AKS_Name --resource-group $AKS_Resource_Group
-    ```
-2. Install Azure App Configuration Kubernetes Provider to your AKS cluster using `helm`:
-    ``` bash
-    helm install azureappconfiguration.kubernetesprovider oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider --version 1.0.0-alpha --namespace azappconfig-system --create-namespace
-    ```
-
-## Create a sample ASP.NET Core web app
-
-Use the .NET Core command-line interface (CLI) to create a new ASP.NET Core web app project. The Azure Cloud Shell provides these tools for you. They're also available across the Windows, macOS, and Linux platforms.
-
-Run the following command to create an ASP.NET Core web app in a new TestAppConfig folder:
-
-``` dotnetcli
-dotnet new webapp --output TestAppConfig --framework net6.0
-```
-Do several updates to the web app project you created.
-1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly typed Settings class for the configuration you're going to use. Replace the namespace with the name of your project.
-    ``` csharp
-    namespace TestAppConfig
-    {
-        public class Settings
-        {
-            public string BackgroundColor { get; set; }
-            public long FontSize { get; set; }
-            public string FontColor { get; set; }
-            public string Message { get; set; }
-        }
-    }
-    ```
-2. Bind the `TestApp:Settings` section in configuration to the `Settings` object.
-
-    Update *Program.cs* with the following code and add the `TestAppConfig` namespace at the beginning of the file.
-
-    ```csharp
-    using TestAppConfig;
-
-    // Existing code in Program.cs
-    // ... ...
-
-    builder.Services.AddRazorPages();
-
-    // Bind configuration "TestApp:Settings" section to the Settings object
-    builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
-
-    var app = builder.Build();
-
-    // The rest of existing code in program.cs
-    // ... ...
-    ```
-3. Open *Index.cshtml.cs* in the Pages directory, and update the `IndexModel` class with the following code. Add the `using Microsoft.Extensions.Options` namespace at the beginning of the file, if it's not already there.
+1. Open *Index.cshtml.cs* in the Pages directory, and update the `IndexModel` class with the following code.
     ``` csharp
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-        public Settings Settings { get; }
+        private readonly IConfiguration _configuration;
 
-        public IndexModel(IOptionsSnapshot<Settings> options, ILogger<IndexModel> logger)
+        public IndexModel(IConfiguration configuration)
         {
-            Settings = options.Value;
-            _logger = logger;
+            _configuration = configuration;
+        }
+        public void OnGet()
+        {
+            ViewData["Message"] = _configuration.GetSection("Settings")["Message"];
+            ViewData["FontColor"] = _configuration.GetSection("Settings")["FontColor"];
         }
     }
     ```
-4. Open *Index.cshtml* in the Pages directory, and update the content with the following code.
+1. Open *Index.cshtml* in the Pages directory, and update the content with the following code.
     ``` html
     @page
     @model IndexModel
@@ -143,71 +65,107 @@ Do several updates to the web app project you created.
     }
 
     <style>
-        body {
-            background-color: @Model.Settings.BackgroundColor;
-        }
-
         h1 {
-            color: @Model.Settings.FontColor;
-            font-size: @Model.Settings.FontSize;
+            color: @ViewData["FontColor"];
         }
     </style>
-
-    <h1>@Model.Settings.Message</h1>
+    <div class="text-center">
+        <h1 class="display-4">@ViewData["Message"]</h1>
+    </div>
     ```
 
-## Containerize the web app and push to ACR
-
-1. Create a *Dockerfile* at the root of your project directory, and put the following content into the file.
+## Containerize the application 
+If you already have an application, you can containerize it in a way that depends on your application. We just show you how to build the `MyWebApp` project to an image.
+1. Run the (dotnet publish)[/dotnet/core/tools/dotnet-publish] command to build the app in release mode and create the assets in the published folder.
+    ``` dotnetcli
+    dotnet publish -c Release -o published
+    ```
+1. Create a file named *Dockerfile* in the directory containing your .csproj file, open it in a text editor, and enter the following content. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
     ``` dockerfile
-    FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+    FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
     WORKDIR /app
-    EXPOSE 80
-    EXPOSE 443
+    COPY published/ ./
+    ENTRYPOINT ["dotnet", "MyWebApp.dll"]
+    ```
+1. Build the container by running the following command.
+   ``` docker
+   docker build --tag aspnetapp .
+   ```
 
-    FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-    WORKDIR /src
-    COPY ["TestAppConfig.csproj", "TestAppConfig/"]
-    RUN dotnet restore "TestAppConfig/TestAppConfig.csproj"
-    WORKDIR "/src/TestAppConfig"
-    COPY . .
-    RUN dotnet build "TestAppConfig.csproj" -c Release -o /app/build
+## Push the image to Azure Container Registry
+1. Run the [az acr login](/cli/azure/acr#az-acr-login) command to log in to the registry.
 
-    FROM build AS publish
-    RUN dotnet publish "TestAppConfig.csproj" -c Release -o /app/publish /p:UseAppHost=false
-
-    FROM base AS final
-    WORKDIR /app
-    COPY --from=publish /app/publish .
-    ENTRYPOINT ["dotnet", "TestAppConfig.dll"]
+    ```azurecli
+    az acr login --name myregistry
     ```
 
-2. Sign in Azure Container Registry to have permission to push image.
+    The command returns `Login Succeeded` once login is successful.
+
+1. Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image appropriate details.
+
+    ```docker
+    docker tag aspnetapp myregistry.azurecr.io/aspnetapp:v1
+    ```
+
+    > [!TIP]
+    > To review the list of your existing docker images and tags, run `docker image ls`. In this scenario, you should see at least two images: `aspnetapp` and `myregistry.azurecr.io/aspnetapp`.
+
+1. Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the container registry. This example creates the *aspnetapp* repository in ACR containing the `aspnetapp` image. In the example below, replace the placeholders `<login-server`, `<image-name>` and `<tag>` by the ACR's log-in server value, the image name and the image tag.
+
+    Method:
+
+    ```docker
+    docker push <login-server>/<image-name>:<tag>
+    ```
+
+    Example:
+
+    ```docker
+    docker push myregistry.azurecr.io/aspnetapp:v1
+    ```
+
+## Configure the Azure App Configuration store
+1. Add the key-values to your Azure App Configuration that should be consumed as environment variables by your application. We're just using key-values that be consumed by `MyWebApp` as an example, add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+    
+    |**Key**|**Value**|
+    |---|---|
+    |Settings__FontColor|*Red*|
+    |Settings__Message|*Hello from Azure App Configuration*|
+    
+2. Enable System Assigned Managed Identity of AKS NodePool
+   
+    Go to the corresponding Virtual Machine Scale Sets resource of AKS, and enable system-assigned managed identity on the Virtual Machine Scale Sets by following this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set).
+
+3. Assign Data Reader role to the System Assigned Managed Identity 
+   
+    Once the system-assigned managed identity has been enabled, you need to grant it read access to Azure AppConfiguration. You can do it by following the instructions in this [doc](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core5x&pivots=framework-dotnet#grant-access-to-app-configuration).
+
+## Install App Configuration Kubernetes Provider to your AKS cluster
+
+1. Get the credential to manage your AKS cluster, replace the `name` and `resource-group` parameters with yours:
     ```bash
-    az acr login -n $ACR_Name
+    az aks get-credentials --name my_aks --resource-group my_aks_resource_group
+    ```
+2. Install Azure App Configuration Kubernetes Provider to your AKS cluster using `helm`:
+    ``` bash
+    helm install azureappconfiguration.kubernetesprovider oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider --version 1.0.0-alpha --namespace azappconfig-system --create-namespace
     ```
 
-3. Run the following command to build the docker image under the directory of your project root, and push it to the Azure Container Registry that created in the previous step
-    ```bash
-    docker build . -t $ACR_Name.azurecr.io/testappconfig
-    docker push $ACR_Name.azurecr.io/testappconfig
-    ```
-
-## Create Kubernetes resources
+## Create and deploy Kubernetes resources
 
 1. Create a *AKS-AppConfiguration-Demo* directory in the root directory of your project.
-2. Create *appConfigurationProvider.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of the `endpoint` field with the endpoint of the Azure AppConfiguration store you created in the previous step.
+1. Create *appConfigurationProvider.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of the `endpoint` field with the endpoint of the Azure AppConfiguration store you created in the previous step.
     ``` yaml
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: https://<your_app_config>.azconfig.io
+      endpoint: https://myappconfig.azconfig.io
       target:
         configMapName: demo-configmap
     ```
-3. Create *deployment.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of `template.containers.image` with the image you created in the previous step.
+1. Create *deployment.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of `template.containers.image` with the image you created in the previous step.
     ``` yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -227,14 +185,14 @@ Do several updates to the web app project you created.
         spec:
           containers:
           - name: configmap-demo-app
-            image: <your_acr_name>.azurecr.io/testappconfig
+            image: myregistry.azurecr.io/aspnetapp:v1
             ports:
             - containerPort: 80
             envFrom:
             - configMapRef:
                 name: demo-configmap
     ```
-4. Create *service.yaml* in the *AKS-AppConfiguration-Demo* with the following YAML content. 
+1. Create *service.yaml* in the *AKS-AppConfiguration-Demo* with the following YAML content. 
     ``` yaml
     apiVersion: v1
     kind: Service
@@ -247,14 +205,13 @@ Do several updates to the web app project you created.
       selector:
         app: configmap-demo-app
     ```
+1. Apply the YAML files to the AKS cluster
+    ``` bash
+    kubectl create namespace quickstart-appconfig
+    kubectl apply -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
+    ```
 
-## Apply the YAML files to the AKS cluster and validate that it works
-
-Apply the resources to AKS cluster by running：
-``` bash
-kubectl create namespace quickstart-appconfig
-kubectl apply -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
-```
+## Validate ConfigMap creation
 
 To check the synchronization status of AppConfigurationProvider, run the following command in your terminal. If the `phase` property in the `status` section of the output is `COMPLETE` , it means that the key-values have been successfully synced from Azure App Configuration. 
 ``` bash
@@ -271,39 +228,12 @@ A configMap *demo-configmap* is being created in the *quickstart-appconfig* name
 ``` bash
 kubectl get configmap demo-configmap -n quickstart-appconfig
 ```
+
+## Validate key-values from Azure App Configuration are affecting the app.
 Run the following command and get the External IP that exposed by the LoadBalancer service. Use it to visit the web app,  You'll see that the configuration settings from the Azure App Configuration store are affecting the page.
 ``` bash
 kubectl get service configmap-demo-service -n quickstart-appconfig
 ```
-
-> [!TIP]
-> Currently, the provider doesn't support real-time configuration updating. Updating configuration in Azure App Configuration doesn't automatically update settings in ConfigMap. There are three options to update the ConfigMap:
-> 
-> Option 1: Delete and re-deploy that AzureAppConfigurationProvider resource.
-> 
-> Option 2: Delete the ConfigMap being created by the provider. It will automatically generate a new one.
-> 
-> Option 3: Set a dedicated annotation in the AzureAppConfigurationProvider to trigger a settings update in ConfigMap.
->
-> For example, set an annotation dynamic/timestamp with a time stamp and refresh the time to trigger a settings update in ConfigMap.
-> 
-> ``` yaml
-> apiVersion: azconfig.io/v1beta1
-> kind: AzureAppConfigurationProvider
-> metadata:
->   name: appconfigurationprovider-sample
->   annotations:
->     dynamic/timestamp: 2023-01-01T00:00:00.000
-> spec:
->   endpoint: https://<yourappconfig>.azconfig.io
->   target:
->     configMapName: demo-configmap
-> ```
-
-> [!NOTE]
-> In spite of the data in ConfigMap being updated, if the ConfigMap change is not watched by your workload (Deployment, Pod, etc.), your workload will not be able to apply the updated key-values in ConfigMap. We recommend using 3rd-party tools like [stakater/Reloader](https://github.com/stakater/Reloader) to watch the changes in ConfigMap and perform automatic rolling update of correlated workloads.
-
-
 
 ## Clean up resources
 
