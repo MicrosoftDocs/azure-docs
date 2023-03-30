@@ -16,7 +16,7 @@ First, instrument your Python application with the latest [OpenCensus Python SDK
 
 ## Track Django applications
 
-1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-django/). Instrument your application with the `django` middleware. Incoming requests sent to your `django` application are tracked.
+1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-django/). Instrument your application with the `django` middleware. Incoming requests sent to your Django application are tracked.
 
 1. Include `opencensus.ext.django.middleware.OpencensusMiddleware` in your `settings.py` file under `MIDDLEWARE`.
 
@@ -46,7 +46,7 @@ You can find a Django sample application in the [Azure Monitor OpenCensus Python
 
 ## Track Flask applications
 
-1. Download and install `opencensus-ext-flask` from [PyPI](https://pypi.org/project/opencensus-ext-flask/). Instrument your application with the `flask` middleware. Incoming requests sent to your `flask` application are tracked.
+1. Download and install `opencensus-ext-flask` from [PyPI](https://pypi.org/project/opencensus-ext-flask/). Instrument your application with the `flask` middleware. Incoming requests sent to your Flask application are tracked.
 
     ```python
     
@@ -92,7 +92,7 @@ You can find a Flask sample application that tracks requests in the [Azure Monit
 
 ## Track Pyramid applications
 
-1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-pyramid/). Instrument your application with the `pyramid` tween. Incoming requests sent to your `pyramid` application are tracked.
+1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-pyramid/). Instrument your application with the `pyramid` tween. Incoming requests sent to your Pyramid application are tracked.
 
     ```python
     def main(global_config, **settings):
