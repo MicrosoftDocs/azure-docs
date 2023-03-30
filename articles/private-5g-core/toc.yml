@@ -85,9 +85,11 @@ items:
     - name: Create a site - Azure portal
       href: create-a-site.md
     - name: Create a site - ARM template
-      href: create-site-arm-template.md
-    - name: Modify a site plan
-      href: modify-site-plan.md
+      href: create-site-arm-template.md    
+    - name: Create additional Packet Core instances for a site - Azure portal
+      href: create-additional-packet-core.md
+    - name: Modify a service plan
+      href: modify-service-plan.md
     - name: Delete a site
       href: delete-a-site.md
   - name: Packet core

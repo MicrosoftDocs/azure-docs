@@ -1,6 +1,6 @@
 ---
-title: "Digital Shadows Searchlight (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Digital Shadows Searchlight (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Digital Shadows Searchlight (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Digital Shadows Searchlight (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Digital Shadows Searchlight (using Azure Function) connector for Microsoft Sentinel
+# Digital Shadows Searchlight (using Azure Functions) connector for Microsoft Sentinel
 
 The Digital Shadows data connector provides ingestion of the incidents and alerts from Digital Shadows Searchlight into the Microsoft Sentinel using the REST API. The connector will provide the incidents and alerts information such that it helps to examine, diagnose and analyse the potential security risks and threats.
 
@@ -17,7 +17,7 @@ The Digital Shadows data connector provides ingestion of the incidents and alert
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | apiUsername<br/>apipassword<br/>apiToken<br/>workspaceID<br/>workspaceKey<br/>uri<br/>logAnalyticsUri (optional)(add any other settings required by the Function App)Set the <code>uri</code> value to: <code>&lt;add uri value&gt;</code> |
-| **Azure function app code** | Add%20GitHub%20link%20to%20Function%20App%20code |
+| **Azure functions app code** | Add%20GitHub%20link%20to%20Function%20App%20code |
 | **Log Analytics table(s)** | DigitalShadows_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Digital Shadows](https://www.digitalshadows.com/) |
@@ -34,7 +34,7 @@ DigitalShadows_CL
 
 ## Prerequisites
 
-To integrate with Digital Shadows Searchlight (using Azure Function) make sure you have: 
+To integrate with Digital Shadows Searchlight (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **Digital Shadows account ID, secret and key** is required.  See the documentation to learn more about API on the `https://portal-digitalshadows.com/learn/searchlight-api/overview/description`.

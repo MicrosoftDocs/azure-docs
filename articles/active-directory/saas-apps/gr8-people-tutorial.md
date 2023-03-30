@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with gr8 People | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with gr8 People'
 description: Learn how to configure single sign-on between Azure Active Directory and gr8 People.
 services: active-directory
 author: jeevansd
