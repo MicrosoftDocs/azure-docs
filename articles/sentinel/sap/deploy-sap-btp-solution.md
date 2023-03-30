@@ -9,7 +9,7 @@ ms.date: 03/30/2023
 
 # Deploy Microsoft Sentinel solution for SAP BTP
 
-This article describes how to deploy the Microsoft Sentinel solution for SAP BTP. The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP Business Technology Platform (BTP) system, by collecting audits and activity logs from the BTP infrastructure and BTP based apps, and detecting threats, suspicious activities, illegitimate activities, and more. Read more about the solution. [Read more about the solution](btp-solution-overview.md).
+This article describes how to deploy the Microsoft Sentinel solution for SAP BTP. The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP Business Technology Platform (BTP) system, by collecting audits and activity logs from the BTP infrastructure and BTP based apps, and detecting threats, suspicious activities, illegitimate activities, and more. Read more about the solution. [Read more about the solution](sap-btp-solution-overview.md).
 
 ## Overview
 
