@@ -4,13 +4,13 @@ description: Learn how to configure and use Azure Container Storage with Azure K
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/27/2023
+ms.date: 03/30/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
 
 # Quickstart: Use Azure Container Storage with Azure Kubernetes Service
-Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This Quickstart shows you how to configure and use Azure Container Storage with Azure Kubernetes Service (AKS). At the end, you'll have two new storage classes that you can use for your Kubernetes workloads.
+Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This Quickstart shows you how to configure and use Azure Container Storage with Azure Kubernetes Service (AKS). At the end, you'll have new storage classes that you can use for your Kubernetes workloads.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -109,7 +109,13 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
 Create a node pool of at least three virtual machines (VMs). Each VM must have a minimum of four virtual CPUs (vCPUs), so we'll use the standard DS4 VM size.
 
 ```azurecli-interactive
-az aks nodepool add --cluster-name myAKSCluster --name storagepool --resource-group myContainerStorageRG --node-vm-size standard_ds4_v2 --node-count 3 --labels openebs.io/engine=mayastor
+az aks nodepool add --cluster-name myAKSCluster --name storagepool --resource-group myContainerStorageRG --node-vm-size standard_ds4_v2 --node-count 3 --labels openebs.io/engine=io.engine
+```
+
+If you have an existing node pool you'd like to use, run the following command:
+
+```azurecli-interactive
+az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name <nodepool_name> --labels openebs.io/engine=io.engine
 ```
 
 ## Install Azure Container Storage
@@ -117,7 +123,7 @@ az aks nodepool add --cluster-name myAKSCluster --name storagepool --resource-gr
 The initial install uses Azure Arc CLI commands to download a new extension. The `--name` value can be whatever you want. During installation, you might be asked to install the `k8s-extension`. Select **Y**.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --version 0.2.2
+az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace azstor
 ```
 
 Installation takes a few minutes to complete. You can check if the installation completed correctly by running `kubectl get sc` to display the available storage classes. If the following two storage classes are listed, you've successfully installed Azure Container Storage.
@@ -131,19 +137,24 @@ A Kubernetes storage class defines how a unit of storage is dynamically created 
 
 ## Create a storage pool
 
-Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a yaml file. The `name` value can be whatever you want. Keep in mind that your storage pool will be constrained by whatever value you provide for `capacity`.
+Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a yaml file. The `name` value can be whatever you want. Use the following code to create a storage pool for Azure managed disks. For `storageClassName`, you can use any storage class that's supported by the CSI driver.
 
 ```azurecli-interactive
 cat <<EOF | kubectl apply -f -
 ---
 apiVersion: azstor.azure.com/v1alpha1
-kind: AzStorPoolSet
+kind: StoragePool
 metadata:
-  name: azstorpoolset1
-  namespace: azstor
+   name: csiazstorpoolset
+   namespace: azstor
 spec:
-  replicas: 1
-  capacity: 500Gi
+   storagePoolSource:
+       csi:
+           storageClassName: managed-premium
+   replicas: 1
+   resources:
+       limits: {"storage": 15Ti}
+       requests: {"storage": 10Ti}
 ---
 EOF
 
@@ -152,7 +163,7 @@ EOF
 When storage pool creation is complete, you'll see a message like:
 
 ```output
-azstorpoolset.azstor.azure.com/azstorpoolset1 created
+csiazstorpoolset.azstor.azure.com/csiazstorpoolset1 created
 ```
 
 ## Use the new storage classes
@@ -161,7 +172,13 @@ You can now use the new out-of-the-box storage classes when creating persistent 
 
 ## Clean up resources
 
-When you're done, you can use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group:
+To uninstall, you can delete the `k8s-extension` by running the following command:
+
+```azurecli-interactive
+az k8s-extension delete --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage
+```
+
+You can also use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group:
 
 ```azurecli-interactive
 az group delete --name myContainerStorageRG
