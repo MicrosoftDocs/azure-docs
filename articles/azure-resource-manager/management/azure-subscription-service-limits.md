@@ -359,7 +359,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
-### Network Watcher limits
+### Azure Network Watcher limits
 
 [!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
