@@ -67,13 +67,20 @@ The following systems have been tested and are known to work with the Azure Linu
 >
 >
 
-* CentOS 7.x and 8.x
-* Red Hat Enterprise Linux 6.7+, 7.x, and 8.x
-* Debian 10+
-* Ubuntu 18.04+
-* openSUSE 12.3+
-* SLES 12.x and 15.x
-* Oracle Linux 6.4+, 7.x and 8.x
+### Linux Distro’s Supported
+| **Linux Distro** | **x64** | **ARM64** |
+|:-----|:-----:|:-----:|
+| Alma Linux |	9.x+ |	9.x+ |
+| CentOS |	7.x+,  8.x+ |	7.x+ |
+| Debian |	10+ |	11.x+ |
+| Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
+| openSUSE |	12.3+ |	<span style="color:red">Not Supported</span> |
+| Oracle Linux |	6.4+, 7.x+, 8.x+ |	<span style="color:red">Not Supported</span> |
+| Red Hat Enterprise Linux |	6.7+, 7.x+,  8.x+ |	8.6+, 9.0+ |
+| Rocky Linux |	9.x+ |	9.x+ |
+| SLES |	12.x+, 15.x+ |	15.x SP4+ |
+| Ubuntu |	18.04+, 20.04+, 22.04+ |	20.04+, 22.04+ |
+
 
 > [!IMPORTANT]
 > RHEL/Oracle Linux 6.10 is the only RHEL/OL 6 version with ELS support available, [the extended maintenance ends on 06/30/2024](https://access.redhat.com/support/policy/updates/errata)

@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr
 ms.author: helohr
-ms.date: 03/28/2023
+ms.date: 03/29/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,7 +17,7 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4065       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Public  | 1.2.4066       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
 | Insider | 1.2.4153       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
 ## Updates for version 1.2.4153 (Insider)
@@ -29,15 +29,16 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Wi
 In this release, we've made the following changes:
 
 - Redesigned the connection bar for session desktops.
+- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
 - Fixed an issue that caused the client to report misleading or incorrect *ErrorCode 0x108* error logs.
 - Fixed an issue that made the client sometimes drop connections if doing something like using a Smart Card made the connection take a long time to start.
 - Fixed a bug where users aren't able to update the client if the client is installed with the flags *ALLUSERS=2* and *MSIINSTALLPERUSER=1*
 - Fixed an issue that made the client disconnect and display error message 0x3000018 instead of showing a prompt to reconnect if the endpoint doesn't let users save their credentials.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
-## Updates for version 1.2.4065
+## Updates for version 1.2.4066
 
-*Date published: March 7, 2023*
+*Date published: March 28, 2023*
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
 
@@ -47,13 +48,16 @@ In this release, we've made the following changes:
 - Fixed a bug that caused the client to stop responding when disconnecting from the session early.
 - Fixed a bug that caused duplicate error messages to appear while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
-- Added support for Universal Plug and Play (UPnP) for improved User Datagram Protocol (UDP) connectivity.
+- Disabled UPnP after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused the application window sharing to freeze or show a black screen in scenarios with Topmost window occlusions.
    - Fixed an issue that caused Teams media optimizations for Azure Virtual Desktop to not load for the ARM64 version of the client.
+
+>[!NOTE]
+>This release was originally version 1.2.4065, but we made a hotfix after reports that UPnP was causing connectivity issues. version 1.2.4066 has replaced the previous version and has disabled UPnP.
 
 ## Updates for version 1.2.3918
 
