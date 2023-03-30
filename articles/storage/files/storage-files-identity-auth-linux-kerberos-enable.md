@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for Linu
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/21/2023
+ms.date: 03/30/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -47,7 +47,7 @@ localadmin@contosovm:~$ sudo apt update -y
 localadmin@contosovm:~$ sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-user keyutils cifs-utils
 ```
 
-The wbinfo tool is part of the samba suite. It can be useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
+The `wbinfo` tool is part of the samba suite. It can be useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
 
 Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Here's a sample configuration.
 
