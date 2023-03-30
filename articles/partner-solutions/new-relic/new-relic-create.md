@@ -32,7 +32,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
 
 1. If you visited Azure Marketplace in a recent session, select the icon from the available options. Otherwise, search for **marketplace** and then select the **Marketplace** result under **Services**.
 
-<!-- Update screenshot - Basics tab screenshot needs to be updated, as 'Associate with existing organization' button will now be enabled -->
+    <!-- Updated screenshot -  'Associate with existing organization' selection is enabled -->
    :::image type="content" source="media/new-relic-create/new-relic-search.png" alt-text="Screenshot that shows entering the word Marketplace in a search box.":::
 
 1. In Azure Marketplace, search for **new relic** and select the **Azure Native New Relic Service** result. The page for the service opens.
@@ -49,7 +49,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
 
 1. A form to create a New Relic resource appears on the **Basics** tab.
 
-<!-- Update screenshot - Basics tab screenshot needs to be updated, as 'Associate with existing organization' button will now be enabled -->
+    <!-- updated  screenshot -->
    :::image type="content" source="media/new-relic-create/new-relic-basics.png" alt-text="Screenshot that shows the tab for basic information about a New Relic resource.":::
 
 1. Provide the following values:
@@ -57,7 +57,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
    |  Property | Description |
    |--|--|
    |  **Subscription**   |  Select the Azure subscription that you want to use for creating the New Relic resource. You must have owner access.|
-   |  **Resource group**  |Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md) is a container that holds related resources for an Azure solution.|
+   |  **Resource group**  |Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/erview.md) is a container that holds related resources for an Azure solution.|
    |  **Resource name**  |Specify a name for the New Relic resource. This name will be the friendly name of the New Relic account.|
    |  **Region**         |Select the region where the New Relic resource on Azure and the New Relic account will be created.|
 
@@ -68,13 +68,18 @@ Use the Azure portal to find the Azure Native New Relic Service application:
    If you opt to create a new organization, you can choose a plan from the list of available plans by selecting **Change Plan** on the working pane.
 
    :::image type="content" source="media/new-relic-create/new-relic-change-plan.png" alt-text="Screenshot of the panel for changing a plan.":::
-
-1. If you chose to associate with an existing organization, the corresponding billing information, set up when you created the organization, is shared with you for review.
- <!-- added a 5 item in the list - also need a screenshot  -->
+    <!--
+    1. If you chose to associate with an existing organization, the corresponding billing information, set up when you created the organization, is shared with you for review.
+    - added a 5 item in the list - also need a screenshot  
+    - according to Vipray and Dipesh - this functionality is not available yet
+    -->
 
 1.  If the organization you selected is currently billed by New Relic, it remains billed by New Relic.
-<!-- added a 6th bullet point  also need a new screenshot -->
- 
+
+    :::image type="content" source="media/new-relic-create/new-relic-existing.png" alt-text="Screenshot where associate with existing was selected in the organization section of the working pane.":::
+
+      <!-- added a bullet point and a new screenshot -->
+
 ## Configure metrics and logs
 
 Your next step is to configure metrics and logs on the **Metrics and Logs** tab. When you're creating the New Relic resource, you can set up metrics monitoring and automatic log forwarding:
