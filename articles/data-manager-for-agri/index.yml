@@ -59,3 +59,9 @@ landingContent:
             url: how-to-set-up-sensors-partner.md
           - text: Set up sensors as a customer
             url: how-to-set-up-sensors-customer.md
+  - title: Security
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up Private Links
+            url: how-to-set-up-private-links.md

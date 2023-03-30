@@ -106,4 +106,4 @@ For more on these DMVs/DMFs you can check these docs
 ## Next steps
 To get started with DevOps policies, consult the following blogs, videos and guides:
 * Try DevOps policies for Azure SQL Database: [Quick start guide](https://aka.ms/quickstart-DevOps-policies)
-See [other videos, blogs and documents](./how-to-policies-devops-authoring-generic.md#next-steps)
+* See [other videos, blogs and documents](./how-to-policies-devops-authoring-generic.md#next-steps)

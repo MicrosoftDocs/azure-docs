@@ -50,7 +50,7 @@ For more information about how to test whether your devices are ready for the TL
 
 ## Optional manual IoT hub migration
 
-If you've prepared your devices and are ready for the TLS certificate migration before February 2023, you can manually migrate your IoT hub root certificates yourself.
+If you've prepared your devices and are ready for the TLS certificate migration, you can manually migrate your IoT hub root certificates yourself.
 
 After you migrate to the new root certificate, it will take about 45 minutes for all devices to disconnect and reconnect with the new certificate. This timing is because the Azure IoT SDKs are programmed to reverify their connection every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
 
