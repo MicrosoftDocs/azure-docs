@@ -28,8 +28,6 @@ landingContent:
             url: web-app-quickstart.md?pivots=devlang-java
           - text: Node.js with MSAL
             url: web-app-quickstart.md?pivots=devlang-nodejs-msal
-          - text: Node.js with Passport
-            url: web-app-quickstart.md?pivots=devlang-nodejs-passport
           - text: Python
             url: web-app-quickstart.md?pivots=devlang-python
   - title: "Learn by building"

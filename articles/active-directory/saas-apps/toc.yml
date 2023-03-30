@@ -472,6 +472,8 @@
         href: cisco-unified-communications-manager-tutorial.md
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
+      - name: CITI Program
+        href: citi-program-tutorial.md
       - name: Citrix ADC SAML Connector for Azure AD
         href: citrix-netscaler-tutorial.md
       - name: Citrix Cloud SAML SSO
@@ -1247,6 +1249,8 @@
         href: international-sos-assistance-products-tutorial.md
       - name: InTime
         href: intime-tutorial.md
+      - name: Intradiem
+        href: intradiem-tutorial.md
       - name: Intralinks
         href: intralinks-tutorial.md
       - name: IntSights
@@ -1413,6 +1417,8 @@
       items:
       - name: LabLog
         href: lablog-tutorial.md
+      - name: LambdaTest Single Sign on
+        href: lambda-test-single-sign-on-tutorial.md
       - name: Land Gorilla Client
         href: landgorilla-tutorial.md
       - name: LanSchool Air
@@ -2117,6 +2123,8 @@
         href: sap-netweaver-tutorial.md
       - name: SAP Qualtrics
         href: qualtrics-tutorial.md
+      - name: Sauce Labs
+        href: sauce-labs-tutorial.md
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
       - name: Saviynt
@@ -2423,8 +2431,8 @@
         href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
-      - name: TeamzSkill
-        href: teamzskill-tutorial.md
+      - name: RevSpace
+        href: revspace-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
       - name: TencentCloud IDaaS
@@ -2885,7 +2893,9 @@
       - name: Bentley - Automatic User Provisioning
         href: bentley-automatic-user-provisioning-tutorial.md
       - name: BIC Cloud Design
-        href: bic-cloud-design-provisioning-tutorial.md    
+        href: bic-cloud-design-provisioning-tutorial.md
+      - name: BIS
+        href: bis-provisioning-tutorial.md    
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation
@@ -2946,6 +2956,8 @@
         href: code42-provisioning-tutorial.md
       - name: Cofense Recipient Sync
         href: cofense-provision-tutorial.md
+      - name: Connecter
+        href: connecter-provisioning-tutorial.md
       - name: Contentful
         href: contentful-provisioning-tutorial.md
       - name: Comeet Recruiting Software

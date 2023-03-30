@@ -31,8 +31,8 @@ This video provides examples for making REST calls to Azure Maps Weather service
 
 ## Prerequisites
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+* An [Azure Maps account]
+* A [subscription key]
 
     >[!IMPORTANT]
     >The [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast)requires a Gen 1 (S1) or Gen 2 pricing tier.  All other APIs require an S0 pricing tier key.
@@ -750,3 +750,6 @@ In this example, you'll use the [Get Minute Forecast API](/rest/api/maps/weather
 
 > [!div class="nextstepaction"]
 > [Azure Maps Weather services](/rest/api/maps/weather)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

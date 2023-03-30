@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/24/2022
+ms.date: 3/23/2023
 ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -124,6 +124,9 @@ If you are reviewing access to an application, then before creating the review, 
        - **Remove access**: Removes a user's access.
        - **Approve access**: Approves a user's access.
        - **Take recommendations**: Takes the system's recommendation to deny or approve the user's continued access.
+    
+        >[!WARNING]
+        > If the settings **If reviewers don't respond** is set to **Remove access** or **Take recommendations** and **Auto apply results to resource** is enabled, all access to this resource could risk being revoked if the reviewers fail to respond.
 
     - **Action to apply on denied guest users**: This option is only available if the access review is scoped to include only guest users to specify what happens to guest users if they're denied either by a reviewer or by the **If reviewers don't respond** setting.
 
