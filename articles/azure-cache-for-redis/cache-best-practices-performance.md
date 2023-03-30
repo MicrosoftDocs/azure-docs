@@ -151,6 +151,35 @@ The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Ent
 | F700 | 715 GB | 16 | 6,400 | 1,300,000 | 680,000 |
 | F1500 | 1455 GB | 32 | 12,800 | 1,300,000 | 620,000 |
 
+In addition to scaling up by moving to larger cache size, it is also possible to boost performance by [scaling out](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers). In the Enterprise tiers, this is called increasing the _capacity_ of the cache instance. A cache instance by default has capacity of two--meaning there is a primary and replica node. An Enterprise cache instance with a capacity of four indicates that the instance has been scaled out by a factor of two. Scaling out provides access to more memory and additional vCPUs. Scaling out is most effective when using the OSS cluster policy. 
+
+The tables below show the GET requests per second at different capacities, using SLL and a 1kB value size.
+
+**Scaling out - Enterprise cluster policy**
+
+| Instance | Capacity 2 | Capacity 4 | Capacity 6 |
+| --- | --- | --- | --- |
+| E10 | 200,000 | 580,000 | 580,000 |
+| E20 | 390,000 | 580,000 | 560,000 |
+| E50 | 530,000 | 580,000 | 590,000 |
+| E100 | 580,000 | 580,000 | 600,000 |
+
+| Instance | Capacity 3 | Capacity 9 |
+| --- | --- | --- |
+| F300 | 310,000 | 520,000 |
+| F700 | 350,000 | 560,000 |
+| F1500 | 360,000 | 550,000 |
+
+
+**Scaling out - OSS cluster policy**
+
+| Instance | Capacity 2 | Capacity 4 | Capacity 6 |
+| --- | --- | --- | --- | --- | --- |
+| E10 | 200,000 | 580,000 | 580,000 |
+| E20 | 390,000 | 580,000 | 560,000 |
+| E50 | 530,000 | 580,000 | 590,000 |
+| E100 | 560,000 | 580,000 | 600,000 |
+
 ## Next steps
 
 - [Development](cache-best-practices-development.md)
