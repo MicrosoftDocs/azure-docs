@@ -1,7 +1,7 @@
 ---
 title: Azure virtual machine extensions and features 
 description: Learn more about Azure VM extensions that provide post-deployment configuration and automation on Azure VMs.
-ms.topic: article
+ms.topic: overview
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
@@ -30,7 +30,7 @@ Azure VM extensions can be managed by using the Azure CLI, PowerShell, Resource 
 
 You can then pass in a command or script to run the extension. You should see the Custom Script Extension item. Select the item, then select Next.
 
-For more information, see [Windows Custom Script Extension](custom-script-windows.md) and [Linux Custom Script Extension](custom-script-linux.md).
+For more information, see [Linux Custom Script Extension](custom-script-linux.md) and [Windows Custom Script Extension](custom-script-windows.md).
 
 ## How do I manage extension application lifecycle?
 
@@ -70,5 +70,6 @@ Otherwise, specific troubleshooting information for each extension can be found 
 
 * For more information about how the Linux Agent and extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
 * For more information about how the Windows Guest Agent and extensions work, see [Azure VM extensions and features for Windows](features-windows.md).
-* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent overview](agent-windows.md).
 * To install the Linux Agent, see [Azure Linux Virtual Machine Agent overview](agent-linux.md).
+* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent overview](agent-windows.md).
+
