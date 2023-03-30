@@ -5,7 +5,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.service: service-connector
 ms.date: 03/26/2023
-author: Xiaofan Zhou
+author: xfz11
 ms.author: xiaofanzhou
 ms.custom: passwordless-java, service-connector
 ---
