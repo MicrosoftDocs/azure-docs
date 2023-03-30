@@ -484,9 +484,9 @@ ml_client_registry.models.create_or_update(mlflow_model)
 
 ---
 
-### Copy a model from workspace to registry 
+### Share a model from workspace to registry 
 
-In this workflow, you'll first create the model in the workspace and then copy it to the registry. This workflow is useful when you want to test the model in the workspace before sharing it. For example, deploy it to endpoints, try out inference with some test data and then copy the model to a registry if everything looks good. This workflow may also be useful when you're developing a series of models using different techniques, frameworks or parameters and want to promote just one of them to the registry as a production candidate. 
+In this workflow, you'll first create the model in the workspace and then share it to the registry. This workflow is useful when you want to test the model in the workspace before sharing it. For example, deploy it to endpoints, try out inference with some test data and then copy the model to a registry if everything looks good. This workflow may also be useful when you're developing a series of models using different techniques, frameworks or parameters and want to promote just one of them to the registry as a production candidate. 
 
 # [Azure CLI](#tab/cli)
 
@@ -505,17 +505,17 @@ az ml model create --name nyc-taxi-model --version 1 --type mlflow_model --path 
 
 Note down the model name and version. You can validate if the model is registered in the workspace by browsing it in the Studio UI or using `az ml model show --name nyc-taxi-model --version $model_version` command.  
 
-Next, you'll now copy the model from the workspace to the registry. Note now the `--path` parameter is referring to the model with the workspace with the `azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/<model-name>/versions/<model-version>` syntax.
+Next, you'll now share the model from the workspace to the registry. 
 
 
 ```azurecli
-# copy model registered in workspace to registry
-az ml model create --registry-name <registry-name> --path azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/nyc-taxi-model/versions/1
+# share model registered in workspace to registry
+az ml model share --name nyc-taxi-model --version 1 --registry-name <registry-name> --share-with-name <new-name> --share-with-version <new-version>
 ```
 
 > [!TIP]
 > * Make sure to use the right model name and version if you changed it in the `az ml model create` command.
-> * The above command creates the model in the registry with the same name and version. You can provide a different name or version with the `--name` or `--version` parameters. 
+> * The above command has two optional parameters "--share-with-name" and "--share-with-version". If these are not provided the new model will have the same name and version as the model that is being shared.
 Note down the `name` and `version` of the model from the output of the `az ml model create` command and use them with `az ml model show` commands as follows. You'll need the `name` and `version` in the next section when you deploy the model to an online endpoint for inference. 
 
 ```azurecli 
@@ -556,22 +556,15 @@ ml_client_workspace.models.create_or_update(mlflow_model)
 
 Note down the model name and version. You can validate if the model is registered in the workspace by browsing it in the Studio UI or fetching it using `ml_client_workspace.model.get()` method.
 
-Next, you'll now copy the model from the workspace to the registry. Construct the path to the model with the workspace using the `azureml://subscriptions/<subscription-id-of-workspace>/resourceGroups/<resource-group-of-workspace>/workspaces/<workspace-name>/models/<model-name>/versions/<model-version>` syntax.
-
+Next, you'll now share the model from the workspace to the registry.
 
 ```python
-# fetch the model from workspace
-model_in_workspace = ml_client_workspace.models.get(name="nyc-taxi-model", version=version)
-print(model_in_workspace )
-# change the format such that the registry understands the model (when you print the model_ready_to_copy object, notice the asset id 
-model_ready_to_copy = ml_client_workspace.models._prepare_to_copy(model_in_workspace)
-print(model_ready_to_copy)
-# copy the model from registry to workspace
-ml_client_registry.models.create_or_update(model_ready_to_copy)
+# share the model from registry to workspace
+ml_client.models.share(name="nyc-taxi-model", version=1, registry_name=<registry_name>, share_with_name=<new-name>, share_with_version=<new-version>)
 ```
 
 > [!TIP]
-> Make sure to use the right model name and version if you changed it in the `ml_client_workspace.model.create_or_update()` method used to create the model in workspace. 
+> The above code has two optional parameters "share-with-name" and "share-with-version". If these are not provided the new model will have the same name and version as the model that is being shared.
 
 Note down the `name` and `version` of the model from the output and use them with `ml_client_workspace.model.get()` commands as follows. You'll need the `name` and `version` in the next section when you deploy the model to an online endpoint for inference. 
 

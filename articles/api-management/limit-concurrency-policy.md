@@ -28,8 +28,8 @@ The `limit-concurrency` policy prevents enclosed policies from executing by more
 
 | Attribute | Description                                                                                        | Required | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | A string. Policy expression allowed. Specifies the concurrency scope. Can be shared by multiple policies. | Yes      | N/A     |
-| max-count | An integer. Specifies a maximum number of requests that are allowed to enter the policy.           | Yes      | N/A     |
+| key       | A string. Specifies the concurrency scope. Can be shared by multiple policies. Policy expressions are allowed. | Yes      | N/A     |
+| max-count | An integer. Specifies a maximum number of requests that are allowed to enter the policy. Policy expressions aren't allowed.           | Yes      | N/A     |
 
 
 ## Usage
