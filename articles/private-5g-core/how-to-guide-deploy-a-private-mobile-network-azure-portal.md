@@ -53,7 +53,7 @@ In this step, you'll create the Mobile Network resource representing your privat
 
     - If you select **Upload Encrypted JSON file**, the following notice will appear.
 
-    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-vendor-sims-notice.png" alt-text="Screenshot of the Azure portal showing the a notice on the SIMs configuration tab stating: At the moment, you will not be able to upload the encrypted SIMs under this SIM group. However, you will be able upload the encrypted SIMs under the SIM group section, once the above named SIM group gets created.":::
+    :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-vendor-sims-notice.png" alt-text="Screenshot of the Azure portal showing a notice on the SIMs configuration tab stating: At the moment, you will not be able to upload the encrypted SIMs under this SIM group. However, you will be able upload the encrypted SIMs under the SIM group section, once the above named SIM group gets created.":::
 
 1. If you're provisioning SIMs at this point, you'll need to take the following additional steps.
    1. If you want to use the default service and SIM policy, set **Do you wish to create a basic, default SIM policy and assign it to these SIMs?** to **Yes**, and then enter the name of the data network into the **Data network name** field that appears. 
