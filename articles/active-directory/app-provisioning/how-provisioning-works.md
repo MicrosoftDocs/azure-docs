@@ -202,7 +202,7 @@ Confirm the mapping for *active* for your application. If your using an applicat
 
 The following scenarios will trigger a disable or a delete: 
 * A user is soft deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
-    30 days after a user is deleted in Azure AD, they are permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
+    30 days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 * A user is permanently deleted / removed from the recycle bin in Azure AD.
 * A user is unassigned from an app.
 * A user goes from in scope to out of scope (doesn't pass a scoping filter anymore).
@@ -230,8 +230,8 @@ The following table describes how you can configure deprovisioning actions with 
 
 **Known limitations**
 
-* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user is not managed by the service and we won't send a delete request when they are deleted from the directory.
-* Provisioning a user that is disabled in Azure AD is not supported. They must be active in Azure AD before they are provisioned.
+* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user is not managed by the service and we won't send a delete request when they're deleted from the directory.
+* Provisioning a user that is disabled in Azure AD is not supported. They must be active in Azure AD before they're provisioned.
 * When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but won't automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application doesn't support this, you can restart provisioning to update the group memberships. 
 
 **Recommendation**
