@@ -6,8 +6,9 @@ author: robswain
 ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 03/30/2023
 ms.custom: template-how-to 
+zone_pivot_groups: ase-pro-version
 ---
 
 # Commission the AKS cluster
@@ -99,10 +100,20 @@ Wait for the machine to reboot if necessary (approximately 5 minutes).
 You now need to configure virtual switches and virtual networks on those switches. You'll use the **Advanced networking** section of the Azure Stack Edge local UI to do this task.
 
 You can input all the settings on this page before selecting **Apply** at the bottom to apply them all at once.
-
+:::zone pivot="ase-pro-2"
 
 1. Configure three virtual switches. There must be a virtual switch associated with each port before the next step. The virtual switches may already be present if you have other virtual network functions (VNFs) set up.
+    Select **Add virtual switch** and fill in the side panel appropriately for each switch before selecting **Modify** to save that configuration.
+    - Create a virtual switch on the port that should have compute enabled (the management port). We recommend using the format **vswitch-portX**, where **X** is the number of the port. For example, create **vswitch-port2** on port 2.  
+    - Create a virtual switch on port 3 with the name **vswitch-port3**.
+    - Create a virtual switch on port 4 with the name **vswitch-port4**.
 
+    You should now see something similar to the following image:
+    :::image type="content" source="media/commission-cluster/commission-cluster-virtual-switch-ase-2.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
+:::zone-end
+:::zone pivot="ase-pro-gpu"
+
+1. Configure three virtual switches. There must be a virtual switch associated with each port before the next step. The virtual switches may already be present if you have other virtual network functions (VNFs) set up.
     Select **Add virtual switch** and fill in the side panel appropriately for each switch before selecting **Modify** to save that configuration.
     - Create a virtual switch on the port that should have compute enabled (the management port). We recommend using the format **vswitch-portX**, where **X** is the number of the port. For example, create **vswitch-port3** on port 3.  
     - Create a virtual switch on port 5 with the name **vswitch-port5**.
@@ -110,18 +121,16 @@ You can input all the settings on this page before selecting **Apply** at the bo
 
     You should now see something similar to the following image:
     :::image type="content" source="media/commission-cluster/commission-cluster-virtual-switch.png" alt-text="Screenshot showing three virtual switches, where the names correspond to the network interface the switch is on. ":::
-    
-1. Create virtual networks representing the following interfaces (which you allocated subnets and IP addresses for in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses)):
+:::zone-end
+2. Create virtual networks representing the following interfaces (which you allocated subnets and IP addresses for in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses)):
     - Control plane access interface
     - User plane access interface
     - User plane data interface(s)
-
-    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). The following example is for a 5G multi-DN deployment.
-
-1. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks): 
-
+    You can name these networks yourself, but the name **must** match what you configure in the Azure portal when deploying Azure Private 5G Core. For example, you can use the names **N2**, **N3** and **N6-DN1**, **N6-DN2**, **N6-DN3** (for a 5G deployment with multiple data networks (DNs); just **N6** for a single DN deployment). You can optionally configure each virtual network with a virtual local area network identifier (VLAN ID) to enable layer 2 traffic separation. The following example is for a 5G multi-DN deployment without VLANs.
+:::zone pivot="ase-pro-2"
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks):
     1. Select **Add virtual network** and fill in the side panel:
-          - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
+          - **Virtual switch**: select **vswitch-port3** for N2 and N3, and select **vswitch-port4** for N6-DN1, N6-DN2, and N6-DN3.
           - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
           - **VLAN**: 0
           - **Subnet mask** and **Gateway** must match the external values for the port.
@@ -129,10 +138,25 @@ You can input all the settings on this page before selecting **Apply** at the bo
             - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
     1. Select **Modify** to save the configuration for this virtual network.
     1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
-    
+    The page should now look like the following image:
+
+  :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking-ase-2.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
+:::zone-end
+:::zone pivot="ase-pro-gpu"
+3. Carry out the following procedure three times, plus once for each of the supplementary data networks (so five times in total if you have three data networks):
+    1. Select **Add virtual network** and fill in the side panel:
+          - **Virtual switch**: select **vswitch-port5** for N2 and N3, and select **vswitch-port6** for N6-DN1, N6-DN2, and N6-DN3.
+          - **Name**: *N2*, *N3*, *N6-DN1*, *N6-DN2*, or *N6-DN3*.
+          - **VLAN**: VLAN ID, or 0 if not using VLANs
+          - **Subnet mask** and **Gateway** must match the external values for the port.
+            - For example, *255.255.255.0* and *10.232.44.1*
+            - If there's no gateway between the access interface and gNB/RAN, use the gNB/RAN IP address as the gateway address. If there's more than one gNB connected via a switch, choose one of the IP addresses for the gateway.
+    1. Select **Modify** to save the configuration for this virtual network.
+    1. Select **Apply** at the bottom of the page and wait for the notification (a bell icon) to confirm that the settings have been applied. Applying the settings will take approximately 15 minutes.
   The page should now look like the following image:
 
   :::image type="content" source="media/commission-cluster/commission-cluster-advanced-networking.png" alt-text="Screenshot showing Advanced networking, with a table of virtual switch information and a table of virtual network information.":::
+:::zone-end
 
 ## Add compute and IP addresses
 
@@ -151,8 +175,12 @@ In the local Azure Stack Edge UI, go to the **Kubernetes (Preview)** page. You'l
 
 The page should now look like the following image:
 
+:::zone pivot="ase-pro-2"
+:::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled-ase-2.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
+:::zone-end
+:::zone pivot="ase-pro-gpu"
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
-
+:::zone-end
 ## Start the cluster and set up Arc
 
 Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
