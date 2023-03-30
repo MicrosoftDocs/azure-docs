@@ -31,7 +31,7 @@ VMware Spring Cloud Gateway includes the following features:
 - Circuit breaker configuration.
 - Support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with the API portal, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes. For more information, see [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md).
+To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes. For more information, see [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md).
 
 ## Prerequisites
 
@@ -105,7 +105,7 @@ VMware Spring Cloud Gateway supports authentication and authorization using sing
 | `clientSecret` | Yes       | The OpenID Connect client secret provided by your identity provider.                                                                                                                                                                                                                                                               |
 | `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider.                                                                                                                                                                                       |
 
-To set up SSO with Azure AD, see [How to set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
+To set up SSO with Azure AD, see [How to set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API portal](./how-to-set-up-sso-with-azure-ad.md).
 
 Use the following command to configure SSO properties for VMware Spring Cloud Gateway.
 

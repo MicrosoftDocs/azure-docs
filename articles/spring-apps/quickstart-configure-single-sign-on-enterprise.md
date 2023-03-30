@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Configure single sign-on for applications using Azure Spring Apps Enterprise tier"
+title: Quickstart - Configure single sign-on for applications using Azure Spring Apps Enterprise tier
 description: Describes single sign-on configuration for Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
@@ -36,7 +36,7 @@ To configure single sign-on for the application, you'll need to prepare credenti
 
 Follow these steps to configure single sign-on using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, skip ahead to the following section, [Create and configure an application registration with Azure Active Directory](#create-and-configure-an-application-registration-with-azure-active-directory).
 
-1. Configure your existing identity provider to allow redirects back to Spring Cloud Gateway and API Portal. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API Portal has two URIs for supporting the user interface and underlying API. The following commands retrieve these URIs that you will add to your single sign-on provider's configuration.
+1. Configure your existing identity provider to allow redirects back to Spring Cloud Gateway for VMware Tanzu and API portal for VMware Tanzu. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API portal has two URIs for supporting the user interface and underlying API. The following commands retrieve these URIs that you will add to your single sign-on provider's configuration.
 
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
@@ -84,7 +84,7 @@ To register the application with Azure Active Directory, follow these steps. If 
    az ad sp create --id ${APPLICATION_ID}
    ```
 
-1. Use the following commands to retrieve the URLs for Spring Cloud Gateway and API Portal, and add the necessary Reply URLs to the Active Directory App Registration.
+1. Use the following commands to retrieve the URLs for Spring Cloud Gateway and API portal, and add the necessary Reply URLs to the Active Directory App Registration.
 
    ```azurecli
    APPLICATION_ID=$(cat ad.json | jq -r '.appId')
@@ -237,9 +237,9 @@ You can configure Spring Cloud Gateway to authenticate requests using single sig
 
    You can open the output URL in a browser to explore the updated application. The Log In function is now operational, allowing you to add items to the cart and place orders. After you sign in, the customer information button will display the signed-in username.
 
-## Configure single sign-on for API Portal
+## Configure single sign-on for API portal
 
-You can configure API Portal to use single sign-on to require authentication before exploring APIs. Use the following commands to configure single sign-on for API Portal.
+You can configure API portal for VMware Tanzu to use single sign-on to require authentication before exploring APIs. Use the following commands to configure single sign-on for API portal.
 
 ```azurecli
 PORTAL_URL=$(az spring api-portal show \
@@ -255,7 +255,7 @@ az spring api-portal update \
     --issuer-uri <issuer-uri>
 ```
 
-Use the following commands to retrieve the URL for API Portal.
+Use the following commands to retrieve the URL for API portal.
 
 ```azurecli
 PORTAL_URL=$(az spring api-portal show \
