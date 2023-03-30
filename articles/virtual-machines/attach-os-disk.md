@@ -18,10 +18,11 @@ Create a new VM by attaching an existing OS disk to a new VM. This option is use
 
 > [!IMPORTANT]
 >
-> Creating an image instead of just attaching a disk means you can create multiple VMs from the same source disk.
-> When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+> You can also use the VHD as a source to create an Azure Compute Gallery image. For more information, see [Create an image definition and image version](image-version.md). Customers are encouraged to use Azure Compute Gallery as all new features like ARM64, Trusted Launch, and Confidential VM, are only supported through Azure Compute Gallery.  Creating an image instead of just attaching a disk means you can create multiple VMs from the same source disk.
 >
-> You can also use the VHD as a source to create an Azure Compute Gallery image. For more information, see [Create an image definition and image version](image-version.md). Customers are encouraged to use Azure Compute Gallery as all new features like ARM64, Trusted Launch, and Confidential VM,are only supported through Azure Compute Gallery.  
+> When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (like the CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+
+
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single VHD or snapshot.
 
