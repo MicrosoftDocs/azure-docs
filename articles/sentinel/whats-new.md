@@ -55,6 +55,8 @@ Enabling this solution helps your security team achieve the following goals:
 - respond more effectively to threats
 - maximize impact of existing security incident response
 
+See the [MDTI solution blog post](https://aka.ms/sentinel-playbooks) to learn more about the three playbooks at launch and what's required. Also, check out this [MDTI Tech Community blog](https://techcommunity.microsoft.com/t5/microsoft-defender-threat/what-s-new-at-microsoft-secure/ba-p/3773576) for more information on announcements from Microsoft Secure.
+
 ### Automatically update the SAP data connector agent
 
 You can now [enable automatic updates for the SAP data connector agent](sap/update-sap-data-connector.md#automatically-update-the-sap-data-connector-agent-preview). You can choose to apply automatic updates to all existing containers or to a specific container.

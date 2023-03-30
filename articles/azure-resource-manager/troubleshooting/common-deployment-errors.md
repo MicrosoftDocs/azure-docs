@@ -3,7 +3,7 @@ title: Troubleshoot common Azure deployment errors
 description: Troubleshoot common Azure deployment errors for resources that are deployed with Bicep files or Azure Resource Manager templates (ARM templates).
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 03/30/2023
 ---
 
 # Troubleshoot common Azure deployment errors
@@ -21,7 +21,7 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 | AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux) <br><br> [Provisioning and allocation issues for Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) <br><br> [Troubleshoot allocation failures](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
 | AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](error-register-resource-provider.md) |
-| BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) <br><br> [Resource location in ARM template](../templates/resource-location.md) <br><br> [Resource location in Bicep file](../bicep/resource-declaration.md#location) |
+| BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. <br><br> Validate the template's syntax to resolve deployment errors when using a template that was exported from an existing Azure resource. | [Template reference](/azure/templates/) <br><br> [Resource location in ARM template](../templates/resource-location.md) <br><br> [Resource location in Bicep file](../bicep/resource-declaration.md#location) <br><br> [Resolve invalid template](error-invalid-template.md)|
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActiveAndUneditable | Wait for concurrent deployment to this resource group to complete. | |
 | DeploymentFailedCleanUp | When you deploy in complete mode, any resources that aren't in the template are deleted. You get this error when you don't have adequate permissions to delete all of the resources not in the template. To avoid the error, change the deployment mode to incremental. | [Azure Resource Manager deployment modes](../templates/deployment-modes.md) |

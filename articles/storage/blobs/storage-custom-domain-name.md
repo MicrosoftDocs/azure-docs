@@ -189,9 +189,6 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file.
 
-   > [!NOTE]
-   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
-
 4. Remove the protocol identifier (For example: `HTTPS`) and the trailing slash from that string. The following table contains examples.
 
    | Type of endpoint |  endpoint | host name |
