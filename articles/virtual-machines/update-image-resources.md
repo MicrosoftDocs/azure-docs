@@ -220,7 +220,6 @@ Image version:
 - Exclusion from latest
 - End of life date
 
-If you plan on adding replica regions, don't delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
 ### [CLI](#tab/cli2)
 
