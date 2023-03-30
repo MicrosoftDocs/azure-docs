@@ -1,4 +1,3 @@
-
 # Set up Oracle ASM on an Azure Linux virtual machine
 
 **Applies to:** :heavy_check_mark: Linux VMs 
