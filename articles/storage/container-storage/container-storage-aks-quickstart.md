@@ -106,13 +106,15 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
 
 ## Create a node pool
 
-Create a node pool of at least three virtual machines (VMs). Each VM must have a minimum of four virtual CPUs (vCPUs), so we'll use the standard DS4 VM size.
+You'll need a node pool of at least three virtual machines (VMs). Each VM must have a minimum of four virtual CPUs (vCPUs), so we'll use the standard DS4 VM size.
+
+To create a new node pool, run the following command:
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name storagepool --resource-group myContainerStorageRG --node-vm-size standard_ds4_v2 --node-count 3 --labels openebs.io/engine=io.engine
 ```
 
-If you have an existing node pool you'd like to use, run the following command:
+If you already have an existing node pool you'd like to use, run the following command instead:
 
 ```azurecli-interactive
 az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name <nodepool_name> --labels openebs.io/engine=io.engine
