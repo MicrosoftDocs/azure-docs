@@ -24,7 +24,7 @@ This document contains information about new features and other changes to the A
   indoorManager.setOptions({
     statesetId: {
       'tilesetId1': 'stasetId1',
-       'tilesetId2': 'stasetId2'
+      'tilesetId2': 'stasetId2'
      }
   });
 
