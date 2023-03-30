@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 03/28/2023
+ms.date: 03/30/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1431,25 +1431,27 @@ Storage Blob Data Contributor
 Here are the settings to add this condition using the Azure portal.
 
 > [!div class="mx-tableFixed"]
-> | Condition #1 | Setting |
-> | --- | --- |
-> | Actions | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
-> | **Group #1** |  |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | `container1` |
-> | Logical operator | 'AND' |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
-> | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Value | `privateendpoint1` |
-> | **End Group #1** |  |
-> | Logical operator | 'OR' |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
-> | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
-> | Value | `container1` |
+> | Condition | Component | Group | Setting | Value |
+> | --- | --- | - | - | - |
+> | Condition #1 | | | | |
+> | | Actions | | | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
+> | | Expressions | | | |
+> | | | Group #1 | | |
+> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | | | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | | | | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | | | Value | `container1` |
+> | | | | Logical operator | 'AND' |
+> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | | | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
+> | | | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | | | Value | `privateendpoint1` |
+> | | | End Group #1 | | |
+> | | | | Logical operator | 'OR' |
+> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | | | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | | | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
+> | | | | Value | `container1` |
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
