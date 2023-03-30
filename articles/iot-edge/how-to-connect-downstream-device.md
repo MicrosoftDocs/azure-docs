@@ -90,7 +90,7 @@ Installing the root CA certificate in the operating system's certificate store g
 
 Install the root CA certificate on either Ubuntu or Windows.
 
-### Ubuntu
+# [Ubuntu](#tab/ubuntu)
 
 The following commands are an example of how to install a CA certificate on an Ubuntu host. This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
 
@@ -103,7 +103,7 @@ sudo update-ca-certificates
 
 You should see a message that says, "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done."
 
-### Windows
+# [Windows](#tab/windows)
 
 The following steps are an example of how to install a CA certificate on a Windows host. This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
 
