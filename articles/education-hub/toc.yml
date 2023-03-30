@@ -55,7 +55,7 @@
   - name: How-to guides
     items:
     - name: How to setup custom tenant for Azure Classroom
-      href: custom-tenant-setup-classroom.md
+      href: custom-tenant-set-up-classroom.md
 - name: Azure Education Hub REST APIs
   items:
   - name: How-to guides
