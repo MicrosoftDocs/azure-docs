@@ -117,7 +117,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 ### [Azure SDK](#tab/sdk)
 
-The following python SDK v2 code show how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
+The following python SDK v2 code shows how to attach an AKS and Azure Arc-enabled Kubernetes cluster, and use it as a compute target with managed identity enabled.
 
 **AKS cluster**
 
