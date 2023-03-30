@@ -53,7 +53,7 @@ If you experience connectivity problems with your private link setup, review the
 
      - If the state is **Pending**, select it and approve it.
 
-       :::image type="content" source="./media/private-link-tsg/pls-private-endpoint-connections.png" alt-text="Screenshot of Private endpoint connections.":::
+       :::image type="content" source="./media/private-link-tsg/pls-private-endpoint-connections.png" alt-text="Screenshot of Private endpoint connections.":::
 
      - Go to the private endpoint that you're connecting from by selecting the name. Make sure the connection status shows as **Approved**.
 
@@ -64,7 +64,7 @@ If you experience connectivity problems with your private link setup, review the
     e. Review **Alias** on the **Overview** tab and **Resource ID** on the **Properties** tab.
      - Make sure the **Alias** and **Resource ID** information matches the **Alias** and **Resource ID** you're using to create a private endpoint to this service.
 
-       :::image type="content" source="./media/private-link-tsg/pls-overview-pane-alias.png" alt-text="Screenshot of verify alias information":::
+       :::image type="content" source="./media/private-link-tsg/pls-overview-pane-alias.png" alt-text="Screenshot of verify alias information.":::
 
        :::image type="content" source="./media/private-link-tsg/pls-properties-pane-resourceid.png" alt-text="Screenshot of verify resource ID information.":::
 
