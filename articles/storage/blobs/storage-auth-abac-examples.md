@@ -1434,7 +1434,7 @@ Here are the settings to add this condition using the Azure portal.
 > | Condition | Component | Group | Setting | Value |
 > | --- | --- | - | - | - |
 > | Condition #1 | | | | |
-> | | Actions | | | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data)<br/>[All data operations for accounts with hierarchical namespace enabled](storage-auth-abac-attributes.md#all-data-operations-for-accounts-with-hierarchical-namespace-enabled) (if applicable) |
+> | | Actions | | | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
 > | | Expressions | | | |
 > | | | Group #1 | | |
 > | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
@@ -1446,7 +1446,7 @@ Here are the settings to add this condition using the Azure portal.
 > | | | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
 > | | | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | | | Value | `privateendpoint1` |
-> | | | End Group #1 | | |
+> | | | End of Group #1 | | |
 > | | | | Logical operator | 'OR' |
 > | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | | | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
@@ -1460,7 +1460,38 @@ Here are the settings to add this condition using the Azure portal.
 Here's how to add this condition using Azure PowerShell.
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) AND !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'))"
+$subId = "<your subscription id>"
+$rgName = "resource group name"
+$saName = "storage account name"
+$containerName = "<container name>"
+$endpointName = "<private endpoint name>"
+$roleDefinitionName = "Storage Blob Data Contributor"
+$userObjectID = "<your subscription id>"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$saName"
+
+$condition = `
+"( `
+    ( `
+        (!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+        AND `
+        !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+        AND `
+        !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
+        AND `
+        !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+    ) `
+    OR `
+        ( `
+            ( `
+               @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
+               AND `
+               @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$endpointName' `
+            )
+            OR
+            @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName'
+        ) `
+ )"
+
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
