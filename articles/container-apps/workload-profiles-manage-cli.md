@@ -20,9 +20,9 @@ The following regions support workload profiles during preview:
 - West Europe
 - East US
 
-## Create an environment with a workload profile
+## Create a container app in a profile
 
-At a high level, you execute the following steps to create a container app that uses a specific workload profile.
+At a high level, when you create a container app into a workload profile, you go through the following steps:
 
 - Select a workload profile
 - Create or provide a VNet
@@ -77,9 +77,7 @@ Use the following commands to create an environment with a workload profile.
         --infrastructure-subnet-resource-id "<SUBNET_ID>"
       ```
 
-<!-- "/subscriptions/$SUBCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME" -->
-
-  This command can take up to 10 minutes to complete.
+      This command can take up to 10 minutes to complete.
 
 1. Check status of environment. Here, you're looking to see if the environment is created successfully.
 

@@ -5,11 +5,11 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 03/30/2023
 ms.author: cshoe
 ---
 
-# Workload profiles in Consumption + Dedicated plan environments in Azure Container Apps
+# Workload profiles in Consumption + Dedicated plan environments in Azure Container Apps (preview)
 
 Under the [Consumption + Dedicated plan](./plans.md#consumption-dedicated), you can use different workload profiles in your environment. Workload profiles determine the amount of compute and memory resources available to container apps deployed in an environment.
 
@@ -22,6 +22,22 @@ Profiles are configured to fit the different needs of your applications.
 | Consumption |  Added to any new environment by default. | |
 
 By default, a Consumption workload profile is included with every Consumption + Dedicated plan environment. You can optionally add dedicated workload profiles of any type as you create an environment or after it's created.
+
+For each Dedicated workload profile in your environment, you can:
+
+- Select the category and size
+- Deploy multiple apps into the profile
+- Use autoscaling to add and remove nodes based on the needs of the apps
+- Limit scaling of the profile to for better cost control
+
+You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This is ideal for deploying a microservice solution where each app can run on the appropriate compute infrastructure. Additionally, the new Consumption workload profile allows you to request up to 4 vCPU’s and 8Gib’s of memory for an app, which is twice the capability found in the original Consumption-only plan.
+
+Additional features include:
+
+- Reduced subnet size requirements with a new `/27` minimum
+- Support for environments on subnets with network security groups
+- User-defined routes (UDR)
+- Support for environments on subnets configured with Azure Firewall and third-party network appliances
 
 ## Supported regions
 
@@ -46,6 +62,8 @@ There are a series of different types of workload profiles available by region. 
 | E16 | 16 | 128 | MemoryOptimized |
 | Consumption | 4 | 8 | Consumption (per replica) |
 
+Use the *Name* value for the `--workload-profile-name` as you run [`az containerapp create`](workload-profiles-manage-cli.md#create).
+
 The availability of different profiles may vary by region.
 
 ## Resource consumption
@@ -57,14 +75,6 @@ You can constrain the memory and CPU usage of each app inside a workload profile
 Workload profiles scale in two ways. As demand for your app fluctuates, replicas increase or decrease as needed. This scaling model is the same as in the [Consumption plan](plans.md#consumption-plan), however, profiles themselves can also scale.
 
 When demand for new apps or more replicas of an existing app exceeds the profile's current resources, profile instances may be added. You have control over the constraints on the minimum and maximum number of profile instances. Azure calculates [billing](billing.md#consumption-dedicated) largely based on the number of running profile instances.
-
-## List supported profiles
-
-Use the `list-supported` command to display the supported profiles by region.
-
-```azcli
-az containerapp env workload-profile list-supported --location <LOCATION>  --query "[].{Name: name, Cores: properties.cores, MemoryGiB: properties.memoryGiB, Category: properties.category}" -o table
-```
 
 ## Next steps
 
