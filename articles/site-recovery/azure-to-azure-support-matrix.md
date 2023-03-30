@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 03/27/2023
 ms.service: site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
@@ -72,6 +72,7 @@ Subscription  | Can be different from source virtual machines | Cache storage ac
 Azure Storage firewalls for virtual networks  | Supported | If you're using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Don't restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
 Soft delete | Not supported | Soft delete isn't supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase.
 Encryption at rest (CMK) | Supported | Storage account encryption can be configured with customer managed keys (CMK)
+Managed identity | Not supported | The cached storage account must allow shared key access and Shared Access Signatures (SAS) signed by the shared key.
 
 The following table lists the limits in terms of number of disks that can replicate to a single storage account.
 
@@ -274,6 +275,7 @@ This table summarized support for the Azure VM OS disk, data disk, and temporary
 
 **Component** | **Support** | **Details**
 --- | --- | ---
+Disk renaming | Supported | You can rename NICs in the target region based on your organization's naming conventions.
 OS disk maximum size | 4096 GB | [Learn more](../virtual-machines/managed-disks-overview.md) about VM disks.
 Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/managed-disks-overview.md).
 Data disk maximum size | 32 TB for managed disks<br></br>4     TB for unmanaged disks|
@@ -353,7 +355,7 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per 
 
 **Setting** | **Support** | **Details**
 --- | --- | ---
-NIC | Maximum number supported for a specific Azure VM size | NICs are created when the VM is created during failover.<br/><br/> The number of NICs on the failover VM depends on the number of NICs on the source VM when replication was enabled. If you add or remove a NIC after enabling replication, it doesn't impact the number of NICs on the replicated VM after failover. <br/><br/> The order of NICs after failover isn't guaranteed to be the same as the original order. <br/><br/> You can rename NICs in the target region based on your organization's naming conventions. NIC renaming is supported using PowerShell.
+NIC | Maximum number supported for a specific Azure VM size | NICs are created when the VM is created during failover.<br/><br/> The number of NICs on the failover VM depends on the number of NICs on the source VM when replication was enabled. If you add or remove a NIC after enabling replication, it doesn't impact the number of NICs on the replicated VM after failover. <br/><br/> The order of NICs after failover isn't guaranteed to be the same as the original order. <br><br> You can rename NICs in the target region based on your organization's naming conventions.
 Internet Load Balancer | Not supported | You can set up public/internet load balancers in the primary region. However, public/internet load balancers aren't supported by Azure Site Recovery in the DR region.
 Internal Load balancer | Supported | Associate the preconfigured load balancer using an Azure Automation script in a recovery plan.
 Public IP address | Supported | Associate an existing public IP address with the NIC. Or, create a public IP address and associate it with the NIC using an Azure Automation script in a recovery plan.

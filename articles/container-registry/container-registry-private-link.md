@@ -2,10 +2,10 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
-
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link

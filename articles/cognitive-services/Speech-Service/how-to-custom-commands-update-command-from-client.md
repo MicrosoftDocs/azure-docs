@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Update a command from a client app
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this article, you'll learn how to update an ongoing command from a client application.
 
 ## Prerequisites

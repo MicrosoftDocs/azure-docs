@@ -63,7 +63,10 @@ Use the Create a New Role wizard:
 4. On the **Select trusted entity** page, select **AWS account** and then under **An AWS account**, select **Another AWS account**.
 5. Under **Account ID**, enter **432263259397**.
 6. Under **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
-7. Under **External ID**, enter the external ID, which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
+7. Under **External ID**, enter the external ID, which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID. The external ID should comply with AWS restrictions:
+   - Type: String
+   - Length constraints: Minimum length of 2. Maximum length of 1224.
+   - Must satisfy regular expression pattern: [\w+=,.@: /-]*
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
 8. Select **Next: Permissions**.

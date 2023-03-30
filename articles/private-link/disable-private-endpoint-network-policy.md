@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 07/26/2022
 ms.author: allensu 
 ms.devlang: azurecli
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, template-how-to
+ms.custom: devx-track-azurepowershell, template-how-to
 ---
 
 # Manage network policies for private endpoints

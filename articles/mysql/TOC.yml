@@ -7,10 +7,6 @@
     href: single-server/overview.md
   - name: Select the right MySQL deployment type
     href: single-server/select-right-deployment-type.md
-  - name: What's new in Single Server?
-    href: single-server/single-server-whats-new.md
-  - name: What's new in Flexible Server?
-    href: flexible-server/whats-new.md
   - name: Try Flexible Server for free
     href: flexible-server/how-to-deploy-on-azure-free-account.md
   - name: Prepay for reserved capacity
@@ -24,6 +20,8 @@
     items:
     - name: What is Flexible Server?
       href: flexible-server/overview.md
+    - name: What's new in Flexible Server?
+      href: flexible-server/whats-new.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
   - name: Quickstarts
@@ -320,6 +318,8 @@
     items:
     - name: What is Single Server?
       href: single-server/single-server-overview.md
+    - name: What's new in Single Server?
+      href: single-server/single-server-whats-new.md
     - name: Pricing Tiers
       items:
       - name: Pricing tiers

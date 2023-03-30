@@ -3,6 +3,7 @@ title: Manage your device inventory from the Azure portal
 description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
 ms.date: 06/27/2022
 ms.topic: how-to
+ms.custom: enterprise-iot
 ---
 
 # Manage your device inventory from the Azure portal
@@ -27,6 +28,12 @@ Use any of the following options to modify or filter the devices shown:
 | **Group devices** | From the **Group by** above the gird, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 
 For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
+
+
+> [!NOTE]
+> If your OT sensors detect multiple devices in the same zone with the same IP or MAC address, those devices are automatically merged and identified as a single, unique device. Devices that have different IP addresses, but the same MAC address, are not merged, and continue to be listed as unique devices.
+>
+> Merged devices are listed only once in the **Device inventory** page. For more information, see [Separating zones for recurring IP ranges](best-practices/plan-corporate-monitoring.md#separating-zones-for-recurring-ip-ranges).
 
 ### View full device details
 
