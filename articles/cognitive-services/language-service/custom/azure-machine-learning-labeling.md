@@ -14,20 +14,19 @@ ms.author: aahi
 
 # Use Azure Machine Learning labeling in Language Studio
 
-Labeling data is an important part of preparing your dataset. Using the labeling experience in Azure Machine Learning, you can experience easier collaboration, more flexibility, and the ability to [outsource labeling tasks](/azure/machine-learning/how-to-outsource-data-labeling) to external labeling vendors from the [Azure Market Place](https://azuremarketplace.microsoft.com/en-US/marketplace/consulting-services?search=AzureMLVend). You can use Azure Machine Learning labeling for:
+Labeling data is an important part of preparing your dataset. Using the labeling experience in Azure Machine Learning Studio, you can experience easier collaboration, more flexibility, and the ability to [outsource labeling tasks](/azure/machine-learning/how-to-outsource-data-labeling) to external labeling vendors from the [Azure Market Place](https://azuremarketplace.microsoft.com/en-US/marketplace/consulting-services?search=AzureMLVend). You can use Azure Machine Learning labeling for:
 * [custom text classification](../custom-text-classification/overview.md) 
 * [custom named entity recognition](../custom-named-entity-recognition/overview.md) 
 
 ## Prerequisites
 
 Before you can connect your labeling project to Azure Machine Learning, you need:
-* A successfully created project with a configured Azure blob storage account.
+* A successfully created Language Studio project with a configured Azure blob storage account.
 * Text data that has been uploaded to your storage account.
 * At least:
     * One entity label for custom named entity recognition, or
     * Two class labels for custom text classification projects.
-* A successfully created Azure Machine Learning workspace. See how to create an Azure Machine Learning workspace.
-* [An Azure Machine Learning workspace](/azure/machine-learning/v1/how-to-connect-data-ui?tabs=credential#create-datastores) that has been connected to the same Azure blob storage account that your Language Studio account using.
+* An [Azure Machine Learning workspace](/azure/machine-learning/how-to-manage-workspace) that has been [connected](/azure/machine-learning/v1/how-to-connect-data-ui?tabs=credential#create-datastores) to the same Azure blob storage account that your Language Studio account using.
 
 ## Limitations
 
@@ -35,9 +34,10 @@ Before you can connect your labeling project to Azure Machine Learning, you need
     * Connect it your project back to the same Azure Machine Learning project
     * Connect it to any Language Studio project in the future.
 * You can't label in the Language Studio and Azure Machine Learning simultaneously. The labeling experience is enabled in one studio at a time. 
-* Only Azure Machine Learning's JSONL file format from can be imported into Language Studio.
-* Connecting your labeling project to Azure Machine Learning isn't allowed for Language Studio projects with the multi-lingual option enabled, and not all languages are supported.
-* Once the connection between Azure Machine Learning and the Language Studio is established, files assigned to either the training or testing sets are ignored, and the feature to assign files to either of the sets will be disabled.
+* The testing and training files in the labeling experience you switch away from will be ignored when training your model. 
+assigned to either the training or testing sets 
+* Only Azure Machine Learning's JSONL file format can be imported into Language Studio.
+* Projects with the multi-lingual option enabled can't be connected to Azure Machine Learning, and not all languages are supported.
 * The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to.
 * Switching between the two labeling experiences isn't instantaneous. It may take time to successfully complete the operation.
 
