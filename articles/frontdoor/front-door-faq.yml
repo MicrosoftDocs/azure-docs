@@ -171,6 +171,11 @@ sections:
           
           See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
 
+      - question: |
+          What is the HTTP keep-alive timeout for Azure Front Door?
+        answer:  |   
+          The HTTP keep-alive timeout for Azure Front Door is 90 seconds. This means that if a client doesn't send any data for 90 seconds, the connection is closed. This timeout value can't be configured.
+
   - name: Performance
     questions:
       - question: |
