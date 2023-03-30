@@ -16,11 +16,7 @@ zone_pivot_groups: functions-nodejs-model
 
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
-
->[!NOTE]
->The v4 programming model for authoring Functions in Node.js is currently in Preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](../functions-reference-node.md).
->
->Use the selector at the top to choose the programming model of your choice for completing this quickstart.
+[!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
 
 ![Screenshot of an Edge window. The window shows the output of invoking a simple durable function in Azure.](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
@@ -41,7 +37,7 @@ To complete this tutorial:
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
-* Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version `v4.0.5085` or above.
+* Make sure you have [Azure Functions Core Tools](../functions-run-local.md) version `v4.0.5095` or above.
 ::: zone-end
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.

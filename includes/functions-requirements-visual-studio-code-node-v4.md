@@ -14,4 +14,4 @@ ms.author: jiayma
 
 + The [Azure Functions extension v1.10.4](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) or above for Visual Studio Code.
 
-+ [Azure Functions Core Tools v4.0.5085 or above](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools v4.0.5095 or above](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).

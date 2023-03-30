@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 [Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent (also known as MMA and OMS) for both Windows and Linux machines, in both Azure and non-Azure (on-premises and third-party clouds) environments. It introduces a simplified, flexible method of configuring collection configuration called [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md). This article outlines the benefits of migrating to Azure Monitor Agent and provides guidance on how to implement a successful migration.
 
 > [!IMPORTANT]
-> The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you're currently using the Log Analytics agent with Azure Monitor or other supported features and services, you should start planning your migration to Azure Monitor Agent by using the information in this article.
+> The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you're currently using the Log Analytics agent with Azure Monitor or [other supported features and services](./agents-overview.md#supported-services-and-features), you should start planning your migration to Azure Monitor Agent by using the information in this article and the availability of other solutions/services.
 
 ## Benefits
 
@@ -47,11 +47,11 @@ In addition to consolidating and improving upon legacy Log Analytics agents, Azu
 
 2. Deploy extensions and DCR-associations: 
     1. **Test first** by deploying extensions<sup>2</sup> and DCR-Associations on a few non-production machines. You can also deploy side-by-side on machines running legacy agents (see the section above for agent coexistence
-    2. Once data starts flowing via Azure Monitor agent, **compare it with legacy agent data** to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table which indicates 'Azure Monitor Agent' for the new data collection
+    2. Once data starts flowing via Azure Monitor agent, **compare it with legacy agent data** to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table which indicates 'Azure Monitor Agent' for the new data collection. 
     3. Post testing, you can **roll out broadly**<sup>3</sup> using [built-in policies]() for at-scale deployment of extensions and DCR-associations. **Using policy will also ensure automatic deployment of extensions and DCR-associations for any new machines in future.**
     4. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines  
     
-3. **Validate** that Azure Monitor Agent is collecting data as expected and all **downstream dependencies**, such as dashboards, alerts, and workbooks, function properly.  
+3. **Validate** that Azure Monitor Agent is collecting data as expected and all **downstream dependencies**, such as dashboards, alerts, and workbooks, function properly. You can do this by joining with/looking at the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table which indicates 'Azure Monitor Agent' vs 'Direct Agent' (for legacy). 
 
 4. Clean up: After you confirm that Azure Monitor Agent is collecting data properly, you may **choose to either disable or uninstall the legacy Log Analytics agents**
     1. If you have migrated to Azure Monitor agent for selected features/solutions and you need to continue using the legacy Log Analytics for others, you can     

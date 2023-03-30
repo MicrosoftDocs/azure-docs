@@ -36,7 +36,7 @@ landingContent:
   # Card 
   - title: Common scenarios
     linkLists:
-      - linkListType: deploy
+      - linkListType: how-to-guide
         links:
           - text: Multi-cloud monitoring
             url: best-practices-multicloud.md
@@ -84,7 +84,7 @@ landingContent:
  # Card
   - title: Get started with Azure Monitor Logs
     linkLists: 
-      - linkListType: deploy
+      - linkListType: how-to-guide
         links:
           - text: Set up a Log Analytics workspace
             url: logs/log-analytics-workspace-overview.md
@@ -102,7 +102,7 @@ landingContent:
    # Card 
   - title: Get started with Application Insights
     linkLists:
-      - linkListType: get-started
+      - linkListType: how-to-guide
         links:
           - text: Application Insights overview
             url: app/app-insights-overview.md
@@ -120,7 +120,7 @@ landingContent:
  # Card
   - title: Visualize monitoring data
     linkLists: 
-      - linkListType: deploy
+      - linkListType: how-to-guide
         links:
           - text: Insights and curated visualizations
             url: /insights/insights-overview
@@ -136,7 +136,7 @@ landingContent:
  # Card
   - title: Respond to issues
     linkLists: 
-      - linkListType: deploy
+      - linkListType: how-to-guide
         links:
           - text: Alerts 
             url: /alerts/alerts-overview.md

@@ -31,12 +31,12 @@ The `json-to-xml` policy converts a request or response body from JSON to XML.
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|apply|The attribute must be set to one of the following values.<br /><br /> -   `always` - always apply conversion.<br />-   `content-type-json` - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   `true` - apply conversion if XML is requested in request Accept header.<br />-   `false` - always apply conversion.|No|`true`|
-|parse-date|When set to `false` date values are simply copied during transformation.|No|`true`|
-|namespace-separator|The character to use as a namespace separator.|No|Underscore|
-|namespace-prefix|The string that identifies property as namespace attribute, usually "xmlns". Properties with names beginning with specified prefix will be added to current element as namespace declarations.|No|N/A|
-|attribute-block-name|When set, properties inside the named object will be added to the element as attributes|No|Not set|
+|apply|The attribute must be set to one of the following values.<br /><br /> -   `always` - always apply conversion.<br />-   `content-type-json` - convert only if response Content-Type header indicates presence of JSON.<br/><br/>Policy expressions are allowed.|Yes|N/A|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   `true` - apply conversion if XML is requested in request Accept header.<br />-   `false` - always apply conversion.<br/><br/>Policy expressions are allowed.|No|`true`|
+|parse-date|When set to `false` date values are simply copied during transformation. Policy expressions aren't allowed.|No|`true`|
+|namespace-separator|The character to use as a namespace separator. Policy expressions are allowed.|No|Underscore|
+|namespace-prefix|The string that identifies property as namespace attribute, usually "xmlns". Properties with names beginning with specified prefix will be added to current element as namespace declarations. Policy expressions are allowed.|No|N/A|
+|attribute-block-name|When set, properties inside the named object will be added to the element as attributes. Policy expressions are allowed.|No|Not set|
 
 ## Usage
 
