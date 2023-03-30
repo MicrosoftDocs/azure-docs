@@ -14,7 +14,7 @@ ms.date: 3/27/2023
 
 # How to debug pipeline reuse issues?
 
-In this article, we explain what is reuse in Azure Machine Learning pipeline, how does reuse work, and provide step by step guidance to debug resue issues. 
+In this article, we explain what is reuse in Azure Machine Learning pipeline, how does reuse work, and provide step by step guidance to debugging resue issues. 
 
 ## What is reuse in Azure Machine Learning pipeline?
 
@@ -41,7 +41,7 @@ If a component meets the reuse criteria, pipeline service skips execution for it
 > If a component meet resue cerieria, pipeline service will assume the output of the orinal component exists within 30 days. The pipeline service will not check whether the original output has been deleted if the original output is created less than 30 days. If the original output is deleted, the resued piepline job will fail. For such cases, please rerun the component to generate the output again. You can rerun a component by braking any of the reuse cateria, for example set `ForceRerun=True` for the pipeline or add a line of comment in component source code.   
 
 
-## How to debug resue issues?  
+## How to debug pipeline resue issues?  
 
 If resue isn't working as expected in your pipeline. You can follow below steps to debug.
 
@@ -78,7 +78,7 @@ Double click a component to open it's  right panel -> Open **Raw JSON** under Ov
 
 ### Step 4: Check if there's any environment change
 
-If you're using inline environment, compare the environment definition in component YAML. Your component YAML may not be uploaded to Code tab. In such cases, you will need to go to your component source code to check the environment defination for your component. 
+If you're using inline environment, compare the environment definition in component YAML. Your component YAML may not be uploaded to Code tab. In such cases, you need to go to your component source code to check the environment definition for your component. 
 
 
 :::image type="content" source="./media/how-to-debug-pipeline-reuse/inline-env.png" alt-text="Screenshot showing how to check inline env.":::
@@ -94,7 +94,7 @@ The environment can also be compared in graph comparison feature. We'll cover gr
 
 ### Step 5: Check if there's any other change of the inputs, parameters, output settings, run settings by graph comparison
 
-You can compare the input data, parameters, output settings, run settings of the two components leaverging graph compare. Learn how to enable and use the graph compare feature [here](./how-to-use-pipeline-ui.md#compare-different-pipelines-to-debug-failure-or-other-unexpected-issues-preview)
+You can compare the input data, parameters, output settings, run settings of the two components using graph compare. Learn how to enable and use the graph compare feature [here](./how-to-use-pipeline-ui.md#compare-different-pipelines-to-debug-failure-or-other-unexpected-issues-preview)
 
 :::image type="content" source="./media/how-to-debug-pipeline-reuse/compare.png" alt-text="Screenshot showing compare.":::
 
