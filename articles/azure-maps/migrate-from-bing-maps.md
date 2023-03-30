@@ -53,7 +53,7 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Autosuggest                           | ✓                  |
 | Directions (including truck)          | ✓                  |
 | Distance Matrix                       | ✓                  |
-| Elevations                            | ✓                  |
+| Elevations                            | <sup>1</sup>       |
 | Imagery – Static Map                  | ✓                  |
 | Imagery Metadata                      | ✓                  |
 | Isochrones                            | ✓                  |
@@ -67,6 +67,8 @@ The following table provides a high-level list of Bing Maps features and the rel
 | Time Zone                             | ✓                  |
 | Traffic Incidents                     | ✓                  |
 | Configuration driven maps             | N/A                |
+
+<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Azure Active Directory authentication.
 
