@@ -40,7 +40,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
 - An Azure account that's been assigned at least the [Contributor](../role-based-access-control/built-in-roles.md) role within the subscription or a resource group within the subscription is required. 
 
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-azure-resource.md)]
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-create-subscription.md)] 
 
 ## Create an Azure AD B2C tenant
 >[!NOTE]

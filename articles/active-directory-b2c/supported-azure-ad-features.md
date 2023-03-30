@@ -29,4 +29,5 @@ An Azure Active Directory B2C (Azure AD B2C) tenant is different than an Azure A
 |[Data retention policy](../active-directory/reports-monitoring/reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)|Data retention period for both audit and sign in logs depend on your subscription. Learn more about [How long Azure AD store reporting data](../active-directory/reports-monitoring/reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).|Sign in and  audit logs are only retained for **seven (7) days**. If you require a longer retention period, use the [Azure monitor](azure-monitor.md).|
 | [Go-Local add-on](data-residency.md#go-local-add-on) | Azure AD Go-Local add-on enables you to store data in the country you choose when your Azure AD tenant.| Just like Azure AD, Azure AD B2C supports [Go-Local add-on](data-residency.md#go-local-add-on). |
 
-[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-azure-resource.md)]
+> [!NOTE]
+> **Other Azure resources in your tenant:** <br>In an Azure AD B2C tenant, you can't provision other Azure resources such as virtual machines, Azure web apps, or Azure functions. You must create these resources in your Azure AD tenant.
