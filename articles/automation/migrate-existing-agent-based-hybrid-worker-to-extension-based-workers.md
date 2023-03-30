@@ -3,7 +3,7 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/15/2023
+ms.date: 03/30/2023
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ---
@@ -812,31 +812,41 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 
 #### [Windows Hybrid Worker](#tab/win-hrw)
 
-1. In the Azure portal, go to your Automation account.
+1. Open PowerShell session in Administrator mode and run the following command:
 
-1. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**.
+   ```powershell-interactive
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker\<AutomationAccountID>\<HybridWorkerGroupName>" -Force -Verbose
+   ```
+1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
+1. Under **Hybrid worker group**, select **Hybrid Workers**.
+1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
+1. Select **Delete** to remove the agent-based Windows Hybrid Worker.
 
-1. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
-
-```powershell-interactive
-Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
-```
-> [!NOTE]
-> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
-> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
+   > [!NOTE]
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+   > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 #### [Linux Hybrid Worker](#tab/lin-hrw)
 
-You can use the command `ls /var/opt/microsoft/omsagent` on the Hybrid Runbook Worker to get the workspace ID. A folder is created that is named with the workspace ID.
+Run the following commands on agent-based Linux Hybrid Worker:
 
-```bash
-sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
-```
+1. ```python
+      sudo bash
+   ```
 
-> [!NOTE]
-> - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. </br>
-> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
-> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
+1. ```python
+      rm -r /home/nxautomation
+   ```
+1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
+1. Under **Hybrid worker group**, select **Hybrid Workers**.
+1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
+1. Select **Delete** to remove the agent-based Linux Hybrid Worker.
+
+
+   > [!NOTE]
+   > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. </br>
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+   > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 ---
 
