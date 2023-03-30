@@ -71,7 +71,6 @@ Update these names with your own values:
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.
 
-#### Continue with RHEL 6 or 7.
 
 # [RHEL 6](#tab/rhel) 
 
