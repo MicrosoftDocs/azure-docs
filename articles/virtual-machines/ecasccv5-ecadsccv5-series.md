@@ -50,6 +50,7 @@ The ECas_cc_v5-series sizes offer a combination of vCPU and memory for most prod
 | Standard_EC4as_cc_v5  | 4  | 32  | Remote Storage Only | 8  | 6400/144   | 2 |
 | Standard_EC8as_cc_v5  | 8  | 64  | Remote Storage Only | 16 | 12800/200  | 4 |
 | Standard_EC16as_cc_v5 | 16 | 128 | Remote Storage Only | 32 | 25600/384  | 4 |
+| Standard_EC20as_cc_v5 | 20 | 160 | Remote Storage Only | 32 | 32000/480  | 8 |
 | Standard_EC32as_cc_v5 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 8 |
 | Standard_EC48as_cc_v5 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 8 |
 | Standard_EC64as_cc_v5 | 64 | 512 | Remote Storage Only | 32 | 80000/1200 | 8 |
@@ -75,6 +76,7 @@ The ECads_cc_v5-series sizes offer a combination of vCPU, memory and temporary s
 | Standard_EC4ads_cc_v5  | 4  | 32  | 150 | 8  | 6400/144   | 2 |
 | Standard_EC8ads_cc_v5  | 8  | 64  | 300 | 16 | 12800/200  | 4 |
 | Standard_EC16ads_cc_v5 | 16 | 128 | 600 | 32 | 25600/384  | 4 |
+| Standard_EC20ads_cc_v5 | 20 | 160 | 750 | 32 | 32000/480  | 8 |
 | Standard_EC32ads_cc_v5 | 32 | 256 | 1200 | 32 | 51200/768  | 8 |
 | Standard_EC48ads_cc_v5 | 48 | 384 | 1800 | 32 | 76800/1152 | 8 |
 | Standard_EC64ads_cc_v5 | 64 | 512 | 2400 | 32 | 80000/1200 | 8 |
