@@ -24,7 +24,7 @@ The Live Data feature directly accesses the Kubernetes API. For more information
 
 This feature performs a polling operation against the metrics endpoints including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`, and `/api/v1/pods`. The interval is every five seconds by default. This data is cached in your browser and charted in four performance charts included in Container insights. Each subsequent poll is charted into a rolling five-minute visualization window. To see the charts, select **Go Live (preview)** and then select the **Cluster** tab.
 
-![Screenshot that shows the Go Live option in the Cluster view.](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
+:::image type="content" source="./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png" alt-text="Screenshot that shows the Go Live option in the Cluster view." lightbox="./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png":::
 
 The polling interval is configured from the **Set interval** dropdown list. Use this dropdown list to set polling for new data every 1, 5, 15, and 30 seconds.
 
