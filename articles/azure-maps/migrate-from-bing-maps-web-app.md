@@ -238,7 +238,7 @@ Running this code in a browser displays a map that looks like the following imag
 
 ![Azure Maps map](media/migrate-bing-maps-web-app/azure-maps-load-map.jpg)
 
-Detailed documentation on how to set up and use the Azure Maps map control in a web app can be found [here](how-to-use-map-control.md).
+For more information on how to set up and use the Azure Maps map control in a web app, see [Use the Azure Maps map control].
 
 > [!TIP]
 > Azure Maps publishes both minified and unminified versions of the SDK. Remove `.min` from the file names. The unminified version is useful when debugging issues but be sure to use the minified version in production to take advantage of the smaller file size.

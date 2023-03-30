@@ -6,7 +6,7 @@ author: n0elleli
 ms.service: data-factory
 ms.subservice:
 ms.topic: troubleshooting
-ms.date: 01/19/2023
+ms.date: 03/29/2023
 ms.author: noelleli
 ms.custom:
 ---
@@ -67,17 +67,7 @@ If your SQL source doesn't have SQL Server CDC with net_changed enabled or doesn
 ## Issue: The debug cluster is not available from a warm pool.
 
 The debug cluster is not available from a warm pool. There will be a wait time in the order of 1+ minutes. 
-
-## Issue: My CDC resource has both source and target linked services that use custom integration runtimes and it won't work. 
-
-In factories with virtual networks, CDC resources will work fine if either the source or target linked service is tied to an auto-resolve integration runtime. If both the source and target linked services use custom integration runtimes, the CDC resource will not work. 
-
-In non-virtual network factories, CDC resources requiring a virtual network will not work. This fix is in progress. 
-
-## Issue: Creating a new linked service pointing to an Azure Key Vault linked service causes an error. 
-
-If you create a new linked service using the CDC fly-out process that points to an Azure Key Vault linked service, the CDC resource will break. This fix is in progress. 
-
+ 
 ## Issue: Trouble in tracking delete operations.
 
 Currently CDC resource supports delete operations for following sink types – Azure SQL Database & Delta. To achieve this, in the column mapping page, please select **keys** column that can be used to determine if a row from the source matches a row from the sink. 
