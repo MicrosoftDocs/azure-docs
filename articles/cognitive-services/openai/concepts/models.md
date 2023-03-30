@@ -194,8 +194,6 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 <br><sup>2</sup> East US and West Europe were previously available, but due to high demand they are currently unavailable for new customers to use for fine-tuning. Please use US South Central region for fine-tuning.
 <br><sup>3</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
 
-[!INCLUDE [Fine-tuning guidance](../includes/fine-tuning.md)]
-
 ### GPT-4 Models
 
 These models can only be used with the Chat Completion API.
@@ -218,8 +216,6 @@ These models can only be used with Completions API requests.
 | code-davinci-002 | East US,  West Europe |  N/A | 8,001 | Jun 2021 |
 
 <sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
-
-[!INCLUDE [Fine-tuning guidance](../includes/fine-tuning.md)]
 
 ### Embeddings Models
 
