@@ -173,7 +173,7 @@ Now that you've created an extension, you can use it in an app project to verify
 
     When running in Azure, you instead add `PYTHON_ENABLE_WORKER_EXTENSIONS=1` to the [app settings in the function app](functions-how-to-use-azure-function-app-settings.md#settings).
 
-1. Add following two lines before the `main` function in *\_\_init.py\_\_* file for the v1 programming model, or in the function file *function_app.py* file for the v2 programming model:
+1. Add following two lines before the `main` function in *\_\_init.py\_\_* file for the v1 programming model, or in the *function_app.py* file for the v2 programming model:
 
     ```python
     from python_worker_extension_timer import TimerExtension
