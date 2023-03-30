@@ -113,7 +113,7 @@ The same approach works for App Service apps. Consider moving configuration valu
 1. Configuration for webapp1 depends on webapp1 and webapp2. It contains app settings with values from webapp2.
 1. Configuration for webapp2 depends on webapp1 and webapp2. It contains app settings with values from webapp1.
 
-## Solution 6: Validate syntax for templates exported from Azure
+## Solution 6: Validate syntax for exported templates
 
 After you deploy resources in Azure, you can export the ARM template JSON and modify it for other deployments. You should validate the exported template for correct syntax _before_ you use it to deploy resources.
 
