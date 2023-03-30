@@ -3,6 +3,7 @@ title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates (ARM templates).
 ms.date: 03/02/2021
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao
 ---
 

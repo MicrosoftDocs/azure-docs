@@ -2,6 +2,7 @@
 title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 01/19/2022
 ---
 

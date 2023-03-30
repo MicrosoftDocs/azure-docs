@@ -3,7 +3,7 @@ title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
 ms.date: 03/17/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
 # Install Bicep tools

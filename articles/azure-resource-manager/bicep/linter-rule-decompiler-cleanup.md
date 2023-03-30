@@ -2,6 +2,7 @@
 title: Linter rule - decompiler cleanup
 description: Linter rule - decompiler cleanup
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 02/10/2023
 ---
 

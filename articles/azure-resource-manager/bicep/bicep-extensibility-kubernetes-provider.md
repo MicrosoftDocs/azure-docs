@@ -2,6 +2,7 @@
 title: Bicep extensibility Kubernetes provider
 description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 02/21/2023
 ---
 
@@ -65,4 +66,3 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 ## Next steps
 
 - [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep extensibility Kubernetes provider](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md)
-

@@ -5,8 +5,7 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/10/2021
 ms.author: jgao 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 # Manage Azure Resource Groups by using Azure PowerShell
 

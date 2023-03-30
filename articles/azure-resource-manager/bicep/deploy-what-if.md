@@ -3,6 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 author: tfitzmac
 ms.topic: conceptual
+ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 02/15/2023
 ms.author: tomfitz
 ---

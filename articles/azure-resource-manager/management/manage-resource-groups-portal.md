@@ -3,6 +3,7 @@ title: Manage resource groups - Azure portal
 description: Use Azure portal to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 03/26/2019
 ms.author: jgao
 ---

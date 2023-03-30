@@ -4,6 +4,7 @@ description: Provides an Azure PowerShell script sample that creates a managed a
 author: davidsmatlak
 
 ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: davidsmatlak

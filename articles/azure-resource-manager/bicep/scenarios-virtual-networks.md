@@ -4,6 +4,7 @@ description: Describes how to create virtual networks, network security groups, 
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 07/20/2022
 ---
 # Create virtual network resources by using Bicep

@@ -4,6 +4,7 @@ description: Use deployment scripts in Azure Resource Manager templates.
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
 ms.date: 01/25/2022
 ms.author: jgao

@@ -5,7 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/21/2021
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Start a runbook from a webhook

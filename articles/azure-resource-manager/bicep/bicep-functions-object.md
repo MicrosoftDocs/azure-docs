@@ -4,6 +4,7 @@ description: Describes the functions to use in a Bicep file for working with obj
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 03/19/2023
 ---
 

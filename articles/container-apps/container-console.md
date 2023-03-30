@@ -4,7 +4,7 @@ description: Connect to a container console in your container app.
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 08/30/2022
 ms.author: v-bcatherine

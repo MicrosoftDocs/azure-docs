@@ -2,8 +2,8 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 03/07/2023
-
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)

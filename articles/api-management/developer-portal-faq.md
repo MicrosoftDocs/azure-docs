@@ -10,7 +10,7 @@ ms.service: api-management
 ms.topic: troubleshooting
 ms.date: 02/04/2022
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # API Management developer portal - frequently asked questions

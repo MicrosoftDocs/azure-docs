@@ -5,7 +5,7 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-arm-template
 ---
 
 # Develop ARM templates for cloud consistency

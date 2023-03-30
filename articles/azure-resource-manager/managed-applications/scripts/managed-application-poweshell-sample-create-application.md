@@ -4,6 +4,7 @@ description: Provides Azure PowerShell sample script sample that deploys a manag
 author: davidsmatlak
 
 ms.devlang: powershell
+ms.custom: devx-track-azurepowershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: davidsmatlak

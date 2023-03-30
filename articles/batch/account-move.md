@@ -3,7 +3,7 @@ title: Move an Azure Batch account to another region
 description: Learn how to move an Azure Batch account to a different region using an Azure Resource Manager template in the Azure portal.
 ms.topic: how-to
 ms.date: 02/27/2023
-ms.custom: subject-moving-resources
+ms.custom: subject-moving-resources, devx-track-arm-template
 ---
 
 # Move an Azure Batch account to another region

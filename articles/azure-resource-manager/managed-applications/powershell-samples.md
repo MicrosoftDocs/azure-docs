@@ -4,6 +4,7 @@ description: Provides Azure PowerShell sample scripts to use when working with A
 author: davidsmatlak
 
 ms.topic: sample
+ms.custom: devx-track-azurepowershell
 ms.date: 10/27/2017
 ms.author: davidsmatlak
 ---

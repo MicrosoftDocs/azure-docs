@@ -5,7 +5,7 @@ author: barbkess
 ms.author: barbkess
 ms.service: cache
 ms.topic: conceptual
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-bicep
 ms.date: 05/24/2022
 ---
 

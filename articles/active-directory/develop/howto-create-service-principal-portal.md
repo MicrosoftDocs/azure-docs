@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: how-to
 ms.date: 02/01/2023
 ms.author: cwerner
-ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
+ms.custom: aaddev, identityplatformtop40, subject-rbac-steps, devx-track-arm-template
 ---
 
 # Create an Azure Active Directory application and service principal that can access resources

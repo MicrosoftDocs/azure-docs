@@ -4,7 +4,7 @@ description: This article shows you how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-arm-template
 ms.date: 03/05/2023
 ms.reviewer: harelbr
 ---

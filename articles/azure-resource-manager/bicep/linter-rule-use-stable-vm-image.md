@@ -2,6 +2,7 @@
 title: Linter rule - use stable VM image
 description: Linter rule - use stable VM image
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 12/15/2021
 ---
 

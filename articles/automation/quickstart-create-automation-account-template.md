@@ -6,7 +6,7 @@ services: automation
 ms.date: 08/27/2021
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.custom: mvc, subject-armqs, mode-arm
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Create an Azure Automation account using a Resource Manager template

@@ -6,7 +6,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.subservice: autoscale
 ms.date: 10/12/2022
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-arm-template
 ms.reviewer: akkumari
 ---
 # Use predictive autoscale to scale out before load demands in virtual machine scale sets
