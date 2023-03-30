@@ -436,7 +436,7 @@
       "redirect_document_id": false      
     },
     {
-      "source_path_from_root": "articles/iot-develop/how-to-use-reliability-features-in-sdks.md",
+      "source_path_from_root": "/articles/iot-develop/how-to-use-reliability-features-in-sdks.md",
       "redirect_url": "/azure/iot-develop/concepts-manage-device-reconnections",
       "redirect_document_id": false      
     }
