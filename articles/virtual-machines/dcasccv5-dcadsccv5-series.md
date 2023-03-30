@@ -22,10 +22,14 @@ Confidential child capable VMs allow you to carve out VM memory and CPU resource
 
 Confidential child capable VMs are currently enabled only through [Azure Kubernetes Service (AKS)](../../articles/aks/index.yml) when you choose these VMs as your agent node sizes. If you wish to enable it outside AKS, please contact [azconfidentialpm@microsoft.com](mailto:azconfidentialpm@microsoft.com).
 
-This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Billing for disk storage and VMs is separate. To estimate your costs, use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/). For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
 > [!NOTE]
 > There are some [pricing differences based on your encryption settings](../../articles/confidential-computing/confidential-vm-overview.md#encryption-pricing-differences) for nested confidential VMs.
+
+### DCas_cc_v5-series products
+
+The DCas_cc_v5-series sizes offer a combination of vCPU and memory for most production workloads. These new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk. 
 
 [Premium Storage](premium-storage-performance.md): Supported <br>
 [Premium Storage caching](premium-storage-performance.md): Supported <br>
@@ -37,11 +41,6 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
-
-### DCas_cc_v5-series products
-
- The DCas_cc_v5-series sizes offer a combination of vCPU and memory for most production workloads. These new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk. 
-
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|
 | Standard_DC4as_cc_v5  | 4  | 16  | Remote Storage Only | 8  | 6400/144   | 2 |
@@ -52,10 +51,23 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 | Standard_DC64as_cc_v5 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 |
 | Standard_DC96as_cc_v5 | 96 | 384 | Remote Storage Only | 32 | 80000/1600 | 8 |
 
+<sup>1</sup> Dasv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
 
 ### DCads_cc_v5-series products
 
 The DCads_cc_v5-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
+
+[Premium Storage](premium-storage-performance.md): Supported <br>
+[Premium Storage caching](premium-storage-performance.md): Supported <br>
+[Live Migration](maintenance-and-updates.md): Supported <br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported <br>
+[VM Generation Support](generation-2.md): Generation 1 and 2 <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
+<br>
+
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|
@@ -66,6 +78,17 @@ The DCads_cc_v5-series sizes offer a combination of vCPU, memory and temporary s
 | Standard_DC48ads_cc_v5 | 48 | 192 | 1800 | 32 | 76800/1152 | 8 |
 | Standard_DC64ads_cc_v5 | 64 | 256 | 2400 | 32 | 80000/1200 | 8 |
 | Standard_DC96ads_cc_v5 | 96 | 384 | 3600 | 32 | 80000/1600 | 8 |
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Other sizes and information
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 
