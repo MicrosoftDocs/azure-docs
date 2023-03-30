@@ -57,7 +57,7 @@ if you have configured custom domain such as "notification.azuremails.net" the d
 
 2. Select the MailFrom address you would like to remove and Click on **Delete** button.
 
-:::image type="content" source="../../quickstarts/email/media/email-domains-mailfrom-delete" alt-text="Screenshot that shows Mailfrom Addressess list with deletion.":::
+:::image type="content" source="../../quickstarts/email/media/email-domains-mailfrom-delete.png" alt-text="Screenshot that shows Mailfrom Addressess list with deletion.":::
 
 3. You'll see the updated list with newly added  MailFrom address in the overview page.
 
