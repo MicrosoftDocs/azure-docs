@@ -63,7 +63,7 @@ lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 
 The output is similar to the following example:
 
-```bash
+```output
 sda     0:0:0:0      30G
 ├─sda1             29.9G /
 ├─sda14               4M
@@ -73,7 +73,17 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-Here, `sdc` is the disk that we want, because it's 50G. If you add multiple disks, and aren't sure which disk it's based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. Compare the LUN number from the portal to the last number of the **HTCL** portion of the output, which is the LUN.
+Here, `sdc` is the disk that we want, because it's 50G. If you add multiple disks, and aren't sure which disk it's based on size alone, you can go to the VM page in the portal, select **Disks**, and check the LUN number for the disk under **Data disks**. Compare the LUN number from the portal to the last number of the **HTCL** portion of the output, which is the LUN. Another option is to list the contents of the `/dev/disk/azure/scsi1` directory:
+
+```bash
+ls -l /dev/disk/azure/scsi1
+```
+
+The output should be similar to the following example:
+
+```output
+lrwxrwxrwx 1 root root 12 Mar 28 19:41 lun0 -> ../../../sdc
+```
 
 
 ### Format the disk
@@ -89,8 +99,8 @@ The following example uses `parted` on `/dev/sdc`, which is where the first data
 
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
-sudo mkfs.xfs /dev/sdc1
 sudo partprobe /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
 ```
 
 Use the [`partprobe`](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is aware of the new partition and filesystem. Failure to use `partprobe` can cause the blkid or lsblk commands to not return the UUID for the new filesystem immediately.
@@ -112,7 +122,7 @@ sudo mount /dev/sdc1 /datadrive
 
 ### Persist the mount
 
-To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It's also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
+To ensure that the drive is remounted automatically after a reboot, it must be added to the `/etc/fstab` file. It's also highly recommended that the UUID (Universally Unique Identifier) is used in `/etc/fstab` to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
 
 ```bash
 sudo blkid
@@ -120,7 +130,7 @@ sudo blkid
 
 The output looks similar to the following example:
 
-```bash
+```output
 /dev/sda1: LABEL="cloudimg-rootfs" UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4" PARTUUID="1a1b1c1d-11aa-1234-1a1a1a1a1a1a"
 /dev/sda15: LABEL="UEFI" UUID="BCD7-96A6" TYPE="vfat" PARTUUID="1e1g1cg1h-11aa-1234-1u1u1a1a1u1u"
 /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4" TYPE="ext4" PARTUUID="1a2b3c4d-01"
@@ -129,15 +139,21 @@ The output looks similar to the following example:
 ```
 
 > [!NOTE]
-> Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+> Improperly editing the `/etc/fstab` file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the `/etc/fstab` file is created before editing.
 
-Next, open the **/etc/fstab** file in a text editor. Add a line to the end of the file, using the UUID value for the `/dev/sdc1` device that was created in the previous steps, and the mountpoint of `/datadrive`. Using the example from this article, the new line would look like the following:
+Next, open the `/etc/fstab` file in a text editor. Add a line to the end of the file, using the UUID value for the `/dev/sdc1` device that was created in the previous steps, and the mountpoint of `/datadrive`. Using the example from this article, the new line would look like the following:
 
-```bash
+```output
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
 When you're done editing the file, save and close the editor.
+
+Alternatively, you can run the following command to add the disk to the `/etc/fstab` file:
+
+```bash
+echo "UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2" >> /etc/fstab
+```
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
@@ -152,9 +168,9 @@ Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the
 
 There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 
-- Use the `discard` mount option in */etc/fstab*, for example:
+- Use the `discard` mount option in `/etc/fstab`, for example:
 
-    ```bash
+    ```output
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
 
@@ -163,7 +179,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 # [Ubuntu](#tab/ubuntu)
 
 ```bash
-sudo apt-get install util-linux
+sudo apt install util-linux
 sudo fstrim /datadrive
 ```
 
@@ -174,9 +190,10 @@ sudo yum install util-linux
 sudo fstrim /datadrive
 ```
 
-# [SUSE](#tab/suse)
+# [SLES](#tab/suse)
 
 ```bash
+sudo zypper in util-linux
 sudo fstrim /datadrive
 ```
 ---
