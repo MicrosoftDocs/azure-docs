@@ -8,7 +8,7 @@ ms.topic: release-notes
 ms.date: 03/29/2023
 ---
 
-# Azure Private 5G Core 2302 release notes
+# Azure Private 5G Core 2303 release notes
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2303 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, please review the information contained in these release notes.
 
