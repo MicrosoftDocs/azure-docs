@@ -31,7 +31,7 @@ In this quickstart, you will incorporate Azure App Configuration Kubernetes Prov
 > The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 >
 
-## Create an application consuming environment variables
+## Create an application consumes environment variables
 If you already have an application that is consuming environment variables as configuration, you can just skip this step. We just create an ASP.NET Core Web App `MyWebApp` as an example.
 
 1. Use the .NET Core command-line interface (CLI) to create a new ASP.NET Core web app project. Run the following command to create an ASP.NET Core web app in a new TestAppConfig folder:
@@ -154,7 +154,7 @@ If you already have an application, you can containerize it in a way that depend
 ## Create and deploy Kubernetes resources
 
 1. Create a *AKS-AppConfiguration-Demo* directory in the root directory of your project.
-1. Create *appConfigurationProvider.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of the `endpoint` field with the endpoint of the Azure AppConfiguration store you created in the previous step.
+2. Create *appConfigurationProvider.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of the `endpoint` field with the endpoint of your Azure AppConfiguration store.
     ``` yaml
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
@@ -165,7 +165,7 @@ If you already have an application, you can containerize it in a way that depend
       target:
         configMapName: demo-configmap
     ```
-1. Create *deployment.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of `template.containers.image` with the image you created in the previous step.
+3. Create *deployment.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of `template.containers.image` with the image you created in the previous step.
     ``` yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -192,7 +192,7 @@ If you already have an application, you can containerize it in a way that depend
             - configMapRef:
                 name: demo-configmap
     ```
-1. Create *service.yaml* in the *AKS-AppConfiguration-Demo* with the following YAML content. 
+4. Create *service.yaml* in the *AKS-AppConfiguration-Demo* with the following YAML content. 
     ``` yaml
     apiVersion: v1
     kind: Service
@@ -205,7 +205,7 @@ If you already have an application, you can containerize it in a way that depend
       selector:
         app: configmap-demo-app
     ```
-1. Apply the YAML files to the AKS cluster
+5. Apply the YAML files to the AKS cluster
     ``` bash
     kubectl create namespace quickstart-appconfig
     kubectl apply -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
@@ -230,7 +230,7 @@ kubectl get configmap demo-configmap -n quickstart-appconfig
 ```
 
 ## Validate key-values from Azure App Configuration are affecting the app.
-Run the following command and get the External IP that exposed by the LoadBalancer service. Use it to visit the web app,  You'll see that the configuration settings from the Azure App Configuration store are affecting the page.
+Run the following command and get the External IP that exposed by the LoadBalancer service. Use it to visit the web app, you'll see that the configuration settings from the Azure App Configuration store are affecting the page.
 ``` bash
 kubectl get service configmap-demo-service -n quickstart-appconfig
 ```
