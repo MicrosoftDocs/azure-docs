@@ -4,7 +4,7 @@ description: Learn how to use system-preferred multifactor authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/03/2023
 ms.author: justinha
 author: justinha
 manager: amycolannino
@@ -27,7 +27,16 @@ After system-preferred MFA is enabled, the authentication system does all the wo
 >[!NOTE]
 >System-preferred MFA is a key security upgrade to traditional second factor notifications. We highly recommend enabling system-preferred MFA in the near term for improved sign-in security. 
 
-## Enable system-preferred MFA
+## Enable system-preferred MFA in the Azure portal
+
+1. In the Azure portal, click **Security** > **Authentication methods** > **Settings**.
+1. For **System-preferred multifactor authentication**, select if you want to explicitly enable or disable the feature, and choose whether to include or exclude any users. By default, system-preferred MFA is Microsoft managed disabled for all users. For example, the following screenshot shows how to apply system-preferred MFA to only the Engineering group:
+
+   :::image type="content" border="true" source="./media/concept-system-preferred-multifactor-authentication.md/enable.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
+
+1. After you finish making any changes, click **Save**. 
+
+## Enable system-preferred MFA using Graph APIs
 
 To enable system-preferred MFA in advance, you need to choose a single target group for the schema configuration, as shown in the [Request](#request) example. 
 
