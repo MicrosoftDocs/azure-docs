@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/27/2023
+ms.date: 03/30/2023
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2301** release, which maps to software version **2.2.2162.730**.
+This article applies to the **Azure Stack Edge 2303** release, which maps to software version **2.2.2257.1113**.
 
 ## Supported update paths
 
@@ -29,8 +29,8 @@ You can update to the latest version using the following update paths:
 
 | Current version     | Update to | Then apply |
 | --------------------| -----------| -----------|
-|2205 and earlier     |2207        |2301
-|2207 and later       |2301        |
+|2205 and earlier     |2207        |2303
+|2207 and later       |2303        |
 
 ## What's new
 
@@ -53,7 +53,7 @@ The 2303 release has the following new features and enhancements:
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|AKS on Azure Stack Edge |When you update your AKS on Azure Stack Edge deployment from a previous preview version to 2301 release, there is an additional nodepool rollout. |The update may take longer.  |
+|**1.**|AKS on Azure Stack Edge |When you update your AKS on Azure Stack Edge deployment from a previous preview version to 2303 release, there is an additional nodepool rollout. |The update may take longer.  |
 |**2.**|Azure portal |When the Arc deployment fails in this release, you will see a generic *NO PARAM* error code, as all the errors are not propagated in the portal. |There is no workaround for this behavior in this release. |
 |**3.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you will need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
 |**4.**|AKS on Azure Stack Edge |In this release, attaching the PVC takes a long time. As a result, some pods that use persistent volumes (PVs) come up slowly after the host reboots. |A workaround is to restart the nodepool VM by connecting via the Windows PowerShell interface of the device. | 
