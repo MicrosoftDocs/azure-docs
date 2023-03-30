@@ -8,6 +8,7 @@ manager: mtillman
 ms.service: virtual-network
 ms.topic: sample
 ms.workload: infrastructure
+ms.custom: devx-track-arm-template
 ms.date: 04/22/2019
 ms.author: allensu
 ---

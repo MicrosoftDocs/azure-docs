@@ -4,6 +4,7 @@ description: Learn to add a persistent data disk to your Linux VM with the Azure
 author: roygara
 ms.service: storage
 ms.subservice: disks
+ms.custom: devx-track-azurecli
 ms.collection: linux
 ms.topic: how-to
 ms.date: 01/09/2023

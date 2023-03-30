@@ -8,7 +8,7 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 03/27/2023
-ms.custom: template-concept, engagement-fy23
+ms.custom: template-concept, engagement-fy23, devx-track-azurecli
 ---
 
 # Network Watcher Agent virtual machine extension for Linux
