@@ -54,7 +54,7 @@ The identity attached to a registry is set for autorenewal to avoid expiry. If y
 
 You have to reassign the identity back to registry explicitly.
 
-1. Run the [az acr identity assign](/cli/azure/acr/identity/#az-acr-identity-assign) command to reassign the identity manualy.
+1. Run the [az acr identity assign](/cli/azure/acr/identity/#az-acr-identity-assign) command to reassign the identity manually.
 
     - For example,
    
