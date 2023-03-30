@@ -37,18 +37,15 @@ The following regions support workload profiles during preview:
 
 There are a series of different types of workload profiles available by region. By default each Consumption + Dedicated plan includes a Consumption profile, but you can also add any of the following profiles:
 
-| Title | Description |
-|---|---|
-| D-Series v5 | The latest generation D family sizes recommended for your general purpose needs |
-| D-Series v4 | The 4th generation D family sizes for your general purpose needs |
-| B-Series | Ideal for workloads that don't need continuous full CPU performance |
-| E-Series v5 | The latest generation E family sizes for your high memory needs |
-| E-Series v4 | The 4th generation E family sizes for your high memory needs |
-| F-Series v2 | Up to 2X performance boost for vector processing workloads |
-| L-Series | High throughput, low latency, directly mapped to local NVMe storage |
-| D-Series v3 | The 3rd generation D family sizes for your general purpose needs |
-| E-Series v3 | The 3rd generation E family sizes for your high memory needs |
-| D-Series v2 | The 2nd generation D family sizes for your general purpose needs |
+| Name | Cores | MemoryGiB | Category |
+|---|---|---|---|
+| D4 | 4 | 16 | GeneralPurpose |
+| D8 | 8 | 32 | GeneralPurpose |
+| D16 | 16 | 64 | GeneralPurpose |
+| E4 | 4 | 32 | MemoryOptimized |
+| E8 | 8 | 64 | MemoryOptimized |
+| E16 | 16 | 128 | MemoryOptimized |
+| Consumption | 4 | 8 | Consumption (per replica) |
 
 The availability of different profiles varies by region.
 
@@ -60,7 +57,7 @@ You can constrain the memory and CPU usage of each app inside a workload profile
 
 Workload profiles scale in two ways. As demand for your app fluctuates, replicas increase or decrease as needed. This scaling model is the same as in the [Consumption plan](plans.md#consumption-plan), however, profiles themselves can also scale.
 
-When demand for new apps or more replicas of an existing app exceeds the profile's current resources, profile instances may be added. You have control over the constraints on the minimum and maximum number of profile instances. Azure calculates [billing](billing.md#dedicated-plan) largely based on the number of running profile instances.
+When demand for new apps or more replicas of an existing app exceeds the profile's current resources, profile instances may be added. You have control over the constraints on the minimum and maximum number of profile instances. Azure calculates [billing](billing.md#consumption-dedicated) largely based on the number of running profile instances.
 
 ## List supported profiles
 

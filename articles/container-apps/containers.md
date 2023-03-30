@@ -24,7 +24,7 @@ Azure Container Apps supports:
 Features include:
 
 - There's no required base container image.
-- Changes to the `template` ARM configuration section trigger a new [container app revision](application-lifecycle-management.md).
+- Changes to the `template` ARM template configuration section trigger a new [container app revision](application-lifecycle-management.md).
 - If a container crashes, it automatically restarts.
 
 > [!NOTE]
