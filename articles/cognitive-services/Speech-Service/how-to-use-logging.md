@@ -18,7 +18,7 @@ Logging to file is an optional feature for the Speech SDK. During development lo
 
 ## Sample
 
-The log file name is specified on a configuration object. Taking the `SpeechConfig` as an example and assuming that you have created an instance called `speechConfig`:
+The log file name is specified on a configuration object. Taking the `SpeechConfig` as an example and assuming that you've created an instance called `speechConfig`:
 
 ```csharp
 speechConfig.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -138,7 +138,7 @@ To access a created file, add the below properties to the `Info.plist` property 
 <true/>
 ```
 
-If you are using Swift on iOS, please use the following code snippet to enable logs:
+If you're using Swift on iOS, please use the following code snippet to enable logs:
 ```swift
 let documentsDirectoryPathString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 let documentsDirectoryPath = NSURL(string: documentsDirectoryPathString)!
@@ -152,9 +152,9 @@ More about iOS File System is available [here](https://developer.apple.com/libra
 
 Although a log file output path is specified as a configuration property into a `SpeechRecognizer` or other SDK object, SDK logging is a singleton, *process-wide* facility with no concept of individual instances. You can think of this as the `SpeechRecognizer` constructor (or similar) implicitly calling a static and internal "Configure Global Logging" routine with the property data available in the corresponding `SpeechConfig`.
 
-This means that you cannot, as an example, configure six parallel recognizers to output simultaneously to six separate files. Instead, the latest recognizer created will configure the global logging instance to output to the file specified in its configuration properties and all SDK logging will be emitted to that file.
+This means that you can't, as an example, configure six parallel recognizers to output simultaneously to six separate files. Instead, the latest recognizer created will configure the global logging instance to output to the file specified in its configuration properties and all SDK logging will be emitted to that file.
 
-This also means that the lifetime of the object that configured logging is not tied to the duration of logging. Logging will not stop in response to the release of an SDK object and will continue as long as no new logging configuration is provided. Once started, process-wide logging may be stopped by setting the log file path to an empty string when creating a new object.
+This also means that the lifetime of the object that configured logging isn't tied to the duration of logging. Logging will not stop in response to the release of an SDK object and will continue as long as no new logging configuration is provided. Once started, process-wide logging may be stopped by setting the log file path to an empty string when creating a new object.
 
 To reduce potential confusion when configuring logging for multiple instances, it may be useful to abstract control of logging from objects doing real work. An example pair of helper routines:
 
