@@ -317,27 +317,27 @@
         },
         {
             "source_path_from_root": "/articles/iot-edge/tutorial-c-module.md",
-            "redirect_url": "/articles/iot-edge/tutorial-devlop-for-linux.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-edge/tutorial-csharp-module.md",
-            "redirect_url": "/articles/iot-edge/tutorial-devlop-for-linux.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-edge/tutorial-java-module.md",
-            "redirect_url": "/articles/iot-edge/tutorial-devlop-for-linux.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-edge/tutorial-node-module.md",
-            "redirect_url": "/articles/iot-edge/tutorial-devlop-for-linux.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-edge/tutorial-python-module.md",
-            "redirect_url": "/articles/iot-edge/tutorial-devlop-for-linux.md",
+            "redirect_url": "/azure/iot-edge/tutorial-develop-for-linux",
             "redirect_document_id": false
         }
     ]
