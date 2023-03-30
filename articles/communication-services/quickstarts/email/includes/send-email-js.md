@@ -5,7 +5,7 @@ author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
-ms.date: 04/15/2022
+ms.date: 03/24/2023
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -20,7 +20,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name | Description |
 | ---- |-------------|
 | EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment mime type string, and binary data for content. |
+| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, and binary data for content. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
 | EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
 | EmailContent | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content. |
@@ -172,7 +172,30 @@ async function main() {
     };
 
     const poller = await emailClient.beginSend(message);
-    const response = await poller.pollUntilDone();
+
+    if (!poller.getOperationState().isStarted) {
+      throw "Poller was not started."
+    }
+
+    let timeElapsed = 0;
+    while(!poller.isDone()) {
+      poller.poll();
+      console.log("Email send polling in progress");
+
+      await new Promise(resolve => setTimeout(resolve, POLLER_WAIT_TIME * 1000));
+      timeElapsed += 10;
+
+      if(timeElapsed > 18 * POLLER_WAIT_TIME) {
+        throw "Polling timed out.";
+      }
+    }
+
+    if(poller.getResult().status === KnownEmailSendStatus.Succeeded) {
+      console.log(`Successfully sent the email (operation id: ${poller.getResult().id})`);
+    }
+    else {
+      throw poller.getResult().error;
+    }
   } catch (e) {
     console.log(e);
   }
@@ -273,7 +296,7 @@ const message = {
   attachments: [
     {
       name: path.basename(filePath),
-      contentType: "text/plain",
+      contentType: "<mime-type-for-your-file>",
       contentInBase64: readFileSync(filePath, "base64"),
     }
   ]
@@ -281,5 +304,7 @@ const message = {
 
 const response = await emailClient.send(message);
 ```
+
+For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-attachments)

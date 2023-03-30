@@ -994,8 +994,10 @@
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
       href: sap/sap-solution-security-content.md
+    - name: Monitored SAP security parameters
+      href: sap/sap-suspicious-configuration-security-parameters.md
     - name: SAP audit log workbook
-      href: sap/sap-audit-log-workbook.md
+      href: sap/sap-audit-log-workbook.md    
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
     - name: Container update script reference
@@ -1109,7 +1111,7 @@
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog
-    href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
+    href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing

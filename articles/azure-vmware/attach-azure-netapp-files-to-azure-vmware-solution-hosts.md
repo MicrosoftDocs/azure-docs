@@ -33,7 +33,7 @@ Before you begin the prerequisites, review the [Performance best practices](#per
         `az feature register --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
 
         `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
-    1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For optimal performance, it's recommended to use the Ultra tier. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
+    1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
     1. Create a volume with **Standard** [network features](../azure-netapp-files/configure-network-features.md) if available for ExpressRoute FastPath connectivity.
     1. Under the **Protocol** section, select **Azure VMware Solution Datastore** to indicate the volume is created to use as a datastore for Azure VMware Solution private cloud.
     1. If you're using [export policies](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) to control, access to Azure NetApp Files volumes, enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced so if the IP isn't enabled, connectivity to datastore will be impacted.
