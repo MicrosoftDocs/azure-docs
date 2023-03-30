@@ -12,7 +12,9 @@ ms.date: 05/02/2022
 
 # Quickstart: Use Bicep to create an Azure Database for MySQL server
 
-[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+[!INCLUDE [applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](includes/Azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. In this quickstart, you use Bicep to create an Azure Database for MySQL server with virtual network integration. You can create the server in the Azure portal, Azure CLI, or Azure PowerShell.
 
