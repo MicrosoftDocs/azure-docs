@@ -45,7 +45,8 @@ Policy Analytics provides insights, centralized visibility, and control to Azure
 ### Explicit proxy (preview)
 
 With the Azure Firewall Explicit proxy set on the outbound path, you can configure a proxy setting on the sending application (such as a web browser) with Azure Firewall configured as the proxy. As a result, traffic from a sending application goes to the firewall's private IP address, and therefore egresses directly from the firewall without using a user defined route (UDR).
-For more information, see Azure Firewall Explicit Proxy.
+
+For more information, see [Azure Firewall Explicit proxy (preview)](explicit-proxy.md).
 
 
 ## Next steps

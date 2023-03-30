@@ -107,6 +107,8 @@ items:
       href: long-running-sessions.md
     - name: Easy upgrade/downgrade
       href: easy-upgrade.md
+    - name: Explicit Proxy
+      href: explicit-proxy.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
