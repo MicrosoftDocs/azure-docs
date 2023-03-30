@@ -130,7 +130,9 @@ To register the application with Azure Active Directory, follow these steps. If 
 
 ## Deploy the Identity Service application
 
-To complete the single sign-on experience, use the following steps to deploy the Identity Service application. The Identity Service application provides a single route to aid in identifying the user. For these steps, be sure to navigate to the project folder before running any commands.
+To complete the single sign-on experience, use the following steps to deploy the Identity Service application. The Identity Service application provides a single route to aid in identifying the user. 
+
+1. Navigate to the project folder.
 
 1. Use the following command to create the `identity-service` application.
 
@@ -184,7 +186,7 @@ To complete the single sign-on experience, use the following steps to deploy the
 
 ## Configure single sign-on for Spring Cloud Gateway
 
-You can configure Spring Cloud Gateway to authenticate requests via single sign-on. To configure Spring Cloud Gateway to use single sign-on, follow these steps:
+You can configure Spring Cloud Gateway to authenticate requests using single sign-on. To configure Spring Cloud Gateway to use single sign-on, follow these steps:
 
 1. Use the following commands to configure Spring Cloud Gateway to use single sign-on.
 
@@ -233,7 +235,7 @@ You can configure Spring Cloud Gateway to authenticate requests via single sign-
    echo "https://${GATEWAY_URL}"
    ```
 
-   You can open the output URL in a browser to explore the updated application. The Log In function will now work, allowing you to add items to the cart and place orders. After you sign in, the customer information button will display the signed-in username.
+   You can open the output URL in a browser to explore the updated application. The Log In function is now operational, allowing you to add items to the cart and place orders. After you sign in, the customer information button will display the signed-in username.
 
 ## Configure single sign-on for API Portal
 
@@ -263,7 +265,7 @@ PORTAL_URL=$(az spring api-portal show \
 echo "https://${PORTAL_URL}"
 ```
 
-You can open the output URL in a browser to explore the application APIs. This time, you'll be directed to sign on before exploring APIs.
+You can open the output URL in a browser to explore the application APIs. You'll be initially directed to sign on before exploring APIs.
 
 ---
 
