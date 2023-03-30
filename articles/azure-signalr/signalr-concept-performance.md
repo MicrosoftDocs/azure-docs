@@ -11,7 +11,7 @@ ms.author: lianwei
 
 One of the key benefits of using Azure SignalR Service is the ease of scaling SignalR applications. In a large-scale scenario, performance is an important factor. 
 
-Article describes:
+This article describes:
 
 * The factors that affect SignalR application performance. 
 * The typical performance in different use-case scenarios.
@@ -19,7 +19,7 @@ Article describes:
 
 ## Quick evaluation using metrics
 
-You can easily monitor your service in the Azure portal. From the **Metrics** page of your SignalR instance, you can select the **Server Load** metrics you can see the "pressure" of your service.
+You can easily monitor your service in the Azure portal. From the **Metrics** page of your SignalR instance, you can select the **Server Load** metrics to see the "pressure" of your service.
    
 <kbd>![Screenshot of the Server Load metric of Azure SignalR on Portal. The metrics shows Server Load is at about 8 percent usage. ](./media/signalr-concept-performance/server-load.png  "Server Load")</kbd>
 
@@ -57,8 +57,8 @@ To answer these questions, this guide first gives a high-level explanation of th
 
 This guide can't cover all scenarios (and different use cases, message sizes, message sending patterns, and so on). But it provides some methods to help you:
 
-- Evaluate your approximate requirement for the inbound or outbound messages.
-- Find the proper tiers by checking the performance table.
+* Evaluate your approximate requirement for the inbound or outbound messages.
+* Find the proper tiers by checking the performance table.
 
 ## Performance insight
 
@@ -95,7 +95,7 @@ Theoretically, Azure SignalR Service capacity is limited by compute resources: C
 The transport type is another factor that affects performance. The three types are:
 
 * [WebSocket](https://en.wikipedia.org/wiki/WebSocket): WebSocket is a bidirectional and full-duplex communication protocol over a single TCP connection. 
-* [Server-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events): erver-Sent-Event is a unidirectional protocol to push messages from server to client. 
+* [Server-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events): Server-Sent-Event is a unidirectional protocol to push messages from server to client. 
 * [Long-Polling](https://en.wikipedia.org/wiki/Push_technology): Long-Polling requires the clients to periodically poll information from the server through an HTTP request.
 
 For the same API under the same conditions, WebSocket has the best performance, Server-Sent-Event is slower, and Long-Polling is the slowest. Azure SignalR Service recommends WebSocket by default.
@@ -124,10 +124,10 @@ Assume that the app server is powerful enough and isn't the performance bottlene
 
 For a quick evaluation, assume the following default settings: 
 
-- The transport type is WebSocket.
-- The message size is 2,048 bytes.
-- A message is sent every 1 second.
-- Azure SignalR Service is in the default mode.
+* The transport type is WebSocket.
+* The message size is 2,048 bytes.
+* A message is sent every 1 second.
+* Azure SignalR Service is in the default mode.
 
 Every tier has its own maximum inbound bandwidth and outbound bandwidth. A smooth user experience isn't guaranteed after the inbound or outbound connection exceeds the limit.
 
@@ -154,15 +154,15 @@ Do *not* exceed the highlighted values in the following two tables.
   outboundBandwidth = outboundConnections * messageSize / sendInterval
 ```
 
-- *inboundConnections*: The number of connections sending the message.
+* *inboundConnections*: The number of connections sending the message.
 
-- *outboundConnections*: The number of connections receiving the message.
+* *outboundConnections*: The number of connections receiving the message.
 
-- *messageSize*: The size of a single message (average value). A small message that's less than 1,024 bytes has a performance impact that's similar to a 1,024-byte message.
+* *messageSize*: The size of a single message (average value). A small message that's less than 1,024 bytes has a performance impact that's similar to a 1,024-byte message.
 
-- *sendInterval*: The time of sending one message. Typically it's 1 second per message, which means sending one message every second. A smaller interval means sending more message in a time period. For example, 0.5 second per message means sending two messages every second.
+* *sendInterval*: The time of sending one message. Typically it's 1 second per message, which means sending one message every second. A smaller interval means sending more message in a time period. For example, 0.5 second per message means sending two messages every second.
 
-- *Connections*: The committed maximum threshold for Azure SignalR Service for every tier. If the connection number is increased further, it suffers from connection throttling.
+* *Connections*: The committed maximum threshold for Azure SignalR Service for every tier. If the connection number is increased further, it suffers from connection throttling.
 
 #### Evaluation for complex use cases
 
@@ -292,10 +292,10 @@ The **send to group** use case has a similar traffic pattern to **broadcast**. T
 Group member and group count are two factors that affect performance. To
 simplify the analysis, we define two kinds of groups:
 
-- **Small group**: Every group has 10 connections. The group number is equal to (max
+* **Small group**: Every group has 10 connections. The group number is equal to (max
 connection count) / 10. For example, for Unit1, if there are 1,000 connection counts, then we have 1000 / 10 = 100 groups.
 
-- **Big group**: The group number is always 10. The group member count is equal to (max
+* **Big group**: The group number is always 10. The group member count is equal to (max
 connection count) / 10. For example, for Unit1, if there are 1,000 connection counts, then every group has 1000 / 10 = 100 members.
 
 **Send to group** brings a routing cost to Azure SignalR Service because it has to find the target connections through a distributed data structure. As the sending connections increase, the cost increases.

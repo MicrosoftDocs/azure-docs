@@ -38,20 +38,20 @@ Large messages do negatively affect messaging performance. Use smaller messages 
 
 ## How messages are counted for billing
 
-Only outbound messages from Azure SignalR Service are counted for billing. Ping messages between clients and servers are ignored.
+Messages sent into the service are inbound messages and messages sent out of the service are outbound messages.  Only outbound messages from Azure SignalR Service are counted for billing. Ping messages between clients and servers are ignored.
 
 Messages larger than 2 KB are counted as multiple messages of 2 KB each. The message count chart in the Azure portal is updated every 100 messages per hub.
 
 For example, imagine you have one application server, and three clients:
 
-- When the application server broadcasts a 1-KB message to all connected clients, the message from the application server to the service is considered free inbound message. Only the three messages sent from service to each of the clients are billed as outbound messages.
+* When the application server broadcasts a 1-KB message to all connected clients, the message from the application server to the service is considered a free inbound msages.
 
-- When *client A* sends a 1 KB an inbound message to *client B*, without going through app server, the message is a free. The message routed from service to *client B* is billed as an outbound message.
+* When *client A* sends a 1 KB inbound message to *client B*, without going through app server, the message is a free inbound message. The message routed from service to *client B* is billed as an outbound message.
 
-- If you have three clients and one application server, when one client sends a 4-KB message for the server broadcast to all clients, the billed message count is eight: 
+* If you have three clients and one application server, when one client sends a 4-KB message for the server broadcast to all clients, the billed message count is eight: 
 
-    - One message from the service to the application server.
-    - Three messages from the service to the clients. Each message is counted as two 2-KB messages.
+  * One message from the service to the application server.
+  * Three messages from the service to the clients. Each message is counted as two 2-KB messages.
 
 ## How connections are counted
 
@@ -59,26 +59,22 @@ The Azure SignalR Service creates application server and client connections. By 
 
 For example, assume that you have two application servers and you define five hubs in code. The server connection count is 50: (2 app servers * 5 hubs * 5 connections per hub).
 
-The connection count shown in the Azure portal includes server connections, client connections, diagnostic connections, and live trace connections. The connection types are defined in the following list:
+The connection count shown in the Azure portal includes server, client, diagnostic, and live trace connections. The connection types are defined in the following list:
 
-- **Server connection**: Connects Azure SignalR Service and the app server.
-- **Client connection**: Connects Azure SignalR Service and the client app.
-- **Diagnostic connection**: A special type of client connection that can produce a more detailed log, which might affect performance. This kind of client is designed for troubleshooting.
-- **Live trace connection**: Connects to the live trace endpoint and receives live traces of Azure SignalR Service. 
- 
+* **Server connection**: Connects Azure SignalR Service and the app server.
+* **Client connection**: Connects Azure SignalR Service and the client app.
+* **Diagnostic connection**: A special type of client connection that can produce a more detailed log, which might affect performance. This kind of client is designed for troubleshooting.
+* **Live trace connection**: Connects to the live trace endpoint and receives live traces of Azure SignalR Service.
+
 A live trace connection isn't counted as a client connection or as a server connection. 
 
 ASP.NET SignalR calculates server connections in a different way. It includes one default hub in addition to hubs that you define. By default, each application server needs five more initial server connections. The initial connection count for the default hub stays consistent with other hubs.
 
-The service and the application server keep syncing connection status and making adjustment to server connections to get better performance and service stability.  So you might see server connection number changes from time to time.
-
-## How inbound/outbound traffic is counted
-
-Messages sent into the service are inbound messages. Messages sent out of the service are outbound messages. Traffic is calculated in bytes.
+The service and the application server keep syncing connection status and making adjustments to server connections to get better performance and service stability.  So you may see changes in the number of server connections in your running service.
 
 ## Related resources
 
-- [Aggregation types in Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr )
-- [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration)
-- [JSON](https://www.json.org/)
-- [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)
+* [Aggregation types in Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr )
+* [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration)
+* [JSON](https://www.json.org/)
+* [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)
