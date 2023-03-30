@@ -31,7 +31,7 @@ Report-only mode is a new Conditional Access policy state that allows administra
 > [!WARNING]
 > Policies in report-only mode that require compliant devices may prompt users on Mac, iOS, and Android to select a device certificate during policy evaluation, even though device compliance is not enforced. These prompts may repeat until the device is made compliant. To prevent end users from receiving prompts during sign-in, exclude device platforms Mac, iOS and Android from report-only policies that perform device compliance checks. Note that report-only mode is not applicable for Conditional Access policies with "User Actions" scope.
 
-![Screenshot showing the report-only tab in a sign-in log](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
+![Screenshot showing the report-only tab in a sign-in log.](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 
 ## Policy results
 
