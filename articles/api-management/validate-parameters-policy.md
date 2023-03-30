@@ -43,8 +43,7 @@ The `validate-parameters` policy validates the header, query, or path parameters
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | specified-parameter-action | [Action](#actions) to perform for request parameters specified in the API schema. <br/><br/> When provided in a `headers`, `query`, or `path` element, the value overrides the value of `specified-parameter-action` in the `validate-parameters` element. Policy expressions are allowed. |  Yes     | N/A   |
 | unspecified-parameter-action | [Action](#actions) to perform for request parameters that aren’t specified in the API schema. <br/><br/>When provided in a `headers`or `query` element, the value overrides the value of `unspecified-parameter-action` in the `validate-parameters` element. Policy expressions are allowed. |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
-| name | Name of the parameter to override validation action for. This value is case insensitive.  | Yes | N/A |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to. Policy expressions aren't allowed. |   No    | N/A   |
 
 ## Elements
 
