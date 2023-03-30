@@ -1,7 +1,7 @@
 ---
 title: "Project sharing with custom classifier"
 titleSuffix: Azure Applied AI Services
- description: Learn how to share projects using a custom classification model.
+description: Learn how to share projects using a custom classification model.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
