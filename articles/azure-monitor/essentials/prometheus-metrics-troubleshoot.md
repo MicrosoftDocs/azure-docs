@@ -11,6 +11,8 @@ ms.reviewer: aul
 
 Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected in Azure Monitor.
 
+Note that the ReplicaSet pod scrapes metrics from `kube-state-metrics` and custom scrape targets in the `ama-metrics-prometheus-config` configmap. The DaemonSet pods scrape metrics from the following targets on their respective node: `kubelet`, `cAdvisor`, `node-exporter`, and custom scrape targets in the `ama-metrics-prometheus-config-node` configmap. The pod that you will want to view the logs and the Prometheus UI for will depend on which scrape target you are investigating.
+
 ## Pod status
 
 Check the pod status with the following command:

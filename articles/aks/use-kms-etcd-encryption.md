@@ -2,6 +2,7 @@
 title: Use Key Management Service (KMS) etcd encryption in Azure Kubernetes Service (AKS) 
 description: Learn how to use the Key Management Service (KMS) etcd encryption with Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 02/20/2023
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Nudge users to set up Microsoft Authenticator - Azure Active Directory
+title: Nudge users to set up Microsoft Authenticator
 description: Learn how to move your organization away from less secure authentication methods to Microsoft Authenticator
 
 services: active-directory
@@ -69,9 +69,9 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Enable the registration campaign policy using the portal
 
-To enable a registration campaign in the Azure AD portal, complete the following steps:
+To enable a registration campaign in the Azure portal, complete the following steps:
 
-1. In the Azure AD portal, click **Security** > **Authentication methods** > **Registration campaign**.
+1. In the Azure portal, click **Security** > **Authentication methods** > **Registration campaign**.
 1. For **State**, click **Enabled**, select any users or groups to exclude from the registration campaign, and then click **Save**.
    
    ![Screenshot of enabling a registration campaign.](./media/how-to-nudge-authenticator-app/registration-campaign.png)

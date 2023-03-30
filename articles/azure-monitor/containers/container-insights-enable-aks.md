@@ -3,7 +3,7 @@ title: Enable Container insights for Azure Kubernetes Service (AKS) cluster
 description: Learn how to enable Container insights on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: conceptual
 ms.date: 01/09/2023
-ms.custom: devx-track-terraform, devx-track-azurepowershell, devx-track-azurecli, ignite-2022
+ms.custom: devx-track-terraform, ignite-2022
 ms.reviewer: aul
 ---
 
@@ -449,7 +449,7 @@ Use the following procedure if you're not using managed identity authentication.
 ## Limitations
 
 - Enabling managed identity authentication (preview) isn't currently supported by using Terraform or Azure Policy.
-- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-name\>-\<cluster-region\>*. Currently, this name can't be modified.
+- When you enable managed identity authentication (preview), a data collection rule is created with the name *MSCI-\<cluster-region\>-<\cluster-name\>*. Currently, this name can't be modified.
 
 ## Next steps
 

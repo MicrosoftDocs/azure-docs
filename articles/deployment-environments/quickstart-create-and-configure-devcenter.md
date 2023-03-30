@@ -162,8 +162,8 @@ To add a catalog to your dev center, you first need to gather some information.
 ### Gather GitHub repo information
 To add a catalog, you must specify the GitHub repo URL, the branch, and the folder that contains your catalog items. You can gather this information before you begin the process of adding the catalog to the dev center, and paste it somewhere accessible, like notepad.
 
-> [!TIP] 
->  If you are attaching an Azure DevOps repository, use these steps: [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-of-an-azure-devops-repository).
+> [!TIP]
+> If you are attaching an Azure DevOps repository, use these steps: [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-of-an-azure-devops-repository).
 
 1. On your [GitHub](https://github.com) account page, select **<> Code**, and then select copy.
 1. Take a note of the branch that you're working in.

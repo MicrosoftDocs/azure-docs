@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Version release history | Microsoft Docs'
+title: 'Azure AD Connect: Version release history'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync.
 author: billmath
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
@@ -47,7 +47,6 @@ Required permissions | For permissions required to apply an update, see [Azure A
 > 
 > The following versions will retire on 15 March 2023:
 >
-> - 2.0.91.0
 > - 2.0.89.0
 > - 2.0.88.0
 > - 2.0.28.0

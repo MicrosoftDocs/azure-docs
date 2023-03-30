@@ -5,6 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.author: cshoe
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 1/18/2023
 ---
@@ -112,7 +113,7 @@ Next, query for the infrastructure subnet ID.
 # [Bash](#tab/bash)
 
 ```bash
-INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
+INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

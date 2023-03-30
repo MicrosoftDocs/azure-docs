@@ -56,7 +56,7 @@ This article assumes that you're already signed in to your Azure subscription fr
 
 In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required storage account. The connection string for this account is stored securely in the app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your storage account when running the function locally, you must download app settings to the *local.settings.json* file.
 
-1. Press <kbd>F1</kbd> to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings....`.
+1. Press <kbd>F1</kbd> to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings...`.
 
 1. Choose the function app you created in the previous article. Select **Yes to all** to overwrite the existing local settings.
 

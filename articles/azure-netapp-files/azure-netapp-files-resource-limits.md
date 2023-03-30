@@ -100,9 +100,9 @@ The service dynamically adjusts the `maxfiles` limit for a volume based on its p
 >[!IMPORTANT]
 > If your volume has a volume size (quota) of more than 4 TiB and you want to increase the `maxfiles` limit, you must initiate [a support request](#request-limit-increase).
 
-If you've allocated at least 4 TiB of quota for a volume, you can initiate a support request to increase the `maxfiles` (inodes) limit beyond 106,255,630. For every 106,255,630 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB. For example, if you increase the `maxfiles` limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
+For volumes 100 TiB or under, if you've allocated at least 5 TiB of quota for a volume, you can initiate a support request to increase the `maxfiles` (inodes) limit beyond 106,255,630. For every 106,255,630 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 5 TiB. For example, if you increase the `maxfiles` limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 5 TiB to 10 TiB. 
 
-You can increase the `maxfiles` limit to 531,278,150 if your volume quota is at least 20 TiB. 
+For volumes 100 TiB or under, you can increase the `maxfiles` limit up to 531,278,150 if your volume quota is at least 25 TiB.
 
 >[!IMPORTANT]
 > Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, if you have crossed the 63,753,378 `maxfiles` limit, the volume quota cannot be reduced below its corresponding index of 2 TiB.

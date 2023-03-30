@@ -68,16 +68,16 @@ ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows custom
 > 
 > 
 
-ExpressRoute supports the connection of multiple vNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
+ExpressRoute supports the connection of multiple VNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
 
 ## Configuring ExpressRoute
 ExpressRoute can be configured to support three types of traffic ([routing domains](#expressroute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into private peering, Microsoft peering, and public peering (deprecated). You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
 
 ### Connect-through model
-In a connect-through configuration, you will be responsible for all of the networking underpinnings to connect your customer's datacenter resources to the subscriptions hosted in Azure. Each of your customers that want to use Azure capabilities will need their own ExpressRoute connection, which will be managed by  you. You will use the same methods the customer would use to procure the ExpressRoute circuit. You will follow the same steps outlined in the article [ExpressRoute workflows](expressroute-workflows.md) for circuit provisioning and circuit states. You will then configure the Border Gateway Protocol (BGP) routes to control the traffic flowing between the on-premises network and Azure vNet.
+In a connect-through configuration, you will be responsible for all of the networking underpinnings to connect your customer's datacenter resources to the subscriptions hosted in Azure. Each of your customers that want to use Azure capabilities will need their own ExpressRoute connection, which will be managed by  you. You will use the same methods the customer would use to procure the ExpressRoute circuit. You will follow the same steps outlined in the article [ExpressRoute workflows](expressroute-workflows.md) for circuit provisioning and circuit states. You will then configure the Border Gateway Protocol (BGP) routes to control the traffic flowing between the on-premises network and Azure VNet.
 
 ### Connect-to model
-In a connect-to configuration, your customer already has an existing connection to Azure or will initiate a connection to the internet service provider linking ExpressRoute from their own datacenter directly to Azure, instead of your datacenter. To begin the provisioning process, your customer will follow the steps as described in the Connect-Through model, above. Once the circuit has been established, your customer will need to configure the on-premises routers to be able to access both your network and Azure vNets.
+In a connect-to configuration, your customer already has an existing connection to Azure or will initiate a connection to the internet service provider linking ExpressRoute from their own datacenter directly to Azure, instead of your datacenter. To begin the provisioning process, your customer will follow the steps as described in the Connect-Through model, above. Once the circuit has been established, your customer will need to configure the on-premises routers to be able to access both your network and Azure VNets.
 
 You can assist with setting up the connection and configuring the routes to allow the resources in your datacenter(s) to communicate with the client resources in your datacenter, or with the resources hosted in Azure.
 
@@ -94,7 +94,7 @@ You can define custom routes filters to allow only the route(s) you want to allo
 ## Routing
 ExpressRoute connects to the Azure networks through the Azure Virtual Network Gateway. Network gateways provide routing for Azure virtual networks.
 
-Creating Azure Virtual Networks also creates a default routing table for the vNet to direct traffic to/from the subnets of the vNet. If the default route table is insufficient for the solution, custom routes can be created to route outgoing traffic to custom appliances or to block routes to specific subnets or external networks.
+Creating Azure Virtual Networks also creates a default routing table for the VNet to direct traffic to/from the subnets of the VNet. If the default route table is insufficient for the solution, custom routes can be created to route outgoing traffic to custom appliances or to block routes to specific subnets or external networks.
 
 ### Default routing
 The default route table includes the following routes:
@@ -111,10 +111,10 @@ The default route table includes the following routes:
 User-defined routes allow the control of traffic outbound from the assigned subnet to other subnets in the virtual network or over one of the other predefined gateways (ExpressRoute; internet or VPN). The default system routing table can be replaced with a user-defined routing table that replaces the default routing table with custom routes. With user-defined routing, customers can create specific routes to appliances such as firewalls or intrusion detection appliances, or block access to specific subnets from the subnet hosting the user-defined route. For an overview of User-Defined Routes look [here](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## Security
-Depending on which model is in use, Connect-To or Connect-Through, your customer defines the security policies in their vNet or provides the security policy requirements to the CSP to define to their vNets. The following security criteria can be defined:
+Depending on which model is in use, Connect-To or Connect-Through, your customer defines the security policies in their VNet or provides the security policy requirements to the CSP to define to their VNets. The following security criteria can be defined:
 
-1. **Customer Isolation** — The Azure platform provides customer isolation by storing Customer ID and vNet info in a secure database, which is used to encapsulate each customer’s traffic in a GRE tunnel.
-2. **Network Security Group (NSG)** rules are for defining allowed traffic into and out of the subnets within vNets in Azure. By default, the NSG contains Block rules to block traffic from the Internet to the vNet and Allow rules for traffic within a vNet. For more information about Network Security Groups, look [here](https://azure.microsoft.com/blog/network-security-groups/).
+1. **Customer Isolation** — The Azure platform provides customer isolation by storing Customer ID and VNet info in a secure database, which is used to encapsulate each customer’s traffic in a GRE tunnel.
+2. **Network Security Group (NSG)** rules are for defining allowed traffic into and out of the subnets within VNets in Azure. By default, the NSG contains Block rules to block traffic from the Internet to the VNet and Allow rules for traffic within a VNet. For more information about Network Security Groups, look [here](https://azure.microsoft.com/blog/network-security-groups/).
 3. **Force tunneling** —This is an option to redirect internet bound traffic originating in Azure to be redirected over the 
    ExpressRoute connection to the on premises datacenter. For more information about Forced tunneling look [here](expressroute-routing.md#advertising-default-routes).  
 4. **Encryption** — Even though the ExpressRoute circuits are dedicated to a specific customer, there is the possibility that the network provider could be breached, allowing an intruder to examine packet traffic. To address this potential, a customer or CSP can encrypt traffic over the connection by defining IPSec tunnel-mode policies for all traffic flowing between the on premises resources and Azure resources (refer to the optional Tunnel mode IPSec for Customer 1 in Figure 5: ExpressRoute Security, above). The second option would be to use a firewall appliance at each the end point of the ExpressRoute circuit. This will require additional third-party firewall VMs/Appliances to be installed on both ends to encrypt the traffic over the ExpressRoute circuit.

@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure AD certificate-based authentication - Azure Active Directory
+title: How to configure Azure AD certificate-based authentication
 description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
 
 ms.service: active-directory
@@ -192,6 +192,9 @@ To enable Azure AD CBA and configure user bindings in the Azure portal, complete
       :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/multifactor-policy-oid.png" alt-text="Screenshot of mapping to Policy OID.":::
 
 1. Click **Ok** to save any custom rule.
+
+>[!IMPORTANT]
+>PolicyOID should be in object identifier format as per https://www.rfc-editor.org/rfc/rfc5280#section-4.2.1.4. For ex: If the certificate policies says "All Issuance Policies" you should enter the OID as 2.5.29.32.0 in the add rules editor. Entering the string "All Issuance Policies" in rules editor is invalid and will not take effect.
 
 ## Step 4: Configure username binding policy
 

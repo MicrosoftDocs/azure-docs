@@ -9,9 +9,8 @@ ms.workload: infrastructure
 ms.date: 07/07/2022
 ms.author: saraic
 ms.reviewer: cynthn
-ms.custom: template-how-to , devx-track-azurecli 
+ms.custom: template-how-to
 ms.devlang: azurecli
-
 ---
 
 # Share images using a community gallery (preview)
@@ -133,6 +132,3 @@ To delete a gallery shared to community, you must first run `az sig share reset`
 Create an [image definition and an image version](image-version.md).
 
 Create a VM from a [generalized](vm-generalized-image-version.md#community-gallery) or [specialized](vm-specialized-image-version.md#community-gallery) image in a community gallery.
-
-
-

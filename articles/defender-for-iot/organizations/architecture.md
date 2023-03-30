@@ -33,7 +33,7 @@ OT network sensors discover and continuously monitor network traffic across your
 
 - Network sensors use OT-aware analytics engines and Layer-6 Deep Packet Inspection (DPI) to detect threats, such as fileless malware, based on anomalous or unauthorized activity.
 
-Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only the metadata is transferred on for management, either to the Azure portal or an on-premises management console.
+Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only telemetry and insights are transferred on for management, either to the Azure portal or an on-premises management console.
 
 For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 

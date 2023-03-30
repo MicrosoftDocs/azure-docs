@@ -3,7 +3,7 @@ title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
 ms.date: 09/09/2022
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Resource functions for ARM templates
