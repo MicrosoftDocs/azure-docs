@@ -83,7 +83,7 @@ $osDisk = Get-AzDisk `
 -ResourceGroupName $resourceGroupName `
 -DiskName $osDiskName
 ```
-You can now attach this disk as the OS disk to a [new VM](#create-the-new-vm).
+You can now attach this disk as the OS disk to a new VM.
 
 Create the [virtual network](../virtual-network/virtual-networks-overview.md) and subnet for the VM.
 
