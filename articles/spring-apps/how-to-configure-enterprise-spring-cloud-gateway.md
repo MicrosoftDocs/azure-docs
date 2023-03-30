@@ -46,7 +46,7 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 
 This section describes how to assign a public endpoint to Spring Cloud Gateway and configure its properties.
 
-#### [Azure portal](#tab/Azure-Portal)
+#### [Azure portal](#tab/Azure-portal)
 
 To assign an endpoint in the Azure portal, do the following steps:
 
@@ -87,7 +87,7 @@ The available metadata options are described in the following table.
 
 You can use the Azure portal and the Azure CLI to edit metdata properties.
 
-#### [Azure portal](#tab/Azure-Portal)
+#### [Azure portal](#tab/Azure-portal)
 
 To edit metadata in the Azure portal, do these steps:
 
@@ -99,7 +99,7 @@ To edit metadata in the Azure portal, do these steps:
 
 :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
 
-#### [Azure CLI](#tab/Azure-CLLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
 Use the following command to configure VMware Spring Cloud Gateway metadata properties. You'll need the endpoint URL obtained from the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
 
@@ -129,7 +129,7 @@ To set up SSO with Azure AD, see [How to set up single sign-on with Azure Active
 
 You can use the Azure portal and the Azure CLI to edit SSO properties.
 
-#### [Azure portal](#tab/Azure-Portal)
+#### [Azure portal](#tab/Azure-portal)
 
 To edit SSO properties in the Azure portal, do these steps:
 
