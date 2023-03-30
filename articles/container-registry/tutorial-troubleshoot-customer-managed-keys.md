@@ -54,6 +54,15 @@ The identity attached to a registry is set for autorenewal to avoid expiry. If y
 
 You have to reassign the identity back to registry explicitly.
 
+1. Run the [az acr identity assign](/cli/azure/acr/identity/#az-acr-identity-assign) command to reassign the identity manualy.
+
+    - For example,
+   
+    ```azurecli-interactive
+    az acr identity assign -n myRegistry \
+    --identities "/subscriptions/mysubscription/resourcegroups/myresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myidentity"
+    ``` 
+
 ## Accidental deletion of a key vault or key
 
 Deletion of the key vault, or the key, that's used to encrypt a registry with a customer-managed key makes the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
