@@ -12,7 +12,7 @@ ms.custom:
 
 # Tutorial: Migrate from Google Maps to Azure Maps
 
-This article provides insights on how to migrate web, mobile and server-based applications from Google Maps to the Microsoft Azure Maps platform. This tutorial includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps. In this tutorial, you'll learn:
+This article provides insights on how to migrate web, mobile and server-based applications from Google Maps to the Microsoft Azure Maps platform. This tutorial includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps. This tutorial demonstrates:
 
 > [!div class="checklist"]
 > * High-level comparison for equivalent Google Maps features available in Azure Maps.
@@ -36,7 +36,7 @@ Azure Maps provides developers from all industries powerful geospatial capabilit
 
 ## High-level platform comparison
 
-The table provides a high-level list of Azure Maps features, which correspond to Google Maps features. This list doesn't show all Azure Maps features. Additional Azure Maps features include: accessibility, geofencing, isochrones, spatial operations, direct map tile access, batch services, and data coverage comparisons (that is, imagery coverage).
+The table provides a high-level list of Azure Maps features, which correspond to Google Maps features. This list doesn't show all Azure Maps features. Other Azure Maps features include: accessibility, geofencing, isochrones, spatial operations, direct map tile access, batch services, and data coverage comparisons (that is, imagery coverage).
 
 | Google Maps feature         | Azure Maps support                     |
 |-----------------------------|:--------------------------------------:|
@@ -83,7 +83,7 @@ Here are some related resources for Azure Maps:
 
 ## Suggested migration plan
 
-The following is a high-level migration plan.
+A high-level migration plan includes.
 
 1. Take inventory of the Google Maps SDKs and services that your application uses. Verify that Azure Maps provides alternative SDKs and services.
 2. If you don't already have one, create an [Azure subscription].
