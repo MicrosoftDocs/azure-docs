@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Payment HSM fastpathenabled tag
-description: The fastpathenabled tag, as it relates to Azure Payment HSM and affiliated subscriptions and virtual networks
+title: Azure Payment HSM "fastpathenabled" feature flag and tag
+description: The "fastpathenabled" feature flag and tag, as it relates to Azure Payment HSM and affiliated subscriptions and virtual networks
 services: payment-hsm
 author: msmbaldwin
 
@@ -31,16 +31,16 @@ The "FastPathEnabled" feature flag must be added/registered to all subscriptions
 
 ### Virtual networks
 
-The "fastpathenabled" tag must be added to every virtual networks connecting to the payment HSM's delegated subnet. In a Hub and Spoke topology, the "fastpathenabled" tag must be added to both the central Hub VNet and the peered Spoke VNet containing the payment HSM.
+The "fastpathenabled" tag must be added to every virtual network connecting to the payment HSM's delegated subnet. In a Hub and Spoke topology, the "fastpathenabled" tag must be added to both the central Hub VNet and the peered Spoke VNet containing the payment HSM.
 
-The "fastpathenabled" tag is not required on non-directly peered VNets reaching the Payment HSM's VNet via a Central hub.
+The "fastpathenabled" tag isn't required on nondirectly peered VNets reaching the Payment HSM's VNet via a Central hub.
 
 > [!WARNING]
 > Adding the "fastpathenabled" tag through the Azure portal is insufficient—it must be done from the commandline. To do so, follow the steps outlined in [How to peer Azure Payment HSM virtual networks](peer-vnets.md?tabs=azure-cli).
 
 ### Virtual Network NAT scenario
 
-For an Virtual Network NAT scenario, you must add the "fastpathenabled" tag with a value of `True` when creating the NAT gateway (not after the NAT gateway is created).
+For a Virtual Network NAT scenario, you must add the "fastpathenabled" tag with a value of `True` when creating the NAT gateway (not after the NAT gateway is created).
 
 ## Next steps
 
