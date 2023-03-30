@@ -5,6 +5,7 @@ author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/16/2018
 ---

@@ -16,8 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/16/2022
 ms.author: radeltch
-ms.custom: H1Hack27Feb2017
-
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
 # SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk
 

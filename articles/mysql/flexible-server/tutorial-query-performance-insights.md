@@ -3,6 +3,7 @@ title: 'Tutorial: Query Performance Insight for Azure Database for MySQL - Flexi
 description: 'This article shows you the tools to help visualize Query Performance Insight for Azure Database for MySQL - Flexible Server.'
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 author: code-sidd
 ms.author: sisawant
@@ -176,5 +177,3 @@ In some cases, a high execution count can lead to more network round trips. Roun
 ## Next steps
 - [Learn more about Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md#visualizations) and their rich visualization options.
 - [Learn more about slow query logs](concepts-slow-query-logs.md).
-
-

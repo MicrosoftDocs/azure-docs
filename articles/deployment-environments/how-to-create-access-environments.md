@@ -5,7 +5,7 @@ description: Learn how to create and access an environment in an Azure Deploymen
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: deployment-environments
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/14/2023
 ---

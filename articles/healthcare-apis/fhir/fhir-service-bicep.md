@@ -3,6 +3,7 @@ title: Deploy Azure Health Data Services FHIR service using Bicep
 description: Learn how to deploy FHIR service by using Bicep
 author: expekesheth
 ms.service: healthcare-apis
+ms.custom: devx-track-bicep
 ms.topic: tutorial
 ms.author: kesheth
 ms.date: 05/27/2022

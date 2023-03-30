@@ -4,6 +4,7 @@ description: In this tutorial, you create an Azure Data Factory pipeline by usin
 author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-arm-template
 ms.topic: tutorial
 ms.date: 10/22/2021
 ms.author: jianleishen 

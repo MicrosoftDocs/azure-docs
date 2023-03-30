@@ -5,6 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
+ms.custom: devx-track-arm-template
 ms.topic: tutorial 
 ms.date: 02/27/2023
 ms.author: jasteppe

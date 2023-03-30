@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 01/20/2023
 ms.author: tamram
 ms.subservice: common
+ms.custom: devx-track-arm-template
 ---
 
 # Migrate a classic storage account to Azure Resource Manager

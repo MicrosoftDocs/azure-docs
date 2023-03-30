@@ -6,6 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
+ms.custom: devx-track-arm-template
 ms.date: 03/22/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers

@@ -6,6 +6,7 @@ documentationcenter: na
 author: mbender-ms
 ms.author: mbender
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 ms.service: azure
 ms.topic: article
 ms.tgt_pltfrm: na

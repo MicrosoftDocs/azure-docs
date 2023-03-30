@@ -2,6 +2,7 @@
 title: Azure Resource Manager template samples - Event Grid | Microsoft Docs
 description: This article provides a list of Azure Resource Manager template samples for Azure Event Grid on GitHub.
 ms.topic: sample
+ms.custom: devx-track-arm-template
 ms.date: 09/28/2021
 ---
 

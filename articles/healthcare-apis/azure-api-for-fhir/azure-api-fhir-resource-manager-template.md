@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-api
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-api, devx-track-arm-template
 ms.author: kesheth
 ms.date: 06/03/2022
 ---

@@ -4,7 +4,7 @@ description: Learn how to create a container in Azure Cosmos DB for Table by usi
 author: seesharprun
 ms.service: cosmos-db
 ms.subservice: table
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: sidandrews

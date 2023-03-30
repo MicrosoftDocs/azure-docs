@@ -3,6 +3,7 @@ title: Major version upgrade in Azure Database for MySQL - Single Server
 description: This article describes how you can upgrade major version for Azure Database for MySQL - Single Server 
 ms.service: mysql
 ms.subservice: single-server
+ms.custom: devx-track-azurecli
 author: code-sidd 
 ms.author: sisawant
 ms.topic: how-to

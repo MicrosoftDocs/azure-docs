@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/27/2023
 ms.reviewer: sgautam
 ms.author: banders 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
 ---
 
 # Programmatically create Azure subscriptions for a Microsoft Customer Agreement with the latest APIs

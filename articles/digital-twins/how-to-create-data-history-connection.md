@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Create a data history connection
 titleSuffix: Azure Digital Twins
 description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
@@ -8,11 +7,10 @@ ms.author: baanders # Microsoft employees only
 ms.date: 03/28/2023
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 

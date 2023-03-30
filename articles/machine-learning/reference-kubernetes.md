@@ -8,6 +8,7 @@ ms.author: jinzhong
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: devx-track-arm-template
 ms.topic: reference
 ms.date: 06/06/2022
 ---

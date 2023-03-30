@@ -8,6 +8,7 @@ ms.date: 12/1/2022
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
+ms.custom: devx-track-arm-template
 ---
 
 # Use SAP on Azure Deployment Automation Framework from Azure DevOps Services

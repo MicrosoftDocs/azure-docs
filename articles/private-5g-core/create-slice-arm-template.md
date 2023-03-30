@@ -7,7 +7,7 @@ ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 09/30/2022
-ms.custom: template-how-to 
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Create a slice using an ARM template

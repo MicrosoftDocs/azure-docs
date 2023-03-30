@@ -6,7 +6,7 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: mbender 
-ms.custom: devx-track-azurepowershell, template-how-to
+ms.custom: devx-track-azurepowershell, template-how-to, devx-track-arm-template
 ---
 
 # Move Azure external Load Balancer to another region using Azure PowerShell

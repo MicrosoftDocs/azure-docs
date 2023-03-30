@@ -6,7 +6,7 @@ ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jroth
 author: rothja
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 06/24/2022
 ---
 

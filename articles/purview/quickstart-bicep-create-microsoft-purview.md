@@ -6,6 +6,7 @@ ms.author: whhender
 ms.date: 09/12/2022
 ms.topic: quickstart
 ms.service: purview
+ms.custom: devx-track-bicep
 ---
 
 # Quickstart: Create a Microsoft Purview (formerly Azure Purview) account using a Bicep file

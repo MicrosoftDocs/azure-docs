@@ -10,7 +10,7 @@ ms.topic: sample
 ms.workload: infrastructure
 ms.date: 02/28/2023
 ms.author: mbender
-ms.custom: seodec18, engagement-fy23
+ms.custom: seodec18, engagement-fy23, devx-track-azurepowershell
 ---
 
 # Azure PowerShell Samples for Load Balancer

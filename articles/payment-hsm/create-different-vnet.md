@@ -7,6 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 09/12/2022
 ---
 

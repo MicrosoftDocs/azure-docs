@@ -3,7 +3,7 @@ title: "Quickstart: New policy assignment with Bicep file"
 description: In this quickstart, you use a Bicep file to create a policy assignment to identify non-compliant resources.
 ms.date: 03/24/2022
 ms.topic: quickstart
-ms.custom: subject-bicepqs
+ms.custom: subject-bicepqs, devx-track-bicep
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources by using a Bicep file
 
