@@ -236,8 +236,15 @@ kubectl get service configmap-demo-service -n quickstart-appconfig
 ```
 
 ## Clean up resources
-
-[!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
+1. Remove the resources deployed to AKS
+    ``` bash
+    kubectl delete -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
+    kubectl delete namespace quickstart-appconfig
+    ```
+2. Uninstall the Azure App Configuration Kubernetes Provider
+   ``` bash
+   helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-system
+   ```
 
 ## Next steps
 
