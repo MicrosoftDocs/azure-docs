@@ -46,7 +46,7 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 ## Next steps
 
-For more information, see:
+In this article, you learned about the security content provided with the Microsoft Sentinel Solution for SAP BTP.
 
 - [Deploy Microsoft Sentinel solution for SAP BTP](deploy-sap-btp-solution.md)
 - [Microsoft Sentinel Solution for SAP BTP overview](sap-btp-solution-overview.md)

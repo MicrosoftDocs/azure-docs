@@ -11,7 +11,8 @@ ms.date: 03/30/2023
 
 This article describes how to deploy the Microsoft Sentinel solution for SAP BTP. The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP Business Technology Platform (BTP) system, by collecting audits and activity logs from the BTP infrastructure and BTP based apps, and detecting threats, suspicious activities, illegitimate activities, and more. Read more about the solution. [Read more about the solution](sap-btp-solution-overview.md).
 
-## Overview
+> [!IMPORTANT]
+> The Microsoft Sentinel Solution for SAP BTP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -19,10 +20,10 @@ Before you begin, verify that:
 
 - The Microsoft Sentinel solution is enabled. 
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
-- Your organization uses SAP BTP (in Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.
+- Your organization uses SAP BTP (in a Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.
 - You have a SAP BTP account ready. You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
 - Your Microsoft Sentinel user is assigned the [Microsoft Sentinel Contributor](../../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor).
-- Your SAP user is assigned the SAP BTP Subaccount Administrator role collection role. · Workspace: read and write permissions on the workspace are required. · 
+- Your SAP user is assigned the SAP BTP Subaccount Administrator role collection role.
 - You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites` and `Microsoft.Web/ServerFarms` permissions.
 - You can create [Data Collection Rules/Endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) with the permissions: 
     - `Microsoft.Insights/Components`, `Microsoft.Storage/StorageAccounts`, `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`
@@ -44,7 +45,7 @@ Before you begin, verify that:
 
 1. Select **Create**.
 
-TBD - screenshot
+    TBD - screenshot
 
 1. Select the resource group and the Sentinel workspace in which you want to deploy the solution. 
 1. Select **Next** until you pass validation and select **Create**.
@@ -55,24 +56,25 @@ TBD - screenshot
     - url: 
     - uaa.clientid
     - uaa.url
-    TBD - screenshot
+    
+        TBD - screenshot
 
     > [!NOTE]
     > Retrieving audits for the global account doesn't automatically retrieve audits for the sub-account. Follow the connector configuration steps for each of the sub-accounts you want to monitor, and also follow these steps for the global account. Review these [account auditing configuration considerations](#account-auditing-configuration-considerations).
 
-1. Completer all configuration steps, including the Function App deployment and the Key Vault access policy configuration. 
+1. Complete all configuration steps, including the Function App deployment and the Key Vault access policy configuration. 
 1. Make sure that BTP logs are flowing into the Microsoft Sentinel workspace:
     1. Log in to your BTP sub-account and run a few activities that generate logs, such as logins, adding users, changing permissions, changing settings, and so on.
     1. Allow 20-30 minutes for the logs to start flowing.
     1. In the **SAP BTP** connector page, confirm that Microsoft Sentinel receives the BTP data, or query the `SAPBTPAuditLog_CL` table directly. 
 
-1. Enable the workbook and the analytics rules provided as part of the solution by following [these guidelines](../sentinel-solutions-deploy.md#analytics-rule).
+1. Enable the [workbook](sap-btp-security-content.md#sap-btp-workbook) and the [analytics rules](sap-btp-security-content.md#built-in-analytics-rules) provided as part of the solution by following [these guidelines](../sentinel-solutions-deploy.md#analytics-rule).
 
 ## Account auditing configuration considerations
 
 ### Global account auditing configuration
 
-When you enable the audit log retrieval in the BTP cockpit for the Global account: If the sub-account for which you want to entitle the Audit Log Management Service is under a directory, you must entitle the service at the directory level first, and only then you can entitle the service at the sub-account level.
+When you enable audit log retrieval in the BTP cockpit for the Global account: If the sub-account for which you want to entitle the Audit Log Management Service is under a directory, you must entitle the service at the directory level first, and only then you can entitle the service at the sub-account level.
 
 ### Sub-account auditing configuration 
 
@@ -84,9 +86,9 @@ However, while this guide explains how to enable the audit log retrieval using t
 1. Create a service key in the new **Audit Log Management Service** instance.
 1. View the Service key and retrieve the required parameters mentioned in step 2 of the configuration instructions in the data connector UI (**url**, **uaa.url**, **uaa.clientid**, **uaa.clientsecret**).
 
-
 ## Next steps
 
-Begin the deployment of the Microsoft Sentinel solution for SAP® applications by reviewing the prerequisites:
-> [!div class="nextstepaction"]
-> [Prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+In this article, you learned how to deploy the Microsoft Sentinel Solution for SAP BTP.
+> 
+> - [Learn how to enable the security content](../sentinel-solutions-deploy.md#analytics-rule)
+> - [Review the solution's security content](sap-btp-security-content.md)
