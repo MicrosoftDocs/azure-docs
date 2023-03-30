@@ -268,9 +268,9 @@ You can download the sample app demonstrating this action from [GitHub](https://
 
 ### Throw an exception when email sending tier limit is reached
 
-There are per minute and per hour [limits to the amount of emails you can send using the Azure Communication Email Service](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, any further `beginSend` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you set up logging with the Azure SDK to capture these response codes.
+There are per minute and per hour [limits to the amount of emails you can send using the Azure Communication Email Service](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, any further `beginSend` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/azure/developer/java/sdk/logging-overview) to capture these response codes.
 
-If setting up logging is not an option, you can manually define a custom retry policy as shown below. 
+Alternatively, you can manually define a custom policy as shown below. 
 
 ```java
 import com.azure.core.http.HttpResponse;

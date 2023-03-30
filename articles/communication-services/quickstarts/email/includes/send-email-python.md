@@ -351,9 +351,9 @@ You can download the sample app demonstrating this action from [GitHub](https://
 
 ### Throw an exception when email sending tier limit is reached
 
-There are per minute and per hour [limits to the amount of emails you can send using the Azure Communication Email Service](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, any further `begin_send` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you set up logging with the Azure SDK to capture these response codes.
+There are per minute and per hour [limits to the amount of emails you can send using the Azure Communication Email Service](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, any further `begin_send` calls will recieve a `429: Too Many Requests` response. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/azure/developer/python/sdk/azure-sdk-logging) to capture these response codes.
 
-If setting up logging is not an option, you can manually define a custom response hook and add it to your email client as shown below. This will ensure that 429 response codes throw an exception rather than being retried.
+Alternatively, you can manually define a custom policy as shown below. This will ensure that 429 response codes throw an exception rather than being retried.
 
 ```python
 def callback(response):
