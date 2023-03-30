@@ -9,7 +9,7 @@ ms.date: 03/26/2023
 
 # Monitored SAP security parameters for detecting suspicious configuration changes
 
-This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the ["SAP - (Preview) Sensitive Static Parameter has Changed" analytics rule](sap-solution-security-content.md#monitoring-the-configuration-of-static-sap-security-parameterss).
+This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the ["SAP - (Preview) Sensitive Static Parameter has Changed" analytics rule](sap-solution-security-content.md#monitoring-the-configuration-of-static-sap-security-parameters).
 
 The Microsoft Sentinel solution for SAP® applications will provide updates for this content according to SAP best practice changes. You can also add parameters to watch for, change values according to your organization's needs, and disable specific parameters in the [SAPSystemParameters watchlist](sap-solution-security-content.md#systemparameters).
 
