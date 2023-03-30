@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.reviewer: erd
-ms.date: 03/29/2023
+ms.date: 03/30/2023
 
 ---
 
@@ -21,7 +21,7 @@ You can view available extensions by selecting a VM, then selecting **Extensions
 
 ## How can I install an extension?
 
-Azure VM extensions can be managed by using the Azure CLI, PowerShell, Resource Manager templates, and the Azure portal. To try an extension, go to the Azure portal and select the Custom Script Extension by doing the following:
+Azure VM extensions can be managed by using the Azure CLI, PowerShell, Resource Manager templates, and the Azure portal. To try an extension, go to the Azure portal and select the Custom Script Extension.
 
 1. In the portal, go to the **Overview** page for a VM.
 1. Go to **Settings** and select **Extensions + Applications**.
@@ -70,5 +70,5 @@ Otherwise, specific troubleshooting information for each extension can be found 
 
 * For more information about how the Linux Agent and extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
 * For more information about how the Windows Guest Agent and extensions work, see [Azure VM extensions and features for Windows](features-windows.md).
-* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview](agent-windows.md).
-* To install the Linux Agent, see [Azure Linux Virtual Machine Agent Overview](agent-linux.md).
+* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent overview](agent-windows.md).
+* To install the Linux Agent, see [Azure Linux Virtual Machine Agent overview](agent-linux.md).
