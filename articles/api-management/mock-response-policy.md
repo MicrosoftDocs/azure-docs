@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Mock response
 
-The `mock-response` policy, as the name implies, is used to mock APIs and operations. It cancels normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, when available. It generates sample responses from schemas, when schemas are provided and examples are not. If neither examples or schemas are found, responses with no content are returned.
+The `mock-response` policy, as the name implies, is used to mock APIs and operations. It cancels normal pipeline execution and returns a mocked response to the caller. The policy always tries to return responses of highest fidelity. It prefers response content examples, when available. It generates sample responses from schemas, when schemas are provided and examples aren't. If neither examples or schemas are found, responses with no content are returned.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -27,8 +27,8 @@ The `mock-response` policy, as the name implies, is used to mock APIs and operat
 
 | Attribute    | Description                                                                                           | Required | Default |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| status-code  | Specifies response status code and is used to select corresponding example or schema.                 | No       | 200     |
-| content-type | Specifies `Content-Type` response header value and is used to select corresponding example or schema. | No       | None    |
+| status-code  | Specifies response status code and is used to select corresponding example or schema. Policy expressions aren't allowed.                | No       | 200     |
+| content-type | Specifies `Content-Type` response header value and is used to select corresponding example or schema. Policy expressions aren't allowed. | No       | None    |
 
 ## Usage
 

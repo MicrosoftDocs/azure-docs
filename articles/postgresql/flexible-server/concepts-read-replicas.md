@@ -16,7 +16,7 @@ ms.date: 10/21/2022
 > [!NOTE]
 > Read replicas for PostgreSQL Flexible Server is currently in preview.
 
-The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. Streaming replication by using replication slots is the default operation mode. When necessary, log shipping is used to catch up. You can replicate from the primary server to up to five replicas.
+The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. Streaming replication by using replication slots is the default operation mode. When necessary, file-based log shipping is used to catch up. You can replicate from the primary server to up to five replicas.
 
 Replicas are new servers that you manage similar to regular Azure Database for PostgreSQL servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
@@ -164,6 +164,14 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 ### Replica configuration
 
 During creation of read replicas firewall rules and data encryption method can be changed. Server parameters and authentication method are inherited from the primary server and cannot be changed during creation. After a replica is created, several settings can be changed including storage, compute, backup retention period, server parameters, authentication method, firewall rules etc.
+
+### Replication slot issues mitigation
+
+In rare cases, high lag caused by replication slots can lead to an increase in storage usage on the primary server due to the accumulation of WAL files. If the storage usage reaches 95% or the available capacity falls below 5 GiB, the server automatically switches to read-only mode to prevent disk-full errors.
+
+Since maintaining the primary server's health and functionality is a priority, in such edge cases, the replication slot may be dropped to ensure the primary server remains operational for read and write traffic. Consequently, replication will switch to file-based log shipping mode, which could result in a higher replication lag.
+
+It is essential to monitor storage usage and replication lag closely, and take necessary actions to mitigate potential issues before they escalate.
 
 ### Server parameters
 
