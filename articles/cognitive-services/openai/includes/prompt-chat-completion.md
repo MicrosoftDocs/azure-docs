@@ -69,8 +69,7 @@ Although following this technique is still generally recommended, in contrast to
 | System message |User     | Assistant  |
 |----------------|---------|------------|
 | You are an AI assistant that helps people find information.| Your task is to verify if the statement "Several sources mention a chance of another large eruption" is supported by a specific quote from the following set of snippets.<br>---<br>SNIPPETS<br>[1] 14 percent chance of megaquake hitting Seattle, experts say
-SEATTLE - There's a 14 percent chance of a magnitude 9 Cascadia earthquake hitting Seattle in the next 50 years, the U.S. Geological Survey estimates. "Unfortunately, we are unable to...<br><br>[2] Earthquake experts lay out latest outlook for Seattle's 'Really Big One’
-“We say that there's approximately a 14% chance of another approximately magnitude-9 earthquake occurring in the next 50 years,” said a geophysicist at the University of Washington...<br>---<br>Is the statement "Several sources mention a chance of another large eruption" directly implied or stated by the snippets?| No, the statement is not directly implied or stated by the snippets. The snippets mention a chance of a "megaquake" and a "magnitude 9 Cascadia earthquake" hitting Seattle in the next 50 years, but do not mention a chance of another large eruption. |
+SEATTLE - There's a 14 percent chance of a magnitude 9 Cascadia earthquake hitting Seattle in the next 50 years, the U.S. Geological Survey estimates. "Unfortunately, we are unable to...<br><br>[2] Earthquake experts lay out latest outlook for Seattle's 'Really Big One’<br>“We say that there's approximately a 14% chance of another approximately magnitude-9 earthquake occurring in the next 50 years,” said a geophysicist at the University of Washington...<br>---<br>Is the statement "Several sources mention a chance of another large eruption" directly implied or stated by the snippets?| No, the statement is not directly implied or stated by the snippets. The snippets mention a chance of a "megaquake" and a "magnitude 9 Cascadia earthquake" hitting Seattle in the next 50 years, but do not mention a chance of another large eruption. |
 
 ## Repeat instructions at the end
 
@@ -78,7 +77,7 @@ Models can be susceptible to “recency bias,” which means that information at
 
 ## Prime the output
 
-This refers to including a few words or phrases at the end of the prompt to obtain a model response that follows the desired form. For example, using a cue such as “Here’s a bulleted list of key points:\n- ” can help make sure the outputted is formatted as a list of bullet points.
+This refers to including a few words or phrases at the end of the prompt to obtain a model response that follows the desired form. For example, using a cue such as `“Here’s a bulleted list of key points:\n- ”` can help make sure the outputted is formatted as a list of bullet points.
 
 | System message |User     | Assistant  |
 |----------------|---------|------------|
