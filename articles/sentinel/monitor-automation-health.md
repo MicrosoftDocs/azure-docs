@@ -86,7 +86,7 @@ For **Playbook was triggered**, you may see the following statuses:
 | --------------------------------- | ----------------------------------------- |
 | **Could not add task: *\<TaskName>*.**<br>Incident/alert was not found. | Make sure the incident/alert exists and try again. |
 | **Could not modify property: *\<PropertyName>*.**<br>Incident/alert was not found. | Make sure the incident/alert exists and try again. |
-| **Could not modify property: *\<PropertyName>*.**<br>Too many requests, exceeding throttling limits. | Learn more about [subscription and tenant limits](../azure-resource-manager/management/request-limits-and-throttling.md#subscription-and-tenant-limits). |
+| **Could not modify property: *\<PropertyName>*.**<br>Too many requests, exceeding throttling limits. |  |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Incident/alert was not found. | If the error occurred when trying to trigger a playbook on demand, make sure the incident/alert exists and try again. |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Either the playbook was not found, or Microsoft Sentinel was missing permissions on it. | Edit the automation rule, find and select the playbook in its new location, and save. Make sure Microsoft Sentinel has [permission to run this playbook](tutorial-respond-threats-playbook.md?tabs=LAC#respond-to-incidents). |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Contains an unsupported trigger type. | Make sure your playbook starts with the [correct Logic Apps trigger](playbook-triggers-actions.md#microsoft-sentinel-triggers-summary): Microsoft Sentinel Incident or Microsoft Sentinel Alert. |
