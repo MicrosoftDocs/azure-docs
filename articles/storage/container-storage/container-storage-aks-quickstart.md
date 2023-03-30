@@ -4,7 +4,7 @@ description: Learn how to configure and use Azure Container Storage with Azure K
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/30/2023
+ms.date: 03/31/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
@@ -123,7 +123,7 @@ az aks nodepool update --resource-group <resource-group> --cluster-name <cluster
 The initial install uses Azure Arc CLI commands to download a new extension. The `--name` value can be whatever you want. During installation, you might be asked to install the `k8s-extension`. Select **Y**.
 
 ```azurecli-interactive
-az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace azstor
+az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace azstor
 ```
 
 Installation takes a few minutes to complete. You can check if the installation completed correctly by running `kubectl get sc` to display the available storage classes. If the following two storage classes are listed, you've successfully installed Azure Container Storage.
