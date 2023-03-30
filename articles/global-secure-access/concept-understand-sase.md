@@ -28,52 +28,30 @@ The main goal of SASE architecture is to provide a seamless user experience, opt
 ## Key components of SASE
 SASE can be broken down into six essential elements.
 
-**Software-defined wide area network (SD-WAN)**
+**Software-defined wide area network (SD-WAN)** - A software-defined wide area network is an overlay architecture that uses routing or switching software to create virtual connections between endpoints—both physical and logical. SD-WANs provide near-unlimited paths for user traffic, which optimizes the user experience, and allows for powerful flexibility in encryption and policy management.
 
-A software-defined wide area network is an overlay architecture that uses routing or switching software to create virtual connections between endpoints—both physical and logical. SD-WANs provide near-unlimited paths for user traffic, which optimizes the user experience, and allows for powerful flexibility in encryption and policy management.
+**Secure web gateway (SWG)** - A secure web gateway is a web security service that filters unauthorized traffic from accessing a particular network. The goal of a SWG is to zero in on threats before they penetrate a virtual perimeter. A SWG accomplishes this by combining technologies like malicious code detection, malware elimination, and URL filtering.
 
-**Secure web gateway (SWG)**
+**Cloud access security broker (CASB)** - A cloud access security broker is a SaaS application that acts as a security checkpoint between on-premises networks and cloud-based applications and enforces data security policies. A CASB protects corporate data through a combination of prevention, monitoring, and mitigation techniques. It can also identify malicious behavior and warn administrators about compliance violations.
 
-A secure web gateway is a web security service that filters unauthorized traffic from accessing a particular network. The goal of a SWG is to zero in on threats before they penetrate a virtual perimeter. A SWG accomplishes this by combining technologies like malicious code detection, malware elimination, and URL filtering.
+**Firewall as a service (FWaaS)** - Firewall as a service moves firewall protection to the cloud instead of the traditional network perimeter. This enables organizations to securely connect a remote, mobile workforce to the corporate network, while still enforcing consistent security policies that reach beyond the organization’s geographic footprint.
 
-**Cloud access security broker (CASB)**
+**Zero Trust Network Access (ZTNA)** - Zero Trust Network Access is a set of consolidated, cloud-based technologies that operates on a framework in which trust is never implicit and access is granted on a need-to-know, least-privileged basis across all users, devices, and applications. In this model, all users must be authenticated, authorized, and continuously validated before being granted access to company private applications and data. ZTNA eliminates the poor user experience, operational complexities, costs, and risk of a traditional VPN.
 
-A cloud access security broker is a SaaS application that acts as a security checkpoint between on-premises networks and cloud-based applications and enforces data security policies. A CASB protects corporate data through a combination of prevention, monitoring, and mitigation techniques. It can also identify malicious behavior and warn administrators about compliance violations.
-
-**Firewall as a service (FWaaS)**
-
-Firewall as a service moves firewall protection to the cloud instead of the traditional network perimeter. This enables organizations to securely connect a remote, mobile workforce to the corporate network, while still enforcing consistent security policies that reach beyond the organization’s geographic footprint.
-
-**Zero Trust Network Access (ZTNA)**
-
-Zero Trust Network Access is a set of consolidated, cloud-based technologies that operates on a framework in which trust is never implicit and access is granted on a need-to-know, least-privileged basis across all users, devices, and applications. In this model, all users must be authenticated, authorized, and continuously validated before being granted access to company private applications and data. ZTNA eliminates the poor user experience, operational complexities, costs, and risk of a traditional VPN.
-
-**Centralized and unified management**
-
-A modern SASE platform allows IT administrators to manage SD-WAN, SWG, CASB, FWaaS, and ZTNA through centralized and unified management across networking and security. This frees IT team members to focus their energy in other more pressing areas and boosts the user experience for the organization’s hybrid workforce.
+**Centralized and unified management** - A modern SASE platform allows IT administrators to manage SD-WAN, SWG, CASB, FWaaS, and ZTNA through centralized and unified management across networking and security. This frees IT team members to focus their energy in other more pressing areas and boosts the user experience for the organization’s hybrid workforce.
 
 ## Benefits of SASE
 SASE platforms offer significant advantages over traditional on-premises network options. Here are some of the primary reasons organizations may want to switch to a SASE framework:
 
-**Reduced IT costs and complexity**
+**Reduced IT costs and complexity** - Legacy network security models rely on a patchwork of solutions to secure the network perimeter. SASE reduces the number of solutions necessary to secure applications and services—saving on IT costs and simplifying administration.
 
-Legacy network security models rely on a patchwork of solutions to secure the network perimeter. SASE reduces the number of solutions necessary to secure applications and services—saving on IT costs and simplifying administration.
+**Greater agility and scalability** - Because SASE is cloud delivered, both the network and security framework are completely scalable. As your enterprise grows, so can the system, making accelerating digital transformation truly possible.
 
-**Greater agility and scalability**
+**Built to sustain hybrid work** - Where traditional hub-and-spoke networks struggle to handle the bandwidth necessary to keep remote employees productive, SASE maintains enterprise-level security for all users, regardless of how or where they work.
 
-Because SASE is cloud delivered, both the network and security framework are completely scalable. As your enterprise grows, so can the system, making accelerating digital transformation truly possible.
+**Boosts user experience** - SASE optimizes security for users by intelligently managing security exchanges in real time. This reduces latency as users try to connect to cloud applications and services and reduces the organization’s attack surface.
 
-**Built to sustain hybrid work**
-
-Where traditional hub-and-spoke networks struggle to handle the bandwidth necessary to keep remote employees productive, SASE maintains enterprise-level security for all users, regardless of how or where they work.
-
-**Boosts user experience** 
-
-SASE optimizes security for users by intelligently managing security exchanges in real time. This reduces latency as users try to connect to cloud applications and services and reduces the organization’s attack surface.
-
-**Improved security**
-
-In the SASE framework, SWG, DLP, ZTNA, and other threat intelligence technologies converge to provide remote workers with secure access to company resources while reducing the risk of lateral movement in the network. In SASE, all connections are inspected and secured, and threat protection policies are clearly defined up front—no question.
+**Improved security** - In the SASE framework, SWG, DLP, ZTNA, and other threat intelligence technologies converge to provide remote workers with secure access to company resources while reducing the risk of lateral movement in the network. In SASE, all connections are inspected and secured, and threat protection policies are clearly defined up front—no question.
 
 ## Learn more about proactive Zero Trust security
 Security service edge (SSE) is a standalone subset of SASE that focuses exclusively on cloud security services. SSE delivers secure access to the internet by way of a protected web gateway, safeguards SaaS and cloud apps via a CASB, and secures remote access to private apps through ZTNA. SASE also features these components, but expands to include SD-WAN, WAN optimization, and quality of service (QoS) elements.
