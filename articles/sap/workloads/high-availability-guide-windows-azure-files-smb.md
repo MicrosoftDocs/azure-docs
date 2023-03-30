@@ -176,7 +176,7 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 
 ### <a name="5121771a-7618-4f36-ae14-ccf9ee5f2031"></a>SAP Application Servers on WSFC nodes using Azure Files SMB
 
-![Test](media/virtual-machines-shared-sap-high-availability-guide/smb-ha-afsmb-as.png)SAP application Servers locally installed.
+![Test](media/virtual-machines-shared-sap-high-availability-guide/HA-AFSMB+AS.PNG)SAP application Servers locally installed.
 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
@@ -188,7 +188,7 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 > Using Azure Files SMB for any SQL Server volume is not supported.
 > 
 
-![SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB](media/virtual-machines-shared-sap-high-availability-guide/smb-ha-sql+ascs-afsmb.png)SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB
+![SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB](media/virtual-machines-shared-sap-high-availability-guide/HA-QL+ASCS-AF-SMB.PNG)SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB
 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
