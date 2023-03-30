@@ -559,7 +559,7 @@ For bulk insert form the objects first and then run the stringify function. Here
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
-The following example show how to write data to Azure Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and take data from a queue message and writes out to an Azure Cosmos DB document.
+The following example shows how to write data to Azure Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and takes data from a queue message and writes out to an Azure Cosmos DB document.
 
 ```json
 { 
