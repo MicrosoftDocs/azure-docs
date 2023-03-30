@@ -57,7 +57,7 @@ Use the Azure portal to find the Azure Native New Relic Service application:
    |  Property | Description |
    |--|--|
    |  **Subscription**   |  Select the Azure subscription that you want to use for creating the New Relic resource. You must have owner access.|
-   |  **Resource group**  |Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview.md#resource-groups) is a container that holds related resources for an Azure solution.|
+   |  **Resource group**  |Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview#resource-groups) is a container that holds related resources for an Azure solution.|
    |  **Resource name**  |Specify a name for the New Relic resource. This name will be the friendly name of the New Relic account.|
    |  **Region**         |Select the region where the New Relic resource on Azure and the New Relic account will be created.|
 
