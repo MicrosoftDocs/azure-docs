@@ -50,7 +50,7 @@ For example, here is a claims-mapping policy to emit a single claim from a direc
         "ClaimsSchema": [{
                 "Source": "User",
                 "ExtensionID": "extension_xxxxxxx_test",
-                "JWTClaimType": "http://schemas.contoso.com/identity/claims/exampleclaim"
+                "JWTClaimType": "exampleclaim"
             },
         ]
     }
