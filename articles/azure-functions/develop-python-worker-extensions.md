@@ -148,7 +148,8 @@ Now that you've created an extension, you can use it in an app project to verify
     pip install -e <PYTHON_WORKER_EXTENSION_ROOT>
     ```
 
-    In this example, replace `<PYTHON_WORKER_EXTENSION_ROOT>` with the file location of your extension project.   
+    In this example, replace `<PYTHON_WORKER_EXTENSION_ROOT>` with the root file location of your extension project.
+
     When a customer uses your extension, they'll instead add your extension package location to the requirements.txt file, as in the following examples:
 
     # [PyPI](#tab/pypi)
@@ -172,7 +173,7 @@ Now that you've created an extension, you can use it in an app project to verify
 
     When running in Azure, you instead add `PYTHON_ENABLE_WORKER_EXTENSIONS=1` to the [app settings in the function app](functions-how-to-use-azure-function-app-settings.md#settings).
 
-1. Add following two lines before the `main` function in \_\_init.py\_\_:
+1. Add following two lines before the `main` function in *\_\_init.py\_\_* file for the v1 programming model, or in the function file *function_app.py* file for the v2 programming model:
 
     ```python
     from python_worker_extension_timer import TimerExtension
