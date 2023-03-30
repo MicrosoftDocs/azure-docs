@@ -401,7 +401,7 @@ Here's a sample output of [Endpoints_ListLogs](https://eastus.dev.cognitive.micr
 
 The locations of each audio and transcription log file are returned in the response body. See the corresponding `kind` property to determine whether the file includes the audio (`"kind": "Audio"`) or the transcription (`"kind": "Transcription"`).
 
-The log ID for each log file is the last part of the URL in the `"self"` element value. The log ID from this example is `2023-03-13_163715__0420c53d-e6ac-4857-bce0-f39c3f9f5ff9_v2_json`. 
+The log ID for each log file is the last part of the URL in the `"self"` element value. The log ID in the following example is `2023-03-13_163715__0420c53d-e6ac-4857-bce0-f39c3f9f5ff9_v2_json`. 
 
 ```json
 "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/endpoints/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/files/logs/2023-03-13_163715__0420c53d-e6ac-4857-bce0-f39c3f9f5ff9_v2_json"
@@ -411,7 +411,7 @@ The log ID for each log file is the last part of the URL in the `"self"` element
 
 Logging data is kept for 30 days. After this period, the logs are automatically deleted. However you can delete specific logs or a range of available logs at any time. 
 
-For any base or [custom model](how-to-custom-speech-deploy-model.md) endpoint you can delete all available logs, logs for a given time frame, or a particular log based on its Log ID. The deletion process is done asynchronously and can take up to one day depending on the number of log files.
+For any base or [custom model](how-to-custom-speech-deploy-model.md) endpoint you can delete all available logs, logs for a given time frame, or a particular log based on its Log ID. The deletion process is done asynchronously and can take minutes, hours, one day, or longer depending on the number of log files.
 
 To delete audio and transcription logs you must use the [Speech-to-text REST API](rest-speech-to-text.md). There isn't a way to delete logs using the Speech Studio.
 
