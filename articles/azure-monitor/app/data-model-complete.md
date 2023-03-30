@@ -299,9 +299,10 @@ Modern browsers expose measurements for page load actions with the [Performance 
 * `browsertimings/totalDuration` = #1 + #2 + #3 + #4 + #5
 * `pageViews/duration`
    * The `PageView` duration is from the browser's performance timing interface, [`PerformanceNavigationTiming.duration`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/duration).
-    * If `PerformanceNavigationTiming` is available, that duration is used.
-    * If it's not, the *deprecated* [`PerformanceTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming) interface is used and the delta between [`NavigationStart`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/navigationStart) and [`LoadEventEnd`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/loadEventEnd) is calculated.
-    * The developer specifies a duration value when logging custom `PageView` events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
+   * If `PerformanceNavigationTiming` is available, that duration is used.
+     
+     If it's not, the *deprecated* [`PerformanceTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming) interface is used and the delta between [`NavigationStart`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/navigationStart) and [`LoadEventEnd`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/loadEventEnd) is calculated.
+   * The developer specifies a duration value when logging custom `PageView` events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
 
 :::image type="content" source="./media/javascript/page-view-load-time.png" alt-text="Screenshot that shows the Metrics page in Application Insights showing graphic displays of metrics data for a web application." lightbox="./media/javascript/page-view-load-time.png" border="false":::
 
@@ -361,7 +362,7 @@ Session ID is the instance of the user's interaction with the app. Information i
 
 The anonymous user ID (User.Id) represents the user of the application. When telemetry is sent from a service, the user context is about the user who initiated the operation in the service.
 
-[Sampling](./sampling.md) is one of the techniques to minimize the amount of collected telemetry. A sampling algorithm attempts to either sample in or out all the correlated telemetry. An anonymous user ID is used for sampling score generation, so an anonymous user ID should be a random enough value.
+[Sampling](./sampling.md) is one of the techniques to minimize the amount of collected telemetry. A sampling algorithm attempts to either sample in or out all the correlated telemetry. An anonymous user ID is used for sampling score generation, so an anonymous user ID should be a random-enough value.
 
 > [!NOTE]
 > The count of anonymous user IDs isn't the same as the number of unique application users. The count of anonymous user IDs is typically higher because each time the user opens your app on a different device or browser, or cleans up browser cookies, a new unique anonymous user ID is allocated. This calculation might result in counting the same physical users multiple times.
