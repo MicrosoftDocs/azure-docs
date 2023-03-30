@@ -30,7 +30,7 @@ The Completion API supports the older GPT-3 models and has much more flexible in
 
 ::: zone pivot="programming-language-chat-completions"
 
-[!INCLUDE [Prompt Chat Completion](../includes/chat-completion.md)]
+[!INCLUDE [Prompt Chat Completion](../includes/prompt-chat-completion.md)]
 
 ::: zone-end
 
