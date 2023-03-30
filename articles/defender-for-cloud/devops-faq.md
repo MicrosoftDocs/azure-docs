@@ -79,7 +79,7 @@ Defender for DevOps connects to your source code management system, for example,
 
 - Scan results for recommendations and assessments results and details.
 
-Data is stored within the region your connector is created in and flows into [Microsoft Defender for Cloud](https://learn.microsoft.com/azure/defender-for-cloud/defender-for-cloud-introduction). You should consider which region to create your connector in, for any data residency requirements as you design and create your DevOps connector.
+Data is stored within the region your connector is created in and flows into [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). You should consider which region to create your connector in, for any data residency requirements as you design and create your DevOps connector.
 
 Defender for DevOps currently doesn't process or store your code, build, and audit logs.
 
