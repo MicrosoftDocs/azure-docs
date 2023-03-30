@@ -21,13 +21,6 @@ landingContent:
           - text: Azure reliability overview
             url: overview.md
   # Card
-  - title: Azure Service Manager Retirement
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: ASM Retirement Overview
-            url: overview.md
-  # Card
   - title: Availability zone support
     linkLists:
       - linkListType: concept
