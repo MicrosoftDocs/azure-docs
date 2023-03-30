@@ -108,7 +108,7 @@ items:
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
     - name: Speech-to-text FAQ
-      displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
+      displayName: FAQ,STT,frequently asked questions
       href: faq-stt.yml
 - name: Text-to-speech
   items:
@@ -169,6 +169,9 @@ items:
     - name: Audio Content Creation
       href: how-to-audio-content-creation.md
       displayName: acc
+    - name: Text-to-speech FAQ
+      displayName: FAQ,TTS,frequently asked questions
+      href: faq-tts.yml
 - name: Speech translation
   items:
     - name: Speech translation overview
@@ -256,8 +259,6 @@ items:
           href: quickstarts/multi-device-conversation.md
     - name: Voice assistants
       items:
-        - name: Voice assistants documentation
-          href: index-voice-assistants.yml
         - name: Voice assistants overview
           href: voice-assistants.md
         - name: Voice assistants FAQ
