@@ -17,12 +17,11 @@ Profiles are configured to fit the different needs of your applications.
 
 | Profile type  | Description | Potential use |
 |--|--|--|
-| General purpose | Balance of memory and compute resources  | Line-of-business applications |
-| Memory optimized | Increased memory resources | Large large in-memory data, in-memory machine learning models |
-| Compute optimized | Increased compute resources | Cryptography |
+| Dedicated General purpose | Balance of memory and compute resources  | Line-of-business applications |
+| Dedicated Memory optimized | Increased memory resources | Large large in-memory data, in-memory machine learning models |
 | Consumption |  Added to any new environment by default. | |
 
-By default, a Consumption workload profile is included with every Consumption + Dedicated plan environment. You can add more workload profiles of any type as you create an environment or after it's created.
+By default, a Consumption workload profile is included with every Consumption + Dedicated plan environment. You can optionally add dedicated workload profiles of any type as you create an environment or after it's created.
 
 ## Supported regions
 
@@ -47,7 +46,7 @@ There are a series of different types of workload profiles available by region. 
 | E16 | 16 | 128 | MemoryOptimized |
 | Consumption | 4 | 8 | Consumption (per replica) |
 
-The availability of different profiles varies by region.
+The availability of different profiles may vary by region.
 
 ## Resource consumption
 

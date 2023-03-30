@@ -13,7 +13,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create an event hub
+    - name: Create an event hub or Kafka topic
       items:
         - name: Azure portal
           href: event-hubs-create.md
@@ -29,22 +29,28 @@
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: Send and receive events
       items:
-        - name: .NET
-          href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: Java
-          href: event-hubs-java-get-started-send.md
-        - name: Python
-          href: event-hubs-python-get-started-send.md
-        - name: JavaScript
-          href: event-hubs-node-get-started-send.md
-        - name: Spring
-          href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
-        - name: Go
-          href: event-hubs-go-get-started-send.md
-        - name: C (send only)
-          href: event-hubs-c-getstarted-send.md
-        - name: Apache Storm (receive only)
-          href: event-hubs-storm-getstarted-receive.md
+        - name: Event Hubs SDKs (AMQP)
+          items: 
+          - name: .NET
+            href: event-hubs-dotnet-standard-getstarted-send.md
+          - name: Java
+            href: event-hubs-java-get-started-send.md
+          - name: Python
+            href: event-hubs-python-get-started-send.md
+          - name: JavaScript
+            href: event-hubs-node-get-started-send.md
+          - name: Spring
+            href: /azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?toc=/azure/event-hubs/TOC.json
+          - name: Go
+            href: event-hubs-go-get-started-send.md
+          - name: C (send only)
+            href: event-hubs-c-getstarted-send.md
+          - name: Apache Storm (receive only)
+            href: event-hubs-storm-getstarted-receive.md
+        - name: Apache Kafka
+          items:
+          - name: Java
+            href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Capture events
       items:
         - name: Use the Azure portal to enable Event Hubs Capture
@@ -53,8 +59,6 @@
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
         - name: Read captured data using Python 
           href: event-hubs-capture-python.md
-    - name: Stream into Event Hubs for Apache Kafka
-      href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Use Schema Registry
       items:
         - name: Create a schema registry - Azure portal
