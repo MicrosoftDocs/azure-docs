@@ -92,6 +92,8 @@ You do not have access
 You don't have permission to register applications in the <directoryName> directory. To request access, contact your administrator.
 ```
 
+:::image type="content" source="media/delegate-app-roles/app-registrations-access-denied.png" alt-text="Screenshot of access denied message when trying to create a new app registration." lightbox="media/delegate-app-roles/app-registrations-access-denied.png":::
+
 **Cause**
 
 You can't register the application in the directory because your directory administrator has [restricted who can create applications](#restrict-who-can-create-applications).
@@ -100,8 +102,8 @@ You can't register the application in the directory because your directory admin
 
 Contact your administrator to do one of the following:
 
-- Grant you permissions to create and consent to applications by assigning you the Application Developer role.
-- Create the application registration for you and [assign you an application administrator role](#assign-built-in-application-admin-roles).
+- Grant you permissions to create and consent to applications by [assigning you the Application Developer role](#grant-individual-permissions-to-create-and-consent-to-applications-when-the-default-ability-is-disabled).
+- Create the application registration for you and [assign you as the application owner](#assign-application-owners).
 
 ## Next steps
 
