@@ -65,11 +65,13 @@ In the *hosts* file, update the *localhost* address. In the following example:
 
 Update these names with your own values:
 
-```bash
+```config
 127.0.0.1 rhel rhel.aaddscontoso.com
 ```
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.
+
+#### Continue with RHEL 6 or 7.
 
 # [RHEL 6](#tab/rhel) 
 
@@ -109,7 +111,7 @@ Now that the required packages are installed on the VM, join the VM to the manag
 1. Now configure the `/ect/krb5.conf` and create the `/etc/sssd/sssd.conf` files to use the `aaddscontoso.com` Active Directory domain.
    Make sure that `AADDSCONTOSO.COM` is replaced by your own domain name:
 
-    Open the `/ect/krb5.conf` file with an editor:
+    Open the `/etc/krb5.conf` file with an editor:
 
     ```bash
     sudo vi /etc/krb5.conf
@@ -244,7 +246,7 @@ Now that the required packages are installed on the VM, join the VM to the manag
     Again, the managed domain name must be entered in ALL UPPERCASE. In the following example, the account named `contosoadmin@aaddscontoso.com` is used to initialize Kerberos. Enter your own user account that's a part of the managed domain:
 
     ```bash
-    kinit contosoadmin@AADDSCONTOSO.COM
+    sudo kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
 1. Finally, join the VM to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
@@ -296,7 +298,7 @@ To grant members of the *AAD DC Administrators* group administrative privileges 
 
 1. Add the following entry to the end of */etc/sudoers* file. The *AAD DC Administrators* group contains whitespace in the name, so include the backslash escape character in the group name. Add your own domain name, such as *aaddscontoso.com*:
 
-    ```bash
+    ```config
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators@aaddscontoso.com ALL=(ALL) NOPASSWD:ALL
     ```
