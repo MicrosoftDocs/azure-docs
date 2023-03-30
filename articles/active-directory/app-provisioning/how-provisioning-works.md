@@ -191,9 +191,9 @@ The provisioning service supports both deleting and disabling (sometimes referre
 
 **Configure your application to disable a user**
 
-Ensure that you have selected the checkbox for updates.
+Ensure that you've selected the checkbox for updates.
 
-Ensure that you have the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. Please ensure that you use the default / out of the box mapping for gallery applications.
+Ensure that you've the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. Please ensure that you use the default / out of the box mapping for gallery applications.
 
 :::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Disable a user" lightbox="./media/how-provisioning-works/disable-user.png":::
 
