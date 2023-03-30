@@ -85,7 +85,7 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
 1. Configure `kubectl` to connect to your cluster using the `az aks get-credentials` command. The following command:
 
     * Downloads credentials and configures the Kubernetes CLI to use them.
-    * Uses `~/.kube/config`, the default location for the Kubernetes configuration file. Specify a different location for your Kubernetes configuration file using *--file* argument.
+    * Uses `~/.kube/config`, the default location for the Kubernetes configuration file. You can specify a different location for your Kubernetes configuration file using the *--file* argument.
 
     ```azurecli-interactive
     az aks get-credentials --resource-group myContainerStorageRG --name myAKSCluster

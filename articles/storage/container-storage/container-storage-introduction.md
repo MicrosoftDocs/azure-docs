@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage, a service built natively fo
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 03/27/2023
+ms.date: 03/31/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
