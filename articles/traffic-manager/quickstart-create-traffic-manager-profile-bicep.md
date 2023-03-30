@@ -7,7 +7,7 @@ ms.author: greglin
 ms.date: 02/19/2023
 ms.topic: quickstart
 ms.service: traffic-manager
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Traffic Manager profile using Bicep
