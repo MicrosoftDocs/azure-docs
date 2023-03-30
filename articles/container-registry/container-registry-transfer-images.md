@@ -24,7 +24,7 @@ Please complete the prerequisites outlined [here](./container-registry-transfer-
 
 ## Consider using the Az CLI extension
 
-For most non-automated use-cases, we recommend using the Az CLI Extension if possible. You can view documentation for the Az CLI Extension [here](./container-registry-transfer-cli.md).
+For most nonautomated use-cases, we recommend using the Az CLI Extension if possible. You can view documentation for the Az CLI Extension [here](./container-registry-transfer-cli.md).
 
 ## Create ExportPipeline with Resource Manager
 
