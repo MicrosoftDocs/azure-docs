@@ -164,7 +164,7 @@ Unfortunately, this change came with an unavoidable breaking change. The breakin
 1. Navigate to the logic app that is connected to the policy.
 1. Select **Logic app designer**.
 1. Select the **three dot** > **Rename**.
-1. Rename the Defender for cloud connector as follows:
+1. Rename the Defender for Cloud connector as follows:
     
     | Original name | New name|
     |--|--|

@@ -28,7 +28,9 @@ Microsoft Defender for Cloud includes a bundle of recommendations that are avail
 
 When you enable Microsoft Defender for Containers, Azure Kubernetes Service clusters, and Azure Arc enabled Kubernetes clusters (Preview) protection are both enabled by default. You can configure your Kubernetes data plane hardening, when you enable Microsoft Defender for Containers.
 
-**To enable Azure Kubernetes Service clusters and Azure Arc enabled Kubernetes clusters (Preview)**:
+When you enable data plane hardening, the containers agent installed on each resource allocates a small amount of the AKS cluster CPU and memory for the agent to use. That allocation usually runs at maximum capacity, but does not affect the rest of the CPU and memory on the resource.
+
+To enable Azure Kubernetes Service clusters and Azure Arc enabled Kubernetes clusters (Preview):
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
