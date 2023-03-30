@@ -49,7 +49,7 @@ The columns in the table denote valuable information for your resource:
 | **Logs to New Relic**        |    Count of logs for the resource type       |
 | **Metrics to New Relic**         |   Count of resources that are sending metrics to New Relic through the integration      |
 
-If you are currently billed by New Relic and want to change to Azure Marketplace billing to consume your Azure commitment, you should work with New Relic to align on timeline as per the current contract tenure. Then, switch your billing using the **Bill via Azure Marketplace**  from the working pane of the Overview page or your New Relic resource.
+If you are currently billed by New Relic and want to change to Azure Marketplace billing to consume your Azure commitment, you should work with New Relic to align on timeline as per the current contract tenure. Then, switch your billing using the **Bill via Marketplace**  from the working pane of the Overview page or your New Relic resource.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-bill-marketplace.png" alt-text="Screenshot with 'Bill via Azure Marketplace' selection highlighted.":::
 
