@@ -21,7 +21,7 @@ Before you begin, verify that:
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - Your organization uses SAP BTP (in Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.
 - You have a SAP BTP account ready. You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
-- Your Microsoft Sentinel user is assigned the [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) role on the workspace.
+- Your Microsoft Sentinel user is assigned the [Microsoft Sentinel Contributor](../../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor).
 - Your SAP user is assigned the SAP BTP Subaccount Administrator role collection role. · Workspace: read and write permissions on the workspace are required. · 
 - You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites` and `Microsoft.Web/ServerFarms` permissions.
 - You can create [Data Collection Rules/Endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) with the permissions: 
@@ -38,9 +38,9 @@ Before you begin, verify that:
 
 1. Select **Sentinel Solution for SAP BTP**.
 
-1. Select **Install** :::image type="icon" source="media/connect-mdti-data-connector/install-update-button.png":::.
+1. Select **Install**.
 
-    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
+    For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).
 
 1. Select **Create**.
 

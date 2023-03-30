@@ -980,7 +980,7 @@
         href: sap/select-ingestion-profiles.md 
       - name: SAP BTP solution
         items:
-          name: Deploy SAP BTP
+        - name: Deploy SAP BTP
           href: sap/deploy-sap-btp-solution.md
 - name: Troubleshoot
   items:
