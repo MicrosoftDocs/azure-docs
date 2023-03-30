@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 03/19/2023
+ms.date: 03/30/2023
 ms.author: lajanuar
 ms.topic: reference
 ---
@@ -14,17 +14,17 @@ ms.topic: reference
 
 > [!CAUTION]
 >
-> On April 10, 2023, Microsoft will retire the Custom Translator v1.0 model platform. Existing v1.0 models must migrate to the v2.0 platform for continued processing and support.
+> On June 02, 2023, Microsoft will retire the Custom Translator v1.0 model platform. Existing v1.0 models must migrate to the v2.0 platform for continued processing and support.
 
-Following measured and consistent high-quality results using models trained on the Custom Translator v2.0 platform, the v1.0 platform will be retired. Custom Translator v2.0 delivers significant improvements in many domains compared to both standard and Custom v1.0 platform translations. Migrate your v1.0 models to the v2.0 platform by May 07, 2023.
+Following measured and consistent high-quality results using models trained on the Custom Translator v2.0 platform, the v1.0 platform will be retired. Custom Translator v2.0 delivers significant improvements in many domains compared to both standard and Custom v1.0 platform translations. Migrate your v1.0 models to the v2.0 platform by June 02, 2023.
 
 ## Custom Translator v1.0 upgrade timeline
 
-* **April 10, 2023** → Custom Translator v1.0 model publishing ends. There's no downtime during the v1.0 model migration. All model publishing and in-flight translation requests will continue without disruption until May 07, 2023.
+* **May 01, 2023** → Custom Translator v1.0 model publishing ends. There's no downtime during the v1.0 model migration. All model publishing and in-flight translation requests will continue without disruption until June 02, 2023.
 
-* **April 10, 2023 through May 07, 2023** → Customers voluntarily migrate to v2.0 models.
+* **May 01, 2023 through June 02, 2023** → Customers voluntarily migrate to v2.0 models.
 
-* **May 08, 2023** → Remaining v1.0 published models migrate automatically and are published by the Custom Translator team.
+* **June 08, 2023** → Remaining v1.0 published models migrate automatically and are published by the Custom Translator team.
 
 ## Upgrade to v2.0
 
