@@ -208,7 +208,7 @@ This is a list of common deployment errors that are reported as part of the depl
 * [ResourceNotFound](#error-resourcenotfound)
 * [OperationCanceled](#error-operationcanceled)
 
-If you are creating or updating a Kubernetes online deployment, you can see [Common errors specific to Kubernetes deployments](#).
+If you are creating or updating a Kubernetes online deployment, you can see [Common errors specific to Kubernetes deployments](#common-errors-specific-to-kubernetes-deployments).
 
 
 ### ERROR: ImageBuildFailure
@@ -273,6 +273,21 @@ When you are creating a managed online endpoint, role assignment is required for
 
 Try to delete some unused endpoints in this subscription. If all of your endpoints are actively in use, you can try [requesting an endpoint quota increase](how-to-manage-quotas.md#endpoint-quota-increases).
 
+For Kubernetes online endpoints, there is the endpoint quota boundary at the cluster level as well, you can check the [Kubernetes online endpoint quota](how-to-manage-quotas.md#azure-machine-learning-kubernetes-online-endpoints) section for more details. 
+
+#### Kubernetes quota
+
+This issue happens when the requested CPU or memory couldn't be satisfied due to all nodes are unschedulable for this deployment, such as nodes are cordoned or nodes are unavailable.
+
+The error message will typically indicate the resource insufficient in cluster, for example, `OutOfQuota: Kubernetes unschedulable. Details:0/1 nodes are available: 1 Too many pods...`, which means that there are too many pods in the cluster and not enough resources to deploy the new model based on your request.
+
+You can try the following mitigation to address this issue:
+* For IT ops who maintain the Kubernetes cluster, you can try to add more nodes or clear some unused pods in the cluster to release some resources.
+* For machine learning engineers who deploy models, you can try to reduce the resource request of your deployment:
+    * If you directly define the resource request in the deployment configuration via resource section, you can try to reduce the resource request.
+    * If you use `instance type` to define resource for model deployment, you can contact the IT ops to adjust the instance type resource configuration, more detail you can refer to [How to manage Kubernetes instance type](how-to-manage-kubernetes-instance-types.md).
+
+
 #### Region-wide VM capacity
 
 Due to a lack of Azure Machine Learning capacity in the region, the service has failed to provision the specified VM size. Retry later or try deploying to a different region.
@@ -309,15 +324,7 @@ Use the **Endpoints** in the studio:
 1. Select the **Deployment logs** tab in the endpoint's details page.
 1. Use the dropdown to select the deployment whose log you want to see.
 
-#### Kubernetes quota
-
-This issue happens when the requested CPU or memory couldn't be satisfied due to all nodes are unschedulable for this deployment, such as nodes are cordoned or nodes are unavailable.
-
-The error message will typically indicate which resource you need more of. For instance, if you see an error message detailing `0/3 nodes are available: 3 Insufficient nvidia.com/gpu`, that means that the service requires GPUs and there are three nodes in the cluster that don't have sufficient GPUs. This can be addressed by adding more nodes if you're using a GPU SKU, switching to a GPU-enabled SKU if you aren't, or changing your environment to not require GPUs.
-
-You can also try adjusting your request in the cluster, you can directly [adjust the resource request of the instance type](how-to-manage-kubernetes-instance-types.md).
-
----
+----
 
 ### ERROR: BadArgument
 
