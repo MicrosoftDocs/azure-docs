@@ -131,7 +131,7 @@ The Azure portal is a web-based, unified console that provides an alternative to
 
 Some Azure resource providers have curated visualizations that provide a customized monitoring experience and require minimal configuration. Insights are large, scalable, curated visualizations. 
 
-:::image type="content" source="media/overview/insights-box.svg"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-no-scaling.svg":::
+:::image type="content" source="media/overview/insights-box.svg"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-blowup-type2.svg":::
 
 The following table describes some of the larger insights:
 
@@ -146,7 +146,7 @@ For more information, see the [list of insights and curated visualizations in th
 
 ### Visualize
 
-:::image type="content" source="media/overview/visualize-box.svg" alt-text="Diagram that shows the Visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-large-in-overview-context.png":::
+:::image type="content" source="media/overview/visualize-box.svg" alt-text="Diagram that shows the Visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-blowup-type2.svg":::
 
 Visualizations such as charts and tables are effective tools for summarizing monitoring data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and uses other Azure services for publishing it to different audiences. Power BI and Grafana are not officially part of the Azure Monitor product, but they're a core integration and part of the Azure Monitor story.
 
@@ -161,7 +161,7 @@ Visualizations such as charts and tables are effective tools for summarizing mon
 
 The Azure portal contains built in tools that allow you to analyze monitoring data.
 
-:::image type="content" source="media/overview/analyze-box.svg" alt-text="Diagram that shows the Analyze part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/analyze-large-in-overview-context.png":::
+:::image type="content" source="media/overview/analyze-box.svg" alt-text="Diagram that shows the Analyze part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/analyze-blowup-type2.svg":::
 
 |Tool  |Description  |
 |---------|---------|
@@ -173,7 +173,7 @@ The Azure portal contains built in tools that allow you to analyze monitoring da
 
 An effective monitoring solution proactively responds to critical events, without the need for an individual or team to notice the issue. The response could be a text or email to an administrator, or an automated process that attempts to correct an error condition.
 
-:::image type="content" source="media/overview/respond-box.svg" alt-text="Diagram that shows the Respond part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/respond-large-in-overview-context.png":::
+:::image type="content" source="media/overview/respond-box.svg" alt-text="Diagram that shows the Respond part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/respond-blowup-type2.svg":::
 
 **[Alerts](alerts/alerts-overview.md)** notify you of critical conditions and can take corrective action. Alert rules can be based on metric or log data. Metric alert rules provide near-real-time alerts based on collected metrics. Log alerts rules based on logs allow for complex logic across data from multiple sources. 
 Alert rules use action groups, which can perform actions like sending email or SMS notifications. Action groups can send notifications using webhooks to trigger external processes or to integrate with your IT service management tools. Action groups, actions, and sets of recipients can be shared across multiple rules.
