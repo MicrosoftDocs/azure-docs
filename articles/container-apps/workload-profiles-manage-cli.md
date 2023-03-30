@@ -181,7 +181,7 @@ E16          16       128          MemoryOptimized
 Consumption  4        8            Consumption
 ```
 
-Select a workload profile and use the *Name* field when you run `az containerapp create` for the `--workload-profile-type` option.
+Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
 
 ### Show a workload profile
 

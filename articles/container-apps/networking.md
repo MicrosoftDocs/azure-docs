@@ -26,6 +26,8 @@ As you create a custom VNET, keep in mind the following situations:
 
 - If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
 
+- When you provide your own VNET, additional [managed resources](networking.md#managed-resources) are created which you will be billed for.
+
 - When you provide your own VNET, you need to provide a subnet that is dedicated to the Container App Environment you'll deploy. This subnet can't be used by other services.
 
 - Network addresses are assigned from a subnet range you define as the environment is created.

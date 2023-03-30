@@ -29,6 +29,9 @@ You can choose between these logs destinations:
     - An Azure partner monitoring solution such as, Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
 - **None**: You can disable the storage of log data. You'll still be able to view real-time container logs via the **Logs stream** feature in your container app.  For more information, see [Log streaming](log-streaming.md).
 
+> [!NOTE]
+> Azure Monitor is not currently supported in the Consumption + Dedicated plan.
+
 When *None* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
 
 ## Configure options via the Azure portal
