@@ -1106,7 +1106,7 @@ Some general system constraints might affect your workload:
 | Maximum identifier length in characters | 128. See [Limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects).|
 | Maximum query duration | 30 minutes. |
 | Maximum size of the result set | Up to 400 GB shared between concurrent queries. |
-| Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data. |
+| Maximum concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1,000 active sessions that are executing lightweight queries. The numbers will drop if the queries are more complex or scan a larger amount of data, so in thatcase consider decreasing concurrency and execute queries over a longer period of time if possible.|
 | Maximum size of External Table name | 100 characters. |
 
 ### Can't create a database in serverless SQL pool

@@ -78,7 +78,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Portuguese - Brazil (pt-BR)
 
 * Prebuilt invoice model - added languages supported. The invoice model now supports these added languages and locales
-  * English - United States (en-US), Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * English - United States (en-US), Australia (en-AU), Canada (en-CA), United Kingdom (en-UK), India (en-IN)
   * Spanish - Spain (es-ES)
   * French - France (fr-FR)
   * Italian - Italy (it-IT)
@@ -113,7 +113,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   The **prebuilt invoice model** now has added support for the following languages:
 
-  * English - Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * English - Australia (en-AU), Canada (en-CA), United Kingdom (en-UK), India (en-IN)
   * Portuguese - Brazil (pt-BR)
 
   The **prebuilt invoice model** now has added support for the following field extractions:

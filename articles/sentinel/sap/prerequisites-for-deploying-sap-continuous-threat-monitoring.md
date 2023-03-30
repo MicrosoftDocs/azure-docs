@@ -18,6 +18,8 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. **Deployment prerequisites (*You are here*)**
 
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
+
 1. [Prepare SAP environment](preparing-sap.md)
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
