@@ -15,7 +15,7 @@ ms.custom:  [amqp, mqtt, devx-track-js]
 
 [!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
-This article provides instructions for establishing a trusted connection between downstream devices and IoT Edge transparent [gateways](iot-edge-as-gateway.md). In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub. Here, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway.
+Here, you find instructions for establishing a trusted connection between downstream devices and IoT Edge transparent [gateways](iot-edge-as-gateway.md). In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub. Here, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway.
 
 >[!NOTE]
 >A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
@@ -28,12 +28,12 @@ There are three general steps to set up a successful transparent gateway connect
 
 1. **Connect the downstream device to the gateway device and start sending messages.**
 
-This article explains downstream device connections, such as: 
+This article helps you understand downstream device connection components, such as: 
 
 * Transport layer security (TLS) and certificate fundamentals.
-* How TLS libraries work across different operating systems and how each operating system deals with certificates.
+* TLS libraries, working across different operating systems, that handle certificates differently.
 
-You then walk through Azure IoT samples in several languages to help your device send messages to the gateway.
+You then walk through Azure IoT samples, in your preferred language, to get your device to send messages to the gateway.
 
 ## Prerequisites
 
