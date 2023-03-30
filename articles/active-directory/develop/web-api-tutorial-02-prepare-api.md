@@ -14,27 +14,27 @@ ms.date: 11/1/2022
 
 After registration is complete, a ASP.NET Core project can be created using an integrated development environment (IDE). This tutorial demonstrates how to create an ASP.NET Core project using an IDE and configure for authentication and authorization.
 
-In this tutorial: 
+In this tutorial:
 
-> [!div class="checklist"] 
+> [!div class="checklist"]
 > * Create an **ASP.NET Core Empty**
-> * Configure the settings for the application 
-> * Identify and install the required NuGet packages 
+> * Configure the settings for the application
+> * Identify and install the required NuGet packages
 
-## Prerequisites 
+## Prerequisites
 
 * Completion of the prerequisites and steps in [Tutorial: Register web API with the Microsoft identity platform](web-api-tutorial-01-register-app.md).
-* You can download the IDEs used in this tutorial from the [Downloads](https://visualstudio.microsoft.com/downloads) page. 
-  - Visual Studio 2022 
-  - Visual Studio Code 
-  - Visual Studio 2022 for Mac 
-- A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet). 
+* You can download the IDEs used in this tutorial from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
+  - Visual Studio 2022
+  - Visual Studio Code
+  - Visual Studio 2022 for Mac
+- A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
-## Create an ASP.NET Core project 
+## Create an ASP.NET Core project
 
-Use the following tabs to create an ASP.NET Core project within an IDE. 
+Use the following tabs to create an ASP.NET Core project within an IDE.
 
-### [Visual Studio](#tab/visual-studio) 
+### [Visual Studio](#tab/visual-studio)
 
 1. Open Visual Studio, and then select **Create a new project**.
 1. Search for and choose the **ASP.NET Core Empty** template, and then select **Next**.
@@ -43,13 +43,13 @@ Use the following tabs to create an ASP.NET Core project within an IDE.
 1. Accept the default for the **Framework** and **Configure for HTTPS**.
 1. Select **Create**.
 
-### [Visual Studio Code](#tab/visual-studio-code) 
+### [Visual Studio Code](#tab/visual-studio-code)
 
-1. Open Visual Studio Code, select **File > Open Folder...**. Navigate to and select the location in which to create your project. 
+1. Open Visual Studio Code, select **File > Open Folder...**. Navigate to and select the location in which to create your project.
 1. Open up a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
 1. Create a new folder using the **New Folder...** icon in the **Explorer** pane. Provide a name similar to the one registered previously, for example, *NewWebAPILocal*.
 1. Open a new terminal by selecting **Terminal > New Terminal**.
-1. To create an **ASP.NET Core Empty** template, run the following commands in the terminal to change into the directory and create the project:  
+1. To create an **ASP.NET Core Empty** template, run the following commands in the terminal to change into the directory and create the project:
 
     ```powershell
     cd NewWebAPILocal
@@ -70,7 +70,7 @@ Use the following tabs to create an ASP.NET Core project within an IDE.
 
 The values recorded earlier will be used in *appsettings.json* to configure the application for authentication. *appsettings.json* is a configuration file that is used to store application settings used during run-time.
 
-1. Open *appsettings.json* and replace the file contents with the following code snippet: 
+1. Open *appsettings.json* and replace the file contents with the following code snippet:
 
     ```json
     {
@@ -102,25 +102,24 @@ Identity related **NuGet packages** must be installed in the project for authent
 
 ### [Visual Studio](#tab/visual-studio)
 
-1. In the top menu, select **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**. 
-1. With the **Browse** tab selected, search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select the **Project** checkbox, and then select **Install**. 
-1. Select **Ok** or **I Accept** for other windows that may appear. 
+1. In the top menu, select **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**.
+1. With the **Browse** tab selected, search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select the **Project** checkbox, and then select **Install**.
+1. Select **Ok** or **I Accept** for other windows that may appear.
 
-### [Visual Studio Code](#tab/visual-studio-code) 
+### [Visual Studio Code](#tab/visual-studio-code)
 
-1. In the terminal opened in the previous section, enter the following command: 
+1. In the terminal opened in the previous section, enter the following command:
 
     ```powershell
-    dotnet add package Microsoft.Identity.Web 
+    dotnet add package Microsoft.Identity.Web
     ```
 
-### [Visual Studio for Mac](#tab/visual-studio-for-mac) 
+### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 
-1. In the top menu, select **Tools** > **Manage NuGet Packages**. 
-1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**. 
-1. Modify the search to **Microsoft.Identity.Web.UI** and select **Add Packages**. 
-1. In the pop-up, ensure the correct project is selected, then select **Ok**. 
-1. Select **Accept** if other **License Acceptance** windows appear. 
+1. In the top menu, select **Tools** > **Manage NuGet Packages**.
+1. Search for **Microsoft.Identity.Web**, select the `Microsoft.Identity.Web` package, select **Project**, and then select **Add Package**.
+1. In the pop-up, ensure the correct project is selected, then select **Ok**.
+1. Select **Accept** if other **License Acceptance** windows appear.
 
 ---
 

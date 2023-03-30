@@ -36,6 +36,7 @@ This article shows you how to call a protected ASP.NET Core web API using Client
   - Application developer 
   - Cloud application administrator 
 - [Download and install cURL](https://curl.se/download.html) on your workstation computer.  
+- A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/download/dotnet).
 
 ::: zone-end
 
@@ -184,8 +185,16 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
 
 1. Execute the following command to start the app:  
 
+   ### [.NET 6.0](#tab/dotnet6)
+    
    ```bash
-   dotnet run 
+   dotnet run
+   ``` 
+    
+    ### [.NET 7.0](#tab/dotnet7)
+   
+   ```bash
+   dotnet run --launch-profile https
    ``` 
 
 1. An output similar to the following will appear. Record the port number in the `https://localhost:{port}` URL. 
@@ -207,22 +216,22 @@ You may also notice the **User.Read** permission for the Microsoft Graph API. Th
 
 1. Open a new terminal window and navigate to the folder where the web API project is located.
 
-    ### [.NET 6.0](#tab/dotnet6)
+### [.NET 6.0](#tab/dotnet6)
     
-    1. Execute the following command to start the app: 
+1. Execute the following command to start the app: 
     
-       ```bash
-       dotnet run
-       ``` 
+   ```bash
+   dotnet run
+   ``` 
     
-    ### [.NET 7.0](#tab/dotnet7)
+### [.NET 7.0](#tab/dotnet7)
     
-    1. Execute the following command to start the app on the `https` profile: 
+1. Execute the following command to start the app on the `https` profile: 
        
-       ```bash
-       dotnet run -launch-profile https`
-       ``` 
-    ---
+   ```bash
+   dotnet run --launch-profile https
+   ``` 
+---
 
 1. An output similar to the following will appear. Record the port number in the `https://localhost:{port}` URL. 
 

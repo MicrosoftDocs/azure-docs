@@ -250,7 +250,9 @@ reactspalocal/
 
 1. Save the file.
 
-## Next steps
+<!-- ::: zone pivot="devlang-javascript"
+[!INCLUDE [javascript](./includes/single-page-app/javascript-tutorial-03-sign-in-users.md)]
+<!-- ::: zone-end -->
 
 > [!div class="nextstepaction"]
 > [Tutorial: Call an API from a React single-page app](single-page-app-tutorial-04-call-api.md)
