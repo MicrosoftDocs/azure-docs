@@ -278,8 +278,8 @@ After solution creation, these main files are in the solution:
 
 The latest stable IoT Edge system module version is 1.4. Set your system modules to version 1.4.
 
-1. In Visual Studio Code, open *deployment.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
-1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+1. In Visual Studio Code, open **deployment.template.json** deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+1. Change the runtime version for the system runtime module images **edgeAgent** and **edgeHub**. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
 
     ```json
     ...
@@ -373,13 +373,13 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     using Newtonsoft.Json;                // For JsonConvert
     ```
 
-1. Add the **temperatureThreshold** variable to the **Program** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub.
+1. Add the **temperatureThreshold** variable to the **ModuleBackgroundService** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub.
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
     ```
 
-1. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+1. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **ModuleBackgroundService** class. These classes define the expected schema for the body of incoming messages.
 
     ```csharp
     class MessageBody
@@ -529,17 +529,15 @@ The sample C# code that comes with the project template uses the [ModuleClient C
        }
     ```
 
-    ![Add module twin to deployment template](./media/tutorial-csharp-module/module-twin.png)
-
-1. Save the deployment.template.json file.
+1. Save the **deployment.template.json** file.
 
 # [C](#tab/c)
 
 1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
 
-   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** folder.
+   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **filtermodule** folder.
 
-   2. Open **modules** > **CModule** > **CMakeLists.txt**. At the top of the file, import the Parson files as a library called **my_parson**.
+   2. Open **modules** > **filtermodule** > **CMakeLists.txt**. At the top of the file, import the Parson files as a library called **my_parson**.
 
       ```txt
       add_library(my_parson
@@ -552,7 +550,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
    4. Save the **CMakeLists.txt** file.
 
-   5. Open **modules** > **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. Open **modules** > **filtermodule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
 
       ```c
       #include "parson.h"
@@ -707,23 +705,21 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-1. Add the CModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
+1. Add the filtermodule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
 
    ```json
-   "CModule": {
+   "filtermodule": {
        "properties.desired":{
            "TemperatureThreshold":25
        }
    }
    ```
 
-   ![Add CModule twin to deployment template](./media/tutorial-c-module/module-twin.png)
-
 1. Save the **deployment.template.json** file.
 
 # [Java](#tab/java)
 
-1. In the Visual Studio Code explorer, open **modules** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
+1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
 
 2. Add the following code at the top of the file to import new referenced classes.
 
@@ -824,28 +820,26 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     client.getTwin();
     ```
 
-7. Save the App.java file.
+7. Save the **App.java** file.
 
 8. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-9. Add the **JavaModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
+9. Add the **filtermodule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
 
    ```json
-     "JavaModule": {
+     "filtermodule": {
          "properties.desired":{
              "TemperatureThreshold":25
          }
      }
    ```
 
-   ![Add module twin to deployment template](./media/tutorial-java-module/module-twin.png)
-
-10. Save the deployment.template.json file.
+10. Save the **deployment.template.json** file.
 
 
 # [Node.js](#tab/node)
 
-1. In the Visual Studio Code explorer, open **modules** > **NodeModule** > **app.js**.
+1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **app.js**.
 
 2. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
@@ -898,23 +892,21 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     });
     ```
 
-6. Save the app.js file.
+6. Save the **app.js** file.
 
 7. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-8. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
+8. Add the filtermodule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
 
    ```json
-     "NodeModule": {
+     "filtermodule": {
          "properties.desired":{
              "TemperatureThreshold":25
          }
      }
    ```
 
-   ![Add module twin to deployment template](./media/tutorial-node-module/module-twin.png)
-
-9. Save the deployment.template.json file.
+9. Save the **deployment.template.json** file.
 
 # [Python](#tab/python)
 
