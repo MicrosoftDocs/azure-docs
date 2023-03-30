@@ -74,6 +74,8 @@ The following table compares features available in the managed gateway versus th
 | [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ |  ❌ | ✔️<sup>3</sup> |  
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  ✔️ | ✔️ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ |
+| **HTTP/2** (Client-to-gateway) |  ❌ | ❌ | ✔️ |
+| **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ✔️ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the default endpoint hostname; custom domain name is currently not supported.<br/>
@@ -93,7 +95,7 @@ The following table compares features available in the managed gateway versus th
 | [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) |  Developer, Premium |  ❌ | ❌ |
 | [Passthrough GraphQL](graphql-api.md) |  ✔️ | ✔️<sup>1</sup> | ❌ |
 | [Synthetic GraphQL](graphql-schema-resolve-api.md) |  ✔️ |  ❌ | ❌ |
-| [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ❌ |
+| [Passthrough WebSocket](websocket-api.md) |  ✔️ |  ❌ | ✔️ |
 
 <sup>1</sup> GraphQL subscriptions aren't supported in the Consumption tier.
 
