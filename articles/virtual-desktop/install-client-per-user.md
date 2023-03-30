@@ -102,4 +102,4 @@ To install the client on a per-user basis using a batch file:
 
 ## Next steps
 
-Learn more about the Remote Desktop client at [Use features of the Remote Desktop client for Windows]((./users/client-features-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)).
+Learn more about the Remote Desktop client at [Use features of the Remote Desktop client for Windows](./users/client-features-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json).
