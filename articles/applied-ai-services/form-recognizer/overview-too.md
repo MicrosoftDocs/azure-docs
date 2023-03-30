@@ -154,7 +154,7 @@ Form Recognizer Studio preview features are currently in gated preview. Features
    :::column-end:::
 :::row-end:::
 
-## Video: model overview
+## Video: models overview
 
 The following video introduces Form Recognizer models and their associated output to help you choose the best model to address your document scenario needs.
 
