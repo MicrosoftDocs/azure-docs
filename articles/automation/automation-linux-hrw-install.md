@@ -220,19 +220,6 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 
 ## <a name="remove-linux-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker
 
-#### [Windows Hybrid Worker](#tab/win-hrw)
-
-Open PowerShell session in Administrator mode and run the following command:
-
-```powershell-interactive
-    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker\<AutomationAccountID>\<HybridWorkerGroupName>" -Force -Verbose
-```
-> [!NOTE]
-> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
-> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
-
-#### [Linux Hybrid Worker](#tab/lin-hrw)
-
 Run the following commands on agent-based Linux Hybrid Worker:
 
 1. ```python
@@ -249,11 +236,10 @@ Run the following commands on agent-based Linux Hybrid Worker:
 
 
 > [!NOTE]
-> - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. </br>
+> - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. 
 > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
 > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
----
 
 ## Remove a Hybrid Worker group
 
