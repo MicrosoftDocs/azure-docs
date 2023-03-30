@@ -30,7 +30,7 @@ For more information, see [Defender for IoT device inventory](device-inventory.m
 
 ### Learn DNS traffic by configuring allowlists
 
-The *support* user can now decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor. 
+The *support* user can now decrease the number of unauthorized internet alerts by creating an allowlist of domain names on your OT sensor.
 
 When a DNS allowlist is configured, the sensor checks each unauthorized internet connectivity attempt against the list before triggering an alert. If the domain's FQDN is included in the allowlist, the sensor doesn’t trigger the alert and allows the traffic automatically.
 
@@ -39,10 +39,9 @@ All OT sensor users can view the list of allowed DNS domains and their resolved 
 For example:
 
 :::image type="content" source="media/release-notes/data-mining-allowlist.png" alt-text="Screenshot of how to create a data mining report for DNS allowlists.":::
-    
+
 For more information, see [Allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network) and [Create data mining queries](how-to-create-data-mining-queries.md).
 
-    
 ### Device data retention updates
 
 The device data retention period on the OT sensor and on-premises management console has been updated to 90 days from the date of the **Last activity** value.
@@ -59,7 +58,7 @@ For more information, see [Deploy SSL/TLS certificates on OT appliances](how-to-
 
 Activation files on locally-managed OT sensors now remain activated for as long as your Defender for IoT plan is active on your Azure subscription, just like activation files on cloud-connected OT sensors.
 
-You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
+You'll only need to update your activation file if you're [updating an OT sensor from a legacy version](update-legacy-ot-software.md#update-legacy-ot-sensor-software) or switching the sensor management mode, such as moving from locally-managed to cloud-connected.
 
 For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -69,7 +68,7 @@ The following enhancements were added to the OT sensor's device inventory in ver
 
 - A smoother process for [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) on the OT sensor. Edit device details directly from the device inventory page on the OT sensor console using the new **Edit** button in the toolbar at the top of the page.
 - The OT sensor now supports [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) simultaneously.
-- The procedures for [merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices now include confirmation messages that appear when the action has completed. 
+- The procedures for [merging](how-to-investigate-sensor-detections-in-a-device-inventory.md#merge-devices) and [deleting](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) devices now include confirmation messages that appear when the action has completed.
 
 For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
 
@@ -79,7 +78,6 @@ All alerts with the **Suspicion of Malicious Activity** category now have a seve
 
 For more information, see [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts).
 
-   
 ### Automatically resolved device notifications
 
 Starting in version 22.3.6, selected notifications on the OT sensor's **Device map** page are now automatically resolved if they aren't dismissed or otherwise handled within 14 days.
@@ -106,8 +104,6 @@ For more information, see [Tutorial: Investigate and detect threats for IoT devi
 |---------|---------|
 | **OT networks** | **Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
-
-
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
 
@@ -357,7 +353,7 @@ For more information, see:
 
 - [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md)
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-- [Networking requirements](how-to-set-up-your-network.md#sensor-access-to-azure-portal)
+- [Networking requirements](networking-requirements.md#sensor-access-to-azure-portal)
 
 ### Investigation enhancements with IoT device entities in Microsoft Sentinel
 
@@ -563,7 +559,7 @@ Now, for locally managed sensors, you can upload that diagnostic log directly on
 >
 For more information, see:
 
-- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [Download a diagnostics log for support](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
 
 ### Improved security for uploading protocol plugins
@@ -639,7 +635,6 @@ Check out our new structure to follow through viewing devices and assets, managi
 - [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
 - [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
 - [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
-- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
 
 > [!NOTE]
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
@@ -799,7 +794,7 @@ Now you can get a summary of the log and system information that gets added to y
 
 :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup and Restore dialog showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
-For more information, see [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+For more information, see [Download a diagnostics log for support](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 
 ### Alert updates
 
@@ -892,9 +887,9 @@ For more information, see [Update OT system software](update-ot-software.md).
 
 Defender for IoT version 22.1.x supports a new set of sensor connection methods that provide simplified deployment, improved security, scalability, and flexible connectivity.
 
-In addition to [migration steps](connect-sensors.md#migration-for-existing-customers), this new connectivity model requires that you open a new firewall rule. For more information, see:
+In addition to [migration steps](update-legacy-ot-software.md#migrate-a-cloud-connection-from-the-legacy-method), this new connectivity model requires that you open a new firewall rule. For more information, see:
 
-- **New firewall requirements**: [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+- **New firewall requirements**: [Sensor access to Azure portal](networking-requirements.md#sensor-access-to-azure-portal).
 - **Architecture**: [Sensor connection methods](architecture-connections.md)
 - **Connection procedures**: [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md)
 
@@ -914,7 +909,7 @@ The following Defender for IoT options and configurations have been moved, remov
 
 - Reports previously found on the **Reports** page are now shown on the **Data Mining** page instead. You can also continue to view data mining information directly from the on-premises management console.
 
-- Changing a locally managed sensor name is now supported only by onboarding the sensor to the Azure portal again with the new name. Sensor names can no longer be changed directly from the sensor. For more information, see [Change the name of a sensor](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor).
+- Changing a locally managed sensor name is now supported only by onboarding the sensor to the Azure portal again with the new name. Sensor names can no longer be changed directly from the sensor. For more information, see [Upload a new activation file](how-to-manage-individual-sensors.md#upload-a-new-activation-file).
 
 ## Next steps
 

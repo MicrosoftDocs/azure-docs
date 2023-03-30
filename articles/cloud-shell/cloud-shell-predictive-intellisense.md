@@ -1,17 +1,8 @@
 ---
-title: Predictive IntelliSense in Azure Cloud Shell
 description: Azure Cloud Shell uses Predictive IntelliSense
-services: Azure
-documentationcenter: ''
-author: theJasonHelmick
-manager: mgreene
-
-ms.service: cloud-shell
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.topic: article
 ms.date: 10/11/2022
-ms.author: jahelmic
+ms.topic: article
+title: Predictive IntelliSense in Azure Cloud Shell
 ---
 
 # Predictive IntelliSense in Azure Cloud Shell

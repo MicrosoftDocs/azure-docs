@@ -32,6 +32,135 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page updates monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## March 2023
+
+### General Availability - Workload identity Federation for Managed Identities
+
+**Type:** New feature   
+**Service category:** Managed identities for Azure resources                     
+**Product capability:** Developer Experience             
+
+Workload Identity Federation enables developers to use managed identities for their software workloads running anywhere and access Azure resources without needing secrets. Key scenarios include:
+- Accessing Azure resources from Kubernetes pods running in any cloud or on-premises
+- GitHub workflows to deploy to Azure, no secrets necessary
+- Accessing Azure resources from other cloud platforms that support OIDC, such as Google Cloud Platform.
+
+For more information, see: 
+- [Workload identity federation](../workload-identities/workload-identity-federation.md).
+- [Configure a user-assigned managed identity to trust an external identity provider (preview)](../workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity.md)
+- [Use Azure AD workload identity (preview) with Azure Kubernetes Service (AKS)](../../aks/workload-identity-overview.md)
+
+---
+
+### Public Preview - New My Groups Experience
+
+**Type:** Changed feature   
+**Service category:** Group Management                   
+**Product capability:** End User Experiences          
+
+A new and improved My Groups experience is now available at https://www.myaccount.microsoft.com/groups. My Groups enables end users to easily manage groups, such as finding groups to join, managing groups they own, and managing existing group memberships. Based on customer feedback, the new My Groups support sorting and filtering on lists of groups and group members, a full list of group members in large groups, and an actionable overview page for membership requests.
+This experience replaces the existing My Groups experience at https://www.mygroups.microsoft.com in May.  
+
+
+For more information, see: [Update your Groups info in the My Apps portal](https://support.microsoft.com/account-billing/update-your-groups-info-in-the-my-apps-portal-bc0ca998-6d3a-42ac-acb8-e900fb1174a4).
+
+---
+
+### Public preview - Customize tokens with Custom Claims Providers
+
+**Type:** New feature   
+**Service category:** Authentications (Logins)                      
+**Product capability:** Extensibility             
+
+A custom claims provider lets you call an API and map custom claims into the token during the authentication flow. The API call is made after the user has completed all their authentication challenges, and a token is about to be issued to the app. For more information, see: [Custom authentication extensions (preview)](../develop/custom-claims-provider-overview.md).
+
+---
+
+### General Availability - Converged Authentication Methods
+
+**Type:** New feature   
+**Service category:** MFA                     
+**Product capability:** User Authentication             
+
+The Converged Authentication Methods Policy enables you to manage all authentication methods used for MFA and SSPR in one policy, migrate off the legacy MFA and SSPR policies, and target authentication methods to groups of users instead of enabling them for all users in your tenant. For more information, see: [Manage authentication methods](../authentication/concept-authentication-methods-manage.md).
+
+---
+
+### General Availability - Provisioning Insights Workbook
+
+**Type:** New feature   
+**Service category:** Provisioning                     
+**Product capability:** Monitoring & Reporting            
+
+This new workbook makes it easier to investigate and gain insights into your provisioning workflows in a given tenant. This includes HR-driven provisioning, cloud sync, app provisioning, and cross-tenant sync.
+
+Some key questions this workbook can help answer are:
+
+- How many identities have been synced in a given time range?
+- How many create, delete, update, or other operations were performed?
+- How many operations were successful, skipped, or failed?
+- What specific identities failed? And what step did they fail on?
+- For any given user, what tenants / applications were they provisioned or deprovisioned to?
+
+For more information, see: [Provisioning insights workbook](../app-provisioning/provisioning-workbook.md).
+
+---
+
+### General Availability - Number Matching for Microsoft Authenticator notifications
+
+**Type:** Plan for Change  
+**Service category:** Microsoft Authenticator App                      
+**Product capability:** User Authentication             
+
+Microsoft Authenticator app’s number matching feature has been Generally Available since Nov 2022! If you haven't already used the rollout controls (via Azure portal Admin UX and MSGraph APIs) to smoothly deploy number matching for users of Microsoft Authenticator push notifications, we highly encourage you to do so. We previously announced that we'll remove the admin controls and enforce the number match experience tenant-wide for all users of Microsoft Authenticator push notifications starting February 27, 2023. After listening to customers, we'll extend the availability of the rollout controls for a few more weeks. Organizations can continue to use the existing rollout controls until May 8, 2023, to deploy number matching in their organizations. Microsoft services will start enforcing the number matching experience for all users of Microsoft Authenticator push notifications after May 8, 2023. We'll also remove the rollout controls for number matching after that date.
+
+If customers don’t enable number match for all Microsoft Authenticator push notifications prior to May 8, 2023, Authenticator users may experience inconsistent sign-ins while the services are rolling out this change. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance.
+
+For more information, see: [How to use number matching in multifactor authentication (MFA) notifications - Authentication methods policy](../authentication/how-to-mfa-number-match.md)
+
+---
+
+### Public Preview - IPv6 coming to Azure AD
+
+**Type:** Plan for Change     
+**Service category:** Identity Protection                     
+**Product capability:** Platform             
+
+Earlier, we announced our plan to bring IPv6 support to Microsoft Azure Active Directory (Azure AD), enabling our customers to reach the Azure AD services over IPv4, IPv6 or dual stack endpoints. This is just a reminder that we have started introducing IPv6 support into Azure AD services in a phased approach in late March 2023.  
+ 
+If you utilize Conditional Access or Identity Protection, and have IPv6 enabled on any of your devices, you likely must take action to avoid impacting your users. For most customers, IPv4 won't completely disappear from their digital landscape, so we aren't planning to require IPv6 or to deprioritize IPv4 in any Azure AD features or services. We'll continue to share additional guidance on IPv6 enablement in Azure AD at this link: [IPv6 support in Azure Active Directory](https://learn.microsoft.com/troubleshoot/azure/active-directory/azure-ad-ipv6-support)
+
+---
+
+### General Availability - Microsoft cloud settings for Azure AD B2B
+
+**Type:** New feature  
+**Service category:** B2B              
+**Product capability:** B2B/B2C       
+
+Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
+
+- Microsoft Azure commercial and Microsoft Azure Government
+- Microsoft Azure commercial and Microsoft Azure China 21Vianet
+
+For more information about Microsoft cloud settings for B2B collaboration., see: [Microsoft cloud settings](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+
+---
+
+### Modernizing Terms of Use Experiences
+
+**Type:** Plan for Change  
+**Service category:** Access Reviews                 
+**Product capability:** AuthZ/Access Delegation        
+
+Starting July 2023, we're modernizing the following Terms of Use end user experiences with an updated PDF viewer, and moving the experiences from https://account.activedirectory.windowsazure.com to https://myaccount.microsoft.com:
+- View previously accepted terms of use.
+- Accept or decline terms of use as part of the sign-in flow.
+
+No functionalities will be removed. The new PDF viewer adds functionality and the limited visual changes in the end-user experiences will be communicated in a future update. If your organization has allow-listed only certain domains, you must ensure your allowlist includes the domains ‘myaccount.microsoft.com’ and ‘*.myaccount.microsoft.com’ for Terms of Use to continue working as expected.
+
+---
+
 ## February 2023
 
 ### General Availability - Expanding Privileged Identity Management Role Activation across the Azure portal
@@ -44,7 +173,6 @@ Privileged Identity Management (PIM) role activation has been expanded to the Bi
 
 
 For more information Microsoft cloud settings, see: [Activate my Azure resource roles in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-activate-your-roles.md).
-
 
 ---
 
@@ -425,11 +553,11 @@ For listing your application in the Azure AD app gallery, read the details here 
 **Service category:** Other               
 **Product capability:** Developer Experience         
 
-As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we'll end support for the Microsoft Authentication Library (ADAL). The final deadline to migrate your applications to Microsoft Authentication Library (MSAL) has been extended to **June 30, 2023**. 
+As part of our ongoing initiative to improve the developer experience, service reliability, and security of customer applications, we'll end support for the Azure Active Directory Authentication Library (ADAL). The final deadline to migrate your applications to Azure Active Directory Authentication Library (MSAL) has been extended to **June 30, 2023**. 
 
 ### Why are we doing this?
 
-As we consolidate and evolve the Microsoft Identity platform, we're also investing in making significant improvements to the developer experience and service features that make it possible to build secure, robust and resilient applications. To make these features available to our customers, we needed to update the architecture of our software development kits. As a result of this change, we’ve decided that the path forward requires us to sunset Azure Active Directory Authentication Library. This allows us to focus on developer experience investments with Microsoft Authentication Library. 
+As we consolidate and evolve the Microsoft Identity platform, we're also investing in making significant improvements to the developer experience and service features that make it possible to build secure, robust and resilient applications. To make these features available to our customers, we needed to update the architecture of our software development kits. As a result of this change, we’ve decided that the path forward requires us to sunset Azure Active Directory Authentication Library. This allows us to focus on developer experience investments with Azure Active Directory Authentication Library. 
 
 ### What happens?
 
