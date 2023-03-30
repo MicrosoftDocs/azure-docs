@@ -1,10 +1,9 @@
 ---
-title: Create a Windows VM from a specialized VHD in the Azure portal
-description: Create a new Windows VM from a VHD in the Azure portal.
+title: Create a VM from a specialized VHD in the Azure portal
+description: Create a new VM by attaching a specialized disk in the Azure portal.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
-ms.collection: windows
+ms.subservice:
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/30/2023
@@ -25,9 +24,7 @@ ms.author: cynthn
 
 
 
-If you already have a virtual hard disk (VHD) to use or you want to copy the VHD from an existing VM to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk.
-
-You can also create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that isn't working correctly, you can delete the VM and use its VHD to create a new VM. 
+If you already have a virtual hard disk (VHD) to use, you can create a new VM by *attaching* the VHD to the new VM as an OS disk. This is useful when you want to create a new VM from the VHD of a VM that has been deleted. For example, if you have an Azure VM that isn't working correctly, you can delete the VM and use its VHD to create a new VM. 
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single snapshot or VHD.
 
@@ -66,7 +63,7 @@ After you have the disk that you want to use, you can create the VM in the porta
 5. On the **Basics** page for the new VM, enter a **Virtual machine name** and either select an existing **Resource group** or create a new one.
 6. For **Size**, select **Change size** to access the **Size** page.
 7. The disk name should be pre-filled in the **Image** section.
-8. On the **Disks** page, you may notice that the "OS Disk Type" cannot be changed. This preselected value is configured at the point of Snapshot or VHD creation and will carry over to the new VM. If you need to modify disk type take a new snapshot from an existing VM or disk. 
+8. On the **Disks** page, you may notice that the **OS Disk Type** cannot be changed. This preselected value is configured at the point of Snapshot or VHD creation and will carry over to the new VM. If you need to modify disk type take a new snapshot from an existing VM or disk. 
 9. On the **Networking** page, you can either let the portal create all new resources or you can select an existing **Virtual network** and **Network security group**. The portal always creates a new network interface and public IP address for the new VM.
 10. On the **Management** page, make any changes to the monitoring options.
 11. On the **Guest config** page, add any extensions as needed.
