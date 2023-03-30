@@ -41,7 +41,7 @@ To download a script externally, such as from GitHub or Azure Storage, you need 
 
 If your script is on a local server, you might still need to open other firewall or NSG ports.
 
-### Tips and tricks
+### Tips
 
 - The highest failure rate for this extension is due to syntax errors in the script. Verify that the script runs without errors. Put more logging into the script to make it easier to find failures.
 - Write scripts that are idempotent, so that running them more than once accidentally doesn't cause system changes.
@@ -103,32 +103,32 @@ You can store sensitive data in a protected configuration, which is encrypted an
 
 | Name | Value or example | Data type |
 | ---- | ---- | ---- |
-| `apiVersion` | `2019-03-01` | date |
-| `publisher` | `Microsoft.Azure.Extensions` | string |
-| `type` | `CustomScript` | string |
-| `typeHandlerVersion` | `2.1` | int |
-| `fileUris` | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| `commandToExecute` | `python MyPythonScript.py \<my-param1>` | string |
-| `script` | `IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo=` | string |
-| `skipDos2Unix` | `false` | boolean |
-| `timestamp` | `123456789` | 32-bit integer |
-| `storageAccountName` | `examplestorageacct` | string |
-| `storageAccountKey` | `TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg==` | string |
-| `managedIdentity` | `{ }` or `{ "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }` or `{ "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }` | JSON object |
+| apiVersion | `2019-03-01` | date |
+| publisher | `Microsoft.Azure.Extensions` | string |
+| type | `CustomScript` | string |
+| typeHandlerVersion | `2.1` | int |
+| fileUris | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
+| commandToExecute | `python MyPythonScript.py \<my-param1>` | string |
+| script | `IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo=` | string |
+| skipDos2Unix | `false` | boolean |
+| timestamp | `123456789` | 32-bit integer |
+| storageAccountName | `examplestorageacct` | string |
+| storageAccountKey | `TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg==` | string |
+| managedIdentity | `{ }` or `{ "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }` or `{ "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }` | JSON object |
 
 ### Property value details
 
 | Property | Optional or required | Details |
 | ---- | ---- | ---- |
-| `apiVersion` | Not applicable | You can find the most up-to-date API version by using [Resource Explorer](https://resources.azure.com/) or by using the command `az provider list -o json` in the Azure CLI. |
-| `fileUris` | Optional | URLs for files to be downloaded. |
-| `commandToExecute` | Required if `script` isn't set | The entry point script to run. Use this property instead of `script` if your command contains secrets such as passwords. |
-| `script` | Required if `commandToExecute` isn't set | A Base64-encoded and optionally gzip'ed script run by `/bin/sh`. |
-| `skipDos2Unix` | Optional | Set this value to `false` if you want to skip dos2unix conversion of script-based file URLs or scripts. |
-| `timestamp` | Optional | Change this value only to trigger a rerun of the script. Any integer value is acceptable, as long as it's different from the previous value. |
-| `storageAccountName` | Optional | The name of storage account. If you specify storage credentials, all `fileUris` values must be URLs for Azure blobs. |
-| `storageAccountKey` | Optional | The access key of the storage account. |
-| `managedIdentity` | Optional | The [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading files. Values are `clientId` (optional, string), which is the client ID of the managed identity, and `objectId` (optional, string), which is the object ID of the managed identity.|
+| apiVersion | Not applicable | You can find the most up-to-date API version by using [Resource Explorer](https://resources.azure.com/) or by using the command `az provider list -o json` in the Azure CLI. |
+| fileUris | Optional | URLs for files to be downloaded. |
+| commandToExecute | Required if `script` isn't set | The entry point script to run. Use this property instead of `script` if your command contains secrets such as passwords. |
+| script | Required if `commandToExecute` isn't set | A Base64-encoded and optionally gzip'ed script run by `/bin/sh`. |
+| skipDos2Unix | Optional | Set this value to `false` if you want to skip dos2unix conversion of script-based file URLs or scripts. |
+| timestamp | Optional | Change this value only to trigger a rerun of the script. Any integer value is acceptable, as long as it's different from the previous value. |
+| storageAccountName | Optional | The name of storage account. If you specify storage credentials, all `fileUris` values must be URLs for Azure blobs. |
+| storageAccountKey | Optional | The access key of the storage account. |
+| managedIdentity | Optional | The [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading files. Values are `clientId` (optional, string), which is the client ID of the managed identity, and `objectId` (optional, string), which is the object ID of the managed identity.|
 
 *Public settings* are sent in clear text to the VM where the script runs. *Protected settings* are encrypted through a key known only to Azure and the VM. The settings are saved to the VM as they were sent. That is, if the settings were encrypted, they're saved encrypted on the VM. The certificate that's used to decrypt the encrypted values is stored on the VM. The certificate is also used to decrypt settings, if necessary, at runtime.
 
@@ -375,35 +375,35 @@ Use a protected configuration file to specify the command to be run:
 
 1. Create the public configuration file by using the text editor of your choice or by using the following CLI command:
 
-```azurecli
-cat <<EOF > script-config.json
-{
-  "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"]
-}
-EOF
-```
+   ```azurecli
+   cat <<EOF > script-config.json
+   {
+     "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"]
+   }
+   EOF
+   ```
 
 1. Create the protected configuration file by using the text editor of your choice or by using the following CLI command:
 
-```azurecli
-cat <<EOF > protected-config.json
-{
-  "commandToExecute": "./config-music.sh"
-}
-EOF
-```
+   ```azurecli
+   cat <<EOF > protected-config.json
+   {
+     "commandToExecute": "./config-music.sh"
+   }
+   EOF
+   ```
 
 1. Run the following command:
 
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name customScript \
-  --publisher Microsoft.Azure.Extensions \
-  --settings ./script-config.json \
-  --protected-settings ./protected-config.json
-```
+   ```azurecli
+   az vm extension set \
+     --resource-group myResourceGroup \
+     --vm-name myVM \
+     --name customScript \
+     --publisher Microsoft.Azure.Extensions \
+     --settings ./script-config.json \
+     --protected-settings ./protected-config.json
+   ```
 
 ## Virtual Machine Scale Sets
 
@@ -538,4 +538,4 @@ The output looks like the following text:
 
 ## Next steps
 
-To see the code, current issues, and versions, go to the [custom-script-extension-linux repo on GitHub](https://github.com/Azure/custom-script-extension-linux).
+To see the code, current issues, and versions, see [custom-script-extension-linux](https://github.com/Azure/custom-script-extension-linux).
