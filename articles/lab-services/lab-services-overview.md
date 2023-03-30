@@ -1,10 +1,12 @@
 ---
-title: Introduction to Azure Lab Services
-titleSuffix: Azure Lab Services
+title: What is Azure Lab Services?
 description: Learn how Azure Lab Services can make it easy to create, manage, and secure labs with VMs for educators and students.
+services: lab-services
+ms.service: lab-services
+ms.author: nicktrog
+author: ntrogh
 ms.topic: overview
 ms.date: 02/09/2023
-ms.custom: devdivchpfy22
 ---
 
 # What is Azure Lab Services?
