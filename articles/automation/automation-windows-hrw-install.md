@@ -256,9 +256,9 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
 1. Select **Delete** to remove the agent-based Windows Hybrid Worker.
 
-> [!NOTE]
-> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
-> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
+   > [!NOTE]
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+   > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 
 ## Remove a Hybrid Worker group
