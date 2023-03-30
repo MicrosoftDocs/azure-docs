@@ -34,15 +34,15 @@ Copying a model to other workspaces enables model lifecycle management (for exam
 
 1. A notification panel shows the copy progress. The process should complete fairly quickly:
 
-   * Complete the **workspace**, **project**, and **model name** sections of the copy model dialog window:
+1. Complete the **workspace**, **project**, and **model name** sections of the copy model dialog window:
 
       :::image type="content" source="../media/how-to/copy-model-1.png" alt-text="Screenshot illustrating the copy model dialog window.":::
 
-   * A **notifications** window displays the copy process status:
+1. A **notifications** window displays the copy process status:
 
       :::image type="content" source="../media/how-to/copy-model-2.png" alt-text="Screenshot illustrating notification that the copy model is in process.":::
 
-   * A **model details** window appears when the copy process is complete.
+1. A **model details** window appears when the copy process is complete.
 
       :::image type="content" source="../media/how-to/copy-model-3.png" alt-text="Screenshot illustrating the copy complete dialog window.":::
 
