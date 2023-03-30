@@ -2,7 +2,7 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
-ms.date: 01/03/2023
+ms.date: 03/30/2023
 ---
 
 # Resolve errors for invalid template
@@ -112,3 +112,29 @@ The same approach works for App Service apps. Consider moving configuration valu
 1. webapp2
 1. Configuration for webapp1 depends on webapp1 and webapp2. It contains app settings with values from webapp2.
 1. Configuration for webapp2 depends on webapp1 and webapp2. It contains app settings with values from webapp1.
+
+## Solution 6: Validate syntax for exported templates
+
+After you deploy resources in Azure, you can export the ARM template JSON and modify it for other deployments. You should validate the exported template for correct syntax _before_ you use it to deploy resources.
+
+You can export a template from the [portal](../templates/export-template-portal.md), [Azure CLI](../templates/export-template-cli.md), or [Azure PowerShell](../templates/export-template-powershell.md). There are recommendations whether you exported the template from the resource or resource group, or from deployment history.
+
+# [Bicep](#tab/bicep)
+
+After you export an ARM template, you can decompile the JSON template to Bicep. Then use best practices and the linter to validate your code.
+
+For more information, go to the following articles:
+
+- [Decompiling ARM template JSON to Bicep](../bicep/decompile.md)
+- [Best practices for Bicep](../bicep/best-practices.md)
+- [Add linter settings in the Bicep config file](../bicep/bicep-config-linter.md)
+
+
+# [JSON](#tab/json)
+
+After you export an ARM template, you can learn more about best practices and the toolkit for template validation:
+
+- [ARM template best practices](../templates/best-practices.md)
+- [ARM template test toolkit](../templates/test-toolkit.md)
+
+---
