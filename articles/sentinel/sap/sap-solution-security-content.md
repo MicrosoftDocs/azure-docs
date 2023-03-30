@@ -33,15 +33,17 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 ## Built-in analytics rules
 
-### Risky configuration of security parameters
+### Monitoring the configuration of static SAP security parameters
 
-To secure the SAP system, SAP has identified security-related parameters that need to be monitored for changes. With the "Risky Configuration" rule, the Microsoft Sentinel solution for SAP® applications tracks over 52 security-related parameters in the SAP system, and triggers an alert once these parameters are changed not according to the policy.  
+To secure the SAP system, SAP has identified security-related parameters that need to be monitored for changes. With the "SAP - (Preview) Sensitive Static Parameter has Changed" rule, the Microsoft Sentinel solution for SAP® applications tracks [over 52 static security-related parameters](sap-suspicious-configuration-security-parameters.md) in the SAP system, which are built into Microsoft Sentinel.
 
-To understand parameter changes in the system, the Microsoft Sentinel solution for SAP® applications uses the parameter history table, which records changes made to both static and dynamic parameters in the system every hour.  
+To understand parameter changes in the system, the Microsoft Sentinel solution for SAP® applications uses the parameter history table, which records changes made to system parameters every hour.  
 
-These parameters can have different severities for production and non-production systems, as well as different recommended values for each parameter. When a change is made to a security-related parameter, Microsoft Sentinel checks to see if the change is security-related and if the value is set according to the recommended values. If the change is suspected as outside the safe zone, Microsoft Sentinel creates an incident detailing the change, and identifies who made the change.  
+The parameters are also reflected in the [SAPSystemParameters watchlist](#available-watchlists). This watchlist allows users to add new parameters, disable existing parameters, and modify the values and severities per parameter and system role in production or non-production environments.
 
-Review the [list of parameters](sap-risky-configuration-parameters.md) that this rule monitors. 
+When a change is made to one of these parameters, Microsoft Sentinel checks to see if the change is security-related and if the value is set according to the recommended values. If the change is suspected as outside the safe zone, Microsoft Sentinel creates an incident detailing the change, and identifies who made the change.  
+
+Review the [list of parameters](sap-suspicious-configuration-security-parameters.md) that this rule monitors. 
 
 ### Monitoring the SAP audit log
 
@@ -172,7 +174,8 @@ These watchlists provide the configuration for the Microsoft Sentinel solution f
 | <a name="tables"></a>**SAP - Sensitive Tables** | Sensitive tables, where access should be governed.  <br><br>- **Table**: ABAP Dictionary Table, such as `USR02` or `PA008` <br>- **Description**: A meaningful table description. |
 | <a name="roles"></a>**SAP - Sensitive Roles** | Sensitive roles, where assignment should be governed.    <br><br>- **Role**: SAP authorization role, such as `SAP_BC_BASIS_ADMIN`  <br>- **Description**: A meaningful role description. |
 | <a name="transactions"></a>**SAP - Sensitive Transactions** | Sensitive transactions where execution should be governed.  <br><br>- **TransactionCode**: SAP transaction code, such as `RZ11` <br>- **Description**: A meaningful code description. |
-| <a name="systems"></a>**SAP - Systems** | Describes the landscape of SAP systems according to role and usage.<br><br>- **SystemID**: the SAP system ID (SYSID) <br>- **SystemRole**: the SAP system role, one of the following values: `Sandbox`, `Development`, `Quality Assurance`, `Training`, `Production` <br>- **SystemUsage**: The SAP system usage, one of the following values: `ERP`, `BW`, `Solman`, `Gateway`, `Enterprise Portal` |
+| <a name="systems"></a>**SAP - Systems** | Parameters to watch for [suspicious configuration changes](#monitoring-the-configuration-of-static-sap-security-parameters). This watchlist is prefilled with recommended values, and you can extend the watchlist to include more parameters. If you don't want to receive alerts for a parameter, set `'EnableAlerts' == 'false'`.<br><br>- **ParameterName**: The name of the parameter.<br>- **Comment**: The SAP standard parameter description.<br>- **EnableAlerts**: Defines whether to enable alerts for this parameter. Values are `true` and `false`.<br>- **Option**: Defines whether the value is greater equal, less equal, or equal. Values are `GE`, `LE`, `EQ`.<br>- **ProductionSeverity**: The incident severity for production systems.<br>- **ProductionValues**: Permitted values for production systems.<br>- **NonProdSeverity**: The incident severity for non-production systems.<br>- **NonProdValues**: Permitted values for non-production systems.   |
+| <a name="systemparameters"></a>**SAP - System Parameters** | Describes the landscape of SAP systems according to role and usage.<br><br>- **SystemID**: the SAP system ID (SYSID) <br>- **SystemRole**: the SAP system role, one of the following values: `Sandbox`, `Development`, `Quality Assurance`, `Training`, `Production` <br>- **SystemUsage**: The SAP system usage, one of the following values: `ERP`, `BW`, `Solman`, `Gateway`, `Enterprise Portal` |
 | <a name="users"></a>**SAP - Excluded Users** | System users that are logged in and need to be ignored, such as for the Multiple logons by user alert. <br><br>- **User**: SAP User  <br>- **Description**: A meaningful user description |
 | <a name="networks"></a>**SAP - Excluded Networks** | Maintain internal, excluded networks for ignoring web dispatchers, terminal servers, and so on.  <br><br>- **Network**: Network IP address or range, such as `111.68.128.0/17`  <br>- **Description**: A meaningful network description |
 | <a name="modules"></a>**SAP - Obsolete Function Modules** | Obsolete function modules, whose execution should be governed.    <br><br>- **FunctionModule**: ABAP Function Module, such as TH_SAPREL  <br>- **Description**: A meaningful function module description |

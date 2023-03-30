@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel solution for SAP® applications - monitored parameters to detect risky configuration manipulation
+title: SAP security parameters monitored by the Microsoft Sentinel solution for SAP® to detect suspicious configuration changes
 description: Learn about the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the risky configuration manipulation feature.
 author: limwainstein
 ms.author: lwainstein
@@ -7,13 +7,13 @@ ms.topic: reference
 ms.date: 03/26/2023
 ---
 
-# Microsoft Sentinel solution for SAP® applications - monitored parameters to detect risky configuration manipulation
+# Monitored SAP security parameters for detecting suspicious configuration changes
 
-This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the [risky configuration of security parameters feature](sap-solution-security-content.md#risky-configuration-manipulation).
+This article details the security parameters in the SAP system that the Microsoft Sentinel solution for SAP® applications monitors as part of the ["SAP - (Preview) Sensitive Static Parameter has Changed" analytics rule](sap-solution-security-content.md#risky-configuration-manipulation).
 
-## Monitored SAP security parameters
+## Monitored static SAP security parameters
 
-This list includes the SAP security parameters that the Microsoft Sentinel solution for SAP® applications monitors to protect your SAP system. The list isn't a recommendation for configuring these parameters. For configuration considerations, consult your SAP admin and security team. 
+This list includes the static SAP security parameters that the Microsoft Sentinel solution for SAP® applications monitors to protect your SAP system. The list isn't a recommendation for configuring these parameters. For configuration considerations, consult your SAP admin and security team. 
 
 |Parameter  |Description  |Security value/considerations |
 |---------|---------|---------|
