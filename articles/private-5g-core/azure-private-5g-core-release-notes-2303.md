@@ -34,8 +34,8 @@ The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue |
   |-----|-----|-----|
-  | 1 | Install/Upgrade | Any modifications to the Attached Data Network resource on an existing AP5GC setup without reinstall might lead to service disruptions. This issue has been fixed in this release.   |
-  | 2 | 4G/5G Signaling | In rare scenario of continuous high load (over a period of few days) on 4G multi data networks setup, the Packet Core might experience slight disruption resulting in some call failures. This issue has been fixed in this release.   |
+  | 1 | Install/Upgrade | Modifications to the Attached Data Network resource in an existing deployment may cause service disruption unless the packet core is reinstalled. This issue has been fixed in this release.   |
+  | 2 | 4G/5G Signaling | In rare scenarios of continuous high load over several days on a 4G multi-data network setup, the packet core may experience slight disruption resulting in some call failures. This issue has been fixed in this release.   |
 
 ## Known issues from previous releases
 
@@ -43,11 +43,11 @@ The following table provides a summary of known issues carried over from the pre
 
   |No.  |Feature  | Issue | Workaround/comments |
   |-----|-----|-----|-----|
-  | 1 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled. | Not applicable. |
+  | 1 | Packet forwarding  | AP5GC may not forward buffered packets if NAT is enabled. | Not applicable. |
   | 2 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported). | Not applicable. |
   | 3 | Install/upgrade | Changing the technology type of a deployment from 4G (EPC) to 5G using upgrade or site delete and add is not supported. | Please contact support for the required steps to change the technology type. |
   | 4 | Packet forwarding | In scenarios of sustained high load (for example, continuous setup of 100s of TCP flows per second) combined with NAT pinhole exhaustion, AP5GC can encounter a memory leak, leading to a short period of service disruption resulting in some call failures. | In most cases, the system will recover automatically and be ready to handle new requests after a few seconds' disruption. UEs will need to re-establish any dropped connections. |
-  | 5 | Install/Upgrade | In some cases, the Azure Private 5G Core reports successful installation even when the underlying platform or networking is misconfigured. | Not applicable. |
+  | 5 | Install/Upgrade | In some cases, the packet core reports successful installation even when the underlying platform or networking is misconfigured. | Not applicable. |
 
 ## Next steps
 
