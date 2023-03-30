@@ -21,7 +21,8 @@ The following steps define how recommendations are calculated:
 3. The costs are simulated for different quantities, and the quantity that maximizes the savings is recommended.
 4. If your resources are shut down regularly, the simulation can't find any savings, and no purchase recommendation is provided.
 5. The recommendation calculations include any special discounts that you might have for your on-demand usage rates.
-    - The recommendations account for existing reservations and savings plans. So, previously purchased reservations and savings plans are excluded when providing recommendations.
+
+The recommendations account for existing reservations and savings plans. So, previously purchased reservations and savings plans are excluded when providing recommendations.
 
 ## Recommendations in the Azure portal
 
