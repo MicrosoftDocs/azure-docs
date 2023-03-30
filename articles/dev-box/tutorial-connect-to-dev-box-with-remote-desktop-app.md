@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Use a Remote Desktop client to connect to a dev box'
-titleSuffix: Microsoft Dev Box Preview
-description: In this tutorial, you learn how to download a Remote Desktop client and connect to your dev box. 
+titleSuffix: Microsoft Dev Box
+description: In this tutorial, you learn how to download a Remote Desktop client and connect to your dev box. You also learn how to configure a dev box to use multiple monitors during a remote desktop session. 
 services: dev-box
 ms.service: dev-box
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 29/03/2023
+ms.date: 03/29/2023
 ms.topic: tutorial
 ---
 
@@ -17,6 +17,13 @@ After you configure the Microsoft Dev Box Preview service and create dev boxes, 
 Remote Desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose to download the Remote Desktop client for Windows Desktop or Microsoft Remote Desktop for Mac. You can also download a Remote Desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
 In this tutorial, you download a Remote Desktop client (Windows and non-Windows). You then use that client to connect to a dev box.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * [Download a remote desktop client.]
+> * [Connect to an existing dev box.]
+> * [Configure the remote desktop client for multiple monitors.]
 
 ## Prerequisites
 
@@ -92,6 +99,26 @@ To use a non-Windows Remote Desktop client to connect to your dev box:
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png" alt-text="Screenshot of a dev box in a non-Windows Remote Desktop client workspace.":::
 
 ---
+
+## Configure Remote Desktop to use multiple monitors
+
+Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac both support up to 16 monitors. Use the following steps to configure Remote Desktop to use multiple monitors.
+
+1. Open Remote Desktop.
+ 
+1. Right-click the dev box you want to configure, and then select **Settings**.
+ 
+1. On the settings pane, turn off **Use default settings**.
+ 
+1. In **Display Settings**, in the **Display configuration** list, select the displays to use:
+ 
+   |Value  |Description  |
+   |---------|---------|
+   |All displays |Remote desktop uses all available displays. |
+   |Single display |Remote desktop uses a single display. |
+   |Select displays |You can select which of your displays you'd like Remote Desktop to use. |
+
+
 
 ## Clean up resources
 
