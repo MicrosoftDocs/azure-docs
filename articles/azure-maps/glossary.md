@@ -281,7 +281,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="postal-code"></a> **Postal code**: A series of letters or numbers, or both, in a specific format. The postal-code is used by the postal service of a country/region to divide geographic areas into zones in order to simplify delivery of mail.
 
-<a name="primary-key"></a> **Primary key**: The first of two subscriptions keys provided for Azure Maps shared key authentication. See [Shared key authentication](#shared-key-authentication).
+<a name="primary-key"></a> **Primary key**: The first of two subscription keys provided for Azure Maps shared key authentication. See [Shared key authentication](#shared-key-authentication).
 
 <a name="prime-meridian"></a> **Prime meridian**: A line of longitude that represents 0-degrees longitude. Generally, longitude values decrease when traveling in a westerly direction until 180 degrees and increase when traveling in easterly directions to -180-degrees. 
 

@@ -40,7 +40,7 @@ As you label your data, keep in mind:
 
     * **Label precisely**: Label each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your labels.
     * **Label consistently**:  The same entity should have the same label across all the documents.
-    * **Label completely**: Label all the instances of the entity in all your documents. You can use the [auto-labeling feature](use-autotagging.md) to ensure complete labeling.
+    * **Label completely**: Label all the instances of the entity in all your documents. You can use the [auto labelling feature](use-autolabeling.md) to ensure complete labeling.
 
    > [!NOTE]
    > There is no fixed number of labels that can guarantee your model will perform the best. Model performance is dependent on possible ambiguity in your [schema](design-schema.md), and the quality of your labeled data. Nevertheless, we recommend having around 50 labeled instances per entity type.

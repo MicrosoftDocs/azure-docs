@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Greenlight Compliant Access Management | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Greenlight Compliant Access Management'
 description: Learn how to configure single sign-on between Azure Active Directory and Greenlight Compliant Access Management.
 services: active-directory
 author: jeevansd
