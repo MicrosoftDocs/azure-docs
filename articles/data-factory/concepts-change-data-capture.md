@@ -26,7 +26,7 @@ When you perform data integration and ETL processes in the cloud, your jobs can 
 
 ### Change Data Capture factory resource
 
-The easiest and quickest way to get started in data factory with CDC is through the factory level Change Data Capture resource. From the main pipeline designer, click on New under Factory Resources to create a new Change Data Capture. The CDC factory resource will provide a configuration walk-through experience where you will point to your sources and destinations, apply optional transformations, and then click start to begin your data capture. With the CDC resource, you will not need to design pipelines or data flow activities and the only billing will be 4 cores of General Purpose data flows while your data in being processed. You set a latency which ADF will use to wake-up and look for changed data. That is the only time you will be billed. The top-level CDC resource is also the ADF method of running your processes continuously. Pipelines in ADF are batch only. But the CDC resource can run continuously.
+The easiest and quickest way to get started in data factory with CDC is through the factory level Change Data Capture resource. From the main pipeline designer, click on **New** under Factory Resources to create a new Change Data Capture. The CDC factory resource will provide a configuration walk-through experience where you will point to your sources and destinations, apply optional transformations, and then click start to begin your data capture. With the CDC resource, you will not need to design pipelines or data flow activities and the only billing will be 4 cores of General Purpose data flows while your data in being processed. You set a latency which ADF will use to wake-up and look for changed data. That is the only time you will be billed. The top-level CDC resource is also the ADF method of running your processes continuously. Pipelines in ADF are batch only, but the CDC resource can run continuously.
 
 ### Native change data capture in mapping data flow
 
@@ -41,8 +41,6 @@ The changed data including inserted, updated and deleted rows can be automatical
 -   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 -   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
 -   [Azure Cosmos DB analytical store](../cosmos-db/analytical-store-introduction.md)
-
-Azure Cosmos DB API for NoSQL
 
 ### Auto incremental extraction in mapping data flow
 
