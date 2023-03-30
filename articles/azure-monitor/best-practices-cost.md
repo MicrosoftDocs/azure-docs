@@ -4,7 +4,7 @@ description: Recommendations for reducing costs in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/17/2022
+ms.date: 03/29/2023
 ms.reviewer: bwren
 ---
 
@@ -62,7 +62,7 @@ You may be able to significantly reduce your costs by optimizing the configurati
 | Recommendation | Description |
 |:---|:---|
 | Configure pricing tier or dedicated cluster for your Log Analytics workspaces. | By default, Log Analytics workspaces will use pay-as-you-go pricing with no minimum data volume. If you collect enough amount of data, you can significantly decrease your cost by using a [commitment tier](logs/cost-logs.md#commitment-tiers) or [dedicated cluster](logs/logs-dedicated-clusters.md), which allows you to commit to a daily minimum of data collected in exchange for a lower rate.<br><br>See [Azure Monitor Logs cost calculations and options](logs/cost-logs.md) for details on commitment tiers and guidance on determining which is most appropriate for your level of usage. See [Usage and estimated costs](usage-estimated-costs.md#usage-and-estimated-costs) to view estimated costs for your usage at different pricing tiers.
-| Configure tables used for debugging, troubleshooting, and auditing as Basic Logs. | Tables in a Log Analytics workspace configured for [Basic Logs](logs/basic-logs-configure.md) have a lower ingestion cost in exchange for limited features and a charge for log queries. If you query these tables infrequently, this query cost can be more than offset by the reduced ingestion cost.<br><br>See [Configure Basic Logs in Azure Monitor (Preview)](logs/basic-logs-configure.md) for more information about Basic Logs and [Query Basic Logs in Azure Monitor (preview)](.//logs/basic-logs-query.md) for details on query limitations. |
+| Configure tables used for debugging, troubleshooting, and auditing as Basic Logs. | Tables in a Log Analytics workspace configured for [Basic Logs](logs/basic-logs-configure.md) have a lower ingestion cost in exchange for limited features and a charge for log queries. If you query these tables infrequently, this query cost can be more than offset by the reduced ingestion cost.<br><br>See [Configure Basic Logs in Azure Monitor](logs/basic-logs-configure.md) for more information about Basic Logs and [Query Basic Logs in Azure Monitor](.//logs/basic-logs-query.md) for details on query limitations. |
 | Configure data retention and archiving. | There is a charge for retaining data in a Log Analytics workspace beyond the default of 30 days (90 days in Sentinel if enabled on the workspace). If you need to retain data for compliance reasons or for occasional investigation or analysis of historical data, configure [Archived Logs](logs/data-retention-archive.md), which allows you to retain data for up to seven years at a reduced cost.<br><br>See [Configure data retention and archive policies in Azure Monitor Logs](logs/data-retention-archive.md) for details on how to configure your workspace and how to work with archived data. |
 
 
@@ -97,7 +97,7 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 
 | Recommendation | Description |
 |:---|:---|
-| Change to Workspace-based Application Insights | Ensure that your Application Insights resources are Workspace-based so that they can leveage new cost saving tools such as Basic Logs, Commitment Tiers, Retention by data type and Data Archive. |
+| Change to Workspace-based Application Insights | Ensure that your Application Insights resources are [Workspace-based](app/create-workspace-resource.md) so that they can leveage new cost savings tools such as [Basic Logs](logs/basic-logs-configure.md), [Commitment Tiers](logs/cost-logs.md#commitment-tiers), [Retention by data type and Data Archive](logs/data-retention-archive.md#set-retention-and-archive-policy-by-table). |
 | Use sampling to tune the amount of data collected. | [Sampling](app/sampling.md) is the primary tool you can use to tune the amount of data collected by Application Insights. Use sampling to reduce the amount of telemetry that's sent from your applications with minimal distortion of metrics. |
 | Limit the number of Ajax calls. | [Limit the number of Ajax calls](app/javascript.md#configuration) that can be reported in every page view or disable Ajax reporting. If you disable Ajax calls, you'll be disabling [JavaScript correlation](app/javascript.md#enable-distributed-tracing) too. |
 | Disable unneeded modules. | [Edit ApplicationInsights.config](app/configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data aren't required. |
@@ -109,7 +109,7 @@ Since Azure Monitor charges for the collection of data, your goal should be to c
 
 | Recommendation | Description |
 |:---|:---|
-| Remove unnecssary data during data ingestion | After following all of the preveious recommendations, consider using Azure Monitor data collection transformations to reduce the size of your data during ingestion. |
+| Remove unnecssary data during data ingestion | After following all of the preveious recommendations, consider using Azure Monitor [data collection transformations](essentials/data-collection-transformations.md) to reduce the size of your data during ingestion. |
 
 
 ## Monitor workspace and analyze usage
