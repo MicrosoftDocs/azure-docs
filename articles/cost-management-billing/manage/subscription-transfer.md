@@ -20,6 +20,8 @@ This article describes the types of supported transfers for Azure subscriptions,
 
 This article also helps you understand the things you should know _before_ you transfer billing ownership of an Azure product to another account. You might want to transfer billing ownership of your Azure product if you're leaving your organization, or you want your product to be billed to another account. Transferring billing ownership to another account provides the administrators in the new account permission for billing tasks. They can change the payment method, view charges, and cancel the product.
 
+[!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
+
 If you want to keep the billing ownership but change the type of product, see [Switch your Azure subscription to another offer](switch-azure-offer.md). To control who can access resources in the product, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 If you're an Enterprise Agreement (EA) customer, your enterprise administrators can transfer billing ownership of your products between accounts in the EA portal. For more information, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership).
