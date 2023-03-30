@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Build a Node.js web app by using the JavaScript SDK to manage an API for NoSQL account in Azure Cosmos DB'
+title: Tutorial: Build a Node.js web app by using the JavaScript SDK to manage an API for NoSQL account in Azure Cosmos DB
 description: Learn how to use Azure Cosmos DB to store and access data from a Node.js Express web application hosted on the Web Apps feature of the Azure App Service.
 author: deborahc
 ms.author: dech
