@@ -1909,8 +1909,8 @@ groups:
     title: Enterprise
 # Owner: karler
 - id: spring-apps-plan-selection
-  title: Azure Spring Apps tier
-  prompt: Select an Azure Spring Apps tier
+  title: Azure Spring Apps plan
+  prompt: Select an Azure Spring Apps plan
   pivots:
   - id: sc-consumption-plan
     title: Standard consumption (Preview)
