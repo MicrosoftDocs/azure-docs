@@ -1,16 +1,16 @@
 ---
-title: Strategy to reconnect devices to Azure IoT Hub
-description: Describes key concepts and strategy for developers to reconnect devices to Azure IoT Hub. 
+title: Strategy to reconnect devices to Azure IoT Hub and DPS
+description: Describes key concepts and strategy for developers to reconnect devices to Iot Hub alone, or IoT Hub with Azure IoT Device Provisioning Service (DPS).
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 03/30/2023
 ms.custom: template-concept
 ---
 
-# Strategy to reconnect devices to Azure IoT Hub
-This article describes strategies that developers can use to reconnect devices to Azure IoT Hub.  It explains why devices disconnect and need to reconnect. And it offers a strategy to connect devices whether you use IoT Hub alone, or IoT Hub with Azure IoT Device Provisioning Service (DPS). 
+# Strategy to reconnect devices to Azure IoT Hub and DPS
+This article describes strategies that developers can use to reconnect devices that have been disconnected.  It explains why devices disconnect and need to reconnect. And it offers a strategy to connect devices whether you use IoT Hub alone, or IoT Hub with Azure IoT Device Provisioning Service (DPS). 
 
 ## What causes disconnections
 The following are the most common reasons that devices disconnect from IoT Hub: 

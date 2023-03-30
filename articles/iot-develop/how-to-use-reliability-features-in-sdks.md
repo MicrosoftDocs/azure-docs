@@ -1,13 +1,13 @@
 ---
-title: Manage connectivity and reliable messaging
+title: Connectivity and messaging in Azure IoT Hub
 titleSuffix: Azure IoT
 description: How to manage device connectivity and ensure reliable messaging when you use the Azure IoT Hub device SDKs
 services: iot-develop
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/20/2023
-ms.topic: how-to
-ms.service: iot-hub
+ms.date: 03/30/2023
+ms.topic: conceptual
+ms.service: iot-develop
 ms.custom: [amqp, mqtt, devx-track-csharp]
 ---
 
