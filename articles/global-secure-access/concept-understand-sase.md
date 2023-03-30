@@ -14,9 +14,13 @@ ms.custom:
 Secure access service edge, often abbreviated (SASE), is a security framework that converges software-defined wide area networking (SD-WAN) and Zero Trust security solutions into a converged cloud-delivered platform that securely connects users, systems, endpoints, and remote networks to apps and resources.
 
 SASE has four main traits:
+
 **Identity-driven:** Access is granted based on the identity of users and devices.
+
 **Cloud-native:** Both infrastructure and security solutions are cloud-delivered.
+
 **Supports all edges:** Every physical, digital, and logical edge is protected.
+
 **Globally distributed:** Users are secured no matter where they work.
 
 The main goal of SASE architecture is to provide a seamless user experience, optimized connectivity, and comprehensive security in a way that supports the dynamic secure access needs of digital enterprises. Instead of "backhauling" traffic to traditional data centers or private networks for security inspections, SASE enables devices and remote systems to seamlessly access apps and resources wherever they are—and at any time.
