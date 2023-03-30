@@ -248,6 +248,8 @@
       href: manage-scale-per-app.md
     - name: Local cache overview
       href: overview-local-cache.md
+    - name: Add CDN
+      href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
 - name: Authentication
   items:
     - name: Authentication overview
