@@ -384,7 +384,10 @@ var behaviorMap = {
 
 // Application Insights Configuration
 var configObj = {
-  instrumentationKey: "YOUR INSTRUMENTATION KEY",
+  connectionString: "YOUR_CONNECTION_STRING", 
+  // Alternatively, you can pass in the instrumentation key,
+  // but support for instrumentation key ingestion will end on March 31, 2025. 
+  // instrumentationKey: "YOUR INSTRUMENTATION KEY",
   extensions: [clickPluginInstance],
   extensionConfig: {
     [clickPluginInstance.identifier]: {
