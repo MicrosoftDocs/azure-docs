@@ -8,7 +8,7 @@ ms.custom: include file
 ---
 | Resource | Limit |
 | --- | --- |
-| Network Watcher instances per region per subscription | 1 (One instance is created in a region to enable access to the service in the region) |
+| Network Watcher instances per region per subscription | 1 (One instance in a region to enable access to the service in the region) |
 | Connection monitors per region per subscription | 100 |
 | Maximum test groups per a connection monitor | 20 |
 | Maximum sources and destinations per a connection monitor | 100 |
