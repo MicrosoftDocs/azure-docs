@@ -356,7 +356,7 @@ The following table cross-references the Bing Maps API parameters with the compa
 > [!NOTE]
 > Azure Maps uses a tile system with tiles that are twice the size of the map tiles used in Bing Maps. As such, the zoom level value in Azure Maps will appear one zoom level closer in Azure Maps compared to Bing Maps. Lower the zoom level in the requests you are migrating by 1 to compensate for this.
 
-for more information, see [Render custom data on a raster map].
+For more information, see [Render custom data on a raster map].
 
 In addition to being able to generate a static map image, the Azure Maps render service also enables direct access to map tiles in raster (PNG) and vector format:
 
