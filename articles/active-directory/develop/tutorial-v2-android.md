@@ -170,7 +170,7 @@ Follow these steps to create a new project if you don't already have an Android 
 
 1. Select **Sync Now** in the notification bar.
 
-### Create required fragment
+### Create and update required fragment
 
 1. In **app** > **src** > **main**> **java** > **com.example(your app name)**. Create the following Android fragments:
 
@@ -178,11 +178,9 @@ Follow these steps to create a new project if you don't already have an Android 
    - _OnFragmentInteractionListener_
    - _SingleAccountModeFragment_
 
-1. Open _MSGraphRequestWrapper_ and add the following code to call the Microsoft Graph API using the token provided by MSAL:
+1. Open _MSGraphRequestWrapper_ and replace the code with following code snippet to call the Microsoft Graph API using the token provided by MSAL:
 
    ```java
-   // Copyright (c) Microsoft Corporation.
-
     package com.azuresamples.msalandroidapp;
 
     import android.content.Context;
@@ -257,11 +255,9 @@ Follow these steps to create a new project if you don't already have an Android 
 
    ```
 
-1. Open _OnFragmentInteractionListener_ and add the following code to allow communication between different fragments:
+1. Open _OnFragmentInteractionListener_ and replace the code with following code snippet to allow communication between different fragments:
 
    ```java
-   // Copyright (c) Microsoft Corporation.
-
     package com.azuresamples.msalandroidapp;
 
     /**
@@ -278,7 +274,7 @@ Follow these steps to create a new project if you don't already have an Android 
     }
    ```
 
-1. Open _SingleAccountModeFragment_ and add the following code to initializes a single-account application, loads a user account, and gets a token to call the Microsoft Graph API:
+1. Open _SingleAccountModeFragment_ and replace the code with following code snippet to initializes a single-account application, loads a user account, and gets a token to call the Microsoft Graph API:
 
    ```java
     package com.azuresamples.msalandroidapp;
@@ -667,6 +663,160 @@ Follow these steps to create a new project if you don't already have an Android 
 
    ```
 
+1. Open _MainActivity_ and replace the code with following code snippet to manage the UI.
+
+   ```java
+    package com.azuresamples.msalandroidapp;
+    
+    import android.os.Bundle;
+    
+    import androidx.annotation.NonNull;
+    import androidx.appcompat.app.ActionBarDrawerToggle;
+    import androidx.appcompat.app.AppCompatActivity;
+    import androidx.appcompat.widget.Toolbar;
+    import androidx.constraintlayout.widget.ConstraintLayout;
+    import androidx.core.view.GravityCompat;
+    
+    import android.view.MenuItem;
+    import android.view.View;
+    
+    import androidx.drawerlayout.widget.DrawerLayout;
+    import androidx.fragment.app.Fragment;
+    import androidx.fragment.app.FragmentTransaction;
+    
+    
+    import com.google.android.material.navigation.NavigationView;
+    
+    public class MainActivity extends AppCompatActivity
+            implements NavigationView.OnNavigationItemSelectedListener,
+            OnFragmentInteractionListener{
+    
+        enum AppFragment {
+            SingleAccount,
+            MultipleAccount,
+            B2C
+        }
+    
+        private AppFragment mCurrentFragment;
+    
+        private ConstraintLayout mContentMain;
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+    
+            mContentMain = findViewById(R.id.content_main);
+    
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            DrawerLayout drawer = findViewById(R.id.drawer_layout);
+            NavigationView navigationView = findViewById(R.id.nav_view);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
+            navigationView.setNavigationItemSelectedListener(this);
+    
+            //Set default fragment
+            navigationView.setCheckedItem(R.id.nav_single_account);
+            setCurrentFragment(AppFragment.SingleAccount);
+        }
+    
+        @Override
+        public boolean onNavigationItemSelected(final MenuItem item) {
+            final DrawerLayout drawer = findViewById(R.id.drawer_layout);
+            drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+                @Override
+                public void onDrawerSlide(@NonNull View drawerView, float slideOffset) { }
+    
+                @Override
+                public void onDrawerOpened(@NonNull View drawerView) { }
+    
+                @Override
+                public void onDrawerClosed(@NonNull View drawerView) {
+                    // Handle navigation view item clicks here.
+                    int id = item.getItemId();
+    
+                    if (id == R.id.nav_single_account) {
+                        setCurrentFragment(AppFragment.SingleAccount);
+                    }
+    
+                    if (id == R.id.nav_multiple_account) {
+                        setCurrentFragment(AppFragment.MultipleAccount);
+                    }
+    
+                    if (id == R.id.nav_b2c) {
+                        setCurrentFragment(AppFragment.B2C);
+                    }
+    
+                    drawer.removeDrawerListener(this);
+                }
+    
+                @Override
+                public void onDrawerStateChanged(int newState) { }
+            });
+    
+            drawer.closeDrawer(GravityCompat.START);
+            return true;
+        }
+    
+        private void setCurrentFragment(final AppFragment newFragment){
+            if (newFragment == mCurrentFragment) {
+                return;
+            }
+    
+            mCurrentFragment = newFragment;
+            setHeaderString(mCurrentFragment);
+            displayFragment(mCurrentFragment);
+        }
+    
+        private void setHeaderString(final AppFragment fragment){
+            switch (fragment) {
+                case SingleAccount:
+                    getSupportActionBar().setTitle("Single Account Mode");
+                    return;
+    
+                case MultipleAccount:
+                    getSupportActionBar().setTitle("Multiple Account Mode");
+                    return;
+    
+                case B2C:
+                    getSupportActionBar().setTitle("B2C Mode");
+                    return;
+            }
+        }
+    
+        private void displayFragment(final AppFragment fragment){
+            switch (fragment) {
+                case SingleAccount:
+                    attachFragment(new com.azuresamples.msalandroidapp.SingleAccountModeFragment());
+                    return;
+    
+                case MultipleAccount:
+                    attachFragment(new MultipleAccountModeFragment());
+                    return;
+    
+                case B2C:
+                    attachFragment(new B2CModeFragment());
+                    return;
+            }
+        }
+    
+        private void attachFragment(final Fragment fragment) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .replace(mContentMain.getId(),fragment)
+                    .commit();
+        }
+    }
+    
+   ```
+
+> [!NOTE]
+> Ensure that you update the package name to match your Android project package name.
+
 ### Layout
 
 1. In **app** > **src** > **main**> **res** > **layout** > **activity_main.xml**. Replace the content of **activity_main.xml** with the following code snippet to display buttons and text boxes:
@@ -757,7 +907,7 @@ Follow these steps to create a new project if you don't already have an Android 
             android:text="Output goes here..." />
     </LinearLayout>
     ```
-    
+   
 ## Test your app
 
 ### Run locally
