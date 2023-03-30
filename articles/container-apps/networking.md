@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 05/06/2022
+ms.date: 03/30/2023
 ms.author: cshoe
 ---
 
 # Networking architecture in Azure Container Apps
 
-Azure Container Apps run in the context of an [environment](environment.md), which is supported by a virtual network (VNET). When you create an environment, you can provide a custom VNET, otherwise a VNET is automatically generated for you. Generated VNETs are inaccessible to you as they're created in Microsoft's tenant. To take full control over your VNET, provide an existing VNET to Container Apps as you create your environment.
+Azure Container Apps run in the context of an [environment](environment.md), supported by a virtual network (VNET). When you create an environment, you can provide a custom VNET, otherwise a VNET is automatically generated for you. Generated VNETs are inaccessible to you as they're created in Microsoft's tenant. To take full control over your VNET, provide an existing VNET to Container Apps as you create your environment.
 
 The following articles feature step-by-step instructions for creating Container Apps environments with different accessibility levels.
 
@@ -26,8 +26,9 @@ As you create a custom VNET, keep in mind the following situations:
 
 - If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
 
-- When you provide your own VNET, additional [managed resources](networking.md#managed-resources) are created which you will be billed for.
-- When you provide your own VNET, you need to provide a subnet that is dedicated to the Container App environment you deploy. This subnet can't be used by other services.
+- When you provide your own VNET, extra [managed resources](networking.md#managed-resources) are created which incur billing.
+
+- When you provide your own VNET, you need to provide a subnet that is dedicated to the Container App environment you deploy. This subnet isn't available to other services.
 
 - Network addresses are assigned from a subnet range you define as the environment is created.
 
