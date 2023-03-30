@@ -32,7 +32,7 @@ To view your security policies in Defender for Cloud:
 
 1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
-    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud's security policy page." lightbox="./media/tutorial-security-policy/security-policy-page.png":::
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Screenshot showing a subscription's security policy settings page." lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > The settings of each recommendation that apply to the scope are compared and the cumulative outcome of actions taken by the recommendation appears. For example, if in one assignment, a recommendation is Disabled, but in another it's set to Audit, then the cumulative effect applies Audit. The more active effect always takes precedence.
@@ -45,7 +45,7 @@ To view your security policies in Defender for Cloud:
 
     1. To view and edit the default initiative, select it and proceed as described below.
 
-        :::image type="content" source="./media/tutorial-security-policy/policy-screen.png" alt-text="Screenshot showing effective policy screen.":::
+        :::image type="content" source="./media/tutorial-security-policy/policy-screen.png" alt-text="Screenshot showing the security policy settings for a subscription, focusing on the default assignment." lightbox="./media/tutorial-security-policy/policy-screen.png":::
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        
@@ -59,7 +59,7 @@ To view your security policies in Defender for Cloud:
             **Deny** prevents deployment of non-compliant resources based on recommendation logic.<br>
             **Disabled** prevents the recommendation from running.
 
-         :::image type="content" source="./media/tutorial-security-policy/default-assignment-screen.png" alt-text="Screenshot showing edit default assignment screen.":::
+         :::image type="content" source="./media/tutorial-security-policy/default-assignment-screen.png" alt-text="Screenshot showing the edit default assignment screen." lightbox="/media/tutorial-security-policy/default-assignment-screen.png":::
 
 ## Enable a security recommendation
 
@@ -83,7 +83,7 @@ To enable a disabled recommendation and ensure it's assessed for your resources:
 
 1. Select **Save**.
 
-    :::image type="content" source="./media/tutorial-security-policy/enable-security-recommendation.png" alt-text="Screenshot showing enable security recommendation on manage effect and parameters screen.":::
+    :::image type="content" source="./media/tutorial-security-policy/enable-security-recommendation.png" alt-text="Screenshot showing the manage effect and parameters screen for a given recommendation." lightbox="./media/tutorial-security-policy/enable-security-recommendation.png":::
 
    > [!NOTE]
    > Setting will take effect immediately, but recommendations will update based on their freshness interval (up to 12 hours).
@@ -117,7 +117,7 @@ The **additional parameters** column indicates whether a recommendation has asso
 
 1. Select **Save**.
 
-    :::image type="content" source="./media/tutorial-security-policy/additional-parameters.png" alt-text="Screenshot showing where to configure additional parameters on the manage effect and parameters screen.":::
+    :::image type="content" source="./media/tutorial-security-policy/additional-parameters.png" alt-text="Screenshot showing where to configure additional parameters on the manage effect and parameters screen." lightbox="./media/tutorial-security-policy/additional-parameters.png":::
 
 Use the "reset to default" button to revert changes per the recommendation and restore the default value.
 
