@@ -17,8 +17,8 @@ ms.author: mbaldwin
 
 Azure Payment HSM uses the term "Fastpathenabled" in two related but distinct ways:
 
-- "FastPathEnabled" is an Azure Feature Exposure Control (AFEC) flag. It must be applied to **every** subscription ID that wants to connect to a payment HSM.
-- "fastpathenabled" (always lowercased) is a virtual network tag. . It must be added to the virtual network hosting the payment HSM's delegated subnet, as well as to **every** peered VNet requiring connectivity to the payment HSM.
+- "FastPathEnabled" is an Azure Feature Exposure Control (AFEC) flag. It must be applied to **every** subscription ID that wants to access to Azure Payment HSM.
+- "fastpathenabled" (always lowercased) is a virtual network tag. It must be added to the virtual network hosting the payment HSM's delegated subnet, as well as to **every** peered VNet requiring connectivity to the payment HSM.
 
 Adding the “FastPathEnabled” feature flag and enabling the “fastpathenabled” tag don't cause any downtime.
 
@@ -31,11 +31,12 @@ The "FastPathEnabled" feature flag must be added/registered to all subscriptions
 
 ### Virtual networks
 
-The "fastpathenabled" tag must be added to every virtual networks connecting to Azure Payment HSM usesIn a Hub and Spoke topology, the "fastpathenabled" tag must be added to both the central Hub VNet and the peered Spoke VNet containing Payment HSM. In a Hub and Spoke topology, the "fastpathenabled" tag must be added to both the central Hub VNet and the peered Spoke VNet containing Azure Payment HSM.
+The "fastpathenabled" tag must be added to every virtual networks connecting to the payment HSM's delegated subnet. In a Hub and Spoke topology, the "fastpathenabled" tag must be added to both the central Hub VNet and the peered Spoke VNet containing the payment HSM.
 
 The "fastpathenabled" tag is not required on non-directly peered VNets reaching the Payment HSM's VNet via a Central hub.
 
-Adding the "fastpathenabled" tag through the Azure portal is insufficient—it must be done from the commandline. To do so, follow the steps outlined in [How to peer Azure Payment HSM virtual networks](peer-vnets.md?tabs=azure-cli).
+> [!WARNING]
+> Adding the "fastpathenabled" tag through the Azure portal is insufficient—it must be done from the commandline. To do so, follow the steps outlined in [How to peer Azure Payment HSM virtual networks](peer-vnets.md?tabs=azure-cli).
 
 ### Virtual Network NAT scenario
 
