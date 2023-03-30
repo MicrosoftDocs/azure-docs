@@ -63,6 +63,15 @@ You can enable the tag inheritance setting in the Azure portal. You apply the se
 1. In the Tag inheritance (Preview) window, select **Automatically apply subscription and resource group tags to new data**.  
     :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data-billing-profile.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option for a billing profile." :::
 
+### To enable tag inheritance in the Azure portal for a subscription
+
+1. In the Azure portal, search for **Cost Management** and select it (the green hexagon-shaped symbol, *not* Cost Management + Billing).
+1. Select a subscription scope.
+1. In the left menu under **Settings**, select **Manage subscription**.
+1. Under **Tag inheritance**, select **Edit**.  
+    :::image type="content" source="./media/enable-tag-inheritance/edit-tag-inheritance-subscription.png" alt-text="Screenshot showing the Edit option for Tag inheritance for a subscription." :::
+1. In the Tag inheritance (Preview) window, select **Automatically apply subscription and resource group tags to new data**.  
+    :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data-subscription.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option for a subscription." :::
 
 ## Choose between resource and inherited tags
 
