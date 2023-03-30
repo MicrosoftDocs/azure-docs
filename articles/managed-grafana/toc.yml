@@ -67,8 +67,10 @@ items:
   items:
   - name: Azure CLI
     href: /cli/azure/grafana
-  - name: Bicep and ARM templates
+  - name: ARM, Bicep and Terraform templates
     href: /azure/templates/microsoft.dashboard/2021-09-01-preview/grafana
+  - name: Azure PowerShell
+    href: https://www.powershellgallery.com/packages/Az.Dashboard
   - name: Control plane APIs
     href: /rest/api/managed-grafana
   - name: Data plane APIs

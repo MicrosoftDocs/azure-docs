@@ -5,7 +5,7 @@ author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
-ms.date: 03/03/2023
+ms.date: 03/24/2023
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -20,7 +20,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name | Description |
 | ---- |-------------|
 | EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment type, and a string of content bytes. |
+| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, and a string of content bytes. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
 | EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
@@ -119,7 +119,7 @@ EmailClient emailClient = new EmailClientBuilder()
 
 ### Option 2: Authenticate using Azure Active Directory
 
-A `DefaultAzureCredential` object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
+A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
 The `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID`, and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
 
@@ -158,10 +158,43 @@ EmailMessage message = new EmailMessage()
     .setSubject("Welcome to Azure Communication Services Email")
     .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.");
 
-SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
-PollResponse<EmailSendResult> response = poller.waitForCompletion();
+try
+{
+    SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
 
-System.out.println("Operation Id: " + response.getValue().getId());
+    PollResponse<EmailSendResult> pollResponse = null;
+
+    Duration timeElapsed = Duration.ofSeconds(0);
+
+        while (pollResponse == null
+                || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED
+                || pollResponse.getStatus() == LongRunningOperationStatus.IN_PROGRESS)
+        {
+            pollResponse = poller.poll();
+            System.out.println("Email send poller status: " + pollResponse.getStatus());
+
+            Thread.sleep(POLLER_WAIT_TIME.toMillis());
+            timeElapsed = timeElapsed.plus(POLLER_WAIT_TIME);
+
+            if (timeElapsed.compareTo(POLLER_WAIT_TIME.multipliedBy(18)) >= 0)
+            {
+                throw new RuntimeException("Polling timed out.");
+            }
+        }
+
+        if (poller.getFinalResult().getStatus() == EmailSendStatus.SUCCEEDED)
+        {
+            System.out.printf("Successfully sent the email (operation id: %s)", poller.getFinalResult().getId());
+        }
+        else
+        {
+            throw new RuntimeException(poller.getFinalResult().getError().getMessage());
+        }
+}
+catch (Exception exception)
+{
+    System.out.println(exception.getMessage());
+}
 ```
 
 Make these replacements in the code:
@@ -227,7 +260,9 @@ EmailMessage message = new EmailMessage()
     .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
     .setSubject("Welcome to Azure Communication Services Email")
     .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.")
-    .setToRecipients(toAddress1, toAddress2);
+    .setToRecipients(toAddress1, toAddress2)
+    .setCcRecipients(toAddress1, toAddress2)
+    .setBccRecipients(toAddress1, toAddress2)
 
 SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
 PollResponse<EmailSendResult> response = poller.waitForCompletion();
@@ -235,7 +270,7 @@ PollResponse<EmailSendResult> response = poller.waitForCompletion();
 System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced)
 
 ### Send an email message with attachments
 
@@ -262,4 +297,6 @@ PollResponse<EmailSendResult> response = poller.waitForCompletion();
 System.out.println("Operation Id: " + response.getValue().getId());
 ```
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
+
+You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced)
