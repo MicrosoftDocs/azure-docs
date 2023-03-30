@@ -2,17 +2,17 @@
 title: Transition from Event Grid on IoT Edge to Azure IoT Edge native capabilities.
 description: This article explains the transition from Event Grid on Azure IoT Edge to Azure IoT Edge hub module in Azure IoT Edge runtime.
 ms.topic: overview
-ms.date: 04/13/2022
+ms.date: 03/29/2023
 ms.subservice: iot-edge
 ---
 
 # Transition from Event Grid on IoT Edge to Azure IoT Edge native capabilities
 
-On March 31, 2023, Azure Event Grid on Azure IoT Edge will be retired. Be sure to transition to IoT Edge native capabilities before that date.
+On March 31, 2023, Azure Event Grid on Azure IoT Edge was retired. Update your application to use Azure IoT Edge native capabilities instead.
 
-## Why are we retiring it?
+## Why did we retire it?
 
-There's one major reason to retire Event Grid on IoT Edge, which is currently in preview, in March 2023: Event Grid has been evolving in the cloud native space to provide more robust capabilities not only in Azure but also in on-premises scenarios with [Kubernetes with Azure Arc](./kubernetes/overview.md).
+There's one major reason to retire Event Grid on IoT Edge. Event Grid has been evolving in the cloud native space to provide more robust capabilities not only in Azure but also in on-premises scenarios with [Kubernetes with Azure Arc](./kubernetes/overview.md).
 
 | Event Grid on IoT Edge | IoT Edge hub |
 | ---------------------------- | ----------------------------- | 

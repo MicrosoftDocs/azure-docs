@@ -398,6 +398,8 @@ items:
         href: /azure/templates/microsoft.eventgrid/topics
     - name: SDKs
       href: sdk-overview.md
+    - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
+      href: transition.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn training
