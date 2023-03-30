@@ -4,7 +4,7 @@ description: Secure Azure Database for MySQL connectivity with managed identity 
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/26/2022
-author: KarlErickson
+author: Xiaofan Zhou
 ms.author: karler
 ms.custom: passwordless-java, service-connector
 ---
