@@ -36,4 +36,4 @@ context so the customer can determine why they would click the link.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Application Proxy documentation](../active-directory/app-proxy/)
+- [Application Proxy documentation](../active-directory/app-proxy/index.yml)
