@@ -16,6 +16,8 @@ For more information, review the [Azure SDK Lifecycle and Support Policy](https:
 > [!NOTE]
 > Diagnostic tools often provide better insight into the root cause of a problem when the latest stable SDK version is used.
 
+## SDK update guidance
+
 Support engineers are expected to provide SDK update guidance according to the following table, referencing the current SDK version in use and any alternatives.
 
 |Current SDK version in use |Alternative version available |Update policy for support |
