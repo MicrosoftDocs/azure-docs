@@ -155,7 +155,7 @@ If your VM can't successfully complete the domain-join process, make sure that t
 
 If you received the error *Unspecified GSS failure.  Minor code may provide more information (Server not found in Kerberos database)*, open the file */etc/krb5.conf* and add the following code in `[libdefaults]` section and try again:
 
-```bash
+```config
 rdns=false
 ```
 
