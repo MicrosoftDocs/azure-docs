@@ -36,6 +36,8 @@ To add a protection action, assign a Conditional Access policy to one or more pe
 
 1. Select **Azure Active Directory** > **Roles & admins** > **Protected actions (Preview)**.
 
+    :::image type="content" source="media/protected-actions-add/protected-actions-start.png" alt-text="Screenshot of Add protected actions page in Roles and administrators." lightbox="media/protected-actions-add/protected-actions-start.png":::
+
 1. Select **Add protected actions** to add a new protected action.
 
     If **Add protected actions** is disabled, make sure you're assigned the Conditional Access Administrator or Security Administrator role. For more information, see [Troubleshoot protected actions](#troubleshoot-protected-actions).
@@ -44,7 +46,9 @@ To add a protection action, assign a Conditional Access policy to one or more pe
 
     If no values are available, [configure a Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context) for your tenant.
 
-1. Select the permission that will be protected by Conditional Access.
+1. Select **Select permissions** and select the permission that will be protected by Conditional Access.
+
+    :::image type="content" source="media/protected-actions-add/permissions-select.png" alt-text="Screenshot of Add protected actions page with permissions selected." lightbox="media/protected-actions-add/permissions-select.png":::
 
 1. Select **Add**.
 
@@ -61,6 +65,8 @@ To remove a protection action, unassign Conditional Access policy requirements f
 1. Select **Azure Active Directory** > **Roles & admins** > **Protected actions (Preview)**.
 
 1. Find and select the permission Conditional Access policy to unassign.
+
+    :::image type="content" source="media/protected-actions-add/permissions-remove.png" alt-text="Screenshot of Protected actions page with permissions selected to remove." lightbox="media/protected-actions-add/permissions-remove.png":::
 
 1. On the toolbar, select **Remove**.
  
@@ -111,7 +117,9 @@ When a user performs a protected action, they'll need to satisfy Conditional Acc
 ### Symptom - No authentication context values can be selected
 
 When attempting to select a Conditional Access authentication context, there are no values available to select.
- 
+
+:::image type="content" source="media/protected-actions-add/authentication-context-none.png" alt-text="Screenshot of Add protected actions page with no authentication context to select." lightbox="media/protected-actions-add/authentication-context-none.png":::
+
 **Cause**
 
 No Conditional Access authentication context values have been enabled in the tenant.
