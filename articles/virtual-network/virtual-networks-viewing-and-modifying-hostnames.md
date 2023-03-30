@@ -65,6 +65,8 @@ The following image shows the **Run command** page in the Azure portal for a Win
 
 :::image type="content" source="./media/virtual-networks-viewing-and-modifying-hostnames/virtual-machine-run-command.png" alt-text="Screenshot that shows the Run command page for a Windows virtual machine and highlights the RunPowerShellScript feature.":::
 
+After you run either `Rename-Computer` or `hostnamectl` on your VM, you need to restart your VM for the hostname to change.
+
 ## Azure classic deployment model
 
 The Azure classic deployment model uses a configuration file that you can download and upload to change the host name. To allow your host name to reference your role instances, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. 
