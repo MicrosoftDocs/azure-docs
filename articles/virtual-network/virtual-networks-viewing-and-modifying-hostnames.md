@@ -23,7 +23,7 @@ You can view the hostname of your VM in a cloud service by using any of the foll
 
 In the Azure portal, go to your VM, and select **Properties** from the left navigation. On the **Properties** page, you can view the hostname under **Computer Name**.
 
-:::image type="content" source="articles\virtual-network\media\virtual-networks-viewing-and-modifying-hostnames\virtual-machine-properties.png" alt-text="Screenshot that shows the Properties page of a virtual machine and highlights the Computer Name.":::
+:::image type="content" source="./media/virtual-networks-viewing-and-modifying-hostnames/virtual-machine-properties.png" alt-text="Screenshot that shows the Properties page of a virtual machine and highlights the Computer Name.":::
 
 ### Remote Desktop
 You can connect to your virtual machine using a remote desktop tool like Remote Desktop (Windows), Windows PowerShell remoting (Windows), SSH (Linux and Windows) or Bastion (Azure portal). You can then view the hostname in a few ways:
@@ -61,9 +61,9 @@ You can also use run these commands to find the hostname for your VM from the Az
 * For Windows, select **RunPowerShellScript** and use `Rename-Computer` in the **Run Command Script** pane.
 * For Linux, select **RunShellScript** and use `hostnamectl` in the **Run Command Script** pane.
 
-The following image shows shows the **Run command** page in the Azure portal for a Windows VM.
+The following image shows the **Run command** page in the Azure portal for a Windows VM.
 
-:::image type="content" source="articles\virtual-network\media\virtual-networks-viewing-and-modifying-hostnames\virtual-machine-run-command.png" alt-text="Screenshot that shows the Run command page for a Windows virtual machine and highlights the RunPowerShellScript feature.":::
+:::image type="content" source="./media/virtual-networks-viewing-and-modifying-hostnames/virtual-machine-run-command.png" alt-text="Screenshot that shows the Run command page for a Windows virtual machine and highlights the RunPowerShellScript feature.":::
 
 ## Azure classic deployment model
 
