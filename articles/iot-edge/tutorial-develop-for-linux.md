@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/24/2023
+ms.date: 03/30/2023
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -992,10 +992,6 @@ In this section, add the code that expands the *filtermodule* to analyze the mes
        }
    ```
 
-    TODO: update screenshot
-
-   ![Add module twin to deployment template](./media/tutorial-python-module/module-twin.png)
-
 1. Save the **deployment.template.json** file.
 
 ---
@@ -1136,18 +1132,18 @@ This process may take several minutes the first time, but is faster the next tim
 
 Open the **deployment.amd64.json** file in newly created config folder. The filename reflects the target architecture, so it's different if you chose a different architecture.
 
-Notice that the two parameters that had placeholders now contain their proper values. The **registryCredentials** section has your registry username and password pulled from the *.env* file. The **SampleModule** has the full image repository with the name, version, and architecture tag from the *module.json* file.
+Notice that the two parameters that had placeholders now contain their proper values. The **registryCredentials** section has your registry username and password pulled from the *.env* file. The **filtermodule** has the full image repository with the name, version, and architecture tag from the *module.json* file.
 
 ::: zone-end
 
-1. Open the **module.json** file in the SampleModule folder.
+1. Open the **module.json** file in the *filtermodule* folder.
 
 1. Change the version number for the module image. For example, increment the patch version number to `"version": "0.0.2"` as if you made a small fix in the module code.
 
    >[!TIP]
    >Module versions enable version control, and allow you to test changes on a small set of devices before deploying updates to production. If you don't increment the module version before building and pushing, then you overwrite the repository in your container registry.
 
-1. Save your changes to the *module.json* file.
+1. Save your changes to the **module.json** file.
 
 ::: zone pivot="iotedge-dev-cli"
 
