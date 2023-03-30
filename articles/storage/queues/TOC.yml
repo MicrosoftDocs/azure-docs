@@ -131,7 +131,7 @@
     - name: Recover a deleted storage account
       href: ../common/storage-account-recover.md?toc=/azure/storage/queues/toc.json
     - name: Migrate a classic account to Azure Resource Manager
-      href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/queues/toc.json
+      href: ../common/classic-account-migrate.md?toc=/azure/storage/queues/toc.json
     - name: Get account configuration properties
       href: ../common/storage-account-get-info.md?toc=/azure/storage/queues/toc.json
   - name: Secure queue data
