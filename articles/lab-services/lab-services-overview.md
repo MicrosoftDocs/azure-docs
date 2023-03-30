@@ -6,22 +6,34 @@ ms.service: lab-services
 ms.author: nicktrog
 author: ntrogh
 ms.topic: overview
-ms.date: 02/09/2023
+ms.date: 03/30/2023
 ---
 
 # What is Azure Lab Services?
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
-Azure Lab Services lets you create labs whose infrastructure is managed by Azure. The service itself handles all the infrastructure management, from spinning up virtual machines (VMs) to handling errors and scaling the infrastructure.  Azure Lab Services was designed with three major personas in mind: administrators, educators, and students. After an IT administrator creates a lab plan, an educator can quickly set up a lab for the class.  Educators specify the number and type of VMs needed, configure the template VM, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class. 
+Azure Lab Services lets you create labs whose infrastructure is fully managed by Azure. The service handles all the infrastructure management, from spinning up virtual machines (VMs) to handling errors and scaling the infrastructure. For example, configure labs for specific class types, such as data science or general programming, and quickly assign lab users their dedicated lab virtual machine.
 
-To get started with Azure Lab Services, you need to [create a lab plan Azure resource](./quick-create-resources.md) for your organization first. The lab plan serves as a collection of configurations and settings that apply to the labs created from it.
+To create, manage, and access labs in Azure Lab Services, use the dedicated Azure Lab Services website, or directly integrate labs in Microsoft Teams or the Canvas Learning Management System (LMS).
+
+Azure Lab Services is designed with three major personas in mind: administrators, educators, and students. Take advantage of Azure Role-Based Access Control (RBAC) to grant the right access to the different personas in your organization. Learn more about these personas and how to [use Azure Lab Services for conducting classes](./classroom-labs-scenarios.md).
+
+## Lab creation process
+
+The following diagram shows the different steps involved in creating and accessing labs with Azure Lab Services.
 
 :::image type="content" source="./media/lab-services-overview/lab-services-process-overview.png" alt-text="Diagram that shows the steps involved in creating a lab with Azure Lab Services.":::
 
-To learn more about lab plans, labs, or other concepts, see the [key concepts for Azure Lab Services](./classroom-labs-concepts.md).
+To get started with Azure Lab Services, you [*create a lab plan*](./quick-create-resources.md). A lab plan is an Azure resource that serves as the collection of configuration settings that apply to all labs associated with the lab plan. Optionally, you can *assign lab creator* permissions through Azure RBAC to allow others to create labs.
 
-The service creates and manages resources in a subscription managed by Microsoft. Resources aren't created in your own Azure subscription.  The [advanced networking](how-to-connect-vnet-injection.md) option is an exception as there are a few resources saved in your subscription.  Virtual machines are always hosted in the Microsoft managed subscription.  The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is [billed back to your Azure subscription](cost-management-guide.md) that contains the lab plan.
+Next, [*create a lab*](./quick-create-connect-lab.md) for conducting a specific class or running a hackathon, based on Azure Marketplace images or your own custom virtual machine images. You can further *configure the lab* settings with lab schedules, usage quota, or automatic startup and shutdown.
+
+Optionally, *customize the [lab template](./classroom-labs-concepts.md#template-virtual-machine)* to match the specific needs of the class. For example, install extra software such as Visual Studio Code, or enable specific operating system services.
+
+After you *publish the lab*, you can add lab virtual machines, and *assign lab users* to the lab. After they *register* for the lab, lab users can then *remotely connect* to their individual lab virtual machine to perform their exercises. If you use Azure Lab Services with Microsoft Teams or Canvas, lab users are automatically registered for their lab.
+
+To learn about lab plans, labs, and more, see the [key concepts for Azure Lab Services](./classroom-labs-concepts.md).
 
 ## Key capabilities
 
