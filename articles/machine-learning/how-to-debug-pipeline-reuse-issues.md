@@ -78,7 +78,7 @@ Double click a component to open it's  right panel -> Open **Raw JSON** under Ov
 
 ### Step 4: Check if there's any environment change
 
-If you're using inline environment, compare the environment definition in component YAML. 
+If you're using inline environment, compare the environment definition in component YAML. Your component YAML may not be uploaded to Code tab. In such cases, you will need to go to your component source code to check the environment defination for your component. 
 
 
 :::image type="content" source="./media/how-to-debug-pipeline-reuse/inline-env.png" alt-text="Screenshot showing how to check inline env.":::
@@ -94,8 +94,9 @@ The environment can also be compared in graph comparison feature. We'll cover gr
 
 ### Step 5: Check if there's any other change of the inputs, parameters, output settings, run settings by graph comparison
 
-You can compare the input data, parameters, output settings, run settings of the two jobs by adding jobs to compare. Learn how to enable and use the graph compare feature [here](./how-to-use-pipeline-ui#compare-different-pipelines-to-debug-failure-or-other-unexpected-issues-preview)
+You can compare the input data, parameters, output settings, run settings of the two components leaverging graph compare. Learn how to enable and use the graph compare feature [here](./how-to-use-pipeline-ui.md#compare-different-pipelines-to-debug-failure-or-other-unexpected-issues-preview)
 
+:::image type="content" source="./media/how-to-debug-pipeline-reuse/compare.png" alt-text="Screenshot showing compare.":::
 
 
 
