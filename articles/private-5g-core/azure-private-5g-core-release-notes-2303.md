@@ -22,9 +22,9 @@ The support lifetime for version 2302 will end on May 31, 2023. Please be prepar
 
 ## What's new
 
-- **VLAN seperation on ASE LAN and WAN ports** - This release delivers the ability to set VLAN tags on the external interfaces used by AP5GC, namely the S1-MME, N2, S1-U, N3, SGi, and N6 interfaces. VLAN tagging can also be set per data network configured on the N6/SGi interface, enabling layer 2 separation between these networks.  For more details, see [Private mobile network design requirements](private-mobile-network-design-requirements.md).
+- **VLAN separation on ASE LAN and WAN ports** - This release delivers the ability to set VLAN tags on the external interfaces used by AP5GC, namely the S1-MME, N2, S1-U, N3, SGi, and N6 interfaces. VLAN tagging can also be set per data network configured on the N6/SGi interface, enabling layer 2 separation between these networks.  For more details, see [Private mobile network design requirements](private-mobile-network-design-requirements.md).
 
-- **Azure Stack Edge Pro 2 support** - This release (and releases going forward) officially supports compatibility with Azure Stack Edge Pro 2 devices running the ASE 2301 release (and subsequent ASE releases). This and subsequent AP5GC releases will support all three models of ASE Pro 2 (Model 64G2T, Model 128G4T1GPU, and Model 256G6T2GPU). All models of the ASE Pro 2 have 4 ports, instead of the 6 ports found on the ASE Pro 1 GPU.
+- **Azure Stack Edge Pro 2 support** - This release (and releases going forward) officially supports compatibility with Azure Stack Edge Pro 2 devices running the ASE 2301 release (and subsequent ASE releases). This and subsequent AP5GC releases support all three models of ASE Pro 2 (Model 64G2T, Model 128G4T1GPU, and Model 256G6T2GPU). All models of the ASE Pro 2 have four ports, instead of the six ports found on the ASE Pro 1 GPU.
 
 - **Web Proxy support** - This feature allows running AP5GC on an ASE configured to use a Web Proxy. For more details on how to configure a Web Proxy on ASE, see [Tutorial: Configure network for Azure Stack Edge Pro with GPU](../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
@@ -47,7 +47,7 @@ The following table provides a summary of known issues carried over from the pre
   | 2 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported). | Not applicable. |
   | 3 | Install/upgrade | Changing the technology type of a deployment from 4G (EPC) to 5G using upgrade or site delete and add is not supported. | Please contact support for the required steps to change the technology type. |
   | 4 | Packet forwarding | In scenarios of sustained high load (for example, continuous setup of 100s of TCP flows per second) combined with NAT pinhole exhaustion, AP5GC can encounter a memory leak, leading to a short period of service disruption resulting in some call failures. | In most cases, the system will recover automatically and be ready to handle new requests after a few seconds' disruption. UEs will need to re-establish any dropped connections. |
-  | 5 | Install/Upgrade | In some cases the Azure Private 5G Core reports successful installation even when the underlying platform or networking is misconfigured. | Not applicable. |
+  | 5 | Install/Upgrade | In some cases, the Azure Private 5G Core reports successful installation even when the underlying platform or networking is misconfigured. | Not applicable. |
 
 ## Next steps
 
