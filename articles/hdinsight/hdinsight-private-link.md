@@ -200,7 +200,7 @@ To configure DNS resolution through a Private DNS zone:
     1. Open the private DNS zone in the Azure portal.
     1. Click the 'Virtual network links' tab.
     1. Click the 'Add' button.
-    1. Fill in the details: Link name, Subscription, and Virtual Network (your client vnet) 
+    1. Fill in the details: Link name, Subscription, and Virtual Network (your client VNET) 
     1. Click **Save**.
    
     :::image type="content" source="media/hdinsight-private-link/virtual-network-link.png" alt-text="Diagram of virtual-network-link.":::
