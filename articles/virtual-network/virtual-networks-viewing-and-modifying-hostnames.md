@@ -26,7 +26,7 @@ In the Azure portal, go to your VM, and select **Properties** from the left navi
 :::image type="content" source="./media/virtual-networks-viewing-and-modifying-hostnames/virtual-machine-properties.png" alt-text="Screenshot that shows the Properties page of a virtual machine and highlights the Computer Name.":::
 
 ### Remote Desktop
-You can connect to your virtual machine using a remote desktop tool like Remote Desktop (Windows), Windows PowerShell remoting (Windows), SSH (Linux and Windows) or Bastion (Azure portal). You can then view the hostname in a few ways:
+You can connect to your VM using a remote desktop tool like Remote Desktop (Windows), Windows PowerShell remoting (Windows), SSH (Linux and Windows) or Bastion (Azure portal). You can then view the hostname in a few ways:
 
 * Type *hostname* in PowerShell, the command prompt, or SSH terminal.
 * Type *ipconfig /all* in the command prompt (Windows only).
@@ -69,7 +69,7 @@ The following image shows the **Run command** page in the Azure portal for a Win
 
 The Azure classic deployment model uses a configuration file that you can download and upload to change the host name. To allow your host name to reference your role instances, you must set the value for the host name in the service configuration file for each role. You do that by adding the desired host name to the **vmName** attribute of the **Role** element. The value of the **vmName** attribute is used as a base for the host name of each role instance. 
 
-For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances are *webrole0*, *webrole1*, and *webrole2*. You don't need to specify a host name for virtual machines in the configuration file, because the host name for a virtual machine is populated based on the virtual machine name. For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100))
+For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances are *webrole0*, *webrole1*, and *webrole2*. You don't need to specify a host name for virtual machines in the configuration file, because the host name for a VM is populated based on the virtual machine name. For more information about configuring a Microsoft Azure service, see [Azure Service Configuration Schema (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100))
 
 ### Service configuration file
 In  the Azure classic deployment model, you can download the service configuration file for a deployed service from the **Configure** pane of the service in the Azure portal. You can then look for the **vmName** attribute for the **Role name** element to see the host name. Keep in mind that this host name is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances are *webrole0*, *webrole1*, and *webrole2*. For more information, see [Azure Virtual Network Configuration Schema](/previous-versions/azure/reference/jj157100(v=azure.100))
