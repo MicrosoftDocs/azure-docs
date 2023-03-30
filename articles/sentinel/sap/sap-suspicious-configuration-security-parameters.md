@@ -15,7 +15,7 @@ The Microsoft Sentinel solution for SAP® applications will provide updates for 
 
 ## Monitored static SAP security parameters
 
-This list includes the static SAP security parameters that the Microsoft Sentinel solution for SAP® applications monitors to protect your SAP system. The list isn't a recommendation for configuring these parameters. For configuration considerations, consult your SAP admin and security team. 
+This list includes the static SAP security parameters that the Microsoft Sentinel solution for SAP® applications monitors to protect your SAP system. The list isn't a recommendation for configuring these parameters. For configuration considerations, consult your SAP admins. 
 
 |Parameter  |Description  |Security value/considerations |
 |---------|---------|---------|
