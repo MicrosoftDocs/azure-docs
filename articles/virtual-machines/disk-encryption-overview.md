@@ -28,12 +28,17 @@ Encryption is part of a layered approach to security and should be used with oth
 
 Here's a comparison of Disk Storage SSE, ADE, encryption at host, and Confidential disk encryption.
 
-| | Encryption at rest (OS and data disks) | Temp disk encryption | Encryption of caches | Data flows encrypted between Compute and Storage | Customer control of keys | Does not use your VM's CPU | Works for custom images | Enhanced Key Protection | Microsoft Defender for Cloud disk encryption status* |
-|--|--|--|--|--|--|--|--|--|--|
-| **Azure Disk Storage Server-Side Encryption at rest** | &#x2705; | &#10060; | &#10060; | &#10060; | &#x2705; When configured with DES | &#x2705; | &#x2705; | &#10060; | Unhealthy |
-| **Azure Disk Encryption** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |&#10060; | &#10060; Does not work for custom Linux images | &#10060; | Healthy |
-| **Encryption at Host**  | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#10060; | Healthy |
-| **Confidential disk encryption** | &#x2705; For the OS disk only | &#10060; | &#x2705; For the OS disk only | &#x2705; For the OS disk only| &#x2705; For the OS disk only |&#10060; | &#x2705; | &#x2705; | Not applicable|
+| **Azure Disk Storage Server-Side Encryption at rest** | **Azure Disk Encryption** | **Encryption at Host**  | **Confidential disk encryption** |
+|--|--|--|--|
+| Encryption at rest (OS and data disks) | &#x2705; | &#x2705; | &#x2705; | &#x2705; For the OS disk only | 
+| Temp disk encryption | &#10060; | &#x2705; | &#x2705; | &#10060; |
+| Encryption of caches | &#10060; | &#x2705; | &#x2705; | &#x2705; For the OS disk only |
+| Data flows encrypted between Compute and Storage | &#10060; | &#x2705; | &#x2705; | &#x2705; For the OS disk only |
+| Customer control of keys | &#x2705; When configured with DES | &#x2705; | &#x2705; | &#x2705; For the OS disk only |
+| Does not use your VM's CPU | &#x2705; | &#10060; | &#x2705; | &#10060; |
+| Works for custom images | &#x2705; | &#10060; Does not work for custom Linux images | &#x2705; | &#x2705; |
+| Enhanced Key Protection | &#10060; | &#10060; | &#10060; | &#x2705; |
+| Microsoft Defender for Cloud disk encryption status* | Unhealthy | Healthy | Healthy | Not applicable |
 
 > [!IMPORTANT]
 > For Confidential disk encryption, Microsoft Defender for Cloud does not currently have a recommendation that is applicable.
