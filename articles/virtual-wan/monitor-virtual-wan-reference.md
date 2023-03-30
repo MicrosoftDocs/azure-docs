@@ -194,7 +194,7 @@ The following steps help you create, edit, and view diagnostic settings:
 
 ### Log Analytics sample query
 
-If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries such as the example below to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log_analytics_query_language).
+If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries such as the example below to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log-analytics-query-language).
 
 The following example contains a query to obtain site-to-site route diagnostics.
 

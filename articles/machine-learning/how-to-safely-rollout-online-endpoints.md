@@ -356,10 +356,10 @@ One way to create a managed online endpoint in the studio is from the **Models**
     * Name the deployment "blue".
     * Check the box for __Enable Application Insights diagnostics and data collection__ to allow you to view graphs of your endpoint's activities in the studio later.
 
-1. Select __Next__ to go to the "Environment" page. Here, select the following options:
+1. Select __Next__ to go to the "Environment" page. Here, perform following steps:
 
-    * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
-    * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
+    * In the "Select scoring file and dependencies" box, browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
+    * Start typing `sklearn` in the search box above the list of environments, and select the **AzureML-sklearn-0.24** curated environment.
 
 1. Select __Next__ to go to the "Compute" page. Here, keep the default selection for the virtual machine "Standard_DS3_v2" and change the __Instance count__ to 1.
 1. Select __Next__, to accept the default traffic allocation (100%) to the blue deployment.
@@ -529,9 +529,9 @@ From the **Endpoint details page**
 1. Select **Next** to go to the "Deployment" page and perform the following tasks:
     1. Name the deployment "green".
     1. Enable application insights diagnostics and data collection.
-1. Select __Next__ to go to the "Environment" page. Here, select the following options:
-    * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-2\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
-    * __Choose an environment__ section: Select the **Scikit-learn 0.24.1** curated environment.
+1. Select __Next__ to go to the "Environment" page. Here, perform following steps:
+    * In the "Select scoring file and dependencies" box, browse and select the `\azureml-examples\cli\endpoints\online\model-2\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
+    * Start typing `sklearn` in the search box above the list of environments, and select the **AzureML-sklearn-0.24** curated environment.
 1. Select __Next__ to go to the "Compute" page. Here, keep the default selection for the virtual machine "Standard_DS3_v2" and change the __Instance count__ to 1.
 1. Select __Next__ to go to the "Traffic" page. Here, keep the default traffic allocation to the deployments (100% traffic to "blue" and 0% traffic to "green").
 1. Select __Next__ to review your deployment settings.
