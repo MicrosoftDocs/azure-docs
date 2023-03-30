@@ -57,6 +57,11 @@ Clicking on 'Finish' in the Finetune Wizard will submit your finetuning job. Onc
 ### Evaluating foundation models using your own test data
 You can evaluate a foundation model against your test dataset, by using either code based notebook samples or by using the Evaluate UI wizard linked from the model card.
 
+#### Evaluating using notebook samples
+To enable users to quickly get started with model evaluation, we have published samples (both Python notebooks as well as CLI examples) in this git repo at [https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines](https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines) 
+
+#### Evaluating using UI wizard
+
 ### Deploying foundation models to endpoints for inferencing
 
 ### Importing foundation models 
