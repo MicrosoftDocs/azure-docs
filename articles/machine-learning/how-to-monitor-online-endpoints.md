@@ -17,7 +17,7 @@ ms.custom: how-to, devplatv2, event-tier1-build-2022
 
 Azure Machine Learning provides several ways to track and monitor metrics and logs regarding [Azure Machine Learning online endpoints](concept-endpoints.md). Integrated with Azure Monitor, you can view metrics in chart, compare between endpoints and deployments, pin to Azure portal dashboards, configure alerts, query from log tables and push the logs to supported targets. You can also use Application Insights to analyze events from user containers.
 
-* **Metrics**: Endpoint level metrics such as request latency, requests per minute, new connections per second, network bytes etc can be drilled down to deployment or status level. Deployment level metrics such as CPU/GPU utilization, memory or disk utilization can be drilled down to instance level. Azure Monitor allows tracking these Metrics in charts and setting up dashboards and alerts for further analysis.
+* **Metrics**: Endpoint level metrics such as request latency, requests per minute, new connections per second, network bytes, etc. can be drilled down to deployment or status level. Deployment level metrics such as CPU/GPU utilization, memory or disk utilization can be drilled down to instance level. Azure Monitor allows tracking these Metrics in charts and setting up dashboards and alerts for further analysis.
 
 * **Logs**: You can send Metrics to the Log Analytics Workspace where you can query the logs using rich Kusto query syntax. You can also send Metrics to Storage Account and/or Event Hubs for further processing. In addition, you can use dedicated Log tables for online endpoint related events, traffic, and console (container) logs. Kusto query allows complex analysis joining multiple tables.
 
@@ -257,11 +257,11 @@ You can also create custom alerts to notify you of important status updates to y
 
 1. At the top right of the metrics page, select **New alert rule**.
 
-    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Monitoring online endpoints: screenshot showing 'New alert rule' button surrounded by a red box":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-new-alert-rule.png" alt-text="Sscreenshot showing 'New alert rule' button surrounded by a red box.":::
 
 1. Select a condition name to specify when your alert should be triggered.
 
-    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Monitoring online endpoints: screenshot showing 'Configure signal logic' button surrounded by a red box":::
+    :::image type="content" source="./media/how-to-monitor-online-endpoints/online-endpoints-configure-signal-logic.png" alt-text="Screenshot showing 'Configure signal logic' button surrounded by a red box.":::
 
 1. Select **Add action groups** > **Create action groups** to specify what should happen when your alert is triggered.
 
