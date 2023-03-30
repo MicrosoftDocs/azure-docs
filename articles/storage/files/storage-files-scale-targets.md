@@ -73,7 +73,7 @@ Azure file share scale targets apply at the file share level.
 <sup>3</sup> Azure Files enforces certain [naming rules](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) for directory and file names.
 
 ### File scale targets
-File scale targets apply to individual files stored in Azure file shares.
+File scale targets apply to individual files stored in Azure file shares. Soft limits and throttling can occur beyond these limits.
 
 | Attribute | Files in standard file shares  | Files in premium file shares  |
 |-|-|-|
