@@ -26,8 +26,6 @@ ms.author: lajanuar
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) to build intelligent document processing solutions. Massive amounts of data are stored in documents, Form Recognizer applies machine-learning-based optical character recognition (OCR) and document understanding technologies to extract structured, semi-structured, and unstructured content from your documents.</br></br>
 
-  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
-
 ## Form Recognizer model types
 
 * [**Document analysis models**](#document-analysis-models)
@@ -155,6 +153,12 @@ Form Recognizer Studio preview features are currently in gated preview. Features
 :::column span="":::
    :::column-end:::
 :::row-end:::
+
+## Video: model overview
+
+The following video introduces Form Recognizer models and their associated output to help you choose the best model to address your document scenario needs.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
 
 ## Models and development options
 
