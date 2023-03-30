@@ -105,7 +105,7 @@ Follow these steps to configure autoscale for an Azure API Management service:
 
 1. In **Instance limits**, select the **Minimum**, **Maximum**, and **Default** number of API Management units.
    > [!NOTE]
-   > API Management has a limit of units an instance can scale out to. The limit depends on a service tier.
+   > API Management has a limit of units an instance can scale out to. The limit depends on the service tier.
     
     :::image type="content" source="media/api-management-howto-autoscale/07.png" alt-text="Screenshot showing how to set instance limits in the portal.":::
 
