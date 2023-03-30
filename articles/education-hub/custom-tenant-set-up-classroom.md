@@ -22,10 +22,9 @@ This article is meant for IT Admins utilizing Azure for Classroom. When signing 
 This section walks you through how to create a new tenant and associate it with your university tenant using multi-tenant
 
 1. Go to the Azure portal and search for "Azure Active Directory"
-:::image type="content" source="media/custom-tenant-set-up-classroom/navigate-to-active-directory.png" alt-text="Screenshot of navigating to Azure Active Directory." border="true":::
-1. Create a new tenant in the "Manage tenants" tab
-2. Fill in and Finalize Tenant information
-3. After the tenant has been created copy the Tenant ID of the new tenant
+2. Create a new tenant in the "Manage tenants" tab
+3. Fill in and Finalize Tenant information
+4. After the tenant has been created copy the Tenant ID of the new tenant
 :::image type="content" source="media/custom-tenant-set-up-classroom/save-tenant-id.png" alt-text="Screenshot of user saving tenant id." border="true":::
 
 ## Associate new tenant with university tenant
@@ -35,7 +34,6 @@ This section walks you through how to create a new tenant and associate it with 
 3. Click "Add" and add the Tenant ID of the newly created tenant
 4. Check the box for Billing management
 1. Click "Add" to finalize the association between the newly created tenant and university tenant
-:::image type="content" source="media/custom-tenant-set-up-classroom/associate-tenant.png" alt-text="Screenshot of user selecting billing management." border="true":::
 
 ## Invite Educator to the newly created tenant
 
