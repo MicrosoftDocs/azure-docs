@@ -56,7 +56,7 @@ There are four steps to the migration process, as shown in the following diagram
 
 ### Validate
 
-The Validation step is the first step in the migration process. The goal of this step is to analyze the state of the resources that you want to migrate from the classic deployment model. The Validation step evaluates whether the resources are capable of migration (success or failure). If the the classic storage account is not capable of migration, Azure lists the reasons why.
+The Validation step is the first step in the migration process. The goal of this step is to analyze the state of the resources that you want to migrate from the classic deployment model. The Validation step evaluates whether the resources are capable of migration (success or failure). If the classic storage account is not capable of migration, Azure lists the reasons why.
 
 The Validation step analyzes the state of resources in the classic deployment model. It checks for failures and unsupported scenarios due to different configurations of the storage account in the classic deployment model.
 
@@ -95,7 +95,7 @@ To revert your changes to the classic deployment model, you can choose to abort 
 
 ### Commit
 
-After you are satisfied that your classic storage account has been migrated successfully, you can commit the migration. Committing the migration deletes your classic storage account. You data is now available only in the newly migrated account in the Resource Manager deployment model.
+After you are satisfied that your classic storage account has been migrated successfully, you can commit the migration. Committing the migration deletes your classic storage account. Your data is now available only in the newly migrated account in the Resource Manager deployment model.
 
 > [!NOTE]
 > Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html)

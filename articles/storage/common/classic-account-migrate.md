@@ -27,7 +27,7 @@ To list classic storage accounts in your subscription with the Azure portal:
 1. Navigate to the list of your storage accounts in the Azure portal.
 1. Select **Add filter**. In the **Filter** dialog, set the **Filter** field to **Type** and the **Operator** field to **Equals**. Then set the **Value** field to **microsoft.classicstorage/storageaccounts**.
 
-    :::image type="content" source="media/classic-account-migrate/classic-accounts-list-portal.png" alt-text="Screenshot showing how to list classic storage accounts in Azure portal" lightbox="media/classic-account-migrate/classic-accounts-list-portal.png":::
+    :::image type="content" source="media/classic-account-migrate/classic-accounts-list-portal.png" alt-text="Screenshot showing how to list classic storage accounts in Azure portal." lightbox="media/classic-account-migrate/classic-accounts-list-portal.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
