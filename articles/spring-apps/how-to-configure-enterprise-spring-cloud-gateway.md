@@ -92,9 +92,8 @@ You can use the Azure portal and the Azure CLI to edit metdata properties.
 To edit metadata in the Azure portal, do these steps:
 
 1. Open your Azure Spring Apps instance.
-1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Overview**.
-1. Select **Configuration**.
-1. Specify values for the properties listed in for **API**.
+1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
+1. Specify values for the properties listed for **API**.
 1. Select **Save**.
 
 :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
@@ -134,9 +133,8 @@ You can use the Azure portal and the Azure CLI to edit SSO properties.
 To edit SSO properties in the Azure portal, do these steps:
 
 1. Open your Azure Spring Apps instance.
-1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Overview**.
-1. Select **Configuration**.
-1. Specify values for the properties listed in for **SSO**.
+1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
+1. Specify values for the properties listed for **SSO**.
 1. Select **Save**.
 
 :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the Single Sign On section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
