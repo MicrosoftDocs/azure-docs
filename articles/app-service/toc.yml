@@ -27,17 +27,8 @@
       href: quickstart-wordpress.md
     - name: Go (experimental)
       href: quickstart-golang.md
-    - name: Static HTML site
+    - name: Static HTML site - delete
       href: quickstart-html.md
-    - name: ARM template
-      displayName: Resource Manager
-      href: quickstart-arm-template.md
-    - name: Custom container
-      href: quickstart-custom-container.md
-    - name: Multi-container app
-      href: quickstart-multi-container.md
-    - name: App on Azure Arc (preview)
-      href: quickstart-arc.md
 - name: Deployment
   items:
     - name: Deployment best practices
@@ -64,8 +55,6 @@
           href: configure-language-java.md
         - name: Configure Ruby
           href: configure-language-ruby.md
-        - name: Configure custom container
-          href: configure-custom-container.md
         - name: Configure Azure Storage
           href: configure-connect-to-azure-storage.md
     - name: Deployment options
@@ -76,24 +65,16 @@
           href: deploy-ftp.md
         - name: Deploy continuously
           href: deploy-continuous-deployment.md
-        - name: Custom containers CI/CD
-          href: deploy-ci-cd-custom-container.md
         - name: Deploy from local Git
           href: deploy-local-git.md
-        - name: Azure Pipelines
+        - name: Deploy from Azure Pipelines
           href: deploy-azure-pipelines.md
         - name: Deploy with GitHub Actions
           items:
-            - name: GitHub Actions
+            - name: GitHub Actions reference
               href: deploy-github-actions.md
-            - name: GitHub Actions for Containers
-              href: deploy-container-github-action.md
             - name: End-to-end tutorials
-              items:
-                - name: ASP.NET Core with a container
-                  href: app-service-sql-github-actions.md
-                - name: ASP.NET
-                  href: app-service-sql-asp-github-actions.md
+              href: app-service-sql-asp-github-actions.md
         - name: Deploy with template
           href: deploy-complex-application-predictably.md
         - name: Run from package
@@ -106,7 +87,10 @@
       href: deploy-staging-slots.md
     - name: Automate provisioning
       items:
-        - name: Resource Manager template guidance
+        - name: ARM template
+          displayName: Resource Manager
+          href: quickstart-arm-template.md
+        - name: Resource Manager template guidance - delete
           href: deploy-resource-manager-template.md
         - name: Bicep
           href: provision-resource-bicep.md
@@ -369,10 +353,26 @@
       href: overview-manage-costs.md
 - name: Custom containers
   items:
-    - name: Deploy from ACR
-      href: tutorial-custom-container.md
+    - name: Custom container quickstart
+      href: quickstart-custom-container.md
+    - name: Configure custom container in App Service
+      href: configure-custom-container.md
+    - name: CI/CD with custom containers
+      href: deploy-ci-cd-custom-container.md
+    - name: GitHub Actions deployment reference
+      href: deploy-container-github-action.md
     - name: Multi-container app
-      href: tutorial-multi-container-app.md
+      href: quickstart-multi-container.md
+    - name: End-to-end tutorials
+      items:
+        - name: Deploy app with Azure Container Registry
+          href: tutorial-custom-container.md
+        - name: Deploy with GitHub Actions
+          href: app-service-sql-github-actions.md
+        - name: Multi-container WordPress app
+          href: tutorial-multi-container-app.md
+    - name: Multi-container app
+      items:
 - name: Resiliency
   items:
   - name: High availability with availability zones
@@ -385,8 +385,10 @@
   items:
     - name: Azure Arc hosting overview
       href: overview-arc-integration.md
-    - name: Enable on Azure Arc
+    - name: Enable App Service on Azure Arc
       href: manage-create-arc-environment.md
+    - name: Create app on Azure Arc
+      href: quickstart-arc.md
 - name: Samples
   items:
     - name: Azure CLI
