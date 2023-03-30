@@ -815,7 +815,7 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 Open PowerShell session in Administrator mode and run the following command:
 
 ```powershell-interactive
-<PowerShell box> Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker\<AutomationAccountID>\<HybridWorkerGroupName>" -Force -Verbose
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker\<AutomationAccountID>\<HybridWorkerGroupName>" -Force -Verbose
 ```
 > [!NOTE]
 > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
@@ -824,8 +824,14 @@ Open PowerShell session in Administrator mode and run the following command:
 #### [Linux Hybrid Worker](#tab/lin-hrw)
 
 Run the following commands on agent-based Linux Hybrid Worker:
-1. `<Python box>` sudo bash
-1. `<Python box>` rm -r /home/nxautomation
+
+1. ```python
+      sudo bash
+   ```
+
+1. ```python
+      rm -r /home/nxautomation
+   ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
