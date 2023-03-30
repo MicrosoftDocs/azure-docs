@@ -1,11 +1,6 @@
 {
     "redirections": [
     {
-        "source_path_from_root": "/articles/machine-learning/v1/how-to-workspace-diagnostic-api.md",
-        "redirect_url": "/azure/machine-learning/how-to-workspace-diagnostic-api",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/machine-learning/how-to-configure-auto-features.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-configure-auto-features",
         "redirect_document_id": true
