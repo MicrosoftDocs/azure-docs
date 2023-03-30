@@ -76,7 +76,7 @@ If you already have an application that is consuming environment variables as co
 
 ## Containerize the application 
 If you already have an application, you can containerize it in a way that depends on your application. We just show you how to build the `MyWebApp` project to an image.
-1. Run the (dotnet publish)[/dotnet/core/tools/dotnet-publish] command to build the app in release mode and create the assets in the published folder.
+1. Run the [dotnet publish](/dotnet/core/tools/dotnet-publish) command to build the app in release mode and create the assets in the published folder.
     ``` dotnetcli
     dotnet publish -c Release -o published
     ```
@@ -132,11 +132,11 @@ If you already have an application, you can containerize it in a way that depend
     |Settings__FontColor|*Red*|
     |Settings__Message|*Hello from Azure App Configuration*|
     
-2. Enable System Assigned Managed Identity of AKS NodePool
+1. Enable System Assigned Managed Identity of AKS NodePool
    
     Go to the corresponding Virtual Machine Scale Sets resource of AKS, and enable system-assigned managed identity on the Virtual Machine Scale Sets by following this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set).
 
-3. Assign Data Reader role to the System Assigned Managed Identity 
+1. Assign Data Reader role to the System Assigned Managed Identity 
    
     Once the system-assigned managed identity has been enabled, you need to grant it read access to Azure AppConfiguration. You can do it by following the instructions in this [doc](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core5x&pivots=framework-dotnet#grant-access-to-app-configuration).
 
@@ -146,7 +146,7 @@ If you already have an application, you can containerize it in a way that depend
     ```bash
     az aks get-credentials --name my_aks --resource-group my_aks_resource_group
     ```
-2. Install Azure App Configuration Kubernetes Provider to your AKS cluster using `helm`:
+1. Install Azure App Configuration Kubernetes Provider to your AKS cluster using `helm`:
     ``` bash
     helm install azureappconfiguration.kubernetesprovider oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider --version 1.0.0-alpha --namespace azappconfig-system --create-namespace
     ```
@@ -154,7 +154,7 @@ If you already have an application, you can containerize it in a way that depend
 ## Create and deploy Kubernetes resources
 
 1. Create a *AKS-AppConfiguration-Demo* directory in the root directory of your project.
-2. Create *appConfigurationProvider.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of the `endpoint` field with the endpoint of your Azure AppConfiguration store.
+1. Create *appConfigurationProvider.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of the `endpoint` field with the endpoint of your Azure AppConfiguration store.
     ``` yaml
     apiVersion: azconfig.io/v1beta1
     kind: AzureAppConfigurationProvider
@@ -165,7 +165,7 @@ If you already have an application, you can containerize it in a way that depend
       target:
         configMapName: demo-configmap
     ```
-3. Create *deployment.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of `template.containers.image` with the image you created in the previous step.
+1. Create *deployment.yaml* in the *AKS-AppConfiguration-Demo* directory with the following YAML content. Replace the value of `template.spec.containers.image` with the image you created in the previous step.
     ``` yaml
     apiVersion: apps/v1
     kind: Deployment
@@ -192,7 +192,7 @@ If you already have an application, you can containerize it in a way that depend
             - configMapRef:
                 name: demo-configmap
     ```
-4. Create *service.yaml* in the *AKS-AppConfiguration-Demo* with the following YAML content. 
+1. Create *service.yaml* in the *AKS-AppConfiguration-Demo* with the following YAML content. 
     ``` yaml
     apiVersion: v1
     kind: Service
@@ -205,7 +205,7 @@ If you already have an application, you can containerize it in a way that depend
       selector:
         app: configmap-demo-app
     ```
-5. Apply the YAML files to the AKS cluster
+1. Apply the YAML files to the AKS cluster
     ``` bash
     kubectl create namespace quickstart-appconfig
     kubectl apply -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
@@ -236,12 +236,12 @@ kubectl get service configmap-demo-service -n quickstart-appconfig
 ```
 
 ## Clean up resources
-1. Remove the resources deployed to AKS
+1. Remove the resources that have been deployed to AKS
     ``` bash
     kubectl delete -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
     kubectl delete namespace quickstart-appconfig
     ```
-2. Uninstall the Azure App Configuration Kubernetes Provider
+1. Uninstall the Azure App Configuration Kubernetes Provider
    ``` bash
    helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-system
    ```
