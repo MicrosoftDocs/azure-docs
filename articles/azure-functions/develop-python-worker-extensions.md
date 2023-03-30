@@ -188,9 +188,9 @@ Now that you've created an extension, you can use it in an app project to verify
 
 1. In the browser, send a GET request to `https://localhost:7071/api/HttpTrigger`. You should see a response like the following, with the **TimeElapsed** data for the request appended. 
 
-    <pre>
+    ```
     This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response. (TimeElapsed: 0.0009996891021728516 sec)
-    </pre>
+    ```
 
 ## Publish your extension
 
