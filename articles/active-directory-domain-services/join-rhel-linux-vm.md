@@ -265,13 +265,13 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. Open the *sshd_conf* file with an editor:
 
-    ```console
+    ```bash
     sudo vi /etc/ssh/sshd_config
     ```
 
 1. Update the line for *PasswordAuthentication* to *yes*:
 
-    ```console
+    ```bash
     PasswordAuthentication yes
     ```
 
@@ -279,7 +279,7 @@ By default, users can only sign in to a VM using SSH public key-based authentica
 
 1. To apply the changes and let users sign in using a password, restart the SSH service.
 
-    ```console
+    ```bash
     sudo systemctl restart sshd
     ```
 ---
@@ -310,13 +310,13 @@ To verify that the VM has been successfully joined to the managed domain, start 
 1. Create a new SSH connection from your console. Use a domain account that belongs to the managed domain using the `ssh -l` command, such as `contosoadmin@aaddscontoso.com` and then enter the address of your VM, such as *rhel.aaddscontoso.com*. If you use the Azure Cloud Shell, use the public IP address of the VM rather than the internal DNS name.
 
     ```bash
-    ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
+    sudo ssh -l contosoadmin@AADDSCONTOSO.com rhel.aaddscontoso.com
     ```
 
 1. When you've successfully connected to the VM, verify that the home directory was initialized correctly:
 
     ```bash
-    pwd
+    sudo pwd
     ```
 
     You should be in the */home* directory with your own directory that matches the user account.
@@ -324,7 +324,7 @@ To verify that the VM has been successfully joined to the managed domain, start 
 1. Now check that the group memberships are being resolved correctly:
 
     ```bash
-    id
+    sudo id
     ```
 
     You should see your group memberships from the managed domain.
