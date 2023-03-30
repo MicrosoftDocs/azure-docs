@@ -1,6 +1,6 @@
 ---
 title: Default Prometheus metrics configuration in Azure Monitor (preview)
-description: Lists the default targets, dashboards, and recording rules for Prometheus metrics in Azure Monitor.
+description: This article lists the default targets, dashboards, and recording rules for Prometheus metrics in Azure Monitor.
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 09/28/2022
@@ -9,11 +9,11 @@ ms.reviewer: aul
 
 # Default Prometheus metrics configuration in Azure Monitor (preview)
 
-This article lists the default targets, dashboards, and recording rules when you [configure Prometheus metrics to be scraped from an AKS cluster](prometheus-metrics-enable.md) for any AKS cluster.
+This article lists the default targets, dashboards, and recording rules when you [configure Prometheus metrics to be scraped from an Azure Kubernetes Service (AKS) cluster](prometheus-metrics-enable.md) for any AKS cluster.
 
 ## Scrape frequency
 
- The default scrape frequency for all default targets and scrapes is **30 seconds**.
+ The default scrape frequency for all default targets and scrapes is 30 seconds.
 
 ## Targets scraped
 
@@ -136,19 +136,19 @@ The following metrics are collected by default from each default target. All oth
    - `kube_node_status_condition`
    - `kube_node_spec_taint`
 
-## Targets scraped for windows
+## Targets scraped for Windows
 
-There are two default jobs that can be run for windows which scrape metrics required for the dashboards specific to windows.
+Two default jobs can be run for Windows that scrape metrics required for the dashboards specific to Windows.
 
 > [!NOTE]
-> This requires an update in the ama-metrics-settings-configmap and installing windows exporter on all windows nodepools. Please refer to the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection) for more information
+> This requires an update in the ama-metrics-settings-configmap and installing windows-exporter on all Windows node pools. For more information, see the [enablement document](./prometheus-metrics-enable.md#enable-prometheus-metric-collection).
 
 - `windows-exporter` (`job=windows-exporter`)
 - `kube-proxy-windows` (`job=kube-proxy-windows`)
 
-## Metrics scraped for windows
+## Metrics scraped for Windows
 
-The following metrics are collected when windows exporter and windows kube proxy are enabled.
+The following metrics are collected when windows-exporter and kube-proxy-windows are enabled.
 
 **windows-exporter (job=windows-exporter)**<br>
   - `windows_system_system_up_time`
@@ -191,7 +191,7 @@ The following metrics are collected when windows exporter and windows kube proxy
 
 ## Dashboards
 
-Following are the default dashboards that are automatically provisioned and configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these dashboards can be found in [GitHub](https://aka.ms/azureprometheus-mixins)
+The following default dashboards are automatically provisioned and configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these dashboards can be found in [this GitHub folder](https://aka.ms/azureprometheus-mixins).
 
 - Kubernetes / Compute Resources / Cluster
 - Kubernetes / Compute Resources / Namespace (Pods)
@@ -210,8 +210,7 @@ Following are the default dashboards that are automatically provisioned and conf
 
 ## Recording rules
 
-Following are the default recording rules that are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [GitHub](https://aka.ms/azureprometheus-mixins)
-
+The following default recording rules are automatically configured by Azure Monitor managed service for Prometheus when you [link your Azure Monitor workspace to an Azure Managed Grafana instance](../essentials/azure-monitor-workspace-manage.md#link-a-grafana-workspace). Source code for these recording rules can be found in [this GitHub folder](https://aka.ms/azureprometheus-mixins).
 
 - `cluster:node_cpu:ratio_rate5m`
 - `namespace_cpu:kube_pod_container_resource_requests:sum`
@@ -275,4 +274,4 @@ Following are the default recording rules that are automatically configured by A
 
 ## Next steps
 
-- [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).
+[Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md)

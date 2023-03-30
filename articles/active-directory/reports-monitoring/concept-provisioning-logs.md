@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 01/23/2023
+ms.date: 03/24/2023
 ms.author: sarahlipsey
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
@@ -242,6 +242,7 @@ Use the following table to better understand how to resolve errors that you find
 > | AzureDirectoryB2BManagementPolicyCheckFailure | The cross-tenant synchronization policy allowing automatic redemption failed.<br/><br/>The synchronization engine checks to ensure that the administrator of the target tenant has created an inbound cross-tenant synchronization policy allowing automatic redemption. The synchronization engine also checks if the administrator of the source tenant has enabled an outbound policy for automatic redemption. | Ensure that the automatic redemption setting has been enabled for both the source and target tenants. For more information, see [Automatic redemption setting](../multi-tenant-organizations/cross-tenant-synchronization-overview.md#automatic-redemption-setting). |
 > | AzureActiveDirectoryQuotaLimitExceeded | The number of objects in the tenant exceeds the directory limit.<br/><br/>Azure AD has limits for the number of objects that can be created in a tenant. | Check whether the quota can be increased. For information about the directory limits and steps to increase the quota, see [Azure AD service limits and restrictions](../enterprise-users/directory-service-limits-restrictions.md). |
 > |InvitationCreationFailure| The Azure AD provisioning service attempted to invite the user in the target tenant. That invitation failed.| Navigate to the user settings page in Azure AD > external users > collaboration restrictions and ensure that collaboration with that tenant is enabled.|
+> |AzureActiveDirectoryInsufficientRights|When a B2B user in the target tenant has a role other than User, Helpdesk Admin, or User Account Admin, they cannot be deleted.| Please remove the role(s) on the user in the target tenant in order to successfully delete the user in the target tenant.|
 
 ## Next steps
 

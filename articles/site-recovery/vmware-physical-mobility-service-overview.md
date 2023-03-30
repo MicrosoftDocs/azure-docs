@@ -33,7 +33,8 @@ Push installation is an integral part of the job that's run from the Azure porta
 
 - Ensure that all push installation [prerequisites](vmware-azure-install-mobility-service.md) are met.
 - Ensure that all server configurations meet the criteria in the [Support matrix for disaster recovery of VMware VMs and physical servers to Azure](vmware-physical-azure-support-matrix.md).
-- From 9.36 version onwards, ensure the latest installer for SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4, RHEL 5, CentOS 5, Debian 7, Debian 8, Ubunut 14.04 is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-oracle-linux-6-and-ubuntu-1404-server).
+- From 9.36 version onwards, ensure the latest installer for SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4, RHEL 5, CentOS 5, Debian 7, Debian 8, Ubunut 14.04 is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
+- From 9.52 version onwards, ensure the latest installer for Debian 9, is [available on the configuration server and scale-out process server](#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
 
 The push installation workflow is described in the following sections:
 
@@ -208,20 +209,20 @@ Installer file | Operating system (64-bit only)
 `Microsoft-ASR_UA_version_RHEL8-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 8 </br> CentOS 8
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> Includes SP2 and SP3.
 [To be downloaded and placed in this folder manually](#suse-11-sp3-or-suse-11-sp4-server) | SUSE Linux Enterprise Server 11 SP3
-`Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
+[To be downloaded and placed in this folder manually](#suse-11-sp3-or-suse-11-sp4-server) | SUSE Linux Enterprise Server 11 SP4
 `Microsoft-ASR_UA_version_SLES15-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 15
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6.4 </br> Oracle Enterprise Linux 6.5
 `Microsoft-ASR_UA_version_OL7-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 7
 `Microsoft-ASR_UA_version_OL8-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 8
-`Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14.04
+[To be downloaded and placed in this folder manually](#ubuntu-1404-server) | Ubuntu Linux 14.04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Ubuntu Linux 16.04 LTS server
 `Microsoft-ASR_UA_version_UBUNTU-18.04-64_GA_date_release.tar.gz` | Ubuntu Linux 18.04 LTS server
 `Microsoft-ASR_UA_version_UBUNTU-20.04-64_GA_date_release.tar.gz` | Ubuntu Linux 20.04 LTS server
-[To be downloaded and placed in this folder manually](#debian-7-or-debian-8-server) | Debian 7
-`Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
-`Microsoft-ASR_UA_version_DEBIAN9-64_GA_date_release.tar.gz` | Debian 9
+[To be downloaded and placed in this folder manually](#debian-7-debian-8-or-debian-9-server) | Debian 7
+[To be downloaded and placed in this folder manually](#debian-7-debian-8-or-debian-9-server) | Debian 8
+[To be downloaded and placed in this folder manually](#debian-7-debian-8-or-debian-9-server) | Debian 9
 
-## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Oracle Linux 6 and Ubuntu 14.04 server
+## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Debian 9, Oracle Linux 6 and Ubuntu 14.04 server
 
 ### SUSE 11 SP3 or SUSE 11 SP4 server 
 
@@ -247,13 +248,13 @@ As a **prerequisite to update or protect RHEL 5 machines** from 9.36 version onw
 1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
-## Debian 7 or Debian 8 server
+## Debian 7, Debian 8 or Debian 9 server
 
-As a **prerequisite to update or protect Debian 7 or Debian 8 machines** from 9.36 version onwards:
+As a **prerequisite to update or protect Debian 7, Debian 8 or Debian 9 machines**:
 
 1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
-2. [Download](site-recovery-whats-new.md) the latest Debian 7 or Debian 8 agent installer.
-3. Navigate to Configuration server, copy the Debian 7 or Debian 8 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
+2. [Download](site-recovery-whats-new.md) the latest Debian 7, Debian 8 or Debian 9 agent installer.
+3. Navigate to Configuration server, copy the Debian 7, Debian 8 or Debian 9 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
 1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
