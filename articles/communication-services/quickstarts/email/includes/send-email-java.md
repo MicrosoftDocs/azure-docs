@@ -166,30 +166,30 @@ try
 
     Duration timeElapsed = Duration.ofSeconds(0);
 
-        while (pollResponse == null
-                || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED
-                || pollResponse.getStatus() == LongRunningOperationStatus.IN_PROGRESS)
-        {
-            pollResponse = poller.poll();
-            System.out.println("Email send poller status: " + pollResponse.getStatus());
+    while (pollResponse == null
+            || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED
+            || pollResponse.getStatus() == LongRunningOperationStatus.IN_PROGRESS)
+    {
+        pollResponse = poller.poll();
+        System.out.println("Email send poller status: " + pollResponse.getStatus());
 
-            Thread.sleep(POLLER_WAIT_TIME.toMillis());
-            timeElapsed = timeElapsed.plus(POLLER_WAIT_TIME);
+        Thread.sleep(POLLER_WAIT_TIME.toMillis());
+        timeElapsed = timeElapsed.plus(POLLER_WAIT_TIME);
 
-            if (timeElapsed.compareTo(POLLER_WAIT_TIME.multipliedBy(18)) >= 0)
-            {
-                throw new RuntimeException("Polling timed out.");
-            }
+        if (timeElapsed.compareTo(POLLER_WAIT_TIME.multipliedBy(18)) >= 0)
+        {
+            throw new RuntimeException("Polling timed out.");
         }
+    }
 
-        if (poller.getFinalResult().getStatus() == EmailSendStatus.SUCCEEDED)
-        {
-            System.out.printf("Successfully sent the email (operation id: %s)", poller.getFinalResult().getId());
-        }
-        else
-        {
-            throw new RuntimeException(poller.getFinalResult().getError().getMessage());
-        }
+    if (poller.getFinalResult().getStatus() == EmailSendStatus.SUCCEEDED)
+    {
+        System.out.printf("Successfully sent the email (operation id: %s)", poller.getFinalResult().getId());
+    }
+    else
+    {
+        throw new RuntimeException(poller.getFinalResult().getError().getMessage());
+    }
 }
 catch (Exception exception)
 {
