@@ -320,6 +320,7 @@
         "articles/sap/**/*.md": "lauradolan",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/applied-ai-services/**/*.md": "mrbullwinkle",
+        "articles/cloud-shell/**/*.md": "sdwheeler",
         "articles/cognitive-services/**/*.md": "PatrickFarley",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "mrbullwinkle",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "aahill",
@@ -636,6 +637,7 @@
         "articles/backup/**/*.md": "evansma",
         "articles/baremetal-infrastructure/**/*.md": "akashdubey",
         "articles/batch/**/*.md": "mamccrea",
+        "articles/cloud-shell/**/*.md": "jasongroce",
         "articles/cognitive-services/**/*.md": "nitinme",
         "articles/defender-for-cloud/*.md": "raynew",
         "articles/defender-for-iot/organizations/*.md": "raynew",
@@ -701,6 +703,7 @@
         "articles/blockchain/**/*.md": "patricka",
         "articles/chef/**/*.md": "tarcher",
         "articles/applied-ai-services/**/*.md": "mbullwin",
+        "articles/cloud-shell/**/*.md": "sewhee",
         "articles/cognitive-services/**/*.md": "pafarley",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "mbullwin",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "aahi",
@@ -850,6 +853,7 @@
         "articles/batch/**/*.md": "batch",
         "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/chef/**/*.md": "chef",
+        "articles/cloud-shell/**/*.md": "cloud-shell",
         "articles/cognitive-services/**/*.md": "cognitive-services",
         "articles/connectors/*.md": "logic-apps",
         "articles/container-instances/**/*.md": "container-instances",
@@ -968,6 +972,9 @@
         "articles/cosmos-db/table/*.md": "cosmosdb-table",
         "articles/cosmos-db/sql/*.md": "cosmosdb-sql",
         "articles/defender-for-iot/device-builders/*.md": "device-builders"
+      },
+      "ms.workload": {
+        "articles/cloud-shell/**/*.md": "infrastructure-services"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",

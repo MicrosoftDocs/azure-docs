@@ -17,10 +17,15 @@ Currently the only protocol supported for Windows Endpoint Monitoring with Defen
 
 ## Prerequisites
 
-Make sure that you've completed the prerequisites listed in [Configure active monitoring for OT networks](configure-active-monitoring.md), and have confirmed that active monitoring is right for your network.
+Before performing the procedures in this article, you must have:
 
+- An OT network sensor [installed](ot-deploy/install-software-ot-sensor.md), [activated, and configured](ot-deploy/activate-deploy-sensor.md).
 
-Before you can configure a WEM scan from your OT sensor console, you'll also need to configure a firewall rule, and WMI domain scanning on your Windows machine.
+- Access to your OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+- Completed the prerequisites outlined in [Configure active monitoring for OT networks](configure-active-monitoring.md), and confirmed that active monitoring is right for your network.
+
+- Before you can configure a WEM scan from your OT sensor console, you'll also need to configure a firewall rule, and WMI domain scanning on your Windows machine.
 
 ## Configure the required firewall rule
 
@@ -28,7 +33,7 @@ Configure a firewall rule that opens outgoing traffic from the sensor to the sca
 
 ## Configure WMI domain scanning
 
-Before you can configure a WEM scan from your sensor, you need to configure WMI domain scanning on the Windows machine you'll be scanning. 
+Before you can configure a WEM scan from your sensor, you need to configure WMI domain scanning on the Windows machine you'll be scanning.
 
 This procedure describes how to configure WMI scanning using a Group Policy Object (GPO), updating your firewall settings, defining permissions for your WMI namespace, and defining a local group.
 
@@ -57,8 +62,8 @@ This procedure describes how to configure WMI scanning using a Group Policy Obje
 
     1. In the **Access Permission** dialog:
 
-        1. In the **Group or user names** list, select **wmiuser**
-        1. In the **Permissions for ANONYMOUS LOGON** box below, select **Allow** for both **Local Access** and **Remote Access**.
+        1. In the **Group or user names** list, select **wmiuser**.
+        1. In the **Permissions for ANONYMOUS LOGON** box, select **Allow** for both **Local Access** and **Remote Access**.
 
         Select **OK** to close the **Access Permissions** dialog.
 
@@ -76,8 +81,8 @@ This procedure describes how to configure WMI scanning using a Group Policy Obje
 
     1. In the **Access Permission** dialog:
 
-        1. In the **Group or user names** list, select **wmiuser**
-        1. In the **Permissions for Administrators** box below, select **Allow** for the **Local Launch**, **Remote Launch**, **Local Activation**, and **Remote Activation** options.
+        1. In the **Group or user names** list, select **wmiuser**.
+        1. In the **Permissions for Administrators** box, select **Allow** for the **Local Launch**, **Remote Launch**, **Local Activation**, and **Remote Activation** options.
 
         Select **OK** to close the **Access Permissions** dialog.
 
@@ -97,7 +102,7 @@ This procedure describes how to configure WMI scanning using a Group Policy Obje
 
 ### Configure permissions for your WMI namespace
 
-This procedure describes how to define permissions for your WMI namespace, and cannot be completed with a regular GPO.
+This procedure describes how to define permissions for your WMI namespace, and can't be completed with a regular GPO.
 
 If you'll be using a non-admin account to run your WEM scans, this procedure is critical and must be performed exactly as instructed to allow sign-in attempts using WMI.
 
@@ -112,7 +117,7 @@ If you'll be using a non-admin account to run your WEM scans, this procedure is 
     1. Select **Add**, and in the **Enter the object names to select** box, enter **wmiuser**.
     1. Select **Check Names** > **OK**.
 
-1. In the **Group or user names** box, select the **wmiuser** account. In the **Permissions for Authenticated Users** box below, select **Allow** for the following permissions:
+1. In the **Group or user names** box, select the **wmiuser** account. In the **Permissions for Authenticated Users** box, select **Allow** for the following permissions:
 
     - **Execute Methods**
     - **Enable Account**
@@ -144,15 +149,15 @@ If you'll be using a non-admin account to run your WEM scans, this procedure is 
 
 **To configure a WEM scan**:
 
-1. On your OT sensor console, select **System settings**> **Network monitoring** > **Active discovery** > **Windows Endpoint Monitoring (WMI)**.
+1. On your OT sensor console, select **System settings** > **Network monitoring** > **Active discovery** > **Windows Endpoint Monitoring (WMI)**.
 
 1. In the **Edit scan ranges configuration** section, enter the ranges you want to scan and add the username and password required to access those resources.
 
-    - We recommend enter values with domain or local administrator privileges for the best scanning results.
-    - Select **Import ranges** to import a CSV file with a set of ranges you want to scan. Make sure your CSV file includes the following data: **FROM**, **TO**, **USER**, **PASSWORD**, **DISABLE**, where **DISABLE** is defined as **TRUE**/**FALSE**.
-    - To get a csv list of all ranges currently configured for WEM scans, select **Export ranges**.
+    - We recommend entering values with domain or local administrator privileges for the best scanning results.
+    - Select **Import ranges** to import a .csv file with a set of ranges you want to scan. Make sure your .csv file includes the following data: **FROM**, **TO**, **USER**, **PASSWORD**, **DISABLE**, where **DISABLE** is defined as **TRUE**/**FALSE**.
+    - To get a .csv list of all ranges currently configured for WEM scans, select **Export ranges**.
 
-1. In the **Scan will run** area, define whether you want to run the scan in in intervals, every few hours, or by a specific time. If you select **By specific time**, an additional **Add scan time** option appears, which you can use to configure several scans running at specific times.
+1. In the **Scan will run** area, define whether you want to run the scan in intervals, every few hours, or by a specific time. If you select **By specific time**, an additional **Add scan time** option appears, which you can use to configure several scans running at specific times.
 
     While you can configure your WEM scan to run as often as you like, only one WEM scan can run at a time.
 
@@ -160,17 +165,20 @@ If you'll be using a non-admin account to run your WEM scans, this procedure is 
 
     - To run your scan manually now, select **Apply changes** > **Manually scan**.
 
-    - To let your scan run later as configured, select **Apply changes** and then close the pane as needed.
+    - To let your scan run later as configured, select **Apply changes**, and then close the pane as needed.
 
 **To view scan results:**
 
-1. When your scan is finished, go back to the **System settings**> **Network monitoring** > **Active discovery** > **Windows Endpoint Monitoring (WMI)** page on your sensor console.
+1. When your scan is finished, go back to the **System settings** > **Network monitoring** > **Active discovery** > **Windows Endpoint Monitoring (WMI)** page on your sensor console.
 
 1. Select **View Scan Results**. A .csv file with the scan results is downloaded to your computer.
 
 ## Next steps
 
-Learn more about active monitoring options. For more information, see:
+For more information, see:
 
+- [View your device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [View your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Configure active monitoring for OT networks](configure-active-monitoring.md)
-- [Configure DNS servers for reverse lookup resolution for OT monitoring](configure-reverse-dns-lookup.md)
+- [Configure DNS servers for reverse lookup resolution for OT monitoring »](configure-reverse-dns-lookup.md)
+- [Import device information to a sensor »](how-to-import-device-information.md)
