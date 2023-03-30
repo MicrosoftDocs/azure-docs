@@ -222,7 +222,7 @@ Installer file | Operating system (64-bit only)
 [To be downloaded and placed in this folder manually](#debian-7-debian-8-or-debian-9-server) | Debian 8
 [To be downloaded and placed in this folder manually](#debian-7-debian-8-or-debian-9-server) | Debian 9
 
-## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Debain 9, Oracle Linux 6 and Ubuntu 14.04 server
+## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Debian 9, Oracle Linux 6 and Ubuntu 14.04 server
 
 ### SUSE 11 SP3 or SUSE 11 SP4 server 
 
