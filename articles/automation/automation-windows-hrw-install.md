@@ -248,9 +248,9 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 
 1. Open PowerShell session in Administrator mode and run the following command:
 
-```powershell-interactive
-    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker\<AutomationAccountID>\<HybridWorkerGroupName>" -Force -Verbose
-```
+    ```powershell-interactive
+        Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker\<AutomationAccountID>\<HybridWorkerGroupName>" -Force -Verbose
+    ```
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers**.
 1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
