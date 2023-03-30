@@ -1,5 +1,5 @@
 ---
-title: Workload profiles in Consumption + Dedicated plan environments in Azure Container Apps
+title: Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps
 description: Learn how to select a workload profile for your container app
 services: container-apps
 author: craigshoemaker
@@ -9,9 +9,9 @@ ms.date: 03/30/2023
 ms.author: cshoe
 ---
 
-# Workload profiles in Consumption + Dedicated plan environments in Azure Container Apps (preview)
+# Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)
 
-Under the [Consumption + Dedicated plan](./plans.md#consumption-dedicated), you can use different workload profiles in your environment. Workload profiles determine the amount of compute and memory resources available to container apps deployed in an environment.
+Under the [Consumption + Dedicated plan structure](./plans.md#consumption-dedicated), you can use different workload profiles in your environment. Workload profiles determine the amount of compute and memory resources available to container apps deployed in an environment.
 
 Profiles are configured to fit the different needs of your applications.
 
@@ -19,9 +19,9 @@ Profiles are configured to fit the different needs of your applications.
 |--|--|--|
 | Dedicated General purpose | Balance of memory and compute resources  | Line-of-business applications |
 | Dedicated Memory optimized | Increased memory resources | Large large in-memory data, in-memory machine learning models |
-| Consumption |  Added to any new environment by default. | |
+| Consumption |  Automatically added to any new environment. | TBD |
 
-By default, a Consumption workload profile is included with every Consumption + Dedicated plan environment. You can optionally add dedicated workload profiles of any type as you create an environment or after it's created.
+A Consumption workload profile is automatically added to any new Consumption + Dedicated plan structure environment you create. You can optionally add dedicated workload profiles of any type as you create an environment or after it's created.
 
 For each Dedicated workload profile in your environment, you can:
 
@@ -50,7 +50,7 @@ The following regions support workload profiles during preview:
 
 ## Profile types
 
-There are a series of different types of workload profiles available by region. By default each Consumption + Dedicated plan includes a Consumption profile, but you can also add any of the following profiles:
+There are a series of different types of workload profiles available by region. By default each Consumption + Dedicated plan structure includes a Consumption profile, but you can also add any of the following profiles:
 
 | Name | Cores | MemoryGiB | Category |
 |---|---|---|---|

@@ -30,7 +30,7 @@ You can choose between these logs destinations:
 - **None**: You can disable the storage of log data. When disabled, you can still view real-time container logs via the **Logs stream** feature in your container app. For more information, see [Log streaming](log-streaming.md).
 
 > [!NOTE]
-> Azure Monitor is not currently supported in the Consumption + Dedicated plan.
+> Azure Monitor is not currently supported in the Consumption + Dedicated plan structure.
 
 When *None* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
 

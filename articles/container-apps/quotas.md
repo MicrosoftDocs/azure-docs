@@ -32,21 +32,21 @@ The *Is Configurable* column in the following tables denotes a feature maximum m
 | Cores | Replica | 2 | No | Maximum number of cores that available to a revision replica. |
 | Cores | Environment | 40 | Yes | Maximum number of cores an environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
 
-## Consumption + Dedicated plan
+## Consumption + Dedicated plan structure
 
 ### Consumption workload profile
 
 | Feature | Scope | Default | Is Configurable | Remarks |
 |--|--|--|--|--|
 | Cores | Replica | 4 | No | Maximum number of cores that available to a revision replica. |
-| Cores | Environment | 100 | Yes | Maximum number of cores the Consumption workload profile in a Consumption + Dedicated plan environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
+| Cores | Environment | 100 | Yes | Maximum number of cores the Consumption workload profile in a Consumption + Dedicated plan structure environment can accommodate. Calculated by the sum of cores requested by each active replica of all revisions in an environment. |
 
 ### Dedicated workload profiles
 
 | Feature | Scope | Default | Is Configurable | Remarks |
 |--|--|--|--|--|
 | Cores | Replica | Up to maximum cores a workload profile supports | Yes | Maximum number of cores that available to a revision replica. |
-| Cores | Environment | 100 | Yes | Maximum number of cores all Dedicated workload profiles in a Consumption + Dedicated plan environment can accommodate. Calculated by the sum of cores available in each node of each workload profile in a Consumption + Dedicated plan environment. |
+| Cores | Environment | 100 | Yes | Maximum number of cores all Dedicated workload profiles in a Consumption + Dedicated plan structure environment can accommodate. Calculated by the sum of cores available in each node of each workload profile in a Consumption + Dedicated plan structure environment. |
 
 For more information regarding quotas, see the [Quotas roadmap](https://github.com/microsoft/azure-container-apps/issues/503) in the Azure Container Apps GitHub repository.
 

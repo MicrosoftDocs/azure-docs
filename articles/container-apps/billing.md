@@ -85,7 +85,7 @@ The first 2 million requests in each subscription per calendar month are free.
 
 ## Consumption with Dedicated workload profiles plan
 
-Azure Container Apps Consumption + Dedicated plan billing consists of two types of charges:
+Azure Container Apps Consumption + Dedicated plan structure billing consists of two types of charges:
 
 - **[Resource consumption](workload-profiles-overview.md)**: The amount of resources all the workload profile instances specify. Billed on a per-second basis in vCPU-seconds and GiB-seconds.
 - **Dedicated environment cost**: A fixed cost for the Dedicated environment.
@@ -93,7 +93,7 @@ Azure Container Apps Consumption + Dedicated plan billing consists of two types 
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
 > [!NOTE]
-> The Container Apps Consumption + Dedicated plan requires you to use [your own virtual network](networking.md#managed-resources). Additional charges may apply.
+> The Container Apps Consumption + Dedicated plan structure requires you to use [your own virtual network](networking.md#managed-resources). Additional charges may apply.
 
 - **Workload Profiles**: You're billed based on the number of instances of each workload profile in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. Regardless of the profile types you select, there's a minimum resource requirement of 6 vCPUs and 24Gibs of memory.
 
