@@ -7,6 +7,7 @@ ms.subservice: security
 ms.date: 03/23/2023 
 author: ilijazagorac
 ms.author: ilijazagorac 
+ms.custom: references_regions 
 ---
 
 # Gateway IP addresses
