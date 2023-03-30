@@ -69,7 +69,7 @@ The CancelledDialog event consists of cancellation code and description, as list
 | [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | No progress was made after the max number of turns allowed |
 | [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | Recognizer usage quota exceeded |
 | [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | Connection to the recognizer failed |
-| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | This application can't be accessed with the current subscription |
+| [RecognizerUnauthorized](#this-application-cant-be-accessed-with-the-current-subscription) | This application can't be accessed with the current subscription |
 | [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | Input exceeds the maximum supported length for the recognizer |
 | [RecognizerNotFound](#recognizer-not-found) | Recognizer not found |
 | [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | Invalid query for the recognizer |
