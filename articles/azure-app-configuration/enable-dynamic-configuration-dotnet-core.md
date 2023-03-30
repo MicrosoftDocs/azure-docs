@@ -142,7 +142,7 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
 
 ## Monitoring and Troubleshooting
 
-Logs are output upon refresh and contain detailed information on changes to key-values in your App Configuration store and your application, as well as any issues that occur. This will allow you to monitor configuration refreshes as they happen. You can enable these logs using the instructions for [logging with the Azure SDK for .NET](/dotnet/azure/sdk/logging).
+Logs are output upon refresh and contain detailed information on changes to key-values in your App Configuration store and your application, as well as any issues that occur. This allows you to monitor configuration refreshes as they happen. You can enable these logs using the instructions for [logging with the Azure SDK for .NET](/dotnet/azure/sdk/logging).
 
 - Logs are output to the console at different log levels. The default level is `Informational`.
 

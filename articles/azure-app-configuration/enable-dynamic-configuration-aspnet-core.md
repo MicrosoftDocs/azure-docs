@@ -232,7 +232,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 ## Monitoring and Troubleshooting
 
-Logs are output upon refresh and contain detailed information on changes to key-values in your App Configuration store and your application, as well as any issues that occur. This will allow you to monitor configuration refreshes as they happen. 
+Logs are output upon refresh and contain detailed information on changes to key-values in your App Configuration store and your application, as well as any issues that occur. This allows you to monitor configuration refreshes as they happen. 
 
 - A default `ILoggerFactory` is added automatically when `services.AddAzureAppConfiguration()` is invoked in your `ConfigureServices` method. The App Configuration provider uses this `ILoggerFactory` to create an instance of `ILogger`, which outputs these logs. No code changes are needed.
 - Logs are output to the console at different log levels. The default level is `Information`.
@@ -250,7 +250,7 @@ Logs are output upon refresh and contain detailed information on changes to key-
   ```
 
 
-For more information on how to utilize these logs, follow the instructions for [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging). Using `ILogger` is the preferred method and will be prioritized as the  logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through instructions for [Azure SDK logging for .NET core apps](./enable-dynamic-configuration-dotnet-core.md#monitoring-and-troubleshooting).
+For more information on how to utilize these logs, follow the instructions for [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging). Using `ILogger` is the preferred method and is prioritized as the  logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through instructions for [Azure SDK logging for .NET core apps](./enable-dynamic-configuration-dotnet-core.md#monitoring-and-troubleshooting).
 
 ## Clean up resources
 
