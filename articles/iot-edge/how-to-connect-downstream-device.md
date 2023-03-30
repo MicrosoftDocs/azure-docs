@@ -227,11 +227,11 @@ The output of this command may be long, including information about all the cert
 
 ## Troubleshoot the gateway connection
 
-If your downstream device has intermittent connection to its gateway device, try the following steps for resolution.
+If your downstream device connection to its gateway device is unstable, consider these questions for a resolution.
 
-1. Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config file on the gateway device?
-1. Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the downstream device.
-1. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparent IoT Edge.
+* Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config file on the gateway device?
+* Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the downstream device.
+* Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparent IoT Edge.
 
 ## Next steps
 
