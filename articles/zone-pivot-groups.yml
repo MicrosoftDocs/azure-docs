@@ -2166,6 +2166,15 @@ groups:
     title: Recovery Services vault
   - id: vaults-backup-vault
     title: Backup vault
+# Owner: robswain
+- id: ase-pro-version
+  title: Azure Stack Edge Pro 2 or Azure Stack Edge Pro
+  prompt: Choose your Azure Stack Edge Pro version
+  pivots:
+  - id: ase-pro-2
+    title: ASE Pro 2
+  - id: ase-pro-gpu
+    title: ASE Pro
 # Owner: rolyon
 - id: app-provisioning-cross-tenant-synchronization
   title: Application provisioning or cross-tenant synchronization
