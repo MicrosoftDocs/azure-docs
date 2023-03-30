@@ -30,26 +30,26 @@ if you have configured custom domain such as "notification.azuremails.net" the d
 2. Click **Provision Domains** on the left navigation panel. You'll see list of provisioned domains.
 3. Click on the one of the provisioned domains.
 
-     :::image type="content" source="./media/email-provisioned-domains.png" alt-text="Screenshot that shows Domain link in list of provisioned email domains." lightbox="media/email-provisioned-domains-expanded.png":::
+     :::image type="content" source="../../quickstarts/email/media/email-provisioned-domains.png" alt-text="Screenshot that shows Domain link in list of provisioned email domains." lightbox="../../quickstarts/email/media/email-provisioned-domains-expanded.png":::
      
 4. The navigation lands in Domain Overview page.  
  
-   :::image type="content" source="./media/email-provisioned-domains-overview.png" alt-text="Screenshot that shows the overview page of provisioned email domain."  lightbox="media/email-provisioned-domains-overview-expanded.png":::
+   :::image type="content" source="../../quickstarts/email/media/email-provisioned-domains-overview.png" alt-text="Screenshot that shows the overview page of provisioned email domain."  lightbox="../../quickstarts/email/media/email-provisioned-domains-overview-expanded.png":::
 
 5. Click on **MailFrom addresses** link in left navigation. You'll able to see the default donotreply in MailFrom addresses list. 
 
-    :::image type="content" source="./media/email-mailfrom-overview.png" alt-text="Screenshot that explains how to change Mail From address and display name for an email address.":::
+    :::image type="content" source="../../quickstarts/email/media/email-mailfrom-overview.png" alt-text="Screenshot that explains how to list of Mail From addresses.":::
 
 6.Click on **Add**.
-     :::image type="content" source="./media/email-domains-mailfrom-add.png" alt-text="Screenshot that explains how to change Mail From address and display name for an email address.":::
+     :::image type="content" source="../../quickstarts/email/media/email-domains-mailfrom-add.png" alt-text="Screenshot that explains how to change Mail From address and display name for an email address.":::
     
 7.  Enter the Display Name and MailFrom address. Click **Save**.  
 
-    :::image type="content" source="./media/email-domains-mailfrom-add-save.png" alt-text="Screenshot that explains how to change Mail From address and display name for an email address.":::
+    :::image type="content" source="../../quickstarts/email/media/email-domains-mailfrom-add-save.png" alt-text="Screenshot that explains how to save Mail From address and display name for an email address.":::
    
 8. Click **Save**. You'll see the updated list with newly added  MailFrom address in the overview page.
 
-    :::image type="content" source="./media/email-mailfrom-overview-updated.png" alt-text="Screenshot that shows Mailfrom Addressess list with updated values." lightbox="media/email-mailfrom-overview-updated-expanded.png":::
+    :::image type="content" source="../../quickstarts/email/media/email-mailfrom-overview-updated.png" alt-text="Screenshot that shows Mailfrom Addressess list with updated values." lightbox="../../quickstarts/email/media/email-mailfrom-overview-updated-expanded.png":::
 
 **Your email domain is now ready to send emails with the Mailfrom address added.**
 
@@ -57,15 +57,15 @@ if you have configured custom domain such as "notification.azuremails.net" the d
 
 1. Go the Domains overview page Click on **MailFrom addresses** link in left navigation. You'll able to see the MailFrom addresses in list. 
 
-:::image type="content" source="./media/email-mailfrom-overview-updated.png" alt-text="Screenshot that shows Mailfrom Addressess list with updated values." lightbox="media/email-mailfrom-overview-updated-expanded.png":::
+:::image type="content" source="../../quickstarts/email/media/email-mailfrom-overview-updated.png" alt-text="Screenshot that shows Mailfrom Addressess." lightbox="../../quickstarts/email/media/email-mailfrom-overview-updated-expanded.png":::
 
 2. Select the MailFrom address you would like to remove and Click on **Delete** button.
 
-:::image type="content" source="./media/email-domains-mailfrom-delete" alt-text="Screenshot that shows Mailfrom Addressess list with updated values." lightbox="media/email-mailfrom-overview-expanded.png":::
+:::image type="content" source="../../quickstarts/email/media/email-domains-mailfrom-delete" alt-text="Screenshot that shows Mailfrom Addressess list after deletion." lightbox="../../quickstarts/email/media/email-mailfrom-overview-expanded.png":::
 
 3. You'll see the updated list with newly added  MailFrom address in the overview page.
 
-    :::image type="content" source="./media/email-mailfrom-overview.png" alt-text="Screenshot that shows Mailfrom Addressess list with updated values." lightbox="media/email-mailfrom-overview-expanded.png":::
+    :::image type="content" source="../../quickstarts/email/media/email-mailfrom-overview.png" alt-text="Screenshot that shows Mailfrom Addressess list with updated values." lightbox="../../quickstarts/email/media/email-mailfrom-overview-expanded.png":::
 
 
 ## Next steps
