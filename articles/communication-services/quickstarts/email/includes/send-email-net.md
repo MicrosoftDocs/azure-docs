@@ -193,16 +193,15 @@ try
   }
   else
   {
-      var error = statusMonitor.Error;
       Console.WriteLine($"Failed to send email.\n OperationId = {operationId}.\n Status = {emailSendStatus}.");
-      Console.WriteLine($"Error Code = {error.Code}, Message = {error.Message}");
       return;
   }
 }
-catch (Exception ex)
+catch (RequestFailedException ex)
 {
-  Console.WriteLine($"Error in sending email, {ex}");
-} 
+    /// OperationID is contained in the exception message and can be used for troubleshooting purposes
+    Console.WriteLine($"Email send operation failed with error code: {ex.ErrorCode}, message: {ex.Message}");
+}
 ```
 
 ### Getting email delivery status
@@ -276,9 +275,7 @@ try
     }
     else
     {
-        var error = statusMonitor.Error;
         Console.WriteLine($"Failed to send email.\n OperationId = {operationId}.\n Status = {emailSendStatus}.");
-        Console.WriteLine($"Error Code = {error.Code}, Message = {error.Message}");
         return;
     }
   }
@@ -287,9 +284,9 @@ try
     Console.WriteLine($"We have timed out while  polling for email status");
   }
 }
-catch (Exception ex)
+catch (RequestFailedException ex)
 {
-  Console.WriteLine($"Error in sending email, {ex}");
+    Console.WriteLine($"Email send operation failed with error code: {ex.ErrorCode}, message: {ex.Message}");
 }
 ```
 
@@ -363,9 +360,9 @@ try
       return;
   }
 }
-catch (Exception ex)
+catch (RequestFailedException ex)
 {
-  Console.WriteLine($"Error in sending email, {ex}");
+    Console.WriteLine($"Email send operation failed with error code: {ex.ErrorCode}, message: {ex.Message}");
 }
 
 ```
