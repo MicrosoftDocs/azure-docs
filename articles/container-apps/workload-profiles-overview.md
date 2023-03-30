@@ -30,9 +30,9 @@ For each Dedicated workload profile in your environment, you can:
 - Use autoscaling to add and remove nodes based on the needs of the apps
 - Limit scaling of the profile to for better cost control
 
-You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This is ideal for deploying a microservice solution where each app can run on the appropriate compute infrastructure. Additionally, the new Consumption workload profile allows you to request up to 4 vCPU’s and 8Gib’s of memory for an app, which is twice the capability found in the original Consumption-only plan.
+You can configure each of your apps to run on any of the workload profiles defined in your Container Apps environment. This configuration is ideal for deploying a microservice solution where each app can run on the appropriate compute infrastructure. Additionally, the new Consumption workload profile allows you to request up to 4 vCPU’s and 8Gib’s of memory for an app, which is twice the capability found in the original Consumption-only plan.
 
-Additional features include:
+Features also include:
 
 - Reduced subnet size requirements with a new `/27` minimum
 - Support for environments on subnets with network security groups
