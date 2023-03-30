@@ -71,8 +71,8 @@ Azure Monitor collects these types of data:
 |---------|-----------|
 |Application|Data about the performance and functionality of your application code on any platform.|
 |Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
-|Azure Platform|**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br>| Data sent into the Azure Monitor data platform using the Azure Monitor REST API. |
-|Custom Sources| Data which gets into the system using Azure Monitor REST API.
+|Azure Platform <br><br> Data sent into the Azure Monitor data platform using the Azure Monitor REST API. |**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Azure Active Directory.<br> |
+|Custom Sources| Data which gets into the system using Azure Monitor REST API. |
 
 For detailed information about each of the data sources, see [data sources](./data-sources.md).
 
@@ -106,7 +106,7 @@ Click on the picture to see a larger version of the data collection diagram in c
 
 |Collection method|Description  |
 |---------|---------|
-|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](/app/codeless-overview.md) or by adding the Application Insights SDK to your application code. Many languages are supported and the applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
+|[Application instrumentation](app/app-insights-overview.md)| Application Insights is enabled through either [Auto-Instrumentation (agent)](app/codeless-overview.md#what-is-auto-instrumentation-for-azure-monitor-application-insights) or by adding the Application Insights SDK to your application code. Many languages are supported and the applications could be on Azure, on-premises, or hosted by another cloud. To figure out which type of instrumentation is best for you, reference [How do I instrument an application?](app/app-insights-overview.md#how-do-i-instrument-an-application).|
 |[Agents](agents/agents-overview.md)|Agents can collect monitoring data from applications, the guest operating system of Azure, and hybrid virtual machines.|
 |[Data collection rules](essentials/data-collection-rule-overview.md)|Use data collection rules to specify what data should be collected, how to transform it, and where to send it.|
 |Internal| Data is automatically sent to a destination without user configuration.  |
