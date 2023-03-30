@@ -20,7 +20,7 @@ NFSv4 introduces the concept of an authentication domain. Azure NetApp Files cur
 
 ## Default behavior of user/group mapping
 
-Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as root, you will see file permissions as follows:  
+Root mapping defaults to the `nobody` user because the NFSv4 domain is set to `localdomain` by default. When you mount an Azure NetApp Files NFSv4.1 volume as root, you'll see file permissions as follows:  
 
 ![Default behavior of user/group mapping for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png)
 
@@ -35,7 +35,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
     * If the volume is [enabled for LDAP](configure-ldap-extended-groups.md), set `Domain` to the domain that is configured in the Active Directory Connection on your NetApp account.
         For instance, if `contoso.com` is the configured domain in the NetApp account, then set `Domain = contoso.com`.
 
-    The following examples shows the initial configuration of `/etc/idmapd.conf` before changes:
+    The following examples show the initial configuration of `/etc/idmapd.conf` before changes:
 
     ```
     [General]
@@ -79,7 +79,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 
 2. Unmount any currently mounted NFS volumes.
 3. Update the `/etc/idmapd.conf` file.
-4. Restart the `rpcbind` service on your host (`service rpcbind restart`), or simply reboot the host.
+4. Clear the keyring of the NFS `idmapper` (`nfsidmap -c`).
 5. Mount the NFS volumes as required.   
 
     See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
@@ -90,20 +90,20 @@ The following example shows the resulting user/group change:
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
 
-## Behavior of other (non-root) users and groups
+## Behavior of other (nonroot) users and groups
 
-Azure NetApp Files supports local users (users created locally on a host) who have permissions associated with files or folders in NFSv4.1 volumes. However, the service does not currently support mapping the users/groups across multiple nodes. Therefore, users created on one host do not map by default to users created on another host. 
+Azure NetApp Files supports local users (users created locally on a host) who have permissions associated with files or folders in NFSv4.1 volumes. However, the service doesn't currently support mapping the users/groups across multiple nodes. Therefore, users created on one host don't map by default to users created on another host. 
 
 In the following example, `Host1` has three existing test user accounts (`testuser01`, `testuser02`, `testuser03`): 
 
 ![Screenshot that shows that Host1 has three existing test user accounts.](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 
-On `Host2`, note that the test user accounts have not been created, but the same volume is mounted on both hosts:
+On `Host2`, the test user accounts haven't been created, but the same volume is mounted on both hosts:
 
 ![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host2-users.png)
 
 ## Next step 
 
 * [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
+* [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 

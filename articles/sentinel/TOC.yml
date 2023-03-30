@@ -781,6 +781,8 @@
       href: normalization-modify-content.md
   - name: Integrate threat intelligence
     items:
+    - name: Enable MDTI data connector
+      href: connect-mdti-data-connector.md
     - name: Connect threat intelligence platforms
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
