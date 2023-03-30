@@ -57,7 +57,7 @@ The diagram depicts the Azure Monitor system components:
 
 Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. The diagram below shows an expanded version of the datasource types gathered by Azure Monitor. 
 
-:::image type="content" source="media/overview/data-sources-2.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-large-in-overview-context-opt.svg":::
+:::image type="content" source="media/overview/data-sources-2.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-blowup-type2.svg":::
 
 Click on the diagram above to see a larger version of the data sources in context.
 
@@ -78,7 +78,7 @@ For detailed information about each of the data sources, see [data sources](./da
 
 Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
 
-:::image type="content" source="media/overview/data-platform-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-large-in-overview-context.png":::
+:::image type="content" source="media/overview/data-platform-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type2.svg":::
 
 
 Click on the picture to see a larger version of the data platform diagram in context.
@@ -93,12 +93,11 @@ Click on the picture to see a larger version of the data platform diagram in con
 
 For less expensive, long-term archival of monitoring data for auditing or compliance purposes, you can export to [Azure Storage](/azure/storage/).
 
-
 ## Data collection and routing
 
 Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
 
-:::image type="content" source="media/overview/data-collection-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-large-in-overview-context.png":::
+:::image type="content" source="media/overview/data-collection-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-blowup-type2.svg":::
 
 Click on the diagram to see a larger version of the data collection in context.
 
@@ -132,8 +131,7 @@ The Azure portal is a web-based, unified console that provides an alternative to
 
 Some Azure resource providers have curated visualizations that provide a customized monitoring experience and require minimal configuration. Insights are large, scalable, curated visualizations. 
 
-:::image type="content" source="media/overview/insights-box.svg"  alt-text="4Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-no-scaling.svg":::
- 
+:::image type="content" source="media/overview/insights-box.svg"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-no-scaling.svg":::
 
 The following table describes some of the larger insights:
 
@@ -144,7 +142,7 @@ The following table describes some of the larger insights:
 |[VM Insights](vm/vminsights-overview.md)|VM Insights monitors your Azure VMs. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.|
 |[Network Insights](../network-watcher/network-insights-overview.md)|Network Insights provides a comprehensive and visual representation through topologies, of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like Connection Monitor, flow logging for network security groups (NSGs), and Traffic Analytics as well as other diagnostic features. |
 
-For more information, see the [list of insights and curated visualizations in the Azure Monitor Insights overview](insights/insights-overview.md). 
+For more information, see the [list of insights and curated visualizations in the Azure Monitor Insights overview](insights/insights-overview.md).
 
 ### Visualize
 
