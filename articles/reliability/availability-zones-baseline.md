@@ -66,7 +66,10 @@ Below are three important questions you'll that'll help you choose the correct a
 
 For latency sensitive applications, We highly recommended that you configure your workload with with zone-redundancy. Note that Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. Zone redundancy is recommended to design critical and sensitive workloads with high availability. For latency sensitive critical application components that require physical proximity and low latency for high performance, we recommend that you use zonal deployment. [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) provides zone aligned compute along with attached storage disks. 
 
-For a [distributed microservices model](/azure/architecture/guide/architecture-styles/microservices)and depending on your application, there is the possibility of ongoing data exchange between microservices across zones. This continual data exchange through APIs, could affect performance. To improve performance and maintain a reliable architecture, you can choose zonal deployment. 
+
+#### Does your application code have the readiness to handle a distributed model?
+
+For a [distributed microservices model](/azure/architecture/guide/architecture-styles/microservices) and depending on your application, there is the possibility of ongoing data exchange between microservices across zones. This continual data exchange through APIs, could affect performance. To improve performance and maintain a reliable architecture, you can choose zonal deployment. 
 
 With a zonal deployment, you must:
 
@@ -75,8 +78,6 @@ With a zonal deployment, you must:
 1. Co-locate the latency sensitive resources or services in same zone. Other services in your architecture may continue to remain zone redundant. 
 1. Replicate the latency sensitive zonal services across multiple availability zones to ensure you are zone resilient. 
 1. Load balance between the multiple zonal deployments with a standard or global load balancers. 
-
-#### Does your application code have the readiness to handle a distributed model?
 
 If the Azure service supports availability zones, we highly recommend that you use zone-redundancy by spreading nodes across the zones to get higher uptime SLA and protection against zonal outages.  
 
@@ -103,19 +104,23 @@ For specialized workload on Azure as below examples, please refer to the respect
 
 #### Do you want to achieve business continuity and disaster recovery (BCDR) in the **same** Azure region due to compliance, data residency, or governance requirements? 
 
-We highly recommend that you configure your workload with zone-redundancy to achieve BCDR within the same region and when there **is no regional pair**. For BCDR, we recommend that you use regional pairs. Regions are situated at far distance at around 100 miles apart. Multi-region deployments give you blast radius protection from regional level failures such as fire, flooding, earthquake and other natural or unforeseen calamities. For more information see [Cross-region replication in Azure: Business continuity and disaster recovery](/azure/reliability/cross-region-replication-azure).
+To achieve BCDR within the same region and when there **is no regional pair**, we highly recommend that you configure your workload with zone-redundancy. A single-region approach is also applicable to certain industries that have strict data residency and governance requirements within the same Azure region.  To learn how to replicate, failover, and failback Azure virtual machines from one availability zone to another within the same Azure region, see [Enable Azure VM disaster recovery between availability zones](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
+
+If multi-region is needed, or when availability zones aren't available in the Azure region, we recommend that you use regional pairs.  Regional pairs are situated at far distance at around 100 miles apart, and give you blast radius protection from regional level failures such as fire, flooding, earthquake and other natural or unforeseen calamities. For more information see [Cross-region replication in Azure: Business continuity and disaster recovery](/azure/reliability/cross-region-replication-azure).
 
 >[!NOTE]
 >There can be scenarios where a combination of zonal, zone-redundant, and global services works best to meet business and technical requirements. 
 
-### Step 4: Test your availability zone enabled application
+### Additional points to consider
 
-Each data center in a region is assigned to a physical zone. Physical zones are mapped to the logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM API, [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers?tabs=HTTP) to compare zone mapping for resilient solutions that span across multiple subscriptions. 
+- To learn about testing your applications for availability and resiliency, see [Testing applications for availability and resiliency](/azure/architecture/framework/resiliency/testing).
+
+- Each data center in a region is assigned to a physical zone. Physical zones are mapped to the logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM API, [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers?tabs=HTTP) to compare zone mapping for resilient solutions that span across multiple subscriptions. 
+
+- Inter-zone bandwidth charges apply when traffic moves across zones. To learn more about bandwidth pricing, see [Bandwidth pricing](/pricing/details/bandwidth/).  
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Bandwidth pricing](/pricing/details/bandwidth/).  
 
 > [!div class="nextstepaction"]
 > [What are Azure regions and availability zones?](availability-zones-overview.md)
