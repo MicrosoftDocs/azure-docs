@@ -40,7 +40,7 @@ Support engineers are expected to provide SDK update guidance according to the f
 > [!WARNING]
 > Only commercially reasonable support is provided for Preview versions of the SDK. If a support incident requires escalation to development for further guidance, customers will be asked to use a fully supported SDK version to continue support. Commercially reasonable support does not include an option to engage Microsoft product development resources; technical workarounds may be limited or not possible.
 
-## Release Notes
+## Release notes
 
 Reference the release notes to see the current version of Application Insights SDKs and previous versions release dates.
 
