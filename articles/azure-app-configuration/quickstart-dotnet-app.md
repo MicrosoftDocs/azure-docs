@@ -22,21 +22,18 @@ In this quickstart, a .NET Framework console app is used as an example, but the 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2 or later](https://dotnet.microsoft.com/download/dotnet-framework)
 
-## Create an App Configuration store
+## Add a key-value
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-7. Select **Configuration explorer** > **+ Create** > **Key-value** to add the following key-value:
-
-    | Key                        | Value                               |
-    |----------------------------|-------------------------------------|
-    | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
-
-    Leave **Label** and **Content Type** empty. For more information about labels and content types, go to [Keys and values](concept-key-value.md#label-keys).
+| Key                        | Value                               |
+|----------------------------|-------------------------------------|
+| *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
 ## Create a .NET Framework console app
 

@@ -20,6 +20,7 @@ The Custom Script Extension integrates with Azure Resource Manager templates. Yo
 This article details how to use the Custom Script Extension from the Azure CLI, and how to run the extension by using an Azure Resource Manager template. This article also provides troubleshooting steps for Linux systems.
 
 There are two Linux Custom Script Extensions:
+
 * Version 1: Microsoft.OSTCExtensions.CustomScriptForLinux
 * Version 2: Microsoft.Azure.Extensions.CustomScript
 
@@ -175,14 +176,16 @@ For example, the following script is saved to the file */script.sh/*:
 
 ```sh
 #!/bin/sh
-echo "Updating packages ..."
-apt update
-apt upgrade -y
+echo "Creating directories ..."
+mkdir /data
+chown user:user /data
+mkdir /appdata
+chown user:user /appdata
 ```
 
 You would construct the correct Custom Script Extension script setting by taking the output of the following command:
 
-```sh
+```bash
 cat script.sh | base64 -w0
 ```
 
@@ -194,7 +197,7 @@ cat script.sh | base64 -w0
 
 In most cases, the script can optionally be gzip'ed to further reduce size. The Custom Script Extension automatically detects the use of gzip compression.
 
-```sh
+```bash
 cat script | gzip -9 | base64 -w 0
 ```
 
@@ -238,6 +241,7 @@ To use the user-assigned identity on the target VM or virtual machine scale set,
 >   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
 > }
 > ```
+
 > ```json
 > {
 >   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
@@ -250,8 +254,8 @@ To use the user-assigned identity on the target VM or virtual machine scale set,
 > The `managedIdentity` property *must not* be used in conjunction with the `storageAccountName` or `storageAccountKey` property.
 
 ## Template deployment
-You can deploy Azure VM extensions by using Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during the template's deployment. You can find a sample template that includes the Custom Script Extension on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/).
 
+You can deploy Azure VM extensions by using Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during the template's deployment. You can find a sample template that includes the Custom Script Extension on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/).
 
 ```json
 {
@@ -386,13 +390,13 @@ We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssE
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
 
 ```bash
-/var/lib/waagent/custom-script/download/0/
+sudo ls -l /var/lib/waagent/custom-script/download/0/
 ```
 
 To troubleshoot, first check the Linux Agent Log and ensure that the extension ran:
 
 ```bash
-/var/log/waagent.log 
+sudo cat /var/log/waagent.log 
 ```
 
 Look for the extension execution. It will look something like:
@@ -413,11 +417,10 @@ In the preceding output:
 - `Enable` is when the command starts running.
 - `Download` relates to the downloading of the Custom Script Extension package from Azure, not the script files specified in `fileUris`.
 
-
 The Azure Script Extension produces a log, which you can find here:
 
 ```bash
-/var/log/azure/custom-script/handler.log
+sudo cat /var/log/azure/custom-script/handler.log
 ```
 
 Look for the individual execution. It will look something like:
