@@ -215,6 +215,9 @@ items:
     - name: Translate text with a custom model
       displayName: category,ID,category ID,
       href: custom-translator/how-to/translate-with-custom-model.md
+    - name: Copy a custom model
+      displayName: copy, publish, move, workspace
+      href: custom-translator/how-to/copy-model.md
   - name: Concepts
     items:
     - name: Customization
