@@ -21,7 +21,7 @@ Create a new VM by attaching an existing OS disk to a new VM. This option is use
 > Creating an image instead of just attaching a disk means you can create multiple VMs from the same source disk.
 > When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
 >
-> You can also use the VHD as a source to create an Azure Compute Gallery image. For more information, see [Create an image definition and image version](../image-version.md). Customers are encouraged to use Azure Compute Gallery as all new features like ARM64, Trusted Launch, and Confidential VM,are only supported through Azure Compute Gallery.  
+> You can also use the VHD as a source to create an Azure Compute Gallery image. For more information, see [Create an image definition and image version](image-version.md). Customers are encouraged to use Azure Compute Gallery as all new features like ARM64, Trusted Launch, and Confidential VM,are only supported through Azure Compute Gallery.  
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single VHD or snapshot.
 
@@ -85,7 +85,7 @@ $osDisk = Get-AzDisk `
 ```
 You can now attach this disk as the OS disk to a [new VM](#create-the-new-vm).
 
-Create the [virtual network](../../virtual-network/virtual-networks-overview.md) and subnet for the VM.
+Create the [virtual network](../virtual-network/virtual-networks-overview.md) and subnet for the VM.
 
 1. Create the subnet. This example creates a subnet named *mySubNet*, in the resource group *myDestinationResourceGroup*, and sets the subnet address prefix to *10.0.0.0/24*.
    
@@ -126,9 +126,9 @@ $nsg = New-AzNetworkSecurityGroup `
 	
 ```
 
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md).
+For more information about endpoints and NSG rules, see [Filter network traffic with a network security group](../virtual-network/tutorial-filter-network-traffic-powershell.md).
 
-To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/ip-services/public-ip-addresses.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../virtual-network/ip-services/public-ip-addresses.md) and a network interface.
 
 1. Create the public IP. In this example, the public IP address name is set to *myIP*.
    
@@ -197,4 +197,4 @@ $vmList.Name
 ```
 ---
 ## Next steps
-Sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md).
+[Azure Compute Gallery]()
