@@ -43,11 +43,11 @@ The following points should be evaluated when planning the deployment of Azure F
 * Do not consolidate the file system used for Interfaces onto the same storage account as **/sapmnt/\<SID>** 
 * The SAP users/groups must be added to the ‘sapmnt’ share and should have this permission set in the Azure portal: **Storage File Data SMB Share Elevated Contributor**.
 
-There are important reasons for separating **Transport**, **Interface** and **sapmnt** onto separate storage accounts.  Distributing these components onto separate storage accounts improves throughput, resiliency and simplifies the performance analysis.  If many SIDs and other file systems are consolidated onto a single Azure Files Storage account and the storage account performance is poor due to hitting the throughput limits, it is extremely difficult to identify which SID or application is causing the problem. 
+There are important reasons for separating **Transport**, **Interface** and **sapmnt** among separate storage accounts.  Distributing these components among separate storage accounts improves throughput, resiliency and simplifies the performance analysis.  If many SIDs and other file systems are consolidated wihin a single Azure Files Storage account and the storage account performance is poor due to hitting the throughput limits, it is extremely difficult to identify which SID or application is causing the problem. 
 
 ## Planning 
 > [!IMPORTANT]
-> Installation of SAP High Availability Systems on Azure Files Premium SMB with Active Directory Integration requires cross team collaboration.  It is highly recommended that the Basis Team, the Active Directory Team and the Azure Team work together to complete these tasks: 
+> The installation of SAP High Availability Systems on Azure Files Premium SMB with Active Directory Integration requires cross team collaboration. It is highly recommended, that the Basis Team, the Active Directory Team and the Azure Team work together to achieve these tasks: 
 >
 * Azure Team – setup and configuration of Storage Account, Script Execution and AD Directory Synchronization.
 * Active Directory Team – Creation of User Accounts and Groups.
@@ -57,7 +57,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
 
 * The SAP servers must be joined to an Active Directory Domain.
 * The Active Directory Domain containing the SAP servers must be replicated to Azure Active Directory using Azure AD connect.
-* It is highly recommended that there is at least one Active Directory Domain controller in the Azure landscape to avoid traversing the Express Route to contact Domain Controllers on-premises.
+* It is highly recommended, that there is at least one Active Directory Domain controller in the Azure landscape to avoid traversing the Express Route to contact Domain Controllers on-premises.
 * The Azure support team should review the Azure Files SMB with [Active Directory Integration](../../storage/files/storage-files-identity-auth-active-directory-enable.md#videos) documentation. *The video shows additional configuration options which were modified (DNS) and skipped (DFS-N) for simplification reasons.* Nevertheless these are valid configuration options. 
 * The user executing the Azure Files PowerShell script must have permission to create objects in Active Directory.
 * **SWPM version 1.0 SP32 and SWPM 2.0 SP09 or higher are required. SAPInst patch must be 749.0.91 or higher.**
