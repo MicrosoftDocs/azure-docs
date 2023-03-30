@@ -143,13 +143,13 @@ The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Ent
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1 kB value size) | GET requests per second with SSL (1 kB value size) |
 | --- | --- | --- | --- | --- | --- |
-| E10 |  12 GB |  4 | 4,000 | 300,000 | 200,000 |
-| E20 |  25 GB |  4 | 4,000 | 550,00 | 390,000 |
-| E50 |  50 GB |  8 | 8,000 | 950,000 | 530,000 |
-| E100 |  100 GB |  16 | 10,000 | 1,300,000 | 580,000 |
-| F300 | 384 GB | 8 | 3,200 | 650,000 | 310,000 |
-| F700 | 715 GB | 16 | 6,400 | 650,000 | 350,000 |
-| F1500 | 1455 GB | 32 | 12,800 | 650,000 | 360,000 |
+| E10 |  12 GB |  4 | 4,000 | 1,300,000 | 800,000 |
+| E20 |  25 GB |  4 | 4,000 | 1,000,000 | 710,000 |
+| E50 |  50 GB |  8 | 8,000 | 2,000,000 | 950,000 |
+| E100 |  100 GB |  16 | 10,000 | 2,000,000 | 960,000 |
+| F300 | 384 GB | 8 | 3,200 | 1,300,000 | 610,000 |
+| F700 | 715 GB | 16 | 6,400 | 1,300,000 | 680,000 |
+| F1500 | 1455 GB | 32 | 12,800 | 1,300,000 | 620,000 |
 
 ## Next steps
 
