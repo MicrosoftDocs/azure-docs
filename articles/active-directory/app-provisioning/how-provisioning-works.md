@@ -140,7 +140,7 @@ After the initial cycle, all other cycles will:
 The provisioning service continues running back-to-back incremental cycles indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md). Incremental cycles continue until one of the following events occurs:
 
 - The service is manually stopped using the Azure portal, or using the appropriate Microsoft Graph API command.
-- A new initial cycle is triggered using the **Restart provisioning** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again. This will not break the links between source and target objects. To break the links use [Restart synchronizationJob](/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http&preserve-view=true) with the following request: 
+- A new initial cycle is triggered using the **Restart provisioning** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again. This won't break the links between source and target objects. To break the links use [Restart synchronizationJob](/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http&preserve-view=true) with the following request: 
 
 <!-- {
   "blockType": "request",
@@ -230,9 +230,9 @@ The following table describes how you can configure deprovisioning actions with 
 
 **Known limitations**
 
-* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user is not managed by the service and we will not send a delete request when they are deleted from the directory.
+* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user is not managed by the service and we won't send a delete request when they are deleted from the directory.
 * Provisioning a user that is disabled in Azure AD is not supported. They must be active in Azure AD before they are provisioned.
-* When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but will not automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application does not support this, you can restart provisioning to update the group memberships. 
+* When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but won't automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application does not support this, you can restart provisioning to update the group memberships. 
 
 **Recommendation**
 
