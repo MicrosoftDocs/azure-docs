@@ -11,6 +11,7 @@ ms.author: goblackw
 
 ---
 
+
 # Implement Oracle Data Guard on an Azure Linux virtual machine 
 
 **Applies to:** :heavy_check_mark: Linux VMs 
