@@ -7,12 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 03/01/2023
+ms.date: 03/30/2023
 ms.author: lajanuar
 recommendations: false
 ---
 
 # Which Form Recognizer model should I use?
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fX1b]
 
 The following decision chart helps you decide the best **Form Recognizer v3.0** supported model to meet the needs and requirements of your applications.
 
