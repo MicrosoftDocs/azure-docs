@@ -42,6 +42,8 @@ The changed data including inserted, updated and deleted rows can be automatical
 -   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
 -   [Azure Cosmos DB analytical store](azure-docs/articles/cosmos-db/analytical-store-introduction.md)
 
+Azure Cosmos DB API for NoSQL
+
 ### Auto incremental extraction in mapping data flow
 
 The newly updated rows or updated files can be automatically detected and extracted by ADF mapping data flow from the source stores. When you want to get delta data from the databases, the incremental column is required to identify the changes. When you want to load new files or updated files only from a storage store, ADF mapping data flow just works through files’ last modify time. 
