@@ -3,7 +3,7 @@ title: 'Tutorial: Access data with managed identity in Java Tomcat'
 description: Secure Azure Database for MySQL connectivity with managed identity from a sample Java Tomcat app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 03/26/2023
 author: Xiaofan Zhou
 ms.author: xiaofanzhou
 ms.custom: passwordless-java, service-connector
