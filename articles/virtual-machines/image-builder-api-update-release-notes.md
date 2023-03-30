@@ -5,7 +5,7 @@ author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 03/27/2023
+ms.date: 03/30/2023
 ms.reviewer: erd
 ms.subservice: image-builder
 ms.custom: references_regions
@@ -26,7 +26,9 @@ This article contains all major API changes and feature updates for the Azure VM
 
 **Improvements**
 - Added support to pull the latest image version stored in Azure Compute Gallery to AIB templates
-- Added support for [shared image galleries](/azure/virtual-machines/shared-image-galleries#sharing)
+- Added support to pull the latest image version stored in Azure Compute Gallery as the source for the image template
+- Added support for image versioning
+- Added support for per region configuration when distributing to Azure Compute Gallery
 
 
 **Changes**
