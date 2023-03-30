@@ -84,7 +84,7 @@ In the load test configuration, select the list of Azure resources for your appl
 
 Learn more about how to [monitor server-side metrics in Azure Load Testing](./how-to-monitor-server-side-metrics.md).
 
-### App Service Diagnostics
+### App Service diagnostics
 
 When the application you're load testing is hosted on Azure App Service, you can get extra insights by using [App Service diagnostics](/azure/app-service/overview-diagnostics). App Service diagnostics is an intelligent and interactive way to help troubleshoot your app, with no configuration required. When you run into issues with your app, App Service diagnostics can help you resolve the issue easily and quickly.
 
