@@ -2,7 +2,7 @@
 title: 'App Service Environment version comparison'
 description: This article provides an overview of the App Service Environment versions and feature differences between them.
 author: seligj95
-ms.date: 3/16/2023
+ms.date: 3/30/2023
 ms.author: jordanselig
 ms.topic: article
 ---
@@ -42,6 +42,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |Network watcher or NSG flow logs to monitor traffic    |Yes         |Yes         |Yes         |
 |Subnet delegation   |Not required         |Not required         |[Must be delegated to `Microsoft.Web/hostingEnvironments`](networking.md#subnet-requirements)       |
 |Subnet size|An App Service Environment v1 with no App Service plans uses 12 addresses before you create an app. If you use an ILB App Service Environment v1, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |An App Service Environment v2 with no App Service plans uses 12 addresses before you create an app. If you use an ILB App Service Environment v2, then it uses 13 addresses before you create an app. As you scale out, infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.  |Any particular subnet has five addresses reserved for management purposes. In addition to the management addresses, App Service Environment v3 dynamically scales the supporting infrastructure, and uses between 4 and 27 addresses, depending on the configuration and load. You can use the remaining addresses for instances in the App Service plan. The minimal size of your subnet can be a /27 address space (32 addresses).  |
+|DNS fallback |Azure DNS |Azure DNS |[Ensure that you have a forwarder to a public DNS or include Azure DNS in the list of custom DNS servers](migrate.md#migration-feature-limitations) |
 
 ### Scaling
 
@@ -51,14 +52,6 @@ App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../..
 |---------|---------|---------|---------|
 |Front-end scaling management     |[Manual](app-service-web-scale-a-web-app-in-an-app-service-environment.md)         |[Manual](using-an-ase.md#front-end-scaling)         |Managed by platform         |
 |Scaling operations     |Blocks other scaling operations         |Blocks other scaling operations         |Doesn't block other scale operations         |
-
-### Pricing
-
-App Service Environment v3 is often cheaper than previous versions due to the removal of the stamp fee and larger instance sizes. For information and example scenarios on how migrating to App Service Environment v3 can affect your costs, see the [migration pricing samples](migrate.md#pricing) and [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
-
-|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
-|---------|---------|---------|---------|
-|Pricing     |Pay for each vCPU         |Stamp fee plus cost per Isolated instance, reservations are available for the stamp fee         |No stamp fee and the Isolated v2 rate has 1-3 year reserved instance pricing. Azure Savings Plans for Compute are also available.         |
 
 ### Certificates and domains
 
@@ -73,6 +66,22 @@ App Service Environment v3 is often cheaper than previous versions due to the re
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
 |Perform a backup and restore operation on a storage account behind a firewall    |Yes         |Yes         |No         |
+
+### Logging and monitoring
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
+|Application logging to storage account over virtual network    |Yes         |Yes         |No. The recommendation is to use [diagnostics logging](../overview-diagnostics.md) instead. If you need to use a firewall for the logging storage account, the storage account must be in a different region and use the outbound public addresses of the App Service Environment in the rules. For more information, see [networking considerations](../troubleshoot-diagnostic-logs.md#networking-considerations).       |
+|Azure Policy integration|Yes |Yes |Yes |
+|Azure Advisor integration|Yes |Yes |Yes |
+
+### Pricing
+
+App Service Environment v3 is often cheaper than previous versions due to the removal of the stamp fee and larger instance sizes. For information and example scenarios on how migrating to App Service Environment v3 can affect your costs, see the [migration pricing samples](migrate.md#pricing) and [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
+
+|Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
+|---------|---------|---------|---------|
+|Pricing     |Pay for each vCPU         |Stamp fee plus cost per Isolated instance, reservations are available for the stamp fee         |No stamp fee and the Isolated v2 rate has 1-3 year reserved instance pricing. Azure Savings Plans for Compute are also available.         |
 
 ## Frequently asked questions
 

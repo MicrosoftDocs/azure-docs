@@ -13,9 +13,9 @@ ms.reviewer: lualderm
 Policies and policy initiatives provide a simple method to enable logging at-scale via diagnostics settings for Azure Monitor. Using a policy initiative, you can turn on audit logging for all [supported resources](#supported-resources) in your Azure environment.  
 
 Enable resource logs to track activities and events that take place on your resources and give you visibility and insights into any changes that occur.
-Assign policies to enable resource logs and to send them to destinations according to your needs. Send logs to Event Hubs for third-party SIEM systems, enabling continuous security operations. Send logs to storage accounts for longer term storage or the fulfillment of regulatory compliance. 
+Assign policies to enable resource logs and to send them to destinations according to your needs. Send logs to event hubs for third-party SIEM systems, enabling continuous security operations. Send logs to storage accounts for longer term storage or the fulfillment of regulatory compliance. 
 
-A set of built-in policies and initiatives exists to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage Accounts. The policies enable audit logging, sending logs belonging to the **audit** log category group to an Event Hub, Log Analytics workspace or Storage Account. The policies' `effect` is `DeployIfNotExists`, which deploys the policy as a default if there aren't other settings defined.
+A set of built-in policies and initiatives exists to direct resource logs to Log Analytics Workspaces, Event Hubs, and Storage Accounts. The policies enable audit logging, sending logs belonging to the **audit** log category group to an event hub, Log Analytics workspace or Storage Account. The policies' `effect` is `DeployIfNotExists`, which deploys the policy as a default if there aren't other settings defined.
 
 
 ## Deploy policies.
@@ -31,7 +31,7 @@ The following steps show how to apply the policy to send audit logs to for key v
 1. Select **Monitoring** from the Category dropdown
 1. Enter *keyvault* in the **Search** field.
 1. Select the **Enable logging by category group for Key vaults (microsoft.keyvault/vaults) to Log Analytics** policy,
-    :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/policy-definitions.png" alt-text="A screenshot of the policy definitions page.":::
+    :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/policy-definitions.png" lightbox="./media/diagnostics-settings-policies-deployifnotexists/policy-definitions.png" alt-text="A screenshot of the policy definitions page.":::
 1. From the policy definition page, select **Assign**
 1. Select the **Parameters** tab.
 1. Select the Log Analytics Workspace that you want to send the audit logs to.
@@ -43,7 +43,6 @@ The following steps show how to apply the policy to send audit logs to for key v
 1. Select **Review + create**, then select **Create** .
   :::image type="content" source="./media/diagnostics-settings-policies-deployifnotexists/assign-policy-remediation.png" alt-text="A screenshot of the assign policy page, remediation tab.":::
 
-The policy visible in the resources' diagnostic setting after approximately 30 minutes.
 
 ### [CLI](#tab/cli)
 To apply a policy using the CLI, use the following commands:
@@ -77,6 +76,7 @@ Find the role in the policy definition by searching for *roleDefinitionIds*
     ```azurecli
     az policy assignment identity assign --system-assigned --resource-group rg-001  --role 92aaf0da-9dab-42b6-94a3-d43ce8d16293 --identity-scope /subscriptions/12345678-aaaa-bbbb-cccc-1234567890ab/resourceGroups/rg001 --name policy-assignment-1
     ```
+
 1. Trigger a scan to find existing resources using [`az policy state trigger-scan`](https://learn.microsoft.com/cli/azure/policy/state?view=azure-cli-latest#az-policy-state-trigger-scan).
 
     ```azurecli
@@ -143,6 +143,9 @@ To apply a policy using the PowerShell, use the following commands:
     Get-AzPolicyState -PolicyAssignmentName  $policyAssignment.Name -ResourceGroupName $policyAssignment.ResourceGroupName|select-object IsCompliant , ResourceID
     ```
 ---
+
+The policy is visible in the resources' diagnostic settings after approximately 30 minutes.
+
 ## Remediation tasks
 
 Policies are applied to new resources when they're created. To apply a policy to existing resources, create a remediation task. Remediation tasks bring resources into compliance with a policy.
@@ -359,13 +362,13 @@ The following table describes the common parameters for each set of policies.
 
 ### Event Hubs policy parameters
 
-This policy deploys a diagnostic setting using a category group to route logs to an Event Hub.
+This policy deploys a diagnostic setting using a category group to route logs to an event hub.
 
 |Parameter| Description| Valid Values|Default|
 |---|---|---|---|
 |resourceLocation|Resource Location must be the same location as the event hub Namespace|Supported locations||
-|eventHubAuthorizationRuleId|Event Hub Authorization Rule ID. The authorization rule is at event hub namespace level. For example, /subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}|||
-|eventHubName|Event Hub Name||Monitoring|
+|eventHubAuthorizationRuleId|Event hub Authorization Rule ID. The authorization rule is at event hub namespace level. For example, /subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/{authorization rule}|||
+|eventHubName|Event hub name||Monitoring|
 
 
 ### Storage Accounts policy parameters

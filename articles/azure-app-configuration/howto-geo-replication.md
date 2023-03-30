@@ -1,19 +1,19 @@
 ---
-title: Enable geo-replication (preview)
+title: Enable geo-replication
 description: Learn how to use Azure App Configuration geo replication to create, delete, and manage replicas of your configuration store. 
 services: azure-app-configuration
 author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: csharp, java
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 03/20/2023
 ms.author: mametcal
 ms.custom: devx-track-azurecli
 
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
 ---
 
-# Enable geo-replication (Preview)
+# Enable geo-replication
 
 This article covers replication of Azure App Configuration stores. You'll learn about how to create, use and delete a replica in your configuration store.
 
@@ -90,49 +90,69 @@ Each replica you create has its dedicated endpoint. If your application resides 
 
 When geo-replication is enabled, and if one replica isn't accessible, you can let your application failover to another replica for improved resiliency. App Configuration provider libraries have built-in failover support by accepting multiple replica endpoints. You can provide a list of your replica endpoints in the order of the most preferred to the least preferred endpoint. When the current endpoint isn't accessible, the provider library will fail over to a less preferred endpoint, but it will try to connect to the more preferred endpoints from time to time. When a more preferred endpoint becomes available, it will switch to it for future requests.
 
-Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature.
-
-> [!NOTE]
-> You can only use Azure AD authentication to connect to replicas. Authentication with access keys is not supported during the preview.
+Assuming you have an application using Azure App Configuration, you can update it as the following sample code to take advantage of the failover feature. You can either provide a list of endpoints for Azure Active Directory (Azure AD) authentication or a list of connection strings for access key-based authentication.
 
 ### [.NET](#tab/dotnet)
 
 Edit the call to the `AddAzureAppConfiguration` method, which is often found in the `program.cs` file of your application.
+
+**Connect with Azure AD**
 
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Provide an ordered list of replica endpoints
     var endpoints = new Uri[] {
-        new Uri("https://<first-replica-endpoint>.azconfig.io"),
-        new Uri("https://<second-replica-endpoint>.azconfig.io") };
+        new Uri("<first-replica-endpoint>"),
+        new Uri("<second-replica-endpoint>") };
     
-    // Connect to replica endpoints using AAD authentication
+    // Connect to replica endpoints using Azure AD authentication
     options.Connect(endpoints, new DefaultAzureCredential());
 
     // Other changes to options
 });
 ```
 
+**Connect with Connection String**
+
+```csharp
+configurationBuilder.AddAzureAppConfiguration(options =>
+{
+    // Provide an ordered list of replica connection strings
+    var connectionStrings = new string[] {
+        Environment.GetEnvironmentVariable("FIRST_REPLICA_CONNECTION_STRING"),
+        Environment.GetEnvironmentVariable("SECOND_REPLICA_CONNECTION_STRING") };
+    
+    // Connect to replica endpoints using connection strings
+    options.Connect(connectionStrings);
+
+    // Other changes to options
+});
+```
+
 > [!NOTE]
-> The failover support is available if you use version **5.3.0-preview** or later of any of the following packages.
+> The failover support is available if you use version **6.0.0** or later of any of the following packages.
 > - `Microsoft.Extensions.Configuration.AzureAppConfiguration`
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
 ### [Java Spring](#tab/spring)
 
-Edit the endpoint configuration in `bootstrap.properties`, to use endpoints which allows a list of endpoints.
+Edit the `endpoints` or `connection-strings` properties in the `bootstrap.properties` file of your application.
+
+**Connect with Azure AD**
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="https://<first-replica-endpoint>.azconfig.io"
-spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="https://<second-replica-endpoint>.azconfig.io"
+spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<first-replica-endpoint>"
+spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<second-replica-endpoint>"
 ```
+
+
 > [!NOTE]
-> The failover support is available if you use version of **2.10.0-beta.1** or later of any of the following packages.
-> - `azure-spring-cloud-appconfiguration-config`
-> - `azure-spring-cloud-appconfiguration-config-web`
-> - `azure-spring-cloud-starter-appconfiguration-config`
+> The failover support is available if you use version of **4.0.0-beta.1** or later of any of the following packages.
+> - `spring-cloud-azure-appconfiguration-config`
+> - `spring-cloud-azure-appconfiguration-config-web`
+> - `spring-cloud-azure-starter-appconfiguration-config`
 
 ---
 

@@ -2,7 +2,7 @@
 title: Container workloads
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 03/20/2023
 ms.devlang: csharp, python
 ms.custom: "seodec18, devx-track-csharp"
 ---
@@ -182,7 +182,7 @@ ImageReference imageReference = new ImageReference(
 ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "https://hub.docker.com",
     userName: "UserName",
-    password: "YourPassword"                
+    password: "YourPassword"
 );
 
 // Specify container configuration, prefetching Docker images
@@ -385,7 +385,6 @@ containerTask.ContainerSettings = cmdContainerSettings;
 
 ## Next steps
 
-- For easy deployment of container workloads on Azure Batch through [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes), see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit.
 - For information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 - Learn how to [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 - Learn more about the [Moby project](https://mobyproject.org/), a framework for creating container-based systems.

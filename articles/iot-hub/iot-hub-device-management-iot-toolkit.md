@@ -2,11 +2,11 @@
 title: Azure IoT device management with Azure IoT Tools for VSCode
 description: Use the Azure IoT Tools for Visual Studio Code for Azure IoT Hub device management, featuring the Direct methods and the Twin's desired properties management options.
 author: formulahendry
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 01/04/2019
+
 ms.author: junhan
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 01/04/2019
 ---
 
 # Use Azure IoT Tools for Visual Studio Code for Azure IoT Hub device management

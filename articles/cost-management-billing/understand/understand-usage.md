@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 03/20/2023
 ms.author: banders
 ---
 
@@ -15,7 +15,10 @@ ms.author: banders
 
 The detailed usage and charges file contains daily rated usage based on negotiated rates,
 purchases (for example, reservations, Marketplace fees), and refunds for the specified period.
-Fees don't include credits, taxes, or other charges or discounts.
+Fees don't include credits, taxes, or other charges or discounts. You manually download the usage and charges file.
+
+The information in the usage and charges file is the same information that's [exported from Cost Management](../costs/tutorial-export-acm-data.md). And, it's the same information that's retrieved from the Cost Details API. For more information about choosing a method to get cost details, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
+
 The following table covers which charges are included for each account type.
 
 Account type | Azure usage | Marketplace usage | Purchases | Refunds
@@ -48,7 +51,7 @@ BillingPeriodStartDate | All | The start date of the billing period.
 BillingProfileId¹ | All | Unique identifier of the EA enrollment, PAYG subscription, MCA billing profile, or AWS consolidated account.
 BillingProfileName | All | Name of the EA enrollment, PAYG subscription, MCA billing profile, or AWS consolidated account.
 ChargeType | All | Indicates whether the charge represents usage (**Usage**), a purchase (**Purchase**), or a refund (**Refund**).
-ConsumedService | EA, PAYG | Name of the service the charge is associated with. For more information about choosing a method to get cost details, see [Choose a cost details solution](../automate/usage-details-best-practices.md).
+ConsumedService | All | Name of the service the charge is associated with. 
 CostCenter¹ | EA, MCA | The cost center defined for the subscription for tracking costs (only available in open billing periods for MCA accounts).
 Cost | EA, PAYG | See CostInBillingCurrency.
 CostInBillingCurrency | MCA | Cost of the charge in the billing currency before credits or taxes.

@@ -5,7 +5,7 @@ author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
-ms.date: 04/15/2022
+ms.date: 03/24/2023
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: mode-other
@@ -20,7 +20,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name | Description |
 | ---- |-------------|
 | EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment mime type string, and binary data for content. |
+| EmailAttachment | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, and binary data for content. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
 | EmailClientOptions | This class can be added to the EmailClient instantiation to target a specific API version. |
 | EmailContent | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content. |
@@ -49,7 +49,7 @@ EmailSendResult returns the following status on the email operation performed.
 
 Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
-> [!Note]
+> [!NOTE]
 > We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../add-azure-managed-domains.md).
 
 ### Prerequisite check
@@ -109,21 +109,38 @@ const emailClient = new EmailClient(connectionString);
 
 ### Option 2: Authenticate using Azure Active Directory
 
-You can also authenticate with Azure Active Directory using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider shown below, or other credential providers provided with the Azure SDK, please install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
+You can also authenticate with Azure Active Directory using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider in the following snippet, or other credential providers provided with the Azure SDK, install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
 
 ```bash
 npm install @azure/identity
 ```
 
-The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides a variety of credential types that your application can use to do this. The README for `@azure/identity` provides more details and samples to get you started.
+The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. The README for `@azure/identity` provides more details and samples to get you started.
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` and `AZURE_TENANT_ID` environment variables are needed to create a `DefaultAzureCredential` object.
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
 import { EmailClient } from "@azure/communication-email";
+
 const endpoint = "https://<resource-name>.communication.azure.com";
 let credential = new DefaultAzureCredential();
-const client = new EmailClient(endpoint, credential);
+
+const emailClient = new EmailClient(endpoint, credential);
+```
+
+### Option 3: Authenticate using AzureKeyCredential
+
+Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+
+```javascript
+const { EmailClient } = require("@azure/communication-email");
+const { AzureKeyCredential } = require("@azure/core-auth");
+require("dotenv").config();
+
+var key = new AzureKeyCredential("<your-key-credential>");
+var endpoint = "<your-endpoint-uri>";
+
+const emailClient = new EmailClient(endpoint, key);
 ```
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
@@ -155,7 +172,30 @@ async function main() {
     };
 
     const poller = await emailClient.beginSend(message);
-    const response = await poller.pollUntilDone();
+
+    if (!poller.getOperationState().isStarted) {
+      throw "Poller was not started."
+    }
+
+    let timeElapsed = 0;
+    while(!poller.isDone()) {
+      poller.poll();
+      console.log("Email send polling in progress");
+
+      await new Promise(resolve => setTimeout(resolve, POLLER_WAIT_TIME * 1000));
+      timeElapsed += 10;
+
+      if(timeElapsed > 18 * POLLER_WAIT_TIME) {
+        throw "Polling timed out.";
+      }
+    }
+
+    if(poller.getResult().status === KnownEmailSendStatus.Succeeded) {
+      console.log(`Successfully sent the email (operation id: ${poller.getResult().id})`);
+    }
+    else {
+      throw poller.getResult().error;
+    }
   } catch (e) {
     console.log(e);
   }
@@ -256,7 +296,7 @@ const message = {
   attachments: [
     {
       name: path.basename(filePath),
-      contentType: "text/plain",
+      contentType: "<mime-type-for-your-file>",
       contentInBase64: readFileSync(filePath, "base64"),
     }
   ]
@@ -264,5 +304,7 @@ const message = {
 
 const response = await emailClient.send(message);
 ```
+
+For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email-advanced/send-email-attachments)
