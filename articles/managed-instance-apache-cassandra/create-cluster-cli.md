@@ -177,7 +177,7 @@ As with CQLSH, connecting from an application using one of the supported [Apache
 
 Disabling certificate verification is recommended because certificate verification will not work unless you map I.P addresses of your cluster nodes to the appropriate domain. If you have an internal policy which mandates that you do SSL certificate verification for any application, you can facilitate this by adding entries like `10.0.1.5 host1.managedcassandra.cosmos.azure.com` in your hosts file for each node. If taking this approach, you would also need to add new entries whenever scaling up nodes. 
 
-## Configuring client certificates
+### Configuring client certificates
 
 Configuring client certificates is optional. In general, there are two ways of creating certificates:
 
