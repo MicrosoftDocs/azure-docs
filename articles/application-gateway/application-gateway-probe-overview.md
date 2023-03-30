@@ -19,7 +19,7 @@ The source IP address that Application Gateway uses for health probes depend on 
 - If the server address in the backend pool is a public endpoint, then the source address is the application gateway's frontend public IP address.
 - If the server address in the backend pool is a private endpoint, then the source IP address is from the application gateway subnet's private IP address space.
 
-:::image type="content" source="media/application-gateway-probe-overview/appgatewayprobe.png alt-text="Diagram showing Application Gateway initiating health probes to individual backend targets within a backend pool":::
+:::image type="content" source="media/application-gateway-probe-overview/appgatewayprobe.png" alt-text="Diagram showing Application Gateway initiating health probes to individual backend targets within a backend pool":::
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
