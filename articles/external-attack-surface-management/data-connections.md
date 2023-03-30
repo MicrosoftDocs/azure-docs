@@ -13,7 +13,7 @@ ms.topic:    how-to
 ms.date:     03/20/2023
 ---
 
-# Defender EASM data connections
+# Leveraging data connections
 
 ## **Overview**
 
@@ -39,6 +39,7 @@ To accurately present the infrastructure that matters most to your organization,
 
 **Attack surface insights**
 <br>Attack Surface Insights provide an actionable set of results based on the key insights delivered through dashboards in Defender EASM. This option provides less granular metadata on each asset; instead, it categorizes assets based on the corresponding insight(s) and provides the high-level context required to investigate further. This option is ideal for those who want to integrate these pre-determined insights into custom reporting workflows in conjunction with data from other tools.
+
 
 ## **Configuring data connections**
 
