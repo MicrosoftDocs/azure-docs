@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Update the TLS/SSL certificate for an AD FS farm | Microsoft Docs
+title: Azure AD Connect - Update the TLS/SSL certificate for an AD FS farm
 description: This document details the steps to update the TLS/SSL certificate of an AD FS farm by using Azure AD Connect.
 services: active-directory
 manager: amycolannino

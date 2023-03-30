@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - LargeObject errors caused by userCertificate attribute | Microsoft Docs
+title: Azure AD Connect - LargeObject errors caused by userCertificate attribute
 description: This topic provides the remediation steps for LargeObject errors caused by userCertificate attribute.
 services: active-directory
 documentationcenter: ''

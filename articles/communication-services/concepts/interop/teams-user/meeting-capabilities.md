@@ -147,7 +147,7 @@ The following list of capabilities is allowed when Teams user participates in Te
 |                   | Honor setting "Meeting reactions"                                                                                   |   No API available |
 | DevOps            | [Azure Metrics](../../metrics.md)                                                                                   | ✔️ |
 |                   | [Azure Monitor](../../logging-and-diagnostics.md)                                                                   | ✔️ |
-|                   | [Azure Communication Services Insights](../../analytics/insights.md)                                                | ✔️ |
+|                   | [Azure Communication Services Insights](../../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |

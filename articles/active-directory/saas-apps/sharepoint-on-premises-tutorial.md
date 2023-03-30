@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SharePoint on-premises | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SharePoint on-premises'
 description: Learn how to implement federated authentication between Azure Active Directory and SharePoint on-premises.
 services: active-directory
 author: jeevansd

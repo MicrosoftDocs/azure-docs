@@ -2,7 +2,7 @@
 title: Upload and index videos with Azure Video Indexer
 description: Learn two methods for uploading and indexing videos by using Azure Video Indexer.
 ms.topic: article
-ms.date: 11/15/2021
+ms.date: 03/20/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -41,6 +41,10 @@ After Azure Video Indexer is done analyzing, you get an email with a link to you
 ## Upload and index a video by using the API
 
 You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented-out code that shows how to upload the byte array.
+
+You can also view the following video.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW10CsK]
 
 > [!NOTE]
 > Before you proceed, make sure to review [API recommendations](video-indexer-use-apis.md#recommendations).
@@ -110,200 +114,6 @@ This parameter specifies the URL of the video or audio file to be indexed. If th
 
 The following C# code snippets demonstrate the usage of all the Azure Video Indexer APIs together.
 
-### [Classic account](#tab/With-classic-account/)
-
-After you copy the following code into your development platform, you'll need to provide two parameters:
-
-* API key (`apiKey`): Your personal API management subscription key. It allows you to get an access token in order to perform operations on your Azure Video Indexer account.
-
-  To get your API key:
-
-  1. Go to the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/).
-  1. Sign in.
-  1. Go to **Products** > **Authorization** > **Authorization subscription**.
-  1. Copy the **Primary key** value.
-
-* Video URL (`videoUrl`): A URL of the video or audio file to be indexed. Here are the requirements:
-
-  - The URL must point at a media file. (HTML pages are not supported.)
-  - The file can be protected by an access token that's provided as part of the URI. The endpoint that serves the file must be secured with TLS 1.2 or later.
-  - The URL must be encoded.
-
-The result of successfully running the code sample includes an insight widget URL and a player widget URL. They allow you to examine the insights and the uploaded video, respectively.
-
-
-```csharp
-public async Task Sample()
-{
-    var apiUrl = "https://api.videoindexer.ai";
-    var apiKey = "..."; // Replace with API key taken from https://aka.ms/viapi
-
-    System.Net.ServicePointManager.SecurityProtocol =
-        System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;
-
-    // Create the HTTP client
-    var handler = new HttpClientHandler();
-    handler.AllowAutoRedirect = false;
-    var client = new HttpClient(handler);
-    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
-
-    // Obtain account information and access token
-    string queryParams = CreateQueryString(
-        new Dictionary<string, string>()
-        {
-            {"generateAccessTokens", "true"},
-            {"allowEdit", "true"},
-        });
-    HttpResponseMessage result = await client.GetAsync($"{apiUrl}/auth/trial/Accounts?{queryParams}");
-    var json = await result.Content.ReadAsStringAsync();
-    var accounts = JsonConvert.DeserializeObject<AccountContractSlim[]>(json);
-
-    // Take the relevant account. Here we simply take the first.
-    // You can also get the account via accounts.First(account => account.Id == <GUID>);
-    var accountInfo = accounts.First();
-
-    // We'll use the access token from here on, so there's no need for the APIM key
-    client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
-
-    // Upload a video
-    MultipartFormDataContent content = null;
-    Console.WriteLine("Uploading...");
-    
-    // Get the video from URL
-    var videoUrl = "VIDEO_URL"; // Replace with the video URL
-
-    // As an alternative to specifying video URL, you can upload a file.
-    // Remove the videoUrl parameter from the query parameters below and add the following lines:
-    //content = new MultipartFormDataContent();
-    //FileStream video = File.OpenRead(@"c:\videos\democratic3.mp4");
-    //byte[] buffer = new byte[video.Length];
-    //video.Read(buffer, 0, buffer.Length);
-    //content.Add(new ByteArrayContent(buffer), "MyVideo", "MyVideo");
-
-    queryParams = CreateQueryString(
-        new Dictionary<string, string>()
-        {
-            {"accessToken", accountInfo.AccessToken},
-            {"name", "video_name"},
-            {"description", "video_description"},
-            {"privacy", "private"},
-            {"partition", "partition"},
-            {"videoUrl", videoUrl},
-        });
-    var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
-    var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
-
-    // Get the video ID from the upload result
-    string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
-    Console.WriteLine("Uploaded");
-    Console.WriteLine("Video ID:");
-    Console.WriteLine(videoId);
-
-    // Wait for the video index to finish
-    while (true)
-    {
-        await Task.Delay(10000);
-
-        queryParams = CreateQueryString(
-            new Dictionary<string, string>()
-            {
-                {"accessToken", accountInfo.AccessToken},
-                {"language", "English"},
-            });
-
-        var videoGetIndexRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/Index?{queryParams}");
-        var videoGetIndexResult = await videoGetIndexRequestResult.Content.ReadAsStringAsync();
-
-        string processingState = JsonConvert.DeserializeObject<dynamic>(videoGetIndexResult)["state"];
-
-        Console.WriteLine("");
-        Console.WriteLine("State:");
-        Console.WriteLine(processingState);
-
-        // Job is finished
-        if (processingState != "Uploaded" && processingState != "Processing")
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Full JSON:");
-            Console.WriteLine(videoGetIndexResult);
-            break;
-        }
-    }
-
-    // Search for the video
-    queryParams = CreateQueryString(
-        new Dictionary<string, string>()
-        {
-            {"accessToken", accountInfo.AccessToken},
-            {"id", videoId},
-        });
-
-    var searchRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/Search?{queryParams}");
-    var searchResult = await searchRequestResult.Content.ReadAsStringAsync();
-    Console.WriteLine("");
-    Console.WriteLine("Search:");
-    Console.WriteLine(searchResult);
-
-    // Generate video access token (used for get widget calls)
-    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
-    var videoTokenRequestResult = await client.GetAsync($"{apiUrl}/auth/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/AccessToken?allowEdit=true");
-    var videoAccessToken = (await videoTokenRequestResult.Content.ReadAsStringAsync()).Replace("\"", "");
-    client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
-
-    // Get insights widget URL
-    queryParams = CreateQueryString(
-        new Dictionary<string, string>()
-        {
-            {"accessToken", videoAccessToken},
-            {"widgetType", "Keywords"},
-            {"allowEdit", "true"},
-        });
-    var insightsWidgetRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/InsightsWidget?{queryParams}");
-    var insightsWidgetLink = insightsWidgetRequestResult.Headers.Location;
-    Console.WriteLine("Insights Widget url:");
-    Console.WriteLine(insightsWidgetLink);
-
-    // Get player widget URL
-    queryParams = CreateQueryString(
-        new Dictionary<string, string>()
-        {
-            {"accessToken", videoAccessToken},
-        });
-    var playerWidgetRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/PlayerWidget?{queryParams}");
-    var playerWidgetLink = playerWidgetRequestResult.Headers.Location;
-     Console.WriteLine("");
-     Console.WriteLine("Player Widget url:");
-     Console.WriteLine(playerWidgetLink);
-     Console.WriteLine("\nPress Enter to exit...");
-     String line = Console.ReadLine();
-     if (line == "enter")
-     {
-         System.Environment.Exit(0);
-     }
-
-}
-
-private string CreateQueryString(IDictionary<string, string> parameters)
-{
-    var queryParameters = HttpUtility.ParseQueryString(string.Empty);
-    foreach (var parameter in parameters)
-    {
-        queryParameters[parameter.Key] = parameter.Value;
-    }
-
-    return queryParameters.ToString();
-}
-
-public class AccountContractSlim
-{
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public string Location { get; set; }
-    public string AccountType { get; set; }
-    public string Url { get; set; }
-    public string AccessToken { get; set; }
-}
-```
 
 ### [Azure Resource Manager account](#tab/with-arm-account-account/)
 
@@ -624,6 +434,201 @@ namespace VideoIndexerArm
     }
 }
 
+```
+
+### [Classic account](#tab/With-classic-account/)
+
+After you copy the following code into your development platform, you'll need to provide two parameters:
+
+* API key (`apiKey`): Your personal API management subscription key. It allows you to get an access token in order to perform operations on your Azure Video Indexer account.
+
+  To get your API key:
+
+  1. Go to the [Azure Video Indexer API developer portal](https://api-portal.videoindexer.ai/).
+  1. Sign in.
+  1. Go to **Products** > **Authorization** > **Authorization subscription**.
+  1. Copy the **Primary key** value.
+
+* Video URL (`videoUrl`): A URL of the video or audio file to be indexed. Here are the requirements:
+
+  - The URL must point at a media file. (HTML pages are not supported.)
+  - The file can be protected by an access token that's provided as part of the URI. The endpoint that serves the file must be secured with TLS 1.2 or later.
+  - The URL must be encoded.
+
+The result of successfully running the code sample includes an insight widget URL and a player widget URL. They allow you to examine the insights and the uploaded video, respectively.
+
+
+```csharp
+public async Task Sample()
+{
+    var apiUrl = "https://api.videoindexer.ai";
+    var apiKey = "..."; // Replace with API key taken from https://aka.ms/viapi
+
+    System.Net.ServicePointManager.SecurityProtocol =
+        System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;
+
+    // Create the HTTP client
+    var handler = new HttpClientHandler();
+    handler.AllowAutoRedirect = false;
+    var client = new HttpClient(handler);
+    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
+
+    // Obtain account information and access token
+    string queryParams = CreateQueryString(
+        new Dictionary<string, string>()
+        {
+            {"generateAccessTokens", "true"},
+            {"allowEdit", "true"},
+        });
+    HttpResponseMessage result = await client.GetAsync($"{apiUrl}/auth/trial/Accounts?{queryParams}");
+    var json = await result.Content.ReadAsStringAsync();
+    var accounts = JsonConvert.DeserializeObject<AccountContractSlim[]>(json);
+
+    // Take the relevant account. Here we simply take the first.
+    // You can also get the account via accounts.First(account => account.Id == <GUID>);
+    var accountInfo = accounts.First();
+
+    // We'll use the access token from here on, so there's no need for the APIM key
+    client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
+
+    // Upload a video
+    MultipartFormDataContent content = null;
+    Console.WriteLine("Uploading...");
+    
+    // Get the video from URL
+    var videoUrl = "VIDEO_URL"; // Replace with the video URL
+
+    // As an alternative to specifying video URL, you can upload a file.
+    // Remove the videoUrl parameter from the query parameters below and add the following lines:
+    //content = new MultipartFormDataContent();
+    //FileStream video = File.OpenRead(@"c:\videos\democratic3.mp4");
+    //byte[] buffer = new byte[video.Length];
+    //video.Read(buffer, 0, buffer.Length);
+    //content.Add(new ByteArrayContent(buffer), "MyVideo", "MyVideo");
+
+    queryParams = CreateQueryString(
+        new Dictionary<string, string>()
+        {
+            {"accessToken", accountInfo.AccessToken},
+            {"name", "video_name"},
+            {"description", "video_description"},
+            {"privacy", "private"},
+            {"partition", "partition"},
+            {"videoUrl", videoUrl},
+        });
+    var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
+    var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
+
+    // Get the video ID from the upload result
+    string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
+    Console.WriteLine("Uploaded");
+    Console.WriteLine("Video ID:");
+    Console.WriteLine(videoId);
+
+    // Wait for the video index to finish
+    while (true)
+    {
+        await Task.Delay(10000);
+
+        queryParams = CreateQueryString(
+            new Dictionary<string, string>()
+            {
+                {"accessToken", accountInfo.AccessToken},
+                {"language", "English"},
+            });
+
+        var videoGetIndexRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/Index?{queryParams}");
+        var videoGetIndexResult = await videoGetIndexRequestResult.Content.ReadAsStringAsync();
+
+        string processingState = JsonConvert.DeserializeObject<dynamic>(videoGetIndexResult)["state"];
+
+        Console.WriteLine("");
+        Console.WriteLine("State:");
+        Console.WriteLine(processingState);
+
+        // Job is finished
+        if (processingState != "Uploaded" && processingState != "Processing")
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Full JSON:");
+            Console.WriteLine(videoGetIndexResult);
+            break;
+        }
+    }
+
+    // Search for the video
+    queryParams = CreateQueryString(
+        new Dictionary<string, string>()
+        {
+            {"accessToken", accountInfo.AccessToken},
+            {"id", videoId},
+        });
+
+    var searchRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/Search?{queryParams}");
+    var searchResult = await searchRequestResult.Content.ReadAsStringAsync();
+    Console.WriteLine("");
+    Console.WriteLine("Search:");
+    Console.WriteLine(searchResult);
+
+    // Generate video access token (used for get widget calls)
+    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
+    var videoTokenRequestResult = await client.GetAsync($"{apiUrl}/auth/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/AccessToken?allowEdit=true");
+    var videoAccessToken = (await videoTokenRequestResult.Content.ReadAsStringAsync()).Replace("\"", "");
+    client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
+
+    // Get insights widget URL
+    queryParams = CreateQueryString(
+        new Dictionary<string, string>()
+        {
+            {"accessToken", videoAccessToken},
+            {"widgetType", "Keywords"},
+            {"allowEdit", "true"},
+        });
+    var insightsWidgetRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/InsightsWidget?{queryParams}");
+    var insightsWidgetLink = insightsWidgetRequestResult.Headers.Location;
+    Console.WriteLine("Insights Widget url:");
+    Console.WriteLine(insightsWidgetLink);
+
+    // Get player widget URL
+    queryParams = CreateQueryString(
+        new Dictionary<string, string>()
+        {
+            {"accessToken", videoAccessToken},
+        });
+    var playerWidgetRequestResult = await client.GetAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos/{videoId}/PlayerWidget?{queryParams}");
+    var playerWidgetLink = playerWidgetRequestResult.Headers.Location;
+     Console.WriteLine("");
+     Console.WriteLine("Player Widget url:");
+     Console.WriteLine(playerWidgetLink);
+     Console.WriteLine("\nPress Enter to exit...");
+     String line = Console.ReadLine();
+     if (line == "enter")
+     {
+         System.Environment.Exit(0);
+     }
+
+}
+
+private string CreateQueryString(IDictionary<string, string> parameters)
+{
+    var queryParameters = HttpUtility.ParseQueryString(string.Empty);
+    foreach (var parameter in parameters)
+    {
+        queryParameters[parameter.Key] = parameter.Value;
+    }
+
+    return queryParameters.ToString();
+}
+
+public class AccountContractSlim
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public string Location { get; set; }
+    public string AccountType { get; set; }
+    public string Url { get; set; }
+    public string AccessToken { get; set; }
+}
 ```
 
 ### Common errors

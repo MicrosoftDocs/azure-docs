@@ -12,7 +12,7 @@ ms.custom: "UpdateFrequency3, seodec18, fasttrack-edit"
 
 Most organizations have a business continuity plan to maintain availability of their applications during downtime and the preservation of their data in a regional disaster. This article covers some common strategies for web apps deployed to App Service.
 
-For example, when you create a web app in App Service and choose an Azure region during resource creation, it's a single-region app. When the region becomes unavailable during a disaster, your application also becomes unavailable. If you create an identical deployment in a secondary Azure region, your application becomes less susceptible to a single-region outage, which guarantees business continuity, and any data replication across the regions lets you recover your last application state.
+For example, when you create a web app in App Service and choose an Azure region during resource creation, it's a single-region app. When the region becomes unavailable during a disaster, your application also becomes unavailable. If you create an identical deployment in a secondary Azure region, your application becomes less susceptible to a single-region disaster, which guarantees business continuity, and any data replication across the regions lets you recover your last application state.
 
 For IT, business continuity plans are largely driven by two metrics:
  

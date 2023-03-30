@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ExactCare SSO | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ExactCare SSO'
 description: Learn how to configure single sign-on between Azure Active Directory and ExactCare SSO.
 services: active-directory
 author: jeevansd

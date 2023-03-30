@@ -1,6 +1,6 @@
 ---
 title: Networking architecture in Azure Container Apps
-description: Learn how to configure virtual networks in Azure Container Apps
+description: Learn how to configure virtual networks in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -26,7 +26,7 @@ As you create a custom VNET, keep in mind the following situations:
 
 - If you want your container app to restrict all outside access, create an [internal Container Apps environment](vnet-custom-internal.md).
 
-- When you provide your own VNET, you need to provide a subnet that is dedicated to the Container App Environment you'll deploy. This subnet can't be used by other services.
+- When you provide your own VNET, you need to provide a subnet that is dedicated to the Container App environment you deploy. This subnet can't be used by other services.
 
 - Network addresses are assigned from a subnet range you define as the environment is created.
 
@@ -50,7 +50,7 @@ https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-v
 
 ## HTTP edge proxy behavior
 
-Azure Container Apps uses [Envoy proxy](https://www.envoyproxy.io/) as an edge HTTP proxy. TLS is terminated on the edge and requests are routed based on their traffic split rules and routes traffic to the correct application.
+Azure Container Apps uses [Envoy proxy](https://www.envoyproxy.io/) as an edge HTTP proxy. TLS is terminated on the edge and requests are routed based on their traffic splitting rules and routes traffic to the correct application.
 
 HTTP applications scale based on the number of HTTP requests and connections. Envoy routes internal traffic inside clusters. Downstream connections support HTTP1.1 and HTTP2 and Envoy automatically detects and upgrades the connection should the client connection be upgraded. Upstream connection is defined by setting the `transport` property on the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) object.
 
@@ -60,93 +60,19 @@ Under the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) 
 
 - **Accessibility level**: You can set your container app as externally or internally accessible in the environment. An environment variable `CONTAINER_APP_ENV_DNS_SUFFIX` is used to automatically resolve the FQDN suffix for your environment.
 
-- **Traffic split rules**: You can define traffic split rules between different revisions of your application.
+- **Traffic split rules**: You can define traffic splitting rules between different revisions of your application.  For more information, see [Traffic splitting](traffic-splitting.md).
+
+For more information about ingress configuration, see [Ingress in Azure Container Apps](ingress-overview.md).
 
 ### Scenarios
 
-The following scenarios describe configuration settings for common use cases.
-
-#### Rapid iteration
-
-In situations where you're frequently iterating development of your container app, you can set traffic rules to always shift all traffic to the latest deployed revision.
-
-The following example routes all traffic to the latest deployed revision:
-
-```json
-"ingress": { 
-  "traffic": [
-    {
-      "latestRevision": true,
-      "weight": 100
-    }
-  ]
-}
-```
-
-Once you're satisfied with the latest revision, you can lock traffic to that revision by updating the `ingress` settings to:
-
-```json
-"ingress": { 
-  "traffic": [
-    {
-      "latestRevision": false, // optional
-      "revisionName": "myapp--knowngoodrevision",
-      "weight": 100
-    }
-  ]
-}
-```
-
-#### Update existing revision
-
-Consider a situation where you have a known good revision that's serving 100% of your traffic, but you want to issue an update to your app. You can deploy and test new revisions using their direct endpoints without affecting the main revision serving the app.
-
-Once you're satisfied with the updated revision, you can shift a portion of traffic to the new revision for testing and verification.
-
-The following configuration demonstrates how to move 20% of traffic over to the updated revision:
-
-```json
-"ingress": {
-  "traffic": [
-    {
-      "revisionName": "myapp--knowngoodrevision",
-      "weight": 80
-    },
-    {
-      "revisionName": "myapp--newerrevision",
-      "weight": 20
-    }
-  ]
-}
-```
-
-#### Staging microservices
-
-When building microservices, you may want to maintain production and staging endpoints for the same app. Use labels to ensure that traffic doesn't switch between different revisions.
-
-The following example demonstrates how to apply labels to different revisions.
-
-```json
-"ingress": { 
-  "traffic": [
-    {
-      "revisionName": "myapp--knowngoodrevision",
-      "weight": 100
-    },
-    {
-      "revisionName": "myapp--98fdgt",
-      "weight": 0,
-      "label": "staging"
-    }
-  ]
-}
-```
+For more information about scenarios, see [Ingress in Azure Container Apps](ingress-overview.md).
 
 ## Portal dependencies
 
 For every app in Azure Container Apps, there are two URLs.
 
-The first URL is generated by Container Apps and is used to access your app. See the *Application Url* in the *Overview* window of your container app in the Azure portal for the fully qualified domain name (FQDN) of your container app.
+Container Apps generates the first URL, which is used to access your app. See the *Application Url* in the *Overview* window of your container app in the Azure portal for the fully qualified domain name (FQDN) of your container app.
 
 The second URL grants access to the log streaming service and the console. If necessary, you may need to add `https://azurecontainerapps.dev/` to the allowlist of your firewall or proxy.
 
@@ -172,7 +98,7 @@ IP addresses are broken down into the following types:
 | Internal load balancer IP address | This address only exists in an internal deployment. |
 | App-assigned IP-based TLS/SSL addresses | These addresses are only possible with an external deployment, and when IP-based TLS/SSL binding is configured. |
 
-## Restrictions
+## Subnet Address Range Restrictions
 
 Subnet address ranges can't overlap with the following reserved ranges:
 
@@ -194,9 +120,10 @@ If you're using the Azure CLI and the [platformReservedCidr](vnet-custom-interna
 There's no forced tunneling in Container Apps routes.
 
 ## DNS
--	**Custom DNS**: If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Container Apps environment won't function.
 
--	**VNET-scope ingress**: If you plan to use VNET-scope [ingress](./ingress.md#configuration) in an internal Container Apps environment, configure your domains in one of the following ways:
+-	**Custom DNS**: If your VNET uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) uses this IP address to resolve requests. If you don't use the Azure recursive resolvers, the Container Apps environment can't function.
+
+-	**VNET-scope ingress**: If you plan to use VNET-scope [ingress](ingress-overview.md) in an internal Container Apps environment, configure your domains in one of the following ways:
 
     1. **Non-custom domains**: If you don't plan to use custom domains, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.  If you use Azure Private DNS, create a Private DNS Zone named as the Container App Environment’s default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The A record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment.
 

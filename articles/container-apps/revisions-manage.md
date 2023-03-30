@@ -1,6 +1,6 @@
 ---
 title: Manage revisions in Azure Container Apps
-description: Manage revisions and traffic splitting in Azure Container Apps.
+description: Manage revisions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -20,7 +20,7 @@ This article described the commands to manage your container app's revisions. Fo
 
 ## Updating your container app
 
-To update a container app, use the `az containerapp update` command.   With this command you can modify environment variables, compute resources, scale parameters, and deploy a different image.  If your container app update includes [revision-scope changes](revisions.md#revision-scope-changes), a new revision will be generated.
+To update a container app, use the `az containerapp update` command.   With this command you can modify environment variables, compute resources, scale parameters, and deploy a different image.  If your container app update includes [revision-scope changes](revisions.md#revision-scope-changes), a new revision is generated.
 
 # [Bash](#tab/bash)
 
@@ -122,7 +122,7 @@ echo $RevisionObject
 
 ## Revision copy
 
-To create a new revision based on an existing revision, use the `az containerapp revision copy`. Container Apps will use the configuration of the existing revision, which you then may modify.  
+To create a new revision based on an existing revision, use the `az containerapp revision copy`. Container Apps uses the configuration of the existing revision, which you may then modify.  
 
 With this command, you can modify environment variables, compute resources, scale parameters, and deploy a different image.  You may also use a YAML file to define these and other configuration options and parameters.  For more information regarding this command, see [`az containerapp revision copy`](/cli/azure/containerapp/revision#az-containerapp-revision-copy).
 
@@ -140,7 +140,7 @@ az containerapp revision copy \
 
 # [PowerShell](#tab/powershell)
 
-The following example demonstrates how to copy a container app revision using the Azure CLI command. There is not an equivalent PowerShell command. 
+The following example demonstrates how to copy a container app revision using the Azure CLI command. There isn't an equivalent PowerShell command. 
 
 ```azurecli
 az containerapp revision copy `
@@ -216,7 +216,7 @@ Disable-AzContainerAppRevision @CmdArgs
 
 This command restarts a revision.  For more information about this command, see [`az containerapp revision restart`](/cli/azure/containerapp/revision#az-containerapp-revision-restart).
 
-When you modify secrets in your container app, you'll need to restart the active revisions so they can access the secrets.  
+When you modify secrets in your container app, you need to restart the active revisions so they can access the secrets.  
 
 # [Bash](#tab/bash)
 
@@ -292,7 +292,7 @@ You can add and remove a label from a revision.  For more information about the 
 
 To add a label to a revision, use the [`az containerapp revision label add`](/cli/azure/containerapp/revision/label#az-containerapp-revision-label-add) command.  
 
-You can only assign a label to one revision at a time, and a revision can only be assigned one label.  If the revision you specify has a label, the add command will replace the existing label.
+You can only assign a label to one revision at a time, and a revision can only be assigned one label.  If the revision you specify has a label, the add command replaces the existing label.
 
 This example adds a label to a revision: (Replace the \<PLACEHOLDERS\> with your values.)
 
@@ -344,45 +344,7 @@ az containerapp revision label add `
 
 ## Traffic splitting
 
-Applied by assigning percentage values, you can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions.
-
-To create a traffic rule that always routes traffic to the latest revision, set its `latestRevision` property to `true` and don't set `revisionName`. 
-
-The following example shows how to split traffic between three revisions. 
-
-```json
-{
-  ...
-  "configuration": {
-    "ingress": {
-      "traffic": [
-        {
-          "revisionName": <REVISION1_NAME>,
-          "weight": 50
-        },
-        {
-          "revisionName": <REVISION2_NAME>,
-          "weight": 30
-        },
-        {
-          "latestRevision": true,
-          "weight": 20
-        }
-      ]
-    }
-  }
-}
-```
-
-Each revision gets traffic based on the following rules:
-
-- 50% of the requests go to REVISION1
-- 30% of the requests go to REVISION2
-- 20% of the requests go to the latest revision
-
-The sum of all revision weights must equal 100.
-
-In this example, replace the `<REVISION*_NAME>` placeholders with revision names in your container app. You access revision names via the [revision list](#revision-list) command.
+Applied by assigning percentage values, you can decide how to balance traffic among different revisions. Traffic splitting rules are assigned by setting weights to different revisions by their  name or [label](#revision-labels).  For more information, see, [Traffic Splitting](traffic-splitting.md).
 
 ## Next steps
 

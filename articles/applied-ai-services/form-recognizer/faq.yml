@@ -154,8 +154,6 @@ sections:
 
           - For a PDF, coordinates are given in inches.
 
-          - You can use the bounding box returned by Form Recognizer to identify the location of recognized entities.
-
   - name: App development
     questions:
       - question: |

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Meta Work Accounts for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Meta Work Accounts for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Meta Work Accounts.
 services: active-directory
 author: jeevansd

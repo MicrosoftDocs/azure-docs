@@ -5,14 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 03/10/2023
+ms.date: 03/23/2023
 ms.author: tamram
 ms.custom: "include file"
 ---
 
 ## Revoke access to a storage account that uses customer-managed keys
 
-To temporarily revoke access to a storage account that is using customer-managed keys, disable the key currently being used in the key vault.
+To temporarily revoke access to a storage account that is using customer-managed keys, disable the key currently being used in the key vault. There is no performance impact or downtime associated with disabling and reenabling the key.
+
+After the key has been disabled, clients can't call operations that read from or write to a blob or its metadata. For information about which operations will fail, see [Revoke access to a storage account that uses customer-managed keys](../articles/storage/common/customer-managed-keys-overview.md).
+
+> [!CAUTION]
+> When you disable the key in the key vault, the data in your Azure Storage account remains encrypted, but it becomes inaccessible until you reenable the key.
 
 # [Azure portal](#tab/azure-portal)
 

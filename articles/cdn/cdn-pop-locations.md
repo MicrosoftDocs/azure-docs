@@ -45,7 +45,7 @@ This article lists current metros containing point-of-presence (POP) locations, 
 | Africa | Johannesburg, South Africa <br/> Nairobi, Kenya | South Africa |
 | Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
 | India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Asia | Hong Kong<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
+| Asia | Hong Kong<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Türkiye<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 ## Next steps

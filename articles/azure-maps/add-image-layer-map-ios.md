@@ -2,8 +2,8 @@
 title: Add an Image layer to an iOS map
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add images to a map. See how to use the Azure Maps iOS SDK to customize image layers and overlay images on fixed sets of coordinates.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -44,7 +44,7 @@ let layer = ImageLayer(options: [
 map.layers.insertLayer(layer, below: "labels")
 ```
 
-Alternatively, a URL to an image hosted on the online can be specified. However, if your scenario allows, add the image to your project's `Assets` folder, that will load faster since the image will be locally available and won't have to be downloaded.
+Alternatively, a URL to an image hosted on the online can be specified. However, if your scenario allows, add the image to your project's `Assets` folder, that loads faster since the image is locally available with no need to be downloaded.
 
 ```swift
 // Create an image layer.
