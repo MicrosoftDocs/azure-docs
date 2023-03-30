@@ -5,7 +5,7 @@ author: bashan-git
 manager: sundraman
 services: azure-communication-services
 ms.author: bashan
-ms.date: 03/06/2023
+ms.date: 03/24/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -20,10 +20,10 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
 | EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
-| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment mime type string, and binary data for content.                               |
+| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, and binary data for content.                               |
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
 | EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
-| EmailContent        | This class contains the subject and the body of the email message. You have to specify atleast one of PlainText or Html content   |
+| EmailContent        | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content   |
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header. Email importance can also be specified through these headers using the header name 'x-priority' or 'x-msmail-priority'                                                                  |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
@@ -124,12 +124,12 @@ EmailClient emailClient = new EmailClient(connectionString);
 
 ### Option 2: Authenticate using Azure Active Directory
 
-To authenticate using Azure Active Directory, install the `Azure.Identity` library package for .NET by using the `dotnet add package` command.
+To authenticate using [Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity), install the `Azure.Identity` library package for .NET by using the `dotnet add package` command.
 
 ```console
 dotnet add package Azure.Identity
 ```
-Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using `DefaultAzureCredential`. The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
+Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` using [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#defaultazurecredential). The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. Learn how to [create an Azure Active Directory Registered Application and set the environment variables](../../identity/service-principal.md?pivots=platform-azcli).
 
 ```csharp
 // This code demonstrates how to authenticate to your Communication Service resource using
@@ -410,6 +410,8 @@ var emailAttachment = new EmailAttachment("attachment.pdf", MediaTypeNames.Appli
 emailMessage.Attachments.Add(emailAttachment);
 
 ```
+
+For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithAttachments)
 
