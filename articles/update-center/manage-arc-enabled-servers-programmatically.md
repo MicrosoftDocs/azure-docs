@@ -48,29 +48,8 @@ To specify the POST request, you can use the Azure PowerShell [Invoke-AzRestMeth
 ```azurepowershell
 Invoke-AzRestMethod-Path
   "/subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.HybridCompute/machines/machinename/assessPatches?api-version=2020-08-15-preview" 
--Payload '{
-        "maximumDuration": "PT120M",
-        "rebootSetting": "IfRequired",
-        "windowsParameters": {
-          "classificationsToInclude": [
-            "Security",
-            "UpdateRollup",
-            "FeaturePack",
-            "ServicePack"
-          ],
-          "kbNumbersToInclude": [
-            "11111111111",
-            "22222222222222"
-          ],
-          "kbNumbersToExclude": [
-            "333333333333",
-            "55555555555"
-          ]
-        }
-      }' 
-        -Method POST
+  -Payload '{}' -Method POST
 ```
-
 ---
 
 ## Update deployment

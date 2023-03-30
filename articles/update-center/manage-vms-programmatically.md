@@ -110,22 +110,14 @@ The format of the request body for version 2020-12-01 is as follows:
 
 ```json
 {
-    "maximumDuration": "PT120M",
-    "rebootSetting": "IfRequired",
+    "maximumDuration"
+    "rebootSetting"
     "windowsParameters": {
       "classificationsToInclude": [
-        "Security",
-        "UpdateRollup",
-        "FeaturePack",
-        "ServicePack"
       ],
       "kbNumbersToInclude": [
-        "11111111111",
-        "22222222222222"
       ],
       "kbNumbersToExclude": [
-        "333333333333",
-        "55555555555"
       ]
     }
   }
