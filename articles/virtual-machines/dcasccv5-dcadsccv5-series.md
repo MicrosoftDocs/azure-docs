@@ -34,13 +34,13 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|
-| Standard_DC4as_cc_v5  | 4  | 32  | Remote Storage Only | 8  | 6400/144   | 2 |
-| Standard_DC8as_cc_v5  | 8  | 64  | Remote Storage Only | 16 | 12800/200  | 4 |
-| Standard_DC16as_cc_v5 | 16 | 128 | Remote Storage Only | 32 | 25600/384  | 4 |
-| Standard_DC32as_cc_v5 | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 8 |
-| Standard_DC48as_cc_v5 | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 8 |
-| Standard_DC64as_cc_v5 | 64 | 512 | Remote Storage Only | 32 | 80000/1200 | 8 |
-| Standard_DC96as_cc_v5 | 96 | 672 | Remote Storage Only | 32 | 80000/1600 | 8 |
+| Standard_DC4as_cc_v5  | 4  | 16  | Remote Storage Only | 8  | 6400/144   | 2 |
+| Standard_DC8as_cc_v5  | 8  | 32  | Remote Storage Only | 16 | 12800/200  | 4 |
+| Standard_DC16as_cc_v5 | 16 | 64 | Remote Storage Only | 32 | 25600/384  | 4 |
+| Standard_DC32as_cc_v5 | 32 | 128 | Remote Storage Only | 32 | 51200/768  | 8 |
+| Standard_DC48as_cc_v5 | 48 | 192 | Remote Storage Only | 32 | 76800/1152 | 8 |
+| Standard_DC64as_cc_v5 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 8 |
+| Standard_DC96as_cc_v5 | 96 | 384 | Remote Storage Only | 32 | 80000/1600 | 8 |
 
 
 ### DCads_cc_v5-series products
@@ -49,13 +49,13 @@ The DCads_cc_v5-series sizes offer a combination of vCPU, memory and temporary s
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|
-| Standard_DC4ads_cc_v5  | 4  | 32  | 150 | 8  | 6400/144   | 2 |
-| Standard_DC8ads_cc_v5  | 8  | 64  | 300 | 16 | 12800/200  | 4 |
-| Standard_DC16ads_cc_v5 | 16 | 128 | 600 | 32 | 25600/384  | 4 |
-| Standard_DC32ads_cc_v5 | 32 | 256 | 1200 | 32 | 51200/768  | 8 |
-| Standard_DC48ads_cc_v5 | 48 | 384 | 1800 | 32 | 76800/1152 | 8 |
-| Standard_DC64ads_cc_v5 | 64 | 512 | 2400 | 32 | 80000/1200 | 8 |
-| Standard_DC96ads_cc_v5 | 96 | 672 | 3600 | 32 | 80000/1600 | 8 |
+| Standard_DC4ads_cc_v5  | 4  | 16  | 150 | 8  | 6400/144   | 2 |
+| Standard_DC8ads_cc_v5  | 8  | 32  | 300 | 16 | 12800/200  | 4 |
+| Standard_DC16ads_cc_v5 | 16 | 64 | 600 | 32 | 25600/384  | 4 |
+| Standard_DC32ads_cc_v5 | 32 | 128 | 1200 | 32 | 51200/768  | 8 |
+| Standard_DC48ads_cc_v5 | 48 | 192 | 1800 | 32 | 76800/1152 | 8 |
+| Standard_DC64ads_cc_v5 | 64 | 256 | 2400 | 32 | 80000/1200 | 8 |
+| Standard_DC96ads_cc_v5 | 96 | 384 | 3600 | 32 | 80000/1600 | 8 |
 
 ## Next steps
 
