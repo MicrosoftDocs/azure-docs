@@ -148,7 +148,7 @@ As SDAF won't create accounts in Active Directory the accounts need to be precre
 
 #### DNS settings
 
-For High Availably scenarios a DNS record is needed in the Active Directory for the SAP Central Services cluster. The DNS record needs to be created in the Active Directory DNS zone. The DNS record name is defined as '<sid>scs<scs instance number>cl1'. For example, `w01scs00cl1` for the cluster for the 'W01' SID using the instance number '00'.
+For High Availability scenarios a DNS record is needed in the Active Directory for the SAP Central Services cluster. The DNS record needs to be created in the Active Directory DNS zone. The DNS record name is defined as '[sid]>scs[scs instance number]cl1'. For example, `w01scs00cl1` for the cluster for the 'W01' SID using the instance number '00'.
 ## Credentials management
 
 The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. It's recommended to use different deployment credentials (service principals) for each [workload zone](#workload-zone-planning). The framework stores these credentials in the [deployer's](deployment-framework.md#deployment-components) key vault. Then, the framework retrieves these credentials dynamically during the deployment process.
