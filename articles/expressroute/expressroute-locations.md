@@ -20,7 +20,7 @@ ms.custom: references_regions, template-concept, engagement-fy23
 
 The tables in this article provide information on ExpressRoute geographical coverage and locations, ExpressRoute connectivity providers, and ExpressRoute System Integrators (SIs).
 
-> [!Note]
+> [!NOTE]
 > Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
 >
 
@@ -113,7 +113,7 @@ The following table shows locations by service provider. If you want to view ava
 | **LG CNS** |Supported |Supported | Busan, Seoul |
 | **Lightpath** |Supported |Supported | New York, Washington DC |
 | **Lightstorm** |Supported |Supported | Pune, Chennai |
-| **[Liquid Intelligent Technologies ](https://liquidcloud.africa/connect/)** |Supported |Supported | Cape Town, Johannesburg |
+| **[Liquid Intelligent Technologies](https://liquidcloud.africa/connect/)** |Supported |Supported | Cape Town, Johannesburg |
 | **[LGUplus](http://www.uplus.co.kr/)** |Supported |Supported | Seoul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported | Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Geneva, Hong Kong, Hong Kong2, Las Vegas, London, London2, Los Angeles, Madrid, Melbourne, Miami, Minneapolis, Montreal, Munich, New York, Osaka, Oslo, Paris, Perth, Phoenix, Quebec City, Queretaro (Mexico), San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Stavanger, Stockholm, Sydney, Sydney2, Tokyo, Tokyo2 Toronto, Vancouver, Washington DC, Washington DC2, Zurich |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** |Supported |Supported | London |

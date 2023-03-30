@@ -1,6 +1,6 @@
 ---
-title: Supported Azure AD features
-description: Learn about Azure AD features, which are still supported in Azure AD B2C.
+title: Supported Azure Active Directory features
+description: Learn about Azure Active Directory features, which are still supported in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -13,9 +13,9 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Supported Azure AD features
+# Supported Azure Active Directory features
 
-An Azure AD B2C tenant is different than an Azure Active Directory tenant, which you may already have, but it relies on it. The following Azure AD features can be used in your Azure AD B2C tenant.
+An Azure Active Directory B2C (Azure AD B2C) tenant is different than an Azure Active Directory (Azure AD) tenant, which you may already have, but it relies on it. The following Azure AD features can be used in your Azure AD B2C tenant.
 
 |Feature  |Azure AD  | Azure AD B2C |
 |---------|---------|---------|
@@ -27,6 +27,7 @@ An Azure AD B2C tenant is different than an Azure Active Directory tenant, which
 | [Premium P1](https://azure.microsoft.com/pricing/details/active-directory) | Fully supported for Azure AD premium P1 features. For example, [Password Protection](../active-directory/authentication/concept-password-ban-bad.md), [Hybrid Identities](../active-directory/hybrid/whatis-hybrid-identity.md),  [Conditional Access](../active-directory/roles/permissions-reference.md#), [Dynamic groups](../active-directory/enterprise-users/groups-create-rule.md), and more. | Azure AD B2C uses [Azure AD B2C Premium P1 license](https://azure.microsoft.com/pricing/details/active-directory/external-identities/), which is different from Azure AD premium P1. A subset of Azure AD Conditional Access features is supported with [consumer accounts](user-overview.md#consumer-user). Learn how to configure Azure AD B2C [Conditional Access](conditional-access-user-flow.md).|
 | [Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) | Fully supported for Azure AD premium P2 features. For example, [Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), and [Identity Governance](../active-directory/governance/identity-governance-overview.md).  | Azure AD B2C uses [Azure AD B2C Premium P2 license](https://azure.microsoft.com/pricing/details/active-directory/external-identities/), which is different from Azure AD premium P2. A subset of Azure AD Identity Protection features is supported with [consumer accounts](user-overview.md#consumer-user). Learn how to [Investigate risk with Identity Protection](identity-protection-investigate-risk.md) and configure Azure AD B2C [Conditional Access](conditional-access-user-flow.md). |
 |[Data retention policy](../active-directory/reports-monitoring/reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)|Data retention period for both audit and sign in logs depend on your subscription. Learn more about [How long Azure AD store reporting data](../active-directory/reports-monitoring/reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).|Sign in and  audit logs are only retained for **seven (7) days**. If you require a longer retention period, use the [Azure monitor](azure-monitor.md).|
+| [Go-Local add-on](data-residency.md#go-local-add-on) | Azure AD Go-Local add-on enables you to store data in the country you choose when your Azure AD tenant.| Just like Azure AD, Azure AD B2C supports [Go-Local add-on](data-residency.md#go-local-add-on). |
 
 > [!NOTE]
 > **Other Azure resources in your tenant:** <br>In an Azure AD B2C tenant, you can't provision other Azure resources such as virtual machines, Azure web apps, or Azure functions. You must create these resources in your Azure AD tenant.
