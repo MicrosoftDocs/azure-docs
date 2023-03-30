@@ -5,7 +5,7 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 03/29/2023
 ms.author: halkazwini
 ms.custom: engagement-fy23, template-concept
 ---
@@ -15,16 +15,20 @@ ms.custom: engagement-fy23, template-concept
 
 ## What is the difference between Internet peering and Peering Service?
 
-Peering Service is a service that intends to provide enterprise grade public IP connectivity to Microsoft for its enterprise customers. Enterprise grade internet includes connectivity through ISPs that have high throughput connectivity to Microsoft and redundancy for a HA connectivity. Additionally, user traffic is optimized for latency to the nearest Microsoft Edge. Peering Service builds on peering connectivity with partner carrier. The peering connectivity with partner must be Direct peering as opposed to Exchange peering. Direct peering  must have local and geo-redundancy.
+Peering Service provides enterprise-grade public IP connectivity to Microsoft for customers. Enterprise grade Internet includes connectivity through partner ISPs that have high throughput capacity to Microsoft and redundancy for reliable connectivity. Peering Service providers receive a customer’s registered traffic directly from Microsoft at locations that are selected by the customer.
 
 ## What is legacy peering?
 
-Peering connections set up in the past are stored in our system as legacy peering which you may choose to convert to manage as an Azure resource. Any new peering connection set up using Azure PowerShell is managed as an Azure resource.
+Peering connections that were set up outside of the automated portal process and aren't shown as resources in your Azure subscription are considered legacy peerings. It's encouraged but not required to set up all peering connections in the Azure portal and to convert legacy peerings to Azure resources so that a peer can view and manage all of their peering connections to the Microsoft network. By utilizing the Azure portal, peers can also view performance metrics and submit support tickets. If a peer is interested in becoming a MAPS partner, then converting legacy peerings to Azure Resources is a requirement.
 
-## When New-AzPeeringDirectConnectionObject is called, what IP addresses are given to Microsoft and Peer devices?
+## What is the minimum link speed for an interconnect?
 
-When you use `New-AzPeeringDirectConnectionObject` cmdlet, you enter a `/31` prefix (`a.b.c.d/31`) or a `/30` prefix (`a.b.c.d/30`). The first IP address (`a.b.c.d+0`) is given to the peer device and second IP address (`a.b.c.d+1`) is given to Microsoft device.
+10 Gbps.
 
-## What is MaxPrefixesAdvertisedIPv4 and MaxPrefixesAdvertisedIPv6 parameters in New-AzPeeringDirectConnectionObject cmdlet?
+## When will peering IP addresses be allocated and displayed in the Azure portal?
 
-`MaxPrefixesAdvertisedIPv4` and `MaxPrefixesAdvertisedIPv6` parameters represent the maximum number of IPv4 and IPv6 prefixes a Peer wants Microsoft to accept. These parameters can be modified anytime.
+Our automated process allocates IP addresses and sends the information via email to the PNI requestor after the port is configured on our side. This may take up to a week after the request has been submitted as the port has been cabled before it can be configured.
+
+## What Microsoft routes will be advertised over Peering Service connections?
+
+Microsoft advertises all of Microsoft's public service prefixes over the Peering Service connections. This will ensure not only communications, but other cloud services are accessible from the same connection.

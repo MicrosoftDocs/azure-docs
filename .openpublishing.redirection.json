@@ -22377,6 +22377,11 @@
             "redirect_document_id": "false"
         },
         {
+            "source_path_from_root": "/articles/azure-arc/kubernetes/tutorial-workload-management.md",
+            "redirect_url": "/azure/azure-arc/kubernetes/workload-management",
+            "redirect_document_id": "true"
+        },
+        {
           "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
           "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
           "redirect_document_id": false
