@@ -2,7 +2,7 @@
 title: Develop Python worker extensions for Azure Functions
 description: Learn how to create and publish worker extensions that let you inject middleware behavior into Python functions running in Azure.
 ms.topic: how-to
-ms.date: 6/1/2021
+ms.date: 3/29/2023
 ms.custom: devx-track-python, py-fresh-zinc
 ---
 
@@ -20,9 +20,9 @@ In this tutorial, you'll learn how to:
 
 Before you start, you must meet these requirements:
 
-* [Python 3.6.x or above](https://www.python.org/downloads/release/python-374/). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#python-version).
+* [Python 3.7 or above](https://www.python.org/downloads). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#python-version).
 
-* The [Azure Functions Core Tools](functions-run-local.md#v2), version 3.0.3568 or later.
+* The [Azure Functions Core Tools](functions-run-local.md#v2), version 4.0.5095 or later to support the [v2 Python programming model](./functions-reference-python). Check your version with `func --version`. To learn about updating, see [Azure Functions Core Tools on GitHub](https://github.com/Azure/azure-functions-core-tools).
 
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
@@ -48,7 +48,7 @@ The folder for your extension project should be like the following structure:
 | **.venv/** | (Optional) Contains a Python virtual environment used for local development. |
 | **python_worker_extension/** | Contains the source code of the Python worker extension. This folder contains the main Python module to be published into PyPI. |
 | **setup.py** | Contains the metadata of the Python worker extension package. |
-| **readme.md** | (Optional) Contains the instruction and usage of your extension. This content is displayed as the description in the home page in your PyPI project. |
+| **readme.md** | Contains the instruction and usage of your extension. This content is displayed as the description in the home page in your PyPI project. |
 
 ### Configure project metadata
 
@@ -75,6 +75,19 @@ The `configure` method is customer-facing. In your readme file, you can tell you
 The `pre_invocation_app_level` method is called by the Python worker before the function runs. It provides the information from the function, such as function context and arguments. In this example, the extension logs a message and records the start time of an invocation based on its invocation_id.
 
 Similarly, the `post_invocation_app_level` is called after function execution. This example calculates the elapsed time based on the start time and current time. It also overwrites the return value of the HTTP response.
+
+### Create a readme.md
+
+Create a readme.md file in the root folder of your extension project. This file contains the instruction and usage of your extension. This content is displayed as the description in the home page in your PyPI project.
+
+```markdown
+# Python Worker Extension Timer
+
+In this file, tell your customers when they need to call `Extension.configure()`.
+
+The readme should also document the extension capabilities, possible configuration,
+and usage of your extension.
+```
 
 ## Consume your extension locally
 
