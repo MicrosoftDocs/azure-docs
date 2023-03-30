@@ -46,6 +46,8 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 
 This section describes how to assign a public endpoint to Spring Cloud Gateway and configure its properties.
 
+#### [Azure portal](#tab/Azure-Portal)
+
 To assign an endpoint in the Azure portal, do the following steps:
 
 1. Open your Azure Spring Apps instance.
@@ -56,11 +58,15 @@ After a few minutes, **URL** will show the configured endpoint URL. Save the URL
 
 :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway overview page for an Azure Spring Apps instance with the Assign endpoint buttons highlighted and the configured endpoint URL displayed." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
-You can also use Azure CLI to assign the endpoint, as shown in the following command.
+#### [Azure CLI](#tab/Azure-CLI)
+
+The following command assigns the endpoint.
 
 ```azurecli
 az spring gateway update --assign-endpoint
 ```
+
+---
 
 ## Configure VMware Spring Cloud Gateway metadata
 
@@ -79,7 +85,23 @@ The available metadata options are described in the following table.
 > [!NOTE]
 > The `serverUrl` property is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md).
 
-Use the following command to configure VMware Spring Cloud Gateway metadata properties. You need the endpoint URL obtained from the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
+You can use the Azure portal and the Azure CLI to edit metdata properties.
+
+#### [Azure portal](#tab/Azure-Portal)
+
+To edit metadata in the Azure portal, do these steps:
+
+1. Open your Azure Spring Apps instance.
+1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Overview**.
+1. Select **Configuration**.
+1. Specify values for the properties listed in for **API**.
+1. Select **Save**.
+
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the API section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
+
+#### [Azure CLI](#tab/Azure-CLLI)
+
+Use the following command to configure VMware Spring Cloud Gateway metadata properties. You'll need the endpoint URL obtained from the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
 
 ```azurecli
 az spring gateway update \
@@ -90,9 +112,7 @@ az spring gateway update \
     --allowed-origins "*"
 ```
 
-You can also view or edit these properties in the Azure portal, as shown in the following screenshot.
-
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-configuration.png":::
+---
 
 ## Configure single sign-on (SSO)
 
@@ -107,7 +127,23 @@ VMware Spring Cloud Gateway supports authentication and authorization using sing
 
 To set up SSO with Azure AD, see [How to set up single sign-on with Azure Active Directory for Spring Cloud Gateway and API portal](./how-to-set-up-sso-with-azure-ad.md).
 
-Use the following command to configure SSO properties for VMware Spring Cloud Gateway.
+You can use the Azure portal and the Azure CLI to edit SSO properties.
+
+#### [Azure portal](#tab/Azure-Portal)
+
+To edit SSO properties in the Azure portal, do these steps:
+
+1. Open your Azure Spring Apps instance.
+1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Overview**.
+1. Select **Configuration**.
+1. Specify values for the properties listed in for **SSO**.
+1. Select **Save**.
+
+:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway configuration page for an Azure Spring Apps instance with the Single Sign On section highlighted." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+The following command configures SSO properties for VMware Spring Cloud Gateway.
 
 ```azurecli
 az spring gateway update \
@@ -117,9 +153,7 @@ az spring gateway update \
     --scope <scope>
 ```
 
-You can also view or edit those properties in the Azure portal, as shown in the following screenshot.
-
-:::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Spring Cloud Gateway page with Configuration pane showing including Single Sign On Configuration." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-sso-configuration.png":::
+---
 
 > [!NOTE]
 > VMware Spring Cloud Gateway supports only the authorization servers that support OpenID Connect Discovery protocol. Also, be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
