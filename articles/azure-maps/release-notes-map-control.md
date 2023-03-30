@@ -37,7 +37,7 @@ The preview is available on [npm][3.0.0-preview.6] and CDN.
 
 #### Bug fixes (3.0.0-preview.6)
 
-- Resolved an issue where the first style set request was unauthenticated for AAD authentication.
+- Resolved an issue where the first style set request was unauthenticated for `AAD` authentication.
 
 - Eliminated redundant requests during map initialization and on style changed events.
 
@@ -205,7 +205,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Bug fixes (2.2.6)
 
-- Resolved an issue where the first style set request was unauthenticated for AAD authentication.
+- Resolved an issue where the first style set request was unauthenticated for `AAD` authentication.
 
 - Eliminated redundant requests during map initialization and on style changed events.
 
