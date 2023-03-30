@@ -7,7 +7,7 @@ ms.date: 03/30/2023
 
 # Linter rule - use resource symbol reference
 
-This rule detects sub-optimal uses of the []`reference`](./bicep-functions-resource.md#reference), and [`list`](./bicep-functions-resource.md#list) functions. Instead of invoking these functions, using a resource reference simplifies the syntax and allows Bicep to better understand your deployment dependency graph.
+This rule detects suboptimal uses of the [`reference`](./bicep-functions-resource.md#reference), and [`list`](./bicep-functions-resource.md#list) functions. Instead of invoking these functions, using a resource reference simplifies the syntax and allows Bicep to better understand your deployment dependency graph.
 
 ## Linter rule code
 
