@@ -15,8 +15,6 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Skip Setup Screen
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 The feature enables the option to join a call without passing through the setup screen. It empowers developers to build their communication application using UI Library in a way that users can join a call directly without any user interaction. The feature also provides capability to configure camera and microphone default state. We're providing APIs to turn the camera and microphone on or off so that developers have the capability to configure the default state of the camera and microphone before joining a call.
 
 Learn how to set up the skip setup screen feature correctly in your application.
