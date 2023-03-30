@@ -248,7 +248,7 @@ module.exports = function (context, eventHubMessages) {
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
 
-Here's the powershell code:
+Here's the PowerShell code:
 
 ```powershell
 param($eventHubMessages, $TriggerMetadata)
