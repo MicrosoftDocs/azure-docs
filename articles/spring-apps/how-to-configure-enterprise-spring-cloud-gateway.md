@@ -79,7 +79,7 @@ The available metadata options are described in the following table.
 > [!NOTE]
 > `serverUrl` is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md).
 
-Use the following command to configure VMware Spring Cloud Gateway metadata properties. You will need the endpoint URL obtained from the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
+Use the following command to configure VMware Spring Cloud Gateway metadata properties. You need the endpoint URL obtained from the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
 
 ```azurecli
 az spring gateway update \
@@ -143,7 +143,7 @@ The following steps describe an example of how to implement the function in your
 
 1. Get a route config to route the logout request to your application. For example, see the `Animal Rescue UI Pages` route config in [Azure samples](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/azure/api-route-config.json#L32) on GitHub.
 
-1. Add whatever logout logic you need to the application. At the end, you need to a `GET` request to the to the gateway's `/scg-logout` endpoint as shown in the `return` value for the `getActionButton` method in [Azure samples](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/src/App.js#L84) .
+1. Add whatever logout logic you need to the application. At the end, you need to a `GET` request to the gateway's `/scg-logout` endpoint as shown in the `return` value for the `getActionButton` method in [Azure samples](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/src/App.js#L84) .
 
 > [!NOTE]
 > The value of the redirect parameter must be a valid path on the gateway service instance. You can't redirect to an external URL.
@@ -152,7 +152,7 @@ The following steps describe an example of how to implement the function in your
 
 If you send the `GET` request to the `/scg-logout` endpoint using a `XMLHttpRequest` (XHR), then the `302` redirect could be swallowed and not handled in the response handler. In this case, the user would only be logged out of the SSO session on the gateway service instance and would still have a valid IdP session. The behavior typically seen in this case is that if the user attempts to log in again, they're automatically sent back to the gateway as authenticated from IdP.
 
-You need to have a route configuration to route the logout request to your application, as shown in the following example. This code will make a gateway-only logout SSO session.
+You need to have a route configuration to route the logout request to your application, as shown in the following example. This code makes a gateway-only logout SSO session.
 
 ```java
 const req = new XMLHttpRequest();
@@ -192,7 +192,7 @@ The following table describes the default resource usage:
 
 ## Configure application performance monitoring
 
-To monitor Spring Cloud Gateway, you can configure application performance monitoring (APM). The following tables lists the five types of APM Java agents provided by Spring Cloud Gateway and their required environment variables.
+To monitor Spring Cloud Gateway, you can configure application performance monitoring (APM). The following table lists the five types of APM Java agents provided by Spring Cloud Gateway and their required environment variables.
 
 | Java Agent | Required environment variables |
 | --- | --- |
@@ -212,7 +212,7 @@ For other supported environment variables, see the following sources:
 
 ### Manage APM in Spring Cloud Gateway
 
-You can use the Azure portal or the Azure CLI to set up application performance monitoring (APM) in Spring Cloud Gateway, specifying the types of APM Java agents to use and the corresponding APM environment variables they support.
+You can use the Azure portal or the Azure CLI to set up application performance monitoring (APM) in Spring Cloud Gateway. Specify the types of APM Java agents to use and the corresponding APM environment variables they support.
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -239,7 +239,7 @@ az spring gateway update \
     --secrets <key=value>
 ```
 
-Allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. Using Application Insights as an example, the following command updates the gateway:
+Allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. The following command shows the usage using Application Insights as an example:
 
 ```azurecli
 az spring gateway update \
