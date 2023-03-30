@@ -106,7 +106,7 @@ You can see a list of [all resource metrics supported in Azure Monitor](../azure
 
    :::image type="content" source="./media/monitor/select-cosmosdb-account.png" alt-text="Screenshot shows the Select a resource pane in Metrics.":::
 
-1. Select an Azure Cosmos DB accounts, and choose **Apply**.
+1. Select an Azure Cosmos DB account, and choose **Apply**.
 
 1. Next, select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. For more information about the available metrics, see [Metrics by category](monitor-reference.md). In this example, select **Total request units** and **Avg** as the aggregation value.
 
