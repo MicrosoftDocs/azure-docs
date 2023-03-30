@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Configure OT sensor settings from the Azure portal (Public preview)
 
-After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, you may want to define several settings directly on the OT sensor console, such as [adding local users](manage-users-sensor.md) or [connecting to an on-premises management console](how-to-manage-individual-sensors.md#connect-a-sensor-to-the-management-console).
+After [onboarding](onboard-sensors.md) a new OT network sensor to Microsoft Defender for IoT, you may want to define several settings directly on the OT sensor console, such as [adding local users](manage-users-sensor.md) or [connecting to an on-premises management console](ot-deploy/connect-sensors-to-management.md).
 
 Selected OT sensor settings, listed below, are also available directly from the Azure portal, and can be applied in bulk across multiple cloud-connected OT sensors at a time, or across all OT sensors in a specific site or zone. This article describes how to view and configure view OT network sensor settings from the Azure portal.
 
@@ -19,7 +19,7 @@ Selected OT sensor settings, listed below, are also available directly from the 
 
 To define OT sensor settings, make sure that you have the following:
 
-- **An Azure subscription onboarded to Defender for IoT**. If you need to, [sign up for a free account](https://azure.microsoft.com/free/) and then use the [Quickstart: Get started with Defender for IoT](getting-started.md) to onboard.
+- **An Azure subscription onboarded to Defender for IoT**. If you need to, [sign up for a free account](https://azure.microsoft.com/free/), and then use the [Quickstart: Get started with Defender for IoT](getting-started.md) to onboard.
 
 - **Permissions**:
 
@@ -55,7 +55,7 @@ Your new setting is now listed on the **Sensor settings (Preview)** page under i
 > [!TIP]
 > You may want to configure exceptions to your settings for a specific OT sensor or zone. In such cases, create an extra setting for the exception. 
 > 
-> Settings override eachother in a hierarchical manner, so that if your setting is applied to a specific OT sensor, it overrides any related settings that are applied to the entire zone or site. To create an exception for an entire zone, add a setting for that zone to override any related settings applied to the entire site.
+> Settings override each other in a hierarchical manner, so that if your setting is applied to a specific OT sensor, it overrides any related settings that are applied to the entire zone or site. To create an exception for an entire zone, add a setting for that zone to override any related settings applied to the entire site.
 >
 
 ## View and edit current OT sensor settings
@@ -118,15 +118,15 @@ For a bandwidth cap, define the maximum bandwidth you want the sensor to use for
 
 **Default**: 1500 Kbps
 
-**Minimum required for a stable connection to Azure** 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
+**Minimum required for a stable connection to Azure**: 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
 
 ### Subnet
 
-To define your sensor's subnets do any of the following:
+To define your sensor's subnets, do any of the following:
 
 - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
 
-- Enter values in the **IP Address**, **Mask**,l and **Name** fields to add subnet details manually. Select **Add subnet** to add additional subnets as needed.
+- Enter values in the **IP Address**, **Mask**, and **Name** fields to add subnet details manually. Select **Add subnet** to add more subnets as needed.
 
 ### VLAN naming
 
