@@ -1,0 +1,56 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently Asked Questions #Required; The page title is displayed in search results. Include "FAQ" or "Frequently asked questions".
+  description: FAQ for Azure Code Signing #Required; Article description that's displayed in search results. Use 100 to 160 characters. Include "FAQ" or "Frequently asked questions".
+  author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
+  ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
+  ms.service: azure-code-signing #Required; service per approved list. slug assigned by ACOM.
+  ms.topic: faq #Required
+  ms.date: 03/30/2023 #Required; mm/dd/yyyy format.
+title: #Required. This appears as the headline in the article as displayed.
+summary: |
+  This article includes FAQ about Azure Code Signing. 
+
+# Remove all the comments in this template before you sign-off or merge to the main branch.
+
+# Remember that indentation is significant in YAML files.
+# If there is any disallowed spacing, the build will fail.
+
+sections:
+  - name: Windows OS Support # Name of first section.
+    questions:
+      - question: What OS does Azure Code Signing support? # Question.
+        answer: | 
+          The following [link](https://support.microsoft.com/en-us/topic/kb5022661-windows-support-for-the-azure-code-signing-program-4b505a31-fa1e-4ea6-85dd-6630229e8ef4) outlines in detail Windows support for Azure Code Signing
+          Signing with Azure Code Signing is supported on all currently supported versions of:  
+          *Windows 11 (Supported out of the box) 
+          *Windows 10 - RS5 (Windows 10, Version 1809/ October 2018 Update) or newer 
+          *Windows Server 2019, Windows Server 2016  
+          Files signed by Azure Code Signing’s Public Trust certificates are trusted on:  
+          *Windows Server 2012 R2 (Command line only) 
+          *Windows 8.1 
+          *Windows 7 SP1 ESU - Must install May 2021 update rolls up  
+          *Windows 10 1507  
+          Not Supported 
+          *Windows 7 SP1 non-ESU (Not supported by Microsoft) 
+          *Windows OS version that were already EOL. # Answer.
+          
+      - question: # Question.
+        answer: |
+          A multiline or formatted answer to the question.
+          Use any markdown formatting you want, provided that you maintain the indent
+          on the lines after the | characters.
+
+  - name: # Name of second section. Omit if you only have a few questions. 
+# The first name value is ignored and your questions become H2 level. 
+    questions:
+      - question: # Question.
+        answer: # Answer.
+
+      - question: # Question.
+        answer: # Answer.
+
+additionalContent: |
+    ## Next steps
+
+    To learn more, see [link text](link).

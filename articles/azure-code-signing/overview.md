@@ -1,32 +1,14 @@
 ---
-title: #Required; page title displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
+title: Azure Code Signing Overview #Required; page title is displayed in search results. Include the brand.
+description: Learn how to sign with Azure Code Signing #Required; article description that is displayed in search results. 
+author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
+ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
 ms.topic: overview #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 03/28/2023 #Required; mm/dd/yyyy format.
+ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
-This template provides the basic structure of a Overview article pattern. See the
-[instructions - Overview](../level4/article-overview.md) in the pattern library.
-
-You can provide feedback about this template at: https://aka.ms/patterns-feedback
-
- 1. H1 -----------------------------------------------------------------------------
-
-Required: For the H1 - that's the primary heading at the top of the article - use the format "What
-is <service>?" You can also use this in the TOC if your service name doesn’t cause the phrase to
-wrap.
-
--->
-
-# What is <product/service>? 
-TODO: Add your heading
+# What is Azure Code Signing
 
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
