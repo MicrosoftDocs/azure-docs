@@ -10,7 +10,7 @@ ms.author: allensu
 
 # What is IP address 168.63.129.16?
 
-IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to Azure platform resources. Customers can define any address space for their private virtual network in Azure. Therefore, the Azure platform resources must be presented as a unique public IP address. This virtual public IP address facilitates the following:
+IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to Azure platform resources. Customers can define any address space for their private virtual network in Azure. Therefore, the Azure platform resources must be presented as a unique public IP address. This virtual public IP address facilitates the following operations:
 
 - Enables the VM Agent to communicate with the Azure platform to signal that it is in a "Ready" state.
 
