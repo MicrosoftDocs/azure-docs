@@ -421,4 +421,4 @@ Remove-AzResourceGroup -Name $ResourceGroup -Force
 This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a web front end that calls the API you deployed in this article.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Communication between microservices](comminicate-between-microservices.md)
+> [Tutorial: Communication between microservices](communicate-between-microservices.md)
