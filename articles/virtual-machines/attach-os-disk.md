@@ -198,4 +198,4 @@ $vmList.Name
 ```
 ---
 **Next steps**
-Learn more about [Azure Compute Gallery](azure-dompute-gallery.md).
+Learn more about [Azure Compute Gallery](azure-compute-gallery.md).
