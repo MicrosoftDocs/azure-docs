@@ -149,6 +149,8 @@ __code/score-by-file/batch_driver.py__
 
 One the scoring script is created, it's time to create a batch deployment for it. Follow the following steps to create it:
 
+1. Ensure you have a compute cluster created where we can create the deployment. In this example we are going to use a compute cluster named `gpu-cluster`. Althought is not required, we will GPUs to speed up the processing.
+
 1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `TensorFlow`. Azure Machine Learning already has an environment with the required software installed, so we can reutilize this environment. We are just going to add a couple of dependencies in a `conda.yml` file.
 
    # [Azure CLI](#tab/cli)
@@ -264,7 +266,7 @@ For testing our endpoint, we are going to use a sample of 1000 images from the o
    # [Python](#tab/sdk)
    
    ```python
-   data_path = "/tmp/imagenet-1000"
+   data_path = "data"
    dataset_name = "imagenet-sample-unlabeled"
 
    imagenet_sample = Data(
@@ -419,16 +421,17 @@ On those cases, we may want to perform inference on the entire batch of data. Th
    ml_client.batch_deployments.begin_create_or_update(deployment)
    ```
 
+1. You can use this new deployment with the sample data shown before. Remember that to invoke this deployment you should either indicate the name of the deployment in the invocation method or set it as the default one.
 
 ## Considerations for MLflow models processing images
 
-MLflow models in Batch Endpoints support reading images as input data. Remember that MLflow models don't require a scoring script. Have the following considerations when using them:
+MLflow models in Batch Endpoints support reading images as input data. Since MLflow deployments don't require a scoring script, have the following considerations when using them:
 
 > [!div class="checklist"]
 > * Image files supported includes: `.png`, `.jpg`, `.jpeg`, `.tiff`, `.bmp` and `.gif`.
 > * MLflow models should expect to recieve a `np.ndarray` as input that will match the dimensions of the input image. In order to support multiple image sizes on each batch, the batch executor will invoke the MLflow model once per image file.
 > * MLflow models are highly encouraged to include a signature, and if they do it must be of type `TensorSpec`. Inputs are reshaped to match tensor's shape if available. If no signature is available, tensors of type `np.uint8` are inferred.
-> * For models that include a signature and are expected to handle variable size of images, then include a signature that can guarantee it. For instance, the following signature will allow batches of 3 channeled images. Specify the signature when you register the model with `mlflow.<flavor>.log_model(..., signature=signature)`.
+> * For models that include a signature and are expected to handle variable size of images, then include a signature that can guarantee it. For instance, the following signature example will allow batches of 3 channeled images.
 
 ```python
 import numpy as np
@@ -440,9 +443,13 @@ input_schema = Schema([
   TensorSpec(np.dtype(np.uint8), (-1, -1, -1, 3)),
 ])
 signature = ModelSignature(inputs=input_schema)
+
+(...)
+
+mlflow.<flavor>.log_model(..., signature=signature)
 ```
 
-For more information about how to use MLflow models in batch deployments read [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+You can find a working example in the Jupyter notebook [imagenet-classifier-mlflow.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/deploy-models/imagenet-classifier/imagenet-classifier-mlflow.ipynb). For more information about how to use MLflow models in batch deployments read [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
 
 ## Next steps
 
