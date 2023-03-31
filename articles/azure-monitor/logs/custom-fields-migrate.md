@@ -44,7 +44,7 @@ Start by locating custom fields to replace. If you already know the custom field
 
 1. Note if any data collection rules (DCRs) are associated with given table. 
    
-    - If any DCRs are present in corresponding section, it means that any pre-existing custom fields were either already implemented within these DCRs, or abandoned upon DCR creation. We are going to examine the content of custom fields on the next step of this tutorial and determine whether more updates to DCRs needed.
+    - If any DCRs are present in corresponding section, it means that any pre-existing custom fields were either already implemented within these DCRs, or abandoned upon DCR creation. You're going to examine the content of custom fields on the next step of this tutorial and determine whether more updates to DCRs needed.
     - If there are no data collection rules associated with the table, then all columns in given table with names ending with "_CF" will be custom fields subject to replacement.
 
     :::image type="content" source="media/custom-fields-migrate/manage-table-details.png" alt-text="Screenshot showing the properties of a table including data collection rules associated with the table" lightbox="media/custom-fields-migrate/manage-table-details.png":::
@@ -53,9 +53,9 @@ Start by locating custom fields to replace. If you already know the custom field
 
     :::image type="content" source="media/custom-fields-migrate/custom-columns.png" alt-text="Screenshot showing the column listing for a table including any custom columns" lightbox="media/custom-fields-migrate/custom-columns.png":::
 
-1. Note the names of these columns as we are going to determine their content on the next step.
+1. Note the names of these columns since you'll determine their content in the next step.
 
-## Understanding custom field content
+## Understand custom field content
 Since there is no way to examine the custom field definition directly, you need to query the table to determine the custom field formula.
 
 1. Select **Logs** in the side menu and run a query to get a sample of data from the table.
@@ -74,7 +74,7 @@ You're now ready to create the required KQL snippet and add it to a DCR. This lo
 
 1. Modify the query for the table using KQL to replicate the custom field logic. If you have multiple custom fields to replace, you may combine their calculation logic into a single statement.
 
-    - Use [parse](/azure/data-explorer/kusto/query/parseoperator.md) operator for pattern-based search of a substring within a string.
+    - Use [parse](/azure/data-explorer/kusto/query/parseoperator) operator for pattern-based search of a substring within a string.
     - Use [extract()](/azure/data-explorer/kusto/query/extractfunction) function for regex-based substring search.
     - String functions as [split()](/azure/data-explorer/kusto/query/splitfunction), [substring()](/azure/data-explorer/kusto/query/substringfunction) and [many others](/azure/data-explorer/kusto/query/scalarfunctions#string-functions) may also be useful.
 
@@ -82,7 +82,7 @@ You're now ready to create the required KQL snippet and add it to a DCR. This lo
 
 2. Determine where your new KQL definition of the custom column needs to be placed.
  
-    - For logs collected using [Azure Monitor Agent (AMA)](../../agents/agents-overview.md), [edit the DCR](../../essentials/data-collection-rule-edit.md) collecting data for the table, adding a transformation. For an example, see [Samples](../essentials/data-collection-transformations.md#samples). The transformation query is defined in the `transformKql` element.
+    - For logs collected using [Azure Monitor Agent (AMA)](../agents/agents-overview.md), [edit the DCR](../essentials/data-collection-rule-edit.md) collecting data for the table, adding a transformation. For an example, see [Samples](../essentials/data-collection-transformations.md#samples). The transformation query is defined in the `transformKql` element.
     - For resource logs collected with [diagnostic settings](../essentials/diagnostic-settings.md), add the transformation to the [workspace default DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr). The table must [support transformations](../logs/tables-feature-support.md).
 
 

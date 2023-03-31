@@ -12,7 +12,7 @@ ms.date: 03/31/2023
 # Create custom fields in a Log Analytics workspace in Azure Monitor (Preview)
 
 > [!NOTE]
-> Creation of new custom fields will be disabled starting March 31st, 2023. Custom fields functionality will be deprecated, and existing custom fields will stop functioning by March 31st, 2026. You should [migrate to ingestion-time transformations](custom-fields-migrate.md) to keep parsing your log records.
+> Creation of new custom fields will be disabled starting March 31, 2023. Custom fields functionality will be deprecated, and existing custom fields will stop functioning by March 31, 2026. You should [migrate to ingestion-time transformations](custom-fields-migrate.md) to keep parsing your log records.
 
 > [!IMPORTANT]
 > Custom fields increases the amount of data collected in the Log Analytics workspace which can increase your cost. See [Azure Monitor Logs pricing details](cost-logs.md) for details.
