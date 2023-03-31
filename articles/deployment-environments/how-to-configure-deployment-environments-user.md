@@ -1,7 +1,7 @@
 ---
-title: Provide access to developers
+title: Provide user access to projects for developers
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure access for developers by using the Deployment Environments User built-in role.
+description: Learn how to configure access to projects for developers by using the Deployment Environments User built-in role.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.author: rosemalcolm

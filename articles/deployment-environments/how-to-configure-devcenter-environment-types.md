@@ -1,7 +1,7 @@
 ---
 title: Configure dev center environment types
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure dev center environment types to define environments that your developers can deploy.
+description: Learn how to define dev center level permissions and deployment settings for the environments that developers can deploy.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.author: rosemalcolm

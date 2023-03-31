@@ -1,7 +1,6 @@
 ---
-title: Provide administrative access to Dev Box projects
-titleSuffix: Microsoft Dev Box
-description: Learn how to manage multiple projects by assigning admin permissions and delegating project administration.
+title: Provide administrative access to Microsoft Dev Box projects
+description: Learn how to manage multiple Dev Box projects by assigning admin permissions and delegating project administration.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM

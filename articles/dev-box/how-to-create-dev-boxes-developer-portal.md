@@ -1,5 +1,5 @@
 ---
-title: Create and configure a dev box by using the developer portal
+title: Create & configure a dev box by using the developer portal
 titleSuffix: Microsoft Dev Box
 description: Learn how to create, delete, and connect to Microsoft Dev Box Preview dev boxes by using the developer portal.
 services: dev-box

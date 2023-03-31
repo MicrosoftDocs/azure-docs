@@ -10,7 +10,7 @@ author: RoseHJM
 ms.date: 10/12/2022
 ---
 
-# Key concepts for new Azure Deployment Environments Preview
+# Key concepts for Azure Deployment Environments Preview
 
 Learn about the key concepts and components of Azure Deployment Environments Preview. This knowledge can help you more effectively deploy environments for your scenarios.
 

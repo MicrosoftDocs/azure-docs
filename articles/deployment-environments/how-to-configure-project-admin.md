@@ -1,7 +1,7 @@
 ---
-title: Provide access for dev managers to projects
+title: Provide administrative access to projects
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure access for dev managers by using the DevCenter Project Admin built-in role.
+description: Learn how to configure administrative access for dev managers by using the DevCenter Project Admin built-in role.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.author: rosemalcolm

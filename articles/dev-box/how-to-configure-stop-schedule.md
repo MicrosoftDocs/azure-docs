@@ -1,5 +1,5 @@
 ---
-title: Set an auto-stop schedule for dev boxes
+title: Set a dev box auto-stop schedule
 titleSuffix: Microsoft Dev Box
 description: Learn how to configure an auto-stop schedule to automatically shutdown dev boxes in a pool at a specified time.
 services: dev-box

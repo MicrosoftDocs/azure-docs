@@ -30,7 +30,7 @@ items:
       href: how-to-project-admin.md
     - name: Provide access to dev box users
       href: how-to-dev-box-user.md
-    - name: Configure an Azure Compute Gallery
+    - name: Configure an Azure compute gallery
       href: how-to-configure-azure-compute-gallery.md
     - name: Manage a dev center
       href: how-to-manage-dev-center.md
