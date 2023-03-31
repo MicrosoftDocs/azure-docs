@@ -15,8 +15,6 @@ ms.subservice: email
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services Email events. After subscribing to Email events such as delivery reports and engagement reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

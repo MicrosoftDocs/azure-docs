@@ -76,10 +76,10 @@ Sending a high volume of messages has a set of limitations on the number of emai
 
 |Operation|Scope|Timeframe (minutes)| Limit (number of emails) |
 |---------|-----|-------------|-------------------|
-|Send Email|Per Subscription|1|10|
-|Send Email|Per Subscription|60|25|
-|Get Email Status|Per Subscription|1|20|
-|Get Email Status|Per Subscription|60|50|
+|Send Email|Per Subscription|1|30|
+|Send Email|Per Subscription|60|100|
+|Get Email Status|Per Subscription|1|60|
+|Get Email Status|Per Subscription|60|200|
 
 ### Size Limits
 

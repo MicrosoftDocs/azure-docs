@@ -9,11 +9,8 @@ ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Best practices for sender authentication support in Azure Communication Services Email
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This article provides the Email Sending best practices on DNS records and  how to use the sender authentication methods that help prevent attackers from sending messages that look like they come from your domain.
 
