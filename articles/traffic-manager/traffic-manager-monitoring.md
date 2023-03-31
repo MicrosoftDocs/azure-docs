@@ -114,7 +114,7 @@ The timeline in the following figure is a detailed description of the monitoring
 * Timeout value is 10 seconds.
 * DNS TTL is 30 seconds.
 
-:::image type="content" source="./media/traffic-manager-monitoring/timeline.png" alt-text="Traffic Manager endpoint failover and failback sequence.":::
+:::image type="content" source="./media/traffic-manager-monitoring/timeline.png" alt-text="Screenshot of Traffic Manager endpoint failover and failback sequence.":::
 **Figure:  Traffic manager endpoint failover and recovery sequence**
 
 1. **GET**. For each endpoint, the Traffic Manager monitoring system does a GET request on the path specified in the monitoring settings.
