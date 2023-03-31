@@ -101,7 +101,7 @@ Content-Type: application/json
 
 ## Known issue
 
-[FIDO2 security keys](../develop/support-fido2-authentication.md#mobile) and [certificate-based authentication (CBA)](concept-certificate-based-authentication.md) on mobile devices aren't supported due to an issue that might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys or CBA on mobile devices. To disable system-preferred MFA for these users, you can either add them to an excluded group or remove them from an included group.
+[FIDO2 security keys](../develop/support-fido2-authentication.md#mobile) on mobile devices and [registration for certificate-based authentication (CBA)](concept-certificate-based-authentication.md) aren't supported due to an issue that might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on mobile devices or registering for CBA. To disable system-preferred MFA for these users, you can either add them to an excluded group or remove them from an included group.
 
 ## Common questions
 
