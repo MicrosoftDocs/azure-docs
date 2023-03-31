@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/07/2022
+ms.date: 03/30/2023
 ms.author: saraic
-ms.reviewer: cynthn
+ms.reviewer: cynthn, mattmcinnes
 ms.custom: template-how-to
 ms.devlang: azurecli
 ---
@@ -23,7 +23,7 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 > [!IMPORTANT]
 > Azure Compute Gallery – community galleries is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> To publish a community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). It will take up to 10 business days after submitting the form to approve the feature. Creating VMs from the community gallery is open to all Azure users.
+> To publish a community gallery, you'll need to [set up preview features in your Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) and set up 'CommunityGallery'. Creating VMs from community gallery images is open to all Azure users. 
 > 
 > During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
 > 
@@ -75,6 +75,20 @@ Information from your image definitions will also be publicly available, like wh
 > If you want to stop sharing a gallery publicly, you can update the gallery to stop sharing, but making the gallery private will prevent existing virtual machine scale set users from scaling their resources.
 >
 > If you stop sharing your gallery during the preview, you won't be able to re-share it.
+
+## Reporting issues with a public image 
+Utilizing community-submitted virtual machine images has several risks. Certain images could harbor malware, security vulnerabilities, or violate someone's intellectual property. To help create a secure and reliable experience for the community, you can report images in which you see these issues.
+
+### Reporting images through the Azure portal:
+Selecting a community image will show several "Report" options. You can report the whole image, or report a specific version if previous versions were unaffected by the issue you encountered.
+
+:::image type="content" source="media/shared-image-galleries/report-options.png" alt-text="Screenshot showing the Report button for malicious images.":::
+
+### Reporting images externally:
+- Malicious images: Contact [Abuse Report](https://msrc.microsoft.com/report/abuse).
+
+- Intellectual Property violations: Contact [Infringement Report](https://msrc.microsoft.com/report/infringement).
+ 
 
 ## Start sharing publicly
 
