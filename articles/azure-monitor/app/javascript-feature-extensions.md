@@ -117,8 +117,8 @@ If you want to set the authenticated user context:
     > [!TIP]
     > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 3. When the tag `parentDataTag` is set, the rules for this tag are as follows:
-    1. If the parent parentid/name attributes of the clicked HTML element are valid, the plug-in fetches those attributes.
-    1. If parent parentid/name attributes of the clicked HTML element aren’t set, the plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
+    1. If the clicked HTML element already has valid parentid/name attributes, the plug-in fetches those attributes directly.
+    1. If parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
         
        If no such element exists, the plug-in fetches the closest parent element `data-id` or `customDataPrefix-id` of the clicked HTML element.
 
