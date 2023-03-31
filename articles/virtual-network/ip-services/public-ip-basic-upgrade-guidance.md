@@ -4,6 +4,7 @@ description: Overview of upgrade options and guidance for migrating basic public
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurecli
 ms.author: allensu
 ms.topic: overview
 ms.date: 09/19/2022
