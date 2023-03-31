@@ -29,10 +29,14 @@ After system-preferred MFA is enabled, the authentication system does all the wo
 
 ## Enable system-preferred MFA in the Azure portal
 
-1. In the Azure portal, click **Security** > **Authentication methods** > **Settings**.
-1. For **System-preferred multifactor authentication**, select if you want to explicitly enable or disable the feature, and choose whether to include or exclude any users. By default, system-preferred MFA is Microsoft managed disabled for all users. For example, the following screenshot shows how to apply system-preferred MFA to only the Engineering group:
+By default, system-preferred MFA is Microsoft managed and disabled for all users. 
 
-   :::image type="content" border="true" source="./media/concept-system-preferred-multifactor-authentication.md/enable.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
+1. In the Azure portal, click **Security** > **Authentication methods** > **Settings**.
+1. For **System-preferred multifactor authentication**, choose whether to explicitly enable or disable the feature, and include or exclude any users. Excluded groups take precedence over include groups. 
+
+   For example, the following screenshot shows how to make system-preferred MFA explicitly enabled for only the Engineering group. 
+
+   :::image type="content" border="true" source="./media/concept-system-preferred-multifactor-authentication/enable.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
 
 1. After you finish making any changes, click **Save**. 
 
@@ -98,6 +102,7 @@ Content-Type: application/json
 ## Known issues
 
 - [FIDO2 security key isn't supported on mobile devices](../develop/support-fido2-authentication.md#mobile). This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on mobile devices. 
+- [CBA] has same issue. so if a users can't locate cert, the user will be prompt for CBA. to disable for that user, put the user in exclude group. or remove tne user from the included group. if in both exclude takes precedence. 
 
 ## Common questions
 
