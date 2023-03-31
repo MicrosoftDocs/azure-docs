@@ -10,7 +10,9 @@ items:
     href: whats-new.md
   - name: Packet core release notes
     items:
-    - name: 2302 - Current
+    - name: 2303 - Current
+      href: azure-private-5g-core-release-notes-2303.md  
+    - name: 2302
       href: azure-private-5g-core-release-notes-2302.md
     - name: 2301
       href: azure-private-5g-core-release-notes-2301.md
@@ -20,7 +22,7 @@ items:
       href: azure-private-5g-core-release-notes-2210.md
     - name: 2209
       href: azure-private-5g-core-release-notes-2209.md
-    - name: 2208 
+    - name: 2208
       href: azure-private-5g-core-release-notes-2208.md
   - name: Packet core and Azure Stack Edge compatibility
     href: azure-stack-edge-packet-core-compatibility.md
@@ -45,7 +47,7 @@ items:
   - name: Default service and SIM policy
     href: default-service-sim-policy.md
   - name: Monitor Azure Private 5G Core using Log Analytics
-    href: monitor-private-5g-core-with-log-analytics.md  
+    href: monitor-private-5g-core-with-log-analytics.md
   - name: Local monitoring tools
     items:
     - name: Distributed tracing
@@ -56,7 +58,7 @@ items:
     href: reliability-private-5g-core.md
   - name: Security
     href: security.md
-  - name: Azure Stack Edge disconnects 
+  - name: Azure Stack Edge disconnects
     href: azure-stack-edge-disconnects.md
 - name: How-to guides
   items:
@@ -81,11 +83,11 @@ items:
   - name: Sites
     items:
     - name: Collect the required information for a site
-      href: collect-required-information-for-a-site.md    
+      href: collect-required-information-for-a-site.md
     - name: Create a site - Azure portal
       href: create-a-site.md
     - name: Create a site - ARM template
-      href: create-site-arm-template.md    
+      href: create-site-arm-template.md
     - name: Create additional Packet Core instances for a site - Azure portal
       href: create-additional-packet-core.md
     - name: Modify a service plan

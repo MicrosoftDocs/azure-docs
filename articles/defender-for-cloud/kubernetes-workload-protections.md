@@ -26,9 +26,9 @@ Microsoft Defender for Cloud includes a bundle of recommendations that are avail
 
 ## Enable Kubernetes data plane hardening
 
-When you enable Microsoft Defender for Containers, Azure Kubernetes Service clusters, and Azure Arc enabled Kubernetes clusters (Preview) protection are both enabled by default. You can configure your Kubernetes data plane hardening, when you enable Microsoft Defender for Containers.
+When you enable Microsoft Defender for Containers, the "Azure Policy for Kubernetes" setting is enabled by default for the Azure Kubernetes Service, and for Azure Arc-enabled Kubernetes clusters in the relevant subscription. If you disable the setting, you can re-enable it later. Either in the Defender for Containers plan settings, or with  Azure Policy.
 
-When you enable data plane hardening, the containers agent installed on each resource allocates a small amount of the AKS cluster CPU and memory for the agent to use. That allocation usually runs at maximum capacity, but does not affect the rest of the CPU and memory on the resource.
+When you enable this setting, the Azure Policy for Kubernetes pods are installed on the cluster. This allocates a small amount of CPU and memory for the pods to use. This allocation might reach maximum capacity, but it doesn't affect the rest of the CPU and memory on the resource.
 
 To enable Azure Kubernetes Service clusters and Azure Arc enabled Kubernetes clusters (Preview):
 
