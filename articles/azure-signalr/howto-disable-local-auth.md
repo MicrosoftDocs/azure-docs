@@ -13,13 +13,13 @@ ms.topic: conceptual
 
 There are two ways to authenticate to Azure SignalR Service resources: Azure Active Directory (Azure AD) and Access Key. Azure AD provides superior security and ease of use over access key. With Azure AD, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Azure AD with your Azure SignalR Service resources when possible.
 
-## Use Azure Portal
+## Use Azure portal
 
 In this section, you will learn how to use the Azure portal to disable local authentication.
 
 1. Navigate to your SignalR Service resource in the [Azure portal](https://portal.azure.com).
 
-2. in the **Settings** section of the menu sidebar, select **Keys** blade.
+2. in the **Settings** section of the menu sidebar, select **Keys** tab.
 
 3. Select **Disabled** for local authentication.
 
