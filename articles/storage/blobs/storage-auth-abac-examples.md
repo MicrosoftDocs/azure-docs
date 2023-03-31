@@ -1374,10 +1374,9 @@ The condition can be added to a role assignment using either the Azure portal or
 > [!NOTE]
 > Without the last expression in this sample, access to all other containers not named `container1` will fail.
 
-
 #### [Portal: Visual editor](#tab/azure-portal-visual-editor)
 
-Here are the settings to add this condition using the Azure portal.
+Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
 > [!div class="mx-tableFixed"]
 > | Condition | Component | Group | Setting | Value |
@@ -1410,7 +1409,7 @@ The following image shows the condition after the settings have been entered int
 
 Choose one of the condition code samples below, depending on the role associated with the assignment.
 
-**Storage Blob Data Owner**
+**Storage Blob Data Owner:**
 
 ```
 (
@@ -1438,7 +1437,7 @@ Choose one of the condition code samples below, depending on the role associated
 )
 ```
 
-**Storage Blob Data Contributor**
+**Storage Blob Data Contributor:**
 
 ```
 (
@@ -1522,11 +1521,55 @@ A truth table for this ABAC sample condition follows:
 | Read a blob | (none)                | Yes          | Allowed     |
 | Read a blob | (none)                | No           | Allowed     |
 
+There are two potential actions for reading existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include one of the following actions.
+
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+
+> [!NOTE]
+> The last two expressions in the above condition allow users to read blobs from the public internet that have `sensitivity` set to some value other than *high*, or where the index tag is not applied to the blob.
+> The `Exists` operator is not supported in the visual ABAC condition builder for the tags attribute. To add the last expression, switch to the **Code** condition editor in the ABAC condition builder.
+
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+
+Here are the settings to add this condition using the visual condition editor in the Azure portal.
+
+> [!div class="mx-tableFixed"]
+> | Condition | Component | Group | Setting | Value |
+> | --- | --- | - | - | - |
+> | Condition #1 | | | | |
+> | | Actions | | | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
+> | | Expressions | | | |
+> | | | Group #1 | | |
+> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | | | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | | | | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | | | Value | `container1` |
+> | | | | Logical operator | 'AND' |
+> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | | | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
+> | | | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | | | Value | `privateendpoint1` |
+> | | | End of Group #1 | | |
+> | | | | Logical operator | 'OR' |
+> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | | | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | | | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
+> | | | | Value | `container1` |
+
+The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
+
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
+
+> [!IMPORTANT]
+> The expression in the red box needs to be added from the code section of the ABAC condition builder.
+
+#### [Portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
  ( 
@@ -1541,51 +1584,47 @@ A truth table for this ABAC sample condition follows:
    @Environment[isPrivateLink] BoolEquals true 
   ) 
   OR 
-  NOT @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high' 
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' 
   OR 
   NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] 
  ) 
 ) 
 ```
 
-> [!NOTE]
-> The last two expressions in the above condition allow users to read blobs from the public internet that have `sensitivity` set to some value other than *high*, or where the index tag is not applied to the blob.
-> The `Exists` operator is not supported in the visual ABAC condition builder for the tags attribute. To add the last expression, switch to the **Code** condition editor in the ABAC condition builder.
+#### [PowerShell](#tab/azure-powershell)
 
-#### Azure portal
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
 
-Here are the settings to add this condition using the Azure portal.
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userObjectID = "<user object id>"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-> [!div class="mx-tableFixed"]
-> | Condition #1 | Setting |
-> | --- | --- |
-> | Actions | [Read a blob conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
-> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Option | Attribute |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | Key | &lt;key&gt; |
+$condition = `
+"( `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+) `
+OR `
+( `
+    ( `
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
+        AND `
+        @Environment[isPrivateLink] BoolEquals true `
+    ) `
+    OR `
+    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+    OR `
+    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+)"
 
-> [!div class="mx-tableFixed"]
-> | Condition #2 | Setting |
-> | --- | --- |
-> | Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
-> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Option | Attribute |
-> | Attribute source | Request |
-> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | Key | &lt;key&gt; |
-
-The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
-
-(image)
-
-> [!IMPORTANT]
-> The expression in the red box needs to be added from the code section of the ABAC condition builder.
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
 
 ### Example: Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access
 
