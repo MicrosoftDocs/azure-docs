@@ -9,11 +9,8 @@ ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Email pricing in Azure Communication Services
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Prices for Azure Communication Services are generally based on a pay-as-you-go model and Email offers pay-as-you-go pricing as well. The prices in the following examples are for illustrative purposes and may not reflect the latest Azure pricing.
 

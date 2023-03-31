@@ -8,7 +8,6 @@ ms.author: natekimball
 ms.date: 03/03/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 
 

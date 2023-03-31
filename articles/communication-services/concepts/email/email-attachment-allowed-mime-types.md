@@ -9,7 +9,6 @@ ms.author: natekimball
 ms.date: 03/24/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 
 # Allowed attachment types for sending email in Azure Communication Services Email

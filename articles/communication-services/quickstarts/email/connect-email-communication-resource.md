@@ -9,11 +9,8 @@ ms.author: bashan
 ms.date: 04/15/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Quickstart: How to connect a verified email domain with Azure Communication Service resource
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quick start, you'll learn about how to connect a verified domain in Azure Communication Services to send email.
 
