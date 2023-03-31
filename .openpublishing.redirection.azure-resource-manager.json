@@ -1912,7 +1912,7 @@
         },
         {
           "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-poweshell-sample-create-application.md",
-          "redirect_url": "/azure-resource-manager/managed-applications/deploy-service-catalog-quickstart",
+          "redirect_url": "/azure/azure-resource-manager/managed-applications/deploy-service-catalog-quickstart",
           "redirect_document_id": false
         },
         {
