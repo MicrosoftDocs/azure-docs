@@ -16,6 +16,31 @@ This document contains information about new features and other changes to the M
 
 ## v3 (preview)
 
+### [3.0.0-preview.6] (March 31, 2023)
+
+#### Installation (3.0.0-preview.6)
+
+The preview is available on [npm][3.0.0-preview.6] and CDN.
+
+- **NPM:** Refer to the instructions at [azure-maps-control@3.0.0-preview.6][3.0.0-preview.6]
+
+- **CDN:** Reference the following CSS and JavaScript in the `<head>` element of an HTML file:
+
+    ```html
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.6/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3.0.0-preview.6/atlas.min.js"></script>
+    ```
+
+#### New features (3.0.0-preview.6)
+
+- Optimized the internal style transform performance.
+
+#### Bug fixes (3.0.0-preview.6)
+
+- Resolved an issue where the first style set request was unauthenticated for `AAD` authentication.
+
+- Eliminated redundant requests during map initialization and on style changed events.
+
 ### [3.0.0-preview.5] (March 15, 2023)
 
 #### Installation (3.0.0-preview.5)
@@ -176,6 +201,14 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2 (latest)
 
+### [2.2.6]
+
+#### Bug fixes (2.2.6)
+
+- Resolved an issue where the first style set request was unauthenticated for `AAD` authentication.
+
+- Eliminated redundant requests during map initialization and on style changed events.
+
 ### [2.2.5]
 
 #### New features (2.2.5)
@@ -241,11 +274,13 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.0.0-preview.6]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.6
 [3.0.0-preview.5]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.5
 [3.0.0-preview.4]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.4
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.2.6]: https://www.npmjs.com/package/azure-maps-control/v/2.2.6
 [2.2.5]: https://www.npmjs.com/package/azure-maps-control/v/2.2.5
 [2.2.4]: https://www.npmjs.com/package/azure-maps-control/v/2.2.4
 [2.2.3]: https://www.npmjs.com/package/azure-maps-control/v/2.2.3
