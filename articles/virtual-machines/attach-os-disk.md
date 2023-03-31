@@ -197,5 +197,5 @@ $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 ---
-## Next steps
-[Azure Compute Gallery]()
+**Next steps**
+Learn more about [Azure Compute Gallery](azure-dompute-gallery.md).
