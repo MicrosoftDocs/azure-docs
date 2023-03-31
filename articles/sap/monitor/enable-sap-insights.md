@@ -42,7 +42,7 @@ To enable Insights for Azure Monitor for SAP solutions, you need to:
 > [!Important]
 > To run this script succesfully, ensure you have Contributor + User Access Admin or Owner access on all subscriptions in the list. See steps to assign Azure roles.
 1. Download the onboarding script [from github](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/blob/main/Scripts/AMS_AIOPS_SETUP.ps1)
-2. Go to the Azure portal and select the Cloud Shell tab from the menu bar at the top. Refer [this guide](/articles/cloud-shell/quickstart) to get started with Cloud Shell. 
+2. Go to the Azure portal and select the Cloud Shell tab from the menu bar at the top. Refer [this guide](../../cloud-shell/quickstart) to get started with Cloud Shell. 
 3. Switch from Bash to PowerShell.
 4. Upload the script downloaded in the first step.
 5. Navigate to the folder where the script is present using the command:
