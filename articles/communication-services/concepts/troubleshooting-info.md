@@ -6,7 +6,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 11/30/2021
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---

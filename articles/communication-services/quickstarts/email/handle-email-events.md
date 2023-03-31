@@ -6,7 +6,7 @@ author: anmolbohra
 manager: komivi.agbakpem
 services: azure-communication-services
 ms.author: anmolbohra
-ms.date: 07/09/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: email

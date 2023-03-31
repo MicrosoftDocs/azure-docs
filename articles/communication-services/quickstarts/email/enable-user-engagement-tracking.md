@@ -6,7 +6,7 @@ author: bashan-git
 manager: sundraman
 services: azure-communication-services
 ms.author: bashan
-ms.date: 02/15/2023
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---

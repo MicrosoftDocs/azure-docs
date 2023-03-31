@@ -7,7 +7,7 @@ manager: shahen
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 02/28/2023
+ms.date: 03/31/2023
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: data
