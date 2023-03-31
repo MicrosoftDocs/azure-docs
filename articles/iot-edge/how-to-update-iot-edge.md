@@ -264,10 +264,10 @@ Now that the latest IoT Edge service is running on your devices, you also need t
 
 You can view logs of your system at any time by running the following commands from your device. 
 
-* To view configuration and connectivity checks, run:
+* Start troubleshooting using the [check](troubleshoot.md#run-the-check-command) command. It runs a collection of configuration and connectivity tests for common issues.
 
   ```bash
-  sudo iotedge check
+  sudo iotedge check --verbose
   ```
 
 * To view the status of the IoT Edge system, run:
