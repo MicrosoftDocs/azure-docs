@@ -1,6 +1,6 @@
 ---
 
-title: Audit logs in Azure Active Directory | Microsoft Docs
+title: Audit logs in Azure Active Directory
 description: Overview of the audit logs in Azure Active Directory.
 services: active-directory
 author: shlipsey3

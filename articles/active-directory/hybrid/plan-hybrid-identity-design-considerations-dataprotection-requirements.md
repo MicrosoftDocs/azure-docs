@@ -1,5 +1,5 @@
 ---
-title: Hybrid identity design - data protection requirements Azure | Microsoft Docs
+title: Hybrid identity design - data protection requirements Azure
 description: When planning your hybrid identity solution, identify the data protection requirements for your business and which options are available to best fulfill these requirements.
 documentationcenter: ''
 services: active-directory

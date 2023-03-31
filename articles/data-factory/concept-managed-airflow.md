@@ -43,7 +43,7 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 - **Azure integration** – Azure Data Factory Managed Airflow supports open-source integrations with Azure Data Factory pipelines, Azure Batch, Azure Cosmos DB, Azure Key Vault, ACI, ADLS Gen2, Azure Kusto, as well as hundreds of built-in and community-created operators and sensors.
 
 ## Architecture
-   :::image type="content" source="media/concept-managed-airflow/architecture.png" alt-text="Screenshot shows architecture in Managed Airflow.":::
+   :::image type="content" source="media/concept-managed-airflow/architecture.png" lightbox="media/concept-managed-airflow/architecture.png" alt-text="Screenshot shows architecture in Managed Airflow.":::
 
 ## Region availability (public preview)
 
@@ -75,6 +75,15 @@ Apache Airflow integrates with Microsoft Azure services through microsoft.azure 
 You can install any provider package by editing the airflow environment from the Azure Data Factory UI. It takes around a couple of minutes to install the package.
 
    :::image type="content" source="media/concept-managed-airflow/airflow-integration.png" lightbox="media/concept-managed-airflow/airflow-integration.png" alt-text="Screenshot shows airflow integration.":::
+
+## Limitations
+
+* Managed Airflow in other regions will be available by GA (Tentative GA is Q2 2023 ).
+* Data Sources connecting through airflow should be publicly accessible. 
+* Blob Storage behind VNet are not supported during the public preview (Tentative GA is Q2 2023
+* DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported.
+* Azure Key Vault is not supported in LinkedServices to import dags.(Tentative GA is Q2 2023)
+* Airflow supports officially Blob Storage and ADLS with some limitations.
 
 ## Next steps
 

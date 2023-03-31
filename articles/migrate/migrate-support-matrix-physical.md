@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 03/21/2023
 ms.custom: engagement-fy23
 ---
 
@@ -31,7 +31,7 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 **Physical server deployment:** The physical server can be standalone or deployed in a cluster.
 
 **Type of servers:** Bare metal servers, virtualized servers running on-premises or other clouds like AWS, GCP, Xen etc.
->[!Note]
+> [!Note]
 > Currently, Azure Migrate does not support the discovery of para-virtualized servers.
 
 **Operating system:** All Windows and Linux operating systems can be assessed for migration.
@@ -65,7 +65,7 @@ For Linux servers, based on the features you want to perform, you can create a u
 
 ### Option 1
 - You need a sudo user account on the servers that you want to discover. Use this account to pull configuration and performance metadata, perform software inventory (discovery of installed applications) and enable agentless dependency analysis using SSH connectivity.
-- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
+- You need to enable sudo access on /usr/bin/bash to execute the commands listed [here](discovered-metadata.md#linux-server-metadata). In addition to these commands, the user account also needs to have permissions to execute ls and netstat commands to perform agentless dependency analysis.
 - Make sure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - Azure Migrate supports the following Linux OS distributions for discovery using an account with sudo access:
 
@@ -142,13 +142,30 @@ Support | Details
 **SQL Server access** | Azure Migrate requires a Windows user account that is a member of the sysadmin server role.
 **SQL Server versions** | SQL Server 2008 and later are supported.
 **SQL Server editions** | Enterprise, Standard, Developer, and Express editions are supported.
-**Supported SQL configuration** | Currently, only discovery for standalone SQL Server instances and corresponding databases is supported.
+**Supported SQL configuration** | Discovery of standalone, highly available, and disaster protected SQL deployments is supported. Discovery of HADR SQL deployments powered by Always On Failover Cluster Instances and Always On Availability Groups is also supported.
 **Supported SQL services** | Only SQL Server Database Engine is supported. <br /><br /> Discovery of SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS) isn't supported.
 
 > [!NOTE]
 > By default, Azure Migrate uses the most secure way of connecting to SQL instances i.e. Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. 
 >
 > However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance.[Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+
+## Web apps discovery requirements
+
+[Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have a web server installed, Azure Migrate discovers web apps on the server.
+The user can add both domain and non-domain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Migrate automatically maps credentials to the respective servers, so one doesn’t have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
+After the appliance is connected, it gathers configuration data for ASP.NET web apps(IIS web server) and Java web apps(Tomcat servers). Web apps configuration data is updated once every 24 hours.
+
+Support | ASP.NET web apps | Java web apps
+--- | --- | ---
+**Stack** | VMware, Hyper-V, and Physical servers | VMware, Hyper-V, and Physical servers
+**Windows servers** | Windows Server 2008 R2 and later are supported. | Not supported.
+**Linux servers** | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. 
+**Web server versions** | IIS 7.5 and later. | Tomcat 8 or later.
+**Required privileges** | local admin | root or sudo user 
+
+> [!NOTE]
+> Data is always encrypted at rest and during transit.
 
 ## Dependency analysis requirements (agentless)
 
@@ -173,7 +190,7 @@ Support | Details
 --- | ---
 **Before deployment** | You should have a project in place, with the Azure Migrate: Discovery and assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 **Azure Government** | Dependency visualization isn't available in Azure Government.
-**Log Analytics** | Azure Migrate uses the [Service Map](../azure-monitor/vm/service-map.md) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with a project. The workspace for a project can't be modified after it's added. <br/><br/> The workspace must be in the same subscription as the project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br/><br/> The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
+**Log Analytics** | Azure Migrate uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with a project. The workspace for a project can't be modified after it's added. <br/><br/> The workspace must be in the same subscription as the project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br/><br/> The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
 **Required agents** | On each server you want to analyze, install the following agents:<br/><br/> The [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md).<br/> The [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md).<br/><br/> If on-premises servers aren't connected to the internet, you need to download and install Log Analytics gateway on them.<br/><br/> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
 **Log Analytics workspace** | The workspace must be in the same subscription a project.<br/><br/> Azure Migrate supports workspaces residing in the East US, Southeast Asia, and West Europe regions.<br/><br/>  The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> The workspace for a project can't be modified after adding it.
 **Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the project).<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the project is deleted, the workspace isn't deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA - 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project since existing workspaces before GA are still chargeable.

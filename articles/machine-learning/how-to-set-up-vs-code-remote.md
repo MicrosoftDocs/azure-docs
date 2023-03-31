@@ -24,6 +24,8 @@ There are two ways you can connect to a compute instance from Visual Studio Code
 * Remote compute instance. This option provides you with a full-featured development environment for building your machine learning projects.
 * Remote Jupyter Notebook server. This option allows you to set a compute instance as a remote Jupyter Notebook server.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## Configure a remote compute instance
 
 To configure a remote compute instance for development, you'll need a few prerequisites.

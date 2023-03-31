@@ -4,11 +4,10 @@ description: Learn more about how the virtual machine resource is defined in an 
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Virtual machines in an Azure Resource Manager template

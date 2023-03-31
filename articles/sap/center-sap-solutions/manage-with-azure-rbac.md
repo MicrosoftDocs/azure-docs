@@ -33,7 +33,10 @@ There are [Azure built-in roles](../../role-based-access-control/built-in-roles.
 - The **Azure Center for SAP solutions reader** role has permissions to view all VIS resources.
 
 > [!NOTE]
-> If you're creating a new user-assigned managed identity when you deploy a new SAP system or register an existing system, the user must also have the **Managed Identity Contributor** role. This role is required to make role assignments to a user-assigned managed identity.
+> To use an existing user-assigned managed identity for deploying a new SAP system or registering an existing system, the user must also have the **Managed Identity Operator** role. This role is required to assign a user-assigned managed identity to the Virtual Instance for SAP solutions resource.
+
+> [!NOTE]
+> If you're creating a new user-assigned managed identity when you deploy a new SAP system or register an existing system, the user must also have the **Managed Identity Contributor** and **Managed Identity Operator** roles. These roles are required to create a user-assigned identity, make necessary role assignments to it and assign it to the VIS resource.
 
 ## Deploy infrastructure for new SAP system
 
@@ -42,6 +45,7 @@ To deploy infrastructure for a new SAP system, a *user* and *user-assigned manag
 | Built-in roles for *users* | 
 | ------------------------- |
 | **Azure Center for SAP solutions administrator** |
+| **Managed Identity Operator** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
@@ -182,10 +186,15 @@ To register an existing SAP system and manage that system with Azure Center for 
 | Built-in roles for *users* | 
 | ------------------------- |
 | **Azure Center for SAP solutions administrator** |
+| **Managed Identity Operator** |
 
 | Minimum permissions for *users* |
 | ------------------------------- |
-| `Microsoft.Workloads/sapVirtualInstances/write` |
+| `Microsoft.Workloads/sapvirtualInstances/*/read` |
+| `Microsoft.Workloads/sapVirtualInstances/*/write` |
+| `Microsoft.Workloads/Locations/*/read` |
+| `Microsoft.Resources/subscriptions/resourceGroups/read` |
+| `Microsoft.Resources/subscriptions/read` |
 | `Microsoft.Compute/virtualMachines/read` |
 
 | Built-in roles for *user-assigned managed identities* |
@@ -209,6 +218,11 @@ To register an existing SAP system and manage that system with Azure Center for 
 | `Microsoft.Network/networkInterfaces/ipconfigurations/read` |
 | `Microsoft.Network/virtualNetworks/read` |
 | `Microsoft.Network/virtualNetworks/subnets/read` |
+| `Microsoft.Resources/subscriptions/resourceGroups/write` |
+| `Microsoft.Resources/subscriptions/resourceGroups/read` |
+| `Microsoft.Resources/subscriptions/read` |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` |
+| `Microsoft.Resources/tags/*` |
 
 ## View VIS resources 
 

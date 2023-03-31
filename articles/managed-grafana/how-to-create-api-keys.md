@@ -4,7 +4,7 @@ description: Learn how to generate and manage Grafana API keys, and start making
 author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 ms.topic: how-to 
 ms.date: 11/17/2022
 ---
