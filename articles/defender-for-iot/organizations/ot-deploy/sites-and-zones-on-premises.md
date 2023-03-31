@@ -1,23 +1,27 @@
 ---
 title: Create OT sites and zones on an on-premises management console - Microsoft Defender for IoT
 description: Learn how to create OT networking sites and zones on an on-premises management console to support Zero Trust principles while monitoring OT networks.
-ms.date: 02/15/2023
-ms.topic: how-to
+ms.date: 01/08/2023
+ms.topic: install-set-up-deploy
 ms.collection:
   -       zerotrust-services
 ---
 
 # Create OT sites and zones on an on-premises management console
 
+This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
+
+:::image type="content" source="../media/deployment-paths/management-sites-zones.png" alt-text="Diagram of a progress bar with Configure sites and zones highlighted." border="false" lightbox="../media/deployment-paths/management-sites-zones.png":::
+
 This article describes how to create sites and zones on an on-premises management console, based on the network segments you've identified across your OT environments.
 
 Segmenting your network by sites and zones is an integral part of implementing a [Zero Trust security strategy](../concept-zero-trust.md), and assigning sensors to specific sites and zones helps you monitor for unauthorized traffic crossing segments.
 
-Data ingested from sensors in the same site or zone can be viewed together, segmented out from other data in your system. 
+Data ingested from sensors in the same site or zone can be viewed together, segmented out from other data in your system.
 
 If there's sensor data that you want to view grouped together in the same site or zone, make sure to assign sensor sites and zones accordingly.
 
-An on-premises management console adds the extra layers of *business units* and *regions* to your network segmentation, and also provides an interactive, global map to view all business units, regions, sites, and zones across your network. 
+An on-premises management console adds the extra layers of *business units* and *regions* to your network segmentation, and also provides an interactive, global map to view all business units, regions, sites, and zones across your network.
 
 > [!NOTE]
 > Sites and zones created in on an on-premises management console aren't synchronized with sites and zones created in the Azure portal when [onboarding OT sensors](../onboard-sensors.md#onboard-an-ot-sensor).
@@ -27,6 +31,8 @@ An on-premises management console adds the extra layers of *business units* and 
 - A clear understanding of where your OT network sensors are placed in your network, and how you want to [segment your network into sites and zones](../concept-zero-trust.md).
 
 - An on-premises management console [installed](install-software-on-premises-management-console.md) and [activated](../how-to-activate-and-set-up-your-on-premises-management-console.md)
+
+- OT sensors [connected to your on-premises management console](connect-sensors-to-management.md)
 
 ## Customize your global map (optional)
 
@@ -93,7 +99,9 @@ For example, if you have multiple offices in the same city, you'd create a separ
 
     :::image type="content" source="../media/sites-and-zones/new-site.png" alt-text="Screenshot of the Create New Site dialog." lightbox="../media/sites-and-zones/new-site.png":::
 
-1. Repeat this step for each of the sites you want to create, populating the map to cover your entire network. For example:
+    Select **Save** to save your changes.
+
+1. Repeat the previous two steps for each of the sites you want to create, populating the map to cover your entire network. For example:
 
     :::image type="content" source="../media/sites-and-zones/enterprise-map-sample.png" alt-text="Screenshot of a populated Enterprise View map." lightbox="../media/sites-and-zones/enterprise-map-sample.png":::
 
@@ -125,7 +133,7 @@ If you've also configured sites and zones on your on-premises management, assign
 
 **To assign an OT sensor to a site and zone**:
 
-1. Sign into your on-premises management console and select **Site Management** on the left.
+1. Sign into your on-premises management console and select **Site Management**.
 
 1. In the **Connectivity** column, verify that the sensor is currently connected to the on-premises management console.
 
@@ -137,9 +145,9 @@ The page takes a few moments to refresh with the updated sensor assignments.
 
 **To delete a sensor's zone assignment**:
 
-1. Sign into your on-premises management console and select **Site Management** on the left.
+1. Sign into your on-premises management console and select **Site Management**.
 
-1. Locate the sensor who's sensor assignment you want to remove. At the far right of the sensor row, select the **Unassign** :::image type="icon" source="../media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false"::: button. 
+1. Locate the sensor who's sensor assignment you want to remove. At the far right of the sensor row, select the **Unassign** :::image type="icon" source="../media/how-to-activate-and-set-up-your-on-premises-management-console/unassign-sensor-icon.png" border="false"::: button.
 
 1. In the confirmation message dialog, select **CONFIRM**.
 
@@ -154,11 +162,17 @@ After you've created sites and zones, you can view, edit, or delete them from bo
 - On the **Enterprise View** map, select a site to view all of its zones
 - On the **Site Management** page, expand or collapse each site to its zones
 
-For each site or zone, select the options menu on the right to make changes, or to delete a site or zone. For example:
+For each site or zone, select the options menu to make changes, or to delete a site or zone. For example:
 
 :::image type="content" source="../media/sites-and-zones/edit-delete-site-zone.png" alt-text="Screenshot of the options menu for editing or deleting a site or zone." lightbox="../media/sites-and-zones/edit-delete-site-zone.png":::
 
 ## Next steps
 
-> [!div class="next-steps"]
-> [Tutorial: Monitor your network with Zero Trust principles](../monitor-zero-trust.md)
+> [!div class="step-by-step"]
+> [« Connect OT network sensors to the on-premises management console](connect-sensors-to-management.md)
+
+You've now finished deploying your on-premises management console. For more information, see:
+
+- [Tutorial: Monitor your OT networks with Zero Trust principles](../monitor-zero-trust.md)
+- [Maintain the on-premises management console](../how-to-manage-the-on-premises-management-console.md)
+- [Manage sensors from the on-premises management console](../how-to-manage-sensors-from-the-on-premises-management-console.md)

@@ -42,7 +42,7 @@ For this article you need:
        ```
        * Install the Azure Machine Learning Python SDK v2:
        ```Python
-       pip install azure-ai-ml
+       pip install azure-ai-ml azure-identity
        ```
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]

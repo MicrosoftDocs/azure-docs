@@ -1,29 +1,45 @@
 ---
-title: OT sensor cloud connection methods - Microsoft Defender for IoT
+title: Methods for connecting sensors to Azure - Microsoft Defender for IoT
 description: Learn about the architecture models available for connecting your sensors to Microsoft Defender for IoT.
 ms.topic: concept-article
 ms.date: 02/23/2023
 ---
 
-# OT sensor cloud connection methods
+# Methods for connecting sensors to Azure
 
-This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the Azure portal in the cloud.
-OT network sensors connect to Azure to provide data about detected devices, alerts, and sensor health, to access threat intelligence packages, and more. For example, connected Azure services include IoT Hub, Blob Storage, Event Hubs, Aria, the Microsoft Download Center.
+This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
 
-The cloud connection methods described in this article are supported only for OT sensor version 22.x and later. All methods provide:
+Use the content below to learn about the architectures and methods supported for connecting Defender for IoT sensors to the Azure portal in the cloud.
 
-- **Improved security**, without additional security configurations. [Connect to Azure using specific and secure endpoints](how-to-set-up-your-network.md#sensor-access-to-azure-portal), without the need for any wildcards.
+:::image type="content" source="media/deployment-paths/progress-plan-and-prepare.png" alt-text="Diagram of a progress bar with Plan and prepare highlighted." border="false" lightbox="media/deployment-paths/progress-plan-and-prepare.png":::
+
+Network sensors connect to Azure to provide data about detected devices, alerts, and sensor health, to access threat intelligence packages, and more. For example, connected Azure services include IoT Hub, Blob Storage, Event Hubs, Aria, the Microsoft Download Center.
+
+All connection methods provide:
+
+- **Improved security**, without additional security configurations. [Connect to Azure using specific and secure endpoints](networking-requirements.md#sensor-access-to-azure-portal), without the need for any wildcards.
 
 - **Encryption**, Transport Layer Security (TLS1.2/AES-256) provides encrypted communication between the sensor and Azure resources.
 
 - **Scalability** for new features supported only in the cloud
 
-For more information, see [Choose a sensor connection method](connect-sensors.md#choose-a-sensor-connection-method) and [Download endpoint details](how-to-manage-sensors-on-the-cloud.md#endpoint).
-
-
 > [!IMPORTANT]
 > To ensure that your network is ready, we recommend that you first run your connections in a lab or testing environment so that you can safely validate your Azure service configurations.
 >
+
+## Choose a sensor connection method
+
+Use this section to help determine which connection method is right for your cloud-connected Defender for IoT sensor.
+
+|If ...  |... Then use  |
+|---------|---------|
+|- You require private connectivity between your sensor and Azure,  <br>- Your site is connected to Azure via ExpressRoute, or  <br>- Your site is connected to Azure over a VPN  | **[Proxy connections with an Azure proxy](#proxy-connections-with-an-azure-proxy)**        |
+|- Your sensor needs a proxy to reach from the OT network to the cloud, or <br>- You want multiple sensors to connect to Azure through a single point    | **[Proxy connections with proxy chaining](#proxy-connections-with-proxy-chaining)**        |
+|- You want to connect your sensor to Azure directly    | **[Direct connections](#direct-connections)**        |
+|- You have sensors hosted in multiple public clouds | **[Multicloud connections](#multicloud-connections)** |
+
+> [!NOTE]
+> While most connection methods are relevant for OT sensors only, [Direct connections](#direct-connections) are also used for [Enterprise IoT sensors](eiot-sensor.md).
 
 ## Proxy connections with an Azure proxy
 
@@ -55,13 +71,13 @@ The following image shows how you can connect your sensors to the Defender for I
 
 :::image type="content" source="media/architecture-connections/direct.png" alt-text="Diagram of a direct connection to Azure." border="false":::
 
-With direct connections
+With direct connections:
 
 - Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS1.2/AES-256) provides *always-on* communication between the sensor and Azure resources.
 
 - The sensor initiates all connections to the Azure portal. Initiating connections only from the sensor protects internal network devices from unsolicited inbound connections, but also means that you don't need to configure any inbound firewall rules.
 
-For more information, see [Connect directly](connect-sensors.md#connect-directly).
+For more information, see [Provision sensors for cloud management](ot-deploy/provision-cloud-management.md).
 
 ## Multicloud connections
 
@@ -77,17 +93,7 @@ Depending on your environment configuration, you might connect using one of the 
 
 For more information, see [Connect via multicloud vendors](connect-sensors.md#connect-via-multicloud-vendors).
 
-## Working with a mixture of sensor software versions
-
-If you're a customer with an existing production deployment, we recommend that upgrade any legacy sensor versions to version 22.1.x.
-
-While you'll need to migrate your connections before the [legacy version reaches end of support](release-notes.md#versioning-and-support-for-on-premises-software-versions), you can currently deploy a hybrid network of sensors, including legacy software versions with their IoT Hub connections, and sensors with the connection methods described in this article.
-
-After migrating, you can remove any relevant IoT Hubs from your subscription as they'll no longer be required for your sensor connections.
-
-For more information, see [Update OT system software](update-ot-software.md) and [Migration for existing customers](connect-sensors.md#migration-for-existing-customers).
-
 ## Next steps
 
-For more information, see [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
-
+> [!div class="step-by-step"]
+> [« Plan your OT monitoring system](best-practices/plan-corporate-monitoring.md)
