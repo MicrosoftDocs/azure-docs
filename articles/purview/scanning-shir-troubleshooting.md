@@ -25,7 +25,7 @@ To get support and troubleshooting guidance for SHIR issues, you may need to gen
 1. Before starting the scan on the Microsoft Purview governance portal: 
 - Navigate to the SHIR VM, or machine and open the Windows Event Viewer.
 - Clear the windows event viewer logs in the "Integration Runtime" section. Right-click on the logs and select clear logs option.
-- Naviigate back to the Microsoft Purview governance portal and start the scan.
+- Navigate back to the Microsoft Purview governance portal and start the scan.
 - Once the scan shows status "Failed", navigate back to the SHIR VM, or machine and refresh the event viewer in the "Integration Runtime" section.
 - The activity logs are displayed for the failed scan run.
     
