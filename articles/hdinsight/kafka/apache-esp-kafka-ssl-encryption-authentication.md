@@ -317,7 +317,7 @@ Run these steps on the client machine.
 ### Kafka 2.1 or above
 
 > [!Note]
-> Below commands will work if you are either using kafka user or a custom user which have access to do CRUD operation.
+> Below commands will work if you are either using `kafka user` or a custom user which have access to do CRUD operation.
 
 :::image type="content" source="./media/apache-esp-kafka-ssl-encryption-authentication/access-to-crud-operation.png" alt-text="Screenshot showing how to provide access CRUD operations." border="true":::
 
@@ -339,7 +339,7 @@ Using Command Line Tool
    kinit –kt espkafkauser.keytab espkafkauser@TEST.COM 
    ```
 
-1. Klist again to check kerberos cached ticket.
+1. `klist` again to check kerberos cached ticket.
 
 1. Create a topic if it doesn't exist already.
    ```bash
