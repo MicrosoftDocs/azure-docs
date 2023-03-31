@@ -56,7 +56,7 @@ To recover your enterprise application with its previous configurations, first d
    Get-AzureADMSDeletedDirectoryObject -Id <id>
    ```
 
-Replace id with the object ID of the service principal that you want to restore.
+Replace ID with the object ID of the service principal that you want to restore.
  
 :::zone-end
 
@@ -69,7 +69,7 @@ Replace id with the object ID of the service principal that you want to restore.
    ```powershell
    Get-MgDirectoryDeletedItem -DirectoryObjectId <id>
    ```
-Replace id with the object ID of the service principal that you want to restore.
+Replace ID with the object ID of the service principal that you want to restore.
 
 :::zone-end
 
@@ -101,7 +101,7 @@ Alternatively, if you want to get the specific enterprise application that was d
    Restore-AzureADMSDeletedDirectoryObject -Id <id>
    ```
 
-Replace id with the object ID of the service principal that you want to restore.
+Replace ID with the object ID of the service principal that you want to restore.
 
 :::zone-end
 
@@ -113,7 +113,7 @@ Replace id with the object ID of the service principal that you want to restore.
    Restore-MgDirectoryObject -DirectoryObjectId <id>
    ```
 
-Replace id with the object ID of the service principal that you want to restore.
+Replace ID with the object ID of the service principal that you want to restore.
 
 :::zone-end
    
@@ -146,7 +146,7 @@ Replace id with the object ID of the service principal that you want to restore.
    
    ---
 
-Replace id with the object ID of the service principal that you want to restore.
+Replace ID with the object ID of the service principal that you want to restore.
 
 :::zone-end
 
