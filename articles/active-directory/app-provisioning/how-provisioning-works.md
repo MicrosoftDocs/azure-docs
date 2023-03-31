@@ -104,7 +104,7 @@ When the provisioning service is started, the first cycle will:
 
 5. If a matching user is found, it's updated using the attributes provided by the source system. After the user account is matched, the provisioning service detects and caches the target system's ID for the new user. This ID is used to run all future operations on that user.
 
-6. If the attribute mappings contain "reference" attributes, the service does additional updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
+6. If the attribute mappings contain "reference" attributes, the service does more updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
 
 7. Persist a watermark at the end of the initial cycle, which provides the starting point for the later incremental cycles.
 
@@ -124,7 +124,7 @@ After the initial cycle, all other cycles will:
 
 5. If a matching user is found, it's updated using the attributes provided by the source system. If it's a newly assigned account that is matched, the provisioning service detects and caches the target system's ID for the new user. This ID is used to run all future operations on that user.
 
-6. If the attribute mappings contain "reference" attributes, the service does additional updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
+6. If the attribute mappings contain "reference" attributes, the service does more updates on the target system to create and link the referenced objects. For example, a user may have a "Manager" attribute in the target system, which is linked to another user created in the target system.
 
 7. If a user that was previously in scope for provisioning is removed from scope, including being unassigned, the service disables the user in the target system via an update.
 
