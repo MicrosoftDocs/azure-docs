@@ -120,7 +120,7 @@ Next, change the directory into the root of the cloned repo.
 cd code-to-cloud/src
 ```
 
-## Create an Azure Resource Group
+## Create an Azure resource group
 
 Create a resource group to organize the services related to your container app deployment.
 
@@ -421,4 +421,4 @@ Remove-AzResourceGroup -Name $ResourceGroup -Force
 This quickstart is the entrypoint for a set of progressive tutorials that showcase the various features within Azure Container Apps. Continue on to learn how to enable communication from a web front end that calls the API you deployed in this article.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Communication between microservices](co
+> [Tutorial: Communication between microservices](comminicate-between-microservices.md)

@@ -147,7 +147,7 @@ Copy this location to a web browser.
 
  The following message is displayed when the container app is deployed:
 
-:::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
+:::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Screenshot of container app web page.":::
 
 ## Clean up resources
 
