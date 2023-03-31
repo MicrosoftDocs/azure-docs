@@ -9,7 +9,7 @@ ms.author: elavarasid
 
 Capabilities feature is an extended feature of the core `Call` API and allows you to obtain the capabilities of the local participant in the current call.
 
-Do I have permission to turn videoOn, do I have permission to turn micOn, do I have permission to share screen are some example of participant capabilities that you can learn from the capabilities property. Learning the capabilities, can help build a user interface that only shows the buttons related to the actions the local user has permission to.
+Do I have permission to turn videoOn, do I have permission to turn micOn, do I have permission to share screen are some example of participant capabilities that you can learn from the capabilities property. Learning the capabilities, can help application developers build an user interface that only shows the buttons related to the actions the local user has permission to.
 
 The feature allows you to register for an event listener, to listen to capability changes.
 
