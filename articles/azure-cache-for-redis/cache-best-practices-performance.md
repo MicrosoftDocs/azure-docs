@@ -11,7 +11,7 @@ ms.author: franlanglois
 
 # Performance testing
 
-Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary significantly based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
+Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 
 Fortunately, several tools exist to make benchmarking Redis easier. Two of the most popular tools are **[redis-benchmark](https://redis.io/docs/management/optimization/benchmarks/)** and **[memtier-benchmark](https://github.com/redislabs/memtier_benchmark)**. This article focuses on redis-benchmark.
 
@@ -25,11 +25,11 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 1. Configure your [network isolation](cache-network-isolation.md) and [firewall](cache-configure.md#firewall) settings to ensure that the client VM is able to access your Azure Cache for Redis instance. 
 
-1. If you're using TLS/SSL on your cache instance, you'll need to add the `--tls` parameter to your redis-benchmark command or use a proxy like [stunnel](https://www.stunnel.org/index.html). 
+1. If you're using TLS/SSL on your cache instance, you need to add the `--tls` parameter to your redis-benchmark command or use a proxy like [stunnel](https://www.stunnel.org/index.html). 
 
-1. Note that redis-benchmark uses port 6379 by default. Use the `-p` parameter to override this setting. You'll need to do this, for example, if you're using the SSL/TLS (port 6380) or are using the Enterprise tier (port 10000). 
+1. Note that redis-benchmark uses port 6379 by default. Use the `-p` parameter to override this setting. You need to do this, for example, if you're using the SSL/TLS (port 6380) or are using the Enterprise tier (port 10000). 
 
-1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you'll need to add the `--cluster` parameter to your redis-benchmark command. Note that Enterprise tier caches using the [Enterprise clustering policy](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise) can be treated as non-clustered caches and do not need this setting. 
+1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you need to add the `--cluster` parameter to your redis-benchmark command. Enterprise tier caches using the [Enterprise clustering policy](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise) can be treated as non-clustered caches and do not need this setting. 
 
 1. Launch redis-benchmark from the CLI or shell of the VM. For instructions on how to configure and run the tool, see the [redis-benchmark documentation](https://redis.io/docs/management/optimization/benchmarks/) and the [redis-benchmark examples](#redis-benchmark-examples) section below. 
 
@@ -39,15 +39,15 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 - Consider using Enterprise and Premium tier Azure Cache for Redis instances. These cache sizes have better network latency and throughput because they're running on better hardware.
 
-- The Enterprise tier generally has the best performance, as Redis Enterprise allows multiple vCPUs to be utilized by a single cache instance. Tiers based on open source Redis, such as Standard and Premium, are only able to utilize one vCPU for the Redis process per shard.
+- The Enterprise tier generally has the best performance, as Redis Enterprise allows the core Redis process to utilize multiple vCPUs. Tiers based on open source Redis, such as Standard and Premium, are only able to utilize one vCPU for the Redis process per shard.
 
-- Benchmarking the Enterprise Flash tier can be difficult because some keys are stored on DRAM and some on NVMe flash disk. The keys on DRAM will benchmark virtually as fast as an Enterprise tier instance, but the keys on NVMe flash disk will be slower. Since the Enterprise Flash tier will intelligently place the most-used keys into DRAM, ensure that your benchmark configuration matches the actual usage you expect. Consider using the `-r` parameter to randomize which keys are accessed. 
+- Benchmarking the Enterprise Flash tier can be difficult because some keys are stored on DRAM and some on NVMe flash disk. The keys on DRAM will benchmark virtually as fast as an Enterprise tier instance, but the keys on NVMe flash disk will be slower. Since the Enterprise Flash tier intelligently places the most-used keys into DRAM, ensure that your benchmark configuration matches the actual usage you expect. Consider using the `-r` parameter to randomize which keys are accessed. 
 
-- Using TLS/SSL will decrease performance, which can be seen clearly in the example benchamarking data below. 
+- Using TLS/SSL decreases throughput performance, which can be seen clearly in the example benchamarking data below. 
 
-- Even though Redis is single-threaded, scaling up tends to improve throughput performance. This is because the additional vCPUs can be utilizied by system processes that would otherwise share the vCPU being used by the Redis process. Scaling up is especially helpful on the Enterprise and Enterprise Flash tiers because Redis Enterprise is not limited to a single thread. See [Enterprise tier best practices](cache-best-practices-enterprise-tiers.md#scaling) for more information.
+- Even though Redis is single-threaded, scaling up tends to improve throughput performance because the extra vCPUs can be utilizied by system processes that would otherwise share the vCPU being used by the Redis process. Scaling up is especially helpful on the Enterprise and Enterprise Flash tiers because Redis Enterprise is not limited to a single thread. See [Enterprise tier best practices](cache-best-practices-enterprise-tiers.md#scaling) for more information.
 
-- On the Premium tier, scaling out (i.e. clustering) is typically recommended before scaling up because clustering allows for additional vCPUs to be utilized by the Redis process through sharding data. Throughput should increase roughly linearly when adding shards in this case. 
+- On the Premium tier, scaling out (that is, clustering) is typically recommended before scaling up because clustering allows for more vCPUs to be utilized by the Redis process through sharding data. Throughput should increase roughly linearly when adding shards in this case. 
 
 ## Redis-benchmark examples
 
@@ -153,7 +153,7 @@ The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Ent
 
 ### Enterprise & Enterprise Flash Tiers - Scaled Out
 
-In addition to scaling up by moving to larger cache size, it is also possible to boost performance by [scaling out](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers). In the Enterprise tiers, this is called increasing the _capacity_ of the cache instance. A cache instance by default has capacity of two--meaning there is a primary and replica node. An Enterprise cache instance with a capacity of four indicates that the instance has been scaled out by a factor of two. Scaling out provides access to more memory and additional vCPUs. Details on how many vCPUs can be utilized by the core Redis process at each cache size and capacity can be found at the [Enterprise tiers best practices page](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization). Scaling out is most effective when using the OSS cluster policy. 
+In addition to scaling up by moving to larger cache size, it is also possible to boost performance by [scaling out](cache-how-to-scale.md#how-to-scale-up-and-out---enterprise-and-enterprise-flash-tiers). In the Enterprise tiers, this is called increasing the _capacity_ of the cache instance. A cache instance by default has capacity of two--meaning there is a primary and replica node. An Enterprise cache instance with a capacity of four indicates that the instance has been scaled out by a factor of two. Scaling out provides access to more memory and vCPUs. Details on how many vCPUs are utilized by the core Redis process at each cache size and capacity can be found at the [Enterprise tiers best practices page](cache-best-practices-enterprise-tiers.md#sharding-and-cpu-utilization). Scaling out is most effective when using the OSS cluster policy. 
 
 The tables below show the GET requests per second at different capacities, using SSL and a 1kB value size.
 
