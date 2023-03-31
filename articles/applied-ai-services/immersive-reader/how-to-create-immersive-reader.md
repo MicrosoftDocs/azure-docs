@@ -1,16 +1,15 @@
 ---
 title: "Create an Immersive Reader Resource"
 titleSuffix: Azure Applied AI Services
-description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant. 
+description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant.
 services: cognitive-services
 author: rwallerms
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 7/1/2022
+ms.date: 03/31/2023
 ms.author: rwaller
 ---
 
@@ -22,7 +21,24 @@ The script is designed to create and configure all the necessary Immersive Reade
 
 For some customers, it may be necessary to create multiple Immersive Reader resources, for development vs. production, or perhaps for multiple different regions your service is deployed in. For those cases, you can come back and use the script multiple times to create different Immersive Reader resources and get them configured with the Azure AD permissions.
 
-The script is designed to be flexible. It will first look for existing Immersive Reader and Azure AD resources in your subscription, and create them only as necessary if they don't already exist. If it's your first time creating an Immersive Reader resource, the script will do everything you need. If you want to use it just to configure Azure AD for an existing Immersive Reader resource that was created in the portal, it will do that too. It can also be used to create and configure multiple Immersive Reader resources.
+The script is designed to be flexible. It will first look for existing Immersive Reader and Azure AD resources in your subscription, and create them only as necessary if they don't already exist. If it's your first time creating an Immersive Reader resource, the script will do everything you need. If you want to use it just to configure Azure AD for an existing Immersive Reader resource that was created in the portal, it will do that too.
+It can also be used to create and configure multiple Immersive Reader resources.
+
+## Permissions
+
+If you are the listed **Owner** of your Azure subscription, you will have all the required permissions to create an Immersive Reader resource and configure Azure AD authentication.
+
+If you are not an owner, the following scope-specific permissions are required:
+
+* **Contributor**. You need to have at least a Contributor role associated with the Azure subscription:
+
+   :::image type="content" source="media/contributor-role.png" alt-text="Screenshot of contributor built-in role description.":::
+
+* **Application Developer**. You need to have at least an Application Developer role associated in Azure AD:
+
+  :::image type="content" source="media/application-developer-role.png" alt-text="{alt-text}":::
+
+For more information, _see_ [Azure AD built-in roles](/active-directory/roles/permissions-reference.md#application-developer)
 
 ## Set up PowerShell environment
 
@@ -101,7 +117,7 @@ The script is designed to be flexible. It will first look for existing Immersive
                 throw "Error: Failed to create Azure Active Directory application client secret"
             }
             Write-Host "Azure Active Directory application client secret created successfully."
-            
+
             Write-Host "NOTE: To manage your Active Directory application client secrets after this Immersive Reader Resource has been created please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> (your app) '$AADAppDisplayName' -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
         }
 
@@ -143,7 +159,7 @@ The script is designed to be flexible. It will first look for existing Immersive
         Write-Host "Save the following JSON object to a text file for future reference."
         Write-Host "*****"
         if($clientSecret -ne $null) {
-            
+
             Write-Host "This function has created a client secret (password) for you. This secret is used when calling Azure Active Directory to fetch access tokens."
             Write-Host "This is the only time you will ever see the client secret for your Azure Active Directory application, so save it now." -ForegroundColor Yellow
         }
