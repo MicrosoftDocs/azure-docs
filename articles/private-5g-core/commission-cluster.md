@@ -181,6 +181,7 @@ The page should now look like the following image:
 :::zone pivot="ase-pro-gpu"
 :::image type="content" source="media/commission-cluster/commission-cluster-kubernetes-preview-enabled.png" alt-text="Screenshot showing Kubernetes (Preview) with two tables. The first table is called Compute virtual switch and the second is called Virtual network. A green tick shows that the virtual networks are enabled for Kubernetes.":::
 :::zone-end
+
 ## Start the cluster and set up Arc
 
 Access the Azure portal and go to the **Azure Stack Edge** resource created in the Azure portal.
@@ -351,6 +352,23 @@ You should see the new **Custom Location** visible as a resource in the Azure po
 ## Rollback
 
 If you have made an error in the Azure Stack Edge configuration, you can use the portal to remove the AKS cluster.  You can then modify the settings via the local UI, or perform a full reset using the **Device Reset** blade in the local UI and then restart this procedure.
+
+## Changing configuration
+
+You may need to update the ASE configuration after deployment, for example to add or remove an attached data network or to change an IP address. You may also need to make the equivalent change to the packet core configuration.
+
+To change ASE configuration without needing to destroy and recreate the packet core, you can temporarily disconnect the packet core from ASE.
+
+> [!CAUTION]
+> Your packet core will be unavailable during this procedure. If you're making changes to a healthy packet core instance, we recommend running this procedure during a maintenance window to minimize the impact on your service.
+
+1. Navigate to the resource group overview in the Azure portal. Select the **Packet Core Control Plane** resource and select **Modify packet core**. Set **Custom ARC location** to **None** and select **Modify**.
+1. Navigate to the ASE resource group, select the tick box for the **Custom location** resource and select **Delete**. Enter `yes` to confirm deletion.
+1. Navigate to the **Azure Stack Edge** resource and remove all configuration for the **Azure Kubernetes Service**.
+1. Access the local ASE UI and update the configuration as needed.
+1. Recreate the custom location resource. Select the **Packet Core Control Plane** resource and select **Configure a custom location**.
+
+Your packet core should now be in service with the updated ASE configuration. To update the packet core configuration, see [Modify a packet core instance](modify-packet-core.md).
 
 ## Next steps
 
