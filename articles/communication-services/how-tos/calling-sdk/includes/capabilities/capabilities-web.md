@@ -1,5 +1,5 @@
 ---
-author: probableprime
+author: elavarasid@microsoft.com
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/24/2023
@@ -13,42 +13,28 @@ Do I have permission to turn videoOn, do I have permission to turn micOn, do I h
 
 The feature allows you to register for an event listener, to listen to capability changes.
 
-In order to obtain the capabilities of the localParticipant in a call, you first need to obtain the Capabilities feature API object:
+**Register to capabilities feature:**
+>```js
+>const capabilitiesFeature = this.call.feature(Features.Capabilities);
+>```
 
-```js
-const capabilitiesFeature = call.feature(Features.Capabilities);
-```
-Then, the capabilities of the local participant can be obtained through the capabilities property. Capabilities property is of type of `ParticipantCapabilities` with following members:
+**Get the capabilities of the local participant:**
+Capabilities object has the capabilities of the local participants and is of type `ParticipantCapabilities`. Properties of Capabilities include:
 
-- `isPresent` is capability present.
-- `reason` capability resolution reasoning.
+- `isPresent` represent if a capability is present.
+- `reason` capability resolution reason.
 
-```js
-let capabilities: ParticipantCapabilities = capabilitiesFeature.capabilities;
-```
-Also, you can subscribe to the `capabilitiesChanged` event to know when the capabilities have changed.
+>```js
+>const capabilities =  capabilitiesFeature.capabilities;
+>```
 
-```js
-const capabilitiesChangedHandler = () => {
-    // Get the latest updated capabilities of the local participant
-    let capabilities = callDominantSpeakersApi.capabilities;
-};
-capabilitiesFeature.on('capabilitiesChanged', capabilitiesChangedHandler);
-```
-#### Handle the Dominant Speaker's video streams
-
-Your application can use the `Capabilities` feature to get the capabilities of the localParticipant and keep updating UI whenever capabilities change. This can be achieved with the following code example.
-
-```js
-  // Capabilities Feature
-  const capabilitiesFeature =  this.call.feature(Features.Capabilities);
-  const capabilities =  this.call.feature(Features.Capabilities).capabilities;
-
-  capabilitiesFeature.on('capabilitiesChanged', () => {
-    const updatedCapabilities  = capabilitiesFeature.capabilities;
-    // If screen share capability has changed then update the state to refresh UI and enable/disable share screen button
-    if (this.state.canShareScreen != updatedCapabilities.shareScreen.isPresent) {
-        this.setState({ canShareScreen: updatedCapabilities.shareScreen.isPresent });
-    }
-  });
+**Subscribe to `capabilitiesChanged` event:**
+>```js
+>capabilitiesFeature.on('capabilitiesChanged', () => {
+>  const updatedCapabilities  = capabilitiesFeature.capabilities;
+>  // If screen share capability has changed then update the state to refresh UI and disable share screen button
+>  if (this.state.canShareScreen != updatedCapabilities.shareScreen.isPresent) {
+>    this.setState({ canShareScreen: updatedCapabilities.shareScreen.isPresent });
+>  }
+>});
 ```
