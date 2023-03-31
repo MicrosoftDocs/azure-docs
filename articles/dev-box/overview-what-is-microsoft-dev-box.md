@@ -1,7 +1,7 @@
 ---
 title: What is Microsoft Dev Box?
 titleSuffix: Microsoft Dev Box
-description: Learn how Dev Box Preview gives self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
+description: Learn how Microsoft Dev Box Preview gives self-service access to high-performance, preconfigured, and ready-to-code cloud-based workstations.
 services: dev-box
 ms.service: dev-box
 ms.topic: overview
