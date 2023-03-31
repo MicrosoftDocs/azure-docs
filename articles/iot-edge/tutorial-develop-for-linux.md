@@ -992,7 +992,7 @@ In this section, add the code that expands the *filtermodule* to analyze the mes
 
 ## Build and push your solution
 
-You've updated the module code and the deployment template to help understand some key deployment concepts. Now, you're ready to build the your module container image and push it to your container registry.
+You've updated the module code and the deployment template to help understand some key deployment concepts. Now, you're ready to build your module container image and push it to your container registry.
 
 ### Sign in to Docker
 
