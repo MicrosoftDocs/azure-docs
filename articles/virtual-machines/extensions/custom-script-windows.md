@@ -58,13 +58,13 @@ If your script is on a local server, you might still need to open other firewall
 - Write scripts that are idempotent, so that running them more than once accidentally doesn't cause system changes.
 - Ensure that the scripts don't require user input when they run.
 - The script is allowed 90 minutes to run. Anything longer results in a failed provision of the extension.
-- Don't put restarts inside the script. This action causes problems with other extensions that are being installed, and the extension doesn't continue after the reboot.
+- Don't put restarts inside the script. This action causes problems with other extensions that are being installed, and the extension doesn't continue after the restart.
 - If you have a script that causes a restart before installing applications and running scripts, schedule the restart by using a Windows Scheduled Task or by using tools such as DSC, Chef, or Puppet extensions.
 - Don't run a script that causes a stop or update of the VM agent. It might leave the extension in a transitioning state and lead to a time-out.
 - The extension runs a script only once. If you want to run a script on every startup, use the extension to create a Windows Scheduled Task.
 - If you want to schedule when a script runs, use the extension to create a Windows Scheduled Task.
-- When the script is running, you only see a *transitioning* extension status from the Azure portal or CLI. If you want more frequent status updates for a running script, create your own solution.
-- The Custom Script Extension doesn't natively support proxy servers. However, you can use a file transfer tool, such as [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) that supports proxy servers within your script.
+- When the script is running, you only see a *transitioning* extension status from the Azure portal or Azure CLI. If you want more frequent status updates for a running script, create your own solution.
+- The Custom Script Extension doesn't natively support proxy servers. However, you can use a file transfer tool, such as [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest), that supports proxy servers within your script.
 - Be aware of nondefault directory locations that your scripts or commands might rely on. Have logic to handle this situation.
 - The Custom Script Extension runs under the `LocalSystem` account.
 - If you plan to use the `storageAccountName` and `storageAccountKey` properties, these properties must be collocated in `protectedSettings`.
@@ -75,7 +75,6 @@ If your script is on a local server, you might still need to open other firewall
 The Custom Script Extension configuration specifies things like script location and the command to be run. You can store this configuration in configuration files, specify it on the command line, or specify it in an Azure Resource Manager template.
 
 You can store sensitive data in a protected configuration, which is encrypted and only decrypted inside the VM. The protected configuration is useful when the execution command includes secrets such as a password or a shared access signature (SAS) file reference. Here's an example:
-
 
 ```json
 {
@@ -116,7 +115,7 @@ You can store sensitive data in a protected configuration, which is encrypted an
 
 Only one version of an extension can be installed on a VM at a time. Specifying a custom script twice in the same Azure Resource Manager template for the same VM fails.
 
-You can use this schema inside the VM resource or as a standalone resource. The name of the resource has to be in the format *virtualMachineName/extensionName*, if this extension is used as a standalone resource in the Azure Resource Manager template.
+You can use this schema inside the VM resource or as a standalone resource. If this extension is used as a standalone resource in the Azure Resource Manager template, the name of the resource has to be in the format *virtualMachineName/extensionName*.
 
 ### Property values
 
@@ -140,7 +139,7 @@ You can use this schema inside the VM resource or as a standalone resource. The 
 
 | Property | Optional or required | Details |
 | ---- | ---- | ---- |
-| fileUris | Optional | URLs for files to be downloaded. If URLs are sensitive (for example, they contain keys), this field should be specified in `protectedSettings`. |
+| fileUris | Optional | URLs for files to be downloaded. If URLs are sensitive, for example, if they contain keys, this field should be specified in `protectedSettings`. |
 | commandToExecute | Required | The entry point script to run. Use this property if your command contains secrets such as passwords or if your file URIs are sensitive. |
 | timestamp | Optional | Change this value only to trigger a rerun of the script. Any integer value is acceptable, as long as it's different from the previous value. |
 | storageAccountName | Optional | The name of storage account. If you specify storage credentials, all `fileUris` values must be URLs for Azure blobs. |
@@ -220,7 +219,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### Using multiple scripts
 
-In this example, you're using three scripts to build your server. The `commandToExecute` property calls the first script. You then have options on how the others are called. For example, you can have a lead script that controls the execution, with the right error handling, logging, and state management. The scripts are downloaded to the local machine to run.
+This example uses three scripts to build your server. The `commandToExecute` property calls the first script. You then have options on how the others are called. For example, you can have a lead script that controls the execution, with the right error handling, logging, and state management. The scripts are downloaded to the local machine to run.
 
 For example, in *1_Add_Tools.ps1*, you would call *2_Add_Features.ps1* by adding `.\2_Add_Features.ps1` to the script. Repeat this process for the other scripts that you define in `$settings`.
 
@@ -269,7 +268,8 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 The Custom Script Extension handler prevents rerunning a script if the *exact* same settings have been passed. This behavior prevents accidental rerunning, which might cause unexpected behaviors if the script isn't idempotent. To confirm whether the handler blocked the rerunning, look at *C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log*. Searching for a warning like this one:
 
 ```output
-Current sequence number, <SequenceNumber>, is not greater than the sequence number of the most recently executed configuration. Exiting...
+Current sequence number, <SequenceNumber>, is not greater than the sequence number
+of the most recently executed configuration. Exiting...
 ```
 
 If you want to run the Custom Script Extension more than once, you can do that only under these conditions:
@@ -284,7 +284,9 @@ Alternatively, you can set the [ForceUpdateTag](/dotnet/api/microsoft.azure.mana
 If you're using [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) in your script, you must specify the parameter `-UseBasicParsing`. If you don't specify the parameter, you get the following error when checking the detailed status:
 
 ```output
-The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+The response content cannot be parsed because the Internet Explorer engine
+is not available, or Internet Explorer's first-launch configuration
+is not complete. Specify the UseBasicParsing parameter and try again.
 ```
 
 ## Virtual Machine Scale Sets
@@ -330,7 +332,7 @@ Because the absolute download path might vary over time, it's better to opt for 
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-Path information after the first URI segment is kept for files downloaded via the `fileUris` property list. As shown in the earlier table, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
+Path information after the first URI segment is kept for files downloaded by using the `fileUris` property list. As shown in the earlier table, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
 
 ## Support
 
