@@ -36,27 +36,20 @@ You can update to the latest version using the following update paths:
 
 The 2303 release has the following new features and enhancements:
 
-- **MSRC fixes** - Critical security fixes for MSRC issues listed in [CVE-2023-21703](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-21703).
+- @DEEPAN > CONTENT REVIEW > The following bullet item is from the 2301 release notes. Please review for relevance to 2303 - i.e., should it be included here for 2303? Please confirm > 
 - Starting March 2023, Azure Stack Edge devices will be required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
-- Beginning this release, you can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. For more information, see [Deploy AKS on Azure Stack Edge](azure-stack-edge-deploy-aks-on-azure-stack-edge.md).
 
 ## Issues fixed in this release
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-|**1.**|Virtual network |In the earlier versions, virtual switches would get deleted when virtual network was deleted, causing the VM provisioning to time out. This issue was fixed and the virtual switch reference is now checked when the virtual network is deleted. |
-|**2.**|Virtual network |In the previous versions, when the VM network interfaces were deleted, IP address was in use even after the associated network interface was removed. In this release, the IP address reference is removed after the VM network interface is deleted. |
-|**3.**|VM |In earlier releases, change notifications weren't cleaned from the datastore. This resulted in the network resource provider (NRP) becoming unresponsive after the datastore was full. This release fixes this issue by adding a notification manager in the NRP to clean up change notifications. | 
-|**4.**|VM |In this release, reliability improvements have been made for the deployment of VM extensions. |
+|**1.**|Need issues fixed for 2303 | |
 
 ## Known issues in this release
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|AKS on Azure Stack Edge |When you update your AKS on Azure Stack Edge deployment from a previous preview version to 2303 release, there is an additional nodepool rollout. |The update may take longer.  |
-|**2.**|Azure portal |When the Arc deployment fails in this release, you will see a generic *NO PARAM* error code, as all the errors are not propagated in the portal. |There is no workaround for this behavior in this release. |
-|**3.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you will need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
-|**4.**|AKS on Azure Stack Edge |In this release, attaching the PVC takes a long time. As a result, some pods that use persistent volumes (PVs) come up slowly after the host reboots. |A workaround is to restart the nodepool VM by connecting via the Windows PowerShell interface of the device. | 
+|**1.**|Need known issues in 2303 |
 
 ## Known issues from previous releases
 
@@ -90,6 +83,10 @@ The following table provides a summary of known issues carried over from the pre
 |**24.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting isn't retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
 |**25.**|Wi-Fi |Wi-Fi doesn't work on Azure Stack Edge Pro 2 in this release. |
 |**26.**|Azure IoT Edge |The managed Azure IoT Edge solution on Azure Stack Edge is running on an older, obsolete IoT Edge runtime that is at end of life. For more information, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). Although the solution does not stop working past end of life, there are no plans to update it.  |To run the latest version of Azure IoT Edge [LTSs](../iot-edge/version-history.md#version-history) with the latest updates and features on their Azure Stack Edge, we **recommend** that you deploy a [customer self-managed IoT Edge solution](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md) that runs on a Linux VM. For more information, see [Move workloads from managed IoT Edge on Azure Stack Edge to an IoT Edge solution on a Linux VM](azure-stack-edge-move-to-self-service-iot-edge.md). |
+|**27.**|AKS on Azure Stack Edge |When you update your AKS on Azure Stack Edge deployment from a previous preview version to 2303 release, there is an additional nodepool rollout. |The update may take longer.  |
+|**28.**|Azure portal |When the Arc deployment fails in this release, you will see a generic *NO PARAM* error code, as all the errors are not propagated in the portal. |There is no workaround for this behavior in this release. |
+|**29.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you will need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
+|**30.**|AKS on Azure Stack Edge |In this release, attaching the PVC takes a long time. As a result, some pods that use persistent volumes (PVs) come up slowly after the host reboots. |A workaround is to restart the nodepool VM by connecting via the Windows PowerShell interface of the device. | 
 
 ## Next steps
 
