@@ -70,6 +70,33 @@ Use the following commands to create an environment with a workload profile.
 
 1. Create *Consumption + Dedicated* environment with workload profile support
 
+>[!Note]
+> In Container Apps, you can configure whether your Container Apps will allow public ingress or only ingress from within your VNet at the environment level. In order to restrict ingress to just your VNet, you will need to set the `--internal-only` flag.
+
+### [External environment](#tab/external-env)
+      ```bash
+      az containerapp env create \
+        --enable-workload-profiles \
+        --resource-group "<RESOURCE_GROUP>" \
+        --name "<NAME>" \
+        --location "<LOCATION>" \
+        --infrastructure-subnet-resource-id "<SUBNET_ID>"
+      ```
+
+### [Internal environment](#tab/internal-env)
+      ```bash
+      az containerapp env create \
+        --enable-workload-profiles \
+        --resource-group "<RESOURCE_GROUP>" \
+        --name "<NAME>" \
+        --location "<LOCATION>" \
+        --infrastructure-subnet-resource-id "<SUBNET_ID>"
+        --internal--only
+      ```
+
+---
+
+
       ```bash
       az containerapp env create \
         --enable-workload-profiles \
