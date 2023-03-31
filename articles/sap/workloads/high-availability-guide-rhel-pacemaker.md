@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 09/22/2022
+ms.date: 03/31/2022
 ms.author: radeltch
 
 ---
@@ -36,7 +36,7 @@ ms.author: radeltch
 
 [virtual-machines-linux-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-The article describes how to configure basic Pacemaker cluster on Red Hat Enterprise Server(RHEL). The instructions cover both RHEL 7 and RHEL 8.   
+The article describes how to configure basic Pacemaker cluster on Red Hat Enterprise Server(RHEL). The instructions cover RHEL 7, RHEL 8 and RHEL 9.   
 
 ## Prerequisites
 Read the following SAP Notes and papers first:
@@ -78,11 +78,11 @@ Read the following SAP Notes and papers first:
 > Red Hat doesn't support software-emulated watchdog. Red Hat doesn't support SBD on cloud platforms. For details see [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691).
 > The only supported fencing mechanism for Pacemaker Red Hat Enterprise Linux clusters on Azure, is Azure fence agent.  
 
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2. Differences in the commands or the configuration between RHEL 7 and RHEL 8 are marked in the document.
+The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2. Differences in the commands or the configuration between RHEL 7 and RHEL 8 and above are marked in the document.
 
 1. **[A]** Register - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
 
-   Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
+   For example, if deploying on RHEL 7, register your virtual machine and attach it to a pool that contains repositories for RHEL 7.
 
    <pre><code>sudo subscription-manager register
    # List the available pools
@@ -105,9 +105,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Install RHEL HA Add-On
 
-   <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
-   </code></pre>
-
+   ```sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   ```
+ 
    > [!IMPORTANT]
    > We recommend the following versions of Azure Fence agent (or later) for customers to benefit from a faster failover time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore:  
    > RHEL 7.7 or higher use the latest available version of fence-agents package  
@@ -123,6 +123,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > RHEL 8.1: fence-agents-4.2.1-30.el8_1.4  
    > RHEL 7.9: fence-agents-4.2.1-41.el7_9.4.
 
+   > [!IMPORTANT]
+   > On RHEL 9, we recommend the following package versions (or later) to avoid issues with Azure Fence agent: 
+   > fence-agents-4.10.0-20.el9_0.7
+   > fence-agents-common-4.10.0-20.el9_0.6 
+   > ha-cloud-support-4.10.0-20.el9_0.6.x86_64.rpm
+
    Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
 
    <pre><code># Check the version of the Azure Fence Agent
@@ -131,6 +137,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    > [!IMPORTANT]
    > If you need to update the Azure Fence agent, and if using custom role, make sure to update the custom role to include action **powerOff**. For details see [Create a custom role for the fence agent](#1-create-a-custom-role-for-the-fence-agent).  
+
+1. If deploying on RHEL 9, install also the resource agents for cloud deployment: 
+   ```sudo yum install -y resource-agents-cloud
+   ```
 
 1. **[A]** Setup host name resolution
 
@@ -183,7 +193,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs cluster start --all
    </code></pre>
 
-   If building a cluster on **RHEL 8.x**, use the following commands:  
+   If building a cluster on **RHEL 8.x/RHEL 9.x**, use the following commands:  
    <pre><code>sudo pcs host auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> totem token=30000
    sudo pcs cluster start --all
@@ -233,7 +243,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 The fencing device uses either a managed identity for Azure resource or service principal to authorize against Microsoft Azure. 
 
 ### Using Managed Identity
-To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on RHEL 7.9 and RHEL 8.x. 
+To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on RHEL 7.9 and RHEL 8.x/RHEL 9. 
 
 ### Using Service Principal
 Follow these steps to create a service principal, if not using managed identity.
@@ -312,7 +322,7 @@ power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_
 op monitor interval=3600
 </code></pre>
 
-For RHEL **8.X**, use the following command to configure the fence device:  
+For RHEL **8.X/9.X**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \
 subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
@@ -329,7 +339,7 @@ power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_
 op monitor interval=3600
 </code></pre>
 
-For RHEL **8.x**, use the following command to configure the fence device:  
+For RHEL **8.X/9.X**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" \
 resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
