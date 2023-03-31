@@ -21,7 +21,7 @@ Use the following resources to get started.
 | --- | --- |
 | **Create your first .NET app** | Using one of the following tools:<br><br><li>[Visual Studio](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs)<li>[Visual Studio Code](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode)<li>[Command line](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-cli)<li>[Azure PowerShell](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-ps)<li>[Azure Portal](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-azure-portal) |
 | **Deploy your app** | <li>[Deployment Best Practices](./deploy-best-practices.md)<li>[Azure DevOps](./deploy-azure-pipelines.md?tabs=yaml) |
-| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md/)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
+| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
 | **Add domains and certificates** |<li>[Map a custom domain]()<li>[Add SSL certificate]()|
 | **Connect to a database** | <li>[Connect to Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)|
 | **Review best practices** | <li>[Scale your App Service app]()<li>[Secure your app]()<li>Use built-in [monitoring tools]() to help analyze your functions<li>Read the [C# language reference]()|
@@ -31,7 +31,7 @@ Use the following resources to get started.
 | --- | --- |
 | **Create your first .NET app** | Using one of the following tools:<br><br><li>[Visual Studio](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs)<li>[Visual Studio Code](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode)<li>[Command line](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-cli)<li>[Azure PowerShell](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-ps)<li>[Azure Portal](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-azure-portal) |
 | **Deploy your app** | <li>[Deployment Best Practices](./deploy-best-practices.md)<li>[Azure DevOps](./deploy-azure-pipelines.md?tabs=yaml) |
-| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md/)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
+| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
 | **Add domains and certificates** |<li>[Map a custom domain]()<li>[Add SSL certificate]()|
 | **Connect to a database** | <li>[Connect to Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)|
 | **Review best practices** | <li>[Scale your App Service app]()<li>[Secure your app]()<li>Use built-in [monitoring tools]() to help analyze your functions<li>Read the [C# language reference]()|
@@ -41,7 +41,7 @@ Use the following resources to get started.
 | --- | --- |
 | **Create your first .NET app** | Using one of the following tools:<br><br><li>[Visual Studio](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs)<li>[Visual Studio Code](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode)<li>[Command line](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-cli)<li>[Azure PowerShell](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-ps)<li>[Azure Portal](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-azure-portal) |
 | **Deploy your app** | <li>[Deployment Best Practices](./deploy-best-practices.md)<li>[Azure DevOps](./deploy-azure-pipelines.md?tabs=yaml) |
-| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md/)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
+| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
 | **Add domains and certificates** |<li>[Map a custom domain]()<li>[Add SSL certificate]()|
 | **Connect to a database** | <li>[Connect to Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)|
 | **Review best practices** | <li>[Scale your App Service app]()<li>[Secure your app]()<li>Use built-in [monitoring tools]() to help analyze your functions<li>Read the [C# language reference]()|
@@ -51,7 +51,7 @@ Use the following resources to get started.
 | --- | --- |
 | **Create your first .NET app** | Using one of the following tools:<br><br><li>[Visual Studio](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs)<li>[Visual Studio Code](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode)<li>[Command line](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-cli)<li>[Azure PowerShell](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-ps)<li>[Azure Portal](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-azure-portal) |
 | **Deploy your app** | <li>[Deployment Best Practices](./deploy-best-practices.md)<li>[Azure DevOps](./deploy-azure-pipelines.md?tabs=yaml) |
-| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md/)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
+| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
 | **Add domains and certificates** |<li>[Map a custom domain]()<li>[Add SSL certificate]()|
 | **Connect to a database** | <li>[Connect to Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)|
 | **Review best practices** | <li>[Scale your App Service app]()<li>[Secure your app]()<li>Use built-in [monitoring tools]() to help analyze your functions<li>Read the [C# language reference]()|
@@ -61,7 +61,7 @@ Use the following resources to get started.
 | --- | --- |
 | **Create your first .NET app** | Using one of the following tools:<br><br><li>[Visual Studio](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs)<li>[Visual Studio Code](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode)<li>[Command line](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-cli)<li>[Azure PowerShell](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-ps)<li>[Azure Portal](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-azure-portal) |
 | **Deploy your app** | <li>[Deployment Best Practices](./deploy-best-practices.md)<li>[Azure DevOps](./deploy-azure-pipelines.md?tabs=yaml) |
-| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md/)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
+| **Monitor your app**| <li>[Monitoring overview](./overview-monitoring.md)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve](./overview-diagnostics.md)<li>[Monitor instances using Health Check](./monitor-instances-health-check.md)|
 | **Add domains and certificates** |<li>[Map a custom domain]()<li>[Add SSL certificate]()|
 | **Connect to a database** | <li>[Connect to Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)|
 | **Review best practices** | <li>[Scale your App Service app]()<li>[Secure your app]()<li>Use built-in [monitoring tools]() to help analyze your functions<li>Read the [C# language reference]()|
