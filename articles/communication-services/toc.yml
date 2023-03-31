@@ -292,9 +292,9 @@ items:
       href: tutorials/file-sharing-tutorial.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
-    - name: Teams Interoperability 
+    - name: Connect to Teams
       items:
-      - name: Enable inline image support in your chat app
+      - name: Enable inline image interoperability in your chat app
         href: tutorials/chat-interop/meeting-interop-features-inline-image.md
     - name: Mobile integrations
       items:
