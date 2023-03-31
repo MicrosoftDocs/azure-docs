@@ -36,6 +36,9 @@ You can get pronunciation assessment scores for:
 >
 > For information about availability of pronunciation assessment, see [supported languages](language-support.md?tabs=pronunciation-assessment) and [available regions](regions.md#speech-service).
 
+## Learning language configuration
+
+The default learning language is `en-US`. If you want to practice towards different accent learning purposes, you need to configure the setting to specify the language used for evaluation. To learn how to specify the learning language for pronunciation assessment in your own application, see sample code.
 
 ## Configuration parameters
 
