@@ -27,7 +27,7 @@ New versions of the Azure Virtual Desktop Agent are installed automatically. Whe
 
 This update was released end of March 2023 and includes the following changes:
 
-- Health check reliability improved
+- Health check reliability improved.
 - Reliability issues in agent upgrade fixed.
 - VM will be marked unhealthy when health check detects a required URL is not unblocked
 
