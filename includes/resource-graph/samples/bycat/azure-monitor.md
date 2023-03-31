@@ -102,7 +102,7 @@ Search-AzGraph -Query "alertsmanagementresources | where properties.essentials.s
 
 ---
 
-### List all Azure Arc-enabled Kubernetes clusters with Azure Monitor extension
+### List all Azure Arc-enabled Kubernetes clusters with the Azure Monitor extension
 
 Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster that has the Azure Monitor extension installed.
 
@@ -136,9 +136,9 @@ Search-AzGraph -Query "KubernetesConfigurationResources | where type == 'microso
 
 ---
 
-### List all Azure Arc-enabled Kubernetes clusters without Azure Monitor extension
+### List all Azure Arc-enabled Kubernetes clusters without the Azure Monitor extension
 
-Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster that is missing the Azure Monitor extension.
+Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster that's missing the Azure Monitor extension.
 
 ```kusto
 Resources

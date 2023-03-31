@@ -10,8 +10,8 @@ ms.author: edbaynash
 
 This article lists significant changes to Azure Monitor documentation.
 
-## February 2023  
-  
+## February 2023
+
 |Subservice| Article | Description |
 |---|---|---|
 Agents|[Azure Monitor Agent extension versions](agents/azure-monitor-agent-extension-versions.md)|Added release notes for the Azure Monitor Agent Linux 1.25 release.|
@@ -57,8 +57,8 @@ Virtual-Machines|[Monitor virtual machines with Azure Monitor: Analyze monitorin
 Visualizations|[Use JSONPath to transform JSON data in workbooks](visualize/workbooks-jsonpath.md)|Added information about using JSONPath to convert data types in Azure Workbooks.|
 Containers|[Configure Container insights cost optimization data collection rules]()|New article: Preview of cost-optimization settings.|
 
-## January 2023  
-  
+## January 2023
+
 |Subservice| Article | Description |
 |---|---|---|
 Agents|[Tutorial: Transform text logs during ingestion in Azure Monitor Logs](agents/azure-monitor-agent-transformation.md)|New tutorial: How to write a KQL query that transforms text log data and add the transformation to a data collection rule.|
@@ -88,7 +88,7 @@ Essentials|[Supported categories for Azure Monitor resource logs](essentials/res
 General|[Multicloud monitoring with Azure Monitor](best-practices-multicloud.md)|New article.|
 Logs|[Set daily cap on Log Analytics workspace](logs/daily-cap.md)|Clarified special case for daily cap logic.|
 Logs|[Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md)|Updated and refreshed how to send custom metrics.|
-Logs|[Migrate from Splunk to Azure Monitor Logs](logs/migrate-splunk-to-azure-monitor-logs.md)|New article:  Explains how to migrate your Splunk Observability deployment to Azure Monitor Logs for logging and log data analysis.|
+Logs|[Migrate from Splunk to Azure Monitor Logs](logs/migrate-splunk-to-azure-monitor-logs.md)|New article: Explains how to migrate your Splunk Observability deployment to Azure Monitor Logs for logging and log data analysis.|
 Logs|[Manage access to Log Analytics workspaces](logs/manage-access.md)|Added permissions required to run a search job and restore archived data.|
 Logs|[Set a table's log data plan to Basic or Analytics](logs/basic-logs-configure.md)|Added information about how to modify a table schema by using the API.|
 Snapshot-Debugger|[Enable Snapshot Debugger for .NET apps in Azure App Service](snapshot-debugger/snapshot-debugger-app-service.md)|Per customer feedback, added new note that Consumption plan isn't supported.|
@@ -102,8 +102,8 @@ Virtual-Machines|[Monitor virtual machines with Azure Monitor: Migrate managemen
 Virtual-Machines|[Monitor virtual machines with Azure Monitor](vm/monitor-virtual-machine.md)|Rewritten for Azure Monitor Agent.|
 Virtual-Machines|[Monitor Azure virtual machines](../../articles/virtual-machines/monitor-vm.md)|VM scenario updates for Azure Monitor Agent.|
 
-## December 2022  
-  
+## December 2022
+
 |Subservice| Article | Description |
 |---|---|---|
 General|[Azure Monitor for existing Operations Manager customers](azure-monitor-operations-manager.md)|Updated for Azure Monitor Agent and System Center Operations Manager managed instance.|
@@ -127,7 +127,7 @@ Virtual-Machines|[Enable VM insights by using Azure Policy](vm/vminsights-enable
 Visualizations|[Creating an Azure Workbook](visualize/workbooks-create-workbook.md)|Added tutorial on resource-centric log queries in workbooks.|
 
 ## November 2022
-  
+
 |Subservice| Article | Description |
 |---|---|---|
 General|[Cost optimization and Azure Monitor](best-practices-cost.md)|Rewritten to align with Azure Well-Architected Framework. Moved detailed content to other articles and linked from here.|
@@ -189,7 +189,7 @@ Containers|[Enable Container insights for Azure Kubernetes Service cluster](cont
 Containers Prometheus|[Query logs from Container insights](containers/container-insights-log-query.md)|Updated to include log queries for Prometheus data.|
 Containers Prometheus|[Collect Prometheus metrics with Container insights](containers/container-insights-prometheus.md?tabs=cluster-wide)|Updated to include Azure Monitor managed service for Prometheus.|
 Essentials Prometheus|[Metrics in Azure Monitor](essentials/data-platform-metrics.md)|Updated to include Azure Monitor managed service for Prometheus.|
-Essentials Prometheus|<ul> <li>  [Azure Monitor workspace overview (preview)](essentials/azure-monitor-workspace-overview.md?tabs=azure-portal) </li><li> [Overview of Azure Monitor managed service for Prometheus (preview)](essentials/prometheus-metrics-overview.md) </li><li>[Rule groups in Azure Monitor managed service for Prometheus (preview)](essentials/prometheus-rule-groups.md)</li><li>[Remote-write in Azure Monitor managed service for Prometheus (preview)](essentials/prometheus-remote-write-managed-identity.md)  </li><li>[Use Azure Monitor managed service for Prometheus (preview) as data source for Grafana](essentials/prometheus-grafana.md)</li><li>[Troubleshoot collection of Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-troubleshoot.md)</li><li>[Default Prometheus metrics configuration in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-default.md)</li><li>[Scrape Prometheus metrics at scale in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-scale.md)</li><li>[Customize scraping of Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-configuration.md)</li><li>[Create, validate, and troubleshoot custom configuration file for Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-validate.md)</li><li>[Minimal Prometheus ingestion profile in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-configuration-minimal.md)</li><li>[Collect Prometheus metrics from AKS cluster (preview)](essentials/prometheus-metrics-enable.md)</li><li>[Send Prometheus metrics to multiple Azure Monitor workspaces (preview)](essentials/prometheus-metrics-multiple-workspaces.md) </li></ul>   |New articles. Public preview of Azure Monitor managed service for Prometheus.|
+Essentials Prometheus|<ul> <li> [Azure Monitor workspace overview (preview)](essentials/azure-monitor-workspace-overview.md?tabs=azure-portal) </li><li> [Overview of Azure Monitor managed service for Prometheus (preview)](essentials/prometheus-metrics-overview.md) </li><li>[Rule groups in Azure Monitor managed service for Prometheus (preview)](essentials/prometheus-rule-groups.md)</li><li>[Remote-write in Azure Monitor managed service for Prometheus (preview)](essentials/prometheus-remote-write-managed-identity.md) </li><li>[Use Azure Monitor managed service for Prometheus (preview) as data source for Grafana](essentials/prometheus-grafana.md)</li><li>[Troubleshoot collection of Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-troubleshoot.md)</li><li>[Default Prometheus metrics configuration in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-default.md)</li><li>[Scrape Prometheus metrics at scale in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-scale.md)</li><li>[Customize scraping of Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-configuration.md)</li><li>[Create, validate, and troubleshoot custom configuration file for Prometheus metrics in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-validate.md)</li><li>[Minimal Prometheus ingestion profile in Azure Monitor (preview)](essentials/prometheus-metrics-scrape-configuration-minimal.md)</li><li>[Collect Prometheus metrics from AKS cluster (preview)](essentials/prometheus-metrics-enable.md)</li><li>[Send Prometheus metrics to multiple Azure Monitor workspaces (preview)](essentials/prometheus-metrics-multiple-workspaces.md) </li></ul> |New articles. Public preview of Azure Monitor managed service for Prometheus.|
 Essentials Prometheus|[Azure Monitor managed service for Prometheus remote write - managed identity (preview)](./essentials/prometheus-remote-write-managed-identity.md)|Added information that verifies Prometheus remote write is working correctly.|
 Essentials|[Azure resource logs](./essentials/resource-logs.md)|Clarified which blob's logs are written to, and when.|
 Essentials|[Resource Manager template samples for Azure Monitor](resource-manager-samples.md?tabs=portal)|Added template deployment methods.|
@@ -337,7 +337,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 |---|---|
 |[Configure data retention and archive in Azure Monitor Logs (preview)](logs/data-retention-archive.md)|Clarified how data retention and archiving work in Azure Monitor Logs to address repeated customer inquiries.|
 
-## July  2022
+## July 2022
 ### General
 
 | Article | Description |
@@ -411,7 +411,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 |:---|:---|
 |[What is VM insights?](vm/vminsights-overview.md)|Updated all VM insights content for new support of Azure Monitor Agent.
 
-## June  2022
+## June 2022
 
 ### General
 
@@ -443,7 +443,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 ### Visualizations
 Azure Monitor Workbooks documentation previously resided on an external GitHub repository. We've migrated all Azure Workbooks content to the same repo as all other Azure Monitor content.
 
-## May  2022
+## May 2022
 
 ### General
 
@@ -494,7 +494,7 @@ All references to unsupported versions of .NET and .NET CORE are scrubbed from A
 |:---|:---|
 | [Navigate to a change using custom filters in Change Analysis](change/change-analysis-custom-filters.md) | New article. |
 | [Pin and share a Change Analysis query to the Azure dashboard](change/change-analysis-query.md) | New article. |
-| [Use Change Analysis in Azure Monitor to find web app issues](change/change-analysis.md) | Added details  for enabling web app in-guest changes. |
+| [Use Change Analysis in Azure Monitor to find web app issues](change/change-analysis.md) | Added details for enabling web app in-guest changes. |
 
 ### Containers
 
