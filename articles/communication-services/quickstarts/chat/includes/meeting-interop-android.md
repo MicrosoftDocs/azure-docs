@@ -404,4 +404,5 @@ After you join the Team's meeting you will need to admit the user to the meeting
 :::image type="content" source="../join-teams-meeting-chat-quickstart-android.png" alt-text="Screenshot of the completed Android Application.":::
 
 > [!NOTE] 
-> Currently only sending, receiving, and editing messages is supported for interoperability scenarios with Teams. Other features like typing indicators and Communication Services users adding or removing other users from the Teams meeting are not yet supported.
+> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please [visit here](../../../concepts/interop/guest/capabilities.md)
+
