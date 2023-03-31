@@ -278,16 +278,14 @@ The latest stable IoT Edge system module version is 1.4. Set your system modules
 1. Change the runtime version for the system runtime module images **edgeAgent** and **edgeHub**. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
 
     ```json
-    ...
     "systemModules": {
         "edgeAgent": {
-        ...
+
             "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
-        ...
+
         "edgeHub": {
-        ...
+
             "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
-        ...
     ```
 
 ::: zone-end
@@ -1047,7 +1045,6 @@ If you're using an Azure Container Registry to store your module image, add your
         }
       }
    },
-...
 ```
 
 Add or replace the following stringified content to the *createOptions* value for each system (edgeHub and edgeAgent) and custom module (for example, tempSensor) listed. Change the values if necessary.
