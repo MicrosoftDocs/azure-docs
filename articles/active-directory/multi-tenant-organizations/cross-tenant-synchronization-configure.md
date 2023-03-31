@@ -463,7 +463,7 @@ Manually restore the soft-deleted user in the target tenant. For more informatio
 
 #### Delete a configuration
 
-There are two ways that you can delete a configuration. You can delete a configuration on the **Configurations** page or in **Enterprise applications**.
+Follows these steps to delete a configuration on the **Configurations** page.
 
 1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
 
@@ -472,18 +472,6 @@ There are two ways that you can delete a configuration. You can delete a configu
 1. Select **Delete** and then **OK** to delete the configuration.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/configurations-delete.png" alt-text="Screenshot of the Configurations page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/configurations-delete.png":::
-
-Follow these steps to delete a configuration in **Enterprise applications**.
-
-1. In the source tenant, select **Azure Active Directory** > **Enterprise applications**.
-
-1. In the list of all applications, find the name of your configuration. If necessary, you can search by the configuration name.
-
-1. Select the configuration and then select **Properties**.
-
-1. Select **Delete** and then **Yes** to delete the configuration.
-
-    :::image type="content" source="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png" alt-text="Screenshot of the Enterprise applications Properties page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png":::
 
 ## Next steps
 
