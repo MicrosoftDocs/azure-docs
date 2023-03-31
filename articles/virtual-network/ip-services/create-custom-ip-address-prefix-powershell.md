@@ -5,6 +5,7 @@ description: Learn about how to create a custom IPv4 address prefix using Azure 
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu

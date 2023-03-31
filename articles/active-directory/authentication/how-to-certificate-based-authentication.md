@@ -72,7 +72,10 @@ To enable the certificate-based authentication and configure user bindings in th
 1. To delete a CA certificate, select the certificate and click **Delete**.
 1. Click **Columns** to add or delete columns.
 
-### Configure certification authorities using PowerShell
+>[!NOTE]
+>Upload of new CAs will fail when any of the existing CAs are expired. Tenant Admin should delete the expired CAs and then upload the new CA.
+
+### Configure certification authorities(CA) using PowerShell
 
 Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs aren't supported.
 
@@ -86,6 +89,9 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 
 [!INCLUDE [Get-AzureAD](../../../includes/active-directory-authentication-get-trusted-azuread.md)]
 ### Add
+
+>[!NOTE]
+>Upload of new CAs will fail when any of the existing CAs are expired. Tenant Admin should delete the expired CAs and then upload the new CA.
 
 [!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
 

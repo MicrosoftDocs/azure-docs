@@ -2,6 +2,7 @@
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
+ms.custom: devx-track-arm-template
 ms.topic: include
 ms.date: 10/26/2018
 ---

@@ -1,6 +1,141 @@
 {
   "redirections": [     
     {
+      "source_path": "edge/advanced-filtering.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },          
+    {
+      "source_path": "edge/api.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path": "edge/concepts.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "edge/configure.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "edge/configure-api-protocol.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "edge/configure-client-auth.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },      
+    {
+      "source_path": "edge/configure-identity-auth.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/configure-webhook-subscriber-auth.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/delivery-output-batching.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/delivery-retry.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },                   
+    {
+      "source_path": "edge/event-handlers.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },                   
+    {
+      "source_path": "edge/event-schemas.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },                   
+    {
+      "source_path": "edge/forward-events-cloud.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/forward-events-iothub.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/monitor-topics-subscriptions.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/overview.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/persist-state-linux.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/persist-state-windows.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/pub-sub-events-webhook-cloud.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/pub-sub-events-webhook-local.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/react-blob-storage-events-locally.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/release-notes.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/security-authentication.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "edge/transition.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },     
+    {
+      "source_path": "edge/troubleshoot.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "edge/twin-json.md",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    }, 
+    {
+      "source_path": "edge/index.yml",
+      "redirect_url": "/azure/event-grid/transition",
+      "redirect_document_id": false
+    },          
+    {
       "source_path": "edge/forward-events-event-grid-cloud.md",
       "redirect_url": "/azure/event-grid/edge/forward-events-cloud",
       "redirect_document_id": false
