@@ -371,4 +371,4 @@ If you prefer to use Azure Resource Manager templates to deploy your disk, the f
 - [Regional ultra disks](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 - [Zonal ultra disks](https://aka.ms/SharedUltraDiskARMtemplateZonal)
 
-If you've additional questions, see the [shared disks](faq-for-disks.yml#Azure-shared-disks) section of the FAQ.
+If you've additional questions, see the [shared disks](faq-for-disks.yml#azure-shared-disks) section of the FAQ.
