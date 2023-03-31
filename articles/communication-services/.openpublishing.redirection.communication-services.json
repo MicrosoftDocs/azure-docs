@@ -163,6 +163,21 @@
         "source_path_from_root": "/articles/communication-services/concepts/analytics/insights.md",
         "redirect_url": "/azure/communication-services/concepts/analytics/log-analytics",
         "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/email/logic-app.md",
+        "redirect_url": "/azure/communication-services/quickstarts/email/send-email?pivots=programming-language-power-platform",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/chat/logic-app.md",
+        "redirect_url": "/azure/communication-services/quickstarts/chat/get-started?pivots=programming-language-power-platform",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/sms/logic-app.md",
+        "redirect_url": "/azure/communication-services/quickstarts/sms/send?pivots=programming-language-power-platform",
+        "redirect_document_id": true
       }
     ]
 }
