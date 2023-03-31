@@ -484,6 +484,12 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: Invalid store configuration is provided.
 - **Recommendation**: Check the parameter value assignment in the pipeline. A parameter expression may contain invalid characters.
 
+### Error code: DF-Executor-StringValueNotInQuotes
+
+- **Message**: Column operands are not allowed in literal expressions.
+- **Cause**: The value for a string parameter or an expected string value is not enclosed in single quotes.
+- **Recommendation**: Near the mentioned line number(s) in the data flow script, ensure the value for a string parameter or an expected string value is enclosed in single quotes.
+
 ### Error code: DF-Executor-SystemImplicitCartesian
 
 - **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
@@ -532,17 +538,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-Executor-ParameterParseError
 -	**Message**: Parameter stream has parsing errors. Not honoring the datatype of parameter(s) could be one of the causes.
 -	**Cause**: Parsing errors in given parameter(s).
--	**Recommendation**: Check the parameter(s) having errors and ensure usage of appropriate function(s), if any, to honor the datatype(s) given.
-
-### Error code: DF-MICROSOFT365-CONSENTPENDING
--	**Message**: Admin Consent is pending.
--	**Cause**: Admin Consent is missing.
--	**Recommendation**: Provide the consent and then rerun the pipeline. To provide consent, refer to this link [PAM requests](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-the-microsoft-365-admin-center).
-
-### Error code: 127
--	**Message**: The spark job of Dataflow completed, but the runtime state is either null or still InProgress..
--	**Cause**: Transient issue with microservices involved in the execution can cause the run to fail.
--	**Recommendation**: Refer to this link [scenario 3 transient issues](#scenario-3-transient-issues).
+-	**Recommendation**: Check the parameter(s) having errors, ensure the usage of appropriate function(s), and honor the datatype(s) given.
 
 ### Error code: DF-File-InvalidSparkFolder
 
@@ -619,6 +615,11 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: Malformed records are detected in schema inference. Parse Mode: FAILFAST. It could be because of a wrong selection in document form to parse json file(s). Please try a different 'Document form' (Single document/Document per line/Array of documents) on the json source.
 - **Cause**: Wrong document form is selected to parse JSON file(s).
 - **Recommendation**: Try different **Document form** (**Single document**/**Document per line**/**Array of documents**) in JSON settings. Most cases of parsing errors are caused by wrong configuration.
+
+### Error code: DF-MICROSOFT365-CONSENTPENDING
+-	**Message**: Admin Consent is pending.
+-	**Cause**: Admin Consent is missing.
+-	**Recommendation**: Provide the consent and then rerun the pipeline. To provide consent, refer to [PAM requests](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-the-microsoft-365-admin-center).
 
 ### Error code: DF-MSSQL-ErrorRowsFound
 
@@ -892,6 +893,12 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: An exception happened while writing error rows to the storage.
 - **Recommendation**: Please check your rejected data linked service configuration.
 
+### Error code: DF-SQLDW-IncorrectLinkedServiceConfiguration
+
+- **Message**: The linked service is incorrectly configured as type 'Azure Synapse Analytics' instead of 'Azure SQL Database'. Please create a new linked service of type 'Azure SQL Database' \n Note: Please check that the given database is of type 'Dedicated SQL pool (formerly SQL DW)' for linked service type 'Azure Synapse Analytics'.
+- **Cause**: The linked service is incorrectly configured as type **Azure Synapse Analytics** instead of **Azure SQL Database**. 
+- **Recommendation**: Create a new linked service of type **Azure SQL Database**, and check that the given database is of type Dedicated SQL pool (formerly SQL DW) for linked service type **Azure Synapse Analytics**.
+
 ### Error code: DF-SQLDW-InternalErrorUsingMSI
 
 - **Message**: An internal error occurred while authenticating against Managed Service Identity in Azure Synapse Analytics instance. Please restart the Azure Synapse Analytics instance or contact Azure Synapse Analytics Dedicated SQL Pool support if this problem persists.
@@ -1021,6 +1028,11 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: The pipeline expression cannot be evaluated.
 - **Cause**: The pipeline expression passed in the Data Flow activity isn't being processed correctly because of a syntax error.
 - **Recommendation**: Check data flow activity name. Check expressions in activity monitoring to verify the expressions. For example, data flow activity name can't have a space or a hyphen.
+
+### Error code: 127
+-	**Message**: The spark job of Dataflow completed, but the runtime state is either null or still InProgress..
+-	**Cause**: Transient issue with microservices involved in the execution can cause the run to fail.
+-	**Recommendation**: Refer to [scenario 3 transient issues](#scenario-3-transient-issues).
 
 ### Error code: 2011
 
