@@ -40,7 +40,7 @@ Organizations should avoid the following configurations:
 
 The first way is to review the error message that appears. For problems signing in when using a web browser, the error page itself has detailed information. This information alone may describe what the problem is and that may suggest a solution.
 
-![Screenshot showing a sign in error where a compliant device is required](./media/troubleshoot-conditional-access/image1.png)
+![Screenshot showing a sign in error where a compliant device is required.](./media/troubleshoot-conditional-access/image1.png)
 
 In the above error, the message states that the application can only be accessed from devices or client applications that meet the company's mobile device management policy. In this case, the application and device don't meet that policy.
 
@@ -63,7 +63,7 @@ To find out which Conditional Access policy or policies applied and why do the f
       1. **Username** to see information related to specific users.
       1. **Date** scoped to the time frame in question.
 
-   ![Screenshot showing selecting the Conditional access filter in the sign-ins log](./media/troubleshoot-conditional-access/image3.png)
+   ![Screenshot showing selecting the Conditional access filter in the sign-ins log.](./media/troubleshoot-conditional-access/image3.png)
 
 1. Once the sign-in event that corresponds to the user's sign-in failure has been found select the **Conditional Access** tab. The Conditional Access tab shows the specific policy or policies that resulted in the sign-in interruption.
    1. Information in the **Troubleshooting and support** tab may provide a clear reason as to why a sign-in failed such as a device that didn't meet compliance requirements.
@@ -74,7 +74,7 @@ To find out which Conditional Access policy or policies applied and why do the f
 
 Selecting the ellipsis on the right side of the policy in a sign-in event brings up policy details. This option gives administrators additional information about why a policy was successfully applied or not.
 
-:::image type="content" source="media/troubleshoot-conditional-access/activity-details-sign-ins.png" alt-text="Screenshot showing Conditional Access Policy details click thru to see why policy applied or not" lightbox="media/troubleshoot-conditional-access/policy-details.png":::
+:::image type="content" source="media/troubleshoot-conditional-access/activity-details-sign-ins.png" alt-text="Screenshot showing Conditional Access Policy details click thru to see why policy applied or not." lightbox="media/troubleshoot-conditional-access/policy-details.png":::
 
 The left side provides details collected at sign-in and the right side provides details of whether those details satisfy the requirements of the applied Conditional Access policies. Conditional Access policies only apply when all conditions are satisfied or not configured.
 
