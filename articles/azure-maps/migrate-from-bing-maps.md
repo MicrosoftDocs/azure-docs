@@ -169,12 +169,12 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [Choose the right pricing tier in Azure Maps]: choose-pricing-tier.md
 [azure.com]: https://azure.com
 [Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
- [Azure Maps Q&A]: /answers/topics/azure-maps.html
+[Azure Maps Q&A]: /answers/topics/azure-maps.html
 [Azure support options]: https://azure.microsoft.com/support/options/
 [Azure Maps product page]: https://azure.com/maps
 [Azure Maps product documentation]: https://aka.ms/AzureMapsDocs
 [Azure Maps code samples]: https://aka.ms/AzureMapsSamples
 [Azure Maps developer forums]: https://aka.ms/AzureMapsForums
 [Microsoft learning center shows]: https://aka.ms/AzureMapsVideos
-[Azure Maps Blog]: https://aka.ms/AzureMapsBlog
+[Azure Maps Blog]: https://aka.ms/AzureMapsTechBlog
 [Azure Maps Feedback (UserVoice)]: https://aka.ms/AzureMapsFeedback

@@ -1,5 +1,6 @@
 ---
 ms.topic: include
+ms.custom: devx-track-azurepowershell
 ms.date: 10/24/2022
 author: mikefrobbins
 ms.author: mirobb
