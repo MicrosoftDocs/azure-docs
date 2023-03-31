@@ -30,9 +30,11 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see 
 
-* [HDInsight 4.0 component versions](./hdinsight-40-component-versioning.md)
-* [HDInsight 5.0 component versions](./hdinsight-50-component-versioning.md)
-* [HDInsight 5.1 component versions](./hdinsight-51-component-versioning.md)
+* [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)
+* [HDInsight 4.x component versions](./hdinsight-40-component-versioning.md)
+
+> [!IMPORTANT] 
+> Microsoft has issued [CVE-2023-23408](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-23408), which is fixed on the current release and customers are advised to upgrade their clusters to latest image. 
 
 ![Icon showing new features with text.](media/hdinsight-release-notes/new-icon-for-new-feature.png) 
 
@@ -89,3 +91,4 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
+* [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)

@@ -249,7 +249,7 @@ items:
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
-    - name: creator indoor maps module
+    - name: Creator indoor maps module
       items:
       - name: Indoor Maps module with custom styles
         href: how-to-use-indoor-module.md
@@ -373,6 +373,8 @@ items:
       href: power-bi-visual-add-tile-layer.md
     - name: Add a filled map
       href: power-bi-visual-filled-map.md
+    - name: On-object interaction
+      href: power-bi-visual-on-object-interaction.md
     - name: Show real-time traffic
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
@@ -443,6 +445,28 @@ items:
       items:
       - name: Overview
         href: /rest/api/maps-creator/
+      - name: 2023-03-01-preview
+        items:
+        - name: Alias
+          href: /rest/api/maps/2023-03-01-preview/alias
+        - name: Conversion
+          href: /rest/api/maps/2023-03-01-preview/conversion		
+        - name: Dataset
+          href: /rest/api/maps/2023-03-01-preview/dataset
+        - name: Feature State
+          href: /rest/api/maps/2023-03-01-preview/feature-state
+        - name: Features
+          href: /rest/api/maps/2023-03-01-preview/features
+        - name: Map configuration
+          href: /rest/api/maps/2023-03-01-preview/map-configuration
+        - name: Routeset
+          href: /rest/api/maps/2023-03-01-preview/routeset
+        - name: Style
+          href: /rest/api/maps/2023-03-01-preview/style
+        - name: Tileset
+          href: /rest/api/maps/2023-03-01-preview/tileset
+        - name: Wayfinding
+          href: /rest/api/maps/2023-03-01-preview/wayfinding
       - name: V2
         items:
           - name: Alias
@@ -489,6 +513,8 @@ items:
       items:
       - name: Map control
         href: release-notes-map-control.md
+      - name: Indoor module
+        href: release-notes-indoor-module.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
@@ -498,7 +524,7 @@ items:
   - name: Azure Maps code samples
     href: https://samples.azuremaps.com/
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure Maps QPS Rate Limits
     href: azure-maps-qps-rate-limits.md
   - name: Azure IoT services
@@ -549,3 +575,5 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Azure Maps on IoT School
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
+  - name: Create elevation data & services
+    href: elevation-data-services.md

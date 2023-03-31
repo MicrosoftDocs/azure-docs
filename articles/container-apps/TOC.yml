@@ -44,10 +44,12 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
-    - name: Networking
+    - name: Networking and ingress
       items: 
       - name: Architecture overview
         href: networking.md
+      - name: Ingress
+        href: ingress-overview.md
       - name: Deploy with an external environment
         href: vnet-custom.md
       - name: Deploy with an internal environment
@@ -96,8 +98,19 @@
         href: managed-identity-image-pull.md
     - name: Manage revisions
       href: revisions-manage.md
-    - name: Set up HTTPS or TCP ingress
-      href: ingress.md
+    - name: Ingress
+      items:
+      - name: Configure ingress
+        href: ingress-how-to.md
+      - name: Configure IP restrictions
+        href: ip-restrictions.md
+      - name: Add client certificates
+        href: client-certificate-authorization.md
+      - name: Configure traffic-splitting
+        href: traffic-splitting.md
+      - name: Session affinity
+        href: sticky-sessions.md
+        displayName: Sticky sessions
     - name: Custom domains and certificates
       items:
       - name: Set up container app custom domain
@@ -153,6 +166,12 @@
       href: microservices-dapr-azure-resource-manager.md
     - name: Deploy a Dapr application using GitHub Actions
       href: dapr-github-actions.md
+    - name: Event-driven work using Dapr Bindings
+      href: microservices-dapr-bindings.md
+    - name: Microservices communication using Dapr Publish and Subscribe
+      href: microservices-dapr-pubsub.md
+    - name: Microservices communication using Dapr Service Invocation
+      href: microservices-dapr-service-invoke.md
     - name: Background processing
       href: background-processing.md
     - name: Create an Azure Files storage mount

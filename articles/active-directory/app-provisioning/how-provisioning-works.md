@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/13/2023
+ms.date: 03/30/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -37,7 +37,7 @@ To request an automatic Azure AD provisioning connector for an app that doesn't 
 
 ## Authorization
 
-Credentials are required for Azure AD to connect to the application's user management API. While you're configuring automatic user provisioning for an application, you need to enter valid credentials. For gallery applications, you can find credential types and requirements for the application by referring to the app tutorial. For non-gallery applications, you can refer to the [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) documentation to understand the credential types and requirements. In the Azure portal, you are able to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
+Credentials are required for Azure AD to connect to the application's user management API. While you're configuring automatic user provisioning for an application, you need to enter valid credentials. For gallery applications, you can find credential types and requirements for the application by referring to the app tutorial. For non-gallery applications, you can refer to the [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) documentation to understand the credential types and requirements. In the Azure portal, you're able to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
 ## Mapping attributes
 
@@ -74,8 +74,12 @@ You can use scoping filters to define attribute-based rules that determine which
 
 ### B2B (guest) users
 
-It's possible to use the Azure AD user provisioning service to provision B2B (guest) users in Azure AD to SaaS applications. 
-However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../external-identities/configure-saas-apps.md).
+It's possible to use the Azure AD user provisioning service to provision B2B (guest) users in Azure AD to SaaS applications. However, for B2B users to sign in to the SaaS application using Azure AD, you must manually configure the SaaS application to use Azure AD as a Security Assertion Markup Language (SAML) identity provider. 
+
+Follow these general guidelines when configuring SaaS apps for B2B (guest) users:  
+- For most of the apps, user setup needs to happen manually. Users must be created manually in the app as well.
+- For apps that support automatic setup, such as Dropbox, separate invitations are created from the apps. Users must be sure to accept each invitation.
+- In the user attributes, to mitigate any issues with mangled user profile disk (UPD) in guest users, always set the user identifier to **user.mail**.
 
 > [!NOTE]
 > The userPrincipalName for a B2B user represents the external user's email address alias@theirdomain as "alias_theirdomain#EXT#@yourdomain". When the userPrincipalName attribute is included in your attribute mappings as a source attribute, and a B2B user is being provisioned, the #EXT# and your domain is stripped from the userPrincipalName, so only their original alias@theirdomain is used for matching or provisioning. If you require the full user principal name including #EXT# and your domain to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. <br />
@@ -136,7 +140,7 @@ After the initial cycle, all other cycles will:
 The provisioning service continues running back-to-back incremental cycles indefinitely, at intervals defined in the [tutorial specific to each application](../saas-apps/tutorial-list.md). Incremental cycles continue until one of the following events occurs:
 
 - The service is manually stopped using the Azure portal, or using the appropriate Microsoft Graph API command.
-- A new initial cycle is triggered using the **Restart provisioning** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again. This will not break the links between source and target objects. To break the links use [Restart synchronizationJob](/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http&preserve-view=true) with the following request: 
+- A new initial cycle is triggered using the **Restart provisioning** option in the Azure portal, or using the appropriate Microsoft Graph API command. This action clears any stored watermark and causes all source objects to be evaluated again. This won't break the links between source and target objects. To break the links use [Restart synchronizationJob](/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http&preserve-view=true) with the following request: 
 
 <!-- {
   "blockType": "request",
@@ -187,9 +191,9 @@ The provisioning service supports both deleting and disabling (sometimes referre
 
 **Configure your application to disable a user**
 
-Ensure that you have selected the checkbox for updates.
+Confirm the checkobx for updates is selected.
 
-Ensure that you have the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. Please ensure that you use the default / out of the box mapping for gallery applications.
+Confirm the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. In this case, use the default mapping for gallery applications.
 
 :::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Disable a user" lightbox="./media/how-provisioning-works/disable-user.png":::
 
@@ -198,7 +202,7 @@ Ensure that you have the mapping for *active* for your application. If your usin
 
 The following scenarios will trigger a disable or a delete: 
 * A user is soft deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
-    30 days after a user is deleted in Azure AD, they will be permanently deleted from the tenant. At this point, the provisioning service will send a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
+    30 days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 * A user is permanently deleted / removed from the recycle bin in Azure AD.
 * A user is unassigned from an app.
 * A user goes from in scope to out of scope (doesn't pass a scoping filter anymore).
@@ -207,9 +211,9 @@ The following scenarios will trigger a disable or a delete:
 
 By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
 
-If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
+If one of the above four events occurs and the target application doesn't support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
 
-If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
+If you see an attribute IsSoftDeleted in your attribute mappings, it's used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
 
 **Deprovisioning events**
 
@@ -219,16 +223,16 @@ The following table describes how you can configure deprovisioning actions with 
 |--|--|
 |If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, do nothing.|Remove isSoftDeleted from the attribute mappings and / or set the [skip out of scope deletions](skip-out-of-scope-deletions.md) property to true.|
 |If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, set a specific attribute to true / false.|Map isSoftDeleted to the attribute that you would like to set to false.|
-|When a user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It is not configurable by customers.|
-|When a user is deleted in Azure AD, do nothing in the target application.|Ensure that "Delete" is not selected as one of the target object actions in the [attriubte configuration experience](skip-out-of-scope-deletions.md).|
+|When a user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It's not configurable by customers.|
+|When a user is deleted in Azure AD, do nothing in the target application.|Ensure that "Delete" isn't selected as one of the target object actions in the [attriubte configuration experience](skip-out-of-scope-deletions.md).|
 |When a user is deleted in Azure AD, set the value of an attribute in the target application.|Not supported.|
 |When a user is deleted in Azure AD, delete the user in the target application|This is supported. Ensure that Delete is selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
 
 **Known limitations**
 
-* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user is not managed by the service and we will not send a delete request when they are deleted from the directory.
-* Provisioning a user that is disabled in Azure AD is not supported. They must be active in Azure AD before they are provisioned.
-* When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but will not automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application does not support this, you can restart provisioning to update the group memberships. 
+* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user isn't managed by the service and we won't send a delete request when they're deleted from the directory.
+* Provisioning a user that is disabled in Azure AD isn't supported. They must be active in Azure AD before they're provisioned.
+* When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but won't automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application doesn't support this, you can restart provisioning to update the group memberships. 
 
 **Recommendation**
 

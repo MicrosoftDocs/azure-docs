@@ -5,7 +5,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 05/18/2022
+ms.date: 03/28/2023
 author: ericd-mst-github
 ms.author: nikhilpatel
 ms.reviewer: erd
@@ -60,7 +60,7 @@ The VM application packages use multiple resource types:
 
 - **Only 25 applications per VM**: No more than 25 applications may be deployed to a VM at any point.
 
-- **1GB application size**: The maximum file size of an application version is 1 GB. 
+- **2GB application size**: The maximum file size of an application version is 2 GB. 
 
 - **No guarantees on reboots in your script**: If your script requires a reboot, the recommendation is to place that application last during deployment. While the code attempts to handle reboots, it may fail.
 
@@ -69,6 +69,8 @@ The VM application packages use multiple resource types:
 - **Multiple versions of same application on the same VM**: You can't have multiple versions of the same application on a VM.
 - **Move operations currently not supported**: Moving VMs with VM Apps to other resource groups are not supported at this time.
 
+> [!NOTE]
+>  For Azure Compute Gallery and VM Applications, Storage SAS can be deleted after replication.
 
 ## Cost
 

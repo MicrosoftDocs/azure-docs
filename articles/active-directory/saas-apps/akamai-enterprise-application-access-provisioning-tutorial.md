@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Akamai Enterprise Application Access for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Akamai Enterprise Application Access for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Akamai Enterprise Application Access.
 services: active-directory
 author: twimmers

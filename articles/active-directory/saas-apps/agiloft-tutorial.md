@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Agiloft Contract Management Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and Agiloft Contract Management Suite.
 services: active-directory
 author: jeevansd

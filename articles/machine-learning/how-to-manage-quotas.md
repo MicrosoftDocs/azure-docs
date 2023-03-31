@@ -125,6 +125,20 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 
 To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases).
 
+### Azure Machine Learning kubernetes online endpoints
+
+Azure Machine Learning kubernetes online endpoints have limits described in the following table. 
+
+| **Resource** | **Limit** |
+| --- | --- |
+| Endpoint name| Same as [managed online endpoint](#azure-machine-learning-managed-online-endpoints) |
+| Deployment name| Same as [managed online endpoint](#azure-machine-learning-managed-online-endpoints)|
+| Number of endpoints per subscription | 50 |
+| Number of deployments per subscription | 200 |
+| Number of deployments per endpoint | 20 |
+| Max request time-out at endpoint level  | 300 seconds |
+
+The sum of kubernetes online endpoints and managed online endpoints under each subscription cannot exceed 50. Similarly, the sum of kubernetes online deployments and managed online deployments under each subscription cannot exceed 200.
 
 ### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
@@ -219,11 +233,11 @@ When you're requesting a quota increase, select the service that you have in min
  
 1. Scroll to **Machine Learning Service: Virtual Machine Quota**.
  
-    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the VM quota details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/virtual-machine-quota.png" lightbox="./media/how-to-manage-quotas/virtual-machine-quota.png" alt-text="Screenshot of the VM quota details.":::
 
-2. Under **Additonal Details** specify the request details with the number of additional vCPUs required to run your Machine Learning Endpoint.
+2. Under **Additional Details** specify the request details with the number of additional vCPUs required to run your Machine Learning Endpoint.
  
-    :::image type="content" source="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" lightbox="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" alt-text="Screenshot of the VM quota additional details form.":::
+    :::image type="content" source="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" lightbox="./media/how-to-manage-quotas/vm-quota-request-additional-info.png" alt-text="Screenshot of the VM quota additional details.":::
 
 > [!NOTE]
 > [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Drift | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Drift'
 description: Learn how to configure single sign-on between Azure Active Directory and Drift.
 services: active-directory
 author: jeevansd
