@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 03/08/2023
+ms.date: 03/31/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -480,6 +480,59 @@ Currently, there isn't a way to delete a configuration on the **Configurations**
 1. Select **Delete** and then **Yes** to delete the configuration.
 
     :::image type="content" source="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png" alt-text="Screenshot of the Enterprise applications Properties page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png":::
+
+#### Symptom - Users are skipped because SMS sign-in is enabled on the user
+Users are skipped from synchronization. The scoping step includes the following filter with status false: "Filter external users.alternativeSecurityIds EQUALS 'None'"
+
+**Cause**
+
+If SMS sign-in is enabled for a user, they will be skipped by the provisioning service.
+
+**Solution**
+
+Disable SMS Sign-in for the users. The script below shows how you can disable SMS Sign-in using PowerShell. 
+
+```
+##### Disable SMS Sign-in options for the users
+
+#### Import module
+Install-Module Microsoft.Graph.Users.Actions
+Install-Module Microsoft.Graph.Identity.SignIns
+Import-Module Microsoft.Graph.Users.Actions
+
+Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All", "UserAuthenticationMethod.Read.All","UserAuthenticationMethod.ReadWrite","UserAuthenticationMethod.ReadWrite.All"
+
+
+##### The value for phoneAuthenticationMethodId is 3179e48a-750b-4051-897c-87b9720928f7
+
+$phoneAuthenticationMethodId = "3179e48a-750b-4051-897c-87b9720928f7"
+
+#### Get the User Details
+
+$userId = "objectid_of_the_user_in_Azure_AD"
+
+#### validate the value for SmsSignInState
+
+$smssignin = Get-MgUserAuthenticationPhoneMethod -UserId $userId
+
+{
+    if($smssignin.SmsSignInState -eq "ready"){   
+      #### Disable Sms Sign-In for the user is set to ready
+       
+      Disable-MgUserAuthenticationPhoneMethodSmSign -UserId $userId -PhoneAuthenticationMethodId $phoneAuthenticationMethodId
+      Write-Host "SMS sign-in disabled for the user" -ForegroundColor Green
+    }
+    else{
+    Write-Host "SMS sign-in status not set or found for the user " -ForegroundColor Yellow
+    }
+
+}
+
+
+
+##### End the script
+```
+
 
 ## Next steps
 
