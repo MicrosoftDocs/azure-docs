@@ -27,9 +27,6 @@ Features include:
 - Changes to the `template` configuration section trigger a new [container app revision](application-lifecycle-management.md).
 - If a container crashes, it automatically restarts.
 
-> [!NOTE]
-> The only supported protocols for a container app's fully qualified domain name (FQDN) are HTTP and HTTPS through ports 80 and 443 respectively.
-
 ## Configuration
 
 

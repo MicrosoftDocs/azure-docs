@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 03/30/2022
+ms.date: 03/30/2023
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ Billing in Azure Container apps is based on your [plan type](plans.md).
 | Plan type | Description |
 |--|--|
 | [Consumption](#consumption-plan) | Serverless environment where you're only billed for the resources your apps use when they are running. |
-| [Consumption with Dedicated workload profiles](#consumption-dedicated) | A fully managed environment which supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You are billed for each node in each [workload profile](workload-profiles-overview.md).
+| [Consumption + Dedicated workload profiles plan structure](#consumption-dedicated) | A fully managed environment which supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You are billed for each node in each [workload profile](workload-profiles-overview.md).
 
 Charges apply to resources allocated to each running replica. |
 
@@ -85,7 +85,7 @@ The first 2 million requests in each subscription per calendar month are free.
 
 <a id="consumption-dedicated"></a>
 
-## Consumption with Dedicated workload profiles plan structure
+## Consumption + Dedicated workload profiles plan structure
 
 Azure Container Apps Consumption + Dedicated plan structure consists of two plans withing a single environment, each with their own billing model:
 

@@ -22,7 +22,7 @@ In the Consumption plan, custom user-defined routes (UDRs) and ExpressRoutes are
 
 ## NSG allow rules
 
-The following tables describe how to configure a collection of NSG allow rules.
+The following tables describe how to configure a collection of NSG allow rules for a Consumption only architecture.
 
 >[!NOTE]
 > The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.

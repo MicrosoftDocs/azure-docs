@@ -1,5 +1,5 @@
 ---
-title: Create a Consumption with Dedicated workload profiles environment (preview) 
+title: Create a Consumption + Dedicated workload profiles environment (preview) 
 description: Learn to create an environment with a specialized hardware profile. 
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 03/28/2023
 ms.author: cshoe
 ---
 
-# Manage workload profiles in a Consumption with Dedicated workload profiles environment (preview)
+# Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview)
 
 ## Supported regions
 
@@ -38,7 +38,7 @@ Use the following commands to create an environment with a workload profile.
 
       ```bash
       az network vnet create \
-        --address-prefixes 13.0.0.0/26 \
+        --address-prefixes 13.0.0.0/23 \
         --resource-group "<RESOURCE_GROUP>" \
         --location "<LOCATION>" \
         --name "<VNET_NAME>"
@@ -48,7 +48,7 @@ Use the following commands to create an environment with a workload profile.
 
       ```bash
       az network vnet subnet create \
-        --address-prefixes 13.0.0.0/26 \
+        --address-prefixes 13.0.0.0/23 \
         --delegations Microsoft.App/environments \
         --name "<SUBNET_NAME>" \
         --resource-group "<RESOURCE_GROUP>" \

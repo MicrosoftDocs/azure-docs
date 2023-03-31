@@ -26,7 +26,7 @@ Use the Consumption plan when you don't have specific hardware requirements for 
 
 <a id="consumption-dedicated"></a>
 
-## Consumption + Dedicated plan structure
+## Consumption + Dedicated plan structure (preview)
 
 The Consumption + Dedicated plan structure consists of a serverless plan that allows your applications to scale in and out on demand. Applications can scale to zero, and you only pay for running apps. It also consists of a fully managed plan you can optionally use that provides dedicated, customized hardware to run your apps on.
 

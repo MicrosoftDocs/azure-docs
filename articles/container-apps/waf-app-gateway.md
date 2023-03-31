@@ -17,15 +17,15 @@ When you host your apps or microservices in Azure Container Apps, you may not al
 A reverse proxy is a service that sits in front of one or more services, intercepting and directing incoming traffic to the appropriate destination.
 
 Reverse proxies allow you to place services in front of your apps that supports cross-cutting functionality including:
-	
- - Routing
- - Caching
- - Rate limiting
- - Security layers
- - Load balancing
- - Request filtering
 
-This article demonstrates how to protect your container apps using a [Web Application Firewall (WAF) on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
+- Routing
+- Caching
+- Rate limiting
+- Security layers
+- Load balancing
+- Request filtering
+
+This article demonstrates how to protect your container apps using a [Web Application Firewall (WAF) on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) with an internal Container Apps environment.
 
 For more information on networking concepts in Container Apps, see [Networking Architecture in Azure Container Apps](./networking.md).
 

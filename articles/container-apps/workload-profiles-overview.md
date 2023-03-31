@@ -45,15 +45,15 @@ The following regions support workload profiles during preview:
 
 There are a number of different types and sizes of workload profiles available by region. By default each Consumption + Dedicated plan structure includes a Consumption profile, but you can also add any of the following profiles:
 
-| Name | Cores | MemoryGiB | Category |
-|---|---|---|---|
-| Consumption | 4 | 8 | Consumption |
-| Dedicated-D4 | 4 | 16 | GeneralPurpose |
-| Dedicated-D8 | 8 | 32 | GeneralPurpose |
-| Dedicated-D16 | 16 | 64 | GeneralPurpose |
-| Dedicated-E4 | 4 | 32 | MemoryOptimized |
-| Dedicated-E8 | 8 | 64 | MemoryOptimized |
-| Dedicated-E16 | 16 | 128 | MemoryOptimized |
+| Name | Cores | MemoryGiB | Category | Allocation |
+|---|---|---|---|---|
+| Consumption | 4 | 8 | Consumption | per replica |
+| Dedicated-D4 | 4 | 16 | General purpose | per node |
+| Dedicated-D8 | 8 | 32 | General purpose | per node |
+| Dedicated-D16 | 16 | 64 | General purpose | per node |
+| Dedicated-E4 | 4 | 32 | Memory optimized | per node |
+| Dedicated-E8 | 8 | 64 | Memory optimized | per node |
+| Dedicated-E16 | 16 | 128 | Memory optimized | per node |
 
 Use the *Name* value for the `--workload-profile-name` as you run [`az containerapp create`](workload-profiles-manage-cli.md#create).
 
