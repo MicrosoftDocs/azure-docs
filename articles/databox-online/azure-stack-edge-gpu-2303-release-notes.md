@@ -43,7 +43,7 @@ The 2303 release has the following new features and enhancements:
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-|**1.**|Core Azure Stack Edge platform and Azure Kubernetes Service (AKS) on Azure Stack Edge   |Critical bug fixes to improve workload availability during multi-node Azure Stack Edge update of core Azure Stack Edge platform and AKS on Azure Stack Edge.   |
+|**1.**|Core Azure Stack Edge platform and Azure Kubernetes Service (AKS) on Azure Stack Edge   |Critical bug fixes to improve workload availability during two-node Azure Stack Edge update of core Azure Stack Edge platform and AKS on Azure Stack Edge.   |
 
 <!--## Known issues in this release
 
