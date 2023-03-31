@@ -22,9 +22,9 @@ You can also browse available images and offers using the [Azure Marketplace](ht
 
 A Marketplace image in Azure has the following attributes:
 
-* **Publisher**: The organization that created the image. Examples: Canonical, MicrosoftWindowsServer
-* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, WindowsServer
-* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
+* **Publisher**: The organization that created the image. Examples: Canonical, RedHat, SUSE
+* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, RHEL, sles-12-sp5
+* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 7_9,  gen2
 * **Version**: The version number of an image SKU. 
 
 These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest` to use the latest version of the image.
