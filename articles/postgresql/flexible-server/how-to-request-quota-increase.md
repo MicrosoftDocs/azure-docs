@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure Database for PostgreSQL Flexible Server CLI errors
-description: This topic gives guidance on troubleshooting common issues with Azure CLI when using PostgreSQL Flexible Server.
+description: Learn how to request a quota increase for Azure Database for PostgreSQL Flexible Server. You will also learn how to enable a subscription to access a region..
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: kabharati
+ms.author:kabharati
 ms.reviewer: maghan
 ms.topic: how-to
 ms.date: 3/31/2023
