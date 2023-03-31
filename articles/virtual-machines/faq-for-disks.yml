@@ -16,9 +16,9 @@ sections:
   - name: Managed Disks
     questions:
       - question: |
-          If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?
+          If I create a standard managed disk from an existing VHD that's 80 GiB, how much will that cost me?
         answer: |
-          A standard managed disk created from an 80-GB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
+          A standard managed disk created from an 80-GiB VHD is treated as the next available standard disk size, which is an S10 disk. You're charged according to the S10 disk pricing. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-disks/).
           
       - question: |
           For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?
@@ -36,7 +36,7 @@ sections:
           No.
 
       - question: |
-          Are there limitations on how many managed disks I can have?
+          Are there limits on how many managed disks I can have?
         answer: |
           Yes. The maximum limit is 50,000 managed disks per region and per disk type for a subscription.
 
@@ -51,9 +51,9 @@ sections:
           Yes. You can create an empty disk. A managed disk can be created independently of a VM, for example, without attaching it to a VM.
 
       - question: |
-          What is the supported fault domain count for an availability set that uses Managed Disks?
+          What is the supported fault domain count for an availability set that uses managed disks?
         answer: |
-          Depending on the region where the availability set that uses Managed Disks is located, the supported fault domain count is 2 or 3.
+          Depending on the region where the availability set that uses managed disks is located, the supported fault domain count is 2 or 3.
 
       - question: |
           What kind of Azure role-based access control support is available for Managed Disks?
@@ -167,16 +167,6 @@ sections:
           No, they must wait for the previous copy to finish.
       
       - question: |
-          Can incremental snapshots of multiple disks be copied at the same time?
-        answer: |
-          Yes.
-      
-      - question: |
-          How can I check when an incremental snapshot has finished copying to another region?
-        answer: |
-          You can check the status of the copy by checking the **completionPercent** property. A snapshot is ready when this property is 100.
-      
-      - question: |
           Can I copy snapshots in an order other than their order of creation to another region?
         answer: |
           No. Snapshots must be copied to other regions in creation order.
@@ -203,11 +193,6 @@ sections:
           
   - name: Azure shared disks
     questions:
-          
-      - question: |
-          Can shared disks be used as an OS disk?
-        answer: |
-          No. Only data disks can be used as shared disks.
           
       - question: |
           If I have an existing disk, can I enable shared disks on it?
@@ -239,7 +224,7 @@ sections:
       - question: |
           Can I use caching levels with an ultra disk?
         answer: |
-          No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to **None**.
+          No, ultra disks don't support the different caching methods that are supported on other disk types. Set the disk caching to **None**.
 
       - question: |
           Can I attach an ultra disk to my existing VM?
@@ -249,7 +234,7 @@ sections:
       - question: |
           Can I use an ultra disk as the OS disk for my VM?
         answer: |
-          No, ultra Disks are only supported as data disks and are only supported as 4K native disks.
+          No, ultra Disks are only supported as data disks.
 
       - question: |
           Can I convert an existing disk to an ultra disk?
@@ -272,19 +257,6 @@ sections:
           Can I attach a disk to a VM while it is in an upload state?
         answer: |
           No.
-
-  - name: Standard SSD disks
-    questions:
-
-      - question: |
-          Is Azure Backup available when using Standard SSDs?
-        answer: |
-          Yes, Azure Backup is available.
-
-      - question: |
-          What is the benefit of using Standard SSD disks instead of HDD?
-        answer: |
-          Standard SSD disks deliver better latency, consistency, availability, and reliability compared to HDD disks. Application workloads run a lot more smoothly on Standard SSD because of that. Note, Premium SSD disks are the recommended solution for most IO-intensive production workloads.
 
   - name: Migrate to Managed Disks
     questions:
@@ -338,7 +310,7 @@ sections:
       - question: |
           Is Server-side Encryption enabled by default when I create a managed disk?
         answer: |
-          Yes. Managed Disks are encrypted with server-side encryption with platform managed keys. 
+          Yes. Managed disks are encrypted with server-side encryption with platform managed keys. 
 
       - question: |
           Is the boot volume encrypted by default on a managed disk?
@@ -470,7 +442,7 @@ sections:
         answer: |
           Host Caching (**ReadOnly** and **Read/Write**) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
 
-  - name: Private Links for securely exporting and importing Managed Disks
+  - name: Private Links for managed disks
     questions:
 
       - question: |

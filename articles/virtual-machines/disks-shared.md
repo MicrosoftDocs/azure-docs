@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 03/31/2023
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -171,3 +171,5 @@ Both shared Ultra Disks and shared Premium SSD v2 managed disks are priced based
 ## Next steps
 
 If you're interested in enabling and using shared disks for your managed disks, proceed to our article [Enable shared disk](disks-shared-enable.md)
+
+If you've additional questions, see the [shared disks](faq-for-disks.yml#Azure-shared-disks) section of the FAQ.
