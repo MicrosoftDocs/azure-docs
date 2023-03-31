@@ -25,11 +25,11 @@ In this how-to-guide, learn to enable Insights in Azure Monitor for SAP solution
 - An Azure subscription.
 - An existing Azure Monitor for SAP solutions resource. To create an Azure Monitor for SAP solutions resource, see the [quickstart for the Azure portal](quickstart-portal.md) or the [quickstart for PowerShell](quickstart-powershell.md).
 - An existing NetWeaver and HANA(optional) provider. To configure a NetWeaver provider, see the How to guides for [NetWeaver provider configuration](provider-netweaver.md).
-- (Optional) Alerts setup for availability and/or performance issues on the NetWeaver/HANA provider. To configure a NetWeaver provider, see the How to guides for [setting up Alerts on Azure Monitor for SAP](get-alerts-portal.md)
+- (Optional) Alerts set up for availability and/or performance issues on the NetWeaver/HANA provider. To configure a NetWeaver provider, see the How to guides for [setting up Alerts on Azure Monitor for SAP](get-alerts-portal.md)
 
 ## Steps to Enable Insights in Azure Monitor for SAP solutions
 
-To enable Insights for Azure Monitor for SAP solutions, you'll need to:
+To enable Insights for Azure Monitor for SAP solutions, you need to:
 
 1. [Run a PowerShell script for access](#run-a-powershell-script-for-access)
 1. [Prerequisite - Unprotect methods](#unprotect-the-getenvironment-method)
@@ -46,7 +46,7 @@ To enable Insights for Azure Monitor for SAP solutions, you'll need to:
 3. Switch from Bash to PowerShell.
 4. Upload the script downloaded in the first step.
 5. Use ```cd <script_path>```  command to navigate to the folder where the script is present. 
-6. Set the AMS Resource/ARM ID with the command below: 
+6. Set the AMS Resource/ARM ID with the command: 
 ```ARM ID
 $armId = “<AMS ARM ID>"
 ```
@@ -59,7 +59,7 @@ $subscriptions = "<Subscription ID 1>","<Subscription ID 2>"
 ```
 .\AMS_AIOPS_SETUP.ps1 -ArmId $armId -subscriptions $subscriptions
 ```
-   * If $subscriptions was not set: 
+   * If $subscriptions wasn't set: 
 ```
 .\AMS_AIOPS_SETUP.ps1 -ArmId $armId
 ```
