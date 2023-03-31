@@ -5,10 +5,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-ms.custom: GGAL-freshness822
+ms.custom: GGAL-freshness822, devx-track-azurecli
 author: GabstaMSFT
 ms.collection: linux
-ms.date: 03/29/2023
+ms.date: 03/31/2023
 ---
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
 

@@ -746,6 +746,8 @@
         href: eab-navigate-strategic-care-tutorial.md
       - name: EAComposer
         href: eacomposer-tutorial.md  
+      - name: Easy Metrics Auth0 Connector
+        href: easy-metrics-auth0-connector-tutorial.md
       - name: EasySSO for Bamboo
         href: easysso-for-bamboo-tutorial.md
       - name: EasySSO for BitBucket
@@ -1627,6 +1629,8 @@
         href: myawardpoints-tutorial.md
       - name: My IBISWorld
         href: my-ibisworld-tutorial.md
+      - name: myMobilityHQ
+        href: mymobilityhq-tutorial.md
       - name: myPolicies
         href: mypolicies-tutorial.md
       - name: my.sdworx.com
@@ -1933,6 +1937,8 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: Proofpoint Security Awareness Training
+        href: proofpoint-security-awareness-training-tutorial.md
       - name: ProProfs Training Maker
         href: proprofs-classroom-tutorial.md  
       - name: ProProfs Knowledge Base
@@ -2151,6 +2157,8 @@
         href: sd-elements-tutorial.md
       - name: SDS & Chemical Information Management
         href: sds-chemical-information-management-tutorial.md
+      - name: SeattleTimesSSO
+        href: seattletimessso-tutorial.md
       - name: Secret Server (On-Premises)
         href: secretserver-on-premises-tutorial.md
       - name: Sectigo Certificate Manager
@@ -2603,6 +2611,8 @@
         href: venafi-control-plane-tutorial.md
       - name: Veracode
         href: veracode-tutorial.md
+      - name: Vera Suite
+        href: vera-suite-tutorial.md
       - name: VergeSense
         href: vergesense-tutorial.md  
       - name: Veritas Enterprise Vault.cloud SSO

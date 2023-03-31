@@ -9,21 +9,14 @@
 - name: Quickstarts
   expanded: true
   items: 
-  - name: With a sample container image
+  - name: Deploy from an existing container image
     expanded: true
     items:
     - name: Azure portal
       href: quickstart-portal.md
     - name: Command line
       href: get-started.md
-  - name: With an existing container image
-    expanded: true
-    items:
-    - name: Azure portal
-      href: get-started-existing-container-image-portal.md
-    - name: Command line
-      href: get-started-existing-container-image.md
-  - name: With code on your local machine
+  - name: Deploy an app from code
     expanded: true
     items:
     - name: Command line
@@ -157,21 +150,26 @@
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: Tutorials
-  items:
-    - name: Communicate between microservices
-      href: communicate-between-microservices.md
-    - name: Microservices with Dapr using the CLI
-      href: microservices-dapr.md
-    - name: Microservices with Dapr using ARM or Bicep
-      href: microservices-dapr-azure-resource-manager.md
-    - name: Deploy a Dapr application using GitHub Actions
-      href: dapr-github-actions.md
-    - name: Event-driven work using Dapr Bindings
-      href: microservices-dapr-bindings.md
-    - name: Microservices communication using Dapr Publish and Subscribe
-      href: microservices-dapr-pubsub.md
-    - name: Microservices communication using Dapr Service Invocation
-      href: microservices-dapr-service-invoke.md
+  expanded: true
+  items: 
+    - name: Create and deploy a container app using the CLI
+      href: tutorial-deploy-first-app-cli.md
+    - name: Build a multiple app scenario
+      expanded: true
+      items:
+        - name: 1. Deploy a backend microservice app
+          href: tutorial-code-to-cloud.md
+        - name: 2. Deploy a frontend microservice app
+          href: communicate-between-microservices.md
+    - name: Deploy microservices with Dapr
+      expanded: true
+      items:
+      - name: Microservices with Dapr using the CLI
+        href: microservices-dapr.md
+      - name: Microservices with Dapr using ARM or Bicep
+        href: microservices-dapr-azure-resource-manager.md
+      - name: Deploy a Dapr application using GitHub Actions
+        href: dapr-github-actions.md
     - name: Background processing
       href: background-processing.md
     - name: Create an Azure Files storage mount
