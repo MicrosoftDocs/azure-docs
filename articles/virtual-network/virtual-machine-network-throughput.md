@@ -37,7 +37,7 @@ The throughput limit applies to the virtual machine. Throughput is unaffected by
 
 - **Protocol**: All outbound traffic over all protocols counts towards the limit.
 
-## Network Flow Limits
+## Network flow limits
 
 In addition to bandwidth, the number of network connections present on a VM at any given time can affect its network performance. The Azure networking stack maintains state for each direction of a TCP/UDP connection in data structures called ‘flows’. A typical TCP/UDP connection has two flows created, one for the inbound and another for the outbound direction. 
 
