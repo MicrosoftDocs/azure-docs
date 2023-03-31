@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 03/28/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -75,14 +75,19 @@ For more information, see the article [Configure authentication session manageme
 
 - **Disable** only work when **All cloud apps** are selected, no conditions are selected, and **Disable** is selected under **Session** > **Customize continuous access evaluation** in a Conditional Access policy. You can choose to disable all users or specific users and groups.
 
-
 :::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="CAE Settings in a new Conditional Access policy in the Azure portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
 
-## Disable resilience defaults (Preview)
+## Disable resilience defaults
 
 During an outage, Azure AD extends access to existing sessions while enforcing Conditional Access policies.
 
 If resilience defaults are disabled, access is denied once existing sessions expire. For more information, see the article [Conditional Access: Resilience defaults](resilience-defaults.md).
+
+## Require token protection for sign-in sessions (preview)
+
+Token protection (sometimes referred to as token binding in the industry) attempts to reduce attacks using token theft by ensuring a token is usable only from the intended device. When an attacker is able to steal a token, by hijacking or replay, they can impersonate their victim until the token expires or is revoked. Token theft is thought to be a relatively rare event, but the damage from it can be significant.
+
+The preview works for specific scenarios only. For more information, see the article [Conditional Access: Token protection (preview)](concept-token-protection.md).
 
 ## Next steps
 

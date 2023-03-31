@@ -531,8 +531,6 @@
         href: data-connectors/microsoft-defender-for-iot.md
       - name: Microsoft Defender for Office 365
         href: data-connectors/microsoft-defender-for-office-365.md
-      - name: Microsoft Defender Threat Intelligence (Preview)
-        href: data-connectors/microsoft-defender-threat-intelligence.md
       - name: Microsoft PowerBI
         href: data-connectors/microsoft-powerbi.md
       - name: Microsoft Project
@@ -747,6 +745,8 @@
         href: connect-custom-logs.md
       - name: DNS via AMA
         href: connect-dns-ama.md
+      - name: GCP audit logs
+        href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
         href: connect-logstash-data-connection-rules.md
       - name: Logstash plugin (legacy)
@@ -781,6 +781,8 @@
       href: normalization-modify-content.md
   - name: Integrate threat intelligence
     items:
+    - name: Enable MDTI data connector
+      href: connect-mdti-data-connector.md
     - name: Connect threat intelligence platforms
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
@@ -992,8 +994,10 @@
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
       href: sap/sap-solution-security-content.md
+    - name: Monitored SAP security parameters
+      href: sap/sap-suspicious-configuration-security-parameters.md
     - name: SAP audit log workbook
-      href: sap/sap-audit-log-workbook.md
+      href: sap/sap-audit-log-workbook.md    
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
     - name: Container update script reference
@@ -1107,7 +1111,7 @@
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog
-    href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
+    href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing

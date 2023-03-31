@@ -2,7 +2,7 @@
 title: Configure Metrics Server VPA in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your Metrics Server pods on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/21/2023
+ms.date: 03/27/2023
 ---
 
 # Configure Metrics Server VPA in Azure Kubernetes Service (AKS)
@@ -24,22 +24,22 @@ To update the coefficient values, create a ConfigMap in the overlay *kube-system
 1. Create a ConfigMap file named *metrics-server-config.yaml* and copy in the following manifest.
 
     ```yml
-    apiVersion: v1 
-    kind: ConfigMap 
-    metadata: 
-      name: metrics-server-config 
-      namespace: kube-system 
-      labels: 
-        kubernetes.io/cluster-service: "true" 
-        addonmanager.kubernetes.io/mode: EnsureExists 
-    data: 
-      NannyConfiguration: |- 
-        apiVersion: nannyconfig/v1alpha1 
-        kind: NannyConfiguration 
-        baseCPU: 100m 
-        cpuPerNode: 1m 
-        baseMemory: 100Mi 
-        memoryPerNode: 8Mi 
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: metrics-server-config
+      namespace: kube-system
+      labels:
+        kubernetes.io/cluster-service: "true"
+        addonmanager.kubernetes.io/mode: EnsureExists
+    data:
+      NannyConfiguration: |-
+        apiVersion: nannyconfig/v1alpha1
+        kind: NannyConfiguration
+        baseCPU: 100m
+        cpuPerNode: 1m
+        baseMemory: 100Mi
+        memoryPerNode: 8Mi
     ```
 
     In the ConfigMap example, the resource limit and request are changed to the following:
@@ -89,22 +89,22 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
 1. Create a ConfigMap file named *metrics-server-config.yaml* and copy in the following manifest.
 
     ```yml
-    apiVersion: v1 
-    kind: ConfigMap 
-    metadata: 
-      name: metrics-server-config 
-      namespace: kube-system 
-      labels: 
-        kubernetes.io/cluster-service: "true" 
-        addonmanager.kubernetes.io/mode: EnsureExists 
-    data: 
-      NannyConfiguration: |- 
-        apiVersion: nannyconfig/v1alpha1 
-        kind: NannyConfiguration 
-        baseCPU: 100m 
-        cpuPerNode: 0m 
-        baseMemory: 100Mi 
-        memoryPerNode: 0Mi 
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: metrics-server-config
+      namespace: kube-system
+      labels:
+        kubernetes.io/cluster-service: "true"
+        addonmanager.kubernetes.io/mode: EnsureExists
+    data:
+      NannyConfiguration: |-
+        apiVersion: nannyconfig/v1alpha1
+        kind: NannyConfiguration
+        baseCPU: 100m
+        cpuPerNode: 0m
+        baseMemory: 100Mi
+        memoryPerNode: 0Mi
     ```
 
    In this ConfigMap example, it changes the resource limit and request to the following:
@@ -126,7 +126,7 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
     kubectl -n kube-system delete po metrics-server-pod-name
     ```
 
-4. To verify the updated resources took affect, run the following command to review the Metrics Server VPA log.
+4. To verify the updated resources took effect, run the following command to review the Metrics Server VPA log.
 
     ```bash
     kubectl -n kube-system logs metrics-server-pod-name -c metrics-server-vpa
@@ -150,22 +150,22 @@ If you would like to bypass VPA for Metrics Server and manually control its reso
 1. If you use the following configmap, the Metrics Server VPA customizations aren't applied. You need add a unit for `baseCPU`.
 
     ```yml
-    apiVersion: v1 
-     kind: ConfigMap 
-     metadata: 
-       name: metrics-server-config 
-       namespace: kube-system 
-       labels: 
-         kubernetes.io/cluster-service: "true" 
-         addonmanager.kubernetes.io/mode: EnsureExists 
-     data: 
-       NannyConfiguration: |- 
-         apiVersion: nannyconfig/v1alpha1 
-         kind: NannyConfiguration 
-         baseCPU: 100 
-         cpuPerNode: 1m 
-         baseMemory: 100Mi 
-         memoryPerNode: 8Mi 
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: metrics-server-config
+      namespace: kube-system
+      labels:
+        kubernetes.io/cluster-service: "true"
+        addonmanager.kubernetes.io/mode: EnsureExists
+    data:
+      NannyConfiguration: |-
+        apiVersion: nannyconfig/v1alpha1
+        kind: NannyConfiguration
+        baseCPU: 100
+        cpuPerNode: 1m
+        baseMemory: 100Mi
+        memoryPerNode: 8Mi
     ```
     
    The following example output resembles the results showing the updated throttling settings aren't applied.

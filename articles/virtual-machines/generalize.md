@@ -1,6 +1,6 @@
 ---
-title: Generalize a VM before creating an image
-description: Generalized a VM to remove machine specific information before creating an image. 
+title: Deprovision or generalize a VM before creating an image
+description: Generalized or deprovision VM to remove machine specific information before creating an image. 
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -12,11 +12,14 @@ ms.custom: portal
 
 ---
 
-# Remove machine specific information by generalizing a VM before creating an image
+# Remove machine specific information by deprovisioning or generalizing a VM before creating an image
 
-Generalizing a VM is not necessary for creating an image in an [Azure Compute Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create a generalized image. Generalizing is required when creating a managed image outside of a gallery.
+Generalizing or deprovisioning a VM is not necessary for creating an image in an [Azure Compute Gallery](shared-image-galleries.md#generalized-and-specialized-images) unless you specifically want to create an image that has no machine specific information, like user accounts. Generalizing is still required when creating a managed image outside of a gallery.
 
-Generalizing removes machine specific information so the image can be used to create multiple VMs. Once the VM has been generalized, you need to let the platform know so that the boot sequence can be set correctly. 
+Generalizing removes machine specific information so the image can be used to create multiple VMs. Once the VM has been generalized or deprovisioned, you need to let the platform know so that the boot sequence can be set correctly. 
+
+> [!IMPORTANT]
+> Once you mark a VM as `generalized` in Azure, you cannot restart the VM.
 
 
 ## Linux
@@ -91,7 +94,7 @@ To generalize your Windows VM, follow these steps:
 
 5. Then change the directory to %windir%\system32\sysprep, and then run:
    ```
-   sysprep.exe /oobe /generalize /mode:vm /shutdown
+   sysprep.exe /oobe /generalize /shutdown
    ```
 6. The VM will shut down when Sysprep is finished generalizing the VM. Do not restart the VM.
  
