@@ -98,6 +98,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 
 \*Standard_M128ms' does not support encryption at host
 
+
 ### General purpose
 
 |Series|Size|vCPU|Memory: GiB|
@@ -137,7 +138,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
-
 |Easv4|Standard_E4as_v4|4|32|
 |Easv4|Standard_E8as_v4|8|64|
 |Easv4|Standard_E16as_v4|16|128|
@@ -146,7 +146,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Easv4|Standard_E48as_v4|48|384|
 |Easv4|Standard_E64as_v4|64|512|
 |Easv4|Standard_E96as_v4|96|672|
-
 |Easv5|Standard_E8as_v5|8|64|
 |Easv5|Standard_E16as_v5|16|128|
 |Easv5|Standard_E20as_v5|20|160|
@@ -154,25 +153,21 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Easv5|Standard_E48as_v5|48|384|
 |Easv5|Standard_E64as_v5|64|512|
 |Easv5|Standard_E96as_v5|96|672|
-
 |Esv3|Standard_E4s_v3|4|32|
 |Esv3|Standard_E8s_v3|8|64|
 |Esv3|Standard_E16s_v3|16|128|
 |Esv3|Standard_E32s_v3|32|256|
 |Esv4|Standard_E2s_v4|2|16|
 |Esv4|Standard_E4s_v4|4|32|
-
 |Esv4|Standard_E8s_v4|8|64|
 |Esv4|Standard_E16s_v4|16|128|
 |Esv4|Standard_E20s_v4|20|160|
 |Esv4|Standard_E32s_v4|32|256|
 |Esv4|Standard_E48s_v4|48|384|
 |Esv4|Standard_E64s_v4|64|504|
-
 |Esv4|Standard_E96s_v4|96|672|
 |Esv5|Standard_E2s_v5|2|16|
 |Esv5|Standard_E4s_v5|4|32|
-
 |Esv5|Standard_E8s_v5|8|64|
 |Esv5|Standard_E16s_v5|16|128|
 |Esv5|Standard_E20s_v5|20|160|
@@ -180,7 +175,6 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv5|Standard_E48s_v5|48|384|
 |Esv5|Standard_E64s_v5|64|512|
 |Esv5|Standard_E96s_v5|96|672|
-
 |Edsv5|Standard_E96ds_v5|96|672|
 |Eisv3|Standard_E64is_v3|64|432|
 |Eis4|Standard_E80is_v4|80|504|
@@ -207,6 +201,7 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Mms*|Standard_M128ms|128|3892|
 
 \*Standard_M128ms' does not support encryption at host
+
 
 ### Storage optimized
 |Series|Size|vCPU|Memory: GiB|
