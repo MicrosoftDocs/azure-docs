@@ -261,7 +261,7 @@ The `unitProperties` object contains a JSON array of unit properties.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |`unitName`|string|true|Name of unit to associate with this `unitProperty` record. This record is only valid when a label matching `unitName` is found in the `unitLabel` layers. |
-|`categoryName`|string|false|Purpose of the unit. A list of values that the provided rendering styles can make use of is available [here](https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json).|
+|`categoryName`|string|false|Purpose of the unit. A list of values that the provided rendering styles can make use of is documented in [categories.json](https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json).|
 |`occupants`|array of directoryInfo objects |false    |List of occupants for the unit. |
 |`nameAlt`|string|false|Alternate name of the unit. |
 |`nameSubtitle`|string|false|Subtitle of the unit. |
@@ -279,7 +279,7 @@ The `zoneProperties` object contains a JSON array of zone properties.
 | Property  | Type | Required | Description |
 |-----------|------|----------|-------------|
 |zoneName |string |true |Name of zone to associate with `zoneProperty` record. This record is only valid when a label matching `zoneName` is found in the `zoneLabel` layer of the zone.  |
-|categoryName| string| false |Purpose of the zone. A list of values that the provided rendering styles can make use of is available [here](https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json).|
+|categoryName| string| false |Purpose of the zone. A list of values that the provided rendering styles can make use of is documented in [categories.json](https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json).|
 |zoneNameAlt| string| false |Alternate name of the zone.  |
 |zoneNameSubtitle| string | false |Subtitle of the zone. |
 |zoneSetId| string | false | Set ID to establish a relationship among multiple zones so that they can be queried or selected as a group. For example, zones that span multiple levels. |
