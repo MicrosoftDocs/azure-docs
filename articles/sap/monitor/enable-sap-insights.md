@@ -45,22 +45,25 @@ To enable Insights for Azure Monitor for SAP solutions, you need to:
 2. Go to the Azure portal and select the Cloud Shell tab from the menu bar at the top. Refer [this guide](/articles/cloud-shell/quickstart) to get started with Cloud Shell. 
 3. Switch from Bash to PowerShell.
 4. Upload the script downloaded in the first step.
-5. Use ```cd <script_path>```  command to navigate to the folder where the script is present. 
+5. Navigate to the folder where the script is present using the command:
+```Powershell
+cd <script_path>
+```
 6. Set the AMS Resource/ARM ID with the command: 
-```ARM ID
-$armId = “<AMS ARM ID>"
+```PowerShell
+$armId = "<AMS ARM ID>"
 ```
 7.	If the VMs belong to a different subscription than AMS, set the list of subscriptions in which VMs of the SAP system are present (use subscription IDs): 
-```
+```PowerShell
 $subscriptions = "<Subscription ID 1>","<Subscription ID 2>"
 ```
 8.	Run the script uploaded from step 6 using the command:
    * If $subscriptions was set: 
-```
+```PowerShell
 .\AMS_AIOPS_SETUP.ps1 -ArmId $armId -subscriptions $subscriptions
 ```
    * If $subscriptions wasn't set: 
-```
+```PowerShell
 .\AMS_AIOPS_SETUP.ps1 -ArmId $armId
 ```
 
