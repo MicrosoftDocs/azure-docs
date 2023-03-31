@@ -1,6 +1,6 @@
 ---
 title: Azure Container Apps overview
-description: Learn about common scenarios and uses for Azure Container Apps
+description: Learn about common scenarios and uses for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -38,7 +38,7 @@ With Azure Container Apps, you can:
 
 - [**Autoscale**](scale-app.md) your apps based on any KEDA-supported scale trigger. Most applications can scale to zero<sup>1</sup>.
 
-- [**Enable HTTPS ingress**](ingress.md) without having to manage other Azure infrastructure.
+- [**Enable HTTPS or TCP ingress**](ingress-how-to.md) without having to manage other Azure infrastructure.
 
 - [**Split traffic**](revisions.md) across multiple versions of an application for Blue/Green deployments and A/B testing scenarios.
 
@@ -56,7 +56,7 @@ With Azure Container Apps, you can:
 
 - [**Monitor logs**](log-monitoring.md) using Azure Log Analytics.
 
-- [**Generous quotas**](quotas.md) which are overridable to increase limits on a per-account basis.
+- [**Generous quotas**](quotas.md) which can be overridden to increase limits on a per-account basis.
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 

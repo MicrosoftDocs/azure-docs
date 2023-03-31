@@ -46,21 +46,20 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-1. Make sure you're using the directory that contains your subscription:
 
-    1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon. 
+1. Make sure you're using the Azure Active Directory (Azure AD) tenant that contains your subscription: 
+
+    1. In the Azure portal toolbar, select the **Directories + subscriptions** (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::) icon.
     
-        ![Directories + subscriptions filter icon](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
-
-    1. Find the directory that contains your subscription and select the **Switch** button next to it. Switching a directory reloads the portal. If the directory that contains your subscription has the **Current** label next to it, you don't need to do anything. 
-
+    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory that contains your subscription in the **Directory name** list, and then select **Switch** button next to it.
+        
         ![Screenshot of the directories and subscriptions window.](media/tutorial-create-tenant/switch-directory.png)
 
 1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription you're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
     1. On the Azure portal, search for and select **Subscriptions**.
-    2. Select your subscription, and then in the left menu, select **Resource providers**. If you don't see the left menu, select the **Show the menu for < name of your subscription >** icon at the top left part of the page to expand it.
-    3. Make sure the **Microsoft.AzureActiveDirectory** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
+    1. Select your subscription, and then in the left menu, select **Resource providers**. If you don't see the left menu, select the **Show the menu for < name of your subscription >** icon at the top left part of the page to expand it.
+    1. Make sure the **Microsoft.AzureActiveDirectory** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 
@@ -72,15 +71,15 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
     ![Create a new Azure AD B2C tenant selected in Azure portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
-1. On the **Create a directory** page, enter the following:
+1. On the **Create a directory** page:
 
-   - **Organization name** - Enter a name for your Azure AD B2C tenant.
-   - **Initial domain name** - Enter a domain name for your Azure AD B2C tenant.
-   - **Country or region** - Select your country or region from the list. This selection can't be changed later.
-   - **Subscription** - Select your subscription from the list.
-   - **Resource group** - Select or search for the resource group that will contain the tenant.
+   - For **Organization name**, enter a name for your Azure AD B2C tenant.
+   - For **Initial domain name**, enter a domain name for your Azure AD B2C tenant.
+   - For **Location**, select your country from the list. If the country you select has a [Go-Local add-on](data-residency.md#go-local-add-on) option, such as Japan or Australia, and you want to store your data exclusively within that country, select the **Store Azure AD Core Store data, components and service data in the location selected above** checkbox. Go-Local add-on is a paid add-on whose charge is added to your Azure AD B2C Premium P1 or P2 licenses charges, see [Billing model](billing.md#about-go-local-add-on). You can't change the data residency region after you create your Azure AD B2C tenant. 
+   - For **Subscription**, select your subscription from the list.
+   - For **Resource group**, select or search for the resource group that will contain the tenant.
 
-    ![Create tenant form in with example values in Azure portal](media/tutorial-create-tenant/review-and-create-tenant.png)
+    :::image type="content" source="media/tutorial-create-tenant/review-and-create-tenant.png" alt-text="Screenshot of create tenant form in with example values in Azure portal.":::
 
 1. Select **Review + create**.
 1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
@@ -93,7 +92,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 ## Select your B2C tenant directory
 
 To start using your new Azure AD B2C tenant, you need to switch to the directory that contains the tenant:
-1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon.
+1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon (:::image type="icon" source="./../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false":::).
 1. On the **All Directories** tab, find the directory that contains your Azure AD B2C tenant and then select the **Switch** button next to it.
 
 If at first you don't see your new Azure B2C tenant in the list, refresh your browser window or sign out and sign back in. Then in the Azure portal toolbar, select the **Directories + subscriptions** filter again.

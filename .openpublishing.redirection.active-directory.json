@@ -76,6 +76,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/teamzskill-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/usertesting-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -4489,6 +4494,11 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/reference-reports-latencies.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/reference-azure-ad-sla-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md",
+      "redirect_url": "/azure/active-directory/fundamentals/how-to-manage-user-profile-info",
       "redirect_document_id": false
     },
     {
