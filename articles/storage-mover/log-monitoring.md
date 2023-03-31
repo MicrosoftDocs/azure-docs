@@ -117,6 +117,6 @@ Get started with any of these guides.
 
 - [Log Analytics workspaces](../azure-monitor/logs/log-analytics-workspace-overview.md)
 - [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md)
-- [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings?tabs=portal.md)
+- [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md?tabs=portal)
 - [Azure Storage Mover support bundle overview](troubleshooting.md)
 - [Troubleshooting Storage Mover job run error codes](status-code.md)
