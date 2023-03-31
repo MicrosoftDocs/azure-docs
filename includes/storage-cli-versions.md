@@ -1,6 +1,7 @@
 ---
 author: tamram
 ms.service: storage
+ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
