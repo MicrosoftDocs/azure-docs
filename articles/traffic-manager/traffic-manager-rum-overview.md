@@ -6,7 +6,6 @@ documentationcenter: traffic-manager
 author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: conceptual 
-ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: greglin
