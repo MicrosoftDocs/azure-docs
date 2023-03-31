@@ -200,9 +200,7 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
     ```bash
     iotedgedev solution init --template csharp
     ```
-    
-    The solution includes a default C# module named *filtermodule*.
-    
+        
     # [C](#tab/c)
     
     ```bash
