@@ -61,13 +61,13 @@ You log data is integrated into Storage Mover's Azure portal user interface (UI)
 
 :::image type="content" source="media/log-monitoring/logs-splash-sml.png" lightbox="media/log-monitoring/logs-splash-lrg.png" alt-text="This image illustrates the selections required to open the Logs pane and close the splash screen." :::
 
-After the **Welcome** window is closed within the main content pane, the **New Query** window is displayed. In the schema and filter pane, ensure that the **Tables** object is selected and that the **StorageMoverCopyLogsFailed** and **StorageMoverJobRunLogs** tables are visible. Using Kusto Query Language (KQL) queries, you can begin extracting log data from the tables displayed within the schema and filter pane. Enter your query into the query editing field and select **Run** as shown in the following screen capture. A simple query example is also provided.
+After the **Welcome** window is closed within the main content pane, the **New Query** window is displayed. In the schema and filter pane, ensure that the **Tables** object is selected and that the **StorageMoverCopyLogsFailed** and **StorageMoverJobRunLogs** tables are visible. Using Kusto Query Language (KQL) queries, you can begin extracting log data from the tables displayed within the schema and filter pane. Enter your query into the query editing field and select **Run** as shown in the following screen capture. A simple query example is also provided which will retrieve any .
 
 :::image type="content" source="media/log-monitoring/logs-query-sml.png" lightbox="media/log-monitoring/logs-query-lrg.png" alt-text="This image identifies the panes within the Log Analytics schema and filter page." :::
 
 ```kusto
     StorageMoverCopyLogsFailed 
-    | where TimeGenerated > ago(30d) and JobRunName == "[job run ID]"
+    | where TimeGenerated > ago(30d)
 ```
 
 ### Sample Kusto queries
@@ -78,10 +78,10 @@ The following sample queries provided can be entered in the **Log search** bar t
 
 - To list all the files that failed to copy from a specific job run within the last 30 days.
 
-    ```kusto
-    StorageMoverCopyLogsFailed
-    | where TimeGenerated > ago(30d) 
-    ```
+```kusto
+    StorageMoverCopyLogsFailed 
+    | where TimeGenerated > ago(30d) and JobRunName == "[job run ID]"
+```
 
 - To list the 10 most common copy log error codes over the last seven days.
 
@@ -115,8 +115,8 @@ The following sample queries provided can be entered in the **Log search** bar t
 
 Get started with any of these guides.
 
-- [Log Analytics workspaces](../azure-monitor/logs/log-analytics-workspace-overview)
+- [Log Analytics workspaces](../azure-monitor/logs/log-analytics-workspace-overview.md)
 - [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md)
-- [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings?tabs=portal)
+- [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings?tabs=portal.md)
 - [Azure Storage Mover support bundle overview](troubleshooting.md)
 - [Troubleshooting Storage Mover job run error codes](status-code.md)
