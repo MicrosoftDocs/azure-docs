@@ -34,8 +34,7 @@ Before you can connect your labeling project to Azure Machine Learning, you need
     * Connect it your project back to the same Azure Machine Learning project
     * Connect it to any Language Studio project in the future.
 * You can't label in the Language Studio and Azure Machine Learning simultaneously. The labeling experience is enabled in one studio at a time. 
-* The testing and training files in the labeling experience you switch away from will be ignored when training your model. 
-assigned to either the training or testing sets 
+* The testing and training files in the labeling experience you switch away from will be ignored when training your model.  
 * Only Azure Machine Learning's JSONL file format can be imported into Language Studio.
 * Projects with the multi-lingual option enabled can't be connected to Azure Machine Learning, and not all languages are supported.
 * The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to.
