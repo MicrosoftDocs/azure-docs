@@ -14,13 +14,13 @@
   items:
   - name: Migration
     items:
-      - name: Single Server to Flexible Server migration (preview)
+      - name: Single Server to Flexible Server migration
         items:
-          - name: Single to Flexible server migration tool (Preview) - Concepts
+          - name: Single to Flexible server migration tool - Concepts
             href: migrate/concepts-single-to-flexible.md
-          - name: Single to Flexible server migration tool (Preview) - Using portal
+          - name: Single to Flexible server migration tool - Using portal
             href: migrate/how-to-migrate-single-to-flexible-portal.md
-          - name: Single to Flexible server migration tool (Preview)- Using CLI
+          - name: Single to Flexible server migration tool - Using CLI
             href: migrate/how-to-migrate-single-to-flexible-cli.md
       - name: Migrate data with pg_dump and pg_restore
         href: single-server/how-to-migrate-using-dump-and-restore.md
@@ -44,10 +44,12 @@
     href: single-server/concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql
 - name: Single Server
-  expanded: true
+  expanded: false
   items:
   - name: Single Server documentation
     href: single-server/index.yml
+  - name: What's happening to Single Server?
+    href: single-server/whats-happening-to-postgresql-single-server.md
   - name: Overview
     href: single-server/overview-single-server.md
   - name: Quickstarts

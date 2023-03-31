@@ -8,7 +8,7 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 03/27/2023
 ms.custom: devdivchpfy22
 ms.author: avgupta
 
@@ -65,11 +65,8 @@ In this tutorial, you'll learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - This tutorial requires version 2.10.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
-## Create an App Configuration store
-
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 ## Create JSON key-values in App Configuration
 
@@ -77,19 +74,19 @@ JSON key-values can be created using Azure portal, Azure CLI, or by importing fr
 
 ### Create JSON key-values using Azure portal
 
-Browse to your App Configuration store, and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+Add the following key-values to the App Configuration store. Leave **Label** with its default value. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-| Key | Value | Content Type |
-|---|---|---|
-| Settings:BackgroundColor | "Green" | application/json |
-| Settings:FontSize | 24 | application/json |
-| Settings:UseDefaultRouting | false | application/json |
-| Settings:BlockedUsers | null | application/json |
-| Settings:ReleaseDate | "2020-08-04T12:34:56.789Z" | application/json |
-| Settings:RolloutPercentage | [25,50,75,100] | application/json |
-| Settings:Logging | {"Test":{"Level":"Debug"},"Prod":{"Level":"Warning"}} | application/json |
+| Key                          | Value                                                   | Content Type       |
+| ---------------------------- | ------------------------------------------------------- | ------------------ |
+| *Settings:BackgroundColor*   | *"Green"*                                               | *application/json* |
+| *Settings:FontSize*          | *24*                                                    | *application/json* |
+| *Settings:UseDefaultRouting* | *false*                                                 | *application/json* |
+| *Settings:BlockedUsers*      | *null*                                                  | *application/json* |
+| *Settings:ReleaseDate*       | *"2020-08-04T12:34:56.789Z"*                            | *application/json* |
+| *Settings:RolloutPercentage* | *[25,50,75,100]*                                        | *application/json* |
+| *Settings:Logging*           | *{"Test":{"Level":"Debug"},"Prod":{"Level":"Warning"}}* | *application/json* |
 
-Leave **Label** empty and select **Apply**.
+1. Select **Apply**.
 
 ### Create JSON key-values using Azure CLI
 
@@ -132,7 +129,7 @@ az appconfig kv import -s file --format json --path "~/Import.json" --content-ty
 ```
 
 > [!NOTE]
-> The `--depth` argument is used for flattening hierarchical data from a file into key-value pairs. In this tutorial, depth is specified for demonstrating that you can also store JSON objects as values in App Configuration. If depth isn't specified, JSON objects will be flattened to the deepest level by default.
+> The `--depth` argument is used for flattening hierarchical data from a file into key-values. In this tutorial, depth is specified for demonstrating that you can also store JSON objects as values in App Configuration. If depth isn't specified, JSON objects will be flattened to the deepest level by default.
 
 The JSON key-values you created should look like this in App Configuration:
 
