@@ -154,14 +154,6 @@ cd azureml-examples/cli/endpoints/online/model-1
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
-<!-- Open a terminal in the Azure Machine Learning studio:
-
-1. Sign into [Azure Machine Learning studio](https://ml.azure.com).
-1. Select your workspace, if it isn't already open.
-1. On the left, select **Notebooks**.
-1. Select **Open terminal**.
- -->
-
 ### Download files from the examples repository
 
 If you cloned the examples repo, your local machine already has copies of the files for this example, and you can skip to the next section. If you didn't clone the repo, you can download it to your local machine.
@@ -381,14 +373,20 @@ This action opens up a window for you to specify details about your endpoint and
 
 ## Confirm your existing deployment
 
-To confirm your existing deployment, you can invoke your endpoint to score your model for a given input request. When you invoke your endpoint, you have the option to specify the name of the deployment that will receive incoming traffic.
-
-If you invoke the endpoint with the name of the deployment to receive traffic, Azure Machine Learning will route the endpoint's incoming traffic directly to the specified deployment. The endpoint will then return the output of the deployment.
-
-If you invoke the endpoint without specifying the deployment that will receive traffic, Azure Machine Learning will route the endpoint's incoming traffic to one of the deployments in the endpoint based on specified traffic control settings—that is, based on the percentage of traffic that you've allocated to each deployment in the endpoint. For example, if your traffic rules specify that a particular deployment in your endpoint will receive incoming traffic 40% of the time, Azure Machine Learning will route 40% of the endpoint's traffic to that deployment. If your endpoint contains only one deployment, then the single deployment will receive 100% of incoming requests by default. You can use the `--deployment-name` option [for CLI v2](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke-optional-parameters), or `deployment_name` option [for SDK v2](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-invoke) to specify the deployment.
+One way to confirm your existing deployment is to invoke your endpoint so that it can score your model for a given input request. When you invoke your endpoint via the CLI or Python SDK, you may choose to specify the name of the deployment that will receive the incoming traffic.
 
 > [!NOTE]
-> In Azure Machine Learning Studio, you must specify a deployment when you invoke an endpoint.
+> Unlike the CLI or Python SDK, Azure Machine Learning studio requires you to specify a deployment when you invoke an endpoint.
+
+### Invoke endpoint with deployment name
+
+If you invoke the endpoint with the name of the deployment that will receive traffic, Azure Machine Learning will route the endpoint's traffic directly to the specified deployment and return its output. You can use the `--deployment-name` option [for CLI v2](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke-optional-parameters), or `deployment_name` option [for SDK v2](/python/api/azure-ai-ml/azure.ai.ml.operations.onlineendpointoperations#azure-ai-ml-operations-onlineendpointoperations-invoke) to specify the deployment.
+
+### Invoke endpoint without specifying deployment
+
+If you invoke the endpoint without specifying the deployment that will receive traffic, Azure Machine Learning will route the endpoint's incoming traffic to one of the deployments in the endpoint based on traffic control settings.
+
+Traffic control settings allocate specified percentages of incoming traffic to each deployment in the endpoint. For example, if your traffic rules specify that a particular deployment in your endpoint will receive incoming traffic 40% of the time, Azure Machine Learning will route 40% of the endpoint's traffic to that deployment. If your endpoint contains only one deployment, then the single deployment will receive 100% of incoming requests.
 
 # [Azure CLI](#tab/azure-cli)
 
