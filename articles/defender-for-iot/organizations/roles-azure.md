@@ -3,6 +3,9 @@ title: Azure user roles and permissions for Microsoft Defender for IoT
 description: Learn about the Azure user roles and permissions available for OT and Enterprise IoT monitoring with Microsoft Defender for IoT on the Azure portal.
 ms.date: 09/19/2022
 ms.topic: concept-article
+ms.custom: enterprise-iot
+ms.collection:
+  -       zerotrust-services
 ---
 
 # Azure user roles and permissions for Defender for IoT
@@ -15,7 +18,8 @@ This article provides a reference of Defender for IoT actions available for each
 
 ## Roles and permissions reference
 
-Roles for management actions are applied to user roles across an entire Azure subscription.
+Permissions are applied to user roles across an entire Azure subscription, or in some cases, across individual Defender for IoT sites. For more information, see [Zero Trust and your OT networks](concept-zero-trust.md) and [Manage site-based access control (Public preview)](manage-users-portal.md#manage-site-based-access-control-public-preview).
+
 
 | Action and scope|[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|

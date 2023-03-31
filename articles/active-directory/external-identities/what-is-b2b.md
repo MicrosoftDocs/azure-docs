@@ -1,17 +1,17 @@
 ---
-title: B2B collaboration overview - Azure AD
+title: Azure AD B2B collaboration overview
 description: Azure Active Directory B2B collaboration supports guest user access so you can securely share resources and collaborate with external partners.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/14/2023
+ms.date: 02/20/2023
 ms.author: cmulligan
 author: csmulligan
 manager: celestedg
 ms.custom: "engagement-fy23, it-pro, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 ---
 
 # B2B collaboration overview
@@ -20,7 +20,7 @@ Azure Active Directory (Azure AD) B2B collaboration is a feature within External
 
 ![Diagram illustrating B2B collaboration.](media/what-is-b2b/b2b-collaboration-overview.png)
 
-A simple invitation and redemption process lets partners use their own credentials to access your company's resources. You can also enable self-service sign-up user flows to let external users sign up for apps or resources themselves. Once the external user has redeemed their invitation or completed sign-up, they're represented in your directory as a [user object](user-properties.md). B2B collaboration user objects are typically given a user type of "guest" and can be identified by the #EXT# extension in their user principal name.
+A simple invitation and redemption process lets partners use their own credentials to access your company's resources. You can also enable self-service sign-up user flows to let external users sign up for apps or resources themselves. Once the external user has redeemed their invitation or completed sign-up, they're represented in your directory as a [user object](user-properties.md). The user type for these B2B collaboration users is typically set to "guest" and their user principal name contains the #EXT# identifier.
 
 Developers can use Azure AD business-to-business APIs to customize the invitation process or write applications like self-service sign-up portals. For licensing and pricing information related to guest users, refer to [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
@@ -45,7 +45,7 @@ B2B collaboration is enabled by default, but comprehensive admin settings let yo
 
 - Use [Microsoft cloud settings](cross-cloud-settings.md) to establish mutual B2B collaboration between the Microsoft Azure global cloud and [Microsoft Azure Government](../../azure-government/index.yml) or [Microsoft Azure China 21Vianet](/azure/china).
 
-## Easily invite guest users from the Azure AD portal
+## Easily invite guest users from the Azure portal
 
 As an administrator, you can easily add guest users to your organization in the Azure portal.
 
@@ -101,12 +101,12 @@ Azure AD supports external identity providers like Facebook, Microsoft accounts,
 
 ## Integrate with SharePoint and OneDrive
 
-You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. The users you share resources with are typically added to your directory as guests, and permissions and groups work the same for these guests as they do for internal users. When enabling integration with SharePoint and OneDrive, you'll also enable the [email one-time passcode](one-time-passcode.md) feature in Azure AD B2B to serve as a fallback authentication method.
+You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. The users you share resources with are typically guest users in your directory, and permissions and groups work the same for these guests as they do for internal users. When enabling integration with SharePoint and OneDrive, you also enable the [email one-time passcode](one-time-passcode.md) feature in Azure AD B2B to serve as a fallback authentication method.
 
 ![Screenshot of the email one-time-passcode setting.](media/what-is-b2b/enable-email-otp-options.png)
 
 ## Next steps
 
-- [External Identities pricing](external-identities-pricing.md)
+- [Invitation email](invitation-email-elements.md)
 - [Add B2B collaboration guest users in the portal](add-users-administrator.md)
-- [Understand the invitation redemption process](redemption-experience.md)
+- [B2B direct connect](b2b-direct-connect-overview.md)

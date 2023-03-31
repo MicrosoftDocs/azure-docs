@@ -251,8 +251,8 @@ In this section, connectivity to the Azure database in your code follows the `De
 1. Instantiate a `DefaultAzureCredential` from the Azure Identity client library. If you're using a user-assigned identity, specify the client ID of the identity. 
 1. Get an access token for the resource URI respective to the database type.
     - For Azure SQL Database: `https://database.windows.net/.default`
-    - For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net`
-    - For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net`
+    - For Azure Database for MySQL: `https://ossrdbms-aad.database.windows.net/.default`
+    - For Azure Database for PostgreSQL: `https://ossrdbms-aad.database.windows.net/.default`
 1. Add the token to your connection string.
 1. Open the connection.
 
@@ -319,7 +319,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for MySQL
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
 
     // Set MySQL user depending on the environment
     string user;
@@ -351,7 +351,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for PostgreSQL
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
 
     // Check if in Azure and set user accordingly
     string postgresqlUser;
@@ -431,7 +431,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for MySQL
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
 
     // Set MySQL user depending on the environment
     string user;
@@ -465,7 +465,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = '<client-id-of-user-assigned-identity>' }); // user-assigned identity
 
     // Get token for Azure Database for PostgreSQL
-    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net" }));
+    var token = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://ossrdbms-aad.database.windows.net/.default" }));
 
     // Check if in Azure and set user accordingly
     string postgresqlUser;
@@ -563,7 +563,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //const credential = new DefaultAzureCredential({ managedIdentityClientId: '<client-id-of-user-assigned-identity>' }); // user-assigned identity
     
     // Get token for Azure Database for MySQL
-    const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net");
+    const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net/.default");
     
     // Set MySQL user depending on the environment
     if(process.env.IDENTITY_ENDPOINT) {
@@ -617,7 +617,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     //const credential = new DefaultAzureCredential({ managedIdentityClientId: '<client-id-of-user-assigned-identity>' }); // user-assigned identity
     
     // Get token for Azure Database for PostgreSQL
-    const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net");
+    const accessToken = await credential.getToken("https://ossrdbms-aad.database.windows.net/.default");
     
     // Set PosrgreSQL user depending on the environment
     if(process.env.IDENTITY_ENDPOINT) {
@@ -719,7 +719,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     #credential = DefaultAzureCredential(managed_identity_client_id='<client-id-of-user-assigned-identity>') # user-assigned identity
     
     # Get token for Azure Database for MySQL
-    token = credential.get_token("https://ossrdbms-aad.database.windows.net")
+    token = credential.get_token("https://ossrdbms-aad.database.windows.net/.default")
     
     # Set MySQL user depending on the environment
     if 'IDENTITY_ENDPOINT' in os.environ:
@@ -754,7 +754,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
     #credential = DefaultAzureCredential(managed_identity_client_id='<client-id-of-user-assigned-identity>') # user-assigned identity
     
     # Get token for Azure Database for PostgreSQL
-    token = credential.get_token("https://ossrdbms-aad.database.windows.net")
+    token = credential.get_token("https://ossrdbms-aad.database.windows.net/.default")
     
     # Set PostgreSQL user depending on the environment
     if 'IDENTITY_ENDPOINT' in os.environ:
@@ -884,7 +884,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Get the token
     TokenRequestContext request = new TokenRequestContext();
-    request.addScopes("https://ossrdbms-aad.database.windows.net");
+    request.addScopes("https://ossrdbms-aad.database.windows.net/.default");
     AccessToken token=creds.getToken(request).block();
 
     // Set MySQL user depending on the environment
@@ -930,7 +930,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     // Get the token
     TokenRequestContext request = new TokenRequestContext();
-    request.addScopes("https://ossrdbms-aad.database.windows.net");
+    request.addScopes("https://ossrdbms-aad.database.windows.net/.default");
     AccessToken token=creds.getToken(request).block();
 
     // Set PostgreSQL user depending on the environment

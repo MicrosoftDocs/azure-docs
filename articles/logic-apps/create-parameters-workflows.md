@@ -24,7 +24,7 @@ For more information about multi-tenant and single-tenant Azure Logic Apps, revi
 
 * A Consumption or Standard logic app workflow
 
-  If you don't have a logic app workflow yet, review [Create your first Consumption logic app workflow using the Azure portal](quickstart-create-first-logic-app-workflow.md) or [Create your first Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+  If you don't have a logic app workflow yet, see [Create an example Consumption logic app workflow using the Azure portal](quickstart-create-example-consumption-workflow.md) or [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
     > [!NOTE]
     > Currently, you can create parameters for Consumption logic app workflows only by using the Azure portal. 

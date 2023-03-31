@@ -6,7 +6,7 @@ author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.date: 08/22/2022
 ROBOTS: NOINDEX
 ms.author: owenrichards
@@ -61,8 +61,8 @@ ms.custom: mode-api
 > ##### Global tenant administrator
 > 
 > If you are a global administrator, go to **API Permissions** page select **Grant admin consent for > Enter_the_Tenant_Name_Here**
-> > > [!div id="apipermissionspage"]
-> > > [Go to the API Permissions page]()
+> > [!div id="apipermissionspage"]
+> > [Go to the API Permissions page]()
 > 
 > ##### Standard user
 > 

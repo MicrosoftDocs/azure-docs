@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 02/10/2023
+ms.date: 03/10/2023
 ms.custom:
 ---
 # Provision access to system metadata in resource groups or subscriptions
@@ -54,16 +54,11 @@ Follow this link for the steps to [update a DevOps policies in Microsoft Purview
 ## Delete a DevOps policy
 Follow this link for the steps to [delete a DevOps policies in Microsoft Purview](how-to-policies-devops-authoring-generic.md#delete-a-devops-policy).
 
+## Test the DevOps policy
+See how to [test the policy you created](./how-to-policies-devops-authoring-generic.md#test-the-devops-policy)
 
-### Test the policy
-To test the policy see the DevOps policy guides for the underlying data sources listed in the [next steps section](#next-steps) of this document.
+## Role definition detail
+See the [mapping of DevOps role to data source actions](./how-to-policies-devops-authoring-generic.md#role-definition-detail)
 
 ## Next steps
-Check the blogs, videos and related docs
-* Blog: [Microsoft Purview DevOps policies enter General Availability](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/microsoft-purview-devops-policies-enter-ga-simplify-access/ba-p/3674057)
-* Blog: [Microsoft Purview DevOps policies enable at scale access provisioning for IT operations](https://techcommunity.microsoft.com/t5/microsoft-purview-blog/microsoft-purview-devops-policies-enable-at-scale-access/ba-p/3604725)
-* Video: [DevOps policies quick overview](https://aka.ms/Microsoft-Purview-DevOps-Policies-Video)
-* Video: [DevOps policies deep dive](https://youtu.be/UvClpdIb-6g)
-* Video: [Pre-requisite for policies: The "Data use management" option](https://youtu.be/v_lOzevLW-Q)
-* Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
-* Doc: [Microsoft Purview DevOps policies on Azure SQL DB](./how-to-policies-devops-azure-sql-db.md)
+See [related videos, blogs and documents](./how-to-policies-devops-authoring-generic.md#next-steps)

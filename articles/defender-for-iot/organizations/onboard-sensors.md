@@ -1,85 +1,100 @@
 ---
 title: Onboard sensors to Defender for IoT in the Azure portal
 description: Learn how to onboard sensors to Defender for IoT in the Azure portal.
-ms.date: 06/02/2022
+ms.date: 03/02/2023
 ms.topic: install-set-up-deploy
+ms.collection:
+  -       zerotrust-services
 ---
 
 # Onboard OT sensors to Defender for IoT
 
-This article describes how to onboard sensors with [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+This article is one in a series of articles describing the [deployment path](ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes how to onboard OT network sensors to [Microsoft Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
-## Purchase sensors or download software for sensors
+:::image type="content" source="media/deployment-paths/progress-onboard-sensors.png" alt-text="Diagram of a progress bar with Onboard sensors highlighted." border="false" lightbox="media/deployment-paths/progress-onboard-sensors.png":::
 
-This procedure describes how to use the Azure portal to contact vendors for pre-configured appliances, or how to download software for you to install on your own appliances.
+## Prerequisites
 
-1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Sensor**.
+Before you onboard an OT network sensor to Defender for IoT, make sure that you have the following:
 
-1. Do one of the following steps:
+- An [OT plan onboarded](getting-started.md) to Defender for IoT
 
-    - **To buy a pre-configured appliance**, select **Contact** under **Buy preconfigured appliance**.
+- Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) user.
 
-        This link opens an email to [hardware.sales@arrow.com](mailto:hardware.sales@arrow.com?cc=DIoTHardwarePurchase@microsoft.com&subject=Information%20about%20Microsoft%20Defender%20for%20IoT%20pre-configured%20appliances&body=Dear%20Arrow%20Representative,%0D%0DOur%20organization%20is%20interested%20in%20receiving%20quotes%20for%20Microsoft%20Defender%20for%20IoT%20appliances%20as%20well%20as%20fulfillment%20options.%0D%0DThe%20purpose%20of%20this%20communication%20is%20to%20inform%20you%20of%20a%20project%20which%20involves%20[NUMBER]%20sites%20and%20[NUMBER]%20sensors%20for%20[ORGANIZATION%20NAME].%20Having%20reviewed%20potential%20appliances%20suitable%20for%20our%20project,%20we%20would%20like%20to%20obtain%20more%20information%20about:%20___________%0D%0D%0DI%20would%20appreciate%20being%20contacted%20by%20an%20Arrow%20representative%20to%20receive%20a%20quote%20for%20the%20items%20mentioned%20above.%0DI%20understand%20the%20quote%20and%20appliance%20delivery%20shall%20be%20in%20accordance%20with%20the%20relevant%20Arrow%20terms%20and%20conditions%20for%20Microsoft%20Defender%20for%20IoT%20pre-configured%20appliances.%0D%0D%0DBest%20Regards,%0D%0D%0D%0D%0D%0D//////////////////////////////%20%0D/////////%20Replace%20[NUMBER]%20with%20appropriate%20values%20related%20to%20your%20request.%0D/////////%20Replace%20[ORGANIZATION%20NAME]%20with%20the%20name%20of%20the%20organization%20you%20represent.%0D//////////////////////////////%0D%0D)with a template request for Defender for IoT appliances. For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md).
+- An understanding of which [site and zone](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones) you'll want to assign to your sensor.
 
-    - **To install software on your own appliances**, do the following:
+    Assigning sensors to specific sites and zones is an integral part of implementing a [Zero Trust security strategy](concept-zero-trust.md), and will help you monitor for unauthorized traffic crossing segments. For more information, see [List your planned OT sensors](best-practices/plan-prepare-deploy.md#list-your-planned-ot-sensors).
 
-        1. Make sure that you have a supported appliance available. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+This step is performed by your deployment teams.
 
-        1. Under **Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+## Onboard an OT sensor
 
-        1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
+This procedure describes how to onboard an OT network sensor with Defender for IoT and download a sensor activation file.
 
-           [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+**To onboard your OT sensor to Defender for IoT**:
 
-        1. Install your software. For more information, see [Defender for IoT installation](how-to-install-software.md).
+1. In the Azure portal, go to **Defender for IoT** > **Getting started** and select **Set up OT/ICS Security**.
 
-## Onboard OT sensors
+    Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor** > **OT**.
 
-Onboard an OT sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file.
+1. By default, on the **Set up OT/ICS Security** page, **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP​** of the wizard are collapsed.
 
-> [!NOTE]
-> Enterprise IoT sensors also require onboarding and activation, with slightly different steps. For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md).
->
+    You'll install software and configure traffic mirroring later on in the deployment process, but should have your appliances ready and traffic mirroring method planned. For more information, see:
 
-**Prerequisites**: Make sure that you've set up your sensor and configured your SPAN port or TAP. For more information, see [Traffic mirroring methods for OT monitoring](best-practices/traffic-mirroring-methods.md).
-
-**To onboard your sensor to Defender for IoT**:
-
-1. In the Azure portal, navigate to **Defender for IoT** > **Getting started** and select **Set up OT/ICS Security**. Alternately, from the Defender for IoT **Sites and sensors** page, select **Onboard OT sensor**.
-
-1. By default, on the **Set up OT/ICS Security** page, **Step 1: Did you set up a sensor?** and **Step 2: Configure SPAN port or TAP​** of the wizard are collapsed. If you haven't completed these steps, do so before continuing.
+    - [Prepare on-premises appliances](best-practices/plan-prepare-deploy.md#prepare-on-premises-appliances)
+    - [Choose a traffic mirroring method for traffic monitoring](best-practices/traffic-mirroring-methods.md)
 
 1. In **Step 3: Register this sensor with Microsoft Defender for IoT** enter or select the following values for your sensor:
 
-    1. In the **Sensor name** field, enter a meaningful name for your sensor.  We recommend including your sensor's IP address as part of the name, or using another easily identifiable name, to help you keep track between the registration name in the Azure portal and the IP address of the sensor shown in the sensor console.
+    1. In the **Sensor name** field, enter a meaningful name for your OT sensor.  
+
+        We recommend including your OT sensor's IP address as part of the name, or using another easily identifiable name. You'll want to keep track of the registration name in the Azure portal and the IP address of the sensor shown in the OT sensor console.
 
     1. In the **Subscription** field, select your Azure subscription.
 
-    1. Toggle on the **Cloud connected** option to have your sensor connected to other Azure services, such as Microsoft Sentinel, and to push [threat intelligence packages](how-to-work-with-threat-intelligence-packages.md) from Defender for IoT to your sensors.
+        If you don't yet have a subscription to select, select **Onboard subscription** to [add an OT plan to your Azure subscription](getting-started.md).
 
-    1. In the **Sensor version** field, select which software version is installed on your sensor machine. We recommend that you select **22.X and above** to get all of the latest features and enhancements.
+    1. (Optional) Toggle on the **Cloud connected** option to view detected data and manage your sensor from the Azure portal, and to connect your data to other Microsoft services, such as Microsoft Sentinel.
 
-        If you haven't yet upgraded to version 22.x, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+        For more information, see [Cloud-connected vs. local OT sensors](architecture.md#cloud-connected-vs-local-ot-sensors).
 
-    1. In the **Site** section, select the **Resource name** and enter an extra **Display name** to show for your site in the Azure portal. Add any tags as needed to help you identify your sensor.
+    1. (Optional) Toggle on the **Automatic Threat Intelligence updates** to have Defender for IoT automatically push [threat intelligence packages](how-to-work-with-threat-intelligence-packages.md) to your OT sensor.
 
-    1. In the **Zone** field, select a zone from the menu, or select **Create Zone** to create a new one.
+    1. In the **Sensor version** field, verify that **22.X and above** is selected.
 
-1. Select **Register**.
+        If you're working with legacy OT sensor software, we recommend that you update your version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-A success message appears and your activation file is automatically downloaded, and your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
+    1. In the **Site** section, enter the following details to define your OT sensor's site.
 
-However, until you activate your sensor, the sensor's status will show as **Pending Activation**.
+        |Field  |Description  |
+        |---------|---------|
+        |**Resource name**     | In the **Resource name** field, select the site you want to use for your OT sensor, or select **Create site** to create a new one.        |
+        |**Display name**     | In the **Display name** field, enter a meaningful name for your site to be shown across Defender for IoT in Azure.        |
+        |**Tags** (Optional)     | In the **Tags** > **Key** and **Value** fields, enter tag values to help you identify and locate your site and sensor in the Azure portal.        |
 
-Make the downloaded activation file accessible to the sensor console admin so that they can activate the sensor. For more information, see [Upload new activation files](how-to-manage-individual-sensors.md#upload-new-activation-files).
+    1. In the **Zone** field, select the zone you want to use for your OT sensor, or select **Create zone** to create a new one.
+
+        For example:
+
+        :::image type="content" source="media/sites-and-zones/sites-and-zones-azure.png" alt-text="Screenshot of the Set up OT/ICS Security page with site and zone details defined." lightbox="media/sites-and-zones/sites-and-zones-azure.png":::
+
+1. When you're done with all other fields, select **Register**.
+
+A success message appears and your activation file is automatically downloaded. Your sensor is now shown under the configured site on the Defender for IoT **Sites and sensors** page.
+
+Until you activate your sensor, the sensor's status will show as **Pending Activation**. Make the downloaded activation file accessible to the sensor console admin so that they can activate the sensor.
 
 [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
+> [!NOTE]
+> Sites and zones configured on the Azure portal are not synchronized with [sites and zones configured on an on-premises management console](ot-deploy/sites-and-zones-on-premises.md).
+>
+> If you're working with a large deployment, we recommend that you use the Azure portal to manage cloud-connected sensors, and an on-premises management console to manage locally-managed sensors.
 
 ## Next steps
 
-- [Install OT agentless monitoring software](how-to-install-software.md)
-- [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md)
-- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
-- [Manage individual sensors](how-to-manage-individual-sensors.md)
-- [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
+> [!div class="step-by-step"]
+> [« Prepare an OT site deployment](best-practices/plan-prepare-deploy.md)
+
+> [!div class="step-by-step"]
+> [Configure traffic mirroring »](traffic-mirroring/traffic-mirroring-overview.md)

@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 02/01/2023
+ms.date: 03/12/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -15,9 +15,9 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 02/01/2023.
+Date list was last updated: 03/12/2023.
 
-Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface). 
+Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface).  
 
 This article is a complete list of all platform (that is, automatically collected) metrics currently available with the consolidated metric pipeline in Azure Monitor. Metrics changed or added after the date at the top of this article might not yet appear in the list. To query for and access the list of metrics programmatically, use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics not in this list might be available in the portal or through legacy APIs.
 
@@ -266,7 +266,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |PodNetworkIn |Yes |App Network In |Bytes |Average |Cumulative count of bytes received in the app |Deployment, AppName, Pod |
 |PodNetworkOut |Yes |App Network Out |Bytes |Average |Cumulative count of bytes sent from the app |Deployment, AppName, Pod |
 |process.cpu.usage |Yes |process.cpu.usage |Percent |Average |The recent CPU usage for the JVM process |Deployment, AppName, Pod |
+|Requests |Yes |Requests |Count |Total |Requests processed |containerAppName, podName, statusCodeCategory, statusCode |
 |requests-per-second |Yes |requests-rate |Count |Average |Request rate |Deployment, AppName, Pod |
+|RestartCount |Yes |Restart Count |Count |Maximum |Restart count of Spring App |containerAppName, podName |
+|RxBytes |Yes |Network In Bytes |Bytes |Total |Network received bytes |containerAppName, podName |
 |system.cpu.usage |Yes |system.cpu.usage |Percent |Average |The recent CPU usage for the whole system |Deployment, AppName, Pod |
 |threadpool-completed-items-count |Yes |threadpool-completed-items-count |Count |Average |ThreadPool Completed Work Items Count |Deployment, AppName, Pod |
 |threadpool-queue-length |Yes |threadpool-queue-length |Count |Average |ThreadPool Work Items Queue Length |Deployment, AppName, Pod |
@@ -288,7 +291,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |tomcat.threads.config.max |Yes |tomcat.threads.config.max |Count |Total |Tomcat Config Max Thread Count |Deployment, AppName, Pod |
 |tomcat.threads.current |Yes |tomcat.threads.current |Count |Total |Tomcat Current Thread Count |Deployment, AppName, Pod |
 |total-requests |Yes |total-requests |Count |Average |Total number of requests in the lifetime of the process |Deployment, AppName, Pod |
+|TxBytes |Yes |Network Out Bytes |Bytes |Total |Network transmitted bytes |containerAppName, podName |
+|UsageNanoCores |Yes |CPU Usage |NanoCores |Average |CPU consumed by Spring App, in nano cores. 1,000,000,000 nano cores = 1 core |containerAppName, podName |
 |working-set |Yes |working-set |Count |Average |Amount of working set used by the process (MB) |Deployment, AppName, Pod |
+|WorkingSetBytes |Yes |Memory Working Set Bytes |Bytes |Average |Spring App working set memory used in bytes. |containerAppName, podName |
 
 
 ## Microsoft.Automation/automationAccounts  
@@ -315,6 +321,15 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalMbAverage |Yes |Average Total Memory |Bytes |Average |Total memory in cluster |clustername |
 |UsageAverage |Yes |Average Memory Usage |Percent |Average |Memory usage as percentage of total configured or available memory |clustername |
 |UsedLatest |Yes |Datastore Disk Used |Bytes |Average |The total amount of disk used in the datastore |dsname |
+
+
+## microsoft.azuresphere/catalogs  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|DeviceAttestationCount |Yes |Device Attestation Requests |Count |Count |Count of all the requests sent by an Azure Sphere device for authentication and attestation. |DeviceId, CatalogId, StatusCodeClass |
+|DeviceErrorCount |Yes |Device Errors |Count |Count |Count of all the errors encountered by an Azure Sphere device. |DeviceId, CatalogId, ErrorCategory, ErrorClass, ErrorType |
 
 
 ## Microsoft.Batch/batchaccounts  
@@ -871,15 +886,17 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ActionIdOccurrences |Yes |Action Occurences |Count |Total |Number of times each action appears. |ActionId, Mode, RunId |
 |ActionNamespacesPerEvent |Yes |Action Namespaces Per Event |Count |Average |Average number of action namespaces per event. |Mode, RunId |
 |ActionsPerEvent |Yes |Actions Per Event |Count |Average |Number of actions per event. |Mode, RunId |
-|AdaFineTunedTokenTransaction |Yes |Processed Ada FineTuned Inference Tokens |Count |Total |Number of Inference Tokens Processed on an Ada FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|AdaFineTunedTrainingHours |Yes |Processed Ada FineTuned Training Hours |Count |Total |Number of Training Hours Processed on an Ada FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|AdaTokenTransaction |Yes |Processed Ada Inference Tokens |Count |Total |Number of Inference Tokens Processed on an Ada Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|AdaFineTunedTokenTransaction |Yes |Processed Ada FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on an Ada FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|AdaFineTunedTrainingHours |Yes |Processed Ada FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on an Ada FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
+|AdaTokenTransaction |Yes |Processed Ada Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on an Ada Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |AudioSecondsTranscribed |Yes |Audio Seconds Transcribed |Count |Total |Number of seconds transcribed |ApiName, FeatureName, UsageChannel, Region |
 |AudioSecondsTranslated |Yes |Audio Seconds Translated |Count |Total |Number of seconds translated |ApiName, FeatureName, UsageChannel, Region |
-|BabbageFineTunedTokenTransaction |Yes |Processed Babbage FineFuned Inference Tokens |Count |Total |Number of Inference Tokens processed on a Babbage FineFuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|BabbageFineTunedTrainingHours |Yes |Processed Babbage FineTuned Training Hours |Count |Total |Number of Training Hours Processed on a Babbage FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|BabbageTokenTransaction |Yes |Processed Babbage Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Babbage Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|BabbageFineTunedTokenTransaction |Yes |Processed Babbage FineFuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a Babbage FineFuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|BabbageFineTunedTrainingHours |Yes |Processed Babbage FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Babbage FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
+|BabbageTokenTransaction |Yes |Processed Babbage Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Babbage Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|BaselineEstimatorOverallReward |Yes |Baseline Estimator Overall Reward |Count |Average |Baseline Estimator Overall Reward. |Mode, RunId |
 |BaselineEstimatorSlotReward |Yes |Baseline Estimator Slot Reward |Count |Average |Baseline Estimator Reward by slot. |SlotId, SlotIndex, Mode, RunId |
+|BaselineRandomEstimatorOverallReward |Yes |Baseline Random Estimator Overall Reward |Count |Average |Baseline Random Estimator Overall Reward. |Mode, RunId |
 |BaselineRandomEstimatorSlotReward |Yes |Baseline Random Estimator Slot Reward |Count |Average |Baseline Random Estimator Reward by slot. |SlotId, SlotIndex, Mode, RunId |
 |BaselineRandomEventCount |Yes |Baseline Random Event count |Count |Total |Estimation for baseline random event count. |Mode, RunId |
 |BaselineRandomReward |Yes |Baseline Random Reward |Count |Total |Estimation for baseline random reward. |Mode, RunId |
@@ -887,23 +904,23 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |CharactersTrained |Yes |Characters Trained (Deprecated) |Count |Total |Total number of characters trained. |ApiName, OperationName, Region |
 |CharactersTranslated |Yes |Characters Translated (Deprecated) |Count |Total |Total number of characters in incoming text request. |ApiName, OperationName, Region |
 |ClientErrors |Yes |Client Errors |Count |Total |Number of calls with client side error (HTTP response code 4xx). |ApiName, OperationName, Region, RatelimitKey |
-|CodeCushman001FineTunedTokenTransaction |Yes |Processed Code-Cushman-001 FineTuned Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CodeCushman001FineTunedTrainingHours |Yes |Processed Code-Cushman-001 FineTuned Traning Hours |Count |Total |Number of Training Hours Processed on a Code-Cushman-001 FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|CodeCushman001TokenTransaction |Yes |Processed Code-Cushman-001 Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|CodeCushman001FineTunedTokenTransaction |Yes |Processed Code-Cushman-001 FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|CodeCushman001FineTunedTrainingHours |Yes |Processed Code-Cushman-001 FineTuned Traning Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Code-Cushman-001 FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
+|CodeCushman001TokenTransaction |Yes |Processed Code-Cushman-001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |ComputerVisionTransactions |Yes |Computer Vision Transactions |Count |Total |Number of Computer Vision Transactions |ApiName, FeatureName, UsageChannel, Region |
 |ContextFeatureIdOccurrences |Yes |Context Feature Occurrences |Count |Total |Number of times each context feature appears. |FeatureId, Mode, RunId |
 |ContextFeaturesPerEvent |Yes |Context Features Per Event |Count |Average |Number of context features per event. |Mode, RunId |
 |ContextNamespacesPerEvent |Yes |Context Namespaces Per Event |Count |Average |Number of context namespaces per event. |Mode, RunId |
-|CurieFineTunedTokenTransaction |Yes |Processed Curie FineTuned Inference Tokens |Count |Total |Number of Inference Tokens processed on a Curie FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CurieFineTunedTrainingHours |Yes |Processed Curie FineTuned Training Hours |Count |Total |Number of Training Hours Processed on a Curie FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|CurieTokenTransaction |Yes |Processed Curie Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Curie Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|CurieFineTunedTokenTransaction |Yes |Processed Curie FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a Curie FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|CurieFineTunedTrainingHours |Yes |Processed Curie FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Curie FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
+|CurieTokenTransaction |Yes |Processed Curie Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Curie Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |CustomVisionTrainingTime |Yes |Custom Vision Training Time |Seconds |Total |Custom Vision training time |ApiName, FeatureName, UsageChannel, Region |
 |CustomVisionTransactions |Yes |Custom Vision Transactions |Count |Total |Number of Custom Vision prediction transactions |ApiName, FeatureName, UsageChannel, Region |
 |DataIn |Yes |Data In |Bytes |Total |Size of incoming data in bytes. |ApiName, OperationName, Region |
 |DataOut |Yes |Data Out |Bytes |Total |Size of outgoing data in bytes. |ApiName, OperationName, Region |
-|DavinciFineTunedTokenTransaction |Yes |Processed Davinci FineTuned Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Davinci FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|DavinciFineTunedTrainingHours |Yes |Processed Davinci FineTuned Traning Hours |Count |Total |Number of Training Hours Processed on a Davinci FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|DavinciTokenTransaction |Yes |Processed Davinci Inference Tokens |Count |Total |Number of Inference Tokens Processed on a Davinci Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|DavinciFineTunedTokenTransaction |Yes |Processed Davinci FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Davinci FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|DavinciFineTunedTrainingHours |Yes |Processed Davinci FineTuned Traning Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Davinci FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
+|DavinciTokenTransaction |Yes |Processed Davinci Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Davinci Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |DocumentCharactersTranslated |Yes |Document Characters Translated |Count |Total |Number of characters in document translation request. |ApiName, FeatureName, UsageChannel, Region |
 |DocumentCustomCharactersTranslated |Yes |Document Custom Characters Translated |Count |Total |Number of characters in custom document translation request. |ApiName, FeatureName, UsageChannel, Region |
 |FaceImagesTrained |Yes |Face Images Trained |Count |Total |Number of images trained. 1,000 images trained per transaction. |ApiName, FeatureName, UsageChannel, Region |
@@ -923,6 +940,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NumberOfSlots |Yes |Slots |Count |Average |Number of slots per event. |Mode, RunId |
 |NumberofSpeakerProfiles |Yes |Number of Speaker Profiles |Count |Total |Number of speaker profiles enrolled. Prorated hourly. |ApiName, FeatureName, UsageChannel, Region |
 |ObservedRewards |Yes |Observed Rewards |Count |Total |Number of Observed Rewards. |Mode, RunId |
+|OnlineEstimatorOverallReward |Yes |Online Estimator Overall Reward |Count |Average |Online Estimator Overall Reward. |Mode, RunId |
 |OnlineEstimatorSlotReward |Yes |Online Estimator Slot Reward |Count |Average |Online Estimator Reward by slot. |SlotId, SlotIndex, Mode, RunId |
 |OnlineEventCount |Yes |Online Event Count |Count |Total |Estimation for online event count. |Mode, RunId |
 |OnlineReward |Yes |Online Reward |Count |Total |Estimation for online reward. |Mode, RunId |
@@ -944,14 +962,15 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SpeechModelHostingHours |Yes |Speech Model Hosting Hours |Count |Total |Number of speech model hosting hours |ApiName, FeatureName, UsageChannel, Region |
 |SpeechSessionDuration |Yes |Speech Session Duration (Deprecated) |Seconds |Total |Total duration of speech session in seconds. |ApiName, OperationName, Region |
 |SuccessfulCalls |Yes |Successful Calls |Count |Total |Number of successful calls. |ApiName, OperationName, Region, RatelimitKey |
+|SuccessRate |No |Availability |Percent |Average |Availability percentage with the following calculation: (Total Calls - Server Errors)/Total Calls. Server Errors include any HTTP responses >=500. |ApiName, OperationName, Region, RatelimitKey |
 |SynthesizedCharacters |Yes |Synthesized Characters |Count |Total |Number of Characters. |ApiName, FeatureName, UsageChannel, Region |
-|TextAda001TokenTransaction |Yes |Processed Text Ada 001 Inference Tokens |Count |Total |Number of Inference Tokens processed on a text-ada-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextBabbage001TokenTransaction |Yes |Processed Text Babbage 001 Inference Tokens |Count |Total |Number of Inference Tokens processed on a text-babbage-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|TextAda001TokenTransaction |Yes |Processed Text Ada 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a text-ada-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|TextBabbage001TokenTransaction |Yes |Processed Text Babbage 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a text-babbage-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextCharactersTranslated |Yes |Text Characters Translated |Count |Total |Number of characters in incoming text translation request. |ApiName, FeatureName, UsageChannel, Region |
-|TextCurie001TokenTransaction |Yes |Processed Text Curie 001 Inference Tokens |Count |Total |Number of Inference Tokens Processed on a text-curie-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|TextCurie001TokenTransaction |Yes |Processed Text Curie 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-curie-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextCustomCharactersTranslated |Yes |Text Custom Characters Translated |Count |Total |Number of characters in incoming custom text translation request. |ApiName, FeatureName, UsageChannel, Region |
-|TextDavinci001TokenTransaction |Yes |Processed Text Davinci 001 Inference Tokens |Count |Total |Number of Inference Tokens Processed on a text-davinci-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextDavinci002TokenTransaction |Yes |Processed Text Davinci 002 Inference Tokens |Count |Total |Number of Inference Tokens Processed on a text-davinci-002 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|TextDavinci001TokenTransaction |Yes |Processed Text Davinci 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-davinci-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
+|TextDavinci002TokenTransaction |Yes |Processed Text Davinci 002 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-davinci-002 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextTrainedCharacters |Yes |Text Trained Characters |Count |Total |Number of characters trained using text translation. |ApiName, FeatureName, UsageChannel, Region |
 |TokenTransaction |Yes |Processed Inference Tokens |Count |Total |Number of Inference Tokens Processed on an OpenAI Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TotalCalls |Yes |Total Calls |Count |Total |Total number of calls. |ApiName, OperationName, Region, RatelimitKey |
@@ -1032,8 +1051,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Available Memory Bytes |Yes |Available Memory Bytes (Preview) |Bytes |Average |Amount of physical memory, in bytes, immediately available for allocation to a process or for system use in the Virtual Machine |No Dimensions |
 |CPU Credits Consumed |Yes |CPU Credits Consumed |Count |Average |Total number of credits consumed by the Virtual Machine. Only available on B-series burstable VMs |No Dimensions |
 |CPU Credits Remaining |Yes |CPU Credits Remaining |Count |Average |Total number of credits available to burst. Only available on B-series burstable VMs |No Dimensions |
-|Data Disk Bandwidth Consumed Percentage |Yes |Data Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of data disk bandwidth consumed per minute |LUN |
-|Data Disk IOPS Consumed Percentage |Yes |Data Disk IOPS Consumed Percentage |Percent |Average |Percentage of data disk I/Os consumed per minute |LUN |
+|Data Disk Bandwidth Consumed Percentage |Yes |Data Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of data disk bandwidth consumed per minute. Only available on VM series that support premium storage. |LUN |
+|Data Disk IOPS Consumed Percentage |Yes |Data Disk IOPS Consumed Percentage |Percent |Average |Percentage of data disk I/Os consumed per minute. Only available on VM series that support premium storage. |LUN |
 |Data Disk Max Burst Bandwidth |Yes |Data Disk Max Burst Bandwidth |Count |Average |Maximum bytes per second throughput Data Disk can achieve with bursting |LUN |
 |Data Disk Max Burst IOPS |Yes |Data Disk Max Burst IOPS |Count |Average |Maximum IOPS Data Disk can achieve with bursting |LUN |
 |Data Disk Queue Depth |Yes |Data Disk Queue Depth |Count |Average |Data Disk Queue Depth(or Queue Length) |LUN |
@@ -1055,8 +1074,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Network In Total |Yes |Network In Total |Bytes |Total |The number of bytes received on all network interfaces by the Virtual Machine(s) (Incoming Traffic) |No Dimensions |
 |Network Out |Yes |Network Out Billable (Deprecated) |Bytes |Total |The number of billable bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) (Deprecated) |No Dimensions |
 |Network Out Total |Yes |Network Out Total |Bytes |Total |The number of bytes out on all network interfaces by the Virtual Machine(s) (Outgoing Traffic) |No Dimensions |
-|OS Disk Bandwidth Consumed Percentage |Yes |OS Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of operating system disk bandwidth consumed per minute |LUN |
-|OS Disk IOPS Consumed Percentage |Yes |OS Disk IOPS Consumed Percentage |Percent |Average |Percentage of operating system disk I/Os consumed per minute |LUN |
+|OS Disk Bandwidth Consumed Percentage |Yes |OS Disk Bandwidth Consumed Percentage |Percent |Average |Percentage of operating system disk bandwidth consumed per minute. Only available on VM series that support premium storage. |LUN |
+|OS Disk IOPS Consumed Percentage |Yes |OS Disk IOPS Consumed Percentage |Percent |Average |Percentage of operating system disk I/Os consumed per minute. Only available on VM series that support premium storage. |LUN |
 |OS Disk Max Burst Bandwidth |Yes |OS Disk Max Burst Bandwidth |Count |Average |Maximum bytes per second throughput OS Disk can achieve with bursting |LUN |
 |OS Disk Max Burst IOPS |Yes |OS Disk Max Burst IOPS |Count |Average |Maximum IOPS OS Disk can achieve with bursting |LUN |
 |OS Disk Queue Depth |Yes |OS Disk Queue Depth |Count |Average |OS Disk Queue Depth(or Queue Length) |No Dimensions |
@@ -1075,14 +1094,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Premium Data Disk Cache Read Miss |Yes |Premium Data Disk Cache Read Miss |Percent |Average |Premium Data Disk Cache Read Miss |LUN |
 |Premium OS Disk Cache Read Hit |Yes |Premium OS Disk Cache Read Hit |Percent |Average |Premium OS Disk Cache Read Hit |No Dimensions |
 |Premium OS Disk Cache Read Miss |Yes |Premium OS Disk Cache Read Miss |Percent |Average |Premium OS Disk Cache Read Miss |No Dimensions |
-|VM Cached Bandwidth Consumed Percentage |Yes |VM Cached Bandwidth Consumed Percentage |Percent |Average |Percentage of cached disk bandwidth consumed by the VM |No Dimensions |
-|VM Cached IOPS Consumed Percentage |Yes |VM Cached IOPS Consumed Percentage |Percent |Average |Percentage of cached disk IOPS consumed by the VM |No Dimensions |
+|VM Cached Bandwidth Consumed Percentage |Yes |VM Cached Bandwidth Consumed Percentage |Percent |Average |Percentage of cached disk bandwidth consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
+|VM Cached IOPS Consumed Percentage |Yes |VM Cached IOPS Consumed Percentage |Percent |Average |Percentage of cached disk IOPS consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
 |VM Local Used Burst BPS Credits Percentage |Yes |VM Cached Used Burst BPS Credits Percentage |Percent |Average |Percentage of Cached Burst BPS Credits used by the VM. |No Dimensions |
 |VM Local Used Burst IO Credits Percentage |Yes |VM Cached Used Burst IO Credits Percentage |Percent |Average |Percentage of Cached Burst IO Credits used by the VM. |No Dimensions |
 |VM Remote Used Burst BPS Credits Percentage |Yes |VM Uncached Used Burst BPS Credits Percentage |Percent |Average |Percentage of Uncached Burst BPS Credits used by the VM. |No Dimensions |
 |VM Remote Used Burst IO Credits Percentage |Yes |VM Uncached Used Burst IO Credits Percentage |Percent |Average |Percentage of Uncached Burst IO Credits used by the VM. |No Dimensions |
-|VM Uncached Bandwidth Consumed Percentage |Yes |VM Uncached Bandwidth Consumed Percentage |Percent |Average |Percentage of uncached disk bandwidth consumed by the VM |No Dimensions |
-|VM Uncached IOPS Consumed Percentage |Yes |VM Uncached IOPS Consumed Percentage |Percent |Average |Percentage of uncached disk IOPS consumed by the VM |No Dimensions |
+|VM Uncached Bandwidth Consumed Percentage |Yes |VM Uncached Bandwidth Consumed Percentage |Percent |Average |Percentage of uncached disk bandwidth consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
+|VM Uncached IOPS Consumed Percentage |Yes |VM Uncached IOPS Consumed Percentage |Percent |Average |Percentage of uncached disk IOPS consumed by the VM. Only available on VM series that support premium storage. |No Dimensions |
 |VmAvailabilityMetric |Yes |VM Availability Metric (Preview) |Count |Average |Measure of Availability of Virtual machines over time. |No Dimensions |
 
 
@@ -1373,6 +1392,62 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ActivityCancelledRuns |Yes |Cancelled activity runs metrics |Count |Total |Cancelled activity runs metrics |ActivityType, PipelineName, FailureType, Name |
 |ActivityFailedRuns |Yes |Failed activity runs metrics |Count |Total |Failed activity runs metrics |ActivityType, PipelineName, FailureType, Name |
 |ActivitySucceededRuns |Yes |Succeeded activity runs metrics |Count |Total |Succeeded activity runs metrics |ActivityType, PipelineName, FailureType, Name |
+|AirflowIntegrationRuntimeCeleryTaskTimeoutError |No |Airflow Integration Runtime Celery Task Timeout Error |Count |Total |Airflow Integration Runtime Celery Task Timeout Error |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeCollectDBDags |No |Airflow Integration Runtime Collect DB Dags |Milliseconds |Average |Airflow Integration Runtime Collect DB Dags |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeCpuPercentage |No |Airflow Integration Runtime Cpu Percentage |Percent |Average |Airflow Integration Runtime Cpu Percentage |IntegrationRuntimeName, ContainerName |
+|AirflowIntegrationRuntimeCpuUsage |Yes |Airflow Integration Runtime Memory Usage |Millicores |Average |Airflow Integration Runtime Memory Usage |IntegrationRuntimeName, ContainerName |
+|AirflowIntegrationRuntimeDagBagSize |No |Airflow Integration Runtime Dag Bag Size |Count |Total |Airflow Integration Runtime Dag Bag Size |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeDagCallbackExceptions |No |Airflow Integration Runtime Dag Callback Exceptions |Count |Total |Airflow Integration Runtime Dag Callback Exceptions |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeDAGFileRefreshError |No |Airflow Integration Runtime DAG File Refresh Error |Count |Total |Airflow Integration Runtime DAG File Refresh Error |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeDAGProcessingImportErrors |No |Airflow Integration Runtime DAG Processing Import Errors |Count |Total |Airflow Integration Runtime DAG Processing Import Errors |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeDAGProcessingLastDuration |No |Airflow Integration Runtime DAG Processing Last Duration |Milliseconds |Average |Airflow Integration Runtime DAG Processing Last Duration |IntegrationRuntimeName, DagFile |
+|AirflowIntegrationRuntimeDAGProcessingLastRunSecondsAgo |No |Airflow Integration Runtime DAG Processing Last Run Seconds Ago |Seconds |Average |Airflow Integration Runtime DAG Processing Last Run Seconds Ago |IntegrationRuntimeName, DagFile |
+|AirflowIntegrationRuntimeDAGProcessingManagerStalls |No |Airflow Integration Runtime DAG ProcessingManager Stalls |Count |Total |Airflow Integration Runtime DAG ProcessingManager Stalls |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeDAGProcessingProcesses |No |Airflow Integration Runtime DAG Processing Processes |Count |Total |Airflow Integration Runtime DAG Processing Processes |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeDAGProcessingProcessorTimeouts |No |Airflow Integration Runtime DAG Processing Processor Timeouts |Seconds |Average |Airflow Integration Runtime DAG Processing Processor Timeouts |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeDAGProcessingTotalParseTime |No |Airflow Integration Runtime DAG Processing Total Parse Time |Seconds |Average |Airflow Integration Runtime DAG Processing Total Parse Time |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeDAGRunDependencyCheck |No |Airflow Integration Runtime DAG Run Dependency Check |Milliseconds |Average |Airflow Integration Runtime DAG Run Dependency Check |IntegrationRuntimeName, DagId |
+|AirflowIntegrationRuntimeDAGRunDurationFailed |No |Airflow Integration Runtime DAG Run Duration Failed |Milliseconds |Average |Airflow Integration Runtime DAG Run Duration Failed |IntegrationRuntimeName, DagId |
+|AirflowIntegrationRuntimeDAGRunDurationSuccess |No |Airflow Integration Runtime DAG Run Duration Success |Milliseconds |Average |Airflow Integration Runtime DAG Run Duration Success |IntegrationRuntimeName, DagId |
+|AirflowIntegrationRuntimeDAGRunFirstTaskSchedulingDelay |No |Airflow Integration Runtime DAG Run First Task Scheduling Delay |Milliseconds |Average |Airflow Integration Runtime DAG Run First Task Scheduling Delay |IntegrationRuntimeName, DagId |
+|AirflowIntegrationRuntimeDAGRunScheduleDelay |No |Airflow Integration Runtime DAG Run Schedule Delay |Milliseconds |Average |Airflow Integration Runtime DAG Run Schedule Delay |IntegrationRuntimeName, DagId |
+|AirflowIntegrationRuntimeExecutorOpenSlots |No |Airflow Integration Runtime Executor Open Slots |Count |Total |Airflow Integration Runtime Executor Open Slots |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeExecutorQueuedTasks |No |Airflow Integration Runtime Executor Queued Tasks |Count |Total |Airflow Integration Runtime Executor Queued Tasks |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeExecutorRunningTasks |No |Airflow Integration Runtime Executor Running Tasks |Count |Total |Airflow Integration Runtime Executor Running Tasks |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeJobEnd |No |Airflow Integration Runtime Job End |Count |Total |Airflow Integration Runtime Job End |IntegrationRuntimeName, Job |
+|AirflowIntegrationRuntimeJobHeartbeatFailure |No |Airflow Integration Runtime Heartbeat Failure |Count |Total |Airflow Integration Runtime Heartbeat Failure |IntegrationRuntimeName, Job |
+|AirflowIntegrationRuntimeJobStart |No |Airflow Integration Runtime Job Start |Count |Total |Airflow Integration Runtime Job Start |IntegrationRuntimeName, Job |
+|AirflowIntegrationRuntimeMemoryPercentage |Yes |Airflow Integration Runtime Memory Percentage |Percent |Average |Airflow Integration Runtime Memory Percentage |IntegrationRuntimeName, ContainerName |
+|AirflowIntegrationRuntimeOperatorFailures |No |Airflow Integration Runtime Operator Failures |Count |Total |Airflow Integration Runtime Operator Failures |IntegrationRuntimeName, Operator |
+|AirflowIntegrationRuntimeOperatorSuccesses |No |Airflow Integration Runtime Operator Successes |Count |Total |Airflow Integration Runtime Operator Successes |IntegrationRuntimeName, Operator |
+|AirflowIntegrationRuntimePoolOpenSlots |No |Airflow Integration Runtime Pool Open Slots |Count |Total |Airflow Integration Runtime Pool Open Slots |IntegrationRuntimeName, Pool |
+|AirflowIntegrationRuntimePoolQueuedSlots |No |Airflow Integration Runtime Pool Queued Slots |Count |Total |Airflow Integration Runtime Pool Queued Slots |IntegrationRuntimeName, Pool |
+|AirflowIntegrationRuntimePoolRunningSlots |No |Airflow Integration Runtime Pool Running Slots |Count |Total |Airflow Integration Runtime Pool Running Slots |IntegrationRuntimeName, Pool |
+|AirflowIntegrationRuntimePoolStarvingTasks |No |Airflow Integration Runtime Pool Starving Tasks |Count |Total |Airflow Integration Runtime Pool Starving Tasks |IntegrationRuntimeName, Pool |
+|AirflowIntegrationRuntimeSchedulerCriticalSectionBusy |No |Airflow Integration Runtime Scheduler Critical Section Busy |Count |Total |Airflow Integration Runtime Scheduler Critical Section Busy |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerCriticalSectionDuration |No |Airflow Integration Runtime Scheduler Critical Section Duration |Milliseconds |Average |Airflow Integration Runtime Scheduler Critical Section Duration |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerFailedSLAEmailAttempts |No |Airflow Integration Runtime Scheduler Failed SLA Email Attempts |Count |Total |Airflow Integration Runtime Scheduler Failed SLA Email Attempts |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerHeartbeat |No |Airflow Integration Runtime Scheduler Heartbeats |Count |Total |Airflow Integration Runtime Scheduler Heartbeats |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerOrphanedTasksAdopted |No |Airflow Integration Runtime Scheduler Orphaned Tasks Adopted |Count |Total |Airflow Integration Runtime Scheduler Orphaned Tasks Adopted |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerOrphanedTasksCleared |No |Airflow Integration Runtime Scheduler Orphaned Tasks Cleared |Count |Total |Airflow Integration Runtime Scheduler Orphaned Tasks Cleared |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerTasksExecutable |No |Airflow Integration Runtime Scheduler Tasks Executable |Count |Total |Airflow Integration Runtime Scheduler Tasks Executable |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerTasksKilledExternally |No |Airflow Integration Runtime Scheduler Tasks Killed Externally |Count |Total |Airflow Integration Runtime Scheduler Tasks Killed Externally |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerTasksRunning |No |Airflow Integration Runtime Scheduler Tasks Running |Count |Total |Airflow Integration Runtime Scheduler Tasks Running |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeSchedulerTasksStarving |No |Airflow Integration Runtime Scheduler Tasks Starving |Count |Total |Airflow Integration Runtime Scheduler Tasks Starving |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeStartedTaskInstances |No |Airflow Integration Runtime Started Task Instances |Count |Total |Airflow Integration Runtime Started Task Instances |IntegrationRuntimeName, DagId, TaskId |
+|AirflowIntegrationRuntimeTaskInstanceCreatedUsingOperator |No |Airflow Integration Runtime Task Instance Created Using Operator |Count |Total |Airflow Integration Runtime Task Instance Created Using Operator |IntegrationRuntimeName, Operator |
+|AirflowIntegrationRuntimeTaskInstanceDuration |No |Airflow Integration Runtime Task Instance Duration |Milliseconds |Average |Airflow Integration Runtime Task Instance Duration |IntegrationRuntimeName, DagId, TaskID |
+|AirflowIntegrationRuntimeTaskInstanceFailures |No |Airflow Integration Runtime Task Instance Failures |Count |Total |Airflow Integration Runtime Task Instance Failures |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeTaskInstanceFinished |No |Airflow Integration Runtime Task Instance Finished |Count |Total |Airflow Integration Runtime Task Instance Finished |IntegrationRuntimeName, DagId, TaskId, State |
+|AirflowIntegrationRuntimeTaskInstancePreviouslySucceeded |No |Airflow Integration Runtime Task Instance Previously Succeeded |Count |Total |Airflow Integration Runtime Task Instance Previously Succeeded |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeTaskInstanceSuccesses |No |Airflow Integration Runtime Task Instance Successes |Count |Total |Airflow Integration Runtime Task Instance Successes |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeTaskRemovedFromDAG |No |Airflow Integration Runtime Task Removed From DAG |Count |Total |Airflow Integration Runtime Task Removed From DAG |IntegrationRuntimeName, DagId |
+|AirflowIntegrationRuntimeTaskRestoredToDAG |No |Airflow Integration Runtime Task Restored To DAG |Count |Total |Airflow Integration Runtime Task Restored To DAG |IntegrationRuntimeName, DagId |
+|AirflowIntegrationRuntimeTriggersBlockedMainThread |No |Airflow Integration Runtime Triggers Blocked Main Thread |Count |Total |Airflow Integration Runtime Triggers Blocked Main Thread |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeTriggersFailed |No |Airflow Integration Runtime Triggers Failed |Count |Total |Airflow Integration Runtime Triggers Failed |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeTriggersRunning |No |Airflow Integration Runtime Triggers Running |Count |Total |Airflow Integration Runtime Triggers Running |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeTriggersSucceeded |No |Airflow Integration Runtime Triggers Succeeded |Count |Total |Airflow Integration Runtime Triggers Succeeded |IntegrationRuntimeName |
+|AirflowIntegrationRuntimeZombiesKilled |No |Airflow Integration Runtime Zombie Tasks Killed |Count |Total |Airflow Integration Runtime Zombie Tasks Killed |IntegrationRuntimeName |
 |FactorySizeInGbUnits |Yes |Total factory size (GB unit) |Count |Maximum |Total factory size (GB unit) |No Dimensions |
 |IntegrationRuntimeAvailableMemory |Yes |Integration runtime available memory |Bytes |Average |Integration runtime available memory |IntegrationRuntimeName, NodeName |
 |IntegrationRuntimeAvailableNodeNumber |Yes |Integration runtime available node count |Count |Average |Integration runtime available node count |IntegrationRuntimeName |
@@ -1383,8 +1458,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaxAllowedResourceCount |Yes |Maximum allowed entities count |Count |Maximum |Maximum allowed entities count |No Dimensions |
 |PipelineCancelledRuns |Yes |Cancelled pipeline runs metrics |Count |Total |Cancelled pipeline runs metrics |FailureType, CancelledBy, Name |
 |PipelineElapsedTimeRuns |Yes |Elapsed Time Pipeline Runs Metrics |Count |Total |Elapsed Time Pipeline Runs Metrics |RunId, Name |
-|PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Name |
-|PipelineSucceededRuns |Yes |Succeeded pipeline runs metrics |Count |Total |Succeeded pipeline runs metrics |FailureType, Name |
+|PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Pipeline |
+|PipelineSucceededRuns |Yes |Succeeded pipeline runs metrics |Count |Total |Succeeded pipeline runs metrics |FailureType, Pipeline |
 |ResourceCount |Yes |Total entities count |Count |Maximum |Total entities count |No Dimensions |
 |SSISIntegrationRuntimeStartCancel |Yes |Cancelled SSIS integration runtime start metrics |Count |Total |Cancelled SSIS integration runtime start metrics |IntegrationRuntimeName |
 |SSISIntegrationRuntimeStartFailed |Yes |Failed SSIS integration runtime start metrics |Count |Total |Failed SSIS integration runtime start metrics |IntegrationRuntimeName |
@@ -1394,9 +1469,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SSISPackageExecutionCancel |Yes |Cancelled SSIS package execution metrics |Count |Total |Cancelled SSIS package execution metrics |IntegrationRuntimeName |
 |SSISPackageExecutionFailed |Yes |Failed SSIS package execution metrics |Count |Total |Failed SSIS package execution metrics |IntegrationRuntimeName |
 |SSISPackageExecutionSucceeded |Yes |Succeeded SSIS package execution metrics |Count |Total |Succeeded SSIS package execution metrics |IntegrationRuntimeName |
-|TriggerCancelledRuns |Yes |Cancelled trigger runs metrics |Count |Total |Cancelled trigger runs metrics |Name, FailureType |
-|TriggerFailedRuns |Yes |Failed trigger runs metrics |Count |Total |Failed trigger runs metrics |Name, FailureType |
-|TriggerSucceededRuns |Yes |Succeeded trigger runs metrics |Count |Total |Succeeded trigger runs metrics |Name, FailureType |
+|TriggerCancelledRuns |Yes |Cancelled trigger runs metrics |Count |Total |Cancelled trigger runs metrics |Pipeline, FailureType |
+|TriggerFailedRuns |Yes |Failed trigger runs metrics |Count |Total |Failed trigger runs metrics |Pipeline, FailureType |
+|TriggerSucceededRuns |Yes |Succeeded trigger runs metrics |Count |Total |Succeeded trigger runs metrics |Pipeline, FailureType |
 
 
 ## Microsoft.DataLakeAnalytics/accounts  
@@ -1490,13 +1565,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |cpu_credits_remaining |Yes |CPU Credits Remaining |Count |Maximum |CPU Credits Remaining |No Dimensions |
 |cpu_percent |Yes |Host CPU Percent |Percent |Maximum |Host CPU Percent |No Dimensions |
 |HA_IO_status |Yes |HA IO Status |Count |Maximum |Status for replication IO thread running  |No Dimensions |
+|HA_replication_lag |Yes |HA Replication Lag |Seconds |Maximum |HA Replication lag in seconds |No Dimensions |
 |HA_SQL_status |Yes |HA SQL Status |Count |Maximum |Status for replication SQL thread running  |No Dimensions |
 |Innodb_buffer_pool_pages_data |Yes |InnoDB Buffer Pool Pages Data |Count |Total |The number of pages in the InnoDB buffer pool containing data. |No Dimensions |
 |Innodb_buffer_pool_pages_dirty |Yes |InnoDB Buffer Pool Pages Dirty |Count |Total |The current number of dirty pages in the InnoDB buffer pool. |No Dimensions |
 |Innodb_buffer_pool_pages_free |Yes |InnoDB Buffer Pool Pages Free |Count |Total |The number of free pages in the InnoDB buffer pool. |No Dimensions |
 |Innodb_buffer_pool_read_requests |Yes |InnoDB Buffer Pool Read Requests |Count |Total |The number of logical read requests. |No Dimensions |
 |Innodb_buffer_pool_reads |Yes |InnoDB Buffer Pool Reads |Count |Total |The number of logical reads that InnoDB could not satisfy from the buffer pool, and had to read directly from disk. |No Dimensions |
-|io_consumption_percent |Yes |IO Percent |Percent |Maximum |IO Percent |No Dimensions |
+|io_consumption_percent |Yes |Storage IO Percent |Percent |Maximum |Storage I/O consumption percent |No Dimensions |
 |memory_percent |Yes |Host Memory Percent |Percent |Maximum |Host Memory Percent |No Dimensions |
 |network_bytes_egress |Yes |Host Network Out |Bytes |Total |Host Network egress in bytes |No Dimensions |
 |network_bytes_ingress |Yes |Host Network In |Bytes |Total |Host Network ingress in bytes |No Dimensions |
@@ -1511,7 +1587,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |storage_io_count |Yes |IO Count |Count |Total |The number of I/O consumed. |No Dimensions |
 |storage_limit |Yes |Storage Limit |Bytes |Maximum |Storage Limit |No Dimensions |
 |storage_percent |Yes |Storage Percent |Percent |Maximum |Storage Percent |No Dimensions |
-|storage_throttle_count |Yes |Storage Throttle Count |Count |Maximum |Storage throttle count. |No Dimensions |
+|storage_throttle_count |Yes |Storage Throttle Count |Count |Maximum |Storage IO requests throttled in the selected time range. |No Dimensions |
 |storage_used |Yes |Storage Used |Bytes |Maximum |Storage Used |No Dimensions |
 |total_connections |Yes |Total Connections |Count |Total |Total Connections |No Dimensions |
 
@@ -1550,6 +1626,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |backup_storage_used |Yes |Backup Storage Used |Bytes |Average |Backup Storage Used |No Dimensions |
 |blks_hit |Yes |Disk Blocks Hit (Preview) |Count |Total |Number of times disk blocks were found already in the buffer cache, so that a read was not necessary |DatabaseName |
 |blks_read |Yes |Disk Blocks Read (Preview) |Count |Total |Number of disk blocks read in this database |DatabaseName |
+|client_connections_active |Yes |Active client connections (Preview) |Count |Maximum |Connections from clients which are associated with a PostgreSQL connection |DatabaseName |
+|client_connections_waiting |Yes |Waiting client connections (Preview) |Count |Maximum |Connections from clients that are waiting for a PostgreSQL connection to service them |DatabaseName |
 |connections_failed |Yes |Failed Connections |Count |Total |Failed Connections |No Dimensions |
 |connections_succeeded |Yes |Succeeded Connections |Count |Total |Succeeded Connections |No Dimensions |
 |cpu_credits_consumed |Yes |CPU Credits Consumed |Count |Average |Total number of credits consumed by the database server |No Dimensions |
@@ -1571,6 +1649,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |n_mod_since_analyze_user_tables |Yes |Estimated Modifications User Tables (Preview) |Count |Maximum |Estimated number of rows modified since user only tables were last analyzed |DatabaseName |
 |network_bytes_egress |Yes |Network Out |Bytes |Total |Network Out across active connections |No Dimensions |
 |network_bytes_ingress |Yes |Network In |Bytes |Total |Network In across active connections |No Dimensions |
+|num_pools |Yes |Number of connection pools (Preview) |Count |Maximum |Total number of connection pools |DatabaseName |
 |numbackends |Yes |Backends (Preview) |Count |Maximum |Number of backends connected to this database |DatabaseName |
 |oldest_backend_time_sec |Yes |Oldest Backend (Preview) |Seconds |Maximum |The age in seconds of the oldest backend (irrespective of the state) |No Dimensions |
 |oldest_backend_xmin |Yes |Oldest xmin (Preview) |Count |Maximum |The actual value of the oldest xmin. |No Dimensions |
@@ -1579,6 +1658,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |physical_replication_delay_in_seconds |Yes |Read Replica Lag (Preview) |Seconds |Maximum |Read Replica lag in seconds |No Dimensions |
 |read_iops |Yes |Read IOPS |Count |Average |Number of data disk I/O read operations per second |No Dimensions |
 |read_throughput |Yes |Read Throughput Bytes/Sec |Count |Average |Bytes read per second from the data disk during monitoring period |No Dimensions |
+|server_connections_active |Yes |Active server connections (Preview) |Count |Maximum |Connections to PostgreSQL that are in use by a client connection |DatabaseName |
+|server_connections_idle |Yes |Idle server connections (Preview) |Count |Maximum |Connections to PostgreSQL that are idle, ready to service a new client connection |DatabaseName |
 |sessions_by_state |Yes |Sessions by State (Preview) |Count |Maximum |Overall state of the backends |State |
 |sessions_by_wait_event_type |Yes |Sessions by WaitEventType (Preview) |Count |Maximum |Sessions by the type of event for which the backend is waiting |WaitEventType |
 |storage_free |Yes |Storage Free |Bytes |Average |Storage Free |No Dimensions |
@@ -1591,6 +1672,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |tables_vacuumed_user_tables |Yes |User Tables Vacuumed (Preview) |Count |Maximum |Number of user only tables that have been vacuumed in this database |DatabaseName |
 |temp_bytes |Yes |Temporary Files Size (Preview) |Bytes |Total |Total amount of data written to temporary files by queries in this database |DatabaseName |
 |temp_files |Yes |Temporary Files (Preview) |Count |Total |Number of temporary files created by queries in this database |DatabaseName |
+|total_pooled_connections |Yes |Total pooled connections (Preview) |Count |Maximum |Current number of pooled connections |DatabaseName |
 |tup_deleted |Yes |Tuples Deleted (Preview) |Count |Total |Number of rows deleted by queries in this database |DatabaseName |
 |tup_fetched |Yes |Tuples Fetched (Preview) |Count |Total |Number of rows fetched by queries in this database |DatabaseName |
 |tup_inserted |Yes |Tuples Inserted (Preview) |Count |Total |Number of rows inserted by queries in this database |DatabaseName |
@@ -1989,8 +2071,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TableTableThroughputUpdate |No |AzureTable Table Throughput Updated |Count |Count |AzureTable Table Throughput Updated |ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest |
 |TableTableUpdate |No |AzureTable Table Updated |Count |Count |AzureTable Table Updated |ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType |
 |TotalRequests |Yes |Total Requests |Count |Count |Number of requests made |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
-|TotalRequestsPreview |No |Total Requests (Preview) |Count |Count |Number of requests |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, IsExternal |
-|TotalRequestUnits |Yes |Total Request Units |Count |Total |Request Units consumed |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
+|TotalRequestsPreview |No |Total Requests (Preview) |Count |Count |Number of SQL requests |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, IsExternal |
+|TotalRequestUnits |Yes |Total Request Units |Count |Total |SQL Request Units consumed |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
 |TotalRequestUnitsPreview |No |Total Request Units (Preview) |Count |Total |Request Units consumed with CapacityType |DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType |
 |UpdateAccountKeys |Yes |Account Keys Updated |Count |Count |Account Keys Updated |KeyType |
 |UpdateAccountNetworkSettings |Yes |Account Network Settings Updated |Count |Count |Account Network Settings Updated |No Dimensions |
@@ -2239,7 +2321,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |AnalyticsConnectorResourceLatency |Yes |Analytics Connector Process Latency |Milliseconds |Average |The response latency of the service. |No Dimensions |
 |AnalyticsConnectorSuccessfulDataSize |Yes |Analytics Connector Successful Data Size |Count |Sum |The size of data successfully processed by the analytics connector |No Dimensions |
 |AnalyticsConnectorSuccessfulResourceCount |Yes |Analytics Connector Successful Resource Count |Count |Sum |The amount of data successfully processed by the analytics connector |No Dimensions |
-|AnalyticsConnectorTotalErrors |Yes |Analytics Connector Total Error Count |Count |Sum |The total number of errors logged by the analytics connector |ErrorType, Operation |
+|AnalyticsConnectorTotalError |Yes |Analytics Connector Total Error Count |Count |Sum |The total number of errors logged by the analytics connector |ErrorType, Operation |
 
 
 ## Microsoft.HealthcareApis/workspaces/fhirservices  
@@ -2348,7 +2430,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|TransformationErrors |Yes |Transformation Errors |Count |Count |The number of rows, where the execution of KQL transformation led to an error, KQL transformation service limit exceeds. |InputStreamId, ErrorType |
+|ApiCallReceived_Count |Yes |Call Received |Count |Count |Number of requests received via Log Ingestion API or from the agent |InputStreamId, ResponseCode |
+|RowsDropped_Count |Yes |Rows Dropped |Count |Count |Number of rows dropped while running transformation. |InputStreamId |
+|RowsReceived_Count |Yes |Rows Received |Count |Count |Total number of rows recevied for transformation. |InputStreamId |
+|TransformationErrors_Count |Yes |Transformation Errors |Count |Count |The number of times when execution of KQL transformation resulted in an error, e.g. KQL syntax error or going over a service limit. |InputStreamId, ErrorType |
+|TransformationRuntime_DurationMs |Yes |Transformation Runtime Duration |Count |Count |Total time taken to transform given set of records, measured in milliseconds. |InputStreamId |
 
 
 ## Microsoft.IoTCentral/IoTApps  
@@ -2620,7 +2706,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |RequestLatency_P90 |Yes |Request Latency P90 |Milliseconds |Average |The average P90 request latency aggregated by all request latency values collected over the selected time period |deployment |
 |RequestLatency_P95 |Yes |Request Latency P95 |Milliseconds |Average |The average P95 request latency aggregated by all request latency values collected over the selected time period |deployment |
 |RequestLatency_P99 |Yes |Request Latency P99 |Milliseconds |Average |The average P99 request latency aggregated by all request latency values collected over the selected time period |deployment |
-|RequestsPerMinute |No |Requests Per Minute |Count |Average |The number of requests sent to online endpoint within a minute |deployment, statusCode, statusCodeClass |
+|RequestsPerMinute |No |Requests Per Minute |Count |Average |The number of requests sent to online endpoint within a minute |deployment, statusCode, statusCodeClass, modelStatusCode |
 
 
 ## Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments  
@@ -2644,9 +2730,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|BgpPeerStatus |Yes |BGP Peer Status |Unspecified |Minimum |Operational state of the BGP peer. State is represented in numerical form. Idle : 1, Connect : 2, Active : 3, Opensent : 4, Openconfirm : 5, Established : 6 |FabricId, RegionName, IpAddress |
 |CpuUtilizationMax |Yes |Cpu Utilization Max |Percent |Average |Max cpu utilization. The maximum value of the percentage measure of the statistic over the time interval. |FabricId, RegionName, ComponentName |
 |CpuUtilizationMin |Yes |Cpu Utilization Min |Percent |Average |Min cpu utilization. The minimum value of the percentage measure of the statistic over the time interval. |FabricId, RegionName, ComponentName |
-|FanSpeed |Yes |Fan Speed |Count |Average |Current fan speed. |FabricId, RegionName, ComponentName |
+|FanSpeed |Yes |Fan Speed |Unspecified |Average |Current fan speed. |FabricId, RegionName, ComponentName |
 |IfEthInCrcErrors |Yes |Ethernet Interface In CRC Errors |Count |Average |The total number of frames received that had a length (excluding framing bits, but including FCS octets) of between 64 and 1518 octets, inclusive, but had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error) |FabricId, RegionName, InterfaceName |
 |IfEthInFragmentFrames |Yes |Ethernet Interface In Fragment Frames |Count |Average |The total number of frames received that were less than 64 octets in length (excluding framing bits but including FCS octets) and had either a bad Frame Check Sequence (FCS) with an integral number of octets (FCS Error) or a bad FCS with a non-integral number of octets (Alignment Error). |FabricId, RegionName, InterfaceName |
 |IfEthInJabberFrames |Yes |Ethernet Interface In Jabber Frames |Count |Average |Number of jabber frames received on the interface. Jabber frames are typically defined as oversize frames which also have a bad CRC. |FabricId, RegionName, InterfaceName |
@@ -2661,21 +2748,33 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |IfInFcsErrors |Yes |Interface In FCS Errors |Count |Average |Number of received packets which had errors in the frame check sequence (FCS), i.e., framing errors. |FabricId, RegionName, InterfaceName |
 |IfInMulticastPkts |Yes |Interface In Multicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were addressed to a multicast address at this sub-layer. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, RegionName, InterfaceName |
 |IfInOctets |Yes |Interface In Octets |Count |Average |The total number of octets received on the interface, including framing characters. |FabricId, RegionName, InterfaceName |
+|IfInPkts |Yes |Interface In Pkts |Count |Average |The total number of packets received on the interface, including all unicast, multicast, broadcast and bad packets etc. |FabricId, RegionName, InterfaceName |
 |IfInUnicastPkts |Yes |Interface In Unicast Pkts |Count |Average |The number of packets, delivered by this sub-layer to a higher (sub-)layer, that were not addressed to a multicast or broadcast address at this sub-layer. |FabricId, RegionName, InterfaceName |
 |IfOutBroadcastPkts |Yes |Interface Out Broadcast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, RegionName, InterfaceName |
 |IfOutDiscards |Yes |Interface Out Discards |Count |Average |The number of outbound packets that were chosen to be discarded even though no errors had been detected to prevent their being transmitted. |FabricId, RegionName, InterfaceName |
 |IfOutErrors |Yes |Interface Out Errors |Count |Average |For packet-oriented interfaces, the number of outbound packets that could not be transmitted because of errors. |FabricId, RegionName, InterfaceName |
 |IfOutMulticastPkts |Yes |Interface Out Multicast Pkts |Count |Average |The total number of packets that higher-level protocols requested be transmitted, and that were addressed to a multicast address at this sub-layer, including those that were discarded or not sent. For a MAC-layer protocol, this includes both Group and Functional addresses. |FabricId, RegionName, InterfaceName |
 |IfOutOctets |Yes |Interface Out Octets |Count |Average |The total number of octets transmitted out of the interface, including framing characters. |FabricId, RegionName, InterfaceName |
+|IfOutPkts |Yes |Interface Out Pkts |Count |Average |The total number of packets transmitted out of the interface, including all unicast, multicast, broadcast, and bad packets etc. |FabricId, RegionName, InterfaceName |
 |IfOutUnicastPkts |Yes |Interface Out Unicast Pkts |Count |Average |The total number of packets that higher-level requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub-layer, including those that were discarded or not sent. |FabricId, RegionName, InterfaceName |
+|InterfaceOperStatus |Yes |Interface Operational State |Unspecified |Minimum |The current operational state of the interface. State is represented in numerical form. Up: 0, Down: 1, Lower_layer_down: 2, Testing: 3, Unknown: 4, Dormant: 5, Not_present: 6. |FabricId, RegionName, InterfaceName |
+|LacpErrors |Yes |Lacp Errors |Count |Average |Number of LACPDU illegal packet errors. |FabricId, RegionName, InterfaceName |
 |LacpInPkts |Yes |Lacp In Pkts |Count |Average |Number of LACPDUs received. |FabricId, RegionName, InterfaceName |
 |LacpOutPkts |Yes |Lacp Out Pkts |Count |Average |Number of LACPDUs transmitted. |FabricId, RegionName, InterfaceName |
 |LacpRxErrors |Yes |Lacp Rx Errors |Count |Average |Number of LACPDU receive packet errors. |FabricId, RegionName, InterfaceName |
+|LacpTxErrors |Yes |Lacp Tx Errors |Count |Average |Number of LACPDU transmit packet errors. |FabricId, RegionName, InterfaceName |
+|LacpUnknownErrors |Yes |Lacp Unknown Errors |Count |Average |Number of LACPDU unknown packet errors. |FabricId, RegionName, InterfaceName |
 |LldpFrameIn |Yes |Lldp Frame In |Count |Average |The number of lldp frames received. |FabricId, RegionName, InterfaceName |
 |LldpFrameOut |Yes |Lldp Frame Out |Count |Average |The number of frames transmitted out. |FabricId, RegionName, InterfaceName |
 |LldpTlvUnknown |Yes |Lldp Tlv Unknown |Count |Average |The number of frames received with unknown TLV. |FabricId, RegionName, InterfaceName |
 |MemoryAvailable |Yes |Memory Available |Bytes |Average |The available memory physically installed, or logically allocated to the component. |FabricId, RegionName, ComponentName |
 |MemoryUtilized |Yes |Memory Utilized |Bytes |Average |The memory currently in use by processes running on the component, not considering reserved memory that is not available for use. |FabricId, RegionName, ComponentName |
+|PowerSupplyCapacity |Yes |Power Supply Maximum Power Capacity |Unspecified |Average |Maximum power capacity of the power supply (watts). |FabricId, RegionName, ComponentName |
+|PowerSupplyInputCurrent |Yes |Power Supply Input Current |Unspecified |Average |The input current draw of the power supply (amps). |FabricId, RegionName, ComponentName |
+|PowerSupplyInputVoltage |Yes |Power Supply Input Voltage |Unspecified |Average |Input voltage to the power supply (volts). |FabricId, RegionName, ComponentName |
+|PowerSupplyOutputCurrent |Yes |Power Supply Output Current |Unspecified |Average |The output current supplied by the power supply (amps) |FabricId, RegionName, ComponentName |
+|PowerSupplyOutputPower |Yes |Power Supply Output Power |Unspecified |Average |Output power supplied by the power supply (watts) |FabricId, RegionName, ComponentName |
+|PowerSupplyOutputVoltage |Yes |Power Supply Output Voltage |Unspecified |Average |Output voltage supplied by the power supply (volts). |FabricId, RegionName, ComponentName |
 
 
 ## Microsoft.Maps/accounts  
@@ -2777,6 +2876,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |EventsPerMinuteIngested |No |Events Per Minute Ingested |Count |Maximum |The number of events per minute recently received |StampColor |
 |EventsPerMinuteIngestedLimit |No |Events Per Minute Ingested Limit |Count |Maximum |The maximum number of events per minute which can be received before events become throttled |StampColor |
 |EventsPerMinuteIngestedPercentUtilization |No |Events Per Minute Ingested % Utilization |Percent |Average |The percentage of the current metric ingestion rate limit being utilized |StampColor |
+|SimpleSamplesStored |No |Simple Data Samples Stored |Count |Maximum |The total number of samples stored for simple sampling types (like sum, count). For Prometheus this is equivalent to the number of samples scraped and ingested. |StampColor |
 
 
 ## Microsoft.NetApp/netAppAccounts/capacityPools  
@@ -2856,7 +2956,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |EstimatedBilledCapacityUnits |No |Estimated Billed Capacity Units |Count |Average |Estimated capacity units that will be charged |No Dimensions |
 |FailedRequests |Yes |Failed Requests |Count |Total |Count of failed requests that Application Gateway has served |BackendSettingsPool |
 |FixedBillableCapacityUnits |No |Fixed Billable Capacity Units |Count |Average |Minimum capacity units that will be charged |No Dimensions |
-|GatewayUtilization |No |Gateway Utilization |Percent |Average |Denotes overall utilization of the Application Gateway resource. This is an aggregate report of all the underlying instances. In general, one should consider scaling out when the value exceeds 70%. However, the threshold could differ for different workloads and hence it is recommended to choose a limit that suits your requirements. |No Dimensions |
+|GatewayUtilization |No |Gateway Utilization |Percent |Average |Denotes the current utilization status of the Application Gateway resource. The metric is an aggregate report of your gateway's running instances. As a recommendation, one should consider scaling out when the value exceeds 70%. However, the threshold could differ for different workloads. Hence, choose a limit that suits your requirements. |No Dimensions |
 |HealthyHostCount |Yes |Healthy Host Count |Count |Average |Number of healthy backend hosts |BackendSettingsPool |
 |MatchedCount |Yes |Web Application Firewall Total Rule Distribution |Count |Total |Web Application Firewall Total Rule Distribution for the incoming traffic |RuleGroup, RuleId |
 |NewConnectionsPerSecond |No |New connections per second |CountPerSecond |Average |New connections per second established with Application Gateway |No Dimensions |
@@ -2876,6 +2976,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ApplicationRuleHit |Yes |Application rules hit count |Count |Total |Number of times Application rules were hit |Status, Reason, Protocol |
 |DataProcessed |Yes |Data processed |Bytes |Total |Total amount of data processed by this firewall |No Dimensions |
 |FirewallHealth |Yes |Firewall health state |Percent |Average |Indicates the overall health of this firewall |Status, Reason |
+|FirewallLatencyPng |Yes |Latency Probe (Preview) |Milliseconds |Average |Estimate of the average latency of the Firewall as measured by latency probe |No Dimensions |
 |NetworkRuleHit |Yes |Network rules hit count |Count |Total |Number of times Network rules were hit |Status, Reason, Protocol |
 |SNATPortUtilization |Yes |SNAT port utilization |Percent |Average |Percentage of outbound SNAT ports currently in use |Protocol |
 |Throughput |No |Throughput |BitsPerSecond |Average |Throughput processed by this firewall |No Dimensions |
@@ -3409,6 +3510,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Average_Virtual Shared Memory |Yes |Virtual Shared Memory |Count |Average |Average_Virtual Shared Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem |
 |Event |Yes |Event |Count |Average |Event. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID |
 |Heartbeat |Yes |Heartbeat |Count |Total |Heartbeat. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, OSType, Version, SourceComputerId |
+|Query Count |No |Query Count |Count |Count |Total number of user queries for this workspace. |IsUserQuery |
+|Query Failure Count |No |Query Failure Count |Count |Count |Total number of failed user queries for this workspace. |IsUserQuery |
+|Query Success Rate |No |Query Success Rate |Percent |Average |User query success rate for this workspace. |IsUserQuery |
 |Update |Yes |Update |Count |Average |Update. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, Product, Classification, UpdateState, Optional, Approved |
 
 
@@ -4316,6 +4420,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalAppDomainsUnloaded |Yes |Total App Domains Unloaded |Count |Average |The total number of AppDomains unloaded since the start of the application. |Instance |
 
 
+## NGINX.NGINXPLUS/nginxDeployments  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|nginx |Yes |nginx |Count |Total |The NGINX metric. |No Dimensions |
+
+
 ## Wandisco.Fusion/migrators  
 <!-- Data source : naam-->
 
@@ -4369,4 +4481,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Wed Feb 01 2023 09:43:49 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Sun Mar 12 2023 11:30:35 GMT+0200 (Israel Standard Time)-->

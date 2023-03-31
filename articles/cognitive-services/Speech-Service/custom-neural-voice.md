@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 03/27/2023
 ms.author: eur
 ---
 
@@ -18,6 +18,8 @@ Custom Neural Voice (CNV) is a text-to-speech feature that lets you create a one
 
 > [!IMPORTANT]
 > Custom Neural Voice access is [limited](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
+> 
+> Access to [Custom Neural Voice (CNV) Lite](custom-neural-voice-lite.md) is available for anyone to demo and evaluate CNV before investing in professional recordings to create a higher-quality voice. 
 
 Out of the box, [text-to-speech](text-to-speech.md) can be used with prebuilt neural voices for each [supported language](language-support.md?tabs=tts). The prebuilt neural voices work very well in most text-to-speech scenarios if a unique voice isn't required.
 

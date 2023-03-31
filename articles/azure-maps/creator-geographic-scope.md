@@ -1,8 +1,8 @@
 ---
 title: Azure Maps Creator service geographic scope
 description: Learn about Azure Maps Creator service's geographic mappings in Azure Maps
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 05/18/2021
 ms.topic: conceptual
 ms.service: azure-maps

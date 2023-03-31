@@ -3,6 +3,7 @@ title: Enable Enterprise IoT security in Microsoft 365 with Defender for Endpoin
 description: Learn how to start integrating between Microsoft Defender for IoT and Microsoft Defender for Endpoint in Microsoft 365 Defender.
 ms.topic: quickstart
 ms.date: 10/19/2022
+ms.custom: enterprise-iot
 ---
 
 # Enable Enterprise IoT security with Defender for Endpoint
@@ -67,8 +68,6 @@ This procedure describes how to view related alerts, recommendations, and vulner
     - On the **Security recommendations** tab, check for any recommendations available for the device to reduce risk and maintain a smaller attack surface.
 
     - On the **Discovered vulnerabilities** tab, check for any known CVEs associated with the device. Known CVEs can help decide whether to patch, remove, or contain the device and mitigate risk to your network.
-
-
 
 ## Next steps
 
