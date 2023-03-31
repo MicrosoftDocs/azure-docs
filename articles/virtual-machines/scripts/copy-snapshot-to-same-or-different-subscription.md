@@ -10,7 +10,7 @@ ms.topic: sample
 ms.workload: infrastructure
 ms.date: 02/22/2023
 ms.author: ramankum
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Copy snapshot of a managed disk to same or different subscription with CLI
