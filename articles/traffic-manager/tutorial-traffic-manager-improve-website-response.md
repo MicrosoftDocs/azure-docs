@@ -98,7 +98,7 @@ In this section, you connect to the two VMs *myIISVMEastUS* and *myIISVMWestEuro
 
     :::image type="content" source="./media/tutorial-traffic-manager-improve-website-response/connect-to-bastion-password.png" alt-text="Screenshot of connecting to virtual machine using bastion.":::
 
-To learn more about Azure Bastion, see [What is Azure Bastion?](/articles/bastion/bastion-overview.md)
+To learn more about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md)
 #### Install IIS and customize the default web page 
 
 In this section, you install the IIS server on the two VMs *myIISVMEastUS* and *myIISVMWestEurope*, and then update the default website page. The customized website page shows the name of the VM that you're connecting to when you visit the website from a web browser.
