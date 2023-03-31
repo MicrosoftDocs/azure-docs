@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 03/30/2023
+ms.date: 03/31/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1460,42 +1460,41 @@ Here are the settings to add this condition using the Azure portal.
 Here's how to add this condition using Azure PowerShell.
 
 ```azurepowershell
-$subId = "<your subscription id>"
-$rgName = "resource group name"
-$saName = "storage account name"
-$containerName = "<container name>"
-$endpointName = "<private endpoint name>"
+$subId = "63d8a341-5a95-420c-96be-0f76d949b31e"
+$rgName = "SampleRG"
+$saName = "abacsamplesa"
 $roleDefinitionName = "Storage Blob Data Contributor"
-$userObjectID = "<your subscription id>"
+$userObjectID = "a24dd02d-b671-411d-bd92-2ac131f5d0c8"
+$containerName = "container1"
+$privateEndpointName = "privateendpoint1"
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$saName"
 
 $condition = `
 "( `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+    AND `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+    AND `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
+    AND `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+) `
+OR `
+( `
     ( `
-        (!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
         AND `
-        !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
-        AND `
-        !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
-        AND `
-        !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+        @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
     ) `
     OR `
-        ( `
-            ( `
-               @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
-               AND `
-               @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$endpointName' `
-            )
-            OR
-            @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName'
-        ) `
- )"
+    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName' `
+)"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
+
 ```
 
 Here's how to test this condition.
