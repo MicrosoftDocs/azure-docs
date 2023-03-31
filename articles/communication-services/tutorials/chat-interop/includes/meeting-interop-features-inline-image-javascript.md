@@ -240,7 +240,7 @@ with some CSS:
    overflow: hidden;
    z-index: 100;
    margin: auto;
-   background-color: gray;
+   background-color: rgba(0, 0, 0, .7);
 }
 
 .overlay img {
@@ -272,7 +272,7 @@ function fetchFullScaleImage(e, imageAttachments) {
   loadingImageOverlay.src = '';
   
   // fetch the image
-  fetch(walkaround(link), {
+  fetch(link, {
     method: 'GET',
     headers: {'Authorization': 'Bearer ' + tokenString},
   }).then(async (result) => {
