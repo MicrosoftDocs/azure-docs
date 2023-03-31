@@ -193,10 +193,6 @@ The following AzureCloud tags don't have regional names formatted according to t
 - AzureCloud.usstagee (EastUSSTG)
 - AzureCloud.usstagec (SouthCentralUSSTG)
 
-
-> [!NOTE]
-> A subset of this information has been published in XML files for [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064), and [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). These XML downloads will be deprecated by June 30, 2020 and will no longer be available after that date. You should migrate to using the Discovery API or JSON file downloads as described in the previous sections.
-
 > [!TIP]
 > 
 > - You can detect updates from one publication to the next by noting increased *changeNumber* values in the JSON file. Each subsection (for example, **Storage.WestUS**) has its own *changeNumber* that's incremented as changes occur. The top level of the file's *changeNumber* is incremented when any of the subsections is changed.
