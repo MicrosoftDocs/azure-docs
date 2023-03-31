@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/13/2023
+ms.date: 03/31/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -147,7 +147,7 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
     }
     ```
 
-    The code starts with reading the incoming JSON object. Azure AD sends the JSON object to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
+    The code starts with reading the incoming JSON object. Azure AD sends the [JSON object](./custom-claims-provider-reference.md) to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
 
 1. From the top menu, select **Get Function Url**, and copy the URL. In the next step, the function URL will be used and referred to as `{Function_Url}`.
 

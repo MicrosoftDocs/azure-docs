@@ -63,7 +63,7 @@ The endpoint URIs for your app are generated automatically when you register or 
 
 Two commonly used endpoints are the [authorization endpoint](v2-oauth2-auth-code-flow.md#request-an-authorization-code) and [token endpoint](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). Here are examples of the `authorize` and `token` endpoints:
 
-```Bash
+```
 # Authorization endpoint - used by client to obtain authorization from the resource owner.
 https://login.microsoftonline.com/<issuer>/oauth2/v2.0/authorize
 # Token endpoint - used by client to exchange an authorization grant or refresh token for an access token.
