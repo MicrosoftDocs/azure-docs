@@ -106,7 +106,7 @@ sections:
       - question: |
           Can Microsoft Purview (formerly Azure Purview) scan and classify emails, PDFs etc. in my SharePoint and OneDrive?
         answer: |
-          Scanning for on-premises SharePoint sites and libraries is provided through the Azure Information Protection scanner. The scanner is available for use  through a customer's Microsoft 365 subscription with the following SKUs: AIP P1, EMS E3, and Microsoft 365 E3. If you have any one of these SKUs, you should have the right entitlements to start using the Azure Information Protection scanner. Currently, Microsoft Purview (formerly Azure Purview) doesn't support scanning SharePoint and OneDrive into the Microsoft Purview Data Catalog. 
+          Scanning for on-premises SharePoint sites and libraries is provided through the [Microsoft Purview Information Protection scanner](/microsoft-365/compliance/deploy-scanner). The scanner is available for use through a customer's Microsoft 365 subscription with the following SKUs: AIP P1, EMS E3, and Microsoft 365 E3. If you have any one of these SKUs, you should have the right entitlements to start using the Microsoft Purview Information Protection scanner. However, currently, Microsoft Purview (formerly Azure Purview) doesn't support scanning SharePoint and OneDrive into the [Microsoft Purview Data Catalog](overview.md#data-catalog-app). Follow these links for [supported file types for the Microsoft Purview Information Protection scanner](/azure/information-protection/rms-client/clientv2-admin-guide-file-types), and [supported file types for the Microsoft Purview Data Catalog](microsoft-purview-connector-overview.md). 
           
       - question: |
           What is the compute used for the scan?

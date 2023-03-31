@@ -11,7 +11,7 @@ metadata:
   ms.collection: na
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 03/03/2023
+  ms.date: 03/24/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,8 +29,6 @@ landingContent:
             url: concepts-view-definition.md
           - text: Azure Policy for associations
             url: concepts-built-in-policy.md
-          - text: Role definition artifact
-            url: concepts-custom-role-definition.md
 
   # Card
   - title: Create Managed Applications

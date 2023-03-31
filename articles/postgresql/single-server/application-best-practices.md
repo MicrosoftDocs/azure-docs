@@ -14,6 +14,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Here are some best practices to help you build a cloud-ready application by using Azure Database for PostgreSQL. These best practices can reduce development time for your app.
 
 ## Configuration of application and database resources
