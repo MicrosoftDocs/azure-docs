@@ -6,7 +6,7 @@ ms.subservice: flexible-server
 ms.author: kabharati
 ms.reviewer: maghan
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 3/31/2023
 ---
 
 # Request quota increases for Azure Database PostgreSQL Flexible Server
@@ -33,8 +33,7 @@ To request a quota increase, you must create a new support request with your wor
 
 4. In the **Additional Details** tab, enter the details corresponding to your quota request. The Information provided on this tab will be used to further assess your issue and help the support engineer troubleshoot the problem.
 
-   :::image type="content" source="./media/how-to-create-support-request-quota-increase/quota-value.png" alt-text="add quota value increase":::
-
+   
 5. Fill the following details in this form:
 
    *    In  **Request details** click **Enter details** and select the relevant **Quota Type**
