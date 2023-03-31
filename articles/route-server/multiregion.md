@@ -47,5 +47,5 @@ If UDRs are an option, you could disable BGP route propagation in the NVAs' subn
 
 ## Next steps
 
-** Learn more about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md)
+* Learn more about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md)
 * Learn how to [Configure peering between Azure Route Server and Network Virtual Appliance](tutorial-configure-route-server-with-quagga.md)
