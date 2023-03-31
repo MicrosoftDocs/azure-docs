@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: storage
-ms.date: 03/28/2023
+ms.date: 02/07/2023
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
