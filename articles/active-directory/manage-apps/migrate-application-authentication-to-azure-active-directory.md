@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/15/2023
+ms.date: 03/30/2023
 ms.author: jomondi
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
@@ -22,19 +22,20 @@ The process is broken into four phases, each with detailed planning and exit cri
 
 ## Introduction
 
-Today, your organization requires a slew of applications (apps) for users to get work done. You likely continue to add, develop, or retire apps every day. Users access these applications from a vast range of corporate and personal devices, and locations. They open apps in many ways, including:
+Today, your organization requires a lot of applications for users to get work done. You likely continue to add, develop, or retire apps every day. Users access these applications from a vast range of corporate and personal devices, and locations. They open apps in many ways, including: 
 
 - Through a company homepage or portal
-- By bookmarking on their browsers
+- By bookmarking or favorites on their browsers 
 - Through a vendor’s URL for software as a service (SaaS) apps
 - Links pushed directly to user’s desktops or mobile devices via a mobile device/application management (MDM/ MAM) solution
 
 Your applications are likely using the following types of authentication:
 
-- On-premises federation solutions (such as Active Directory Federation Services (ADFS) and Ping)
-- Active Directory (such as Kerberos Auth and Windows-Integrated Auth)
-- Other cloud-based identity and access management (IAM) solutions (such as Okta or Oracle)
-- Header based authentication
+- Security Assertion Markup Language (SAML) or OpenID Connect (OIDC) via an on-premises or cloud-hosted Identity and Access Management (IAM) solutions federation solution (such as Active Directory Federation Services (ADFS), Okta, or Ping) 
+
+- Kerberos or NTLM via Active Directory 
+
+- Header-based authentication via Ping Access 
 
 To ensure that the users can easily and securely access applications, your goal is to have a single set of access controls and policies across your on-premises and cloud environments.
 
@@ -50,42 +51,45 @@ You can find more migration resources at [https://aka.ms/migrateapps](./migratio
 
 Moving app authentication to Azure AD helps you manage risk and cost, increase productivity, and address compliance and governance requirements.
 
-### Manage risk
+### Increase your security posture
 
-Safeguarding your apps requires that you have a full view of all the risk factors. Migrating your apps to Azure AD consolidates your security solutions. With it you can:
+Securing your apps requires that you have a full view of all the risk factors. Migrating your apps to Azure AD consolidates your security solutions. With it you can: 
 
 - Improve secure user access to applications and associated corporate data using [Conditional Access policies](../conditional-access/overview.md), [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md), and real-time risk-based [Identity Protection](../identity-protection/overview-identity-protection.md) technologies.
 - Protect privileged user’s access to your environment with [Just-In-Time](../../azure-resource-manager/managed-applications/request-just-in-time-access.md) admin access.
-- Use the [multi-tenant, geo-distributed, high availability design of Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory/)for your most critical business needs.
 - Protect your legacy applications with one of our [secure hybrid access partner integrations](https://aka.ms/secure-hybrid-access) that you may have already deployed.
 
 ### Manage cost
 
-Your organization may have multiple Identity Access Management (IAM) solutions in place. Migrating to one Azure AD infrastructure is an opportunity to reduce dependencies on IAM licenses (on-premises or in the cloud) and infrastructure costs. In cases where you may have already paid for Azure AD via Microsoft 365 licenses, there's no reason to pay the added cost of another IAM solution.
+Your organization may have multiple IAM solutions in place. Migrating to one Azure AD infrastructure is an opportunity to reduce your on-premises footprint, consolidate vendor solutions, and therefore reduce costs. In cases where you may have already paid for Azure AD via Microsoft 365 licenses, there’s no reason to pay the added cost of another IAM solution. Ways to reduce costs: 
 
-With Azure AD, you can reduce infrastructure costs by providing secure remote access to on-premises apps using [Azure AD Application Proxy](../app-proxy/application-proxy.md).
+- Eliminate the need for an on-premises federation provider like ADFS or Ping Federate. 
+
+- Eliminate the need for a cloud-hosted IAM solution like Okta or Ping One. 
+
+- Eliminate the need for on-premises remote access solutions like Ping Access or other WAM solutions. 
 
 ### Increase productivity
 
 Economics and security benefits drive organizations to adopt Azure AD, but full adoption and compliance are more likely if users benefit too. With Azure AD, you can:
 
-- Improve end-user [single sign-on (SSO)](./what-is-single-sign-on.md) experience through seamless and secure access to any application, from any device and any location.
+- Improve end-user [single sign-on (SSO)](./what-is-single-sign-on.md) experience through seamless and secure access to any application, from any device and any location with technologies like Hybrid Azure AD Join, Azure AD Join, or Azure AD Passwordless.
+
 - Use self-service IAM capabilities, such as [Self-Service Password Resets](../authentication/concept-sspr-howitworks.md) and [SelfService Group Management](../enterprise-users/groups-self-service-management.md).
-- Reduce administrative overhead by managing only a single identity for each user across cloud and on-premises environments:
 
-  - Faster onboarding of new applications from the Azure AD app gallery.  
+- Faster onboarding of new applications from the [Azure AD app gallery](overview-application-gallery.md).  
 
-  - [Automate provisioning](../app-provisioning/user-provisioning.md) of user accounts (in [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps))based on Azure AD identities
+- [Automate provisioning](../app-provisioning/user-provisioning.md) of user accounts into applications.
 
-  - Access all your apps from MyApps panel in the [Azure portal](https://portal.azure.com/)
+- Leverage Azure AD Lifecycle workflows to automate onboarding or offboarding, which might have previously been done with scripts. 
 
-  - Using Azure AD Lifecycle workflows automate onboarding or offboarding, which was previously done with scripts. 
+- Create developer efficiencies and improve the end-user experience by building your applications using the Microsoft Identity Platform with the [Microsoft Authentication Library (MSAL)](./develop/msal-overview.md). 
 
 - Empower your partners with access to cloud resources using [Azure AD B2B collaboration](../external-identities/what-is-b2b.md). Cloud resources remove the overhead of configuring point-to-point federation with your partners.
 
 ### Address compliance and governance
 
-To comply with regulatory requirements, enforce corporate access policies and monitor user access to applications and associated data using integrated audit tools and APIs. With Azure AD, you can monitor application sign-ins through reports that use [Security Incident and Event Monitoring (SIEM) tools](../reports-monitoring/plan-monitoring-and-reporting.md). You can access the reports from the portal or APIs, and programmatically audit who has access to your applications and remove access to inactive users via access reviews.
+To comply with regulatory requirements, enforce corporate access policies and monitor user access to applications and associated data using integrated audit tools and APIs. With Azure AD, you can monitor application sign-ins through reports that use [Security Incident and Event Monitoring (SIEM) tools](../reports-monitoring/plan-monitoring-and-reporting.md) or [Azure Sentinel](../sentinel/overview.md). You can access the reports from the portal or APIs, and programmatically audit who has access to your applications and remove access to inactive users via access reviews.
 
 ## Plan your migration phases and project strategy
 
@@ -156,8 +160,6 @@ In the following table you find the minimum suggested communication to keep your
 | ------------------ | ------------------------------------------------- |
 | Available analytics and how to access | - App technical owners<br />- App business owners |
 
-There are two main categories of users of your apps and resources that Azure AD supports. 
-
 ### Migration states communication dashboard
 
 Communicating the overall state of the migration project is crucial, as it shows progress, and helps app owners whose apps are coming up for migration to prepare for the move. You can put together a simple dashboard using Power BI or other reporting tools to provide visibility into the status of applications during the migration.
@@ -191,31 +193,32 @@ The following are our customer and partner’s success stories, and suggested be
 
 The first decision point in an application migration is which apps to migrate, which if any should remain, and which apps to deprecate. There is always an opportunity to deprecate the apps that you won't use in your organization. There are several ways to find apps in your organization. While discovering apps, ensure you include in-development and planned apps. Use Azure AD for authentication in all future apps.
 
-Using Active Directory Federation Services (AD FS) to gather a correct app inventory:
+Discover applications using ADFS: 
 
-- **Use Azure AD Connect Health.** If you have an Azure AD Premium license, we recommend deploying [Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) to analyze the app usage in your on-premises environment. You can use the [ADFS application report](./migrate-adfs-application-activity.md) to discover ADFS applications that can be migrated and evaluate the readiness of the application to be migrated. After completing your migration, deploy [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) that allows you to continuously monitor Shadow IT in your organization once you’re in the cloud.
+- **Use Azure AD Connect Health for ADFS**: If you have an Azure AD Premium license, we recommend deploying [Azure AD Connect Health](../hybrid/how-to-connect-health-adfs.md) to analyze the app usage in your on-premises environment. You can use the [ADFS application report](./migrate-adfs-application-activity.md) to discover ADFS applications that can be migrated and evaluate the readiness of the application to be migrated. 
 
-- **Use ADFS to Azure AD app migration tool**: If you don’t have Azure AD Premium licenses, we recommend using the ADFS to Azure AD app migration tools based on [PowerShell](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration). Refer to [solution guide](./migrate-adfs-apps-to-azure.md):
-
-- **AD FS log parsing**. Parse the log files from your authentication servers to identify which apps are being used in your environment, and what their typical access patterns and access volumes are.
+- If you don’t have Azure AD Premium licenses, we recommend using the ADFS to Azure AD app migration tools based on [PowerShell](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration). Refer to [solution guide](./migrate-adfs-apps-to-azure.md):
 
 ### Using other identity providers (IdPs)
 
-For other identity providers (such as Okta or Ping), you can use their tools to export the application inventory. 
+- If you’re currently using Okta, refer to our [Okta to Azure AD migration guide](migrate-applications-from-okta-to-azure-active-directory.md). 
+
+- If you’re currently using Ping Federate, then consider using the [Ping Administrative API](https://docs.pingidentity.com/r/en-us/pingfederate-112/pf_admin_api) to discover applications. 
+
+- If the applications are integrated with Active Directory, search for service principals or service accounts that may be used for applications.  
 
 ### Using cloud discovery tools
 
 In the cloud environment, you need rich visibility, control over data travel, and sophisticated analytics to find and combat cyber threats across all your cloud services. You can gather your cloud app inventory using the following tools:
 
 - **Cloud Access Security Broker (CASB**) – A [CASB](/cloud-app-security/) typically works alongside your firewall to provide visibility into your employees’ cloud application usage and helps you protect your corporate data from cybersecurity threats. The CASB report can help you determine the most used apps in your organization, and the early targets to migrate to Azure AD.
-- **Cloud Discovery** - By configuring [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery), you gain visibility into the cloud app usage, and can discover unsanctioned or Shadow IT apps.
-- **APIs** - For apps connected to cloud infrastructure, you can use the APIs and tools on those systems to begin to take an inventory of hosted apps. In the Azure environment:
+- **Cloud Discovery** - By configuring [Microsoft Defender for Cloud Apps](/defender-cloud-apps/what-is-defender-for-cloud-apps), you gain visibility into the cloud app usage, and can discover unsanctioned or Shadow IT apps.
+- **Azure Hosted Applications** - For apps connected to Azure infrastructure, you can use the APIs and tools on those systems to begin to take an inventory of hosted apps. In the Azure environment:
   - Use the [Get-AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) cmdlet to get information about Azure websites.
   - Use the [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) cmdlet to get information about your Azure Web Apps.D
-  - You can find all the apps running on Microsoft IIS from the Windows command line using [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
-  - Use [Applications](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) and [Service Principals](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) to get your information on web apps and app instance in a directory in Azure AD.
+  - Query Azure AD looking for [Applications](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) and [Service Principals](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity).
 
-### Using manual processes
+### Manual discovery process
 
 Once you have taken the automated approaches described in this article, you have a good handle on your applications. However, you might consider doing the following to ensure you have good coverage across all user access areas:
 
