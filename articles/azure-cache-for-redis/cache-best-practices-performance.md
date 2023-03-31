@@ -29,7 +29,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 1. Note that redis-benchmark uses port 6379 by default. Use the `-p` parameter to override this setting. You'll need to do this, for example, if you're using the SSL/TLS (port 6380) or are using the Enterprise tier (port 10000). 
 
-1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you'll need to add the `--cluster` parameter to your redis-benchmark command. Note that Enterprise tier caches using the [Enterprise clustering policy](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise.md) can be treated as non-clustered caches and do not need this setting. 
+1. If you're using an Azure Cache for Redis instance that uses [clustering](cache-how-to-scale.md), you'll need to add the `--cluster` parameter to your redis-benchmark command. Note that Enterprise tier caches using the [Enterprise clustering policy](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise) can be treated as non-clustered caches and do not need this setting. 
 
 1. Launch redis-benchmark from the CLI or shell of the VM. For instructions on how to configure and run the tool, see the [redis-benchmark documentation](https://redis.io/docs/management/optimization/benchmarks/) and the [redis-benchmark examples](#redis-benchmark-examples) section below. 
 
