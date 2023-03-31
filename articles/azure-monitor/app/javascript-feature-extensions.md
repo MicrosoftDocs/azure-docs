@@ -116,18 +116,26 @@ If you want to set the authenticated user context:
 
     > [!TIP]
     > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
-3. When the tag `parentDataTag` is set, the rules for this tag are as follows:
-    1. If the clicked HTML element already has valid parentid/name attributes, the plug-in fetches those attributes directly.
-    1. If parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
+3. Declare the tag `parentDataTag` when you want to fetch all child HTML elements. This is useful when you don't set parentid/name attributes for the HTML elements. If all HTML elements have valid parentid/name attributes, you don't need to declare the tag `parentDataTag`.
+    
+    - If you declare the tag `parentDataTag`, you must add it alongside the parentid data attribute. 
+    
+       If declared and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
         
        If no such element exists, the plug-in fetches the closest parent element `data-id` or `customDataPrefix-id` of the clicked HTML element.
 
        If no such element exists, the plug-in fetches the `id` attribute of the clicked HTML element if `useDefaultContentNameOrId` is set to true or uses `“not_specified”` if `useDefaultContentNameOrId` is set to false.
 
-    1. To improve efficiency, the plug-in uses this tag as a flag. When encountered, it stops itself from further processing the Document Object Model (DOM) upward.
+       To improve efficiency, the plug-in uses this tag as a flag. When encountered, it stops itself from further processing the Document Object Model (DOM) upward.
+
+       When declared, the logs are saved....
+
+     - If you don't declare the tag `parentDataTag` and the clicked HTML element already has valid parentid/name attributes, the plug-in fetches those attributes directly.
+      
+       When not declared, logs are saved/rendered....
     
     > [!CAUTION]
-    > After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it.
+    > After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it. If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
 1. The `customDataPrefix` provides the user the ability to configure a data attribute prefix to help identify where heart is located within the individual's codebase. The prefix should always be lowercase and start with `data-`. For example:
 
    - `data-heart-` 
