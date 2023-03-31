@@ -1358,7 +1358,7 @@ This section includes examples showing how to restrict access to objects based o
 
 This condition requires that all read, write and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
 
-There are five actions for read, write and delete of existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include one of the following actions.
+There are five potential actions for read, write and delete of existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include one of the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
@@ -1369,64 +1369,13 @@ There are five actions for read, write and delete of existing blobs. To make thi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
-Storage Blob Data Owner
-
-```
-(
- (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) 
-  AND
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
- )
- OR 
- (
-  (
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
-   AND
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
-  )
-  OR
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container1'
- )
-)
-```
-
-Storage Blob Data Contributor
-
-```
-(
- (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) 
- )
- OR 
- (
-  (
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
-   AND
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
-  )
-  OR
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container1'
- )
-)
-```
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
 > [!NOTE]
-> Without the last expression in each code sample, access to all other containers not named `container1` will fail.
+> Without the last expression in this sample, access to all other containers not named `container1` will fail.
 
-#### [Portal](#tab/azure-portal)
+
+#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -1453,7 +1402,67 @@ Here are the settings to add this condition using the Azure portal.
 > | | | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
 > | | | | Value | `container1` |
 
+The following image shows the condition after the settings have been entered into the Azure portal:
+
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
+
+#### [Portal: Code editor](#tab/azure-portal-code-editor)
+
+Choose one of the condition code samples below, depending on the role associated with the assignment.
+
+**Storage Blob Data Owner**
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) 
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
+ )
+ OR 
+ (
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
+   AND
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+  )
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container1'
+ )
+)
+```
+
+**Storage Blob Data Contributor**
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) 
+  AND 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) 
+ )
+ OR 
+ (
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
+   AND
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+  )
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container1'
+ )
+)
+```
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -1497,24 +1506,6 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
 
 ---
-
-Here's how to test this condition using PowerShell.
-
-```azurepowershell
-$localSrcFile = <pathToLocalFile>
-$grantedContainer = $containerName
-$ungrantedContainer = "ungranted"
-# Get new context for request
-$bearerCtx = New-AzStorageContext -StorageAccountName $storageAccountName
-# Ungranted Container actions
-$content = Set-AzStorageBlobContent -File $localSrcFile -Container $ungrantedContainer -Blob "Example19.txt" -Context $bearerCtx
-$content = Get-AzStorageBlobContent -Container $ungrantedContainer -Blob "Example19.txt" -Context $bearerCtx
-$content = Remove-AzStorageBlob -Container $ungrantedContainer -Blob "Example19.txt" -Context $bearerCtx
-# Granted Container actions
-$content = Set-AzStorageBlobContent -File $localSrcFile -Container $grantedContainer -Blob "Example19.txt" -Context $bearerCtx
-$content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "Example19.txt" -Context $bearerCtx
-$content = Remove-AzStorageBlob -Container $grantedContainer -Blob "Example19.txt" -Context $bearerCtx
-```
 
 ### Example: Allow read access to blobs based on private link and tags
 
@@ -1623,7 +1614,7 @@ You must add this condition to any role assignments that include the following a
   ( 
    @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] 
    AND 
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
   ) 
   OR 
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' 
@@ -1687,7 +1678,7 @@ You must add this condition to any role assignments that include the following a
   ( 
    @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] ForAnyOfAnyValues:StringEqualsIgnoreCase {'high', 'low', 'medium'} 
    AND 
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
   ) 
   OR 
   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'} 
@@ -1758,7 +1749,7 @@ You must add this condition to any role assignments that include the following a
   ( 
    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1' 
    AND 
-   @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'
+   @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'
   ) 
   OR 
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container1' 
