@@ -19,6 +19,26 @@ For example:
 
 :::image type="content" source="media/device-inventory/azure-device-inventory.png" alt-text="Screenshot of the Defender for IoT Device inventory page in the Azure portal." lightbox="media/device-inventory/azure-device-inventory.png":::
 
+
+## Supported devices
+
+Defender for IoT's device inventory supports the following device classes:
+
+|Devices  |For example ... |
+|---------|---------|
+|**Manufacturing**| Industrial and operational devices, such as pneumatic devices,  packaging systems, industrial packaging systems, industrial robots        |
+|**Building**     | Access panels,  surveillance devices, HVAC systems, elevators, smart lighting systems    |
+|**Health care**     |  Glucose meters, monitors       |
+|**Transportation / Utilities**     |  Turnstiles, people counters, motion sensors, fire and safety systems, intercoms       |
+|**Energy and resources**     |  DCS controllers, PLCs, historian devices, HMIs      |
+|**Endpoint devices**     |  Workstations, servers, or mobile devices        |
+| **Enterprise** | Smart devices, printers,  communication devices, or audio/video devices |
+| **Retail** | Barcode scanners, humidity sensor, punch clocks | 
+
+A *transient* device type indicates a device that was detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
+
+*Unclassified* devices are devices that don't otherwise have an out-of-the-box category defined.
+
 ## Device management options
 
 The Defender for IoT device inventory is available in the Azure portal, OT network sensor consoles, and the on-premises management console.
@@ -44,25 +64,19 @@ For more information, see:
 > - [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
 >
 
-## Supported devices
+## Automatically consolidated devices
 
-Defender for IoT's device inventory supports device types across a variety of industries and fields.
+When you've deployed Defender for IoT at scale, with several OT sensors, each sensor might detect different aspects of the same device. To prevent duplicated devices in your device inventory, Defender for IoT assumes that any devices found in the same zone, with a logical combination of similar characteristics, is the same device. Defender for IoT automatically consolidates these devices and lists them only once in the device inventory.
 
-|Devices  |For example ... |
-|---------|---------|
-|**Manufacturing**| Industrial and operational devices, such as pneumatic devices,  packaging systems, industrial packaging systems, industrial robots        |
-|**Building**     | Access panels,  surveillance devices, HVAC systems, elevators, smart lighting systems    |
-|**Health care**     |  Glucose meters, monitors       |
-|**Transportation / Utilities**     |  Turnstiles, people counters, motion sensors, fire and safety systems, intercoms       |
-|**Energy and resources**     |  DCS controllers, PLCs, historian devices, HMIs      |
-|**Endpoint devices**     |  Workstations, servers, or mobile devices        |
-| **Enterprise** | Smart devices, printers,  communication devices, or audio/video devices |
-| **Retail** | Barcode scanners, humidity sensor, punch clocks | 
+For example, any devices with the same IP and MAC address detected in the same zone are consolidated and identified as a single device in the device inventory. If you have separate devices from recurring IP addresses that are detected by multiple sensors, you'll want each of these devices to be identified separately. In such cases, [onboard your OT sensors](onboard-sensors.md) to different zones so that each device is identified as a separate and unique device, even if they have the same IP address. Devices that have the same MAC addresses, but different IP addresses are not merged, and continue to be listed as unique devices.
 
 A *transient* device type indicates a device that was detected for only a short time. We recommend investigating these devices carefully to understand their impact on your network.
 
 *Unclassified* devices are devices that don't otherwise have an out-of-the-box category defined.
 
+> [!TIP]
+> Define [sites and zones](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones) in Defender for IoT to harden overall network security, follow principles of [Zero Trust](/security/zero-trust/), and gain clarity in the data detected by your sensors.
+>
 
 ## Unauthorized devices
 
