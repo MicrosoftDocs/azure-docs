@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/13/2023
+ms.date: 03/31/2023
 ms.author: davidmu
 ms.reviewer: JasSuri
 ms.custom: aaddev 
@@ -42,3 +42,4 @@ For an example using a custom claims provider with the **token issuance start** 
 
 - Learn how to [create and register a custom claims provider](custom-extension-get-started.md) with a sample Open ID Connect application.
 - If you already have a custom claims provider registered, you can configure a [SAML application](custom-extension-configure-saml-app.md) to receive tokens with claims sourced from an external store.
+- Learn more about custom claims providers with the [custom claims provider reference](custom-claims-provider-reference.md) article.

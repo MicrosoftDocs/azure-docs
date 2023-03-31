@@ -78,7 +78,6 @@ This release corresponds to REST API version 2021-06-01-preview, which includes 
     - [Cloud event V10 schema](cloud-event-schema.md)
     - [Service Bus topic as destination](handler-service-bus.md)
     - [Azure function as destination](handler-functions.md)
-    - [Webhook batching](./edge/delivery-output-batching.md)
     - [Secure webhook (Azure Active Directory support)](secure-webhook-delivery.md)
     - [Ip filtering](configure-firewall.md)
     - [Private Link Service support](configure-private-endpoints.md)
