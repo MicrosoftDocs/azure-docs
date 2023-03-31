@@ -46,7 +46,7 @@ The table shows the Azure Maps service APIs, which have a similar functionality 
 | Time Zone          | [Time Zone](/rest/api/maps/timezone)                                             |
 | Elevation          | [Elevation](/rest/api/maps/elevation)<sup>1</sup>                                |
 
-<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
+<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information on how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 The following service APIs aren't currently available in Azure Maps:
 
