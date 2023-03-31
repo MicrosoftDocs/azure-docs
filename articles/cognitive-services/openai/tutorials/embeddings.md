@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 03/22/2023
+ms.date: 03/31/2023
 author: mrbullwinkle #noabenefraim
 ms.author: mbullwin
 recommendations: false
@@ -25,8 +25,11 @@ In this tutorial, you learn how to:
 > * Install Azure OpenAI and other dependent Python libraries.
 > * Download the BillSum dataset and prepare it for analysis.
 > * Create environment variables for your resources endpoint and API key.
-> * Use the **text-embedding-ada-002** model
+> * Use the **text-embedding-ada-002 (version 2)** model
 > * Use [cosine similarity](../concepts/understand-embeddings.md) to rank search results.
+
+> [!Important]
+> We strongly recommend using `text-embedding-ada-002 (version 2)`. It is the only model/version to provide parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using version 1 you should migrate to version 2 to take advantage of the latest weights/updated token limit.  
 
 ## Prerequisites
 
@@ -36,7 +39,7 @@ In this tutorial, you learn how to:
 * <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 * The following Python libraries: openai, num2words, matplotlib, plotly, scipy, scikit-learn, pandas, tiktoken.
 * [Jupyter Notebooks](https://jupyter.org/)
-* An Azure OpenAI resource with the text-embedding-ada-002 models deployed. This model is currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process of creating one is documented in our [resource deployment guide](../how-to/create-resource.md).
+* An Azure OpenAI resource with the **text-embedding-ada-002 (version 2)** model deployed. This model is currently only available in [certain regions](../concepts/models.md#model-summary-table-and-region-availability).  If you don't have a resource the process of creating one is documented in our [resource deployment guide](../how-to/create-resource.md).
 
 ## Set up
 
@@ -353,7 +356,7 @@ len(decode)
 Now that we understand more about how tokenization works we can move on to embedding. It is important to note, that we haven't actually tokenized the documents yet. The `n_tokens` column is simply a way of making sure none of the data we pass to the model for tokenization and embedding exceeds the input token limit of 8,192. When we pass the documents to the embeddings model, it will break the documents into tokens similar (though not necessarily identical) to the examples above and then convert the tokens to a series of floating point numbers that will be accessible via vector search. These embeddings can be stored locally or in an Azure Database. As a result, each bill will have its own corresponding embedding vector in the new `ada_v2` column on the right side of the DataFrame.
 
 ```python
-df_bills['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-embedding-ada-002')) # engine should be set to the deployment name you chose when you deployed the ada-002 model
+df_bills['ada_v2'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-embedding-ada-002')) # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (version 2) model
 ```
 
 ```python
@@ -364,14 +367,14 @@ df_bills
 
 :::image type="content" source="../media/tutorials/embed-text-documents.png" alt-text="Screenshot of the formatted results from df_bills command." lightbox="../media/tutorials/embed-text-documents.png":::
 
-As we run the search code block below, we'll embed the search query *"Can I get information on cable company tax revenue?"* with the same **text-embedding-ada-002** model. Next we'll find the closest bill embedding to the newly embedded text from our query ranked by [cosine similarity](../concepts/understand-embeddings.md).
+As we run the search code block below, we'll embed the search query *"Can I get information on cable company tax revenue?"* with the same **text-embedding-ada-002 (version 2)** model. Next we'll find the closest bill embedding to the newly embedded text from our query ranked by [cosine similarity](../concepts/understand-embeddings.md).
 
 ```python
 # search through the reviews for a specific product
 def search_docs(df, user_query, top_n=3, to_print=True):
     embedding = get_embedding(
         user_query,
-        engine="text-embedding-ada-002" #engine should be set to the deployment name you chose when you deployed the ada-002 model
+        engine="text-embedding-ada-002" # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (version 2) model
     )
     df["similarities"] = df.ada_v2.apply(lambda x: cosine_similarity(x, embedding))
 
