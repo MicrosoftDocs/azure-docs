@@ -139,24 +139,22 @@ A Kubernetes storage class defines how a unit of storage is dynamically created 
 
 ## Create a storage pool
 
-Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a yaml file. The `name` value can be whatever you want. Use the following code to create a storage pool for Azure managed disks. For `storageClassName`, you can use any storage class that's supported by the CSI driver.
+Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a yaml file. The `name` value can be whatever you want. Use the following code to create a storage pool for Azure managed disks. 
 
 ```azurecli-interactive
 cat <<EOF | kubectl apply -f -
 ---
-apiVersion: azstor.azure.com/v1alpha1
-kind: StoragePool
+apiVersion: containerstorage.azure.com/v1alpha1
+kind: StoragePool
 metadata:
-   name: csiazstorpoolset
+   name: azuredisk
    namespace: azstor
 spec:
-   storagePoolSource:
-       csi:
-           storageClassName: managed-premium
-   replicas: 1
+   poolType:
+       csi: {}
    resources:
-       limits: {"storage": 15Ti}
-       requests: {"storage": 10Ti}
+       limits: {"storage": 10Ti}
+       requests: {"storage": 5Ti}
 ---
 EOF
 
@@ -165,7 +163,7 @@ EOF
 When storage pool creation is complete, you'll see a message like:
 
 ```output
-csiazstorpoolset.azstor.azure.com/csiazstorpoolset1 created
+azuredisk.containerstorage.azure.com/azuredisk1 created
 ```
 
 ## Use the new storage classes
