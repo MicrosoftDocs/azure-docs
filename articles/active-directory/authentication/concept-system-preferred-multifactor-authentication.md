@@ -99,10 +99,9 @@ Content-Type: application/json
 }
 ```
 
-## Known issues
+## Known issue
 
-- [FIDO2 security key isn't supported on mobile devices](../develop/support-fido2-authentication.md#mobile). This issue might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys on mobile devices. 
-- [CBA] has same issue. so if a users can't locate cert, the user will be prompt for CBA. to disable for that user, put the user in exclude group. or remove tne user from the included group. if in both exclude takes precedence. 
+[FIDO2 security keys](../develop/support-fido2-authentication.md#mobile) and [certificate-based authentication (CBA)](concept-certificate-based-authentication.md) on mobile devices aren't supported due to an issue that might surface when system-preferred MFA is enabled. Until a fix is available, we recommend not using FIDO2 security keys or CBA on mobile devices. To disable system-preferred MFA for these users, you can either add them to an excluded group or remove them from an included group.
 
 ## Common questions
 
