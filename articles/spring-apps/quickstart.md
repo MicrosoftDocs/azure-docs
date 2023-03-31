@@ -40,6 +40,8 @@ At the end of this quickstart, you have a working Spring app running on Azure Sp
 
 ## Prerequisites
 
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
 ::: zone pivot="sc-enterprise"
 
 - If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, see the [Requirements](./how-to-enterprise-marketplace-offer.md#requirements) section of [View Azure Spring Apps Enterprise tier offering in Azure Marketplace](./how-to-enterprise-marketplace-offer.md).
@@ -48,7 +50,6 @@ At the end of this quickstart, you have a working Spring app running on Azure Sp
 
 ::: zone pivot="sc-consumption-plan"
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure CLI extension for Azure Spring Apps Standard consumption plan by using the following command.
 
@@ -208,7 +209,6 @@ Deploying the application can take a few minutes.
 
 ## [Azure CLI](#tab/Azure-CLI)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 - [Azure CLI](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 
@@ -310,7 +310,6 @@ Deploying the application can take a few minutes.
 
 ## [IntelliJ](#tab/IntelliJ)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 - [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/install-toolkit).
 
