@@ -15,32 +15,38 @@ Azure Container Apps features two different plan types.
 
 | Plan type | Description | In Preview |
 |--|--|--|
-| [Consumption](#consumption-plan) | Serverless environment where apps can scale to zero. You only pay for compute apps as they're running. | No |
-| [Consumption with Dedicated workload profiles](#consumption-dedicated) | Serverless environment where apps can scale to zero. You only pay for compute apps as they're running. In addition, you can run apps with customized hardware or increased cost control requirements on Dedicated workload profiles. | Yes |
+| [Consumption](#consumption-plan) | Serverless environment with support for scale-to-zero and pay only for resources your apps use. | No |
+| [Consumption with Dedicated workload profiles](#consumption-dedicated) | Fully managed environment with support for scale-to-zero and pay only for resources your apps use. Optionally, run apps with customized hardware and increased cost predictability using Dedicated workload profiles. | Yes |
 
 ## Consumption plan
 
 The Consumption plan features a serverless architecture that allows your applications to scale in and out on demand. Applications can scale to zero, and you only pay for running apps.
 
-Use the Consumption plan when you don't have specific hardware requirement for your container app.
+Use the Consumption plan when you don't have specific hardware requirements for your container app.
 
 <a id="consumption-dedicated"></a>
 
 ## Consumption + Dedicated plan structure
 
-The Consumption + Dedicated plan structure features fully managed, isolated environments with access to customized infrastructure using general purpose, memory optimized, and compute optimized [workflow profiles](workload-profiles-overview.md). Each workload profile can scale in and out as demand requires. When demand falls, profiles created on-demand are shut down, while the [minimum threshold of resources](billing.md#consumption-dedicated) stays running.
+The Consumption + Dedicated plan structure consists of a serverless plan that allows your applications to scale in and out on demand. Applications can scale to zero, and you only pay for running apps. It also consists of a fully managed plan you can optionally use that provides dedicated, customized hardware to run your apps on.
 
-Use the Consumption + Dedicated plan structure when you need:
+You can select from general purpose and memory optimized [workflow profiles](workload-profiles-overview.md) that provide larger amounts of CPU and memory. You pay per node, versus per app, and workload profile can scale in and out as demand changes.
 
-- **Environment isolation**: Container Apps environment using dedicated hardware with a single tenant guarantee.
+Use the Consumption + Dedicated plan structure when you need any of the following in a single environment:
 
-- **Custom compute**: Select from various resource profiles based on variation in workload demands around CPU and memory.
+- **Consumption usage**: Use of the Consumption plan to run apps that need to scale to zero that don't have specific hardware requirements.
 
-- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. With the Consumption + Dedicated plan structure, you can set infrastructure scaling [restrictions](workload-profiles-overview.md#resource-consumption) to help you better control costs.
+- **Secure outbound traffic**: You can create environments with no public inbound access, and customize the outbound network path from environments to leverage firewalls or other network appliances.
+
+Use the Dedicated plan within the Consumption + Dedicated plan structure when you need any of the following:
+
+- **Environment isolation**: Use of the Dedicated workload profiles provides apps with dedicated hardware with a single tenant guarantee.
+
+- **Customized compute**: Select from many types and sizes of Dedicated workload profiles based on your apps requirements. You can deploy many apps to each workload profile. Each workload profile can scale independantly as more apps are added or removed or as apps scale their replicas up or down.
+
+- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. With the Dedicated workload profiles you can set minimum and maximum scaling to help you better control costs.
 
     The Consumption + Dedicated plan structure can be more cost effective when you're running higher scale deployments with steady throughput.
-
-- **Secure outbound traffic**: You can create environments with no public inbound access, or customize the outbound network path from environments where public IPs are disallowed.
 
 > [!NOTE]
 > When configuring your cluster with a user defined route for egress, you must explicitly send egress traffic to a network virtual appliance such as Azure Firewall.
