@@ -15,11 +15,11 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
 
 ### Azure Data Factory
 
-:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the &quot;Activity runs&quot; section on the &quot;All pipeline runs&quot; pane.":::
+:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the Data Factory 'Activity runs' section on the 'All pipeline runs' pane.":::
 
 ### Azure Synapse
 
-:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the &quot;Activity runs&quot; section on the &quot;All pipeline runs&quot; pane.":::
+:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the Synapse 'Activity runs' section on the 'All pipeline runs' pane.":::
 
 The activity logs are displayed for the failed activity run.
 
