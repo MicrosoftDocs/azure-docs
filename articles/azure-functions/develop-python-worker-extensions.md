@@ -225,7 +225,7 @@ To publish your extension to PyPI:
     twine upload dist/*
     ```
 
-    You may need to provide your PyPI account credentials during upload. You can also test with `twine upload -r testpypi dist/*`. For more information, see the [Twine document](https://twine.readthedocs.io/en/stable/).
+    You may need to provide your PyPI account credentials during upload. You can also test your package upload with `twine upload -r testpypi dist/*`. For more information, see the [Twine documentation](https://twine.readthedocs.io/en/stable/).
 
 After these steps, customers can use your extension by including your package name in their requirements.txt.
 
