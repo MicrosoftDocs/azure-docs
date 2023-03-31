@@ -16,8 +16,8 @@ Billing in Azure Container apps is based on your [plan type](plans.md).
 
 | Plan type | Description |
 |--|--|
-| [Consumption](#consumption-plan) | Serverless environment where you're only billed for the resources your apps use when they are running. |
-| [Consumption + Dedicated workload profiles plan structure](#consumption-dedicated) | A fully managed environment which supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You are billed for each node in each [workload profile](workload-profiles-overview.md).
+| [Consumption](#consumption-plan) | Serverless environment where you're only billed for the resources your apps use when they're running. |
+| [Consumption + Dedicated workload profiles plan structure](#consumption-dedicated) | A fully managed environment that supports both Consumption-based apps and Dedicated workload profiles that offer customized compute options for your apps. You're billed for each node in each [workload profile](workload-profiles-overview.md).
 
 Charges apply to resources allocated to each running replica. |
 
@@ -85,17 +85,20 @@ The first 2 million requests in each subscription per calendar month are free.
 
 <a id="consumption-dedicated"></a>
 
-## Consumption + Dedicated workload profiles plan structure
+## Consumption + Dedicated workload profiles plan structure (preview)
 
-Azure Container Apps Consumption + Dedicated plan structure consists of two plans withing a single environment, each with their own billing model:
+Azure Container Apps Consumption + Dedicated plan structure consists of two plans withing a single environment, each with their own billing model.
 
-The billing for apps running in the Consumption plan within the Consumption + Dedicated plan structure is the same as the Consumption plan above.
+The billing for apps running in the Consumption plan within the Consumption + Dedicated plan structure is the same as the Consumption plan.
 
 The billing for apps running in the Dedicated plan within the Consumption + Dedicated plan structure is as follows:
 
 - **Dedicated workload profiles**: You're billed on a per-second basis for vCPU-seconds and GiB-seconds resources in all the workload profile instances in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced.
 
-- **Dedicated plan management**: You are billed a fixed cost for the Dedicated management plan when using Dedicated workload profiles. This cost is the same regardless of how many Dedicated workload profiles in use.
+- **Dedicated plan management**: You're billed a fixed cost for the Dedicated management plan when using Dedicated workload profiles. This cost is the same regardless of how many Dedicated workload profiles in use.
+
+For instance, you are not billed any charges for Dedicated unless you use a Dedicated workload profile in your environment.
+ 
 
 For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 

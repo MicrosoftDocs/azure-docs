@@ -146,8 +146,8 @@ Now, all outbound traffic from your container app is routed to the firewall. Cur
     | ------------ | ---------------- |
     | **Name** | Enter a name for the rule |
     | **Source type** | Select *IP Address* |
-    | **Source** | Enter **** |
-    | **Protocol** | Enter *Http:80,Https:443* |
+    | **Source** | Enter **\*** |
+    | **Protocol** | Enter *http:80,https:443* |
     | **Destination Type** | Select **FQDN**. |
     | **Destination** | Enter `mcr.microsoft.com`,`*.data.mcr.microsoft.com`. If you're using ACR, add your *ACR address* and `*.blob.core.windows.net`. |
     | **Action** | Select *Allow* |

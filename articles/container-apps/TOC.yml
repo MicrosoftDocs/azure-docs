@@ -120,7 +120,7 @@
       items:
         - name: Configure WAF Application Gateway
           href: waf-app-gateway.md
-        - name: Enable Azure Firewall
+        - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
     - name: Connect to a cloud service using Service Connector
       items:

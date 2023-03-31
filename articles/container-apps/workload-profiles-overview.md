@@ -17,7 +17,7 @@ Profiles are configured to fit the different needs of your applications.
 
 | Profile type  | Description | Potential use |
 |--|--|--|
-| Consumption |  Automatically added to any new environment. | Apps that don't have specific hardware reqiurements |
+| Consumption |  Automatically added to any new environment. | Apps that don't require specific hardware requirements |
 | Dedicated General purpose | Balance of memory and compute resources  |  Apps needing larger amounts of CPU and/or memory |
 | Dedicated Memory optimized | Increased memory resources | Apps needing large in-memory data, in-memory machine learning models, or other high memory requirements |
 
@@ -43,21 +43,21 @@ The following regions support workload profiles during preview:
 
 ## Profile types
 
-There are a number of different types and sizes of workload profiles available by region. By default each Consumption + Dedicated plan structure includes a Consumption profile, but you can also add any of the following profiles:
+There are different types and sizes of workload profiles available by region. By default each Consumption + Dedicated plan structure includes a Consumption profile, but you can also add any of the following profiles:
 
-| Name | Cores | MemoryGiB | Category | Allocation |
-|---|---|---|---|---|
-| Consumption | 4 | 8 | Consumption | per replica |
-| Dedicated-D4 | 4 | 16 | General purpose | per node |
-| Dedicated-D8 | 8 | 32 | General purpose | per node |
-| Dedicated-D16 | 16 | 64 | General purpose | per node |
-| Dedicated-E4 | 4 | 32 | Memory optimized | per node |
-| Dedicated-E8 | 8 | 64 | Memory optimized | per node |
-| Dedicated-E16 | 16 | 128 | Memory optimized | per node |
+| Display Name | Name | Cores | MemoryGiB | Category | Allocation |
+|---|---|---|---|---|---|
+| Consumption | consumption |4 | 8 | Consumption | per replica |
+| Dedicated-D4 | D4 | 4 | 16 | General purpose | per node |
+| Dedicated-D8 | D8 | 8 | 32 | General purpose | per node |
+| Dedicated-D16 | D16 | 16 | 64 | General purpose | per node |
+| Dedicated-E4 | E4 | 4 | 32 | Memory optimized | per node |
+| Dedicated-E8 | E8 | 8 | 64 | Memory optimized | per node |
+| Dedicated-E16 | E16 | 16 | 128 | Memory optimized | per node |
 
-Use the *Name* value for the `--workload-profile-name` as you run [`az containerapp create`](workload-profiles-manage-cli.md#create).
+Select a workload profile and use the *Name* field when you run `az containerapp env workload-profile set` for the `--workload-profile-type` option.
 
-The availability of different workload profiles may vary by region.
+The availability of different workload profiles varies by region.
 
 ## Resource consumption
 

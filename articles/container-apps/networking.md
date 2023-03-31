@@ -53,12 +53,6 @@ As you begin to design the network around your container app, refer to [Plan vir
 > [!NOTE]
 > Moving VNets among different resource groups or subscriptions is not supported if the VNet is in use by a Container Apps environment.
 
-<!--
-https://learn.microsoft.com/azure/azure-functions/functions-networking-options
-
-https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
--->
-
 ## HTTP edge proxy behavior
 
 Azure Container Apps uses [Envoy proxy](https://www.envoyproxy.io/) as an edge HTTP proxy. TLS is terminated on the edge and requests are routed based on their traffic splitting rules and routes traffic to the correct application.
@@ -107,7 +101,6 @@ IP addresses are broken down into the following types:
 | Internal load balancer IP address | This address only exists in an internal deployment. |
 | App-assigned IP-based TLS/SSL addresses | These addresses are only possible with an external deployment, and when IP-based TLS/SSL binding is configured. |
 
-
 ## Subnet
 
 Virtual network integration depends on a dedicated subnet. How IP addresses are allocated in a subnet and what subnet sizes are supported depends on which plan you are using in Azure Container Apps. Selecting an appropriately sized subnet for the scale of your Container Apps is important as subnet sizes can't be modified post creation in Azure.
@@ -132,19 +125,20 @@ If you're using the CLI, the parameter to define the subnet resource ID is `infr
 ### Subnet Address Range Restrictions
 
 Subnet address ranges can't overlap with the following ranges reserved by AKS:
+
 - 169.254.0.0/16
 - 172.30.0.0/16
 - 172.31.0.0/16
 - 192.0.2.0/24
 
 In addition to the above, Container Apps on Consumption and Dedicated workload profiles reserve the following addresses:
+
 - 100.100.0.0/17
 - 100.100.128.0/19
 - 100.100.160.0/19
 - 100.100.192.0/19
 
 If you're using the Azure CLI and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
-
 
 ## Routes
 
@@ -157,6 +151,7 @@ You can use UDR on the Consumption + Dedicated plan structure to restrict outbou
 :::image type="content" source="media/networking/udr-architecture.png" alt-text="Diagram of how UDR is implemented for Container Apps.":::
 
 Important notes for configuring UDR with Azure Firewall:
+
 - You need to allow the `MicrosoftContainerRegistry` and its dependency `AzureFrontDoor.FirstParty` service tags to your Azure Firewall. Alternatively, you can add the following FQDNs: *mcr.microsoft.com* and **.data.mcr.microsoft.com*.
 - If you are using Azure Container Registry (ACR), you will also need to add your *ACR address* and either the `AzureContainerRegistry` service tag or the **.blob.core.windows.net* FQDN in the Azure Firewall.
 - External environments are not supported.

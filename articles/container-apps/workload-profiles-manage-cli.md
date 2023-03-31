@@ -56,7 +56,7 @@ Use the following commands to create an environment with a workload profile.
         --query "id"
       ```
 
-      Copy the ID value and paste into the next command.
+     Copy the ID value and paste into the next command.
 
      You can specify as small as a `/27` CIDR (32 IPs-8 reserved) for the subnet. Some things to consider if you're going to specify a `/27` CIDR:
 
@@ -101,8 +101,10 @@ Use the following commands to create an environment with a workload profile.
         --ingress external \
         --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
         --environment "<ENVIRONMENT_NAME>" \
-        --workload-profile-name "<WORKLOAD_PROFILE_NAME>"
+        --workload-profile-name "consumption"
       ```
+
+    This command deploys the application to the built in Consumption workload profile. If you want to create an app in a dedicated workload profile, you first need to [add the profile to the environment](#add-profiles).
 
     This command creates the new application in the environment using a specific workload profile.
 
@@ -139,6 +141,8 @@ az containerapp env workload-profile set \
 ```
 
 ## Delete a profile
+
+Use the following command to delete a workload profile.
 
 ```azurecli
 az containerapp env workload-profile delete \
@@ -193,3 +197,8 @@ az containerapp env workload-profile show \
   --name <ENVIRONMENT_NAME> \
   --workload-profile-name <WORKLOAD_PROFILE_NAME> 
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [](.md)
