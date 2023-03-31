@@ -53,7 +53,7 @@ The decision steps are:
 1. **Latency signal (based on health probe):** Select the origins within the allowable latency range from the Front Door environment where the request arrived. This signal is based on the latency sensitivity setting on the origin group, as well as the latency of the closer origins.
    - *Example: Suppose Front Door has measured the latency from the environment where the request arrived to origin A at 15 ms, while the latency for B is 30 ms and D is 60 ms away. If the origin group's latency sensitivity is set to 30 ms, then the lowest latency pool consists of origins A and B, because D is beyond 30 ms away from the closest origin that is A.*
 1. **Weights:** Lastly, Azure Front Door will round robin the traffic among the final selected group of origins in the ratio of weights specified.
-   - *Example: If origin A has a weight of 5 and origin B has a weight of 8, then the traffic will be distributed in the ratio of 5:8 among origins A and B.*
+   - *Example: If origin A has a weight of 3 and origin B has a weight of 7, then the traffic will be distributed 3/10 to origins A and 7/10 to origin B.*
 
 If session affinity is enabled, then the first request in a session follows the flow listed above. Subsequent requests are sent to the origin selected in the first request.
 

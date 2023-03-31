@@ -37,6 +37,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 ||
 |**managed-network-config**| Details of management network ||True ||
 |ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 not allowed, /18 and lower allowed) | 10.246.0.0/19|True | String |
+|ipv6Prefix|IPv6 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 59 (/60 not allowed, /58 and lower allowed) | fd01:0:1234:00e0::/59|True | String |
 ||
 |**managementVpnConfiguration**| Details of management VPN connection between Network Fabric and infrastructure services in Network Fabric Controller||True ||
 |*optionBProperties*| Details of MPLS option 10B used for connectivity between Network Fabric and Network Fabric Controller||True ||
@@ -51,6 +52,8 @@ This article describes how to create a Network Fabric by using the Azure Command
 |**ts-config**| Terminal Server Configuration Details||True ||
 |primaryIpv4Prefix| The terminal server Net1 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address|20.0.10.0/30, TS Net1 interface should be assigned 20.0.10.1 and PE interface 20.0.10.2|True|String |
 |secondaryIpv4Prefix|IPv4 Prefix for connectivity between TS and PE2. The terminal server Net2 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address|20.0.0.4/30, TS Net2 interface should be assigned 20.0.10.5 and PE interface 20.0.10.6|True|String |
+|primaryIpv6Prefix| The terminal server Net1 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address| TS Net1 interface should be assigned the next IP and PE interface the next IP |True|String |
+|secondaryIpv6Prefix|IPv6 Prefix for connectivity between TS and PE2. The terminal server Net2 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address| TS Net2 interface should be assigned next IP and PE interface the next IP |True|String |
 |username| Username configured on the terminal server that the services use to configure TS||True|String|
 |password| Password configured on the terminal server that the services use to configure TS||True|String|
 ||
@@ -61,6 +64,8 @@ This article describes how to create a Network Fabric by using the Azure Command
 |*layer3Configuration*| Layer 3 configuration between CEs and PEs||True||
 |primaryIpv4Prefix|IPv4 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String|
 |secondaryIpv4Prefix|IPv4 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|10.246.0.128/31, CE2 port-channel interface should be assigned 10.246.0.129 and PE2 port-channel interface 10.246.0.130||String|
+|primaryIpv6Prefix|IPv6 Prefix for connectivity between CE1 and PE1. CE1 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE1 should be assigned the second usable address|10.246.0.124/31, CE1 port-channel interface is assigned 10.246.0.125 and PE1 port-channel interface should be assigned 10.246.0.126||String|
+|secondaryIpv6Prefix|IPv6 Prefix for connectivity between CE2 and PE2. CE2 port-channel interface is assigned the first usable IP from the prefix and the corresponding interface on PE2 should be assigned the second usable address|10.246.0.128/31, CE2 port-channel interface should be assigned 10.246.0.129 and PE2 port-channel interface 10.246.0.130||String|
 |FabricAsn|ASN number assigned on CE for BGP peering with PE|65048||Integer|
 |peerAsn|ASN number assigned on PE for BGP peering with CE. For iBGP between PE/CE, the value should be same as FabricAsn, for eBGP the value should be different from FabricAsn |65048|True|Integer|
 |vlan-id| VLAN identifier used for connectivity between PE/CE. The value should be between 10 to 20| 10-20||Integer|
@@ -68,7 +73,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 ## Create a Network Fabric
 
-Resource group must be created before Network Fabric creation. It's recommended to create a separate resource group for each Network Fabric. Resource group can be created by the following command:
+Resource group must be created before Network Fabric creation. It's recommended to create a separate resource group for each Network Fabric. Resource group is created with the following command:
 
 ```azurecli
 az group create -n NFResourceGroup -l "East US"
@@ -321,9 +326,7 @@ az nf device update  \
 --resource-group "NFResourceGroup"  \
 --location "eastus"  \
 --resource-name "network-device-name" \
---network-device-sku "DeviceSku" \
---network-device-role "CE" \
---device-name "NFName-CR2-TOR1" \
+--host-name "NFName-CR2-TOR1" \
 --serial-number "12345"
 ```
 
@@ -332,12 +335,10 @@ Expected output:
 ```json
 {
   "annotation": null,
-  "deviceName": "NFName-CR2-TOR1",
+  "hostName": "NFName-CR2-TOR1",
   "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/rgName/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR2-TOR1",
   "location": "eastus",
   "name": "networkDevice1",
-  "networkDeviceRole": "TOR1",
-  "networkDeviceSku": "DeviceSku",
   "networkRackId": null,
   "provisioningState": "Succeeded",
   "resourceGroup": "NFResourceGroupName",
@@ -369,12 +370,10 @@ Expected output:
 ```json
 {
     "annotation": null,
-    "deviceName": "NFName-CR1-TOR1",
+    "hostName": "NFName-CR1-TOR1",
     "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/rgName/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR1-TOR1",
     "location": "eastus",
     "name": "networkDevice1",
-    "networkDeviceRole": "TOR1",
-    "networkDeviceSku": "DeviceSku",
     "networkRackId": null,
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroupName",
@@ -393,12 +392,10 @@ Expected output:
   },
   {
     "annotation": null,
-    "deviceName": "NFName-CR1-MgmtSwitch",
+    "hostName": "NFName-CR1-MgmtSwitch",
     "id": "subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/rgName/providers/Microsoft.ManagedNetworkfabric/networkDevices/NFName-CR1-MgmtSwitch",
     "location": "eastus",
     "name": "Network device",
-    "networkDeviceRole": "MgmtSwitch",
-    "networkDeviceSku": "DeviceSku",
     "networkRackId": null,
     "provisioningState": "Succeeded",
     "resourceGroup": "NFResourceGroupName",
@@ -428,12 +425,10 @@ Expected output:
 ```json
 {
   "annotation": null,
-  "deviceName": "NFName-CR1-TOR1",
+  "hostName": "NFName-CR1-TOR1",
   "id": "subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/rgName/providers/Microsoft.ManagedNetworkfabric/networkDevices/networkDevice1",
   "location": "eastus",
   "name": "networkDevice1",
-  "networkDeviceRole": "TOR1",
-  "networkDeviceSku": "DeviceSku",
   "networkRackId": null,
   "provisioningState": "Succeeded",
   "resourceGroup": "NFResourceGroupName",

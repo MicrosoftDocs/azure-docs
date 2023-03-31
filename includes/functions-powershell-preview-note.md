@@ -6,7 +6,7 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
-ms.custom: include file
+ms.custom: include file, devx-track-azurepowershell
 ---
 
 > [!NOTE]
