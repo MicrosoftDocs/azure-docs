@@ -18,7 +18,7 @@ This document contains information about new features and other changes to the A
 
 ### New features (0.2.1)
 
-- multiple statesets are now supported for map configurations with multiple tileset, instead of single stateset Id, a mapping between tileset ids and stateset ids can be passed:
+- multiple statesets are now supported for map configurations with multiple tileset, instead of single stateset ID, a mapping between tileset IDs and stateset ids can be passed:
   
   ```js
   indoorManager.setOptions({
@@ -31,7 +31,7 @@ This document contains information about new features and other changes to the A
   indoorManager.setDynamicStyling(true)
   ```
 
-- autofocus and autofocusOptions support: when you set autofocus on `IndoorManagerOptions`, the camera will be focused on the indoor facilities once the indoor map is loaded. Camera options can be further customized via autofocus options:
+- autofocus and autofocusOptions support: when you set autofocus on `IndoorManagerOptions`, the camera is focused on the indoor facilities once the indoor map is loaded. Camera options can be further customized via autofocus options:
   
   ```js
   indoorManager.setOptions({
@@ -42,7 +42,7 @@ This document contains information about new features and other changes to the A
   });
   ```
 
-- focusCamera support: instead of `autofocus`, you can call `focusCamera` directly. (Alternative to `autofocus`, when indoor map configuration is used, tilesetId can be provided to focus on a specific facility only, otherwise bounds that enclose all facilities will be used):
+- focusCamera support: instead of `autofocus`, you can call `focusCamera` directly. (Alternative to `autofocus`, when indoor map configuration is used, tilesetId can be provided to focus on a specific facility only, otherwise bounds that enclose all facilities are used):
 
   ```js
   indoorManager.focusCamera({
@@ -52,7 +52,7 @@ This document contains information about new features and other changes to the A
   })
   ```
 
-- level name labels in LevelControl (in addition to `ordinal`, LevelControl can now display level names derived from 'name' property of level features) :
+- level name labels in LevelControl (in addition to `ordinal`, LevelControl can now display level names derived from 'name' property of level features):
 
   ```js
   indoorManager.setOptions({
