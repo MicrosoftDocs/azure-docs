@@ -2,20 +2,17 @@
 title: Get local user capabilities
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to get capabilities of the local user in a call.
-author: elavarasid
+author: elavarasid@microsoft.com
 ms.author: elavarasid
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.custom: template-how-to
-zone_pivot_groups: acs-web-ios-android
-
-#Customer intent: As a developer, I want to learn the capabilities of the local user within a call.
+zone_pivot_groups: acs-plat-web
 ---
-
-# Get capabilities of local user in a call
-During an active call, you may want to learn the capabilities of the local user to show the right user interface. Here's how.
+# Observe user's capabilities
+Do I have permission to turn videoOn, do I have permission to turn micOn, do I have permission to share screen are some examples of participant capabilities that you can learn from the capabilities property. Learning the capabilities, can help build an user interface that only shows the buttons related to the actions the local user has permissions to.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
