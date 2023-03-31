@@ -30,7 +30,7 @@ SASE can be broken down into six essential elements.
 
 **Software-defined wide area network (SD-WAN)** - A software-defined wide area network is an overlay architecture that uses routing or switching software to create virtual connections between endpoints—both physical and logical. SD-WANs provide near-unlimited paths for user traffic, which optimizes the user experience, and allows for powerful flexibility in encryption and policy management.
 
-**Secure web gateway (SWG)** - A secure web gateway is a web security service that filters unauthorized traffic from accessing a particular network. The goal of a SWG is to zero in on threats before they penetrate a virtual perimeter. A SWG accomplishes this by combining technologies like malicious code detection, malware elimination, and URL filtering.
+**Secure web gateway (SWG)** - A secure web gateway is a web security service that filters unauthorized traffic from accessing a particular network. The goal of an SWG is to zero in on threats before they penetrate a virtual perimeter. An SWG accomplishes this by combining technologies like malicious code detection, malware elimination, and URL filtering.
 
 **Cloud access security broker (CASB)** - A cloud access security broker is a SaaS application that acts as a security checkpoint between on-premises networks and cloud-based applications and enforces data security policies. A CASB protects corporate data through a combination of prevention, monitoring, and mitigation techniques. It can also identify malicious behavior and warn administrators about compliance violations.
 
@@ -61,7 +61,7 @@ Successful SASE implementation requires in-depth planning and preparation, as we
 
 1. **Define SASE goals and requirements** - Identify the problems in your organization that could be addressed through SASE—as well as expected business outcomes. Once you know why SASE is essential, clarify which technologies can fill the gaps in your organization’s current infrastructure.
 
-1. **Select your SD-WAN backbone** - Choose an SD-WAN to provide networking functionality, then layer a SSE provider to create a comprehensive SASE solution. Integration is key.
+1. **Select your SD-WAN backbone** - Choose an SD-WAN to provide networking functionality, then layer an SSE provider to create a comprehensive SASE solution. Integration is key.
 
 1. **Incorporate Zero Trust solutions** - Access control should be governed by identity. Complete SASE deployment by selecting a suite of cloud-native technologies with Zero Trust at their core to keep your data as safe as possible.
 
