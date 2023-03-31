@@ -19,6 +19,9 @@ Resource tags support all cost-accruing services. To ensure that cost-accruing s
 > [!WARNING]
 > Tags are stored as plain text. Never add sensitive values to tags. Sensitive values could be exposed through many methods, including cost reports, commands that return existing tag definitions, deployment histories, exported templates, and monitoring logs.
 
+> [!WARNING]
+> Please be careful while using non-English language in your tags. It can cause decoding progress failure while loading your VM's metadata from IMDS (Instance Metadata Service).
+
 > [!IMPORTANT]
 > Tag names are case-insensitive for operations. A tag with a tag name, regardless of the casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.
 >

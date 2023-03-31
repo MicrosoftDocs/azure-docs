@@ -75,6 +75,6 @@ For more information about creating a new CSR, see [Create and merge a CSR in Ke
 Azure Key Vault also handles autorenewal of self-signed certificates. To learn more about changing the issuance policy and updating a certificate's lifecycle attributes, see [Configure certificate autorotation in Key Vault](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate).
 
 ## Next steps
-- [Azure Key Vault certificate renewal frequently as questions](faq.yml)
+- [Azure Key Vault certificate renewal frequently asked questions](faq.yml)
 - [Integrate Key Vault with DigiCert certificate authority](how-to-integrate-certificate-authority.md)
 - [Tutorial: Configure certificate autorotation in Key Vault](tutorial-rotate-certificates.md)

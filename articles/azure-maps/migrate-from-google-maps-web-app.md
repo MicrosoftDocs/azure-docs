@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial - Migrate a web app from Google Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
@@ -47,9 +47,13 @@ If developing using a JavaScript framework, one of the following open-source pro
 
 ## Prerequisites
 
-1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+If you don't have an Azure subscription, create a [free account] before you begin.
+
+* An [Azure Maps account]
+* A [subscription key]
+
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 ## Key features support
 
@@ -69,7 +73,9 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 | Geocoder service        | ✓                          |
 | Directions service      | ✓                          |
 | Distance Matrix service | ✓                          |
-| Elevation service       | ✓                          |
+| Elevation service       | <sup>1</sup>               |
+
+<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 ## Notable differences in the web SDKs
 
@@ -1732,3 +1738,8 @@ Learn more about migrating to Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Migrate a web service](migrate-from-google-maps-web-services.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[free account]: https://azure.microsoft.com/free/
+[manage authentication in Azure Maps]: how-to-manage-authentication.md

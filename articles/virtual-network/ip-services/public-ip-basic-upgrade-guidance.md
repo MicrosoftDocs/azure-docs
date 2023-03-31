@@ -1,10 +1,10 @@
 ---
-
 title: Upgrading a basic public IP address to standard SKU - Guidance
 description: Overview of upgrade options and guidance for migrating basic public IP to standard public IP for future basic public IP address retirement
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurecli
 ms.author: allensu
 ms.topic: overview
 ms.date: 09/19/2022

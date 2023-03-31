@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 03/31/2023
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -41,9 +41,20 @@ When setting up scan, you can choose to scan an entire Teradata server, or scope
 
 ### Required permissions for scan
 
-Microsoft Purview supports basic authentication (username and password) for scanning Teradata. The Teradata user must have read access to system tables in order to access advanced metadata. For classification, user also needs to have read permission on the tables/views to retrieve sample data.
+Microsoft Purview supports basic authentication (username and password) for scanning Teradata. The user should have SELECT permission granted for every individual system table listed below: 
+
+```sql
+grant select on dbc.tvm to [user]; 
+grant select on dbc.dbase to [user]; 
+grant select on dbc.tvfields to [user]; 
+grant select on dbc.udtinfo to [user]; 
+grant select on dbc.idcol to [user]; 
+grant select on dbc.udfinfo to [user];
+```
 
 To retrieve data types of view columns, Microsoft Purview issues a prepare statement for `select * from <view>` for each of the view queries and parse the metadata that contains the data type details for better performance. It requires the SELECT data permission on views. If the permission is missing, view column data types will be skipped.
+
+For classification, user also needs to have read permission on the tables/views to retrieve sample data.
 
 ## Prerequisites
 

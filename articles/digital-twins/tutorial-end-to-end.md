@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: 'Tutorial: Connect an end-to-end solution'
 titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to build out an end-to-end Azure Digital Twins solution that's driven by device data.
@@ -8,11 +7,10 @@ ms.author: baanders # Microsoft employees only
 ms.date: 09/26/2022
 ms.topic: tutorial
 ms.service: digital-twins
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -190,7 +188,7 @@ The first setting gives the function app the **Azure Digital Twins Data Owner** 
 1. Use the **principalId** value in the following command to assign the function app's identity to the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
 
     ```azurecli-interactive	
-    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    az dt role-assignment create --resource-group <your-resource-group> --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
     ```
 
 The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access data in your Azure Digital Twins instance.

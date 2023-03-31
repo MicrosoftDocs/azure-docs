@@ -41,7 +41,7 @@ Azure Front Door is offered in 2 different tiers, Azure Front Door Standard and 
 | Custom Web Application Firewall (WAF) rules | Yes | Yes | Yes |
 | Microsoft managed rule set | No | Yes | Yes - Only default rule set 1.1 or below |
 | Bot protection | No | Yes | Yes - Only bot manager rule set 1.0  |
-| Private link support | No | Yes | No |
+| Private link connection to origin | No | Yes | No |
 | Simplified price (base + usage) | Yes | Yes | No |
 | Azure Policy integration | Yes | Yes | No |
 | Azure Advisory integration | Yes | Yes | No | 

@@ -3,6 +3,7 @@ title: Create a persistent volume with Azure Files in Azure Kubernetes Service (
 titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
+ms.custom: devx-track-azurecli
 ms.date: 01/18/2023
 ---
 
@@ -43,6 +44,7 @@ This section provides guidance for cluster administrators who want to provision 
 |server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.file.core.windows.net`. | No | If empty, driver uses default `accountname.file.core.windows.net` or other sovereign cloud account address. |
 |disableDeleteRetentionPolicy | Specify whether disable DeleteRetentionPolicy for storage account created by driver. | `true` or `false` | No | `false` |
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
+|networkEndpointType | Specify network endpoint type for the storage account created by driver. If `privateEndpoint` is specified, a private endpoint will be created for the storage account. For other cases, a service endpoint will be created by default. | "",`privateEndpoint`| No | "" |
 |requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
 |storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
 |tags | [Tags][tag-resources] are created in new storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
@@ -209,7 +211,7 @@ Volumes:
 
 ### Mount options
 
-The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 1.13.0 and above. If dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 1.13.0 and above. If dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. For more information, see [Mount options](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options). The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
@@ -379,6 +381,8 @@ The following example demonstrates how to mount a file share as a persistent vol
     apiVersion: v1
     kind: PersistentVolume
     metadata:
+      annotations:
+        pv.kubernetes.io/provisioned-by: file.csi.azure.com
       name: azurefile
     spec:
       capacity:
@@ -486,6 +490,7 @@ For associated best practices, see [Best practices for storage and backups in AK
 [data-plane-api]: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
+[access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 
 <!-- LINKS - internal -->
 [azure-storage-account]: ../storage/common/storage-introduction.md

@@ -52,7 +52,7 @@ Create a new pipeline, and add a new stage:
     | Default platform | Select the appropriate operating system for your modules based on your targeted IoT Edge device. |
     | Output path| Put the path `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. This path is the final IoT Edge deployment manifest file. |
 
-    These configurations help replace the module image URLs in the `deployment.template.json` file. The **Generate deployment manifest** also helps replace the variables with the exact value you defined in the `deployment.template.json` file. In VS/VS Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value in **Release Pipeline Variables** tab. Move to **Variables** tab and configure the name and value as following:
+    These configurations help replace the module image URLs in the `deployment.template.json` file. The **Generate deployment manifest** also helps replace the variables with the exact value you defined in the `deployment.template.json` file. In Visual Studio/Visual Studio Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value in **Release Pipeline Variables** tab. Move to **Variables** tab and configure the name and value as following:
 
     * **ACR_ADDRESS**: Your Azure Container Registry **Login server** value. You can retrieve the Login server from the Overview page of your container registry in the Azure portal.
     * **ACR_PASSWORD**: Your Azure Container Registry password.

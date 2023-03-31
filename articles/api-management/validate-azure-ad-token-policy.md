@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -94,8 +94,6 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 
 ### Usage notes
 
-* This policy can only be used with an Azure Active Directory tenant in the global Azure cloud. It doesn't support tenants configured in regional clouds or Azure clouds with restricted access.
-* Currently, this policy can only validate "v1" tokens from Azure Active Directory. Support for "v2" tokens will be added in a future release.
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Azure AD authentication by applying the `validate-azure-ad-token` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.
 
 ## Examples

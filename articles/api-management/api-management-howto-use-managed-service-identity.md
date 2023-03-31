@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 02/01/2023
+ms.date: 03/31/2023
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---

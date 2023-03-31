@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Bamboo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Bamboo'
 description: Learn how to configure single sign-on between Azure Active Directory and EasySSO for Bamboo.
 services: active-directory
 author: jeevansd

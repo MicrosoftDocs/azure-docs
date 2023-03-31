@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect cloud provisioning agent: Automatic upgrade | Microsoft Docs'
+title: 'Azure AD Connect cloud provisioning agent: Automatic upgrade'
 description: This article describes the built-in automatic upgrade feature in the Azure AD Connect cloud provisioning agent.
 services: active-directory
 documentationcenter: ''
