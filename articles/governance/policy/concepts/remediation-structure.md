@@ -48,7 +48,7 @@ an initiative assignment named `resourceShouldBeCompliantInit` with all default 
 ```
 Steps on how to trigger a remediation task at [how to remediate non-compliant resources guide](../how-to/remediate-resources.md)
 
-[!NOTE]
+> [!NOTE]
 > These settings cannot be changed once the remediation task has started.
 
 
@@ -79,7 +79,7 @@ Use **resource count** to  determine how many non-compliant resources to remedia
 
 ## Failure threshold
 
-An optional property used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. The **failure threshold** is represented as a percentage number from 0 to 100. By default, the failure threshold is 100%, meaning that the remediation task will continues to remediate other resources even if resources fail to remediate. 
+An optional property used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. The **failure threshold** is represented as a percentage number from 0 to 100. By default, the failure threshold is 100%, meaning that the remediation task will continue to remediate other resources even if resources fail to remediate. 
 
 ## Remediation filters 
 
