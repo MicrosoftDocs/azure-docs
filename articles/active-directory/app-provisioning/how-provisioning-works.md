@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/30/2023
+ms.date: 03/31/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
