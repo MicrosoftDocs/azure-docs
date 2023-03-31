@@ -1834,7 +1834,7 @@ Learn more about migrating to Azure Maps:
 [Limit Map to Two Finger Panning]: https://samples.azuremaps.com/?sample=limit-map-to-two-finger-panning
 [Limit Scroll Wheel Zoom]: https://samples.azuremaps.com/?sample=limit-scroll-wheel-zoom
 [Create a Fullscreen Control]: https://samples.azuremaps.com/?sample=fullscreen-control
-[Using the Azure Maps services module]: how-to-ue-services-module.md
+[Using the Azure Maps services module]: how-to-use-services-module.md
 [Search for points of interest]: map-search-location.md
 [Get information from a coordinate (reverse geocode)]: map-get-information-from-coordinate.md
 [Show directions from A to B]: map-route.md
