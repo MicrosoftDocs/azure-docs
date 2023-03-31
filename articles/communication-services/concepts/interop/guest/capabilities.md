@@ -171,7 +171,7 @@ When Teams external users leave the meeting, or the meeting ends, they can no lo
 
 *Azure Communication Services provides developers tools to integrate Microsoft Teams Data Loss Prevention that is compatible with Microsoft Teams. For more information, go to [how to implement Data Loss Prevention (DLP)](../../../how-tos/chat-sdk/data-loss-prevention.md)
 
-**Inline image support is currently in preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+**Inline image support is currently in public preview and is available in the Chat SDK for JavaScript only. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Server capabilities
 
