@@ -57,6 +57,8 @@
     href: deployment-scenarios.md
   - name: Solution design
     href: solution-design.md
+  - name: Fastpathenabled
+    href: fastpathenabled.md
 
 - name: Support
   items:

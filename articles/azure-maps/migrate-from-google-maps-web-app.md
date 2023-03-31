@@ -73,7 +73,9 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 | Geocoder service        | ✓                          |
 | Directions service      | ✓                          |
 | Distance Matrix service | ✓                          |
-| Elevation service       | ✓                          |
+| Elevation service       | <sup>1</sup>               |
+
+<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 ## Notable differences in the web SDKs
 

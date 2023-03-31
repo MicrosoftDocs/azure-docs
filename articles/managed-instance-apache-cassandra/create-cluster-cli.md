@@ -177,6 +177,25 @@ As with CQLSH, connecting from an application using one of the supported [Apache
 
 Disabling certificate verification is recommended because certificate verification will not work unless you map I.P addresses of your cluster nodes to the appropriate domain. If you have an internal policy which mandates that you do SSL certificate verification for any application, you can facilitate this by adding entries like `10.0.1.5 host1.managedcassandra.cosmos.azure.com` in your hosts file for each node. If taking this approach, you would also need to add new entries whenever scaling up nodes. 
 
+### Configuring client certificates
+
+Configuring client certificates is optional. In general, there are two ways of creating certificates:
+
+- Self signed certs. This means a private and public (no CA) certificate for each node - in this case we need all public certificates.
+- Certs signed by a CA. This can be a self-signed CA or even a public one. In this case we need the root CA certificate (refer to [instructions on preparing SSL certificates](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/configuration/secureSSLCertWithCA.html) for production), and all intermediaries (if applicable).
+
+If you want to implement client-to-node certificate authentication, you need to provide the certificates via Azure CLI. The below command will upload and apply your client certificates to the truststore for your Cassandra Managed Instance cluster (i.e. you do not need to edit `cassandra.yaml` settings).
+
+   ```azurecli-interactive
+   resourceGroupName='<Resource_Group_Name>'
+   clusterName='<Cluster Name>'
+
+   az managed-cassandra cluster update \
+     --resource-group $resourceGroupName \
+     --cluster-name $clusterName \
+     --client-certificates /usr/csuser/clouddrive/rootCert.pem /usr/csuser/clouddrive/intermediateCert.pem
+   ```
+
 
 ## Troubleshooting
 

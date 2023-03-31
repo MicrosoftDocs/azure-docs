@@ -8,7 +8,7 @@ ms.date: 03/15/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-bicep
 ---
 
 # Create an Azure Image Builder Bicep or ARM JSON template
