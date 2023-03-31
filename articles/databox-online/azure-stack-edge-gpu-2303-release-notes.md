@@ -43,8 +43,7 @@ The 2303 release has the following new features and enhancements:
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-|**1.**|AKS-HCI  |Support for higher node pool Virtual Machine sizes in AKS-HCI. |
-|**2.**|Core ASE platform and AKS-HCI   |Critical bug fixes to improve workload availability during multi-node ASE update of core ASE platform and AKS-HCI.   |
+|**1.**|Core Azure Stack Edge platform and Azure Kubernetes Service (AKS) on Azure Stack Edge   |Critical bug fixes to improve workload availability during multi-node Azure Stack Edge update of core Azure Stack Edge platform and AKS on Azure Stack Edge.   |
 
 <!--## Known issues in this release
 
