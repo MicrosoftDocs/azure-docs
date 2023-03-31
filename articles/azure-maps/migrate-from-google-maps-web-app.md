@@ -81,7 +81,7 @@ The table lists key API features in the Google Maps V3 JavaScript SDK and the su
 
 The following are some key differences between the Google Maps and Azure Maps Web SDKs, to be aware of:
 
-* In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an npm package is available. Embed the Web SDK package into apps. For more information, see this [documentation](how-to-use-map-control.md). This package also includes TypeScript definitions.
+* In addition to providing a hosted endpoint for accessing the Azure Maps Web SDK, an npm package is available. For more information on how to Embed the Web SDK package into apps, see [Use the Azure Maps map control]. This package also includes TypeScript definitions.
 * You first need to create an instance of the Map class in Azure Maps. Wait for the maps `ready` or `load` event to fire before programmatically interacting with the map. This order ensures that all the map resources have been loaded and are ready to be accessed.
 * Both platforms use a similar tiling system for the base maps. The tiles in Google Maps are 256 pixels in dimension; however, the tiles in Azure Maps are 512 pixels in dimension. To get the same map view in Azure Maps as Google Maps, subtract Google Maps zoom level by the number one in Azure Maps.
 * Coordinates in Google Maps are referred to as `latitude,longitude`, while Azure Maps uses `longitude,latitude`. The Azure Maps format is aligned with the standard `[x, y]`, which is followed by most GIS platforms.
@@ -439,7 +439,7 @@ For a Symbol layer, add the data to a data source. Attach the data source to the
 * [Create a data source]
 * [Add a Symbol layer]
 * [Add a Bubble layer]
-* [Cluster point data]
+* [Clustering point data in the Web SDK]
 * [Add HTML Markers]
 * [Use data-driven style expressions]
 * [Symbol layer icon options]
@@ -956,7 +956,7 @@ GeoJSON is the base data type in Azure Maps. Import it into a data source using 
 
 * [Add a Symbol layer]
 * [Add a Bubble layer]
-* [Cluster point data]
+* [Clustering point data in the Web SDK]
 * [Use data-driven style expressions]
 
 ### Marker clustering
@@ -1053,7 +1053,7 @@ The `DataSource` class has the following helper function for accessing additiona
 | `getClusterExpansionZoom(clusterId: number)` | Promise&lt;number&gt; | Calculates a zoom level at which the cluster starts expanding or break apart. |
 | `getClusterLeaves(clusterId: number, limit: number, offset: number)` | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
 
-When rendering clustered data on the map, it's often best to use two or more layers. The following example uses three layers. A bubble layer for drawing scaled colored circles based on the size of the clusters. A symbol layer to render the cluster size as text. And, it uses a second symbol layer for rendering the unclustered points. There are many other ways to render clustered data. For more information, see the [Cluster point data] documentation.
+When rendering clustered data on the map, it's often best to use two or more layers. The following example uses three layers. A bubble layer for drawing scaled colored circles based on the size of the clusters. A symbol layer to render the cluster size as text. And, it uses a second symbol layer for rendering the unclustered points. For more information on other ways to render clustered data, see [Clustering point data in the Web SDK].
 
 Directly import GeoJSON data using the `importDataFromUrl` function on the `DataSource` class, inside Azure Maps map.
 
@@ -1157,7 +1157,7 @@ Directly import GeoJSON data using the `importDataFromUrl` function on the `Data
 
 * [Add a Symbol layer]
 * [Add a Bubble layer]
-* [Cluster point data]
+* [Clustering point data in the Web SDK]
 * [Use data-driven style expressions]
 
 ### Add a heat map
@@ -1789,7 +1789,7 @@ Learn more about migrating to Azure Maps:
 [Create a data source]: create-data-source-web-sdk.md
 [Add a Symbol layer]: map-add-pin.md
 [Add a Bubble layer]: map-add-bubble-layer.md
-[Cluster point data]: clustering-point-data-web-sdk.md
+[Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
 [Add HTML Markers]: map-add-custom-html.md
 [Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
 [Symbol layer icon options]: /javascript/api/azure-maps-control/atlas.iconoptions
