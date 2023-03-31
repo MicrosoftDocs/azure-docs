@@ -4,7 +4,7 @@ description: Learn how to connect Apache Kafka cluster with VM in different VNet
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 02/16/2023
+ms.date: 03/31/2023
 ---
 
 # How to connect Kafka cluster with VM in different VNet
@@ -126,5 +126,5 @@ This Document lists steps that must be followed to set up connectivity between V
      
    **Consumer output:**
     
-   :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/kafka-consumer-output.png" alt-text="Screenshot showing Kafka producer output." border="true"::: 
+   :::image type="content" source="./media/connect-kafka-cluster-with-different-vnet/kafka-consumer-output.png" alt-text="Screenshot showing Kafka consumer output." border="true"::: 
    
