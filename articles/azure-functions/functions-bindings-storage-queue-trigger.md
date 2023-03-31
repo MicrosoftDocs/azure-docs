@@ -2,7 +2,7 @@
 title: Azure Queue storage trigger for Azure Functions
 description: Learn to run an Azure Function as Azure Queue storage data changes.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 02/27/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -11,6 +11,23 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 # Azure Queue storage trigger for Azure Functions
 
 The queue storage trigger runs a function as messages are added to Azure Queue storage.
+
+::: zone pivot="programming-language-python"  
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models. 
+
+> [!IMPORTANT]   
+> The Python v2 programming model is currently in preview.  
+::: zone-end   
 
 ## Example
 
@@ -64,7 +81,7 @@ Here's the *function.json* file:
 }
 ```
 
-The [configuration](#configuration) section explains these properties.
+The [section below](#attributes) explains these properties.
 
 Here's the C# script code:
 
@@ -202,7 +219,29 @@ Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to read a queue message passed to a function via a trigger.
+The following example demonstrates how to read a queue message passed to a function via a trigger. The example depends on whether you use the v1 or v2 Python programming model.
+
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="QueueFunc")
+@app.queue_trigger(arg_name="msg", queue_name="inputqueue",
+                   connection="storageAccountConnectionString")  # Queue trigger
+@app.write_queue(arg_name="outputQueueItem", queue_name="outqueue",
+                 connection="storageAccountConnectionString")  # Queue output binding
+def test_function(msg: func.QueueMessage,
+                  outputQueueItem: func.Out[str]) -> None:
+    logging.info('Python queue trigger function processed a queue item: %s',
+                 msg.get_body().decode('utf-8'))
+    outputQueueItem.set('hello')
+```
+
+# [v1](#tab/python-v1)
 
 A Storage queue trigger is defined in *function.json* where *type* is set to `queueTrigger`.
 
@@ -247,6 +286,7 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
@@ -335,9 +375,30 @@ public class QueueTriggerDemo {
 |`connection` | Points to the storage account connection string. |
 
 ::: zone-end  
+::: zone pivot="programming-language-python"  
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using decorators, the following properties on the `queue_trigger` decorator define the Queue Storage trigger:
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
+|`queue_name`  | Declares the queue name in the storage account. |
+|`connection` | Points to the storage account connection string. |
+
+For Python functions defined by using function.json, see the Configuration section. 
+::: zone-end                   
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
 
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
 
 |function.json property | Description|
