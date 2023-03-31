@@ -128,7 +128,7 @@ items:
       items:
       - name: Overview
         href: ../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Premium performance
+      - name: Premium block blob
         href: storage-blob-block-blob-premium.md
     - name: Authorization
       items:
@@ -329,8 +329,14 @@ items:
           href: ../common/storage-account-move.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Upgrade to Data Lake Storage Gen2
           href: upgrade-to-data-lake-storage-gen2-how-to.md
-        - name: Migrate a classic account to Azure Resource Manager
-          href: ../common/storage-account-migrate-classic.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        - name: Migrate to Azure Resource Manager
+          items:
+          - name: Overview
+            href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Understand the migration process
+            href: ../common/classic-account-migration-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Migrate a classic storage account to Resource Manager
+            href: ../common/classic-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Create and manage containers
         items:
         - name: Manage containers (Azure portal)

@@ -94,4 +94,4 @@ After confirming your settings using [report-only mode](howto-conditional-access
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+[Migrate approved client app to application protection policy in Conditional Access](migrate-approved-client-app.md)
