@@ -7,7 +7,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you will learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
+In this tutorial, you'll learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
 
 ## Sample Code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
@@ -15,9 +15,9 @@ Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Sa
 ## Prerequisites 
 
 * You've gone through the quickstart - [Join your chat app to a Teams meeting](../../../quickstarts/chat/meeting-interop.md). 
-* Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You'll need to **record your connection string** for this tutorial.
+* Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md). You need to **record your connection string** for this tutorial.
 * You've set up a Teams meeting using your business account and have the meeting URL ready.
-* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.1 or latest, see [here](https://www.npmjs.com/package/@azure/communication-chat).
+* You're using the Chat SDK for JavaScript (@azure/communication-chat) 1.3.2-beta.1 or latest. See [here](https://www.npmjs.com/package/@azure/communication-chat).
 
 ## Goal
 
@@ -51,7 +51,7 @@ async function renderReceivedMessage(message) {
    messagesContainer.innerHTML = messages;
 }
 ```
-From incoming event of type `ChatMessageReceivedEvent`, there's a property named `attachments`, which contains information about inline image, and it is all we need to render inline images in our UI:
+From incoming event of type `ChatMessageReceivedEvent`, there's a property named `attachments`, which contains information about inline image, and it's all we need to render inline images in our UI:
 
 ```js
 export interface ChatMessageReceivedEvent extends BaseChatMessageEvent {
@@ -258,7 +258,7 @@ with some CSS:
 }
 ```
 
-Now we have an overlay set up, it's time to work on the logic to render full scale images. Recall that we have created a `onlick` event handler to call a function `fetchFullScaleImage`:
+Now we have an overlay set up, it's time to work on the logic to render full scale images. Recall that we've created an `onClick` event handler to call a function `fetchFullScaleImage`:
 
 ```js
 
@@ -312,7 +312,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ## Demo
 Open your browser and navigate to http://localhost:8080/. Enter the meeting URL and the thread ID. Send some inline images from Teams client like this:
 
-:::image type="content" source="../../media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message that reads Here are some ideas, let me know what you think! and two inline images of room interior mockups":::
+:::image type="content" source="../../media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message aslo contains two inline images of room interior mockups":::
 
 Then you should see the new message being rendered along with preview images:
 
