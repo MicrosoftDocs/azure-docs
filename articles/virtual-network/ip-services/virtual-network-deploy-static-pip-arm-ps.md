@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 10/01/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Create a virtual machine with a static public IP address using Azure PowerShell
