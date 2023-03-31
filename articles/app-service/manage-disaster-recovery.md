@@ -3,11 +3,15 @@ title: Recover from region-wide failure
 description: Learn how Azure App Service helps you maintain business continuity and disaster recovery (BCDR) capabilities. Recover your app from a region-wide failure in Azure.
 
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 03/31/2023
 ms.custom: "UpdateFrequency3, subject-moving-resources"
 
 #Customer intent: As an Azure service administrator, I want to recover my App Service app from a region-wide failure in Azure.
 ---
+
+
+> [!CAUTION]
+> **Beginning 31 March 2025, we'll no longer place Azure App Service web applications in disaster recovery mode in the event of a disaster in an Azure region.** We strongly encourage you to implement [commonly used disaster recovery techniques](./overview-disaster-recovery.md) to prevent loss of functionality or data for your web apps if there's a regional disaster..
 
 # Move an App Service app to another region
 
