@@ -1,70 +1,60 @@
 ---
 title: How to open a support request 
-description: This article guides you through how to submit support requests if you have a problem with your AP5GC service. 
-author: James-Green-Microsoft
-ms.author: jamesgreen
+description: This article guides you through how to submit support a request if you have a problem with your AP5GC service. 
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 03/31/2023
 ms.custom: template-how-to
 ---
 
-# [H1 heading here]
+# Get support for your Azure Private 5G Core service
 
-If you notice problems with Azure Private 5G Core (AP5GC), you can raise a support request (also known as a support ticket). This article provides an overview of how to raise support requests for Azure Private 5G Core. For more detailed information on raising support requests, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+If you notice problems with Azure Private 5G Core (AP5GC), you can raise a support request (also known as a support ticket). This article provides an overview of how to raise support requests for Azure Private 5G Core. For general information on raising support requests, see [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+> [!IMPORTANT]
+> You must always set **Service type** to **Azure Private 5G Core** when raising a support request for any issues related to AP5GC, even if the issue involves another Azure service. Selecting the wrong service type will cause your request to be delayed.
 
 Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan, such as Microsoft Unified Support or Premier Support.
 
-## Pre-requisites
+You should always collect diagnostics as soon as possible after encountering an issue and submit them with your support request. See [Gather diagnostics using the Azure portal](/azure/private-5g-core/gather-diagnostics).
 
-You must have an **Owner**, **Contributor**, or **Support Request Contributor** role in your Azure Communications Gateway subscription, or a custom role with [Microsoft.Support/*](../role-based-access-control/resource-provider-operations.md#microsoftsupport) at the subscription level.
+## Prerequisites
 
-## Generate a support request in the Azure portal
+You must have an **Owner**, **Contributor**, or **Support Request Contributor** role in your Azure Private 5G Core subscription, or a custom role with [Microsoft.Support/*](../role-based-access-control/resource-provider-operations.md#microsoftsupport) at the subscription level.
+
+## 1. Generate a support request in the Azure portal
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
-1. Navigate to any resource in your AP5GC deployment.
-1. Select **New support request** in the **Support + troubleshooting** section of the side menu.
+1. Select the question mark icon in the top menu bar.
+1. Select the **Help + support** button. 
+1. Select **Create a support request**.
 
-## Enter the information relevant to your issue
+## 2. Enter a description of the problem or the change
 
-1. In the **New support request** view enter the following information.
-
-    |Field  |Value  |
-    |---------|---------|
-    |Issue type     | Select **Technical**.       |
-    |Subscription   | Select the subscription in which the AP5GC resource was created.        |
-    |Service        | Select **My services**.        |
-    |Service type   | Search for and select **Azure Private 5G Core**.        |
-    |Resource       | Select the **Mobile Network Resource** you have an issue with.        |
-    |Summary        | Provide a title for your issue.        |
-    |Problem type   | Select the category that best describes your issue from the drop down list.        |
-    |Problem subtype| Select the category that best describes your issue from the drop down list.        |
-
+1. Concisely describe your problem or the change you need in the **Summary** box.
+1. Select an **Issue type** from the drop-down menu.
+1. Select your **Subscription** from the drop-down menu. Choose the subscription where you're noticing the problem or need a change. The support engineer assigned to your case will only be able to access resources in the subscription you specify. If the issue applies to multiple subscriptions, you can mention other subscriptions in your description, or by sending a message later. However, the support engineer will only be able to work on subscriptions to which you have access. 
+1. A new **Service** option will appear giving you the option to select either **My services** or **All services**. Select **My services**.
+1. In **Service type** select **Azure Private 5G Core** from the drop-down menu.
+1. A new **Problem type** option will appear. Select the problem type that most accurately describes your issue from the drop-down menu.
+1. A new **Problem subtype** option will appear. Select the problem subtype that most accurately describes your issue from the drop-down menu.
 1. Select **Next**.
 
-## Check the recommended solution
+## 3. Assess the recommended solutions
 
-The Azure portal may suggest a solution to some problems. Check if any provided solutions resolve the issue.
+Based on the information you provided, we might show you recommended solutions you can use to try to resolve the problem. In some cases, we might even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
 
-- If the solution resolves the issue, you do not need to proceed through this procedure.
-- If the solution does not resolve the issue, select **Return to support request** and select **Next**.
+If you're still unable to resolve the issue, continue creating your support request by selecting **Return to support request** and then **Next**.
 
-## Submit the support request
+## 4. Enter additional details
 
-1. Under **Additional details** enter the following information.
+In this section, we collect more details about the problem or the change and how to contact you. Providing thorough and detailed information in this step helps us route your support request to the right engineer. For more information, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
-    |Field  |Value  |
-    |---------|---------|
-    |When did the problem start?     | Select a time when the issue started.        |
-    |Description     | Provide a detailed description of the issue.        |
-    |File upload     | Upload any snapshots from the error. Include any support diagnostics packages or traces.        |
+## 5. Review and create your support request
 
-    > [!IMPORTANT]
-    > Support diagnostics package contains useful insights that are beneficial when troubleshooting failures and issues in Azure Private 5G Core.
-    > To collect support diagnostics package, follow the instructions in [Gather diagnostics using the Azure portal](/azure/private-5g-core/gather-diagnostics).
-
-1. Select **Review + create**.
-1. Select **Create**.
+Before creating your request, review the details and diagnostics that you'll send to support. If you want to change your request or the files you've uploaded, select **Previous** to return to any tab. When you're happy with your request, select **Create**.
 
 ## Next steps
 
