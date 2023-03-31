@@ -77,4 +77,4 @@ When you no longer need your dev box, you can delete it:
 
 ## Next steps
 
-In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. To learn how to connect to a dev box by using a Remote Desktop app, see [Quickstart: Use a Remote Desktop client to connect to a dev box](./quickstart-connect-to-dev-box-with-remote-desktop-app.md).
+In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. To learn how to connect to a dev box by using a Remote Desktop app, see [Tutorial: Use a Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
