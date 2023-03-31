@@ -37,4 +37,4 @@ Capabilities object has the capabilities of the local participants and is of typ
 >    this.setState({ canShareScreen: updatedCapabilities.shareScreen.isPresent });
 >  }
 >});
-```
+>```
