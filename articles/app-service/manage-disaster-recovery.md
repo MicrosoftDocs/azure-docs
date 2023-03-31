@@ -10,7 +10,7 @@ ms.custom: "UpdateFrequency3, subject-moving-resources"
 ---
 # Move an App Service app to another region
 
-> [!CAUTION]
+> [!IMPORTANT]
 > **Beginning 31 March 2025, we'll no longer place Azure App Service web applications in disaster recovery mode in the event of a disaster in an Azure region.** We strongly encourage you to implement [commonly used disaster recovery techniques](./overview-disaster-recovery.md) to prevent loss of functionality or data for your web apps if there's a regional disaster.
 
 This article describes how to bring App Service resources back online in a different Azure region during a disaster that impacts an entire Azure region. When a disaster brings an entire Azure region offline, all App Service apps hosted in that region are placed in disaster recovery mode. Features are available to help you restore the app to a different region or recover files from the impacted app.
