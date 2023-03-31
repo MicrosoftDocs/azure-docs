@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create a Windows VM with Azure PowerShell
-description: Learn how to use Azure PowerShell to create a Windows virtual machine
+description: Learn how to use the Azure PowerShell module to deploy a virtual machine (VM) in Azure that runs Windows Server 2016.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 03/30/2023
+ms.date: 03/31/2023
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
@@ -15,15 +15,15 @@ ms.custom: mvc, devx-track-azurepowershell, mode-api
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a virtual machine (VM) in Azure that runs Windows Server 2016. You'll also bring Remote Desktop Portal (RDP) to the VM and install the IIS web server, to show the VM in action.
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a virtual machine (VM) in Azure that runs Windows Server 2016. You also bring Remote Desktop Portal (RDP) to the VM and install the IIS web server, to show the VM in action.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+The Azure Cloud Shell is a free interactive shell you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the code blocks, paste them into the Cloud Shell, and press enter to run the them.
 
 ## Create resource group
 
@@ -56,8 +56,7 @@ New-AzVm `
 To see your VM in action, install the IIS web server. Open a PowerShell prompt on the VM and run the following command:
 
 ```azurepowershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunPowerShellScript' -ScriptString 
-'Install-WindowsFeature -Name Web-Server -IncludeManagementTools'
+Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -CommandId 'RunPowerShellScript' -ScriptString 'Install-WindowsFeature -Name Web-Server -IncludeManagementTools'
 ```
 
 The `-ScriptString` parameter requires version `4.27.0` or later of the `Az.Compute` module.
@@ -66,7 +65,7 @@ The `-ScriptString` parameter requires version `4.27.0` or later of the `Az.Comp
 
 With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained in a previous step. The following example shows the default IIS web site:
 
-![IIS default site](./media/quick-create-powershell/default-iis-website.png)
+:::image type="content" source="./media/quick-create-powershell/default-iis-website.png" alt-text="Screenshot showing the default IIS web site.":::
 
 ## Clean up resources
 
