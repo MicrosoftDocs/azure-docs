@@ -200,7 +200,7 @@ await serviceClient.sendToAll({ message: "Hello world!" }, { onResponse });
 
 You can set the following environment variable to get the debug logs when using this library.
 
-- Getting debug logs from the SignalR client library
+- Getting debug logs from the Azure Web PubSub client library
 
 ```bash
 export AZURE_LOG_LEVEL=verbose
@@ -367,7 +367,7 @@ app.listen(3000, () =>
 
 You can set the following environment variable to get the debug logs when using this library.
 
-- Getting debug logs from the SignalR client library
+- Getting debug logs from the Azure Web PubSub client library
 
 ```bash
 export AZURE_LOG_LEVEL=verbose
