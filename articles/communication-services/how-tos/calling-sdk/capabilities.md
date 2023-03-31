@@ -2,7 +2,7 @@
 title: Get local user capabilities
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to get capabilities of the local user in a call.
-author: elavarasid@microsoft.com
+author: elavarasid
 ms.author: elavarasid
 ms.service: azure-communication-services
 ms.subservice: calling
