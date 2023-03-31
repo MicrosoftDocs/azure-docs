@@ -61,10 +61,10 @@ Also read the [SAP Help Portal for SAP LaMa](https://help.sap.com/viewer/p/SAP_L
   If SAP LaMa mounts volumes using the SAP Adaptive Extensions on a virtual machine, the mount point must exist if this setting is not enabled.
 
 * Use a separate subnet and don't use dynamic IP addresses to prevent IP address "stealing" when deploying new VMs and SAP instances are unprepared  
-  If you use dynamic IP address allocation in the subnet, which is also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
+   -  If you use dynamic IP address allocation in the subnet, which is also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
 
 * If you sign in to managed hosts, make sure to not block file systems from being unmounted  
-  If you sign in to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
+   -  If you sign in to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
 
 * Make sure to disable CLOUD_NETCONFIG_MANAGE on SUSE SLES Linux virtual machines. For more details, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
 
@@ -102,7 +102,7 @@ Assign the Contributor role to the Virtual Machine identity at resource group sc
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the use of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity Id into the User Name field.
+In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the use of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity ID into the User Name field.
 
 ### Create a new connector in SAP LaMa
 
@@ -323,7 +323,7 @@ Next the ANF volumes are mounted with the following commands:
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
 ```
-The mount commands can also be looked up from the portal. The local mount points need to adjusted.
+The mount commands can also be looked up from the portal. The local mount points need to be adjusted.
 
 Use the df -h command to verify.
 
