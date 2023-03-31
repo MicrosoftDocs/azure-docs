@@ -3,7 +3,7 @@ title: Azure Service Bus trigger for Azure Functions
 description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -15,6 +15,23 @@ Use the Service Bus trigger to respond to messages from a Service Bus queue or t
 Starting with extension version 3.1.0, you can trigger on a session-enabled queue or topic.
 
 For information on setup and configuration details, see the [overview](functions-bindings-service-bus.md).
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
 
 ## Example
 
@@ -189,9 +206,28 @@ Write-Host "PowerShell ServiceBus queue trigger function processed message: $myS
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following example demonstrates how to read a Service Bus queue message via a trigger.
+The following example demonstrates how to read a Service Bus queue message via a trigger. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
-A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="ServiceBusQueueTrigger1")
+@app.service_bus_queue_trigger(arg_name="msg", 
+                               queue_name="<QUEUE_NAME>", 
+                               connection="<CONNECTION_SETTING">)
+def test_function(msg: func.ServiceBusMessage):
+    logging.info('Python ServiceBus queue trigger processed message: %s',
+                 msg.get_body().decode('utf-8'))
+```
+
+# [v1](#tab/python-v1)
+
+A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger` and the queue is set by `queueName`.
 
 ```json
 {
@@ -238,6 +274,82 @@ def main(msg: func.ServiceBusMessage):
 
     logging.info(result)
 ```
+
+---
+
+The following example demonstrates how to read a Service Bus queue topic via a trigger.
+
+# [v2](#tab/python-v2)
+
+```python
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="ServiceBusTopicTrigger1")
+@app.service_bus_topic_trigger(arg_name="message", 
+                               topic_name="TOPIC_NAME", 
+                               connection="CONNECTION_SETTING", 
+                               subscription_name="SUBSCRIPTION_NAME")
+def test_function(message: func.ServiceBusMessage):
+    message_body = message.get_body().decode("utf-8")
+    logging.info("Python ServiceBus topic trigger processed message.")
+    logging.info("Message Body: " + message_body)
+```
+
+# [v1](#tab/python-v1)
+
+A Service Bus binding is defined in *function.json* where *type* is set to `serviceBusTrigger` and the topic is set by `topicName`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+   {
+     "type": "serviceBusTrigger",
+     "direction": "in",
+     "name": "msg",
+     "topicName": "inputtopic",
+     "connection": "AzureServiceBusConnectionString"
+   }
+  ]
+}
+```
+
+The code in *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the topic in your function.
+
+```python
+import json
+
+import azure.functions as azf
+
+
+def main(msg: azf.ServiceBusMessage) -> str:
+    result = json.dumps({
+        'message_id': msg.message_id,
+        'body': msg.get_body().decode('utf-8'),
+        'content_type': msg.content_type,
+        'delivery_count': msg.delivery_count,
+        'expiration_time': (msg.expiration_time.isoformat() if
+                            msg.expiration_time else None),
+        'label': msg.label,
+        'partition_key': msg.partition_key,
+        'reply_to': msg.reply_to,
+        'reply_to_session_id': msg.reply_to_session_id,
+        'scheduled_enqueue_time': (msg.scheduled_enqueue_time.isoformat() if
+                                   msg.scheduled_enqueue_time else None),
+        'session_id': msg.session_id,
+        'time_to_live': msg.time_to_live,
+        'to': msg.to,
+        'user_properties': msg.user_properties,
+    })
+
+    logging.info(result)
+```
+
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
@@ -292,6 +404,23 @@ C# script uses a *function.json* file for configuration instead of attributes. T
 ---
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 ::: zone-end  
+
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using a decorator, the following properties on the `service_bus_queue_trigger`:
+
+| Property    | Description |
+|-------------|-----------------------------|
+| `arg_name` | The name of the variable that represents the queue or topic message in function code. |
+| `queue_name` | Name of the queue to monitor. Set only if monitoring a queue, not for a topic. |
+| `connection` | The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections). |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -314,6 +443,13 @@ See the trigger [example](#example) for more detail.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
