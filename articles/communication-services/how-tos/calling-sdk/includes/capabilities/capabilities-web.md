@@ -1,5 +1,5 @@
 ---
-author: elavarasid@microsoft.com
+author: elavarasid
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/24/2023
