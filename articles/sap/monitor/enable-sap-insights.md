@@ -7,7 +7,7 @@ ms.subservice: sap-monitor
 ms.topic: how-to
 ms.date: 05/01/2023
 ms.author: akak
-#Customer intent: I am an SAP BASIS or cloud infrastructure team memever, i want to enable SAP Insights on my Azure monitor for SAP Instance.
+#Customer intent: I am an SAP BASIS or cloud infrastructure team memever, I want to enable SAP Insights on my Azure monitor for SAP Instance.
 ---
 
 # Enable Insights in Azure Monitor for SAP solutions (preview)
