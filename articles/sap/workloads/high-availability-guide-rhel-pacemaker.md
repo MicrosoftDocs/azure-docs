@@ -78,9 +78,9 @@ Read the following SAP Notes and papers first:
 > Red Hat doesn't support software-emulated watchdog. Red Hat doesn't support SBD on cloud platforms. For details see [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691).
 > The only supported fencing mechanism for Pacemaker Red Hat Enterprise Linux clusters on Azure, is Azure fence agent.  
 
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2. Differences in the commands or the configuration between RHEL 7 and RHEL 8 and above are marked in the document.
+The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2. Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 9 are marked in the document.
 
-1. **[A]** Register - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
+1. **[A]** Register - optional step. This step isn't required, if using RHEL SAP HA-enabled images.  
 
    For example, if deploying on RHEL 7, register your virtual machine and attach it to a pool that contains repositories for RHEL 7.
 
@@ -92,7 +92,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this situation, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../../virtual-machines/workloads/redhat/byos.md).
 
-1. **[A]** Enable RHEL for SAP repos - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
+1. **[A]** Enable RHEL for SAP repos - optional step. This step isn't required, if using RHEL SAP HA-enabled images.  
 
    In order to install the required packages on RHEL 7, enable the following repositories.
 
@@ -125,11 +125,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    > [!IMPORTANT]
    > On RHEL 9, we recommend the following package versions (or later) to avoid issues with Azure Fence agent: 
-   > fence-agents-4.10.0-20.el9_0.7
-   > fence-agents-common-4.10.0-20.el9_0.6 
-   > ha-cloud-support-4.10.0-20.el9_0.6.x86_64.rpm
+   > fence-agents-4.10.0-20.el9_0.7  
+   > fence-agents-common-4.10.0-20.el9_0.6   
+   > ha-cloud-support-4.10.0-20.el9_0.6.x86_64.rpm  
 
-   Check the version of the Azure fence agent. If necessary, update it to a version equal to or later than the stated above.
+   Check the version of the Azure fence agent. If necessary, update it to the minimum required version or later.  
 
    <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
@@ -139,8 +139,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > If you need to update the Azure Fence agent, and if using custom role, make sure to update the custom role to include action **powerOff**. For details see [Create a custom role for the fence agent](#1-create-a-custom-role-for-the-fence-agent).  
 
 1. If deploying on RHEL 9, install also the resource agents for cloud deployment: 
-   ```sudo yum install -y resource-agents-cloud
-   ```
+   
+    ```sudo yum install -y resource-agents-cloud
+    ```
 
 1. **[A]** Setup host name resolution
 
@@ -255,7 +256,7 @@ Follow these steps to create a service principal, if not using managed identity.
 1. Click New Registration
 1. Enter a Name, select "Accounts in this organization directory only" 
 2. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add  
-   The sign-on URL is not used and can be any valid URL
+   The sign-on URL isn't used and can be any valid URL
 1. Select Certificates and Secrets, then click New client secret
 1. Enter a description for a new key, select "Never expires" and click Add
 1. Make a node the Value. It is used as the **password** for the service principal
@@ -315,14 +316,14 @@ sudo pcs property set stonith-timeout=900
 
 #### [Managed Identity](#tab/msi)
 
-For RHEL **7.X**, use the following command to configure the fence device:    
+For RHEL **7.x**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \ 
 subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
-For RHEL **8.X/9.X**, use the following command to configure the fence device:  
+For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm <b>msi=true</b> resourceGroup="<b>resource group</b>" \
 subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
 power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
@@ -339,7 +340,7 @@ power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_
 op monitor interval=3600
 </code></pre>
 
-For RHEL **8.X/9.X**, use the following command to configure the fence device:  
+For RHEL **8.x/9.x**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" \
 resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" \
 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
@@ -356,7 +357,7 @@ If you are using fencing device, based on service principal configuration, read 
  
 
 > [!IMPORTANT]
-> The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
+> The monitoring and fencing operations are deserialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
 
 ### **[1]** Enable the use of a fencing device
 
@@ -372,7 +373,7 @@ If you are using fencing device, based on service principal configuration, read 
 > [!TIP]
 > This section is only applicable, if it is desired to configure special fencing device `fence_kdump`.  
 
-If there is a need to collect diagnostic information within the VM, it may be useful to configure additional fencing device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
+If there is a need to collect diagnostic information within the VM, it may be useful to configure additional fencing device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` isn't a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
 
 > [!IMPORTANT]
 > Be aware that when `fence_kdump` is configured as a first level fencing device, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
@@ -386,8 +387,8 @@ The following Red Hat KBs contain important information about configuring `fence
 
 * [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971)
 * [How to configure/manage fencing levels in RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323)
-* [fence_kdump fails with "timeout after X seconds" in a RHEL 6 0r 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
-* For information how to change change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
+* [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
+* For information how to change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
 * For information on how to reduce failover delay, when using `fence_kdump` see [Can I reduce the expected delay of failover when adding fence_kdump configuration](https://access.redhat.com/solutions/5512331)
    
 Execute the following optional steps to add `fence_kdump` as a first level fencing configuration, in addition to the Azure Fence Agent configuration. 
