@@ -29,7 +29,7 @@ This update was released end of March 2023 and includes the following changes:
 
 - Health check reliability improved.
 - Reliability issues in agent upgrade fixed.
-- VM will be marked unhealthy when health check detects a required URL is not unblocked
+- VM will be marked unhealthy when health check detects a required URL isn't unblocked.
 
 ## Version 1.0.6129.9100
 
