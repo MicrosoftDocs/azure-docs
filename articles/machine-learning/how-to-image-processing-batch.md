@@ -21,7 +21,7 @@ Batch Endpoints can be used for processing tabular data, but also any other file
 
 ## About this sample
 
-The model we are going to work with was built using TensorFlow along with the RestNet architecture ([Identity Mappings in Deep Residual Networks](https://arxiv.org/abs/1603.05027)). A sample of this model can be downloaded from [here](https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip). The model has the following constrains that are important to keep in mind for deployment:
+The model we are going to work with was built using TensorFlow along with the RestNet architecture ([Identity Mappings in Deep Residual Networks](https://arxiv.org/abs/1603.05027)). A sample of this model can be downloaded from [here](https://azuremlexampledata.blob.core.windows.net/data/imagenet/model.zip). The model has the following constrains that is important to keep in mind for deployment:
 
 * It works with images of size 244x244 (tensors of `(224, 224, 3)`).
 * It requires inputs to be scaled to the range `[0,1]`.
@@ -109,7 +109,10 @@ Batch Endpoint can only deploy registered models so we need to register it. You 
    
     # [Azure CLI](#tab/cli)
 
-    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="register_model" :::
+    ```azurecli
+    MODEL_NAME='imagenet-classifier'
+    az ml model create --name $MODEL_NAME --path "model"
+    ```
 
     # [Python](#tab/sdk)
 
