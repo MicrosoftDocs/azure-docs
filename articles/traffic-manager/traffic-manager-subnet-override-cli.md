@@ -7,6 +7,7 @@ author: greg-lindsay
 
 ms.topic: how-to
 ms.service: traffic-manager
+ms.custom: devx-track-azurecli
 ms.date: 09/18/2019
 ms.author: greglin
 ---
