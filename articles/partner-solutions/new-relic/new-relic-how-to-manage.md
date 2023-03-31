@@ -15,7 +15,6 @@ This article describes how to manage the settings for Azure Native New Relic Ser
 
 To see the details of your New Relic resource, select **Overview** on the left pane.
 
-<!-- updated screenshot -->
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-overview.png" alt-text="Screenshot that shows an overview for a New Relic resource.":::
 
 The details include:
@@ -37,7 +36,6 @@ At the bottom:
 
 If you select **Monitored resources**, the pane that opens includes a table with information about the Azure resources that are sending logs and metrics to New Relic.
 
-<!-- updated screenshot -->
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-monitored-resources.png" alt-text="Screenshot showing a table of monitored resources below properties.":::
 
 The columns in the table denote valuable information for your resource:
@@ -83,7 +81,6 @@ The column **Metrics to New Relic** indicates whether New Relic is receiving met
 
 You can install the New Relic agent on virtual machines as an extension. Select **Virtual Machines** on the left pane. The **Virtual machine agent** pane shows a list of all virtual machines in the subscription.
 
-<!-- updated -->
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-virtual-machines.png" alt-text="Screenshot that shows virtual machines for a New Relic resource.":::
 
 For each virtual machine, the following info appears:
@@ -102,7 +99,6 @@ For each virtual machine, the following info appears:
 
 You can install the New Relic agent on app services as an extension. Select **App Services** on the left pane. The working pane shows a list of all app services in the subscription.
 
-<!-- no update -->
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-app-services.png" alt-text="Screenshot that shows app services for a New Relic resource.":::
 
 For each app service, the following information appears:
@@ -125,7 +121,7 @@ To install the New Relic agent, select the app service and then select **Install
 ## Delete a New Relic resource
 
 1. Select **Overview** on the left pane. Then, select **Delete**. 
-    <!-- updated -->
+
    :::image type="content" source="media/new-relic-how-to-manage/new-relic-delete.png" alt-text="Screenshot of the delete button on a resource overview.":::
 
 1. Confirm that you want to delete the New Relic resource. Select **Delete**.
