@@ -30,9 +30,11 @@ If you have Azure Spring Apps instances that don't need to run continuously, you
 
 Unlike other pricing plans, the Standard consumption plan offers a pure consumption-based pricing model. You can dynamically add and remove resources based on the resource utilization, number of incoming HTTP requests, or by events. When running apps in a consumption plan, you're charged for active and idle usage of resources, and the number of requests. For more information, see the [Standard consumption plan](overview.md#standard-consumption-plan) section of [What is Azure Spring Apps?](overview.md)
 
-## Autoscale
+## Scale and autoscale
 
-Autoscale refers to setting up rules to increase or decrease computing capacities according to the changing environment. Autoscale reduces operating costs by terminating redundant resources when they're no longer needed. For more information, see [Set up autoscale for applications](how-to-setup-autoscale.md).
+You can manually scale computing capacities to accommodate a changing environment. For more information, see [Scale an application in Azure Spring Apps](how-to-scale-manual.md).
+
+Autoscale reduces operating costs by terminating redundant resources when they're no longer needed. For more information, see [Set up autoscale for applications](how-to-setup-autoscale.md).
 
 ## Next steps
 
