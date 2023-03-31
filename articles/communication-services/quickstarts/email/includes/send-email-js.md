@@ -133,7 +133,7 @@ const emailClient = new EmailClient(endpoint, credential);
 Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```javascript
-const { EmailClient } = require("@azure/communication-email");
+const { EmailClient, KnownEmailSendStatus } = require("@azure/communication-email");
 const { AzureKeyCredential } = require("@azure/core-auth");
 require("dotenv").config();
 
@@ -154,6 +154,7 @@ To send an email message, call the `beginSend` function from the EmailClient. Th
 ```javascript
 
 async function main() {
+  const POLLER_WAIT_TIME = 10
   try {
     const message = {
       senderAddress: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
