@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/30/2023
+ms.date: 03/31/2023
 ms.author: alkohli
 ---
 
@@ -36,20 +36,21 @@ You can update to the latest version using the following update paths:
 
 The 2303 release has the following new features and enhancements:
 
-- @DEEPAN > CONTENT REVIEW > The following bullet item is from the 2301 release notes. Please review for relevance to 2303 - i.e., should it be included here for 2303? Please confirm > 
-- Starting March 2023, Azure Stack Edge devices will be required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
+- Starting March 2023, Azure Stack Edge devices are required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
+- You can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. For more information, see [Deploy AKS on Azure Stack Edge](azure-stack-edge-deploy-aks-on-azure-stack-edge).
 
 ## Issues fixed in this release
 
 | No. | Feature | Issue |
 | --- | --- | --- |
-|**1.**|Need issues fixed for 2303 | |
+|**1.**|AKS-HCI  |Support for higher node pool Virtual Machine sizes in AKS-HCI. |
+|**2.**|Core ASE platform and AKS-HCI   |Critical bug fixes to improve workload availability during multi-node ASE update of core ASE platform and AKS-HCI.   |
 
-## Known issues in this release
+<!--## Known issues in this release
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|Need known issues in 2303 |
+|**1.**|Need known issues in 2303 |-->
 
 ## Known issues from previous releases
 
