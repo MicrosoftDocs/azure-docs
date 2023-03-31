@@ -103,7 +103,7 @@ Then, create a DiskEncryptionSet.
 ```azurecli
 keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
     
-az disk-encryption-set create -n $diskEncryptionSetName 
+az disk-encryption-set create -n $diskEncryptionSetName \
 -l $location \
 -g $rgName \
 --key-url $keyVaultKeyUrl \
