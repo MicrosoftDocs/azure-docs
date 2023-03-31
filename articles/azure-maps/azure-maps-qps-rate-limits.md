@@ -22,9 +22,9 @@ Below are the QPS usage limits for each Azure Maps service by Pricing Tier.
 | Creator - Alias, TilesetDetails | 10 | Not Available | Not Available |
 | Creator - Conversion, Dataset, Feature State, WFS | 50 | Not Available | Not Available |
 | Data service | 50 | 50 |  Not Available  |
-| Elevation service | 50 | 50 |  Not Available  |
+| Elevation service ([deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023)) | 50 | 50 |  Not Available  |
 | Geolocation service | 50 | 50 | 50 |
-| Render service - Contour tiles, Digital Elevation Model (DEM) tiles and Customer tiles | 50 | 50 | Not Available |
+| Render service - Contour tiles, Digital Elevation Model (DEM) tiles ([deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023)) and Customer tiles | 50 | 50 | Not Available |
 | Render service - Traffic tiles and Static maps | 50 | 50 | 50 |
 | Render service - Road tiles | 500 | 500 | 50 |
 | Render service - Satellite tiles | 250 | 250 | Not Available |
