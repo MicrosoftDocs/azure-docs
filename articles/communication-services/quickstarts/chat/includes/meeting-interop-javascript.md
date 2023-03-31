@@ -348,4 +348,4 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 Insert the Teams meeting link and thread ID into the text boxes. Press *Join Teams Meeting* to join the Teams meeting. After the Communication Services user has been admitted into the meeting, you can chat from within your Communication Services application. Navigate to the box at the bottom of the page to start chatting. For simplicity, the application will only show the last two messages in the chat.
 
 > [!NOTE] 
-> Currently only sending, receiving, editing messages and sending typing notifications is supported for interoperability scenarios with Teams. Other features like read receipts and Communication Services users adding or removing other users from the Teams meeting are not supported.
+> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please [visit here](../../../concepts/interop/guest/capabilities.md)
