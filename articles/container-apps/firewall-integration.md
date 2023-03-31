@@ -2,21 +2,23 @@
 title: Securing a custom VNET in Azure Container Apps
 description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
-author: JennyLawrance
+author: CaryChai
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic:  reference
-ms.date: 07/15/2022
-ms.author: jennylaw
+ms.date: 03/29/2023
+ms.author: cachai
 ---
 
-# Securing a custom VNET in Azure Container Apps
+# Securing a custom VNET in Azure Container Apps  with Network Security Groups
 
 Network Security Groups (NSGs) needed to configure virtual networks closely resemble the settings required by Kubernetes.
 
-You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container App Environment.
+You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs of selected destinations that you own, are not yet supported for Container App Environments with VNETs. Therefore, securing outbound traffic with a firewall is not yet supported.
+In the Consumption + Dedicated plan structure, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. Learn more in the [networking architecture document](./networking.md#user-defined-routes-udr---preview).
+
+In the Consumption plan, custom user-defined routes (UDRs) and ExpressRoutes are not supported.
 
 ## NSG allow rules
 
