@@ -217,7 +217,7 @@ If you see an attribute IsSoftDeleted in your attribute mappings, it's used to d
 
 **Deprovisioning events**
 
-The following table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they have been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard delete users in certain applications rather than soft deleting, if the target application doesn't support soft deleting users. 
+The following table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard delete users in certain applications rather than soft deleting, if the target application doesn't support soft deleting users. 
 
 |Scenario|How to configure in Azure AD|
 |--|--|
@@ -230,7 +230,7 @@ The following table describes how you can configure deprovisioning actions with 
 
 **Known limitations**
 
-* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user isn't managed by the service and we won't send a delete request when they're deleted from the directory.
+* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app then a disable request is sent. At that point, the user isn't managed by the service and a delete request isn't sent when the user is deleted from the directory.
 * Provisioning a user that is disabled in Azure AD isn't supported. They must be active in Azure AD before they're provisioned.
 * When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but won't automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application doesn't support this, you can restart provisioning to update the group memberships. 
 
