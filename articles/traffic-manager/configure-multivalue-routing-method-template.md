@@ -7,7 +7,7 @@ ms.author: greglin
 ms.service: traffic-manager
 ms.topic: how-to
 ms.date: 04/28/2022
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Configure the Multivalue routing method using an ARM Template
