@@ -7,6 +7,8 @@ items:
   items:
   - name: What is Azure Spring Apps?
     href: overview.md
+  - name: Cost management
+    href: cost-management.md
   - name: Compare Java application hosting options on Azure
     href: /azure/architecture/guide/technology-choices/service-for-java-comparison?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Migrate Spring workloads to Azure Spring Apps
