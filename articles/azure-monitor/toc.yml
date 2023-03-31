@@ -672,6 +672,9 @@ items:
           href: app/sdk-support-guidance.md
         - name: Advanced SDK topics
           items:
+          - name: Distributed tracing and telemetry correlation
+            href: app/distributed-tracing-telemetry-correlation.md
+            displayName: correlation headers, w3c, distributed tracing, tracing
           - name: TelemetryProcessors
             displayName: processors, filtering, telemetry filtering, telemetry processor
             href: app/api-filtering-sampling.md
@@ -759,13 +762,6 @@ items:
       - name: Transaction diagnostics
         href: app/transaction-diagnostics.md
         displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
-      - name: Distributed tracing
-        items:
-        - name: Overview
-          href: app/distributed-tracing.md
-        - name: Telemetry correlation
-          href: app/correlation.md
-          displayName: correlation headers, w3c, distributed tracing, tracing
       - name: Metrics
         items:
         - name: Live Metric stream
