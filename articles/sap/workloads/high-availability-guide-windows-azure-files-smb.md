@@ -174,7 +174,7 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 
 ### <a name="5121771a-7618-4f36-ae14-ccf9ee5f2031"></a>SAP Application Servers on WSFC nodes using Azure Files SMB
 
-![Screenshot of HA setup with additional application servers.](media/virtual-machines-shared-sap-high-availability-guide/HA-AFSMB+AS.PNG)SAP application Servers locally installed.
+![Screenshot of HA setup with additional application servers.](media/virtual-machines-shared-sap-high-availability-guide/ha-azure-files-smb-as.png)SAP application Servers locally installed.
 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
@@ -186,10 +186,8 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 > Using Azure Files SMB for any SQL Server volume is not supported.
 > 
 
-![Diagram of SAP ASCS/SCS on SQL Server Always On nodes using Azure Screenshot of Azure Files SMB with local SQL Server setup.](media/virtual-machines-shared-sap-high-availability-guide/ha-sql+ascs-af-smb.png)SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB
+![Diagram of SAP ASCS/SCS on SQL Server Always On nodes using Azure Screenshot of Azure Files SMB with local SQL Server setup.](media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-azure-files-smb.png)SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB
 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
 >
-### Using Windows DFS-N to support flexible SAPMNT share creation for SMB based file share
-The use of DFS-N allows you to utilize individual sapmnt volumes for SAP systems deployed within the same Azure region and subscription. [Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share][dfs-n-reference] shows how to set this up.
