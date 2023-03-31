@@ -267,7 +267,7 @@ In a cross-region scenario, when a client tries `/negotiate` with the app server
 
 When no `primary` endpoint is available, the client's `/negotiate` picks from the available `secondary` endpoints. This failover mechanism requires that each endpoint serves as a `primary` endpoint to at least one app server.
 
-![Failover](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
+![Diagram showing the Failover mechanism process.](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
 ## Next steps
 
