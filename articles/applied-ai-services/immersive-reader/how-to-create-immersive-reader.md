@@ -38,7 +38,7 @@ If you aren't an owner, the following scope-specific permissions are required:
 
   :::image type="content" source="media/application-developer-role.png" alt-text="{alt-text}":::
 
-For more information, _see_ [Azure AD built-in roles](../../active-directory/roles/permissions-reference#application-developer)
+For more information, _see_ [Azure AD built-in roles](../../active-directory/roles/permissions-reference.md#application-developer)
 
 ## Set up PowerShell environment
 
