@@ -19,7 +19,7 @@ ms.author: cynthn
 > [!NOTE]
 > Customers are encouraged to use Azure Compute Gallery as all new features like ARM64, Trusted Launch, and Confidential VM are only supported through Azure Compute Gallery.  If you have an existing VHD or managed image, you can use it as a source and create an Azure Compute Gallery image. For more information, see [Create an image definition and image version](../image-version.md).
 > 
-> Creating an image instead of just attaching a disk means you can create multiple VMs from the same sounrce disk.
+> Creating an image instead of just attaching a disk means you can create multiple VMs from the same source disk.
 
 
 There are several ways to create a virtual machine (VM) in Azure:

@@ -84,6 +84,8 @@ The [IoT device development](../iot-develop/about-iot-develop.md) site includes 
 
 You can find more samples in the [code sample browser](/samples/browse/?expanded=azure&products=azure-iot%2Cazure-iot-edge%2Cazure-iot-pnp%2Cazure-rtos).
 
+To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](../iot-develop/concepts-manage-device-reconnections.md).
+
 ## Device development without a device SDK
 
 Although you're recommended to use one of the device SDKS, there may be scenarios where you prefer not to. In these scenarios, your device code must directly use one of the communication protocols that IoT Hub and the Device Provisioning Service (DPS) support.
