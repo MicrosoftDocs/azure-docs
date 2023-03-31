@@ -150,6 +150,8 @@ items:
       href: quickstarts/email/send-email.md
     - name: Send an email in Azure Logic Apps
       href: quickstarts/email/logic-app.md
+    - name: Add multiple sender addresses
+      href: quickstarts/email/add-multiple-senders.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
