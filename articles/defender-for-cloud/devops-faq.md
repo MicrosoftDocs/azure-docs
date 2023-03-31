@@ -18,7 +18,7 @@ If you're having issues with Defender for DevOps these frequently asked question
 - [I don’t see the results for my ADO projects in Microsoft Defender for Cloud](#i-dont-see-the-results-for-my-ado-projects-in-microsoft-defender-for-cloud)
 - [Why is my Azure DevOps repository not refreshing to healthy?](#why-is-my-azure-devops-repository-not-refreshing-to-healthy) 
 - [I don’t see Recommendations for findings](#i-dont-see-recommendations-for-findings)
-- [What information does Defender for DevOps store about me and my enterprise, and where is the data stored?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored)
+- [What information does Defender for DevOps store about me and my enterprise, and where is the data stored and processed?](#what-information-does-defender-for-devops-store-about-me-and-my-enterprise-and-where-is-the-data-stored-and-processed)
 - [Why are Delete source code and Write Code permissions required for Azure DevOps?](#why-are-delete-source-and-write-code-permissions-required-for-azure-devops)
 - [Is Exemptions capability available and tracked for app sec vulnerability management](#is-exemptions-capability-available-and-tracked-for-app-sec-vulnerability-management)
 - [Is continuous, automatic scanning available?](#is-continuous-automatic-scanning-available)
@@ -71,15 +71,15 @@ Ensure that you've onboarded the project with the connector and that your reposi
 
 You must have more than a [stakeholder license](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) to the repos to onboard them, and you need to be at least the security reader on the subscription where the connector is created. You can confirm if you've onboarded the repositories by seeing them in the inventory list in Microsoft Defender for Cloud.
 
-### What information does Defender for DevOps store about me and my enterprise, and where is the data stored?
+### What information does Defender for DevOps store about me and my enterprise, and where is the data stored and processed?
 
-Data Defender for DevOps connects to your source code management system, for example, Azure DevOps, GitHub, to provide a central console for your DevOps resources and security posture. Defender for DevOps processes and stores the following information:
+Defender for DevOps connects to your source code management system, for example, Azure DevOps, GitHub, to provide a central console for your DevOps resources and security posture. Defender for DevOps processes and stores the following information:
 
 - Metadata on your connected source code management systems and associated repositories. This data includes user, organizational, and authentication information.
 
 - Scan results for recommendations and assessments results and details.
 
-Data is stored within the region your connector is created in. You should consider which region to create your connector in, for any data residency requirements as you design and create your DevOps connector.
+Data is stored within the region your connector is created in and flows into [Microsoft Defender for Cloud](defender-for-cloud-introduction.md). You should consider which region to create your connector in, for any data residency requirements as you design and create your DevOps connector.
 
 Defender for DevOps currently doesn't process or store your code, build, and audit logs.
 

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 03/28/2023
 
 ms.author: justinha
 author: justinha
@@ -405,17 +405,13 @@ A VPN server may send repeated requests to the NPS server if the timeout value i
 For more information on why you see discarded packets in the NPS server logs, see [RADIUS protocol behavior and the NPS extension](#radius-protocol-behavior-and-the-nps-extension) at the start of this article.
 
 ### How do I get Microsoft Authenticator number matching to work with NPS?
-Make sure you run the latest version of the NPS extension. NPS extension versions beginning with 1.0.1.40 support number matching.
+Although NPS doesn't support number matching, the latest NPS extension does support time-based one-time password (TOTP) methods such as the TOTP available in Microsoft Authenticator, other software tokens, and hardware FOBs. TOTP sign-in provides better security than the alternative **Approve**/**Deny** experience. Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). 
 
-Because the NPS extension can't show a number, a user who is enabled for number matching will still be prompted to Approve/Deny. However, you can create a registry key that overrides push notifications to ask a user to enter a One-Time Passcode (OTP). The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in the Authenticator app, other software tokens, and so on.
+After May 8, 2023, when number matching is enabled for all users, anyone who performs a RADIUS connection with NPS extension version 1.2.2216.1 or later will be prompted to sign in with a TOTP method instead. 
 
-If the user doesn't have an OTP method registered, they'll continue to get the Approve/Deny experience. A user with number matching disabled will always see the Approve/Deny experience.
-
-To create the registry key that overrides push notifications:
-1. On the NPS Server, open the Registry Editor.
-2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa.
-3. Set the following Key Value Pair: Key: OVERRIDE_NUMBER_MATCHING_WITH_OTP Value = TRUE
-4. Restart the NPS Service.
+Users must have a TOTP authentication method registered to see this behavior. Without a TOTP method registered, users continue to see **Approve**/**Deny**. 
+ 
+Prior to the release of NPS extension version 1.2.2216.1 after May 8, 2023, organizations that run earlier versions of NPS extension can modify the registry to require users to enter a TOTP. For more information, see [NPS extension](how-to-mfa-number-match.md#nps-extension).
 
 ## Managing the TLS/SSL Protocols and Cipher Suites
 
