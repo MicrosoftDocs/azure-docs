@@ -13,11 +13,11 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
 
 1. Under **Activity runs**, in the **Error** column, select the highlighted button to display the activity logs, as shown in the following screenshot:
 
-### [Azure Data Factory]
+### Azure Data Factory
 
 :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the &quot;Activity runs&quot; section on the &quot;All pipeline runs&quot; pane.":::
 
-### [Azure Synapse]
+### Azure Synapse
 
 :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the &quot;Activity runs&quot; section on the &quot;All pipeline runs&quot; pane.":::
 
