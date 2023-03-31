@@ -1426,7 +1426,7 @@ Storage Blob Data Contributor
 > [!NOTE]
 > Without the last expression in each code sample, access to all other containers not named `container1` will fail.
 
-#### Azure portal
+#### [Portal](#tab/azure-portal)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -1455,19 +1455,19 @@ Here are the settings to add this condition using the Azure portal.
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
-#### Azure PowerShell
+#### [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition using Azure PowerShell.
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
 
 ```azurepowershell
-$subId = "63d8a341-5a95-420c-96be-0f76d949b31e"
-$rgName = "SampleRG"
-$saName = "abacsamplesa"
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
 $roleDefinitionName = "Storage Blob Data Contributor"
-$userObjectID = "a24dd02d-b671-411d-bd92-2ac131f5d0c8"
-$containerName = "container1"
+$userObjectID = "<user object id>"
+$containerName = "<container name>"
 $privateEndpointName = "privateendpoint1"
-$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$saName"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
 "( `
@@ -1494,14 +1494,15 @@ $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinition
 $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
-
 ```
 
-Here's how to test this condition.
+---
+
+Here's how to test this condition using PowerShell.
 
 ```azurepowershell
 $localSrcFile = <pathToLocalFile>
-$grantedContainer = "container1"
+$grantedContainer = $containerName
 $ungrantedContainer = "ungranted"
 # Get new context for request
 $bearerCtx = New-AzStorageContext -StorageAccountName $storageAccountName
