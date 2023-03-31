@@ -22,7 +22,7 @@ ms.subservice: calling
 
  
 
-> [!NOTE]
+> [!NOTE] 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
 
