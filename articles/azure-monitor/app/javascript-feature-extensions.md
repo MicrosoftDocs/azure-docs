@@ -118,9 +118,9 @@ If you want to set the authenticated user context:
     > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
 3. Declare the tag `parentDataTag` when you want to fetch all child HTML elements. This is useful when you don't set parentid/name attributes for the HTML elements. If all HTML elements have valid parentid/name attributes, you don't need to declare the tag `parentDataTag`.
     
-    - If you declare the tag `parentDataTag`, you must add it alongside the parentid data attribute. 
+    - When you declare the tag `parentDataTag`, you must add it alongside the parentid data attribute. 
     
-       If declared and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
+       If it is declared and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
         
        If no such element exists, the plug-in fetches the closest parent element `data-id` or `customDataPrefix-id` of the clicked HTML element.
 
@@ -130,7 +130,7 @@ If you want to set the authenticated user context:
 
        When declared, the logs are saved....
 
-     - If you don't declare the tag `parentDataTag` and the clicked HTML element already has valid parentid/name attributes, the plug-in fetches those attributes directly.
+     - When you don't declare the tag `parentDataTag`, the plug-in fetches the valid parentid/name attributes of the clicked HTML element directly if it has them.
       
        When not declared, logs are saved/rendered....
     
