@@ -59,7 +59,7 @@ For more information about how Azure Resource Manager orders the deletion of res
 
 You can deploy Azure resources by using Azure PowerShell, or by deploying an Azure Resource Manager (ARM) template or Bicep file.
 
-### Deploy resources by using Storage operations
+### Deploy resources by using storage operations
 
 The following example creates a storage account. The name you provide for the storage account must be unique across Azure.
 
