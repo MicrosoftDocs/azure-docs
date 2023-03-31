@@ -140,22 +140,29 @@ Calling the `ConfigureRefresh` method alone won't cause the configuration to ref
     > [!NOTE]
     > Since the cache expiration time was set to 10 seconds using the `SetCacheExpiration` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.
 
-## Monitoring and Troubleshooting
+## Monitoring and Troubleshooting (v6.0.0 and later)
 
-Logs are output upon configuration refresh and contain detailed information on changes to key-values in your App Configuration store and your application. You can enable these logs using the instructions for [logging with the Azure SDK for .NET](/dotnet/azure/sdk/logging).
+Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application. You can enable these logs using the instructions for [logging with the Azure SDK for .NET](/dotnet/azure/sdk/logging).
 
 - Logs are output at different log levels. The default level is `Informational`.
 
     | Log Level | Description |
     |---|---|
     | Verbose | This log level is used for monitoring changes to key-values in your App Configuration store. Logs include the key and label of key-values updated in the App Configuration store. Depending on the content type, logs may also include the App Configuration store endpoint requested and whether the key-value was modified or deleted. |
-    | Informational | This log level is used for monitoring changes to your app's configuration. Logs include the keys of settings in the configuration that have been updated. |
-    | Warning | This log level is used for identifying issues that occurred during refresh. Logs include the exception name and a message containing a brief description of the issue. |
+    | Informational | Logs include the keys of configuration settings updated during a configuration refresh. Values of configuration settings are omitted from the log to avoid leaking sensitive data. You can monitor logs at this level to ensure your application picks up expected configuration changes. |
+    | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider library will continue to use the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
 - The logging category is `Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh`, which appears before each log.
-- Here is an example `Informational` level log:  
+- Here are some example logs at each log level: 
   ```console
+  [Verbose] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
+  Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://examplestore.azconfig.io'
+
   [Informational] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
-  Setting updated from Key Vault. Key:'ExampleKey'
+  Setting updated. Key:'ExampleKey'
+
+  [Warning] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
+  A refresh operation failed.
+  Service request failed.
   ```
 
 ## Clean up resources

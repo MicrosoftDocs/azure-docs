@@ -230,9 +230,9 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
     ![Launching updated quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## Monitoring and Troubleshooting
+## Monitoring and Troubleshooting (v6.0.0 and later)
 
-Logs are output upon configuration refresh and contain detailed information on changes to key-values in your App Configuration store and your application.
+Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application.
 
 - A default `ILoggerFactory` is added automatically when `services.AddAzureAppConfiguration()` is invoked in your `ConfigureServices` method. The App Configuration provider uses this `ILoggerFactory` to create an instance of `ILogger`, which outputs these logs. No code changes are needed.
 - Logs are output at different log levels. The default level is `Information`.
@@ -240,13 +240,20 @@ Logs are output upon configuration refresh and contain detailed information on c
     | Log Level | Description |
     |---|---|
     | Debug | This log level is used for monitoring changes to key-values in your App Configuration store. Logs include the key and label of key-values updated in the App Configuration store. Depending on the content type, logs may also include the App Configuration store endpoint requested and whether the key-value was modified or deleted. |
-    | Information | This log level is used for monitoring changes to your app's configuration. Logs include the keys of settings in the configuration that have been updated. |
-    | Warning | This log level is used for identifying issues that occurred during refresh. Logs include the exception name and a message containing a brief description of the issue. |
+    | Information | Logs include the keys of configuration settings updated during a configuration refresh. Values of configuration settings are omitted from the log to avoid leaking sensitive data. You can monitor logs at this level to ensure your application picks up expected configuration changes. |
+    | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider library will continue to use the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
 - The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log.
-- Here is an example `Information` level log:  
+- Here are some example logs at each log level:
   ```console
+  dbug: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
+      Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://examplestore.azconfig.io'
+
   info: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
-      Setting updated from Key Vault. Key:'ExampleKey'
+      Setting updated. Key:'ExampleKey'
+
+  warn: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
+      A refresh operation failed.
+  Service request failed.
   ```
 
 Using `ILogger` is the preferred method and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#monitoring-and-troubleshooting). For more information on how to utilize these logs, follow the instructions for [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
