@@ -220,6 +220,61 @@ If you have already configured your NetApp account for customer-managed keys and
 
 1. Select **OK** to save. The rekey operation may take several minutes. 
 
+## Switch from user-assigned to system-assigned identity
+
+To switch from user-assigned to system-assigned identity, you must grant the target identity access to the key vault that is being used with read/get, ecncrypt, and decrypt permissions. 
+
+1. Update the NetApp account using the `az rest` function:
+    ```azurecli
+    az rest -m PATCH -u <netapp-account-resource-id>?api-versions=2022-09-01 -b @path/to/payload.json
+    ```
+    The payload should be:
+    ````json
+    {
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+         "<identity-resource-id>": {}
+        }
+      },
+      "properties": {
+        "encryption": {
+          "identity": {
+            "userAssignedIdentity": "<identity-resource-id>"
+          }
+        }
+      }
+    }
+    ````
+1. Confirm the operation completed successfully with the `az netappfiles account show` command. The output will look similar to:
+    ```azurecli
+        "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/account",
+        "identity": {
+            "principalId": null,
+            "tenantId": null,
+            "type": "UserAssigned",
+            "userAssignedIdentities": {
+                "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>": {
+                    "clientId": "<client-id>",
+                    "principalId": "<principalId>",
+                    "tenantId": <tenantId>"
+                }
+            }
+        },
+    ```
+    Ensure that:
+    * `properties.encryption.principalId` matches the value in `identity.userAssignedIdentities[]`
+    * `properties.encryption.userAssignedIdentity` matches in `identity.userAssignedIdentities[]`
+    ```azurecli
+    "encryption": {
+    	"identity": {
+    		"principalId": "<principal-id>",
+    		"userAssignedIdentity": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity>" 	
+        },
+    	"KeySource": "Microsoft.KeyVault",  
+    },
+    ```
+
 ## Error messages and troubleshooting
 
 This section lists error messages and possible resolutions when Azure NetApp Files fails to configure customer-managed key encryption or create a volume using a customer-managed key. 
