@@ -216,4 +216,4 @@ Now that you've successfully uploaded a VHD to a managed disk, you can attach yo
 
 To learn how to attach a data disk to a VM, see our article on the subject: [Attach a data disk to a Windows VM with PowerShell](attach-disk-ps.md). To use the disk as the OS disk, see [Create a Windows VM from a specialized disk](create-vm-specialized.md#create-the-new-vm).
 
-If you've additional questions, see the section on [uploading a managed disk](../faq-for-disks.yml#Uploading-to-a-managed-disk) in the FAQ.
+If you've additional questions, see the section on [uploading a managed disk](../faq-for-disks.yml#uploading-to-a-managed-disk) in the FAQ.
