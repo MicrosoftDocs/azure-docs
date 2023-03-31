@@ -189,7 +189,7 @@ After publishing the function, you're ready to subscribe to the event.
 1. Select the **Event Hubs namespace** from the list of resources.
 1. On the **Event Hubs Namespace** page, select **Events** on the left menu, and then select **+ Event Subscription** on the toolbar. 
 
-    :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-hub-add-subscription-link.png" alt-text="Add event subscription link on the Events page for an Event Hubs namespace":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-hub-add-subscription-link.png" alt-text="Screenshot of the Events page for an Event Hubs namespace with Add event subscription link selected. ":::
 1. On the **Create Event Subscription** page, follow these steps:
     1. Enter a name for the **event subscription**. 
     1. Enter a name for the **system topic**. A system topic provides an endpoint for the sender to send events. For more information, see [System topics](system-topics.md)
@@ -204,10 +204,10 @@ After publishing the function, you're ready to subscribe to the event.
     1. On the **Select Azure Function** page, select **Confirm Selection**.
     1. Then, back on the **Create Event Subscription** page, select **Create**. 
     
-        :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-subscription-select-function.png" alt-text="Create an event subscription using the function" lightbox="media/event-hubs-functions-synapse-analytics/event-subscription-select-function.png":::
+        :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-subscription-select-function.png" alt-text="Screenshot of the Create an event subscription page." lightbox="media/event-hubs-functions-synapse-analytics/event-subscription-select-function.png":::
 1. Verify that the event subscription is created. Switch to the **Event Subscriptions** tab on the **Events** page for the Event Hubs namespace. 
     
-    :::image type="content" source="media/event-hubs-functions-synapse-analytics/confirm-event-subscription.png" alt-text="Confirm event subscription" lightbox="media/event-hubs-functions-synapse-analytics/confirm-event-subscription.png":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/confirm-event-subscription.png" alt-text="Screenshot showing the Event Subscriptions tab on the Events page." lightbox="media/event-hubs-functions-synapse-analytics/confirm-event-subscription.png":::
 1. Select the App Service plan (not the App Service) in the list of resources in the resource group. 
 
 ## Run the app to generate data
@@ -218,7 +218,7 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
 3. In the **Event Hubs Namespace** page, select **Shared access policies** on the left menu.
 4. Select **RootManageSharedAccessKey** in the list of policies. 
 
-    :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-hub-namespace-shared-access-policies.png" alt-text="Shared access policies page for an Event Hubs namespace":::    
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/event-hub-namespace-shared-access-policies.png" alt-text="Screenshot showing the Shared access policies page for an Event Hubs namespace.":::    
 1. Select the copy button next to the **Connection string-primary key** text box. 
 1. Go back to your Visual Studio solution. 
 1. Right-click **WindTurbineDataGenerator** project, and select **Set as Startup project**. 
@@ -237,7 +237,7 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
     select * from [dbo].[Fact_WindTurbineMetrics]    
     ```
 
-    ![Query results](media/event-hubs-functions-synapse-analytics/query-results.png)
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/query-results.png" alt-text="Screenshot showing the query results.":::
 
 ## Monitor the solution
 This section helps you with monitoring or troubleshooting the solution. 
@@ -250,7 +250,7 @@ This section helps you with monitoring or troubleshooting the solution.
 1. Open the folder named same as your event hub (**hubdatamigration**). 
 1. Drill through the folders and you see the AVRO files. Here's an example:
 
-    :::image type="content" source="media/event-hubs-functions-synapse-analytics/storage-captured-file.png" alt-text="Captured file in the storage" lightbox="media/event-hubs-functions-synapse-analytics/storage-captured-file.png":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/storage-captured-file.png" alt-text="Screenshot showing the captured file in the storage." lightbox="media/event-hubs-functions-synapse-analytics/storage-captured-file.png":::
     
 
 ### Verify that the Event Grid trigger invoked the function
@@ -264,7 +264,7 @@ This section helps you with monitoring or troubleshooting the solution.
 1. Confirm that the client application (**WindTurbineDataGenerator**) that's sending the events is still running. If not, run the app. 
 1. Wait for a few minutes (5 minutes or more) and select the **Refresh** button to see function invocations.    
 
-    :::image type="content" source="media/event-hubs-functions-synapse-analytics/function-invocations.png" alt-text="Function invocations":::
+    :::image type="content" source="media/event-hubs-functions-synapse-analytics/function-invocations.png" alt-text="Screenshot showing the Function invocations.":::
 1. Select an invocation to see details.
 
     Event Grid distributes event data to the subscribers. The following example shows event data generated when data streaming through an event hub is captured in a blob. In particular, notice the `fileUrl` property in the `data` object points to the blob in the storage. The function app uses this URL to retrieve the blob file with captured data.
@@ -295,7 +295,8 @@ This section helps you with monitoring or troubleshooting the solution.
 ### Verify that the data is stored in the dedicated SQL pool
 In the browser tab where you have the query window open, query the table in your dedicated SQL pool for the migrated data.
 
-![Query results](media/event-hubs-functions-synapse-analytics/query-results.png)
+
+![Screenshot showing the final query results.](media/event-hubs-functions-synapse-analytics/query-results.png)
 
 
 
