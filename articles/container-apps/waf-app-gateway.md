@@ -4,9 +4,8 @@ description: Learn how to protect Azure Container Apps with Application Gateway 
 services: container-apps
 author: wviriya
 ms.service: container-apps
-ms.custom: fasttrack-for-azure
 ms.topic:  how-to
-ms.date: 03/15/2023
+ms.date: 03/31/2023
 ms.author: wviriya
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -37,13 +36,13 @@ For more information on networking concepts in Container Apps, see [Networking A
 
 ## Retrieve your container app's domain
 
-In the following steps, you will retrieve the values of the **default domain** and the **static IP** which you will use to setup your Private DNS Zone.
+In the following steps, you retrieve the values of the **default domain** and the **static IP** which you use to set up your Private DNS Zone.
 
 1. From the resource group's *Overview* window in the portal, select your container app.
 1. On the *Overview* window for your container app resource, select the link for **Container Apps Environment**
 
 1. On the *Overview* window for your container app environment resource, select **JSON View** in the upper right-hand corner of the page to view the JSON representation of the container apps environment. 
-1. Copy the values for the **defaultDomain** and **staticIp** properties and paste them into a text editor. You will create a private DNS zone using these values for the default domain in the next section.
+1. Copy the values for the **defaultDomain** and **staticIp** properties and paste them into a text editor. You'll create a private DNS zone using these values for the default domain in the next section.
 
 ## Create and configure an Azure Private DNS zone
 
@@ -59,10 +58,10 @@ In the following steps, you will retrieve the values of the **default domain** a
     | Name | Enter the **defaultDomain** property of the Container Apps Environment from the previous section. |
     | Resource group location | Leave as the default. A value isn't needed as Private DNS Zones are global. |
 
-1. Click **Review + create**. After validation finishes, select **Create**.
+1. Select **Review + create**. After validation finishes, select **Create**.
 1. After the private DNS zone is created, select **Go to resource**.
 1. In the *Overview* window, select **+Record set**, to add a new record set.
-1. In the *Add record set* blade, enter the following values:
+1. In the *Add record set* window, enter the following values:
 
     | Setting | Action |
     |---|---|
@@ -74,7 +73,7 @@ In the following steps, you will retrieve the values of the **default domain** a
 
 1. Select **OK** to create the record set.
 1. Select **+Record set** again, to add a second record set.
-1. In the *Add record set* blade, enter the following values:
+1. In the *Add record set* window, enter the following values:
 
     | Setting | Action |
     |---|---|
@@ -85,7 +84,7 @@ In the following steps, you will retrieve the values of the **default domain** a
     | IP address | Enter the **staticIp** property of the Container Apps Environment from the previous section. |
 
 1. Select **OK** to create the record set.
-1. Select the **Virtual network links** blade from the menu on the left side of the page. 
+1. Select the **Virtual network links** window from the menu on the left side of the page. 
 1. Select **+Add** to create a new link with the following values:
 
     | Setting | Action |
@@ -117,7 +116,7 @@ In the following steps, you will retrieve the values of the **default domain** a
     | Virtual network | Select the virtual network that your container app is integrated with. |
     | Subnet | Select **Manage subnet configuration**. If you already have a subnet you wish to use, use that instead, and skip to [the Frontends section](#frontends-tab). |
     
-1. From within the *Subnets* blade of *my-custom-vnet*, select **+Subnet** and enter the following values:
+1. From within the *Subnets* window of *my-custom-vnet*, select **+Subnet** and enter the following values:
 
     | Setting | Action |
     |---|---|
@@ -127,12 +126,12 @@ In the following steps, you will retrieve the values of the **default domain** a
 1. For the remainder of the settings, keep the default values.
 1. Select **Save** to create the new subnet.
 
-1. Close the *Subnets* blade to return to the *Create application gateway* blade.
+1. Close the *Subnets* window to return to the *Create application gateway* window.
 1. Select the following values:
 
     | Setting | Action |
     |---|---|
-    | Subnet | Select the **appgateway-subnet** you just created. |
+    | Subnet | Select the **appgateway-subnet** you created. |
     
 1. Select **Next: Frontends**, to proceed.
 
@@ -161,26 +160,26 @@ The backend pool is used to route requests to the appropriate backend servers. B
 - Fully qualified domain names (FQDN)
 - Multi-tenant back-ends like Azure App Service and Container Apps
 
-In this example, you will create a backend pool that targets your container app.
+In this example, you create a backend pool that targets your container app.
 
 1. Select **Add a backend pool**.
 1. Open a new tab and navigate to your container app. 
-1. In the *Overview* blade of the Container App, find the **Application Url** and copy it.
-1. Return to the *Backends* tab, and enter the following values in the **Add a backend pool** blade:
+1. In the *Overview* window of the Container App, find the **Application Url** and copy it.
+1. Return to the *Backends* tab, and enter the following values in the **Add a backend pool** window:
 
     | Setting | Action |
     |---|---|
     | Name | Enter **my-agw-backend-pool**. |
     | Add backend pool without targets | Select **No**. |
     | Target type | Select **IP address or FQDN**. |
-    | Target | Enter the **Container App Application Url** you just copied and remove the *https://* prefix. This is the FQDN of your container app. |
+    | Target | Enter the **Container App Application Url** you copied and remove the *https://* prefix. This location is the FQDN of your container app. |
 
 1. Select **Add**.
 1. On the *Backends* tab, select **Next: Configuration**.
 
 ### Configuration tab
 
-On the *Configuration* tab, you'll connect the frontend and backend pool you created using a routing rule.
+On the *Configuration* tab, you connect the frontend and backend pool you created using a routing rule.
 
 1. Select **Add a routing rule**. Enter the following values:
 
@@ -196,7 +195,7 @@ On the *Configuration* tab, you'll connect the frontend and backend pool you cre
     | Listener name | Enter **my-agw-listener**. |
     | Frontend IP | Select **Public**. |
     | Protocol | Select **HTTPS**. If you don't have a certificate you want to use, you can select **HTTP** |
-    | Port | Enter **443**. If you chose **HTTP** for your protocol, enter **80** and skip to the default/custom domain section below. |
+    | Port | Enter **443**. If you chose **HTTP** for your protocol, enter **80** and skip to the default/custom domain section. |
     | Choose a Certificate | Select **Upload a certificate**. If your certificate is stored in key vault, you can select **Choose a certificate from Key Vault**. |
     | Cert name | Enter a name for your certificate. |
     | PFX certificate file | Select your valid public certificate. |
@@ -233,7 +232,7 @@ If you wish to use a custom domain, enter the following values:
     | Target type | Select **my-agw-backend-pool** that you created earlier. |
     | Backend settings | Select **Add new**. |
 
-1. In the *Add Backend setting* blade, enter the following values:
+1. In the *Add Backend setting* window, enter the following values:
 
     | Setting | Action |
     |---|---|
@@ -247,7 +246,7 @@ If you wish to use a custom domain, enter the following values:
 
 1. Select **Add**, to add the backend settings.
 
-1. In the *Add a routing rule* blade, select **Add** again.
+1. In the *Add a routing rule* window, select **Add** again.
 
 1. Select **Next: Tags**.
 1. Select **Next: Review + create**, and then select **Create**.
@@ -267,14 +266,15 @@ This step is required for internal only container app environments as it allows 
     | Frontend IP Configuration | Select the frontend IP for your Application Gateway. |
 
 1. Under **Private IP address settings** select **Add**.
-1. Select **Add** at the bottom of the blade.
+1. Select **Add** at the bottom of the window.
 
-## Test the container app
+## Verify the container app
 
 ### [Default domain](#tab/default-domain)
+
 1. Find the public IP address for the application gateway on its *Overview* page, or you can search for the address. To search, select *All resources* and enter **my-container-apps-agw-pip** in the search box. Then, select the IP in the search results.
 1. Navigate to the public IP address of the application gateway.
-1. Your request will automatically get routed to the container app. This verifies that the application gateway was successfully created and can successfully connect with the backend container apps.
+1. Your request is automatically routed to the container app, which  verifies the application gateway was successfully created.
 
 ### [Custom domain](#tab/custom-domain)
 
@@ -283,9 +283,9 @@ This step is required for internal only container app environments as it allows 
 
 1. Next, you need to update your DNS records via your domain provider's website. Open a new browser window to add the DNS records. Set the A record type to point to the IP address of the application gateway.
 
-1. In your browser enter your domain. Make sure you use the https protocol. 
+1. In your browser, enter your domain. Make sure you use the https protocol.
 
-1. Your request will automatically get routed to the container app. This verifies that the application gateway was successfully created and can successfully connect with the backend container apps.
+1. Your request is automatically routed to the container app, which  verifies that the application gateway is successfully created.
 
 ---
 
