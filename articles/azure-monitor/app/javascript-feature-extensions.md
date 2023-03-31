@@ -130,7 +130,7 @@ If you want to set the authenticated user context:
 
        When declared, the logs are saved....
 
-     - When you don't declare the tag `parentDataTag`, the plug-in fetches the valid parentid/name attributes of the clicked HTML element directly if it has them.
+     - When you don't declare the tag `parentDataTag`, the plug-in fetches the parentid/name attributes of the clicked HTML element directly if it already has them and they are valid.
       
        When not declared, logs are saved/rendered....
     
