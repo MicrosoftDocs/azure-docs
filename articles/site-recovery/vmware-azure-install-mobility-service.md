@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 12/20/2022
+ms.date: 03/31/2023
 ms.custom: engagement-fy23
 ---
 
