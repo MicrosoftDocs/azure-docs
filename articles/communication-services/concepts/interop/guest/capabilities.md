@@ -39,10 +39,12 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | React to chat message                                                                                               | ❌ |
 |                   | [Data Loss Prevention (DLP)](/microsoft-365/compliance/dlp-microsoft-teams)                                         | ✔️*|
 |                   | [Customer Managed Keys (CMK)](/microsoft-365/compliance/customer-key-overview)                                      | ✔️ |
-| Chat with Teams Interoperability             | receive inline images                                                                    | ✔️** |
-|                   | receive shared files                                                                                                |  ❌ |
+| Chat with Teams Interoperability              | send and receive text messages                                                                    | ✔️ | 
+|                   | send and receive rich text messages                                                                    | ✔️ | 
+|                   | receive inline images                                                                    | ✔️** |
 |                   | receive typing indicators                                                                                                |  ✔️ |
-|                   | receive read receipts                                                                                                |  ✔️ |
+|                   | receive read receipts                                                                                                |  ❌ |
+|                   | receive shared files                                                                                                |  ❌ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |
