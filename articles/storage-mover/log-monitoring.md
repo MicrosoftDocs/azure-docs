@@ -61,13 +61,13 @@ You log data is integrated into Storage Mover's Azure portal user interface (UI)
 
 :::image type="content" source="media/log-monitoring/logs-splash-sml.png" lightbox="media/log-monitoring/logs-splash-lrg.png" alt-text="This image illustrates the selections required to open the Logs pane and close the splash screen." :::
 
-After the **Welcome** window is closed within the main content pane, the **New Query** window is displayed. In the schema and filter pane, ensure that the **Tables** object is selected and that the **StorageMoverCopyLogsFailed** and **StorageMoverJobRunLogs** tables are visible. Using Kusto Query Language (KQL) queries, you can begin extracting log data from the tables displayed within the schema and filter pane. Enter your query into the query editing field and select **Run** as shown in the following screen capture. A simple query example is also provided which will retrieve any .
+After the **Welcome** window is closed within the main content pane, the **New Query** window is displayed. In the schema and filter pane, ensure that the **Tables** object is selected and that the **StorageMoverCopyLogsFailed** and **StorageMoverJobRunLogs** tables are visible. Using Kusto Query Language (KQL) queries, you can begin extracting log data from the tables displayed within the schema and filter pane. Enter your query into the query editing field and select **Run** as shown in the following screen capture. A simple query example is also provided which will retrieve details on any failed copy operations from the previous 60 days.
 
 :::image type="content" source="media/log-monitoring/logs-query-sml.png" lightbox="media/log-monitoring/logs-query-lrg.png" alt-text="This image identifies the panes within the Log Analytics schema and filter page." :::
 
 ```kusto
     StorageMoverCopyLogsFailed 
-    | where TimeGenerated > ago(30d)
+    | where TimeGenerated > ago(60d)
 ```
 
 ### Sample Kusto queries
