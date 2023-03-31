@@ -127,22 +127,22 @@ Replace id with the object ID of the service principal that you want to restore.
    ```
 
    # [C#](#tab/csharp)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/create-directoryobject-from-directory-csharp-snippets.md)]
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/restore-directory-deleteditem-csharp-snippets.md)]
    
    # [JavaScript](#tab/javascript)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/create-directoryobject-from-directory-javascript-snippets.md)]
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/restore-directory-deleteditem-javascript-snippets.md)]
    
    # [Java](#tab/java)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/create-directoryobject-from-directory-java-snippets.md)]
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/restore-directory-deleteditem-java-snippets.md)]
    
    # [Go](#tab/go)
    [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/create-directoryobject-from-directory-go-snippets.md)]
    
    # [PowerShell](#tab/powershell)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/create-directoryobject-from-directory-powershell-snippets.md)]
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/restore-directory-deleteditem-powershell-snippets.md)]
    
    # [PHP](#tab/php)
-   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/create-directoryobject-from-directory-php-snippets.md)]
+   [!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/restore-directory-deleteditem-php-snippets.md)]
    
    ---
 
@@ -184,22 +184,22 @@ DELETE https://graph.microsoft.com/v1.0/directory/deletedItems/{object-id}
 ```
 
 # [C#](#tab/csharp)
-[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/delete-directory-csharp-snippets.md)]
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/csharp/delete-directory-deleteditem-csharp-snippets.md)]
 
 # [JavaScript](#tab/javascript)
-[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/delete-directory-javascript-snippets.md)]
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/javascript/delete-directory-deleteditem-javascript-snippets.md)]
 
 # [Java](#tab/java)
-[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/delete-directory-java-snippets.md)]
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/java/delete-directory-deleteditem-java-snippets.md)]
 
 # [Go](#tab/go)
-[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/delete-directory-go-snippets.md)]
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/go/delete-directory-deleteditem-go-snippets.md)]
 
 # [PowerShell](#tab/powershell)
-[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/delete-directory-powershell-snippets.md)]
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/powershell/delete-directory-deleteditem-powershell-snippets.md)]
 
 # [PHP](#tab/php)
-[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/delete-directory-php-snippets.md)]
+[!INCLUDE [sample-code](~/microsoft-graph/api-reference/v1.0/includes/snippets/php/delete-directory-deleteditem-php-snippets.md)]
 
 ---
 
