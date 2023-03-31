@@ -29,7 +29,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
     
 3. For further assistance, select **Send logs**.
  
-   The **Share the self-hosted integration runtime (IR) logs with Microsoft** window opens.
+   The window titled **'Share the self-hosted integration runtime (IR) logs with Microsoft'** opens.
 
     :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="Screenshot of the &quot;Share the self-hosted integration runtime (IR) logs with Microsoft&quot; window.":::
 
@@ -428,41 +428,34 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
     
     * If the error in the event log is "UnauthorizedAccessException," do the following:
     
-        1. Check the *DIAHostService* logon service account in the Windows service panel.
+    1. Check the *DIAHostService* logon service account in the Windows service panel.
+        :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Screenshot of the Logon service account properties pane.":::
     
-            :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Screenshot of the Logon service account properties pane.":::
-    
-        1. Check to see whether the logon service account has read/write permissions for the *%programdata%\Microsoft\DataTransfer\DataManagementGateway* folder.
-    
-            - By default, if the service logon account hasn't been changed, it should have read/write permissions.
-    
-                :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png" alt-text="Screenshot of the service permissions pane.":::
-    
-            - If you've changed the service logon account, mitigate the issue by doing the following:
-     
-                a. Perform a clean uninstallation of the current self-hosted IR.   
-                b. Install the self-hosted IR bits.  
-                c. Change the service account by doing the following:  
-    
-                 i. Go to the self-hosted IR installation folder, and then switch to the *Microsoft Integration Runtime\4.0\Shared* folder.  
-                 ii. Open a Command Prompt window by using elevated privileges. Replace *\<user>* and *\<password>* with your own username and password, and then run the following command:   
+    1. Check to see whether the logon service account has read/write permissions for the *%programdata%\Microsoft\DataTransfer\DataManagementGateway* folder.
+        - By default, if the service logon account hasn't been changed, it should have read/write permissions.
+        :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/service-permission.png" alt-text="Screenshot of the service permissions pane.":::
+        - If you've changed the service logon account, mitigate the issue by doing the following:
+            a. Perform a clean uninstallation of the current self-hosted IR.
+            b. Install the self-hosted IR bits.
+            c. Change the service account by doing the following:
+                i. Go to the self-hosted IR installation folder, and then switch to the *Microsoft Integration Runtime\4.0\Shared* folder.
+                ii. Open a Command Prompt window by using elevated privileges. Replace *\<user>* and *\<password>* with your own username and password, and then run the following command:   
                     `dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"`  
-                 iii. If you want to change to the LocalSystem account, be sure to use the correct format for this account: `dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""`  
+                iii. If you want to change to the LocalSystem account, be sure to use the correct format for this account: `dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""`  
                     Do *not* use this format: `dmgcmd.exe -SwitchServiceAccount "LocalSystem" ""`     
-                 iv. Optionally, because Local System has higher privileges than Administrator, you can also directly change it in "Services".  
-                 v. You can use a local/domain user for the IR service logon account.            
-    
-                d. Register the integration runtime.
+                iv. Optionally, because Local System has higher privileges than Administrator, you can also directly change it in "Services".  
+                v. You can use a local/domain user for the IR service logon account.
+            d. Register the integration runtime.
     
     * If the error is "Service 'Integration Runtime Service' (DIAHostService) failed to start. Verify that you have sufficient privileges to start system services," do the following:
     
         1. Check the *DIAHostService* logon service account in the Windows service panel.
         
-            :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Screenshot of the &quot;Log On&quot; pane for the service account.":::
+            :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png" alt-text="Screenshot of the 'Log On' pane for the service account.":::
     
         1. Check to see whether the logon service account has **Log on as a service** permission to start the Windows service:
     
-            :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png" alt-text="Screenshot of the &quot;Log on as service&quot; properties pane.":::
+            :::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png" alt-text="Screenshot of the 'Log on as service' properties pane.":::
 
 - **More information**  
 
