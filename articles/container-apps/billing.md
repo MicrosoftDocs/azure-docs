@@ -83,7 +83,7 @@ The first 2 million requests in each subscription per calendar month are free.
 
 <a id="consumption-dedicated"></a>
 
-## Consumption with Dedicated workload profiles plan
+## Consumption with Dedicated workload profiles plan structure
 
 Azure Container Apps Consumption + Dedicated plan structure billing consists of two types of charges:
 
