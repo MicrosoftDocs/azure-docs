@@ -78,7 +78,7 @@ Similarly, the `post_invocation_app_level` is called after function execution. T
 
 ### Create a readme.md
 
-Create a readme.md file in the root folder of your extension project. This file contains the instruction and usage of your extension. This content is displayed as the description in the home page in your PyPI project.
+Create a readme.md file in the root of your extension project. This file contains the instructions and usage of your extension. The readme.md content is displayed as the description in the home page in your PyPI project.
 
 ```markdown
 # Python Worker Extension Timer
