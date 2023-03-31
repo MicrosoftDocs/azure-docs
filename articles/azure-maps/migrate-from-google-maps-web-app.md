@@ -451,7 +451,10 @@ For a Symbol layer, add the data to a data source. Attach the data source to the
 
 You may use Custom images to represent points on a map. The following map uses a custom image to display a point on the map. The point is displayed at latitude: 51.5 and longitude: -0.2. The anchor offsets the position of the marker, so that the point of the pushpin icon aligns with the correct position on the map.
 
-<center>![yellow pushpin image](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>yellow-pushpin.png</center>
+<center>
+
+![yellow pushpin image](media/migrate-google-maps-web-app/yellow-pushpin.png)<br/>
+yellow-pushpin.png</center>
 
 #### Before: Google Maps
 
