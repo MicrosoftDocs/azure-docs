@@ -9,7 +9,6 @@ ms.subservice: calling
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-web
 ---
 # Observe user's capabilities
 Do I have permission to turn video on, do I have permission to turn mic on, do I have permission to share screen? Those are some examples of participant capabilities that you can learn from the capabilities API. Learning the capabilities can help build a user interface that only shows the buttons related to the actions the local user has permissions to.
@@ -20,9 +19,8 @@ Do I have permission to turn video on, do I have permission to turn mic on, do I
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quick start to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-::: zone pivot="platform-web"
+## Supported Platform - Web
 [!INCLUDE [Capabilities JavaScript](./includes/capabilities/capabilities-web.md)]
-::: zone-end
 
 ## Next steps
 - [Learn how to manage video](./manage-video.md)
