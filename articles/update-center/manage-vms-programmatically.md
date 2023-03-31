@@ -4,7 +4,7 @@ description: This article tells how to use update management center (preview) in
 ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/23/2023
+ms.date: 03/31/2023
 ms.topic: conceptual
 ---
 
