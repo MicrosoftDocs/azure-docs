@@ -89,14 +89,14 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
      1. Download the [Azure Files GitHub](../../storage/files/storage-files-identity-ad-ds-enable.md#download-azfileshybrid-module) content and execute the [script](../../storage/files/storage-files-identity-ad-ds-enable.md#run-join-azstorageaccount).   
      This script creates either a Computer Account or Service Account in Active Directory.  The user running the script must have the following properties: 
          * The user running the script must have permission to create objects in the Active Directory Domain containing the SAP servers. Typically, a domain administrator account is used such as **SAPCONT_ADMIN@SAPCONTOSO.local** 
-         * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (AAD).  An example of this would be to open the Azure portal and navigate to AAD users and check that the user **SAPCONT_ADMIN@SAPCONTOSO.local** exists and verify the AAD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.
+         * Before executing the script confirm that this Active Directory Domain user account is synchronized with Azure Active Directory (Azure AD).  An example of this would be to open the Azure portal and navigate to Azure AD users and check that the user **SAPCONT_ADMIN@SAPCONTOSO.local** exists and verify the Azure AD user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.
          * Grant the **Contributor RBAC** role to this Azure Active Directory user account for the Resource Group containing the storage account holding the File Share.  In this example, the user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** is granted **Contributor Role** to the respective Resource Group 
          * The script should be executed while logged on to a Windows server using an Active Directory Domain user account with the permission as specified above, in this example the account **SAPCONT_ADMIN@SAPCONTOSO.local** would be used.
          >[!IMPORTANT]
          > When executing the PowerShell script command **Connect-AzAccount**, it is highly recommended to enter the Azure Active Directory user account that corresponds and maps to the Active Directory Domain user account used to logon to a Windows Server, in this example this is the user account **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**
          >
          In this example scenario, the Active Directory Administrator would logon to the Windows Server as **SAPCONT_ADMIN@SAPCONTOSO.local** and when using the **PS command Connect-AzAccount** connect as user **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**.  Ideally the Active Directory Administrator and the Azure Administrator should work together on this task.
-         ![PowerShell-script-1](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)Screenshot of the PowerShell script creating local AD account.
+         ![Screenshot of the PowerShell script creating local AD account.](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png)
 
          ![smb-configured-screenshot](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)Azure portal screenshot after successful PowerShell script execution. 
 
@@ -108,7 +108,6 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
          > [!IMPORTANT]
          > This step must be completed before the SAPInst installation or it will be difficult or impossible to change ACLs after SAPInst has created directories and files on the File Share
          >
-         ![ACL Properties](media/virtual-machines-shared-sap-high-availability-guide/smb-share-properties-1.png)Windows Explorer screenshot of the assigned user rights.
 
          The following screenshots show how to add Computer machine accounts by selecting the Object Types -> Computers
          ![Windows Server screenshot of adding the cluster name to the local AD](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-2.png)Windows Server screenshot of adding the cluster name to the local AD.
@@ -118,7 +117,7 @@ Prerequisites for the installation of SAP NetWeaver High Availability Systems on
          ![Screenshot of adding AD computer account - Step 3](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-4.png)Screenshot of adding AD computer account - Step 3
          ![Screenshot of computer account access properties](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-5.png)Screenshot of computer account access properties.
 
-     8. Ifnecessary move the Computer Account created for Azure Files to an Active Directory Container that doesn't have account expiry.  The name of the Computer Account will be the short name of the storage account 
+     8. If necessary move the Computer Account created for Azure Files to an Active Directory Container that doesn't have account expiry.  The name of the Computer Account will be the short name of the storage account 
 
      
      > [!IMPORTANT]
@@ -145,9 +144,9 @@ The PowerShell scripts downloaded in step 3.c contain a debug script to conduct 
 ```powershell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
-![PowerShell script to validate configuration.](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-2.png)PowerShell screenshot of the debug script output.
+![Screenshot of PowerShell script to validate configuration.](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-2.png)PowerShell screenshot of the debug script output.
 
-![PowerShell script to retrieve technical info.](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-1.png)The following screen shows the technical information to validate a successful domain join.
+![Screenshot of PowerShell script to retrieve technical info.](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-1.png)The following screen shows the technical information to validate a successful domain join.
 ## Useful links & resources
 
 * SAP Note [2273806][2273806] SAP support for storage or file system related solutions 
@@ -175,7 +174,7 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 
 ### <a name="5121771a-7618-4f36-ae14-ccf9ee5f2031"></a>SAP Application Servers on WSFC nodes using Azure Files SMB
 
-![Sreenshot of HA setup with additional application servers.](media/virtual-machines-shared-sap-high-availability-guide/HA-AFSMB+AS.PNG)SAP application Servers locally installed.
+![Screenshot of HA setup with additional application servers.](media/virtual-machines-shared-sap-high-availability-guide/HA-AFSMB+AS.PNG)SAP application Servers locally installed.
 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
@@ -187,7 +186,7 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 > Using Azure Files SMB for any SQL Server volume is not supported.
 > 
 
-![SAP ASCS/SCS on SQL Server Always On nodes using Azure Screeshot of Azure Files SMB with local SQL Server setup.](media/virtual-machines-shared-sap-high-availability-guide/ha-sql+ascs-af-smb.png)SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB
+![Diagram of SAP ASCS/SCS on SQL Server Always On nodes using Azure Screenshot of Azure Files SMB with local SQL Server setup.](media/virtual-machines-shared-sap-high-availability-guide/ha-sql+ascs-af-smb.png)SAP ASCS/SCS on SQL Server Always On nodes using Azure Files SMB
 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
