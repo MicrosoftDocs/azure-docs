@@ -25,7 +25,7 @@ New versions of the Azure Virtual Desktop Agent are installed automatically. Whe
 
 ## Version 1.0.6298.2100
 
-This update was released end of March 2023 and includes the following changes:
+This update was released at the end of March 2023 and includes the following changes:
 
 - Health check reliability improved.
 - Reliability issues in agent upgrade fixed.
