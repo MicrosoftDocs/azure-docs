@@ -1,30 +1,30 @@
 ---
-title: Troubleshoot Azure Database for PostgreSQL Flexible Server CLI errors
+title: How to request quota increase for Azure Database PostgreSQL Flexible Server resources
 description: Learn how to request a quota increase for Azure Database for PostgreSQL Flexible Server. You will also learn how to enable a subscription to access a region..
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author:kabharati
+ms.author: kabharati
 ms.reviewer: maghan
 ms.topic: how-to
-ms.date: 3/31/2023
+ms.date: 03/31/2023
 ---
 
 # Request quota increases for Azure Database PostgreSQL Flexible Server
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The resources in Azure Database for PostgreSQL FLexible Server have default quotas/limits. However, there may be a case where your workload needs more quota than the default value. In such case, you must reach out to the Azure PostgreSQL DB team to request a quota increase. This article explains how to request a quota increase for Azure Database for PostgreSQL FLexible Server resources. You will also learn how to enable a subscription to access a region.
+The resources in Azure Database for PostgreSQL Flexible Server have default quotas/limits. However, there may be a case where your workload needs more quota than the default value. In such case, you must reach out to the Azure PostgreSQL DB team to request a quota increase. This article explains how to request a quota increase for Azure Database for PostgreSQL FLexible Server resources. 
 
 ## Create a new support request
 
-To request a quota increase, you must create a new support request with your workload details. The Azure Database for PostgreSQL Flexible Server  team will then evaluate your request and approve it. Use the following steps to create a new support request from the Azure portal:
+To request a quota increase, you must create a new support request with your workload details. The Azure Database for PostgreSQL Flexible Server team will then process your request and approve or deny it. Use the following steps to create a new support request from the Azure portal:
 
 1. Sign into the Azure portal.
 
 2. From the left-hand menu, select **Help + support** and then select **Create a support request**.
 
-3. In the **Problem Description** tab fill the following details:
+3. In the **Problem Description** tab, fill the following details:
 
-   * For **Summary**, Provide a short description of your request such as your workload, why the default values aren’t sufficient along with any error messages you are observing.
+   * For **Summary**, Provide a short description of your request such as your workload, why the default values aren’t sufficient along with any error messages you're observing.
    * For **Issue type**, select **Service and subscription limits (quotas)**
    * For **Subscription**, select the subscription for which you want to increase the quota.
    * For **Quota type**, select **Azure Database for PostgreSQL Flexible Server**
@@ -38,7 +38,7 @@ To request a quota increase, you must create a new support request with your wor
 
    *    In  **Request details** click **Enter details** and select the relevant **Quota Type**
 
-   provide the requested information for your specific quota request like Location, Series, New Quota (in vCores) etc
+   provide the requested information for your specific quota request like Location, Series, New Quota.
 
    * **File upload**: Upload the diagnostic files or any other files that you think are relevant to the support request. To learn more on the file upload guidance, see the [Azure support](../../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) article.
 
@@ -52,7 +52,7 @@ To request a quota increase, you must create a new support request with your wor
 
 7. Select **Next: Review+Create**. Validate the information provided and select **Create** to create a support request.
 
-Within 24-48 hours, the Azure Database for PostgreSQL Flexible Server DB support team will evaluate your request and get back to you.
+The Azure Database for PostgreSQL Flexible Server DB support team process all quota requests in 24-48 hours.
 
 
 
