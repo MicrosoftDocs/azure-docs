@@ -489,6 +489,9 @@ Users are skipped from synchronization. The scoping step includes the following 
 If SMS sign-in is enabled for a user, they will be skipped by the provisioning service.
 
 **Solution**
+
+Disable SMS Sign-in for the users. The script below shows how you can disable SMS Sign-in using PowerShell. 
+
 ```
 ##### Disable SMS Sign-in options for the users
 
