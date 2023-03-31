@@ -71,12 +71,28 @@ use_service_endpoint = true
 use_private_endpoint = true
 enable_firewall_for_keyvaults_and_storage = true
 
-#management_dns_subscription_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-#management_dns_resourcegroup_name="MGMT-DNS"
-#use_custom_dns_a_registration=true
 ```
 
+### DNS considerations
+
+When planning the DNS configuration for the deployment environment, consider the following questions:
+ - Is there an existing Private DNS that the solutions needs to integrate with?   
+ - Do you need to use a custom Private DNS zone for the deployment environment?
+ - Are you going to use predefined IP addresses for the Virtual Machines or let Azure assign them dynamically?
+
+You can integrate with exiting Private DNS Zones by providing the following values in your tfvars files:
+
+```tfvars
+management_dns_subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+#management_dns_resourcegroup_name = "RESOURCEGROUPNAME"
+use_custom_dns_a_registration = false
+```
+
+Without these values a Private DNS Zone will be created in the SAP Library resource group. 
+
 For more information, see the [in-depth explanation of how to configure the deployer](configure-control-plane.md).
+
+
 
 ## SAP Library configuration
 
@@ -85,6 +101,10 @@ The SAP library provides storage for SAP installation media, Bill of Material (B
 ## Workload zone planning
 
 Most SAP application landscapes are partitioned in different tiers. In SDAF these are called workload zones, for example, you might have different workload zones for development, quality assurance, and production. See [workload zones](deployment-framework.md#deployment-components). 
+
+The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-[NETWORK]-INFRASTRUCTURE`, for example, `DEV-WEEU-SAP01-INFRASTRUCTURE` for a development environment hosted in the West Europe region using the SAP01 virtual network or `PRD-WEEU-SAP02-INFRASTRUCTURE` for a production environment hosted in the West Europe region using the SAP02 virtual network. 
+
+The `SAP01` and `SAP02` define the logical names for the Azure virtual networks, these can be used to further partition the environments. If you need two Azure Virtual Networks for the same workload zone, for example, for a multi subscription scenario where you host development environments in two subscriptions, you can use the different logical names for each virtual network. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` and `DEV-WEEU-SAP02-INFRASTRUCTURE`.
 
 The workload zone provides the following services for the SAP Applications:
 

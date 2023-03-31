@@ -1,11 +1,9 @@
 ---
 title: Subscribe to Azure Kubernetes Service events with Azure Event Grid
 description: Use Azure Event Grid to subscribe to Azure Kubernetes Service events
-services: container-service
-author: zr-msft
 ms.topic: article
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 07/12/2021
-ms.author: zarhoads
 ---
 
 # Quickstart: Subscribe to Azure Kubernetes Service (AKS) events with Azure Event Grid

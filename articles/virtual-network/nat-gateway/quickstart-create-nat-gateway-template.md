@@ -5,13 +5,13 @@ description: This quickstart shows how to create a NAT gateway by using the Azur
 services: load-balancer
 author: asudbring
 manager: KumudD
-# Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs
+# Customer intent: I want to create a NAT gateway by using an Azure Resource Manager template so that I can provide outbound connectivity for my virtual machines.
 ---
 
 # Quickstart: Create a NAT gateway - ARM template

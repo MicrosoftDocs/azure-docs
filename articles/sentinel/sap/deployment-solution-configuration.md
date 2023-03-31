@@ -27,6 +27,8 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
+
 1. [Prepare SAP environment](preparing-sap.md)
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
@@ -94,9 +96,7 @@ By default, all analytics rules provided in the Microsoft Sentinel solution for 
 3. Sensitive privileged user logon
 4. Sensitive privileged user makes a change in other
 5. Sensitive privilege user password change and login
-6. Brute force (RFC)
-7. Function module tested
-8. The SAP audit log monitoring analytics rules
+6. Function module tested
 
 ## Enable or disable the ingestion of specific SAP logs
 

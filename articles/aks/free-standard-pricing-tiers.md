@@ -1,15 +1,20 @@
 ---
 title: Azure Kubernetes Service (AKS) Free and Standard pricing tiers for cluster management
 description: Learn about the Azure Kubernetes Service (AKS) Free and Standard pricing tiers for cluster management
-services: container-service
 ms.topic: conceptual
-ms.date: 01/20/2023
+ms.date: 02/17/2023
 ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Free and Standard pricing tiers for Azure Kubernetes Service (AKS) cluster management
 
 Azure Kubernetes Service (AKS) is now offering two pricing tiers for cluster management: the **Free tier** and the **Standard tier**.
+
+> [!IMPORTANT]
+>
+> **Standard tier** is currently not available in Azure API 2023-01-01 due to a [critical bug](https://github.com/Azure/AKS/issues/3481). To enable the Uptime SLA feature in your cluster, you'll use the existing **Paid tier** and the `--uptime-sla` parameter.
+>
+> Alternatively, you can select the **Standard tier** or **Free tier** on Azure portal when creating or updating an AKS cluster.
 
 |                  |Free tier|Standard tier|
 |------------------|---------|--------|
@@ -20,27 +25,9 @@ Azure Kubernetes Service (AKS) is now offering two pricing tiers for cluster man
 
 For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
-## Uptime SLA
+## Uptime SLA terms and conditions
 
-> [!IMPORTANT]
->
-> Uptime SLA has been repositioned as a default feature included with the Standard tier.
->
-> The repositioning will result in the following API changes:
->
-> |         |Prior to 2023-01-01 API|Starting from 2023-01-01 API| Starting from 2023-07-01 API|
-> |----------|-----------|------------|------------|
-> |ManagedClusterSKUName|"Basic"|"Basic" <br> "Base"|"Base"|
-> |ManagedClusterSKUTier|"Free" <br> "Paid"|"Free" <br> "Paid" <br> "Standard"|"Free" <br> "Standard"|
->
-> "Basic" and "Paid" will be removed in the 2023-07-01 API version, and this will be a breaking change in API version 2023-07-01 or newer. If you use automated scripts, CD pipelines, ARM templates, Terraform, or other third-party tooling that relies on the above parameters, please be sure to make the necessary changes before upgrading to the 2023-07-01 or newer API version. From API version 2023-01-01 and newer, you can start transitioning to the new API parameters "Base" and "Standard".
->
-
-For more information, see [SLA for AKS](https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_1/).
-
-### Uptime SLA terms and conditions
-
-The Uptime SLA feature is included in the Standard tier and is enabled per cluster. For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
+The Uptime SLA feature is included in the Paid tier and is enabled per cluster. For more information on pricing, see the [AKS pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 
 ## Region availability
 
@@ -51,7 +38,10 @@ The Uptime SLA feature is included in the Standard tier and is enabled per clust
 
 [Azure CLI](/cli/azure/install-azure-cli) version 2.8.0 or later and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Creating a new cluster in the Free tier or Standard tier
+## Create a new cluster in the Free tier or Paid tier
+
+> [!IMPORTANT]
+> `--tier standard` and `--tier free` are currently unavailable in Azure CLI 2.46.0 due to a [critical bug](https://github.com/Azure/AKS/issues/3481). To enable the Uptime SLA feature, use the commands below.
 
 Use the Azure CLI to create a new cluster on an AKS pricing tier. You can create your cluster in an existing resource group or create a new one. To learn more about resource groups and working with them, see [managing resource groups using the Azure CLI][manage-resource-group-cli].
 
@@ -62,24 +52,15 @@ Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The c
 
 az aks create --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
 
-# Create a new AKS cluster in the Standard tier
+# Create a new AKS cluster in the Paid tier
 
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla
 ```
 
-> [!NOTE]
->
-> The outputs to `--no-uptime-sla` and `--uptime-sla` correspond to API properties prior to the 2023-01-01 API version. Starting in Azure CLI 2.46.0:
->
-> * `--tier free` will correspond to the existing `--no-uptime-sla` parameter.
-> * `--tier standard` will correspond to the existing `--uptime-sla` parameter.
-> * The CLI output "Basic" for ManagedClusterSKUName will correspond to the API property: "Base".
-> * The CLI output "Free" or "Paid" for ManagerClusterSKUTier will correspond to the API properties: "Free" or "Standard".
-
 Once the deployment completes, it returns JSON-formatted information about your cluster:
 
 ```output
-# Sample output for `--no-uptime-sla`
+# Sample output for --no-uptime-sla
 
   },
   "sku": {
@@ -87,11 +68,11 @@ Once the deployment completes, it returns JSON-formatted information about your 
     "tier": "Free"
   },
 
-# Sample output for `uptime-sla`
+# Sample output for --uptime-sla
 
   },
   "sku": {
-    "name": "Basic",
+    "name": "Base",
     "tier": "Paid"
   },
 ```
@@ -110,12 +91,12 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-s
 az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
 ```
 
-This process takes several minutes to complete. When finished, the following example JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA.
+This process takes several minutes to complete. When finished, the following example JSON snippet shows the Paid tier for the SKU, indicating your cluster is enabled with Uptime SLA.
 
 ```output
   },
   "sku": {
-    "name": "Basic",
+    "name": "Base",
     "tier": "Paid"
   },
 ```

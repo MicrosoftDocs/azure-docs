@@ -106,9 +106,9 @@ Azure Event Grid uses a pay-per-event pricing model, so you only pay for what yo
   Respond to storage blob events by using Event Grid.
 * [Create and subscribe to custom events](custom-event-quickstart.md)  
   Jump right in and start sending your own custom events to any endpoint using the Azure Event Grid quickstart.
-* [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [Using Logic Apps as an Event Handler](monitor-virtual-machine-changes-logic-app.md)  
   A tutorial on building an app using Logic Apps to react to events pushed by Event Grid.
-* [Stream big data into a data warehouse](event-grid-event-hubs-integration.md)  
+* [Stream big data into a data warehouse](event-hubs-integration.md)  
   A tutorial that uses Azure Functions to stream data from Event Hubs to Azure Synapse Analytics.
 * [Event Grid REST API reference](/rest/api/eventgrid)  
   Provides reference content for managing Event Subscriptions, routing, and filtering.

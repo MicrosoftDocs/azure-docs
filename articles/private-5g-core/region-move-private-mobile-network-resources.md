@@ -47,13 +47,13 @@ The following list contains the data that will be lost over the region move. Bac
 > 
 > If you want your source deployment to stay operational during the region move, skip this step and move to [Generate template](#generate-template). You'll need to make additional modifications to the template in [Prepare template](#prepare-template).
 
-Before moving your resources, you'll need to delete all SIMs in your deployment. You'll also need to uninstall all packet core instances you want to move by changing their **Custom ARC location** field to **None**. 
+Before moving your resources, you'll need to delete all SIMs in your deployment. You'll also need to uninstall all packet core instances you want to move by changing their **Azure Arc Custom Location** field to **None**. 
 
 1. Follow [Delete SIMs](manage-existing-sims.md#delete-sims) to delete all the SIMs in your deployment.
 1. For each site that you want to move, follow [Modify the packet core instance in a site](modify-packet-core.md) to modify your packet core instance with the changes below. You can ignore the sections about attaching and modifying data networks.
 
-    1. In *Modify the packet core configuration*, make a note of the custom location value in the **Custom ARC location** field.
-    1. Set the **Custom ARC location** field to **None**.
+    1. In *Modify the packet core configuration*, make a note of the custom location value in the **Azure Arc Custom Location** field.
+    1. Set the **Azure Arc Custom Location** field to **None**.
     1. In *Submit and verify changes*, the packet core will be uninstalled.
 
 ### Generate template
@@ -85,10 +85,10 @@ You'll need to customize your template to ensure all your resources are correctl
 
 ### Deploy template
 
-1. [Create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) in the target region. Use the resource group name you defined in [Prerequisites](#prerequisites).
+1. [Create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md) in the target region. Use the resource group name you defined in [Prerequisites](#prerequisites).
 1. Deploy the *template.json* file you downloaded in [Generate template](#generate-template).
     
-    - If you want to use the Azure portal, follow the instructions to deploy resources from a custom template in [Deploy resources with ARM templates and Azure portal](/azure/azure-resource-manager/templates/deploy-portal).
+    - If you want to use the Azure portal, follow the instructions to deploy resources from a custom template in [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md).
     - If you want to use PowerShell, navigate to the folder containing the *template.json* file and deploy using the command:
 
         ```azurepowershell
@@ -101,7 +101,7 @@ You'll need to customize your template to ensure all your resources are correctl
 
 You can now install your packet core instances in the new region.
 
-For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to reconfigure your packet core custom location. In *Modify the packet core configuration*, set the **Custom ARC location** field to the custom location value you noted down in [Remove SIMs and custom location](#remove-sims-and-custom-location). You can ignore the sections about attaching and modifying data networks.
+For each site in your deployment, follow [Modify the packet core instance in a site](modify-packet-core.md) to reconfigure your packet core custom location. In *Modify the packet core configuration*, set the **Azure Arc Custom Location** field to the custom location value you noted down in [Remove SIMs and custom location](#remove-sims-and-custom-location). You can ignore the sections about attaching and modifying data networks.
 
 ## Restore backed up deployment information
 
@@ -126,5 +126,5 @@ Use [Azure Monitor](monitor-private-5g-core-with-log-analytics.md) or the [packe
 
 ## Next steps
 
-- If you no longer require a deployment in the source region, [delete the original resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal).
+- If you no longer require a deployment in the source region, [delete the original resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).
 - Learn more about [reliability in Azure Private 5G Core](reliability-private-5g-core.md).

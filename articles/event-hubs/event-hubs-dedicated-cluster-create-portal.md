@@ -1,18 +1,19 @@
 ---
-title: Create an Event Hubs dedicated cluster using the Azure portal
+title: Create an Event Hubs Dedicated cluster using the Azure portal
 description: In this quickstart, you learn how to create an Azure Event Hubs cluster using Azure portal.
 ms.topic: quickstart
 ms.date: 02/07/2023
 ms.custom: mode-ui
 ---
 
-# Quickstart: Create a dedicated Azure Event Hubs cluster using Azure portal 
-Event Hubs clusters offer **single-tenant deployments** for customers with the most demanding streaming needs. This offering has a guaranteed **99.99%** SLA, which is available only in our dedicated pricing tier. An [Event Hubs cluster](event-hubs-dedicated-overview.md) can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within a cluster include all features of the premium offering and more, but without any ingress limits. The dedicated offering also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
+# Quickstart: Create a Dedicated Azure Event Hubs cluster using Azure portal 
+Event Hubs clusters offer **single-tenant deployments** for customers with the most demanding streaming needs. This offering has a guaranteed **99.99%** SLA, which is available only in our Dedicated pricing tier. An [Event Hubs cluster](event-hubs-dedicated-overview.md) can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within a cluster include all features of the premium offering and more, but without any ingress limits. The Dedicated offering also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md).
 
 Dedicated clusters are provisioned and billed by **capacity units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase up to 10 CUs for a cluster in the Azure portal. If you need a cluster larger than 10 CU, you can submit an Azure support request to scale up your cluster after its creation. In this quickstart, we'll walk you through creating a 1 CU Event Hubs cluster through the Azure portal.
 
 > [!NOTE]
-> This [Azure Portal](https://aka.ms/eventhubsclusterquickstart) self-serve experience is currently in **preview**. If you have any questions about the dedicated offering, reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
+> - The Dedicated tier isn't available in all regions. Try to create a Dedicated cluster in the Azure portal and see supported regions in the **Location** drop-down list on the **Create Event Hubs Cluster** page.
+> - This [Azure Portal](https://aka.ms/eventhubsclusterquickstart) self-serve experience is currently in **preview**. If you have any questions about the Dedicated offering, reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
 
 
 ## Prerequisites
@@ -71,11 +72,11 @@ To create a cluster in your resource group using the Azure portal, complete the 
         :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png" alt-text="Image showing the Create namespace in the cluster page.":::
 3. Once your namespace is created, you can [create an event hub](event-hubs-create.md#create-an-event-hub) as you would normally create one within a namespace. 
 
-## Scale Event Hubs dedicated cluster
+## Scale a Dedicated cluster
 
 For clusters created with the **Support Scaling** option set, use the following steps to scale out or scale in your cluster. 
 
-1. On the **Event Hubs Cluster** page for your dedicated cluster, select **Scale** on the left menu.
+1. On the **Event Hubs Cluster** page for your Dedicated cluster, select **Scale** on the left menu.
 
     :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/scale-page.png" alt-text="Screenshot showing the Scale tab of the Event Hubs Cluster page.":::
 1. Use the slider to increase (scale out) or decrease (scale in) capacity units assigned to the cluster. 
@@ -95,12 +96,12 @@ For clusters created with the **Support Scaling** option set, use the following 
     5. For **Problem type**, select **Quota or Configuration changes**.
     6. For **Problem subtype**, select one of the following values from the drop-down list:
         1. Select **Dedicated Cluster SKU requests** to request for the feature to be supported in your region.
-        2. Select **Scale up or down a dedicated Cluster** if you want to scale up or scale down your dedicated cluster. 
+        2. Select **Scale up or down a Dedicated Cluster** if you want to scale up or scale down your Dedicated cluster. 
     7. For **Subject**, describe the issue.
 
         ![Support ticket page](./media/event-hubs-dedicated-cluster-create-portal/support-ticket.png)
 
- ## Delete a dedicated cluster
+ ## Delete a Dedicated cluster
  
 1. To delete the cluster, select **Delete** from the toolbar on the **Event Hubs Cluster** page for your cluster. 
 

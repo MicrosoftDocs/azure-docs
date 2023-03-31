@@ -32,7 +32,7 @@ If you already have a Load Testing resource, skip this section and continue to [
 
 To create a Load Testing resource:
 
-[!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
 ## Create a load test
 

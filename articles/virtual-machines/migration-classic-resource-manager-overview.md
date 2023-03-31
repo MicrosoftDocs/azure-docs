@@ -8,6 +8,7 @@ ms.subservice: classic-to-arm-migration
 ms.topic: conceptual
 ms.date: 1/25/2023
 ms.author: oriwolman
+ms.custom: compute-evergreen
 
 ---
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager

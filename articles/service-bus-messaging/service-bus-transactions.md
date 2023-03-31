@@ -41,6 +41,10 @@ The disposition of the message (complete, abandon, dead-letter, defer) then occu
 > [!IMPORTANT]
 > Azure Service Bus doesn't retry an operation in case of an exception when the operation is in a transaction scope.
 
+## Operations that do not enlist in transaction scopes
+
+Be aware that message processing code that calls into databases and other services like Cosmos DB does not automatically enlist those downstream resources into the same transactional scope. For more information on how to handle these scenarios, look into the [guidelines on idempotent message processing](/azure/architecture/reference-architectures/containers/aks-mission-critical/mission-critical-data-platform#idempotent-message-processing).
+
 ## Transfers and "send via"
 
 To enable transactional handover of data from a queue or topic to a processor, and then to another queue or topic, Service Bus supports *transfers*. In a transfer operation, a sender first sends a message to a *transfer queue or topic*, and the transfer queue or topic immediately moves the message to the intended destination queue or topic using the same robust transfer implementation that the autoforward capability relies on. The message is never committed to the transfer queue or topic's log in a way that it becomes visible for the transfer queue or topic's consumers.

@@ -17,6 +17,8 @@
     href: using-and-managing-discovery.md
   - name: Understand billable assets
     href: understanding-billable-assets.md
+  - name: Labeling inventory assets 
+    href: labeling-inventory-assets.md
   - name: Inventory filters 
     expanded: true
     items: 

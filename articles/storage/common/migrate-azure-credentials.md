@@ -9,12 +9,7 @@ ms.date: 12/07/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.custom:
-  - devx-track-csharp
-  - passwordless-java
-  - passwordless-js
-  - passwordless-python
-  - passwordless-dotnet
+ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: csharp
 ---
 
@@ -247,7 +242,5 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* For more information on authorizing access with managed identity, visit [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-managed-identity.md).
-* [Authorize with Azure roles](../blobs/authorize-access-azure-active-directory.md)
+* [Authorize access to blobs using Azure Active Directory](../blobs/authorize-access-azure-active-directory.md)
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
-* To learn more about authorizing from a web application, visit [Authorize from a native or web application](./storage-auth-aad-app.md)

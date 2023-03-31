@@ -35,7 +35,7 @@ Select the link in each widget to drill down for more information in your sensor
 
 ### Validate connectivity status
 
-Verify that your sensor is successfully connected to the Azure portal directly from the sensor's **Overview** page. 
+Verify that your sensor is successfully connected to the Azure portal directly from the sensor's **Overview** page.
 
 If there are any connection issues, a disconnection message is shown in the **General Settings** area on the **Overview** page, and a **Service connection error** warning appears at the top of the page in the :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages** area. For example:
 
@@ -49,70 +49,53 @@ If there are any connection issues, a disconnection message is shown in the **Ge
 
     :::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
 
-## Manage sensor activation files
+## Download software for OT sensors
 
-Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
+You may need to download software for your OT sensor if you're [installing Defender for IoT software](ot-deploy/install-software-ot-sensor.md) on your own appliances, or [updating software versions](update-ot-software.md).
 
-A unique activation file is uploaded to each sensor that you deploy. For more information about when and how to use a new file, see [Upload new activation files](#upload-new-activation-files). If you can't upload the file, see [Troubleshoot activation file upload](#troubleshoot-activation-file-upload).
+In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) in the Azure portal, use one of the following options:
 
-### About activation files for locally connected sensors
+- For a new installation, select **Getting started** > **Sensor**. Select a version in the **Purchase an appliance and install software** area, and then select **Download**.
 
-Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears in the System Messages window in the top-right corner of the console. The warning remains until after you've updated the activation file.
+- If you're updating your OT sensor, use the options in the **Sites and sensors** page > **Sensor update (Preview)** menu.
 
-You can continue to work with Defender for IoT features even if the activation file has expired.
-You can continue to work with Defender for IoT features even if the activation file has expired.
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-### About activation files for cloud-connected sensors
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-Sensors that are cloud connected aren't limited by time periods for their activation file. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
+## Upload a new activation file
 
-### Upload new activation files
+Each OT sensor is onboarded as a cloud-connected or locally-managed OT sensor and activated using a unique activation file. For cloud-connected sensors, the activation file is used to ensure the connection between the sensor and Azure.
 
-You might need to upload a new activation file for an onboarded sensor when:
-
-- An activation file expires on a locally connected sensor.
-
-- You want to work in a different sensor management mode.
-
-- For sensors connected via an IoT Hub ([legacy](architecture-connections.md)), you want to assign a new Defender for IoT hub to a cloud-connected sensor.
+You'll need to upload a new activation file to your senor if you want to switch sensor management modes, such as moving from a locally-managed sensor to a cloud-connected sensor. Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
 
 **To add a new activation file:**
 
-1. Go to the Azure portal for Defender for IoT.
-1. Use the search bar to find the sensor you need.  
+1. In [Defender for IoT on the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) > **Sites and sensors**, locate and [delete](how-to-manage-sensors-on-the-cloud.md#sensor-maintenance-and-troubleshooting) your OT sensor.
 
-1. Select the three dots (...) on the row and select **Delete sensor**.
+1. Select **Onboard OT sensor > OT** to onboard the sensor again from scratch. For more information, see [Onboard OT sensors](onboard-sensors.md)
 
-1. Onboard the sensor again by selecting **Getting Started**>  **Set up OT/ICS Security** > **Register this sensor with Microsoft Defender for IoT**.
+1. On the **sites and sensors** page locate the sensor you just added. 
 
-1. Go to the **Sites and sensors** page.
-
-1. Use the search bar to find the sensor you just added, and select it.
-1. Select the three dots (...) on the row and select **Download activation file**.
+1. Select the three dots (...) on the sensor's row and select **Download activation file**. Save the file in a location accessible to your sensor.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-1. Save the file.
+1. Sign in to the Defender for IoT sensor console and select **System Settings** > **Sensor management** > **Subscription & Activation Mode**.
 
-1. Sign in to the Defender for IoT sensor console.
+1. Select **Upload** and browse to the file that you downloaded from the Azure portal.
 
-1. Select **System Settings** > **Sensor management** > **Subscription & Activation Mode**.
-
-1. Select **Upload** and select the file that you saved.
-
-1. Select **Activate**.
+1. Select **Activate** to upload your new activation file.
 
 ### Troubleshoot activation file upload
 
 You'll receive an error message if the activation file couldn't be uploaded. The following events might have occurred:
 
-- **For locally connected sensors**: The activation file isn't valid. If the file isn't valid, go to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
-
-- **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that the required endpoints are allowed in the firewall and/or proxy.
+- **The sensor can't connect to the internet:** Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that the required endpoints are allowed in the firewall and/or proxy.
 
     For OT sensors version 22.x, download the list of required endpoints from the  **Sites and sensors** page on the Azure portal. Select an OT sensor with a supported software version, or a site with one or more supported sensors. And then select **More actions** > **Download endpoint details**. For sensors with earlier versions, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
-- **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the **Sites and Sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
+- **The activation file is valid but Defender for IoT rejected it:** If you can't resolve this problem, you can download another activation from the **Sites and Sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
 
 ## Manage certificates
 
@@ -317,7 +300,7 @@ You can restore a sensor from a backup file using the sensor console or the CLI.
 
 For more information, see [CLI command reference from OT network sensors](cli-ot-sensor.md).
 
-**To restore from the sensor console:**
+# [Restore from the sensor console](#tab/restore-from-sensor-console)
 
 To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
@@ -339,9 +322,11 @@ To restore a backup from the sensor console, the backup file must be accessible 
 
      1. When the restore process is complete, select **Close**.
 
-**To restore the latest backup file by using the CLI:**
+# [Restore the latest backup file by using the CLI](#tab/restore-using-cli)
 
 - Sign in to an administrative account and enter `cyberx-xsense-system-restore`.
+
+---
 
 ## Configure SMTP settings
 
@@ -351,7 +336,7 @@ You'll need an SMTP mail server configured to enable email alerts about disconne
 
 **Prerequisites**:
 
-Make sure you can reach the SMTP server from the [sensor's management port](./best-practices/understand-network-architecture.md). 
+Make sure you can reach the SMTP server from the [sensor's management port](./best-practices/understand-network-architecture.md).
 
 **To configure an SMTP server on your sensor**:
 
