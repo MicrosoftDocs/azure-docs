@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/15/2022
+ ms.date: 03/31/2023
  ms.author: rogarana
  ms.custom: include file, devx-track-azurecli
 ---
