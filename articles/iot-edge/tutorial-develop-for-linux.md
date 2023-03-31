@@ -4,7 +4,7 @@ description: This tutorial walks through setting up your development machine and
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/30/2023
+ms.date: 03/31/2023
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -36,16 +36,15 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 A development machine:
 
 * Use your own computer or a virtual machine.
-* Your development machine must support [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) for running a container engine that you'll install in the next section.
+* Your development machine must support [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) for running a container engine.
 * Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.
-
 * Install [Visual Studio Code](https://code.visualstudio.com/)
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 An Azure IoT Edge device:
 
-* You shoul run IoT Edge on a separate device. This distinction between development machine and IoT Edge device simulates a true deployment scenario and helps keep the different concepts separate.
+* You should run IoT Edge on a separate device. This distinction between development machine and IoT Edge device simulates a true deployment scenario and helps keep the different concepts separate.
 Use the quickstart article [Deploy code to a Linux Device](quickstart-linux.md) to create an IoT Edge device in Azure.
 
 Cloud resources:
@@ -140,37 +139,36 @@ Install tools specific to the language you're developing in:
 
 # [C\#](#tab/csharp)
 
-- Install [.NET Core SDK](https://dotnet.microsoft.com/download)
-- Install [C# Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
+* [C# Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 # [C](#tab/c)
 
-- Install [C/C++ Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-
-Installing the Azure IoT C SDK isn't required for this tutorial, but can provide helpful functionality like intellisense and reading program definitions. For installation information, see [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c).
+* [C/C++ Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+* Installing the Azure IoT C SDK isn't required for this tutorial, but can provide helpful functionality like intellisense and reading program definitions. For installation information, see [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c).
 
 # [Java](#tab/java)
 
-- Install [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-support-on-azure) and [Maven](https://maven.apache.org/). You need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
-- [Maven](https://maven.apache.org/)
-- Install [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-support-on-azure) and [Maven](https://maven.apache.org/). You need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+* [Maven](https://maven.apache.org/)
+* [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
 >[!TIP]
 >The Java and Maven installation processes add environment variables to your system. Restart any open Visual Studio Code terminal, PowerShell, or command prompt instances after completing installation. This step ensures that these utilities can recognize the Java and Maven commands going forward.
 
 # [Node.js](#tab/node)
 
-- Install [Node.js](https://nodejs.org).
-- Install [Yeoman](https://www.npmjs.com/package/yo)
-- Install [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
+* [Node.js](https://nodejs.org).
+* [Yeoman](https://www.npmjs.com/package/yo)
+* [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
 # [Python](#tab/python)
 
 To develop an IoT Edge module in Python, install the following additional prerequisites on your development machine:
 
-- Install [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installation/).
-- Install [Cookiecutter](https://github.com/audreyr/cookiecutter).
-- Install the [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+* [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installation/).
+* [Cookiecutter](https://github.com/audreyr/cookiecutter).
+* [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 >[!Note]
 >Ensure that your `bin` folder is on your path for your platform. Typically `~/.local/` for UNIX and macOS, or `%APPDATA%\Python` on Windows.
@@ -402,7 +400,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 1. Find the **Init** function. This function creates and configures a **ModuleClient** object, which allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via an endpoint called **input1**.
 
-   Replace the **SetInputMessageHandlerAsync** method with a new one that updates the name of the endpoint and the method that is called when input arrives. Also, add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **Init** method with the following code:
+   Replace the **SetInputMessageHandlerAsync** method with a new one that updates the name of the endpoint and the method that's called when input arrives. Also, add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **Init** method with the following code:
 
    ```csharp
    // Register a callback for messages that are received by the module.
@@ -507,7 +505,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     }
     ```
 
-1. Save the ModuleBackgroundService.cs file.
+1. Save the **ModuleBackgroundService.cs** file.
 
 1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
@@ -537,7 +535,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
    1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **filtermodule** folder.
 
-   2. Open **modules** > **filtermodule** > **CMakeLists.txt**. At the top of the file, import the Parson files as a library called **my_parson**.
+   1. Open **modules** > **filtermodule** > **CMakeLists.txt**. At the top of the file, import the Parson files as a library called **my_parson**.
 
       ```txt
       add_library(my_parson
@@ -546,11 +544,11 @@ The sample C# code that comes with the project template uses the [ModuleClient C
       )
       ```
 
-   3. Add `my_parson` to the list of libraries in the **target_link_libraries** function of CMakeLists.txt.
+   1. Add `my_parson` to the list of libraries in the **target_link_libraries** function of CMakeLists.txt.
 
-   4. Save the **CMakeLists.txt** file.
+   1. Save the **CMakeLists.txt** file.
 
-   5. Open **modules** > **filtermodule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   1. Open **modules** > **filtermodule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
 
       ```c
       #include "parson.h"
@@ -701,7 +699,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
    }
    ```
 
-1. Save the main.c file.
+1. Save the **main.c** file.
 
 1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
@@ -721,7 +719,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
 
-2. Add the following code at the top of the file to import new referenced classes.
+1. Add the following code at the top of the file to import new referenced classes.
 
     ```java
     import java.io.StringReader;
@@ -738,14 +736,14 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-3. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature won't be reported to IoT Hub until it goes over this value.
+1. Add the following definition into class **App**. This variable sets a temperature threshold. The measured machine temperature won't be reported to IoT Hub until it goes over this value.
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
     private static AtomicLong tempThreshold = new AtomicLong(25);
     ```
 
-4. Replace the execute method of **MessageCallbackMqtt** with the following code. This method is called whenever the module receives an MQTT message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
+1. Replace the execute method of **MessageCallbackMqtt** with the following code. This method is called whenever the module receives an MQTT message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
 
     ```java
     protected static class MessageCallbackMqtt implements MessageCallback {
@@ -779,7 +777,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     }
     ```
 
-5. Add the following two static inner classes into class **App**. These classes update the tempThreshold variable when the module twin's desired property changes. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
+1. Add the following two static inner classes into class **App**. These classes update the tempThreshold variable when the module twin's desired property changes. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -807,7 +805,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     }
     ```
 
-6. Add the following lines in to **main** method after **client.open()** to subscribe the module twin updates.
+1. Add the following lines in to **main** method after **client.open()** to subscribe the module twin updates.
 
     ```java
     client.startTwin(new DeviceTwinStatusCallBack(), null, new OnProperty(), null);
@@ -820,11 +818,11 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     client.getTwin();
     ```
 
-7. Save the **App.java** file.
+1. Save the **App.java** file.
 
-8. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-9. Add the **filtermodule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
+1. Add the **filtermodule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
 
    ```json
      "filtermodule": {
@@ -834,20 +832,20 @@ The sample C# code that comes with the project template uses the [ModuleClient C
      }
    ```
 
-10. Save the **deployment.template.json** file.
+1. Save the **deployment.template.json** file.
 
 
 # [Node.js](#tab/node)
 
 1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **app.js**.
 
-2. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
+1. Add a temperature threshold variable below required node modules. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
     ```javascript
     var temperatureThreshold = 25;
     ```
 
-3. Replace the entire `PipeMessage` function with the `FilterMessage` function.
+1. Replace the entire `PipeMessage` function with the `FilterMessage` function.
 
     ```javascript
     // This function filters out messages that report temperatures below the temperature threshold.
@@ -868,7 +866,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
     ```
 
-4. Replace the function name `pipeMessage` with `filterMessage` in `client.on()` function.
+1. Replace the function name `pipeMessage` with `filterMessage` in `client.on()` function.
 
     ```javascript
     client.on('inputMessage', function (inputName, msg) {
@@ -876,7 +874,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
         });
     ```
 
-5. Copy the following code snippet into the `client.open()` function callback, after `client.on()` inside the `else` statement. This function is invoked when the desired properties are updated.
+1. Copy the following code snippet into the `client.open()` function callback, after `client.on()` inside the `else` statement. This function is invoked when the desired properties are updated.
 
     ```javascript
     client.getTwin(function (err, twin) {
@@ -892,11 +890,11 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     });
     ```
 
-6. Save the **app.js** file.
+1. Save the **app.js** file.
 
-7. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+1. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
-8. Add the filtermodule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
+1. Add the filtermodule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin:
 
    ```json
      "filtermodule": {
@@ -906,7 +904,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
      }
    ```
 
-9. Save the **deployment.template.json** file.
+1. Save the **deployment.template.json** file.
 
 # [Python](#tab/python)
 
@@ -1098,7 +1096,9 @@ docker build --rm -f "./modules/filtermodule/Dockerfile.amd64.debug" -t myacr.az
 
 [Push](https://docs.docker.com/engine/reference/commandline/push/) your module image to the local registry or a container registry.
 
-`docker push <ImageName>`
+```bash
+docker push <ImageName>
+```
 
 For example:
 
@@ -1179,7 +1179,7 @@ To further verify what the build and push command did, go to the [Azure portal](
 
 In your container registry, select **Repositories** then **samplemodule**. Verify that both versions of the image push to the registry.
 
-   :::image type="content" source="./media/tutorial-develop-for-linux/view-repository-versions.png" alt-text="Screenshot of where to view both image versions in your container registry." lightbox="./media/tutorial-develop-for-linux/view-repository-versions.png":::
+:::image type="content" source="./media/tutorial-develop-for-linux/view-repository-versions.png" alt-text="Screenshot of where to view both image versions in your container registry." lightbox="./media/tutorial-develop-for-linux/view-repository-versions.png":::
 
 <!--Alternative steps: Use Visual Studio Code Docker tools to view ACR images with tags-->
 
@@ -1214,15 +1214,15 @@ az iot edge set-modules --hub-name my-iot-hub --device-id my-device --content ./
 
 1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
-2. Right-click the IoT Edge device that you want to deploy to, then select **Create Deployment for Single Device**.
+1. Right-click the IoT Edge device that you want to deploy to, then select **Create Deployment for Single Device**.
 
    :::image type="content" source="./media/tutorial-develop-for-linux/create-deployment.png" alt-text="Screenshot showing how to create a deployment for a single device.":::
 
-3. In the file explorer, navigate into the **config** folder then select the **deployment.amd64.json** file.
+1. In the file explorer, navigate into the **config** folder then select the **deployment.amd64.json** file.
 
    Don't use the deployment.template.json file, which doesn't have the container registry credentials or module image values in it. If you target a Linux ARM32 device, the deployment manifest's name is **deployment.arm32v7.json**.
 
-4. Under your device, expand **Modules** to see a list of deployed and running modules. Select the refresh button. You should see the new SimulatedTemperatureSensor and SampleModule modules running on your device.
+1. Under your device, expand **Modules** to see a list of deployed and running modules. Select the refresh button. You should see the new SimulatedTemperatureSensor and SampleModule modules running on your device.
 
    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
@@ -1234,7 +1234,7 @@ The SampleModule code receives messages through its input queue and passes them 
 
 1. In the Visual Studio Code explorer, right-click the IoT Edge device that you want to monitor, then select **Start Monitoring Built-in Event Endpoint**.
 
-2. Watch the output window in Visual Studio Code to see messages arriving at your IoT hub.
+1. Watch the output window in Visual Studio Code to see messages arriving at your IoT hub.
 
    :::image type="content" source="./media/tutorial-develop-for-linux/view-d2c-messages.png" alt-text="Screenshot showing where to view incoming device to cloud messages.":::
 
