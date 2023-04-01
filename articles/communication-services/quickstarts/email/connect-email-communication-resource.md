@@ -38,7 +38,7 @@ In this quick start, you'll learn about how to connect a verified domain in Azur
 
 5. Click Connect
  
-    :::image type="content" source="./media/email-domains-connected.png" alt-text="Screenshot that shows one of the verified email domain is now connected." lightbox="media/email-domains-connected-expanded.png":::
+    :::image type="content" source="./media/email-domains-connected.png" alt-text="Screenshot that shows one of the verified email domains is now connected." lightbox="media/email-domains-connected-expanded.png":::
 
 ## Disconnect an email domain from the Communication Service Resource
 
