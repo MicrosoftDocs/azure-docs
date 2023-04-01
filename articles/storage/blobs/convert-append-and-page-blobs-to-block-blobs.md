@@ -57,7 +57,7 @@ To convert blobs, copy them to a new location by using PowerShell, Azure CLI, or
    Copy-AzStorageBlob -SrcContainer $containerName -SrcBlob $srcblobName -Context $ctx -DestContainer $destcontainerName -DestBlob $destblobName -DestContext $ctx -DestBlobType Block -StandardBlobTier $destTier
    ```
 
-6. To copy a page blob snapshot to block blob, Use the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) and [Copy-AzStorageBlob](/powershell/module/az.storage/copy-azstorageblob) command with `-DestBlobType` parameter as `Block`.
+6. To copy a page blob snapshot to block blob, use the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) and [Copy-AzStorageBlob](/powershell/module/az.storage/copy-azstorageblob) command with `-DestBlobType` parameter as `Block`.
 
    ```powershell
    $containerName = '<source container name>'
