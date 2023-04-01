@@ -1564,7 +1564,7 @@ Here are the settings to add this condition using the visual condition editor in
 
 The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
 
-:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
 > [!IMPORTANT]
 > The expression in the red box needs to be added from the code section of the ABAC condition builder.
