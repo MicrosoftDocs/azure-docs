@@ -205,7 +205,7 @@ Those environment variables are referenced by *app_config.py*:
 
 The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a [*.gitignore*]file that prevents the *.env* file from being checked in.
 
-:::code language="text" source="~/ms-identity-python-webapp-tutorial/.git_ignore" range="84-85" highlight="85":::
+:::code language="text" source="~/ms-identity-python-webapp-tutorial/.gitignore" range="84-85" highlight="85":::
 
 
 ---
