@@ -203,7 +203,7 @@ Those environment variables are referenced by *app_config.py*:
 
 :::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py":::
 
-The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a [*.gitignore*]file that prevents the *.env* file from being checked in.
+The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a *.gitignore* file that prevents the *.env* file from being checked in.
 
 :::code language="text" source="~/ms-identity-python-webapp-tutorial/.gitignore" range="84-85" highlight="85":::
 
@@ -333,7 +333,7 @@ The Node sample uses the Express framework. MSAL is initialized in *auth* route 
 
 # [Python](#tab/python)
 
-The Python sample is built with the Flask framework, though other frameworks like Django could be used as well. The Flask app is initialized with the app configuration in [app.py#L1-L11](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L1-L11).
+The Python sample is built with the Flask framework, though other frameworks like Django could be used as well. The Flask app is initialized with the app configuration at the top of *app.py*:
 
 :::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="1-12" highlight="10":::
 

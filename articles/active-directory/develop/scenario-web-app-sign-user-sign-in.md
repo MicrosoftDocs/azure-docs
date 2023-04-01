@@ -106,15 +106,15 @@ This template is served via the main (index) route of the app:
 
 In the Python quickstart, the code for the sign-in link is located in *login.html* template file.
 
-:::code language="python" source="~/ms-identity-python-webapp-tutorial/templates/login.html" range="18-20" highlight="18":::
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/templates/login.html" range="19-19":::
 
 When an unauthenticated user visits the home page, the `index` route in *app.py* redirects the user to the `login` route.
 
-:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="49-57" highlight="56":::
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="49-57" highlight="7-8":::
 
 The `login` route figures out the appropriate `auth_uri` and renders the *login.html* template.
 
-:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="28-33" highlight="56":::
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="28-33":::
 
 ---
 
