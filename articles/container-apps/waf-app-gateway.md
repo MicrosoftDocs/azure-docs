@@ -201,8 +201,6 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
     | PFX certificate file | Select your valid public certificate. |
     | Password | Enter your certificate password. |
 
-    # [Default Domain](#tab/default-domain)
-
     If you want to use the default domain, enter the following values:
 
     | Setting | Action |
@@ -210,9 +208,7 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
     | Listener Type | Select **Basic** |
     | Error page url | Leave as **No** |
 
-    # [Custom Domain](#tab/custom-domain)
-
-    If you want to use a custom domain, enter the following values:
+    Alternatively, if you want to use a custom domain, enter the following values:
 
     | Setting | Action |
     |---|---|
@@ -220,8 +216,6 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
     | Host type | Select **Single** |
     | Host Names | Enter the Custom Domain you wish to use. |
     | Error page url | Leave as **No** |
-
-    ---
 
 1. Select the **Backend targets** tab and enter the following values:
 
