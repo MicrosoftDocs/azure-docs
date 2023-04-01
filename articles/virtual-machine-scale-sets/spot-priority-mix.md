@@ -27,6 +27,8 @@ Azure allows you to have the flexibility of running a mix of uninterruptible sta
 
 You can configure a custom percentage distribution across Spot and standard VMs. The platform automatically orchestrates each scale-out and scale-in operation to achieve the desired distribution by selecting an appropriate number of VMs to create or delete. You can also optionally configure the number of base standard VMs you would like to maintain in the Virtual Machine Scale Set during any scale operation.
 
+The eviction policy of your Spot VMs will follow what is set for the Spot VMs in your scale set. *Deallocate* is the default behavior, wherein evicted Spot VMs move to a stop-deallocated state. If you wish, the Spot eviction policy can be set to *Delete*, wherein the VM and its underlying disks will be deleted.
+
 ### [Template](#tab/template-1)
 
 You can set your Spot Priority Mix by using a template to add the following properties to a scale set with Flexible orchestration using a Spot priority VM profile:
