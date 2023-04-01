@@ -40,7 +40,7 @@ After you create your dev box, you can connect to it through a Remote Desktop ap
 
 :::image type="content" source="./media/how-to-manage-dev-boxes/open-rdp-client.jpg" alt-text="Screenshot of the option to open a dev box in an RDP client.":::
 
-For most cases, use the Remote Desktop app when you're accessing a dev box. Remote Desktop provides the highest performance and best user experience for heavy workloads. For more information, see [Quickstart: Use a Remote Desktop client to connect to a dev box](./quickstart-connect-to-dev-box-with-remote-desktop-app.md).
+For most cases, use the Remote Desktop app when you're accessing a dev box. Remote Desktop provides the highest performance and best user experience for heavy workloads. For more information, see [Tutorial: Use a Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
 
 Use the browser for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
 
@@ -59,5 +59,5 @@ You can delete dev boxes after you finish your tasks. Say you finished fixing yo
 
 ## Next steps
 
-- [Use a remote desktop client to connect to a dev box](./quickstart-connect-to-dev-box-with-remote-desktop-app.md)
+- [Use a remote desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md)
 - [Use a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box)
