@@ -10,7 +10,7 @@ ms.custom: has-adal-ref, subject-rbac-steps
 
 Azure Batch supports authentication with [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD), Microsoft's multi-tenant cloud based directory and identity management service. Azure uses Azure AD to authenticate its own customers, service administrators, and organizational users.
 
-This article describes how to use Azure AD authentication with Azure Batch in two ways:
+This article describes two ways to use Azure AD authentication with Azure Batch:
 
 - **Integrated authentication** authenticates a user who's interacting with an application. The application gathers a user's credentials and uses those credentials to authenticate access to Batch resources.
 
@@ -28,7 +28,7 @@ The base Azure AD authority endpoint is `https://login.microsoftonline.com/`. To
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-To get your tenant ID, go to Azure AD in the Azure portal, select **Properties** in the left navigation, and then copy the **Tenant ID** from the **Properties** page.
+You can get your tenant ID from the main Azure AD page in the Azure portal. You can also select **Properties** in the left navigation and see the **Tenant ID** on the **Properties** page.
 
 ![Screenshot of the Tenant ID in the Azure portal.](./media/batch-aad-auth/aad-directory-id.png)
 
@@ -50,15 +50,13 @@ When you register your application, you supply information about your applicatio
 
 To register your Batch application, follow the steps at [Register an application](/azure/active-directory/develop/quickstart-register-app#register-an-application).
 
-<!--If you register your application as a Native Application, you can specify any valid URI for the **Redirect URI**. It doesn't need to be a real endpoint.-->
-
 After you register your application, you can see the **Application (client) ID** on the application's **Overview** page.
 
 ![Screenshot of the Application ID shown in the Azure portal.](./media/batch-aad-auth/app-registration-data-plane.png)
 
 ## Configure integrated authentication
 
-To authenticate with integrated authentication, you need to grant your application permissions to connect to the Batch service API. This step enables your application to use Azure AD to authenticate calls to the Batch service API.
+To authenticate with integrated authentication, you need to grant your application permission to connect to the Batch service API. This step enables your application to use Azure AD to authenticate calls to the Batch service API.
 
 After you register your application, follow these steps to grant the application access to the Batch service:
 
@@ -71,7 +69,7 @@ After you register your application, follow these steps to grant the application
 
 The **API permissions** page now shows that your Azure AD application has access to both **Microsoft Graph** and **Azure Batch**. Permissions are granted to Microsoft Graph automatically when you register an app with Azure AD.
 
-## Use a service principal
+## Configure a service principal
 
 To authenticate an application that runs unattended, you use a service principal. When your application authenticates by using a service principal, it sends both the application ID and a secret key to Azure AD.
 
@@ -183,7 +181,7 @@ The code examples in this section show how to authenticate with Azure AD by usin
 
 To authenticate with integrated authentication from Batch .NET:
 
-1. Reference the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) package and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
+1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) package and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
 
 1. Include the following `using` statements in your code:
 
@@ -193,7 +191,7 @@ To authenticate with integrated authentication from Batch .NET:
    using Microsoft.Identity.Client;
    ```
 
-1. Reference the Azure AD endpoint, including the tenant ID. You can get your tenant ID from the **Properties** page of Azure AD in the Azure portal.
+1. Reference the Azure AD endpoint, including the tenant ID. You can get your tenant ID from the Azure AD **Overview** page in the Azure portal.
 
    ```csharp
    private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
@@ -220,37 +218,36 @@ To authenticate with integrated authentication from Batch .NET:
 1. Specify the redirect URI that you provided when you registered the application.
 
    ```csharp
-   private const string RedirectUri = "http://<redirect-uri>";
+   private const string RedirectUri = "https://<redirect-uri>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following **GetAuthenticationTokenAsync** callback method calls MSAL to authenticate a user who's interacting with the application. The **AcquireTokenAsync** method provided by MSAL prompts the user for their credentials, and the application proceeds once the user provides the credentials, unless the app has already cached the credentials.
+1. Write a callback method to acquire the authentication token from Azure AD. The following **ConfidentialClientApplicationBuilder.Create** callback method calls MSAL to authenticate a user who's interacting with the application. The **IConfidentialClientApplication.AcquireTokenByAuthorizationCode** method provided by MSAL prompts the user for their credentials. The application proceeds once the user provides the credentials, unless the app has already cached the credentials.
 
    ```csharp
-   public static async Task<string> GetAuthenticationTokenAsync()
+   public IConfidentialClientApplication CreateApplication()
    {
-       var authContext = new AuthenticationContext(AuthorityUri);
+   IConfidentialClientApplication app;
    
-       // Acquire the authentication token from Azure AD.
-       var authResult = await authContext.AcquireTokenAsync(BatchResourceUri,
-                                                           ClientId,
-                                                           new Uri(RedirectUri),
-                                                           new PlatformParameters(PromptBehavior.Auto));
-   
-       return authResult.AccessToken;
+   app = ConfidentialClientApplicationBuilder.Create(ClientId)
+           .WithAuthority(AuthorityUri)
+           .WithRedirectUri(RedirectUri.ToString())
+           .Build();
+   return app;
    }
-   ```
-
-1. Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. You can use the **BatchClient** object for subsequent operations against the Batch service.
-
-   ```csharp
-   public static void PerformBatchOperations()
-   {
-       Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
    
-       using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
-       {
-           client.JobOperations.ListJobs();
-       }
+   // Called from 'code received event'.
+   public async Task<AuthenticationResult> GetAuthenticationResult(
+   string BatchResourceId,
+   string authorizationCode)
+   {
+   IConfidentialClientApplication app = CreateApplication();
+   
+   var authResult = await app.AcquireTokenByAuthorizationCode(
+   new[] { $"BatchResourceUri/.default" },
+   authorizationCode)
+   .ExecuteAsync()
+   
+   return authResult;
    }
    ```
 
@@ -258,7 +255,7 @@ To authenticate with integrated authentication from Batch .NET:
 
 To authenticate with a service principal from Batch .NET:
 
-1. Reference the [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
+1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
 
 1. Include the following `using` statements in your code:
 
@@ -268,7 +265,7 @@ To authenticate with a service principal from Batch .NET:
    using Microsoft.Identity.Client;
    ```
 
-1. Reference the Azure AD endpoint in your code, including the tenant ID. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the **Properties** page of Azure AD in the Azure portal.
+1. Reference the Azure AD endpoint in your code, including the tenant ID. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the Azure AD **Overview** page in the Azure portal.
 
    ```csharp
    private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
@@ -292,21 +289,39 @@ To authenticate with a service principal from Batch .NET:
    private const string ClientId = "<application-id>";
    ```
 
-1. Specify the secret key that you copied from the Azure portal:
+1. Specify the secret key that you copied from the Azure portal.
 
    ```csharp
    private const string ClientKey = "<secret-key>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following **GetAuthenticationTokenAsync** callback method calls MSAL for unattended authentication:
+1. Write a callback method to acquire the authentication token from Azure AD. The following **ConfidentialClientApplicationBuilder.Create** callback method calls MSAL for unattended authentication:
 
    ```csharp
-   public static async Task<string> GetAuthenticationTokenAsync()
+   public IConfidentialClientApplication CreateApplication()
    {
-       AuthenticationContext authContext = new AuthenticationContext(AuthorityUri);
-       AuthenticationResult authResult = await authContext.AcquireTokenAsync(BatchResourceUri, new ClientCredential(ClientId, ClientKey));
+   IConfidentialClientApplication app;
    
-       return authResult.AccessToken;
+   {
+   app = ConfidentialClientApplicationBuilder.Create(ClientId)
+       .WithSecret(ClientKey)
+       .WithAuthority(AuthorityUri)
+       .Build();
+   }
+   
+   // Called from 'code received event'.
+   public async Task<AuthenticationResult> GetAuthenticationResult(
+   string BatchResourceUri,
+   string tokenUsedToCallTheWebApi)
+   
+   var userAssertion = new UserAssertion(tokenUsedToCallTheWebApi);
+   
+   var authResult = await app.AcquireTokenOnBehalfOf(
+   new [] { $"BatchResourceUri/.default" },
+   userAssertion)
+   .ExecuteAsync()
+   
+   return authResult;
    }
    ```
 
