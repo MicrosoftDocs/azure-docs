@@ -17,11 +17,11 @@ This article describes how to create a Network Fabric by using the Azure Command
 ## Prerequisites
 
 * An Azure account with an active subscription.
-* Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+* Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI](./howto-install-cli-extensions.md#installation-instruction)
 * A Network Fabric controller manages multiple Network Fabrics on the same Azure region.
 * Physical Operator-Nexus instance with cabling as per BoM.
 * Express Route connectivity between NFC and Operator-Nexus instances.
-* Terminal server pre-configured with username and password.
+* Terminal server pre-configured with username and password [installed and configured](./howto-platform-prerequisites.md#set-up-terminal-server)
 * PE devices pre-configured with necessary VLANs, Route-Targets and IP addresses.
 * Supported SKUs from NFA Release 1.5 and beyond for Fabric are **M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**.
     * M4-A400-A100-C16-aa - Up to four Compute Racks
@@ -57,7 +57,7 @@ The following table specifies parameters used to create Network Fabric
 |*optionBProperties*| Details of MPLS option 10B is used for connectivity between Network Fabric and Network Fabric Controller||True
 |importRouteTargets|Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g.,  65048:10039|True(If OptionB enabled)|
 |exportRouteTargets|Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g.,  65048:10039|True(If OptionB enabled)|
-|
+||
 |**workloadVpnConfiguration**| Details of workload VPN connection between Network Fabric and workload services in Network Fabric Controller||
 |*optionBProperties*| Details of MPLS option 10B is used for connectivity between Network Fabric and Network Fabric Controller||
 |importRouteTargets|Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g., 65048:10050|True(If OptionB enabled)|
