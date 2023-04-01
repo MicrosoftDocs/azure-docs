@@ -221,7 +221,7 @@ To authenticate with integrated authentication from Batch .NET:
    private const string RedirectUri = "https://<redirect-uri>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following **ConfidentialClientApplicationBuilder.Create** callback method calls MSAL to authenticate a user who's interacting with the application. The **IConfidentialClientApplication.AcquireTokenByAuthorizationCode** method provided by MSAL prompts the user for their credentials. The application proceeds once the user provides the credentials, unless the app has already cached the credentials.
+1. Write a callback method to acquire the authentication token from Azure AD. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL to authenticate a user who's interacting with the application. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials. The application proceeds once the user provides the credentials, unless the app has already cached the credentials.
 
    ```csharp
    public IConfidentialClientApplication CreateApplication()
@@ -295,7 +295,7 @@ To authenticate with a service principal from Batch .NET:
    private const string ClientKey = "<secret-key>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following **ConfidentialClientApplicationBuilder.Create** callback method calls MSAL for unattended authentication:
+1. Write a callback method to acquire the authentication token from Azure AD. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL for unattended authentication:
 
    ```csharp
    public IConfidentialClientApplication CreateApplication()
