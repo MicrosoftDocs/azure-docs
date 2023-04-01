@@ -16,16 +16,15 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the Consumption + Dedicated plan structure, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. Learn more in the [networking architecture document](./networking.md#user-defined-routes-udr---preview).
+In the workload profiles architecture, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. Learn more in the [networking concepts document](./networking.md#user-defined-routes-udr---preview).
 
-In the Consumption plan, custom user-defined routes (UDRs) and ExpressRoutes are not supported.
+In the Consumption only architecture, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
 
 ## NSG allow rules
 
-The following tables describe how to configure a collection of NSG allow rules for a Consumption only architecture.
-
+The following tables describe how to configure a collection of NSG allow rules.
 >[!NOTE]
-> The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
+> The subnet associated with a Container App Environment on the Consumption only architecture requires a CIDR prefix of `/23` or larger. On the workload profiles architecture (preview), a `/27` or larger is required.
 
 ### Inbound
 
@@ -34,7 +33,9 @@ The following tables describe how to configure a collection of NSG allow rules f
 | Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 | Any | \* | AzureLoadBalancer | Allow the Azure infrastructure load balancer to communicate with your environment. |
 
-### Outbound with ServiceTags
+### Outbound with service tags
+
+The following service tags are required when using NSGs on the Consumption only architecture:
 
 | Protocol | Port | ServiceTag | Description
 |--|--|--|--|
@@ -42,7 +43,19 @@ The following tables describe how to configure a collection of NSG allow rules f
 | TCP | `9000` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
 | TCP | `443` | `AzureMonitor` | Allows outbound calls to Azure Monitor. |
 
+The following service tags are required when using NSGs on the workload profiles architecture:
+
+>[!Note]
+> If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
+
+| Protocol | Port | Service Tag | Description
+|--|--|--|--|
+| TCP | `443` | `MicrosoftContainerRegistry` | This is the service tag for container registry for microsoft containers. |
+| TCP | `443` | `AzureFrontDoor.FirstParty` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
+
 ### Outbound with wild card IP rules
+
+The following IP rules are required when using NSGs on both the Consumption only architecture and the workload profiles architecture:
 
 | Protocol | Port | IP | Description |
 |--|--|--|--|
@@ -54,5 +67,5 @@ The following tables describe how to configure a collection of NSG allow rules f
 
 #### Considerations
 
-- If you are running HTTP servers, you might need to add ports `80` and `443`.
+- If you're running HTTP servers, you might need to add ports `80` and `443`.
 - Adding deny rules for some ports and protocols with lower priority than `65000` may cause service interruption and unexpected behavior.

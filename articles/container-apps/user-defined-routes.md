@@ -8,15 +8,12 @@ ms.topic: article
 ms.date: 03/29/2023
 ---
 
-# Control outbound traffic with Azure Firewall (preview)
+# Control outbound traffic with User Defined Routes(preview)
 
 >[!Note]
-> This feature is in preview and is only supported for the Consumption + Dedicated plan structure.
+> This feature is in preview and is only supported for the workload profiles architecture. User defined routes only work with an internal Azure Container Apps environment.
 
 This article shows you how to use user defined roles (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
-
-> [!NOTE]
-> User defined roles works only on internal Azure Container Apps environments.
 
 Azure creates a default route table for your virtual networks on create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. In this guide, you'll setup UDR on the Container Apps virtual network to restrict outbound traffic with Azure Firewall.
 
@@ -26,7 +23,7 @@ For more information on networking concepts in Container Apps, see [Networking A
 
 ## Prerequisites
 
-* A container app environment on the Consumption + Dedicated plan structure that's integrated with a custom virtual network and is on an internal environment. When you integrate with an internal virtual network, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see [Plans is Azure Container Apps](./plans.md).
+* An **internal** container app environment on the workload profiles architecture that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles architecture](./workload-profiles-manage-cli.md). Ensure that you're creating an **internal** environment.
 
 * In your container app, have a container that supports `curl` commands. You can use `curl` to verify the container app is deployed correctly. The *helloworld* container from the sample container image already supports `curl` commands.
 
@@ -151,6 +148,9 @@ Now, all outbound traffic from your container app is routed to the firewall. Cur
     | **Destination Type** | Select **FQDN**. |
     | **Destination** | Enter `mcr.microsoft.com`,`*.data.mcr.microsoft.com`. If you're using ACR, add your *ACR address* and `*.blob.core.windows.net`. |
     | **Action** | Select *Allow* |
+
+    >[!Note]
+    > If you are using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through your firewall, you will need to add the following FQDNs to your rules destination list above: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
 
 1. Select **Add**.
 
