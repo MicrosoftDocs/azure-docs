@@ -145,8 +145,6 @@ For more information, see [Share images using a community gallery](./share-galle
 >
 >To publish a community gallery, you'll need to enable the preview feature using the azure CLI: `az feature register --name CommunityGallery --namespace Microsoft.Compute` or PowerShell: `Register-AzProviderFeature -FeatureName "CommunityGallery" -ProviderNamespace "Microsoft.Compute"`. For more information on enabling preview features and checking the status, see   [et up preview features in your Azure subscription](../azure-resource-manager/management/preview-features.md). Creating VMs from community gallery images is open to all Azure users. 
 > 
-> During the preview, the gallery must be created as a community gallery (for CLI, this means using the `--permissions community` parameter) you currently can't migrate a regular gallery to a community gallery.
-> 
 > You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
 
 
