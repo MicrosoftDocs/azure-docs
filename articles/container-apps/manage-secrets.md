@@ -12,7 +12,7 @@ ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-
 
 # Manage secrets in Azure Container Apps
 
-Azure Container Apps allows your application to securely store sensitive configuration values. Once secrets are defined at the application level, secured values are available to container apps. Specifically, you can reference secured values inside scale rules. For information on using secrets with Dapr, refer to [Dapr integration](./dapr-overview.md)
+Azure Container Apps allows your application to securely store sensitive configuration values. Once secrets are defined at the application level, secured values are available to revisions in your container apps. Additionally, you can reference secured values inside scale rules. For information on using secrets with Dapr, refer to [Dapr integration](./dapr-overview.md)
 
 - Secrets are scoped to an application, outside of any specific revision of an application.
 - Adding, removing, or changing secrets doesn't generate new revisions.
@@ -26,11 +26,13 @@ An updated or deleted secret doesn't automatically affect existing revisions in 
 
 Before you delete a secret, deploy a new revision that no longer references the old secret. Then deactivate all revisions that reference the secret.
 
-> [!NOTE]
-> Container Apps doesn't support Azure Key Vault integration. Instead, enable managed identity in the container app and use the [Key Vault SDK](../key-vault/general/developers-guide.md) in your app to access secrets.
-
-
 ## Defining secrets
+
+Secrets are defined as a set of name/value pairs. The value of each secret can be specified directly or as a reference to a secret stored in Azure Key Vault.
+
+### Store secret value in Container Apps
+
+When you define a secret, you can specify its value directly.
 
 # [ARM template](#tab/arm-template)
 
@@ -96,6 +98,93 @@ New-AzContainerApp @ContainerAppArgs
 Here, a connection string to a queue storage account is declared. The value for `queue-connection-string` comes from an environment variable named `$QueueConnectionString`.
 
 ---
+
+### Reference secret from Key Vault
+
+When you define a secret, you can specify a reference to a secret stored in Azure Key Vault. To reference a secret from Key Vault, you must first enable managed identity in your container app and grant the identity access to the Key Vault secrets.
+
+To enable managed identity in your container app, see [Managed identities](managed-identity.md).
+
+To grant access to Key Vault secrets, [create an access policy](../key-vault/general/assign-access-policy.md) in Key Vault for the managed identity you created. Enable the "Get" secret permission on this policy.
+
+# [ARM template](#tab/arm-template)
+
+Secrets are defined at the application level in the `resources.properties.configuration.secrets` section.
+
+```json
+"resources": [
+{
+    ...
+    "properties": {
+        "configuration": {
+            "secrets": [
+            {
+                "name": "queue-connection-string",
+                "keyVaultUrl": "<KEY-VAULT-SECRET-URI>",
+                "identity": "System"
+            }],
+        }
+    }
+}
+```
+
+Here, a connection string to a queue storage account is declared in the `secrets` array. Its value is automatically retrieved from Key Vault using the specified identity. To use a user managed identity, replace `System` with the identity's resource ID.
+
+Replace `<KEY-VAULT-SECRET-URI>` with the URI of your secret in Key Vault.
+
+# [Azure CLI](#tab/azure-cli)
+
+When you create a container app, secrets are defined using the `--secrets` parameter.
+
+- The parameter accepts a space-delimited set of name/value pairs.
+- Each pair is delimited by an equals sign (`=`).
+
+```bash
+az containerapp create \
+  --resource-group "my-resource-group" \
+  --name queuereader \
+  --environment "my-environment-name" \
+  --image demos/queuereader:v1 \
+  --secrets "queue-connection-string=$CONNECTION_STRING"
+```
+
+Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
+
+# [PowerShell](#tab/powershell)
+
+When you create a container app, secrets are defined as one or more Secret objects that are passed through the `ConfigurationSecrets` parameter.
+
+```azurepowershell
+$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName my-resource-group -EnvName my-environment-name).Id
+$TemplateObj = New-AzContainerAppTemplateObject -Name queuereader -Image demos/queuereader:v1
+$SecretObj = New-AzContainerAppSecretObject -Name queue-connection-string -Value $QueueConnectionString
+
+$ContainerAppArgs = @{
+    Name = 'my-resource-group'
+    Location = '<location>'
+    ResourceGroupName = 'my-resource-group'
+    ManagedEnvironmentId = $EnvId
+    TemplateContainer = $TemplateObj
+    ConfigurationSecret = $SecretObj
+}
+
+New-AzContainerApp @ContainerAppArgs
+```
+
+Here, a connection string to a queue storage account is declared. The value for `queue-connection-string` comes from an environment variable named `$QueueConnectionString`.
+
+---
+
+### Key Vault secret URI and secret rotation
+
+The Key Vault secret URI must be in the following format:
+
+* `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`: Reference a specific version of a secret.
+* `https://myvault.vault.azure.net/secrets/mysecret`: Reference the latest version of a secret.
+
+If a version is not specified in the URI, then the app will use the latest version that exists in the key vault. When newer versions become available, the app will automatically retrieve the latest version within 30 minutes. Any active revisions that reference the secret in an environment variable is automatically restarted to pick up the new value.
+
+To force the app to retrieve the latest version of the secret, you can restart a revision.
 
 ## <a name="using-secrets"></a>Referencing secrets in environment variables
 
