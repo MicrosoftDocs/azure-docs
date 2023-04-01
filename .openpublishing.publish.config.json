@@ -233,7 +233,13 @@
     {
       "path_to_root": "azure-functions-durable-js",
       "url": "https://github.com/Azure/azure-functions-durable-js",
-      "branch": "main",
+      "branch": "v2.x",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-durable-js-v3",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
+      "branch": "v3.x",
       "branch_mapping": {}
     },
     {
@@ -533,6 +539,12 @@
     {
       "path_to_root": "spring-data-azure-cosmos-db-sql-tutorial",
       "url": "https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-db-mongodb-mern-web-app",
+      "url": "https://github.com/Azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app/",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -867,6 +879,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-python-webapp",
+      "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "ms-identity-node",
       "url": "https://github.com/Azure-Samples/ms-identity-node",
       "branch": "main",
@@ -925,6 +943,12 @@
       "url": "https://github.com/Azure-Samples/azure-cache-redis-samples",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "microsoft-graph",
+      "url": "https://github.com/MicrosoftGraph/microsoft-graph-docs",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -949,6 +973,7 @@
   ".openpublishing.redirection.azure-australia.json",
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-hpc.json",
+  ".openpublishing.redirection.azure-kubernetes-service.json",
   ".openpublishing.redirection.azure-monitor.json",
   ".openpublishing.redirection.azure-percept.json",
   ".openpublishing.redirection.azure-productivity.json",
@@ -970,6 +995,7 @@
   ".openpublishing.redirection.security-benchmark.json",
   ".openpublishing.redirection.sql-database.json",
   ".openpublishing.redirection.virtual-desktop.json",
+  ".openpublishing.redirection.devops-project.json",
   "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
   "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
   "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
@@ -996,7 +1022,7 @@
   "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
   "articles/iot-dps/.openpublishing.redirection.iot-dps.json",
   "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
-  "articles/iot-fundamentals/.openpublishing.redirection.iot-fundamentals.json",
+  "articles/iot/.openpublishing.redirection.iot.json",
   "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
   "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
   "articles/logic-apps/.openpublishing.redirection.logic-apps.json",

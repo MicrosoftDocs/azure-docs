@@ -33,16 +33,21 @@ For more advanced use cases, you can modify telemetry by adding spans, updating 
 
 ### Enable distributed tracing for Java function apps
 
-On the function app **Overview** pane, go to **Configuration**. Under **Application settings**, select **New application setting**.
+1. **Option 1**: On the function app **Overview** pane, go to **Application Insights**. Under **Collection Level**, select **Recommended**.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot that shows the New application setting option.](./media//functions/create-new-setting.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot that shows the how to enable the AppInsights Java Agent.](./media//functions/collection-level.jpg)
 
-Add application settings with the following values and select **Save**.
+2. **Option 2**: On the function app **Overview** pane, go to **Configuration**. Under **Application settings**, select **New application setting**.
 
-```
-APPLICATIONINSIGHTS_ENABLE_AGENT: true
-```
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot that shows the New application setting option.](./media//functions/create-new-setting.png)
+
+    Add an application setting with the following values and select **Save**.
+
+    ```
+    APPLICATIONINSIGHTS_ENABLE_AGENT: true
+    ```
 
 ### Troubleshooting
 

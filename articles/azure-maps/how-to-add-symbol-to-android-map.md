@@ -1,8 +1,8 @@
 ---
 title: Add a symbol layer to Android maps | Microsoft Azure Maps
 description: Learn how to add a marker to a map. See an example that uses the Azure Maps Android SDK to add a symbol layer that contains point-based data from a data source.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -25,7 +25,7 @@ Be sure to complete the steps in the [Quickstart: Create an Android app](quick-a
 
 Before you can add a symbol layer to the map, you need to take a couple of steps. First, create a data source, and add it to the map. Create a symbol layer. Then, pass in the data source to the symbol layer, to retrieve the data from the data source. Finally, add data into the data source, so that there's something to be rendered.
 
-The code below demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
+The following code demonstrates what should be added to the map after it has loaded. This sample renders a single point on the map using a symbol layer.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -242,7 +242,7 @@ val layer = SymbolLayer(source,
 
 ::: zone-end
 
-The table below lists all of the built-in icon image names available. All of these markers pull its colors from color resources that you can override. In addition to overriding the main fill color of this marker. However, overriding the color of one of these markers would apply to all layers that use that icon image.
+The table below lists all of the built-in icon image names available. These markers pull their colors from color resources that can be overridden. However, overriding the color of one of these markers would apply to all layers that use that icon image.
 
 | Icon image name | Color resource name |
 |-----------------|---------------------|

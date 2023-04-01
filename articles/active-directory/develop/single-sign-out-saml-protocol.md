@@ -48,7 +48,12 @@ Per section 3.7 of the [SAML 2.0 core specification](http://docs.oasis-open.org/
 The `Issuer` element in a `LogoutRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Azure AD. Typically, this is set to the **App ID URI** that is specified during application registration.
 
 ### NameID
-The value of the `NameID` element must exactly match the `NameID` of the user that is being signed out.
+The value of the `NameID` element must exactly match the `NameID` of the user that is being signed out. 
+
+> [!NOTE]
+> During SAML logout request, the `NameID` value is not considered by Azure Active Directory.  
+> If a single user session is active, Azure Active Directory will automatically select that session and the SAML logout will proceed.  
+> If multiple user sessions are active, Azure Active Directory will enumerate the active sessions for user selection. After user selection, the SAML logout will proceed.
 
 ## LogoutResponse
 Azure AD sends a `LogoutResponse` in response to a `LogoutRequest` element. The following excerpt shows a sample `LogoutResponse`.
