@@ -108,7 +108,7 @@ In the Python quickstart, the code for the sign-in link is located in *login.htm
 
 :::code language="python" source="~/ms-identity-python-webapp-tutorial/templates/login.html" range="18-20" highlight="18":::
 
-When an unauthenticated user visits the home page, the `index` route in *appy.py* redirects the user to the `login` route.
+When an unauthenticated user visits the home page, the `index` route in *app.py* redirects the user to the `login` route.
 
 :::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="49-57" highlight="56":::
 
