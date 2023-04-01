@@ -182,9 +182,9 @@ The Key Vault secret URI must be in the following format:
 * `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`: Reference a specific version of a secret.
 * `https://myvault.vault.azure.net/secrets/mysecret`: Reference the latest version of a secret.
 
-If a version is not specified in the URI, then the app will use the latest version that exists in the key vault. When newer versions become available, the app will automatically retrieve the latest version within 30 minutes. Any active revisions that reference the secret in an environment variable is automatically restarted to pick up the new value.
+If a version is not specified in the URI, then the app will use the latest version that exists in the key vault. When newer versions become available, the app will automatically retrieve the latest version within 2 hours. Any active revisions that reference the secret in an environment variable is automatically restarted to pick up the new value.
 
-To force the app to retrieve the latest version of the secret, you can restart a revision.
+For full control of which version of a secret is used, specify the version in the URI.
 
 ## <a name="using-secrets"></a>Referencing secrets in environment variables
 
