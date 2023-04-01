@@ -16,7 +16,7 @@ Prices for Azure Communication Services are generally based on a pay-as-you-go m
 
 ## Email price
 
- The price is based on number of messages sent to the recipient and amount of data transferred to each recipient which includes headers, message content (including text and images), and attachments. Messages can be sent to one more recipients.
+ The price is based on number of messages sent to the recipient and amount of data transferred to each recipient which includes headers, message content (including text and images), and attachments. Messages can be sent to one or more recipients.
 
 
 |Email Send |Data Transferred|
