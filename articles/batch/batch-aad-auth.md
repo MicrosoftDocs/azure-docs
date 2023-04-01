@@ -32,11 +32,12 @@ You can get your tenant ID from the main Azure AD page in the Azure portal. You 
 
 ![Screenshot of the Tenant ID in the Azure portal.](./media/batch-aad-auth/aad-directory-id.png)
 
-- The tenant-specific Azure AD endpoint is required when you authenticate by using a service principal.
-
-- When you authenticate by using integrated authentication, the tenant-specific endpoint is optional, but is recommended. You can also use the Azure AD common endpoint to provide a generic credential gathering interface when a specific tenant isn't provided. The common endpoint is `https://login.microsoftonline.com/common`.
-
-For more information about Azure AD endpoints, see [Authentication vs. authorization](/azure/active-directory/develop/authentication-vs-authorization).
+>[!IMPORTANT]
+>- The tenant-specific Azure AD endpoint is required when you authenticate by using a service principal.
+>
+>- When you authenticate by using integrated authentication, the tenant-specific endpoint is recommended, but optional. You can also use the Azure AD common endpoint to provide a generic credential gathering interface when a specific tenant isn't provided. The common endpoint is `https://login.microsoftonline.com/common`.
+>
+>For more information about Azure AD endpoints, see [Authentication vs. authorization](/azure/active-directory/develop/authentication-vs-authorization).
 
 ### Batch resource endpoint
 
@@ -224,30 +225,45 @@ To authenticate with integrated authentication from Batch .NET:
 1. Write a callback method to acquire the authentication token from Azure AD. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL to authenticate a user who's interacting with the application. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials. The application proceeds once the user provides the credentials, unless the app has already cached the credentials.
 
    ```csharp
-   public IConfidentialClientApplication CreateApplication()
+    public IConfidentialClientApplication CreateApplication()
+    {
+        IConfidentialClientApplication app;
+
+        app = ConfidentialClientApplicationBuilder.Create(ClientId)
+        .WithAuthority(AuthorityUri)
+        .WithRedirectUri(RedirectUri.ToString())
+        .Build();
+
+        return app;
+    }
+
+    // Called from 'code received event'.
+    public async Task<AuthenticationResult> GetAuthenticationResult(
+    string authorizationCode)
+    {
+        IConfidentialClientApplication app = CreateApplication();
+
+        var authResult = await app.AcquireTokenByAuthorizationCode(
+        new[] { BatchResourceUri },
+        authorizationCode)
+        .ExecuteAsync()
+        .ConfigureAwait(false);
+
+        return authResult;
+    }
+   ```
+
+1. Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. Then use the **BatchClient** object for subsequent operations against the Batch service:
+
+   ```csharp
+   public static void PerformBatchOperations()
    {
-   IConfidentialClientApplication app;
+       Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
    
-   app = ConfidentialClientApplicationBuilder.Create(ClientId)
-           .WithAuthority(AuthorityUri)
-           .WithRedirectUri(RedirectUri.ToString())
-           .Build();
-   return app;
-   }
-   
-   // Called from 'code received event'.
-   public async Task<AuthenticationResult> GetAuthenticationResult(
-   string BatchResourceId,
-   string authorizationCode)
-   {
-   IConfidentialClientApplication app = CreateApplication();
-   
-   var authResult = await app.AcquireTokenByAuthorizationCode(
-   new[] { $"BatchResourceUri/.default" },
-   authorizationCode)
-   .ExecuteAsync()
-   
-   return authResult;
+       using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+       {
+           client.JobOperations.ListJobs();
+       }
    }
    ```
 
@@ -300,14 +316,14 @@ To authenticate with a service principal from Batch .NET:
    ```csharp
    public IConfidentialClientApplication CreateApplication()
    {
-   IConfidentialClientApplication app;
-   
-   {
-   app = ConfidentialClientApplicationBuilder.Create(ClientId)
-       .WithSecret(ClientKey)
-       .WithAuthority(AuthorityUri)
-       .Build();
-   }
+       IConfidentialClientApplication app;
+       
+       {
+       app = ConfidentialClientApplicationBuilder.Create(ClientId)
+           .WithSecret(ClientKey)
+           .WithAuthority(AuthorityUri)
+           .Build();
+       }
    
    // Called from 'code received event'.
    public async Task<AuthenticationResult> GetAuthenticationResult(
