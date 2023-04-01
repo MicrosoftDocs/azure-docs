@@ -1572,9 +1572,16 @@ Here are the settings to add this condition using the visual condition editor in
 
 <sup>1</sup>Since `NOT Exists` must be added in the code editor, after selecting the last attribute and the key name, switch to the code editor and change this line:<br />
 
-`@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] null`<br />
-to:<br />
-`NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>]`.<br />
+```
+@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] null
+```
+
+...to:
+
+```
+NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>]
+```
+
 *(Add `NOT Exists ` at the beginning and remove ` null ` from the end of the generated statement.)*<br />
 
 The following image shows the condition after the settings have been entered into the Azure portal:
