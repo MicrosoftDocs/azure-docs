@@ -175,7 +175,7 @@ Here, a connection string to a queue storage account is declared. The value for 
 
 ---
 
-### Key Vault secret URI and secret rotation
+#### Key Vault secret URI and secret rotation
 
 The Key Vault secret URI must be in one of the following formats:
 
