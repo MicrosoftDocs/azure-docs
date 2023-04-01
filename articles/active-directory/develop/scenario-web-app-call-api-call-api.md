@@ -179,20 +179,10 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
 
 # [Python](#tab/python)
 
-```python
-@app.route("/call_downstream_api")
-def call_downstream_api():
-    token = auth.get_token_for_user(app_config.SCOPE)
-    if "error" in token:
-        return redirect(url_for("login"))
-    # Use access token to call downstream api
-    api_result = requests.get(
-        app_config.ENDPOINT,
-        headers={'Authorization': 'Bearer ' + token['access_token']},
-        timeout=30,
-    ).json()
-    return render_template('display.html', result=api_result)
-```
+After successfully retrieving a token, the code uses the requests package to query the API endpoint and retrieve a JSON result.
+
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="60-71" highlight="7-11":::
+
 
 ---
 

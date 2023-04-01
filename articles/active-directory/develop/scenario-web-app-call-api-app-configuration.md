@@ -354,16 +354,9 @@ The `getAuthResultByAuthCode` method is defined in [AuthHelper.java#L176](https:
 
 See [Web app that signs in users: Code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=python#initialization-code) to understand how the Python sample gets the authorization code. 
 
-The authorization code is then received by the `auth_response` function, which Flask routes from the `/getAToken` URL that was specified in the app registration. The route calls `auth.complete_login` to process the authorization code, and then either returns an error or redirects to the home page. See [app.py#L36-41](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L36-41) for the full context of this code:
+The authorization code is then received by the `auth_response` function, which Flask routes from the `/getAToken` URL that was specified in the app registration. The route calls `auth.complete_login` to process the authorization code, and then either returns an error or redirects to the home page. See [app.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.5.0/app.py#L36-41) for the full context of this code:
 
-```python
-@app.route(app_config.REDIRECT_PATH)
-def auth_response():
-    result = auth.complete_log_in(request.args)
-    if "error" in result:
-        return render_template("auth_error.html", result=result)
-    return redirect(url_for("index"))
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="36-41":::
 
 ---
 
@@ -497,20 +490,11 @@ The detail of the `SessionManagementHelper` class is provided in the [MSAL sampl
 
 # [Python](#tab/python)
 
-In the Python sample, the identity library takes care of the token cache, using the global `session` object for storage. 
+In the Python sample, the identity package takes care of the token cache, using the global `session` object for storage. 
 
 Flask has built-in support for sessions stored in a cookie, but due to the length of the identity cookies, the sample uses the [Flask-session](https://flask-session.readthedocs.io/) package instead. See [app.py:L11](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L11).
 
-```
-from flask import Flask, redirect, render_template, request, session, url_for
-from flask_session import Session
-
-import app_config
-
-app = Flask(__name__)
-app.config.from_object(app_config)
-Session(app)
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="1-11" highlight="5,11":::
 
 Due to the `SESSION_TYPE="filesystem"` setting in `app_config.py`, the Flask-session package will store sessions using the local file system.
 
