@@ -199,4 +199,6 @@ The network connection is no longer available for use in the dev center.
 
 ## Next steps
 
-- [Quickstart: Configure a Microsoft Dev Box Preview project](./quickstart-configure-dev-box-project.md)
+- [Manage a dev box definition](how-to-manage-dev-box-definitions.md)
+- [Manage a dev box pool](how-to-manage-dev-box-pools.md)
+- [Manage a dev box project](how-to-manage-dev-box-projects.md)
