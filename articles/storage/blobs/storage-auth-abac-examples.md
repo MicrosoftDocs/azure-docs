@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 03/31/2023
+ms.date: 04/01/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1549,7 +1549,7 @@ Here are the settings to add this condition using the visual condition editor in
 > | | | Group #1 | | |
 > | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | | | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#container-name) |
-> | | | | Key | [sensitivity] |
+> | | | | Key | `sensitivity` |
 > | | | | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | | | Value | `high` |
 > | | | | Logical operator | 'AND' |
@@ -1561,23 +1561,23 @@ Here are the settings to add this condition using the visual condition editor in
 > | | | | Logical operator | 'OR' |
 > | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | | | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#container-name) |
-> | | | | Key | [sensitivity] |
+> | | | | Key | `sensitivity` |
 > | | | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | | | Value | `high` |
 > | | | | Logical operator | 'OR' |
 > | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | | | | Attribute | [Blob index tags [Keys]](storage-auth-abac-attributes.md#container-name) |
-> | | | | Key | [sensitivity] |
-> | | | | | 'NOT Exists'<sub 1> |
+> | | | | Key | `sensitivity` |
+> | | | | | 'NOT Exists'<sup>1</sup> |
 
-<sub 1>Since `NOT Exists` must be added in the code editor, after selecting the last attribute and the key name, switch to the code editor and change this line:
+<sup>1</sup>Since `NOT Exists` must be added in the code editor, after selecting the last attribute and the key name, switch to the code editor and change this line:<br />
 
-`@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] null`
-to:
-`NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>]`.
-(Add `NOT Exists ` at the beginning and remove ` null ` from the end of the generated statement.)
+`@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] null`<br />
+to:<br />
+`NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>]`.<br />
+*(Add `NOT Exists ` at the beginning and remove ` null ` from the end of the generated statement.)*<br />
 
-The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
+The following image shows the condition after the settings have been entered into the Azure portal:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
