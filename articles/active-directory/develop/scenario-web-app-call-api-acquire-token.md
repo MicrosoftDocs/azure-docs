@@ -208,5 +208,24 @@ def call_downstream_api():
 
 ## Next steps
 
+# [ASP.NET Core](#tab/aspnetcore)
+
 Move on to the next article in this scenario,
-[Call a web API](scenario-web-app-call-api-call-api.md).
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=aspnetcore).
+
+# [ASP.NET](#tab/aspnet)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=aspnet).
+
+# [Java](#tab/java)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=java).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[Call a web API](scenario-web-app-call-api-call-api.md?tabs=python).
+
+---

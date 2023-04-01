@@ -191,5 +191,29 @@ Write-Host "Done creating the webApp application (WebApp)"
 
 ## Next steps
 
+# [ASP.NET Core](#tab/aspnetcore)
+
 Move on to the next article in this scenario,
-[App's code configuration](scenario-web-app-sign-user-app-configuration.md).
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=aspnetcore).
+
+# [ASP.NET](#tab/aspnet)
+
+Move on to the next article in this scenario,
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=aspnet).
+
+# [Java](#tab/java)
+
+Move on to the next article in this scenario,
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=nodejs).
+
+# [Python](#tab/python)
+
+Move on to the next article in this scenario,
+[App's code configuration](scenario-web-app-sign-user-app-configuration.md?tabs=python).
+
+---

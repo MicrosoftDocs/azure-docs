@@ -201,11 +201,11 @@ TENANT_ID=<tenant id>
 
 Those environment variables are referenced by *app_config.py*:
 
-:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py":::
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,9":::
 
 The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a *.gitignore* file that prevents the *.env* file from being checked in.
 
-:::code language="text" source="~/ms-identity-python-webapp-tutorial/.gitignore" range="84-85" highlight="85":::
+:::code language="text" source="~/ms-identity-python-webapp-tutorial/.gitignore" range="84-85" highlight="2":::
 
 
 ---
