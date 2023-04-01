@@ -492,9 +492,9 @@ The detail of the `SessionManagementHelper` class is provided in the [MSAL sampl
 
 In the Python sample, the identity package takes care of the token cache, using the global `session` object for storage. 
 
-Flask has built-in support for sessions stored in a cookie, but due to the length of the identity cookies, the sample uses the [Flask-session](https://flask-session.readthedocs.io/) package instead. See [app.py:L11](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L11).
+Flask has built-in support for sessions stored in a cookie, but due to the length of the identity cookies, the sample uses the [Flask-session](https://flask-session.readthedocs.io/) package instead. Everything is initialized in *app.py*:
 
-:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="1-11" highlight="5,11":::
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="1-11,19-25" highlight="5,11":::
 
 Due to the `SESSION_TYPE="filesystem"` setting in `app_config.py`, the Flask-session package will store sessions using the local file system.
 

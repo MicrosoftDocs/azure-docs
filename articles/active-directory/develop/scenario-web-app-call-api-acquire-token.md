@@ -188,22 +188,6 @@ The code attempts to get a token from the token cache. If it can't get a token, 
 
 :::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="60-71":::
 
-
-```python
-@app.route("/call_downstream_api")
-def call_downstream_api():
-    token = auth.get_token_for_user(app_config.SCOPE)
-    if "error" in token:
-        return redirect(url_for("login"))
-    # Use access token to call downstream api
-    api_result = requests.get(
-        app_config.ENDPOINT,
-        headers={'Authorization': 'Bearer ' + token['access_token']},
-        timeout=30,
-    ).json()
-    return render_template('display.html', result=api_result)
-```
-
 ---
 
 ## Next steps
