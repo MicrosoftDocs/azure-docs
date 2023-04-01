@@ -194,25 +194,19 @@ For simplicity in this article, the client secret is stored in the configuration
 The configuration parameters are set in *.env* as environment variables:
 
 ```bash
-TENANT_ID=<tenant id>
 CLIENT_ID=<client id>
 CLIENT_SECRET=<client secret>
+TENANT_ID=<tenant id>
 ```
 
-Those environment variables are referenced by [*app_config.py*](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app_config.py):
+Those environment variables are referenced by *app_config.py*:
 
-```Python
-CLIENT_ID = os.getenv("CLIENT_ID")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-AUTHORITY = f"https://login.microsoftonline.com/{os.getenv('TENANT_ID')}"
-REDIRECT_PATH = "/getAToken"
-ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
-SCOPE = ["User.ReadBasic.All"]
-# Store sessions in the filesystem
-SESSION_TYPE = "filesystem"
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py":::
 
-The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a [*.gitignore*](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/.gitignore) file that prevents the *.env* file from being checked in.
+The *.env* file should never be checked into source control, since it contains secrets. The quickstart sample includes a [*.gitignore*]file that prevents the *.env* file from being checked in.
+
+:::code language="text" source="~/ms-identity-python-webapp-tutorial/.git_ignore" range="84-85" highlight="85":::
+
 
 ---
 
@@ -341,30 +335,11 @@ The Node sample uses the Express framework. MSAL is initialized in *auth* route 
 
 The Python sample is built with the Flask framework, though other frameworks like Django could be used as well. The Flask app is initialized with the app configuration in [app.py#L1-L11](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L1-L11).
 
-```Python
-import identity
-import identity.web
-import requests
-from flask import Flask, redirect, render_template, request, session, url_for
-from flask_session import Session
-
-import app_config
-
-app = Flask(__name__)
-app.config.from_object(app_config)
-Session(app)
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="1-12" highlight="10":::
 
 Then the code constructs an [`auth` object](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth) using the [identity package](https://pypi.org/project/identity/).
 
-```Python
-auth = identity.web.Auth(
-    session=session,
-    authority=app.config.get("AUTHORITY"),
-    client_id=app.config["CLIENT_ID"],
-    client_credential=app.config["CLIENT_SECRET"],
-)
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="20-25":::
 
 ---
 

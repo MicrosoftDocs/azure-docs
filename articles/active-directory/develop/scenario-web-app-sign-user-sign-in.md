@@ -105,27 +105,16 @@ This template is served via the main (index) route of the app:
 # [Python](#tab/python)
 
 In the Python quickstart, the code for the sign-in link is located in *login.html* template file.
-See [login.html#L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/templates/login.html#L18).
 
-```Python
-    <li><a href='{{ auth_uri }}'>Sign In</a></li>
-```
-When an unauthenticated user visits the home page, the `index` route in [*appy.py*](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py) redirects the user to the `login` route, which figures out the appropriate `auth_uri` and renders the *login.html* template.
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/templates/login.html" range="18-20" highlight="18":::
 
-```Python
-@app.route("/")
-def index():
-    if not auth.get_user():
-        return redirect(url_for("login"))
-    return render_template('index.html', user=auth.get_user(), version=identity.__version__)
+When an unauthenticated user visits the home page, the `index` route in *appy.py* redirects the user to the `login` route.
 
-@app.route("/login")
-def login():
-    return render_template("login.html", version=identity.__version__, **auth.log_in(
-        scopes=app_config.SCOPE,
-        redirect_uri=url_for("auth_response", _external=True),
-        ))
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="49-57" highlight="56":::
+
+The `login` route figures out the appropriate `auth_uri` and renders the *login.html* template.
+
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="28-33" highlight="56":::
 
 ---
 
@@ -190,16 +179,9 @@ When the user selects the **Sign in** link, which triggers the `/auth/signin` ro
 
 When the user selects the **Sign in** link, they're brought to the Microsoft Identity Platform authorization endpoint. 
 
-A successful sign-in redirects the user to the `auth_response` route, which completes the sign-in process using [`auth.complete_login`](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth.complete_log_in), renders errors if any, and redirects the now authenticated user to the home page. See [app.py#L37](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L37).
+A successful sign-in redirects the user to the `auth_response` route, which completes the sign-in process using [`auth.complete_login`](https://identity-library.readthedocs.io/en/latest/#identity.web.Auth.complete_log_in), renders errors if any, and redirects the now authenticated user to the home page. 
 
-```Python
-@app.route(app_config.REDIRECT_PATH)
-def auth_response():
-    result = auth.complete_log_in(request.args)
-    if "error" in result:
-        return render_template("auth_error.html", result=result)
-    return redirect(url_for("index"))
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="36-41":::
 
 ---
 
@@ -311,11 +293,10 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 
 # [Python](#tab/python)
 
-In the Python quickstart, the sign-out button is located in the [templates/index.html](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/templates/index.html#L18) file.
+In the Python quickstart, the sign-out button is located in the *templates/index.html* file.
 
-```html
-<li><a href="/logout">Logout</a></li>
-```
+:::code language="html" source="~/ms-identity-python-webapp-tutorial/templates/index.html" range="20":::
+
 
 ---
 
@@ -378,13 +359,10 @@ When the user selects the **Sign out** button, the app triggers the `/signout` r
 
 # [Python](#tab/python)
 
-When the user selects **Logout**, the app triggers the `/logout` route, which redirects the browser to the Microsoft identity platform sign-out endpoint. See [app.py#L44-L46](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.4.0/app.py#L44-46).
+When the user selects **Logout**, the app triggers the `logout` route, which redirects the browser to the Microsoft identity platform sign-out endpoint.
 
-```Python
-@app.route("/logout")
-def logout():
-    return redirect(auth.log_out(url_for("index", _external=True)))
-```
+:::code language="python" source="~/ms-identity-python-webapp-tutorial/app.py" range="44-46":::
+
 
 ---
 
