@@ -36,15 +36,15 @@ Use the Consumption + Dedicated plan structure when you need any of the followin
 
 - **Consumption usage**: Use of the Consumption plan to run apps that need to scale to zero that don't have specific hardware requirements.
 
-- **Secure outbound traffic**: You can create environments with no public inbound access, and customize the outbound network path from environments to leverage firewalls or other network appliances.
+- **Secure outbound traffic**: You can create environments with no public inbound access, and customize the outbound network path from environments to use firewalls or other network appliances.
 
-Use the Dedicated plan within the Consumption + Dedicated plan structure when you need any of the following:
+Use the Dedicated plan within the Consumption + Dedicated plan structure when you need any of the following features:
 
 - **Environment isolation**: Use of the Dedicated workload profiles provides apps with dedicated hardware with a single tenant guarantee.
 
-- **Customized compute**: Select from many types and sizes of Dedicated workload profiles based on your apps requirements. You can deploy many apps to each workload profile. Each workload profile can scale independantly as more apps are added or removed or as apps scale their replicas up or down.
+- **Customized compute**: Select from many types and sizes of Dedicated workload profiles based on your apps requirements. You can deploy many apps to each workload profile. Each workload profile can scale independently as more apps are added or removed or as apps scale their replicas up or down.
 
-- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. With the Dedicated workload profiles you can set minimum and maximum scaling to help you better control costs.
+- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. With Dedicated workload profiles, you can set minimum and maximum scaling to help you better control costs.
 
     The Consumption + Dedicated plan structure can be more cost effective when you're running higher scale deployments with steady throughput.
 
