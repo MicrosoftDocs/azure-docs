@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Compute Gallery
-titleSuffix: Microsoft Dev Box Preview
-description: Learn how to create a repository for managing and sharing Dev Box images.
+titleSuffix: Microsoft Dev Box
+description: Learn how to create an Azure Compute Gallery repository for managing and sharing Dev Box images.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -10,7 +10,7 @@ ms.date: 10/17/2022
 ms.topic: how-to
 ---
 
-# Configure Azure Compute Gallery
+# Configure Azure Compute Gallery for Microsoft Dev Box
 
 Azure Compute Gallery is a service for managing and sharing images. A gallery is a repository that's stored in your Azure subscription and helps you build structure and organization around your image resources. You can use a gallery to provide custom images for your dev box users.
 

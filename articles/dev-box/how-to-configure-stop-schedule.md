@@ -1,7 +1,7 @@
 ---
-title: How to manage a dev box auto-stop schedule
+title: Set a dev box auto-stop schedule
 titleSuffix: Microsoft Dev Box
-description: This article describes how to automatically shutdown a pool of dev boxes by using a dev box auto-stop schedule.
+description: Learn how to configure an auto-stop schedule to automatically shutdown dev boxes in a pool at a specified time.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -142,4 +142,4 @@ You can also manage auto-stop schedules using Azure CLI.
 ## Next steps
 
 - [Manage a dev box definition](./how-to-manage-dev-box-definitions.md)
-- [Manage a dev box using the developer portal](./how-to-manage-dev-boxes.md)
+- [Manage a dev box using the developer portal](./how-to-create-dev-boxes-developer-portal.md)
