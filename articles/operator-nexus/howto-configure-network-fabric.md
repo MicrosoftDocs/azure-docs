@@ -18,53 +18,56 @@ This article describes how to create a Network Fabric by using the Azure Command
 
 * An Azure account with an active subscription.
 * Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
-* A Network Fabric Controller pre-created in Azure. Since a Network Fabric Controller instance in Azure can be used for multiple Network Fabrics. You can re-use a pre-existing Network Fabric Controller for the same region.
-* Physical AODS instance with cabling as per BoM.
-* Express Route connectivity between NFC and AODS instances.
+* A Network Fabric controller manages multiple Network Fabrics on the same Azure region.
+* Physical Operator-Nexus instance with cabling as per BoM.
+* Express Route connectivity between NFC and Operator-Nexus instances.
 * Terminal server pre-configured with username and password.
 * PE devices pre-configured with necessary VLANs, Route-Targets and IP addresses.
 * Supported SKUs from NFA Release 1.5 and beyond for Fabric are **M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**.
-    * M4-A400-A100-C16-aa - Upto 4 Compute Racks 
-    * M8-A400-A100-C16-aa - Upto 8 Compute Racks 
+    * M4-A400-A100-C16-aa - Up to four Compute Racks
+    * M8-A400-A100-C16-aa - Up to eight Compute Racks
 
 ## Steps to Provision a Fabric & Racks
-* Create a Network Fabric by providing racks, server count, SKU & network configuration
-* Create a Network to Network to Network Interconnect by providing Layer2 & Layer 3 Parameters
+
+* Create a Network Fabric by providing racks, server count, SKU & network configuration.
+* Create a Network to Network Interconnect by providing Layer2 & Layer 3 Parameters
 * Update the serial number in the networkDevice resource with the actual serial number on the device.
 * Configure the terminal server with the serial numbers of all the devices.
 * Provision the Network Fabric.
 
 
 ## Fabric Configuration
+
 The following table specifies parameters used to create Network Fabric
 
 | Parameter | Description  |  Example |  Required|
-|----------|-------------------|---|----|
+|-----------------------------------------------|---| ---|----|
 | resource-group | Name of the resource group |  "NFResourceGroup" |True |
-| location | AODS Azure region | "eastus" |True | 
-| resource-name | Name of the FabricResoruce | NF-ResourceName |True |
-|  nf-sku  |Fabric SKU id, this should be based on the SKU of the BoM that was ordered, there are two SKU's that are supported (**M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**) . | M4-A400-A100-C16-aa |True | String|
+| location | Operator-Nexus Azure region | "eastus" |True | 
+| resource-name | Name of the FabricResource | NF-ResourceName |True |
+|  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Two SKUs are supported (**M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**). | M4-A400-A100-C16-aa |True | String|
 |nfc-id|Network Fabric Controller ARM resource id|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFCName|True | 
-|rackcount|Number of racks per fabric.Possible values are 2-8|8|True | 
-|serverCountPerRack|NNumber of servers per rack.Possible values are 1-16|16|True | 
-|ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 is not allowed, /18 and lower are allowed) | 10.246.0.0/19|True |
+|rackcount|Number of racks per fabric. Possible values are 2-8|8|True | 
+|serverCountPerRack|NNumber of servers per rack. Possible values are 1-16|16|True | 
+|ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 isn't allowed, /18 and lower are allowed) | 10.246.0.0/19|True |
 |ipv6Prefix|IPv6 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. | 10:5:0:0::/59|True |
 |**management-network-config**| Details of management network ||True |
 ||
 |**infrastructureVpnConfiguration**| Details of management VPN connection between Network Fabric and infrastructure services in Network Fabric Controller||True
-|*optionBProperties*| Details of MPLS option 10B that is used for connectivity between Network Fabric and Network Fabric Controller||True
-|importRouteTargets|Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g. 65048:10039|True(If OptionB enabled)|
-|exportRouteTargets|Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g. 65048:10039|True(If OptionB enabled)|
+|*optionBProperties*| Details of MPLS option 10B is used for connectivity between Network Fabric and Network Fabric Controller||True
+|importRouteTargets|Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g.,  65048:10039|True(If OptionB enabled)|
+|exportRouteTargets|Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g.,  65048:10039|True(If OptionB enabled)|
+|
 |**workloadVpnConfiguration**| Details of workload VPN connection between Network Fabric and workload services in Network Fabric Controller||
-|*optionBProperties*| Details of MPLS option 10B that is used for connectivity between Network Fabric and Network Fabric Controller||
-|importRouteTargets|Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g. 65048:10050|True(If OptionB enabled)|
-|exportRouteTargets|Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g. 65048:10050|True(If OptionB enabled)|
+|*optionBProperties*| Details of MPLS option 10B is used for connectivity between Network Fabric and Network Fabric Controller||
+|importRouteTargets|Values of import route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g., 65048:10050|True(If OptionB enabled)|
+|exportRouteTargets|Values of export route targets to be configured on CEs for exchanging routes between CE & PE via MPLS option 10B|e.g., 65048:10050|True(If OptionB enabled)|
 ||
 |**ts-config**| Terminal Server Configuration Details||True
-|primaryIpv4Prefix| The terminal server Net1 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address|20.0.10.0/30 , TS Net1 interface should be assigned 20.0.10.1 and PE interface 20.0.10.2|True|
-|secondaryIpv4Prefix|IPv4 Prefix for connectivity between TS and PE2. The terminal server Net2 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address|20.0.0.4/30 , TS Net2 interface should be assigned 20.0.10.5 and PE interface 20.0.10.6|True|
-|username| Username configured on the terminal server that the services uses to configure TS|username|True|
-|password| Password configured on the terminal server that the services uses to configure TS|password|True|
+|primaryIpv4Prefix| The terminal server Net1 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address|20.0.10.0/30, TS Net1 interface should be assigned 20.0.10.1 and PE interface 20.0.10.2|True|
+|secondaryIpv4Prefix|IPv4 Prefix for connectivity between TS and PE2. The terminal server Net2 interface should be assigned the first usable IP from the prefix and the corresponding interface on PE should be assigned the second usable address|20.0.0.4/30, TS Net2 interface should be assigned 20.0.10.5 and PE interface 20.0.10.6|True|
+|username| Username configured on the terminal server that the services use to configure TS|username|True|
+|password| Password configured on the terminal server that the services use to configure TS|password|True|
 |serialNumber| Serial number of Terminal Server|SN of the Terminal Server||
 ||||
 
@@ -73,12 +76,12 @@ The following table specifies parameters used to create Network Fabric
 
 ## Create a Network Fabric 
 
-Resource group must be created before Network Fabric creation. It is recommended to create a separate resource group for each Network Fabric. Resource group can be created by the following command:
+Resource group must be created before Network Fabric creation. It's recommended to create a separate resource group for each Network Fabric. Resource group can be created by the following command:
 
 ```azurecli
 az group create -n NFResourceGroup -l "East US"
 ```
-Run the following command to create the Network Fabric :
+Run the following command to create the Network Fabric:
 
 ```azurecli
 
@@ -91,16 +94,16 @@ az nf fabric create \
 --fabric-asn 65048 
 --ipv4-prefix 10.2.0.0/19 
 --ipv6-prefix fda0:d59c:da02::/59 
---rack-count 8 
---server-count-per-rack 16 
+--rack-count 3 
+--server-count-per-rack 7 
 --ts-config '{"primaryIpv4Prefix":"20.0.1.0/30", "secondaryIpv4Prefix":"20.0.0.0/30", "username":"****", "password": "****", "serialNumber":"TerminalServerSerialNumber"}' 
 --managed-network-config '{"infrastructureVpnConfiguration":{"peeringOption":"OptionB","optionBProperties":{"importRouteTargets":["65048:10039"],"exportRouteTargets":["65048:10039"]}}, "workloadVpnConfiguration":{"peeringOption": "OptionB", "optionBProperties": {"importRouteTargets": ["65048:10050"], "exportRouteTargets": ["65048:10050"]}}}'
 
 ```
 **Note**:
 
-* if it's a 4 rack setup then the rack count would be 4 
-* if it's a 8 rack setup then the rack count would be 8
+* if it's a four racks set up then the rack count would be 4 
+* if it's an eight rack set up then the rack count would be 8
 
 Expected output:
 
@@ -261,7 +264,8 @@ Expected output:
 }
 
 ```
-## List or Get Network Fabric 
+
+## List or Get Network Fabric
 
 ```azurecli
 az nf fabric list --resource-group "NFResourceGroup"  
@@ -353,8 +357,8 @@ The following table specifies parameters used to create Network to Network Inter
 
 | Parameter | Description  |  Example |  Required|
 |-----------------------------------------------|---| ---|----|
-|isMangementType| Configuration to make NNI to be used for management of Fabric.Default value is true.Possible values are True/False |True|True
-|useOptionB| Configuration to enable optionB.Possile values are True/False |True|True
+|isMangementType| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |True|True
+|useOptionB| Configuration to enable optionB. Possible values are True/False |True|True
 ||
 |*layer2Configuration*| Layer 2 configuration ||
 ||
@@ -378,7 +382,7 @@ The following table specifies parameters used to create Network to Network Inter
 Resource group & Network Fabric must be created before Network to Network Interconnect creation. 
 
 
-Run the following command to create the Network to Network Interconnect :
+Run the following command to create the Network to Network Interconnect:
 
 ```azurecli
 
@@ -530,9 +534,9 @@ Expected output:
 
 ## Next Steps
 
-* Update the serial number in the networkDevice resource with the actual serial number on the device.The device sends the serial number as part of DHCP request.    
+* Update the serial number in the networkDevice resource with the actual serial number on the device. The device sends the serial number as part of DHCP request.    
 * Configure the terminal server with the serial numbers of all the devices (which also hosts DHCP server)
-* Provision the network devices via zero-touch provisioning mode,Based on the serial number in the DHCP request, the DHCP server responds with the boot configuration file for the corresponding device
+* Provision the network devices via zero-touch provisioning mode, Based on the serial number in the DHCP request, the DHCP server responds with the boot configuration file for the corresponding device
 
 
 ## Update Network Fabric Devices
@@ -782,7 +786,7 @@ Expected output:
 
 ## Provision fabric
 
-After updating the device serial number , the fabric needs to be provisioned by executing the following command
+After updating the device serial number, the fabric needs to be provisioned by executing the following command
 
 ```azurecli
 az nf fabric provision --resource-group "NFResourceGroup"  --resource-name "NFName"
@@ -961,7 +965,7 @@ Expected output:
 
 ## Deleting fabric
 
-To delete the fabric the operational state of Fabric should not be "Provisioned".To change the operational state from Provisioned to Deprovision, run the deprovision command.Ensure there are no racks associated before deleting fabric.
+To delete the fabric the operational state of Fabric shouldn't be "Provisioned". To change the operational state from Provisioned to Deprovision, run the deprovision command. Ensure there are no racks associated before deleting fabric.
 
 
 ```azurecli
