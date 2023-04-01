@@ -110,7 +110,7 @@ In the following steps, you retrieve the values of the **default domain** and th
     | Region | Select the location where your Container App was provisioned. |
     | Tier | Select **WAF V2**. You can use **Standard V2** if you don't need WAF. |
     | Enable autoscaling | Leave as default. For production environments, autoscaling is recommended. See [Autoscaling Azure Application Gateway](../application-gateway/application-gateway-autoscaling-zone-redundant.md). |
-    | Availability zone | Select **None**. For production environments, [Availability Zones](../reliability/availability-zones-overview#availability-zones.md) are recommended for higher availability. |
+    | Availability zone | Select **None**. For production environments, [Availability Zones](/azure/reliability/availability-zones-overview#availability-zones) are recommended for higher availability. |
     | HTTP2 | Keep the default value. |
     | WAF Policy | Select **Create new** and enter **my-waf-policy** for the WAF Policy. Select **OK**. If you chose **Standard V2** for the tier, skip this step. |
     | Virtual network | Select the virtual network that your container app is integrated with. |
@@ -201,27 +201,27 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
     | PFX certificate file | Select your valid public certificate. |
     | Password | Enter your certificate password. |
 
-### [Default Domain](#tab/default-domain)
+    ### [Default Domain](#tab/default-domain)
 
-If you wish to use the default domain, enter the following values:
+    If you wish to use the default domain, enter the following values:
 
-    | Setting | Action |
-    |---|---|
-    | Listener Type | Select **Basic** |
-    | Error page url | Leave as **No** |
+        | Setting | Action |
+        |---|---|
+        | Listener Type | Select **Basic** |
+        | Error page url | Leave as **No** |
 
-### [Custom Domain](#tab/custom-domain)
+    ### [Custom Domain](#tab/custom-domain)
 
-If you wish to use a custom domain, enter the following values:
+    If you wish to use a custom domain, enter the following values:
 
-    | Setting | Action |
-    |---|---|
-    | Listener Type | Select **Multi site** |
-    | Host type | Select **Single** |
-    | Host Names | Enter the Custom Domain you wish to use. |
-    | Error page url | Leave as **No** |
+        | Setting | Action |
+        |---|---|
+        | Listener Type | Select **Multi site** |
+        | Host type | Select **Single** |
+        | Host Names | Enter the Custom Domain you wish to use. |
+        | Error page url | Leave as **No** |
 
----
+    ---
 
 1. Select the **Backend targets** tab and enter the following values:
 

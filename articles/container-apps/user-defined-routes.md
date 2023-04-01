@@ -3,6 +3,7 @@ title: Container Apps outbound traffic control with Azure Firewall
 description: Use Azure Firewall to route outbound traffic from Container Apps to the internet, private IP addresses, and Azure services.
 services: container-apps
 author: cachai
+ms.service: container-apps
 ms.author: cachai
 ms.topic: article
 ms.date: 03/29/2023
