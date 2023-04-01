@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a dev box'
-titleSuffix: Microsoft Dev Box Preview
-description: This quickstart shows you how to create a dev box and connect to it through a browser.
+titleSuffix: Microsoft Dev Box
+description: In this quickstart, you learn how to create a dev box and connect to it through a browser.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart

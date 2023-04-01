@@ -1,7 +1,7 @@
 ---
-title: Manage network connections
-titleSuffix: Microsoft Dev Box Preview
-description: This article describes how to create, delete, attach, and remove Microsoft Dev Box Preview network connections.
+title: Configure network connections
+titleSuffix: Microsoft Dev Box
+description: Learn how to create, delete, attach, and remove Microsoft Dev Box Preview network connections.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
@@ -11,7 +11,7 @@ ms.topic: how-to
 #Customer intent: As a dev infrastructure manager, I want to be able to manage network connections so that I can enable dev boxes to connect to my existing networks and deploy them in the desired region.
 ---
 
-# Manage network connections
+# Connect dev boxes to resources by configuring network connections 
 
 Network connections allow dev boxes to connect to existing virtual networks. They also determine the region into which dev boxes are deployed.
 
@@ -199,4 +199,6 @@ The network connection is no longer available for use in the dev center.
 
 ## Next steps
 
-- [Quickstart: Configure a Microsoft Dev Box Preview project](./quickstart-configure-dev-box-project.md)
+- [Manage a dev box definition](how-to-manage-dev-box-definitions.md)
+- [Manage a dev box pool](how-to-manage-dev-box-pools.md)
+- [Manage a dev box project](how-to-manage-dev-box-projects.md)

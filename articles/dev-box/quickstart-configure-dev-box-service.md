@@ -1,7 +1,6 @@
 ---
-title: 'Quickstart: Configure Microsoft Dev Box Preview'
-titleSuffix: Microsoft Dev Box Preview
-description: This quickstart shows you how to configure the Microsoft Dev Box Preview service to provide dev boxes for users.
+title: 'Quickstart: Configure Microsoft Dev Box'
+description: In this quickstart, you learn how to configure the Microsoft Dev Box Preview service to provide dev boxes for users.
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
