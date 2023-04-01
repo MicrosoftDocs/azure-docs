@@ -73,7 +73,7 @@ To provision a custom domain you need to
     :::image type="content" source="./media/email-domains-custom-verify-progress.png" alt-text="Screenshot that shows the domain verification is in progress.":::
 15. Once your domain is verified, you can add your SPF and DKIM records to authenticate your domains. 
 
-    :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Screenshot that shows the the custom domain is verified." lightbox="media/email-domains-custom-verified-expanded.png":::
+    :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Screenshot that shows the custom domain is verified." lightbox="media/email-domains-custom-verified-expanded.png":::
 
 
 ### Configure sender authentication for custom domain
