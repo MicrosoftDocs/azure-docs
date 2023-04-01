@@ -201,31 +201,31 @@ On the *Configuration* tab, you connect the frontend and backend pool you create
     | PFX certificate file | Select your valid public certificate. |
     | Password | Enter your certificate password. |
 
-    ### [Default Domain](#tab/default-domain)
+    # [Default Domain](#tab/default-domain)
 
-    If you wish to use the default domain, enter the following values:
+    If you want to use the default domain, enter the following values:
 
-        | Setting | Action |
-        |---|---|
-        | Listener Type | Select **Basic** |
-        | Error page url | Leave as **No** |
+    | Setting | Action |
+    |---|---|
+    | Listener Type | Select **Basic** |
+    | Error page url | Leave as **No** |
 
-    ### [Custom Domain](#tab/custom-domain)
+    # [Custom Domain](#tab/custom-domain)
 
-    If you wish to use a custom domain, enter the following values:
+    If you want to use a custom domain, enter the following values:
 
-        | Setting | Action |
-        |---|---|
-        | Listener Type | Select **Multi site** |
-        | Host type | Select **Single** |
-        | Host Names | Enter the Custom Domain you wish to use. |
-        | Error page url | Leave as **No** |
+    | Setting | Action |
+    |---|---|
+    | Listener Type | Select **Multi site** |
+    | Host type | Select **Single** |
+    | Host Names | Enter the Custom Domain you wish to use. |
+    | Error page url | Leave as **No** |
 
     ---
 
 1. Select the **Backend targets** tab and enter the following values:
 
-1. Toggle to the *Backend targets* tab and enter the following values: 
+1. Toggle to the *Backend targets* tab and enter the following values:
 
     | Setting | Action |
     |---|---|
@@ -270,15 +270,16 @@ This step is required for internal only container app environments as it allows 
 
 ## Verify the container app
 
-### [Default domain](#tab/default-domain)
+# [Default domain](#tab/default-domain)
 
 1. Find the public IP address for the application gateway on its *Overview* page, or you can search for the address. To search, select *All resources* and enter **my-container-apps-agw-pip** in the search box. Then, select the IP in the search results.
 1. Navigate to the public IP address of the application gateway.
 1. Your request is automatically routed to the container app, which  verifies the application gateway was successfully created.
 
-### [Custom domain](#tab/custom-domain)
+# [Custom domain](#tab/custom-domain)
 
 1. Find the public IP address for the application gateway on its *Overview* page, or you can search for the address.
+
     To search, select *All resources* and enter **my-container-apps-agw-pip** in the search box. Then, select the IP in the search results.
 
 1. Next, you need to update your DNS records via your domain provider's website. Open a new browser window to add the DNS records. Set the A record type to point to the IP address of the application gateway.
