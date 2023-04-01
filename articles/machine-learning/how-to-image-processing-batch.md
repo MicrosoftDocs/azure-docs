@@ -54,6 +54,12 @@ First, let's create the endpoint that will host the model:
 
 # [Azure CLI](#tab/azure-cli)
 
+Decide on the name of the endpoint:
+
+```azurecli
+ENDPOINT_NAME="imagenet-classifier-batch"
+```
+
 The following YAML file defines a batch endpoint:
 
 __endpoint.yml__
@@ -65,6 +71,14 @@ Run the following code to create the endpoint.
 :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/imagenet-classifier/deploy-and-run.sh" ID="create_batch_endpoint" :::
 
 # [Python](#tab/python)
+
+Decide on the name of the endpoint:
+
+```python
+endpoint_name="imagenet-classifier-batch"
+```
+
+Configure the endpoint:
 
 ```python
 endpoint = BatchEndpoint(
@@ -149,7 +163,7 @@ __code/score-by-file/batch_driver.py__
 
 One the scoring script is created, it's time to create a batch deployment for it. Follow the following steps to create it:
 
-1. Ensure you have a compute cluster created where we can create the deployment. In this example we are going to use a compute cluster named `gpu-cluster`. Althought is not required, we will GPUs to speed up the processing.
+1. Ensure you have a compute cluster created where we can create the deployment. In this example we are going to use a compute cluster named `gpu-cluster`. Although is not required, we use GPUs to speed up the processing.
 
 1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `TensorFlow`. Azure Machine Learning already has an environment with the required software installed, so we can reutilize this environment. We are just going to add a couple of dependencies in a `conda.yml` file.
 
