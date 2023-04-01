@@ -104,6 +104,9 @@ Once you have submitted the short code program brief application in the Azure po
 ### Is a number purchase required to use alphanumeric sender ID?
 The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-senderID.md) for instructions.
 
+### Can I send SMS immediately after enabling alphanumeric sender ID?
+We recommend waiting for 10 minutes before you start sending messages for best results.
+
 ## Toll-Free Verification
 ### What is toll free verification?
 The toll-free verification process ensures that your services running on toll-free numbers (TFNs) comply with carrier policies and [industry best practices](./messaging-policy.md). This also provides relevant service information to the downstream carriers, reduces the likelihood of false positive filtering and wrongful spam blocks.
@@ -152,8 +155,6 @@ Effective **October 1, 2022**, unverified toll-free numbers sending messages to 
 
 ### What happens after I submit the toll-free verification form?
 :::image type="content" source="./media/tf-status-blue.png" alt-text="A picture of the toll-free application timeline and the different application statuses." lightbox="./media/tf-status-blue.png":::
-
-
 
 After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we are reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-5 business days** 

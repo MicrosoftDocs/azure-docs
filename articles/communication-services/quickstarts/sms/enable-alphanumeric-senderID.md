@@ -22,12 +22,12 @@ ms.custom: mode-other
 - [An active Communication Services resource.](../create-communication-resource.md)
 
 ## Alphanumeric sender ID
-To begin provisioning a short code, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).
+To enable alphanumeric sender ID, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).
 
 :::image type="content" source="./media/enable-alphanumeric-senderID/manage-phone-azure-portal-start1.png"alt-text="Screenshot showing a Communication Services resource's main page.":::
 
 ## Enable alphanumeric sender ID
-Navigate to the Alphanumeric Sender ID blade in the resource menu and click on "Enable Alphanumeric Sender ID" button to enable alphanumeric sender ID service. If the enable button is greyed out for your subscription and your [subscription address](../../concepts/numbers/sub-eligibility-number-capability.md) is supported for alphanumeric sender ID, [create a support ticket](https://aka.ms/ACS-Support).
+Navigate to the Alphanumeric Sender ID blade in the resource menu and click on "Enable Alphanumeric Sender ID" button to enable alphanumeric sender ID service. If the enable button is not available for your subscription and your [subscription address](../../concepts/numbers/sub-eligibility-number-capability.md) is supported for alphanumeric sender ID, [create a support ticket](https://aka.ms/ACS-Support).
 
 :::image type="content" source="./media/enable-alphanumeric-senderID/enable-alphanumeric-sender-id.png"alt-text="Screenshot showing a Alphanumeric senderID blade.":::
 
