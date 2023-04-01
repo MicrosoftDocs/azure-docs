@@ -887,7 +887,7 @@
     {
       "path_to_root": "ms-identity-python-webapp-tutorial",
       "url": "https://github.com/Azure-Samples/ms-identity-python-webapp",
-      "branch": "app-service-howto",
+      "branch": "0.5.0",
       "branch_mapping": {}
     },
     {
