@@ -57,7 +57,7 @@ This article provides information about the export process and shows how to expo
 
 - One or more logic apps to deploy to the same subscription and Azure region, for example, East US 2.
 
-- Azure reader subscription-level access to the subscription where the logic apps are currently deployed, not just resource group-level access.
+- Azure reader subscription-level access to the subscription where the logic apps are currently deployed.
 
 - Azure contributor resource group-level access, if Deploy managed connectors option is selected.
 
