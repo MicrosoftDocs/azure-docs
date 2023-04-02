@@ -7,6 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 03/30/2023
 ms.author: cshoe
+ms.custom: references_regions
 ---
 
 # Workload profiles in Consumption + Dedicated plan structure environments in Azure Container Apps (preview)
