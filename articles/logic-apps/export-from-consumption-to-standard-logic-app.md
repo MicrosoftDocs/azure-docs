@@ -61,7 +61,11 @@ This article provides information about the export process and shows how to expo
 
 - Azure contributor resource group-level access, if Deploy managed connectors option is selected.
 
-- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites). VS Code extension version 2.0.16 or higher is required, as some conversion scenarios will require the latest version of logic apps designer, available on this version.
+- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+
+> [!NOTE]
+> 
+> VS Code extension version 2.0.16 or higher is required, as some conversion scenarios will require the latest version of logic apps designer, available on this version.
 
 ## Group logic apps for export
 
