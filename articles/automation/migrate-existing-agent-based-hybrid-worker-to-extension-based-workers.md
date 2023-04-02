@@ -57,7 +57,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 ### Other Requirements
 
-| Windows | Linux |
+| Windows (x64)  | Linux (x64) |
 |---|---|
 | Windows PowerShell 5.1 (download WMF 5.1). PowerShell Core isn't supported.| Linux Hardening must not be enabled.  |
 | .NET Framework 4.6.2 or later. |            |
