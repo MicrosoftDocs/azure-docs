@@ -31,20 +31,20 @@ Before you can connect your labeling project to Azure Machine Learning, you need
 ## Limitations
 
 * Connecting your labeling project to Azure Machine Learning is a one-to-one connection. If you disconnect your project, you will not be able to:
-    * Connect it your project back to the same Azure Machine Learning project
-    * Connect it to any Language Studio project in the future.
+    * Connect back your project back to the same Azure Machine Learning project
+    * Connect the Azure Machine Learning project that you disconnected to any Language Studio project in the future.
 * You can't label in the Language Studio and Azure Machine Learning simultaneously. The labeling experience is enabled in one studio at a time. 
 * The testing and training files in the labeling experience you switch away from will be ignored when training your model.  
 * Only Azure Machine Learning's JSONL file format can be imported into Language Studio.
 * Projects with the multi-lingual option enabled can't be connected to Azure Machine Learning, and not all languages are supported.
-* The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to.
+* The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to. Please ensure that the Azure Machine Learning workspace has a Storage blob data reader permission on the storage account. You may refer to the following article to learn how to [assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 * Switching between the two labeling experiences isn't instantaneous. It may take time to successfully complete the operation.
 
 ## Import your Azure Machine Learning labels into Language Studio
 
 Language Studio supports the JSONL file format used by Azure Machine Learning. If you’ve been labeling data on Azure Machine Learning, you can import your up-to-date labels in a new custom project to utilize the features of both studios. 
 
-1.	Start creating a new project for custom text classification or custom named entity recognition.
+1.	Start by creating a new project for custom text classification or custom named entity recognition.
 
     1. In the **Create a project** screen that appears, follow the prompts to connect your storage account, and enter the basic information about your project. Be sure that the Azure resource you're using doesn't have another storage account already connected.
     
@@ -79,7 +79,7 @@ Before you connect to Azure Machine Learning, you need an Azure Machine Learning
     > [!IMPORTANT]
     > Finalizing the connection **is permanent**. Attempting to disconnect your established connection at any point in time will permanently disable this feature for the Azure Machine Learning project and you will not be able to reconnect it to any future Language Studio projects. 
 
-1. After the connection has been created, your ability to label data in Language Studio will be disabled for a few minutes to prepare the new connection.
+1. After the connection has been initiated, your ability to label data in Language Studio will be disabled for a few minutes to prepare the new connection.
 
 ## Switch to labeling with Azure Machine Learning from Language Studio
 
