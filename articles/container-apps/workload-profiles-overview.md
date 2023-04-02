@@ -45,7 +45,7 @@ The following regions support workload profiles during preview:
 
 There are different types and sizes of workload profiles available by region. By default each Consumption + Dedicated plan structure includes a Consumption profile, but you can also add any of the following profiles:
 
-| Display Name | Name | Cores | MemoryGiB | Category | Allocation |
+| Display name | Name | Cores | MemoryGiB | Category | Allocation |
 |---|---|---|---|---|---|
 | Consumption | consumption |4 | 8 | Consumption | per replica |
 | Dedicated-D4 | D4 | 4 | 16 | General purpose | per node |
