@@ -1,6 +1,6 @@
 ---
 title: Configure a dev box by using Azure VM Image Builder
-titleSuffix: Microsoft Dev Box Preview
+titleSuffix: Microsoft Dev Box
 description: Learn how to create a custom image by using Azure VM Image Builder, and then create a dev box by using the image.
 services: dev-box
 ms.service: dev-box

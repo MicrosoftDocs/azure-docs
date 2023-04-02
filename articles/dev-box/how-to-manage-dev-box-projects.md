@@ -1,7 +1,7 @@
 ---
-title: How to manage a dev box project
-titleSuffix: Microsoft Dev Box Preview
-description: This article describes how to create, and delete Microsoft Dev Box Preview dev box projects.
+title: Manage a dev box project
+titleSuffix: Microsoft Dev Box
+description: Microsoft Dev Box projects give developers access to create their dev boxes. Learn how to create and delete dev box projects.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
