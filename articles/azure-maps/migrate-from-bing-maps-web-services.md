@@ -40,13 +40,13 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Traffic Incidents                     | [Traffic Incident Details]                |
 | Elevations                            | <sup>1</sup>                              |
 
-<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
+<sup>1</sup> Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information on how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md).
 
 The following service APIs aren't currently available in Azure Maps:
 
 * Optimized Itinerary Routes - Planned. Azure Maps Route API does support traveling salesmen optimization for a single vehicle.
 * Imagery Metadata – Primarily used for getting tile URLs in Bing Maps. Azure Maps has a standalone service for directly accessing map tiles.
-* Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md)
+* Azure Maps [Elevation services](/rest/api/maps/elevation) have been [deprecated](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023). For more information on how to include this functionality in your Azure Maps, see [Create elevation data & services](elevation-data-services.md)
 
 Azure Maps also has these REST web services:
 
@@ -703,7 +703,7 @@ Learn more about the Azure Maps REST services.
 [Best practices for Azure Maps Search service]: how-to-use-best-practices-for-search.md
 [Best practices for Azure Maps Route service]: how-to-use-best-practices-for-routing.md
 
-[free account]: https://azure.microsoft.com/free/?azure-portal=true
+[free account]: https://azure.microsoft.com/free/
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 
 [Free-form address geocoding]: /rest/api/maps/search/getsearchaddress
@@ -725,12 +725,12 @@ Learn more about the Azure Maps REST services.
 [Calculate route]: /rest/api/maps/route/getroutedirections
 [Batch route]: /rest/api/maps/route/postroutedirectionsbatchpreview
 
-[Snap points to logical route path]: https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path?azure-portal=true
-[Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic?azure-portal=true
+[Snap points to logical route path]: https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path
+[Basic snap to road logic]: https://samples.azuremaps.com/?sample=basic-snap-to-road-logic
 
 [quadtree tile pyramid math]: zoom-levels-and-tile-grid.md
-[turf js]: https://turfjs.org?azure-portal=true
-[NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite?azure-portal=true
+[turf js]: https://turfjs.org
+[NetTopologySuite]: https://github.com/NetTopologySuite/NetTopologySuite
 
 [Map image render]: /rest/api/maps/render/getmapimagerytile
 [Supported map styles]: supported-map-styles.md
