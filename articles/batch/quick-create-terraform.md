@@ -35,25 +35,25 @@ In this article, you learn how to:
 ## Implement the Terraform code
 
 > [!NOTE]
-> The example code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-batch_account). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+> The example code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-batch-account-with-storage). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-batch_account/providers.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-batch-account-with-storage/providers.tf)]
 
 1. Create a file named `main.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-batch_account/main.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-batch-account-with-storage/main.tf)]
 
 1. Create a file named `variables.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-batch_account/variables.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-batch-account-with-storage/variables.tf)]
 
 1. Create a file named `outputs.tf` and insert the following code:
 
-    [!code-terraform[master](~/terraform_samples/quickstart/101-batch_account/outputs.tf)]
+    [!code-terraform[master](~/terraform_samples/quickstart/101-batch-account-with-storage/outputs.tf)]
 
 ## Initialize Terraform
 
