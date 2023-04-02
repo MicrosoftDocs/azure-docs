@@ -40,6 +40,7 @@ One type of pen test that you can't perform is any kind of [Denial of Service (D
 > - [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): A self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations.
 > - [Red Button](https://www.red-button.net/): Work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
 > - [RedWolf](https://www.redwolfsecurity.com/services/#cloud-ddos) a self-service or guided DDoS testing provider with real-time control.
+>
 > To learn more about these simulation partners, see [testing with simulation partners](../../ddos-protection/test-through-simulations.md).
 
 ## Next steps
