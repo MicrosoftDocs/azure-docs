@@ -45,6 +45,8 @@ In this tutorial, you learn how to:
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
+- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
 ## Configure PSM CyberArk
 
 CyberArk must be configured to allow communication with Defender for IoT. This communication is accomplished by configuring PSM.

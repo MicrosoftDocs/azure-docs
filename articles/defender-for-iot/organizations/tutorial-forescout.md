@@ -51,6 +51,8 @@ If you don't already have an Azure account, you can [create your Azure free acco
 
 - A license for the Forescout eyeExtend module for the Microsoft Defender for IoT Platform.
 
+- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
 ## Generate an access token
 
 Access tokens allow external systems to access data discovered by Defender for IoT. Access tokens allow that data to be used for external REST APIs,  and over SSL connections. You can generate access tokens in order to access the Microsoft Defender for IoT REST API.
@@ -65,9 +67,7 @@ To ensure communication from Defender for IoT to Forescout, you must generate an
 
 1. Select **Generate token**.
 
-1. Enter a token description in the **Description** field.
-
-   :::image type="content" source="media/tutorial-forescout/new-forescout-token.png" alt-text="Screenshot of generating a new access token":::
+1. In the **Description** field, add a short description regarding the purpose of the access token. For example: "integration with python script".
 
 1. Select **Generate**. The token is then displayed in the dialog box.
 
@@ -136,7 +136,7 @@ The Used field alerts you if the connection between the sensor and the Forescout
 
 ## View device attributes in Forescout
 
-By integrating Defender for IoT with Forescout, you are able to view different device's attributes that were detected by Defender for IoT, in the Forescout application.
+By integrating Defender for IoT with Forescout, you're able to view different device's attributes that were detected by Defender for IoT, in the Forescout application.
 
 The following table lists all of the attributes that are visible through the Forescout application:
 

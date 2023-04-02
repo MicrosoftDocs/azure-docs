@@ -48,7 +48,7 @@ If you don't already have an Azure account, you can [create your Azure free acco
 
 ## Prerequisites
 
-There are no prerequisites for this tutorial.
+Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## Create an API key in Fortinet
 
@@ -101,39 +101,42 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 **To set a forwarding rule to block malware-related alerts**:
 
-1. Sign in to the Microsoft Defender for IoT Management Console.
+1. Sign in to the Microsoft Defender for IoT sensor, and select **Forwarding**.
 
-1. In the left pane, select **Forwarding**.
+1. Select **+ Create new rule**.
 
-    [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the Forwarding window option in a sensor.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
+1. In the **Add forwarding rule** pane, define the rule parameters:
 
-1. Select **Create Forwarding Rules** and define the following rule parameters.
-
-    | Parameter | Description |
-    | --------- | ----------- |
-    | **Name** | Enter a meaningful name for the forwarding rule. |
-    | **Select Severity** | From the drop-down menu, select the minimal security level incident to forward. For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Protocols** | To select a specific protocol, select **Specific**, and select the protocol for which this rule is applied. By default, all the protocols are selected. |
-    | **Engines** | To select a specific security engine for which this rule is applied, select **Specific**, and select the engine. By default, all the security engines are involved. |
-    | **System Notifications** | Forward the sensor's *online* and *offline* status. This option is only available if you've logged into the on-premises management console. |
-
-1. In the Actions section, select **Add**, and then select **Send to FortiGate** from the drop-down menu.
-
-    :::image type="content" source="media/tutorial-fortinet/fortigate.png" alt-text="Screenshot of the Add an action section of the Create Forwarding Rule window.":::
-
-1. To configure the FortiGate forwarding rule, set the following parameters:
-
-    :::image type="content" source="media/tutorial-fortinet/configure.png" alt-text="Screenshot of how to configure the Create Forwarding Rule window.":::
+    [:::image type="content" source="media/tutorial-fortinet/forward-rule.png" alt-text="Screenshot of the Forwarding window option in a sensor.":::](media/tutorial-fortinet/forward-rule.png#lightbox)
 
     | Parameter | Description |
     |--|--|
-    | **Host** | Enter the FortiGate server IP address. |
-    | **API Key** | Enter the [API key](#create-an-api-key-in-fortinet) that you created in FortiGate. |
+    | **Rule name** | The forwarding rule name. |
+    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
+    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
+    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
+
+1. In the **Actions** area, define the following values:
+
+    | Parameter | Description |
+    |--|--|
+    | **Server** | Select FortiGage. |
+    | **Host** | Define the ClearPass server IP to send alert information. |
+    | **API key** | Enter the [API key](#create-an-api-key-in-fortinet) that you created in FortiGate. |
     | **Incoming Interface** | Enter the incoming firewall interface port. |
     | **Outgoing Interface** | Enter the outgoing firewall interface port. |
-    | **Configure**| Ensure a **√** is showing in the following options to enable blocking of suspicious sources via the FortiGate firewall: <br> - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br /> - **Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes <br /> - **Block unauthorized PLC stop**: PLC stop (downtime) <br> - **Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). <br> - **(Optional)** You can select the option for **Automatic blocking**. If Automatic Blocking is selected, blocking is executed automatically, and immediately. <br /> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
 
-1. Select **Submit**.
+1. Configure which alert information you want to forward:
+
+    | Parameter | Description |
+    |--|--|
+    | **Block illegal function codes** | Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) |
+    | **Block unauthorized PLC programming / firmware updates** | Unauthorized PLC changes. |
+    | **Block unauthorized PLC stop** | PLC stop (downtime). |
+    | **Block malware related alerts** | Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). |
+    | **Block unauthorized scanning** | Unauthorized scanning (potential reconnaissance) |
+
+1. Select **Save**.
 
 ## Block the source of suspicious alerts
 
@@ -179,35 +182,31 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
 
 **To use Defender for IoT's Forwarding Rules to send alert information to FortiSIEM**:
 
-1. From the sensor or on-premises management console, select **Forwarding**.
+1. From the sensor console, select **Forwarding**.
+
+1. Select **+ Create new rule**.
+
+1. In the **Add forwarding rule** pane, define the rule parameters:
 
     [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the view of your forwarding rules in the Forwarding window.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
 
-2. Select **Create Forwarding Rules**, and define the rule's parameters.
+    | Parameter | Description |
+    |--|--|
+    | **Rule name** | The forwarding rule name. |
+    | **Minimal alert level** | The minimal security level incident to forward. For example, if Minor is selected, minor alerts and any alert above this severity level will be forwarded. |
+    | **Any protocol detected**     |  Toggle off to select the protocols you want to include in the rule.       |
+    | **Traffic detected by any engine**     | Toggle off to select the traffic you want to include in the rule.       |
+
+1. In the **Actions** area, define the following values:
 
     | Parameter | Description |
     |--|--|
-    | **Name** | Enter a meaningful name for the forwarding rule. |
-    | **Select Severity** | Select the minimum security level incident to forward. For example, if **Minor** is selected, minor alerts and any alert above this severity level will be forwarded. |
-    | **Protocols** | To select a specific protocol, select **Specific**, and select the protocol for which this rule is applied. By default, all the protocols are selected. |
-    | **Engines** | To select a specific security engine for which this rule is applied, select **Specific** and select the engine. By default, all the security engines are involved. |
-    | **System Notifications** | Forward a sensor's *online*, or *offline* status. This option is only available if you've logged into the on-premises management console. |
-
-3. In the actions section, select **Send to FortiSIEM**.
-
-    :::image type="content" source="media/tutorial-fortinet/forward-rule.png" alt-text="Screenshot of how to create a Forwarding Rule and select send to Fortinet.":::
-
-4. Enter the FortiSIEM server details.
-
-    :::image type="content" source="media/tutorial-fortinet/details.png" alt-text="Screenshot of how to add the FortiSIEm details to the forwarding rule.":::
-
-    | Parameter | Description |
-    | --------- | ----------- |
-    | **Host** | Enter the FortiSIEM server IP address. |
-    | **Port** | Enter the FortiSIEM server port. |
+    | **Server** | Select FortiSIEM. |
+    | **Host** | Define the ClearPass server IP to send alert information. |
+    | **Port** | Define the ClearPass port to send alert information. |
     | **Timezone** | The time stamp for the alert detection. |
 
-5. Select **Submit**.
+1. Select **Save**.
 
 ## Block a malicious source using the Fortigate firewall
 

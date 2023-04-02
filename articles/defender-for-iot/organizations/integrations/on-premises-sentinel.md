@@ -24,7 +24,6 @@ Before you start, make sure that you have the following prerequisites as needed:
 
 - If you want to encrypt the data you send to Microsoft Sentinel using TLS, make sure to generate a valid TLS certificate from the proxy server to use in your forwarding alert rule.
 
-
 ## Set up forwarding alert rules
 
 1. Sign into your OT network sensor or on-premises management console and create a forwarding rule. For more information, see [Forward on-premises OT alert information](../how-to-forward-alert-information-to-partners.md).
@@ -39,7 +38,6 @@ Select **Save** when you're done. Make sure to test the rule to make sure that i
 
 > [!IMPORTANT]
 > To forward alert details to multiple Microsoft Sentinel instances, make sure to create a separate forwarding rule for each instance. Don't use the **Add server** option in the same forwarding rule to send data to multiple Microsoft Sentinel instances.
-
 
 ## Next steps
 

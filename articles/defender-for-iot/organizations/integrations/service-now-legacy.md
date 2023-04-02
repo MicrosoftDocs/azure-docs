@@ -19,7 +19,7 @@ ms.date: 08/11/2022
 >- [Service Graph Connector (SGC)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229)
 >- [Vulnerability Response (VR)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/463a7907c3313010985a1b2d3640dd7e).
 
-This tutorial will help you learn how to integrate, and use ServiceNow with Microsoft Defender for IoT.
+This tutorial helps you learn how to integrate, and use ServiceNow with Microsoft Defender for IoT.
 
 The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
 
@@ -54,13 +54,13 @@ Access to ServiceNow and Defender for IoT
 
 - **On-premises management console architecture**: Set up an on-premises management console to communicate with one instance of ServiceNow. The on-premises management console pushes sensor data to the Defender for IoT application using REST API.
 
-    To set up your system to work with an on-premises management console, you will need to disable the ServiceNow Sync, Forwarding Rules, and Proxy configurations on any sensors where they were set up.
+    To set up your system to work with an on-premises management console, you need to disable the ServiceNow Sync, Forwarding Rules, and Proxy configurations on any sensors where they were set up.
 
 - **Sensor architecture**: If you want to set up your environment to include direct communication between sensors and ServiceNow, for each sensor define the ServiceNow Sync, Forwarding rules, and proxy configuration (if a proxy is needed).
 
 ## Download the Defender for IoT application in ServiceNow
 
-To access the Defender for IoT application within ServiceNow, you will need to download the application from the ServiceNow application store.
+To access the Defender for IoT application within ServiceNow, you need to download the application from the ServiceNow application store.
 
 **To access the Defender for IoT application in ServiceNow**:
 
@@ -82,15 +82,13 @@ To access the Defender for IoT application within ServiceNow, you will need to d
 
 ## Set up Defender for IoT to communicate with ServiceNow
 
-Configure Defender for IoT to push alert information to the ServiceNow tables. Defender for IoT alerts will appear in ServiceNow as security incidents. This can be done by defining a Defender for IoT forwarding rule to send alert information to ServiceNow.
+Configure Defender for IoT to push alert information to the ServiceNow tables. Defender for IoT alerts appear in ServiceNow as security incidents. This can be done by defining a Defender for IoT forwarding rule to send alert information to ServiceNow.
 
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created aren't affected by the rule.
 
 **To push alert information to the ServiceNow tables**:
 
-1. Sign in to the on-premises management console.
-
-1. Select **Forwarding**, in the left side pane.
+1. Sign in to the on-premises management console, and select **Forwarding**.
 
 1. Select the :::image type="icon" source="../media/tutorial-servicenow/plus-icon.png" border="false"::: button.
 
@@ -135,7 +133,7 @@ Defender for IoT alerts will now appear as incidents in ServiceNow.
 
 A token is needed in order to allow ServiceNow to communicate with Defender for IoT.
 
-You'll need the `Client ID` and `Client Secret` that you entered when creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
+You need the `Client ID` and `Client Secret` that you entered when creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
 
 ## Send Defender for IoT device attributes to ServiceNow
 
