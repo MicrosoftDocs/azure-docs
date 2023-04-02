@@ -46,16 +46,16 @@ Then run installation commands specific for your distribution.
 
 1. Download and install the CUDA drivers from the NVIDIA website. 
     > [!NOTE]
-   >  The example below shows the CUDA package path for Ubuntu 16.04. Replace the path specific to the version you plan to use. 
+   >  The example below shows the CUDA package path for Ubuntu 20.04. Replace the path specific to the version you plan to use. 
    >  
    >  Visit the [Nvidia Download Center](https://developer.download.nvidia.com/compute/cuda/repos/) for the full path specific to each version. 
    > 
    ```bash
-   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
-   wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+   CUDA_REPO_PKG=cuda-keyring_1.0-1_all.deb
+   wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/${CUDA_REPO_PKG} 
 
    sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/3bf863cc.pub
+   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
    rm -f /tmp/${CUDA_REPO_PKG}
 
    sudo apt-get update
