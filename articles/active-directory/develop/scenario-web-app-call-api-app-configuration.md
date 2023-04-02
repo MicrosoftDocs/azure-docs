@@ -500,7 +500,7 @@ Flask has built-in support for sessions stored in a cookie, but due to the lengt
 
 Due to the `SESSION_TYPE="filesystem"` setting in `app_config.py`, the Flask-session package stores sessions using the local file system.
 
-For production, you should use [a setting](https://flask-session.readthedocs.io/en/latest/#configuration) that persists across multiple instances/deploys of your app, such as "sqlachemy" or "redis", and set up the appropriate configuration for that option.
+For production, you should use [a setting](https://flask-session.readthedocs.io/en/latest/#configuration) that persists across multiple instances and deploys of your app, such as "sqlachemy" or "redis".
 
 ---
 
@@ -511,21 +511,21 @@ At this point, when the user signs in, a token is stored in the token cache. Let
 # [ASP.NET Core](#tab/aspnetcore)
 
 Move on to the next article in this scenario,
-[Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md?tabs=aspnetcore).
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=aspnetcore).
 
 # [ASP.NET](#tab/aspnet)
 
 Move on to the next article in this scenario,
-[Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md?tabs=aspnet).
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=aspnet).
 
 # [Java](#tab/java)
 
 Move on to the next article in this scenario,
-[Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md?tabs=java).
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=java).
 
 # [Python](#tab/python)
 
 Move on to the next article in this scenario,
-[Remove accounts from the cache on global sign-out](scenario-web-app-call-api-sign-in.md?tabs=python).
+[Remove accounts from the cache on global sign out](scenario-web-app-call-api-sign-in.md?tabs=python).
 
 ---
