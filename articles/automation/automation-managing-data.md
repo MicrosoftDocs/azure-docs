@@ -3,7 +3,7 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/14/2023
+ms.date: 04/02/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
