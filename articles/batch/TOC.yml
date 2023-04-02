@@ -26,6 +26,8 @@
   - name: Create a Batch account - ARM template
     href: quick-create-template.md
     displayName: Resource Manager
+  - name: Create a Batch account - Terraform
+    href: quick-create-terraform.md
 - name: Tutorials
   items:
   - name: Parallel file processing - .NET
