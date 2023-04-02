@@ -36,20 +36,15 @@ This article provides information about the export process and shows how to expo
 
 ## Known issues and limitations
 
-- The following logic apps and scenarios are currently ineligible for export:
-
-  - Logic apps that use custom connectors
-  - Logic apps that use the Azure API Management connector
-
 - The export tool doesn't export any infrastructure information, such as integration account settings.
 
 - The export tool can export logic app workflows with triggers that have concurrency settings. However, single-tenant Azure Logic Apps ignores these settings.
 
 - Logic apps must exist in the same region if you want to export them within the same Standard logic app project.
 
-- For now, connectors deploy as their *managed* versions, which appear in the designer under the **Azure** tab. The export tool will have the capability to export connectors that have a built-in, service provider counterpart, when the latter gain parity with their Azure versions. The export tool automatically makes the conversion when Azure connector is available to export as a built-in, service provider connector.
-
 - By default, connection credentials aren't cloned from source logic app workflows. Before your logic app workflows can run, you'll have to reauthenticate these connections after export.
+
+- By default, if a Azure connector have a Service Provider connector available, the export tool will convert from Azure to Service provider connector automatically. There is no configuration to opt-out from this behavior.
 
 ## Exportable operation types
 
@@ -62,9 +57,11 @@ This article provides information about the export process and shows how to expo
 
 - One or more logic apps to deploy to the same subscription and Azure region, for example, East US 2.
 
-- Azure contributor subscription-level access to the subscription where the logic apps are currently deployed, not just resource group-level access.
+- Azure reader subscription-level access to the subscription where the logic apps are currently deployed, not just resource group-level access.
 
-- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- Azure contributor resource group-level access, if Deploy managed connectors option is selected.
+
+- Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites). VS Code extension version 2.0.16 or higher is required, as some conversion scenarios will require the latest version of logic apps designer, available on this version.
 
 ## Group logic apps for export
 
