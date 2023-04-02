@@ -20,7 +20,6 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
 * Time zone and Geolocation services.
-* Elevation services with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
 
@@ -182,18 +181,6 @@ Maps Creator provides the following services:
 
 * [Wayfinding service] (preview). Use the [wayfinding API] to generate a path between two points within a facility. Use the [routeset API] to create the data that the wayfinding service needs to generate paths.
 
-### Elevation service
-
-The Azure Maps Elevation service is a web service that developers can use to retrieve elevation data from anywhere on the Earth’s surface.
-
-The Elevation service allows you to retrieve elevation data in two formats:
-
-* **GeoTIFF raster format**. Use the [Render V2-Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format.
-
-* **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates.
-
-:::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
-
 ## Programming model
 
 Azure Maps is built for mobility and can help you develop cross-platform applications. It uses a programming model that's language agnostic and supports JSON output through [REST APIs](/rest/api/maps/).
@@ -216,8 +203,8 @@ Azure Maps uses a key-based authentication scheme. When you create your account,
 
 > [!NOTE]
 > Azure Maps shares customer-provided address/location queries with third-party TomTom for mapping functionality purposes. These queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals.
-
-Microsoft is currently in the process of adding TomTom and AccuWeather to the Online Services Subcontractor List.
+>
+> TomTom is a subprocessor that is authorized to subprocess Azure Maps customer data. For more information, see the Microsoft Online Services [Subprocessor List] located in the [Microsoft Trust Center].
 
 ## Supported regions
 
@@ -255,3 +242,5 @@ Stay up to date on Azure Maps:
 [Azure Maps account]: https://azure.microsoft.com/services/azure-maps/
 [TilesetID]: /rest/api/maps/render-v2/get-map-tile#tilesetid
 [Azure Maps blog]: https://azure.microsoft.com/blog/topics/azure-maps/
+[Microsoft Trust Center]: https://www.microsoft.com/trust-center/privacy
+[Subprocessor List]: https://servicetrust.microsoft.com/DocumentPage/aead9e68-1190-4d90-ad93-36418de5c594

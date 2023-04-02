@@ -6,7 +6,7 @@ ms.author: fenzho
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/23/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Use Tanzu Build Service
@@ -36,13 +36,19 @@ Tanzu Build Service in the Enterprise tier is the entry point to containerize us
 
 The following table shows the build agent pool scale set sizes available:
 
-| Scale Set | CPU/Gi        |
-|-----------|---------------|
-| S1        | 2 vCPU, 4 Gi  |
-| S2        | 3 vCPU, 6 Gi  |
-| S3        | 4 vCPU, 8 Gi  |
-| S4        | 5 vCPU, 10 Gi |
-| S5        | 6 vCPU, 12 Gi |
+| Scale Set | CPU/Gi          |
+|-----------|-----------------|
+| S1        | 2 vCPU, 4 Gi    |
+| S2        | 3 vCPU, 6 Gi    |
+| S3        | 4 vCPU, 8 Gi    |
+| S4        | 5 vCPU, 10 Gi   |
+| S5        | 6 vCPU, 12 Gi   |
+| S6        | 8 vCPU, 16 Gi   |
+| S7        | 16 vCPU, 32 Gi  |
+| S8        | 32 vCPU, 64 Gi  |
+| S9        | 64 vCPU, 128 Gi |
+
+Tanzu Build Service allows at most one pool-sized build task to build and twice the pool-sized build tasks to queue. If the quota of the agent pool is insufficient for the build task, the request for this build will get the following error: `The usage of build results in Building or Queuing status are (cpu: xxx, memory: xxxMi) and the remained quota is insufficient for this build. please retry with smaller size of build resourceRequests, retry after the previous build process completed or increased your build agent pool size`.
 
 ## Configure the build agent pool
 

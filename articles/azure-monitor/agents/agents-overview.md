@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 2/21/2023
+ms.date: 3/30/2023
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -24,20 +24,20 @@ Using Azure Monitor agent, you get immediate benefits as shown below:
 
 - **Cost savings** by [using data collection rules](data-collection-rule-azure-monitor-agent.md):
   - Enables targeted and granular data collection for a machine or subset(s) of machines, as compared to the "all or nothing" approach of legacy agents.
-  - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly  
+  - Allows filtering rules and data transformations to reduce the overall data volume being uploaded, thus lowering ingestion and storage costs significantly.  
 - **Simpler management** including efficient troubleshooting:
-  - Supports data uploads multiple destinations (multiple Log Analytics workspaces, i.e. *multihoming* on Windows and Linux) including cross-region and cross-tenant data collection (using Azure LightHouse)
-  - Centralized, agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time. 
-  - Any change(s) in configuration is rolled out to all agents automatically, without requiring a client side deployment
+  - Supports data uploads to multiple destinations (multiple Log Analytics workspaces, i.e. *multihoming* on Windows and Linux) including cross-region and cross-tenant data collection (using Azure LightHouse).
+  - Centralized agent configuration "in the cloud" for enterprise scale throughout the data collection lifecycle, from onboarding to deployment to updates and changes over time. 
+  - Any change in configuration is rolled out to all agents automatically, without requiring a client side deployment.
   - Greater transparency and control of more capabilities and services, such as Microsoft Sentinel, Defender for Cloud, and VM Insights.
 - **Security and Performance**
-  - Enhanced security through Managed Identity and Azure Active Directory (Azure AD) tokens (for clients)
+  - Enhanced security through Managed Identity and Azure Active Directory (Azure AD) tokens (for clients).
   - Higher event throughput that is 25% better than the legacy Log Analytics (MMA/OMS) agents.
-- **A single agent** that servers all data collection needs across servers and client devices running Windows 10 or 11. A single agent is the goal, although Azure Monitor Agent currently converges with the Log Analytics agents.
+- **A single agent** that serves all data collection needs across [supported](https://learn.microsoft.com/azure/azure-monitor/agents/agents-overview#supported-operating-systems) servers and client devices. A single agent is the goal, although Azure Monitor Agent is currently converging with the Log Analytics agents.
 
 ## Consolidating legacy agents
 
-Deploy Azure Monitor Agent on all new virtual machines, scale sets and on-premises servers to collect data for [supported services and features](#supported-services-and-features).
+Deploy Azure Monitor Agent on all new virtual machines, scale sets, and on-premises servers to collect data for [supported services and features](#supported-services-and-features).
 
 If you have machines already deployed with legacy Log Analytics agents, we recommend you [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible. The legacy Log Analytics agent will not be supported after August 2024.
 
@@ -83,24 +83,30 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     > [!NOTE]
     > On rsyslog-based systems, Azure Monitor Linux Agent adds forwarding rules to the default ruleset defined in the rsyslog configuration. If multiple rulesets are used, inputs bound to non-default ruleset(s) are **not** forwarded to Azure Monitor Agent. For more information about multiple rulesets in rsyslog, see the [official documentation](https://www.rsyslog.com/doc/master/concepts/multi_ruleset.html).
 
+    > [!NOTE]
+    > Azure Monitor Agent also supports Azure service [SQL Best Practices Assessment](/sql/sql-server/azure-arc/assess/) which is currently Generally available. For more information, refer [Configure best practices assessment using Azure Monitor Agent](/sql/sql-server/azure-arc/assess#enable-best-practices-assessment).
+
 ## Supported services and features
 
 In addition to the generally available data collection listed above, Azure Monitor Agent also supports these Azure Monitor features in preview:
 
 |	Azure Monitor feature	|	Current support	|	Other extensions installed	|	More information	|
 |	:---	|	:---	|	:---	|	:---	|
-|	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights overview](../vm/vminsights-enable-overview.md)	|
+|	[VM insights](../vm/vminsights-overview.md)	|	Public preview 	|	Dependency Agent extension, if you’re using the Map Services feature	|	[Enable VM Insights](../vm/vminsights-enable-overview.md)	|
+|	[Container insights](../containers/container-insights-overview.md)	|	Public preview 	|	Containerized Azure Monitor agent	|	[Enable Container Insights](../containers/container-insights-onboard.md)	|
 
 In addition to the generally available data collection listed above, Azure Monitor Agent also supports these Azure services in preview:
 
 |	 Azure service	|	 Current support	|	Other extensions installed	|	 More information	|
 |	:---	|	:---	|	:---	|	:---	|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)	| Public preview	|	<ul><li>Azure Security Agent extension</li><li>SQL Advanced Threat Protection extension</li><li>SQL Vulnerability Assessment extension</li></ul> | [Auto-deployment of Azure Monitor Agent (Preview)](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md)	|
-| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors-reference.md#windows-forwarded-events-preview)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. | - |
-|	 [Change Tracking](../../automation/change-tracking/overview.md) |	 Public preview 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
+| [Microsoft Sentinel](../../sentinel/overview.md)	| <ul><li>Windows Security Events: [Generally available](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li><li>Windows Forwarding Event (WEF): [Public preview](../../sentinel/data-connectors/windows-forwarded-events.md)</li><li>Windows DNS logs: [Public preview](../../sentinel/connect-dns-ama.md)</li><li>Linux Syslog CEF: [Public preview](../../sentinel/connect-cef-ama.md#set-up-the-common-event-format-cef-via-ama-connector)</li></ul> |	Sentinel DNS extension, if you’re collecting DNS logs. For all other data types, you just need the Azure Monitor Agent extension. |  - |
+|	 [Change Tracking and Inventory Management](../../automation/change-tracking/overview.md) |	 Public preview 	|	Change Tracking extension	|	[Change Tracking and Inventory using Azure Monitor Agent](../../automation/change-tracking/overview-monitoring-agent.md)	|
 |	 [Update Management](../../automation/update-management/overview.md) (available without Azure Monitor Agent)	|	 Use Update Management v2 - Public preview	|	None	|	[Update management center (Public preview) documentation](../../update-center/index.yml)	|
+|	 [Automation Hybrid Runbook Worker overview](../../automation/automation-hybrid-runbook-worker.md) (available without Azure Monitor Agent)	|	 Migrate to Azure Automation Hybrid Worker Extension - Generally available	|	None	|	[Migrate an existing Agent based to Extension based Hybrid Workers](../../automation/extension-based-hybrid-runbook-worker-install.md#migrate-an-existing-agent-based-to-extension-based-hybrid-workers)	|
 |	[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)	|	Connection Monitor: Public preview	|	Azure NetworkWatcher extension	|	[Monitor network connectivity by using Azure Monitor Agent](../../network-watcher/azure-monitor-agent-with-connection-monitor.md)	|
-| [SQL Best Practices Assessment](/sql/sql-server/azure-arc/assess/) | Generally available |  | [Configure best practices assessment using Azure Monitor Agent](/sql/sql-server/azure-arc/assess#enable-best-practices-assessment) |
+|	Azure Stack HCI Insights	|	private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
+|	Azure Virtual Desktop (AVD) Insights |	private preview	|	No additional extension installed	|	[Sign up here](https://aka.ms/amadcr-privatepreviews)	|
 
 > [!NOTE]
 > Features and services listed above in preview **may not be available in Azure Government and China clouds**. They will be available typically within a month *after* the features/services become generally available.
@@ -108,11 +114,11 @@ In addition to the generally available data collection listed above, Azure Monit
 
 ## Supported regions
 
-Azure Monitor Agent is available in all public regions and Azure Government clouds, for generally available features. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
+Azure Monitor Agent is available in all public regions, Azure Government anmd China clouds, for generally available features. It's not yet supported in air-gapped clouds. For more information, see [Product availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&rar=true&regions=all).
 
 ## Costs
 
-There's no cost for the Azure Monitor Agent, but you might incur charges for the data ingested. For information on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+There's no cost for the Azure Monitor Agent, but you might incur charges for the data ingested and stored. For information on Log Analytics data collection and retention and for customer metrics, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Compare to legacy agents
 

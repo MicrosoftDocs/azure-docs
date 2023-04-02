@@ -1,5 +1,5 @@
 ---
-title: What is identity secure score? - Azure Active Directory
+title: What is identity secure score?
 description: Learn how to use the identity secure score to improve the security posture of your directory.
 
 services: active-directory

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Concur Travel and Expense | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Concur Travel and Expense'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Concur Travel and Expense.
 services: active-directory
 author: jeevansd

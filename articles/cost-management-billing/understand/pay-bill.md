@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/24/2023
+ms.date: 03/13/2023
 ms.author: banders
 ---
 
@@ -20,7 +20,7 @@ This article applies to customers with a Microsoft Customer Agreement (MCA) and 
 
 There are two ways to pay for your bill for Azure. You can pay with the default payment method of your billing profile or you can make a one-time payment with **Pay now**.
 
-If you signed up for Azure through a Microsoft representative, then your default payment method will always be set to *check or wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
+If you signed up for Azure through a Microsoft representative, then your default payment method will always be set to *wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
 
 [!INCLUDE [Pay by check](../../../includes/cost-management-pay-check.md)]
 
@@ -81,7 +81,7 @@ Refunds are treated as a regular charge. They’re refunded to your bank account
 
 ## Pay by default payment method
 
-The default payment method of your billing profile can either be a credit card, debit card, or check wire transfer.
+The default payment method of your billing profile can either be a credit card, debit card, or wire transfer.
 
 ### Credit or debit card
 
@@ -91,21 +91,21 @@ If your automatic credit or debit card charge gets declined for any reason, you 
 
 If you have a Microsoft Online Services Program (pay-as-you-go) account and you have a bill due, you'll see the **Pay now** banner on your subscription property page. 
 
-If you want to learn how to change your default payment method to check or wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
+If you want to learn how to change your default payment method to wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
 
 There are a few countries that don't allow the use of debit cards, however in general, you can use them to pay your Azure bill. Virtual and prepaid debit cards can't be used to pay your Azure bill. 
 
 - Hong Kong and Brazil only support credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
 
-### Check or wire transfer
+### Wire transfer
 
-If the default payment method of your billing profile is check or wire transfer, follow the payment instructions shown on your invoice PDF file.
+If the default payment method of your billing profile is wire transfer, follow the payment instructions shown on your invoice PDF file.
 
 Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after selecting **Pay now**.
 
 > [!NOTE]
-> When multiple invoices are remitted in a single check or wire transfer, you must specify the invoice numbers for all of the invoices.
+> When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
 
 #### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>
@@ -251,7 +251,7 @@ If your default payment method is wire transfer, check your invoice for payment 
 > - [Trinidad and Tobago](/legal/pay/trinidad-and-tobago)
 > - [Turkmenistan](/legal/pay/turkmenistan)
 > - [Tunisia](/legal/pay/tunisia)
-> - [Turkey](/legal/pay/turkey)
+> - [Türkiye](/legal/pay/turkey)
 > - [Uganda](/legal/pay/uganda)
 > - [Ukraine](/legal/pay/ukraine)
 > - [United Arab Emirates](/legal/pay/united-arab-emirates)
@@ -290,4 +290,4 @@ Based on the default payment method and invoice amount, the **Pay now** option m
 
 ## Next steps
 
-- To become eligible to pay by check/wire transfer, see [how to pay by invoice](../manage/pay-by-invoice.md)
+- To become eligible to pay by wire transfer, see [how to pay by invoice](../manage/pay-by-invoice.md)

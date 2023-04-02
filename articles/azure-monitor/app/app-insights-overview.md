@@ -2,7 +2,7 @@
 title: Application Insights overview
 description: Learn how Application Insights in Azure Monitor provides performance management and usage tracking of your live web application.
 ms.topic: overview
-ms.date: 02/14/2023
+ms.date: 03/22/2023
 ---
 
 # Application Insights overview
@@ -12,7 +12,9 @@ Application Insights is an extension of [Azure Monitor](../overview.md) and prov
 1. *Proactively* understand how an application is performing.
 1. *Reactively* review application execution data to determine the cause of an incident.
 
-In addition to collecting [Metrics](standard-metrics.md) and application [Telemetry](data-model.md) data, which describe application activities and health, Application Insights can also be used to collect and store application [trace logging data](asp-net-trace-logs.md).
+:::image type="content" source="media/overview-dashboard/0001-dashboard.png" alt-text="Screenshot of Application Insights in the Azure portal." lightbox="media/overview-dashboard/0001-dashboard.png":::
+
+In addition to collecting [Metrics](standard-metrics.md) and application [Telemetry](data-model-complete.md) data, which describe application activities and health, Application Insights can also be used to collect and store application [trace logging data](asp-net-trace-logs.md).
 
 The [log trace](asp-net-trace-logs.md) is associated with other telemetry to give a detailed view of the activity. Adding trace logging to existing apps only requires providing a destination for the logs; the logging framework rarely needs to be changed.
 
@@ -62,7 +64,7 @@ To use the SDK, you install a small instrumentation package in your app and then
 
 Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
-[Azure Monitor Application Insights Agent](status-monitor-v2-overview.md) is available for workloads running in on-premises virtual machines.
+[Azure Monitor Application Insights Agent](application-insights-asp-net-agent.md) is available for workloads running in on-premises virtual machines.
 
 A detailed view of all Auto-instrumentation supported environments, languages, and resource providers are available [here](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
@@ -119,8 +121,8 @@ This section lists all supported platforms and frameworks.
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 #### Auto-instrumentation (enable without code changes)
-* [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
-* [ASP.NET Core - for web apps hosted with IIS](./status-monitor-v2-overview.md)
+* [ASP.NET - for web apps hosted with IIS](./application-insights-asp-net-agent.md)
+* [ASP.NET Core - for web apps hosted with IIS](./application-insights-asp-net-agent.md)
 * [Java](./opentelemetry-enable.md?tabs=java)
 
 #### Manual instrumentation / SDK (some code changes required)

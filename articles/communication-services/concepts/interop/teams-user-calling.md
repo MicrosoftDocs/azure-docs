@@ -144,7 +144,7 @@ The following list presents the set of features that are currently available in 
 |                   | Honor setting "SIP devices can be used for calls"                                                                    |   ✔️      |
 | DevOps            | [Azure Metrics](../metrics.md)                                                                                   | ✔️ |
 |                   | [Azure Monitor](../logging-and-diagnostics.md)                                                                   | ✔️ |
-|                   | [Azure Communication Services Insights](../analytics/insights.md)                                                | ✔️ |
+|                   | [Azure Communication Services Insights](../analytics/insights/voice-and-video-insights.md)                                                | ✔️ |
 |                   | [Azure Communication Services Voice and video calling events](../../../event-grid/communication-services-voice-video-events.md) | ❌ |
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |

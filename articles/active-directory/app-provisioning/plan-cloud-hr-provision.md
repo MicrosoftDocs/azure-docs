@@ -150,7 +150,7 @@ To facilitate Azure AD provisioning workflows between the cloud HR app and Activ
 
 For example, the following image lists the Workday connector apps that are available in the Azure AD app gallery.
 
-![Azure Active Directory portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
+![Azure portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
 
 ### Decision flow chart
 
