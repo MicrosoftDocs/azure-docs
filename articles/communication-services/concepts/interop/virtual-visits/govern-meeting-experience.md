@@ -14,7 +14,7 @@ ms.subservice: teams-interop
 ---
 
 # Govern meeting experience
-In this article, you learn how to use existing Microsoft 365 tools to control the experience of your virtual visits with Microsoft Teams. You learn the best practices and considerations for individual approaches. Administrators and meeting organizers can control the experience in Teams meetings by the following tools: tenant configuration, tenant policy, assigned role, meeting options, meeting templates, and sensitivity labels. You can learn more about individual tools in [this article](../../concepts/interop/guest/teams-administration.md).
+In this article, you learn how to use existing Microsoft 365 tools to control the experience of your virtual visits with Microsoft Teams. You learn the best practices and considerations for individual approaches. Administrators and meeting organizers can control the experience in Teams meetings by the following tools: tenant configuration, tenant policy, assigned role, meeting options, meeting templates, and sensitivity labels. You can learn more about individual tools in [this article](../guest/teams-administration.md).
 
 ## Policies, roles & meeting options
 Teams policies, meeting roles, and meeting options are part of standard Microsoft Teams. A meeting organizer and coorganizer can customize the experience via meeting options. Organizations have two options how to prevent hosts of virtual appointments from changing the meeting experience:
@@ -60,6 +60,6 @@ Microsoft Purview allows administrators to protect information with sensitivity 
 
 ## Next steps
 - [Overview of Virtual appointments](./overview.md)
-- [Build your own Virtual appointments](./sample-buidler.md)
-- [Learn about Teams controls](../../concepts/interop/guest/teams-administration.md).
+- [Build your own Virtual appointments](../../tutorials/virtual-visits/sample-buidler.md)
+- [Learn about Teams controls](../guest/teams-administration.md).
 - [Plan user experience in Teams meetings](./plan-user-experience.md)
