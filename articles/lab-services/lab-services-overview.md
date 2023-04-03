@@ -39,14 +39,19 @@ To learn about lab plans, labs, and more, see the [key concepts for Azure Lab Se
 
 Azure Lab Services supports the following key capabilities and features:
 
-- **Fast and flexible setup of a lab**. Lab owners can quickly [set up a lab](./quick-create-connect-lab.md) for their needs. Azure Lab Services takes care of all Azure infrastructure including built-in scaling and resiliency of infrastructure for labs.
+- **Automatic management of Azure infrastructure and scale**.  Azure Lab Services is a fully managed service, which automatically handles the provisioning and management of a lab's underlying infrastructure. Focus on preparing the lab experience for the lab users, and quickly scale the lab across hundreds of lab virtual machines.
 
-- **Simplified experience for lab users**. Students who are invited to a lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines for all labs that they can access. They can select a single button to connect to the virtual machines and start working. Users don't need Azure subscriptions to use the service.  [Lab users can register](how-to-use-lab.md) to a lab with a registration code and can access the lab anytime to use the lab's resources.
+- **Fast and flexible setup of a lab**. Quickly [set up a lab](./quick-create-connect-lab.md) by using an Azure Marketplace image or by applying a custom image  from an Azure compute gallery. Choose between Windows or Linux operating systems, and select the compute family that best matches the needs for your lab. Flexibly configure the lab by installing additional software components or making operating system changes.
+
+- **Simplified experience for lab users**. Lab users can easily [register for a lab](how-to-use-lab.md), and get immediate access without the need for an Azure subscription. Use the Azure Lab Services website, or use the [Microsoft Teams](./lab-services-within-teams-overview.md) or [Canvas LMS](./lab-services-within-canvas-overview.md) integration, to view the list of labs and remotely connect to a lab virtual machine.
+
+- **Separate responsibilities with role-based access**. Azure Lab Services uses Azure Role-Based Access (Azure RBAC) to manage access. Using Azure RBAC lets you clearly separate roles and responsibilities for creating and managing labs across different teams and people in your organization.
+
+- **Advanced virtual networking support**. [Configure advanced networking](./tutorial-create-lab-with-advanced-networking.md) for your labs to apply network traffic control, network ports management, or access resources in a virtual or internal network. For example, your labs might have to connect to an on-premises licensing server.
 
 - **Cost optimization and analysis**. [Keep your budget in check](cost-management-guide.md) by controlling exactly how many hours your lab users can use the virtual machines. Set up [schedules](how-to-create-schedules.md) in the lab to allow users to use the virtual machines only during designated time slots. Set up [auto-shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) to avoid unneeded VM usage. Keep track of [individual users' usage](how-to-manage-classroom-labs.md) and [set limits](how-to-configure-student-usage.md#set-quotas-for-users).
 
-- **Automatic management of Azure infrastructure and scale**  Azure Lab Services is a managed service, which means that provisioning and management of a lab's underlying infrastructure is handled automatically by the service. You can just focus on preparing the right lab experience for your users. Let the service handle the rest and roll out your lab's virtual machines to your audience. Scale your lab to hundreds of virtual machines with a single action.
-
+ 
 ## Use cases
 
 Here are some of the **use cases for managed labs**:
