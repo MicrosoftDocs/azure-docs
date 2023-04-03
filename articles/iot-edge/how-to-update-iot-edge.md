@@ -37,9 +37,9 @@ When upgrading between *patch* releases, for example 1.4.1 to 1.4.2, the order i
 
 You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
-### Product releases
+### Major or minor product releases
 
-When upgrading between *product* releases, for example 1.1 to 1.4, order flexibility still exists. We'd recommend updating both host components and system containers, since the combination is what we test. To update between product releases:
+When upgrading between major or minor product releases, for example from 1.1 to 1.4, we recommend updating both host components and system containers. Before a release, we test the host component and system container version combination. To update between major or minor product releases:
 
 1. On the device, stop IoT Edge runtime using the command `sudo systemctl stop iotedge` and [uninstall IoT Edge](how-to-provision-single-device-windows-symmetric.md#uninstall-iot-edge).
 
