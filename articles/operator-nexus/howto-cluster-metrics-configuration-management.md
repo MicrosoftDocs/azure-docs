@@ -12,7 +12,7 @@ ms.custom: template-how-to
 # Cluster Metrics Configuration
 
 When the user deploys a Cluster, a standard set of metrics are enabled for collection. For the list of metrics, see
-[List of Metrics Collected](../../Docs/List-of-metrics-collected.md).
+[List of Metrics Collected](List-of-metrics-collected.md).
 
 Users can't control the behavior (enable or disable) for collection of these included standard metrics. Though, users can control the collection of some optional metrics that aren't part of the link in the list. To enable this experience, users will have to create and update a MetricsConfiguration resource for a cluster. By default, creation of this MetricsConfiguration resource doesn't change the collection of metrics. User will have to update the resource to enable or disable these optional metrics collection.  
 
