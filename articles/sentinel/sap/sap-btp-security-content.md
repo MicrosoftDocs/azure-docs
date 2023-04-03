@@ -22,7 +22,7 @@ Available security content currently includes a built-in workbook and analytics 
 
 The BTP Activity Workbook provides a dashboard overview of BTP activity. 
 
-:::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png" alt-text="Screenshot of the Overview tab of the SAP BTP workbook." lightbox="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png":::
+:::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png" alt-text="Screenshot of the Overview tab of the SAP BTP workbook.":::
 
 The **Overview** tab shows: 
 
@@ -32,7 +32,7 @@ The **Overview** tab shows:
  
 The **Identity Management** tab shows a grid of identity management events, such as user and security role changes, in a human-readable format. The search bar lets you quickly find specific changes.
 
-:::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-identity-management.png" alt-text="Screenshot of the Identity Management tabe of the SAP BTP workbook." lightbox="./media/sap-btp-security-content/sap-btp-workbook-identity-management.png":::
+:::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-identity-management.png" alt-text="Screenshot of the Identity Management tabe of the SAP BTP workbook.":::
 
 For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel Solution for SAP® BTP](deploy-sap-btp-solution.md).
 
