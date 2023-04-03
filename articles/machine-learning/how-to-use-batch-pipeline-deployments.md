@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 03/29/2023
+ms.date: 04/03/2023
 reviewer: msakande
 ms.reviewer: mopeakande
 ms.custom: 
@@ -18,7 +18,7 @@ ms.custom:
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
-In this example, you will learn how to deploy a simple hello world component under component deployment and invoke it. No inputs or outputs are indicated and the component consists of a simple command job. Use this example before moving on.
+In this example, you will learn how to deploy a simple hello world component under batch component deployment and invoke it. The component consists of a simple command job and requires no inputs or outputs.
 
 ## Prerequisites
 
@@ -381,3 +381,10 @@ Update this...
 ```python
 ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 ```
+
+## Next steps
+
+- [Use batch model deployments for batch scoring](how-to-use-batch-model-deployments.md)
+- [How to deploy a training pipeline with batch endpoints](how-to-use-batch-training-pipeline.md)
+- [How to create a batch endpoint to perform batch scoring with pre-processing](how-to-use-batch-scoring-pipeline.md)
+- [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
