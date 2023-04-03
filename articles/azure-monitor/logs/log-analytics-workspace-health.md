@@ -41,7 +41,7 @@ To view your Log Analytics workspace health and set up health status alerts:
     - To enable the recommended alert rules:
         1. Select **Alerts** > **Enable recommended alert rules**. 
         
-            The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
+            The **Enable recommended alert rules** pane opens with a list of recommended alert rules for your Log Analytics workspace.  
         
             :::image type="content" source="../alerts/media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane.":::
 
