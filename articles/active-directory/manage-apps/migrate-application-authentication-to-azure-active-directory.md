@@ -81,7 +81,7 @@ Economics and security benefits drive organizations to adopt Azure AD, but full 
 
 - [Automate provisioning](../app-provisioning/user-provisioning.md) of user accounts into applications.
 
-- Leverage Azure AD Lifecycle workflows to automate onboarding or offboarding, which might have previously been done with scripts. 
+- Use Azure AD Lifecycle workflows to automate onboarding or offboarding, which might have previously been done with scripts. 
 
 - Create developer efficiencies and improve the end-user experience by building your applications using the Microsoft Identity Platform with the [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md). 
 
@@ -112,7 +112,7 @@ The following table includes the key roles and their contributions:
 | Role          | Contributions                                              |
 | ------------- | ---------------------------------------------------------- |
 | **Project Manager** | Project coach accountable for guiding the project, including:<br /> - gain executive support<br /> - bring in stakeholders<br /> - manage schedules, documentation, and communications |
-| **Identity Architect / Azure AD App Administrator** | They're responsible for the following:<br /> - design the solution in cooperation with stakeholders<br /> - document the solution design and operational procedures for handoff to the operations team<br /> - manage the pre-production and production environments |
+| **Identity Architect / Azure AD App Administrator** | Responsible for the following:<br /> - design the solution in cooperation with stakeholders<br /> - document the solution design and operational procedures for handoff to the operations team<br /> - manage the pre-production and production environments |
 | **On premises AD operations team** | The organization that manages the different on-premises identity sources such as AD forests, LDAP directories, HR systems etc.<br /> - perform any remediation tasks needed before synchronizing<br /> - Provide the service accounts required for synchronization<br /> - provide access to configure federation to Azure AD |
 | **IT Support Manager** | A representative from the IT support organization who can provide input on the supportability of this change from a helpdesk perspective. |
 | **Security Owner**  | A representative from the security team that can ensure that the plan meets the security requirements of your organization. |
@@ -126,7 +126,7 @@ Effective business engagement and communication are the keys to success. It's im
 
 Based on the communication strategy that you have chosen for the app you may want to remind users of the pending downtime. You should also verify that there are no recent changes or business impacts that would require to postpone the deployment.
 
-In the following table you find the minimum suggested communication to keep your stakeholders informed:
+In the following table, you find the minimum suggested communication to keep your stakeholders informed:
 
 #### Plan phases and project strategy
 
@@ -179,7 +179,7 @@ This ensures app owners know what the app migration and testing schedule are whe
 
 ### Best practices
 
-The following are our customer and partner’s success stories, and suggested best practices:
+The following articles are about our customer and partner’s success stories, and suggested best practices:
 
 - [Five tips to improve the migration process to Azure Active Directory](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Five-tips-to-improve-the-migration-process-to-Azure-Active/ba-p/445364) by Patriot Consulting, a member of our partner network that focuses on helping customers deploy Microsoft cloud solutions securely.
 
@@ -301,7 +301,7 @@ Applications with **high usage numbers** should receive a higher value than apps
 
 ![A diagram of the spectrums of User Volume and User Breadth](media/migrate-apps-to-azure-ad/user-volume-breadth.png)
 
-Once you have determined values for business criticality and usage, you can then determine the **application lifespan**, and create a matrix of priority. See one such matrix below:
+Once you have determined values for business criticality and usage, you can then determine the **application lifespan**, and create a matrix of priority. The diagram shows the matrix. 
 
 ![A triangle diagram showing the relationships between Usage, Expected Lifespan, and Business Criticality](media/migrate-apps-to-azure-ad/triangular-diagram-showing-relationship.png)
 
@@ -419,7 +419,7 @@ Once you have gained business buy-in, the next step is to start migrating these 
 
 ### Migration tools and guidance
 
-Use the tools and guidance below to follow the precise steps needed to migrate your applications to Azure AD:
+Use the tools and guidance provided to follow the precise steps needed to migrate your applications to Azure AD:
 
 - **General migration guidance** – Use the whitepaper, tools, email templates, and applications questionnaire in the [Azure AD apps migration toolkit](./migration-resources.md) to discover, classify, and migrate your apps.
 - **SaaS applications** – See our list of [SaaS app tutorials](../saas-apps/tutorial-list.md) and the [Azure AD SSO deployment plan](plan-sso-deployment.md) to walk through the end-to-end process.
