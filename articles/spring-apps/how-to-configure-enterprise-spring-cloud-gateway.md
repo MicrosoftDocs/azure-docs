@@ -16,7 +16,7 @@ ms.custom: devx-track-java, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to configure VMware Spring Cloud Gateway for VMware Tanzu with Azure Spring Apps Enterprise tier.
+This article shows you how to configure Spring Cloud Gateway for VMware Tanzu with Azure Spring Apps Enterprise tier.
 
 [VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is a commercial VMware Tanzu component based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles the cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns using your choice of programming language for API development.
 
@@ -25,13 +25,13 @@ A Spring Cloud Gateway instance routes traffic according to rules. Both *scale i
 VMware Spring Cloud Gateway includes the following features:
 
 - Dynamic routing configuration, that's independent of applications that can be applied and changed without recompiling.
-- Commercial API route filters, for transporting authorized JSON Web Token (JWT) claim to application services.
+- Commercial API route filters, for transporting authorized JSON Web Token (JWT) claims to application services.
 - Client certificate authorization.
 - Rate-limiting approaches.
 - Circuit breaker configuration.
 - Support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes. For more information, see [API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md).
+To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after any route configuration additions or changes. For more information, see [Use API portal for VMware Tanzu®](./how-to-use-enterprise-api-portal.md).
 
 ## Prerequisites
 
@@ -70,14 +70,14 @@ az spring gateway update --assign-endpoint
 
 ## Configure VMware Spring Cloud Gateway metadata
 
-You can configure VMware Spring Cloud Gateway metadata, which automatically generates OpenAPI version 3 documentation, to display route groups in the API portal for VMware Tanzu. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
+You can configure VMware Spring Cloud Gateway metadata, which automatically generates OpenAPI version 3 documentation, to display route groups in API portal for VMware Tanzu. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
 
 The available metadata options are described in the following table.
 
 | Property      | Description                                                                                                                                                                                                                                                                 |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title         | A title that describes the context of the APIs available on the Gateway instance. The default value is `Spring Cloud Gateway for K8S`.                                                                                                                                          |
-| description   | A detailed description of the APIs available on the Gateway instance. The default value is `Generated OpenAPI 3 document that describes the API routes configured for '\[Gateway instance name\]' Spring Cloud Gateway instance deployed under '\[namespace\]' namespace.*.` |
+| description   | A detailed description of the APIs available on the Gateway instance. The default value is `Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.*.` |
 | documentation | The location of API documentation that is available on the Gateway instance.                                                                                                                                                                                          |
 | version       | The version of APIs available on this Gateway instance. The default value is `unspecified`.                                                                                                                                                                                 |
 | serverUrl     | The base URL to access APIs on the Gateway instance.                                                                                                                                                                                            |
@@ -85,7 +85,7 @@ The available metadata options are described in the following table.
 > [!NOTE]
 > The `serverUrl` property is mandatory if you want to integrate with [API portal](./how-to-use-enterprise-api-portal.md).
 
-You can use the Azure portal and the Azure CLI to edit metdata properties.
+You can use the Azure portal and the Azure CLI to edit metadata properties.
 
 #### [Azure portal](#tab/Azure-portal)
 
@@ -107,7 +107,7 @@ az spring gateway update \
     --api-description "<api-description>" \
     --api-title "<api-title>" \
     --api-version "v0.1" \
-    --server-url "<gateway-endpoint-url>" \
+    --server-url "<gateway-endpoint-URL>" \
     --allowed-origins "*"
 ```
 
@@ -115,7 +115,7 @@ az spring gateway update \
 
 ## Configure single sign-on (SSO)
 
-VMware Spring Cloud Gateway supports authentication and authorization using single sign-on (SSO), using an OpenID identity provider that supports OpenID Connect Discovery protocol.
+VMware Spring Cloud Gateway supports authentication and authorization using single sign-on (SSO), using an OpenID identity provider, which supports OpenID Connect Discovery protocol.
 
 | Property       | Required? | Description                                                                                                                                                                                                                                                                                                          |
 |----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -206,7 +206,7 @@ Cross-origin resource sharing (CORS) allows restricted resources on a web page t
 | exposedHeaders   | HTTP response headers to expose for cross-site requests.                               |
 
 > [!NOTE]
-> Be sure you have the correct CORS configuration if you want to integrate with the API portal. For more information, see the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
+> Be sure you have the correct CORS configuration if you want to integrate with API portal. For more information, see the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
 
 ## Use service scaling
 
@@ -244,7 +244,7 @@ For other supported environment variables, see the following sources:
 
 ### Manage APM in Spring Cloud Gateway
 
-You can use the Azure portal or the Azure CLI to set up application performance monitoring (APM) in Spring Cloud Gateway. You will specify the types of APM Java agents to use and the corresponding APM environment variables they support.
+You can use the Azure portal or the Azure CLI to set up application performance monitoring (APM) in Spring Cloud Gateway. You can also specify the types of APM Java agents to use and the corresponding APM environment variables they support.
 
 #### [Azure portal](#tab/Azure-portal)
 

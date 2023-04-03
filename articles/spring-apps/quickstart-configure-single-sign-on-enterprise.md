@@ -30,13 +30,13 @@ This quickstart shows you how to configure single sign-on for applications runni
 
 ## Prepare single sign-on credentials
 
-To configure single sign-on for the application, you'll need to prepare credentials. The following sections describe steps for using an existing provider or provisioning an application registration with Azure Active Directory.
+To configure single sign-on for the application, you need to prepare credentials. The following sections describe steps for using an existing provider or provisioning an application registration with Azure Active Directory.
 
 ### Use an existing provider
 
 Follow these steps to configure single sign-on using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, skip ahead to the following section, [Create and configure an application registration with Azure Active Directory](#create-and-configure-an-application-registration-with-azure-active-directory).
 
-1. Configure your existing identity provider to allow redirects back to Spring Cloud Gateway for VMware Tanzu and API portal for VMware Tanzu. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API portal has two URIs for supporting the user interface and underlying API. The following commands retrieve these URIs that you will add to your single sign-on provider's configuration.
+1. Configure your existing identity provider to allow redirects back to Spring Cloud Gateway for VMware Tanzu and API portal for VMware Tanzu. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API portal has two URIs for supporting the user interface and underlying API. The following commands retrieve these URIs that you add to your single sign-on provider's configuration.
 
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
@@ -54,12 +54,12 @@ Follow these steps to configure single sign-on using an existing Identity Provid
 
 1. Obtain the `Client ID` and `Client Secret` for your identity provider.
 
-1. Obtain the `Issuer URI` for your identity provider. You must configure the provider with an issuer URI, which is the URI that it asserts as its Issuer Identifier. For example, if the `issuer-uri` provided is "https://example.com", then an OpenID Provider Configuration Request will be made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response.
+1. Obtain the `Issuer URI` for your identity provider. You must configure the provider with an issuer URI, which is the URI that it asserts as its Issuer Identifier. For example, if the `issuer-uri` provided is `https://example.com`, then an OpenID Provider Configuration Request is made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response.
 
    > [!NOTE]
    > You can only use authorization servers that support OpenID Connect Discovery protocol.
 
-1. Obtain the `JWK URI` for your identity provider for use later. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`. The Identity Service application will use the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by your single sign-on identity provider's authorization server.
+1. Obtain the `JWK URI` for your identity provider for use later. The `JWK URI` typically takes the form `${ISSUER_URI}/keys` or `${ISSUER_URI}/<version>/keys`. The Identity Service application uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by your single sign-on identity provider's authorization server.
 
 ### Create and configure an application registration with Azure Active Directory
 
@@ -121,7 +121,7 @@ To register the application with Azure Active Directory, follow these steps. If 
    echo "https://login.microsoftonline.com/${TENANT_ID}/v2.0"
    ```
 
-1. Retrieve the `JWK URI` from the output of the following command. The Identity Service application will use the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by Active Directory.
+1. Retrieve the `JWK URI` from the output of the following command. The Identity Service application uses the public JSON Web Keys (JWK) to verify JSON Web Tokens (JWT) issued by Active Directory.
 
    ```bash
    TENANT_ID=$(cat sso.json | jq -r '.tenant')
@@ -265,7 +265,7 @@ PORTAL_URL=$(az spring api-portal show \
 echo "https://${PORTAL_URL}"
 ```
 
-You can open the output URL in a browser to explore the application APIs. You'll be initially directed to sign on before exploring APIs.
+You can open the output URL in a browser to explore the application APIs. You are directed to sign on before exploring APIs.
 
 ---
 
