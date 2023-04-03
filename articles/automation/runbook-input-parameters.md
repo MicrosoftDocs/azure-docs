@@ -61,8 +61,9 @@ In this case, you can pass the following value to the parameter.
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
 For PowerShell 7.1 runbooks, provide array input parameters in below format:
+
 | **Name** | **Value** |
-|:--- |:--- |
+| --- | --- |
 | TESTPARAMETER | does,this,even,work |
 
 > [!NOTE]
