@@ -22,7 +22,7 @@ In this article, you learn how users that joined Teams meetings or Room can lear
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 ## Join Teams meeting
-In the following code, you will learn how to create `CallClient` and `CallAgent`, which are necessary for the next steps. Then we will join the Teams meeting which will create a `Call` instance.
+In the following code, you learn how to create `CallClient` and `CallAgent`, which are necessary for the next steps. Then we join the Teams meeting, which creates a `Call` instance.
 
 ```js
 const { CallClient } = require('@azure/communication-calling');
@@ -39,7 +39,7 @@ const meetingCall = callAgent.join({ meetingLink: '<MEETING_LINK>' });
 
 ## Learn the current role
 
-You will create a 'Call' instance when you join the Teams meeting or Room with calling SDK. This object has a property `role` that can have one of the following values:
+You create a 'Call' instance when you join the Teams meeting or Room with calling SDK. This object has a property `role` that can have one of the following values:
 - Unknown
 - Attendee
 - Presenter
@@ -50,9 +50,9 @@ You will create a 'Call' instance when you join the Teams meeting or Room with c
 const role = meetingCall.role;
 ```
 
-## Subscibre to role changes
+## Subscribe to role changes
 
-During the Teams meeting or Room, your role can be changed. To learn about the change, you need to subscribe to an event, `roleChanged`, on the `Call` object.
+During the Teams meeting or Room, your role can be changed. To learn about the change, subscribe to an event, `roleChanged`, on the `Call` object.
 
 ```js
 meetingCall.on('roleChanged', args => {
