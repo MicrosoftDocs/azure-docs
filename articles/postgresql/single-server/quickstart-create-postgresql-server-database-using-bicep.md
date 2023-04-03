@@ -14,6 +14,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. In this quickstart, you use Bicep to create an Azure Database for PostgreSQL - single server in Azure CLI or PowerShell.
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
@@ -26,11 +28,15 @@ You'll need an Azure account with an active subscription. [Create one for free](
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 * If you want to run the code locally, [Azure CLI](/cli/azure/).
 
 # [PowerShell](#tab/PowerShell)
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 * If you want to run the code locally, [Azure PowerShell](/powershell/azure/).
 
@@ -86,6 +92,8 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resour
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 ```azurecli-interactive
 az resource list --resource-group exampleRG
 ```
@@ -93,6 +101,8 @@ az resource list --resource-group exampleRG
 # [PowerShell](#tab/PowerShell)
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceGroupName exampleRG
@@ -108,6 +118,8 @@ When it's no longer needed, delete the resource group, which deletes the resourc
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 ```azurecli-interactive
 az group delete --name exampleRG
 ```
@@ -115,6 +127,8 @@ az group delete --name exampleRG
 # [PowerShell](#tab/PowerShell)
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name exampleRG

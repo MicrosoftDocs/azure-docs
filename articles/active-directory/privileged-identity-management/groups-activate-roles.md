@@ -1,5 +1,5 @@
 ---
-title: Activate your group membership or ownership in Privileged Identity Management
+title: Activate your group membership or ownership in Privileged Identity Management (Preview)
 description: Learn how to activate your group membership or ownership in Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/15/2023
+ms.date: 3/29/2023
 ms.author: amsliu
 ms.reviewer: ilyal
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Activate your group membership or ownership in Privileged Identity Management
+# Activate your group membership or ownership in Privileged Identity Management (preview)
 
 In Azure Active Directory (Azure AD), part of Microsoft Entra, you can use Privileged Identity Management (PIM) to have just-in-time membership in the group or just-in-time ownership of the group.
 

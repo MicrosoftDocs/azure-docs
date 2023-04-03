@@ -71,7 +71,7 @@ FileSource playSource = new FileSource (new Uri(<audioUri>));
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure Cognitive Services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use. We support all voice names supported by Cognitive Services, full list [here]().
+To play audio using Text-To-Speech through Azure Cognitive Services you need to provide the text you wish to play, as well either the SourceLocale, and VoiceGender or the VoiceName you wish to use. We support all voice names supported by Cognitive Services, full list [here](../../../../cognitive-services/Speech-Service/language-support.md?tabs=tts).
 
 ```csharp
 String textToPlay = "Welcome to Contoso";
