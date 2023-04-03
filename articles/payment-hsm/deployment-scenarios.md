@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: payment-hsm
 ms.workload: security
 ms.topic: article
-ms.date: 12/01/2022
+ms.date: 03/25/2023
 ms.author: mbaldwin
 
 ---

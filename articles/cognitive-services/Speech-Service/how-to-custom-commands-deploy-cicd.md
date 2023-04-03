@@ -15,6 +15,8 @@ ms.custom: cogserv-non-critical-speech
 
 # Continuous Deployment with Azure DevOps
 
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
+
 In this article, you learn how to set up continuous deployment for your Custom Commands applications. The scripts to support the CI/CD workflow are provided to you.
 
 ## Prerequisite
