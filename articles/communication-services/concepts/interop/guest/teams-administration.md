@@ -11,7 +11,7 @@ ms.subservice: teams-interop
 ---
 
 # Teams controls
-In this article, you will learn what tools Microsoft 365 provides to control the user experience in Microsoft Teams meetings. You will know what those tools are, how they interact, which roles and licenses you need, and many more.
+In this article, you learn what tools Microsoft 365 provides to control the user experience in Microsoft Teams meetings. You know what those tools are, how they interact, which roles and licenses you need, and many more.
 Let's start with a high-level decision tree diagram describing whether a specific feature is allowed for a meeting participant. A subset of the controls might control individual features. Let's take an example of call recording in the Teams meeting. Microsoft 365 administrators can't control this feature with tenant configuration but can control it via 
 -	Policy assigned to the users, 
 -	A sensibility label selected for the meeting, 
@@ -22,7 +22,7 @@ Let's start with a high-level decision tree diagram describing whether a specifi
 ![Decision tree for enabling functionality](../../../tutorials/virtual-visits/media/decision-tree-functionality-enabled.svg)
 
 ## Tenant configurations
-Tenant configurations are organization-wide settings that impact everyone in the tenant. There is only one configuration, and the administrator can't create a new configuration. Just modify the existing one. Microsoft Teams provides, for example, configuration for [federation with Azure Communication Services](/powershell/module/teams/set-csteamsacsfederationconfiguration), [federation with Skype for Business](/powershell/module/skype/set-cstenantfederationconfiguration), or [configuration to control Teams meetings](/powershell/module/skype/set-csteamsmeetingconfiguration) (this configuration is being deprecated). Teams administrators can use these configurations as safeguards to disable capabilities for everyone in the tenant easily.
+Tenant configurations are organization-wide settings that impact everyone in the tenant. There's only one configuration, and the administrator can't create a new configuration. Just modify the existing one. Microsoft Teams provides, for example, configuration for [federation with Azure Communication Services](/powershell/module/teams/set-csteamsacsfederationconfiguration), [federation with Skype for Business](/powershell/module/skype/set-cstenantfederationconfiguration), or [configuration to control Teams meetings](/powershell/module/skype/set-csteamsmeetingconfiguration) (this configuration is being deprecated). Teams administrators can use these configurations as safeguards to disable capabilities for everyone in the tenant easily.
 - Required role: Teams or global administrator
 - Licensing: standard licensing
 - Tools: Teams Admin Center or PowerShell
@@ -37,15 +37,14 @@ Your custom application should consider user authentication and other security m
 
 ## Tenant policies
 Tenant policies are configurations that can be assigned to specific users or groups of users. A policy consists of properties with one of the following scopes: per-organizer, per-user, or both. Scope controls which policy is considered when evaluating the feature's availability, the organizers, participants, or both. 
-Popular tenant policies are meeting, calling, messaging, or external access policies. A tenant has, by default, a Global policy assigned to everyone in the tenant. However, an administrator can create a new policy of a specific type, define a custom configuration, and assign it to users or groups of users. The following priority takes place when selecting which policy will apply to the user:
+Popular tenant policies are meeting, calling, messaging, or external access policies. A tenant has, by default, a Global policy assigned to everyone in the tenant. However, an administrator can create a new policy of a specific type, define a custom configuration, and assign it to users or groups of users. The following priority takes place when selecting which policy applies to the user:
 1.	Directly assigned policy: The policy is assigned directly to the user.
 2.	Group-assigned policy: The policy is assigned to a group the user is part of.
 3.	Organization-wide policy: The Global policy applies.
 
 ![Decision tree for selection of policy for evaluation](../../../tutorials/virtual-visits/media/decision-tree-functionality-enabled.svg)
 
-For example, administrators can use a global meeting policy to allow recording for everyone. Then create a new meeting policy called "external customers", which would disable recording. Admin then assigns the new policy to a group of users that will conduct calls with external customers.
-If a feature is disabled for a user by policy, then this feature is disabled in all meetings organized by this user regardless of the configuration of other tools.
+An organizer-assigned policy can disable the feature in all meetings this user organizes. Disabled capability by policy can't be enabled with other tools. For example, administrators can use a global meeting policy to allow recording for everyone. Then create a new meeting policy called "external customers", which would disable recording. Admin then assigns the new policy to a group of users that conduct calls with external customers.
 - Required role: Teams or global administrator
 - Licensing: standard licensing
 - Tools: Teams Admin Center or PowerShell
@@ -57,7 +56,7 @@ If a feature is disabled for a user by policy, then this feature is disabled in 
 |[Anonymous users can join a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) | per-organizer |  If disabled, Teams external users can't join Teams meetings.	|[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)|	AllowAnonymousUsersToJoinMeeting|
 |[Let anonymous people start a meeting](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings)| per-organizer |  Teams external users can start a Teams meeting without Teams user if enabled. |	[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)	|AllowAnonymousUsersToStartMeeting|
 |Anonymous users can dial out to phone users | per-organizer |  If enabled, Teams external users can add phone participants to the meeting.|	[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)	|AllowAnonymousUsersToDialOut|
-|[Automatically admit people](/microsoftteams/meeting-policies-participants-and-guests#automatically-admit-people)| per-organizer|  If set to "Everyone", Teams external users can bypass the lobby. Otherwise, Teams external users must wait in the lobby until an organizer, co-organizer, or presenter admits them.|	[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)	|AutoAdmittedUsers|
+|[Automatically admit people](/microsoftteams/meeting-policies-participants-and-guests#automatically-admit-people)| per-organizer|  If set to "Everyone", Teams external users can bypass the lobby. Otherwise, Teams external users must wait in the lobby until an organizer, coorganizer, or presenter admits them.|	[CsTeamsMeetingPolicy](/powershell/module/skype/set-csteamsmeetingpolicy)	|AutoAdmittedUsers|
 
 ## Sensitivity label
 [Sensitivity labels allow Teams admins](/microsoft-365/compliance/sensitivity-labels-meetings) to protect and regulate access to sensitive organizational content during Microsoft Teams meetings. Compliance administrators can create sensitivity labels in [Microsoft Purview compliance portal](/microsoft-365/compliance/go-to-the-securitycompliance-center) and assign them with policy to users or groups of users. These labels can then be assigned to Teams meeting via meeting templates or meeting options.
@@ -89,7 +88,7 @@ Teams administrators can use meeting templates to control meeting settings that 
 ||Lobby - Who can bypass the lobby? |	Specify who can bypass the lobby and join the meeting directly.
 ||People calling in by phone can bypass the lobby| Specifies whether phone users can bypass the lobby.
 ||Enable meeting end-to-end encryption |	Specifies if the meeting is encrypted.
-||Enable Watermarks|Specifies if watermarks are used for camera feeds and content that is shared on screen in the meeting.
+||Enable Watermarks|Specifies if watermarks are used for camera feeds and content that's shared on screen in the meeting.
 |Audio and video|Enable mic for attendees? |	When off, you can unmute individual attendees as needed.
 ||Enable camera for attendees? | When on, meeting attendees can turn on video.
 |Recording and transcription|Record meetings automatically|	 Speficy if the meeting is recorded automatically.
@@ -101,29 +100,29 @@ Teams administrators can use meeting templates to control meeting settings that 
 ||Manage what attendees see |	Specifies if meeting organizers can preview and approve content being shared on screen before other meeting participants can see it.
 
 ## Meeting roles
-[Teams meeting roles](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019) define permissions that Teams meeting participant have. Microsoft Teams provide roles: organizer, co-organizer, presenter, and attendee. The meeting organizer can assign default roles to the participants. Co-organizers and presenters share most organizer permissions, while attendees are more controlled. There can be only one meeting organizer.
-- Required role: Organizer, co-organizer, and presenter can change the roles of individual participants. Each user knows their role.
+[Teams meeting roles](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019) define permissions that Teams meeting participants have. Microsoft Teams provides roles: organizer, coorganizer, presenter, and attendee. The meeting organizer can assign default roles to the participants. Coorganizers and presenters share most organizer permissions, while attendees are more controlled. There can be only one meeting organizer.
+- Required role: Organizer, coorganizer, and presenter can change the roles of individual participants. Each user knows their role.
 - Licensing: standard licensing
 - Tools: Microsoft Teams and Graph API (only default roles)
 
-List of permissions per role can be found [here](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019) and additional details about [co-organizer](https://support.microsoft.com/en-us/office/add-co-organizers-to-a-meeting-in-teams-0de2c31c-8207-47ff-ae2a-fc1792d466e2).
+List of permissions per role can be found [here](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019) and more details about [coorganizer](https://support.microsoft.com/en-us/office/add-co-organizers-to-a-meeting-in-teams-0de2c31c-8207-47ff-ae2a-fc1792d466e2).
 
 ## Meeting options
-[Meeting options](https://support.microsoft.com/en-us/office/participant-settings-for-a-teams-meeting-53261366-dbd5-45f9-aae9-a70e6354f88e) allow meeting organizer and co-organizers to customize the meeting experience before and during the meeting. Default values, editability, and visibility of individual features depend on the tenant configuration, policies, sensitivity label, and meeting template.
-- Required role: Organizer or co-organizer can change available meeting options. 
+[Meeting options](https://support.microsoft.com/en-us/office/participant-settings-for-a-teams-meeting-53261366-dbd5-45f9-aae9-a70e6354f88e) allow meeting organizer and coorganizers to customize the meeting experience before and during the meeting. Default values, editability, and visibility of individual features depend on the tenant configuration, policies, sensitivity label, and meeting template.
+- Required role: Organizer or coorganizer can change available meeting options. 
 - Licensing: standard licensing
 - Tools: Microsoft Teams and Graph API (only before the meeting starts)
 
-Here is an overview of Meeting options:
+Here's an overview of Meeting options:
 
 |Option name|Description| Supported |
 | --- | --- | --- |
 | [Automatically admit people](/microsoftteams/meeting-policies-participants-and-guests#automatically-admit-people) | If set to "Everyone", Teams external users can bypass the lobby. Otherwise, Teams external users have to wait in the lobby until an authenticated user admits them.| ✔️ |
 | [Always let callers bypass the lobby](/microsoftteams/meeting-policies-participants-and-guests#allow-dial-in-users-to-bypass-the-lobby)| Participants joining through phone can bypass lobby | Not applicable |
 | Announce when callers join or leave| Participants hear announcement sounds when phone participants join and leave the meeting | ✔️ |
-| [Choose co-organizers](https://support.microsoft.com/office/add-co-organizers-to-a-meeting-in-teams-0de2c31c-8207-47ff-ae2a-fc1792d466e2)|  Not applicable to external users | ✔️ |
+| [Choose coorganizers](https://support.microsoft.com/office/add-co-organizers-to-a-meeting-in-teams-0de2c31c-8207-47ff-ae2a-fc1792d466e2)|  Not applicable to external users | ✔️ |
 | [Who can present in meetings](/microsoftteams/meeting-policies-in-teams-general#designated-presenter-role-mode) | Controls who in the Teams meeting can have assigned presenter role.  | ✔️ |
-|[Manage what attendees see](https://support.microsoft.com/office/spotlight-someone-s-video-in-a-teams-meeting-58be74a4-efac-4e89-a212-8d198182081e)|Teams organizer, co-organizer and presenter can spotlight videos for everyone. |✔️|
+|[Manage what attendees see](https://support.microsoft.com/office/spotlight-someone-s-video-in-a-teams-meeting-58be74a4-efac-4e89-a212-8d198182081e)|Teams organizer, coorganizer and presenter can spotlight videos for everyone. |✔️|
 |[Allow mic for attendees](https://support.microsoft.com/office/manage-attendee-audio-and-video-permissions-in-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a)|If an external user is an attendee, then this option controls whether the external user can send local audio |✔️|
 |[Allow camera for attendees](https://support.microsoft.com/office/manage-attendee-audio-and-video-permissions-in-teams-meetings-f9db15e1-f46f-46da-95c6-34f9f39e671a)|If an external user is an attendee, then this option controls whether the external user can send local video |✔️|
 |[Record automatically](/graph/api/resources/onlinemeeting)|Records meeting when anyone starts the meeting. The user in the lobby does not start a recording.|✔️|
@@ -134,7 +133,7 @@ Here is an overview of Meeting options:
 |[Apply a watermark to everyone's video feed](https://support.microsoft.com/en-gb/office/watermark-for-teams-meetings-a9166432-f429-4a19-9a72-c9e8fdf4f589)| Watermark is applied to everyone's video feed. Instead, no video is received. |❌|
 |[Apply a watermark to shared content](https://support.microsoft.com/en-gb/office/watermark-for-teams-meetings-a9166432-f429-4a19-9a72-c9e8fdf4f589)| Watermark is applied to screen share feed. Instead, no screen-sharing video is received. | ❌|
 |[End-to-end encryption](https://support.microsoft.com/en-us/office/use-end-to-end-encryption-for-teams-meetings-a8326d15-d187-49c4-ac99-14c17dbd617c)| Enable end-to-end encryption for Teams meeting. Audio and video streams are encoded end-to-end. Azure Communication Services can't join meetings with end-to-end encryption. |❌|
-|[Who can record](https://support.microsoft.com/en-us/office/record-a-meeting-in-teams-34dfbe7f-b07d-4a27-b4c6-de62f1348c24)| Select which roles in the meeting can manager Teams recording. Azure Communication Services does not provide API to Teams recording. | ❌|
+|[Who can record](https://support.microsoft.com/en-us/office/record-a-meeting-in-teams-34dfbe7f-b07d-4a27-b4c6-de62f1348c24)| Select which roles in the meeting can manage Teams recording. Azure Communication Services does not provide API for Teams recording. | ❌|
 |[Enable Q&A](https://support.microsoft.com/en-us/topic/911d8846-9c9e-431a-983a-93226e94cf33)| Allow Q&A in the Teams meeting |❌|
 |[Enable language interpretation](https://support.microsoft.com/en-us/office/use-language-interpretation-in-a-teams-meeting-b9fdde0f-1896-48ba-8540-efc99f5f4b2e) |Allows professional interpreters to translate what a speaker says into another language in real-time. |❌|
 |[Enable Green room](https://support.microsoft.com/en-us/office/green-room-for-teams-meetings-5b744652-789f-42da-ad56-78a68e8460d5)| Use a green room to prepare with other presenters, practice sharing materials, and more before attendees enter the meeting. |❌|
