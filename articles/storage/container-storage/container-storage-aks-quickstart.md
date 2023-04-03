@@ -180,9 +180,9 @@ spec:
 
 3. Apply the yaml file to create the storage pool.
 
-   ```azurecli-interactive
-   kubectl apply -f acstor-storagepool.yaml 
-   ```
+```azurecli-interactive
+kubectl apply -f acstor-storagepool.yaml 
+```
 
 When storage pool creation is complete, you'll see a message like:
 
@@ -231,9 +231,9 @@ spec:
 
 3. Apply the yaml file to create the persistent volume claim.
 
-   ```azurecli-interactive
-   kubectl apply -f acstor-pvc.yaml
-   ```
+```azurecli-interactive
+kubectl apply -f acstor-pvc.yaml
+```
 
 You should see output similar to:
 
