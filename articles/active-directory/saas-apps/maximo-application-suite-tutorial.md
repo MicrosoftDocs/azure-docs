@@ -97,7 +97,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     ![Screenshot shows the Authentication page.](media/maximo-application-suite-tutorial/authenticate.png "Page")
     
-    1. Select emailAddress as the [name-id format](https://learn.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol?msclkid=866c050dd0b011eca7e7a70540390891#nameidpolicy).
+    1. Select emailAddress as the [name-id format](../develop/single-sign-on-saml-protocol?msclkid=866c050dd0b011eca7e7a70540390891#nameidpolicy.md).
 
     1. Click **Generate file**, wait and then **Download file**. Store this metadata file and upload it in Azure AD side. 
 
