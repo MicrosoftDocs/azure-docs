@@ -503,7 +503,7 @@ A deployment is a set of resources required for hosting the model that does the 
         
         :::image type="content" source="./media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details.":::
     
-## Run endpoint and configure inputs and outputs
+## Run batch endpoints and access results
 
 Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. The batch scoring job runs for some time. It splits the entire inputs into multiple `mini_batch` and processes in parallel on the compute cluster. The batch scoring job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified.
 
@@ -545,6 +545,68 @@ job = ml_client.batch_endpoints.invoke(
 1. Start the job.
 
 ---
+
+### Monitor batch job execution progress
+
+Batch scoring jobs usually take some time to process the entire set of inputs.
+
+# [Azure CLI](#tab/azure-cli)
+
+You can use CLI `job show` to view the job. Run the following code to check job status from the previous endpoint invoke. To learn more about job commands, run `az ml job -h`.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="check_job_status" :::
+
+# [Python](#tab/python)
+
+The following code checks the job status and outputs a link to the Azure Machine Learning studio for further details.
+
+```python
+ml_client.jobs.get(job.name)
+```
+
+# [Studio](#tab/azure-studio)
+
+1. Navigate to the __Endpoints__ tab on the side menu.
+
+1. Select the tab __Batch endpoints__.
+
+1. Select the batch endpoint you want to monitor.
+
+1. Select the tab __Jobs__.
+
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint.":::
+
+1. You'll see a list of the jobs created for the selected endpoint.
+
+1. Select the last job that is running.
+
+1. You'll be redirected to the job monitoring page.
+
+---
+
+### Check batch scoring results
+
+Follow the following steps to view the scoring results in Azure Storage Explorer when the job is completed:
+
+1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
+
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
+
+1. In the graph of the job, select the `batchscoring` step.
+
+1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
+
+1. From __Data outputs__, select the icon to open __Storage Explorer__.
+
+    :::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="media/how-to-use-batch-endpoint/view-data-outputs.png":::
+
+    The scoring results in Storage Explorer are similar to the following sample page:
+
+    :::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="media/how-to-use-batch-endpoint/scoring-view.png":::
+
+## Configure job's inputs, outputs, and execution
+
+Batch Endpoints require only one data input, which is the data you want to score. However, you can indicate also the outputs, and some other parameters about the execution.
 
 ### Configure job's inputs
 
@@ -679,64 +741,6 @@ job = ml_client.batch_endpoints.invoke(
 1. Configure the job parameters. Only the current job execution will be affected by this configuration.
 
 ---
-
-### Monitor batch scoring job execution progress
-
-Batch scoring jobs usually take some time to process the entire set of inputs.
-
-# [Azure CLI](#tab/azure-cli)
-
-You can use CLI `job show` to view the job. Run the following code to check job status from the previous endpoint invoke. To learn more about job commands, run `az ml job -h`.
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="check_job_status" :::
-
-# [Python](#tab/python)
-
-The following code checks the job status and outputs a link to the Azure Machine Learning studio for further details.
-
-```python
-ml_client.jobs.get(job.name)
-```
-
-# [Studio](#tab/azure-studio)
-
-1. Navigate to the __Endpoints__ tab on the side menu.
-
-1. Select the tab __Batch endpoints__.
-
-1. Select the batch endpoint you want to monitor.
-
-1. Select the tab __Jobs__.
-
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint.":::
-
-1. You'll see a list of the jobs created for the selected endpoint.
-
-1. Select the last job that is running.
-
-1. You'll be redirected to the job monitoring page.
-
----
-
-### Check batch scoring results
-
-Follow the following steps to view the scoring results in Azure Storage Explorer when the job is completed:
-
-1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="show_job_in_studio" :::
-
-1. In the graph of the job, select the `batchscoring` step.
-
-1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
-
-1. From __Data outputs__, select the icon to open __Storage Explorer__.
-
-    :::image type="content" source="media/how-to-use-batch-endpoint/view-data-outputs.png" alt-text="Studio screenshot showing view data outputs location." lightbox="media/how-to-use-batch-endpoint/view-data-outputs.png":::
-
-    The scoring results in Storage Explorer are similar to the following sample page:
-
-    :::image type="content" source="media/how-to-use-batch-endpoint/scoring-view.png" alt-text="Screenshot of the scoring output." lightbox="media/how-to-use-batch-endpoint/scoring-view.png":::
 
 ## Adding deployments to an endpoint
 
