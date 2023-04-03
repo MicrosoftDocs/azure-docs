@@ -12,7 +12,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 # Using satellite imagery in Azure Data Manager for Agriculture 
 Satellite imagery makes up a foundational pillar of agriculture data. To support scalable ingestion of geometry-clipped imagery, we've partnered with Sentinel Hub by Sinergise to provide a seamless bring your own license (BYOL) experience. This BYOL experience allows you to manage your own costs while keeping the convenience of storing your field-clipped historical and up to date imagery in the linked context of the relevant fields.
 
-# Prerequisites
+## Prerequisites
 *	To search and ingest imagery, you need a user account that has suitable subscription entitlement with Sentinel Hub: https://www.sentinel-hub.com/pricing/
 *	Read the Sinergise Sentinel Hub terms of service and privacy policy: https://www.sentinel-hub.com/tos/
 *	Have your providerClientId and providerClientSecret ready
@@ -26,13 +26,13 @@ Satellite imagery makes up a foundational pillar of agriculture data. To support
 ## Satellite sources supported by Azure Data Manager for Agriculture
 In our public preview, we support ingesting data from Sentinel-2 constellation.
 
-## Sentinel-2
+### Sentinel-2
 [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) is a satellite constellation launched by 'European Space Agency' (ESA) under the Copernicus mission. This constellation has a pair of satellites and carries a Multi-Spectral Instrument (MSI) payload that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60-m spatial resolution.  
 
 > [!Tip]
 > Sentinel-2 has two products: Level 1 (top of the atmosphere) data and its atmospherically corrected variant Level 2 (bottom of the atmosphere) data. We support ingesting and retrieving Level 1 and Level 2 data from Sentinel 2.
 
-## Image names and resolutions
+### Image names and resolutions
 The image names and resolutions supported by APIs used to ingest and read satellite data (for Sentinel-2) in our service:
 
 | Category | Image Name |	Description |	Native resolution |
