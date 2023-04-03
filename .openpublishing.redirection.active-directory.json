@@ -171,6 +171,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-create-trust-gcp.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/develop/workload-identities-overview.md",
       "redirect_url": "/azure/active-directory/workload-identities/workload-identities-overview",
       "redirect_document_id": false
