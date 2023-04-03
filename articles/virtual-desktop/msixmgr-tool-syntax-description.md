@@ -19,32 +19,39 @@ This article contains an overview of the command-line syntax to help you underst
 
 ## Prerequisites:
 
-- [Requirements](/azure/virtual-desktop/app-attach-msixmgr#requirements)   
-- [MSIX App Attach](/azure/virtual-desktop/app-attach-azure-portal)  
-- [Using the MSIXMGR tool](/azure/virtual-desktop/app-attach-msixmgr)
+Before you can follow the instructions in this article, you'll need to do the following things:
 
+- [Download the MSIXMGR tool](https://aka.ms/msixmgr)
+- Get an MSIX-packaged application (.MSIX file)
+- Get administrative permissions on the machine where you'll create the MSIX image 
+- [Set up MSIXMGR tool](/azure/virtual-desktop/app-attach-msixmgr)
 
 ## Syntax
 
   
-**-AddPackage or -p**
 
-|Description|Example|
-| -------- | -------- |
-|Adds package at specified file path|-AddPackage [path to the MSIX package] [optional arguments]|
-||`msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix`|
+**-AddPackage or -p  
+**  
+Adds package at specified file path  
+Example:    
+-AddPackage [path to the MSIX package] [optional arguments]
+
+```
+msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix
+```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
 |-QuietUX|Installs MSIX package silently, without any user interaction|`msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix -QuietUX`  |
 
+**-RemovePackage or -x**  
+Removes package with specified package full name  
+Example:   
+-RemovePackage [Package Name] [optional arguments]
 
-**-RemovePackage or -x**
-
-|Description|Example|
-| -------- | -------- |
-|Removes package with specified package full name|-RemovePackage [Package Name] [optional arguments]|
-||`msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe`|
+```
+msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe
+```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
@@ -52,19 +59,23 @@ This article contains an overview of the command-line syntax to help you underst
 
 
 
-**- FindPackage**
+**- FindPackage**  
+Finds package with specific package full name  
+Example:
 
-|Description|Example|
-| -------- | -------- |
-|Finds package with specific package full name|`msixmgr.exe -FindPackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe`|
+```
+msixmgr.exe -FindPackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe
+```
 
  
 
-**-applyacls**
+**-applyacls**  
+Applies ACLs to a package folder (an unpacked package)  
+Example:
 
-|Description|Example|
-| -------- | -------- |
-|Applies ACLs to a package folder (an unpacked package)|`msixmgr.exe -applyacls`|
+```
+msixmgr.exe -applyacls
+```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
@@ -72,11 +83,13 @@ This article contains an overview of the command-line syntax to help you underst
 
  
 
-**-MountImage**
+**-MountImage**  
+Mounts VHD, VHDX, or CIM image  
+Example:
 
-|Description|Example|
-| -------- | -------- |
-|Mounts VHD, VHDX, or CIM image|`msixmgr.exe -MountImage`|
+```
+msixmgr.exe -MountImage
+```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
@@ -87,11 +100,13 @@ This article contains an overview of the command-line syntax to help you underst
 
 
 
-**-UnmountImage**
+**-UnmountImage**  
+Unmounts VHD, VHDX, or CIM image  
+Example:
 
-|Description|Example|
-| -------- | -------- |
-|Unmounts VHD, VHDX, or CIM image|`msixmgr.exe -UnmountImage`|
+```
+msixmgr.exe -UnmountImage
+```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
@@ -101,11 +116,14 @@ This article contains an overview of the command-line syntax to help you underst
 
  
 
-**-Unpack**
+**-Unpack**  
+Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its contents to a folder.   Note: VHD Size is recommended to be four times the size of MSIX package  
+Example:
 
-|Description|Example|
-| -------- | -------- |
-|Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its contents to a folder.   Note: VHD Size is recommended to be four times the size of MSIX package|CIM example `msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.cim" -applyacls -create -vhdSize 200 -filetype "cim" -rootDirectory apps`   VHDX example `msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`  |
+```
+msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.cim" -applyacls -create -vhdSize 200 -filetype "cim" -rootDirectory apps
+msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps
+```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
@@ -116,16 +134,17 @@ This article contains an overview of the command-line syntax to help you underst
 |-validateSignature|Validates a package's signature file before unpacking package. This parameter will require that the package's certificate is installed on the machine.||
 |Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores](/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`||
 
-**-?**
+**-?**  
+Display Help at the command prompt  
+Example:
 
-|Description|Example|
-| -------- | -------- |
-|Display Help at the command prompt|`msixmgr.exe -?`|
-
+```
+msixmgr.exe -?
+```
 
 ## Next steps
+
 Learn more about MSIX app attach at [What is MSIX app attach?](/azure/virtual-desktop/what-is-app-attach)  
-  
 To learn how to set up app attach, check out these articles:
 
 - [Set up MSIX app attach with the Azure portal](/azure/virtual-desktop/app-attach-azure-portal)
@@ -135,6 +154,8 @@ To learn how to set up app attach, check out these articles:
 - [Set up a file share for MSIX app attach](/azure/virtual-desktop/app-attach-file-share)  
      
      
+
 If you have questions about MSIX app attach, see our [App attach FAQ](/azure/virtual-desktop/app-attach-faq) and [App attach glossary](/azure/virtual-desktop/app-attach-glossary) 
    
+
 
