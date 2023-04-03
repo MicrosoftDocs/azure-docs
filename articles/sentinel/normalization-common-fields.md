@@ -106,6 +106,8 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | AWS | - CloudTrail<br> - VPC | 
 | Cisco | - ASA<br> - Umbrella<br> - IOS |
 | Corelight | Zeek | 
+| Cynerio | Cynerio |
+| Dataminr | Dataminr Pulse | 
 | GCP | Cloud DNS | 
 | Infoblox | NIOS | 
 | Microsoft | - Microsoft Azure Active Directory (Azure AD)<br> - Azure<br> - Azure Firewall<br> - Azure Blob Storage<br>    - Azure File Storage<br>    - Azure NSG flows<br> - Azure Queue Storage<br>  - Azure Table Storage <br>      -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br>- SharePoint<br>- OneDrive<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData
