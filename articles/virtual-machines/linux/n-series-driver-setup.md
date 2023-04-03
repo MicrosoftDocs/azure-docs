@@ -59,8 +59,6 @@ Then run installation commands specific for your distribution.
    ```
 
    The installation can take several minutes.
- 
-   ```
 
 2. Reboot the VM and proceed to verify the installation.
 
