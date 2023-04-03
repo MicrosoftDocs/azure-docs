@@ -19,7 +19,7 @@ Let's start with a high-level decision tree diagram describing whether a specifi
 -	Meeting options defined by the meeting organizer 
 -	Role of the user in the meeting.
 
-![Decision tree for enabling functionality](../../../tutorials/virtual-visits/media/decision-tree-functionality-enabled.svg)
+![Decision tree for enabling functionality](../virtual-visits/media/decision-tree-functionality-enabled.svg)
 
 ## Tenant configurations
 Tenant configurations are organization-wide settings that impact everyone in the tenant. There's only one configuration, and the administrator can't create a new configuration. Just modify the existing one. Microsoft Teams provides, for example, configuration for [federation with Azure Communication Services](/powershell/module/teams/set-csteamsacsfederationconfiguration), [federation with Skype for Business](/powershell/module/skype/set-cstenantfederationconfiguration), or [configuration to control Teams meetings](/powershell/module/skype/set-csteamsmeetingconfiguration) (this configuration is being deprecated). Teams administrators can use these configurations as safeguards to disable capabilities for everyone in the tenant easily.
@@ -42,7 +42,7 @@ Popular tenant policies are meeting, calling, messaging, or external access poli
 2.	Group-assigned policy: The policy is assigned to a group the user is part of.
 3.	Organization-wide policy: The Global policy applies.
 
-![Decision tree for selection of policy for evaluation](../../../tutorials/virtual-visits/media/decision-tree-functionality-enabled.svg)
+![Decision tree for selection of policy for evaluation](../virtual-visits/media/decision-tree-policy-selection.svg)
 
 An organizer-assigned policy can disable the feature in all meetings this user organizes. Disabled capability by policy can't be enabled with other tools. For example, administrators can use a global meeting policy to allow recording for everyone. Then create a new meeting policy called "external customers", which would disable recording. Admin then assigns the new policy to a group of users that conduct calls with external customers.
 - Required role: Teams or global administrator
