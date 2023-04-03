@@ -3,7 +3,7 @@ title: Restore deleted apps
 description: Learn how to restore a deleted app in Azure App Service. Avoid the headache of an accidentally deleted app.
 author: seligj95
 ms.author: jordanselig
-ms.date: 11/4/2022
+ms.date: 4/3/2023
 ms.topic: article 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,7 +14,7 @@ If you happened to accidentally delete your app in Azure App Service, you can re
 
 > [!NOTE]
 > - Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be recovered.
-> - Undelete functionality isn't supported for the Consumption plan.
+> - Undelete functionality isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
 > - Apps Service apps running in an App Service Environment don't support snapshots. Therefore, undelete functionality and clone functionality aren't supported for App Service apps running in an App Service Environment.
 >
 
@@ -49,7 +49,7 @@ The detailed information includes:
 ## Restore deleted app
 
 >[!NOTE]
->- `Restore-AzDeletedWebApp` isn't supported for function apps.
+>- `Restore-AzDeletedWebApp` isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
 >- The Restore-AzDeletedWebApp cmdlet restores a deleted web app. The web app specified by TargetResourceGroupName, TargetName, and TargetSlot will be overwritten with the contents and settings of the deleted web app. If the target parameters are not specified, they will automatically be filled with the deleted web app's resource group, name, and slot. If the target web app does not exist, it will automatically be created in the app service plan specified by TargetAppServicePlanName.
 >- By default `Restore-AzDeletedWebApp` will restore both your app configuration as well any content. If you want to only restore content, you use the **`-RestoreContentOnly`** flag with this commandlet.
 
@@ -101,5 +101,32 @@ The inputs for command are:
 > [!NOTE]
 > If the app was hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.
 
+## Restore deleted function app 
+
+If the Function App was hosted on **Dedicated app service plan**, then we have a way to restore it, if it was using default app service storage.
+
+1. Fetch the DeletedSiteId of the app version you want to restore, using Get-AzDeletedWebApp cmdlet:
+
+```powershell
+Get-AzDeletedWebApp -ResourceGroupName <RGofDeletedApp> -Name <NameofApp> 
+```
+2. Create a new function app on Dedicated plan. Check out the instructions for [how to create on the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
+3. Restore to the newly created function app using this cmdlet:
+
+```powershell
+Restore-AzDeletedWebApp -ResourceGroupName <RGofnewapp> -Name <newApp> -deletedId "/subscriptions/xxxx/providers/Microsoft.Web/locations/xxxx/deletedSites/xxxx"
+```
+
+Currently there is no support for Undelete (Restore-AzDeletedWebApp) Function Apps that are hosted on Consumption plan or Elastic premium plan. These are the scenarios where content resides on Azure Files on a Storage account. If you have not 'hard' deleted the Azure files storage account or if it exists and has not been deleted, then you may use the steps below as workaround:
+ 
+
+1. Create a new function app on Consumption or Premium plan. Check out the instructions for [how to create on the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
+2. Set the following [app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) to refer to the old storage account for the app content.
+
+    | App Setting      | Suggested value  | 
+    | ------------ | ---------------- | 
+    | **AzureWebJobsStorage** | Connection String for storage account of deleted site | 
+    | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** | Connection String for storage account of deleted site | 
+    | **WEBSITE_CONTENTSHARE** | File share on storage account of deleted site | 
 
 
