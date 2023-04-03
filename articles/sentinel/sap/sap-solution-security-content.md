@@ -38,7 +38,7 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 To secure the SAP system, SAP has identified security-related parameters that need to be monitored for changes. With the "SAP - (Preview) Sensitive Static Parameter has Changed" rule, the Microsoft Sentinel solution for SAP® applications tracks [over 52 static security-related parameters](sap-suspicious-configuration-security-parameters.md) in the SAP system, which are built into Microsoft Sentinel.
 
 > [!NOTE]
-> For the Microsoft Sentinel solution for SAP® applications to successfully monitor the SAP security parameters, the solution needs to successfully monitor the SAP PAHI table at regular intervals. [Verify that the solution can successfully monitor the PAHI table](sap/preparing-sap.md#verify-that-the-pahi-table-history-of-system-database-and-sap-parameters-is-updated-at-regular-intervals).
+> For the Microsoft Sentinel solution for SAP® applications to successfully monitor the SAP security parameters, the solution needs to successfully monitor the SAP PAHI table at regular intervals. [Verify that the solution can successfully monitor the PAHI table](preparing-sap.md#verify-that-the-pahi-table-history-of-system-database-and-sap-parameters-is-updated-at-regular-intervals).
 
 To understand parameter changes in the system, the Microsoft Sentinel solution for SAP® applications uses the parameter history table, which records changes made to system parameters every hour.  
 
