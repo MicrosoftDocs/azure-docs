@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Maximo Application Suite
 
-In this article, you learn how to integrate Maximo Application Suite with Azure Active Directory (Azure AD). Customer-Managed - IBM Maximo Application Suite is an CMMS EAM platform which delivers intelligent asset management, monitoring, predictive maintenance and reliability in a single platform. When you integrate Maximo Application Suite with Azure AD, you can:
+In this article, you learn how to integrate Maximo Application Suite with Azure Active Directory (Azure AD). Customer-Managed - IBM Maximo Application Suite is a CMMS EAM platform, which delivers intelligent asset management, monitoring, predictive maintenance and reliability in a single platform. When you integrate Maximo Application Suite with Azure AD, you can:
 
 * Control in Azure AD who has access to Maximo Application Suite.
 * Enable your users to be automatically signed-in to Maximo Application Suite with their Azure AD accounts.
@@ -69,7 +69,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-	d. If you wish to configure **SP** initiated mode then perform the following step:
+	d. If you wish to configure **SP** initiated mode, then perform the following step:
     
     In the **Sign on URL** textbox, type a URL using the following pattern without `</path>`: 
     `https://<workspace_id>.<mas_application>.<mas_domain>`
@@ -135,7 +135,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal to be taken to the Maximo login page where you will need to enter in your SAML identity as a fully qualified email address. If the user has already authenticated with the IDP the Maximo Application Suite will not have to login again and the browser will be redirected to the home page.   
+* Click on **Test this application** in Azure portal to be taken to the Maximo login page where you need to enter in your SAML identity as a fully qualified email address. If the user has already authenticated with the IDP the Maximo Application Suite won't have to login again, and the browser will be redirected to the home page.   
 
 * You can also use Microsoft My Apps to test the application in any mode. When you click the Maximo Application Suite tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Maximo Application Suite for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
