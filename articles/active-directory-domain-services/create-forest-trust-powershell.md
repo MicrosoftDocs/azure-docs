@@ -1,6 +1,6 @@
 ---
-title: Create an Azure AD Domain Services resource forest using Azure PowerShell | Microsoft Docs
-description: In this article, learn how to create and configure an Azure Active Directory Domain Services resource forest and outbound forest to an on-premises Active Directory Domain Services environment using Azure PowerShell.
+title: Create an Azure AD Domain Services forest trust using Azure PowerShell | Microsoft Docs
+description: In this article, learn how to create and configure an Azure Active Directory Domain Services forest trust to an on-premises Active Directory Domain Services environment using Azure PowerShell.
 author: justinha
 manager: amycolannino
 
@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 04/03/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
-#Customer intent: As an identity administrator, I want to create an Azure AD Domain Services resource forest and one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
+#Customer intent: As an identity administrator, I want to create an Azure AD Domain Services forest and one-way outbound trust from an Azure Active Directory Domain Services forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
 
 ---
 
-# Create an Azure Active Directory Domain Services resource forest and outbound forest trust to an on-premises domain using Azure PowerShell
+# Create an Azure Active Directory Domain Services forest trust to an on-premises domain using Azure PowerShell
 
-In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (Azure AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. In a resource forest, on-premises password hashes are never synchronized.
+In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can create a one-way outbound trust from Azure Active Directory Domain Services (Azure AD DS) to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. In this case, on-premises password hashes are never synchronized.
 
-![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/create-forest-powershell/forest-trust-relationship.png)
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure AD DS resource forest using Azure PowerShell
+> * Create an Azure AD DS forest using Azure PowerShell
 > * Create a one-way outbound forest trust in the managed domain using Azure PowerShell
 > * Configure DNS in an on-premises AD DS environment to support managed domain connectivity
 > * Create a one-way inbound forest trust in an on-premises AD DS environment
@@ -34,7 +34,7 @@ In this article, you learn how to:
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT]
-> Managed domain resource forests don't currently support Azure HDInsight or Azure Files. The default managed domain user forests do support both of these additional services.
+> Managed domain forests don't currently support Azure HDInsight or Azure Files. The default managed domain forests do support both of these additional services.
 
 ## Prerequisites
 
@@ -60,10 +60,10 @@ In this article, you create and configure the outbound forest trust from a manag
 
 ## Deployment process
 
-It's a multi-part process to create a managed domain resource forest and the trust relationship to an on-premises AD DS. The following high-level steps build your trusted, hybrid environment:
+It's a multi-part process to create a managed domain forest and the trust relationship to an on-premises AD DS. The following high-level steps build your trusted, hybrid environment:
 
 1. Create a managed domain service principal.
-1. Create a managed domain resource forest.
+1. Create a managed domain forest.
 1. Create hybrid network connectivity using site-to-site VPN or Express Route.
 1. Create the managed domain side of the trust relationship.
 1. Create the on-premises AD DS side of the trust relationship.
@@ -72,7 +72,7 @@ Before you start, make sure you understand the [network considerations, forest n
 
 ## Create the Azure AD service principal
 
-Azure AD DS requires a service principal synchronize data from Azure AD. This principal must be created in your Azure AD tenant before you created the managed domain resource forest.
+Azure AD DS requires a service principal synchronize data from Azure AD. This principal must be created in your Azure AD tenant before you created the managed domain forest.
 
 Create an Azure AD service principal for Azure AD DS to communicate and authenticate itself. A specific application ID is used named *Domain Controller Services* with an ID of *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Don't change this application ID.
 
@@ -82,9 +82,9 @@ Create an Azure AD service principal using the [New-AzureADServicePrincipal][New
 New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
-## Create a managed domain resource forest
+## Create a managed domain 
 
-To create a managed domain resource forest, you use the `New-AzureAaddsForest` script. This script is part of a wider set of commands that support creating and managing managed domain resource forests, including create the one-way bound forest in a following section. These scripts are available from the [PowerShell Gallery](https://www.powershellgallery.com/) and are digitally signed by the Azure AD engineering team.
+To create a managed domain, you use the `New-AzureAaddsForest` script. This script is part of a wider set of commands that support managed domains, including create the one-way bound forest in a following section. These scripts are available from the [PowerShell Gallery](https://www.powershellgallery.com/) and are digitally signed by the Azure AD engineering team.
 
 1. First, create a resource group using the [New-AzResourceGroup][New-AzResourceGroup] cmdlet. In the following example, the resource group is named *myResourceGroup* and is created in the *westus* region. Use your own name and desired region:
 
@@ -117,11 +117,11 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
     | Virtual network name              | *-aaddsVnetName*                  | Name of the virtual network for the managed domain.|
     | Address space                     | *-aaddsVnetCIDRAddressSpace*      | Virtual network's address range in CIDR notation (if creating the virtual network).|
     | Azure AD DS subnet name           | *-aaddsSubnetName*                | Name of the subnet of the *aaddsVnetName* virtual network hosting the managed domain. Don't deploy your own VMs and workloads into this subnet. |
-    | Azure AD DS address range         | *-aaddsSubnetCIDRAddressRange*    | Subnet address range in CIDR notation for the AAD DS instance, such as *192.168.1.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets. |
+    | Azure AD DS address range         | *-aaddsSubnetCIDRAddressRange*    | Subnet address range in CIDR notation for the Azure AD DS instance, such as *192.168.1.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets. |
     | Workload subnet name (optional)   | *-workloadSubnetName*             | Optional name of a subnet in the *aaddsVnetName* virtual network to create for your own application workloads. VMs and applications and also be connected to a peered Azure virtual network instead. |
     | Workload address range (optional) | *-workloadSubnetCIDRAddressRange* | Optional subnet address range in CIDR notation for application workload, such as *192.168.2.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets.|
 
-1. Now create a managed domain resource forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
+1. Now create a managed domain forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
 
     ```azurepowershell
     New-AzureAaddsForest `
@@ -138,7 +138,7 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
         -workloadSubnetCIDRAddressRange "192.168.2.0/24"
     ```
 
-    It takes quite some time to create the managed domain resource forest and supporting resources. Allow the script to complete. Continue on to the next section to configure your on-premises network connectivity while the Azure AD resource forest provisions in the background.
+    It takes quite some time to create the managed domain forest and supporting resources. Allow the script to complete. Continue on to the next section to configure your on-premises network connectivity while the Azure AD forest provisions in the background.
 
 ## Configure and validate network settings
 
@@ -156,7 +156,7 @@ Before you start, make sure you understand the [network considerations and recom
 
 1. To administer a managed domain, you create a management VM, join it to the managed domain, and install the required AD DS management tools.
 
-    While the managed domain resource forest is being deployed, [create a Windows Server VM](./join-windows-vm.md) then [install the core AD DS management tools](./tutorial-create-management-vm.md) to install the needed management tools. Wait to join the management VM to the managed domain until one of the following steps after the domain is successfully deployed.
+    While the managed domain is being deployed, [create a Windows Server VM](./join-windows-vm.md) then [install the core AD DS management tools](./tutorial-create-management-vm.md) to install the needed management tools. Wait to join the management VM to the managed domain until one of the following steps after the domain is successfully deployed.
 
 1. Validate network connectivity between your on-premises network and the Azure virtual network.
 
@@ -165,23 +165,23 @@ Before you start, make sure you understand the [network considerations and recom
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com* and wait for the status to report as **Running**.
 
-    When running, [update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) and then [enable user accounts for Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) to finalize the configurations for your managed domain resource forest.
+    When running, [update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) and then [enable user accounts for Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) to finalize the configurations for your managed domain.
 
 1. Make a note of the DNS addresses shown on the overview page. You need these addresses when you configure the on-premises Active Directory side of the trust relationship in a following section.
 1. Restart the management VM for it to receive the new DNS settings, then [join the VM to the managed domain](join-windows-vm.md#join-the-vm-to-the-managed-domain).
 1. After the management VM is joined to the managed domain, connect again using remote desktop.
 
-    From a command prompt, use `nslookup` and the managed domain resource forest name to validate name resolution for the resource forest.
+    From a command prompt, use `nslookup` and the managed domain name to validate name resolution for the forest.
 
     ```console
     nslookup aaddscontoso.com
     ```
 
-    The command should return two IP addresses for the resource forest.
+    The command should return two IP addresses for the forest.
 
 ## Create the forest trust
 
-The forest trust has two parts - the one-way outbound forest trust in the managed domain resource forest, and the one-way inbound forest trust in the on-premises AD DS forest. You manually create both sides of this trust relationship. When both sides are created, users and resources can successfully authenticate using the forest trust. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests.
+The forest trust has two parts - the one-way outbound forest trust in the managed domain, and the one-way inbound forest trust in the on-premises AD DS forest. You manually create both sides of this trust relationship. When both sides are created, users and resources can successfully authenticate using the forest trust. A managed domain supports up to five one-way outbound forest trusts to on-premises forests.
 
 ### Create the managed domain side of the trust relationship
 
@@ -224,7 +224,7 @@ To correctly resolve the managed domain from the on-premises environment, you ma
 1. Right-select DNS server, such as *myAD01*, select **Properties**
 1. Choose **Forwarders**, then **Edit** to add additional forwarders.
 1. Add the IP addresses of the managed domain, such as *10.0.1.4* and *10.0.1.5*.
-1. From a local command prompt, validate name resolution using **nslookup** of the managed domain resource forest domain name. For example, `Nslookup aaddscontoso.com` should return the two IP addresses for the  managed domain resource forest.
+1. From a local command prompt, validate name resolution using **nslookup** of the managed domain name. For example, `Nslookup aaddscontoso.com` should return the two IP addresses for the  managed domain.
 
 ## Create inbound forest trust in the on-premises domain
 
@@ -239,25 +239,25 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
 1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Azure portal for the managed domain.
 1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
-1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**. You can't validate the trust relation because your delegated admin account to the managed domain resource forest doesn't have the required permissions. This behavior is by design.
+1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**. You can't validate the trust relation because your delegated admin account to the managed domain doesn't have the required permissions. This behavior is by design.
 1. Select **Finish**
 
 ## Validate resource authentication
 
 The following common scenarios let you validate that forest trust correctly authenticates users and access to resources:
 
-* [On-premises user authentication from the Azure AD DS resource forest](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
-* [Access resources in the Azure AD DS resource forest using on-premises user](#access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user)
+* [On-premises user authentication from the Azure AD DS forest](#on-premises-user-authentication-from-the-azure-ad-ds-forest)
+* [Access resources in the Azure AD DS forest as an on-premises user](#access-resources-in-azure-ad-ds-as-an-on-premises-user)
     * [Enable file and printer sharing](#enable-file-and-printer-sharing)
     * [Create a security group and add members](#create-a-security-group-and-add-members)
     * [Create a file share for cross-forest access](#create-a-file-share-for-cross-forest-access)
     * [Validate cross-forest authentication to a resource](#validate-cross-forest-authentication-to-a-resource)
 
-### On-premises user authentication from the Azure AD DS resource forest
+### On-premises user authentication from the Azure AD DS forest
 
 You should have Windows Server virtual machine joined to the managed domain resource domain. Use this virtual machine to test your on-premises user can authenticate on a virtual machine.
 
-1. Connect to the Windows Server VM joined to the managed domain resource forest using Remote Desktop and your managed domain administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
+1. Connect to the Windows Server VM joined to the managed domain using Remote Desktop and your managed domain administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
     > [!TIP]
     > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](../bastion/bastion-overview.md) in supported Azure regions.
@@ -277,13 +277,13 @@ You should have Windows Server virtual machine joined to the managed domain reso
 1. If the authentication is a successful, a new command prompt opens. The title of the new command prompt includes `running as userUpn@trusteddomain.com`.
 1. Use `whoami /fqdn` in the new command prompt to view the distinguished name of the authenticated user from the on-premises Active Directory.
 
-### Access resources in the Azure AD DS resource forest using on-premises user
+### Access resources in Azure AD DS as an on-premises user
 
-Using the Windows Server VM joined to the managed domain resource forest, you can test the scenario where users can access resources hosted in the resource forest when they authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
+Using the Windows Server VM joined to the managed domain, you can test the scenario where users can access resources hosted in the forest when they authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
 
 #### Enable file and printer sharing
 
-1. Connect to the Windows Server VM joined to the managed domain resource forest using Remote Desktop and your managed domain administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
+1. Connect to the Windows Server VM joined to the managed domain using Remote Desktop and your managed domain administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
     > [!TIP]
     > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](../bastion/bastion-overview.md) in supported Azure regions.
@@ -311,7 +311,7 @@ Using the Windows Server VM joined to the managed domain resource forest, you ca
 
 #### Create a file share for cross-forest access
 
-1. On the Windows Server VM joined to the managed domain resource forest, create a folder and provide name such as *CrossForestShare*.
+1. On the Windows Server VM joined to the managed domain, create a folder and provide name such as *CrossForestShare*.
 1. Right-select the folder and choose **Properties**.
 1. Select the **Security** tab, then choose **Edit**.
 1. In the *Permissions for CrossForestShare* dialog box, select **Add**.
@@ -339,7 +339,7 @@ If you need to update an existing one-way outbound forest from the managed domai
 
 ### Update a forest trust
 
-In normal operation, the managed domain forest and on-premises forest negotiate a regular password update process between themselves. This is part of the normal AD DS trust relationship security process. You don't need to manually rotate the trust password unless the trust relationship has experienced an issue and you want to manually reset to a known password. For more information, see [trusted domain object password changes](concepts-forest-trust.md#tdo-password-changes).
+In normal operation, the managed domain and on-premises forest negotiate a regular password update process between themselves. This is part of the normal AD DS trust relationship security process. You don't need to manually rotate the trust password unless the trust relationship has experienced an issue and you want to manually reset to a known password. For more information, see [trusted domain object password changes](concepts-forest-trust.md#tdo-password-changes).
 
 The following example steps show you how to update an existing trust relationship if you need to manually reset the outbound trust password:
 
@@ -387,8 +387,8 @@ If you no longer need the one-way outbound forest trust from the managed domain 
 
 To remove the one-way inbound trust from the on-premises AD DS forest, connect to a management computer with access to the on-premises AD DS forest and complete the following steps:
 
-1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**
-1. Right-select domain, such as *onprem.contoso.com*, select **Properties**
+1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**.
+1. Right-select domain, such as *onprem.contoso.com*, select **Properties**.
 1. Choose **Trusts** tab, then select the existing incoming trust from your managed domain forest.
 1. Select **Remove**, then confirm that you wish to remove the incoming trust.
 
@@ -397,16 +397,15 @@ To remove the one-way inbound trust from the on-premises AD DS forest, connect t
 In this article, you learned how to:
 
 > [!div class="checklist"]
-> * Create a managed domain resource forest using Azure PowerShell
+> * Create a managed domain using Azure PowerShell
 > * Create a one-way outbound forest trust in the managed domain using Azure PowerShell
 > * Configure DNS in an on-premises AD DS environment to support the managed domain connectivity
 > * Create a one-way inbound forest trust in an on-premises AD DS environment
 > * Test and validate the trust relationship for authentication and resource access
 
-For more conceptual information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
+For more conceptual information about forest types in Azure AD DS, see [How do forest trusts work in Azure AD DS?][concepts-trust]
 
 <!-- INTERNAL LINKS -->
-[concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
