@@ -211,7 +211,7 @@ The scenarios triggers a disable or a delete:
 
 By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
 
-If one of the four events occurs and the target application doesn't support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
+When one of the four events occurs and the target application doesn't support soft deletes, the provisioning service sends a DELETE request to permanently delete the user from the app.
 
 If you see an attribute IsSoftDeleted in your attribute mappings, it's used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
 
