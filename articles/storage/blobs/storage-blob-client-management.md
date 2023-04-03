@@ -58,6 +58,8 @@ To learn more about authorization, see [Authorize access to data in Azure Storag
 
 Working with any Azure resource using the SDK begins with creating a client object. In this section, you learn how to create client objects to interact with the three types of resources in the storage service: storage accounts, containers, and blobs.
 
+When your application creates a client object, you pass a URI referencing the endpoint to the client constructor. You can construct the endpoint string manually, as shown in the examples in this article, or you can query for the endpoint at runtime using the Azure Storage management library. To learn how to query for an endpoint, see [Query for a Blob Storage endpoint](storage-blob-query-endpoint-srp.md).
+
 ### Create a BlobServiceClient object
 
 An authorized `BlobServiceClient` object allows your app to interact with resources at the storage account level. `BlobServiceClient` provides methods to retrieve and configure account properties, as well as list, create, and delete containers within the storage account. This client object is the starting point for interacting with resources in the storage account.

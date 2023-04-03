@@ -6,8 +6,9 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 08/12/2022
+ms.date: 03/24/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 
 ---
 # Export APIs from Azure API Management to the Power Platform 
@@ -19,7 +20,7 @@ This article walks through the steps in the Azure portal to create a custom Powe
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Make sure there is an API in your API Management instance that you'd like to export to the Power Platform
++ Make sure there's an API in your API Management instance that you'd like to export to the Power Platform
 + Make sure you have a Power Apps or Power Automate [environment](/powerapps/powerapps-overview#power-apps-for-admins) 
 
 ## Create a custom connector to an API
@@ -37,7 +38,7 @@ This article walks through the steps in the Azure portal to create a custom Powe
 
     :::image type="content" source="media/export-api-power-platform/create-custom-connector.png" alt-text="Create custom connector to API in API Management":::
 
-Once the connector is created, navigate to your [Power Apps](https://make.powerapps.com) or [Power Automate](https://make.powerautomate.com) environment. You will see the API listed under **Data > Custom Connectors**.
+Once the connector is created, navigate to your [Power Apps](https://make.powerapps.com) or [Power Automate](https://make.powerautomate.com) environment. You'll see the API listed under **Data > Custom Connectors**.
 
 :::image type="content" source="media/export-api-power-platform/custom-connector-power-app.png" alt-text="Custom connector in Power Platform":::
 
@@ -48,10 +49,9 @@ You can manage your custom connector in your Power Apps or Power Platform enviro
 1. Select your connector from the list of custom connectors.
 1. Select the pencil (Edit) icon to edit and test the custom connector. 
 
-> [!NOTE]
-> To call the API from the Power Apps test console, you need to add the `https://make.powerautomate.com` URL as an origin to the [CORS policy](cors-policy.md) in your API Management instance.
+> [!IMPORTANT]
+> To call the API from the Power Apps test console, you need to configure a CORS policy in your API Management instance and create a policy in the custom connector to set an Origin header in HTTP requests. For more information, see [Enable CORS policies to test custom connector from Power Platform](enable-cors-power-platform.md).
 > 
-> Depending on how the custom connector gets used when running Power Apps, you might need to configure additional origins in the CORS policy. You can use developer tools in your browser, tracing in API Management, or Application Insights to investigate CORS issues when running Power Apps.
 
 ## Update a custom connector
 

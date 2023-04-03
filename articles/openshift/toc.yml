@@ -77,6 +77,8 @@
           href: howto-enable-fips-openshift.md
         - name: Enable Network Security Group flow logs
           href: howto-enable-nsg-flowlogs.md
+        - name: Manage customer data access requests
+          href: howto-use-lockbox.md
         - name: Use Azure Key Vault secrets
           href: howto-use-key-vault-secrets.md
     - name: Back up and restore

@@ -6,7 +6,7 @@ author: stevenmatthew
 ms.service: storage-mover
 ms.author: shaas
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 03/27/2023
 ---
 
 <!-- 
@@ -28,24 +28,24 @@ Deploying Azure Storage Mover in one of your Azure subscriptions is the first st
 
 ## Make sure the service works for your scenario
 
-Azure Storage Mover aspires to work for a wide range of migration scenarios. However, the service is new, currently in public preview, and supports limited migration scenarios. Check out the [supported sources and targets section](service-overview.md#supported-sources-and-targets) in the [Azure Storage Mover overview article](service-overview.md) to make sure the service works for you.
+Azure Storage Mover aspires to work for a wide range of migration scenarios. However, the service is new and therefore supports a relatively limited number of migration scenarios. Ensure that the service works for you by consulting the [supported sources and targets section](service-overview.md#supported-sources-and-targets) in the [Azure Storage Mover overview article](service-overview.md).
 
 ## Deployment basics
 
 A deployment of Azure Storage Mover consists out of cloud service components and one or more migration agents you run in your environment, close to the source storage.
 
-The cloud service component is represented by a storage mover resource, deployed in your choice of Azure subscription and resource group. Identify a subscription in the same Azure Active Directory (Azure AD) tenant as the Azure storage accounts you want to migrate into.
+A storage mover resource comprises the cloud service component. This resource is deployed within your choice of Azure subscription and resource group. Identify a subscription in the same Azure Active Directory (Azure AD) tenant as the Azure storage accounts you want to migrate into.
 
 > [!NOTE]
 > An Azure storage mover resource can orchestrate migrations into Azure Storage in other subscriptions, as long as they are governed by the same Azure Active Directory tenant.
 
 ## Select an Azure region for your deployment
 
-When you deploy an Azure storage mover resource, you'll also need to decide on a region. The region you select only determines where control messages are sent and metadata about your migration is stored. The data that is migrated, is sent directly from the agent to the target in Azure Storage. Your files never travel through the Storage Mover service or the resource in that region. That means the proximity between source, agent, and target storage is more important for migration performance than the location of your storage mover resource.
+When you deploy an Azure storage mover resource, you also need to choose a region. The region you select only determines where control messages are sent and metadata about your migration is stored. The data that is migrated, is sent directly from the agent to the target in Azure Storage. Your files never travel through the Storage Mover service or the resource in that region. That means the proximity between source, agent, and target storage is more important for migration performance than the location of your storage mover resource.
 
-:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="A diagram illustrating a migration's path by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/across-articles/data-vs-management-path-large.png":::
+:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="A diagram illustrating a migration's path by showing two arrows. The first arrow represents data traveling to a storage account from the source and agent, and a second arrow represents the management and control info to the storage mover resource and service." lightbox="media/across-articles/data-vs-management-path-large.png":::
 
-In most cases, deploying only a single storage mover resource is the best option, even when you need to migrate files located in other countries. You'll register one or more migration agents to a storage mover resource - and an agent can only be used for migrations by the storage mover it's registered with. The agents themselves should be located close to the source storage, even if that means registering  agents deployed in other countries to a storage mover resource located across the globe.
+In most cases, deploying only a single storage mover resource is the best option, even when you need to migrate files located in other countries. One or more migration agents are registered to a storage mover resource. An agent can only be used by the storage mover to which it's registered. The agents themselves should be located close to the source storage, even if that means registering  agents deployed in other countries to a storage mover resource located across the globe.
 
 Only deploy multiple storage mover resources if you have distinct sets of migration agents. Having separate storage mover resources and agents allows you to keep permissions separate for the admins managing their part of the source or target storage.
 
@@ -53,7 +53,7 @@ Deploying a Storage Mover agent as an Azure VM hasn't been tested and is current
 
 ## Getting your subscription ready
 
-Your subscription must be in the same Azure Active Directory tenant as the target Azure storage accounts you want to migrate into. When you've decided on an Azure subscription and resource group for your storage mover resource, you'll need to prepare a few things depending on how you deploy and which actions you or another admin will perform.
+Your subscription must be in the same Azure Active Directory tenant as the target Azure storage accounts you want to migrate into. When you've decided on an Azure subscription and resource group for your storage mover resource, you need to prepare a few things depending on how you deploy and which actions you or another admin perform.
 
 ### Resource provider namespaces
 
@@ -71,7 +71,7 @@ Register a resource provider:
 > [!TIP]
 > When you deploy a storage mover resource as a subscription *Owner* or *Contributor* through the Azure portal, your subscription is automatically registered with both of these resource provider namespaces. You'll only have to perform the registration manually when using Azure PowerShell or CLI.
 
-Once a subscription is enabled for both of these resource provider namespaces, it will remain enabled until manually unregistered. You can even delete the last storage mover resource and your subscription still remains enabled. Subsequent storage mover resource deployments then require reduced permissions from an admin. The following section contains a breakdown of different management scenarios and their required permissions.
+Once a subscription is enabled for both of these resource provider namespaces, it remains enabled until manually unregistered. You can even delete the last storage mover resource and your subscription still remains enabled. Subsequent storage mover resource deployments then require reduced permissions from an admin. The following section contains a breakdown of different management scenarios and their required permissions.
 
 ## Permissions
 
