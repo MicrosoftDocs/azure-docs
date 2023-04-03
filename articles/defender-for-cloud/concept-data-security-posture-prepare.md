@@ -51,13 +51,8 @@ The main steps for configuring data sensitivity setting include:
 
 Defender for Cloud starts discovering data immediately after enabling a plan, or after turning on the feature in plans that are already running.
 
-- After you onboard the feature, results appear in the Defender for Cloud portal within 24 hours. 
-- After files are updated in the discovered resources, data is refreshed within eight days.
-
-### Discovery time
-
 - It takes up to 24 hours to see the results for a first-time discovery.
-- Refreshed results for a resource that's previously been discovered take up to eight days.
+- After files are updated in the discovered resources, data is refreshed within eight days.
 - A new Azure storage account that's added to an already discovered subscription is discovered within 24 hours or less.
 - A new AWS S3 bucket that's added to an already discovered AWS account is discovered within 48 hours or less.
 
