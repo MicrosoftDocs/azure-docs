@@ -43,17 +43,6 @@ Cloud Security Explorer helps you identify security risks in your cloud environm
 
 You can leverage Cloud Security Explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multicloud environments. You can run queries to examine security issues, and to get environment context into your asset inventory, exposure to internet, access controls, data flows, and more. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
 
-### Exposed to the internet/publicly accessible
-
-Attack paths and cloud security graph insights include information about storage resources that are exposed to the internet. The following table provides more details.
-
-**State** | **Azure resources** | **AWS resources**
---- | --- | ---
-**Exposed to the internet** | An Azure storage account is considered exposed if public network access is enabled, with either:<br/><br/> storage_account_name **Networking** > **Public network access** > **Enabled from all networks**, or **Enable from selected virtual networks and IP addresses**. | An AWS S3 bucket is consider exposed if the AWS account and AWS S3 bucket don't have a condition set for IP addresses.
-**Publicly accessible** | An Azure storage account is considered to be publicly accessible if both these settings are configured on the Azure storage account container:<br/><br/> storage account name **Configuration** > **Allow blob public access**<br/><br/> storage account name **Containers** > container_name > **Public access level** set to **Blob (anonymous read access for blobs only)**, or **Container (anonymous read access for containers and blobs)**. | An AWS S2 bucket is considered publicly available if both the AWS account and the AWS S3 bucket have **Block all public access** set to **Off**, and the policy has **either** of these settings:<br/><br/> Setting 1: In the policy, **RestrictPublicBuckets isn't allowed and **principal is *** and **effect** are set to **Allow**.<br/><br/> Setting 2: In the access control list, **IgnorePublicAcl** isn't enabled, and permission is allowed for **everyone**, or for **authenticated users**.
-
-
-
 
 
 ## Data security in Defender for Storage
