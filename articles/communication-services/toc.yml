@@ -42,7 +42,17 @@ items:
   - name: Common scenarios
     items:
     - name: Virtual visit
-      href: tutorials/virtual-visits.md
+      items: tutorials/virtual-visits.md
+      - name: Overview
+        href: tutorials/virtual-visits/overview.md
+      - name: Build Virtual visit
+        href: tutorials/virtual-visits/sample-buidler.md
+      - name: Plan user experience
+        href: tutorials/virtual-visits/plan-user-experience.md
+      - name: Govern meeting experience
+        href: tutorials/virtual-visits/govern-meeting-experience.md
+      - name: Teams controls
+        href: concepts/interop/guest/teams-administration.md
     - name: Virtual event
       href: tutorials/events-playbook.md
   - name: Privacy and compliance
@@ -502,6 +512,8 @@ items:
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
             href: concepts/interop/teams-user/government-cloud.md
+        - name: Pricing
+          href: concepts/pricing/teams-interop-pricing.md
     - name: Rooms
       items:
       - name: Overview
