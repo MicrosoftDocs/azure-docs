@@ -1,7 +1,7 @@
 ---
 title: Add and configure a catalog
 titleSuffix: Azure Deployment Environments
-description: Learn how to add and configure a catalog in your Azure Deployment Environments Preview dev center to provide deployment templates for your development teams.
+description: Learn how to add and configure a catalog in your Azure Deployment Environments dev center to provide deployment templates for your development teams. Catalogs are specialized repositories stored in GitHub or Azure DevOps.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 author: RoseHJM
@@ -10,7 +10,7 @@ ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
-# Add and configure a catalog
+# Add and configure a catalog from GitHub or Azure DevOps
 
 Learn how to add and configure a [catalog](./concept-environments-key-concepts.md#catalogs) in your Azure Deployment Environments Preview dev center. You can use a catalog to provide your development teams with a curated set of infrastructure as code (IaC) templates called [catalog items](./concept-environments-key-concepts.md#catalog-items).
 

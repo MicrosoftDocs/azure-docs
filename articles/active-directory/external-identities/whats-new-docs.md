@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory External Identities"
 description: "New and updated documentation for the Azure Active Directory External Identities."
-ms.date: 03/01/2023
+ms.date: 03/31/2023
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,17 @@ manager: CelesteDG
 # Azure Active Directory External Identities: What's new
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## March 2023
+
+### Updated articles
+
+- [Invite internal users to B2B collaboration](invite-internal-users.md)
+- [Federation with SAML/WS-Fed identity providers for guest users](direct-federation.md)
+- [Add Azure Active Directory (Azure AD) as an identity provider for External Identities](azure-ad-account.md)
+- [Quickstart: Add a guest user with PowerShell](b2b-quickstart-invite-powershell.md)
+- [Billing model for Azure AD External Identities](external-identities-pricing.md)
+- [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
 
 ## February 2023
 
@@ -36,12 +47,3 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Leave an organization as an external user](leave-the-organization.md)
 - [External Identities in Azure Active Directory](external-identities-overview.md)
 - [External Identities documentation](index.yml)
-
-## December 2022
-
-### Updated articles
-
-- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
-- [Azure Active Directory B2B collaboration API and customization](customize-invitation-api.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
-- [Auditing and reporting a B2B collaboration user](auditing-and-reporting.md)

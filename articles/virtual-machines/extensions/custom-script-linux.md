@@ -5,11 +5,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-ms.custom: GGAL-freshness822
+ms.custom: GGAL-freshness822, devx-track-azurecli
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 04/25/2018
-
 ---
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
 
@@ -20,6 +19,7 @@ The Custom Script Extension integrates with Azure Resource Manager templates. Yo
 This article details how to use the Custom Script Extension from the Azure CLI, and how to run the extension by using an Azure Resource Manager template. This article also provides troubleshooting steps for Linux systems.
 
 There are two Linux Custom Script Extensions:
+
 * Version 1: Microsoft.OSTCExtensions.CustomScriptForLinux
 * Version 2: Microsoft.Azure.Extensions.CustomScript
 
@@ -27,9 +27,19 @@ Please switch new and existing deployments to use Version 2. The new version is 
 
 ## Prerequisites
 
-### Operating system
-
-The Custom Script Extension for Linux will run on supported operating systems. For more information, see [Endorsed Linux distributions on Azure](../linux/endorsed-distros.md).
+### Linux Distro’s Supported
+| **Linux Distro** | **x64** | **ARM64** |
+|:-----|:-----:|:-----:|
+| Alma Linux |	9.x+ |	9.x+ |
+| CentOS |	7.x+,  8.x+ |	7.x+ |
+| Debian |	10+ |	11.x+ |
+| Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
+| openSUSE |	12.3+ |	Not Supported |
+| Oracle Linux |	6.4+, 7.x+, 8.x+ |	Not Supported |
+| Red Hat Enterprise Linux |	6.7+, 7.x+,  8.x+ |	8.6+, 9.0+ |
+| Rocky Linux |	9.x+ |	9.x+ |
+| SLES |	12.x+, 15.x+ |	15.x SP4+ |
+| Ubuntu |	18.04+, 20.04+, 22.04+ |	20.04+, 22.04+ |
 
 ### Script location
 
@@ -175,14 +185,16 @@ For example, the following script is saved to the file */script.sh/*:
 
 ```sh
 #!/bin/sh
-echo "Updating packages ..."
-apt update
-apt upgrade -y
+echo "Creating directories ..."
+mkdir /data
+chown user:user /data
+mkdir /appdata
+chown user:user /appdata
 ```
 
 You would construct the correct Custom Script Extension script setting by taking the output of the following command:
 
-```sh
+```bash
 cat script.sh | base64 -w0
 ```
 
@@ -194,7 +206,7 @@ cat script.sh | base64 -w0
 
 In most cases, the script can optionally be gzip'ed to further reduce size. The Custom Script Extension automatically detects the use of gzip compression.
 
-```sh
+```bash
 cat script | gzip -9 | base64 -w 0
 ```
 
@@ -238,6 +250,7 @@ To use the user-assigned identity on the target VM or virtual machine scale set,
 >   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
 > }
 > ```
+
 > ```json
 > {
 >   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.sh"],
@@ -250,8 +263,8 @@ To use the user-assigned identity on the target VM or virtual machine scale set,
 > The `managedIdentity` property *must not* be used in conjunction with the `storageAccountName` or `storageAccountKey` property.
 
 ## Template deployment
-You can deploy Azure VM extensions by using Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during the template's deployment. You can find a sample template that includes the Custom Script Extension on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/).
 
+You can deploy Azure VM extensions by using Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during the template's deployment. You can find a sample template that includes the Custom Script Extension on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/).
 
 ```json
 {
@@ -386,13 +399,13 @@ We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssE
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
 
 ```bash
-/var/lib/waagent/custom-script/download/0/
+sudo ls -l /var/lib/waagent/custom-script/download/0/
 ```
 
 To troubleshoot, first check the Linux Agent Log and ensure that the extension ran:
 
 ```bash
-/var/log/waagent.log 
+sudo cat /var/log/waagent.log 
 ```
 
 Look for the extension execution. It will look something like:
@@ -413,11 +426,10 @@ In the preceding output:
 - `Enable` is when the command starts running.
 - `Download` relates to the downloading of the Custom Script Extension package from Azure, not the script files specified in `fileUris`.
 
-
 The Azure Script Extension produces a log, which you can find here:
 
 ```bash
-/var/log/azure/custom-script/handler.log
+sudo cat /var/log/azure/custom-script/handler.log
 ```
 
 Look for the individual execution. It will look something like:
