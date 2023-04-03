@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/20/2023
 ms.author: shuaijunye
 ms.subservice: spark
-ms.custom: kr2b-contr-experiment
+ms.custom: kr2b-contr-experiment, devx-track-azurepowershell
 ---
 
 # Manage libraries for Apache Spark in Azure Synapse Analytics
