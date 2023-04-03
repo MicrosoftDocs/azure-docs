@@ -12,7 +12,7 @@ ms.date: 03/30/2023
 This article describes how to deploy the Microsoft Sentinel Solution for SAP® BTP. The Microsoft Sentinel Solution for SAP® BTP monitors and protects your SAP Business Technology Platform (BTP) system: It collects audits and activity logs from the BTP infrastructure and BTP based apps, and detects threats, suspicious activities, illegitimate activities, and more. Read more about the solution. [Read more about the solution](sap-btp-solution-overview.md).
 
 > [!IMPORTANT]
-> The Microsoft Sentinel Solution for SAP® BTP is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel Solution for SAP® BTP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Before you begin, verify that:
 - You have an [Azure Key Vault](../../key-vault/general/overview.md) to hold the SAP BTP client secret. 
 - You have the SAP BTP auditlog-management service and key: Connectivity and permissions to retrieve SAP BTP Audit logs in the Cloud Foundry environment.
 
-## Set up the solution
+## Set up the BTP account and solution
 
 1. After you can log into your BTP account (see the [prerequisites](#prerequisites),) follow these [audit log retrieval steps](https://help.sap.com/docs/btp/sap-business-technology-platform/audit-log-retrieval-api-usage-for-subaccounts-in-cloud-foundry-environment) on the SAP BTP system. 
 1. In the SAP BTP Cockpit, select the **Audit Log Management Service**.
