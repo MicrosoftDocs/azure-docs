@@ -63,6 +63,24 @@ To investigate Log Analytics workspace health issues:
 - Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
 - [Use the `_LogOperation` function to view and set up alerts about operational issues](../logs/monitor-workspace.md) logged in your Log Analytics workspace.
 
+## View Log Analytics workspace health signals
+
+Azure Monitor exposes a set of metrics that provide insight into Log Analytics workspace health. 
+
+To view Log Analytics workspace health metrics:
+
+1. Open [Metrics Explorer](../essentials/metrics-charts.md).
+1. In the **Scope** field, select your Log Analytics workspace. 
+1. In the **Metric** field, select one of the Log Analytics workspace health metrics:
+
+   | Metric name | Description |
+   | - | - |
+   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range. This number does not include queries initiated by Azure services, such as Sentinel, and alert-related queries. |
+   | Query failure count |  Total number of failed user queries within the selected time range. This number includes all 500-599 response codes, which indicate an error related to the application gateway or the backend server.|
+   | Query success rate | Total number of successful user queries within the selected time range. This number includes all 200-299 and 400-499 response codes; in other words, all user queries that did not result in a service error. |
+        
+
+
 ## Next steps
 
 Learn more about:
