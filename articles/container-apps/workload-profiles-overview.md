@@ -66,7 +66,7 @@ You can constrain the memory and CPU usage of each app inside a workload profile
 
 ## Networking
 
-When using workload profiles in the Consumption + Dedicated plan structure, additional networking features to fully secure your ingress/egress networking traffic such as user defined routes are available. To learn more on how to secure your network with Container Apps, see [lock down your Container App environment](./networking.md#lock-down-your-container-app-environment).
+When using workload profiles in the Consumption + Dedicated plan structure, additional networking features to fully secure your ingress/egress networking traffic such as user defined routes are available. To learn more about what networking features are supported, see the [networking concepts document](./networking.md), and for steps on how to secure your network with Container Apps, see the [lock down your Container App environment section](./networking.md#lock-down-your-container-app-environment).
 
 ## Scaling
 
