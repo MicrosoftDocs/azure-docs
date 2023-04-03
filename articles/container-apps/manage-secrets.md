@@ -34,6 +34,22 @@ Secrets are defined as a set of name/value pairs. The value of each secret can b
 
 When you define a secret, you can specify its value directly.
 
+# [Azure portal](#tab/azure-portal)
+
+1. Go to your container app in the [Azure portal](https://portal.azure.com).
+
+1. Under the *Settings* section, select **Secrets**.
+
+1. Select **Add**.
+
+1. In the *Add secret* context pane, enter the following information:
+
+    - **Name**: The name of the secret.
+    - **Type**: Select **Container Apps Secret**.
+    - **Value**: The value of the secret.
+
+1. Select **Add**.
+
 # [ARM template](#tab/arm-template)
 
 Secrets are defined at the application level in the `resources.properties.configuration.secrets` section.
@@ -109,7 +125,28 @@ To enable managed identity in your container app, see [Managed identities](manag
 
 To grant access to Key Vault secrets, [create an access policy](../key-vault/general/assign-access-policy.md) in Key Vault for the managed identity you created. Enable the "Get" secret permission on this policy.
 
+# [Azure portal](#tab/azure-portal)
 
+1. Go to your container app in the [Azure portal](https://portal.azure.com).
+
+1. Under the *Settings* section, select **Identity**.
+
+1. In the *System assigned* tab, select **On**.
+
+1. Select **Save** to enable system-assigned managed identity.
+
+1. Under the *Settings* section, select **Secrets**.
+
+1. Select **Add**.
+
+1. In the *Add secret* context pane, enter the following information:
+
+    - **Name**: The name of the secret.
+    - **Type**: Select **Key Vault reference**.
+    - **Key Vault secret URL**: The URI of your secret in Key Vault.
+    - **Identity**: The identity to use to retrieve the secret from Key Vault.
+
+1. Select **Add**.
 
 # [ARM template](#tab/arm-template)
 
@@ -180,6 +217,30 @@ After declaring secrets at the application level as described in the [defining s
 ### Example
 
 The following example shows an application that declares a connection string at the application level. This connection is referenced in a container environment variable and in a scale rule.
+
+# [Azure portal](#tab/azure-portal)
+
+After you've [defined a secret](#defining-secrets) in your container app, you can reference it in an environment variable when you create a new revision.
+
+1. Go to your container app in the [Azure portal](https://portal.azure.com).
+
+1. Open the *Revision management* page.
+
+1. Select **Create new revision**.
+
+1. In the *Create and deploy new revision* page, select a container.
+
+1. In the *Environment variables* section, select **Add**.
+
+1. Enter the following information:
+
+    - **Name**: The name of the environment variable.
+    - **Source**: Select **Reference a secret**.
+    - **Value**: Select the secret you want to reference.
+
+1. Select **Save**.
+
+1. Select **Create** to create the new revision.
 
 # [ARM template](#tab/arm-template)
 
