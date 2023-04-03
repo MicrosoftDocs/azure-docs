@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use a Resource Manager template to create a Windows VM'
-description: Learn how to use a Resource Manager template to create a Windows virtual machine.
+description: Learn how to use a Resource Manager template to create, deploy and clean up a Windows virtual machine.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: windows
