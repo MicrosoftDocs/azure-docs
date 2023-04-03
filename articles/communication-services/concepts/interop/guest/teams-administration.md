@@ -134,7 +134,7 @@ Here's an overview of Meeting options:
 |[Apply a watermark to shared content](https://support.microsoft.com/en-gb/office/watermark-for-teams-meetings-a9166432-f429-4a19-9a72-c9e8fdf4f589)| Watermark is applied to screen share feed. Instead, no screen-sharing video is received. | ❌|
 |[End-to-end encryption](https://support.microsoft.com/en-us/office/use-end-to-end-encryption-for-teams-meetings-a8326d15-d187-49c4-ac99-14c17dbd617c)| Enable end-to-end encryption for Teams meeting. Audio and video streams are encoded end-to-end. Azure Communication Services can't join meetings with end-to-end encryption. |❌|
 |[Who can record](https://support.microsoft.com/en-us/office/record-a-meeting-in-teams-34dfbe7f-b07d-4a27-b4c6-de62f1348c24)| Select which roles in the meeting can manage Teams recording. Azure Communication Services does not provide API for Teams recording. | ❌|
-|[Enable Q&A](https://support.microsoft.com/en-us/topic/911d8846-9c9e-431a-983a-93226e94cf33)| Allow Q&A in the Teams meeting |❌|
+|[Enable Q&A](https://support.microsoft.com/en-us/office/q-a-in-teams-meetings-f3c84c72-57c3-4b6d-aea5-67b11face787)| Allow Q&A in the Teams meeting |❌|
 |[Enable language interpretation](https://support.microsoft.com/en-us/office/use-language-interpretation-in-a-teams-meeting-b9fdde0f-1896-48ba-8540-efc99f5f4b2e) |Allows professional interpreters to translate what a speaker says into another language in real-time. |❌|
 |[Enable Green room](https://support.microsoft.com/en-us/office/green-room-for-teams-meetings-5b744652-789f-42da-ad56-78a68e8460d5)| Use a green room to prepare with other presenters, practice sharing materials, and more before attendees enter the meeting. |❌|
 
