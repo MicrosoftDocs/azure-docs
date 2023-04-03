@@ -1848,7 +1848,7 @@ This issue can happen when apt-get fails to run.
 * Check your network connection and DNS settings
 * Run `apt-get check` to check for broken dependencies
 * Run `apt-get update` and then run your original command again
-* Run the command with the `-f` flag which will try to resolve the issue coming from the broken dependencies
+* Run the command with the `-f` flag, which will try to resolve the issue coming from the broken dependencies
 * Run the command with `sudo` permissions, such as `sudo apt-get install <package-name>`
 
 **Resources**
