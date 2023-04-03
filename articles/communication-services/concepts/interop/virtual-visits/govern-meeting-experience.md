@@ -16,11 +16,11 @@ ms.subservice: teams-interop
 # Govern meeting experience
 In this article, you learn how to use existing Microsoft 365 tools to control the experience of your virtual visits with Microsoft Teams. You learn the best practices and considerations for individual approaches. Administrators and meeting organizers can control the experience in Teams meetings by the following tools: tenant configuration, tenant policy, assigned role, meeting options, meeting templates, and sensitivity labels. You can learn more about individual tools in [this article](../../concepts/interop/guest/teams-administration.md).
 
-
 ## Policies, roles & meeting options
 Teams policies, meeting roles, and meeting options are part of standard Microsoft Teams. A meeting organizer and coorganizer can customize the experience via meeting options. Organizations have two options how to prevent hosts of virtual appointments from changing the meeting experience:
 1.	Control the experience via policy.
 1.	Demote the host to the role presenter.
+
 We recommend using policy to control the experience of the Teams meeting. Here's how to do it:
 Teams administrator creates a new meeting policy that defines desired experience in the Teams meeting and assigns the meeting policy to selected Teams users that conduct virtual appointments. When a Teams user creates a Teams meeting, the assigned policy restricts, hides, or disables features in the Teams meeting for all participants. 
 
