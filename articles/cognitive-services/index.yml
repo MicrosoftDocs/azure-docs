@@ -95,6 +95,9 @@ conceptualContent:
         - url: ./anomaly-detector/index.yml
           itemType: overview
           text: Anomaly Detector
+        - url: ./content-safety/index.yml
+          itemType: overview
+          text: Content Safety
         - url: ./content-moderator/index.yml
           itemType: overview
           text: Content Moderator
