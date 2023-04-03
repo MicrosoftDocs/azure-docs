@@ -15,7 +15,7 @@ ms.custom: event-tier1-build-2022
 
 # Sample builder
 
-This tutorial describes concepts for virtual appointment applications. After completing this tutorial and the associated [Sample Builder](https://aka.ms/acs-sample-builder), you will understand common use cases that a virtual appointments application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further. You can learn more concepts about Virtual appointments in the [overview](./overview.md).
+This tutorial describes concepts for virtual appointment applications. After completing this tutorial and the associated [Sample Builder](https://aka.ms/acs-sample-builder), you will understand common use cases that a virtual appointments application delivers, the Microsoft technologies that can help you build those uses cases, and have built a sample application integrating Microsoft 365 and Azure that you can use to demo and explore further. You can learn more concepts about Virtual appointments in the [overview](../../concepts/interop/virtual-visits/overview.md).
 
 This tutorial focuses on Microsoft 365 and Azure hybrid solutions. These hybrid configurations are popular because they combine employee familiarity with Microsoft 365 with the ability to customize the consumer experience. They're also a good launching point for understanding more complex and customized architectures. The following diagram shows the user steps for a virtual appointment:
 
