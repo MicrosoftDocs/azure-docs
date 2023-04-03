@@ -120,7 +120,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 
     Replace `<CONTAINER_APP_NAME>` with the name of your container app, `<RESOURCE_GROUP_NAME>` with the name of the resource group that contains your container app, and `<TARGET_PORT>` with the port that your container app is listening on.
 
-1. If you are configuring an apex domain, get the IP address of your Container Apps environment.
+1. If you're configuring an apex domain, get the IP address of your Container Apps environment.
 
     ```azurecli
     az containerapp env show -n <ENVIRONMENT_NAME> -g <RESOURCE_GROUP_NAME> -o tsv --query "properties.staticIp"
@@ -128,7 +128,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 
     Replace `<ENVIRONMENT_NAME>` with the name of your environment, and `<RESOURCE_GROUP_NAME>` with the name of the resource group that contains your environment.
 
-1. If you are configuring a subdomain, get the automatically generated domain of your container app.
+1. If you're configuring a subdomain, get the automatically generated domain of your container app.
 
     ```azurecli
     az containerapp show -n <CONTAINER_APP_NAME> -g <RESOURCE_GROUP_NAME> -o tsv --query "properties.configuration.ingress.fqdn"
