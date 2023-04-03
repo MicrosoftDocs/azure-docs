@@ -18,31 +18,31 @@ You’ll find answers to commonly asked questions about Onco-Phenotype, part of 
 
 - What does inference value `None` mean?
 
-  `None` implies that the model could not find enough relevant information to make a meaningful prediction.
+  `None` implies that the model couldn't find enough relevant information to make a meaningful prediction.
 
 - How is the `description` property populated for tumor site inference?
 
-  It is populated based on ICD-O-3 SEER Site/Histology Validation List [here](https://seer.cancer.gov/icd-o-3/).
+  It's populated based on ICD-O-3 SEER Site/Histology Validation List [here](https://seer.cancer.gov/icd-o-3/).
 
 - Do you support behavior code along with histology code?
 
-  No, the OncoPhenotype API does not support 1-digit behavior code.Only 4-digit histology code is supported.
+  No, the OncoPhenotype API doesn't support 1-digit behavior code. Only 4-digit histology code is supported.
 
 - What does inference value `N+` mean for clinical/pathologic N category? Why don't you have `N1, N2, N3` inference values?
 
-  `N+` means there is involvement of regional lymph nodes without explicitly mentioning the extent of spread. Microsoft has trained the models to classify whether or not there is regional lymph node involvement but not the extent of spread and hence `N1, N2, N3` inference values are not supported.
+  `N+` means there's involvement of regional lymph nodes without explicitly mentioning the extent of spread. Microsoft has trained the models to classify whether or not there's regional lymph node involvement but not the extent of spread and hence `N1, N2, N3` inference values aren't supported.
 
 - Do you support subcategories for clinical/pathologic TNM categories?
 
-  No, subcategories or isolated tumor cell modifiers are not supported. For instance, T3a would be predicted as T3, and N0(i+) would be predicted as N0.
+  No, subcategories or isolated tumor cell modifiers aren't supported. For instance, T3a would be predicted as T3, and N0(i+) would be predicted as N0.
 
 - Do you have plans to support I-IV stage grouping?
 
-  No, Microsoft does not have any plans to support I-IV stage grouping at this time.
+  No, Microsoft doesn't have any plans to support I-IV stage grouping at this time.
 
 - Do you check if the tumor site and histology inference values are a valid combination?
 
-  No, the OncoPhenotype API does not validate if the tumor site and histology inference values are a valid combination.
+  No, the OncoPhenotype API doesn't validate if the tumor site and histology inference values are a valid combination.
 
 - Are the inference values exhaustive for tumor site and histology?
 
