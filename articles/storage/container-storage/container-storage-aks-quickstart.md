@@ -164,25 +164,25 @@ Now you can create a storage pool, which is a logical grouping of storage for yo
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
-   ```azurecli-interactive
-   apiVersion: containerstorage.azure.com/v1alpha1
-   kind: StoragePool
-   metadata:
-      name: azuredisk
-      namespace: azstor
-   spec:
-      poolType:
-          csi: {}
-      resources:
-          limits: {"storage": 10Ti}
-          requests: {"storage": 5Ti}
-   ```
+```azurecli-interactive
+apiVersion: containerstorage.azure.com/v1alpha1
+kind: StoragePool
+metadata:
+   name: azuredisk
+   namespace: azstor
+spec:
+   poolType:
+       csi: {}
+   resources:
+       limits: {"storage": 10Ti}
+       requests: {"storage": 5Ti}
+```
 
 3. Apply the yaml file to create the storage pool.
 
-   ```azurecli-interactive
-   kubectl apply -f acstor-storagepool.yaml 
-   ```
+```azurecli-interactive
+kubectl apply -f acstor-storagepool.yaml 
+```
 
 When storage pool creation is complete, you'll see a message like:
 
@@ -215,25 +215,25 @@ A persistent volume claim is used to automatically provision storage based on a 
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
-   ```azurecli-interactive
-   apiVersion: v1
-   kind: PersistentVolumeClaim
-   metadata:
-      name: azurediskpvc
-   spec:
-      accessModes:
-         - ReadWriteOnce
-      storageClassName: azuredisk
-      resources:
-         requests:
-            storage: 100Gi
-   ```
+```azurecli-interactive
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: azurediskpvc
+spec:
+   accessModes:
+      - ReadWriteOnce
+   storageClassName: azuredisk
+   resources:
+      requests:
+         storage: 100Gi
+```
 
 3. Apply the yaml file to create the persistent volume claim.
 
-   ```azurecli-interactive
-   kubectl apply -f acstor-pvc.yaml
-   ```
+```azurecli-interactive
+kubectl apply -f acstor-pvc.yaml
+```
 
 You should see output similar to:
 
@@ -257,53 +257,53 @@ Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, 
 
 2. Paste in the following code.
 
-   ```azurecli-interactive
-   kind: Pod
-   apiVersion: v1
-   metadata:
-     name: fiopod
-   spec:
-     nodeSelector:
-       openebs.io/engine: io.engine
-     volumes:
-       - name: 
-         persistentVolumeClaim:
-           claimName: azurediskpvc
-     containers:
-       - name: fio
-         image: nixery.dev/shell/fio
-         args:
-           - sleep
-           - "1000000"
-         volumeMounts:
-           - mountPath: "/volume"
-             name: azurediskpv
-   ```
+```azurecli-interactive
+kind: Pod
+apiVersion: v1
+metadata:
+  name: fiopod
+spec:
+  nodeSelector:
+    openebs.io/engine: io.engine
+  volumes:
+    - name: 
+      persistentVolumeClaim:
+        claimName: azurediskpvc
+  containers:
+    - name: fio
+      image: nixery.dev/shell/fio
+      args:
+        - sleep
+        - "1000000"
+      volumeMounts:
+        - mountPath: "/volume"
+          name: azurediskpv
+```
 
 3. Apply the yaml file to deploy the pod.
 
-   ```azurecli-interactive
-   kubectl apply -f acstor-pod.yaml
-   ```
+```azurecli-interactive
+kubectl apply -f acstor-pod.yaml
+```
 
 You should see output similar to the following:
 
-   ```output
-   pod/fiopod created
-   ```
+```output
+pod/fiopod created
+```
 
 4. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
 
-   ```azurecli-interactive
-   kubectl describe pod fiopod
-   kubectl describe pvc azurediskpvc
-   ```
+```azurecli-interactive
+kubectl describe pod fiopod
+kubectl describe pvc azurediskpvc
+```
 
 5. Check fio testing to see its current status:
 
-   ```azurecli-interactive
-   kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
-   ```
+```azurecli-interactive
+kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
+```
 
 You now have a pod with storage that you can use for your Kubernetes workloads.
 
