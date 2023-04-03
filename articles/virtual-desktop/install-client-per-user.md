@@ -3,15 +3,15 @@ title: Install the Remote Desktop client for Windows on a per-user basis - Azure
 description: How to install the Azure Virtual Desktop client on a per-user basis using Intune or Configuration Manager.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 04/03/2023
 ms.author: helohr
 manager: femila
 ---
 # Install the Remote Desktop client for Windows on a per-user basis
 
-You can install the Remote Desktop client on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and updates are controlled by the admin. Per-user installation installs the application into each users profile, giving them control over when to apply updates.
+You can install the Remote Desktop client on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and updates are controlled by the admin. Per-user installation installs the application into each user's profile, giving them control over when to apply updates.
 
-Per-system is the default way to install the client. However, if you're deploying the Remote Desktop Client with Intune or Configuration Manager, using the per-system method can cause the Remote Desktop client auto-update feature to stop working. In these cases, you'll need to use the per-user method instead.
+Per-system is the default way to install the client. However, if you're deploying the Remote Desktop client with Intune or Configuration Manager, using the per-system method can cause the Remote Desktop client auto-update feature to stop working. In these cases, you'll need to use the per-user method instead.
 
 ## Prerequisites
 
@@ -27,7 +27,9 @@ To install the client on a per-user basis using a batch file:
 
 #### Intune (#tabs/intune)
 
-1. Create a new folder containing the Remote Desktop client MSI file and create an `install.bat` batch file with the following content:
+1. Create a new folder containing the Remote Desktop client MSI file.
+
+1. Within that folder, create an `install.bat` batch file with the following content:
 
    ```batch
    cd "%~dp0"
@@ -54,7 +56,7 @@ To install the client on a per-user basis using a batch file:
    
     :::image type="content" source="./media/install-client-per-user/uninstall-command.png" alt-text="A screenshot of the Detection Rules tab. The product code in the MSI product code field is msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/uninstall-command.png" :::
 
-1. Follow the rest of the prompts until you complete the workflow.
+1.  Follow the rest of the prompts until you complete the workflow.
 
 1. Follow the instructions in [Assign apps to groups with Microsoft Intune](/mem/intune/apps/apps-deploy) to deploy the client app to your users.
 
