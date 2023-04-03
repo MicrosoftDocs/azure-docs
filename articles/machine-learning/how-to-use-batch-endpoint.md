@@ -501,14 +501,12 @@ A deployment is a set of resources required for hosting the model that does the 
 
 Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. 
 
-When running models for scoring in Batch Endpoints, you need to indicate the input data path where the endpoints should look for the data you want to score. Batch endpoints support reading files or folders that are located in different locations. 
+When running models for scoring in Batch Endpoints, you need to indicate the input data path where the endpoints should look for the data you want to score. The following example shows how to start a new job over a sample data of the MNIST dataset stored in an Azure Storage Account:
 
 > [!NOTE]
 > __How does parallelization work?__:
 > 
 > Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this will happen regardless of the size of the files involved. If your files are too big to be processed in large mini-batches we suggest to either split the files in smaller files to achieve a higher level of parallelism or to decrease the number of files per mini-batch. At this moment, batch deployment can't account for skews in the file's size distribution.
-
-The following example shows how to start a new job over a sample data of the MNIST dataset stored in an Azure Storage Account:
 
 # [Azure CLI](#tab/azure-cli)
     
@@ -549,7 +547,7 @@ job = ml_client.batch_endpoints.invoke(
 
 ---
 
-To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
+Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
 
 > [!TIP]
 > Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
