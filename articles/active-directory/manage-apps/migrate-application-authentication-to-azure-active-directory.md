@@ -89,7 +89,7 @@ Economics and security benefits drive organizations to adopt Azure AD, but full 
 
 ### Address compliance and governance
 
-To comply with regulatory requirements, enforce corporate access policies and monitor user access to applications and associated data using integrated audit tools and APIs. With Azure AD, you can monitor application sign-ins through reports that use [Security Incident and Event Monitoring (SIEM) tools](../reports-monitoring/plan-monitoring-and-reporting.md) or [Azure Sentinel](../azure/sentinel/overview). You can access the reports from the portal or APIs, and programmatically audit who has access to your applications and remove access to inactive users via access reviews.
+To comply with regulatory requirements, enforce corporate access policies and monitor user access to applications and associated data using integrated audit tools and APIs. With Azure AD, you can monitor application sign-ins through reports that use [Security Incident and Event Monitoring (SIEM) tools](../reports-monitoring/plan-monitoring-and-reporting.md) or [Azure Sentinel](../azure/sentinel/overview.md). You can access the reports from the portal or APIs, and programmatically audit who has access to your applications and remove access to inactive users via access reviews.
 
 ## Plan your migration phases and project strategy
 
