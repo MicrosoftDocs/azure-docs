@@ -54,7 +54,7 @@ The detailed information includes:
 >- By default `Restore-AzDeletedWebApp` will restore both your app configuration as well any content. If you want to only restore content, you use the **`-RestoreContentOnly`** flag with this commandlet.
 
 
-Once the app you want to restore has been identified, you can restore it using `Restore-AzDeletedWebApp`, please see below examples
+Once the app you want to restore has been identified, you can restore it using `Restore-AzDeletedWebApp`, see below examples
 >*You can find the full commandlet reference here: **[Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp)*** .
 
 >Restore to the original app name:
@@ -90,13 +90,13 @@ Restore-AzDeletedWebApp -ResourceGroupName <original_rg> -Name <original_app> -D
 
 The inputs for command are:
 
-- **Target Resource Group**: Target resource group where the app will be restored
+- **Target Resource Group**: Target resource group where the app is to be restored
 - **TargetName**: Target app for the deleted app to be restored to
 - **TargetAppServicePlanName**: App Service plan linked to the app
 - **Name**: Name for the app, should be globally unique.
 - **ResourceGroupName**: Original resource group for the deleted app 
 - **Slot**: Slot for the deleted app 
-- **RestoreContentOnly**: By default `Restore-AzDeletedWebApp` will restore both your app configuration as well any content. If you want to only restore content, you can use the `-RestoreContentOnly` flag with this commandlet.
+- **RestoreContentOnly**: By default `Restore-AzDeletedWebApp` restores both your app configuration as well any content. If you want to only restore content, you can use the `-RestoreContentOnly` flag with this commandlet.
 
 > [!NOTE]
 > If the app was hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.
@@ -117,7 +117,7 @@ Get-AzDeletedWebApp -ResourceGroupName <RGofDeletedApp> -Name <NameofApp>
 Restore-AzDeletedWebApp -ResourceGroupName <RGofnewapp> -Name <newApp> -deletedId "/subscriptions/xxxx/providers/Microsoft.Web/locations/xxxx/deletedSites/xxxx"
 ```
 
-Currently there is no support for Undelete (Restore-AzDeletedWebApp) Function Apps that are hosted on Consumption plan or Elastic premium plan. These are the scenarios where content resides on Azure Files on a Storage account. If you have not 'hard' deleted the Azure files storage account or if it exists and has not been deleted, then you may use the steps below as workaround:
+Currently there's no support for Undelete (Restore-AzDeletedWebApp) function app that's hosted on Consumption plan or Elastic premium plan since the content resides on Azure Files on a Storage account. If you haven't 'hard' deleted the Azure files storage account or if it exists and hasn't been deleted, then you may use the steps as workaround:
  
 
 1. Create a new function app on Consumption or Premium plan. Check out the instructions for [how to create on the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
