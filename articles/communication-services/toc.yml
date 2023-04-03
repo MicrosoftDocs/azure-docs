@@ -507,11 +507,11 @@ items:
       - name: Virtual visits
         items:
           - name: Overview
-            href: tutorials/virtual-visits/overview.md
+            href: concepts/interop/virtual-visits/overview.md
           - name: Plan user experience
-            href: tutorials/virtual-visits/plan-user-experience.md
+            href: concepts/interop/virtual-visits/plan-user-experience.md
           - name: Govern meeting experience
-            href: tutorials/virtual-visits/govern-meeting-experience.md
+            href: concepts/interop/virtual-visits/govern-meeting-experience.md
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
       - name: Pricing
