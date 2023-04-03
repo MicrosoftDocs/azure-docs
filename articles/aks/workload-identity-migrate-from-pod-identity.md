@@ -2,7 +2,7 @@
 title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
 ms.topic: article
-ms.date: 03/01/2023
+ms.date: 04/03/2023
 ---
 
 # Modernize application authentication with workload identity
@@ -112,6 +112,9 @@ az identity federated-credential create --name federatedIdentityName --identity-
 > It takes a few seconds for the federated identity credential to be propagated after being initially added. If a token request is made immediately after adding the federated identity credential, it might lead to failure for a couple of minutes as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
 
 ## Deploy the workload with migration sidecar
+
+> [!NOTE]
+> The migration sidecar is **not supported for production usage**.  This feature was designed to give customers time to migrate there application SDK's to a supported version and not be a long running process.
 
 If your application is using managed identity and still relies on IMDS to get an access token, you can use the workload identity migration sidecar to start migrating to workload identity. This sidecar is a migration solution and in the long-term applications, you should modify their code to use the latest Azure Identity SDKs that support client assertion.
 
