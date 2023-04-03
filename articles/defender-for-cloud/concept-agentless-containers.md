@@ -16,8 +16,8 @@ Learn about [Cloud Security Posture Management](concept-cloud-security-posture-m
 ## Capabilities
 
 - Enabling agentless discovery and visibility within Kubernetes parameters.
-- Enabling agentless container registry [vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure), using the image scanning results of your Azure Container Registry (ACR) to enable queries on the Security Explorer.
-- Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, see the [list of Insights](attack-path-reference).
+- Enabling agentless container registry [vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md), using the image scanning results of your Azure Container Registry (ACR) to enable queries on the Security Explorer.
+- Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, see the [list of Insights](attack-path-reference.md).
 - Using Cloud Security Explorer for risk hunting by querying various risk scenarios.
 - Using Kubernetes attack path analysis to visualize risks and threats to Kubernetes environments.
 
