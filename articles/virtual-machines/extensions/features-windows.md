@@ -26,7 +26,7 @@ Each Azure VM extension has a specific use case. Here are some examples:
 
 - Apply PowerShell desired state configurations (DSCs) to a VM by using the [DSC extension for Windows](dsc-overview.md).
 
-- Configure monitoring of a VM by using the [Azure Monitor agent](/azure/azure-monitor/vm/monitor-virtual-machine.md) and [VM insights](/azure/azure-monitor/vm/vminsights-overview).
+- Configure monitoring of a VM by using the [Azure Monitor agent](/azure/azure-monitor/vm/monitor-virtual-machine) and [VM insights](/azure/azure-monitor/vm/vminsights-overview).
 
 - Configure an Azure VM by using [Chef](/azure/developer/chef/windows-vm-configure).
 
@@ -38,7 +38,7 @@ In addition to process-specific extensions, a Custom Script Extension is availab
 
 Review the following prerequisites for working with Azure VM extensions.
 
-### Azure Virtual Machine Agent
+### Azure VM Agent
 
 To handle extensions on the VM, you need the [Azure Virtual Machine Agent for Windows](agent-windows.md) installed. This agent is also referred to as the Azure VM Agent or the Windows Guest Agent. As you prepare to install extensions, keep in mind that some extensions have individual prerequisites, such as access to resources or dependencies.
 
@@ -93,7 +93,7 @@ Azure VM extensions run on existing VMs, which is useful when you need to make c
 You can use the following methods to run an extension against an existing VM. 
 
 > [!NOTE]
-> Some of the following examples uses `"<placeholder>"` parameter values in the commands. Before you run each command, make sure to replace any `"<placeholder>"` values with specific values for your configuration.
+> Some of the following examples use `"<placeholder>"` parameter values in the commands. Before you run each command, make sure to replace any `"<placeholder>"` values with specific values for your configuration.
 
 ### PowerShell
 
