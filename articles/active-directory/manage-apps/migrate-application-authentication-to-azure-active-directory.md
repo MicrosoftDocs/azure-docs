@@ -502,39 +502,20 @@ Once you have migrated the apps, you can enrich your user’s experience by:
 
 ### Secure app access
 
-Users can access the MyApps portal with Intune-managed browser on their [iOS](./hide-application-from-user-portal.md) 7.0 or later or [Android](./hide-application-from-user-portal.md) devices.
-
-Users can download an Intune-managed browser:
-
-- **For Android devices**, from the [Google play store](https://play.google.com/store/apps/details?id=com.microsoft.intune)
-- **For Apple devices**, from the [Apple App Store](https://apps.apple.com/us/app/intune-company-portal/id719171358) or they can download the [My Apps mobile app for iOS ](https://appadvice.com/app/my-apps-azure-active-directory/824048653)
-
-#### Let users open their apps from a browser extension
-
-Users can [download the MyApps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) in [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) or [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) and can launch apps right from their browser bar to:
-
-- Search for their apps and have their most-recently-used apps appear
-- Automatically convert internal URLs that you have configured in [Application Proxy](../app-proxy/application-proxy.md) to the appropriate external URLs. Your users can now work with the links they are familiar with no matter where they are.
-
-#### Let users open their apps from Office.com
-
-Users can go to [Office.com](https://www.office.com/) to **search for their apps and have their most-recently-used apps appear** for them right from where they do work.
-
-### Secure app access
-
 Azure AD provides a centralized access location to manage your migrated apps. Go to the [Azure portal](https://portal.azure.com/) and enable the following capabilities:
 
 - **Secure user access to apps.** Enable [Conditional Access policies](../conditional-access/overview.md)or [Identity Protection](../identity-protection/overview-identity-protection.md)to secure user access to applications based on device state, location, and more.
 - **Automatic provisioning.** Set up [automatic provisioning of users](../app-provisioning/user-provisioning.md) with various third-party SaaS apps that users need to access. In addition to creating user identities, it includes the maintenance and removal of user identities as status or roles change.
 - **Delegate user access** **management**. As appropriate, enable self-service application access to your apps and *assign a business approver to approve access to those apps*. Use [Self-Service Group Management](../enterprise-users/groups-self-service-management.md)for groups assigned to collections of apps.
 - **Delegate admin access.** using **Directory Role** to assign an admin role (such as Application administrator, Cloud Application administrator, or Application developer) to your user.
+- **Add applications to Access Packages** to provide governance and attestation. 
 
 ### Audit and gain insights of your apps
 
 You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
 
 - **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
-- **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth / OpenID Connect.
+- **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth/OpenID Connect.
 - **Get sign-in insights** using **Enterprise Applications, Sign-Ins**. Access the same information from the [Azure AD Reporting API.](../reports-monitoring/concept-reporting-api.md)
 - **Visualize your app’s usage** from the [Azure AD Power BI content pack](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
