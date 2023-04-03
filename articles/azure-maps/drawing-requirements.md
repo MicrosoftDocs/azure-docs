@@ -421,7 +421,7 @@ Below is the manifest file for the sample drawing package. Go to the [Sample dra
 
 You can convert uploaded drawing packages into map data by using the Azure Maps [Conversion service]. This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the [sample drawing package v2].
 
-For a guide on how to prepare your drawing package, see [Conversion Drawing Package Guide].
+For a guide on how to prepare your drawing package, see [Drawing Package Guide].
 
 ## Changes and Revisions
 
@@ -667,7 +667,7 @@ The JSON in this example shows the manifest file for the sample drawing package.
 
 ## Next steps
 
-For a guide on how to prepare your drawing package, see [Conversion Drawing Package Guide].
+For a guide on how to prepare your drawing package, see the drawing package guide.
 
 > [!div class="nextstepaction"]
 > [Drawing Package Guide]

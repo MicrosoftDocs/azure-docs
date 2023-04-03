@@ -1,7 +1,7 @@
 ---
 title: Create and configure a dev center
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and configure a dev center in Azure Deployment Environments Preview. In the quickstart, you create a dev center, attach an identity, attach a catalog, and create environment types.
+description: Learn how to create and configure a dev center in Azure Deployment Environments. In the quickstart, you create a dev center, attach an identity, attach a catalog, and create environment types.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.custom: ignite-2022
 ms.date: 02/08/2023
 ---
 
-# Quickstart: Create and configure a dev center
+# Quickstart: Create and configure a dev center for Azure Deployment Environments
 
 This quickstart shows you how to create and configure a dev center in Azure Deployment Environments Preview.
 
