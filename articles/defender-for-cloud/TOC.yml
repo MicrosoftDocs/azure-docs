@@ -166,6 +166,8 @@
       href: concept-data-security-posture.md
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
+  - name: Improve your cloud security posture
+    href: concept-agentless-containers.md
   - name: Security recommendations
     items:
     - name: Reference list of Azure recommendations
@@ -202,10 +204,6 @@
     - name: Agentless scanning
       displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
       href: concept-agentless-data-collection.md
-    - name: Security alerts and incidents
-    - name: Agentless Container Security Posture (Preview)
-      displayName: agentless, containers, virtual, machines, freshness, snapshot, snapshots
-      href: concept-agentless-containers.md
     - name: Security alerts and incidents
       displayName: security, alerts, classification, incident, threat, detection, analytics, 
       href: alerts-overview.md

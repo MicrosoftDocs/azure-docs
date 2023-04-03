@@ -21,7 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in April include:
 
 - [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely)
-- [Agentless Container Security Posture](#agentless-container-security-posture)
+- [Agentless Container Posture](#agentless-container-posture)
 
 ### Changes in the recommendation "Machines should be configured securely"
 
@@ -31,13 +31,13 @@ As part of this update, the recommendation's ID was changed from `181ac480-f7c4-
 
 No action is required on the customer side, and there's no expected impact on the secure score.
 
-### Agentless Container Security Posture
+### Agentless Container Posture
 
-Agentless Container Security Posture (Azure) allows security teams to get ahead of containerized application risks and prioritize misconfigurations and exposures in their Kubernetes deployments and cloud context. With an agentless approach, security teams can now seamlessly gain wide visibility into their Kubernetes and containers registries across SDLC and runtime, removing friction and footprint from the workloads.
+Agentless Container Posture allows security teams to get ahead of containerized application risks and prioritize misconfigurations and exposures in their Kubernetes deployments and cloud context. With an agentless approach, security teams can now seamlessly gain wide visibility into their Kubernetes and containers registries across SDLC and runtime, removing friction and footprint from the workloads.
 
 Out-of-the-box container vulnerability assessments, combined with attack path analysis, empowers security teams to prioritize and zoom into container vulnerabilities that matter most. Customers can also use the cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
 
-Learn more at [Agentless Container Security Posture (Azure) (Preview)](concept-agentless-containers.md).
+Learn more at [Agentless Container Posture (Preview)](concept-agentless-containers.md).
 
 ## March 2023
 

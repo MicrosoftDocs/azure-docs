@@ -7,7 +7,7 @@ ms.date: 04/03/2023
 ms.custom: template-concept
 ---
 
-# Agentless Container Security Posture (Preview)
+# Agentless Container Posture (Preview)
 
 Identify security risks in containers and Kubernetes realms with an agentless discovery and visibility capability for Kubernetes and containers registries across SDLC and runtime, including container vulnerability assessment insights as part of the cloud security explorer and Kubernetes attack path analysis.
 
@@ -16,7 +16,7 @@ Learn about [Cloud Security Posture Management](concept-cloud-security-posture-m
 ## Capabilities
 
 - Enabling agentless discovery and visibility within Kubernetes parameters.
-- Enabling agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) to enable queries on the Security Explorer.
+- Enabling agentless container registry [vulnerability assessment](/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure), using the image scanning results of your Azure Container Registry (ACR) to enable queries on the Security Explorer.
 - Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, see the [list of Insights](attack-path-reference).
 - Using Cloud Security Explorer for risk hunting by querying various risk scenarios.
 - Using Kubernetes attack path analysis to visualize risks and threats to Kubernetes environments.
@@ -73,11 +73,9 @@ The role is visible via API and gives MDC data plane read permission inside the 
 
 Agentless information in Defender CSPM is updated once an hour via snapshotting mechanism.
 
-> [!NOTE]
-> Defender CSPM will be free of charge during the private preview and in the subsequent month.
-> In case you wish to withdraw from Defender CSPM value and costs, you should disable the plan before May 2023.
-
 ### Image scanning intervals
+
+Add note about 24 hours.
 
 - An image pushed or imported to ACR will be scanned and the results will be available up to 15 mins later.
 - Any image that was pulled in the last 30 days will be scanned on a weekly basis.
