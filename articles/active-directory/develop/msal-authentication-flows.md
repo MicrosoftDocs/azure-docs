@@ -65,7 +65,7 @@ In the following diagram, the application:
 1. Requests an authorization code which was redeemed for an access token.
 2. Uses the access token to call a web API, Microsoft Graph.
 
-![Diagram of authorization code flow](media/msal-authentication-flows/authorization-code.png)
+![Diagram of authorization code flow.](media/msal-authentication-flows/authorization-code.png)
 
 ### Constraints for authorization code
 
@@ -90,7 +90,7 @@ In the following diagram, the application:
 1. Acquires a token by using application secret or password credentials.
 2. Uses the token to make requests of the resource.
 
-![Diagram of confidential client with password](media/msal-authentication-flows/confidential-client-password.png)
+![Diagram of confidential client with password.](media/msal-authentication-flows/confidential-client-password.png)
 
 ### Certificates
 
@@ -99,7 +99,7 @@ In the following diagram, the application:
 1. Acquires a token by using certificate credentials.
 2. Uses the token to make requests of the resource.
 
-![Diagram of confidential client with cert](media/msal-authentication-flows/confidential-client-certificate.png)
+![Diagram of confidential client with cert.](media/msal-authentication-flows/confidential-client-certificate.png)
 
 These client credentials need to be:
 
@@ -121,7 +121,7 @@ In the following diagram:
 1. Whenever user authentication is required, the app provides a code and asks the user to use another device like an internet-connected smartphone to visit a URL (for example, `https://microsoft.com/devicelogin`). The user is then prompted to enter the code, and proceeding through a normal authentication experience including consent prompts and [multi-factor authentication](../authentication/concept-mfa-howitworks.md), if necessary.
 1. Upon successful authentication, the command-line app receives the required tokens through a back channel, and uses them to perform the web API calls it needs.
 
-![Diagram of device code flow](media/msal-authentication-flows/device-code.png)
+![Diagram of device code flow.](media/msal-authentication-flows/device-code.png)
 
 ### Constraints for device code
 
@@ -157,7 +157,7 @@ In the following diagram:
 3. When the client calls the web API, the web API requests another token on-behalf-of the user.
 4. The protected web API uses this token to call a downstream web API on-behalf-of the user. The web API can also later request tokens for other downstream APIs (but still on behalf of the same user).
 
-![Diagram of on-behalf-of flow](media/msal-authentication-flows/on-behalf-of.png)
+![Diagram of on-behalf-of flow.](media/msal-authentication-flows/on-behalf-of.png)
 
 ## Username/password (ROPC)
 
@@ -173,7 +173,7 @@ In the following diagram, the application:
 1. Acquires a token by sending the username and password to the identity provider.
 2. Calls a web API by using the token.
 
-![Diagram of the username/password flow](media/msal-authentication-flows/username-password.png)
+![Diagram of the username/password flow.](media/msal-authentication-flows/username-password.png)
 
 To acquire a token silently on Windows domain-joined machines, we recommend [integrated Windows authentication (IWA)](#integrated-windows-authentication-iwa) instead of ROPC. For other scenarios, use the [device code flow](#device-code).
 
@@ -201,7 +201,7 @@ In the following diagram, the application:
 1. Acquires a token by using integrated Windows authentication.
 2. Uses the token to make requests of the resource.
 
-![Diagram of integrated Windows authentication](media/msal-authentication-flows/integrated-windows-authentication.png)
+![Diagram of integrated Windows authentication.](media/msal-authentication-flows/integrated-windows-authentication.png)
 
 ### Constraints for IWA
 
