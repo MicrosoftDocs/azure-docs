@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.reviewer: cynthn
 ms.topic: conceptual
 ms.service: virtual-machines
-ms.date: 08/4/2020
+ms.date: 04/03/2023
 ms.custom: avverma
 ---
 
@@ -17,7 +17,7 @@ ms.custom: avverma
 
 `Microsoft.Compute` resources do not support the conventional definition of *HTTP PUT* semantics. Instead, these resources use PATCH semantics for both the PUT and PATCH verbs.
 
-**Create** operations apply default values when appropriate. However, resource **updates** done through PUT or PATCH, do not apply any default properties. **Update** operations apply apply strict PATCH semantics.
+**Create** operations apply default values when appropriate. However, resource **updates** done through PUT or PATCH, do not apply any default properties. **Update** operations apply strict PATCH semantics.
 
 For example, the disk `caching` property of a virtual machine defaults to `ReadWrite` if the resource is an OS disk.
 

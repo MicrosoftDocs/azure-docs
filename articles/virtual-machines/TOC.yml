@@ -78,7 +78,11 @@
 - name: Develop
   items:
   - name: REST API
-    href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
+    items:
+    - name: API reference
+      href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
+    - name: PUT calls for create or update operations
+      href: put-calls-create-or-update.md
   - name: Python
     items:
     - name: Python SDK
@@ -783,9 +787,9 @@
       - name: ARM template
         displayName: Create VM, Create, ARM
         href: ./linux/create-ssh-secured-vm-from-template.md
-      - name: REST
+      - name: REST with SSH
         displayName: Create VM, Create, REST
-        href: ./linux/create-vm-rest-api.md
+        href: ./rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication
       - name: LAMP stack
         href: ./linux/tutorial-lamp-stack.md
       - name: Continuous delivery
