@@ -11,11 +11,11 @@ manager: femila
 
 You can install the Remote Desktop client on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and updates are controlled by the admin. Per-user installation installs the application into each user's profile, giving them control over when to apply updates.
 
-Per-system is the default way to install the client. However, if you're deploying the Remote Desktop client with Intune or Configuration Manager, using the per-system method can cause the Remote Desktop client auto-update feature to stop working. In these cases, you'll need to use the per-user method instead.
+Per-system is the default way to install the client. However, if you're deploying the Remote Desktop client with Intune or Configuration Manager, using the per-system method can cause the Remote Desktop client auto-update feature to stop working. In these cases, you must use the per-user method instead.
 
 ## Prerequisites
 
-In order to install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager, you'll need the following things:
+In order to install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager, you need the following things:
 
 - An Azure Virtual Desktop or Windows 365 deployment.
 - Download the latest version of [the Remote Desktop client](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json).
@@ -46,9 +46,9 @@ To install the client on a per-user basis using a batch file:
 
 1. For the app type, select **Windows app (Win32)**.
 
-1. Upload your .intunewin file, then fill out the required app information fields.
+1. Upload your `.intunewin` file, then fill out the required app information fields.
 
-1. In the Program tab, select the install.bat file as the installer, and use the MSI product code for the Uninstall command.
+1. In the Program tab, select the install.bat file as the installer, and use the MSI product code `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)` for the Uninstall command.
 
 1. Toggle the **Install behavior** to **User**.
 
@@ -89,7 +89,7 @@ To install the client on a per-user basis using a batch file:
 
 1. Enter the MSI product ID `msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)` into the **Uninstall program** field.
 
-    :::image type="content" source="./media/install-client-per-user/content-location-uninstall-id.png" alt-text="A screenshot of the Specificy information about the content to be delivered to target devices window. The MSI product ID entered into the Uninstall program field is msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/content-location-uninstall-id.png" :::
+    :::image type="content" source="./media/install-client-per-user/content-location-uninstall-id.png" alt-text="A screenshot of the Specify information about the content to be delivered to target devices window. The MSI product ID entered into the Uninstall program field is msiexec /x (6CE4170F-A4CD-47A0-ABFD-61C59E5F4B43)." lightbox="./media/install-client-per-user/content-location-uninstall-id.png" :::
 
 1. Next, enter the same MSI product ID you used in the previous step into the **Detection program** field.
 
