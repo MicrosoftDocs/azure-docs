@@ -359,7 +359,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 1. In the Visual Studio Code explorer, open **modules** > **filtermodule** > **ModuleBackgroundService.cs**.
 
-1. At the top of the **filtermodule** namespace, add three **using** statements for types that are used later:
+1. Before the **filtermodule** namespace, add three **using** statements for types that are used later:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -396,7 +396,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
 
 1. Find the **ExecuteAsync** function. This function creates and configures a **ModuleClient** object, which allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. After creating the **ModuleClient**, the code reads the **temperatureThreshold** value from the module twin's desired properties. The code registers a callback to receive messages from an IoT Edge hub via an endpoint called **input1**.
 
-   Replace the **ProcessMessageAsync** method with a new one that updates the name of the endpoint and the method that's called when input arrives. Also, add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **Init** method with the following code:
+   Replace the call to the **ProcessMessageAsync** method with a new one that updates the name of the endpoint and the method that's called when input arrives. Also, add a **SetDesiredPropertyUpdateCallbackAsync** method for updates to the desired properties. To make this change, replace the last line of the **ExecuteAsync** method with the following code:
 
    ```csharp
    // Register a callback for messages that are received by the module.
@@ -413,7 +413,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
    await ioTHubModuleClient.SetInputMessageHandlerAsync("inputFromSensor", FilterMessages, ioTHubModuleClient);
    ```
 
-1. Add the **onDesiredPropertiesUpdate** method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
+1. Add the **onDesiredPropertiesUpdate** method to the **ModuleBackgroundService** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
 
     ```csharp
     static Task OnDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
