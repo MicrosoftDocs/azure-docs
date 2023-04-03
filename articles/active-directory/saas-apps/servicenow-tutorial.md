@@ -180,10 +180,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	| `https://<instancename>.service-now.com/customer.do` |
 	|
 
-    b. For **Identifier (Entity ID)**, enter a URL that uses the following patterns:
+    b. For **Identifier (Entity ID)**, enter a URL that uses the following pattern:
     `https://<instance-name>.service-now.com`
 
-	c. For **Reply URL**, enter one of the following URL pattern:
+	c. For **Reply URL**, enter one of the following URL patterns:
 
 	| Reply URL |
 	|-----------|
