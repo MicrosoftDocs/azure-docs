@@ -56,6 +56,34 @@ To add a protection action, assign a Conditional Access policy to one or more pe
 
     The new protected actions appear in the list of protected actions
 
+## Test a protected action
+
+When a user performs a protected action, they'll need to satisfy Conditional Access policy requirements. This section shows the experience for a user being prompted to satisfy a policy. In this example, the user is required to authenticate with a FIDO security key before they can update Conditional Access policies.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+
+1. Select **Azure Active Directory** > **Protect & secure** > **Conditional Access**.
+
+1. Select a Conditional Access policy to view it.
+
+    Policy editing is disabled because the authentication requirements haven't been satisfied. At the bottom of the page is the following note:
+
+    Editing is protected by an additional access requirement. Click here to reauthenticate.
+
+    :::image type="content" source="media/protected-actions-add/test-policy-reauthenticate.png" alt-text="Screenshot of a disabled Conditional Access policy with a note indicating to reauthenticate." lightbox="media/protected-actions-add/test-policy-reauthenticate.png":::
+
+1. Select **Click here to reauthenticate**.
+
+1. Complete the authentication requirements when the browser is redirected to the Azure AD sign-in page.
+
+    :::image type="content" source="media/protected-actions-add/test-policy-reauthenticate-sign-in.png" alt-text="Screenshot of a sign-in page to reauthenticate." lightbox="media/protected-actions-add/test-policy-reauthenticate-sign-in.png":::
+
+    After completing the authentication requirements, the policy can be edited.
+
+1. Edit the policy and save changes.
+
+    :::image type="content" source="media/protected-actions-add/test-policy-edit.png" alt-text="Screenshot of an enabled Conditional Access policy that can be edited." lightbox="media/protected-actions-add/test-policy-edit.png":::
+
 ## Remove a protected action
 
 To remove a protection action, unassign Conditional Access policy requirements from a permission.
@@ -93,30 +121,6 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/resourceNamespaces
 Resource actions with the property `isAuthenticationContextSettable` set to true support authentication context. Resource actions with the value of the property `authenticationContextId` is the authentication context ID that has been assigned to the action.
 
 To view the `isAuthenticationContextSettable` and `authenticationContextId` properties, they must be included in the select statement when making the request to the resource action API.
-
-## Test a protected action
-
-When a user performs a protected action, they'll need to satisfy Conditional Access policy requirements. This section shows the experience for a user being prompted to satisfy a policy. In this example, the user is required to authenticate with a FIDO security key before they can update Conditional Access policies.
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
-
-1. Select **Azure Active Directory** > **Protect & secure** > **Conditional Access**.
-
-1. Select a Conditional Access policy to view it.
-
-    Policy editing is disabled because the authentication requirements haven't been satisfied. At the bottom is a note indicating editing is protected by an additional access requirement and to click to reauthenticate.
-
-1. Select **Click here to reauthenticate**.
-
-    :::image type="content" source="media/protected-actions-add/test-policy-reauthenticate.png" alt-text="Screenshot of a disabled Conditional Access policy with a note indicating to reauthenticate." lightbox="media/protected-actions-add/test-policy-reauthenticate.png":::
-
-1. Complete the authentication requirements when the browser is redirected to the Azure AD sign-in page.
-
-    :::image type="content" source="media/protected-actions-add/test-policy-reauthenticate-sign-in.png" alt-text="Screenshot of a sign-in page to reauthenticate." lightbox="media/protected-actions-add/test-policy-reauthenticate-sign-in.png":::
-
-1. Edit policy and save changes.
-
-    :::image type="content" source="media/protected-actions-add/test-policy-edit.png" alt-text="Screenshot of an enabled Conditional Access policy that can be edited." lightbox="media/protected-actions-add/test-policy-edit.png":::
 
 ## Troubleshoot protected actions
 

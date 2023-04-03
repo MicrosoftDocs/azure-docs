@@ -90,7 +90,7 @@
       href: admin-units-assign-roles.md
   - name: Protected actions
     items:
-    - name: Add, remove, or use
+    - name: Add, remove, or test
       href: protected-actions-add.md
   - name: Delegate
     items:
