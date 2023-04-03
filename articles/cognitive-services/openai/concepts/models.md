@@ -128,7 +128,7 @@ Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyz
 
 ## Embeddings models
 
-> [!NOTE]
+> [!IMPORTANT]
 > We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
 
 Currently, we offer three families of Embeddings models for different functionalities:
