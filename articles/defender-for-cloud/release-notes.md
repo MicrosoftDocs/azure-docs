@@ -45,7 +45,7 @@ Updates in March include:
 - [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
 - [Data-aware security posture (preview)](#data-aware-security-posture-preview)
 - [New experience for managing the Azure default security policy](#improved-experience-for-managing-the-default-azure-security-policies)
-- [Defender CSPM (Cloud Security Posture Management) is now Generally Available (GA)](#defender-for-cspm-cloud-security-posture-management-is-now-generally-available-ga)
+- [Defender CSPM (Cloud Security Posture Management) is now Generally Available (GA)](#defender-cspm-cloud-security-posture-management-is-now-generally-available-ga)
 - [Option to create custom recommendations and security standards in Microsoft Defender for Cloud](#option-to-create-custom-recommendations-and-security-standards-in-microsoft-defender-for-cloud)
 - [Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)](#microsoft-cloud-security-benchmark-mcsb-version-10-is-now-generally-available-ga)
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
