@@ -71,7 +71,7 @@ To view Log Analytics workspace health metrics:
 
    | Metric name | Description |
    | - | - |
-   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number doesn't include queries initiated by Azure services, such as Sentinel, and alert-related queries. |
+   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number includes only user-initiated queries, and doesn't include queries initiated by Azure services, such as Sentinel, and alert-related queries. |
    | Query failure count |  Total number of failed user queries within the selected time range.<br>This number includes all queries that return 500-599 response codes, which indicate an error related to the application gateway or the backend server.|
    | Query success rate | Total number of successful user queries within the selected time range.<br>This number includes all queries that return 200-299 and 400-499 response codes; in other words, all user queries that don't result in a service error. |
 
