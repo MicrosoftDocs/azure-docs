@@ -191,7 +191,7 @@ The following articles are about our customer and partner’s success stories, a
 
 ### Find your apps
 
-The first decision point in an application migration is which apps to migrate, which if any should remain, and which apps to deprecate. There is always an opportunity to deprecate the apps that you won't use in your organization. There are several ways to find apps in your organization. While discovering apps, ensure you include in-development and planned apps. Use Azure AD for authentication in all future apps.
+The first decision point in an application migration is which apps to migrate, which if any should remain, and which apps to deprecate. There's always an opportunity to deprecate the apps that you won't use in your organization. There are several ways to find apps in your organization. While discovering apps, ensure you include in-development and planned apps. Use Azure AD for authentication in all future apps.
 
 Discover applications using ADFS: 
 
@@ -270,8 +270,8 @@ You usually develop LoB apps for your organization’s in-house use. If you've n
 Apps without clear owners and clear maintenance and monitoring present a security risk for your organization. Consider deprecating applications when:
 
 - Their **functionality is highly redundant** with other systems
-- There is **no business owner**
-- There is clearly **no usage**
+- There's **no business owner**
+- There's clearly **no usage**
 
 We recommend that you **do not deprecate high impact, business-critical applications**. In those cases, work with business owners to determine the right strategy.
 
@@ -311,7 +311,7 @@ You can choose to begin the app migration with either the lowest priority apps o
 
 In a scenario where you may not have experience using Azure AD and Identity services, consider moving your **lowest priority apps** to Azure AD first. This minimizes your business impact, and you can build momentum. Once you've successfully moved these apps and have gained the stakeholder’s confidence, you can continue to migrate the other apps.
 
-If there is no clear priority, you should consider moving the apps that are in the [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) first and support multiple identity providers because they are easier to integrate. It is likely that these apps are the **highest-priority apps** in your organization. To help integrate your SaaS applications with Azure AD, we have developed a collection of [tutorials](../saas-apps/tutorial-list.md) that walk you through configuration.
+If there's  no clear priority, you should consider moving the apps that are in the [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) first and support multiple identity providers because they are easier to integrate. It is likely that these apps are the **highest-priority apps** in your organization. To help integrate your SaaS applications with Azure AD, we have developed a collection of [tutorials](../saas-apps/tutorial-list.md) that walk you through configuration.
 
 When you've a deadline to migrate the apps, these highest priority apps bucket takes the major workload. You can eventually select the lower priority apps as they won't change the cost even though you've moved the deadline. 
 
