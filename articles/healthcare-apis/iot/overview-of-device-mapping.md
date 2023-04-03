@@ -30,7 +30,7 @@ The device mapping contains collections of expression templates used to extract 
 
 This diagram provides an illustration of what happens during the normalization stage within the MedTech service.
 
-:::image type="content" source="media/overview-of-device-mapping/normalization-stage-diagram.png" alt-text="Diagram example of the MedTech service device message data normalization stage." lightbox="media/overview-of-device-mapping/normalization-stage-diagram.png":::
+:::image type="content" source="media/overview-of-device-mapping/normalization-stage-diagram.png" alt-text="Diagram example of the MedTech service device message normalization stage." lightbox="media/overview-of-device-mapping/normalization-stage-diagram.png":::
 
 ## Device mapping validations
 
@@ -42,17 +42,17 @@ The normalization process validates the device mapping before allowing it to be 
 |:-----------------------|:----------------------------|:-----------------------------|
 |typeName                |True                         |True                          |
 |typeMatchExpression     |True                         |True                          |
-|deviceIdExpression      |True                         |False                         |
-|timestampExpression     |True                         |False                         |
+|deviceIdExpression      |True                         |False and ignored completely. |
+|timestampExpression     |True                         |False and ignored completely. |
 |patientIdExpression     |True when the MedTech services's **Resolution type** is set to **Create**; False when the MedTech service's **Resolution type** is set to **Lookup**.|True when the MedTech service's **Resolution type** is set to **Create**; False when the MedTech service's **Resolution type** is set to **Lookup**.|
 |encounterIdExpression   |False                        |False                         |
 |correlationIdExpression |False                        |False                         |
 |values[].valueName      |True                         |True                          |
 |values[].valueExpression|True                         |True                          |
-|values[].Required       |True                         |True                          |
+|values[].required       |True                         |True                          |
 
 > [!NOTE] 
-> `values[].ValueName, values[].ValueExpression`, `values[].Required` and elements are only required if you have a value entry in the array. It's valid to have no values mapped. These elements are used when the telemetry being sent is an event.
+> `values[].valueName, values[].valueExpression`, `values[].required` and elements are only required if you have a value entry in the array. It's valid to have no values mapped. These elements are used when the telemetry being sent is an event.
 >
 > For example, some scenarios may require creating a FHIR Observation in the FHIR service that does not contain a value.
 
@@ -153,5 +153,10 @@ To learn how to use custom functions with the MedTech service device mapping, se
 
 > [!div class="nextstepaction"] 
 > [How to use custom functions with the MedTech service device mapping](how-to-use-custom-functions.md)
+
+To get an overview of the MedTech service FHIR destination mapping, see
+
+> [!div class="nextstepaction"] 
+> [Overview of the MedTech service FHIR destination mapping](how-to-configure-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
