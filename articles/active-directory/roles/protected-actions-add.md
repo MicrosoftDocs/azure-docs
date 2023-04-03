@@ -1,6 +1,6 @@
 ---
-title: Add, remove, or test protected actions in Azure AD (preview)
-description: Learn how to add, remove, or test protected actions in Azure Active Directory.
+title: Add, test, or remove protected actions in Azure AD (preview)
+description: Learn how to add, test, or remove protected actions in Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -12,13 +12,13 @@ ms.topic: how-to
 ms.date: 04/05/2022
 ---
 
-# Add, remove, or test protected actions in Azure AD (preview)
+# Add, test, or remove protected actions in Azure AD (preview)
 
 > [!IMPORTANT]
 > Protected actions are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, remove, and test protected actions.
+[Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, test, or remove protected actions.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ To add protection actions, assign a Conditional Access policy to one or more per
 
     If no values are available, [configure a Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context) for your tenant.
 
-1. Select **Select permissions** and select the permission that will be protected by Conditional Access.
+1. Select **Select permissions** and select the permissions to protect with Conditional Access.
 
     :::image type="content" source="media/protected-actions-add/permissions-select.png" alt-text="Screenshot of Add protected actions page with permissions selected." lightbox="media/protected-actions-add/permissions-select.png":::
 
@@ -94,7 +94,7 @@ To remove protection actions, unassign Conditional Access policy requirements fr
 
 1. Find and select the permission Conditional Access policy to unassign.
 
-    :::image type="content" source="media/protected-actions-add/permissions-remove.png" alt-text="Screenshot of Protected actions page with permissions selected to remove." lightbox="media/protected-actions-add/permissions-remove.png":::
+    :::image type="content" source="media/protected-actions-add/permissions-remove.png" alt-text="Screenshot of Protected actions page with permission selected to remove." lightbox="media/protected-actions-add/permissions-remove.png":::
 
 1. On the toolbar, select **Remove**.
  
