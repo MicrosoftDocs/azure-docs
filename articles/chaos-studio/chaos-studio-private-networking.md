@@ -12,19 +12,26 @@ ms.service: chaos-studio
 
 Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own data center, but brings with it other benefits of Azure's infrastructure such as scale, availability, and isolation.
 
-VNet injection allows a Chaos resource provider to inject containerized workloads into your VNet so that resources without public endpoints can be accessed via a private IP address on the VNet.
+VNet injection allows a Chaos resource provider to inject containerized workloads into your VNet so that resources without public endpoints can be accessed via a private IP address on the VNet. Once you've configured VNet injection for a resource in a VNet and enabled the resource as a target, you can use it in multiple experiments. An experiment can contain a mix of resources 
 
 ## Resource type support
 Currently, you can only enable certain resource types for Chaos Studio VNet injection.
-* **Azure Kubernetes Service** targets can be enabled with VNet injection through the Azure portal and Azure CLI.
-* **Key Vault** targets can be enabled with VNet injection through the Azure CLI.
+* **Azure Kubernetes Service** targets can be enabled with VNet injection through the **Azure portal** and **Azure CLI**. All AKS Chaos Mesh faults can be used.
+* **Key Vault** targets can be enabled with VNet injection through the **Azure CLI**. The faults that can be used with VNet Injection are Disable Certificate, Increment Certificate Version, and Update Certificate Policy.
 
-## Use Chaos Studio with a private AKS cluster
+## Enabling VNet injection
+To use Chaos Studio with VNet injection, you need to meet the following requirements. 
+1. The `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers must be registered with your subscription.
+1. The VNet where Chaos Studio resources will be injected needs to have two subnets, named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`. Other subnet names can't be used.
+    1. Both subnets need at least `/28` in address space. For example, an address prefix of `10.0.0.0/28` or `10.0.0.0/24`.
+    1. `ChaosStudioContainerSubnet` must be delegated to `Microsoft.ContainerInstance/containerGroups`.
+1. When enabling the desired resource as a target so you can use it in Chaos Studio  experiments, the following properties must be set:
+    1. Set `properties.subnets.containerSubnetId` to the ID for `ChaosStudioContainerSubnet`.
+    1. Set `properties.subnets.relaySubnetId` to the ID for `ChaosStudioRelaySubnet`.
 
-To configure VNet injection, use the following steps.
+## Example: Use Chaos Studio with a private AKS cluster
 
-> [!NOTE]
-> These instructions assume you already have a private AKS cluster. Learn more about private clusters here: [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md)
+This example shows how to configure a private AKS cluster to use with Chaos Studio. It assumes you already have a private AKS cluster within your Azure subscription. To create one, see: [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md)
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -33,7 +40,7 @@ To configure VNet injection, use the following steps.
 ![Register a resource provider](images/vnet-register-resource-provider.png)
 1. Navigate to Azure Chaos Studio and select **Targets**. Find your desired AKS cluster and select **Enable targets**, then **Enable service-direct targets**.
 ![Enable targets in Chaos Studio](images/vnet-enable-targets.png)
-1. Select the cluster's Virtual Network. If the VNet already includes Subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`, select them. If they don't already exist, they'll be automatically created for you.
+1. Select the cluster's Virtual Network. If the VNet already includes subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`, select them. If they don't already exist, they'll be automatically created for you.
 ![Select the VNet and Subnets](images/vnet-select-subnets.png)
 1. Select **Review + Enable** and **Enable**.
 ![Review the target enablement](images/vnet-review.png)
@@ -86,13 +93,13 @@ Now your private AKS cluster can be used with Chaos Studio! Use the following in
     "registrationState": "Registered",
     ```
 
-1. Create two subnets in the VNet you want to inject into (such as the relevant AKS VNet):
+1. Create two subnets in the VNet you want to inject Chaos Studio resources into (in this case, the private AKS cluster's VNet):
 
     - `ChaosStudioContainerSubnet`
-        - Delegate the subnet to `Microsoft.ContainerInstance/containerGroups` service.
-        - This subnet must have at least /28 in address space
+        - Delegate the subnet to the `Microsoft.ContainerInstance/containerGroups` service.
+        - This subnet must have at least /28 in address space.
     - `ChaosStudioRelaySubnet`
-        - This subnet must have at least /28 in address space
+        - This subnet must have at least /28 in address space.
         
     ```azurecli
     az network vnet subnet create -g MyResourceGroup --vnet-name MyVnetName --name ChaosStudioContainerSubnet --address-prefixes "10.0.0.0/28" --delegations "Microsoft.ContainerInstance/containerGroups"
@@ -101,7 +108,7 @@ Now your private AKS cluster can be used with Chaos Studio! Use the following in
     az network vnet subnet create -g MyResourceGroup --vnet-name MyVnetName --name ChaosStudioRelaySubnet --address-prefixes "10.0.0.0/28"
     ```
 
-1. When enabling Targets for the AKS cluster, so you can use it in Chaos Experiments, set the `properties.subnets.containerSubnetId` and `properties.subnets.relaySubnetId` properties using the new subnets you created in step 3.
+1. When enabling targets for the AKS cluster, so you can use it in Chaos Experiments, set the `properties.subnets.containerSubnetId` and `properties.subnets.relaySubnetId` properties using the new subnets you created in step 3.
 
     Replace `$SUBSCRIPTION_ID` with your Azure subscription ID, `$RESOURCE_GROUP` and `$AKS_CLUSTER` with the resource group name and your AKS cluster resource name. Also, replace `$AKS_INFRA_RESOURCE_GROUP` and `$AKS_VNET` with your AKS's infrastructure resource group name and VNet name. Replace `$URL` with the corresponding `https://management.azure.com/` URL used for onboarding the target.
 
