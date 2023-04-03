@@ -280,7 +280,7 @@ A deployment is a set of resources required for hosting the model that does the 
    
     The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
     
-    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="10-13":::
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="11-14":::
    
     # [Python](#tab/python)
    
