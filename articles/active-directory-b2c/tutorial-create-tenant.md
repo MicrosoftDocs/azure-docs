@@ -42,7 +42,7 @@ Before you create your Azure AD B2C tenant, you need to take the following consi
 
 ## Create an Azure AD B2C tenant
 >[!NOTE]
->If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched off, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
+>If you're unable to create Azure AD B2C tenant, [review your user settings page](tenant-management-check-tenant-creation-permission.md) to ensure that tenant creation isn't switched off. If tenant creation is switched on, ask your _Global Administrator_ to assign you a _Tenant Creator_ role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 

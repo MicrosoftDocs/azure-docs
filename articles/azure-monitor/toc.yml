@@ -278,6 +278,8 @@ items:
             href: agents/data-sources-custom-logs.md
           - name: Custom fields
             href: logs/custom-fields.md
+          - name: Migrate from custom fields
+            href: logs/custom-fields-migrate.md
       - name: Azure Diagnostics extension
         items:
         - name: Overview
