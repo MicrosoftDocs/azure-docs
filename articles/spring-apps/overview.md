@@ -81,7 +81,7 @@ The Standard consumption plan simplifies the virtual network experience for runn
 
 ## Enterprise plan
 
-The Enterprise plan provides commercially supported Tanzu components with SLA assurance. For more information, see the [SLA for Azure Spring Apps](https://azure.microsoft.com/en-us/support/legal/sla/spring-apps). This support helps enterprise customers ship faster for mission-critical workloads with peace of mind. The Enterprise plan helps unlock Spring’s full potential while including feature parity and region parity with the Standard plan.
+The Enterprise plan provides commercially supported Tanzu components with SLA assurance. For more information, see the [SLA for Azure Spring Apps](https://azure.microsoft.com/support/legal/sla/spring-apps). This support helps enterprise customers ship faster for mission-critical workloads with peace of mind. The Enterprise plan helps unlock Spring’s full potential while including feature parity and region parity with the Standard plan.
 
 The following video introduces the Azure Spring Apps Enterprise plan.
 
