@@ -128,7 +128,10 @@ Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyz
 
 ## Embeddings models
 
-Currently, we offer three families of Embeddings models for different functionalities: 
+> [!NOTE]
+> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+
+Currently, we offer three families of Embeddings models for different functionalities:
 
 - [Similarity](#similarity-embedding)
 - [Text search](#text-search-embedding)
@@ -222,7 +225,7 @@ These models can only be used with Completions API requests.
 These models can only be used with Embedding API requests.
 
 > [!NOTE]
-> We strongly recommend using `text-embedding-ada-002 (Version 2)`. It is the only model/version to provide parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
 
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- |
