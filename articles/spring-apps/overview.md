@@ -65,7 +65,7 @@ The following articles help you migrate existing Spring Boot apps to Azure Sprin
 * [Migrate Spring Boot applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps)
 * [Migrate Spring Cloud applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier)
 
-The following quickstarts apply to Basic/Standard only. For Enterprise quickstarts, see the next section.
+The following quickstarts apply to the Basic/Standard plan only. For Enterprise quickstarts, see the next section.
 
 * [Provision an Azure Spring Apps service instance](quickstart-provision-service-instance.md)
 * [Set up the configuration server](quickstart-setup-config-server.md)
@@ -75,15 +75,15 @@ The following quickstarts apply to Basic/Standard only. For Enterprise quickstar
 
 The Standard consumption plan provides a flexible billing model where you pay only for compute time used instead of provisioning resources. Start with as little as 0.25 vCPU and dynamically scale out based on HTTP or events powered by Kubernetes Event-Driven Autoscaling (KEDA). You can also scale your app instance to zero and stop all charges related to the app when there are no requests to process.
 
-Standard consumption simplifies the virtual network experience for running polyglot apps. All your apps share the same virtual network when you deploy frontend apps as containers in Azure Container Apps and Spring apps in Standard consumption, in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
+The Standard consumption plan simplifies the virtual network experience for running polyglot apps. All your apps share the same virtual network when you deploy frontend apps as containers in Azure Container Apps and Spring apps in the Standard consumption plan, in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
 
 :::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing app architecture with Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png" border="false":::
 
 ## Enterprise plan
 
-The Enterprise plan provides commercially supported Tanzu components and 99.95% SLA assurance. This support helps enterprise customers ship faster for mission-critical workloads with peace of mind. The Enterprise plan helps unlock Spring’s full potential while including feature parity and region parity with Standard tier.
+The Enterprise plan provides commercially supported Tanzu components with SLA assurance. For more information, see the [SLA for Azure Spring Apps](https://azure.microsoft.com/en-us/support/legal/sla/spring-apps). This support helps enterprise customers ship faster for mission-critical workloads with peace of mind. The Enterprise plan helps unlock Spring’s full potential while including feature parity and region parity with the Standard plan.
 
-The following video introduces Azure Spring Apps Enterprise plan.
+The following video introduces the Azure Spring Apps Enterprise plan.
 
 <br>
 
@@ -91,7 +91,7 @@ The following video introduces Azure Spring Apps Enterprise plan.
 
 ### Deploy and manage Spring and polyglot applications
 
-The fully managed VMware Tanzu® Build Service™ in Azure Spring Apps Enterprise plan automates container creation, management and governance at enterprise scale using open-source [Cloud Native Buildpacks](https://buildpacks.io/) and commercial [VMware Tanzu® Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/). Tanzu Build Service offers a higher-level abstraction for building apps and provides a balance of control that reduces the operational burden on developers and supports enterprise IT operators who manage applications at scale. You can configure what Buildpacks to apply and build Spring applications and polyglot applications that run alongside Spring applications on Azure Spring Apps.
+The fully managed VMware Tanzu® Build Service™ in the Azure Spring Apps Enterprise plan automates container creation, management and governance at enterprise scale using open-source [Cloud Native Buildpacks](https://buildpacks.io/) and commercial [VMware Tanzu® Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/). Tanzu Build Service offers a higher-level abstraction for building apps and provides a balance of control that reduces the operational burden on developers and supports enterprise IT operators who manage applications at scale. You can configure what Buildpacks to apply and build Spring applications and polyglot applications that run alongside Spring applications on Azure Spring Apps.
 
 Tanzu Buildpacks makes it easier to build Spring, Java, NodeJS, Python, Go and .NET Core applications and configure application performance monitoring agents such as Application Insights, New Relic, Dynatrace, AppDynamics, and Elastic.
 
@@ -109,7 +109,7 @@ API Portal for VMware Tanzu provides API consumers with the ability to find and 
 
 ### Use flexible and configurable VMware Tanzu components
 
-With Azure Spring Apps Enterprise plan, you can use fully managed VMware Tanzu components on Azure without operational hassle. You can select which VMware Tanzu components you want to use in your environment, either during or after Enterprise instance creation. The following components are available today:
+With the Azure Spring Apps Enterprise plan, you can use fully managed VMware Tanzu components on Azure without operational hassle. You can select which VMware Tanzu components you want to use in your environment, either during or after Enterprise instance creation. The following components are available today:
 
 * Tanzu Build Service
 * Spring Cloud Gateway for Tanzu
@@ -127,13 +127,13 @@ VMware Tanzu components deliver increased value so you can accomplish the follow
 
 ### Unlock Spring’s full potential with Long-Term Support (LTS)
 
-Azure Spring Apps Enterprise plan includes VMware Spring Runtime Support for application development and deployments. This support gives you access to Spring experts, enabling you to unlock the full potential of the Spring ecosystem to develop and deploy applications faster.
+The Azure Spring Apps Enterprise plan includes VMware Spring Runtime Support for application development and deployments. This support gives you access to Spring experts, enabling you to unlock the full potential of the Spring ecosystem to develop and deploy applications faster.
 
 Typically, open-source Spring project minor releases are supported for a minimum of 12 months from the date of initial release. In Azure Spring Apps Enterprise, Spring project minor releases receive commercial support for a minimum of 24 months from the date of initial release through the VMware Spring Runtime Support entitlement. This extended support ensures the security and stability of your Spring application portfolio even after the open source end of life dates. For more information, see [Spring Boot support](https://spring.io/projects/spring-boot#support).
 
 ### Fully integrate into the Azure and Java ecosystems
 
-Azure Spring Apps, including Enterprise plan, runs on Azure in a fully managed environment. You get all the benefits of Azure and the Java ecosystem, and the experience is familiar and intuitive, as shown in the following table:
+Azure Spring Apps, including the Enterprise plan, runs on Azure in a fully managed environment. You get all the benefits of Azure and the Java ecosystem, and the experience is familiar and intuitive, as shown in the following table:
 
 | Best practice                                                      | Ecosystem                                                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -158,13 +158,13 @@ The following articles help you get started using the Standard consumption plan:
 * [Map a custom domain to Azure Spring Apps](quickstart-standard-consumption-custom-domain.md)
 * [Analyze logs and metrics](quickstart-analyze-logs-and-metrics-standard-consumption.md)
 * [Enable your own persistent storage](how-to-custom-persistent-storage-with-standard-consumption.md)
-* [Customer responsibilities for Standard consumption plan in a virtual network](standard-consumption-customer-responsibilities.md)
+* [Customer responsibilities for Azure Spring Apps Standard consumption plan in a virtual network](standard-consumption-customer-responsibilities.md)
 
 ### Get started with the Enterprise plan
 
 The following articles help you get started using the Enterprise plan:
 
-* [Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md)
+* [The Enterprise plan in Azure Marketplace](how-to-enterprise-marketplace-offer.md)
 * [Introduction to Fitness Store sample](quickstart-sample-app-acme-fitness-store-introduction.md)
 * [Build and deploy apps](quickstart-deploy-apps-enterprise.md)
 * [Configure single sign-on](quickstart-configure-single-sign-on-enterprise.md)
@@ -174,9 +174,9 @@ The following articles help you get started using the Enterprise plan:
 * [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
 * [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
 
-Most of the Azure Spring Apps documentation applies to all tiers. Some articles apply only to Enterprise plan or only to Basic/Standard tier, as indicated at the beginning of each article.
+Most of the Azure Spring Apps documentation applies to all the service plans. Some articles apply only to the Enterprise plan or only to the Basic/Standard plan, as indicated at the beginning of each article.
 
-As a quick reference, the articles listed above and the articles in the following list apply to Enterprise plan only, or contain significant content that applies only to Enterprise plan:
+As a quick reference, the articles listed above and the articles in the following list apply to the Enterprise plan only, or contain significant content that applies only to the Enterprise plan:
 
 * [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
 * [Use Tanzu Build Service](how-to-enterprise-build-service.md)
