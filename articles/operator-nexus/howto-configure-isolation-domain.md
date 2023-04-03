@@ -934,7 +934,7 @@ az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resourc
 az nf l3domain update-admin-state --resource-group "ResourceGroupName" --resource-name "l3mgmt" --state Enable
 ```
 
-# Below example can be used create any L2 Isolation needed by workload
+#### Below example is used to create any L2 Isolation needed by workload
 
 ## L2 Isolation domain
 
