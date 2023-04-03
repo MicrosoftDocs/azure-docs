@@ -47,27 +47,29 @@ Azure Lab Services supports the following key capabilities and features:
 
 - **Automatic management of Azure infrastructure and scale**  Azure Lab Services is a managed service, which means that provisioning and management of a lab's underlying infrastructure is handled automatically by the service. You can just focus on preparing the right lab experience for your users. Let the service handle the rest and roll out your lab's virtual machines to your audience. Scale your lab to hundreds of virtual machines with a single action.
 
+## Use cases
+
 Here are some of the **use cases for managed labs**:
 
 - Provide students with a lab of virtual machines configured with exactly what's needed for a class. Give each student a limited number of hours for using the VMs for homework or personal projects.
-- Set up a pool of high-performance compute VMs to perform compute-intensive or graphics-intensive research. Run the VMs as needed, and clean up the machines once you're done.
-- Move your school's physical computer lab into the cloud. Automatically scale the number of VMs only to the maximum usage and cost threshold that you set on the lab.  
-- Quickly create a lab of virtual machines for hosting a hackathon. Delete the lab with a single action once you're done.
 
-## Example class types
+- Set up a pool of high-performance compute VMs to perform compute-intensive or graphics-intensive research. Run the VMs as needed, and clean up the machines once you're done.
+
+- Move your school's physical computer lab into the cloud. Automatically scale the number of VMs only to the maximum usage and cost threshold that you set on the lab.  
+
+- Quickly create a lab of virtual machines for hosting a hackathon. Delete the lab with a single action once you're done.
 
 You can set up labs for several types of classes with Azure Lab Services. See the [Example class types on Azure Lab Services](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services.
 
-## Region availability
+## Privacy and compliance
 
-Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=lab-services) page to learn where Azure Lab Services is available.
+### Data residency
 
-[Azure Lab Services August 2022 Update](lab-services-whats-new.md)) doesn't move or store customer data outside the region it's deployed in.  However, accessing Azure Lab Services resources through the Azure Lab Services portal may cause customer data to cross regions.
+[Azure Lab Services August 2022 Update](lab-services-whats-new.md)) doesn't move or store customer data outside the region it's deployed in.  However, if you access Azure Lab Services resources through the Azure Lab Services website (https://labs.azure.com), customer data might cross regions.
 
-There are no guarantees customer data stays in the region it's deployed to when using Azure Lab Services prior to the August 2022 Update.
+There are no guarantees that customer data stays in the region it's deployed to when using Azure Lab Services prior to the August 2022 Update.
 
-## Data at rest
-
+### Data at rest
 Azure Lab Services encrypts all content using a Microsoft-managed encryption key.
 
 ## Next steps
