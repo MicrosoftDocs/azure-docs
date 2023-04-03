@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2023
+ms.date: 04/03/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -31,7 +31,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 ## Provisioning using SCIM 2.0
 
-The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. When building apps for Azure AD, developers can use the SCIM 2.0 user management API to build a SCIM endpoint that integrates Azure AD for provisioning. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+The Azure AD provisioning service uses the [SCIM 2.0 protocol](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) for automatic provisioning. The service connects to the SCIM endpoint for the application, and uses SCIM user object schema and REST APIs to automate the provisioning and de-provisioning of users and groups. A SCIM-based provisioning connector is provided for most applications in the Azure AD gallery. Developers use the SCIM 2.0 user management API in Azure AD to build endpoints for their apps that integrate with the provisioning service. For details, see [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 To request an automatic Azure AD provisioning connector for an app that doesn't currently have one, see [Azure Active Directory Application Request](../manage-apps/v2-howto-app-gallery-listing.md).
 
@@ -157,7 +157,7 @@ Content-type: application/json
 }
 ```
 - A new initial cycle is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
-- The provisioning process goes into quarantine (see example) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
+- The provisioning process goes into quarantine (see example) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service is automatically disabled.
 
 ### Errors and retries
 
@@ -191,17 +191,17 @@ The provisioning service supports both deleting and disabling (sometimes referre
 
 **Configure your application to disable a user**
 
-Confirm the checkobx for updates is selected.
+Confirm the checkbox for updates is selected.
 
-Confirm the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. In this case, use the default mapping for gallery applications.
+Confirm the mapping for *active* for your application. If you're using an application from the app gallery, the mapping may be slightly different. In this case, use the default mapping for gallery applications.
 
 :::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Disable a user" lightbox="./media/how-provisioning-works/disable-user.png":::
 
 
 **Configure your application to delete a user**
 
-The scenarios will trigger a disable or a delete: 
-* A user is soft deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
+The scenario triggers a disable or a delete: 
+* A user is soft-deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
     30 days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 * A user is permanently deleted / removed from the recycle bin in Azure AD.
 * A user is unassigned from an app.
@@ -209,22 +209,22 @@ The scenarios will trigger a disable or a delete:
 
 :::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Delete a user" lightbox="./media/how-provisioning-works/delete-user.png":::
 
-By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
+By default, the Azure AD provisioning service soft-deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
 
-If one of the four events occurs and the target application doesn't support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
+When one of the four events occurs and the target application doesn't support soft-deletes, the provisioning service sends a DELETE request to permanently delete the user from the app.
 
-If you see an attribute IsSoftDeleted in your attribute mappings, it's used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
+If you see `IsSoftDeleted` in your attribute mappings, it's used to determine the state of the user and whether to send an update request with `active = false` to soft-delete the user.
 
 **Deprovisioning events**
 
-The table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard delete users in certain applications rather than soft deleting, if the target application doesn't support soft deleting users. 
+The table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, if the target application doesn't support soft-deleting then the Azure AD provisioning service might send a hard-delete request to delete users rather than send a soft-delete.
 
 |Scenario|How to configure in Azure AD|
 |--|--|
 |If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, do nothing.|Remove isSoftDeleted from the attribute mappings and / or set the [skip out of scope deletions](skip-out-of-scope-deletions.md) property to true.|
 |If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, set a specific attribute to true / false.|Map isSoftDeleted to the attribute that you would like to set to false.|
 |When a user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It's not configurable by customers.|
-|When a user is deleted in Azure AD, do nothing in the target application.|Ensure that "Delete" isn't selected as one of the target object actions in the [attriubte configuration experience](skip-out-of-scope-deletions.md).|
+|When a user is deleted in Azure AD, do nothing in the target application.|Ensure that "Delete" isn't selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
 |When a user is deleted in Azure AD, set the value of an attribute in the target application.|Not supported.|
 |When a user is deleted in Azure AD, delete the user in the target application|This is supported. Ensure that Delete is selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
 
@@ -236,7 +236,7 @@ The table describes how you can configure deprovisioning actions with the Azure 
 
 **Recommendation**
 
-When developing an application, always support both soft deletes and hard deletes. It allows customers to recover when a user is accidentally disabled.
+When developing an application, always support both soft-deletes and hard-deletes. It allows customers to recover when a user is accidentally disabled.
 
 
 ## Next Steps
