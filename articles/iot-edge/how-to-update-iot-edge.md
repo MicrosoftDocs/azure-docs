@@ -27,9 +27,9 @@ Two logical components of an IoT Edge device need to be updated if you want to m
 
 Use these sections of this article to update both the runtime and application layers on a device.
 
-### Patch releases
+### Revision releases
 
-When upgrading between *patch* releases, for example 1.4.1 to 1.4.2, the order isn't important. You can upgrade host components or system containers before or after the other. To update between patch releases:
+When upgrading between *revision* or *patch* releases, for example 1.4.1 to 1.4.2, the update order isn't important. You can upgrade host components or system containers before or after the other. To update between revision releases:
 
 1. [Update the security subsystem](#update-the-security-subsystem)
 1. [Update the runtime containers](#update-the-runtime-containers)
