@@ -346,8 +346,8 @@
         - name: Maintain an on-premises management console
           displayName: activation, SMTP, VLAN, hostname
           href: how-to-manage-the-on-premises-management-console.md
-      - name: Troubleshoot on-premises management consoles
-        href: how-to-troubleshoot-on-premises-management-console.md
+        - name: Troubleshoot on-premises management consoles
+          href: how-to-troubleshoot-on-premises-management-console.md
 - name: Reference
   items:
   - name: Supported protocols
