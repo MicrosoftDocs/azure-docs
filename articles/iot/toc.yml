@@ -10,6 +10,8 @@
     href: iot-overview-device-connectivity.md
   - name: Device management and control
     href: iot-overview-device-management.md
+  - name: Process and route messages
+    href: iot-overview-message-processing.md
   - name: Choose the right IoT solution
     href: iot-solution-options.md
   - name: Azure IoT services and technologies
