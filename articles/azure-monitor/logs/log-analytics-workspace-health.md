@@ -43,12 +43,12 @@ To view your Log Analytics workspace health and set up health status alerts:
         
             The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
         
-        1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, you can change the default values if you would like.
-        1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
+            :::image type="content" source="../alerts/media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane.":::
+
+        1. In the **Alert me if** section, select all of the rules you want to enable. 
+        1. In the **Notify me by** section, select the way you want to be notified if an alert is triggered.
         1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
         1. Select **Enable**.
-
-        :::image type="content" source="../alerts/media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane.":::
 
     - To create a new alert rule:
        1. Select **Add resource health alert**.
