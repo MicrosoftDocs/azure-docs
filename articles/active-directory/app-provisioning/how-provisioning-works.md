@@ -201,7 +201,7 @@ Confirm the mapping for *active* for your application. If you're using an applic
 **Configure your application to delete a user**
 
 The scenario triggers a disable or a delete: 
-* A user is soft deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
+* A user is soft-deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
     30 days after a user is deleted in Azure AD, they're permanently deleted from the tenant. At this point, the provisioning service sends a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 * A user is permanently deleted / removed from the recycle bin in Azure AD.
 * A user is unassigned from an app.
@@ -209,15 +209,15 @@ The scenario triggers a disable or a delete:
 
 :::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Delete a user" lightbox="./media/how-provisioning-works/delete-user.png":::
 
-By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
+By default, the Azure AD provisioning service soft-deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
 
-When one of the four events occurs and the target application doesn't support soft deletes, the provisioning service sends a DELETE request to permanently delete the user from the app.
+When one of the four events occurs and the target application doesn't support soft-deletes, the provisioning service sends a DELETE request to permanently delete the user from the app.
 
-If you see `IsSoftDeleted` in your attribute mappings, it's used to determine the state of the user and whether to send an update request with `active = false` to soft delete the user.
+If you see `IsSoftDeleted` in your attribute mappings, it's used to determine the state of the user and whether to send an update request with `active = false` to soft-delete the user.
 
 **Deprovisioning events**
 
-The table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard delete users in certain applications rather than soft deleting, if the target application doesn't support soft deleting users. 
+The table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard-delete users in certain applications rather than soft-deleting", if the target application doesn't support soft-deleting users. 
 
 |Scenario|How to configure in Azure AD|
 |--|--|
@@ -236,7 +236,7 @@ The table describes how you can configure deprovisioning actions with the Azure 
 
 **Recommendation**
 
-When developing an application, always support both soft deletes and hard deletes. It allows customers to recover when a user is accidentally disabled.
+When developing an application, always support both soft-deletes and hard-deletes. It allows customers to recover when a user is accidentally disabled.
 
 
 ## Next Steps
