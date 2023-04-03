@@ -16,9 +16,9 @@ ms.date: 03/29/2023
 
 This article shows you how to use user defined routes (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
 
-Azure creates a default route table for your virtual networks on create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. In this guide, you setup UDR on the Container Apps virtual network to restrict outbound traffic with Azure Firewall.
+Azure creates a default route table for your virtual networks on create. By implementing a user-defined route table, you can control how traffic is routed within your virtual network. In this guide, your setup UDR on the Container Apps virtual network to restrict outbound traffic with Azure Firewall.
 
-You can also use a NAT gateway or any other 3rd party appliances instead of Azure Firewall.
+You can also use a NAT gateway or any other third party appliances instead of Azure Firewall.
 
 For more information on networking concepts in Container Apps, see [Networking Architecture in Azure Container Apps](./networking.md).
 
@@ -152,7 +152,7 @@ Now, all outbound traffic from your container app is routed to the firewall. Cur
     | **Action** | Select *Allow* |
 
     >[!Note]
-    > If you are using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through your firewall, you will need to add the following FQDNs to your rules destination list above: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
+    > If you are using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through your firewall, you will need to add the following FQDNs to your rules destination list: *hub.docker.com*, *registry-1.docker.io*, and *production.cloudflare.docker.com*.
 
 1. Select **Add**.
 
