@@ -1,8 +1,8 @@
 ---
 title: Cluster extensions for Azure Kubernetes Service (AKS)
 description: Learn how to deploy and manage the lifecycle of extensions on Azure Kubernetes Service (AKS)
-ms.custom: event-tier1-build-2022
-ms.date: 09/29/2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
+ms.date: 03/14/2023
 ms.topic: article
 author: nickomang
 ms.author: nickoman
@@ -22,7 +22,7 @@ In this article, you'll learn about:
 > * Available cluster extensions on AKS.
 > * How to view, list, update, and delete extension instances.
 
-A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes][arc-k8s-extensions] article.
+For a conceptual overview of cluster extensions, see [Cluster extensions - Azure Arc-enabled Kubernetes][arc-k8s-extensions].
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 ### Set up the Azure CLI extension for cluster extensions
 
 > [!NOTE]
-> The minimum supported version for the `k8s-extension` Azure CLI extension is `1.0.0`. If you are unsure what version you have installed, run `az extension show --name k8s-extension` and look for the `version` field.
+> The minimum supported version for the `k8s-extension` Azure CLI extension is `1.0.0`. If you are unsure what version you have installed, run `az extension show --name k8s-extension` and look for the `version` field. We recommend using the latest version.
 
 You'll also need the `k8s-extension` Azure CLI extension. Install the extension by running the following command:
   
@@ -69,7 +69,7 @@ az extension update --name k8s-extension
 | --------- | ----------- |
 | [Dapr][dapr-overview] | Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on cloud and edge. |
 | [Azure ML][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
-| [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. |
+| [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. See also [supported versions of Flux (GitOps)][gitops-support] and [Tutorial: Deploy applications using GitOps with Flux v2][gitops-tutorial].|
 
 ## Supported regions and Kubernetes versions
 
@@ -115,7 +115,7 @@ az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Ku
 | `--configuration-protected-settings-file` | Path to the JSON file having key value pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--release-namespace` | This parameter indicates the namespace within which the release is to be created. This parameter is only relevant if `scope` parameter is set to `cluster`. |
-| `--release-train` |  Extension  authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `autoUpgradeMinorVersion` parameter is set to `false`. |
+| `--release-train` |  Extension  authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `--auto-upgrade-minor-version` parameter is set to `false`. |
 | `--target-namespace` | This parameter indicates the namespace within which the release will be created. Permission of the system account created for this extension instance will be restricted to this namespace. This parameter is only relevant if the `scope` parameter is set to `namespace`. |
 
 ### Show details of an extension instance
@@ -188,6 +188,8 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [azure-ml-overview]: ../machine-learning/how-to-attach-kubernetes-anywhere.md
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
+[gitops-support]: ../azure-arc/kubernetes/extensions-release.md#flux-gitops
+[gitops-tutorial]: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
 [use-managed-identity]: ./use-managed-identity.md
 [workload-identity-overview]: workload-identity-overview.md

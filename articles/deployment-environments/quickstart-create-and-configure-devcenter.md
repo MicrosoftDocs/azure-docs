@@ -1,7 +1,7 @@
 ---
 title: Create and configure a dev center
 titleSuffix: Azure Deployment Environments
-description: Learn how to create and configure a dev center in Azure Deployment Environments Preview. In the quickstart, you create a dev center, attach an identity, attach a catalog, and create environment types.
+description: Learn how to create and configure a dev center in Azure Deployment Environments. In the quickstart, you create a dev center, attach an identity, attach a catalog, and create environment types.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: quickstart
@@ -10,7 +10,7 @@ ms.custom: ignite-2022
 ms.date: 02/08/2023
 ---
 
-# Quickstart: Create and configure a dev center
+# Quickstart: Create and configure a dev center for Azure Deployment Environments
 
 This quickstart shows you how to create and configure a dev center in Azure Deployment Environments Preview.
 
@@ -162,8 +162,8 @@ To add a catalog to your dev center, you first need to gather some information.
 ### Gather GitHub repo information
 To add a catalog, you must specify the GitHub repo URL, the branch, and the folder that contains your catalog items. You can gather this information before you begin the process of adding the catalog to the dev center, and paste it somewhere accessible, like notepad.
 
-> [!TIP] 
->  If you are attaching an Azure DevOps repository, use these steps: [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-of-an-azure-devops-repository).
+> [!TIP]
+> If you are attaching an Azure DevOps repository, use these steps: [Get the clone URL of an Azure DevOps repository](how-to-configure-catalog.md#get-the-clone-url-of-an-azure-devops-repository).
 
 1. On your [GitHub](https://github.com) account page, select **<> Code**, and then select copy.
 1. Take a note of the branch that you're working in.

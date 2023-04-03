@@ -19,7 +19,7 @@ This article provides an overview of the default quotas offered to different res
 
 ## Storage and database operations
 
-After you create an Azure Cosmos DB account under your subscription, you can manage data in your account by [creating databases, containers, and items](account-databases-containers-items.md).
+After you create an Azure Cosmos DB account under your subscription, you can manage data in your account by [creating databases, containers, and items](resource-model.md).
 
 ### Provisioned throughput
 
@@ -27,20 +27,18 @@ You can allocate throughput at a container-level or a database-level in terms of
 
 | Resource | Limit |
 | --- | --- |
-| Maximum RUs per container ([dedicated throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-db-containers)) | 1,000,000 ¹ |
-| Maximum RUs per database ([shared throughput provisioned mode](account-databases-containers-items.md#azure-cosmos-db-containers)) | 1,000,000 ¹ |
+| Maximum RUs per container ([dedicated throughput provisioned mode](resource-model.md#azure-cosmos-db-containers)) | 1,000,000 ¹ |
+| Maximum RUs per database ([shared throughput provisioned mode](resource-model.md#azure-cosmos-db-containers)) | 1,000,000 ¹ |
 | Maximum RUs per partition (logical & physical) | 10,000 |
 | Maximum storage across all items per (logical) partition | 20 GB ²|
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
-| Minimum RU/s required per 1 GB | 10 RU/s ³ |
+| Minimum RU/s required per 1 GB | 1 RU/s |
 
 ¹ You can increase Maximum RUs per container or database by [filing an Azure support ticket](create-support-request-quota-increase.md).
 
 ² To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20 GB in production, it's recommended to rearchitect your application with a different partition key as a long-term solution. To help give time to rearchitect your application, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Requesting a temporary increase is intended as a temporary mitigation and not recommended as a long-term solution, as **SLA guarantees are not honored when the limit is increased**. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. Filing this support ticket can be done after you have either deleted data to fit the 20-GB logical partition limit or have rearchitected your application with a different partition key.
-
-³ Minimum can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program)
 
 ### Minimum throughput limits
 
@@ -54,35 +52,29 @@ The actual minimum RU/s may vary depending on your account configuration. You ca
 
 To estimate the minimum throughput required of a container with manual throughput, find the maximum of:
 
-* 400 RU/s
-* Current storage in GB * 10 RU/s
+* 400 RU/s 
+* Current storage in GB * 1 RU/s
 * Highest RU/s ever provisioned on the container / 100
 
-For example, you have a container provisioned with 400 RU/s and 0-GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 200 GB. The minimum RU/s is now `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s.
-
-> [!NOTE]
-> The minimum throughput of 10 RU/s per GB of storage can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
+For example, you have a container provisioned with 400 RU/s and 0-GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 1 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 2000 GB. The minimum RU/s is now `MAX(400, 2000 * 1 RU/s per GB, 50,000 / 100)` = 2000 RU/s.
 
 #### Minimum throughput on shared throughput database
 
 To estimate the minimum throughput required of a shared throughput database with manual throughput, find the maximum of:
 
-* 400 RU/s
-* Current storage in GB * 10 RU/s
+* 400 RU/s 
+* Current storage in GB * 1 RU/s
 * Highest RU/s ever provisioned on the database / 100
 * 400 + MAX(Container count - 25, 0) * 100 RU/s
 
-For example, you have a database provisioned with 400 RU/s, 15 GB of storage, and 10 containers. The minimum RU/s is `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. If there were 30 containers in the database, the minimum RU/s would be `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s.
-
-> [!NOTE]
-> The minimum throughput of 10 RU/s per GB of storage can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program).
+For example, you have a database provisioned with 400 RU/s, 15 GB of storage, and 10 containers. The minimum RU/s is `MAX(400, 15 * 1 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. If there were 30 containers in the database, the minimum RU/s would be `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
 
 In summary, here are the minimum provisioned RU limits when using manual throughput.
 
 | Resource | Limit |
 | --- | --- |
-| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-db-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./account-databases-containers-items.md#azure-cosmos-db-containers)) | 400 RU/s for first 25 containers. |
+| Minimum RUs per container ([dedicated throughput provisioned mode with manual throughput](./resource-model.md#azure-cosmos-db-containers)) | 400 |
+| Minimum RUs per database ([shared throughput provisioned mode with manual throughput](./resource-model.md#azure-cosmos-db-containers)) | 400 RU/s for first 25 containers. |
 
 Azure Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.
 
@@ -161,7 +153,7 @@ An Azure Cosmos DB item can represent either a document in a collection, a row i
 | Maximum size of an item | 2 MB (UTF-8 length of JSON representation) ¹ |
 | Maximum length of partition key value | 2048 bytes (101 bytes if large partition-key isn't enabled) |
 | Maximum length of ID value | 1023 bytes |
-| Allowed characters for ID value | Service-side all Unicode characters except for '/' and '\\' are allowed. <br/>**WARNING: But for best interoperability we STRONGLY RECOMMEND to only use alpha-numerical ASCII characters in the ID value only**. <br/>There are known limitations in some versions of the Cosmos DB SDK, connectors (ADF, Spark, Kafka etc.), and http-drivers/libraries etc. These limitations can prevent successful processing when the ID value contains non-alphanumerical ASCII characters. So, to increase interoperability, encode the ID value - [for example via Base64 + custom encoding of special characters allowed in Base64](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/78fc16c35c521b4f9a7aeef11db4df79c2545dee/Microsoft.Azure.Cosmos.Encryption/src/EncryptionProcessor.cs#L475-L489). - if you have to support non-alphanumerical ASCII characters in your service/application. |
+| Allowed characters for ID value | Service-side all Unicode characters except for '/' and '\\' are allowed. <br/>**WARNING: But for best interoperability we STRONGLY RECOMMEND to only use alpha-numerical ASCII characters in the ID value only**. <br/>There are several known limitations in some versions of the Cosmos DB SDK, as well as connectors (ADF, Spark, Kafka etc.) and http-drivers/libraries etc. that can prevent successful processing when the ID value contains non-alphanumerical ASCII characters. So, to increase interoperability, please encode the ID value - [for example via Base64 + custom encoding of special characters allowed in Base64](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/78fc16c35c521b4f9a7aeef11db4df79c2545dee/Microsoft.Azure.Cosmos.Encryption/src/EncryptionProcessor.cs#L475-L489). - if you have to support non-alphanumerical ASCII characters in your service/application. |
 | Maximum number of properties per item | No practical limit |
 | Maximum length of property name | No practical limit |
 | Maximum length of property value | No practical limit |
@@ -222,8 +214,8 @@ See the [Autoscale](provision-throughput-autoscale.md#autoscale-limits) article 
 | Minimum RU/s the system can scale to | `0.1 * Tmax`|
 | Current RU/s the system is scaled to  |  `0.1*Tmax <= T <= Tmax`, based on usage|
 | Minimum billable RU/s per hour| `0.1 * Tmax` <br></br>Billing is done on a per-hour basis, where you're billed for the highest RU/s the system scaled to in the hour, or `0.1*Tmax`, whichever is higher. |
-| Minimum autoscale max RU/s for a container  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` rounded to nearest 1000 RU/s |
-| Minimum autoscale max RU/s for a database  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per extra container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 6000 RU/s (scales between 600 - 6000 RU/s). |
+| Minimum autoscale max RU/s for a container  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10)` rounded to nearest 1000 RU/s |
+| Minimum autoscale max RU/s for a database  |  `MAX(1000, highest max RU/s ever provisioned / 10, current storage in GB * 10,  1000 + (MAX(Container count - 25, 0) * 1000))`, rounded to nearest 1000 RU/s. <br></br>Note if your database has more than 25 containers, the system increments the minimum autoscale max RU/s by 1000 RU/s per extra container. For example, if you have 30 containers, the lowest autoscale maximum RU/s you can set is 6000 RU/s (scales between 600 - 6000 RU/s).
 
 ## SQL query limits
 

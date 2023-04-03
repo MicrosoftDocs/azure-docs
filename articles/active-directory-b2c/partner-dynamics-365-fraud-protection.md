@@ -120,7 +120,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |{Settings:DfpTenantId}|The ID of the Azure AD tenant (not B2C) where DFP is licensed and installed|`01234567-89ab-cdef-0123-456789abcdef` or `consoto.onmicrosoft.com` |
 |{Settings:DfpAppClientIdKeyContainer}|Name of the policy key-in which you save the DFP client ID|`B2C_1A_DFPClientId`|
 |{Settings:DfpAppClientSecretKeyContainer}|Name of the policy key-in which you save the DFP client secret |`B2C_1A_DFPClientSecret`|
-|{Settings:DfpEnvironment}| The ID of the DFP environment.|Environment ID is a global unique identifier of the DFP environment that you sends the data to. Your custom policy should invoke the API endpoint including the `x-ms-dfpenvid=<your-env-id>` in the query string parameter.|
+|{Settings:DfpEnvironment}| The ID of the DFP environment.|Environment ID is a global unique identifier of the DFP environment that you send the data to. Your custom policy should call the API endpoint, including the query string parameter `x-ms-dfpenvid=your-env-id>`|
 
 *You can set up application insights in an Azure AD tenant or subscription. This value is optional but [recommended to assist with debugging](./troubleshoot-with-application-insights.md).
 

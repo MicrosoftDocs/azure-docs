@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Planview Enterprise One | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Planview Enterprise One'
 description: Learn how to configure single sign-on between Azure Active Directory and Planview Enterprise One.
 services: active-directory
 author: jeevansd

@@ -1,6 +1,6 @@
 ---
-title: Create an Azure SQL managed instance on Azure Arc
-description: Create an Azure SQL managed instance on Azure Arc
+title: Create an Azure Arc-enabled SQL Managed Instance
+description: Deploy Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
@@ -11,7 +11,7 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Create an Azure SQL managed instance on Azure Arc
+# Create an Azure Arc-enabled SQL Managed Instance
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
