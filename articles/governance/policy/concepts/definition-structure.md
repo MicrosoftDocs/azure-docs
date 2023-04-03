@@ -142,10 +142,10 @@ The following Resource Provider modes are fully supported:
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
+- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
 The following Resource Provider modes are currently supported as a **[preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)**:
 
-- `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 - `Microsoft.ManagedHSM.Data` for managing [Managed HSM](../../../key-vault/managed-hsm/overview.md) keys using Azure Policy.
 
 > [!NOTE]

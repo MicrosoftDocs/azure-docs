@@ -31,7 +31,7 @@ This article focuses on general guidance for running your Linux distribution on 
 
 4. The maximum size allowed for the VHD is 1,023 GB.
 
-5. When installing the Linux system we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks.
+5. When installing the Linux system, we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks.
 
 6. Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
 
@@ -58,20 +58,20 @@ The mechanism for rebuilding the initrd or initramfs image may vary depending on
 
 1. Back up the existing initrd image:
 
-    ```
-    cd /boot
+    ```bash
+    sudo cd /boot
     sudo cp initrd-`uname -r`.img  initrd-`uname -r`.img.bak
     ```
 
 2. Rebuild the `initrd` with the `hv_vmbus` and `hv_storvsc` kernel modules:
 
-    ```
+    ```bash
     sudo mkinitrd --preload=hv_storvsc --preload=hv_vmbus -v -f initrd-`uname -r`.img `uname -r`
     ```
 
 ### Resizing VHDs
 VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs created using Hyper-V are aligned correctly.  If the VHD isn't aligned correctly, you may receive an error message similar to the following when you try to create an image from your VHD.
-   ```output
+   ```config
    The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
    ```
 In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
@@ -82,11 +82,11 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 
 1. Resizing the VHD directly using tools such as `qemu-img` or `vbox-manage` may result in an unbootable VHD.  We recommend first converting the VHD to a RAW disk image.  If the VM image was created as a RAW disk image (the default for some hypervisors such as KVM), then you may skip this step.
  
-    ```
-    qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
+    ```bash
+    sudo qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
     ```
 
-1. Calculate the required size of the disk image so that the virtual size is aligned to 1 MB.  The following bash shell script uses `qemu-img info` to determine the virtual size of the disk image, and then calculates the size to the next 1 MB.
+2. Calculate the required size of the disk image so that the virtual size is aligned to 1 MB.  The following bash shell script uses `qemu-img info` to determine the virtual size of the disk image, and then calculates the size to the next 1 MB.
 
     ```bash
     rawdisk="MyLinuxVM.raw"
@@ -104,19 +104,19 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 3. Resize the raw disk using `$rounded_size` as set above.
 
     ```bash
-    qemu-img resize MyLinuxVM.raw $rounded_size
+    sudo qemu-img resize MyLinuxVM.raw $rounded_size
     ```
 
 4. Now, convert the RAW disk back to a fixed-size VHD.
 
     ```bash
-    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+    sudo qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
 
    Or, with qemu versions before 2.6, remove the `force_size` option.
 
     ```bash
-    qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+    sudo qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
     ```
 
 ## Linux Kernel Requirements
@@ -166,11 +166,11 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 ## General Linux System Requirements
 
 1. Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
-    ```  
+    ```config 
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
     We also recommend *removing* the following parameters if they exist.
-    ```  
+    ```config
     rhgb quiet crashkernel=auto
     ```
     Graphical and quiet boot isn't useful in a cloud environment, where we want all logs sent to the serial port. The `crashkernel` option may be left configured if needed, but note that this parameter reduces the amount of available memory in the VM by at least 128 MB, which may be problematic for smaller VM sizes.
@@ -179,46 +179,46 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
-1. Add Hyper-V modules both initrd and initramfs instructions (Dracut).
-1. Rebuild `initrd` or `initramfs`.
+3. Add Hyper-V modules both initrd and initramfs instructions using `dracut` or `mkinitramfs`.
 
    **Initramfs**
 
    ```bash
-   cp /boot/initramfs-$(uname -r).img /boot/initramfs-[latest kernel version ].img.bak 
-   dracut -f -v /boot/initramfs-[latest kernel version ].img  [depending on the version of grub] 
-   grub-mkconfig -o /boot/grub/grub.cfg 
-   grub2-mkconfig -o /boot/grub2/grub.cfg 
+   sudo cd /boot
+   sudo cp initramfs-<kernel-version>.img <kernel-version>.img.bak 
+   sudo dracut -f -v initramfs-<kernel-version>.img <kernel-version> --add-drivers "hv_vmbus hv_netvsc hv_storvsc"
+   sudo grub-mkconfig -o /boot/grub/grub.cfg 
+   sudo grub2-mkconfig -o /boot/grub2/grub.cfg 
    ```
 
    **Initrd**
 
    ```bash
-   mv /boot/[initrd kernel] /boot/[initrd kernel]-old 
-   mkinitrd /boot/initrd.img-[initrd kernel]-generic /boot/[initrd kernel]-generic-old 
-   update-initramfs -c -k [initrd kernel] 
-   update-grub 
+   sudo cd /boot
+   sudo cp initrd.img-<kernel-version>  initrd.img-<kernel-version>.bak
+   sudo mkinitramfs -o initrd.img-<kernel-version> <kernel-version>  --with=hv_vmbus,hv_netvsc,hv_storvsc
+   sudo update-grub 
    ```
-1. Ensure that the SSH server is installed, and configured to start at boot time. This configuration is usually the default.
+4. Ensure that the SSH server is installed, and configured to start at boot time. This configuration is usually the default.
 
-1. Install the Azure Linux Agent.
+5. Install the Azure Linux Agent.
    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
    
    > [!NOTE]
-   > Make sure 'udf' and 'vfat' modules are enable. Blocklisting or removing the udf module will cause a provisioning failure.  Blocklisting or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+   > Make sure 'udf' and 'vfat' modules are enable. `Blocklisting` or removing the udf module will cause a provisioning failure.  `Blocklisting` or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
    
    Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
 
-   **Redhat/Centos**
+   **Red Hat/Centos**
    ```bash
-   sudo yum install -y [waagent] cloud-init cloud-utils-growpart gdisk hyperv-daemons
+   sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
    ```
    **Ubuntu/Debian**
    ```bash
    sudo apt install walinuxagent cloud-init cloud-utils-growpart gdisk hyperv-daemons
    ```
-   **Suse**
+   **SUSE**
    ```bash
    sudo zypper install python-azure-agent cloud-init cloud-utils-growpart gdisk hyperv-daemons
    ```
@@ -228,14 +228,14 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    sudo systemctl enable cloud-init.service
    ```
 
-1. Swap: Do not create swap space on the OS disk.
+6. Swap: Do not create swap space on the OS disk.
 
    The Azure Linux Agent or Cloud-init can be used to configure swap space using the local resource disk.  This resource disk is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. The following blocks show how to configure this swap.
 
    Azure Linux Agent 
    Modify the following parameters in /etc/waagent.conf
 
-   ```
+   ```config
    ResourceDisk.Format=y
    ResourceDisk.Filesystem=ext4
    ResourceDisk.MountPoint=/mnt/resource
@@ -247,9 +247,9 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    Configure cloud-init to handle the provisioning:
     
    ```bash
-   sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-auto/g' /etc/waagent.conf
-   sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-   sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+   sudo sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-auto/g' /etc/waagent.conf
+   sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+   sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
    ```
 
    Configure Cloud-init to create swap.
@@ -262,9 +262,9 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 
    Create cfg file to configure swap using Cloud-init:
 
-    ```
-    echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
-    cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
+    ```bash
+    sudo echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
+    sudo cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
     #cloud-config
     # Generated by Azure cloud image build
     disk_setup:
@@ -284,43 +284,44 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
     ```
        
 
-9.	Configure cloud-init to handle the provisioning:
+7.	Configure cloud-init to handle the provisioning:
     1. Configure waagent for cloud-init:
        ```bash
-       sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-init/g' /etc/waagent.conf
-       sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-       sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+       sudo sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-init/g' /etc/waagent.conf
+       sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+       sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
        ```
        If you are migrating a specific virtual machine and do not wish to create a generalized image, set `Provisioning.Agent=disabled` in the `/etc/waagent.conf` config.
+
     1. Configure mounts:
-       ```
-       echo "Adding mounts and disk_setup to init stage"
-       sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
-       sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
-       sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
-       sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
-    2. Configure Azure datasource:
-       ```
-       echo "Allow only Azure datasource, disable fetching network setting via IMDS"
-       cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
+       ```bash
+       sudo echo "Adding mounts and disk_setup to init stage"
+       sudo sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
+       sudo sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
+       sudo sed -i '/cloud_init_modules/a\\ - mounts' /etc/cloud/cloud.cfg
+       sudo sed -i '/cloud_init_modules/a\\ - disk_setup' /etc/cloud/cloud.cfg
+    1. Configure Azure datasource:
+       ```bash
+       sudo echo "Allow only Azure datasource, disable fetching network setting via IMDS"
+       sudo cat > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg <<EOF
        datasource_list: [ Azure ]
        datasource:
           Azure:
             apply_network_config: False
        EOF
        ```
-    3. If configured, remove existing swapfile:
-       ```
+    1. If configured, remove existing swapfile:
+       ```bash
        if [[ -f /mnt/resource/swapfile ]]; then
        echo "Removing swapfile" #RHEL uses a swapfile by defaul
        swapoff /mnt/resource/swapfile
        rm /mnt/resource/swapfile -f
        fi
        ```
-   4.	Configure cloud-init logging:
-         ```
-         echo "Add console log file"
-         cat >> /etc/cloud/cloud.cfg.d/05_logging.cfg <<EOF
+   1.	Configure cloud-init logging:
+         ```bash
+         sudo echo "Add console log file"
+         sudo cat >> /etc/cloud/cloud.cfg.d/05_logging.cfg <<EOF
 
          # This tells cloud-init to redirect its stdout and stderr to
          # 'tee -a /var/log/cloud-init-output.log' so the user can see output
@@ -330,25 +331,24 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
          ```
 
 	
-1. Deprovision.
+8. Deprovision.
    > [!CAUTION]
    > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command waagent -force -deprovision+user will render the source machine unusable, this step is intended only to create a generalized image.
 
    Run the following commands to deprovision the virtual machine.
   
-   ```
-   # sudo rm -f /var/log/waagent.log
-   # sudo cloud-init clean
-   # waagent -force -deprovision+user
-   # rm -f ~/.bash_history
-   # export HISTSIZE=0
-   # logout
+   ```bash
+   sudo rm -f /var/log/waagent.log
+   sudo cloud-init clean
+   sudo  -force -deprovision+user
+   sudo rm -f ~/.bash_history
+   sudo export HISTSIZE=0
    ```  
    
    > [!NOTE]
    > On Virtualbox you may see the following error after running `waagent -force -deprovision` that says `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
 
-1. Shut down the virtual machine and upload the VHD to Azure.
+9. Shut down the virtual machine and upload the VHD to Azure.
 
 ## Next Steps
 [Create a Linux VM from a custom disk with the Azure CLI](upload-vhd.md).

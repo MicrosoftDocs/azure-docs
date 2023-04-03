@@ -3,8 +3,6 @@ items:
     href: index.yml
   - name: Switch to Event Grid on Kubernetes documentation
     href: kubernetes/index.yml
-  - name: Switch to Event Grid on IoT Edge documentation
-    href: edge/pub-sub-events-webhook-local.md
   - name: Overview
     items:
     - name: What is Event Grid?
@@ -398,6 +396,8 @@ items:
         href: /azure/templates/microsoft.eventgrid/topics
     - name: SDKs
       href: sdk-overview.md
+    - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
+      href: transition.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn training

@@ -27,7 +27,10 @@ You can choose between these logs destinations:
     - Azure storage account to archive.
     - Azure event hub for data ingestion and analytic services. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md).
     - An Azure partner monitoring solution such as, Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
-- **None**: You can disable the storage of log data. You'll still be able to view real-time container logs via the **Logs stream** feature in your container app.  For more information, see [Log streaming](log-streaming.md).
+- **None**: You can disable the storage of log data. When disabled, you can still view real-time container logs via the **Logs stream** feature in your container app. For more information, see [Log streaming](log-streaming.md).
+
+> [!NOTE]
+> Azure Monitor is not currently supported in the Consumption + Dedicated plan structure.
 
 When *None* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
 
@@ -43,7 +46,7 @@ Use these steps to configure the logging options for your Container Apps environ
     - **None**:  This option disables the storage of log data.
 1. Select **Save**.
     :::image type="content" source="media/observability/log-opts-screenshot-page-save-button.png" alt-text="Screenshot Logging options page.":::
-1. If you have selected **Azure Monitor** as your logs destination, you must configure **Diagnostic settings**.  The **Diagnostic settings** item will appear below the **Logging options** menu item.
+1. If you have selected **Azure Monitor** as your logs destination, you must configure **Diagnostic settings**.  The **Diagnostic settings** item appears below the **Logging options** menu item.
 
 ### Diagnostic settings
 
