@@ -10,7 +10,7 @@ ms.subservice: container-storage
 ---
 
 # Quickstart: Use Azure Container Storage with Azure Kubernetes Service
-Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This Quickstart shows you how to configure and use Azure Container Storage with Azure Kubernetes Service (AKS). At the end, you'll have new storage classes that you can use for your Kubernetes workloads.
+Azure Container Storage is a service built natively for containers that enables customers to create and manage volumes for running stateful container applications. This Quickstart shows you how to configure and use Azure Container Storage with Azure Kubernetes Service (AKS), using Azure Disks as back-end storage. At the end, you'll have new storage classes and a pod that you can use for your Kubernetes workloads.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -101,7 +101,7 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
     aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.24.9
     ```
 
-## Create a node pool
+## Create and label a node pool
 
 You'll need a node pool of at least three virtual machines (VMs). Each VM must have a minimum of four virtual CPUs (vCPUs), so we'll use the standard DS4 VM size.
 
@@ -111,11 +111,14 @@ To create a new node pool, run the following command:
 az aks nodepool add --cluster-name myAKSCluster --name storagepool --resource-group myContainerStorageRG --node-vm-size standard_ds4_v2 --node-count 3 --labels openebs.io/engine=io.engine
 ```
 
-If you already have an existing node pool you'd like to use, run the following command instead:
+If you already have an existing node pool you'd like to use, run the following command instead to label the node pool:
 
 ```azurecli-interactive
 az aks nodepool update --resource-group <resource-group> --cluster-name <cluster-name> --name <nodepool_name> --labels openebs.io/engine=io.engine
 ```
+
+> [!TIP]
+> You can verify that the node pool has been correctly labeled by signing into the [Azure portal](https://portal.azure.com?azure-portal=true) and navigating to your AKS cluster. Go to **Settings > Node pools**, select your node pool, and under **Taints and labels** you should see `Labels: openebs.io/engine : io.engine`.
 
 ## Assign Contributor role to AKS managed identity
 
@@ -147,22 +150,21 @@ The initial install uses Azure Arc CLI commands to download a new extension. The
 az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage --extension-type microsoft.azstor --scope cluster --release-train staging --release-namespace azstor
 ```
 
-Installation takes a few minutes to complete. You can check if the installation completed correctly by running `kubectl get sc` to display the available storage classes. If the following two storage classes are listed, you've successfully installed Azure Container Storage.
-
-```output
-azure-disk-sc-for-mayastor
-azurecontainerstorage-single-replica
-```
-
-A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume.
-
-## Create a storage pool
-
-Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a yaml file. The `name` value can be whatever you want. Use the following code to create a storage pool for Azure managed disks. 
+Installation takes 10-15 minutes to complete. You can check if the installation completed correctly by running the following command and ensuring that `provisioningState` says Succeeded:
 
 ```azurecli-interactive
-cat <<EOF | kubectl apply -f -
----
+az k8s-extension list --cluster-name myAKSCluster --resource-group myContainerStorageRG --cluster-type managedClusters
+```
+
+## Create a storage pool utilizing Azure Disks
+
+Now you can create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a yaml file. Follow these steps to create a storage pool for Azure managed disks. 
+
+1. Run `code acstor-storagepool.yaml` to create a yaml file.
+
+2. Paste in the following code. The `name` value can be whatever you want. 
+
+```azurecli-interactive
 apiVersion: containerstorage.azure.com/v1alpha1
 kind: StoragePool
 metadata:
@@ -174,24 +176,142 @@ spec:
    resources:
        limits: {"storage": 10Ti}
        requests: {"storage": 5Ti}
----
-EOF
+```
 
+3. Apply the yaml file to create the storage pool.
+
+```azurecli-interactive
+kubectl apply -f acstor-storagepool.yaml 
 ```
 
 When storage pool creation is complete, you'll see a message like:
 
 ```output
-azuredisk.containerstorage.azure.com/azuredisk1 created
+storagepool.containerstorage.azure.com/azuredisk created
+```
+
+You can also run this command to check the status of the storage pool:
+
+```azurecli-interactive
+kubectl describe sp azuredisk -n azstor
 ```
 
 ## Use the new storage classes
 
-You can now use the new out-of-the-box storage classes when creating persistent volume claims and deploying persistent volumes, using Azure Disks as back-end storage. Follow the instructions in [Create and use a volume with Azure Disks in AKS](../../aks/azure-csi-disk-storage-provision.md#create-a-persistent-volume-claim), using `azure-disk-sc-for-mayastor` in place of the other built-in storage classes for Disks. You can also edit the new storage classes, or create your own.
+A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume. When the storage pool is ready to use, you must select a storage class to use to create persistent volume claims and deploy persistent volumes.
+
+Run `kubectl get sc` to display the available storage classes. You should see output similar to the following.
+
+```output
+azure-disk-sc-for-mayastor
+azurecontainerstorage-single-replica
+```
+
+For example, you can now use the `azure-disk-sc-for-mayastor` storage class in place of the other built-in storage classes for Disks CSI drivers.
+
+## Create a persistent volume claim
+
+A persistent volume claim is used to automatically provision storage based on a storage class. Follow these steps to create a persistent volume claim. 
+
+1. Run `code acstor-pvc.yaml` to create a yaml file.
+
+2. Paste in the following code. The `name` value can be whatever you want. 
+
+```azurecli-interactive
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+   name: azurediskpvc
+spec:
+   accessModes:
+      - ReadWriteOnce
+   storageClassName: azuredisk
+   resources:
+      requests:
+         storage: 100Gi
+```
+
+3. Apply the yaml file to create the persistent volume claim.
+
+```azurecli-interactive
+kubectl apply -f acstor-pvc.yaml
+```
+
+You should see output similar to:
+
+```output
+persistentvolumeclaim/azurediskpvc created
+```
+
+You can verify the status of the persistent volume claim by running the following command:
+
+```azurecli-interactive
+kubectl describe pvc azurediskpvc
+```
+
+Once the persistent volume claim is created, it's ready to mount onto a pod.
+
+## Deploy a pod and attach a persistent volume
+
+Create a pod using Fio, or flexible I/O, for benchmarking and workload simulation.
+
+1. Run `code acstor-pod.yaml` to create a yaml file.
+
+2. Paste in the following code.
+
+```azurecli-interactive
+kind: Pod
+apiVersion: v1
+metadata:
+  name: fiopod
+spec:
+  nodeSelector:
+    openebs.io/engine: io.engine
+  volumes:
+    - name: 
+      persistentVolumeClaim:
+        claimName: azurediskpvc
+  containers:
+    - name: fio
+      image: nixery.dev/shell/fio
+      args:
+        - sleep
+        - "1000000"
+      volumeMounts:
+        - mountPath: "/volume"
+          name: azurediskpv
+```
+
+3. Apply the yaml file to deploy the pod.
+
+```azurecli-interactive
+kubectl apply -f acstor-pod.yaml
+```
+
+You should see output similar to the following:
+
+```output
+pod/fiopod created
+```
+
+Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
+
+```azurecli-interactive
+kubectl describe pod fiopod
+kubectl describe pvc azurediskpvc
+```
+
+Check fio testing to see its current status:
+
+```azurecli-interactive
+kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
+```
+
+You now have a pod with storage that you can use for your Kubernetes workloads.
 
 ## Clean up resources
 
-To uninstall, you can delete the `k8s-extension` by running the following command:
+To uninstall Azure Container Storage, you can delete the `k8s-extension` by running the following command:
 
 ```azurecli-interactive
 az k8s-extension delete --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myContainerStorageRG --name azurecontainerstorage
