@@ -5,7 +5,7 @@ description: Learn how Enterprise Agreement users manually calculate their savin
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
-ms.subservice: s
+ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 04/03/2023
 ms.author: banders
