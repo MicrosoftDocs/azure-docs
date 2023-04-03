@@ -28,7 +28,7 @@ In this example the Onco-Phenotype model receives patient information in the for
 {
   "configuration": {
     "checkForCancerCase": true,
-    "includeEvidence": true
+    "includeEvidence": false
   },
   "patients": [
     {
