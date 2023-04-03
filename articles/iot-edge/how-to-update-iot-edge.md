@@ -17,17 +17,19 @@ services: iot-edge
 
 As the IoT Edge service releases new versions, update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
-Two logical components of an IoT Edge device need to be updated if you want to move to a newer version. 
+Two logical components of an IoT Edge device need to be updated if you want to move to a newer version.
 
-1. The security subsystem. Although the architecture of the security subsystem [changed between version 1.1 and 1.2](iot-edge-security-manager.md), its overall responsibilities remained the same. It runs on the device, handles security-based tasks, and starts the modules when the device starts. Currently, the *security subsystem* can only be updated from the device itself.
+1. *Security subsystem* - Although the architecture of the security subsystem [changed between version 1.1 and 1.2](iot-edge-security-manager.md), its responsibilities remained the same. It runs on the device, handles security-based tasks, and starts the modules when the device starts. The *security subsystem* can only be updated from the device itself.
 
-1. The runtime, made up of the IoT Edge hub (`edgeHub`) and IoT Edge agent (`edgeAgent`) modules. Depending on how you structure your deployment, the *runtime* can be updated from either the device or remotely.
+1. *IoT Edge runtime* - The IoT Edge runtime is made up of the IoT Edge hub (`edgeHub`) and IoT Edge agent (`edgeAgent`) modules. Depending on how you structure your deployment, the *runtime* can be updated from either the device or remotely.
 
 ## How to update
 
-Here's an overview of the updating process.
+Use these sections of this article to update both the runtime and application layers on a device.
 
-Use these sections of this article to update both the runtime and application layers on a device:
+### Patch releases
+
+When upgrading between *patch* releases, for example 1.4.1 to 1.4.2, the order isn't important. You can upgrade host components or system containers before or after the other. To update between patch releases:
 
 1. [Update the security subsystem](#update-the-security-subsystem)
 1. [Update the runtime containers](#update-the-runtime-containers)
@@ -35,30 +37,25 @@ Use these sections of this article to update both the runtime and application la
 
 You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
-### Recommended update order
+### Product releases
 
-Though there's some flexibility in the recommended order of updates, here's a general approach:
+When upgrading between *product* releases, for example 1.1 to 1.4, order flexibility still exists. We'd recommend updating both host components and system containers, since the combination is what we test. To update between product releases:
 
-Perform all steps on your device, except the module deployment in Azure IoT Hub.
+1. On the device, stop IoT Edge and uninstall.
 
-1. Stop IoT Edge and uninstall.
+1. On the device, upgrade your container engine, either [Docker](https://docs.docker.com/engine/install/ubuntu/) or [Moby](how-to-provision-single-device-linux-symmetric.md#install-a-container-engine).
 
-1. Upgrade your container engine, either [Docker](https://docs.docker.com/engine/install/ubuntu/) or [Moby](how-to-provision-single-device-linux-symmetric.md#install-a-container-engine), if needed.
-
-1. Install `aziot-edge`.
+1. On the device, install `aziot-edge`.
    
-   If you're importing an old configuration, using `iotedge config import`, then modify the [agent.config] image of the generated `/etc/aziot/config.toml` file to use the 1.4 image for edgeAgent.
+   If you're importing an old configuration using `iotedge config import`, then modify the [agent.config] image of the generated `/etc/aziot/config.toml` file to use the 1.4 image for edgeAgent.
 
-   For more information, see [Configure the IoT Edge agent](how-to-configure-proxy-support.md#configure-the-iot-edge-agent).
+   For more information, see [Configure IoT Edge device settings](configure-device.md#default-edge-agent).
 
 1. In IoT Hub, update the module deployment in the cloud to reference the newest system modules.
 
-1. Start `aziot-edge`, using `sudo iotedge config apply`.
+1. On the device, start `aziot-edge`, using `sudo iotedge config apply`.
 
->[!NOTE]
->When upgrading between *patch* releases, for example 1.4.1 to 1.4.2, the order isn't important. You can upgrade host components or system containers before or after the other.  
->
->When upgrading between *product* releases, for example 1.1 to 1.4, order flexibility still exists. We'd recommend updating both host components and system containers, since the combination is what we test.
+You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
 ## Update the security subsystem
 
