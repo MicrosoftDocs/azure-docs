@@ -27,7 +27,7 @@ Data-aware security posture automatically and continuously discovers managed and
 
 ## Smart sampling
 
-Defender for Cloud uses smart sampling to discover a selected number of files in your cloud datastores. The sampling results discover evidence of sensitive data issues, while saving on discovery costs and time.
+Defender for Cloud uses smart sampling to discover a selected number of files in your cloud datastores. Smart sampling results discover evidence of sensitive data issues, while saving on discovery costs and time.
 
 ## Data security in Defender CSPM
 
