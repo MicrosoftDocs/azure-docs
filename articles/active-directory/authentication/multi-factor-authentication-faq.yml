@@ -7,11 +7,11 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: faq
-  ms.date: 14/03/2023
+  ms.date: 04/03/2023
   ms.author: justinha
   author: justinha
   manager: amycolannino
-  ms.reviewer: michmcla
+  ms.reviewer: jpettere
   ms.collection: M365-identity-device-management
 title: Frequently asked questions about Azure AD Multi-Factor Authentication
 summary: |
