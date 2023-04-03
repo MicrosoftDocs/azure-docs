@@ -1004,7 +1004,6 @@ The default version numbering schema is latest. The latest schema has an additio
 > The existing version generation logic for `sharedImage` distribution is deprecated. Two new options are provided: monotonically increasing versions that are always the latest version in a gallery, and versions generated based on the version number of the source image. The enum specifying the version generation schema allows for expansion in the future with additional version generation schemas.
 
 
-# [JSON](#tab/json)
 
 ```json
 "DistributeVersioner": {
