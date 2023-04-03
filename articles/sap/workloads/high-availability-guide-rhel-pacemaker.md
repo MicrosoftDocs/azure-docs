@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 03/31/2022
+ms.date: 04/03/2022
 ms.author: radeltch
 
 ---
@@ -33,6 +33,8 @@ ms.author: radeltch
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[3108316]:https://launchpad.support.sap.com/#/notes/3108316
+[3108302]:https://launchpad.support.sap.com/#/notes/3108302
 
 [virtual-machines-linux-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
@@ -47,8 +49,10 @@ Read the following SAP Notes and papers first:
   * The supported SAP software, and operating system (OS) and database combinations.
   * The required SAP kernel version for Windows and Linux on Microsoft Azure.
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux
+* SAP Note [2002167] recommends OS settings for Red Hat Enterprise Linux
+* SAP Note [3108316] recommends OD settings for Red Hat Enterprise Linux 9.x
 * SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux
+* SAP Note [3108302] has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x
 * SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
 * SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
 * SAP Note [2243692] has information about SAP licensing on Linux in Azure.
