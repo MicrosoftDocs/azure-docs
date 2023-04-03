@@ -10,9 +10,12 @@ ms.author: lwainstein
 
 # Stream logs in both the CEF and Syslog format
 
-This article describes how to stream and filter logs in both the CEF and Syslog format to your Microsoft Sentinel workspace from multiple on-premises appliances. If your organization uses some appliances that ingest logs over CEF and other appliances that ingest logs over Syslog, you can use this process to ingest both types of data without duplications. 
+This article describes how to stream and filter logs in both the CEF and Syslog format to your Microsoft Sentinel workspace from multiple appliances. This article is useful in the following scenario:
 
-During this process, you use the Azure Monitor Agent (AMA) and Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying. Data Collection Rules (DCRs) to filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
+- You're using a Linux log collector to forward both Syslog and CEF events to your Microsoft Sentinel workspaces using the Azure Monitor Agent (AMA). 
+- You want to ingest Syslog events in the Syslog table and CEF events in the CommonSecurityLog table.
+
+During this process, you use the AMA and Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying. Data Collection Rules (DCRs) to filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
 
 > [!IMPORTANT]
 >
@@ -36,6 +39,14 @@ Before you begin, verify that you have:
 
 To avoid data duplication, make sure that the appliance that sends Syslog data and the appliance that sends CEF data do so on different facilities, for example `local1` and `local2`. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
 
+- If you plan to use the same log forwarder machine to forward Syslog messages as well as CEF, to avoid the duplication of events to the Syslog and CommonSecurityLog tables: On each source machine that sends logs to the forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF won't also be sent in Syslog.
+- If changing the facility for the source appliance is not applicable, you can use ingest time transformations to filter out CEF messages from the Syslog stream to avoid duplication:
+
+    ```kusto
+    source |
+    where ProcessName !contains “\“CEF\””
+    ```
+
 ## Create a DCR for your CEF logs
 
 - Create the DCR via the UI:
@@ -43,12 +54,8 @@ To avoid data duplication, make sure that the appliance that sends Syslog data a
     1. [Define resources (VMs)](connect-cef-ama.md#define-resources-vms).
     1. [Select the data source type and create the DCR](connect-cef-ama.md#select-the-data-source-type-and-create-the-dcr).
 
-        > [!NOTE]
-        > **Using the same machine to forward both plain Syslog *and* CEF messages**
-        >
-        > If you plan to use the same log forwarder machine to forward Syslog messages as well as CEF, in order to avoid the duplication of events to the Syslog and CommonSecurityLog tables:
-        >
-        > On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog.
+        > [!IMPORTANT]
+        > Make sure to correctly [separate your facilities](#separate-your-facilities) (review the options in this section).
 
     1. [Run the installation script](connect-cef-ama.md).
 
