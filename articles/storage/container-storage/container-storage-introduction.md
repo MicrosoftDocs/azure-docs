@@ -4,7 +4,7 @@ description: An overview of Azure Container Storage, a service built natively fo
 author: khdownie
 ms.service: storage
 ms.topic: overview
-ms.date: 03/31/2023
+ms.date: 04/03/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ms.custom: references_regions
@@ -25,13 +25,13 @@ To sign up for Azure Container Storage Preview, complete the [onboarding survey]
 
 Azure Container Storage utilizes existing Azure storage offerings for actual storage and offers a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
 
-Azure Container Storage Preview only supports Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters with the following block storage types:
+Azure Container Storage Preview supports Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) clusters with block storage. The following table summarizes the supported storage types, recommended workloads, and provisioning models.
 
-- **[Azure managed disks](../../virtual-machines/managed-disks-overview.md):** Azure Premium v2 and v1 Disks are supported.
-
-- **[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md):** Application volumes are created within SAN Volume Groups and are attached directly to nodes through the iSCSI protocol. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time.
-
-- **Local (ephemeral) disk volumes:** Any local storage device (either SSD or NVMe) available on the AKS nodes is supported.
+| **Storage type** | **Description** | **Workloads** | **Offerings** | **Provisioning model** |
+|------------------|-----------------|---------------|---------------|------------------------|
+| **Ephemeral Disk**   | Utilizes local storage resources on AKS nodes | Ephemeral disk is extremely latency sensitive (low sub-ms latency), so it's best for applications with no data durability requirement or with built-in data replication support such as Cassandra. | Temporary storage, SSD or NVMe | Deployed as part of the VMs hosting an AKS cluster. AKS discovers the available ephemeral storage on AKS nodes and acquires them for volume deployment. |
+| **[Azure Disks](../../virtual-machines/managed-disks-overview.md)**      | Granular control of storage SKUs and configurations​ | Azure Disks are a good fit for tier 1 and general purpose databases such as MySQL, MongoDB, and PostgreSQL. | Premium SSD v2, Premium SSD | Provisioned per target container storage pool size and maximum volume size. |
+| **[Azure Elastic SAN Preview](../elastic-san/elastic-san-introduction.md)** | Provision on demand, fully managed resource | General purpose databases, streaming and messaging services, CD/CI environments, and other tier 1/tier 2 workloads. | Azure Elastic SAN Preview | Provisioned on demand per created volume and volume snapshot. Multiple clusters can access a single SAN concurrently, however persistent volumes can only be attached by one consumer at a time. |
 
 ## Regional availability
 

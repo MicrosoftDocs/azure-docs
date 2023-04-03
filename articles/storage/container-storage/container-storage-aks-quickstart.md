@@ -4,7 +4,7 @@ description: Learn how to configure and use Azure Container Storage with Azure K
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/31/2023
+ms.date: 04/03/2023
 ms.author: kendownie
 ms.subservice: container-storage
 ---
