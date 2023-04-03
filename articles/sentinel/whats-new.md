@@ -19,14 +19,15 @@ See these [important announcements](#announcements) about recent changes to feat
 
 ## March 2023
 
-- [Work with the Microsoft Sentinel solution for SAP® applications across multiple workspaces (Preview)](#work-with-the-microsoft-sentinel-solution-for-sap-applications-across-multiple-workspaces-preview)
+- [Microsoft Sentinel for SAP® BTP solution (Preview)](#microsoft-sentinel-solution-for-sap-btp-preview)
+- [Work with the Microsoft Sentinel Solution for SAP® applications across multiple workspaces (Preview)](#work-with-the-microsoft-sentinel-solution-for-sap-applications-across-multiple-workspaces-preview)
 - [Monitoring the configuration of static SAP security parameters](#monitoring-the-configuration-of-static-sap-security-parameters-preview)
 - [Stream log data from the Google Cloud Platform into Microsoft Sentinel (Preview)](#stream-log-data-from-the-google-cloud-platform-into-microsoft-sentinel-preview)
 - [Microsoft Defender Threat Intelligence data connector (Preview)](#microsoft-defender-threat-intelligence-data-connector-preview)
 - [Microsoft Defender Threat Intelligence solution (Preview)](#microsoft-defender-threat-intelligence-solution-preview)
 - [Automatically update the SAP data connector agent](#automatically-update-the-sap-data-connector-agent)
 
-### Microsoft Sentinel for SAP BTP solution
+### Microsoft Sentinel Solution for SAP® BTP (Preview)
 
 The Microsoft Sentinel Solution for SAP BTP monitors and protects your SAP Business Technology Platform (BTP) system, by collecting audits and activity logs from the BTP infrastructure and BTP based apps, and detecting threats, suspicious activities, illegitimate activities, and more. 
 
