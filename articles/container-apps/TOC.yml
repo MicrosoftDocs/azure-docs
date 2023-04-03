@@ -108,7 +108,7 @@
       items:
       - name: Set up custom domain with free certificate
         href: custom-domains-managed-certificates.md
-        display: Set up custom domain with managed certificate
+        displayName: Set up custom domain with managed certificate
       - name: Set up custom domain with existing certificate
         href: custom-domains-certificates.md
       - name: Set up environment custom DNS suffix
