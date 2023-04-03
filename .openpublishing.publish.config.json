@@ -984,8 +984,6 @@
   ".openpublishing.redirection.baremetal-infrastructure.json",
   ".openpublishing.redirection.defender-for-cloud.json",
   ".openpublishing.redirection.defender-for-iot.json",
-  ".openpublishing.redirection.deployment-environments.json",
-  ".openpublishing.redirection.dev-box.json",
   ".openpublishing.redirection.healthcare-apis.json",
   ".openpublishing.redirection.iot-hub-device-update.json",
   ".openpublishing.redirection.json",
@@ -1042,6 +1040,8 @@
   "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
   "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
-  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
+  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
+  "articles/dev-box/.openpublishing.redirection.dev-box.json",
+  "articles/deployment-environments/.openpublishing.redirection.deployment-environments.json"
 ]
 }

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.custom: references_regions 
-ms.date: 03/31/2023
+ms.date: 03/07/2023
 ms.author: anfdocs
 ---
 
@@ -39,7 +39,8 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 > Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Customer-managed keys feature is expected to be enabled within a week from submitting waitlist request.
 
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
-* To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in [Set the Network Features option](configure-network-features.md#set-the-network-features-option) to create a volume. 
+* To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
+* Switching from user-assigned identity to the system-assigned identity isn't currently supported.
 * MSI Automatic certificate renewal isn't currently supported.  
 * The MSI certificate has a lifetime of 90 days. It becomes eligible for renewal after 46 days. **After 90 days, the certificate is no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
     * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it's not eligible, an error message will communicate the date of eligibility. 
@@ -99,10 +100,7 @@ Before creating your first customer-managed key volume, you must have set up:
     * The key vault must have soft delete and purge protection enabled. 
     * The key must be of type RSA. 
 * The key vault must have an [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
-    * You need a private endpoint in each VNet you intend on using for Azure NetApp Files volumes
     * The private endpoint must reside in a different subnet than the one delegated to Azure NetApp Files. The subnet must be in the same VNet as the one delegated to Azure NetApp.  
-    * The network security group on the Azure NetApp Files delegated subnet must allow incoming traffic from the subnet where the VM mounting Azure NetApp Files volumes is located.
-    * The network security group on the Azure NetApp Files delegated subnet must also allow outgoing traffic to the subnet where the private endpoint is located.
 
 For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 * [Quickstart: Create a key vault ](../key-vault/general/quick-create-portal.md) 
@@ -144,7 +142,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
       * `Microsoft.KeyVault/vaults/keys/decrypt/action`
     The user-assigned identity you select is added to your NetApp account. Due to the customizable nature of role-based access control (RBAC), the Azure portal doesn't configure access to the key vault. See [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../key-vault/general/rbac-guide.md) for details on configuring Azure Key Vault. 
 
-1. After selecting the **Save** button, you'll receive a notification communicating the status of the operation. If the operation was not successful, an error message displays. Refer to [error messages and troubleshooting](#error-messages-and-troubleshooting) for assistance in resolving the error.  
+1. After selecting **Save** button, you'll receive a notification communicating the status of the operation. If the operation was not successful, an error message displays. Refer to [error messages and troubleshooting](#error-messages-and-troubleshooting) for assistance in resolving the error.  
 
 ## Use role-based access control
 
