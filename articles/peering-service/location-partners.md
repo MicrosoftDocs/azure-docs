@@ -25,42 +25,42 @@ The following table provides information on the Peering Service connectivity par
 
 | Partner | Markets |
 |----------|--------|
-| [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) |Europe|
-| [Atman](https://www.atman.pl/en/atman-internet-maps/) |Europe|
-| [BBIX](https://www.bbix.net/en/service/) |Japan |
-| [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
-| [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
-| [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
-| [Colt](https://www.colt.net/product/cloud-prioritisation/)|Europe, Asia|
-| [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
-| [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)|Africa |
-| [DE-CIX](https://www.de-cix.net/)|Europe, North America |
-| [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |North America, Asia|
-| [IIJ](https://www.iij.ad.jp/en/) |Japan |
-| [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/)|Europe  |
-| [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
-| [LINX](https://www.linx.net/services/microsoft-azure-peering/) |Europe|
-| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |Africa  |
-| [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |North America, Europe, Asia|
-| [MainOne](https://www.mainone.net/connectivity-services/) |Africa|
-| [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|
-| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |Japan, Indonesia |
-| [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asia |
-| [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
-| [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europe|
-| [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia, Europe |
-| [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) |Oceania |
-| [Vodacom](https://www.vodacom.com/index.php) |Africa |
-| [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |Europe, North America, Asia|
+| [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) | Europe|
+| [Atman](https://www.atman.pl/en/atman-internet-maps/) | Europe|
+| [BBIX](https://www.bbix.net/en/service/) | Japan |
+| [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) | Europe|
+| [CCL](https://concepts.co.nz/news/general-news/) | Oceania |
+| [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) | Africa|
+| [Colt](https://www.colt.net/product/cloud-prioritisation/)| Europe, Asia|
+| [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) | Asia|
+| [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)| Africa |
+| [DE-CIX](https://www.de-cix.net/)| Europe, North America |
+| [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) | North America, Asia|
+| [IIJ](https://www.iij.ad.jp/en/) | Japan |
+| [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/)| Europe  |
+| [Kordia](https://www.kordia.co.nz/cloudconnect) | Oceania  |
+| [LINX](https://www.linx.net/services/microsoft-azure-peering/) | Europe|
+| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) | Africa  |
+| [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) | North America, Europe, Asia|
+| [MainOne](https://www.mainone.net/connectivity-services/) | Africa|
+| [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) | Africa|
+| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
+| [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) | Asia |
+| [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) | Asia |
+| [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) | Europe|
+| [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) | Asia, Europe |
+| [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) | Oceania |
+| [Vodacom](https://www.vodacom.com/index.php) | Africa |
+| [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) | Europe, North America, Asia|
 
-# [**Partners by Metro**](#tab/locations)
+# [**ISPs by Metro**](#tab/isp)
 
 The following table provides information on the Peering Service connectivity partners available in each metro.
 
-| Metro | Partners |
-|----------|----------|
+| Metro | Partners (ISPs) |
+|-------|-----------------|
 | Auckland | [Kordia](https://www.kordia.co.nz/cloudconnect), [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) |
-| Amsterdam | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions)|
+| Amsterdam | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Ashburn | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Brussels | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Budapest | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
@@ -92,6 +92,31 @@ The following table provides information on the Peering Service connectivity par
 | Vienna | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Warsaw | [Atman](https://www.atman.pl/en/atman-internet-maps/) |
 | Zurich | [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |
+
+# [**IXPs by Metro**](#tab/ixp)
+
+| Metro | Partners (IXPs) |
+|-------|-----------------|
+| Amsterdam | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) |
+| Ashburn | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Atlanta | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Barcelona | DecixBCNRouteServerAsn |
+| Chicago | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Cape Town | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |
+| Chennai | [DE-CIX](https://www.de-cix.net/) |
+| Dallas | [DE-CIX](https://www.de-cix.net/), [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Dubai | [DE-CIX](https://www.de-cix.net/) |
+| Frankfurt | [DE-CIX](https://www.de-cix.net/) |
+| Johannesburg | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |
+| Kuala Lumpur | [DE-CIX](https://www.de-cix.net/) |
+| London | [LINX](https://www.linx.net/services/microsoft-azure-peering/) |
+| Madrid | [DE-CIX](https://www.de-cix.net/) |
+| Marseilles | [DE-CIX](https://www.de-cix.net/) |
+| Mumbai | [DE-CIX](https://www.de-cix.net/) |
+| New York | [DE-CIX](https://www.de-cix.net/) |
+| San Jose | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Seattle | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
+| Singapore | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 
 ---
 
