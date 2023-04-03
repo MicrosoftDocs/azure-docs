@@ -188,6 +188,8 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add video calling to your Android WebView client app
       href: quickstarts/voice-video-calling/get-started-android-webview.md
+    - name: Build Virtual visit
+      href: tutorials/virtual-visits/sample-buidler.md      
     - name: Call management
       items:
       - name: Manage calls
@@ -506,8 +508,6 @@ items:
         items:
           - name: Overview
             href: tutorials/virtual-visits/overview.md
-          - name: Build Virtual visit
-            href: tutorials/virtual-visits/sample-buidler.md
           - name: Plan user experience
             href: tutorials/virtual-visits/plan-user-experience.md
           - name: Govern meeting experience
