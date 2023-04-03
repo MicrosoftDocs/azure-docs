@@ -2,7 +2,7 @@
 title: Authenticate Azure Batch services with Azure Active Directory
 description: Learn how to authenticate Azure Batch service applications with Azure AD by using integrated authentication or a service principal.
 ms.topic: how-to
-ms.date: 03/30/2023
+ms.date: 04/03/2023
 ms.custom: has-adal-ref, subject-rbac-steps
 ---
 
@@ -182,7 +182,7 @@ The code examples in this section show how to authenticate with Azure AD by usin
 
 To authenticate with integrated authentication from Batch .NET:
 
-1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) package and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
+1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
 
 1. Include the following `using` statements in your code:
 
@@ -222,43 +222,38 @@ To authenticate with integrated authentication from Batch .NET:
    private const string RedirectUri = "https://<redirect-uri>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL to authenticate a user who's interacting with the application. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials. The application proceeds once the user provides the credentials, unless the app has already cached the credentials.
+1. Write a callback method to acquire the authentication token from Azure AD. The following example calls MSAL to authenticate a user who's interacting with the application. The application proceeds once the user provides credentials, unless the app has already cached the credentials.
+
+   This method uses [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) to instantiate `IConfidentialClientApplication`. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials.
+
+   `WithRedirectUri` specifies the redirect URI that the authorization server redirects the user to after authentication. The *authorizationCode* parameter is the authorization code obtained from the authorization server after the user authenticates.
 
    ```csharp
-    public IConfidentialClientApplication CreateApplication()
-    {
-        IConfidentialClientApplication app;
+public static async Task<string> GetTokenUsingAuthorizationCode(string authorizationCode, string redirectUri, string[] scopes)
+{
+    var app = ConfidentialClientApplicationBuilder.Create(ClientId)
+                .WithAuthority(new Uri(AuthorityUri))
+                .WithRedirectUri(RedirectUri)
+                .Build();
 
-        app = ConfidentialClientApplicationBuilder.Create(ClientId)
-        .WithAuthority(AuthorityUri)
-        .WithRedirectUri(RedirectUri.ToString())
-        .Build();
+    var authResult = await app.AcquireTokenByAuthorizationCode(scopes, authorizationCode).ExecuteAsync();
+    return authResult.AccessToken;
+}
+```
 
-        return app;
-    }
+1. Call this method with the following code, replacing `<authorization-code>` with the authorization code obtained from the authorization server. The `.default` scope ensures that the user has permission to access all the scopes for the resource.
 
-    // Called from 'code received event'.
-    public async Task<AuthenticationResult> GetAuthenticationResult(
-    string authorizationCode)
-    {
-        IConfidentialClientApplication app = CreateApplication();
+```csharp
 
-        var authResult = await app.AcquireTokenByAuthorizationCode(
-        new[] { BatchResourceUri },
-        authorizationCode)
-        .ExecuteAsync()
-        .ConfigureAwait(false);
-
-        return authResult;
-    }
-   ```
+var token = await GetTokenUsingAuthorizationCode("<authorization-code>", "RedirectUri", new string[] { "BatchResourceUri/.default" });
+```
 
 1. Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. Then use the **BatchClient** object for subsequent operations against the Batch service:
 
    ```csharp
    public static void PerformBatchOperations()
    {
-       Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
+       Func<Task<string>> tokenProvider = () => GetAccessTokenAsync();
    
        using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
        {
@@ -273,7 +268,7 @@ To authenticate with a service principal from Batch .NET:
 
 1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
 
-1. Include the following `using` statements in your code:
+1. Declare the following `using` statements in your code:
 
    ```csharp
    using Microsoft.Azure.Batch;
@@ -311,42 +306,32 @@ To authenticate with a service principal from Batch .NET:
    private const string ClientKey = "<secret-key>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL for unattended authentication:
+1. Write a callback method to acquire the authentication token from Azure AD. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL for unattended authentication.
 
-   ```csharp
-   public IConfidentialClientApplication CreateApplication()
-   {
-       IConfidentialClientApplication app;
-       
-       {
-       app = ConfidentialClientApplicationBuilder.Create(ClientId)
-           .WithSecret(ClientKey)
-           .WithAuthority(AuthorityUri)
-           .Build();
-       }
-   
-   // Called from 'code received event'.
-   public async Task<AuthenticationResult> GetAuthenticationResult(
-   string BatchResourceUri,
-   string tokenUsedToCallTheWebApi)
-   
-   var userAssertion = new UserAssertion(tokenUsedToCallTheWebApi);
-   
-   var authResult = await app.AcquireTokenOnBehalfOf(
-   new [] { $"BatchResourceUri/.default" },
-   userAssertion)
-   .ExecuteAsync()
-   
-   return authResult;
-   }
-   ```
+```csharp
+public static async Task<string> GetAccessToken(string[] scopes)
+{
+    var app = ConfidentialClientApplicationBuilder.Create(clientId)
+                .WithClientSecret(ClientKey)
+                .WithAuthority(new Uri(AuthorityUri))
+                .Build();
+
+    var result = await app.AcquireTokenForClient(scopes).ExecuteAsync();
+    return result.AccessToken;
+}
+```
+1. Call this method by using the following code. The `.default` scope ensures that the application has permission to access all the scopes for the resource.
+
+```csharp
+   var token = await GetAccessToken(new string[] { "BatchResourceId/.default" });
+```
 
 1. Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. Then use the **BatchClient** object for subsequent operations against the Batch service:
 
    ```csharp
    public static void PerformBatchOperations()
    {
-       Func<Task<string>> tokenProvider = () => GetAuthenticationTokenAsync();
+       Func<Task<string>> tokenProvider = () => GetAccessToken();
    
        using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
        {
@@ -359,14 +344,14 @@ To authenticate with a service principal from Batch .NET:
 
 To authenticate with a service principal from Batch Python:
 
-1. Install and reference the [azure-batch](https://pypi.org/project/azure-batch/) and [azure-common](https://pypi.org/project/azure-common/) Python modules.
+1. Install the [azure-batch](https://pypi.org/project/azure-batch/) and [azure-common](https://pypi.org/project/azure-common/) Python modules. Reference the modules:
 
    ```python
    from azure.batch import BatchServiceClient
    from azure.common.credentials import ServicePrincipalCredentials
    ```
 
-1. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the **Properties** page of your Azure AD in the Azure portal.
+1. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the Azure AD **Overview** page or **Properties** page in the Azure portal.
 
    ```python
    TENANT_ID = "<tenant-id>"
@@ -416,13 +401,17 @@ To authenticate with a service principal from Batch Python:
    )
    ```
 
+For a Python example of how to create a Batch client authenticated by using an Azure AD token, see the [Deploying Azure Batch Custom Image with a Python Script sample](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md).
+
 ## Next steps
 
 - For in-depth examples that show how to use MSAL, see the [Azure code samples library](/samples/browse/?products=microsoft-authentication-library).
-- For a Python example of how to create a Batch client authenticated by using an Azure AD token, see the [Deploying Azure Batch Custom Image with a Python Script sample](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md).
 
 For more information, see:
 
+- [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md)
+- [Client credential flows in MSAL.NET](/entra/msal/dotnet/acquiring-tokens/web-apps-apis/client-credential-flows)
+- [Using MSAL.NET to get tokens by authorization code (for web sites)](/entra/msal/dotnet/acquiring-tokens/web-apps-apis/authorization-codes)
 - [Application and service principal objects in Azure Active Directory](/azure/active-directory/develop/app-objects-and-service-principals)
 - [How to create an Azure AD application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
-- [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md)
+- [Microsoft identity platform code samples](/azure/active-directory/develop/sample-v2-code)
