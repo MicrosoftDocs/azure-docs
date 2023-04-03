@@ -53,7 +53,7 @@ The following table provides information on the Peering Service connectivity par
 | [Vodacom](https://www.vodacom.com/index.php) |Africa |
 | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |Europe, North America, Asia|
 
-# [**Parnters by Metro**](#tab/locations)
+# [**Partners by Metro**](#tab/locations)
 
 The following table provides information on the Peering Service connectivity partners available in each metro.
 
@@ -65,7 +65,7 @@ The following table provides information on the Peering Service connectivity par
 | Brussels | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Budapest | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Bucharest | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Capetown | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |
+| Cape Town | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |
 | Dublin | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Frankfurt | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://www.colt.net/product/cloud-prioritisation/) |
 | Geneva | [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |
