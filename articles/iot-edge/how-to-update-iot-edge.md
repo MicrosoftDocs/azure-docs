@@ -159,7 +159,7 @@ docker rmi mcr.microsoft.com/azureiotedge-agent:1.1
 
 You may need to use the force `-f` flag to remove the images.
 
-The IoT Edge service pulls the latest versions of the runtime images and automatically start them on your device again.
+The IoT Edge service pulls the latest versions of the runtime images and automatically starts them on your device again.
 
 ### Update a specific tag image
 
