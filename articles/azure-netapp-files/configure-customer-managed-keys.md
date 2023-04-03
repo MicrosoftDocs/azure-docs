@@ -222,7 +222,7 @@ If you have already configured your NetApp account for customer-managed keys and
 
 ## Switch from user-assigned to system-assigned identity
 
-To switch from user-assigned to system-assigned identity, you must grant the target identity access to the key vault that is being used with read/get, ecncrypt, and decrypt permissions. 
+To switch from user-assigned to system-assigned identity, you must grant the target identity access to the key vault being used with read/get, ecncrypt, and decrypt permissions. 
 
 1. Update the NetApp account using the `az rest` function:
     ```azurecli
@@ -261,10 +261,10 @@ To switch from user-assigned to system-assigned identity, you must grant the tar
                 }
             }
         },
-    ```
+        ```
     Ensure that:
-    * `properties.encryption.principalId` matches the value in `identity.userAssignedIdentities[]`
-    * `properties.encryption.userAssignedIdentity` matches in `identity.userAssignedIdentities[]`
+    * `encryption.identity.principalId` matches the value in `identity.userAssignedIdentities[]`
+    * `encryption.identity.userAssignedIdentity` matches the value in in `identity.userAssignedIdentities[]`
     ```azurecli
     "encryption": {
     	"identity": {
