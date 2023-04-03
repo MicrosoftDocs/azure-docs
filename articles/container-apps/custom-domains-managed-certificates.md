@@ -17,7 +17,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 If you want to set up a custom domain using your own certificate, see [Custom domain names and certificates in Azure Container Apps](custom-domains-certificates.md).
 
 > [!NOTE]
-> To configure a custom DNS suffix for all container apps in an environment, see [Custom environment DNS suffix in Azure Container Apps](environment-custom-dns-suffix.md). If you configure a custom environment DNS suffix, you cannot add a custom domain that contains this suffix to your Container App.
+> If you configure a [custom environment DNS suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
 
 ## Free certificate requirements
 
@@ -115,7 +115,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 
     ```azurecli
     az containerapp ingress enable -n <CONTAINER_APP_NAME> -g <RESOURCE_GROUP_NAME> \
-            --type external --allow-insecure --target-port <TARGET_PORT> --transport auto
+            --type external --target-port <TARGET_PORT> --transport auto
     ```
 
     Replace `<CONTAINER_APP_NAME>` with the name of your container app, `<RESOURCE_GROUP_NAME>` with the name of the resource group that contains your container app, and `<TARGET_PORT>` with the port that your container app is listening on.
