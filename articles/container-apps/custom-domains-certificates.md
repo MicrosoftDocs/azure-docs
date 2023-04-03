@@ -53,7 +53,9 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
 1. Once validation succeeds, select **Add**.
 
-1. In the *Add custom domain and certificate* window, select the *Hostname record type* based on the type of your domain.
+1. In the *Add custom domain and certificate* window, in *Certificate*, select the certificate you just added.
+
+1. Select the *Hostname record type* based on the type of your domain.
 
     | Domain type | Record type | Notes |
     |--|--|--|
@@ -80,7 +82,7 @@ Azure Container Apps allows you to bind one or more custom domains to a containe
 
 1. Once validation succeeds, select the **Add** button.
 
-1. Once the add operation is complete, you see your domain name in the list of custom domains and you can access your container app at the domain name.
+1. Once the operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it's accessible.
 
 > [!NOTE]
 > For container apps in internal Container Apps environments, [additional configuration](./networking.md#dns) is required to use custom domains with VNET-scope ingress.
