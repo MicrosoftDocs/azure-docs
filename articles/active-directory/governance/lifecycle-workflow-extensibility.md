@@ -52,13 +52,13 @@ When creating custom task extensions, the scenarios for how it interacts with Li
 
 ## Response authorization
 
-When creating a custom task extension that waits for a response from the Logic App, you're able to define which applications can send a response
+When you create a custom task extension that waits for a response from the Logic App, you're able to define which applications can send a response
 
 :::image type="content" source="media/lifecycle-workflow-extensibility/launch-wait-options.png" alt-text="Screenshot of custom task extension launch and wait options.":::
 
 Response authorization can be utilized in one of the following ways:
 
-- **System-assigned managed identity (Default)** - With this choice you Enable and utilize the Logic Apps system-assigned managed identity. For more information on this, see: [Authenticate access to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+- **System-assigned managed identity (Default)** - With this choice you Enable and utilize the Logic Apps system-assigned managed identity. For more information, see: [Authenticate access to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 - **No authorization** -  With this choice you assign a Logic App or third party application an application permission (LifecycleWorkflows.ReadWrite.All), or role assignment (Lifecycle Workflows Administrator). This isn't recommended as it doesn't follow least privilege access. For more information on best practices for roles, see: [Best Practices for Azure AD roles](/azure/active-directory/roles/best-practices).
 - **Existing application** - With this choice you're able to choose an existing application to respond.
 
