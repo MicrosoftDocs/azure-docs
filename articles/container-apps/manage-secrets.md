@@ -69,10 +69,10 @@ az containerapp create \
   --name queuereader \
   --environment "my-environment-name" \
   --image demos/queuereader:v1 \
-  --secrets "queue-connection-string=$CONNECTION_STRING"
+  --secrets "queue-connection-string=<CONNECTION_STRING>"
 ```
 
-Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
+Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<CONNECTION_STRING>` with the value of your connection string.
 
 # [PowerShell](#tab/powershell)
 
@@ -101,11 +101,15 @@ Here, a connection string to a queue storage account is declared. The value for 
 
 ### Reference secret from Key Vault
 
-When you define a secret, you can specify a reference to a secret stored in Azure Key Vault. To reference a secret from Key Vault, you must first enable managed identity in your container app and grant the identity access to the Key Vault secrets.
+When you define a secret, you can specify a reference to a secret stored in Azure Key Vault. Container Apps automatically retrieves the secret value from Key Vault and makes it available in your container app's secret.
+
+To reference a secret from Key Vault, you must first enable managed identity in your container app and grant the identity access to the Key Vault secrets.
 
 To enable managed identity in your container app, see [Managed identities](managed-identity.md).
 
 To grant access to Key Vault secrets, [create an access policy](../key-vault/general/assign-access-policy.md) in Key Vault for the managed identity you created. Enable the "Get" secret permission on this policy.
+
+
 
 # [ARM template](#tab/arm-template)
 
@@ -138,6 +142,7 @@ When you create a container app, secrets are defined using the `--secrets` param
 
 - The parameter accepts a space-delimited set of name/value pairs.
 - Each pair is delimited by an equals sign (`=`).
+- To specify a Key Vault reference, use the format `<SECRET_NAME>=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<MANAGED_IDENTITY_ID>`. For example, `queue-connection-string=keyvaultref:https://mykeyvault.vault.azure.net/secrets/queuereader,identityref:/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity`.
 
 ```bash
 az containerapp create \
@@ -145,33 +150,15 @@ az containerapp create \
   --name queuereader \
   --environment "my-environment-name" \
   --image demos/queuereader:v1 \
-  --secrets "queue-connection-string=$CONNECTION_STRING"
+  --user-assigned "<USER_ASSIGNED_IDENTITY_ID>" \
+  --secrets "queue-connection-string=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<USER_ASSIGNED_IDENTITY_ID>"
 ```
 
-Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
+Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault. Replace `<USER_ASSIGNED_IDENTITY_ID>` with the resource ID of the user assigned identity. For system assigned identity, use `System` instead of the resource ID.
 
 # [PowerShell](#tab/powershell)
 
-When you create a container app, secrets are defined as one or more Secret objects that are passed through the `ConfigurationSecrets` parameter.
-
-```azurepowershell
-$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName my-resource-group -EnvName my-environment-name).Id
-$TemplateObj = New-AzContainerAppTemplateObject -Name queuereader -Image demos/queuereader:v1
-$SecretObj = New-AzContainerAppSecretObject -Name queue-connection-string -Value $QueueConnectionString
-
-$ContainerAppArgs = @{
-    Name = 'my-resource-group'
-    Location = '<location>'
-    ResourceGroupName = 'my-resource-group'
-    ManagedEnvironmentId = $EnvId
-    TemplateContainer = $TemplateObj
-    ConfigurationSecret = $SecretObj
-}
-
-New-AzContainerApp @ContainerAppArgs
-```
-
-Here, a connection string to a queue storage account is declared. The value for `queue-connection-string` comes from an environment variable named `$QueueConnectionString`.
+Secrets Key Vault references are not supported in PowerShell.
 
 ---
 
