@@ -29,7 +29,7 @@ The primary differences between DoD IL5 PAs that are in place for US Gov regions
 
 - **IL5 compliance scope:** US Gov regions have many more services authorized provisionally at DoD IL5, which in turn enables DoD mission owners and their partners to deploy more realistic applications in these regions.
   - For a complete list of services in scope for DoD IL5 PA in US Gov regions, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
-  - For a complete list of services in scope for DoD IL5 in US DoD regions, see [Azure Government DoD regions IL5 audit scope](#azure-government-dod-regions-il5-audit-scope) in this article.
+  - For a complete list of services in scope for DoD IL5 in US DoD regions, see [Azure Government DoD regions IL5 audit scope](#us-dod-regions-il5-audit-scope) in this article.
 - **IL5 configuration:** US DoD regions are reserved for exclusive DoD use. Therefore, no extra configuration is needed in US DoD regions when deploying Azure services intended for IL5 workloads. In contrast, some Azure services deployed in US Gov regions require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md).
 
 > [!NOTE]
@@ -151,7 +151,7 @@ All Azure Government regions are built to support DoD customers, including:
 For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
 ### What services are part of your IL5 authorization scope?
-For a complete list of services in scope for DoD IL5 PA in US Gov regions, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). For a complete list of services in scope for DoD IL5 PA in US DoD regions, see [Azure Government DoD regions IL5 audit scope](#azure-government-dod-regions-il5-audit-scope) in this article.
+For a complete list of services in scope for DoD IL5 PA in US Gov regions, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). For a complete list of services in scope for DoD IL5 PA in US DoD regions, see [Azure Government DoD regions IL5 audit scope](#us-dod-regions-il5-audit-scope) in this article.
 
 ## Next steps
 
