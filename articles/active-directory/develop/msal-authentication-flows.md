@@ -22,7 +22,7 @@ The Microsoft Authentication Library (MSAL) supports several authorization grant
 
 | Authentication flow                                                               | Enables                                                                                                                                                                                          | Supported application types                                                                                                                                                                             |
 |-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Authorization code](#authorization-code)                                         | User sign-in and access to web APIs on behalf of the user.                                                                                                                                       | * [Desktop](scenario-desktop-overview.md) <br /> * [Mobile](scenario-mobile-overview.md) <br /> * [Single-page app (SPA)](scenario-spa-overview.md) (requires PKCE) <br /> * [Web](scenario-web-app-call-api-overview.md) |
+| [Authorization code](#authorization-code)                                         | User sign-in and access to web APIs on behalf of the user.                                                                                                                                       | [Desktop](scenario-desktop-overview.md) <br /> [Mobile](scenario-mobile-overview.md) <br /> [Single-page app (SPA)](scenario-spa-overview.md) (requires PKCE) <br /> [Web](scenario-web-app-call-api-overview.md) |
 | [Client credentials](#client-credentials)                                         | Access to web APIs by using the identity of the application itself. Typically used for server-to-server communication and automated scripts requiring no user interaction.                       | [Daemon](scenario-daemon-overview.md)                                                                                                                                                                   |
 | [Device code](#device-code)                                                       | User sign-in and access to web APIs on behalf of the user on input-constrained devices like smart TVs and IoT devices. Also used by command line interface (CLI) applications.                   | [Desktop, Mobile](scenario-desktop-acquire-token-device-code-flow.md)                                                                                                                                   |
 | [Implicit grant](#implicit-grant)                                                 | User sign-in and access to web APIs on behalf of the user. _The implicit grant flow is no longer recommended - use authorization code with PKCE instead._                                        | * [Single-page app (SPA)](scenario-spa-overview.md) <br /> * [Web](scenario-web-app-call-api-overview.md)                                                                                                 |
@@ -62,7 +62,7 @@ When users sign in to web applications, the application receives an authorizatio
 
 In the following diagram, the application:
 
-1. Requests an authorization code which redeemed for an access token.
+1. Requests an authorization code which was redeemed for an access token.
 2. Uses the access token to call a web API, Microsoft Graph.
 
 ![Diagram of authorization code flow](media/msal-authentication-flows/authorization-code.png)
@@ -71,7 +71,7 @@ In the following diagram, the application:
 
 - Single-page applications require *Proof Key for Code Exchange* (PKCE) when using the authorization code grant flow. PKCE is supported by MSAL.
 
-- The OAuth 2.0 specification requires you use an authorization code to redeem an access token only _once_.
+- The OAuth 2.0 specification requires you to use an authorization code to redeem an access token only _once_.
 
     If you attempt to acquire access token multiple times with the same authorization code, an error similar to the following is returned by the Microsoft identity platform. Some libraries and frameworks request the authorization code for you automatically, and requesting a code manually in such cases will also result in this error.
 
@@ -85,12 +85,12 @@ The client credentials grant flow permits a web service (a confidential client) 
 
 ### Application secrets
 
-![Diagram of confidential client with password](media/msal-authentication-flows/confidential-client-password.png)
-
-In the preceding diagram, the application:
+In the following diagram, the application:
 
 1. Acquires a token by using application secret or password credentials.
 2. Uses the token to make requests of the resource.
+
+![Diagram of confidential client with password](media/msal-authentication-flows/confidential-client-password.png)
 
 ### Certificates
 
