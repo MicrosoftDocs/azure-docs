@@ -44,8 +44,6 @@ These services are the supported types of endpoints that you can create for your
 * [Event Hubs](../event-hubs/event-hubs-about.md) hub
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) topic
 
->[!TIP]
-> For more information on the different endpoint types, see [Choose between Azure messaging services](../event-grid/compare-messaging-services.md).
 
 To link an endpoint to Azure Digital Twins, the Event Grid topic, event hub, or Service Bus topic that you're using for the endpoint needs to exist already.
 
