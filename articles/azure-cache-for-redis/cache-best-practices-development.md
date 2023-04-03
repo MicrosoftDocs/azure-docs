@@ -153,7 +153,7 @@ If your application validates certificate in code, you need to modify it to reco
 
 For more information, see [Client libraries](cache-best-practices-client-libraries.md#client-libraries).
 
-## Next steps
+## Next steps  
 
 - [Performance testing](cache-best-practices-performance.md)
 - [Failover and patching for Azure Cache for Redis](cache-failover.md)
