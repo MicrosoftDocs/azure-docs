@@ -32,7 +32,7 @@ For successful issuance and subsequent automatic renewal of managed certificates
 
 1. Navigate to your container app in the [Azure portal](https://portal.azure.com)
 
-1. Verify that your app has HTTP ingress enabled by selecting **Ingress** in the *Settings* section.  If ingress is not enabled, enable it with these steps:
+1. Verify that your app has HTTP ingress enabled by selecting **Ingress** in the *Settings* section.  If ingress isn't enabled, enable it with these steps:
 
    1. Set *HTTP Ingress* to **Enabled**.
    1. Select the desired *Ingress traffic* setting.
@@ -76,7 +76,7 @@ For successful issuance and subsequent automatic renewal of managed certificates
 
     It may take several minutes for the certificate to be issued and the domain to be added to your container app.
 
-1. Once the add operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it is accessible.
+1. Once the add operation is complete, you see your domain name in the list of custom domains with a status of *Secured*. Navigate to your domain to verify that it's accessible.
 
 ## Next steps
 
