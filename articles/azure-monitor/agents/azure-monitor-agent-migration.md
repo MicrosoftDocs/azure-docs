@@ -30,15 +30,13 @@ In addition to consolidating and improving upon legacy Log Analytics agents, Azu
 2. Service (legacy Solutions) requirements - The legacy Log Analytics agents are used by various Azure services to collect required data. If you're not using any additional Azure service, you may skip this step altogether.   
     - Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **discover solutions enabled** on your workspace(s) that use the legacy agents, including the **per-solution migration recommendation<sup>1</sup>** shown under `Workspace overview` tab. 
     - If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  
-3. **Agent coexistence:** 
-    - If you're setting up a *new environment* with resources, such as deployment scripts and onboarding templates, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
-    - Azure Monitor Agent **can run alongside the legacy Log Analytics agents on the same machine** so that you can continue to use existing functionality during evaluation or migration. You can begin the transition, but ensure you understand the **limitations below**:
-        - Be careful when you collect **duplicate data** from the same machine, as this could skew query results, affect downstream features like alerts, dashboards, workbooks and generate **additional cost/charges** for data ingestion and retention. Here are some things that can help:
-            - Configure the agents to *send the data to different destinations*, i.e. either different workspaces or different tables in same workspace
-            - Disable the duplicate data collection from legacy agents by [removing the workspace configurations](./agent-data-sources.md#configure-data-sources)
-            - For **Defender for Cloud**, the experiences natively deduplicate data if using both agents. Also you will only be [billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when running both agents 
-            - For **Sentinel**, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
-        - Running two telemetry agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.
+3. **Agent coexistence:** If you're setting up a *new environment* with resources, such as deployment scripts and onboarding templates, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
+    - Be careful when you collect **duplicate data** from the same machine, as this could skew query results, affect downstream features like alerts, dashboards, workbooks and generate **additional cost/charges** for data ingestion and retention. Here are some things that can help
+    - If possible, configure the agents to *send the data to different destinations*, i.e. either different workspaces or different tables in same workspace
+    - If not used, disable any duplicate data collection from legacy agents by [removing the workspace configurations](./agent-data-sources.md#configure-data-sources)
+    - For **Defender for Cloud**, the experiences natively deduplicate data if using both agents. Also you will only be [billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when running both agents 
+    - For **Sentinel**, you can easily [disable the legacy connector](../../sentinel/ama-migrate.md#recommended-migration-plan) to stop ingestion of logs from legacy agents.    
+    - Running two telemetry agents on the same machine **consumes double the resources**, including but not limited to CPU, memory, storage space, and network bandwidth.
 
 <sup>1</sup> Start testing your scenarios during the preview phase. This will save time, avoid surprises later and ensure you're ready to deploy to production as soon as the service becomes generally available. Moreover you benefit from added security and reduced cost immediately.  
 
