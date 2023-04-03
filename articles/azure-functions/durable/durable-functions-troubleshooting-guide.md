@@ -9,7 +9,7 @@ ms.author: azfuncdf
 
 # Durable Functions Troubleshooting Guide
 
-Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you build serverless orchestrations using ordinary code. For more information on Durable Functions, please see the [Durable Functions overview](./durable-functions-overview.md).
+Durable Functions is an extension of [Azure Functions](../functions-overview.md) that lets you build serverless orchestrations using ordinary code. For more information on Durable Functions, see the [Durable Functions overview](./durable-functions-overview.md).
 
 This article provides a guide for troubleshooting common scenarios in Durable Functions apps.
 
@@ -21,7 +21,7 @@ This article provides a guide for troubleshooting common scenarios in Durable Fu
 > [!TIP]
 > When debugging and diagnosing issues, it's recommended that you start by ensuring your app is using the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
 
-The **Diagnose and solve problems** tab in Azure Portal is a useful resource to monitor and diagnose potential issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. Please see [the Durable Functions Diagnostics guide](./durable-functions-diagnostics.md) for more details. 
+The **Diagnose and solve problems** tab in Azure portal is a useful resource to monitor and diagnose potential issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [the Durable Functions Diagnostics guide](./durable-functions-diagnostics.md) for more details. 
 
 If the resources above didn't solve your problem, the following sections provide advice for specific application symptoms:
 
@@ -35,26 +35,26 @@ Use the following steps to troubleshoot orchestration instances that remain stuc
 
 2. Check the Azure Storage control queues assigned to the stuck orchestrator to see if its "start message" is still there For more information on control queues, see the [Azure Storage provider control queue documentation](durable-functions-azure-storage-provider.md#control-queues).
 
-3. Change your app's [platform configuration](../../app-service/configure-common.md#configure-general-settings) version to “64-Bit”. 
+3. Change your app's [platform configuration](../../app-service/configure-common.md#configure-general-settings) version to “64 Bit”. 
    Sometimes orchestrations don't start because the app is running out of memory. Switching to 64-bit process allows the app to allocate more total memory. This only applies to App Service Basic, Standard, Premium, and Elastic Premium plans. Free or Consumption plans **do not** support 64-bit processes. 
 
 ## Orchestration starts after a long delay
 
-Normally orchestrations start within a few seconds after they are scheduled. However, there are certain cases where orchestrations may take much longer to start. Use the following steps to troubleshoot when orchestrations take more than a few seconds to start executing.
+Normally orchestrations start within a few seconds after they're scheduled. However, there are certain cases where orchestrations may take longer to start. Use the following steps to troubleshoot when orchestrations take more than a few seconds to start executing.
 
 1. Refer to the [documentation on delayed orchestrations in Azure Storage](./durable-functions-azure-storage-provider.md#orchestration-start-delays) to check whether the delay may be caused by known limitations.
 
 2. Check the Durable Task Framework traces for warnings or errors with the impacted orchestration instance ID. A sample query can be found in [Trace Errors/Warnings section](#trace-errorswarnings).
 
-## Orchestration does not complete / is stuck in the `Running` state
+## Orchestration doesn't complete / is stuck in the `Running` state
 
 If an orchestration remains in the "Running" state for a long period of time, it usually means that it's waiting for a long-running task that it scheduled to complete. For example, it could be waiting for a durable timer task, an activity task, or an external event task to be completed. However, if you observe that scheduled tasks have completed successfully but the orchestration still isn't making progress, then there might be a problem preventing the orchestration from proceeding to its next task. We often refer to orchestrations in this state as "stuck orchestrations".
 
 Use the following steps to troubleshoot stuck orchestrations:
 
-1. Try restarting the function app. This can help if the orchestration gets stuck due to a transient bug or deadlock in either the app or the extension code.
+1. Try restarting the function app. This step can help if the orchestration gets stuck due to a transient bug or deadlock in either the app or the extension code.
 
-2. Check the Azure Storage account control queues to see if any queues are growing continuously. This could indicate a problem with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
+2. Check the Azure Storage account control queues to see if any queues are growing continuously. This query could indicate a problem with dequeuing orchestration messages. If the problem impacts only a single control queue, it might indicate a problem that exists only on a specific app instance, in which case scaling up or down to move off the unhealthy VM instance could help.
 
 3. Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
 
@@ -69,10 +69,10 @@ Heavy data processing, internal errors, and insufficient compute resources can c
 1. Check the Durable Task Framework traces for warnings or errors for the impacted orchestration instance ID. A sample query can be found in the [Trace Errors/Warnings section](#trace-errorswarnings).
 
 2. If your app is in .NET in-process, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions).  
-   Excessive history load can result in extremely slow orchestrator processing.
+   Excessive history load can result in slow orchestrator processing.
 
 3. Check for performance and scalability bottlenecks. 
-   Application performance depends on many factors. For example, high CPU usage, or large memory consumption can result in delays. Please read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed guidance.
+   Application performance depends on many factors. For example, high CPU usage, or large memory consumption can result in delays. Read [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md) for detailed guidance.
 
 ## Sample Queries
 
@@ -137,16 +137,16 @@ traces
 |-------|------------|
 |pid|Process ID of the function app instance. This is useful for determining if the process was recycled while an orchestration was executing.|
 |taskName|The name of the event being logged.|
-|eventType|The type of message, which usually represents work done by an orchestrator. A full list of it's possible values, and their descriptions, is [here](https://github.com/Azure/durabletask/blob/d76cf22bef5a298ab8744997758f4c8921457924/src/DurableTask.Core/History/EventType.cs#L19.)|
+|eventType|The type of message, which usually represents work done by an orchestrator. A full list of its possible values, and their descriptions, is [here](https://github.com/Azure/durabletask/blob/d76cf22bef5a298ab8744997758f4c8921457924/src/DurableTask.Core/History/EventType.cs#L19.)|
 |extendedSession|Boolean value indicating whether [ExtendedSessions](durable-functions-azure-storage-provider.md#extended-sessions) is enabled.|
 |account|The storage account used by the app.|
 |details|Additional information about a particular event. This is where you would find error messages as well.|
 |instanceId|The ID for a given orchestration or entity instance.|
-|messageId|The unique Azure Storage ID for a given queue message. This value most commonly appears in ReceivedMessage, ProcessingMessage, and DeletingMessage trace events. Note that it is NOT present in SendingMessage events because the message ID is generated by Azure Storage _after_ we send the message.|
+|messageId|The unique Azure Storage ID for a given queue message. This value most commonly appears in ReceivedMessage, ProcessingMessage, and DeletingMessage trace events. Note that it's NOT present in SendingMessage events because the message ID is generated by Azure Storage _after_ we send the message.|
 |executionId|The ID of the orchestrator execution, which changes whenever `continue-as-new` is invoked.|
 |age|The number of milliseconds since a message was enqueued. Large numbers often indicate performance problems. An exception is the TimerFired message type, which may have a large Age value depending on timer's duration.|
 |latencyMs|The number of milliseconds taken by some storage operation.|
-|dequeueCount|The number of times a message has been dequeued. Under normal circumstances, this value is always 1. If it is more than one, then there might be a problem.|
+|dequeueCount|The number of times a message has been dequeued. Under normal circumstances, this value is always 1. If it's more than one, then there might be a problem.|
 |partitionId|The name of the queue associated with this log.|
 |totalEventCount|The number of history events involved in the current action.|
 |taskHub|The name of your [task hub](./durable-functions-task-hubs.md).|
