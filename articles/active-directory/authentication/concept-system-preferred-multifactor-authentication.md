@@ -60,7 +60,7 @@ System-preferred MFA can be enabled only for a single group, which can be a dyna
 
 | Property | Type | Description |
 |----------|------|-------------|
-| id | String | ID of the entity targeted. |
+| ID | String | ID of the entity targeted. |
 | targetType | featureTargetType | The kind of entity targeted, such as group, role, or administrative unit. The possible values are: 'group', 'administrativeUnit', 'role', 'unknownFutureValue'. |
 
 Use the following API endpoint to enable **systemCredentialPreferences** and include or exclude groups:
