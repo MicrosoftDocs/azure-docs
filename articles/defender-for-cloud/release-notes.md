@@ -20,7 +20,8 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in April include:
 
-- [New preview Unified Disk Encryption recommendation (preview)](#unified-disk-encryption-recommendation-preview)
+- [New preview Unified Disk Encryption recommendation](#unified-disk-encryption-recommendation-preview)
+- [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely)
 
 ### Unified Disk Encryption recommendation (preview)
 
@@ -37,6 +38,13 @@ These recommendations are based on the following policies:
 
 Learn more about [ADE and EncryptionAtHost and how to enable one of them](../virtual-machines/disk-encryption-overview.md).
 
+### Changes in the recommendation "Machines should be configured securely"
+
+The recommendation `Machines should be configured securely` was updated. The update improves the performance and stability of the recommendation and aligns its experience with the generic behavior of Defender for Cloud's recommendations.
+
+As part of this update, the recommendation's ID was changed from `181ac480-f7c4-544b-9865-11b8ffe87f47` to `c476dc48-8110-4139-91af-c8d940896b98`.
+
+No action is required on the customer side, and there's no expected impact on the secure score.
 
 ## March 2023
 
