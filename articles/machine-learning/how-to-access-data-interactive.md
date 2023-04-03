@@ -117,12 +117,16 @@ from azureml.fsspec import AzureMachineLearningFileSystem
 fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
 
 # you can specify recursive as False to upload a file
-fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recursive=False, **{'overwrite': True})
+fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recursive=False, **{'overwrite': MERGE_WITH_OVERWRITE})
 
 # you need to specify recursive as True to upload a folder
-fs.upload(lpath='data/upload_folder/', rpath='data/fsspec_folder', recursive=True, **{'overwrite': True})
-
+fs.upload(lpath='data/upload_folder/', rpath='data/fsspec_folder', recursive=True, **{'overwrite': MERGE_WITH_OVERWRITE})
 ```
+
+We support 3 modes for 'overwrite':
+- APPEND: if there is already a file with the same name in the destination path, will keep the original file
+- FAIL_ON_FILE_CONFLICT: if there is already a file with the same name in the destination path, will throw an error
+- MERGE_WITH_OVERWRITE: if there is already a file with the same name in the destination path, will overwrite with the new file
 
 ### Download files via AzureMachineLearningFileSystem
 ```python
