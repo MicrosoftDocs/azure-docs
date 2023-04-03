@@ -58,7 +58,9 @@ Use the following steps to troubleshoot stuck orchestrations:
 
 3. Use the Application Insights query in the [Azure Storage Messaging section](./durable-functions-troubleshooting-guide.md#azure-storage-messaging) to filter on that queue name as the Partition ID and look for any problems related to that control queue partition.
 
-4. Please check if you have followed the guidance in **Durable Functions Best Practice and Diagnostic Tools**. Some problems are caused by known Durable Functions anti-patterns. If you need to make changes to your function app, be sure to be aware of how your changes might impact in-flight orchestration instances. For more information on app versioning, see the [Durable Functions Versioning documentation](durable-functions-versioning.md).
+4. Check the guidance in **Durable Functions Best Practice and Diagnostic Tools**. Some problems may be caused by known Durable Functions anti-patterns.
+
+5. Check the [Durable Functions Versioning documentation](durable-functions-versioning.md). Some problems may be caused by breaking changes to in-flight orchestration instances.
 
 ## Orchestration runs slowly
 
@@ -144,7 +146,7 @@ traces
 |age|The number of milliseconds since a message was enqueued. Large numbers often indicate performance problems. An exception is the TimerFired message type, which may have a large Age value depending on timer's duration.|
 |latencyMs|The number of milliseconds taken by some storage operation.|
 |dequeueCount|The number of times a message has been dequeued. Under normal circumstances, this value is always 1. If it is more than one, then there might be a problem.|
-|partitionId|This is both a) the name of the partition and b) the name of the queue for all message-related trace events.|
+|partitionId|The name of the queue associated with this log.|
 |totalEventCount|The number of history events involved in the current action.|
 |taskHub|The name of your [task hub](./durable-functions-task-hubs.md).|
-|newEvents|A comma-separated list of history events that are being written to the History table in storage. The valid values are a superset of valid EventType values.|
+|newEvents|A comma-separated list of history events that are being written to the History table in storage.|
