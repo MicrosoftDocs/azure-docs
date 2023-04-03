@@ -119,7 +119,7 @@ The following file types are supported for scanning, for schema extraction, and 
 >    * We do not support data type detection. The data type will be listed as "string" for all columns.
 >    * We only support comma(‘,’), semicolon(‘;’), vertical bar(‘|’) and tab(‘\t’) as delimiters.
 >    * Delimited files with less than three rows cannot be determined to be CSV files if they are using a custom delimiter. For example: files with ~ delimiter and less than three rows will not be able to be determined to be CSV files.
->    * If the field doesn't have quotes on the ends, or the field is a single quote char or there are quotes within the field, the row will be judged as error row. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
+>    * If a field contains double quotes, the double quotes can only appear at the beginning and end of the field and must be matched. Double quotes that appear in the middle of the field or appear at the beginning and end but are not matched will be recognized as bad data and there will be no schema get parsed from the file. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
  > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 
 ## Schema extraction
