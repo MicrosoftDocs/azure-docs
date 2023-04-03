@@ -19,11 +19,11 @@ Application requests to Azure Storage must be authenticated using either account
 
 The following tutorial explains how to migrate an existing application to connect to Azure Storage to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
 
-### Configure roles and users for local development authentication
+## Configure roles and users for local development authentication
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
-### Sign-in and migrate the app code to use passwordless connections
+## Sign-in and migrate the app code to use passwordless connections
 
 For local development, make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, Azure PowerShell, or other tools such as IntelliJ.
 
@@ -56,15 +56,15 @@ Next you need to update your code to use passwordless connections.
 
    :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name.":::
 
-#### Run the app locally
+### Run the app locally
 
 After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure allows your app to connect to the Azure service locally.
 
-### Configure the Azure hosting environment
+## Configure the Azure hosting environment
 
 Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. The sections that follow explain how to configure a deployed application to connect to Azure Blob Storage using a managed identity.
 
-#### Create the managed identity
+### Create the managed identity
 
 [!INCLUDE [create-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
@@ -101,7 +101,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 
 ---
 
-#### Assign roles to the managed identity
+### Assign roles to the managed identity
 
 Next, you need to grant permissions to the managed identity you created to access your storage account. Grant permissions by assigning a role to the managed identity, just like you did with your local development user.
 
@@ -149,7 +149,7 @@ If you connected your services using Service Connector you don't need to complet
 
 ---
 
-#### Update the application code
+### Update the application code
 
 You need to configure your application code to look for the specific managed identity you created when it is deployed to Azure. In some scenarios, explicitly setting the managed identity for the app also prevents other environment identities from accidentally being detected and used automatically.
 
@@ -169,7 +169,7 @@ You need to configure your application code to look for the specific managed ide
 
 3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
 
-#### Test the app
+### Test the app
 
 After deploying the updated code, browse to your hosted application in the browser. Your app should be able to connect to the storage account successfully. Keep in mind that it may take several minutes for the role assignments to propagate through your Azure environment. Your application is now configured to run both locally and in a production environment without the developers having to manage secrets in the application itself.
 
