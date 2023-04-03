@@ -35,10 +35,7 @@ Before you begin, verify that:
 
 1. After you can log into your BTP account (see the [prerequisites](#prerequisites),) follow these [audit log retrieval steps](https://help.sap.com/docs/btp/sap-business-technology-platform/audit-log-retrieval-api-usage-for-subaccounts-in-cloud-foundry-environment) on the SAP BTP system. 
 1. In the SAP BTP Cockpit, select the **Audit Log Management Service**.
-1. Create an instance of the Audit Log Management Service in the sub account.
-
-    :::image type="content" source="./media/deploy-sap-btp-solution/btp-audit-log-sub-account.png" alt-text="Screenshot of how to create an instance of the Audit Log Management Service in the BTP sub account.":::
- 
+1. Create an instance of the Audit Log Management Service in the sub account. 
 1.	Create a service key and record the following details. These are required to deploy the data connector.
 
     - url: 
