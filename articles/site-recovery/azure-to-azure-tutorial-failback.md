@@ -2,6 +2,7 @@
 title: Tutorial to fail back Azure VMs to a primary region during disaster recovery with Azure Site Recovery.
 description: Tutorial to learn about failing back Azure VMs to a primary region with Azure Site Recovery.
 ms.topic: tutorial
+ms.service: site-recovery
 ms.date: 11/05/2020
 ms.custom: mvc
 ms.author: ankitadutta

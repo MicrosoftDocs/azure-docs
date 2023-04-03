@@ -1,8 +1,8 @@
 ---
 title: Azure Maps community Open-source projects | Microsoft Azure Maps
 description: Open-source projects coordinated for the Microsoft Azure Maps platform.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -75,11 +75,11 @@ The following is a list of open-source projects that extend the capabilities of 
 | [Azure Maps Docs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Source for all Azure Location Based Services documentation. |
 | [Azure Maps Creator Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator Tools. |
 
-A longer list of open-source projects for Azure Maps that includes community created projects is available [here](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
+For a more complete list of open-source projects for Azure Maps that includes community created projects, see [Azure Maps Open Source Projects](https://github.com/microsoft/Maps/blob/master/AzureMaps.md) in GitHub.
 
 ## Supportability of open-source projects
 
-The following statements apply across all of the Azure Maps created and maintained open-source projects and samples:
+The following statements apply across all Azure Maps open-source projects and samples:
 
 - Azure Maps open-source projects and samples are created by Microsoft and the community.
 - Azure Maps open-source projects and samples are maintained by Microsoft and the community.

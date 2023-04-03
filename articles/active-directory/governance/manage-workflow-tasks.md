@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 04/06/2022
+ms.date: 01/31/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
@@ -26,7 +26,7 @@ Tasks within workflows can be added, edited, reordered, and removed at will. To 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** and then select **Identity Governance**. 
+1. Type in **Identity Governance** on the search bar near the top of the page and select it.
 
 1. In the left menu, select **Lifecycle workflows (Preview)**. 
 

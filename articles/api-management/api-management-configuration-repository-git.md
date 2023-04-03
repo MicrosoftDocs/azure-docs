@@ -207,6 +207,7 @@ These files can be created, deleted, edited, and managed on your local file syst
 > * [Subscriptions](/rest/api/apimanagement/current-ga/subscription)
 > * Named values
 > * Developer portal entities other than styles and templates
+> * Policy Fragments
 >
 
 ### Root api-management folder

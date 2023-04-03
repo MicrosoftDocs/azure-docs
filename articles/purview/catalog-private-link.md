@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 02/16/2023
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints for my Microsoft Purview account, for secure access.
 ---
 
@@ -40,7 +40,7 @@ Use the following recommended checklist to perform deployment of Microsoft Purvi
 
 |Scenario  |Objectives  |
 |---------|---------|
-|**Scenario 1** - [Connect to your Microsoft Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md) |You need to restrict access to your Microsoft Purview account only via a private endpoint, including access to the Microsoft Purview governance portal, Atlas APIs and scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime ensuring end to end network isolation. (Deploy _account_, _portal_ and _ingestion_ private endpoints.)   |
+|**Scenario 1** - [Connect to your Microsoft Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md) |You need to restrict access to your Microsoft Purview account only via a private endpoint, including access to the Microsoft Purview governance portal, Atlas APIs and scan data sources in on-premises and Azure (but inside a virtual network) using self-hosted integration runtime ensuring end to end network isolation. (Deploy _account_, _portal_ and _ingestion_ private endpoints.)   |
 |**Scenario 2** - [Connect privately and securely to your Microsoft Purview account](./catalog-private-link-account-portal.md)   | You need to enable access to your Microsoft Purview account, including access to _the Microsoft Purview governance portal_ and Atlas API through private endpoints. (Deploy _account_ and _portal_ private endpoints).   |
 |**Scenario 3** - [Scan data source securely using Managed Virtual Network](./catalog-managed-vnet.md)   | You need to scan Azure data sources securely, without having to manage a virtual network or a self-hosted integration runtime VM. (Deploy managed private endpoint for Microsoft Purview, managed storage account and Azure data sources).   |
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Sansan | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Sansan'
 description: Learn how to configure single sign-on between Azure Active Directory and Sansan.
 services: active-directory
 author: jeevansd

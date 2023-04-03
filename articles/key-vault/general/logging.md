@@ -68,7 +68,7 @@ The following table lists the field names and descriptions:
 | **durationMs** |Time it took to service the REST API request, in milliseconds. The time does not include the network latency, so the time you measure on the client side might not match this time. |
 | **callerIpAddress** |IP address of the client that made the request. |
 | **correlationId** |An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
-| **identity** | Identity from the token that was presented in the REST API request. Usually a "user," a "service principal," or the combination "user+appId", for instance when the request comes from a Azure PowerShell cmdlet. |
+| **identity** | Identity from the token that was presented in the REST API request. Usually a "user," a "service principal," or the combination "user+appId", for instance when the request comes from an Azure PowerShell cmdlet. |
 | **properties** |Information that varies based on the operation (**operationName**). In most cases, this field contains client information (the user agent string passed by the client), the exact REST API request URI, and the HTTP status code. In addition, when an object is returned as a result of a request (for example, **KeyCreate** or **VaultGet**), it also contains the key URI (as `id`), vault URI, or secret URI. |
 
 The **operationName** field values are in *ObjectVerb* format. For example:
@@ -132,7 +132,7 @@ The following table lists the **operationName** values and corresponding REST AP
 
 | operationName | REST API command |
 | --- | --- |
-| **SecretSet** |[Create a secret](/rest/api/keyvault/certificates/update-certificate) |
+| **SecretSet** |[Create a secret](/rest/api/keyvault/secrets/set-secret) |
 | **SecretGet** |[Get a secret](/rest/api/keyvault/secrets/get-secret) |
 | **SecretUpdate** |[Update a secret](/rest/api/keyvault/secrets/update-secret) |
 | **SecretDelete** |[Delete a secret](/rest/api/keyvault/secrets/delete-secret) |
@@ -188,7 +188,7 @@ The following table lists the **operationName** values and corresponding REST AP
 
 ## Use Azure Monitor logs
 
-You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
+You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need.
 
 For more information, including how to set it up, see [Azure Key Vault in Azure Monitor](../key-vault-insights-overview.md).
 

@@ -2,14 +2,15 @@
 title: Configure protected web API apps
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
-author: jmprieur
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.date: 12/09/2022
-ms.author: jmprieur
+ms.author: cwerner
+ms.reviewer: jmprieur
 #Customer intent: As an application developer, I want to know how to write a protected web API using the Microsoft identity platform for developers.
 ---
 
@@ -69,7 +70,7 @@ You need to specify the `TenantId` only if you want to accept access tokens from
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "Enter_the_Application_(client)_ID_here"
+    "ClientId": "Enter_the_Application_(client)_ID_here",
     "TenantId": "common"
   },
   "Logging": {
@@ -196,14 +197,7 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddMicrosoftIdentityWebApi(Configuration);
 services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
 {
-  var existingOnTokenValidatedHandler = options.Events.OnTokenValidated;
-  options.Events.OnTokenValidated = async context =>
-  {
-       await existingOnTokenValidatedHandler(context);
-      // Your code to add extra configuration that will be executed after the current event implementation.
-      options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
-      options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  };
+  options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
 });
 ```
 

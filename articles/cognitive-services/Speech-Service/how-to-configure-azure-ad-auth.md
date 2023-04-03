@@ -12,7 +12,7 @@ ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ms.devlang: cpp, csharp, java, python
-
+ms.custom: devx-track-azurepowershell
 ---
 # Azure Active Directory Authentication with the Speech SDK
 
@@ -51,6 +51,7 @@ Here's an example of using Azure Identity to get an Azure AD access token from a
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
 var browserToken = browserCredential.GetToken(context);
+string aadToken = browserToken.Token;
 ```
 The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end

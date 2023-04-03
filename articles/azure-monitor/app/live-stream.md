@@ -2,7 +2,7 @@
 title: Diagnose with Live Metrics - Application Insights - Azure Monitor
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 ms.topic: conceptual
-ms.date: 01/06/2023
+ms.date: 02/14/2023
 ms.reviewer: sdash
 ms.devlang: csharp
 ---
@@ -41,7 +41,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
    * [ASP.NET Core](./asp-net-core.md): Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md): Live Metrics is enabled by default.
    * [.NET Applications: Enable using code](#enable-live-metrics-by-using-code-for-any-net-application).
-   * [Java](./java-in-process-agent.md): Live Metrics is enabled by default.
+   * [Java](./opentelemetry-enable.md?tabs=java): Live Metrics is enabled by default.
    * [Node.js](./nodejs.md#live-metrics)
 
 1. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app. Then open Live Stream.
@@ -55,7 +55,7 @@ Live Metrics is currently supported for ASP.NET, ASP.NET Core, Azure Functions, 
 > [!NOTE]
 > Live Metrics is enabled by default when you onboard it by using the recommended instructions for .NET applications.
 
-To manually set up Live Metrics:
+To manually configure Live Metrics:
 
 1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
 1. The following sample console app code shows setting up Live Metrics:
@@ -169,9 +169,9 @@ If you want to monitor a particular server role instance, you can filter by serv
 
 ## Secure the control channel
 
-Live Metrics custom filters allow you to control which of your application's telemetry is streamed to the Live Metrics view in the Azure portal. The filters criteria is sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information, such as the customer ID. To keep this value secured and prevent potential disclosure to unauthorized applications, you have two options:
+Live Metrics custom filters allow you to control which of your application's telemetry is streamed to the Live Metrics view in the Azure portal. The filters criteria are sent to the apps that are instrumented with the Application Insights SDK. The filter value could potentially contain sensitive information, such as the customer ID. To keep this value secured and prevent potential disclosure to unauthorized applications, you have two options:
 
-- **Recommended:** Secure the Live Metrics channel by using [Azure Active Directory (Azure AD) authentication](./azure-ad-authentication.md#configuring-and-enabling-azure-ad-based-authentication).
+- **Recommended:** Secure the Live Metrics channel by using [Azure Active Directory (Azure AD) authentication](./azure-ad-authentication.md#configure-and-enable-azure-ad-based-authentication).
 - **Legacy (no longer recommended):** Set up an authenticated channel by configuring a secret API key as explained in the "Legacy option" section.
 
 > [!NOTE]
@@ -272,7 +272,7 @@ Basic metrics include request, dependency, and exception rate. Performance metri
  PerfCounters support varies slightly across versions of .NET Core that don't target the .NET Framework:
 
 - PerfCounters metrics are supported when running in Azure App Service for Windows (ASP.NET Core SDK version 2.4.1 or higher).
-- PerfCounters are supported when the app is running in *any* Windows machines, like VM, Azure Cloud Service, or on-premises (ASP.NET Core SDK version 2.7.1 or higher), but only for apps that target .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
+- PerfCounters are supported when the app is running on *any* Windows machine for apps that target .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
 - PerfCounters are supported when the app is running *anywhere* (such as Linux, Windows, app service for Linux, or containers) in the latest versions, but only for apps that target .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or higher.
 
 ## Troubleshooting
@@ -304,9 +304,16 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
 
 ### "Data is temporarily inaccessible" status message
 
-When navigating to Live Metrics you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus" 
+When navigating to Live Metrics, you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus" 
 
 Verify if any firewalls or browser extensions are blocking access to Live Metrics. For example, some popular ad-blocker extensions block connections to \*.monitor.azure.com. In order to use the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule for the domain \*.livediagnostics.monitor.azure.com to your ad-blocker, firewall, etc. 
+
+### Unexpected large number of requests to livediagnostics.monitor.azure.com
+
+Heavier traffic is expected while the LiveMetrics pane is open. Navigate away from the LiveMetrics pane to restore normal traffic flow of traffic.
+Application Insights SDKs poll QuickPulse endpoints with REST API calls once every five seconds to check if the LiveMetrics pane is being viewed.
+
+The SDKs will send new metrics to QuickPulse every one second while the LiveMetrics pane is open.
 
 ## Next steps
 

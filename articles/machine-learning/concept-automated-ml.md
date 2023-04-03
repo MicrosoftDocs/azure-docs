@@ -33,9 +33,9 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 
 1. **Identify the ML problem** to be solved: classification, forecasting, regression, computer vision or NLP.
 
-1. **Choose whether you want to a code-first experience or a no-code studio web experience**: Users who prefer a code-first experience can use the [AzureML SDKv2](how-to-configure-auto-train.md) or the [AzureML CLIv2](how-to-train-cli.md). Get started with [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md). Users who prefer a limited/no-code experience can use the [web interface](how-to-use-automated-ml-for-ml-models.md) in Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+1. **Choose whether you want a code-first experience or a no-code studio web experience**: Users who prefer a code-first experience can use the [Azure Machine Learning SDKv2](how-to-configure-auto-train.md) or the [Azure Machine Learning CLIv2](how-to-train-cli.md). Get started with [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md). Users who prefer a limited/no-code experience can use the [web interface](how-to-use-automated-ml-for-ml-models.md) in Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
     
-1. **Specify the source of the labeled training data**: You can bring your data to AzureML in [many different ways](concept-data.md).
+1. **Specify the source of the labeled training data**: You can bring your data to Azure Machine Learning in [many different ways](concept-data.md).
 
 1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  
 1. **Submit the training job.**
@@ -70,7 +70,7 @@ See an example of classification and automated machine learning in this Python n
 
 ### Regression
 
-Similar to classification, regression tasks are also a common supervised learning task. AzureML offers featurization specific to regression problems. Learn more about [featurization options](how-to-configure-auto-train.md#data-featurization). You can also find the list of algorithms supported by AutoML [here](how-to-configure-auto-train.md#supported-algorithms). 
+Similar to classification, regression tasks are also a common supervised learning task. Azure Machine Learning offers featurization specific to regression problems. Learn more about [featurization options](how-to-configure-auto-train.md#data-featurization). You can also find the list of algorithms supported by AutoML [here](how-to-configure-auto-train.md#supported-algorithms). 
 
 Different from classification where predicted output values are categorical, regression models predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others. For example, automobile price based on features like, gas mileage, safety rating, etc. 
 
@@ -105,7 +105,7 @@ With this capability you can:
 * Download or deploy the resulting model as a web service in Azure Machine Learning. 
 * Operationalize at scale, leveraging Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) and [ML Pipelines](concept-ml-pipelines.md) capabilities. 
 
-Authoring AutoML models for vision tasks is supported via the Azure ML Python SDK. The resulting experimentation jobs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
+Authoring AutoML models for vision tasks is supported via the Azure Machine Learning Python SDK. The resulting experimentation jobs, models, and outputs can be accessed from the Azure Machine Learning studio UI.
 
 Learn how to [set up AutoML training for computer vision models](how-to-auto-train-image-models.md).
 

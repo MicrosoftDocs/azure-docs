@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create and configure Route Server using Azure CLI'
-description: In this quickstart, you learn how to create and configure a Route Server using Azure CLI.
+title: 'Quickstart: Create and configure Route Server - Azure CLI'
+description: In this quickstart, you learn how to create and configure an Azure Route Server using Azure CLI.
 services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
 ms.author: halkazwini
-ms.custom: mode-api, devx-track-azurecli 
+ms.custom: mode-api, devx-track-azurecli, template-quickstart
 ms.devlang: azurecli
 ---
 
@@ -160,6 +160,8 @@ RouteServerIps  : {10.5.10.4, 10.5.10.5}  "virtualRouterAsn": 65515,
   ], 
 
 ``` 
+
+[!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
 ## Configure route exchange 
 

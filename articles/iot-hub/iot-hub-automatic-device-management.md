@@ -1,10 +1,11 @@
 ---
-title: Automatic device management at scale with Azure IoT Hub
+title: Automatic device management at scale (Azure portal)
+titleSuffix: Azure IoT Hub
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices and modules in the Azure portal
 author: kgremban
+
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2022
 ms.author: kgremban
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']

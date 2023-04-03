@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/15/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -32,7 +32,6 @@ If the original version of group writeback is already enabled and in use in your
 
 To configure directory settings to disable automatic writeback of newly created Microsoft 365 groups, use one of these methods:
 
-- Azure portal: Update the `NewUnifiedGroupWritebackDefault` setting to `false`. 
 - PowerShell: Use the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true). For example: 
     
   ```PowerShell 

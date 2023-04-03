@@ -102,6 +102,21 @@ Although PHP does not support connection pooling, you can try using persistent d
 
    * [PHP Connection Management](https://www.php.net/manual/en/pdo.connections.php)
 
+#### Python
+
+Below are the popular databases and modules for connection pooling which contain examples for how to implement them.
+
+* [MySQL](https://dev.mysql.com/doc/connector-python/en/connector-python-connection-pooling.html)
+* [MariaDB](https://mariadb.com/docs/ent/connect/programming-languages/python/connection-pools/)
+* [PostgreSQL](https://www.psycopg.org/docs/pool.html)
+* [Pyodbc](https://github.com/mkleehammer/pyodbc/wiki/The-pyodbc-Module#pooling)
+* [SQLAlchemy](https://docs.sqlalchemy.org/en/20/core/pooling.html)
+
+HTTP Connection Pooling
+
+  * Keep-alive and HTTP connection pooling are enabled by default in [Requests](https://requests.readthedocs.io/en/latest/user/advanced/#keep-alive) module.
+  * [Urllib3](https://urllib3.readthedocs.io/en/stable/reference/urllib3.connectionpool.html) 
+
 ### Modify the application to reuse connections
 
 *  For additional pointers and examples on managing connections in Azure functions, review [Manage connections in Azure Functions](../azure-functions/manage-connections.md).

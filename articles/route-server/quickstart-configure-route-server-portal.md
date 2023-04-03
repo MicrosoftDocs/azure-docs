@@ -1,13 +1,13 @@
 ---
-title: 'Quickstart: Create and configure Route Server using the Azure portal'
-description: In this quickstart, you learn how to create and configure a Route Server using the Azure portal.
+title: 'Quickstart: Create and configure Route Server - Azure portal'
+description: In this quickstart, you learn how to create and configure an Azure Route Server using the Azure portal.
 services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: quickstart
 ms.date: 07/19/2022
 ms.author: halkazwini
-ms.custom: mode-ui
+ms.custom: mode-ui, template-quickstart
 ---
 
 # Quickstart: Create and configure Route Server using the Azure portal
@@ -85,6 +85,8 @@ The section will help you configure BGP peering with your NVA.
 You'll need the Azure Route Server's peer IPs and ASN to complete the configuration on your NVA to establish a BGP session. You can obtain this information from the overview page your Route Server.
 
 :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
+
+[!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
 ## Configure route exchange
 
