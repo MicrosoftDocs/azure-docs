@@ -1,6 +1,6 @@
 ---
-title: Add, remove, or use protected actions in Azure AD (preview)
-description: Learn how to add, remove, or use protected actions in Azure Active Directory.
+title: Add, remove, or test protected actions in Azure AD (preview)
+description: Learn how to add, remove, or test protected actions in Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -12,13 +12,13 @@ ms.topic: how-to
 ms.date: 04/05/2022
 ---
 
-# Add, remove, or use protected actions in Azure AD (preview)
+# Add, remove, or test protected actions in Azure AD (preview)
 
 > [!IMPORTANT]
 > Protected actions are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, remove, and use a protected action.
+[Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, remove, and test a protected action.
 
 ## Prerequisites
 
@@ -94,7 +94,7 @@ Resource actions with the property `isAuthenticationContextSettable` set to true
 
 To view the `isAuthenticationContextSettable` and `authenticationContextId` properties, they must be included in the select statement when making the request to the resource action API.
 
-## Use a protected action
+## Test a protected action
 
 When a user performs a protected action, they'll need to satisfy Conditional Access policy requirements. This section shows the experience for a user being prompted to satisfy a policy. In this example, the user is required to authenticate with a FIDO security key before they can update Conditional Access policies.
 
@@ -104,13 +104,19 @@ When a user performs a protected action, they'll need to satisfy Conditional Acc
 
 1. Select a Conditional Access policy to view it.
 
-    Policy editing is disabled because the authentication requirements haven't been satisfied.
+    Policy editing is disabled because the authentication requirements haven't been satisfied. At the bottom is a note indicating editing is protected by an additional access requirement and to click to reauthenticate.
 
 1. Select **Click here to reauthenticate**.
 
+    :::image type="content" source="media/protected-actions-add/test-policy-reauthenticate.png" alt-text="Screenshot of a disabled Conditional Access policy with a note indicating to reauthenticate." lightbox="media/protected-actions-add/test-policy-reauthenticate.png":::
+
 1. Complete the authentication requirements when the browser is redirected to the Azure AD sign-in page.
- 
+
+    :::image type="content" source="media/protected-actions-add/test-policy-reauthenticate-sign-in.png" alt-text="Screenshot of a sign-in page to reauthenticate." lightbox="media/protected-actions-add/test-policy-reauthenticate-sign-in.png":::
+
 1. Edit policy and save changes.
+
+    :::image type="content" source="media/protected-actions-add/test-policy-edit.png" alt-text="Screenshot of an enabled Conditional Access policy that can be edited." lightbox="media/protected-actions-add/test-policy-edit.png":::
 
 ## Troubleshoot protected actions
 
