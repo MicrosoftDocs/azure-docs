@@ -146,7 +146,7 @@
   items:
     - name: Connectivity scenarios
       href: tutorial-connect-overview.md
-    - name: Using connection secrets
+    - name: Connect by using secrets
       items:
         - name: Configure secrets with app settings
           href: configure-common.md?tabs=portal
@@ -182,7 +182,7 @@
                 href: tutorial-connect-msi-key-vault-php.md
             - name: Connect to Logic Apps
               href: tutorial-send-email.md
-    - name: Using an app identity
+    - name: Connect by using app identity
       items:
         - name: Managed identity overview
           href: overview-managed-identity.md
@@ -208,7 +208,7 @@
                   href: scenario-secure-app-access-storage.md
                 - name: JavaScript
                   href: tutorial-connect-app-access-storage-javascript.md
-    - name: Using the authenticated user
+    - name: Connect as authenticated user
       items:
         - name: Connect to Microsoft Graph as user
           items: 
@@ -321,7 +321,7 @@
               href: configure-gateway-required-vnet-integration.md
         - name: App behind private endpoint
           href: networking/private-endpoint.md
-        - name: Hybrid connection to on-premises
+        - name: Hybrid connections feature
           href: app-service-hybrid-connections.md
         - name: Control outbound traffic with Azure Firewall
           href: network-secure-outbound-traffic-azure-firewall.md
@@ -381,14 +381,6 @@
     href: overview-disaster-recovery.md
   - name: Restore from downed region
     href: manage-disaster-recovery.md
-- name: App Service on Azure Arc (preview)
-  items:
-    - name: Azure Arc hosting overview
-      href: overview-arc-integration.md
-    - name: Enable App Service on Azure Arc
-      href: manage-create-arc-environment.md
-    - name: Create app on Azure Arc
-      href: quickstart-arc.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -488,6 +480,14 @@
       href: operating-system-functionality.md
     - name: Kudu service
       href: resources-kudu.md
+    - name: App Service on Azure Arc (preview)
+      items:
+        - name: Azure Arc hosting overview
+          href: overview-arc-integration.md
+        - name: Enable App Service on Azure Arc
+          href: manage-create-arc-environment.md
+        - name: Create app on Azure Arc
+          href: quickstart-arc.md
     - name: WebJobs
       items:
         - name: Create WebJobs
