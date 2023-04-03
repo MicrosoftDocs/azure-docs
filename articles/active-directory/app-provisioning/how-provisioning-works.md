@@ -217,7 +217,7 @@ If you see `IsSoftDeleted` in your attribute mappings, it's used to determine th
 
 **Deprovisioning events**
 
-The table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, the Azure AD provisioning service may always sende a request to hard-delete users in certain applications rather than soft-deleting", if the target application doesn't support soft-deleting users. 
+The table describes how you can configure deprovisioning actions with the Azure AD provisioning service. These rules are written with the non-gallery / custom application in mind, but generally apply to applications in the gallery. However, the behavior for gallery applications can differ as they've been optimized to meet the needs of the application. For example, if the target application doesn't support soft-deleting then the Azure AD provisioning service might send a hard-delete request to delete users rather than send a soft-delete.
 
 |Scenario|How to configure in Azure AD|
 |--|--|
