@@ -105,11 +105,12 @@ traces
 | extend partitionId = customDimensions["prop__PartitionId"] 
 | extend eventCount = customDimensions["prop__TotalEventCount"] 
 | extend taskHub = customDimensions["prop__TaskHub"] 
-| extend pid = customDimensions["ProcessId"] 
+| extend pid = customDimensions["ProcessId"]
+| extend appName = cloud_RoleName
 | extend newEvents = customDimensions["NewEvents"]
 | where instanceId == targetInstanceId
 | sort by timestamp asc
-| project timestamp, taskName, eventType, extendedSession, account, details, instanceId, messageId, executionId, age, latencyMs, dequeueCount, partitionId, eventCount, taskHub, pid, newEvents, message, severityLevel, sdkVersion, appName = cloud_RoleName
+| project timestamp, taskName, eventType, extendedSession, account, details, instanceId, messageId, executionId, age, latencyMs, dequeueCount, partitionId, eventCount, taskHub, pid, newEvents, message, severityLevel, sdkVersion, appName
 ```
 
 ### Trace Errors/Warnings
