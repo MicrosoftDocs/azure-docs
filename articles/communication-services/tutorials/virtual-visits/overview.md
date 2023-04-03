@@ -17,10 +17,14 @@ ms.custom: event-tier1-build-2022
 
 Virtual appointments are a communication pattern where a **consumer** and a **business** assemble for a scheduled appointment. The **organizational boundary** between consumer and business, and **scheduled** nature of the interaction, are key attributes of most virtual appointments. Many industries operate virtual appointments: meetings with a healthcare provider, a loan officer, or a product support technician.
 
+## Personas
+
 No matter the industry, there are at least three personas involved in a virtual appointment and certain tasks they accomplish:
 - **Office Manager.** The office manager configures the business’ availability and booking rules for providers and consumers.
 - **Provider.** The provider gets on the call with the consumer. They must be able to view upcoming virtual appointments and join the virtual appointment and engage in communication.
 - **Consumer**. The consumer who schedules and motivates the appointment. They must schedule an appointment, enjoy reminders of the appointment, typically through SMS or email, and join the virtual appointment and engage in communication.
+
+## Architecture options
 
 Azure and Teams are interoperable. This interoperability gives organizations choice in how they deliver virtual appointments using Microsoft's cloud. Three examples include:
 
@@ -44,3 +48,9 @@ These three **implementation options** are columns in the table below, while eac
 There are other ways to customize and combine Microsoft tools to deliver a virtual appointments experience:
 -  **Replace Bookings with a custom scheduling experience with Graph.** You can build your own consumer-facing scheduling experience that controls Microsoft 365 meetings with Graph APIs.
 -  **Replace Teams’ provider experience with Azure.** You can still use Microsoft 365 and Bookings to manage meetings but have the business user launch a custom Azure application to join the Teams meeting. This might be useful where you want to split or customize virtual appointment interactions from day-to-day employee Teams activity.
+
+## Next steps
+- [Build your own Virtual appointments](./sample-buidler.md)
+- [Learn about Teams controls](../../concepts/interop/guest/teams-administration.md).
+- [Govern user experience in Teams meetings](./govern-meeting-experience.md)
+- [Plan user experience in Teams meetings](./plan-user-experience.md)
