@@ -48,6 +48,22 @@ Partnered health facilities contribute private health data sets to train an ML m
 
 ![Diagram of confidential healthcare scenarios, showing attestation between scenarios.](media/use-cases-scenarios/confidential_healthcare.png)
 
+### Protecting privacy with IoT and smart-building solutions
+
+Many countries have strict privacy laws about gathering and using data on people’s presence and movements inside buildings, this may include personally identifiable data like CCTV or badge-swipes or sets of data which could be considered personally identifiable when grouped together.
+
+Privacy needs to be balanced with cost & environmental needs where organizations are keen to understand occupancy/movement in-order to provide the most efficient use of energy to heat and light a building.
+
+Determining which areas of corporate real-estate are under or over-occupied by staff from individual departments typically requires processing some personally identifiable data alongside less individual data like temperature and light sensors.
+
+In this use-case the primary goal is allowing analysis of occupancy data as well as temperature sensors to be processed alongside CCTV motion tracing sensors and badge-swipe data to understand usage without exposing the raw aggregate data to anyone.
+
+Confidential compute is leveraged here by placing the analysis application (in this example running on Confidential Container Instances) inside a trusted execution environment where the in-use data is protected by encryption.
+
+Additionally, the aggregate data-sets from many types of sensor and data feed are managed in an Azure SQL Always Encrypted with Enclaves database, this protects in-use queries by encrypting them in-memory and preventing a server administrator from being able to access the aggregate data set whilst it is being queried and analysed.
+
+:::image type="content" source="media/use-cases-scenarios/iot-sensors.jpg" alt-text="Graphic showing different smart building sensors being fed into an analysis solution hosted inside a trusted execution environment (TEE). The solution outputs a dashboard for operators to analyse de-personalised building information whilst the operator has no access to the analysis happening inside the TEE that protects large groups of potentially personally identifiable data.":::
+
 ## Enhanced customer data privacy
 
 Despite the security level provided by Microsoft Azure is quickly becoming one of the top drivers for cloud computing adoption, customers trust their provider to different extents. Customer asks for:
