@@ -60,6 +60,6 @@ Microsoft Purview allows administrators to protect information with sensitivity 
 
 ## Next steps
 - [Overview of Virtual appointments](./overview.md)
-- [Build your own Virtual appointments](../../tutorials/virtual-visits/sample-buidler.md)
+- [Build your own Virtual appointments](../../../tutorials/virtual-visits/sample-buidler.md)
 - [Learn about Teams controls](../guest/teams-administration.md).
 - [Plan user experience in Teams meetings](./plan-user-experience.md)
