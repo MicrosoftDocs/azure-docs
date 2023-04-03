@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: Learn how Azure App Service helps you develop and host web applications
+description: This is an overview of the App Service, an HTTP-based service for hosting web applications, REST APIs, and mobile back ends. It is an HTTP service for hosted web applications and mobile backends. It adds the power of Microsoft Microsoft to your application, such as security, load balancing, autoscaling, and automated management. You can also take advantage of its DevOps capabilities, such Assitant, package management, staging environments, custom domain, and TLS/SSL certificates. With App Service you pay for the compute resources you use. You pay for your compute resources. With other services, such a Spring Apps or Service Fabric, App Service is the best choice. For most scenarios, App service is the most suitable. For more information about how to choose between these services, see App Service vs. Virtual Machines. For App Service on Linux, see the App service on Linux page.
 
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
