@@ -10,7 +10,6 @@ ms.date: 03/28/2023
 ms.author: visho
 ms.custom: private_preview
 services: azure-communication-services
-zone_pivot_groups: acs-csharp-java
 ---
 
 # Add a Microsoft Teams user to an existing call using Call Automation
@@ -88,6 +87,7 @@ await answer.Value.CallConnection.AddParticipantAsync(
     });
 ```
 On the Microsoft Teams desktop client, Jack's call will be sent to the Microsoft Teams user through an incoming call toast notification.
+
 ![Screenshot of Microsoft Teams desktop client, Jack's call is sent to the Microsoft Teams user through an incoming call toast notification.](./media/incoming-call-toast-notification-teams-user.png)
 
 After the Microsoft Teams user accepts the call, the in-call experience for the Microsoft Teams user will have all the participants displayed on the Microsoft Teams roster.
@@ -111,6 +111,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features. 
+- Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.
+- Learn more about capabilities of [Teams Interoperability support with ACS Call Automation](../../concepts/call-automation/call-automation-teams-interop.md)
 - Learn about [Play action](../../concepts/call-automation/play-Action.md) to play audio in a call.
 - Learn how to build a [call workflow](../../quickstarts/call-automation/callflows-for-customer-interactions.md) for a customer support scenario. 
