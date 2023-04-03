@@ -18,7 +18,7 @@ ms.date: 04/05/2022
 > Protected actions are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, remove, and test a protected action.
+[Protected actions](./protected-actions-overview.md) in Azure Active Directory (Azure AD) are permissions that have been assigned Conditional Access polices that are enforced when a user attempts to perform an action. This article describes how to add, remove, and test protected actions.
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ To add or remove protected actions, you must have:
 - [Conditional Access Administrator](permissions-reference.md#conditional-access-administrator) or [Security Administrator](permissions-reference.md#security-administrator)
 - One or more [Conditional Access authentication context configured](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context)
 
-## Add a protected action
+## Add protected actions
 
-To add a protection action, assign a Conditional Access policy to one or more permissions, using a Conditional Access authentication context.
+To add protection actions, assign a Conditional Access policy to one or more permissions, using a Conditional Access authentication context.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
@@ -56,7 +56,7 @@ To add a protection action, assign a Conditional Access policy to one or more pe
 
     The new protected actions appear in the list of protected actions
 
-## Test a protected action
+## Test protected actions
 
 When a user performs a protected action, they'll need to satisfy Conditional Access policy requirements. This section shows the experience for a user being prompted to satisfy a policy. In this example, the user is required to authenticate with a FIDO security key before they can update Conditional Access policies.
 
@@ -84,9 +84,9 @@ When a user performs a protected action, they'll need to satisfy Conditional Acc
 
     :::image type="content" source="media/protected-actions-add/test-policy-edit.png" alt-text="Screenshot of an enabled Conditional Access policy that can be edited." lightbox="media/protected-actions-add/test-policy-edit.png":::
 
-## Remove a protected action
+## Remove protected actions
 
-To remove a protection action, unassign Conditional Access policy requirements from a permission.
+To remove protection actions, unassign Conditional Access policy requirements from a permission.
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
 
@@ -102,7 +102,7 @@ To remove a protection action, unassign Conditional Access policy requirements f
 
 ## Microsoft Graph
 
-### Add a protected action
+### Add protected actions
 
 Protected actions are added by assigning an authentication context value to a permission. Authentication context values that are available in the tenant can be discovered by calling the [authenticationContextClassReference](/graph/api/resources/authenticationcontextclassreference?branch=main) API.
 
@@ -184,3 +184,5 @@ Make sure you're using Microsoft Graph PowerShell.
 
 ## Next steps
 
+- [What are protected actions in Azure AD?](protected-actions-overview.md)
+- [Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context)

@@ -47,11 +47,11 @@ Here is the initial set of permissions:
 > [!div class="mx-tableFixed"]
 > | Permission | Description |
 > | --- | --- |
-> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/basic/update | Update basic properties for conditional access policies |
+> | microsoft.directory/conditionalAccessPolicies/create | Create conditional access policies |
 > | microsoft.directory/conditionalAccessPolicies/delete | Delete conditional access policies |
-> | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
 > | microsoft.directory/namedLocations/basic/update | Update basic properties of custom rules that define network locations |
+> | microsoft.directory/namedLocations/create | Create custom rules that define network locations |
 > | microsoft.directory/namedLocations/delete | Delete custom rules that define network locations |
 > | microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Update Conditional Access authentication context of Microsoft 365 role-based access control (RBAC) resource actions |
 
@@ -71,11 +71,11 @@ Here is the initial set of permissions:
 
 1. **Add protected actions**
 
-    Add protected actions by assigning Conditional Access authentication context values to selected permissions. Learn more
+    Add protected actions by assigning Conditional Access authentication context values to selected permissions. [Learn more](./protected-actions-add.md#add-protected-actions)
 
-1. **Use protected action**
+1. **Test protected actions**
 
-    Sign in as a user and test the user experience by performing the protected action. You should be prompted to satisfy the Conditional Access policy requirements. For example, if the policy requires multi-factor authentication, you should be redirected to the sign-in page and prompted for strong authentication. Learn more
+    Sign in as a user and test the user experience by performing the protected action. You should be prompted to satisfy the Conditional Access policy requirements. For example, if the policy requires multi-factor authentication, you should be redirected to the sign-in page and prompted for strong authentication. [Learn more](./protected-actions-add.md#test-protected-actions)
 
 ## What happens with protected actions and applications?
 
@@ -119,4 +119,4 @@ Here are some best practices for using protected actions.
 
 ## Next steps
 
-- [Add, remove, or use protected actions in Azure AD](./protected-actions-add.md)
+- [Add, remove, or test protected actions in Azure AD](./protected-actions-add.md)
