@@ -445,6 +445,28 @@ items:
       items:
       - name: Overview
         href: /rest/api/maps-creator/
+      - name: 2023-03-01-preview
+        items:
+        - name: Alias
+          href: /rest/api/maps/2023-03-01-preview/alias
+        - name: Conversion
+          href: /rest/api/maps/2023-03-01-preview/conversion		
+        - name: Dataset
+          href: /rest/api/maps/2023-03-01-preview/dataset
+        - name: Feature State
+          href: /rest/api/maps/2023-03-01-preview/feature-state
+        - name: Features
+          href: /rest/api/maps/2023-03-01-preview/features
+        - name: Map configuration
+          href: /rest/api/maps/2023-03-01-preview/map-configuration
+        - name: Routeset
+          href: /rest/api/maps/2023-03-01-preview/routeset
+        - name: Style
+          href: /rest/api/maps/2023-03-01-preview/style
+        - name: Tileset
+          href: /rest/api/maps/2023-03-01-preview/tileset
+        - name: Wayfinding
+          href: /rest/api/maps/2023-03-01-preview/wayfinding
       - name: V2
         items:
           - name: Alias
@@ -491,6 +513,8 @@ items:
       items:
       - name: Map control
         href: release-notes-map-control.md
+      - name: Indoor module
+        href: release-notes-indoor-module.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
   - name: Azure CLI
