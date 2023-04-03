@@ -94,7 +94,7 @@ To connect to the cluster, use the Kubernetes command-line client, `kubectl`. It
     kubectl get nodes
     ```
 
-    The following output example shows the single node created in the previous steps. Make sure the status shows *Ready*:
+3. The following output example shows the single node created in the previous steps. Make sure the status shows *Ready*:
 
     ```output
     NAME                       STATUS   ROLES   AGE     VERSION
@@ -164,25 +164,25 @@ Now you can create a storage pool, which is a logical grouping of storage for yo
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
-```azurecli-interactive
-apiVersion: containerstorage.azure.com/v1alpha1
-kind: StoragePool
-metadata:
-   name: azuredisk
-   namespace: azstor
-spec:
-   poolType:
-       csi: {}
-   resources:
-       limits: {"storage": 10Ti}
-       requests: {"storage": 5Ti}
-```
+   ```azurecli-interactive
+   apiVersion: containerstorage.azure.com/v1alpha1
+   kind: StoragePool
+   metadata:
+      name: azuredisk
+      namespace: azstor
+   spec:
+      poolType:
+          csi: {}
+      resources:
+          limits: {"storage": 10Ti}
+          requests: {"storage": 5Ti}
+   ```
 
 3. Apply the yaml file to create the storage pool.
 
-```azurecli-interactive
-kubectl apply -f acstor-storagepool.yaml 
-```
+   ```azurecli-interactive
+   kubectl apply -f acstor-storagepool.yaml 
+   ```
 
 When storage pool creation is complete, you'll see a message like:
 
@@ -196,18 +196,16 @@ You can also run this command to check the status of the storage pool:
 kubectl describe sp azuredisk -n azstor
 ```
 
-## Use the new storage classes
+## Display the available storage classes
 
-A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume. When the storage pool is ready to use, you must select a storage class to use to create persistent volume claims and deploy persistent volumes.
+When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
 
-Run `kubectl get sc` to display the available storage classes. You should see output similar to the following.
+Run `kubectl get sc` to display the available storage classes. You should see output that includes the following.
 
 ```output
 azure-disk-sc-for-mayastor
 azurecontainerstorage-single-replica
 ```
-
-For example, you can now use the `azure-disk-sc-for-mayastor` storage class in place of the other built-in storage classes for Disks CSI drivers.
 
 ## Create a persistent volume claim
 
@@ -217,25 +215,25 @@ A persistent volume claim is used to automatically provision storage based on a 
 
 2. Paste in the following code. The `name` value can be whatever you want. 
 
-```azurecli-interactive
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-   name: azurediskpvc
-spec:
-   accessModes:
-      - ReadWriteOnce
-   storageClassName: azuredisk
-   resources:
-      requests:
-         storage: 100Gi
-```
+   ```azurecli-interactive
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+      name: azurediskpvc
+   spec:
+      accessModes:
+         - ReadWriteOnce
+      storageClassName: azuredisk
+      resources:
+         requests:
+            storage: 100Gi
+   ```
 
 3. Apply the yaml file to create the persistent volume claim.
 
-```azurecli-interactive
-kubectl apply -f acstor-pvc.yaml
-```
+   ```azurecli-interactive
+   kubectl apply -f acstor-pvc.yaml
+   ```
 
 You should see output similar to:
 
@@ -253,59 +251,59 @@ Once the persistent volume claim is created, it's ready to mount onto a pod.
 
 ## Deploy a pod and attach a persistent volume
 
-Create a pod using Fio, or flexible I/O, for benchmarking and workload simulation.
+Create a pod using Fio (flexible I/O) for benchmarking and workload simulation, and specify a mount path for the persistent volume.
 
 1. Run `code acstor-pod.yaml` to create a yaml file.
 
 2. Paste in the following code.
 
-```azurecli-interactive
-kind: Pod
-apiVersion: v1
-metadata:
-  name: fiopod
-spec:
-  nodeSelector:
-    openebs.io/engine: io.engine
-  volumes:
-    - name: 
-      persistentVolumeClaim:
-        claimName: azurediskpvc
-  containers:
-    - name: fio
-      image: nixery.dev/shell/fio
-      args:
-        - sleep
-        - "1000000"
-      volumeMounts:
-        - mountPath: "/volume"
-          name: azurediskpv
-```
+   ```azurecli-interactive
+   kind: Pod
+   apiVersion: v1
+   metadata:
+     name: fiopod
+   spec:
+     nodeSelector:
+       openebs.io/engine: io.engine
+     volumes:
+       - name: 
+         persistentVolumeClaim:
+           claimName: azurediskpvc
+     containers:
+       - name: fio
+         image: nixery.dev/shell/fio
+         args:
+           - sleep
+           - "1000000"
+         volumeMounts:
+           - mountPath: "/volume"
+             name: azurediskpv
+   ```
 
 3. Apply the yaml file to deploy the pod.
 
-```azurecli-interactive
-kubectl apply -f acstor-pod.yaml
-```
+   ```azurecli-interactive
+   kubectl apply -f acstor-pod.yaml
+   ```
 
 You should see output similar to the following:
 
-```output
-pod/fiopod created
-```
+   ```output
+   pod/fiopod created
+   ```
 
-Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
+4. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
 
-```azurecli-interactive
-kubectl describe pod fiopod
-kubectl describe pvc azurediskpvc
-```
+   ```azurecli-interactive
+   kubectl describe pod fiopod
+   kubectl describe pvc azurediskpvc
+   ```
 
-Check fio testing to see its current status:
+5. Check fio testing to see its current status:
 
-```azurecli-interactive
-kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
-```
+   ```azurecli-interactive
+   kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
+   ```
 
 You now have a pod with storage that you can use for your Kubernetes workloads.
 
