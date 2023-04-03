@@ -5,7 +5,7 @@ keywords:
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 2/2/2023
+ms.date: 04/03/2023
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -41,19 +41,19 @@ You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
 When upgrading between *product* releases, for example 1.1 to 1.4, order flexibility still exists. We'd recommend updating both host components and system containers, since the combination is what we test. To update between product releases:
 
-1. On the device, stop IoT Edge and uninstall.
+1. On the device, stop IoT Edge runtime using the command `sudo systemctl stop iotedge` and [uninstall IoT Edge](how-to-provision-single-device-windows-symmetric.md#uninstall-iot-edge).
 
-1. On the device, upgrade your container engine, either [Docker](https://docs.docker.com/engine/install/ubuntu/) or [Moby](how-to-provision-single-device-linux-symmetric.md#install-a-container-engine).
+1. On the device, upgrade your container engine, either [Docker](https://docs.docker.com/engine/install) or [Moby](how-to-provision-single-device-linux-symmetric.md#install-a-container-engine).
 
-1. On the device, install `aziot-edge`.
+1. On the device, [install IoT Edge](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
    
    If you're importing an old configuration using `iotedge config import`, then modify the [agent.config] image of the generated `/etc/aziot/config.toml` file to use the 1.4 image for edgeAgent.
 
    For more information, see [Configure IoT Edge device settings](configure-device.md#default-edge-agent).
 
-1. In IoT Hub, update the module deployment in the cloud to reference the newest system modules.
+1. In IoT Hub, [update the module deployment](#update-a-specific-tag-image) to reference the newest system modules.
 
-1. On the device, start `aziot-edge`, using `sudo iotedge config apply`.
+1. On the device, start the IoT Edge runtime using `sudo iotedge config apply`.
 
 You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
@@ -163,7 +163,7 @@ The IoT Edge service pulls the latest versions of the runtime images and automat
 
 ### Update a specific tag image
 
-If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.1.1**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
+If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.4**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
 
 1. In the IoT Hub in the Azure portal, select your IoT Edge device, and select **Set Modules**.
 
