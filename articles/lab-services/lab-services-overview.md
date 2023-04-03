@@ -6,7 +6,7 @@ ms.service: lab-services
 ms.author: nicktrog
 author: ntrogh
 ms.topic: overview
-ms.date: 03/30/2023
+ms.date: 04/03/2023
 ---
 
 # What is Azure Lab Services?
@@ -54,17 +54,17 @@ Azure Lab Services supports the following key capabilities and features:
  
 ## Use cases
 
-Here are some of the **use cases for managed labs**:
+You can use the Azure Lab Services managed labs in different scenarios:
 
-- Provide students with a lab of virtual machines configured with exactly what's needed for a class. Give each student a limited number of hours for using the VMs for homework or personal projects.
+- Provide preconfigured virtual machine to attendees of a [classroom or virtual training](./classroom-labs-scenarios.md) for completing homework of exercises. Limit the number of hours that lab users have access to their virtual machine. Set up labs for several types of classes with Azure Lab Services. See the [example class types on Azure Lab Services](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services.
 
-- Set up a pool of high-performance compute VMs to perform compute-intensive or graphics-intensive research. Run the VMs as needed, and clean up the machines once you're done.
+- Set up a pool of high-performance compute virtual machines to perform compute-intensive or graphics-intensive research or training. For example, to run train machine learning models, or teach about data science or game design. Run the virtual machines only when you need them, and clean up the machines once you're done.
 
-- Move your school's physical computer lab into the cloud. Automatically scale the number of VMs only to the maximum usage and cost threshold that you set on the lab.  
+- Move your school's physical computer lab into the cloud. Automatically scale the number of virtual machines only to the maximum usage and cost threshold that you set on the lab.
 
-- Quickly create a lab of virtual machines for hosting a hackathon. Delete the lab with a single action once you're done.
+- Quickly create a lab of virtual machines for [hosting a hackathon](./hackathon-labs.md). Delete the lab with a single action once you're done.
 
-You can set up labs for several types of classes with Azure Lab Services. See the [Example class types on Azure Lab Services](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services.
+- Teach advanced courses using nested virtualization or lab-to-lab communication.
 
 ## Privacy and compliance
 
