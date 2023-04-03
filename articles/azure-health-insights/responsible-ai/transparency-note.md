@@ -39,4 +39,4 @@ Read the overviews above and review the example use cases to get an introduction
 This article contains basic guidelines for how to use Azure Health Insights features responsibly. Read the general information in this article first. Then, refer to the transparency articles below if you're using one of the features:
 
 - [Transparency note for Trial Matcher](../trial-matcher/transparency-note.md) 
-- [Transparency note for Onco-Phenotype](../oncophenotype/transparency-note.md) 
+- [Transparency note for Onco-Phenotype](https://learn.microsoft.com/legal/azure-health-insights/oncophenotype/transparency-note?context=/azure/azure-health-insights/oncophenotype/context/context)

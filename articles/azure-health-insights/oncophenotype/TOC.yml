@@ -17,7 +17,7 @@ items:
   expanded: true
   items:
     - name: Transparency note
-      href: /legal/cognitive-services/health-insights/oncophenotype/transparency-note?context=/azure/azure-health-insights/oncophenotype/context/context
+      href: /legal/azure-health-insights/oncophenotype/transparency-note?context=/azure/azure-health-insights/oncophenotype/context/context
     - name: Data, privacy, and security
       href: ../responsible-ai/data-privacy-security.md
 - name: Resources
