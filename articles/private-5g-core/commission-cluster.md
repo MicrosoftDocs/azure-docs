@@ -347,23 +347,23 @@ The Azure Private 5G Core private mobile network requires a custom location and 
     --cluster-extension-ids "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME/providers/Microsoft.Kubernetes/connectedClusters/$RESOURCE_NAME/providers/Microsoft.KubernetesConfiguration/extensions/networkfunction-operator"
     ```
 
-You should see the new **Custom Location** visible as a resource in the Azure portal within the specified resource group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
+You should see the new **Custom location** visible as a resource in the Azure portal within the specified resource group. Using the `kubectl get pods -A` command (with access to your *kubeconfig* file) should also show new pods corresponding to the extensions that have been installed. There should be one pod in the *azurehybridnetwork* namespace, and one in the *packet-core-monitor* namespace.
 
 ## Rollback
 
 If you have made an error in the Azure Stack Edge configuration, you can use the portal to remove the AKS cluster.  You can then modify the settings via the local UI, or perform a full reset using the **Device Reset** blade in the local UI and then restart this procedure.
 
-## Changing configuration
+## Changing ASE configuration after deployment
 
-You may need to update the ASE configuration after deployment, for example to add or remove an attached data network or to change an IP address. You may also need to make the equivalent change to the packet core configuration.
+You may need to update the ASE configuration after deploying the packet core, for example to add or remove an attached data network or to change an IP address. To change ASE configuration, you should destroy and then recreate the **Custom location** resource. This allows you to temporarily disconnect the packet core from ASE to make configuration changes without needing to destroy the packet core.
 
-To change ASE configuration without needing to destroy and recreate the packet core, you can temporarily disconnect the packet core from ASE.
+You may also need to make the equivalent change to the packet core configuration.
 
 > [!CAUTION]
 > Your packet core will be unavailable during this procedure. If you're making changes to a healthy packet core instance, we recommend running this procedure during a maintenance window to minimize the impact on your service.
 
 1. Navigate to the resource group overview in the Azure portal. Select the **Packet Core Control Plane** resource and select **Modify packet core**. Set **Custom ARC location** to **None** and select **Modify**.
-1. Navigate to the ASE resource group, select the tick box for the **Custom location** resource and select **Delete**. Enter `yes` to confirm deletion.
+1. Navigate to the resource group containing the **Custom location** resource. Select the tick box for the **Custom location** resource and select **Delete**. Enter `yes` to confirm deletion.
 1. Navigate to the **Azure Stack Edge** resource and remove all configuration for the **Azure Kubernetes Service**.
 1. Access the local ASE UI and update the configuration as needed.
 1. Recreate the custom location resource. Select the **Packet Core Control Plane** resource and select **Configure a custom location**.

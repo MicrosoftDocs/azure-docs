@@ -103,7 +103,7 @@ To modify the packet core and/or access network configuration:
 ## Attach a data network
 
 > [!IMPORTANT]
-> Data networks must be configured on the ASE device before they can be attached to the packet core. See [Changing configuration](commission-cluster.md#changing-configuration).
+> You must configure the ASE device with interfaces corresponding to the data networks before you can attach them to the packet core. See [Changing ASE configuration after deployment](commission-cluster.md#changing-ase-configuration-after-deployment).
 
 To configure a new or existing data network and attach it to your packet core instance:
 
