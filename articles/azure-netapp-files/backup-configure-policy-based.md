@@ -78,7 +78,7 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
     1. Go to the **Volumes** page, right-click the volume that you want to apply the snapshot policy to, and select **Edit**.   
         ![Screenshot that shows volume edit menu.](../media/azure-netapp-files/backup-volume-edit-menu.png)   
 
-    2. In the Edit window, under **Snapshot policy**, select the policy to apply. Click **OK**.   
+    2. In the Edit window, under **Snapshot policy**, select the policy to apply. Select **OK**.   
         ![Screenshot that shows Edit window with Snapshot Policy pull-down.](../media/azure-netapp-files/backup-volume-edit-snapshot-policy.png)    
 
 ## Configure a backup policy
@@ -110,7 +110,7 @@ To enable a policy-based (scheduled) backup:
  
 ### Example of a valid configuration
 
-The following example configuration shows you how to configure a data protection policy on the volume with 5 latest daily snapshots, 4 latest weekly snapshots, and 3 latest monthly snapshots on the volume. This configuration results in backing up 15 latest daily snapshots, 6 latest weekly snapshots, and 4 latest monthly snapshots.
+The following example configuration shows you how to configure a data protection policy on the volume with five latest daily snapshots, four latest weekly snapshots, and three latest monthly snapshots on the volume. This configuration results in backing up 15 latest daily snapshots, six latest weekly snapshots, and four latest monthly snapshots.
 
 * Snapshot policy:   
     Daily: `Number of Snapshots to Keep = 5`   
@@ -145,9 +145,9 @@ To enable the backup functionality for a volume:
 2. Select **Configure**.
 3. In the Configure Backups page, toggle the **Enabled** setting to **On**.
 4. In the **Snapshot Policy** drop-down menu, assign the snapshot policy to use for the volume. 
-5. In the **Backup Policy** drop-down menu, assign the backup policy to use for the volume. Click **OK**.
+5. In the **Backup Policy** drop-down menu, assign the backup policy to use for the volume. Select **OK**.
 
-    The Vault information is pre-populated.  
+    The Vault information is prepopulated.  
 
     :::image type="content" source="../media/azure-netapp-files/backup-configure-window.png" alt-text="Screenshot that shows Configure Backups window." lightbox="../media/azure-netapp-files/backup-configure-window.png":::
 

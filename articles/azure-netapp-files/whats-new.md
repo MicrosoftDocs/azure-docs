@@ -19,6 +19,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Backup vault](backup-introduction.md#backup-vault)
+<!-- Content pending-->
+
 ## March 2023
 
 * [Disable showmount](disable-showmount.md) (Preview)
@@ -109,9 +112,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Azure Virtual WAN](configure-virtual-wan.md) (Preview)
 
     [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) is now supported on Azure NetApp Files with Standard network features. Azure Virtual WAN is a spoke-and-hub architecture, enabling cloud-hosted network hub connectivity between endpoints, creating networking, security, and routing functionalities in one interface. Use cases for Azure Virtual WAN include remote user VPN connectivity (point-to-site), private connectivity (ExpressRoute), intra-cloud connectivity, and VPN ExpressRoute inter-connectivity. 
-
-* [Backup vault](backup-introduction.md#backup-vault)
-<!-- Content pending-->
 
 ## November 2022 
 
