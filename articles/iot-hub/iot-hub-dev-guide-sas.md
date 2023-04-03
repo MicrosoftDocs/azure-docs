@@ -1,12 +1,11 @@
 ---
-title: Control access to IoT Hub using SAS tokens | Microsoft Docs
+title: Control access to IoT Hub using SAS tokens
 description: How to control access to IoT Hub for device apps and back-end apps using shared access signature tokens.
 author: kgremban
 
 ms.author: kgremban
 ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/28/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---
@@ -152,7 +151,7 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 
-public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+public static string GenerateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
 {
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
@@ -267,7 +266,7 @@ The result, which would grant access to read all device identities, would be:
 
 ### Supported X.509 certificates
 
-You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. To learn more, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](./tutorial-x509-scripts.md).
+You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. To learn more, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](./tutorial-x509-prove-possession.md).
 
 ### Enforcing X.509 authentication
 
@@ -409,5 +408,5 @@ Now that you have learned how to control access IoT Hub, you may be interested i
 If you would like to try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
 * [Get started with Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
-* [How to send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md)
+* [How to send cloud-to-device messages with IoT Hub](c2d-messaging-dotnet.md)
 * [How to process IoT Hub device-to-cloud messages](tutorial-routing.md)

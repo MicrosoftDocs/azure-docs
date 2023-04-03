@@ -61,7 +61,7 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
     For example:
 
-    :::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/whats-new/geolocation-whois-ti.png":::
+    :::image type="content" source="media/work-with-threat-indicators/geolocation-whois-ti.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-ti.png":::
 
 The **Threat intelligence** page also allows you to create threat indicators directly within the Microsoft Sentinel interface, and perform two of the most common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
 

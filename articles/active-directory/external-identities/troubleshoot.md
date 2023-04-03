@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting B2B collaboration - Azure Active Directory | Microsoft Docs
+title: Troubleshooting B2B collaboration
 description: Remedies for common problems with Azure Active Directory B2B collaboration
 services: active-directory
 ms.service: active-directory
@@ -148,7 +148,7 @@ A user who has a guest account can't sign in, and is receiving the following err
 
 The user has an Azure user account and is a viral tenant who has been abandoned or unmanaged. Additionally, there are no Global Administrators in the tenant.
 
-To resolve this problem, you must take over the abandoned tenant. Refer to  [Take over an unmanaged directory as administrator in Azure Active Directory](../enterprise-users/domains-admin-takeover.md). You must also access the internet-facing DNS for the domain suffix in question in order to provide direct evidence that you are in control of the namespace. After the tenant is returned to a managed state, please discuss with the customer whether leaving the users and verified domain name is the best option for their organization.
+To resolve this problem, you must take over the abandoned tenant. Refer to  [Take over an unmanaged directory as administrator in Azure Active Directory](../enterprise-users/domains-admin-takeover.md). You must also access the internet-facing DNS for the domain suffix in question in order to provide direct evidence that you are in control of the namespace. After the tenant is returned to a managed state, discuss with the customer whether leaving the users and verified domain name is the best option for their organization.
 
 ## A guest user with a just-in-time or "viral" tenant is unable to reset their password
 
@@ -162,19 +162,16 @@ As of November 18, 2019, guest users in your directory (defined as user accounts
 
 Within the Azure US Government cloud, B2B collaboration is enabled between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Azure Active Directory Premium P1 and P2 Variations](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
 
-If you need to collaborate with an Azure AD organization that's outside of the Azure US Government cloud, you can use [Microsoft cloud settings (preview)](cross-cloud-settings.md) to enable B2B collaboration.
+If you need to collaborate with an Azure AD organization that's outside of the Azure US Government cloud, you can use [Microsoft cloud settings](cross-cloud-settings.md) to enable B2B collaboration.
 
 ## Invitation is blocked due to cross-tenant access policies
 
-When you try to invite a B2B collaboration user in another Microsoft Azure cloud, this error message will appear if B2B collaboration is supported between the two clouds but is blocked by cross-tenant access settings. The settings that are blocking collaboration could be either in the B2B collaboration user’s home tenant or in your tenant. Check your cross-tenant access settings to make sure you’ve added the B2B collaboration user’s home tenant to your Organizational settings and that your settings allow B2B collaboration with the user. Then make sure an admin in the user’s tenant does the same.
+When you try to invite a B2B collaboration user, you might see this error message: "This invitation is blocked by cross-tenant access settings. Admins in both your organization and the invited user's organization must configure cross-tenant access settings to allow the invitation." This error message will appear, if B2B collaboration is supported, but is blocked by cross-tenant access settings. Check your cross-tenant access settings, and make sure that your settings allow B2B collaboration with the user. 
+When you try to collaborate with another Azure AD organization in a separate Microsoft Azure cloud, you can use [Microsoft cloud settings](cross-cloud-settings.md) to enable Azure AD B2B collaboration.
 
 ## Invitation is blocked due to disabled Microsoft B2B Cross Cloud Worker application
 
-Rarely, you might see this message: “This action can't be completed because the Microsoft B2B Cross Cloud Worker application has been disabled in the invited user’s tenant. Please ask the invited user’s admin to re-enable it, then try again.” This error means that the Microsoft B2B Cross Cloud Worker application has been disabled in the B2B collaboration user’s home tenant. This app is typically enabled, but it might have been disabled by an admin in the user’s home tenant, either through PowerShell or the portal (see [Disable how a user signs in](../manage-apps/disable-user-sign-in-portal.md)). An admin in the user’s home tenant can re-enable the app through PowerShell or the Azure portal. In the portal, search for “Microsoft B2B Cross Cloud Worker” to find the app, select it, and then choose to re-enable it.
-
-## Redemption is blocked due to cross-tenant access settings
-
-A B2B collaboration user could see this message when they try to redeem a B2B collaboration invitation: “This invitation is blocked by cross-tenant access settings. Admins in both your organization and the inviter’s organization must configure cross-tenant access settings to allow the invitation.” This error can occur when cross-tenant policies are changed between the time the invitation was sent to the user and the time the user redeems it. Check your cross-tenant access settings to make sure B2B collaboration is properly configured, and make sure an admin in the user’s tenant does the same.
+Rarely, you might see this message: “This action can't be completed because the Microsoft B2B Cross Cloud Worker application has been disabled in the invited user’s tenant. Ask the invited user’s admin to re-enable it, then try again.” This error means that the Microsoft B2B Cross Cloud Worker application has been disabled in the B2B collaboration user’s home tenant. This app is typically enabled, but it might have been disabled by an admin in the user’s home tenant, either through PowerShell or the portal (see [Disable how a user signs in](../manage-apps/disable-user-sign-in-portal.md)). An admin in the user’s home tenant can re-enable the app through PowerShell or the Azure portal. In the portal, search for “Microsoft B2B Cross Cloud Worker” to find the app, select it, and then choose to re-enable it.
 
 ## I receive the error that Azure AD can't find the aad-extensions-app in my tenant
 

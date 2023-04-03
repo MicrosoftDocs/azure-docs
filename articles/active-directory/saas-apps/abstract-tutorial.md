@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Abstract | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Abstract'
 description: Learn how to configure single sign-on between Azure Active Directory and Abstract.
 services: active-directory
 author: jeevansd

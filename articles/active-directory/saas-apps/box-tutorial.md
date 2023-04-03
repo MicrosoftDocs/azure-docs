@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Box | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Box'
 description: Learn how to configure single sign-on between Azure Active Directory and Box.
 services: active-directory
 author: jeevansd

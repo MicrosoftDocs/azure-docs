@@ -2,7 +2,7 @@
 title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure virtual machines and virtual machine scale sets.
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 03/22/2023
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
 ms.reviewer: abinetabate
@@ -220,4 +220,4 @@ Added the ASP.NET Core auto-instrumentation feature.
 
 ## Next steps
 * Learn how to [deploy an application to an Azure virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).
-* [Set up availability web tests](monitor-web-app-availability.md) to be alerted if your endpoint is down.
+* [Availability overview](availability-overview.md)

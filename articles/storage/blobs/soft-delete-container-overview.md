@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/22/2022
 ms.author: normesta
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # Soft delete for containers
@@ -67,7 +67,7 @@ Version 2019-12-12 or higher of the Azure Storage REST API supports container so
 
 ## Pricing and billing
 
-There's no additional charge to enable container soft delete. Data in soft deleted containers is billed at the same rate as active data.
+There's no additional charge to enable container soft delete. Data in soft-deleted containers is billed at the same rate as active data.
 
 ## Next steps
 

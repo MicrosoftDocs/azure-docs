@@ -3,7 +3,7 @@ title: Azure Virtual Desktop session host statuses and health checks
 description: How to troubleshoot the failed session host statuses and failed health checks
 author: jakejohnson-21
 ms.topic: troubleshooting
-ms.date: 10/18/2022
+ms.date: 02/28/2023
 ms.author: jakejohnson
 manager: rkiran
 ---
@@ -19,7 +19,7 @@ The following table lists all statuses for session hosts in the Azure portal eac
 >If an issue is listed as "non-fatal," the service can still run with the issue active. However, we recommend you resolve the issue as soon as possible to prevent future issues. If an issue is listed as "fatal," then it will prevent the service from running. You must resolve all fatal issues to make sure your users can access the session host.
 
 | Session host status | Description | How to resolve related issues |
-|---------------------|:------:|:------:|  
+|---------------------|------|------|  
 |Available| This status means that the session host passed all health checks and is available to accept user connections. If a session host has reached its maximum session limit but has passed health checks, it will still be listed as “Available." |N/A| 
 |Needs Assistance|The session host didn't pass one or more of the following non-fatal health checks: the Geneva Monitoring Agent health check, the Azure Instance Metadata Service (IMDS) health check, or the URL health check. You can find which health checks have failed in the session hosts detailed view in the Azure portal. |Follow the directions in [Error: VMs are stuck in "Needs Assistance" state](#error-vms-are-stuck-in-the-needs-assistance-state) to resolve the issue.|  
 |Shutdown| The session host has been shut down. If the agent enters a shutdown state before connecting to the broker, its status will change to *Unavailable*. If you've shut down your session host and see an *Unavailable* status, that means the session host shut down before it could update the status, and doesn't indicate an issue. You should use this status with the [VM instance view API](/rest/api/compute/virtual-machines/instance-view?tabs=HTTP#virtualmachineinstanceview) to determine the power state of the VM. |Turn on the session host. | 
@@ -32,12 +32,13 @@ The following table lists all statuses for session hosts in the Azure portal eac
 The health check is a test run by the agent on the session host. The following table lists each type of health check and describes what it does.
 
 | Health check name | Description | What happens if the session host doesn't pass the check |
-|---------------------|:------:|:------:|  
+|---------------------|------|------|  
 | Domain joined | Verifies that the session host is joined to a domain controller. | If this check fails, users won't be able to connect to the session host. To solve this issue, join your session host to a domain. | 
 | Geneva Monitoring Agent | Verifies that the session host has a healthy monitoring agent by checking if the monitoring agent is installed and running in the expected registry location. | If this check fails, it's semi-fatal. There may be successful connections, but they'll contain no logging information. To resolve this, make sure a monitoring agent is installed. If it's already installed, contact Microsoft support. | 
 | Integrated Maintenance Data System (IMDS) reachable | Verifies that the service can't access the IMDS endpoint. | If this check fails, it's semi-fatal. There may be successful connections, but they won't contain logging information. To resolve this issue, you'll need to reconfigure your networking, firewall, or proxy settings. |
-| Side-by-side (SxS) Stack Listener | Verifies that the side-by-side stack is up and running, listening, and ready to receive connections. | If this check fails, it's fatal, and users won't be able to connect to the session host. Try restarting your virtual machine (VM). If this doesn’t work, contact Microsoft support. |
+| Side-by-side (SxS) Stack Listener | Verifies that the side-by-side stack is up and running, listening, and ready to receive connections. | If this check fails, it's fatal, and users won't be able to connect to the session host. Try restarting your virtual machine (VM). If this doesn't work, contact Microsoft support. |
 | UrlsAccessibleCheck | Verifies that the required Azure Virtual Desktop service and Geneva URLs are reachable from the session host, including the RdTokenUri, RdBrokerURI, RdDiagnosticsUri, and storage blob URLs for Geneva agent monitoring. | If this check fails, it isn't always fatal. Connections may succeed, but if certain URLs are inaccessible, the agent can't apply updates or log diagnostic information. To resolve this, follow the directions in [Error: VMs are stuck in the Needs Assistance state](#error-vms-are-stuck-in-the-needs-assistance-state). |
+| TURN (Traversal Using Relay NAT) Relay Access Health Check | When using [RDP Shortpath for public networks](rdp-shortpath.md?tabs=public-networks#how-rdp-shortpath-works) with an indirect connection, TURN uses User Datagram Protocol (UDP) to relay traffic between the client and session host through an intermediate server when direct connection isn't possible. | If this check fails, it's not fatal. Connections will revert to the websocket TCP and the session host will enter the "Needs assistance" state. To resolve the issue, follow the instructions in [Disable RDP shortpath on managed and unmanaged windows clients using group policy](configure-rdp-shortpath.md?tabs=public-networks#disable-rdp-shortpath-on-managed-and-unmanaged-windows-clients-using-group-policy). |
 
 ## Error: VMs are stuck in the "Needs Assistance" state
 

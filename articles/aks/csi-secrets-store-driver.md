@@ -3,7 +3,6 @@ title: Use the Azure Key Vault Provider for Secrets Store CSI Driver for Azure K
 description: Learn how to use the Azure Key Vault Provider for Secrets Store CSI Driver to integrate secrets stores with Azure Kubernetes Service (AKS).
 author: nickomang 
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: how-to 
 ms.date: 02/10/2023
 ms.custom: template-how-to, devx-track-azurecli
