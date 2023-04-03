@@ -9,7 +9,7 @@ ms.date: 03/09/2023
 ---
 # About data-aware security posture (preview)
 
-As digital transformation accelerates, organizations move data to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. The dynamic and complex nature of the cloud has increased data threat surfaces and risk. This causes challenges for security teams around data visibility and protecting the cloud data estate.
+As digital transformation accelerates, organizations move data to the cloud at an exponential rate using multiple data stores such as object stores and managed/hosted databases. The dynamic and complex nature of the cloud has increased data threat surfaces and risks. This causes challenges for security teams around data visibility and protecting the cloud data estate.
 
 Data-aware security in Microsoft Defender for Cloud helps you to reduce data risk, and respond to data breaches. Using data-aware security posture you can:
 
@@ -22,8 +22,8 @@ Data-aware security in Microsoft Defender for Cloud helps you to reduce data ris
 
 Data-aware security posture automatically and continuously discovers managed and shadow data resources across clouds, including different types of objects stores and databases.
 
-- You can discover sensitive data using the sensitive data discovery extension that's included in the Defender Cloud Security Posture Management (CSPM) and Defender for Storage plans.
-- Discovery of hosted databases and data flows is available in Cloud Security Explorer and Attack Paths. This functionality is available in the Defender for CSPM plan, and isn't dependent on the extension.
+- Discover sensitive data using the sensitive data discovery extension that's included in the Defender Cloud Security Posture Management (CSPM) and Defender for Storage plans.
+- Discover hosted databases and data flows in Cloud Security Explorer and Attack Paths. This functionality is available in the Defender CSPM plan, and isn't dependent on the sensitive data discovery extension.
 
 ## Data security in Defender CSPM
 
@@ -39,7 +39,21 @@ You can discover risk of data breaches by attack paths of internet-exposed VMs t
 
 Cloud Security Explorer helps you identify security risks in your cloud environment by running graph-based queries on Cloud Security Graph (Defender for Cloud's context engine). You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.
 
+
+
 You can leverage Cloud Security Explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multicloud environments. You can run queries to examine security issues, and to get environment context into your asset inventory, exposure to internet, access controls, data flows, and more. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
+
+### Exposed to the internet/publicly accessible
+
+Attack paths and cloud security graph insights include information about storage resources that are exposed to the internet. The following table provides more details.
+
+**State** | **Azure resources** | **AWS resources**
+--- | --- | ---
+**Exposed to the internet** | An Azure storage account is considered exposed if public network access is enabled, with either:<br/><br/> storage_account_name **Networking** > **Public network access** > **Enabled from all networks**, or **Enable from selected virtual networks and IP addresses**. | An AWS S3 bucket is consider exposed if the AWS account and AWS S3 bucket don't have a condition set for IP addresses.
+**Publicly accessible** | An Azure storage account is considered to be publically accessible if both these settings are configured on the Azure storage account container:<br/><br/> <storage account name > **Configuration** > **Allow blob public access**<br/><br/> <storage account name > **Containers** > container_name > **Public access level** set to **Blob (anonymous read access for blobs only)**, or **Container (anonymous read access for containers and blobs)**. | An AWS S2 bucket is considered publicly available if both the AWS account and the AWS S3 bucket have **Block all public access** set to **Off**, and the policy has **either** of these settings:<br/><br/> Setting 1: In the policy, **RestrictPublicBuckets isn't allowed and **principal is *** and **effect** are set to **Allow**.<br/><br/> Setting 2: In the access control list, **IgnorePublicAcl** isn't enabled, and permission is allowed for **everyone**, or for **authenticated users**.
+
+
+
 
 
 ## Data security in Defender for Storage
@@ -48,12 +62,12 @@ Defender for Storage monitors Azure storage accounts with advanced threat detect
 
 When early suspicious signs are detected, Defender for Storage generates security alerts, allowing security teams to quickly respond and mitigate.
 
-By applying sensitivity information types and Microsoft Purview sensitivity labels on storage resources, you can easily prioritize the alerts and recommendations that focus on sensitive data.
+By applying sensitivity information types and Microsoft Purview sensitivity labels on storage resources, you can easily prioritize the alerts and recommendations that focus on sensitive data. [Learn more](defender-for-storage-data-sensitivity) about sensitive data discovery in Defender for Storage.
 
 
-## Scanning with smart sampling
+## Smart sampling
 
-Defender for Cloud uses smart sampling to scan a selected number of files in your cloud datastores. The sampling results discover evidence of sensitive data issues, while saving on scanning costs and time.
+Defender for Cloud uses smart sampling to discover a selected number of files in your cloud datastores. The sampling results discover evidence of sensitive data issues, while saving on discovery costs and time.
 
 ## Data sensitivity settings
 
@@ -63,11 +77,11 @@ Data sensitivity settings define what's considered sensitive data in your organi
 - **Custom information types/labels**: You can optionally import custom sensitive information types and [labels](/microsoft-365/compliance/sensitivity-labels) that you've defined in the Microsoft Purview compliance portal.
 - **Sensitive data thresholds**: In Defender for Cloud you can set the threshold for sensitive data labels. The threshold determines minimum confidence level for a label to be marked as sensitive in Defender for Cloud. Thresholds make it easier to explore sensitive data.
 
-When scanning resources for data sensitivity, scan results are based on these settings.
+When discovering resources for data sensitivity, results are based on these settings.
 
 When you enable data-aware security capabilities with the sensitive data discovery component in the Defender CSPM or Defender for Storage plans, Defender for Cloud uses algorithms to identify storage resources that appear to contain sensitive data. Resources are labeled in accordance with data sensitivity settings.
 
-Changes in sensitivity settings take effect the next time that resources are scanned.
+Changes in sensitivity settings take effect the next time that resources are discovered.
 
 
 ## Next steps

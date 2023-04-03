@@ -25,7 +25,7 @@ You need one of these permissions in order to sign in and edit sensitivity setti
 - [Review the prerequisites](concept-data-security-posture-prepare.md#configuring-data-sensitivity-settings) for customizing data sensitivity settings.
 - In Defender for Cloud, enable sensitive data discovery capabilities in the [Defender CSPM](data-security-posture-enable.md) and/or [Defender for Storage](defender-for-storage-data-sensitivity.md) plans.
 
-Changes in sensitivity settings take effect the next time that resources are scanned.
+Changes in sensitivity settings take effect the next time that resources are discovered.
 
 ## Import custom sensitive info types/labels from Microsoft Purview compliance portal
 
@@ -74,7 +74,7 @@ If you're using Microsoft Purview sensitivity labels, make sure that:
 1. Select **Change** to see the list of sensitivity labels and select the lowest sensitivity label that you want marked as sensitive.
 1. Select **Apply** and **Save**.
 
-    :::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Screenshot of the data sensitivity page, showing the sensitivity label threshold.":::
+    :::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Screenshot of the data sensitivity page, showing the sensitivity label threshold."lightbox="/media/concept-data-security-posture/sensitivity-label.png":::
 
 > [!NOTE]
 > - When you turn on the threshold, you select a label with the lowest setting that should be considered sensitive in your organization.

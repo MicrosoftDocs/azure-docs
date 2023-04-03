@@ -49,6 +49,15 @@ Explore data risks and exposure in cloud security graph insights using a query t
 
     :::image type="content" source="./media/data-security-review-risks/query.png" alt-text="Screenshot that shows an Insights data query.":::
 
+### Use query templates
+
+As an alternative to creating your own query, you can use predefined query templates. Some examples:
+
+Internet exposed VMs: Discover VMs that are exposed to the internet.
+
+
+
+
 ## Explore sensitive data security alerts
 
 When sensitive data discovery is enabled in the Defender for Storage plan, you can prioritize and focus on alerts the alerts that affect resources with sensitive data. [Learn more](defender-for-storage-data-sensitivity.md) about monitoring data security alerts in Defender for Storage.
