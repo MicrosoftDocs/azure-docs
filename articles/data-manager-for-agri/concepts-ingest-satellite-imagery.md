@@ -17,6 +17,9 @@ Satellite imagery makes up a foundational pillar of agriculture data. To support
 *	Read the Sinergise Sentinel Hub terms of service and privacy policy: https://www.sentinel-hub.com/tos/
 *	Have your providerClientId and providerClientSecret ready
 
+## Ingesting boundary-clipped imagery
+Using satellite data in Data Manager for Agriculture involves following steps: 
+
 :::image type="content" source="./media/satellite-flow.png" alt-text="Diagram showing satellite data ingestion flow.":::
 
 > [!NOTE]
@@ -30,7 +33,7 @@ In our public preview, we support ingesting data from Sentinel-2 constellation.
 [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) is a satellite constellation launched by 'European Space Agency' (ESA) under the Copernicus mission. This constellation has a pair of satellites and carries a Multi-Spectral Instrument (MSI) payload that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60-m spatial resolution.  
 
 > [!Tip]
-> Sentinel-2 has two products: Level 1 (top of the atmosphere) data and its atmospherically corrected variant Level 2 (bottom of the atmosphere) data. We support ingesting and retrieving Level 1 and Level 2 data from Sentinel 2.
+> Sentinel-2 has two products: Level 1 (top of the atmosphere) data and its atmospherically corrected variant Level 2 (bottom of the atmosphere) data. We support ingesting and retrieving Sentinel_2_L2A and Sentinel_2_L1C data from Sentinel 2.
 
 ### Image names and resolutions
 The image names and resolutions supported by APIs used to ingest and read satellite data (for Sentinel-2) in our service:
