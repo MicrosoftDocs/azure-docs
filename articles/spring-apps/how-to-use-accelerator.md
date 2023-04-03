@@ -234,6 +234,7 @@ az spring application-accelerator customized-accelerator add \
    [--git-branch <git-branch-name>] \
    [--git-commit <git-commit-ID>] \
    [--git-tag <git-tag>] \
+   [--ca-cert-name <ca-cert-name>] \
    [--username] \
    [--password] \
    [--private-key] \
@@ -260,6 +261,7 @@ The following table describes the customizable accelerator fields.
 | **Private key**                    | `private-key`             | The private key to access the accelerator source repository whose authentication type is `SSH`. Only OpenSSH private key is supported.                                                                                                                                                                                                                                          | Required when authentication type is `SSH`.            |
 | **Host key**                       | `host-key`                | The host key to access the accelerator source repository whose authentication type is `SSH`.                                                                                                                                                                                                                                                                                    | Required when the authentication type is `SSH`.        |
 | **Host key algorithm**             | `host-key-algorithm`      | The host key algorithm to access the accelerator source repository whose authentication type is `SSH`. Can be `ecdsa-sha2-nistp256` or `ssh-rsa`.                                                                                                                                                                                                                               | Required when authentication type is `SSH`.            |
+| **CA certificate name**            | `ca-cert-name`            | The CA certificate name to access the accelerator source repository with self-signed certificate whose authentication type is `Public` or `Basic auth`.                                                                                                                                                                                                                        | Optional                                               |
 
 ---
 
