@@ -1,5 +1,5 @@
 ---
-title: Deploy a private mobile network and site - Azure Command-Line Interface
+title: Deploy a private mobile network and site - Azure CLI
 titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using Azure Command-Line Interface (Azure CLI).
 author: James-Green-Microsoft
