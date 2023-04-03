@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 03/26/2023
+ms.date: 04/03/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -15,6 +15,28 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
+
+## April 2023
+
+Updates in April include:
+
+- [New preview Unified Disk Encryption recommendation (preview)](#unified-disk-encryption-recommendation-preview)
+
+### Unified Disk Encryption recommendation (preview)
+
+We have introduced a unified disk encryption recommendation in public preview, `Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost` and `Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost`. 
+
+These recommendations replace `Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources` which detected Azure Disk Encryption and the policy `Virtual machines and virtual machine scale sets should have encryption at host enabled` which detected EncryptionAtHost. ADE and EncryptionAtHost provide comparable encryption at rest coverage, and either being enabled on a virtual machine is recommended. The new recommendations detect whether either ADE or EncryptionAtHost are enabled and only warn if neither are enabled. We also warn if ADE is enabled on some, but not all disks of a VM (this condition isn't applicable to EncryptionAtHost). 
+
+The new recommendations require [guest config](https://aka.ms/gcpol).
+
+These recommendations are based on the following policies:
+
+- [Preview: Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)
+- [Preview: Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)
+
+Learn more about [ADE and EncryptionAtHost and how to enable one of them](https://learn.microsoft.com/azure/virtual-machines/disk-encryption-overview).
+
 
 ## March 2023
 
