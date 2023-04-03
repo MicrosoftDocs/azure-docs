@@ -42,27 +42,11 @@ You notice that the 'generate' task created a directory with the same name as th
 Open the **pom.xml** file in your text editor. Add the following dependency elements to the group of dependencies.
 
 ```xml
-<dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>com.azure</groupId>
-			<artifactId>azure-sdk-bom</artifactId>
-			<version>1.2.9</version>
-			<type>pom</type>
-			<scope>import</scope>
-		</dependency>
-	</dependencies>
-</dependencyManagement>
 <dependencies>
 	<dependency>
 		<groupId>com.azure</groupId>
-		<artifactId>azure-identity</artifactId>
-		<version>1.2.3</version>
-	</dependency>
-	<dependency>
-		<groupId>com.azure</groupId>
 		<artifactId>azure-communication-phonenumbers</artifactId>
-		<version>1.1.0-beta.14</version>
+		<version>1.1.0</version>
 	</dependency>
 </dependencies>
 ```
@@ -79,8 +63,8 @@ From the project directory:
 Use the following code to begin:
 
 ```java
-import com.azure.communication.phonenumbers.SipRoutingAsyncClient;
-import com.azure.communication.phonenumbers.SipRoutingClientBuilder;
+import com.azure.communication.phonenumbers.siprouting.SipRoutingAsyncClient;
+import com.azure.communication.phonenumbers.siprouting.SipRoutingClientBuilder;
 import com.azure.communication.phonenumbers.siprouting.models.SipTrunk;
 import com.azure.communication.phonenumbers.siprouting.models.SipTrunkRoute;
 import static java.util.Arrays.asList;
@@ -173,7 +157,7 @@ Add 2 imports:
 ```java
 import java.util.Collections;
 import java.util.List;
-``` 
+```
 
 Code to Delete Direct Routing config:
 
@@ -181,7 +165,7 @@ Code to Delete Direct Routing config:
 //delete all configured voice routes
 System.out.println("Delete all routes");
 List<SipTrunkRoute> routes = Collections.<SipTrunkRoute> emptyList();
-sipRoutingAsyncClient.setRoutes(routes).block(); 
+sipRoutingAsyncClient.setRoutes(routes).block();
 
 //delete all trunks
 System.out.println("Delete all trunks");
@@ -209,7 +193,7 @@ Then, build the package.
 	mvn package
 ```
 
-Run the following mvn command to execute the app.
+Run the following mvn command to execute the app.
 
 ``` console
 	mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false

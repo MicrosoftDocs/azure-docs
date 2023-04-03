@@ -52,7 +52,7 @@ main();
 Use `npm install` command to install the Azure Communication Services Phone Numbers client library for JavaScript.
 
 ``` console
-	npm install @azure/communication-phone-numbers@1.2.0-alpha.20230214.1 --save
+	npm install @azure/communication-phone-numbers --save
 ```
 
 The `--save` option adds the library as a dependency in your package.json file.
@@ -139,7 +139,7 @@ You can't edit or remove single voice route. Entire voice routing configuration 
 ``` javascript
 //delete all configured voice routes
 console.log("Deleting all routes...");
-await client.setRoutes([]); 
+await client.setRoutes([]);
 
 //delete all trunks
 console.log("Deleting all trunks...");

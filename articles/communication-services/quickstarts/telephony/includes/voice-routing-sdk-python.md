@@ -52,7 +52,7 @@ except Exception as ex:
 While still in the application directory, install the Azure Communication Services Administration client library for Python package by using the `pip install` command.
 
 ```console
-pip install azure-communication-phonenumbers==1.1.0b3
+pip install azure-communication-phonenumbers==1.1.0
 ```
 
 ## Authenticate the client
@@ -149,7 +149,7 @@ You can't edit or remove single voice route. Entire voice routing configuration 
 ``` python
 #delete all configured voice routes
 print('Deleting all routes...')
-sip_routing_client.set_routes([]) 
+sip_routing_client.set_routes([])
 
 #delete all trunks
 print('Deleting all trunks...')
