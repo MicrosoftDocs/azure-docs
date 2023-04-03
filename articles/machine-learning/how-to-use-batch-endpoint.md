@@ -499,14 +499,16 @@ A deployment is a set of resources required for hosting the model that does the 
     
 ## Run batch endpoints and access results
 
-Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. When running models for scoring in Batch Endpoints, you need to indicate the input data path where the endpoints should look for the data you want to score. Batch endpoints support reading files or folders that are located in different locations. To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). The job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified.
+Invoking a batch endpoint triggers a batch scoring job. A job `name` will be returned from the invoke response and can be used to track the batch scoring progress. 
+
+When running models for scoring in Batch Endpoints, you need to indicate the input data path where the endpoints should look for the data you want to score. Batch endpoints support reading files or folders that are located in different locations. 
 
 > [!NOTE]
-> __How is work distributed?__:
+> __How does parallelization work?__:
 > 
 > Batch deployments distribute work at the file level, which means that a folder containing 100 files with mini-batches of 10 files will generate 10 batches of 10 files each. Notice that this will happen regardless of the size of the files involved. If your files are too big to be processed in large mini-batches we suggest to either split the files in smaller files to achieve a higher level of parallelism or to decrease the number of files per mini-batch. At this moment, batch deployment can't account for skews in the file's size distribution.
 
-In this scenario, we are starting a new job over a sample data of the MNIST dataset stored in an Azure Storage Account:
+The following example shows how to start a new job over a sample data of the MNIST dataset stored in an Azure Storage Account:
 
 # [Azure CLI](#tab/azure-cli)
     
@@ -546,6 +548,8 @@ job = ml_client.batch_endpoints.invoke(
 1. Start the job.
 
 ---
+
+To learn more about how the supported types and how to specify them read [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md). 
 
 > [!TIP]
 > Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
@@ -593,7 +597,7 @@ ml_client.jobs.get(job.name)
 
 ### Check batch scoring results
 
-Follow the following steps to view the scoring results in Azure Storage Explorer when the job is completed:
+The job outputs will be stored in cloud storage, either in the workspace's default blob storage, or the storage you specified. See [Configure the output location](#configure-the-output-location) to know how to change the defaults. Follow the following steps to view the scoring results in Azure Storage Explorer when the job is completed:
 
 1. Run the following code to open batch scoring job in Azure Machine Learning studio. The job studio link is also included in the response of `invoke`, as the value of `interactionEndpoints.Studio.endpoint`.
 
