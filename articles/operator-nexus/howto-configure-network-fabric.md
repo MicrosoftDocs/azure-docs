@@ -41,7 +41,7 @@ This article describes how to create a Network Fabric by using the Azure Command
 The following table specifies parameters used to create Network Fabric
 
 | Parameter | Description | Example | Required |
-|---|---|---|---|
+|-----------|-------------|---------|----------|
 | resource-group | Name of the resource group |  "NFResourceGroup" |True |
 | location | Operator-Nexus Azure region | "eastus" |True | 
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
@@ -356,7 +356,7 @@ The following table specifies parameters used to create Network to Network Inter
 
 
 | Parameter | Description | Example | Required |
-|---|---|---|---|
+|-----------|-------------|---------|----------|
 |isMangementType| Configuration to make NNI to be used for management of Fabric. Default value is true. Possible values are True/False |True|True
 |useOptionB| Configuration to enable optionB. Possible values are True/False |True|True
 ||
