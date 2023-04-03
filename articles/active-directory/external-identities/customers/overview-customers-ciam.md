@@ -21,6 +21,8 @@ Microsoft Entra External Identities for Customers is a seamless way to add secur
 
 :::image type="content" source="media/overview-customers-ciam/overview-diagram.png" alt-text="Diagram showing an overview customer identity and access management" border="false":::
 
+## Customer identity and access management features
+
 - **Add sign-up and sign-in pages to your apps.** Quickly add intuitive, user-friendly sign-up and sign-up experiences for your customer apps. With a single identity, a customer can securely access all the applications you permit them to use.
 
 - **Add single sign-on (SSO) with social and enterprise identities.** Customers can choose a social, enterprise, or managed identity to sign in with a username and password, email, or one-time passcode.
@@ -82,7 +84,7 @@ A customer tenant contains two types of user accounts:
 
 - **Admin account**: Users with work accounts can manage resources in a tenant, and with an administrator role, can also manage tenants. Users with work accounts can create new consumer accounts, reset passwords, block/unblock accounts, and set permissions or assign an account to a security group.
 
-### Microsoft Entra security features
+## Microsoft Entra security features
 
 The Microsoft Entra platform helps IT protect access to applications and resources. By taking advantage of the security benefits of Microsoft Entra, you can provide SSO access to your applications. If you want to make multiple apps available, SSO allows a customer to sign in once with a single account and get access to all apps, whether they're web, mobile, or single page applications.
 

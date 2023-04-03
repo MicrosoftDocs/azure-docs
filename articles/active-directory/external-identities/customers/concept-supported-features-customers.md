@@ -22,7 +22,9 @@ Microsoft Entra External Identities for Customers is designed for businesses tha
 
 - A **customer tenant** represents your customer-facing app, resources, and directory of customer accounts. A customer tenant is distinct and separate from your workforce tenant.
 
-While a workforce tenant and a customer tenant are built on the same underlying Microsoft Entra platform, there are some feature differences. The following table compares the features that are available in each type of tenant.
+## Compare workforce and customer tenant capabilities
+
+Although workforce tenants and customer tenants are built on the same underlying Microsoft Entra platform, there are some feature differences. The following table compares the features available in each type of tenant.
 
 |Feature  |Workforce tenant  | Customer tenant |
 |---------|---------|---------|
