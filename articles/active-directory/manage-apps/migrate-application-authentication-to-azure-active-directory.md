@@ -83,7 +83,7 @@ Economics and security benefits drive organizations to adopt Azure AD, but full 
 
 - Leverage Azure AD Lifecycle workflows to automate onboarding or offboarding, which might have previously been done with scripts. 
 
-- Create developer efficiencies and improve the end-user experience by building your applications using the Microsoft Identity Platform with the [Microsoft Authentication Library (MSAL)](./develop/msal-overview.md). 
+- Create developer efficiencies and improve the end-user experience by building your applications using the Microsoft Identity Platform with the [Microsoft Authentication Library (MSAL)](../develop/msal-overview.md). 
 
 - Empower your partners with access to cloud resources using [Azure AD B2B collaboration](../external-identities/what-is-b2b.md). Cloud resources remove the overhead of configuring point-to-point federation with your partners.
 
