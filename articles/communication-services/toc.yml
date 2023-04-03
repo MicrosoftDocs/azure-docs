@@ -203,7 +203,7 @@ items:
       - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Manage role assignment
-        href: calling-sdk/manage-role-assignment.md
+        href: how-tos/calling-sdk/manage-role-assignment.md
       - name: Show active speakers
         href: how-tos/calling-sdk/dominant-speaker.md
       - name: Transfer calls
