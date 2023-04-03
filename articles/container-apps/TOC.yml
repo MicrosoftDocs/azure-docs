@@ -106,7 +106,10 @@
         displayName: Sticky sessions
     - name: Custom domains and certificates
       items:
-      - name: Set up container app custom domain
+      - name: Set up custom domain with free certificate
+        href: custom-domains-managed-certificates.md
+        display: Set up custom domain with managed certificate
+      - name: Set up custom domain with existing certificate
         href: custom-domains-certificates.md
       - name: Set up environment custom DNS suffix
         href: environment-custom-dns-suffix.md
