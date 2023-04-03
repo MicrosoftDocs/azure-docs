@@ -128,9 +128,9 @@ To focus the Azure device inventory on devices that are in your IoT/OT scope, yo
 
 1. In the Azure portal, go to **Sites and sensors** > **Sensor settings**.
 
-1. Under **Subnets**, review the detected subnets. To focus the device inventory and view local devices in the inventory, delete any subnets that are not in your IoT/OT scope by selecting the options menu (...) in each subnet you want to delete.
+1. Under **Subnets**, review the detected subnets. To focus the device inventory and view local devices in the inventory, delete any subnets that are not in your IoT/OT scope by selecting the options menu (...) on any subnet you want to delete.
 
-1. Select any subnet and then select **Edit** for additional settings:
+1. To modify additional settings, select any subnet and then select **Edit** for the following options:
 
     - Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
 
