@@ -33,7 +33,7 @@ The following are the key reasons to migrate into continuous mode:
 >
 > You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
-> * If the account is of type API for NoSQL, API for Table or Gremlin or MongoDB.
+> * If the account is of type API for NoSQL,API for Table or Gremlin or MongoDB.
 > * If the account has a single write region.
 > * If the account isn't enabled with analytical store.
 >
@@ -226,7 +226,7 @@ Yes.
 
 ### Which accounts can be targeted for backup migration?
 
-Currently, API for NoSQL, API for Table ,  Gremlin API and API for MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration.  
+Currently, API for NoSQL, API for Table, Gremlin API and API for MongoDB accounts with single write region that have shared, provisioned, or autoscale provisioned throughput support migration.  
 
 Accounts enabled with analytical storage and multiple-write regions aren't supported for migration.
 
