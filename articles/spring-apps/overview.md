@@ -45,7 +45,7 @@ As part of the Azure ecosystem, Azure Spring Apps allows easy binding to other A
 
 * Azure Spring Apps is a fully managed service for Spring Boot apps that lets you focus on building and running apps without the hassle of managing infrastructure.
 
-* Simply deploy your JARs or code for your Spring Boot app or Zip for your Steeltoe app, and Azure Spring Apps automatically wires your apps with Spring service runtime and built-in app lifecycle.
+* Deploy your JARs or code for your Spring Boot app or Zip for your Steeltoe app, and Azure Spring Apps automatically wires your apps with Spring service runtime and built-in app lifecycle.
 
 * Monitoring is simple. After deployment you can monitor app performance, fix errors, and rapidly improve applications.
 
@@ -75,7 +75,7 @@ The following quickstarts apply to the Basic/Standard plan only. For Enterprise 
 
 The Standard consumption plan provides a flexible billing model where you pay only for compute time used instead of provisioning resources. Start with as little as 0.25 vCPU and dynamically scale out based on HTTP or events powered by Kubernetes Event-Driven Autoscaling (KEDA). You can also scale your app instance to zero and stop all charges related to the app when there are no requests to process.
 
-The Standard consumption plan simplifies the virtual network experience for running polyglot apps. All your apps share the same virtual network when you deploy frontend apps as containers in Azure Container Apps and Spring apps in the Standard consumption plan, in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
+The Standard consumption plan simplifies the virtual network experience for running polyglot apps. When you deploy frontend apps as containers in Azure Container Apps and Spring apps in the Standard consumption plan, all your apps share the same virtual network in the same Azure Container Apps environment. There's no need to create disparate subnets and Network Security Groups for frontend apps, Spring apps, and the Spring service runtime.
 
 :::image type="content" source="media/overview/standard-consumption-plan.png" alt-text="Diagram showing app architecture with Azure Spring Apps standard consumption plan." lightbox="media/overview/standard-consumption-plan.png" border="false":::
 
@@ -91,7 +91,7 @@ The following video introduces the Azure Spring Apps Enterprise plan.
 
 ### Deploy and manage Spring and polyglot applications
 
-The fully managed VMware Tanzu® Build Service™ in the Azure Spring Apps Enterprise plan automates container creation, management and governance at enterprise scale using open-source [Cloud Native Buildpacks](https://buildpacks.io/) and commercial [VMware Tanzu® Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/). Tanzu Build Service offers a higher-level abstraction for building apps and provides a balance of control that reduces the operational burden on developers and supports enterprise IT operators who manage applications at scale. You can configure what Buildpacks to apply and build Spring applications and polyglot applications that run alongside Spring applications on Azure Spring Apps.
+The fully managed VMware Tanzu® Build Service™ in the Azure Spring Apps Enterprise plan automates container creation, management and governance at enterprise scale using open-source [Cloud Native Buildpacks](https://buildpacks.io/) and commercial [VMware Tanzu® Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/). Tanzu Build Service offers a higher-level abstraction for building apps. Tanzu Build Service also provides a balance of control that reduces the operational burden on developers and supports enterprise IT operators who manage applications at scale. You can configure what Buildpacks to apply and build Spring applications and polyglot applications that run alongside Spring applications on Azure Spring Apps.
 
 Tanzu Buildpacks makes it easier to build Spring, Java, NodeJS, Python, Go and .NET Core applications and configure application performance monitoring agents such as Application Insights, New Relic, Dynatrace, AppDynamics, and Elastic.
 
@@ -99,7 +99,7 @@ Tanzu Buildpacks makes it easier to build Spring, Java, NodeJS, Python, Go and .
 
 You can manage and discover request routes and APIs exposed by applications using the fully managed Spring Cloud Gateway for VMware Tanzu® and API portal for VMware Tanzu®.
 
-Spring Cloud Gateway for Tanzu effectively routes diverse client requests to applications in Azure Spring Apps, Azure, and on-premises, and addresses cross-cutting considerations for applications behind the Gateway such as securing, routing, rate limiting, caching, monitoring, resiliency and hiding applications. You can configure:
+Spring Cloud Gateway for Tanzu effectively routes diverse client requests to applications in Azure Spring Apps, Azure, and on-premises. Spring Cloud Gateway also addresses cross-cutting considerations for applications behind the Gateway, such as securing, routing, rate limiting, caching, monitoring, resiliency and hiding applications. You can make the following configurations:
 
 * Single sign-on integration with your preferred identity provider without any extra code or dependencies.
 * Dynamic routing rules to applications without any application redeployment.
@@ -129,7 +129,7 @@ VMware Tanzu components deliver increased value so you can accomplish the follow
 
 The Azure Spring Apps Enterprise plan includes VMware Spring Runtime Support for application development and deployments. This support gives you access to Spring experts, enabling you to unlock the full potential of the Spring ecosystem to develop and deploy applications faster.
 
-Typically, open-source Spring project minor releases are supported for a minimum of 12 months from the date of initial release. In Azure Spring Apps Enterprise, Spring project minor releases receive commercial support for a minimum of 24 months from the date of initial release through the VMware Spring Runtime Support entitlement. This extended support ensures the security and stability of your Spring application portfolio even after the open source end of life dates. For more information, see [Spring Boot support](https://spring.io/projects/spring-boot#support).
+Typically, open-source Spring project minor releases are supported for a minimum of 12 months from the date of initial release. In the Azure Spring Apps Enterprise plan, Spring project minor releases receive commercial support for a minimum of 24 months from the date of initial release through the VMware Spring Runtime Support entitlement. This extended support ensures the security and stability of your Spring application portfolio even after the open source end of life dates. For more information, see [Spring Boot support](https://spring.io/projects/spring-boot#support).
 
 ### Fully integrate into the Azure and Java ecosystems
 
@@ -176,7 +176,7 @@ The following articles help you get started using the Enterprise plan:
 
 Most of the Azure Spring Apps documentation applies to all the service plans. Some articles apply only to the Enterprise plan or only to the Basic/Standard plan, as indicated at the beginning of each article.
 
-As a quick reference, the articles listed above and the articles in the following list apply to the Enterprise plan only, or contain significant content that applies only to the Enterprise plan:
+As a quick reference, the articles listed previously and the articles in the following list apply to the Enterprise plan only, or contain significant content that applies only to the Enterprise plan:
 
 * [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
 * [Use Tanzu Build Service](how-to-enterprise-build-service.md)
