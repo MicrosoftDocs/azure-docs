@@ -50,7 +50,7 @@ Read the following SAP Notes and papers first:
   * The required SAP kernel version for Windows and Linux on Microsoft Azure.
 * SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2002167] recommends OS settings for Red Hat Enterprise Linux
-* SAP Note [3108316] recommends OD settings for Red Hat Enterprise Linux 9.x
+* SAP Note [3108316] recommends OS settings for Red Hat Enterprise Linux 9.x
 * SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux
 * SAP Note [3108302] has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x
 * SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
