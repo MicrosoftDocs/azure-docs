@@ -115,7 +115,7 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 
 ## Location
 
-The location is the region where the custom image will be created. The following regions are supported:
+The location is the region where the custom image is created. The following regions are supported:
 
 - East US
 - East US 2
@@ -205,7 +205,7 @@ location: '<region>'
 
 ### Data residency
 
-The Azure VM Image Builder service doesn't store or process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. If a service outage for regions that have data residency requirements, you'll need to create Bicep files/templates in a different region and geography.
+The Azure VM Image Builder service doesn't store or process customer data outside regions that have strict single region data residency requirements when a customer requests a build in that region. If a service outage for regions that have data residency requirements, you need to create Bicep files/templates in a different region and geography.
 
 ### Zone redundancy
 
@@ -259,7 +259,7 @@ For more information on deploying this feature, see [Configure managed identitie
 
 This property is only available in API versions `2021-10-01` or newer.
 
-Optional - The Image Builder Build VM, that is created by the Image Builder service in your subscription, is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create one or more Azure User Assigned Identities that have permissions to the individual resources. Azure Image Builder can then associate these User Assigned Identities with the Build VM. Customizer scripts running inside the Build VM can then fetch tokens for these identities and interact with other Azure resources as needed. Be aware, the user assigned identity for Azure Image Builder must have the "Managed Identity Operator" role assignment on all the user assigned identities for Azure Image Builder to be able to associate them to the build VM.
+Optional - The Image Builder Build VM that is created by the Image Builder service in your subscription is used to build and customize the image. For the Image Builder Build VM to have permissions to authenticate with other services like Azure Key Vault in your subscription, you must create one or more Azure User Assigned Identities that have permissions to the individual resources. Azure Image Builder can then associate these User Assigned Identities with the Build VM. Customizer scripts running inside the Build VM can then fetch tokens for these identities and interact with other Azure resources as needed. Be aware, the user assigned identity for Azure Image Builder must have the "Managed Identity Operator" role assignment on all the user assigned identities for Azure Image Builder to be able to associate them to the build VM.
 
 > [!NOTE]
 > Be aware that multiple identities can be specified for the Image Builder Build VM, including the identity you created for the [image template resource](#user-assigned-identity-for-azure-image-builder-image-template-resource). By default, the identity you created for the image template resource won't automatically be added to the build VM.
@@ -553,7 +553,7 @@ Customize properties:
 - **Type**: WindowsRestart.
 - **restartCommand** - Command to execute the restart (optional). The default is `'shutdown /r /f /t 0 /c \"packer restart\"'`.
 - **restartCheckCommand** – Command to check if restart succeeded (optional).
-- **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: `5m`.
+- **restartTimeout** - Restart time out specified as a string of magnitude and unit. For example, `5m` (5 minutes) or `2h` (2 hours). The default is: `5m`.
 
 > [!NOTE]
 > There is no Linux restart customizer.
@@ -666,7 +666,7 @@ This customizer is supported by Windows directories and Linux paths, but there a
 - Linux – the only path Image builder can write to is /tmp.
 - Windows – No path restriction, but the path must exist.
 
-If there's an error trying to download the file, or put it in a specified directory, then customize step will fail, and this error will be in the customization.log.
+If there's an error trying to download the file, or put it in a specified directory, then customize step fails, and this error will be in the customization.log.
 
 > [!NOTE]
 > The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads, use a script or inline command, then use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`. For files that are in Azure storage, ensure that you assign an identity with permissions to view that file to the build VM by following the documentation here: [User Assigned Identity for the Image Builder Build VM](#user-assigned-identity-for-the-image-builder-build-vm). Any file that is not stored in Azure must be publicly accessible for Azure Image Builder to be able to download it.
@@ -727,11 +727,11 @@ Customizer properties:
 
 By default, Azure Image Builder will also run `deprovision` code at the end of each image customization phase, to generalize the image. Generalizing is a process where the image is set up so it can be reused to create multiple VMs. For Windows VMs, Azure Image Builder uses Sysprep. For Linux, Azure Image Builder runs `waagent -deprovision`.
 
-The commands Image Builder users to generalize may not be suitable for every situation, so Azure Image Builder will allow you to customize this command, if needed.
+The commands Image Builder users to generalize may not be suitable for every situation, so Azure Image Builder allows you to customize this command, if needed.
 
 If you're migrating existing customization, and you're using different Sysprep/waagent commands, you can use the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
 
-If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or doesn't complete successfully, you'll need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
+If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or doesn't complete successfully, you need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
 
 #### Default Sysprep command
 
@@ -774,7 +774,7 @@ To override the commands, use the PowerShell or Shell script provisioners to cre
 - Windows: c:\DeprovisioningScript.ps1
 - Linux: /tmp/DeprovisioningScript.sh
 
-Image Builder will read these commands, these commands are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
+Image Builder reads these commands, these commands are written out to the AIB logs, `customization.log`. See [troubleshooting](image-builder-troubleshoot.md#customization-log) on how to collect logs.
 
 ## Properties: distribute
 
@@ -825,7 +825,7 @@ Output:
 
 ### Distribute: managedImage
 
-The image output will be a managed image resource.
+The image output is a managed image resource.
 
 # [JSON](#tab/json)
 
@@ -926,13 +926,13 @@ Distribute properties for galleries:
 - **type** - sharedImage
 - **galleryImageId** – ID of the Azure Compute Gallery, this property can be specified in two formats:
 
-  - Automatic versioning - Image Builder will generate a monotonic version number for you, this property is useful for when you want to keep rebuilding images from the same template: The format is: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
+  - Automatic versioning - Image Builder generates a monotonic version number for you, this property is useful for when you want to keep rebuilding images from the same template: The format is: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`.
   - Explicit versioning - You can pass in the version number you want image builder to use. The format is:
   `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version - for example: 1.1.1>`
 
 - **runOutputName** – unique name for identifying the distribution.
 - **artifactTags** - optional user specified key\value tags.
-- **replicationRegions** - array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions will mean an increase of build time, as the build doesn't complete until the replication has completed.
+- **replicationRegions** - array of regions for replication. One of the regions must be the region where the Gallery is deployed. Adding regions mean an increase of build time, as the build doesn't complete until the replication has completed.
 - **excludeFromLatest** (optional) - allows you to mark the image version you create not be used as the latest version in the gallery definition, the default is 'false'.
 - **storageAccountType** (optional) - AIB supports specifying these types of storage for the image version that is to be created:
 
@@ -1022,6 +1022,8 @@ The default version numbering schema is latest. The latest schema has an additio
     ]
 }
 ```
+---
+
 DistributeVersioner properties:
 - **type** - string
 - **description** - Version numbering scheme to be used.
@@ -1051,6 +1053,8 @@ The major version for the generated version number.
     "description": "Generates version number that will be latest based on existing version numbers."
 }
 ```
+---
+
 DistributeVersionerLatest properties:
 - **type** - integer
 - **format** - int32 formatting for 32-bit signed integers
@@ -1078,6 +1082,8 @@ The version number based on version number of source image.
     "description": "Generates version number based on version number of source image"
 }
 ```
+---
+
 DistributeVersionerSource properties:
 - **type** - integer
 - **x-ms-discriminator-value** - Specified value of the discriminator property for this object. Used to differentiate between objects that inherit from the same parent object.
@@ -1236,7 +1242,7 @@ The `imageVersionId` should be the ResourceId of the image version. Use [az sig 
 
 ## Properties: stagingResourceGroup
 
-The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service will create for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
+The `stagingResourceGroup` property contains information about the staging resource group that the Image Builder service creates for use during the image build process. The `stagingResourceGroup` is an optional property for anyone who wants more control over the resource group created by Image Builder during the image build process. You can create your own resource group and specify it in the `stagingResourceGroup` section or have Image Builder create one on your behalf.
 
 # [JSON](#tab/json)
 
@@ -1260,18 +1266,18 @@ properties: {
 
 - **The stagingResourceGroup property is left empty**
 
-  If the `stagingResourceGroup` property isn't specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
+  If the `stagingResourceGroup` property isn't specified or specified with an empty string, the Image Builder service creates a staging resource group with the default name convention "IT_***". The staging resource group has the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC is applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
 
 - **The stagingResourceGroup property is specified with a resource group that exists**
 
-  If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group isn't associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements aren't met, an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags aren't deleted.
+  If the `stagingResourceGroup` property is specified with a resource group that does exist, then the Image Builder service checks to make sure the resource group isn't associated with another image template, is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements aren't met, an error is thrown. The staging resource group has the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Pre-existing tags aren't deleted.
   
 > [!IMPORTANT]
 > You will need to assign the contributor role to the resource group for the service principal corresponding to Azure Image Builder's first party app when trying to specify a pre-existing resource group and VNet to the Azure Image Builder service with a Windows source image. For the CLI command and portal instructions on how to assign the contributor role to the resource group see the following documentation [Troubleshoot VM Azure Image Builder: Authorization error creating disk](./image-builder-troubleshoot.md#authorization-error-creating-disk)
 
 - **The stagingResourceGroup property is specified with a resource group that doesn't exist**
 
-  If the `stagingResourceGroup` property is specified with a resource group that doesn't exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` property. There will be an error if the given name doesn't meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
+  If the `stagingResourceGroup` property is specified with a resource group that doesn't exist, then the Image Builder service creates a staging resource group with the name provided in the `stagingResourceGroup` property. There will be an error if the given name doesn't meet Azure naming requirements for resource groups. The staging resource group has the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource has the "Contributor" RBAC applied to it in the resource group.
 
 ### Template deletion
 
@@ -1372,7 +1378,7 @@ How to use the `validate` property to validate Windows images:
 - **name** - name of the validator
 - **scriptUri** - URI of the PowerShell script file.
 - **inline** – array of commands to be run, separated by commas.
-- **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
+- **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this avoids reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
 
@@ -1469,7 +1475,7 @@ Image Builder uses a default SKU size of `Standard_D1_v2` for Gen1 images and `S
 - Running Windows builds, you should use "Standard_D2_v2" or equivalent VM size.
 - Require [VM isolation](../isolation.md).
 - Customize an image that requires specific hardware. For example, for a GPU VM, you need a GPU VM size.
-- Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that don't use local temporary disks.
+- Require end to end encryption at rest of the build VM, you need to specify the support build [VM size](../azure-vms-no-temp-disk.yml) that doesn't use local temporary disks.
 
 ### osDiskSizeGB
 
@@ -1535,7 +1541,7 @@ az resource invoke-action \
 
 If you're running an image build that you believe is incorrect, waiting for user input, or you feel will never complete successfully, then you can cancel the build.
 
-The build can be canceled anytime. If the distribution phase has started you can still cancel, but you'll need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
+The build can be canceled anytime. If the distribution phase has started you can still cancel, but you need to clean up any images that may not be completed. The cancel command doesn't wait for cancel to complete, monitor `lastrunstatus.runstate` for canceling progress, using these status [commands](image-builder-troubleshoot.md#customization-log).
 
 Examples of `cancel` commands:
 
