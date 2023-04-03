@@ -191,6 +191,14 @@ Don't use wildcards in your allowed origins list. Instead, list the specific dom
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
+### Secure related resources
+
+A function app frequently depends on additional resources, so part of securing the app is securing these external resources. At a minimum, most function apps include a dependency on Application Insights and Azure Storage. Consult the [Azure security baseline for Azure Monitor](/security/benchmark/azure/baselines/azure-monitor-security-baseline) and the [Azure security baseline for Storage](/security/benchmark/azure/baselines/storage-security-baseline) for guidance on securing these resources.
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
+You should also consult the guidance for any resource types your application logic depends on, both as triggers and bindings and from your function code.
+
 ## Secure deployment
 
 Azure Functions tooling an integration make it easy to publish local function project code to Azure. It's important to understand how deployment works when considering security for an Azure Functions topology.   

@@ -38,6 +38,8 @@ The following four Azure resources are created by this Bicep file:
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a function app.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): create an Application Insights instance for monitoring.
 
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
