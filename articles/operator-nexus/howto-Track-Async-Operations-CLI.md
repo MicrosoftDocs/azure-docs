@@ -9,7 +9,7 @@ ms.date: 02/09/2023
 ms.custom: template-how-to
 ---
 
-# Tracking Asynchronous Operations Using Azure CLI
+# Tracking asynchronous operations using Azure CLI
 
 Some Azure CLI operations are asynchronous. To track the status of an asynchronous operation, the `operationStatuses` resource can be used. Asynchronous commands can be run with a `--debug` flag enabled. When `--debug` is specified, the progress of the request can be monitored. The operation status URL can be found by examining the `Azure-AsyncOperation` or `Location` header on the HTTP response to the creation request.
 
