@@ -146,7 +146,7 @@ To use this method, complete the following steps:
 Now, from domain-joined clients, you should be able to use storage accounts joined to any forest.
 
 > [!NOTE]
-> Ensure hostname part of the FQDN matches the storage account name as described above. Otherwise you will get an access denied with the error "The filename, directory name, or volume label syntax is incorrect.". A network trace will show STATUS_OBJECT_NAME_INVALID (0xc0000033) message during the SMB session setup.
+> Ensure hostname part of the FQDN matches the storage account name as described above. Otherwise you will get an access denied error "The filename, directory name, or volume label syntax is incorrect." A network trace will show STATUS_OBJECT_NAME_INVALID (0xc0000033) message during the SMB session setup.
 
 
 
