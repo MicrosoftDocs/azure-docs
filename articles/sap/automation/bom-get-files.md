@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 ---
 
 # Acquire media for BOM creation

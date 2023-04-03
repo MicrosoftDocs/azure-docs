@@ -28,7 +28,7 @@ Managed Airflow in Azure Data Factory is a managed orchestration service for [
 
 ## When to use Managed Airflow?
 
-Azure Data Factory offers [Pipelines](concepts-pipelines-activities.md) to visually orchestrate data processes (UI-based authoring). While Managed Airflow, offers Airflow based python DAGs (python code-centric authoring) for defining the data orchestration process. If you have the Airflow background, or are currently using Apace Airflow, you may prefer to use the Managed Airflow instead of the pipelines. On the contrary, if you wouldn't like to write/ manage python-based DAGs for data process orchestration, you may prefer to use pipelines.  
+Azure Data Factory offers [Pipelines](concepts-pipelines-activities.md) to visually orchestrate data processes (UI-based authoring). While Managed Airflow, offers Airflow based python DAGs (python code-centric authoring) for defining the data orchestration process. If you have the Airflow background, or are currently using Apache Airflow, you may prefer to use the Managed Airflow instead of the pipelines. On the contrary, if you wouldn't like to write/ manage python-based DAGs for data process orchestration, you may prefer to use pipelines.  
 
 With Managed Airflow, Azure Data Factory now offers multi-orchestration capabilities spanning across visual, code-centric, OSS orchestration requirements.
 
@@ -43,7 +43,7 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 - **Azure integration** – Azure Data Factory Managed Airflow supports open-source integrations with Azure Data Factory pipelines, Azure Batch, Azure Cosmos DB, Azure Key Vault, ACI, ADLS Gen2, Azure Kusto, as well as hundreds of built-in and community-created operators and sensors.
 
 ## Architecture
-   :::image type="content" source="media/concept-managed-airflow/architecture.png" alt-text="Screenshot shows architecture in Managed Airflow.":::
+   :::image type="content" source="media/concept-managed-airflow/architecture.png" lightbox="media/concept-managed-airflow/architecture.png" alt-text="Screenshot shows architecture in Managed Airflow.":::
 
 ## Region availability (public preview)
 
@@ -54,10 +54,10 @@ With Managed Airflow, Azure Data Factory now offers multi-orchestration capabili
 * NorthEurope  
 * WestEurope  
 * SouthEastAsia
-* EastUS2
-* WestUS2
-* GermanyWestCentral
-* AustraliaEast
+* EastUS2 (coming soon)
+* WestUS2 (coming soon)
+* GermanyWestCentral (coming soon)
+* AustraliaEast (coming soon)
 
 > [!NOTE]
 > By GA, all ADF regions will be supported. The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Managed Airflow preview.  
@@ -75,6 +75,15 @@ Apache Airflow integrates with Microsoft Azure services through microsoft.azure 
 You can install any provider package by editing the airflow environment from the Azure Data Factory UI. It takes around a couple of minutes to install the package.
 
    :::image type="content" source="media/concept-managed-airflow/airflow-integration.png" lightbox="media/concept-managed-airflow/airflow-integration.png" alt-text="Screenshot shows airflow integration.":::
+
+## Limitations
+
+* Managed Airflow in other regions will be available by GA (Tentative GA is Q2 2023 ).
+* Data Sources connecting through airflow should be publicly accessible. 
+* Blob Storage behind VNet are not supported during the public preview (Tentative GA is Q2 2023
+* DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported.
+* Azure Key Vault is not supported in LinkedServices to import dags.(Tentative GA is Q2 2023)
+* Airflow supports officially Blob Storage and ADLS with some limitations.
 
 ## Next steps
 

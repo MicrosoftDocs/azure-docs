@@ -74,7 +74,7 @@ Create a workspace configuration file in one of the following methods:
         from azure.ai.ml import MLClient
         from azure.identity import DefaultAzureCredential
 
-        #Enter details of your AzureML workspace
+        #Enter details of your Azure Machine Learning workspace
         subscription_id = '<SUBSCRIPTION_ID>'
         resource_group = '<RESOURCE_GROUP>'
         workspace = '<AZUREML_WORKSPACE_NAME>'
@@ -149,7 +149,7 @@ Create one anytime from within your Azure Machine Learning workspace. Provide ju
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> To prevent incurring charges for an unused compute instance, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown-preview).
+> To prevent incurring charges for an unused compute instance, [enable idle shutdown](how-to-create-manage-compute-instance.md#enable-idle-shutdown).
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 
@@ -205,7 +205,7 @@ To use the Data Science VM as a development environment:
 
     ```bash
     conda activate py310
-    pip install azure-ai-ml
+    pip install azure-ai-ml azure-identity
     ``` 
 
 1. To configure the Data Science VM to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.

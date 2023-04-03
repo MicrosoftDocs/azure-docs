@@ -1,9 +1,10 @@
-﻿---
+---
 title: 'Tutorial: Create a pipeline to move data by using Azure PowerShell '
 description: In this tutorial, you create an Azure Data Factory pipeline with Copy Activity by using Azure PowerShell.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: v1
+ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 10/22/2021
 ms.author: jianleishen
@@ -558,4 +559,3 @@ In this tutorial, you used Azure blob storage as a source data store and Azure S
 [!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 To learn about how to copy data to/from a data store, click the link for the data store in the table. 
-

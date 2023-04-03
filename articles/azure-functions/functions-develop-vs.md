@@ -180,7 +180,7 @@ For a more detailed testing scenario using Visual Studio, see [Testing functions
 When you publish from Visual Studio, it uses one of the two deployment methods:
 
 * [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): Packages and deploys Windows apps to any IIS server.
-* [Zip Deploy with run-From-package enabled](functions-deployment-technologies.md#zip-deploy): Recommended for Azure Functions deployments.
+* [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): Recommended for Azure Functions deployments.
 
 Use the following steps to publish your project to a function app in Azure.
 

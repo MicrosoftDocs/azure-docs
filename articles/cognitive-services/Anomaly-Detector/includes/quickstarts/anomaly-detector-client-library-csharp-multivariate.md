@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/29/2021
+ms.date: 03/30/2023
 ms.author: mbullwin
 ---
 
@@ -28,9 +28,83 @@ Use the Anomaly Detector multivariate client library for C# to:
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. Paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
+## Set up
 
-### Create a new .NET Core application
+### Create a storage account
+
+Multivariate Anomaly Detector requires your sample file to be stored in Azure Blob Storage.
+
+1. Create an <a href="https://portal.azure.com/#create/Microsoft.StorageAccount-ARM" target="_blank">Azure Storage account</a>.
+2. Go to Access Control(IAM), and select **ADD** to Add role assignment.
+3. Search role of **Storage Blob Data Reader**, highlight this account type and then select **Next**.
+4. Select **assign access to Managed identity**, and Select **Members**, then choose the **Anomaly Detector resource** that you created earlier, then select **Review + assign**.
+
+This configuration can sometimes be a little confusing, if you have trouble we recommend consulting our [multivariate Jupyter Notebook sample](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/SDK%20Sample/%F0%9F%86%95MVAD-SDK-Demo.ipynb), which walks through this process more in-depth.
+
+### Download sample data
+
+This quickstart uses one file for sample data `sample_data_5_3000.csv`. This file can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/)
+
+ You can also download the sample data by running:
+
+```cmd
+curl "https://github.com/Azure-Samples/AnomalyDetector/blob/master/sampledata/multivariate/sample_data_5_3000.csv" --output sample_data_5_3000_.csv
+```
+
+### Upload sample data to Storage Account
+
+1. Go to your Storage Account, select Containers and create a new container.
+2. Select **Upload** and upload sample_data_5_3000.csv
+3. Select the data that you uploaded and copy the Blob URL as you need to add it to the code sample in a few steps.
+
+## Retrieve key and endpoint
+
+To successfully make a call against the Anomaly Detector service, you need the following values:
+
+|Variable name | Value |
+|--------------------------|-------------|
+| `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
+| `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+
+Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
+
+### Create environment variables
+
+Create and assign persistent environment variables for your key and endpoint.
+
+# [Command Line](#tab/command-line)
+
+```CMD
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
+```
+
+```CMD
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
+
+# [Bash](#tab/bash)
+
+```Bash
+echo export ANOMALY_DETECTOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
+
+```Bash
+echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
+
+---
+
+## Create a new .NET Core application
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart-multivariate`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
 
@@ -59,290 +133,184 @@ Build succeeded.
 Within the application directory, install the Anomaly Detector client library for .NET with the following command:
 
 ```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.3
+dotnet add package Azure.AI.AnomalyDetector --prerelease
 ```
 
-From the project directory, open the *program.cs* file and add the following using `directives`:
+From the project directory, open the *program.cs* file and replace with the following code:
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Drawing.Text;
-using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Net.NetworkInformation;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Azure.AI.AnomalyDetector.Models;
-using Azure.Core.TestFramework;
-using Microsoft.Identity.Client;
-using NUnit.Framework;
-```
+using Azure.AI.AnomalyDetector;
+using Azure;
+using static System.Environment;
 
-In the application's `main()` method, create variables for your resource's Azure endpoint, your API key, and a custom datasource.
-
-> [!NOTE]
-> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
-
-```csharp
-string endpoint = "YOUR_API_KEY";
-string apiKey =  "YOUR_ENDPOINT";
-string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
-```
-
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
-
-To use the Anomaly Detector multivariate APIs, you need to first train your own models. Training data is a set of multiple time series that meet the following requirements:
-
-Each time series should be a CSV file with two (and only two) columns, "timestamp" and "value" (all in lowercase) as the header row. The "timestamp" values should conform to ISO 8601; the "value" could be integers or decimals with any number of decimal places. For example:
-
-|timestamp | value|
-|-------|-------|
-|2019-04-01T00:00:00Z| 5|
-|2019-04-01T00:01:00Z| 3.6|
-|2019-04-01T00:02:00Z| 4|
-|`...`| `...` |
-
-Each CSV file should be named after a different variable that will be used for model training. For example, "temperature.csv" and "humidity.csv". All the CSV files should be zipped into one zip file without any subfolders. The zip file can have whatever name you want. The zip file should be uploaded to Azure Blob storage. Once you generate the blob SAS (Shared access signatures) URL for the zip file, it can be used for training. Refer to this document for how to generate SAS URLs from Azure Blob Storage.
-
-## Code examples
-
-These code snippets show you how to do the following with the Anomaly Detector multivariate client library for .NET:
-
-* [Authenticate the client](#authenticate-the-client)
-* [Train the model](#train-the-model)
-* [Detect anomalies](#detect-anomalies)
-* [Export model](#export-model)
-* [Delete model](#delete-model)
-
-## Authenticate the client
-
-Instantiate an Anomaly Detector client with your endpoint and key.
-
-```csharp
-var endpointUri = new Uri(endpoint);
-var credential = new AzureKeyCredential(apiKey)
-
-AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential);
-```
-
-## Train the model
-
-Create a new private async task as below to handle training your model. You will use `TrainMultivariateModel` to train the model and `GetMultivariateModelAysnc` to check when training is complete.
-
-```csharp
-private async Task<Guid?> trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time)
+internal class Program
 {
-    try
+    private static void Main(string[] args)
     {
-        Console.WriteLine("Training new model...");
+        string endpoint = GetEnvironmentVariable("ANOMALY_DETECTOR_ENDPOINT"); 
+        string apiKey = GetEnvironmentVariable("ANOMALY_DETECTOR_API_KEY");
+        string datasource = "Path-to-sample-file-in-your-storage-account";  // example path:https://docstest001.blob.core.windows.net/test/sample_data_5_3000.csv
+        Console.WriteLine(endpoint);
+        var endpointUri = new Uri(endpoint);
+        var credential = new AzureKeyCredential(apiKey);
 
-        int model_number = await getModelNumberAsync(client, false).ConfigureAwait(false);
-        Console.WriteLine(String.Format("{0} available models before training.", model_number));
+        //create client
+        AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential);
 
-        ModelInfo data_feed = new ModelInfo(datasource, start_time, end_time);
-        Response response_header = client.TrainMultivariateModel(data_feed);
-        response_header.Headers.TryGetValue("Location", out string trained_model_id_path);
-        Guid trained_model_id = Guid.Parse(trained_model_id_path.Split('/').LastOrDefault());
-        Console.WriteLine(trained_model_id);
-
-        // Wait until the model is ready. It usually takes several minutes
-        Response<Model> get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-        while (get_response.Value.ModelInfo.Status != ModelStatus.Ready & get_response.Value.ModelInfo.Status != ModelStatus.Failed)
+        // train
+        TimeSpan offset = new TimeSpan(0);
+        DateTimeOffset start_time = new DateTimeOffset(2021, 1, 2, 0, 0, 0, offset);
+        DateTimeOffset end_time = new DateTimeOffset(2021, 1, 2, 5, 0, 0, offset);
+        string model_id = null;
+        try
         {
-            System.Threading.Thread.Sleep(10000);
-            get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-            Console.WriteLine(String.Format("model_id: {0}, createdTime: {1}, lastUpdateTime: {2}, status: {3}.", get_response.Value.ModelId, get_response.Value.CreatedTime, get_response.Value.LastUpdatedTime, get_response.Value.ModelInfo.Status));
-        }
+            model_id = TrainModel(client, datasource, start_time, end_time);
 
-        if (get_response.Value.ModelInfo.Status != ModelStatus.Ready)
-        {
-            Console.WriteLine(String.Format("Trainig failed."));
-            IReadOnlyList<ErrorResponse> errors = get_response.Value.ModelInfo.Errors;
-            foreach (ErrorResponse error in errors)
+            // detect
+            end_time = new DateTimeOffset(2021, 1, 2, 1, 0, 0, offset);
+            MultivariateDetectionResult result = BatchDetect(client, datasource, model_id, start_time, end_time);
+            if (result != null)
             {
-                Console.WriteLine(String.Format("Error code: {0}.", error.Code));
-                Console.WriteLine(String.Format("Error message: {0}.", error.Message));
+                Console.WriteLine(string.Format("Result ID: {0}", result.ResultId.ToString()));
+                Console.WriteLine(string.Format("Result summary: {0}", result.Summary.ToString()));
+                Console.WriteLine(string.Format("Result length: {0}", result.Results.Count));
             }
-            throw new Exception("Training failed.");
+
+            // delete
+            DeleteModel(client, model_id);
+        }
+        catch (Exception e)
+        {
+            string msg = string.Format("Multivariate error. {0}", e.Message);
+            Console.WriteLine(msg);
+            throw;
         }
 
-        model_number = await getModelNumberAsync(client).ConfigureAwait(false);
-        Console.WriteLine(String.Format("{0} available models after training.", model_number));
-        return trained_model_id;
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(String.Format("Train error. {0}", e.Message));
-        throw new Exception(e.Message);
-    }
-}
-```
-
-## Detect anomalies
-
-To detect anomalies using your newly trained model, create a `private async Task` named `detectAsync`. You will create a new `DetectionRequest` and pass that as a parameter to `DetectAnomalyAsync`.
-
-```csharp
-private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id,DateTimeOffset start_time, DateTimeOffset end_time)
-{
-    try
-    {
-        Console.WriteLine("Start detect...");
-        Response<Model> get_response = await client.GetMultivariateModelAsync(model_id).ConfigureAwait(false);
-
-        DetectionRequest detectionRequest = new DetectionRequest(datasource, start_time, end_time);
-        Response result_response = await client.DetectAnomalyAsync(model_id, detectionRequest).ConfigureAwait(false);
-        var ok = result_response.Headers.TryGetValue("Location", out string result_id_path);
-        Guid result_id = Guid.Parse(result_id_path.Split('/').LastOrDefault());
-        // get detection result
-        Response<DetectionResult> result = await client.GetDetectionResultAsync(result_id).ConfigureAwait(false);
-        while (result.Value.Summary.Status != DetectionStatus.Ready & result.Value.Summary.Status != DetectionStatus.Failed)
+        int GetModelNumber(AnomalyDetectorClient client)
         {
-            System.Threading.Thread.Sleep(2000);
-            result = await client.GetDetectionResultAsync(result_id).ConfigureAwait(false);
-        }
-
-        if (result.Value.Summary.Status != DetectionStatus.Ready)
-        {
-            Console.WriteLine(String.Format("Inference failed."));
-            IReadOnlyList<ErrorResponse> errors = result.Value.Summary.Errors;
-            foreach (ErrorResponse error in errors)
+            int model_number = 0;
+            foreach (var multivariateModel in client.GetMultivariateModels())
             {
-                Console.WriteLine(String.Format("Error code: {0}.", error.Code));
-                Console.WriteLine(String.Format("Error message: {0}.", error.Message));
+                model_number++;
             }
-            return null;
+            return model_number;
         }
 
-        return result.Value;
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(String.Format("Detection error. {0}", e.Message));
-        throw new Exception(e.Message);
-    }
-}
-```
-
-## Export model
-
-> [!NOTE]
-> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
-
-To export the model you trained previously, create a `private async Task` named `exportAysnc`. You will use `ExportModelAsync` and pass the model ID of the model you wish to export.
-
-```csharp
-private async Task exportAsync(AnomalyDetectorClient client, Guid model_id, string model_path = "model.zip")
-{
-    try
-    {
-        Stream model = await client.ExportModelAsync(model_id).ConfigureAwait(false);
-        if (model != null)
+        string TrainModel(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
         {
-            var fileStream = File.Create(model_path);
-            model.Seek(0, SeekOrigin.Begin);
-            model.CopyTo(fileStream);
-            fileStream.Close();
+            try
+            {
+                Console.WriteLine("Training new model...");
+
+                Console.WriteLine(string.Format("{0} available models before training.", GetModelNumber(client)));
+
+                ModelInfo request = new ModelInfo(datasource, start_time, end_time);
+                request.SlidingWindow = 200;
+
+                Console.WriteLine("Training new model...(it may take a few minutes)");
+                AnomalyDetectionModel response = client.TrainMultivariateModel(request);
+                string trained_model_id = response.ModelId;
+                Console.WriteLine(string.Format("Training model id is {0}", trained_model_id));
+
+                // Wait until the model is ready. It usually takes several minutes
+                ModelStatus? model_status = null;
+                int tryout_count = 1;
+                response = client.GetMultivariateModelValue(trained_model_id);
+                while (tryout_count < max_tryout & model_status != ModelStatus.Ready & model_status != ModelStatus.Failed)
+                {
+                    Thread.Sleep(1000);
+                    response = client.GetMultivariateModelValue(trained_model_id);
+                    model_status = response.ModelInfo.Status;
+                    Console.WriteLine(string.Format("try {0}, model_id: {1}, status: {2}.", tryout_count, trained_model_id, model_status));
+                    tryout_count += 1;
+                };
+
+                if (model_status == ModelStatus.Ready)
+                {
+                    Console.WriteLine("Creating model succeeds.");
+                    Console.WriteLine(string.Format("{0} available models after training.", GetModelNumber(client)));
+                    return trained_model_id;
+                }
+
+                if (model_status == ModelStatus.Failed)
+                {
+                    Console.WriteLine("Creating model failed.");
+                    Console.WriteLine("Errors:");
+                    try
+                    {
+                        Console.WriteLine(string.Format("Error code: {0}, Message: {1}", response.ModelInfo.Errors[0].Code.ToString(), response.ModelInfo.Errors[0].Message.ToString()));
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(string.Format("Get error message fail: {0}", e.Message));
+                    }
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(string.Format("Train error. {0}", e.Message));
+                throw;
+            }
         }
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(String.Format("Export error. {0}", e.Message));
-        throw new Exception(e.Message);
-    }
-}
-```
 
-## Delete model
-
-To delete a model that you have created previously use `DeleteMultivariateModelAsync` and pass the model ID of the model you wish to delete. To retrieve a model ID you can us `getModelNumberAsync`:
-
-```csharp
-private async Task deleteAsync(AnomalyDetectorClient client, Guid model_id)
-{
-    await client.DeleteMultivariateModelAsync(model_id).ConfigureAwait(false);
-    int model_number = await getModelNumberAsync(client).ConfigureAwait(false);
-    Console.WriteLine(String.Format("{0} available models after deletion.", model_number));
-}
-private async Task<int> getModelNumberAsync(AnomalyDetectorClient client, bool delete = false)
-{
-    int count = 0;
-    AsyncPageable<ModelSnapshot> model_list = client.ListMultivariateModelAsync(0, 10000);
-    await foreach (ModelSnapshot x in model_list)
-    {
-        count += 1;
-        Console.WriteLine(String.Format("model_id: {0}, createdTime: {1}, lastUpdateTime: {2}.", x.ModelId, x.CreatedTime, x.LastUpdatedTime));
-        if (delete & count < 4)
+        MultivariateDetectionResult BatchDetect(AnomalyDetectorClient client, string datasource, string model_id, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
         {
-            await client.DeleteMultivariateModelAsync(x.ModelId).ConfigureAwait(false);
+            try
+            {
+                Console.WriteLine("Start batch detect...");
+                MultivariateBatchDetectionOptions request = new MultivariateBatchDetectionOptions(datasource, 10, start_time, end_time);
+
+                Console.WriteLine("Start batch detection, this might take a few minutes...");
+                MultivariateDetectionResult response = client.DetectMultivariateBatchAnomaly(model_id, request);
+                string result_id = response.ResultId;
+                Console.WriteLine(string.Format("result id is: {0}", result_id));
+
+                // get detection result
+                MultivariateDetectionResult resultResponse = client.GetMultivariateBatchDetectionResultValue(result_id);
+                MultivariateBatchDetectionStatus result_status = resultResponse.Summary.Status;
+                int tryout_count = 0;
+                while (tryout_count < max_tryout & result_status != MultivariateBatchDetectionStatus.Ready & result_status != MultivariateBatchDetectionStatus.Failed)
+                {
+                    Thread.Sleep(1000);
+                    resultResponse = client.GetMultivariateBatchDetectionResultValue(result_id);
+                    result_status = resultResponse.Summary.Status;
+                    Console.WriteLine(string.Format("try: {0}, result id: {1} Detection status is {2}", tryout_count, result_id, result_status.ToString()));
+                    Console.Out.Flush();
+                }
+
+                if (result_status == MultivariateBatchDetectionStatus.Failed)
+                {
+                    Console.WriteLine("Detection failed.");
+                    Console.WriteLine("Errors:");
+                    try
+                    {
+                        Console.WriteLine(string.Format("Error code: {}. Message: {}", resultResponse.Results[0].Errors[0].Code.ToString(), resultResponse.Results[0].Errors[0].Message.ToString()));
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(string.Format("Get error message fail: {0}", e.Message));
+                    }
+                    return null;
+                }
+                return resultResponse;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(string.Format("Detection error. {0}", e.Message));
+                throw;
+            }
         }
-    }
-    return count;
-}
-```
 
-## Main method
-
-Now that you have all the component parts, you need to add additional code to your main method to call your newly created tasks.
-
-```csharp
-
-{
-    //read endpoint and apiKey
-     string endpoint = "YOUR_API_KEY";
-    string apiKey =  "YOUR_ENDPOINT";
-    string datasource = "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS";
-    Console.WriteLine(endpoint);
-    var endpointUri = new Uri(endpoint);
-    var credential = new AzureKeyCredential(apiKey);
-
-    //create client
-    AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential);
-
-    // train
-    TimeSpan offset = new TimeSpan(0);
-    DateTimeOffset start_time = new DateTimeOffset(2021, 1, 1, 0, 0, 0, offset);
-    DateTimeOffset end_time = new DateTimeOffset(2021, 1, 2, 12, 0, 0, offset);
-    Guid? model_id_raw = null;
-    try
-    {
-        model_id_raw = await trainAsync(client, datasource, start_time, end_time).ConfigureAwait(false);
-        Console.WriteLine(model_id_raw);
-        Guid model_id = model_id_raw.GetValueOrDefault();
-
-        // detect
-        start_time = end_time;
-        end_time = new DateTimeOffset(2021, 1, 3, 0, 0, 0, offset);
-        DetectionResult result = await detectAsync(client, datasource, model_id, start_time, end_time).ConfigureAwait(false);
-        if (result != null)
+        void DeleteModel(AnomalyDetectorClient client, string model_id)
         {
-            Console.WriteLine(String.Format("Result ID: {0}", result.ResultId));
-            Console.WriteLine(String.Format("Result summary: {0}", result.Summary));
-            Console.WriteLine(String.Format("Result length: {0}", result.Results.Count));
+            client.DeleteMultivariateModel(model_id);
+            int model_number = GetModelNumber(client);
+            Console.WriteLine(string.Format("{0} available models after deletion.", model_number));
         }
-
-        // export model
-        await exportAsync(client, model_id).ConfigureAwait(false);
-
-        // delete
-        await deleteAsync(client, model_id).ConfigureAwait(false);
-    }
-    catch (Exception e)
-    {
-        String msg = String.Format("Multivariate error. {0}", e.Message);
-        if (model_id_raw != null)
-        {
-            await deleteAsync(client, model_id_raw.GetValueOrDefault()).ConfigureAwait(false);
-        }
-        Console.WriteLine(msg);
-        throw new Exception(msg);
+ 
     }
 }
-
 ```
 
 ## Run the application
@@ -352,6 +320,7 @@ Run the application with the `dotnet run` command from your application director
 ```dotnetcli
 dotnet run
 ```
+
 ## Clean up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.

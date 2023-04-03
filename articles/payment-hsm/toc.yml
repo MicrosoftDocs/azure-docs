@@ -57,11 +57,16 @@
     href: deployment-scenarios.md
   - name: Solution design
     href: solution-design.md
+  - name: Fastpathenabled
+    href: fastpathenabled.md
 
 - name: Support
   items:
   - name: Azure Payment HSM service support guide
     href: support-guide.md
+  - name: Known issues
+    href: known-issues.md
+
 
 - name: Reference
   items:

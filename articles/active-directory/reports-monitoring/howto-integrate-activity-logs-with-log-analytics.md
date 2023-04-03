@@ -1,5 +1,5 @@
 ---
-title: Stream Azure Active Directory logs to Azure Monitor logs | Microsoft Docs
+title: Stream Azure Active Directory logs to Azure Monitor logs
 description: Learn how to integrate Azure Active Directory logs with Azure Monitor logs
 services: active-directory
 author: shlipsey3
@@ -72,10 +72,11 @@ Follow the steps below to send logs from Azure Active Directory to Azure Monitor
 
     The following logs are in preview but still visible in Azure AD. At this time, selecting these options will not add new logs to your workspace unless your organization was included in the preview.
 
-    * `NetworkAccessTrafficLogs`
-    * `RiskyServicePrincipals`
     * `AADServicePrincipalRiskEvents`
     * `EnrichedOffice365AuditLogs`
+    * `MicrosoftGraphActivityLogs`
+    * `NetworkAccessTrafficLogs`
+    * `RiskyServicePrincipals`
 
 1. Select the **Destination details** for where you'd like to send the logs. Choose any or all of the following destinations. Additional fields appear, depending on your selection.
 

@@ -3,12 +3,12 @@ title: Create an Azure Image Builder Bicep file or ARM JSON template
 description: Learn how to create a Bicep file or ARM JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: cynthn
-ms.date: 09/06/2022
+ms.reviewer: erd
+ms.date: 03/15/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.custom: devx-track-azurepowershell, references_regions
+ms.custom: references_regions, devx-track-bicep
 ---
 
 # Create an Azure Image Builder Bicep or ARM JSON template
@@ -149,15 +149,19 @@ The location is the region where the custom image will be created. The following
 - Qatar Central
 - USGov Arizona (Public Preview)
 - USGov Virginia (Public Preview)
+- China North 3 (Public Preview)
 
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
 
-Use the following command to register the feature for Azure Image Builder in Azure Government regions (USGov Arizona and USGov Virginia).
+> [!IMPORTANT]
+> Register the feature `Microsoft.VirtualMachineImages/MooncakePublicPreview` to access the Azure Image Builder public preview in the China North 3 region.
+
+To access the Azure VM Image Builder public preview in the Fairfax regions (USGov Arizona and USGov Virginia), you must register the *Microsoft.VirtualMachineImages/FairfaxPublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
+```azurepowershell-interactive
 Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name FairfaxPublicPreview
 ```
 
@@ -165,6 +169,22 @@ Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineIma
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name FairfaxPublicPreview
+```
+
+---
+
+To access the Azure VM Image Builder public preview in the China North 3 region, you must register the *Microsoft.VirtualMachineImages/MooncakePublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.VirtualMachineImages -Name MooncakePublicPreview
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az feature register --namespace Microsoft.VirtualMachineImages --name MooncakePublicPreview
 ```
 
 ---
@@ -760,7 +780,7 @@ Image Builder will read these commands, these commands are written out to the AI
 
 Azure Image Builder supports three distribution targets:
 
-- **managedImage** - managed image.
+- **ManagedImage** - Managed image.
 - **sharedImage** - Azure Compute Gallery.
 - **VHD** - VHD in a storage account.
 
@@ -1172,7 +1192,7 @@ You can use the `validate` property to validate platform images and any customiz
 
 Azure Image Builder supports a 'Source-Validation-Only' mode that can be set using the `sourceValidationOnly` property. If the `sourceValidationOnly` property is set to true, the image specified in the `source` section will directly be validated. No separate build will be run to generate and then validate a customized image.
 
-The `inVMValidations` property takes a list of validators that will be performed on the image. Azure Image Builder supports both PowerShell and Shell validators.
+The `inVMValidations` property takes a list of validators that will be performed on the image. Azure Image Builder supports File, PowerShell and Shell validators.
 
 The `continueDistributeOnFailure` property is responsible for whether the output image(s) will be distributed if validation fails. By default, if validation fails and this property is set to false, the output image(s) won't be distributed. If validation fails and this property is set to true, the output image(s) will still be distributed. Use this option with caution as it may result in failed images being distributed for use. In either case (true or false), the end to end image run will be reported as a failed if a validation failure. This property has no effect on whether validation succeeds or not.
 
@@ -1191,31 +1211,37 @@ How to use the `validate` property to validate Windows images:
 
 ```json
 {
-  "properties": {
-    "validate": {
-      "continueDistributeOnFailure": false,
-      "sourceValidationOnly": false,
-      "inVMValidations": [
-        {
-          "type": "PowerShell",
-          "name": "test PowerShell validator inline",
-          "inline": [
-            "<command to run inline>"
-          ],
-          "validExitCodes": <exit code>,
-          "runElevated": <true or false>,
-          "runAsSystem": <true or false>
-        },
-        {
-          "type": "PowerShell",
-          "name": "<name>",
-          "scriptUri": "<path to script>",
-          "runElevated": <true false>,
-          "sha256Checksum": "<sha256 checksum>"
-        }
-      ]
-    }
-  }
+   "properties":{
+      "validate":{
+         "continueDistributeOnFailure":false,
+         "sourceValidationOnly":false,
+         "inVMValidations":[
+            {
+               "type":"File",
+               "destination":"string",
+               "sha256Checksum":"string",
+               "sourceUri":"string"
+            },
+            {
+               "type":"PowerShell",
+               "name":"test PowerShell validator inline",
+               "inline":[
+                  "<command to run inline>"
+               ],
+               "validExitCodes":"<exit code>",
+               "runElevated":"<true or false>",
+               "runAsSystem":"<true or false>"
+            },
+            {
+               "type":"PowerShell",
+               "name":"<name>",
+               "scriptUri":"<path to script>",
+               "runElevated":"<true false>",
+               "sha256Checksum":"<sha256 checksum>"
+            }
+         ]
+      }
+   }
 }
 ```
 

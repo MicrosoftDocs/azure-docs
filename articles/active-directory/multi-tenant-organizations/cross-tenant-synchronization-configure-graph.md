@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: multi-tenant-organizations
 ms.topic: how-to
-ms.date: 02/06/2023
+ms.date: 03/08/2023
 ms.author: rolyon
 ms.custom: it-pro
 
@@ -27,19 +27,19 @@ This article describes the key steps to configure cross-tenant synchronization u
 
 ## Prerequisites
 
-### Source tenant
+![Icon for the source tenant.](./media/common/icon-tenant-source.png)<br/>**Source tenant**
 
-- Azure AD Premium P1 or P2 license
-- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
-- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization
-- [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration
-- [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
+- [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) role to configure cross-tenant synchronization.
+- [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../roles/permissions-reference.md#application-administrator) role to assign users to a configuration and to delete a configuration.
+- [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
-### Target tenant
+![Icon for the target tenant.](./media/common/icon-tenant-target.png)<br/>**Target tenant**
 
-- Azure AD Premium P1 or P2 license
-- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings
-- [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions
+- Azure AD Premium P1 or P2 license. For more information, see [License requirements](cross-tenant-synchronization-overview.md#license-requirements).
+- [Security Administrator](../roles/permissions-reference.md#security-administrator) role to configure cross-tenant access settings.
+- [Global Administrator](../roles/permissions-reference.md#global-administrator) role to consent to required permissions.
 
 ## Step 1: Sign in to tenants and consent to permissions
 
@@ -66,7 +66,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Start another instance of [Microsoft Graph Explorer tool](https://aka.ms/ge).
 
-1. Sign in to the source tenant.
+1. Sign in to the target tenant.
 
 1. Consent to the following required permissions:
 
@@ -75,8 +75,8 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
 
 1. Get the tenant ID of the source and target tenants. The example configuration described in this article uses the following tenant IDs:
 
-    - Source tenant ID: 3d0f5dec-5d3d-455c-8016-e2af1ae4d31a
-    - Target tenant ID: 376a1f89-b02f-4a85-8252-2974d1984d14
+    - Source tenant ID: {sourceTenantId}
+    - Target tenant ID: {targetTenantId}
 
 ## Step 2: Enable user synchronization in the target tenant
 
@@ -91,7 +91,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "3d0f5dec-5d3d-455c-8016-e2af1ae4d31a"
+      "tenantId": "{sourceTenantId}"
     }
     ```
     
@@ -103,7 +103,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     
     {
       "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity",
-      "tenantId": "3d0f5dec-5d3d-455c-8016-e2af1ae4d31a",
+      "tenantId": "{sourceTenantId}",
       "isServiceProvider": null,
       "inboundTrust": null,
       "b2bCollaborationOutbound": null,
@@ -129,7 +129,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/3d0f5dec-5d3d-455c-8016-e2af1ae4d31a/identitySynchronization
+    PUT https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{sourceTenantId}/identitySynchronization
     Content-type: application/json
     
     {
@@ -156,7 +156,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/3d0f5dec-5d3d-455c-8016-e2af1ae4d31a
+    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{sourceTenantId}
     Content-Type: application/json
     
     {
@@ -187,7 +187,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     Content-Type: application/json
     
     {
-      "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14"
+      "tenantId": "{targetTenantId}"
     }
     ```
     
@@ -199,7 +199,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     
     {
       "@odata.context": "https://graph.microsoft.com/beta/$metadata#policies/crossTenantAccessPolicy/partners/$entity",
-      "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+      "tenantId": "{targetTenantId}",
       "isServiceProvider": null,
       "inboundTrust": null,
       "b2bCollaborationOutbound": null,
@@ -225,7 +225,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
     **Request**
     
     ```http
-    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/376a1f89-b02f-4a85-8252-2974d1984d14
+    PATCH https://graph.microsoft.com/beta/policies/crossTenantAccessPolicy/partners/{targetTenantId}
     Content-Type: application/json
     
     {
@@ -290,7 +290,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
             "appId": "{appId}",
             "appDisplayName": "Fabrikam",
             "applicationTemplateId": "518e5f48-1fc8-4c48-9387-9fdf28b0dfe7",
-            "appOwnerTenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+            "appOwnerTenantId": "{targetTenantId}",
             "appRoleAssignmentRequired": true,
             "displayName": "Fabrikam",
             "errorUrl": null,
@@ -342,7 +342,7 @@ These steps describe how to use Microsoft Graph Explorer (recommended), but you 
         "credentials": [
             {
                 "key": "CompanyId",
-                "value": "376a1f89-b02f-4a85-8252-2974d1984d14"
+                "value": "{targetTenantId}"
             },
             {
                 "key": "AuthenticationType",
@@ -439,7 +439,7 @@ In the source tenant, to enable provisioning, create a provisioning job.
         "value": [ 
             { 
                 "key": "CompanyId", 
-                "value": "376a1f89-b02f-4a85-8252-2974d1984d14" 
+                "value": "{targetTenantId}" 
             },
             {
                 "key": "AuthenticationType",
@@ -645,7 +645,7 @@ Now that you have a configuration, you can test on-demand provisioning with one 
             {
                 "id": "{id}",
                 "activityDateTime": "2022-12-11T00:40:37Z",
-                "tenantId": "376a1f89-b02f-4a85-8252-2974d1984d14",
+                "tenantId": "{targetTenantId}",
                 "jobId": "{jobId}",
                 "cycleId": "{cycleId}",
                 "changeId": "{changeId}",

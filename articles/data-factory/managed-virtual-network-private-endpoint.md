@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 08/12/2022
+ms.date: 02/22/2023
 ---
 
 # Azure Data Factory managed virtual network
@@ -217,6 +217,10 @@ When you create a linked service for Key Vault, there's no integration runtime r
 The column **Using private endpoint** is always shown as blank even if you create a private endpoint for HDInsight by using a private link service and a load balancer with port forwarding.
 
 :::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="Screenshot that shows a private endpoint for Key Vault.":::
+
+### Fully Qualified Domain Name ( FQDN ) of Azure HDInsight
+
+If you created a custom private link service, FQDN should end with **azurehdinsight.net**  without leading *privatelink* in domain name when you create a private end point. If you use privatelink in domain name, make sure it is valid and you are able to resolve it.  
 
 ### Access constraints in managed virtual network with private endpoints
 You're unable to access each PaaS resource when both sides are exposed to Private Link and a private endpoint. This issue is a known limitation of Private Link and private endpoints.

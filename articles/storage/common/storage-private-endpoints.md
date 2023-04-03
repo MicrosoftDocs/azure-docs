@@ -7,10 +7,11 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/03/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
+ms.custom: engagement-fy23
 ---
 
 # Use private endpoints for Azure Storage
@@ -85,6 +86,9 @@ By default, We create a [private DNS zone](../../dns/private-dns-overview.md) at
 
 ## DNS changes for private endpoints
 
+> [!NOTE]
+> For details on how to configure your DNS settings for private endpoints, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
+
 When you create a private endpoint, the DNS CNAME resource record for the storage account is updated to an alias in a subdomain with the prefix `privatelink`. By default, we also create a [private DNS zone](../../dns/private-dns-overview.md), corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
 
 When you resolve the storage endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the storage service. When resolved from the VNet hosting the private endpoint, the storage endpoint URL resolves to the private endpoint's IP address.
@@ -152,5 +156,6 @@ Only private endpoints that target the Blob storage resource are supported. Priv
 
 ## Next steps
 
+- [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md)
 - [Configure Azure Storage firewalls and virtual networks](storage-network-security.md)
 - [Security recommendations for Blob storage](../blobs/security-recommendations.md)

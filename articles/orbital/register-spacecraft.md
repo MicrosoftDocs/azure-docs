@@ -12,12 +12,12 @@ ms.author: apoorvanori
 
 # Quickstart: Register Spacecraft
 
-To contact a satellite, it must be registered as a spacecraft resource with the required information that identifies it.
+To contact a satellite, it must be registered as a spacecraft resource with Azure Orbital Ground Station using required identifying information.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Must be a Contributer at the subscription level.
+- Contributor permissions at the subscription level.
 - A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
 
 ## Sign in to Azure
@@ -26,7 +26,7 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 
 ## Create spacecraft resource
 
-1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+1. In the Azure Portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
 2. In the **Spacecraft** page, select Create.
 3. In **Create spacecraft resource**, enter or select this information in the Basics tab:
 
@@ -45,6 +45,8 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
    > TLE stands for Two-Line Element.
    > 
    > Spacecraft resources can be created in any Azure region with a Microsoft ground station and schedule contacts on any  ground station. Current eligible regions are West US 2, Sweden Central, and Southeast Asia.
+   >
+   > Be sure to update this TLE value before you schedule a contact. A TLE that's more than two weeks old might result in an unsuccessful downlink.
 
    :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
 

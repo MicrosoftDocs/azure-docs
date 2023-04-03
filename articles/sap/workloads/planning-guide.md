@@ -5,6 +5,7 @@ author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
 ms.service: sap-on-azure
+ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -1022,7 +1023,7 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 
 ##### Azure Storage tools
 
-* [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 Professional editions of Azure Storage Explorers can be found here:
 

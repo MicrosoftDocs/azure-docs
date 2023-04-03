@@ -30,7 +30,7 @@ This sample can help you in the following scenarios:
 - As a developer, you need to enable an authentication flow for Azure Communication Services support Teams identities, which is done by using an Microsoft 365 Azure Active Directory identity of a Teams' user to fetch an Azure Communication Services token to be able to join Teams calling/chat.
 
 > [!NOTE]
->If you are looking to get started with Azure Communication Services, but are still in learning / prototyping phases, check out our [quickstarts for getting started with Azure communication services users and access tokens](../quickstarts/access-tokens.md?pivots=programming-language-csharp).
+>If you are looking to get started with Azure Communication Services, but are still in learning / prototyping phases, check out our [quickstarts for getting started with Azure communication services users and access tokens](../quickstarts/identity/access-tokens.md?pivots=programming-language-csharp).
 
 ![Screenshot of the Azure Communication Services Authentication Server Sample Architecture](./media/auth/acs-authentication-server-sample-overview-flow.png)
 

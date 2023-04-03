@@ -2,6 +2,8 @@
 title: Data collection endpoints in Azure Monitor 
 description: Overview of data collection endpoints (DCEs) in Azure Monitor, including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 03/16/2022
 ms.custom: references_region
 ms.reviwer: nikeist
@@ -22,8 +24,8 @@ A DCE includes the following components:
 
 | Component | Description |
 |:---|:---|
-| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCRs) for Azure Monitor Agent.<br>Example: `<unique-dce-identifier>.<regionname>.handler.control`. |
-| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspaces.<br>Example: `<unique-dce-identifier>.<regionname>.ingest`. |
+| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCRs) for Azure Monitor Agent.<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. |
+| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspaces.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |
 | Network access control lists | Network access control rules for the endpoints.
 
 ## Regionality
