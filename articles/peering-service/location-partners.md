@@ -70,7 +70,7 @@ The following table provides information on the Peering Service connectivity par
 | Frankfurt | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions), [Colt](https://www.colt.net/product/cloud-prioritisation/) |
 | Geneva | [Intercloud](https://intercloud.com/what-we-do/partners/microsoft-saas/), [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |
 | Hong Kong | [Colt](https://www.colt.net/product/cloud-prioritisation/), [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Jakarta | NTT Indonesia |
+| Jakarta | [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |
 | Johannesburg | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html), [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |
 | Kuala Lumpur | Telekom-Malaysia |
 | Los Angeles | CenturyLink |
@@ -100,7 +100,7 @@ The following table provides information on the Peering Service connectivity par
 | Amsterdam | [AMS-IX](https://www.ams-ix.net/ams/service/microsoft-azure-peering-service-maps) |
 | Ashburn | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Atlanta | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
-| Barcelona | DecixBCNRouteServerAsn |
+| Barcelona | [DE-CIX](https://www.de-cix.net/) |
 | Chicago | [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |
 | Cape Town | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |
 | Chennai | [DE-CIX](https://www.de-cix.net/) |
