@@ -1,6 +1,6 @@
 - name: App Service Documentation
   href: index.yml
-- name: Getting started
+- name: Get started
   items:
     - name: About App Service
       href: overview.md
@@ -11,23 +11,23 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: ASP.NET
+    - name: Deploy ASP.NET
       href: quickstart-dotnetcore.md
-    - name: Node.js
+    - name: Deploy Node.js
       href: quickstart-nodejs.md
-    - name: PHP
+    - name: Deploy PHP
       href: quickstart-php.md
-    - name: Java
+    - name: Deploy Java
       href: quickstart-java.md
-    - name: Python
+    - name: Deploy Python
       href: quickstart-python.md
-    - name: Ruby
+    - name: Deploy Ruby
       href: quickstart-ruby.md
-    - name: WordPress
+    - name: Deploy WordPress
       href: quickstart-wordpress.md
-    - name: Go (experimental)
+    - name: Deploy Go (experimental)
       href: quickstart-golang.md
-    - name: Static HTML site - delete
+    - name: Deploy static HTML site - delete
       href: quickstart-html.md
 - name: Deployment
   items:
