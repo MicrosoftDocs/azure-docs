@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: apache-cassandra
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 03/29/2023
+ms.date: 04/03/2023
 ms.custom: devx-track-python, mode-api, ignite-2022, py-fresh-zinc
 ---
 # Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB
@@ -125,16 +125,6 @@ Now go back to the Azure portal to get your connection string information and co
     `'password' = '2Ggkr662ifxz2Mg==`';`
 
 1. Save the *config.py* file.
-    
-## Use the X509 certificate
-
-1. Copy the **Baltimore CyberTrust Root** certificate details from [https://www.digicert.com/kb/digicert-root-certificates.htm](https://www.digicert.com/kb/digicert-root-certificates.htm) into a text file. Download and save the *.pem* file with the file extension *.cer*.
-
-   The certificate has serial number `02:00:00:b9` and SHA1 fingerprint `d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
-
-2. Open *pyquickstart.py* and change the `path\to\cert` to point to your new certificate.
-
-3. Save *pyquickstart.py*.
 
 ## Run the Python app
 
