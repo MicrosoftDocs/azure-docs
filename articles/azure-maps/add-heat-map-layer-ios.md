@@ -2,8 +2,8 @@
 title: Add a heat map layer to iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn how to create a heat map. See how to use the Azure Maps iOS SDK to add a heat map layer to a map. Find out how to customize heat map layers.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -116,7 +116,7 @@ NSExpression(
 - `sourceLayer`: If the data source connected to the layer is a vector tile source, a source layer within the vector tiles must be specified.
 - `visible`: Hides or shows the layer.
 
-This following is an example of a heat map where a liner interpolation expression is used to create a smooth color gradient. The `mag` property defined in the data is used with an exponential interpolation to set the weight or relevance of each data point.
+The following example demonstrates a heat map using a liner interpolation expression to create a smooth color gradient. The `mag` property defined in the data is used with an exponential interpolation to set the weight or relevance of each data point.
 
 ```swift
 let layer = HeatMapLayer(source: source, options: [

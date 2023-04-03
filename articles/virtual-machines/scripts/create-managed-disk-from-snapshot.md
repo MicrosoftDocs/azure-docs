@@ -17,7 +17,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/22/2023
 ms.author: ramankum
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a managed disk from a snapshot with CLI (Linux)

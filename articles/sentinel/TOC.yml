@@ -87,6 +87,8 @@
       href: sentinel-solutions.md
     - name: Content hub catalog
       href: sentinel-solutions-catalog.md
+    - name: ASIM-based domain solutions
+      href: domain-based-essential-solutions.md      
     - name: Manage custom content with repositories
       href: ci-cd-custom-content.md
     - name: OOTB content centralization changes
@@ -175,6 +177,8 @@
     items:
     - name: Solution overview
       href: sap/solution-overview.md
+    - name: Working with the solution across multiple workspaces
+      href: sap/cross-workspace.md
 - name: How-tos
   items:
   - name: Plan architecture
@@ -341,7 +345,7 @@
         href: data-connectors/blackberry-cylanceprotect.md
       - name: Box (using Azure Function)
         href: data-connectors/box-using-azure-function.md
-      - name: Braodcom Symantec DLP
+      - name: Broadcom Symantec DLP
         href: data-connectors/braodcom-symantec-dlp.md
       - name: Cisco Application Centric Infrastructure
         href: data-connectors/cisco-application-centric-infrastructure.md
@@ -399,6 +403,8 @@
         href: data-connectors/cyberarkepm.md
       - name: Cyberpion Security Logs
         href: data-connectors/cyberpion-security-logs.md
+      - name: Cybersixgill Actionable Alerts (using Azure Function)
+        href: data-connectors/cybersixgill-actionable-alerts-using-azure-function.md
       - name: Darktrace Connector for Microsoft Sentinel REST API
         href: data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md
       - name: Delinea Secret Server
@@ -647,6 +653,8 @@
         href: data-connectors/symantec-vip.md
       - name: Syslog
         href: data-connectors/syslog.md
+      - name: Talon Insights
+        href: data-connectors/talon-insights.md
       - name: Tenable.io Vulnerability Management (using Azure Function)
         href: data-connectors/tenable-io-vulnerability-management-using-azure-function.md
       - name: TheHive Project - TheHive (using Azure Function)
@@ -737,6 +745,8 @@
         href: connect-custom-logs.md
       - name: DNS via AMA
         href: connect-dns-ama.md
+      - name: GCP audit logs
+        href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
         href: connect-logstash-data-connection-rules.md
       - name: Logstash plugin (legacy)
@@ -771,6 +781,8 @@
       href: normalization-modify-content.md
   - name: Integrate threat intelligence
     items:
+    - name: Enable MDTI data connector
+      href: connect-mdti-data-connector.md
     - name: Connect threat intelligence platforms
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
@@ -982,8 +994,10 @@
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
       href: sap/sap-solution-security-content.md
+    - name: Monitored SAP security parameters
+      href: sap/sap-suspicious-configuration-security-parameters.md
     - name: SAP audit log workbook
-      href: sap/sap-audit-log-workbook.md
+      href: sap/sap-audit-log-workbook.md    
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
     - name: Container update script reference
@@ -1097,7 +1111,7 @@
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog
-    href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
+    href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing

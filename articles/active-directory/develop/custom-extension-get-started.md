@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/13/2023
+ms.date: 03/31/2023
 ms.author: davidmu
 ms.custom: aaddev
 ms.reviewer: JasSuri
@@ -43,7 +43,7 @@ In this step, you create an HTTP trigger function API in the Azure portal. The f
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which the new function app will be created in. |
-    | **[Resource Group](/azure/azure-resource-manager/management/overview)** |  *myResourceGroup* | Select and existing resource group, or name for the new one in which you'll create your function app. |
+    | **[Resource Group](../../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Select and existing resource group, or name for the new one in which you'll create your function app. |
     | **Function App name** | Globally unique name | A name that identifies the new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Option to publish code files or a Docker container. For this tutorial, select **Code**. |
     | **Runtime stack** | .NET | Your preferred programming language. For this tutorial, select **.NET**.  |
@@ -147,7 +147,7 @@ The following screenshot demonstrates how to configure the Azure HTTP trigger fu
     }
     ```
 
-    The code starts with reading the incoming JSON object. Azure AD sends the JSON object to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
+    The code starts with reading the incoming JSON object. Azure AD sends the [JSON object](./custom-claims-provider-reference.md) to your API. In this example, it reads the correlation ID value. Then, the code returns a collection of claims, including the original correlation ID, the version of your Azure Function, date of birth and custom role that is returned to Azure AD.
 
 1. From the top menu, select **Get Function Url**, and copy the URL. In the next step, the function URL will be used and referred to as `{Function_Url}`.
 
@@ -550,5 +550,3 @@ To test your custom claim provider, follow these steps:
 - Learn more about custom claims providers with the [custom claims provider reference](custom-claims-provider-reference.md) article.
 
 - Learn how to [troubleshoot your custom extensions API](custom-extension-troubleshoot.md).
-
-

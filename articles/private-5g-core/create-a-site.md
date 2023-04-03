@@ -8,6 +8,7 @@ ms.service: private-5g-core
 ms.topic: how-to
 ms.date: 01/27/2022
 ms.custom: template-how-to 
+zone_pivot_groups: ap5gc-portal-powershell
 ---
 
 # Create a site using the Azure portal
@@ -48,14 +49,15 @@ In this step, you'll create the mobile network site resource representing the ph
     - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) to fill out the **Technology type**, **Azure Stack Edge device**, and **Custom location** fields.
     - Select the recommended packet core version in the **Version** field.
 
-    > [!NOTE]
-    > If a warning appears about an incompatibility between the selected packet core version and the current Azure Stack Edge version, you'll need to update ASE first. Select **Upgrade ASE** from the warning prompt and follow the instructions in [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md). Once you've finished updating your ASE, go back to the beginning of this step to create the site resource.
+        > [!NOTE]
+        > If a warning appears about an incompatibility between the selected packet core version and the current Azure Stack Edge version, you'll need to update ASE first. Select **Upgrade ASE** from the warning prompt and follow the instructions in [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md). Once you've finished updating your ASE, go back to the beginning of this step to create the site resource.
 
     - Ensure **AKS-HCI** is selected in the **Platform** field.
 
-1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section. Note:
+1. Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to fill out the fields in the **Access network** section.
 
-    - **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
+    > [!NOTE]
+    > **ASE N2 virtual subnet** and **ASE N3 virtual subnet** (if this site will support 5G UEs) or **ASE S1-MME virtual subnet** and **ASE S1-U virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network names on port 5 on your Azure Stack Edge Pro device.
 
 1. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
     - **ASE N6 virtual subnet** (if this site will support 5G UEs) or **ASE SGi virtual subnet** (if this site will support 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
@@ -82,7 +84,7 @@ If you decided not to configure diagnostics packet collection or use a user assi
     :::image type="content" source="media/create-a-site/create-site-local-access-tab.png" alt-text="Screenshot of the Azure portal showing the Local access configuration tab for a site resource.":::
   
     - Under **Authentication type**, select the authentication method you decided to use in [Choose the authentication method for local monitoring tools](collect-required-information-for-a-site.md#choose-the-authentication-method-for-local-monitoring-tools).
-    - under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
+    - Under **Provide custom HTTPS certificate?**, select **Yes** or **No** based on whether you decided to provide a custom HTTPS certificate in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values). If you selected **Yes**, use the information you collected in [Collect local monitoring values](collect-required-information-for-a-site.md#collect-local-monitoring-values) to select a certificate.
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
@@ -104,6 +106,8 @@ If you decided not to configure diagnostics packet collection or use a user assi
     - One or more **Attached Data Network** resources providing configuration for the packet core instance's connection to the data networks.
   
     :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
+
+1. If you want to assign additional packet cores to the site, for each new packet core resource see LINK
 
 ## Next steps
 

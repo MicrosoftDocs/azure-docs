@@ -13,7 +13,7 @@ This article describes the networking features available across the hosting opti
 
 The hosting models have different levels of network isolation available. Choosing the correct one helps you meet your network isolation requirements.
 
-You can host function apps in a couple of ways:
+You can host function apps in several ways:
 
 * You can choose from plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
     * The [Consumption plan](consumption-plan.md) scales dynamically in response to load and offers minimal network isolation options.
@@ -25,17 +25,18 @@ You can host function apps in a couple of ways:
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
-## Quick start resources
+## Quickstart resources
 
 Use the following resources to quickly get started with Azure Functions networking scenarios. These resources are referenced throughout the article.
 
 * ARM, Bicep, and Terraform templates:
-    * [Private HTTP Triggered Function App](https://github.com/Azure-Samples/function-app-with-private-http-endpoint)
-    * [Private Event Hubs Triggered Function App](https://github.com/Azure-Samples/function-app-with-private-eventhub)
+    * [Private HTTP triggered function app](https://github.com/Azure-Samples/function-app-with-private-http-endpoint)
+    * [Private Event Hubs triggered function app](https://github.com/Azure-Samples/function-app-with-private-eventhub)
 * ARM templates only:
-    * [Function App with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
-    * [Azure Function App with Virtual Network Integration](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-vnet-integration).
+    * [Function app with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
+    * [Azure function app with Virtual Network Integration](https://github.com/Azure-Samples/function-app-arm-templates/tree/main/function-app-vnet-integration).
 * Tutorials:
+    * [Integrate Azure Functions with an Azure virtual network by using private endpoints](functions-create-vnet.md)
     * [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
     * [Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
 
@@ -62,7 +63,7 @@ To call other services that have a private endpoint connection, such as storage 
 
 ### Service endpoints
 
-Using service endpoints, you can restrict a number of Azure services to selected virtual network subnets to provide a higher level of security. Regional virtual network integration enables your function app to reach Azure services that are secured with service endpoints. This configuration is supported on all [plans](functions-scale.md#networking-features) that support virtual network integration. To access a service endpoint-secured service, you must do the following:
+Using service endpoints, you can restrict many Azure services to selected virtual network subnets to provide a higher level of security. Regional virtual network integration enables your function app to reach Azure services that are secured with service endpoints. This configuration is supported on all [plans](functions-scale.md#networking-features) that support virtual network integration. To access a service endpoint-secured service, you must do the following:
 
 1. Configure regional virtual network integration with your function app to connect to a specific subnet.
 1. Go to the destination service and configure service endpoints against the integration subnet.
@@ -73,9 +74,9 @@ To learn more, see [Virtual network service endpoints](../virtual-network/virtua
 
 To restrict access to a specific subnet, create a restriction rule with a **Virtual Network** type. You can then select the subscription, virtual network, and subnet that you want to allow or deny access to. 
 
-If service endpoints aren't already enabled with Microsoft.Web for the subnet that you selected, they'll be automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet.
+If service endpoints aren't already enabled with Microsoft.Web for the subnet that you selected, they are automatically enabled unless you select the **Ignore missing Microsoft.Web service endpoints** check box. The scenario where you might want to enable service endpoints on the app but not the subnet depends mainly on whether you have the permissions to enable them on the subnet.
 
-If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app will be configured for service endpoints in anticipation of having them enabled later on the subnet. 
+If you need someone else to enable service endpoints on the subnet, select the **Ignore missing Microsoft.Web service endpoints** check box. Your app is configured for service endpoints in anticipation of having them enabled later on the subnet. 
 
 ![Screenshot of the "Add IP Restriction" pane with the Virtual Network type selected.](../app-service/media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -99,7 +100,7 @@ To learn how to set up virtual network integration, see [Enable virtual network 
 
 ### Enable virtual network integration
 
-1. Go to the **Networking** blade in the Function App portal. Under **VNet Integration**, select **Click here to configure**.
+1. In your function app in the [Azure portal](https://portal.azure.com), select **Networking**, then under **VNet Integration** select **Click here to configure**.
 
 1. Select **Add VNet**.
 
@@ -110,9 +111,10 @@ To learn how to set up virtual network integration, see [Enable virtual network 
     :::image type="content" source="./media/functions-networking-options/vnet-int-add-vnet-function-app.png" alt-text="Select the VNet":::
 
     * The Functions Premium Plan only supports regional virtual network integration. If the virtual network is in the same region, either create a new subnet or select an empty, pre-existing subnet.
-    * To select a virtual network in another region, you must have a virtual network gateway provisioned with point to site enabled. Virtual network integration across regions is only supported for Dedicated plans, but global peerings will work with regional virtual network integration.
 
-During the integration, your app is restarted. When integration is finished, you'll see details on the virtual network you're integrated with. By default, Route All will be enabled, and all traffic will be routed into your virtual network.
+    * To select a virtual network in another region, you must have a virtual network gateway provisioned with point to site enabled. Virtual network integration across regions is only supported for Dedicated plans, but global peerings work with regional virtual network integration.
+
+During the integration, your app is restarted. When integration is finished, you see details on the virtual network you're integrated with. By default, Route All is enabled, and all traffic is routed into your virtual network.
 
 If you wish for only your private traffic ([RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) to be routed, please follow the steps in the [app service documentation](../app-service/overview-vnet-integration.md#application-routing).
 
@@ -152,7 +154,7 @@ There are some limitations with using virtual network:
 
 Virtual network integration depends on a dedicated subnet. When you provision a subnet, the Azure subnet loses five IPs from the start. One address is used from the integration subnet for each plan instance. When you scale your app to four instances, then four addresses are used. 
 
-When you scale up or down in size, the required address space is doubled for a short period of time. This affects the real, available supported instances for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the impact this has on horizontal scale:
+When you scale up or down in size, the required address space is doubled for a short period of time. This affects the real, available supported instances for a given subnet size. The following table shows both the maximum available addresses per CIDR block and the effect this has on horizontal scale:
 
 | CIDR block size | Max available addresses | Max horizontal scale (instances)<sup>*</sup> |
 |-----------------|-------------------------|---------------------------------|
@@ -160,7 +162,7 @@ When you scale up or down in size, the required address space is doubled for a s
 | /27             | 27                      | 13                              |
 | /26             | 59                      | 29                              |
 
-<sup>*</sup>Assumes that you'll need to scale up or down in either size or SKU at some point. 
+<sup>*</sup>Assumes that you need to scale up or down in either size or SKU at some point. 
 
 Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity for Functions Premium plans, you should use a /24 with 256 addresses for Windows and a /26 with 64 addresses for Linux. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /24 and /26 is required for Windows and Linux respectively.
 
@@ -189,7 +191,7 @@ After your app integrates with your virtual network, it uses the same DNS server
 ## Restrict your storage account to a virtual network 
 
 > [!NOTE]
-> To quickly deploy a function app with private endpoints enabled on the storage account, please refer to the following template: [Function App with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
+> To quickly deploy a function app with private endpoints enabled on the storage account, please refer to the following template: [Function app with Azure Storage private endpoints](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-storage-private-endpoints).
 
 When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. 
 
