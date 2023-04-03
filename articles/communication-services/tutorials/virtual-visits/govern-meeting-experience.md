@@ -56,3 +56,9 @@ Microsoft Purview allows administrators to protect information with sensitivity 
 |If an Azure Communication Services user joins the meeting, Azure Monitor Logs will get Call Summary and Call Diagnostics for the organizer. 	
 |Provides additional meeting options to control the experience.	
 |Host can lower the requirements if the meeting does not require strict requirements.	
+
+## Next steps
+- [Overview of Virtual appointments](./overview.md)
+- [Build your own Virtual appointments](./sample-buidler.md)
+- [Learn about Teams controls](../../concepts/interop/guest/teams-administration.md).
+- [Plan user experience in Teams meetings](./plan-user-experience.md)
