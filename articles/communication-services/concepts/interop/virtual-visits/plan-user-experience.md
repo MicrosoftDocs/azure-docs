@@ -22,7 +22,7 @@ How to improve the user experience:
 1. List supported features in your application.
 1. Adjust Teams tenant configurations, tenant policy, meeting templates, sensitivity labels, and meeting options based on the supported list.
 
-You can learn more about Microsoft Teams controls [here](../../concepts/interop/guest/teams-administration.md).
+You can learn more about Microsoft Teams controls [here](../guest/teams-administration.md).
 
 ## Role assignment changes 
 Organizers, coorganizers, and presenters can promote and demote participants during the meeting. This role change can lead to the loss or gain of new functionality. Developers can subscribe to the `roleChanged` event of the `Call` object to update the user interface based on the role. Developers can find an assigned role in the property `role` of the object `Call`. You can find available actions for individual roles [here](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019).
@@ -32,5 +32,5 @@ The meeting organizer can change Teams meeting options before and during the mee
 
 ## Next steps
 - [Read about onlineMeeting Graph API](/graph/api/onlinemeeting-get)
-- [Learn about Teams controls](../../concepts/interop/guest/teams-administration.md).
+- [Learn about Teams controls](../guest/teams-administration.md).
 - [Govern user experience in Teams meetings](./govern-meeting-experience.md)
