@@ -190,7 +190,7 @@ For full control of which version of a secret is used, specify the version in th
 
 After declaring secrets at the application level as described in the [defining secrets](#defining-secrets) section, you can reference them in environment variables when you create a new revision in your container app. When an environment variable references a secret, its value is populated with the value defined in the secret.
 
-## Example
+### Example
 
 The following example shows an application that declares a connection string at the application level. This connection is referenced in a container environment variable and in a scale rule.
 
