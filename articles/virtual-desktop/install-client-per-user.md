@@ -9,16 +9,17 @@ manager: femila
 ---
 # Install the Remote Desktop client for Windows on a per-user basis
 
-You can install the Remote Desktop client for Windows on either a per-device or per-user basis. Installing it on a per-device basis installs the client for all users by default, and updates are controlled by an admin. Per-user installation gives users the ability to install the client themselves and apply updates.
+You can install the Remote Desktop client on either a per-system or per-user basis. Installing it on a per-system basis installs the client on the machines for all users by default, and updates are controlled by the admin. Per-user installation installs the application into each users profile, giving them control over when to apply updates.
 
-If you try to deploy the Remote Desktop client for Windows with Intune or Configuration Manager on a per-user basis by specifying the MSI file with the required parameters, the client is installed per-device instead. To guarantee a per-user installation, you'll need to create a batch file that contains the installation command.
+Per-system is the default way to install the client. However, if you're deploying the Remote Desktop Client with Intune or Configuration Manager, using the per-system method can cause the Remote Desktop client auto-update feature to stop working. In these cases, you'll need to use the per-user method instead.
 
 ## Prerequisites
 
 In order to install the Remote Desktop client for Windows on a per-user basis with Intune or Configuration Manager, you'll need the following things:
 
-- Your device must be enrolled with Intune or Configuration Manager.
-- You must download and install [the Remote Desktop client](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json).
+- An Azure Virtual Desktop or Windows 365 deployment.
+- Download the latest version of [the Remote Desktop client](./users/connect-windows.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json).
+- Microsoft Intune, Configuration Manager or other enterprise software distribution product.
 
 ## Install the Remote Desktop client using a batch file
 
@@ -26,7 +27,7 @@ To install the client on a per-user basis using a batch file:
 
 #### Intune (#tabs/intune)
 
-1. Create a new folder containing the Remote Desktop client MSI file and an `install.bat` batch file with the following content:
+1. Create a new folder containing the Remote Desktop client MSI file and create an `install.bat` batch file with the following content:
 
    ```batch
    cd "%~dp0"
