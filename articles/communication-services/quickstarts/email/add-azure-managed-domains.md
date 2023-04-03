@@ -6,14 +6,11 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Quickstart: How to add Azure Managed Domains to Email Communication Service
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quick start, you'll learn about how to provision the Azure Managed domain in Azure Communication Services to send email.
 

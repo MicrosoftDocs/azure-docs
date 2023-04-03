@@ -49,8 +49,6 @@
     - name: Securing enterprise IoT devices
       href: concept-enterprise.md
       displayName: Microsoft Defender for Endpoint, MDE
-    - name: Azure security baseline for Defender for IoT
-      href: /security/benchmark/azure/baselines/microsoft-defender-for-iot-security-baseline?bc=%2fazure%2defender-for-iot%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdefender-for-iot%2fTOC.json       
 - name: Deploy
   items:
   - name: Deploy OT monitoring
@@ -346,8 +344,8 @@
         - name: Maintain an on-premises management console
           displayName: activation, SMTP, VLAN, hostname
           href: how-to-manage-the-on-premises-management-console.md
-      - name: Troubleshoot on-premises management consoles
-        href: how-to-troubleshoot-on-premises-management-console.md
+        - name: Troubleshoot on-premises management consoles
+          href: how-to-troubleshoot-on-premises-management-console.md
 - name: Reference
   items:
   - name: Supported protocols
