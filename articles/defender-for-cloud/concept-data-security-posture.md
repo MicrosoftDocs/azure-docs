@@ -25,6 +25,10 @@ Data-aware security posture automatically and continuously discovers managed and
 - Discover sensitive data using the sensitive data discovery extension that's included in the Defender Cloud Security Posture Management (CSPM) and Defender for Storage plans.
 - Discover hosted databases and data flows in Cloud Security Explorer and Attack Paths. This functionality is available in the Defender CSPM plan, and isn't dependent on the sensitive data discovery extension.
 
+## Smart sampling
+
+Defender for Cloud uses smart sampling to discover a selected number of files in your cloud datastores. The sampling results discover evidence of sensitive data issues, while saving on discovery costs and time.
+
 ## Data security in Defender CSPM
 
 Defender CSPM provides visibility and contextual insights into your organizational security posture. The addition of data-aware security posture to the Defender CSPM plan enables you to proactively identify and prioritize critical data risks, distinguishing them from less risky issues.
@@ -39,11 +43,7 @@ You can discover risk of data breaches by attack paths of internet-exposed VMs t
 
 Cloud Security Explorer helps you identify security risks in your cloud environment by running graph-based queries on Cloud Security Graph (Defender for Cloud's context engine). You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.
 
-
-
 You can leverage Cloud Security Explorer query templates, or build your own queries, to find insights about misconfigured data resources that are publicly accessible and contain sensitive data, across multicloud environments. You can run queries to examine security issues, and to get environment context into your asset inventory, exposure to internet, access controls, data flows, and more. Review [cloud graph insights](attack-path-reference.md#cloud-security-graph-components-list).
-
-
 
 ## Data security in Defender for Storage
 
@@ -51,12 +51,9 @@ Defender for Storage monitors Azure storage accounts with advanced threat detect
 
 When early suspicious signs are detected, Defender for Storage generates security alerts, allowing security teams to quickly respond and mitigate.
 
-By applying sensitivity information types and Microsoft Purview sensitivity labels on storage resources, you can easily prioritize the alerts and recommendations that focus on sensitive data. [Learn more](defender-for-storage-data-sensitivity.md) about sensitive data discovery in Defender for Storage.
+By applying sensitivity information types and Microsoft Purview sensitivity labels on storage resources, you can easily prioritize the alerts and recommendations that focus on sensitive data. 
 
-
-## Smart sampling
-
-Defender for Cloud uses smart sampling to discover a selected number of files in your cloud datastores. The sampling results discover evidence of sensitive data issues, while saving on discovery costs and time.
+[Learn more about sensitive data discovery](defender-for-storage-data-sensitivity.md) in Defender for Storage.
 
 ## Data sensitivity settings
 
