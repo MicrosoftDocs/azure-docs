@@ -430,7 +430,7 @@ After migration, you may choose to send communication informing the users of the
 
 ### Plan testing
 
-During the process of the migration, your app may already have a test environment used during regular deployments. You can continue to use this environment for migration testing. If a test environment is not currently available, you may be able to set one up using Azure App Service or Azure Virtual Machines, depending on the architecture of the application. You may choose to set up a separate test Azure AD tenant to use as you develop your app configurations. This tenant will start in a clean state and won't be configured to sync with any system.
+During the process of the migration, your app may already have a test environment used during regular deployments. You can continue to use this environment for migration testing. If a test environment is not currently available, you may be able to set one up using Azure App Service or Azure Virtual Machines, depending on the architecture of the application. You may choose to set up a separate test Azure AD tenant to use as you develop your app configurations. This tenant starts in a clean state and won't be configured to sync with any system.
 
 Once you have migrated the apps, go to the [Azure portal](https://portal.azure.com/) to test if the migration was a success. Follow these instructions:
 
@@ -449,7 +449,7 @@ Depending on how you configure your app, verify that SSO works properly.
 | **Password-Based SSO** | Download and install the [MyApps Secure Sign-in Extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
 | **[Application Proxy](../app-proxy/application-proxy.md)** | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](../app-proxy/application-proxy-troubleshoot.md) for further assistance. |
 
-You can test each app by logging in with a test user and make sure all functionality is the same as prior to the migration. If you determine during testing that users will need to update their [MFA](../authentication/howto-mfa-userstates.md) or [SSPR](../authentication/tutorial-enable-sspr.md)settings, or you are adding this functionality during the migration, be sure to add that to your end-user communication plan. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
+You can test each app by logging in with a test user and make sure all functionality is the same as prior to the migration. If you determine during testing that users need to update their [MFA](../authentication/howto-mfa-userstates.md) or [SSPR](../authentication/tutorial-enable-sspr.md)settings, or you are adding this functionality during the migration, be sure to add that to your end-user communication plan. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
 
 ### Troubleshoot
 
@@ -469,7 +469,7 @@ If your migration fails, the best strategy is to roll back and test. Here are th
 
 You are successful in this phase when you have:
 
-- Determined how each app will be migrated
+- Determined how each app is migrated
 - Reviewed the migration tools
 - Planned your testing including test environments and groups
 - Planned rollback
