@@ -68,13 +68,6 @@ Before following the steps in this article, make sure you have the following pre
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
-<!-- * If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
-
-   ```azurecli
-   az account set --subscription <subscription ID>
-   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
-   ``` -->
-
 ---
 
 ### Virtual machine quota allocation for deployment
@@ -186,14 +179,6 @@ cd azureml-examples/cli/endpoints/online/model-1
 
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
-
-<!-- Open a terminal in the Azure Machine Learning studio:
-
-1. Sign into [Azure Machine Learning studio](https://ml.azure.com).
-1. Select your workspace, if it isn't already open.
-1. On the left, select **Notebooks**.
-1. Select **Open terminal**.
- -->
 
 ### Download files from the examples repository
 
