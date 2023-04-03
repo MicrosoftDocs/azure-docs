@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 title: Prepare region
 description: Deploys the control plane (deployer, SAP library) using a shell script.
 ---

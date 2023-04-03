@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 10/21/2021
 ms.topic: reference
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 title: install_library.sh
 description: Bootstrap a new SAP Library in the control plane using a shell script.
 ---

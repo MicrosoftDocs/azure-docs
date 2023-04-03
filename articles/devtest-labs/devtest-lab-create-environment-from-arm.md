@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 12/21/2022
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-azurepowershell
 ---
 
 # Create Azure DevTest Labs environments from ARM templates

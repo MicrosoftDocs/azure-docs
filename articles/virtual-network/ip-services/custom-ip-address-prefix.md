@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 03/31/2022
 ms.author: allensu
 ---
+
 # Custom IP address prefix (BYOIP)
 
 A custom IP address prefix is a contiguous range of IP addresses owned by an external customer and provisioned into a subscription. Microsoft is permitted to advertise the range. Addresses from a custom IP address prefix can be used in the same way as Azure owned public IP address prefixes. Addresses from a custom IP address prefix can be associated to Azure resources, interact with internal/private IPs and virtual networks, and reach external destinations outbound from the Azure Wide Area Network.
@@ -46,19 +47,19 @@ When ready, you can issue the command to have your range advertised from Azure a
 
 ## Limitations
 
-* A custom IP prefix must be associated with a single Azure region.
+* A custom IPv4 prefix must be associated with a single Azure region.
 
-* An IPv4 range can be equal or between /21 to /24.  An IPv6 range must be /48.
+* A custom IPv4 Prefix must be between /21 and /24; an global (parent) custom IPv6 prefix must be /48.
 
 * Custom IP prefixes do not currently support derivation of IPs with Internet Routing Preference or that use Global Tier (for cross-region load-balancing).
 
 * In regions with [availability zones](../../availability-zones/az-overview.md), a custom IPv4 prefix (or a regional custom prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
-* The advertisements of IPs from a custom IP prefix over Azure ExpressRoute aren't currently supported.
+* The advertisements of IPs from a custom IP prefix over an Azure ExpressRoute Microsoft peering isn't currently supported.
 
 * Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](manage-custom-ip-address-prefix.md#permissions).
 
-* IPs brought to Azure may have a delay up to 2 weeks before they can be used for Windows Server Activation.
+* IPs brought to Azure may have a delay of up to a week before they can be used for Windows Server Activation.
 
 > [!IMPORTANT]
 > There are several differences between how custom IPv4 and IPv6 prefixes are onboarded and utilized.  Please see [Differences between using BYOIPv4 and BYOIPv6](create-custom-ip-address-prefix-ipv6-powershell.md#differences-between-using-byoipv4-and-byoipv6) for more details.

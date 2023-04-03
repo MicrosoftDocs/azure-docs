@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with OrgChart Now | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with OrgChart Now'
 description: Learn how to configure single sign-on between Azure Active Directory and OrgChart Now.
 services: active-directory
 author: jeevansd

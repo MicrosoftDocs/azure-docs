@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -26,8 +26,8 @@ The `set-variable` policy declares a [context](api-management-policy-expressions
 
 | Attribute | Description                                                              | Required |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| name      | The name of the variable.                                                | Yes      |
-| value     | The value of the variable. This can be an expression or a literal value. | Yes      |
+| name      | The name of the variable.  Policy expressions aren't allowed.                                               | Yes      |
+| value     | The value of the variable. This can be an expression or a literal value. Policy expressions are allowed.  | Yes      |
 
 ## Usage
 

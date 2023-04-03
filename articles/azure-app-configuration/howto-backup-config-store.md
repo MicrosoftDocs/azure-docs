@@ -17,12 +17,12 @@ ms.author: avgupta
 
 # Back up App Configuration stores automatically
 
+> [!IMPORTANT]
+> Azure App Configuration supports [geo-replication](./concept-geo-replication.md). You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. You can also leverage App Configuration provider libraries in your applications for [automatic failover](./howto-geo-replication.md#use-replicas). Utilizing geo-replication is the recommended solution for high availability.
+
 In this article, you'll learn how to set up an automatic backup of key-values from a primary Azure App Configuration store to a secondary store. The automatic backup uses the integration of Azure Event Grid with App Configuration.
 
 After you set up the automatic backup, App Configuration will publish events to Azure Event Grid for any changes made to key-values in a configuration store. Event Grid supports various Azure services from which users can subscribe to the events emitted whenever key-values are created, updated, or deleted.
-
-> [!IMPORTANT]
-> Azure App Configuration added [geo-replication](./concept-geo-replication.md) support recently. You can enable replicas of your data across multiple locations for enhanced resiliency to regional outages. You can also leverage App Configuration provider libraries in your applications for [automatic failover](./howto-geo-replication.md#use-replicas). The geo-replication feature is currently under preview. It will be the recommended solution for high availability when the feature is generally available.
 
 ## Overview
 
@@ -95,7 +95,7 @@ az storage account create -n $storageName -g $resourceGroupName -l westus --sku 
 az storage queue create --name $queueName --account-name $storageName --auth-mode login
 ```
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your App Configuration store events
 
@@ -249,7 +249,7 @@ If you don't see the new setting in your secondary store:
 - Make sure the backup function was triggered *after* you created the setting in your primary store.
 - It's possible that Event Grid couldn't send the event notification to the queue in time. Check if your queue still contains the event notification from your primary store. If it does, trigger the backup function again.
 - Check [Azure Functions logs](../azure-functions/functions-create-scheduled-function.md#test-the-function) for any errors or warnings.
-- Use the [Azure portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) to ensure that the Azure function app contains correct values for the application settings that Azure Functions is trying to read.
+- Use the [Azure portal](../azure-functions/functions-how-to-use-azure-function-app-settings.md#get-started-in-the-azure-portal) to ensure that the Azure function app contains correct values for the application settings that the Azure function is trying to read.
 - You can also set up monitoring and alerting for Azure Functions by using [Azure Application Insights](../azure-functions/functions-monitoring.md?tabs=cmd).
 
 ## Clean up resources

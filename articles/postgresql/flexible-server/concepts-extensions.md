@@ -36,7 +36,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
    ```
 
    Using [ARM Template](../../azure-resource-manager/templates/index.yml):
-   Example below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
+   Example shown below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
 ```json
 {
 
@@ -93,7 +93,7 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 
   ```
 
-Shared_Preload_Libraries is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this can be done:
+Shared_Preload_Libraries is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this action can be done:
 
 Using the [Azure portal](https://portal.azure.com):
 
@@ -101,7 +101,7 @@ Using the [Azure portal](https://portal.azure.com):
    2. On the sidebar, select **Server Parameters**.
    3. Search for the `shared_preload_libraries` parameter.
    4. Select extensions you wish to add.
-     :::image type="content" source="./media/concepts-extensions/shared-libraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation .":::
+     :::image type="content" source="./media/concepts-extensions/shared-libraries.png" alt-text=" Screenshot showing Azure Database for PostgreSQL -setting shared preload libraries parameter setting  for extensions installation.":::
   
 
 Using [Azure CLI](/cli/azure/):
@@ -118,10 +118,10 @@ After extensions are allow-listed and loaded, these must be installed in your da
 
 
 
-Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document are not supported on Azure Database for PostgreSQL - Flexible Server. You cannot create or load your own extension in Azure Database for PostgreSQL.
+Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
 ## Postgres 14 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 14. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers, which have Postgres version 14. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -174,6 +174,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -182,7 +183,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 13 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 13. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 13. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -235,6 +236,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgres_fdw](https://www.postgresql.org/docs/13/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/13/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/13/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/13/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -243,7 +245,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 12 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 12. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 12. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -296,6 +298,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[semver](https://pgxn.org/dist/semver/doc/semver.html)                    | 0.32.0            | semantic version data type|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
 > |[timescaledb](https://github.com/timescale/timescaledb)                    | 2.5.1            |  Open-source relational database for time-series and analytics|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
 > |[tsm_system_time](https://www.postgresql.org/docs/12/tsm-system-time.html)                    | 1.0             |  TABLESAMPLE method which accepts time in milliseconds as a limit|
@@ -304,7 +307,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## Postgres 11 extensions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers which have Postgres version 11. 
+The following extensions are available in Azure Database for PostgreSQL - Flexible Servers that have Postgres version 11. 
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -398,7 +401,7 @@ To see all jobs currently scheduled with pg_cron
 ```
 SELECT * FROM cron.job;
 ```
-To run vaccuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account
+To run vacuum every day at 10:00 am (GMT) in database 'testcron' under azure_pg_admin role account
 ```
 SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null,TRUE)
 ```
@@ -439,7 +442,7 @@ There is a tradeoff between the query execution information pg_stat_statements p
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 [Learn more about TimescaleDB](https://docs.timescale.com/timescaledb/latest/), a registered trademark of Timescale, Inc.. Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
 ## Installing TimescaleDB
-To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+To install TimescaleDB, in addition to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Using the [Azure portal](https://portal.azure.com/):
 
@@ -520,6 +523,42 @@ Example:
      ORDER BY a.aid;
 ```
 The above example will cause the planner to use the results of a `seq scan` on table a to be combined with table b as a `hash join`.
+
+To install pg_hint_plan, in addition to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+
+Using the [Azure portal](https://portal.azure.com/):
+
+1. Select your Azure Database for PostgreSQL server.
+
+2. On the sidebar, select **Server Parameters**.
+
+3. Search for the `shared_preload_libraries` parameter.
+
+4. Select **pg_hint_plan**.
+
+5. Select **Save** to preserve your changes. You get a notification once the change is saved. 
+
+6. After the notification, **restart** the server to apply these changes. 
+
+
+You can now enable pg_hint_plan your Postgres database. Connect to the database and issue the following command:
+```sql
+CREATE EXTENSION  pg_hint_plan ;
+```
+
+## pg_buffercache
+
+`Pg_buffercache` can be used to study the contents of *shared_buffers* . Using [this extension](https://www.postgresql.org/docs/current/pgbuffercache.html) you can tell if a particular relation is cached or not(in *shared_buffers*) . This extension can help you in troubleshooting performance issues (caching related performance issues)
+
+This is part of contrib and it is very easy to install this extension.
+
+```sql
+CREATE EXTENSION pg_buffercache;
+```
+
+
+
+
 ## Next steps
 
 If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).

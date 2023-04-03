@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/23/2023
+ms.date: 02/27/2023
 ms.reviewer: arvinh
 zone_pivot_groups: app-provisioning-cross-tenant-synchronization
 ---
@@ -64,6 +64,10 @@ For more information, see [About the Exchange Online PowerShell module](/powersh
 ### Configuring synchronization from target tenant
 
 Configuring synchronization from the target tenant isn't supported. All configurations must be done in the source tenant. Note that the target administrator is able to turn off cross-tenant synchronization at any time.
+
+### Two users in the source tenant matched with the same user in the target tenant
+
+When two users in the source tenant have the same mail, and they both need to be created in the target tenant, one user will be created in the target and linked to the two users in the source. Please ensure that the mail attribute is not shared among users in the source tenant. In addition, please ensure that the mail of the user in the source tenant is from a verified domain. The external user will not be created successfully if the mail is from an unverified domain. 
 
 ### Usage of Azure AD B2B collaboration for cross-tenant access
 

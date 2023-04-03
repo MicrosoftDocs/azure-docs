@@ -18,7 +18,7 @@ This article shows how to quickly apply a built-in monitoring role to a user in 
 
 ## Built-in monitoring roles
 
-Built-in roles in Azure Monitor help limit access to resources in a subscription while still enabling staff who monitor infrastructure to obtain and configure the data they need. Azure Monitor provides two out-of-the-box roles: Monitoring Reader and Monitoring Contributor.
+Built-in roles in Azure Monitor help limit access to resources in a subscription while still enabling staff who monitor infrastructure to obtain and configure the data they need. Azure Monitor provides two out-of-the-box roles: Monitoring Reader and Monitoring Contributor. Azure Monitor Logs also provides built-in roles for managing access to data in a Log Analytics workspace, as described in [Manage access to Log Analytics workspaces](./logs/manage-access.md).
 
 ### Monitoring Reader
 

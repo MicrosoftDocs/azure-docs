@@ -5,7 +5,7 @@ author: lauradolan
 ms.author: ladolan
 ms.service: sap-on-azure
 ms.topic: overview 
-ms.date: 01/27/2023
+ms.date: 02/13/2023
 ms.custom: template-overview
 ---
 
@@ -18,6 +18,12 @@ There are multiple Microsoft Azure offerings for running and managing your SAP s
 You can run SAP workloads on the Azure platform using different Azure Virtual Machines (Azure VMs) offerings. Azure is [certified for multiple SAP products](workloads/certifications.md), including SAP HANA and SAP NetWeaver products. 
 
 For more information, see the [SAP on Azure VM workloads](workloads/get-started.md) documentation.
+
+### SAP Integration with Microsoft Services
+
+In addition to the capabilities to run SAP IaaS and SaaS workloads on Azure, Microsoft offers a variety of capabilities, scenarios, best-practice guides, and tutorials to integrate SAP workloads running anywhere with other Microsoft products and services. Among them are popular services such as Azure Active Directory, Exchange Online, Power Platform and Power BI, Azure Integration Services, Excel, SAP Business Technology Platform, SAP Analytics Cloud, SAP Data Warehouse Cloud, and SAP Success Factors to name a few.
+
+For more information, see the [SAP Integration with Microsoft Services](workloads/integration-get-started.md) documentation.
 
 ### SAP HANA on Azure (Large Instances)
 
@@ -53,3 +59,4 @@ For more information, see the [Azure Monitor for SAP solutions](monitor/about-az
 ## Next steps
 
 - [SAP solutions on Azure](https://azure.microsoft.com/solutions/sap/)
+- [Get started with SAP and Azure integration scenarios](workloads/integration-get-started.md)

@@ -1,6 +1,6 @@
 ---
 title: Manage health probes for Azure Load Balancer - Azure portal
-description: In this article, learn how to manage health probes for Azure Load Balancer using the Azure portal
+description: In this article, learn how to manage health probes for Azure Load Balancer using the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer

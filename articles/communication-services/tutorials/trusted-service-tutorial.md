@@ -41,6 +41,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 You may also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
-- [Creating user access tokens](../quickstarts/access-tokens.md)
+- [Creating user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)

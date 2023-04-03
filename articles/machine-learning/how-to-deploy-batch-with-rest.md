@@ -42,7 +42,7 @@ In this article, you learn how to use the new REST APIs to:
 > [!IMPORTANT]
 > The code snippets in this article assume that you are using the Bash shell.
 >
-> The code snippets are pulled from the `/cli/batch-score-rest.sh` file in the [AzureML Example repository](https://github.com/Azure/azureml-examples).
+> The code snippets are pulled from the `/cli/batch-score-rest.sh` file in the [Azure Machine Learning Example repository](https://github.com/Azure/azureml-examples).
 
 ## Set endpoint name
 
@@ -55,7 +55,7 @@ In this article, you learn how to use the new REST APIs to:
 
 [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. In this article, you'll create a batch endpoint and deployment, and invoking it to start a batch scoring job. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
-There are many ways to create an Azure Machine Learning batch endpoint, including the Azure CLI, Azure ML SDK for Python, and visually with the studio. The following example creates a batch endpoint and a batch deployment with the REST API.
+There are many ways to create an Azure Machine Learning batch endpoint, including the Azure CLI, Azure Machine Learning SDK for Python, and visually with the studio. The following example creates a batch endpoint and a batch deployment with the REST API.
 
 ## Create machine learning assets
 
@@ -188,18 +188,18 @@ Now, let's look at other options for invoking the batch endpoint. When it comes 
 
 - An `InputData` property has `JobInputType` and `Uri` keys. When you are specifying a single file, use `"JobInputType": "UriFile"`, and when you are specifying a folder, use `'JobInputType": "UriFolder"`.
 
-- When the file or folder is on Azure ML registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer form to represent the same path, such as `azureml://subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`.
+- When the file or folder is on Azure Machine Learning registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer form to represent the same path, such as `azureml://subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`.
 
 - When the file or folder is registered as V2 data asset as `uri_folder` or `uri_file`, the syntax for the `Uri` is `\"azureml://locations/<location-name>/workspaces/<workspace-name>/data/<data-name>/versions/<data-version>"` (Asset ID form) or `\"/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/data/<data-name>/versions/<data-version>\"` (ARM ID form).
 
 - When the file or folder is a publicly accessible path, the syntax for the URI is `https://<public-path>` for folder, `https://<public-path>/<file-name>` for a specific file.
 
 > [!NOTE]
-> For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azure-ml-data-reference-uri).
+> For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azure-machine-learning-data-reference-uri).
 
 Below are some examples using different types of input data.
 
-- If your data is a folder on the Azure ML registered datastore, you can either:
+- If your data is a folder on the Azure Machine Learning registered datastore, you can either:
 
     - Use the short form to represent the URI:
 
@@ -243,7 +243,7 @@ Below are some examples using different types of input data.
     JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
     ```
 
-- If you want to manage your data as Azure ML registered V2 data asset as `uri_folder`, you can follow the two steps below:
+- If you want to manage your data as Azure Machine Learning registered V2 data asset as `uri_folder`, you can follow the two steps below:
 
     1. Create the V2 data asset:
 

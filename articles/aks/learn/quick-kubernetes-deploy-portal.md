@@ -30,18 +30,15 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 ## Create an AKS cluster
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-
-3. Select **Containers** > **Kubernetes Service**.
-
-4. On the **Basics** page, configure the following options:
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
+1. Select **Containers** > **Kubernetes Service**.
+1. On the **Basics** page, configure the following options:
 
     - **Project details**:
         * Select an Azure **Subscription**.
         * Select or create an Azure **Resource group**, such as *myResourceGroup*.
     - **Cluster details**:
-        * Ensure the the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
+        * Ensure the **Preset configuration** is *Standard ($$)*. For more details on preset configurations, see [Cluster configuration presets in the Azure portal][preset-config].
         * Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
         * Select a **Region** for the AKS cluster, and leave the default value selected for **Kubernetes version**.
         * Select **99.5%** for **API server availability**.
@@ -54,20 +51,20 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
     > You can change the preset configuration when creating your cluster by selecting *Learn more and compare presets* and choosing a different option.
     > :::image type="content" source="media/quick-kubernetes-deploy-portal/cluster-preset-options.png" alt-text="Screenshot of Create AKS cluster - portal preset options.":::
 
-5. Select **Next: Node pools** when complete.
-
-6. Keep the default **Node pools** options. At the bottom of the screen, click **Next: Access**.
-
-7. On the **Access** page, configure the following options:
+1. Select **Next: Node pools** when complete. 
+1. Keep the default **Node pools** options. At the bottom of the screen, click **Next: Access**.
+1. On the **Access** page, configure the following options:
 
     - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
     By default, *Basic* networking is used, and [Container insights](../../azure-monitor/containers/container-insights-overview.md) is enabled.
 
-8. Click **Review + create**. When you navigate to the **Review + create** tab, Azure runs validation on the settings that you have chosen. If validation passes, you can proceed to create the AKS cluster by selecting **Create**. If validation fails, then it indicates which settings need to be modified.
-
-9. It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
+1. Select **Next: Networking** when complete.
+1. Keep the default **Networking** options. At the bottom of the screen, click **Next: Integrations**.
+1. On the **Integrations** page, if you want to enable the [recommended out-of-the-box alerts](../../azure-monitor/alerts/alerts-overview.md#recommended-alert-rules) for AKS clusters, select **Enable recommended alert rules**. You can see the list of alerts that are automatically enabled if you select this option. 
+1. Click **Review + create**. When you navigate to the **Review + create** tab, Azure runs validation on the settings that you have chosen. If validation passes, you can proceed to create the AKS cluster by selecting **Create**. If validation fails, then it indicates which settings need to be modified.
+1. It takes a few minutes to create the AKS cluster. When your deployment is complete, navigate to your resource by either:
     * Selecting **Go to resource**, or
     * Browsing to the AKS cluster resource group and selecting the AKS resource. In this example you browse for *myResourceGroup* and select the resource *myAKSCluster*.
 
@@ -132,12 +129,8 @@ Two Kubernetes Services are also created:
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
 
-1. In the Cloud Shell, use an editor to create a file named `azure-vote.yaml`, such as:
-    * `code azure-vote.yaml`
-    * `nano azure-vote.yaml`, or
-    * `vi azure-vote.yaml`.
-
-1. Copy in the following YAML definition:
+1. In the Cloud Shell, open an editor and create a file named `azure-vote.yaml`.
+2. Paste in the following YAML definition:
 
     ```yaml
     apiVersion: apps/v1
@@ -303,7 +296,7 @@ To learn more about AKS by walking through a complete example, including buildin
 
 <!-- LINKS - external -->
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/

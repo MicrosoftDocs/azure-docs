@@ -2,8 +2,8 @@
 title: How to create Azure Maps applications using the C# REST SDK
 titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -52,7 +52,7 @@ dotnet add package Azure.Maps.Geolocation --prerelease
 
 #### Azure Maps services
 
-| Service Name  | NuGet package           |  Samples     |
+| Service name  | NuGet package           |  Samples     |
 |---------------|-------------------------|--------------|
 | [Search][search readme] | [Azure.Maps.Search][search package] | [search samples][search sample] |
 | [Routing][routing readme] | [Azure.Maps.Routing][routing package] |  [routing samples][routing sample] |
@@ -364,7 +364,7 @@ void printReverseBatchAddresses(ReverseSearchAddressBatchResult batchResult)
 The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 
 [authentication]: azure-maps-authentication.md
 [Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources

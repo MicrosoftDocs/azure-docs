@@ -4,7 +4,7 @@ description: Reference for the validate-status-code policy available for use in 
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/05/2022
 ms.author: danlep
 ---
@@ -29,8 +29,8 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| unspecified-status-code-action | [Action](#actions) to perform for HTTP status codes in responses that aren’t specified in the API schema.  |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
+| unspecified-status-code-action | [Action](#actions) to perform for HTTP status codes in responses that aren’t specified in the API schema. Policy expressions are allowed. |  Yes     | N/A   |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to. Policy expressions aren't allowed. |   No    | N/A   |
 
 ## Elements
 

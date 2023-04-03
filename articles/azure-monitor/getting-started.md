@@ -28,10 +28,10 @@ These articles provide detailed information about each of the main steps you'll 
 
 | Article | Description |
 |:---|:---|
-| [Planning](best-practices-plan.md)  | Things that you should consider before starting your implementation. Includes design decisions and information about your organization and requirements that you should gather. |
-| [Configure data collection](best-practices-data-collection.md) | Tasks required to collect monitoring data from your Azure and hybrid applications and resources. |
-| [Analysis and visualizations](best-practices-analysis.md) | Standard features and additional visualizations that you can create to analyze collected monitoring data. |
-| [Alerts and automated responses](best-practices-alerts.md) | Configure notifications and processes that are automatically triggered when an alert is created. |
+| [Plan your implementation](best-practices-plan.md)  |Things that you should consider before starting your implementation. Includes design decisions and information about your organization and requirements that you should gather. |
+| [Configure data collection](best-practices-data-collection.md) |Tasks required to collect monitoring data from your Azure and hybrid applications and resources. |
+| [Analysis and visualizations](best-practices-analysis.md) |Get to know the standard features and additional visualizations that you can create to analyze collected monitoring data. |
+| [Configure alerts and automated responses](best-practices-alerts.md) |Configure notifications and processes that are automatically triggered when an alert is fired. |
 | [Optimize costs](best-practices-cost.md) | Reduce your cloud monitoring costs by implementing and managing Azure Monitor in the most cost-effective manner. |
 
 

@@ -7,6 +7,7 @@ ms.reviewer: kimforss
 ms.date: 09/13/2022
 ms.topic: conceptual
 ms.service: sap-on-azure
+ms.subservice: sap-automation
 ---
 
 # Workload zone configuration in SAP automation framework
