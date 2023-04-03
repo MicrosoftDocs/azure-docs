@@ -789,7 +789,7 @@
         href: ./linux/create-ssh-secured-vm-from-template.md
       - name: REST with SSH
         displayName: Create VM, Create, REST
-        href: ./rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication
+        href: /rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#create-a-vm-with-ssh-authentication
       - name: LAMP stack
         href: ./linux/tutorial-lamp-stack.md
       - name: Continuous delivery
