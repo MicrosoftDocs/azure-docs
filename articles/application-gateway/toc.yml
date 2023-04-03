@@ -41,6 +41,8 @@
     href: tutorial-ingress-controller-add-on-new.md
   - name: Ingress Controller add-on for AKS (Brownfield)
     href: tutorial-ingress-controller-add-on-existing.md
+  - name: Deploy Application Gateway with DDoS protection
+    href: tutorial-protect-application-gateway.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -93,6 +95,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/application-gateway-security-baseline?toc=/azure/application-gateway/toc.json
+    - name: Private Deployment
+      href: application-gateway-private-deployment.md
     - name: Private Link
       href: private-link.md
   - name: SSL
@@ -105,6 +109,8 @@
       href: mutual-authentication-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
+    - name: SSL certificate management (preview)
+      href: ssl-certificate-management.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Health monitoring

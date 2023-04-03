@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/16/2022
+ms.date: 12/13/2022
 ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 
@@ -39,6 +39,7 @@ The following list summarizes manual backup behaviors:
 ## Requirements
 
 * Azure NetApp Files now requires you to create a backup vault before enabling backup functionality. If you have not configured a backup, refer to [Manage backup vaults](backup-vault-manage.md) for more information.
+* [!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
 
 ## Enable backup functionality
 

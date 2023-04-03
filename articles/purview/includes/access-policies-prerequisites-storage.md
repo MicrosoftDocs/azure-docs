@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 11/10/2022
+ms.date: 03/16/2023
 ms.custom: references_regions
 ---
 
@@ -26,14 +26,8 @@ Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderN
 If the output of the last command shows *RegistrationState* as *Registered*, then your subscription is enabled for access policies.
 If the output is *Registering*, wait at least 10 minutes, and then retry the command. **Do not continue unless the RegistrationState shows as *Registered***.
 
->[!NOTE]
-> Storage accounts must meet the following requirements to enforce access policies published from Microsoft Purview.
-> - Storage account versions >= 81.x.x.
-
-If needed, you can also create a new Storage account by [following this guide](../../storage/common/storage-account-create.md).
-
 #### Region support
-- All regions for Microsoft Purview are supported
+- All [Microsoft Purview regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview) are supported.
 - Microsoft Purview access policies can only be enforced in the following Azure Storage regions:
     - East US
     - East US2
@@ -55,3 +49,6 @@ If needed, you can also create a new Storage account by [following this guide](.
     - East Asia
     - Japan East
     - Japan West
+- Only **new** Storage accounts with zone-redundant storage (ZRS) are supported. That is, Storage accounts created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is *Registered*. Note, ZRS Storage accounts will start enforcing policies from Microsoft Purview within 2 hours.
+
+If needed, you can also create a new Storage account by [following this guide](../../storage/common/storage-account-create.md).

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/16/2022
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Create, change, or delete a virtual network
@@ -45,11 +45,11 @@ The account you log into, or connect to Azure with, must be assigned to the [net
     | Setting | Value | Details |
     | --- | --- | --- |
     | **Project details** |  |  |
-    | **Subscription** | Select your subscription. | You can't use the same virtual network in more than one Azure subscription. However, you can connect a virtual network in one subscription to virtual networks in other subscriptions using [virtual network peering](virtual-network-peering-overview.md). <br> Any Azure resource that you connect to the virtual network must be in the same subscription as the virtual network. |
-    |**Resource group**| Select an existing [resource group](../azure-resource-manager/management/overview.md#resource-groups) or create a new one by selecting **Create new**. | An Azure resource that you connect to the virtual network can be in the same resource group as the virtual network or in a different resource group. |
+    | Subscription | Select your subscription. | You can't use the same virtual network in more than one Azure subscription. However, you can connect a virtual network in one subscription to virtual networks in other subscriptions using [virtual network peering](virtual-network-peering-overview.md). <br> Any Azure resource that you connect to the virtual network must be in the same subscription as the virtual network. |
+    |Resource group| Select an existing [resource group](../azure-resource-manager/management/overview.md#resource-groups) or create a new one by selecting **Create new**. | An Azure resource that you connect to the virtual network can be in the same resource group as the virtual network or in a different resource group. |
     | **Instance details** | |
-    | **Name** | Enter a name for the virtual network you're creating. | The name must be unique in the resource group that you select to create the virtual network in. <br> You can't change the name after the virtual network is created. <br> For naming suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Following a naming convention can help make it easier to manage multiple virtual networks. |
-    | **Region** | Select an Azure [region](https://azure.microsoft.com/regions/). | A virtual network can be in only one Azure region. However, you can connect a virtual network in one region to a virtual network in another region using [virtual network peering](virtual-network-peering-overview.md). <br> Any Azure resource that you connect to the virtual network must be in the same region as the virtual network. |
+    | Name | Enter a name for the virtual network you're creating. | The name must be unique in the resource group that you select to create the virtual network in. <br> You can't change the name after the virtual network is created. <br> For naming suggestions, see [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Following a naming convention can help make it easier to manage multiple virtual networks. |
+    | Region | Select an Azure [region](https://azure.microsoft.com/regions/). | A virtual network can be in only one Azure region. However, you can connect a virtual network in one region to a virtual network in another region using [virtual network peering](virtual-network-peering-overview.md). <br> Any Azure resource that you connect to the virtual network must be in the same region as the virtual network. |
     
 1. Select **IP Addresses** tab or **Next: IP Addresses >**, and enter the following IP address information:
    - **IPv4 Address space**: The address space for a virtual network is composed of one or more non-overlapping address ranges that are specified in CIDR notation. The address range you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you've connected to the virtual network.

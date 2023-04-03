@@ -3,16 +3,18 @@ title: Azure Automation Hybrid Runbook Worker overview
 description: Know about Hybrid Runbook Worker. How to install and run the  runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/09/2022
+ms.date: 03/21/2023
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Automation Hybrid Runbook Worker overview
 
+> [!IMPORTANT]
+>  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+
 Runbooks in Azure Automation might not have access to resources in other clouds or in your on-premises environment because they run on the Azure cloud platform. You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned machines.
 
-Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on Non-Azure machines including [Azure Arc-enabled Servers](../azure-arc/servers/overview.md) and [Azure Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/overview.md). Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
+Azure Automation provides native integration of the Hybrid Runbook Worker role through the Azure virtual machine (VM) extension framework. The Azure VM agent is responsible for management of the extension on Azure VMs on Windows and Linux VMs, and [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) on Non-Azure machines including [Azure Arc-enabled Servers](../azure-arc/servers/overview.md) and [Azure Arc-enabled VMware vSphere (preview)](../azure-arc/vmware-vsphere/overview.md). Now there are two Hybrid Runbook Workers installation platforms supported by Azure Automation.
  
 | Platform | Description |
 |---|---|
@@ -41,7 +43,7 @@ There are two types of Runbook Workers - system and user. The following table de
 |Type | Description |
 |-----|-------------|
 |**System** |Supports a set of hidden runbooks used by the Update Management feature that are designed to install user-specified updates on Windows and Linux machines.<br> This type of Hybrid Runbook Worker isn't a member of a Hybrid Runbook Worker group, and therefore doesn't run runbooks that target a Runbook Worker group. |
-|**User** |Supports user-defined runbooks intended to run directly on the Windows and Linux machine that are members of one or more Runbook Worker groups. |
+|**User** |Supports user-defined runbooks intended to run directly on the Windows and Linux machines. |
 
 Agent-based (V1) Hybrid Runbook Workers rely on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) reporting to an Azure Monitor [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md). The workspace isn't only to collect monitoring data from the machine, but also to download the components required to install the agent-based Hybrid Runbook Worker.
 

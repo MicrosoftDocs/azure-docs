@@ -1,8 +1,8 @@
 ---
 title: Complete a proxy update by using Device Update for Azure IoT Hub | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub by using the Device Update binary agent for proxy updates.
-author: kgremban
-ms.author: kgremban
+author: eshashah
+ms.author: eshashah
 ms.date: 1/26/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
@@ -87,7 +87,7 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
 5. Restart the Device Update agent:
 
    ```sh
-   sudo systemctl restart adu-agent
+   sudo systemctl restart deviceupdate-agent
    ```
 
 ### Set up mock components
@@ -119,12 +119,6 @@ For testing and demonstration purposes, we'll create the following mock componen
      ```sh
      sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-component-enumerator.so
      ```
-
-2. View and record the current components' software version by using the following command to set up the VM to support proxy updates:
-
-   ```sh
-   ~/demo/show-demo-components.sh
-   ```
 
 ## Import an example update
 

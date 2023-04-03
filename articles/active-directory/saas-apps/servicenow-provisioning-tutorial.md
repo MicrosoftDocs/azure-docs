@@ -2,15 +2,16 @@
 title: Configure ServiceNow for automatic user provisioning with Azure Active Directory
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to ServiceNow.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
-ms.reviewer: celested
+author: twimmers
+writer: twimmers
+manager: beatrizd
+ms.assetid: 5f03d8b7-c3a0-443e-91af-99cc3956fa18
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: how-to
-ms.date: 11/21/2022
-ms.author: jeedes
+ms.topic: tutorial
+ms.date: 3/10/2023
+ms.author: thwimmer
 ---
 
 # Configure ServiceNow for automatic user provisioning
@@ -52,7 +53,6 @@ For more information on the Azure AD automatic user provisioning service, see [A
 
    ![Screenshot that shows a ServiceNow admin role.](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-
 ## Step 3: Add ServiceNow from the Azure AD application gallery
 
 Add ServiceNow from the Azure AD application gallery to start managing provisioning to ServiceNow. If you previously set up ServiceNow for single sign-on (SSO), you can use the same application. However, we recommend that you create a separate app when you're testing the integration. [Learn more about adding an application from the gallery](../manage-apps/add-application-portal.md). 
@@ -85,9 +85,7 @@ To configure automatic user provisioning for ServiceNow in Azure AD:
 1. Set **Provisioning Mode** to **Automatic**.
 
 1. In the **Admin Credentials** section, enter your ServiceNow admin credentials and username. Select **Test Connection** to ensure that Azure AD can connect to ServiceNow. If the connection fails, ensure that your ServiceNow account has admin permissions and try again.
-
- 	![Screenshot that shows the Service Provisioning page, where you can enter admin credentials.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
-
+   
 1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications. Then select the **Send an email notification when a failure occurs** check box.
 
 1. Select **Save**.
@@ -148,6 +146,8 @@ After you've configured provisioning, use the following resources to monitor you
 - The Azure AD provisioning service currently operates under particular [IP ranges](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges). If necessary, you can restrict other IP ranges and add these particular IP ranges to the allowlist of your application. That technique will allow traffic flow from the Azure AD provisioning service to your application.
 
 - Self-hosted ServiceNow instances aren't supported. 
+
+- When an update to the *active* attribute in ServiceNow is provisioned, the attribute *locked_out* is also updated accordingly, even if *locked_out* is not mapped in the Azure provisioning service.  
 
 ## Additional resources
 

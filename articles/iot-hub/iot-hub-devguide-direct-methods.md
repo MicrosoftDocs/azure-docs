@@ -1,12 +1,12 @@
 ﻿---
-title: Understand Azure IoT Hub direct methods | Microsoft Docs
+title: Understand Azure IoT Hub direct methods
 description: This article describes how use direct methods to invoke code on your devices from a service app.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 07/15/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: concept-article
+ms.date: 07/15/2022
 ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -167,7 +167,7 @@ The device sends responses to `$iothub/methods/res/{status}/?$rid={request id}`,
 
 * The `status` property is the device-supplied status of method execution.
 
-* The `$rid` property is the request ID from the method invocation received from IoT Hub.
+* The `$rid` property is the request ID from the method invocation received from IoT Hub. The request ID is a hexadecimal formatted value.
 
 The body is set by the device and can be any status.
 

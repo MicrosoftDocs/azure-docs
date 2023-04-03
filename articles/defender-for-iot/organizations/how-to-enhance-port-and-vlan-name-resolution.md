@@ -1,54 +1,65 @@
 ---
-title: Enhance port and VLAN name resolution in Defender for IoT
-description: Customize port and VLAN names on your sensors 
-ms.date: 01/02/2022
+title: Customize port and VLAN names on OT network sensors - Microsoft Defender for IoT
+description: Learn how to customize port and VLAN names on Microsoft Defender for IoT OT network sensors.
+ms.date: 01/12/2023
 ms.topic: how-to
 ---
 
-# Customize port and VLAN names
+# Customize port and VLAN names on OT network sensors
 
-You can customize port and VLAN names on your sensors to enrich device resolution.
+Enrich device data shown in Defender for IoT by customizing port and VLAN names on your OT network sensors.
 
-## Customize a port name
+For example, you might want to assign a name to a non-reserved port that shows unusually high activity in order to call it out, or assign a name to a VLAN number to identify it quicker.
 
-Microsoft Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. You can customize port names for other ports that Defender for IoT detects. For example, you might assign a name to a non-reserved port because that port shows unusually high activity. Names appear when you view device groups from the device map, or when you create reports that provide port information.
+## Prerequisites
 
-Customize a name as follows:
+To customize port and VLAN names, you must be able to access the OT network sensor as an **Admin** user.
 
-1. Select **System Settings**. Under **Network monitoring**, select **Port Naming**.
-2. Select **Add port**.
-3. Enter the port number, select the protocol (TCP, UDP, both) and type in a name.
-4. Select **Save**.
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+## Customize names of detected ports
+
+Defender for IoT automatically assigns names to most universally reserved ports, such as DHCP or HTTP. However, you might want to customize the name of a specific port to highlight it, such as when you're watching a port with unusually high detected activity.
+
+Port names are shown in Defender for IoT when [viewing device groups from the OT sensor's device map](how-to-work-with-the-sensor-device-map.md), or when you create OT sensor reports that include port information.
+
+**To customize a port name:**
+
+1. Sign into your OT sensor as an **Admin** user.
+
+1. Select **System settings** on the left and then, under **Network monitoring**, select **Port Naming**.
+
+1. In the **Port naming** pane that appears, enter the port number you want to name, the port's protocol, and a meaningful name. Supported protocol values include: **TCP**, **UDP**, and **BOTH**.
+
+1. Select **+ Add port** to customize an additional port, and **Save** when you're done.
 
 ## Customize a VLAN name
 
-You can enrich device inventory data with device VLAN numbers and tags. 
+VLANs are either discovered automatically by the OT network sensor or added manually. Automatically discovered VLANs can't be edited or deleted, but manually added VLANs require a unique name. If a VLAN isn't explicitly named, the VLAN's number is shown instead.
 
-- VLANs support is based on 802.1q (up to VLAN ID 4094). VLANS can be discovered automatically by the sensor or added manually.
-- Automatically discovered VLANs can't be edited or deleted. You should add a name to each VLAN, if you don't add a name, the VLAN number will appear when VLAN information is reported.
-- When you add a manual VLN, you must add a unique name. These VLANs can be edited and deleted.
-- VLAN names can contain up to 50 ASCII characters.
+VLAN's support is based on 802.1q (up to VLAN ID 4094).
 
-## Before you start
-> [!NOTE]
-> VLAN names are not synchronized between the sensor and the management console. You need to define the name on the management console as well.  
-For Cisco switches, add the following line to the span configuration: `monitor session 1 destination interface XX/XX encapsulation dot1q`. In that command, *XX/XX* is the name and number of the port.
+VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
 
-To configure VLAN names:
+**To configure VLAN names on an OT network sensor:**
 
-1. On the side menu, select **System Settings**.
+1. Sign in to your OT sensor as an **Admin** user.
 
-2. In the **System Settings** window, select **VLAN**.
+1. Select **System Settings** on the left and then, under **Network monitoring**, select **VLAN Naming**.
 
-    :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Use the system settings to edit your VLANs.":::
+1. In the **VLAN naming** pane that appears, enter a VLAN ID and unique VLAN name. VLAN names can contain up to 50 ASCII characters.
 
-3. Add a unique name next to each VLAN ID.
+1. Select **+ Add VLAN** to customize an additional VLAN, and **Save** when you're done.
 
+1. **For Cisco switches**: Add the `monitor session 1 destination interface XX/XX encapsulation dot1q` command to the SPAN port configuration, where *XX/XX* is the name and number of the port.
 
 ## Next steps
 
-View enriched device information in various reports:
+> [!div class="nextstepaction"]
+> [Investigate detected devices from the OT sensor device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
-- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Sensor trends and statistics reports](how-to-create-trends-and-statistics-reports.md)
-- [Sensor data mining queries](how-to-create-data-mining-queries.md)
+> [!div class="nextstepaction"]
+> [Create sensor trends and statistics reports](how-to-create-trends-and-statistics-reports.md)
+
+> [!div class="nextstepaction"]
+> [Create sensor data mining queries](how-to-create-data-mining-queries.md)

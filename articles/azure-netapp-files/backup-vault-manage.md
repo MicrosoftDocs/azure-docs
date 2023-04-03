@@ -37,7 +37,7 @@ If you have existing backups, you must migrate them to a backup vault before you
 
   :::image type="content" source="../media/azure-netapp-files/backup-vault-assign.png" alt-text="Screenshot of backup vault assignment." lightbox="../media/azure-netapp-files/backup-vault-assign.png":::
 
-1. Select that backups you want to migrate. You can migrate individual backups or bulk migrate all backups. 
+1. Select that volume with backups you want to migrate. You can migrate individual backups or bulk migrate all backups. 
 
     If there are backups from volumes that have been deleted that you want to migrate, select **Deleted Volumes**. This option will only be enabled if backups from deleted volumes are present. 
 

@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 3/8/2021
 ms.author: mattmcinnes
-
 ---
 
 # Deploy VMs to proximity placement groups using Azure CLI
@@ -29,7 +29,7 @@ az ppg create \
    -n myPPG \
    -g myPPGGroup \
    -l eastus \
-   -t standard 
+   -t standard \
    --intent-vm-sizes Standard_E64s_v4 Standard_M416ms_v2 \
    -z 1
 ```

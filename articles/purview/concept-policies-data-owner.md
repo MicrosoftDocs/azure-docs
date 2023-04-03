@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 03/20/2022
+ms.date: 02/17/2023
 ---
 
 # Concepts for Microsoft Purview data owner policies (preview)
@@ -64,10 +64,10 @@ The end-user identity from Azure Active Directory for whom this policy statement
 
 ### Example
 
-Deny Read on Data Asset:
+Allow Read on Data Asset:
 */subscription/finance/resourcegroups/prod/providers/Microsoft.Storage/storageAccounts/finDataLake/blobservice/default/containers/FinData to group Finance-analyst*
 
-In the above policy statement, the effect is *Deny*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is Azure Active Directory group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be denied.
+In the above policy statement, the effect is *Allow*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is Azure Active Directory group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be allowed.
 
 ### Hierarchical enforcement of policies
 
@@ -88,7 +88,7 @@ Then let’s assume that user ‘user1’, who is part of two groups:
 *Finance-analyst* and *Finance-contractors*, executes a call to blob read API. Since both policies will be applicable, Microsoft Purview will choose the most restrictive one, which is *Deny* of *Read*. Thus, the access request will be denied.
 
 > [!Note]
-> Currently, the only supported effect is **Allow**.
+> As mentioned in the Effect section above, currently, the only supported effect is **Allow**. The above example is to explain how multiple policies on a single asset are evaluated.
 
 ## Policy publishing
 

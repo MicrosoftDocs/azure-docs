@@ -8,8 +8,8 @@ ms.subservice: mldata
 ms.topic: reference
 author: vijetajo
 ms.author: vijetaj
-ms.date: 09/28/2022
-ms.reviewer: sgilley
+ms.date: 02/14/2023
+ms.reviewer: franksolomon
 ms.custom: migration
 ---
 
@@ -32,7 +32,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
     from azureml.core.compute_target import ComputeTargetException
     
     # Compute Instances need to have a unique name across the region.
-    # Here we create a unique name with current datetime
+    # Here, we create a unique name with current datetime
     ci_basic_name = "basic-ci" + datetime.datetime.now().strftime("%Y%m%d%H%M")
     
     compute_config = ComputeInstance.provisioning_configuration(
@@ -46,12 +46,12 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 
     ```python
     # Compute Instances need to have a unique name across the region.
-    # Here we create a unique name with current datetime
+    # Here, we create a unique name with current datetime
     from azure.ai.ml.entities import ComputeInstance, AmlCompute
     import datetime
     
     ci_basic_name = "basic-ci" + datetime.datetime.now().strftime("%Y%m%d%H%M")
-    ci_basic = ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2")
+    ci_basic = ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
     ml_client.begin_create_or_update(ci_basic)
     ```
 

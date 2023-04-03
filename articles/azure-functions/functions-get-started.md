@@ -2,7 +2,7 @@
 title: Getting started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
 ms.topic: overview
-ms.date: 11/19/2020
+ms.date: 12/13/2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -10,7 +10,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ## Introduction
 
-[Azure Functions](./functions-overview.md) allows you to implement your system's logic as event-driven, readily-available blocks of code. These code blocks are called "functions".
+[Azure Functions](./functions-overview.md) allows you to implement your system's logic as event-driven, readily available blocks of code. These code blocks are called "functions".
 
 Use the following resources to get started.
 
@@ -29,7 +29,7 @@ Use the following resources to get started.
 ::: zone pivot="programming-language-java"
 | Action | Resources |
 | --- | --- |
-| **Create your first function** | Using one of the following tools:<br><br><li>[Visual Studio Code](./create-first-function-vs-code-java.md)<li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)<li>[Gradle](./functions-create-first-java-gradle.md)<li>[Eclipse](./functions-create-maven-eclipse.md)<li>[IntelliJ IDEA](./functions-create-maven-intellij.md) |
+| **Create your first function** | Using one of the following tools:<br><br><li>[Eclipse](./functions-create-maven-eclipse.md)<li>[Gradle](./functions-create-first-java-gradle.md)<li>[IntelliJ IDEA](./functions-create-maven-intellij.md)<li>[Maven with terminal/command prompt](./create-first-function-cli-java.md)<li>[Spring Cloud](/azure/developer/java/spring-framework/getting-started-with-spring-cloud-function-in-azure?toc=/azure/azure-functions/toc.json)<li>[Visual Studio Code](./create-first-function-vs-code-java.md) |
 | **See a function running** | <li>[Azure Samples Browser](/samples/browse/?expanded=azure&languages=java&products=azure-functions)<li>[Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=Java) |
 | **Explore an interactive tutorial**| <li>[Choose the best Azure serverless technology for your business scenario](/training/modules/serverless-fundamentals/)<li>[Well-Architected Framework - Performance efficiency](/training/modules/azure-well-architected-performance-efficiency/)<li>[Develop an App using the Maven Plugin for Azure Functions](/training/modules/develop-azure-functions-app-with-maven-plugin/) <br><br>See a [full listing of interactive tutorials](/training/browse/?expanded=azure&products=azure-functions).|
 | **Review best practices** |<li>[Performance and reliability](./functions-best-practices.md)<li>[Manage connections](./manage-connections.md)<li>[Error handling and function retries](./functions-bindings-error-pages.md?tabs=java)<li>[Security](./security-concepts.md)|

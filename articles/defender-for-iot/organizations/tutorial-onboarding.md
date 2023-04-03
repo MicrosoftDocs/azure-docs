@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Get started with Microsoft Defender for IoT for OT security
-description: This tutorial describes how to use Microsoft Defender for IoT to set up a network for OT system security.
+title: Onboard and activate a virtual OT sensor - Microsoft Defender for IoT.
+description: This tutorial describes how to set up a virtual OT network sensor to monitor your OT network traffic.
 ms.topic: tutorial
 ms.date: 07/11/2022
 ---
@@ -30,7 +30,7 @@ Before you start, make sure that you have the following:
 
 - Access to the Azure portal as a [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner). For more information, see [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
 
-- At least one device to monitor, with the device connected to a SPAN port on a switch.
+- Make sure that you have a network switch that supports traffic monitoring via a SPAN port. You'll also need at least one device to monitor, connected to the switch's SPAN port.
 
 - VMware, ESXi 5.5 or later, installed and operational on your sensor.
 
@@ -40,6 +40,8 @@ Before you start, make sure that you have the following:
     |--|--|--|--|
     | **Maximum bandwidth** | 2.5 Gb/sec | 800 Mb/sec | 160 Mb/sec |
     | **Maximum protected devices** | 12,000 | 10,000 | 800 |
+
+- An understanding of [OT monitoring with virtual appliances](ot-virtual-appliances.md).
 
 - Details for the following network parameters to use for your sensor appliance:
 

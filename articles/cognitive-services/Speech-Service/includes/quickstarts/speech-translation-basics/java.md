@@ -39,18 +39,11 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
             </plugin>
             </plugins>
         </build>
-        <repositories>
-            <repository>
-            <id>maven-cognitiveservices-speech</id>
-            <name>Microsoft Cognitive Services Speech Maven Repository</name>
-            <url>https://azureai.azureedge.net/maven/</url>
-            </repository>
-        </repositories>
         <dependencies>
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.24.2</version>
+            <version>1.26.0</version>
             </dependency>
         </dependencies>
     </project>

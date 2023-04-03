@@ -3,8 +3,8 @@ title: Secure your Azure AD identity infrastructure
 titleSuffix: Azure Active Directory
 description: This document outlines a list of important actions administrators should implement to help them secure their organization using Azure AD capabilities
 
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2022

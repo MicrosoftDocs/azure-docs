@@ -2,7 +2,6 @@
 title: Authorize access to Azure Blob Storage using Azure role assignment conditions
 titleSuffix: Azure Storage
 description: Authorize access to Azure Blob Storage and Azure Data Lake Storage Gen2 using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
-services: storage
 author: jimmart-dev
 
 ms.service: storage

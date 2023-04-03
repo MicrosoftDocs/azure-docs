@@ -1,5 +1,5 @@
 ---
-title: "Input data for batch endpoints jobs"
+title: "Create jobs and input data for batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to access data from different sources in batch endpoints jobs.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
 
-# Input data for batch endpoints jobs
+# Create jobs and input data for batch endpoints
 
 Batch endpoints can be used to perform batch scoring on large amounts of data. Such data can be placed in different places. In this tutorial we'll cover the different places where batch endpoints can read data from and how to reference it.
 
@@ -25,132 +25,27 @@ Batch endpoints can be used to perform batch scoring on large amounts of data. S
 
 Batch endpoints support reading files located in the following storage options:
 
-* Azure Machine Learning Data Stores. The following stores are supported:
-    * Azure Blob Storage
-    * Azure Data Lake Storage Gen1
-    * Azure Data Lake Storage Gen2
-* Azure Machine Learning Data Assets. The following types are supported:
+* [Azure Machine Learning Data Assets](#input-data-from-a-data-asset). The following types are supported:
     * Data assets of type Folder (`uri_folder`).
     * Data assets of type File (`uri_file`).
     * Datasets of type `FileDataset` (Deprecated).
-* Azure Storage Accounts. The following storage containers are supported:
+* [Azure Machine Learning Data Stores](#input-data-from-data-stores). The following stores are supported:
+    * Azure Blob Storage
+    * Azure Data Lake Storage Gen1
+    * Azure Data Lake Storage Gen2
+* [Azure Storage Accounts](#input-data-from-azure-storage-accounts). The following storage containers are supported:
     * Azure Data Lake Storage Gen1
     * Azure Data Lake Storage Gen2
     * Azure Blob Storage
 
 > [!TIP]
-> Local data folders/files can be used when executing batch endpoints from the Azure ML CLI or Azure ML SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
+> Local data folders/files can be used when executing batch endpoints from the Azure Machine Learning CLI or Azure Machine Learning SDK for Python. However, that operation will result in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you are working on.
 
 > [!IMPORTANT]
 > __Deprecation notice__: Datasets of type `FileDataset` (V1) are deprecated and will be retired in the future. Existing batch endpoints relying on this functionality will continue to work but batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 dataset.
 
 
-## Reading data from data stores
-
-Data from Azure Machine Learning registered data stores can be directly referenced by batch deployments jobs. In this example, we're going to first upload some data to the default data store in the Azure Machine Learning workspace and then run a batch deployment on it. Follow these steps to run a batch endpoint job using data stored in a data store:
-
-1. Let's get access to the default data store in the Azure Machine Learning workspace. If your data is in a different store, you can use that store instead. There's no requirement of using the default data store. 
-
-    # [Azure CLI](#tab/cli)
-
-    ```azurecli
-    DATASTORE_ID=$(az ml datastore show -n workspaceblobstore | jq -r '.id')
-    ```
-    
-    > [!NOTE]
-    > Data stores ID would look like `azureml:/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
-
-    # [Python](#tab/sdk)
-
-    ```python
-    default_ds = ml_client.datastores.get_default()
-    ```
-
-    # [REST](#tab/rest)
-
-    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the data store information.
-    
-    ---
-    
-    > [!TIP]
-    > The default blob data store in a workspace is called __workspaceblobstore__. You can skip this step if you already know the resource ID of the default data store in your workspace.
-
-1. We'll need to upload some sample data to it. This example assumes you've uploaded the sample data included in the repo in the folder `sdk/python/endpoints/batch/heart-classifier/data` in the folder `heart-classifier/data` in the blob storage account. Ensure you have done that before moving forward.
-
-1. Create a data input:
-
-    # [Azure CLI](#tab/cli)
-    
-    Let's place the file path in the following variable:
-
-    ```azurecli
-    DATA_PATH="heart-disease-uci-unlabeled"
-    INPUT_PATH="$DATASTORE_ID/paths/$DATA_PATH"
-    ```
-
-    # [Python](#tab/sdk)
-
-    ```python
-    data_path = "heart-classifier/data"
-    input = Input(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
-    ```
-
-    # [REST](#tab/rest)
-
-    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the subscription ID, resource group, workspace, and name of the data store. You will need them later.
-   
-    ---
-    
-    > [!NOTE]
-    > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
-
-    > [!TIP]
-    > You can also use `azureml:/datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
-
-1. Run the deployment:
-
-    # [Azure CLI](#tab/cli)
-   
-    ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH)
-    ```
-   
-    # [Python](#tab/sdk)
-   
-    ```python
-    job = ml_client.batch_endpoints.invoke(
-       endpoint_name=endpoint.name,
-       input=input,
-    )
-    ```
-
-    # [REST](#tab/rest)
-
-    __Request__
-    
-    ```http
-    POST jobs HTTP/1.1
-    Host: <ENDPOINT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-Type: application/json
-    ```
-    
-    __Body__
-
-    ```json
-    {
-        "properties": {
-            "InputData": {
-                "mnistinput": {
-                    "JobInputType" : "UriFolder",
-                    "Uri": "azureml:/subscriptions/<subscription>/resourceGroups/<resource-group/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>/paths/<data-path>"
-                }
-            }
-        }
-    }
-    ```
-
-## Reading data from a data asset
+## Input data from a data asset
 
 Azure Machine Learning data assets (formerly known as datasets) are supported as inputs for jobs. Follow these steps to run a batch endpoint job using data stored in a registered data asset in Azure Machine Learning:
 
@@ -201,12 +96,12 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     To get the newly created data asset, use:
     
     ```python
-    heart_dataset_unlabeled = ml_client.data.get(name=dataset_name)
+    heart_dataset_unlabeled = ml_client.data.get(name=dataset_name, label="latest")
     ```
 
     # [REST](#tab/rest)
 
-    Use the Azure ML CLI, Azure ML SDK for Python, or Studio to get the location (region), workspace, and data asset name and version. You will need them later.
+    Use the Azure Machine Learning CLI, Azure Machine Learning SDK for Python, or Studio to get the location (region), workspace, and data asset name and version. You will need them later.
 
 
 1. Create a data input:
@@ -214,7 +109,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     # [Azure CLI](#tab/cli)
     
     ```azurecli
-    DATASET_ID=$(az ml data show -n heart-dataset-unlabeled --label latest --query id)
+    DATASET_ID=$(az ml data show -n heart-dataset-unlabeled --label latest | jq -r .id)
     ```
 
     # [Python](#tab/sdk)
@@ -225,8 +120,20 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
     # [REST](#tab/rest)
 
-    This step isn't required.
+    __Body__
 
+    ```json
+    {
+        "properties": {
+            "InputData": {
+                "mnistinput": {
+                    "JobInputType" : "UriFolder",
+                    "Uri": "azureml://locations/<location>/workspaces/<workspace>/data/<dataset_name>/versions/labels/latest"
+                }
+            }
+        }
+    }
+    ```
     ---
 
     > [!NOTE]
@@ -263,23 +170,110 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     Authorization: Bearer <TOKEN>
     Content-Type: application/json
     ```
+
+## Input data from data stores
+
+Data from Azure Machine Learning registered data stores can be directly referenced by batch deployments jobs. In this example, we're going to first upload some data to the default data store in the Azure Machine Learning workspace and then run a batch deployment on it. Follow these steps to run a batch endpoint job using data stored in a data store:
+
+1. Let's get access to the default data store in the Azure Machine Learning workspace. If your data is in a different store, you can use that store instead. There's no requirement of using the default data store. 
+
+    # [Azure CLI](#tab/cli)
+
+    ```azurecli
+    DATASTORE_ID=$(az ml datastore show -n workspaceblobstore | jq -r '.id')
+    ```
     
+    > [!NOTE]
+    > Data stores ID would look like `/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
+
+    # [Python](#tab/sdk)
+
+    ```python
+    default_ds = ml_client.datastores.get_default()
+    ```
+
+    # [REST](#tab/rest)
+
+    Use the Azure Machine Learning CLI, Azure Machine Learning SDK for Python, or Studio to get the data store information.
+    
+    ---
+    
+    > [!TIP]
+    > The default blob data store in a workspace is called __workspaceblobstore__. You can skip this step if you already know the resource ID of the default data store in your workspace.
+
+1. We'll need to upload some sample data to it. This example assumes you've uploaded the sample data included in the repo in the folder `sdk/python/endpoints/batch/heart-classifier/data` in the folder `heart-classifier/data` in the blob storage account. Ensure you have done that before moving forward.
+
+1. Create a data input:
+
+    # [Azure CLI](#tab/cli)
+    
+    Let's place the file path in the following variable:
+
+    ```azurecli
+    DATA_PATH="heart-disease-uci-unlabeled"
+    INPUT_PATH="$DATASTORE_ID/paths/$DATA_PATH"
+    ```
+
+    # [Python](#tab/sdk)
+
+    ```python
+    data_path = "heart-classifier/data"
+    input = Input(type=AssetTypes.URI_FOLDER, path=f"{default_ds.id}/paths/{data_path})
+    ```
+
+    # [REST](#tab/rest)
+
     __Body__
 
-   ```json
-   {
-       "properties": {
-           "InputData": {
-               "mnistinput": {
-                   "JobInputType" : "UriFolder",
-                   "Uri": "azureml://locations/<location>/workspaces/<workspace>/data/<dataset_name>/versions/labels/latest"
-               }
-           }
-       }
-   }
-   ```
+    ```json
+    {
+        "properties": {
+            "InputData": {
+                "mnistinput": {
+                    "JobInputType" : "UriFolder",
+                    "Uri": "azureml:/subscriptions/<subscription>/resourceGroups/<resource-group/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>/paths/<data-path>"
+                }
+            }
+        }
+    }
+    ```
+    ---
+    
+    > [!NOTE]
+    > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
 
-## Reading data from Azure Storage Accounts
+    > [!TIP]
+    > You can also use `azureml://datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
+
+1. Run the deployment:
+
+    # [Azure CLI](#tab/cli)
+   
+    ```bash
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH)
+    ```
+   
+    # [Python](#tab/sdk)
+   
+    ```python
+    job = ml_client.batch_endpoints.invoke(
+       endpoint_name=endpoint.name,
+       input=input,
+    )
+    ```
+
+    # [REST](#tab/rest)
+
+    __Request__
+    
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
+
+## Input data from Azure Storage Accounts
 
 Azure Machine Learning batch endpoints can read data from cloud locations in Azure Storage Accounts, both public and private. Use the following steps to run a batch endpoint job using data stored in a storage account:
 
@@ -290,59 +284,36 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
     # [Azure CLI](#tab/cli)
 
-    This step isn't required.
+    ```azurecli
+    INPUT_DATA = "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+    ```
+
+    If your data is a file:
+
+    ```azurecli
+    INPUT_DATA = "https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv"
+    ```
 
     # [Python](#tab/sdk)
 
     ```python
-    input = Input(type=AssetTypes.URI_FOLDER, path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data")
+    input = Input(
+        type=AssetTypes.URI_FOLDER, 
+        path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data"
+    )
     ```
 
     If your data is a file, change `type=AssetTypes.URI_FILE`:
 
     ```python
-    input = Input(type=AssetTypes.URI_FILE, path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv")
+    input = Input(
+        type=AssetTypes.URI_FILE,
+        path="https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv"
+    )
     ```
 
     # [REST](#tab/rest)
 
-    This step isn't required.
-
-
-1. Run the deployment:
-
-    # [Azure CLI](#tab/cli)
-   
-    ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_folder --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data)
-    ```
-
-    If your data is a file, change `--input-type uri_file`:
-
-    ```bash
-    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_file --input https://azuremlexampledata.blob.core.windows.net/data/heart-disease-uci/data/heart.csv)
-    ```
-
-    # [Python](#tab/sdk)
-   
-    ```python
-    job = ml_client.batch_endpoints.invoke(
-       endpoint_name=endpoint.name,
-       input=input,
-    )
-    ```
-
-   # [REST](#tab/rest)
-
-   __Request__
-    
-    ```http
-    POST jobs HTTP/1.1
-    Host: <ENDPOINT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-Type: application/json
-    ```
-    
     __Body__
 
    ```json
@@ -374,7 +345,43 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
        }
    }
    ```
-   ---
+
+1. Run the deployment:
+
+    # [Azure CLI](#tab/cli)
+    
+    If your data is a folder, use `--input-type uri_folder`:
+    
+    ```bash
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_folder --input $INPUT_DATA)
+    ```
+
+    If your data is a file, use `--input-type uri_file`:
+
+    ```bash
+    INVOKE_RESPONSE = $(az ml batch-endpoint invoke --name $ENDPOINT_NAME --input-type uri_file --input $INPUT_DATA)
+    ```
+
+    # [Python](#tab/sdk)
+   
+    ```python
+    job = ml_client.batch_endpoints.invoke(
+       endpoint_name=endpoint.name,
+       input=input,
+    )
+    ```
+
+    # [REST](#tab/rest)
+
+    __Request__
+    
+    ```http
+    POST jobs HTTP/1.1
+    Host: <ENDPOINT_URI>
+    Authorization: Bearer <TOKEN>
+    Content-Type: application/json
+    ```
+    
 
 ## Security considerations when reading data
 
@@ -390,10 +397,10 @@ Batch endpoints ensure that only authorized users are able to invoke batch deplo
 | Azure Data Lake Storage Gen1 | Not apply                       | Identity of the job + Managed identity of the compute cluster | POSIX             |
 | Azure Data Lake Storage Gen2 | Not apply                       | Identity of the job + Managed identity of the compute cluster | POSIX and RBAC    |
 
-The managed identity of the compute cluster is used for mounting and configuring the data store. That means that in order to successfully read data from external storage services, the managed identity of the compute cluster where the deployment is running must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
+The managed identity of the compute cluster is used for mounting and configuring external data storage accounts. However, the identity of the job is still used to read the underlying data allowing you to achieve granular access control. That means that in order to successfully read data from external storage services, the managed identity of the compute cluster where the deployment is running must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
 > [!NOTE]
-> To assign an identity to the compute used by a batch deployment, follow the instructions at [Set up authentication between Azure ML and other services](how-to-identity-based-service-authentication.md#compute-cluster). Configure the identity on the compute cluster associated with the deployment. Notice that all the jobs running on such compute are affected by this change. However, different deployments (even under the same deployment) can be configured to run under different clusters so you can administer the permissions accordingly depending on your requirements.
+> To assign an identity to the compute used by a batch deployment, follow the instructions at [Set up authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md#compute-cluster). Configure the identity on the compute cluster associated with the deployment. Notice that all the jobs running on such compute are affected by this change. However, different deployments (even under the same deployment) can be configured to run under different clusters so you can administer the permissions accordingly depending on your requirements.
 
 ## Next steps
 

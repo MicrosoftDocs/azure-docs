@@ -83,7 +83,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 
 - Only one Azure Functions app is available to a single static web app.
 - The `api_location` value in the [workflow configuration](./build-configuration.md) must be set to an empty string.
-- Only supported in the Static Web Apps production environment.
+- Not supported in Static Web Apps pull request environments.
 - While your Azure Functions app may respond to various triggers, the static web app can only access functions via Http endpoints.
 
 ## Next steps
