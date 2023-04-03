@@ -31,7 +31,7 @@ Use this option unless you need to create an app registration separately. It mak
 1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
 1. Select **Microsoft** in the identity provider dropdown. The option to create a new registration is selected by default. You can change the name of the registration or the supported account types.
 
-    A client secret will be created and stored as a slot-sticky [application setting](./configure-common.md#configure-app-settings) named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
+    A client secret will be created and stored as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
 
 1. If this is the first identity provider configured for the application, you will also be prompted with an **App Service authentication settings** section. Otherwise, you may move on to the next step.
     
@@ -103,7 +103,7 @@ To register the app, perform the following steps:
         |Issuer Url| Use `<authentication-endpoint>/<tenant-id>/v2.0`, and replace *\<authentication-endpoint>* with the [authentication endpoint for your cloud environment](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (e.g., "https://login.microsoftonline.com" for global Azure), also replacing *\<tenant-id>* with the **Directory (tenant) ID** in which the app registration was created. This value is used to redirect users to the correct Azure AD tenant, as well as to download the appropriate metadata to determine the appropriate token signing keys and token issuer claim value for example. For applications that use Azure AD v1, omit `/v2.0` in the URL.|
         |Allowed Token Audiences| The configured **Application (client) ID** is *always* implicitly considered to be an allowed audience. If this is a cloud or server app and you want to accept authentication tokens from a client App Service app (the authentication token can be retrieved in the [X-MS-TOKEN-AAD-ID-TOKEN](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code)) header, add the **Application (client) ID** of the client app here. |
     
-        The client secret will be stored as a slot-sticky [application setting](./configure-common.md#configure-app-settings) named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
+        The client secret will be stored as a slot-sticky [application setting] named `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
     
 1. If this is the first identity provider configured for the application, you will also be prompted with an **App Service authentication settings** section. Otherwise, you may move on to the next step.
     
@@ -113,7 +113,22 @@ To register the app, perform the following steps:
 
 You're now ready to use the Microsoft identity platform for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
-## Add customized authorization policy
+## Authorize requests
+
+By default, App Service Authentication only handles authentication, determining if the caller is who they say they are. Authorization, determining if that caller should have access to some resource, is an additional step beyond authentication. You can learn more about these concepts from [Microsoft identity platform authorization basics](../active-directory/develop/authorization-basics.md).
+
+Your app can [make authorization decisions in code](#perform-validations-from-application-code). App Service Authentication does provide some [built-in checks](#use-a-built-in-authorization-policy) which can help, but they may not alone be sufficient to cover the authorization needs of your app.
+
+> [!TIP]
+> Multi-tenant applications should validate the issuer and tenant ID of the request as part of this process to make sure the values are allowed. When App Service Authentication is configured for a multi-tenant scenario, it does not validate which tenant the request comes from. An app may need to be limited to specific tenants, based on if the organization has signed up for the service, for example. See the [Microsoft identity platform multi-tenant guidance](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md#update-your-code-to-handle-multiple-issuer-values).
+
+### Perform validations from application code
+
+When you perform authorization checks in your app code, you can leverage the [claims information that App Service Authentication makes available](./configure-authentication-user-identities.md#access-user-claims-in-app-code). The injected `x-ms-client-principal` header contains a Base64-encoded JSON object with the claims asserted about the caller. By default, these claims go through a claims mapping, so the claim names may not always match what you would see in the token. For example, the `tid` claim is mapped to `http://schemas.microsoft.com/identity/claims/tenantid` instead.
+
+You can also work directly with the underlying access token from the injected `x-ms-token-aad-access-token` header.
+
+### Use a built-in authorization policy
 
 The created app registration authenticates incoming requests for your Azure AD tenant. By default, it also lets anyone within the tenant to access the application, which is fine for many applications. However, some applications need to restrict access further by making authorization decisions. Your application code is often the best place to handle custom authorization logic. However, for common scenarios, the Microsoft identity platform provides built-in checks that you can use to limit access.
 
@@ -140,6 +155,8 @@ Within the API object, the Azure Active Directory identity provider configuratio
 | `allowedApplications`                    | An allowlist of string application **client IDs** representing the client resource that is calling into the app. When this property is configured as a nonempty array, only tokens obtained by an application specified in the list will be accepted.<br/><br/>This policy evaluates the `appid` or `azp` claim of the incoming token, which must be an access token. See the [Microsoft Identity Platform claims reference]. |
 | `allowedPrincipals`                      | A grouping of checks that determine if the principal represented by the incoming request may access the app. Satisfaction of `allowedPrincipals` is based on a logical `OR` over its configured properties. |
 | `identities` (under `allowedPrincipals`) | An allowlist of string **object IDs** representing users or applications that have access. When this property is configured as a nonempty array, the `allowedPrincipals` requirement can be satisfied if the user or application represented by the request is specified in the list.<br/><br/>This policy evaluates the `oid` claim of the incoming token. See the [Microsoft Identity Platform claims reference]. |
+
+Additionally, some checks can be configured through an [application setting], regardless of the API version being used. The `WEBSITE_AUTH_AAD_ALLOWED_TENANTS` application setting can be configured with a comma-separated list of up to 10 tenant IDs (e.g., "559a2f9c-c6f2-4d31-b8d6-5ad1a13f8330,5693f64a-3ad5-4be7-b846-e9d1141bcebc") to require that the incoming token is from one of the specified tenants, as specified by the `tid` claim. The `WEBSITE_AUTH_AAD_REQUIRE_CLIENT_SERVICE_PRINCIPAL` application setting can be configured to "true" or "1" to require the incoming token to include an `oid` claim. This setting is ignored and treated as true if `allowedPrincipals.identities` has been configured (since the `oid` claim is checked against this provided list of identities).
 
 Requests that fail these built-in checks are given an HTTP `403 Forbidden` response.
 
@@ -212,3 +229,4 @@ Regardless of the configuration you use to set up authentication, the following 
 <!-- URLs. -->
 
 [Azure portal]: https://portal.azure.com/
+[application setting]: ./configure-common.md#configure-app-settings

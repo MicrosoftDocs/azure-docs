@@ -4,6 +4,7 @@ description: Azure Resource Manager templates for Azure Front Door Web Applicati
 services: web-application-firewall
 author: johndowns
 ms.service: web-application-firewall
+ms.custom: devx-track-arm-template
 ms.topic: sample
 ms.date: 08/16/2022
 ms.author: jodowns

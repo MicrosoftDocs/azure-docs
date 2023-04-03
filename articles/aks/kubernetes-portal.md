@@ -2,18 +2,18 @@
 title: Access Kubernetes resources from the Azure portal
 description: Learn how to interact with Kubernetes resources to manage an Azure Kubernetes Service (AKS) cluster from the Azure portal.
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 03/30/2023
 ---
 
 # Access Kubernetes resources from the Azure portal
 
 The Azure portal includes a Kubernetes resource view for easy access to the Kubernetes resources in your Azure Kubernetes Service (AKS) cluster. Viewing Kubernetes resources from the Azure portal reduces context switching between the Azure portal and the `kubectl` command-line tool, streamlining the experience for viewing and editing your Kubernetes resources. The resource viewer currently includes multiple resource types, such as deployments, pods, and replica sets.
 
-The Kubernetes resource view from the Azure portal replaces the AKS dashboard add-on, which is deprecated.
+The Kubernetes resource view from the Azure portal replaces the deprecated AKS dashboard add-on.
 
 ## Prerequisites
 
-To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][aks-quickstart-portal] to create a new AKS cluster.
+To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if you're using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade]. You can also [use the Azure portal][aks-quickstart-portal] to create a new AKS cluster.
 
 ## View Kubernetes resources
 
@@ -31,17 +31,23 @@ To see the Kubernetes resources, navigate to your AKS cluster in the Azure porta
 
 In this example, we'll use our sample AKS cluster to deploy the Azure Vote application from the [AKS quickstart][aks-quickstart-portal].
 
-1. Select **Add** from any of the resource views (Namespace, Workloads, Services and ingresses, Storage, or Configuration).
-1. Paste the YAML for the Azure Vote application from the [AKS quickstart][aks-quickstart-portal].
-1. Select **Add** at the bottom of the YAML editor to deploy the application.
+1. From the **Services and ingresses** resource view, select **Create** > **Starter application**.
+2. Under **Create a basic web application**, select **Create**.
+3. On the **Application details** page, select **Next**.
+4. On the **Review YAML** page, select **Deploy**.
 
-Once the YAML file is added, the resource viewer shows both Kubernetes services that were created: the internal service (azure-vote-back), and the external service (azure-vote-front) to access the Azure Vote application. The external service includes a linked external IP address so you can easily view the application in your browser.
+Once the application is deployed, the resource view shows the two Kubernetes services:
+
+- **azure-vote-back**: The internal service.
+- **azure-vote-front**: The external service, which includes a linked external IP address so you can view the application in your browser.
 
 :::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Azure Vote application information displayed in the Azure portal." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### Monitor deployment insights
 
-AKS clusters with [Container insights][enable-monitor] enabled can quickly view deployment and other insights. From the Kubernetes resources view, users can see the live status of individual deployments, including CPU and memory usage, as well as transition to Azure monitor for more in-depth information about specific nodes and containers. Here's an example of deployment insights from a sample AKS cluster:
+AKS clusters with [Container insights][enable-monitor] enabled can quickly view deployment and other insights. From the Kubernetes resources view, you can see the live status of individual deployments, including CPU and memory usage. You can also go to Azure Monitor for more in-depth information about specific nodes and containers.
+
+Here's an example of deployment insights from a sample AKS cluster:
 
 :::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Deployment insights displayed in the Azure portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
@@ -51,10 +57,14 @@ The Kubernetes resource view also includes a YAML editor. A built-in YAML editor
 
 :::image type="content" source="media/kubernetes-portal/service-editor.png" alt-text="YAML editor for a Kubernetes service displayed in the Azure portal.":::
 
-After editing the YAML, changes are applied by selecting **Review + save**, confirming the changes, and then saving again.
+To edit a YAML file for one of your resources, see the following steps:
+
+1. Navigate to your resource in the Azure portal.
+2. Select **YAML** and make your desired edits.
+3. Select **Review + save** > **Confirm manifest changes** > **Save**.
 
 >[!WARNING]
-> Performing direct production changes via UI or CLI is not recommended, you should leverage [continuous integration (CI) and continuous deployment (CD) best practices](kubernetes-action.md). The Azure Portal Kubernetes management capabilities and the YAML editor are built for learning and flighting new deployments in a development and testing setting.
+> We don't recommend performing direct production changes via UI or CLI. Instead, you should leverage [continuous integration (CI) and continuous deployment (CD) best practices](kubernetes-action.md). The Azure portal Kubernetes management capabilities, such as the YAML editor, are built for learning and flighting new deployments in a development and testing setting.
 
 ## Troubleshooting
 
@@ -65,7 +75,7 @@ This section addresses common problems and troubleshooting steps.
 To access the Kubernetes resources, you must have access to the AKS cluster, the Kubernetes API, and the Kubernetes objects. Ensure that you're either a cluster administrator or a user with the appropriate permissions to access the AKS cluster. For more information on cluster security, see [Access and identity options for AKS][concepts-identity].
 
 >[!NOTE]
-> The kubernetes resource view in the Azure Portal is only supported by [managed-AAD enabled clusters](managed-aad.md) or non-AAD enabled clusters. If you are using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the kubernetes API, in addition to the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
+> The Kubernetes resource view in the Azure portal is only supported by [managed-AAD enabled clusters](managed-aad.md) or non-AAD enabled clusters. If you're using a managed-AAD enabled cluster, your AAD user or identity needs to have the respective roles/role bindings to access the Kubernetes API and the permission to pull the [user `kubeconfig`](control-kubeconfig-access.md).
 
 ### Enable resource view
 
@@ -74,7 +84,7 @@ For existing clusters, you may need to enable the Kubernetes resource view. To e
 ### [Azure CLI](#tab/azure-cli)
 
 > [!TIP]
-> The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. Another option for such clusters is updating `--api-server-authorized-ip-ranges` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with below command or by searching "what is my IP address" in an internet browser.
+> You can add the AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) to limit API server access to only the firewall's public endpoint. Another option is to update the `-ApiServerAccessAuthorizedIpRange` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with the following command or you can search "what is my IP address" in your browser.
 
 ```bash
 # Retrieve your IP address
@@ -89,7 +99,7 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 ### [Azure PowerShell](#tab/azure-powershell) 
 
 > [!TIP]
-> The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. Another option for such clusters is updating `-ApiServerAccessAuthorizedIpRange` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with below command or by searching "what is my IP address" in an internet browser.
+> You can add the AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) to limit API server access to only the firewall's public endpoint. Another option is to update the `-ApiServerAccessAuthorizedIpRange` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with the following command or you can search "what is my IP address" in your browser.
 
 ```azurepowershell
 # Retrieve your IP address
@@ -103,12 +113,11 @@ Set-AzAksCluster -ResourceGroupName $RG -Name $AKSNAME -ApiServerAccessAuthorize
 
 ## Next steps
 
-This article showed you how to access Kubernetes resources for your AKS cluster. See [Deployments and YAML manifests][deployments] for a deeper understanding of cluster resources and the YAML files that are accessed with the Kubernetes resource viewer.
+This article showed you how to access Kubernetes resources from the Azure portal. For more information on cluster resources, see [Deployments and YAML manifests][deployments].
 
 <!-- LINKS - internal -->
 [concepts-identity]: concepts-identity.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-managed-aad]: managed-aad.md
 [cli-aad-upgrade]: managed-aad.md#upgrade-to-aks-managed-azure-ad-integration

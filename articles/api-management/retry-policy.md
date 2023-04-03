@@ -36,12 +36,12 @@ The `retry` policy executes its child policies once and then retries their execu
 
 | Attribute        | Description                                                                                                                                           | Required | Default |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condition        | A Boolean literal or [expression](api-management-policy-expressions.md) specifying if retries should be stopped (`false`) or continued (`true`).      | Yes      | N/A     |
-| count            | A positive number specifying the maximum number of retries to attempt.                                                                                | Yes      | N/A     |
-| interval         | A positive number in seconds specifying the wait interval between the retry attempts.                                                                 | Yes      | N/A     |
-| max-interval     | A positive number in seconds specifying the maximum wait interval between the retry attempts. It is used to implement an exponential retry algorithm. | No       | N/A     |
-| delta            | A positive number in seconds specifying the wait interval increment. It is used to implement the linear and exponential retry algorithms.             | No       | N/A     |
-| first-fast-retry | If set to `true` , the first retry attempt is performed immediately.                                                                                  | No       | `false` |
+| condition        | Boolean. Specifies whether retries should be stopped (`false`) or continued (`true`). Policy expressions are allowed.     | Yes      | N/A     |
+| count            | A positive number specifying the maximum number of retries to attempt. Policy expressions are allowed.                                                                               | Yes      | N/A     |
+| interval         | A positive number in seconds specifying the wait interval between the retry attempts. Policy expressions are allowed.                                                                 | Yes      | N/A     |
+| max-interval     | A positive number in seconds specifying the maximum wait interval between the retry attempts. It is used to implement an exponential retry algorithm. Policy expressions are allowed. | No       | N/A     |
+| delta            | A positive number in seconds specifying the wait interval increment. It is used to implement the linear and exponential retry algorithms. Policy expressions are allowed.             | No       | N/A     |
+| first-fast-retry | Boolean. If set to `true`, the first retry attempt is performed immediately. Policy expressions are allowed.                                                                                  | No       | `false` |
 
 ## Retry wait times
 

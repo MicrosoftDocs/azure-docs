@@ -26,7 +26,7 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 * The `aks-preview` extension 0.5.29 or higher.
 * If using Azure Resource Manager (ARM) or the Azure REST API, the AKS API version must be 2021-05-01 or higher.
 * Azure Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, add the Azure public IP address 168.63.129.16 as the upstream DNS server in the custom DNS server. For more information about the Azure IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
+* To use a custom DNS server, add the Azure public IP address 168.63.129.16 as the upstream DNS server in the custom DNS server, and make sure to add this public IP address as the *first* DNS server. For more information about the Azure IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
 
 ## Limitations
 
@@ -150,8 +150,7 @@ Virtual network peering is one way to access your private cluster. To use virtua
 1. In the Azure portal, navigate to the resource group that contains your cluster's virtual network.  
 1. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 1. In the left pane, select **Peerings**.  
-1. Select **Add**, add the virtual network of the VM, and then create the peering.  
-1. Go to the virtual network where you have the VM and select **Peerings**. Select the AKS virtual network, and then create the peering. If the address ranges on the AKS virtual network and the VM's virtual network clash, peering fails. For more information, see  [Virtual network peering][virtual-network-peering].
+1. Select **Add**, add the virtual network of the VM, and then create the peering. For more information, see  [Virtual network peering][virtual-network-peering].
 
 ## Hub and spoke with custom DNS
 

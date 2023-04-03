@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/23/2023
+ms.date: 03/29/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -58,22 +58,21 @@ There are four different mapping types supported:
 
 - **Direct** – the target attribute is populated with the value of an attribute of the linked object in Azure AD.
 - **Constant** – the target attribute is populated with a specific string you specified.
-- **Expression** - the target attribute is populated based on the result of a script-like expression.
-  For more information, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
+- **Expression** - the target attribute is populated based on the result of a script-like expression. For more information about expressions, see [Writing Expressions for Attribute-Mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 - **None** - the target attribute is left unmodified. However, if the target attribute is ever empty, it's populated with the Default value that you specify.
 
 Along with these four basic types, custom attribute-mappings support the concept of an optional **default** value assignment. The default value assignment ensures that a target attribute is populated with a value if there's not a value in Azure AD or on the target object. The most common configuration is to leave this blank.
 
 ### Understanding attribute-mapping properties
 
-In the previous section, you were already introduced to the attribute-mapping type property.
-Along with this property, attribute-mappings also support the following attributes:
+In the previous section, you were introduced to the attribute-mapping type property.
+Along with this property, attribute-mappings also supports the attributes:
 
 - **Source attribute** - The user attribute from the source system (example: Azure Active Directory).
 - **Target attribute** – The user attribute in the target system (example: ServiceNow).
-- **Default value if null (optional)** - The value that is passed to the target system if the source attribute is null. This value is only provisioned when a user is created. The "default value when null" won't be provisioned when updating an existing user. If for example, you provision all existing users in the target system with a particular Job Title (when it's null in the source system), you'll use the following [expression](../app-provisioning/functions-for-customizing-application-data.md): Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Make sure to replace the "Default Value" with the value to provision when null in the source system. 
+- **Default value if null (optional)** - The value that is passed to the target system if the source attribute is null. This value is only provisioned when a user is created. The "default value when null" isn't provisioned when updating an existing user. For example, add a default value for job title, when creating a user, with the expression: `Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle])`. For more information about expressions, see [Reference for writing expressions for attribute mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 - **Match objects using this attribute** – Whether this mapping should be used to uniquely identify users between the source and target systems. It's typically set on the userPrincipalName or mail attribute in Azure AD, which is typically mapped to a username field in a target application.
-- **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they're evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated. While you can set as many matching attributes as you would like, consider whether the attributes you're using as matching attributes are truly unique and need to be matching attributes. Generally customers have 1 or 2 matching attributes in their configuration. 
+- **Matching precedence** – Multiple matching attributes can be set. When there are multiple, they're evaluated in the order defined by this field. As soon as a match is found, no further matching attributes are evaluated. While you can set as many matching attributes as you would like, consider whether the attributes you're using as matching attributes are truly unique and need to be matching attributes. Generally customers have one or two matching attributes in their configuration. 
 - **Apply this mapping**
   - **Always** – Apply this mapping on both user creation and update actions.
   - **Only during creation** - Apply this mapping only on user creation actions.
@@ -82,7 +81,7 @@ Along with this property, attribute-mappings also support the following attribut
 The Azure AD provisioning service can be deployed in both "green field" scenarios (where users don't exist in the target system) and "brownfield" scenarios (where users already exist in the target system). To support both scenarios, the provisioning service uses the concept of matching attributes. Matching attributes allow you to determine how to uniquely identify a user in the source and match the user in the target. As part of planning your deployment, identify the attribute that can be used to uniquely identify a user in the source and target systems. Things to note:
 
 - **Matching attributes should be unique:** Customers often use attributes such as userPrincipalName, mail, or object ID as the matching attribute.
-- **Multiple attributes can be used as matching attributes:** You can define multiple attributes to be evaluated when matching users and the order in which they're evaluated (defined as matching precedence in the UI). If for example, you define three attributes as matching attributes, and a user is uniquely matched after evaluating the first two attributes, the service won't evaluate the third attribute. The service will evaluate matching attributes in the order specified and stop evaluating when a match is found.  
+- **Multiple attributes can be used as matching attributes:** You can define multiple attributes to be evaluated when matching users and the order in which they're evaluated (defined as matching precedence in the UI). If for example, you define three attributes as matching attributes, and a user is uniquely matched after evaluating the first two attributes, the service won't evaluate the third attribute. The service evaluates matching attributes in the order specified and stops evaluating when a match is found.  
 - **The value in the source and the target don't have to match exactly:** The value in the target can be a function of the value in the source. So, one could have an emailAddress attribute in the source and the userPrincipalName in the target, and match by a function of the emailAddress attribute that replaces some characters with some constant value.  
 - **Matching based on a combination of attributes isn't supported:** Most applications don't support querying based on two properties. Therefore, it's not possible to match based on a combination of attributes. It's possible to evaluate single properties on after another.
 - **All users must have a value for at least one matching attribute:** If you define one matching attribute, all users must have a value for that attribute in the source system. If for example, you define userPrincipalName as the matching attribute, all users must have a userPrincipalName. If you define multiple matching attributes (for example, both extensionAttribute1 and mail), not all users have to have the same matching attribute. One user could have a extensionAttribute1 but not mail while another user could have mail but no extensionAttribute1. 
@@ -113,13 +112,13 @@ Applications and systems that support customization of the attribute list includ
 - ServiceNow
 - Workday to Active Directory / Workday to Azure Active Directory
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
-- Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported). Learn more about [creating extensions](./user-provisioning-sync-attributes-for-mapping.md) and [known limitations](./known-issues.md). 
+- Azure Active Directory ([Azure AD Graph API default attributes](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) and custom directory extensions are supported). For more information about creating extensions, see [Syncing extension attributes for Azure Active Directory Application Provisioning](./user-provisioning-sync-attributes-for-mapping.md) and [Known issues for provisioning in Azure Active Directory](./known-issues.md). 
 - Apps that support [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
-- For Azure Active Directory writeback to Workday or SuccessFactors, it's supported to update relevant metadata for supported attributes (XPATH and JSONPath), but isn't supported to add new Workday or SuccessFactors attributes beyond those included in the default schema
+- Azure Active Directory supports writeback to Workday or SuccessFactors for XPATH and JSONPath metadata. Azure Active Directory doesn't support new Workday or SuccessFactors attributes not included in the default schema.
 
 
 > [!NOTE]
-> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the attribute list as described [above](#editing-the-list-of-supported-attributes). 
+> Editing the list of supported attributes is only recommended for administrators who have customized the schema of their applications and systems, and have first-hand knowledge of how their custom attributes have been defined or if a source attribute isn't automatically displayed in the Azure Portal UI. This sometimes requires familiarity with the APIs and developer tools provided by an application or system. The ability to edit the list of supported attributes is locked down by default, but customers can enable the capability by navigating to the following URL: https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true . You can then navigate to your application to view the [attribute list](#editing-the-list-of-supported-attributes). 
 
 > [!NOTE]
 > When a directory extension attribute in Azure AD doesn't show up automatically in your attribute mapping drop-down, you can manually add it to the "Azure AD attribute list".  When manually adding Azure AD directory extension attributes to your provisioning app, note that directory extension attribute names are case-sensitive. For example: If you have a directory extension attribute named `extension_53c9e2c0exxxxxxxxxxxxxxxx_acmeCostCenter`, make sure you enter it in the same format as defined in the directory.     
@@ -139,7 +138,7 @@ When you're editing the list of supported attributes, the following properties a
 - **Multi-value?** - Whether the attribute supports multiple values.
 - **Exact case?** - Whether the attributes values are evaluated in a case-sensitive way.
 - **API Expression** - Don't use, unless instructed to do so by the documentation for a specific provisioning connector (such as Workday).
-- **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and currently can't be edited using the Azure portal, but can be edited using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
+- **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are preconfigured and can't be edited using the Azure portal. However, you can edit them using the [Microsoft Graph API](/graph/api/resources/synchronization-configure-with-custom-target-attributes).
 
 #### Provisioning a custom extension attribute to a SCIM compliant application
 The SCIM RFC defines a core user and group schema, while also allowing for extensions to the schema to meet your application's needs. To add a custom attribute to a SCIM application:
@@ -149,11 +148,11 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
    4. Select **Edit attribute list for AppName**.
    5. At the bottom of the attribute list, enter information about the custom attribute in the fields provided. Then select **Add Attribute**.
 
-For SCIM applications, the attribute name must follow the pattern shown in the example below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
+For SCIM applications, the attribute name must follow the pattern shown in the example. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example: urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
 These instructions are only applicable to SCIM-enabled applications. Applications such as ServiceNow and Salesforce aren't integrated with Azure AD using SCIM, and therefore they don't require this specific namespace when adding a custom attribute.
 
-Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery. The custom extension schema header is omitted in the example because it isn't sent in requests from the Azure AD SCIM client. This issue will be fixed in the future and the header will be sent in the request.  
+Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery. The custom extension schema header is omitted in the example because it isn't sent in requests from the Azure AD SCIM client. 
  
 **Example representation of a user with an extension attribute:**
 
@@ -197,17 +196,17 @@ Custom attributes can't be referential attributes, multi-value or complex-typed 
 
 
 ## Provisioning a role to a SCIM app
-Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
+Use the steps in the example to provision roles for a user to your application. The description is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the predefined role mappings. The bullets describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
 - Mapping an appRoleAssignment in Azure AD to a role in your application requires that you transform the attribute using an [expression](../app-provisioning/functions-for-customizing-application-data.md). The appRoleAssignment attribute **shouldn't be mapped directly** to a role attribute without using an expression to parse the role details. 
 
 - **SingleAppRoleAssignment** 
   - **When to use:** Use the SingleAppRoleAssignment expression to provision a single role for a user and to specify the primary role. 
-  - **How to configure:** Use the steps described above to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (`roles[primary eq "True"].display`, `roles[primary eq "True"].type`, and `roles[primary eq "True"].value`). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.
+  - **How to configure:** Use the steps described to navigate to the attribute mappings page and use the SingleAppRoleAssignment expression to map to the roles attribute. There are three role attributes to choose from (`roles[primary eq "True"].display`, `roles[primary eq "True"].type`, and `roles[primary eq "True"].value`). You can choose to include any or all of the role attributes in your mappings. If you would like to include more than one, just add a new mapping and include it as the target attribute.
 
   ![Add SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Things to consider**
-    - Ensure that multiple roles aren't assigned to a user. We can't guarantee which role will be provisioned.
+    - Ensure that multiple roles aren't assigned to a user. There's no guarantee which role is provisioned.
     - SingleAppRoleAssignments isn't compatible with setting scope to "Sync All users and groups." 
   - **Example request (POST)** 
 
@@ -250,15 +249,15 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
 
 - **AppRoleAssignmentsComplex** 
   - **When to use:** Use the AppRoleAssignmentsComplex expression to provision multiple roles for a user. 
-  - **How to configure:** Edit the list of supported attributes as described above to include a new attribute for roles: 
+  - **How to configure:** Edit the list of supported attributes as described to include a new attribute for roles: 
   
     ![Add roles](./media/customize-application-attributes/add-roles.png)<br>
 
-    Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image below:
+    Then use the AppRoleAssignmentsComplex expression to map to the custom role attribute as shown in the image:
 
     ![Add AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Things to consider**
-    - All roles will be provisioned as primary = false.
+    - All roles are provisioned as primary = false.
     - The POST contains the role type. The PATCH request doesn't contain type. We're working on sending the type in both POST and PATCH requests.
     - AppRoleAssignmentsComplex isn't compatible with setting scope to "Sync All users and groups." 
     
@@ -297,7 +296,7 @@ The request formats in the PATCH and POST differ. To ensure that POST and PATCH 
 
 
 ## Provisioning a multi-value attribute
-Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression below for multi-value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
+Certain attributes such as phoneNumbers and emails are multi-value attributes where you may need to specify different types of phone numbers or emails. Use the expression for multi-value attributes. It allows you to specify the attribute type and map that to the corresponding Azure AD user attribute for the value. 
 
 * phoneNumbers[type eq "work"].value
 * phoneNumbers[type eq "mobile"].value
@@ -322,9 +321,9 @@ Certain attributes such as phoneNumbers and emails are multi-value attributes wh
 
 ## Restoring the default attributes and attribute-mappings
 
-Should you need to start over and reset your existing mappings back to their default state, you can select the **Restore default mappings** check box and save the configuration. Doing so sets all mappings and scoping filters as if the application was just added to your Azure AD tenant from the application gallery.
+Should you need to start over and reset your existing mappings back to their default state, you can select the **Restore default mappings** check box and save the configuration. Doing so sets all mappings and scoping filters as if the application was added to your Azure AD tenant from the application gallery.
 
-Selecting this option will effectively force a resynchronization of all users while the provisioning service is running.
+Selecting this option forces a resynchronization of all users while the provisioning service is running.
 
 > [!IMPORTANT]
 > We strongly recommend that **Provisioning status** be set to **Off** before invoking this option.
@@ -335,10 +334,10 @@ Selecting this option will effectively force a resynchronization of all users wh
 - Updating attribute-mappings has an impact on the performance of a synchronization cycle. An update to the attribute-mapping configuration requires all managed objects to be reevaluated.
 - A recommended best practice is to keep the number of consecutive changes to your attribute-mappings at a minimum.
 - Adding a photo attribute to be provisioned to an app isn't supported today as you can't specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
-- The attribute IsSoftDeleted is often part of the default mappings for an application. IsSoftdeleted can be true in one of four scenarios (the user is out of scope due to being unassigned from the application, the user is out of scope due to not meeting a scoping filter, the user has been soft deleted in Azure AD, or the property AccountEnabled is set to false on the user). It's not recommended to remove the IsSoftDeleted attribute from your attribute mappings.
+- The attribute `IsSoftDeleted` is often part of the default mappings for an application. `IsSoftdeleted` can be true in one of four scenarios: 1) The user is out of scope due to being unassigned from the application. 2) The user is out of scope due to not meeting a scoping filter. 3) The user has been soft deleted in Azure AD. 4) The property `AccountEnabled` is set to false on the user. It's not recommended to remove the `IsSoftDeleted` attribute from your attribute mappings.
 - The Azure AD provisioning service doesn't support provisioning null values.
 - They primary key, typically "ID", shouldn't be included as a target attribute in your attribute mappings. 
-- The role attribute typically needs to be mapped using an expression, rather than a direct mapping. See section above for more details on role mapping. 
+- The role attribute typically needs to be mapped using an expression, rather than a direct mapping. For more information about role mapping, see [Provisioning a role to a SCIM app](#Provisioning a role to a SCIM app). 
 - While you can disable groups from your mappings, disabling users isn't supported. 
 
 ## Next steps

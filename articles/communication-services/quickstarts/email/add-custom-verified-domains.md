@@ -6,14 +6,11 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Quickstart: How to add custom verified domains to Email Communication Service
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quick start, you'll learn about how to add a custom domain and verify in Azure Communication Services to send email.
 
@@ -76,7 +73,7 @@ To provision a custom domain you need to
     :::image type="content" source="./media/email-domains-custom-verify-progress.png" alt-text="Screenshot that shows the domain verification is in progress.":::
 15. Once your domain is verified, you can add your SPF and DKIM records to authenticate your domains. 
 
-    :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Screenshot that shows the the custom domain is verified." lightbox="media/email-domains-custom-verified-expanded.png":::
+    :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Screenshot that shows the custom domain is verified." lightbox="media/email-domains-custom-verified-expanded.png":::
 
 
 ### Configure sender authentication for custom domain

@@ -47,6 +47,8 @@
           href: quickstart-helm.md
         - name: Develop with Dapr
           href: quickstart-dapr.md
+        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
+          href: draft-devx-extension-aks.md
     - name: Subscribe to AKS events with Event Grid
       href: quickstart-event-grid.md
 - name: Tutorials
@@ -201,7 +203,7 @@
           href: cluster-container-registry-integration.md
         - name: Use Vertical Pod Autoscaler
           href: vertical-pod-autoscaler.md
-        - name: Metrics Server VPA Throttling
+        - name: Configure Metrics Server VPA
           href: use-metrics-server-vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
@@ -221,8 +223,6 @@
           href: free-standard-pricing-tiers.md
         - name: Use Draft (preview)
           href: draft.md
-        - name: Use Draft and the DevX extension for Visual Studio Code (preview)
-          href: draft-devx-extension-aks.md
         - name: Use proximity placement groups
           href: reduce-latency-ppg.md
         - name: Upgrade the node image
@@ -593,8 +593,6 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-        - name: Deployment Center Launcher
-          href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
         - name: Configure automated deployments (preview)
