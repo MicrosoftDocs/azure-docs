@@ -49,10 +49,12 @@ Flow logs are the source of truth for all network activity in your cloud environ
 
 Key properties of VNet flow logs include:
 
-- Flow logs operate at Layer 4 of the Open Systems Interconnection (OSI) model and record all IP flows going in and out of a virtual network.
+- Flow logs operate at Layer 4 of the Open Systems Interconnection (OSI) model and record all IP flows going through a virtual network.
 - Logs are collected at 1-minute intervals through the Azure platform and don't affect your Azure resources or network traffic.
 - Logs are written in the JSON (JavaScript Object Notation) format 
-- Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, traffic direction, flow state, encryption state & throughput information. See [Log Format](#log-format) for more details.
+- Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, traffic direction, flow state, encryption state & throughput information.
+- All traffic flows in your network are evaluated through the rules in the applicable network security group (NSG) rules (../virtual-network/network-security-groups-overview.md) or AVNM security admin rules (../virtual-network-manager/concept-security-admins.md)
+-   See [Log Format](#log-format) for more details.
 
 ## Log format
 
@@ -70,7 +72,7 @@ VNet flow logs have the following properties:
 - `operationName`: Always `FlowLogFlowEvent`. 
 - `flowRecords`: Collection of flow records.
 	- `flows`: Collection of flows. This property has multiple entries for different ACLs. 
-		- `aclID`: GUID that identifies the network security group resource. For cases like traffic denied by encryption, this value is `unspecified`.
+		- `aclID`: Identifier of the resource evaluating traffic, either a network security group or Virtual Network Manager. For cases like traffic denied by encryption, this value is `unspecified`.
 		- `flowGroups`: Collection of flow records at a rule level. 
 			- `rule`: Name of the rule that allowed or denied the traffic. For traffic denied due to encryption, this value is `unspecified`. 
 			- `flowTuples`: string that contains multiple properties for the flow tuple in a comma-separated format:
