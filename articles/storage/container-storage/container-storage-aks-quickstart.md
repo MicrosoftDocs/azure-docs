@@ -180,9 +180,9 @@ spec:
 
 3. Apply the yaml file to create the storage pool.
 
-```azurecli-interactive
-kubectl apply -f acstor-storagepool.yaml 
-```
+   ```azurecli-interactive
+   kubectl apply -f acstor-storagepool.yaml 
+   ```
 
 When storage pool creation is complete, you'll see a message like:
 
@@ -231,9 +231,9 @@ spec:
 
 3. Apply the yaml file to create the persistent volume claim.
 
-```azurecli-interactive
-kubectl apply -f acstor-pvc.yaml
-```
+   ```azurecli-interactive
+   kubectl apply -f acstor-pvc.yaml
+   ```
 
 You should see output similar to:
 
@@ -282,28 +282,28 @@ spec:
 
 3. Apply the yaml file to deploy the pod.
 
-```azurecli-interactive
-kubectl apply -f acstor-pod.yaml
-```
+   ```azurecli-interactive
+   kubectl apply -f acstor-pod.yaml
+   ```
 
-You should see output similar to the following:
+   You should see output similar to the following:
 
-```output
-pod/fiopod created
-```
+   ```output
+   pod/fiopod created
+   ```
 
 4. Check that the pod is running and that the persistent volume claim has been bound successfully to the pod:
 
-```azurecli-interactive
-kubectl describe pod fiopod
-kubectl describe pvc azurediskpvc
-```
+   ```azurecli-interactive
+   kubectl describe pod fiopod
+   kubectl describe pvc azurediskpvc
+   ```
 
 5. Check fio testing to see its current status:
 
-```azurecli-interactive
-kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
-```
+   ```azurecli-interactive
+   kubectl exec -it fiopod -- fio --name=benchtest --size=800m --filename=/volume/test --direct=1 --rw=randrw --ioengine=libaio --bs=4k --iodepth=16 --numjobs=8 --time_based --runtime=60
+   ```
 
 You now have a pod with storage that you can use for your Kubernetes workloads.
 
