@@ -41,7 +41,7 @@ Check the following conditions:
 
 ## Delete the organization
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the global administrator for your organization.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an account that is the Global Administrator for your organization.
 1. Select **Azure Active Directory**.
 1. On a tenant's **Overview** page, select **Manage tenants**.
   
@@ -93,7 +93,7 @@ You can use the Microsoft admin center to put a subscription into the **Deprovis
 
    Now the subscription state has changed to **Disabled**, and the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
-1. After you've deleted a subscription in your organization and 72 hours have elapsed, sign in to the Azure AD admin center again. Confirm that no required actions or subscriptions are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
+1. After you've deleted a subscription in your organization and 72 hours have elapsed, sign in to the Azure portal again. Confirm that no required actions or subscriptions are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
   
    ![Screenshot that shows resources that have passed a subscription check.](./media/directory-delete-howto/delete-checks-passed.png)
    
@@ -135,7 +135,9 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
 5. Run the following commands to set the tenant context.  DO NOT skip these steps or you run the risk of deleting enterprise apps from the wrong teant.
 
    `Clear-AzContext -Scope CurrentUser`
+
    `Connect-AzAccount -Tenant \<object id of the tenant you are attempting to delete\>`
+   
    `Get-AzContext`
 
     >[!WARNING]
@@ -181,9 +183,10 @@ Product state | Data | Access to data
 
 ## Delete a self-service sign-up product
 
-You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Azure AD portal:
+You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Azure portal:
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
+1. Browse to **Azure Active Directory**.
 
 1. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product that you want to permanently delete. Here's an example in Microsoft Power BI:
 
@@ -201,7 +204,7 @@ You can put a self-service sign-up product like Microsoft Power BI or Azure RMS 
 
     ![Screenshot that shows the list of self-service sign-up products and a pane that confirms the deletion of a self-service sign-up product.](./media/directory-delete-howto/product-deleted.png)
 
-1. After you've deleted all the products, sign in to the Azure AD admin center again. Confirm that no required actions or products are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
+1. After you've deleted all the products, sign in to the Azure portal again. Confirm that no required actions or products are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
 
     ![Screenshot that shows status information for resources.](./media/directory-delete-howto/delete-checks-passed.png)
 

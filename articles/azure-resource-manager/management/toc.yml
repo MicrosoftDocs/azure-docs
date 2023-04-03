@@ -53,6 +53,8 @@
           href: ../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Classic deployment
           href: ./move-limitations/classic-model-move-limitations.md
+        - name: Cloud Services (extended support)
+          href: ./move-limitations/cloud-services-extended-support.md
         - name: Networking
           href: ./move-limitations/networking-move-limitations.md
         - name: Recovery Services
@@ -150,6 +152,9 @@
     - name: Azure PowerShell
       displayName: create,list,open,delete,deploy,move,lock,tag,export
       href: manage-resource-groups-powershell.md
+    - name: Python
+      displayName: create,list,open,delete,deploy,move,lock,tag,export
+      href: manage-resource-groups-python.md
   - name: Manage resources
     items:
     - name: Azure portal

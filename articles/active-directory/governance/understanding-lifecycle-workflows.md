@@ -3,7 +3,7 @@ title: 'Understanding lifecycle workflows'
 description: Describes an overview of Lifecycle workflows and the various parts.
 services: active-directory
 author: owinfreyATL
-manager: billmath
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -25,7 +25,7 @@ The following document provides an overview of a workflow created using Lifecycl
 
 ## Permissions and Roles
 
-For a full list of supported delegate and application permissions required to use Lifecycle Workflows, see: [Lifecycle workflows permissions](/graph/permissions-reference#lifecycle-workflows-permissions).
+For a full list of supported delegated and application permissions required to use Lifecycle Workflows, see: [Lifecycle workflows permissions](/graph/permissions-reference#lifecycle-workflows-permissions).
 
 For delegated scenarios, the admin needs one of the following [Azure AD roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles):
 
@@ -33,21 +33,21 @@ For delegated scenarios, the admin needs one of the following [Azure AD roles](/
 - Global reader
 - Lifecycle workflows administrator
 
-## Restrictions
+## Limits
 
 
-|Column1  |Limit  |
+|Category  |Limit  |
 |---------|---------|
 |Number of Workflows     |   50 per tenant      |
 |Number of Tasks     |  25 per workflow       |
 |Number of Custom Task Extensions     |  100 per tenant       |
-|offsetInDays range of triggerAndScopeBasedConditions executionConditions     |  60 days       |
+|offsetInDays range of triggerAndScopeBasedConditions executionConditions     |  180 days       |
 |Workflow schedule interval in hours     |   1-24 hours      |
 |Number of users per on-demand selection	     |  10       |
 |durationBeforeTimeout range of custom task extensions     |   5 minutes-3 hours      |
 
 > [!NOTE]
-> If creating, or updating, a workflow via API the offsetInDays range will be between -60-60 days. The negative value will signal happening before the timeBasedAttribute, while the positive value will signal happening afterwards.
+> If creating, or updating, a workflow via API the offsetInDays range will be between -180-180 days. The negative value will signal happening before the timeBasedAttribute, while the positive value will signal happening afterwards.
 
 ## Parts of a workflow 
 
@@ -133,7 +133,7 @@ After selecting a template, on the basics screen:
 
 ## Trigger details
 
-The trigger of a workflow defines when a scheduled workflow will run for users in scope for the workflow. The trigger is a combination of a time-based attribute, and an offset value.  For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -60 and 60 days. 
+The trigger of a workflow defines when a scheduled workflow will run for users in scope for the workflow. The trigger is a combination of a time-based attribute, and an offset value.  For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -180 and 180 days. 
 
 The time-based attribute can be either one of two values, which are automatically chosen based on the template in which you select during the creation of your workflow. The two values can be:
 
@@ -167,6 +167,9 @@ While newly created workflows are enabled by default, scheduling is an option th
 Once scheduling is enabled, the workflow will be evaluated every three hours to determine whether or not it should run based on the execution conditions.
 
  [![Workflow template schedule.](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
+
+>[!NOTE]
+> For a particular user and workflow version, the scheduled workflow execution is performed only once every 30 days. Also, the execution of on-demand workflows of a particular workflow version in the last 30 days results in the scheduled workflow execution not taking place for a particular user.
 
 To view a detailed guide on scheduling a workflow, see: [Customize the schedule of workflows](customize-workflow-schedule.md).
 

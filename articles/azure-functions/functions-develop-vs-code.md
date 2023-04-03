@@ -77,9 +77,9 @@ These prerequisites are only required to [run and debug your functions locally](
 
 * The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
 
-* [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
+* [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-* Both [.NET Core 3.1 runtime](https://dotnet.microsoft.com/download) and [.NET Core 2.1 runtime](https://dotnet.microsoft.com/download/dotnet/2.1).  
+* [.NET 6.0 runtime](https://dotnet.microsoft.com/download).
 
 * The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Productive | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Productive'
 description: Learn how to configure single sign-on between Azure Active Directory and Productive.
 services: active-directory
 author: jeevansd

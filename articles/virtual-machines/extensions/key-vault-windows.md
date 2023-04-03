@@ -317,6 +317,8 @@ To enable waiting for certificate to be installed, set the following setting:
 }
 ```
 
+Refer to [Sequence extension provisioning in Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md) on how to set-up dependencies between extensions.
+
 > [!Note] 
 > Using this feature is not compatible with an ARM template that creates a system assigned identity and updates a Key Vault access policy with that identity. Doing so will result in a deadlock as the vault access policy cannot be updated until all extensions have started. You should instead use a *single user assigned MSI identity* and pre-ACL your vaults with that identity before deploying.
 

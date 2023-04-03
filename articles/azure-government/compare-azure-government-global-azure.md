@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/13/2023
+ms.date: 02/23/2023
 ---
 
 # Compare Azure Government and global Azure
@@ -212,12 +212,6 @@ The following Azure Database for PostgreSQL **features aren't currently availabl
   - Advanced Threat Protection
   - Backup with long-term retention
 
-### [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-
-The following Azure SQL Managed Instance **features aren't currently available** in Azure Government:
-
-- Long-term backup retention
-
 ## Developer tools
 
 This section outlines variations and considerations when using Developer tools in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=load-testing,app-configuration,devtest-lab,lab-services,azure-devops&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
@@ -299,7 +293,7 @@ Application Insights (part of Azure Monitor) enables the same features in both A
 
 **Visual Studio** - In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
 
-**SDK endpoint modifications** - In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/create-new-resource.md#override-default-endpoints).
+**SDK endpoint modifications** - In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints).
 
 **Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md) from where you can download Azure Government IP addresses.
 

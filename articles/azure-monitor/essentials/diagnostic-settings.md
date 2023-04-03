@@ -5,6 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 02/13/2022
 ms.reviewer: lualderm
 ---
@@ -43,7 +44,10 @@ Information on these newer features is included in this article.
 
 ## Sources
 
-Here are the source options.
+There are three sources for diagnostic information:
+* Metrics
+* Resource Logs 
+* Activity logs
 
 ### Metrics
 
@@ -99,7 +103,7 @@ This section discusses requirements and limitations.
 
 ### Time before telemetry gets to destination
 
-Once you have set up a diagnostic setting, data should start flowing to your selected destination(s) with 90 minutes. If you get no information within 24 hours, then either 
+Once you have set up a diagnostic setting, data should start flowing to your selected destination(s) within 90 minutes. If you get no information within 24 hours, then either 
 - no logs are being generated or 
 - something is wrong in the underlying routing mechanism. Try disabling the configuration and then reenabling it. Contact Azure support through the Azure portal if you continue to have issues. 
 
@@ -207,7 +211,7 @@ After a few moments, the new setting appears in your list of settings for this r
 
 # [PowerShell](#tab/powershell)
 
-Use the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting?view=azps-9.1.0&preserve-view=true) cmdlet to create a diagnostic setting with [Azure PowerShell](../powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
+Use the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](../powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
 > [!IMPORTANT]
 > You can't use this method for an activity log. Instead, use [Create diagnostic setting in Azure Monitor by using an Azure Resource Manager template](./resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with PowerShell.

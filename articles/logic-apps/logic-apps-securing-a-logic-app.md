@@ -45,7 +45,7 @@ For Consumption logic apps only, before you can create or manage logic apps and 
 
   For example, suppose you have to work with a logic app that you didn't create and authenticate connections used by that logic app's workflow. Your Azure subscription requires Contributor permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
 
-To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/apis-list.md#connection-configuration) and [Connection security and encryption](../connectors/apis-list.md#connection-security-encryption).
+To prevent others from changing or deleting your logic app, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
 
 <a name="secure-run-history"></a>
 
@@ -145,7 +145,7 @@ Many triggers and actions have settings to secure inputs, outputs, or both from 
 
 Before using these settings to help you secure this data, review these considerations:
 
-* When you obscure the inputs or outputs on a trigger or action, Azure Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
+* When you obscure the inputs or outputs on a trigger or action, Azure Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](monitor-workflows-collect-diagnostic-data.md#other-destinations) to that trigger or action for monitoring.
 
 * The [Azure Logic Apps API for handling workflow history](/rest/api/logic/) doesn't return secured outputs.
 
@@ -1271,4 +1271,4 @@ For more information about isolation, review the following documentation:
 
 * [Azure security baseline for Azure Logic Apps](../logic-apps/security-baseline.md)
 * [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
-* [Monitor logic apps](../logic-apps/monitor-logic-apps-log-analytics.md)
+* [Monitor logic apps](monitor-workflows-collect-diagnostic-data.md)

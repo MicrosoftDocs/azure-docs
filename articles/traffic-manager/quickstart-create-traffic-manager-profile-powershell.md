@@ -5,12 +5,11 @@ services: traffic-manager
 author: greg-lindsay
 ms.author: greglin
 manager: kumud
-ms.date: 04/19/2021
+ms.date: 02/18/2023
 ms.topic: quickstart
 ms.service: traffic-manager
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: template-quickstart, devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -77,8 +76,8 @@ $Location1="EastUS"
 $Location2="WestEurope"
 
 # Create an App service plan
-New-AzAppservicePlan -Name "myAppServicePlanEastUS" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
-New-AzAppservicePlan -Name "myAppServicePlanEastUS" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
+New-AzAppservicePlan -Name "myAppServicePlanEastUS$Random" -ResourceGroupName MyResourceGroup -Location $Location1 -Tier Standard
+New-AzAppservicePlan -Name "myAppServicePlanWestEurope$Random" -ResourceGroupName MyResourceGroup -Location $Location2 -Tier Standard
 
 ```
 ### Create a Web App in the App Service Plan

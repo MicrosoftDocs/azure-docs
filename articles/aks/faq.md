@@ -173,6 +173,10 @@ Moving or renaming your AKS cluster and its associated resources isn't supported
 
 Most clusters are deleted upon user request; in some cases, especially where customers are bringing their own Resource Group, or doing cross-RG tasks deletion can take more time or fail. If you have an issue with deletes, double-check that you do not have locks on the RG, that any resources outside of the RG are disassociated from the RG, and so on.
 
+## Can I restore my cluster after deleting it?
+
+No, you're unable to restore your cluster after deleting it. When you delete your cluster, the associated resource group and all its resources will also be deleted. If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you have the **Owner** or **User Access Administrator** built-in role, you can lock Azure resources to protect them from accidental deletions and modifications. For more information, see [Lock your resources to protect your infrastructure][lock-azure-resources].
+
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
 You can, but we don't recommend it. Upgrades should be performed when the state of the cluster is known and healthy.
@@ -233,7 +237,7 @@ Starting with version 1.2.0, Azure CNI sets Transparent mode as default for sing
 
 ### Bridge mode
 
-As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will create a L2 bridge named "azure0". All the host side pod `veth` pair interfaces will be connected to this bridge. So Pod-Pod intra VM communication and the remaining traffic goes through this bridge. The bridge in question is a layer 2 virtual device that on its own cannot receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a subordinate to "azure0" bridge. This creates a complex network topology within the Linux VM and as a symptom CNI had to take care of other networking functions like DNS server update and so on.
+As the name suggests, bridge mode Azure CNI, in a "just in time" fashion, will create an L2 bridge named "azure0". All the host side pod `veth` pair interfaces will be connected to this bridge. So Pod-Pod intra VM communication and the remaining traffic goes through this bridge. The bridge in question is a layer 2 virtual device that on its own cannot receive or transmit anything unless you bind one or more real devices to it. For this reason, eth0 of the Linux VM has to be converted into a subordinate to "azure0" bridge. This creates a complex network topology within the Linux VM and as a symptom CNI had to take care of other networking functions like DNS server update and so on.
 
 :::image type="content" source="media/faq/bridge-mode.png" alt-text="Bridge mode topology":::
 
@@ -307,7 +311,24 @@ AKS nodes run the "chrony" service, which pulls time from the localhost.  Contai
 
 ## How are AKS addons updated?
 
-Any patch, including security patches, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases). 
+Any patch, including security patches, is automatically applied to the AKS cluster. Anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects), is updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases).
+
+## What is the purpose of the AKS Linux Extension I see installed on my Linux VMSS instances?
+
+The AKS Linux Extension is an Azure VM extension whose purpose is to install and configure monitoring tools on Kubernetes worker nodes. The extension is installed on all new and existing Linux nodes. It configures the following monitoring tools:  
+
+- [Node-exporter](https://github.com/prometheus/node_exporter): collects hardware telemetry from the virtual machine and makes it available using a metrics endpoint. These metrics are then able to be scraped by a monitoring tool such as Prometheus.
+- [Node-problem-detector](https://github.com/kubernetes/node-problem-detector): aims to make various node problems visible to upstream layers in the cluster management stack. It is a systemd unit that runs on each node, detects node problems, and reports them to the cluster’s API server using Events and NodeConditions.
+- [Local-gadget](https://www.inspektor-gadget.io/docs/latest/local-gadget/): uses in-kernel eBPF helper programs to monitor events mainly related to syscalls from userspace programs in a pod.
+
+These tools assist in providing observability around many node health related problems such as: 
+
+- Infrastructure daemon issues: NTP service down
+- Hardware issues: Bad CPU, memory or disk
+- Kernel issues: Kernel deadlock, corrupted file system
+- Container runtime issues: Unresponsive runtime daemon 
+
+The extension **does not** require any additional outbound access to any URLs, IP addresses, or ports beyond the [documented AKS egress requirements](./limit-egress-traffic.md). It does not require any special permissions granted in Azure. It uses kubeconfig to connect to the API server to send the monitoring data collected.
 
 <!-- LINKS - internal -->
 
@@ -342,3 +363,4 @@ Any patch, including security patches, is automatically applied to the AKS clust
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/
+[lock-azure-resources]: ../azure-resource-manager/management/lock-resources.md

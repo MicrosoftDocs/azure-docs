@@ -127,8 +127,8 @@
       href: how-to-create-endpoints.md
     - name: Create routes and filters
       href: how-to-create-routes.md
-    - name: Use data history with Azure Data Explorer
-      href: how-to-use-data-history.md
+    - name: Create a data history connection
+      href: how-to-create-data-history-connection.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
     - name: Integrate with Azure Maps
@@ -336,6 +336,6 @@
     - name: Azure portal
       href: https://portal.azure.com
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
+    href: ../iot/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
   - name: IoT Glossary
-    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
+    href: ../iot/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json

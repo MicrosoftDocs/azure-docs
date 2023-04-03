@@ -1,9 +1,8 @@
 ---
 title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster to get the latest features and security updates.
-services: container-service
 ms.topic: article
-ms.custom: event-tier1-build-2022
+ms.custom: event-tier1-build-2022, devx-track-azurecli
 ms.date: 12/17/2020
 ---
 
@@ -12,9 +11,6 @@ ms.date: 12/17/2020
 Part of the AKS cluster lifecycle involves performing periodic upgrades to the latest Kubernetes version. It’s important you apply the latest security releases, or upgrade to get the latest features. This article shows you how to check for, configure, and apply upgrades to your AKS cluster.
 
 For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without doing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
-
->[!WARNING]
-> AKS clusters with Calico enabled should not upgrade to Kubernetes v1.25 preview.
 
 > [!NOTE]
 > Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
@@ -250,7 +246,7 @@ To confirm that the upgrade was successful, navigate to your AKS cluster in the 
 When you upgrade your cluster, the following Kubernetes events may occur on each node:
 
 - Surge – Create surge node.
-- Drain – Pods are being evicted from the node. Each pod has a 30-minute timeout to complete the eviction.
+- Drain – Pods are being evicted from the node. Each pod has a 30-second timeout to complete the eviction.
 - Update – Update of a node has succeeded or failed.
 - Delete – Deleted a surge node.
 
