@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 05/23/2022
-ms.topic: article
+ms.topic: conceptual
 ---
 
 # Data and privacy for Personalizer

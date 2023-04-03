@@ -7,7 +7,7 @@ ms.author: jacodel
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 09/06/2022
 ---
 
