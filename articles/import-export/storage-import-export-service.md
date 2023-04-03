@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: azure-import-export
 ms.topic: conceptual
-ms.date: 10/27/2022
+ms.date: 03/31/2023
 ms.author: alkohli
 ---
 # What is Azure Import/Export service?
@@ -53,6 +53,9 @@ Import/Export service uses the following components:
 Azure Import/Export service allows data transfer into Azure Blobs and Azure Files by creating jobs. Use Azure portal or Azure Resource Manager REST API to create jobs. Each job is associated with a single storage account.
 
 The jobs can be import or export jobs. An import job allows you to import data into Azure Blobs or Azure files whereas the export job allows data to be exported from Azure Blobs. For an import job, you ship drives containing your data. When you create an export job, you ship empty drives to an Azure datacenter. In each case, you can ship up to 10 disk drives per job.
+
+> [!NOTE]
+> Import/Export jobs are now part of the Azure Data Box resource. Follow [this tutorial](storage-import-export-data-to-blobs.md#step-2-create-an-import-job) on how to create a new Import Export job under Data Box
 
 ### Inside an import job
 
