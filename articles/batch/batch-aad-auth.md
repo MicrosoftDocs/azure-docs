@@ -12,7 +12,7 @@ Azure Batch supports authentication with [Azure Active Directory](/azure/active-
 
 This article describes two ways to use Azure AD authentication with Azure Batch:
 
-- **Integrated authentication** authenticates a user who's interacting with an application. The application gathers a user's credentials and uses those credentials to authenticate access to Batch resources.
+- **Integrated authentication** authenticates a user who's interacting with an application. The application gathers a user's credentials and uses those credentials to authorize access to Batch resources.
 
 - A **service principal** authenticates an unattended application. The service principal defines the policy and permissions for the application and represents the application to access Batch resources at runtime.
 
@@ -89,7 +89,7 @@ Follow these steps to create and copy the secret key to use in your code:
 1. On the **Certificates & secrets** page, select **New client secret**.
 1. On the **Add a client secret** page, enter a description and select an expiration period for the secret.
 1. Select **Add** to create the secret and display it on the **Certificates & secrets** page.
-1. Copy the secret **Value** to a safe place, because you won't be able to access it again after you leave this page.
+1. Copy the secret **Value** to a safe place, because you won't be able to access it again after you leave this page. If you lose access to your key, you can generate a new one.
 
 ### Assign Azure RBAC to your application
 
@@ -171,7 +171,7 @@ For more information on creating a custom role, see [Azure custom roles](../role
 
 ## Code examples
 
-The code examples in this section show how to authenticate with Azure AD by using integrated authentication and with a service principal. The code examples use .NET and Python, but the concepts are similar for other languages.
+The code examples in this section show how to authenticate with Azure AD by using integrated authentication or with a service principal. The code examples use .NET and Python, but the concepts are similar for other languages.
 
 > [!NOTE]
 > An Azure AD authentication token expires after one hour. When you use a long-lived **BatchClient** object, it's best to get a token from MSAL on every request to ensure that you always have a valid token.
@@ -184,7 +184,7 @@ To authenticate with integrated authentication from Batch .NET:
 
 1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
 
-1. Include the following `using` statements in your code:
+1. Declare the following `using` statements in your code:
 
    ```csharp
    using Microsoft.Azure.Batch;
@@ -222,9 +222,9 @@ To authenticate with integrated authentication from Batch .NET:
    private const string RedirectUri = "https://<redirect-uri>";
    ```
 
-1. Write a callback method to acquire the authentication token from Azure AD. The following example calls MSAL to authenticate a user who's interacting with the application. The example uses [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) to instantiate `IConfidentialClientApplication`. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials. The application proceeds once the user provides credentials.
+1. Write a callback method to acquire the authentication token from Azure AD. The following example calls MSAL to authenticate a user who's interacting with the application. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials. The application proceeds once the user provides credentials.
 
-   `WithRedirectUri` specifies the redirect URI that the authorization server redirects the user to after authentication. The *authorizationCode* parameter is the authorization code obtained from the authorization server after the user authenticates.
+   The *authorizationCode* parameter is the authorization code obtained from the authorization server after the user authenticates. `WithRedirectUri` specifies the redirect URI that the authorization server redirects the user to after authentication.
 
    ```csharp
    public static async Task<string> GetTokenUsingAuthorizationCode(string authorizationCode, string redirectUri, string[] scopes)
@@ -251,7 +251,7 @@ To authenticate with integrated authentication from Batch .NET:
    ```csharp
    public static void PerformBatchOperations()
    {
-       Func<Task<string>> tokenProvider = () => GetAccessTokenAsync();
+       Func<Task<string>> tokenProvider = () => GetTokenUsingAuthorizationCode();
    
        using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
        {
@@ -274,7 +274,7 @@ To authenticate with a service principal from Batch .NET:
    using Microsoft.Identity.Client;
    ```
 
-1. Reference the Azure AD endpoint in your code, including the tenant ID. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the Azure AD **Overview** page in the Azure portal.
+1. Reference the Azure AD endpoint, including the tenant ID. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the Azure AD **Overview** page in the Azure portal.
 
    ```csharp
    private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
