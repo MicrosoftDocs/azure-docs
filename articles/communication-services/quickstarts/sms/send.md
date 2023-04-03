@@ -15,7 +15,7 @@ ms.custom:
    - devx-track-js
    - mode-other
    - kr2b-contr-experiment
-zone_pivot_groups: acs-azcli-js-csharp-java-python
+zone_pivot_groups: acs-azcli-js-csharp-java-python-power-platform
 ---
 # Quickstart: Send an SMS message
 
@@ -44,6 +44,10 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Send SMS with Java SDK](./includes/send-sms-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-power-platform"
+[!INCLUDE [Send SMS with Power Platform](./includes/send-sms-logic-app.md)]
 ::: zone-end
 
 ## Troubleshooting
