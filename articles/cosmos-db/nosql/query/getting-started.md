@@ -36,6 +36,9 @@ In Azure Cosmos DB for NoSQL accounts, there are two ways to read data:
     - [Python SDK](../samples-python.md#item-examples)
     - [Go SDK](../samples-go.md#item-examples)
 
+> [!IMPORTANT]
+> The query language is only used to query items in Azure Cosmos DB for NoSQL. You cannot use the query language to perform operations (Create, Update, Delete, etc.) on items.
+
 The remainder of this article shows how to get started writing queries in Azure Cosmos DB. queries can be run through either the SDK or Azure portal.
 
 ## Upload sample data
