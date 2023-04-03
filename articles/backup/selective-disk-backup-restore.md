@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 04/05/2023
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell3
 ms.service: backup
 author: jyothisuri
@@ -337,7 +337,7 @@ Selective disks backup functionality for Standard policy isn't supported for cla
 
 The restore options to **Create new VM** and **Replace existing** aren't supported for the VM for which selective disks backup functionality is enabled.
 
-Currently, Azure VM backup doesn't support VMs with ultra-disks or shared disks attached to them. Selective disk backup for Standard policy can't be used to in such cases, which exclude the disk and backup the VM. You can use selective disk backup with Enhanced policy to exclude these disks and configure backup.
+Currently, Azure VM backup doesn't support VMs with shared disks attached to them. Selective disk backup for Standard policy can't be used to in such cases, which exclude the disk and backup the VM. You can use selective disk backup with Enhanced policy to exclude these disks and configure backup.
 
 If you use disk exclusion or selective disks while backing up Azure VM, _[stop protection and retain backup data](backup-azure-manage-vms.md#stop-protection-and-retain-backup-data)_. When resuming backup for this resource, you need to set up disk exclusion settings again.
 
