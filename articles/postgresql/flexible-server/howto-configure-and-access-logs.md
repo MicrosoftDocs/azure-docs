@@ -31,7 +31,7 @@ To enable resource logs using the Azure portal:
 4. Select your preferred endpoint (Log Analytics workspace, Storage account, Event hub). 
 
 5. Select the log type from the list of categories (Server Logs, Sessions data, Query Store Runtime / Wait Statistics etc.)
-   :::image type="content" source="media/howto-logging/diagnostic-setting-log-category.png" alt-text="Choose PostgreSQL logs":::
+   :::image type="content" source="media/howto-logging/diagnostic-setting-log-category.png" alt-text="Screenshot of choosing log categories.":::
 
 7. Save your setting.
 
