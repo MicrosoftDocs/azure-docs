@@ -258,7 +258,7 @@ To define an endpoint, you need to specify:
 
 To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
 
-For Unix, run this command:
+For Linux, run this command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
