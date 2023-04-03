@@ -21,7 +21,7 @@ In support of the experience of viewing impacted resources, Service Health has e
 This article details what Service Health communicates and where you can view information about your impacted resources.
 
 >[!Note]
->This feature will be rolled out in phases. Initially, only selected subscription-level customers will get the experience. The rollout will gradually expand to 100 percent of subscription customers. It will go live for tenant-level customers in the future.
+>This feature will be rolled out in phases. Initially, only selected subscription-level customers will get the experience. The rollout will gradually expand to 100 percent of subscription and tenant-level users.
 
 ## View impacted resources
 
@@ -42,11 +42,13 @@ The following is an example of outage **Impacted Resources** from the subscripti
 
 :::image type="content" source="./media/impacted-resource-outage/ir-portal-crop.PNG" alt-text="Screenshot of information about subscription impacted resources in Azure Service Health.":::
 
+>[!Note]
+>Not all resources in subscription scope will show a Resource Health status. The status appears only on resources for which a Resource Health signal is available. The status of resources for which a Resource Health signal is not available appears as **N/A**, and the corresponding **Resource Name** value is text instead of a clickable link.
+
 :::image type="content" source="./media/impacted-resource-outage/ir-tenant.PNG" alt-text="Screenshot of information about tenant impacted resources in Azure Service Health.":::
 
-
 >[!Note]
->Not all resources show a Resource Health status. The status appears only on resources for which a Resource Health signal is available. The status of resources for which a Resource Health signal is not available appears as **N/A**, and the corresponding **Resource Name** value is text instead of a clickable link.
+>Resource Health status, tenant name, and tenant ID are not included at the tenant level scope. The corresponding **Resource Name** value is text only instead of a clickable link.
 
 ## Filter results
 
