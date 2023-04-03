@@ -53,7 +53,7 @@ To view your Log Analytics workspace health and set up health status alerts:
     - To create a new alert rule:
        1. Select **Add resource health alert**.
         
-            The **Create alert rule** wizard opens, with the **Scope** and **Condition** panes pre-populated. By default, the rule triggers alerts all status changes in all Log Analytics workspaces in the subscription. If necessary, you can edit and modify the scope and condition at this stage. 
+            The **Create alert rule** wizard opens, with the **Scope** and **Condition** panes prepopulated. By default, the rule triggers alerts all status changes in all Log Analytics workspaces in the subscription. If necessary, you can edit and modify the scope and condition at this stage. 
     
             :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" alt-text="Screenshot that shows the Create alert rule wizard for Log Analytics workspace latency issues.":::
 
@@ -71,9 +71,9 @@ To view Log Analytics workspace health metrics:
 
    | Metric name | Description |
    | - | - |
-   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number does not include queries initiated by Azure services, such as Sentinel, and alert-related queries. |
+   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number doesn't include queries initiated by Azure services, such as Sentinel, and alert-related queries. |
    | Query failure count |  Total number of failed user queries within the selected time range.<br>This number includes all queries that return 500-599 response codes, which indicate an error related to the application gateway or the backend server.|
-   | Query success rate | Total number of successful user queries within the selected time range.<br>This number includes all queries that return 200-299 and 400-499 response codes; in other words, all user queries that did not result in a service error. |
+   | Query success rate | Total number of successful user queries within the selected time range.<br>This number includes all queries that return 200-299 and 400-499 response codes; in other words, all user queries that don't result in a service error. |
 
 ## Investigate Log Analytics workspace health issues
 
