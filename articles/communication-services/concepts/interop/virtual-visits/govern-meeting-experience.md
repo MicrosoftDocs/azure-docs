@@ -20,9 +20,10 @@ In this article, you learn how to use existing Microsoft 365 tools to control th
 ## Policies, roles & meeting options
 Teams policies, meeting roles, and meeting options are part of standard Microsoft Teams. A meeting organizer and coorganizer can customize the experience via meeting options. Organizations have two options how to prevent hosts of virtual appointments from changing the meeting experience:
 1.	Control the experience via policy.
-2.	Demote the host to the role presenter.
+1.	Demote the host to the role presenter.
 We recommend using policy to control the experience of the Teams meeting. Here's how to do it:
 Teams administrator creates a new meeting policy that defines desired experience in the Teams meeting and assigns the meeting policy to selected Teams users that conduct virtual appointments. When a Teams user creates a Teams meeting, the assigned policy restricts, hides, or disables features in the Teams meeting for all participants. 
+
 |Pros|	Cons|
 |--|--|
 | Teams user can't modify the experience defined by administrator	| The policy affects all meetings organized by the Teams user
@@ -34,7 +35,7 @@ Another approach is using a dedicated user account in the tenant to schedule Tea
 |--|--|
 |All Teams users can have assigned relaxed policies, as part of the enforcement is done through meeting options	| There's a risk that customers with the role presenter can demote the host to an attendee. 
 |Teams user can't modify the experience defined by administrator	| If the Azure Communication Services user joins the meeting, Azure Monitor Logs won't get Call Summary and Call Diagnostics for the host unless the Azure Communication Services resource is in the same tenant.
-||[Teams user can create only 2000 meetings a month](https://learn.microsoft.com/graph/throttling-limits#cloud-communication-service-limits), which limits scalability of the solution. 
+||[Teams user can create only 2000 meetings a month](/graph/throttling-limits#cloud-communication-service-limits), which limits scalability of the solution. 
 ||Impacts analytics and reporting.
 ||Host can't lower the requirements if the meeting doesn't require strict requirements.
 
