@@ -241,8 +241,6 @@ From the model page, you can also select **Download training file** to download 
 
 When the fine-tune job has succeeded, you can deploy the customized model from the **Models** pane. You must deploy your customized model to make it available for use with completion calls.
 
-[!INCLUDE [Fine-tuning guidance](../includes/fine-tuning.md)]
-
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error message is displayed if you select an already-deployed customized model.
 
