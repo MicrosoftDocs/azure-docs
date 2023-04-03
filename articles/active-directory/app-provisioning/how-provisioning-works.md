@@ -157,7 +157,7 @@ Content-type: application/json
 }
 ```
 - A new initial cycle is triggered because of a change in attribute mappings or scoping filters. This action also clears any stored watermark and causes all source objects to be evaluated again.
-- The provisioning process goes into quarantine (see example) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service will be automatically disabled.
+- The provisioning process goes into quarantine (see example) because of a high error rate, and stays in quarantine for more than four weeks. In this event, the service is automatically disabled.
 
 ### Errors and retries
 
