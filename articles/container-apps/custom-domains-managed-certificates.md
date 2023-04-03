@@ -46,7 +46,7 @@ For successful issuance and subsequent automatic renewal of managed certificates
 
 1. Select the **Add custom domain** button.
 
-1. In the *Add custom domain* window, in *TLS/SSL certificate*, select **Managed certificate**.
+1. In the *Add custom domain and certificate* window, in *TLS/SSL certificate*, select **Managed certificate**.
 
 1. In *domain*, enter the domain you want to add.
 
@@ -88,10 +88,10 @@ For successful issuance and subsequent automatic renewal of managed certificates
 
 Container Apps supports apex domains and subdomains. Each domain type requires a different DNS record type.
 
-| Domain type | Record type | Notes |
+| Domain type | Record type | Validation Type | Notes |
 |--|--|--|
-| Apex domain | A record | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
-| Subdomain | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
+| Apex domain | A record | HTTP | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
+| Subdomain | CNAME | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
 1. Log in to Azure with the Azure CLI. 
 
