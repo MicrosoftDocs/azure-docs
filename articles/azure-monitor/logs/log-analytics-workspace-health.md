@@ -12,7 +12,7 @@ ms.date: 02/07/2023
 
 # Monitor Log Analytics workspace health
 
-[Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including Log Analytics workspaces. When a Log Analytics workspace is healthy, data you collect from resources in your IT environment is available for querying and analysis in a relatively short period of time, known as [latency](../logs/data-ingestion-time.md). This article explains how to view the health status of your Log Analytics workspace and set up alerts to track Log Analytics workspace health status changes.  
+[Azure Service Health](../../service-health/overview.md) monitors the health of your cloud resources, including Log Analytics workspaces. When a Log Analytics workspace is healthy, data you collect from resources in your IT environment is available for querying and analysis in a relatively short period of time, known as [latency](../logs/data-ingestion-time.md). This article explains how to view the health status of your Log Analytics workspace, set up workspace health status alerts, and view workspace health metrics.  
 
 Azure Service Health monitors:
 
@@ -55,15 +55,8 @@ To view your Log Analytics workspace health and set up health status alerts:
             :::image type="content" source="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" lightbox="media/data-ingestion-time/log-analytics-workspace-latency-alert-rule.png" alt-text="Screenshot that shows the Create alert rule wizard for Log Analytics workspace latency issues.":::
 
        1. Follow the rest of the steps in [Create a new alert rule in the Azure portal](../alerts/alerts-create-new-alert-rule.md#create-a-new-alert-rule-in-the-azure-portal). 
-## Investigate Log Analytics workspace health issues
 
-To investigate Log Analytics workspace health issues:
-
-- Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
-- Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
-- [Use the `_LogOperation` function to view and set up alerts about operational issues](../logs/monitor-workspace.md) logged in your Log Analytics workspace.
-
-## View Log Analytics workspace health signals
+## View Log Analytics workspace health metrics
 
 Azure Monitor exposes a set of metrics that provide insight into Log Analytics workspace health. 
 
@@ -78,7 +71,16 @@ To view Log Analytics workspace health metrics:
    | Query count | Total number of user queries in the Log Analytics workspace within the selected time range. This number does not include queries initiated by Azure services, such as Sentinel, and alert-related queries. |
    | Query failure count |  Total number of failed user queries within the selected time range. This number includes all 500-599 response codes, which indicate an error related to the application gateway or the backend server.|
    | Query success rate | Total number of successful user queries within the selected time range. This number includes all 200-299 and 400-499 response codes; in other words, all user queries that did not result in a service error. |
-        
+
+## Investigate Log Analytics workspace health issues
+
+To investigate Log Analytics workspace health issues:
+
+- Use [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview.md), which provides a unified view of your workspace usage, performance, health, agent, queries, and change log.
+- Query the data in your Log Analytics workspace to [understand which factors are contributing greater than expected latency in your workspace](../logs/data-ingestion-time.md).  
+- [Use the `_LogOperation` function to view and set up alerts about operational issues](../logs/monitor-workspace.md) logged in your Log Analytics workspace.
+
+      
 
 
 ## Next steps
