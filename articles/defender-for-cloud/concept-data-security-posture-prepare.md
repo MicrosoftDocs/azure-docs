@@ -37,14 +37,6 @@ What AWS regions are supported? | Asia Pacific (Mumbai); Asia Pacific (Singapore
 Do I need to install an agent? | No, discovery is agentless.
 What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t include other costs except for the respective plan costs.
 
-## Discovery
-
-- It takes up to 24 hours to see the results for a first-time discovery.
-- Refreshed results for a resource that's previously been discovered take up to eight days.
-- A new Azure storage account that's added to an already discovered subscription is discovered within 24 hours or less.
-- A new AWS S3 bucket that's added to an already discovered AWS account is discovered within 48 hours or less.
-
-
 
 ## Configuring data sensitivity settings
 
@@ -55,14 +47,21 @@ The main steps for configuring data sensitivity setting include:
 
 [Learn more](/microsoft-365/compliance/create-sensitivity-labels) about sensitivity labels in Microsoft Purview.
 
-## Discovery 
+## Discovery
 
 Defender for Cloud starts discovering data immediately after enabling a plan, or after turning on the feature in plans that are already running.
 
 - After you onboard the feature, results appear in the Defender for Cloud portal within 24 hours. 
 - After files are updated in the discovered resources, data is refreshed within eight days.
 
-## Discovering AWS storage
+### Discovery time
+
+- It takes up to 24 hours to see the results for a first-time discovery.
+- Refreshed results for a resource that's previously been discovered take up to eight days.
+- A new Azure storage account that's added to an already discovered subscription is discovered within 24 hours or less.
+- A new AWS S3 bucket that's added to an already discovered AWS account is discovered within 48 hours or less.
+
+### Discovering AWS storage
 
 In order to protect AWS resources in Defender for Cloud, you set up an AWS connector, using a CloudFormation template to onboard the AWS account. 
 
@@ -70,10 +69,6 @@ In order to protect AWS resources in Defender for Cloud, you set up an AWS conne
 - The CloudFormation template creates a new role in AWS IAM, to allow permission for the Defender for Cloud scanner to access data in the S3 buckets. 
 - To connect AWS accounts, you need Administrator permissions on the account.
 - The role allows these permissions: S3 read only; KMS decrypt.
-
-
-
-
 
 ## Next steps
 

@@ -74,7 +74,7 @@ If you're using Microsoft Purview sensitivity labels, make sure that:
 1. Select **Change** to see the list of sensitivity labels and select the lowest sensitivity label that you want marked as sensitive.
 1. Select **Apply** and **Save**.
 
-    :::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Screenshot of the data sensitivity page, showing the sensitivity label threshold."lightbox="/media/concept-data-security-posture/sensitivity-label.png":::
+    :::image type="content" source="./media/concept-data-security-posture/sensitivity-threshold.png" alt-text="Screenshot of the data sensitivity page, showing the sensitivity label threshold."lightbox="./media/concept-data-security-posture/sensitivity-label.png":::
 
 > [!NOTE]
 > - When you turn on the threshold, you select a label with the lowest setting that should be considered sensitive in your organization.

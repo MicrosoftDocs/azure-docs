@@ -50,7 +50,7 @@ Attack paths and cloud security graph insights include information about storage
 **State** | **Azure resources** | **AWS resources**
 --- | --- | ---
 **Exposed to the internet** | An Azure storage account is considered exposed if public network access is enabled, with either:<br/><br/> storage_account_name **Networking** > **Public network access** > **Enabled from all networks**, or **Enable from selected virtual networks and IP addresses**. | An AWS S3 bucket is consider exposed if the AWS account and AWS S3 bucket don't have a condition set for IP addresses.
-**Publicly accessible** | An Azure storage account is considered to be publically accessible if both these settings are configured on the Azure storage account container:<br/><br/> <storage account name > **Configuration** > **Allow blob public access**<br/><br/> <storage account name > **Containers** > container_name > **Public access level** set to **Blob (anonymous read access for blobs only)**, or **Container (anonymous read access for containers and blobs)**. | An AWS S2 bucket is considered publicly available if both the AWS account and the AWS S3 bucket have **Block all public access** set to **Off**, and the policy has **either** of these settings:<br/><br/> Setting 1: In the policy, **RestrictPublicBuckets isn't allowed and **principal is *** and **effect** are set to **Allow**.<br/><br/> Setting 2: In the access control list, **IgnorePublicAcl** isn't enabled, and permission is allowed for **everyone**, or for **authenticated users**.
+**Publicly accessible** | An Azure storage account is considered to be publicly accessible if both these settings are configured on the Azure storage account container:<br/><br/> storage account name **Configuration** > **Allow blob public access**<br/><br/> storage account name **Containers** > container_name > **Public access level** set to **Blob (anonymous read access for blobs only)**, or **Container (anonymous read access for containers and blobs)**. | An AWS S2 bucket is considered publicly available if both the AWS account and the AWS S3 bucket have **Block all public access** set to **Off**, and the policy has **either** of these settings:<br/><br/> Setting 1: In the policy, **RestrictPublicBuckets isn't allowed and **principal is *** and **effect** are set to **Allow**.<br/><br/> Setting 2: In the access control list, **IgnorePublicAcl** isn't enabled, and permission is allowed for **everyone**, or for **authenticated users**.
 
 
 
@@ -62,7 +62,7 @@ Defender for Storage monitors Azure storage accounts with advanced threat detect
 
 When early suspicious signs are detected, Defender for Storage generates security alerts, allowing security teams to quickly respond and mitigate.
 
-By applying sensitivity information types and Microsoft Purview sensitivity labels on storage resources, you can easily prioritize the alerts and recommendations that focus on sensitive data. [Learn more](defender-for-storage-data-sensitivity) about sensitive data discovery in Defender for Storage.
+By applying sensitivity information types and Microsoft Purview sensitivity labels on storage resources, you can easily prioritize the alerts and recommendations that focus on sensitive data. [Learn more](defender-for-storage-data-sensitivity.md) about sensitive data discovery in Defender for Storage.
 
 
 ## Smart sampling
