@@ -193,7 +193,7 @@ The provisioning service supports both deleting and disabling (sometimes referre
 
 Confirm the checkbox for updates is selected.
 
-Confirm the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. In this case, use the default mapping for gallery applications.
+Confirm the mapping for *active* for your application. If you're using an application from the app gallery, the mapping may be slightly different. In this case, use the default mapping for gallery applications.
 
 :::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Disable a user" lightbox="./media/how-provisioning-works/disable-user.png":::
 
