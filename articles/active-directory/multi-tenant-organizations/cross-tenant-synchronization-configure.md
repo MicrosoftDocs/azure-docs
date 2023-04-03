@@ -415,6 +415,18 @@ This setting also applies to B2B collaboration and B2B direct connect, so if you
 
 ## Troubleshooting tips
 
+#### Delete a configuration
+
+Follows these steps to delete a configuration on the **Configurations** page.
+
+1. In the source tenant, select **Azure Active Directory** > **Cross-tenant synchronization (Preview)**.
+
+1. On the **Configurations** page, add a check mark next to the configuration you want to delete.
+
+1. Select **Delete** and then **OK** to delete the configuration.
+
+    :::image type="content" source="./media/cross-tenant-synchronization-configure/configurations-delete.png" alt-text="Screenshot of the Configurations page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/configurations-delete.png":::
+
 #### Symptom - Test connection fails with AzureDirectoryB2BManagementPolicyCheckFailure
 
 When configuring cross-tenant synchronization in the source tenant and you test the connection, it fails with the following error message:
@@ -461,26 +473,6 @@ Restoring a previously soft-deleted user in the target tenant isn't supported.
 
 Manually restore the soft-deleted user in the target tenant. For more information, see [Restore or remove a recently deleted user using Azure Active Directory](../fundamentals/active-directory-users-restore.md).
 
-#### Symptom - Unable to delete a configuration
-
-On the **Configurations** page, there isn't a way to delete a configuration.
-
-**Cause**
-
-Currently, there isn't a way to delete a configuration on the **Configurations** page. Instead, you must delete the configuration in **Enterprise applications**.
-
-**Solution**
-
-1. In the source tenant, select **Azure Active Directory** > **Enterprise applications**.
-
-1. In the list of all applications, find the name of your configuration. If necessary, you can search by the configuration name.
-
-1. Select the configuration and then select **Properties**.
-
-1. Select **Delete** and then **Yes** to delete the configuration.
-
-    :::image type="content" source="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png" alt-text="Screenshot of the Enterprise applications Properties page showing how to delete a configuration." lightbox="./media/cross-tenant-synchronization-configure/enterprise-applications-configuration-delete.png":::
-
 #### Symptom - Users are skipped because SMS sign-in is enabled on the user
 Users are skipped from synchronization. The scoping step includes the following filter with status false: "Filter external users.alternativeSecurityIds EQUALS 'None'"
 
@@ -492,7 +484,7 @@ If SMS sign-in is enabled for a user, they will be skipped by the provisioning s
 
 Disable SMS Sign-in for the users. The script below shows how you can disable SMS Sign-in using PowerShell. 
 
-```
+```powershell
 ##### Disable SMS Sign-in options for the users
 
 #### Import module
@@ -501,7 +493,6 @@ Install-Module Microsoft.Graph.Identity.SignIns
 Import-Module Microsoft.Graph.Users.Actions
 
 Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All", "UserAuthenticationMethod.Read.All","UserAuthenticationMethod.ReadWrite","UserAuthenticationMethod.ReadWrite.All"
-
 
 ##### The value for phoneAuthenticationMethodId is 3179e48a-750b-4051-897c-87b9720928f7
 
@@ -528,11 +519,8 @@ $smssignin = Get-MgUserAuthenticationPhoneMethod -UserId $userId
 
 }
 
-
-
 ##### End the script
 ```
-
 
 ## Next steps
 
