@@ -12,7 +12,7 @@ ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-
 
 # Manage secrets in Azure Container Apps
 
-Azure Container Apps allows your application to securely store sensitive configuration values. Once secrets are defined at the application level, secured values are available to revisions in your container apps. Additionally, you can reference secured values inside scale rules. For information on using secrets with Dapr, refer to [Dapr integration](./dapr-overview.md)
+Azure Container Apps allows your application to securely store sensitive configuration values. Once secrets are defined at the application level, secured values are available to revisions in your container apps. Additionally, you can reference secured values inside scale rules. For information on using secrets with Dapr, refer to [Dapr integration](./dapr-overview.md).
 
 - Secrets are scoped to an application, outside of any specific revision of an application.
 - Adding, removing, or changing secrets doesn't generate new revisions.
