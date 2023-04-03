@@ -13,7 +13,7 @@ This article describes how to send Microsoft Defender for IoT alerts to ArcSight
 
 Before you begin, make sure that you have the following prerequisites:
 
-- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
 ## Configure the ArcSight receiver type
 
@@ -38,7 +38,7 @@ For more information, see [Forward alert information](../how-to-forward-alert-in
 
 1. In the **Add forwarding rule** pane, define the rule parameters:
 
-    :::image type="content" source="media/integrate-arcsight/create-new-forwarding-rule.png" alt-text="Screenshot of creating a new forwarding rule." lightbox="../media/integrate-arcsight/create-new-forwarding-rule.png":::
+    :::image type="content" source="../media/integrate-arcsight/create-new-forwarding-rule.png" alt-text="Screenshot of creating a new forwarding rule." lightbox="../media/integrate-arcsight/create-new-forwarding-rule.png":::
 
     | Parameter  | Description  |
     |---------|---------|
