@@ -213,7 +213,7 @@ By default, the Azure AD provisioning service soft deletes or disables users tha
 
 When one of the four events occurs and the target application doesn't support soft deletes, the provisioning service sends a DELETE request to permanently delete the user from the app.
 
-If you see an attribute IsSoftDeleted in your attribute mappings, it's used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
+If you see `IsSoftDeleted` in your attribute mappings, it's used to determine the state of the user and whether to send an update request with `active = false` to soft delete the user.
 
 **Deprovisioning events**
 
