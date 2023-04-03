@@ -16,6 +16,9 @@ Supply your own disk drives and transfer data with the Azure Import/Export servi
 
 If you want to transfer data using disk drives supplied by Microsoft, you can use [Azure Data Box Disk](../databox/data-box-disk-overview.md) to import data into Azure. Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) with a 40 TB total capacity per order, to your datacenter through a regional carrier. You can quickly configure disk drives, copy data to disk drives over a USB 3.0 connection, and ship the disk drives back to Azure. For more information, go to [Azure Data Box Disk overview](../databox/data-box-disk-overview.md).
 
+> [!NOTE]
+> Import/Export jobs are now part of the Azure Data Box resource. Follow [this tutorial](storage-import-export-data-to-blobs.md#step-2-create-an-import-job) on how to create a new Import Export job under Data Box
+
 ## Azure Import/Export use cases
 
 Consider using Azure Import/Export service when uploading or downloading data over the network is too slow, or getting additional network bandwidth is cost-prohibitive. Use this service in the following scenarios:
@@ -53,9 +56,6 @@ Import/Export service uses the following components:
 Azure Import/Export service allows data transfer into Azure Blobs and Azure Files by creating jobs. Use Azure portal or Azure Resource Manager REST API to create jobs. Each job is associated with a single storage account.
 
 The jobs can be import or export jobs. An import job allows you to import data into Azure Blobs or Azure files whereas the export job allows data to be exported from Azure Blobs. For an import job, you ship drives containing your data. When you create an export job, you ship empty drives to an Azure datacenter. In each case, you can ship up to 10 disk drives per job.
-
-> [!NOTE]
-> Import/Export jobs are now part of the Azure Data Box resource. Follow [this tutorial](storage-import-export-data-to-blobs.md#step-2-create-an-import-job) on how to create a new Import Export job under Data Box
 
 ### Inside an import job
 
