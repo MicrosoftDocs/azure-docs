@@ -7,7 +7,7 @@ ms.author: rosouz
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/23/2023
+ms.date: 04/03/2023
 ---
 
 # Change Data Capture in Azure Cosmos DB analytical store (preview)
@@ -19,7 +19,7 @@ Change data capture (CDC) in [Azure Cosmos DB analytical store](analytical-store
 > [!IMPORTANT]
 > This feature is currently in preview.
 
-The change data capture feature in Azure Cosmos DB analytical store can write to a variety of sinks using an Azure Synapse or Azure Data Factory data flow.
+The change data capture feature in Azure Cosmos DB analytical store can write to various sinks using an Azure Synapse or Azure Data Factory data flow.
 
 :::image type="content" source="media\analytical-store-change-data-capture\overview-diagram.svg" lightbox="media\analytical-store-change-data-capture\overview-diagram.svg" alt-text="Diagram of the analytical store in Azure Cosmos DB and how it, with change data capture, can write to various first and third-party target services.":::
 
