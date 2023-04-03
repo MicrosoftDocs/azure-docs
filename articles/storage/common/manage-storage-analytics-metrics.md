@@ -114,26 +114,9 @@ You can disable metrics collection and logging by setting **Status** to **Off**.
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-### [.NET v12 SDK](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
-
-For more information about using a .NET language to configure storage metrics, see [Azure Storage client libraries for .NET](/dotnet/api/overview/azure/storage).
-
-For general information about configuring storage metrics by using the REST API, see [Enabling and configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
-
-### [.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();
-
-serviceProperties.HourMetrics.MetricsLevel = MetricsLevel.Service;  
-serviceProperties.HourMetrics.RetentionDays = 10;
-
-queueClient.SetServiceProperties(serviceProperties);  
-```
 
 For more information about using a .NET language to configure storage metrics, see [Azure Storage client libraries for .NET](/dotnet/api/overview/azure/storage).
 

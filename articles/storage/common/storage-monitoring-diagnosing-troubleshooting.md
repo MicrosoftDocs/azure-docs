@@ -227,51 +227,11 @@ The storage service automatically generates server request IDs.
 >
 >
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 The code sample below demonstrates how to use a custom client request ID.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-If the Storage Client Library throws a **StorageException** in the client, the **RequestInformation** property contains a **RequestResult** object that includes a **ServiceRequestID** property. You can also access a **RequestResult** object from an **OperationContext** instance.
-
-The code sample below demonstrates how to set a custom **ClientRequestId** value by attaching an **OperationContext** object the request to the storage service. It also shows how to retrieve the **ServerRequestId** value from the response message.
-
-```csharp
-//Parse the connection string for the storage account.
-const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-// Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
-OperationContext oc = new OperationContext();
-oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
-
-try
-{
-    CloudBlobContainer container = blobClient.GetContainerReference("democontainer");
-    ICloudBlob blob = container.GetBlobReferenceFromServer("testImage.jpg", null, null, oc);  
-    var downloadToPath = string.Format("./{0}", blob.Name);
-    using (var fs = File.OpenWrite(downloadToPath))
-    {
-        blob.DownloadToStream(fs, null, null, oc);
-        Console.WriteLine("\t Blob downloaded to file: {0}", downloadToPath);
-    }
-}
-catch (StorageException storageException)
-{
-    Console.WriteLine("Storage exception {0} occurred", storageException.Message);
-    // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
-    foreach (var result in oc.RequestResults)
-    {
-            Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
-    }
-}
-```
-
----
 
 ### <a name="timestamps"></a>Timestamps
 
@@ -342,19 +302,9 @@ Possible reasons for the client responding slowly include having a limited numbe
 
 For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information, see the post [Nagle's Algorithm is Not Friendly towards Small Requests](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);
-ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
-queueServicePoint.UseNagleAlgorithm = false;
-```
-
----
 
 You should check the client-side logs to see how many requests your client application is submitting, and check for general .NET related performance bottlenecks in your client such as CPU, .NET garbage collection, network utilization, or memory. As a starting point for troubleshooting .NET client applications, see [Debugging, Tracing, and Profiling](/dotnet/framework/debug-trace-profile/).
 
@@ -593,29 +543,9 @@ To work around the JavaScript issue, you can configure Cross Origin Resource Sha
 
 The following code sample shows how to configure your blob service to allow JavaScript running in the Contoso domain to access a blob in your blob storage service:
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
-// Set the service properties.
-ServiceProperties sp = client.GetServiceProperties();
-sp.DefaultServiceVersion = "2013-08-15";
-CorsRule cr = new CorsRule();
-cr.AllowedHeaders.Add("*");
-cr.AllowedMethods = CorsHttpMethods.Get | CorsHttpMethods.Put;
-cr.AllowedOrigins.Add("http://www.contoso.com");
-cr.ExposedHeaders.Add("x-ms-*");
-cr.MaxAgeInSeconds = 5;
-sp.Cors.CorsRules.Clear();
-sp.Cors.CorsRules.Add(cr);
-client.SetServiceProperties(sp);
-```
-
----
 
 #### <a name="network-failure"></a>Network Failure
 
