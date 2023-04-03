@@ -5,7 +5,7 @@ author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 03/30/2023
+ms.date: 04/03/2023
 ms.reviewer: erd
 ms.subservice: image-builder
 ms.custom: references_regions
