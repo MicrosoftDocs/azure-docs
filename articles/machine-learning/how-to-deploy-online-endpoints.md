@@ -313,7 +313,7 @@ When you deploy to Azure, you'll create an endpoint and a deployment to add to i
 
 To set your endpoint name, run the following command (replace `YOUR_ENDPOINT_NAME` with a unique name).
 
-For Unix, run this command:
+For Linux, run this command:
 
 :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" ID="set_endpoint_name":::
 
