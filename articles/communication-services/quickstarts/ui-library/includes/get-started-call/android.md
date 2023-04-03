@@ -377,6 +377,8 @@ The following `errorCode` values might be sent to the error handler:
 - `CallCompositeErrorCode.MICROPHONE_PERMISSION_NOT_GRANTED`
 - `CallCompositeErrorCode.NETWORK_CONNECTION_NOT_AVAILABLE`
 
+The following example shows an error event for a failed composite event.
+
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin

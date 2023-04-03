@@ -221,7 +221,7 @@ callComposite?.launch(remoteOptions: remoteOptions)
 
 ### Subscribe to events
 
-You can implement closures to act on composite events. The following `errorCode` values might be sent to the error handler:
+You can implement closures to act on composite events. The following errorCodes might be sent to the error handler:
 
 - `callJoin`
 - `callEnd`
@@ -230,7 +230,7 @@ You can implement closures to act on composite events. The following `errorCode`
 - `microphonePermissionNotGranted`
 - `networkConnectionNotAvailable`
 
-The following example shows an error event for a failed composite:
+The following example shows an error event for a failed composite event:
 
 ```swift
 callComposite?.events.onError = { error in
