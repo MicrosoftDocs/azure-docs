@@ -1,6 +1,5 @@
 ---
 title: Azure IoT device and service SDKs
-titleSuffix: Azure IoT
 description: A list of the IoT SDKs and libraries. Includes SDKs for device development and SDKs for building service applications.
 author: dominicbetts
 ms.author: dobett

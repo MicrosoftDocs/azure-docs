@@ -35,9 +35,11 @@ The NC-Series with Nvidia K80 GPUs don't support GRID/graphics applications.
 
 The Nvidia extension always installs the latest driver. The following links to previous versions are provided to support dependencies on older driver versions.
 
-For Windows Server 2022, Windows Server 2019, Windows 11 21H2 and Windows 10 release up to 22H2:
-- [GRID 14.1 (512.78)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
-- [GRID 15.1 (528.24)](https://download.microsoft.com/download/f/a/f/fafa2972-4975-482e-99e6-442d5ad864a1/528.24_grid_win10_win11_server2019_server2022_dch_64bit_international-Azure-swl.exe) (.exe) 
+- [GRID 15.1 (528.24)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 14.1 (512.78)](https://download.microsoft.com/download/7/3/6/7361d1b9-08c8-4571-87aa-18cf671e71a0/512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe) (.exe) 
+
+For Windows Server 2016 1607, 1709:
+- [GRID 14.1 (512.78)](https://download.microsoft.com/download/7/3/6/7361d1b9-08c8-4571-87aa-18cf671e71a0/512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe) (.exe)  is the last supported driver from NVIDIA. The newer 15.x and above do not support Windows Server 2016. 
 
 For Windows Server 2012 R2: 
 - [GRID 13.1 (472.39)](https://download.microsoft.com/download/7/3/5/735a46dd-7d61-4852-8e34-28bce7f68727/472.39_grid_win8_win7_64bit_Azure-SWL.exe) (.exe)
