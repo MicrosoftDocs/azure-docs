@@ -39,7 +39,10 @@ To view your Log Analytics workspace health and set up health status alerts:
     
 1. To set up health status alerts, you can either [enable recommended out-of-the-box alert](../alerts/alerts-overview.md#recommended-alert-rules) rules, or manually create new alert rules.
     - To enable the recommended alert rules:
-        1. select **Alerts**, then select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
+        1. Select **Alerts** > **Enable recommended alert rules**. 
+        
+            The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
+        
         1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, you can change the default values if you would like.
         1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
         1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
@@ -68,9 +71,9 @@ To view Log Analytics workspace health metrics:
 
    | Metric name | Description |
    | - | - |
-   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range. This number does not include queries initiated by Azure services, such as Sentinel, and alert-related queries. |
-   | Query failure count |  Total number of failed user queries within the selected time range. This number includes all 500-599 response codes, which indicate an error related to the application gateway or the backend server.|
-   | Query success rate | Total number of successful user queries within the selected time range. This number includes all 200-299 and 400-499 response codes; in other words, all user queries that did not result in a service error. |
+   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number does not include queries initiated by Azure services, such as Sentinel, and alert-related queries. |
+   | Query failure count |  Total number of failed user queries within the selected time range.<br>This number includes all queries that return 500-599 response codes, which indicate an error related to the application gateway or the backend server.|
+   | Query success rate | Total number of successful user queries within the selected time range.<br>This number includes all queries that return 200-299 and 400-499 response codes; in other words, all user queries that did not result in a service error. |
 
 ## Investigate Log Analytics workspace health issues
 
