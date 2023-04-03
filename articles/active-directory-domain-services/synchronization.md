@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/03/2023
 ms.author: justinha
 
 ---
@@ -34,7 +34,7 @@ The synchronization process is one-way by design. There's no reverse synchroniza
 
 ## Scoped synchronization and group filter
 
-You can scope synchronization to only user accounts that originated in the cloud. Within that synchronization scope, you can filter for specific groups os users. You can chose between cloud only groups, on-premises groups, or both. For more information about how to configure scoped synchronization, see [Configure scoped synchronization](scoped-synchronization.md).
+You can scope synchronization to only user accounts that originated in the cloud. Within that synchronization scope, you can filter for specific groups os users. You can choose between cloud only groups, on-premises groups, or both. For more information about how to configure scoped synchronization, see [Configure scoped synchronization](scoped-synchronization.md).
 
 :::image type="content" border="true" source="./media/scoped-synchronization/filter.png" alt-text="Screenshot of group filter option.":::
 
@@ -138,7 +138,7 @@ The following objects or attributes aren't synchronized from an on-premises AD D
 
 ## Password hash synchronization and security considerations
 
-When you enable Azure AD DS, legacy password hashes for NTLM + Kerberos authentication are required. Azure AD doesn't store clear-text passwords, so these hashes can't be automatically generated for existing user accounts. Once generated and stored, NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD.
+When you enable Azure AD DS, legacy password hashes for NTLM and Kerberos authentication are required. Azure AD doesn't store clear-text passwords, so these hashes can't be automatically generated for existing user accounts. NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD.
 
 The encryption keys are unique to each Azure AD tenant. These hashes are encrypted such that only Azure AD DS has access to the decryption keys. No other service or component in Azure AD has access to the decryption keys.
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 04/03/2023
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -117,7 +117,7 @@ To create a managed domain, you use the `New-AzureAaddsForest` script. This scri
     | Virtual network name              | *-aaddsVnetName*                  | Name of the virtual network for the managed domain.|
     | Address space                     | *-aaddsVnetCIDRAddressSpace*      | Virtual network's address range in CIDR notation (if creating the virtual network).|
     | Azure AD DS subnet name           | *-aaddsSubnetName*                | Name of the subnet of the *aaddsVnetName* virtual network hosting the managed domain. Don't deploy your own VMs and workloads into this subnet. |
-    | Azure AD DS address range         | *-aaddsSubnetCIDRAddressRange*    | Subnet address range in CIDR notation for the AAD DS instance, such as *192.168.1.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets. |
+    | Azure AD DS address range         | *-aaddsSubnetCIDRAddressRange*    | Subnet address range in CIDR notation for the Azure AD DS instance, such as *192.168.1.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets. |
     | Workload subnet name (optional)   | *-workloadSubnetName*             | Optional name of a subnet in the *aaddsVnetName* virtual network to create for your own application workloads. VMs and applications and also be connected to a peered Azure virtual network instead. |
     | Workload address range (optional) | *-workloadSubnetCIDRAddressRange* | Optional subnet address range in CIDR notation for application workload, such as *192.168.2.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets.|
 
