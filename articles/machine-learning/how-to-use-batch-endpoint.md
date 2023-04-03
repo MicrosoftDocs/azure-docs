@@ -37,11 +37,11 @@ In this article, you'll learn how to use batch endpoints to do batch scoring.
 
 In this example, we're going to deploy a model to solve the classic MNIST ("Modified National Institute of Standards and Technology") digit recognition problem to perform batch inferencing over large amounts of data (image files). In the first section of this tutorial, we're going to create a batch deployment with a model created using Torch. Such deployment will become our default one in the endpoint. In the second half, [we're going to see how we can create a second deployment](#adding-deployments-to-an-endpoint) using a model created with TensorFlow (Keras), test it out, and then switch the endpoint to start using the new deployment as default.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, change directories to either `cli/endpoints/batch` if you're using the Azure CLI or `sdk/endpoints/batch` if you're using the Python SDK.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, change directories to either `cli/endpoints/batch/deploy-models/mnist-classifier` if you're using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/mnist-classifier` if you're using the Python SDK.
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/cli/endpoints/batch
+cd azureml-examples/cli/endpoints/batch/deploy-models/mnist-classifier
 ```
 
 ### Follow along in Jupyter Notebooks
@@ -119,41 +119,6 @@ ml_client.begin_create_or_update(compute_cluster)
 > [!NOTE]
 > You are not charged for compute at this point as the cluster will remain at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. Learn more about [manage and optimize cost for AmlCompute](./how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
-
-### Registering the model
-
-Batch Deployments can only deploy models registered in the workspace. You can skip this step if the model you're trying to deploy is already registered. In this case, we're registering a Torch model for the popular digit recognition problem (MNIST).
-
-> [!TIP]
-> Models are associated with the deployment rather than with the endpoint. This means that a single endpoint can serve different models or different model versions under the same endpoint as long as they are deployed in different deployments.
-
-   
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-MODEL_NAME='mnist'
-az ml model create --name $MODEL_NAME --type "custom_model" --path "./mnist/model/"
-```
-
-# [Python](#tab/python)
-
-```python
-model_name = 'mnist'
-model = ml_client.models.create_or_update(
-    Model(name=model_name, path='./mnist/model/', type=AssetTypes.CUSTOM_MODEL)
-)
-```
-
-# [Studio](#tab/azure-studio)
-
-1. Navigate to the __Models__ tab on the side menu.
-1. Select __Register__ > __From local files__.
-1. In the wizard, leave the option *Model type* as __Unspecified type__.
-1. Select __Browse__ > __Browse folder__ > Select the folder `./mnist/model/` > __Next__.
-1. Configure the name of the model: `mnist`. You can leave the rest of the fields as they are.
-1. Select __Register__.
-
----
 
 ## Create a batch endpoint
 
@@ -252,17 +217,53 @@ A deployment is a set of resources required for hosting the model that does the 
 * The environment in which the model runs.
 * The pre-created compute and resource settings.
 
-1. Batch deployments require a scoring script that indicates how a given model should be executed and how input data must be processed. Batch Endpoints support scripts created in Python. In this case, we're deploying a model that reads image files representing digits and outputs the corresponding digit. The scoring script is as follows:
+1. Let's start by registering the model we want to deploy. Batch Deployments can only deploy models registered in the workspace. You can skip this step if the model you're trying to deploy is already registered. In this case, we're registering a Torch model for the popular digit recognition problem (MNIST).
 
-   > [!NOTE]
-   > For MLflow models, Azure Machine Learning automatically generates the scoring script, so you're not required to provide one. If your model is an MLflow model, you can skip this step. For more information about how batch endpoints work with MLflow models, see the dedicated tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+    > [!TIP]
+    > Models are associated with the deployment rather than with the endpoint. This means that a single endpoint can serve different models or different model versions under the same endpoint as long as they are deployed in different deployments.
 
-   > [!WARNING]
-   > If you're deploying an Automated ML model under a batch endpoint, notice that the scoring script that Automated ML provides only works for online endpoints and is not designed for batch execution. Please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md) to learn how to create one depending on what your model does.
+   
+    # [Azure CLI](#tab/azure-cli)
 
-   __deployment-torch/code/batch_driver.py__
+    ```azurecli
+    MODEL_NAME='mnist-classifier-torch'
+    az ml model create --name $MODEL_NAME --type "custom_model" --path "deployment-torch/model"
+    ```
 
-   :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/code/batch_driver.py" :::
+    # [Python](#tab/python)
+
+    ```python
+    model_name = 'mnist-classifier-torch'
+    model = ml_client.models.create_or_update(
+        Model(name=model_name, path='deployment-torch/model/', type=AssetTypes.CUSTOM_MODEL)
+    )
+    ```
+
+    # [Studio](#tab/azure-studio)
+
+    1. Navigate to the __Models__ tab on the side menu.
+
+    1. Select __Register__ > __From local files__.
+
+    1. In the wizard, leave the option *Model type* as __Unspecified type__.
+
+    1. Select __Browse__ > __Browse folder__ > Select the folder `deployment-torch/model` > __Next__.
+
+    1. Configure the name of the model: `mnist-classifier-torch`. You can leave the rest of the fields as they are.
+
+    1. Select __Register__.
+
+1. Now it's time to create an scoring script. Batch deployments require a scoring script that indicates how a given model should be executed and how input data must be processed. Batch Endpoints support scripts created in Python. In this case, we're deploying a model that reads image files representing digits and outputs the corresponding digit. The scoring script is as follows:
+
+    > [!NOTE]
+    > For MLflow models, Azure Machine Learning automatically generates the scoring script, so you're not required to provide one. If your model is an MLflow model, you can skip this step. For more information about how batch endpoints work with MLflow models, see the dedicated tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
+
+    > [!WARNING]
+    > If you're deploying an Automated ML model under a batch endpoint, notice that the scoring script that Automated ML provides only works for online endpoints and is not designed for batch execution. Please see [Author scoring scripts for batch deployments](how-to-batch-scoring-script.md) to learn how to create one depending on what your model does.
+
+    __deployment-torch/code/batch_driver.py__
+
+    :::code language="python" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/code/batch_driver.py" :::
 
 1. Create an environment where your batch deployment will run. Such environment needs to include the packages `azureml-core` and `azureml-dataset-runtime[fuse]`, which are required by batch endpoints, plus any dependency your code requires for running. In this case, the dependencies have been captured in a `conda.yml`:
     
@@ -287,6 +288,7 @@ A deployment is a set of resources required for hosting the model that does the 
    
     ```python
     env = Environment(
+        name="batch-torch-py38",
         conda_file="deployment-torch/environment/conda.yml",
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
@@ -321,7 +323,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
     # [Azure CLI](#tab/azure-cli)
     
-    __mnist-torch-deployment.yml__
+    __deployment-torch/deployment.yml__
     
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml":::
     
@@ -748,7 +750,9 @@ In this example, you'll learn how to add a second deployment __that solves the s
 
     # [Azure CLI](#tab/azure-cli)
    
-    *No extra step is required for the Azure Machine Learning CLI. The environment definition will be included in the deployment file as an anonymous environment.*
+    The environment definition will be included in the deployment definition itself as an anonymous environment. You'll see in the following lines in the deployment:
+    
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/deployment.yml" range="11-14":::
    
     # [Python](#tab/python)
    
@@ -756,8 +760,9 @@ In this example, you'll learn how to add a second deployment __that solves the s
    
     ```python
     env = Environment(
-        conda_file="deployment-kera/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+        name="batch-tensorflow-py38",
+        conda_file="deployment-keras/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
     )
     ```
 
@@ -771,9 +776,9 @@ In this example, you'll learn how to add a second deployment __that solves the s
     
     1. On __Select environment type__ select __Use existing docker image with conda__.
     
-    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
+    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.0`.
     
-    1. On __Customize__ section copy the content of the file `./mnist-keras/environment/conda.yml` included in the repository into the portal.
+    1. On __Customize__ section copy the content of the file `deployment-keras/environment/conda.yml` included in the repository into the portal.
     
     1. Select __Next__ and then on __Create__.
     
