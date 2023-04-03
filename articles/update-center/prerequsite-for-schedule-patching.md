@@ -22,7 +22,7 @@ To avoid accidental or unintentional patching when a VM is disassociated from a 
 
 The new VM property - *BypassPlatformSafetyChecksOnUserSchedule* is introduced, allowing a complete control over your patching requirements. It implies that you can have a more reliable way to select the VMs that must be autopatched and schedule patched, removing the risk of accidental autopatching.
 
-Here, when the patch mode is set to **Azure orchestrated using Automatic guest patching**, **BypassPlatformSafetyChecksOnUserSchedule = True**, and no schedule is associated, your VM won't get auto-patched.
+Here, when the patch mode is set to **Azure-orchestrated**, **BypassPlatformSafetyChecksOnUserSchedule = True**, and no schedule is associated, your VM won't get autopatched.
 
 To enable schedule patching on your VMs now, follow these steps:
   
@@ -33,7 +33,7 @@ To enable schedule patching on your VMs now, follow these steps:
 
 The new patch orchestration option enables the following VM properties on your behalf after receiving your consent:
 
-- Patch mode = Azure-orchestrated using Automatic guest patching
+- Patch mode = Azure-orchestrated
 - BypassPlatformSafetyChecksOnUserSchedule = TRUE
 
 
@@ -46,10 +46,10 @@ The new patch orchestration option enables the following VM properties on your b
 
 The above settings will do the following:
 
-- **Patch Orchestration** set to **Azure orchestrated using Automatic guest patching** enables Auto patching on the VM. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
+- **Patch Orchestration** set to **Azure-orchestrated** enables Auto patching on the VM. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
 - Setting the **BypassPlatformSafetyChecksOnUserSchedule** to **True** ensures that even if the schedule is removed from the VM, your VM won't be autopatched.
 
->[!NOTE]
+> [!NOTE]
 > - This prerequisite is applicable only for Azure VMs. 
 > - For Azure Arc-enabled VMs, there are no prerequisites to enable scheduled patching. The process to configure the schedules on Azure Arc-enabled servers continues to remain the same.
 > - For other programmatic methods such as REST API/PowerShell/CLI, we recommend that you enable both the properties using the REST API calls/REST commands/cmdlets.
@@ -92,12 +92,16 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
 
 ## User scenarios
 
-**VMs** | **Azure orchestrated using Automatic guest patching patch mode** | **BypassPlatformSafetyChecksOnUserSchedule** | **Expected behavior in Azure** |
---- | --- | --- | --- |
-VM1 | Yes |Yes | If the schedule is associated, then schedule patch runs as defined by user. </br> If the schedule isn't associated, then neither autopatch nor the schedule patch will run.|
-VM2 | Yes | No | If schedule is associated, then neither autopatch nor schedule patch will run. You'll get an error that the prerequisites for schedule patch aren't met. </br> If the schedule isn't associated, the VM is autopatched.
-VM3 | No | Yes | If the schedule is associated, then neither autopatch not schedule patch will run. You'll get an error that the prerequisites for schedule patch aren't met. </br> If the schedule isn't associated, then neither the autopatch nor the schedule patch will run.
-VM4 | No | No | If the schedule is associated, then neither autopatch nor schedule patch will run. You'll get an error that the prerequisites for schedule patch aren't met. </br> If the schedule isn't associated, then neither the autopatch nor the schedule patch will run.
+**Scenarios** | **Azure-orchestrated** | **BypassPlatformSafetyChecksOnUserSchedule** | **Schedule Associated** |**Expected behavior in Azure** |
+--- | --- | --- | --- | ---|
+Scenario 1 | Yes | True | Yes | The schedule patch runs as defined by user. |
+Scenario 2 | Yes | True | No | Neither autopatch nor the schedule patch will run.|
+Scenario 3 | Yes | False | Yes | Neither autopatch nor schedule patch will run. You'll get an error that the prerequisites for schedule patch aren't met.| 
+Scenario 4 | Yes |  False | No   | The VM is autopatched.|
+Scenario 5 | No | True | Yes | Neither autopatch nor schedule patch will run. You'll get an error that the prerequisites for schedule patch aren't met. |
+Scenario 6 | No | True | No | Neither the autopatch nor the schedule patch will run.|
+Scenario 7 | No | False | Yes | Neither autopatch nor schedule patch will run. You'll get an error that the prerequisites for schedule patch aren't met.| 
+Scenario 8 | No | False | No | Neither the autopatch nor the schedule patch will run.|
 
 ## Next steps
 
