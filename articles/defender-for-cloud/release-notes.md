@@ -16,6 +16,20 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## April 2023
+
+Updates in April include:
+
+- [Agentless Container Security Posture](#agentless-container-security-posture)
+
+### Agentless Container Security Posture
+
+Agentless Container Security Posture (Azure) allows security teams to get ahead of containerized application risks and prioritize misconfigurations and exposures in their Kubernetes deployments and cloud context. With an agentless approach, security teams can now seamlessly gain wide visibility into their Kubernetes and containers registries across SDLC and runtime, removing friction and footprint from the workloads.
+
+Out-of-the-box container vulnerability assessments, combined with attack path analysis, empowers security teams to prioritize and zoom into container vulnerabilities that matter most. Customers can also use the cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
+
+Learn more at [Agentless Container Security Posture (Azure) (Preview)](concept-agentless-containers.md).
+
 ## March 2023
 
 Updates in March include:
