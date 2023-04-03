@@ -22,17 +22,17 @@ Available security content currently includes a built-in workbook and analytics 
 
 The BTP Activity Workbook provides a dashboard overview of BTP activity. 
 
-:::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png" alt-text="Screenshot of the Overview tab of the SAP BTP workbook." lightbox=source="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png":::
+:::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png" alt-text="Screenshot of the Overview tab of the SAP BTP workbook." lightbox="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png":::
 
 The **Overview** tab shows: 
 
-- An overview of BTP sub-accounts, helping analysts identify the most active accounts and the type of ingested data. 
-- Sub-account sign-in activity, helping analysts identify spikes and trends that may be associated with sign-in failures in SAP Business Application Studio (BAS). 
+- An overview of BTP subaccounts, helping analysts identify the most active accounts and the type of ingested data. 
+- Subaccount sign-in activity, helping analysts identify spikes and trends that may be associated with sign-in failures in SAP Business Application Studio (BAS). 
 - Timeline of BTP activity and number of BTP security alerts, helping analysts search for any correlation between the two.
  
 The **Identity Management** tab shows a grid of identity management events, such as user and security role changes, in a human-readable format. The search bar lets you quickly find specific changes.
 
-:::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-identity-management.png" alt-text="Screenshot of the Identity Management tabe of the SAP BTP workbook." lightbox=source="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png":::
+:::image type="content" source="./media/sap-btp-security-content/sap-btp-workbook-identity-management.png" alt-text="Screenshot of the Identity Management tabe of the SAP BTP workbook." lightbox="./media/sap-btp-security-content/sap-btp-workbook-btp-overview.png":::
 
 For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy Microsoft Sentinel Solution for SAP® BTP](deploy-sap-btp-solution.md).
 
@@ -40,11 +40,11 @@ For more information, see [Tutorial: Visualize and monitor your data](../monitor
 
 | Rule name | Description | Source action | Tactics |
 | --------- | --------- | --------- | --------- |
-| **BTP - Failed access attempts across multiple BAS subaccounts** |Identifies failed Business Application Studio (BAS) access attempts over a predefined number of sub-accounts.<br>Default threshold: 3 | | |
+| **BTP - Failed access attempts across multiple BAS subaccounts** |Identifies failed Business Application Studio (BAS) access attempts over a predefined number of subaccounts.<br>Default threshold: 3 | | |
 | **BTP - Malware detected in BAS dev space** |Identifies instances of malware detected by the SAP internal malware agent within BAS developer spaces. | | |
 | **BTP - User added to sensitive privileged role collection** |Identifies identity management actions where a user is added to a set of monitored privileged role collections. | | |
-| **BTP - Trust and authorization Identity Provider monitor** |Identifies create, read, update, and delete (CRUD) operations on Identity Provider settings within a sub-account. |
-| **BTP - Mass user deletion in a sub account** |Identifies user account deletion activity where the amount of deleted users exceeds a predefined threshold.<br>Default threshold: 10 | | |
+| **BTP - Trust and authorization Identity Provider monitor** |Identifies create, read, update, and delete (CRUD) operations on Identity Provider settings within a subaccount. |
+| **BTP - Mass user deletion in a sub account** |Identifies user account deletion activity where the number of deleted users exceeds a predefined threshold.<br>Default threshold: 10 | | |
 
 ## Next steps
 

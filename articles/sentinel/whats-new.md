@@ -31,7 +31,7 @@ See these [important announcements](#announcements) about recent changes to feat
 
 The Microsoft Sentinel Solution for SAP BTP monitors and protects your SAP Business Technology Platform (BTP) system, by collecting audits and activity logs from the BTP infrastructure and BTP based apps, and detecting threats, suspicious activities, illegitimate activities, and more. 
 
-The solution includes the **SAP BTP** connector, [built-in analytics rules](sap/sap-btp-security-content.md#built-in-analytics-rules) for identity management and low-code application development scenarios, and the [BTP activity workbook](sap/sap-btp-security-content.md#sap-btp-workbook), which provides a dashboard overview of sub-accounts and a grid of identity management events.
+The solution includes the **SAP BTP** connector, [built-in analytics rules](sap/sap-btp-security-content.md#built-in-analytics-rules) for identity management and low-code application development scenarios, and the [BTP activity workbook](sap/sap-btp-security-content.md#sap-btp-workbook), which provides a dashboard overview of subaccounts and a grid of identity management events.
 
 [Learn more about the solution](sap/sap-btp-solution-overview.md).
 
