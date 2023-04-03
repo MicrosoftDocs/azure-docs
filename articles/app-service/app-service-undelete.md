@@ -117,7 +117,7 @@ Get-AzDeletedWebApp -ResourceGroupName <RGofDeletedApp> -Name <NameofApp>
 Restore-AzDeletedWebApp -ResourceGroupName <RGofnewapp> -Name <newApp> -deletedId "/subscriptions/xxxx/providers/Microsoft.Web/locations/xxxx/deletedSites/xxxx"
 ```
 
-Currently there's no support for Undelete (Restore-AzDeletedWebApp) Function app that's hosted on Consumption plan or Elastic premium plan since the content resides on Azure Files on a Storage account. If you haven't 'hard' deleted the Azure files storage account or if it exists and hasn't been deleted, then you may use the steps as workaround:
+Currently there's no support for Undelete (Restore-AzDeletedWebApp) Function app that's hosted on Consumption plan or Elastic premium plan since the content resides on Azure Files on a Storage account. If you haven't 'hard' deleted the Azure Files storage account or if it exists and hasn't been deleted, then you may use the steps as workaround:
  
 
 1. Create a new Function app on Consumption or Premium plan. Refer the instructions for [how to create on the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
