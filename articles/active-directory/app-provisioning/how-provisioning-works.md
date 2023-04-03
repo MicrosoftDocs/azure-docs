@@ -191,7 +191,7 @@ The provisioning service supports both deleting and disabling (sometimes referre
 
 **Configure your application to disable a user**
 
-Confirm the checkobx for updates is selected.
+Confirm the checkbox for updates is selected.
 
 Confirm the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. In this case, use the default mapping for gallery applications.
 
