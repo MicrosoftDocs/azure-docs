@@ -68,7 +68,7 @@ Caller must have `REFERENCES` permission on credential to use it to authenticate
 ## Syntax
 
 ```syntaxsql
---OPENROWSET syntax for reading Parquet or Delta Lake (preview) files
+--OPENROWSET syntax for reading Parquet or Delta Lake files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
     FORMAT= ['PARQUET' | 'DELTA'] }  

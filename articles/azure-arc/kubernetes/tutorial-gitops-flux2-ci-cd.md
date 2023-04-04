@@ -20,9 +20,6 @@ In this tutorial, you'll set up a CI/CD solution using GitOps with Flux v2 and A
 > * Deploy the `dev` and `stage` environments.
 > * Test the application environments.
 
-> [!NOTE]
-> Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

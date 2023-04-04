@@ -6,7 +6,7 @@ items:
   items:
   - name: What is the MedTech service?
     href: overview.md
-  - name: Understand the device message data transformation
+  - name: Understand the device message processing stages
     href: understand-service.md
 - name: Quickstarts
   expanded: true
@@ -49,11 +49,11 @@ items:
     - name: Device
       expanded: false
       items:
-      - name: Configure the device mapping
-        href: how-to-configure-device-mappings.md
-      - name: Use CalculatedContent mappings
+      - name: Overview of the device mapping
+        href: overview-of-device-mapping.md
+      - name: Use CalculatedContent
         href: how-to-use-calculatedcontent-mappings.md
-      - name: Use IotJsonPathContentTemplate mappings
+      - name: Use IotJsonPathContent
         href: how-to-use-iotjsonpathcontenttemplate-mappings.md
       - name: Use custom functions
         href: how-to-use-custom-functions.md 

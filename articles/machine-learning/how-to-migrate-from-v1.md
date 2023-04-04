@@ -11,6 +11,7 @@ ms.author: balapv
 ms.date: 09/23/2022
 ms.reviewer: sgilley
 ms.custom: devplatv2, ignite-2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Upgrade to v2
@@ -20,7 +21,7 @@ Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK intro
 ## Prerequisites
 
 - General familiarity with Azure Machine Learning and the v1 Python SDK.
-- Understand [what is v2?](concept-v2.md)
+- Understand [what is v2?](concept-v2.md?view=azureml-api-2&preserve-view=true)
 
 ## Should I use v2?
 
@@ -69,7 +70,7 @@ v1 and v2 can co-exist in a workspace. You can reuse your existing assets in you
 We do not recommend using the v1 and v2 SDKs together in the same code. It is technically possible to use v1 and v2 in the same code because they use different Azure namespaces. However, there are many classes with the same name across these namespaces (like Workspace, Model) which can cause confusion and make code readability and debuggability challenging. 
 
 > [!IMPORTANT]
-> If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
+> If your workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md?view=azureml-api-2&preserve-view=true) for details.
 
 ## Resources and assets in v1 and v2
 
@@ -79,7 +80,7 @@ This section gives an overview of specific resources and assets in Azure Machine
 
 Workspaces don't need to be upgraded with v2. You can use the same workspace, regardless of whether you're using v1 or v2. 
 
-If you create workspaces using automation, do consider upgrading the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md#create-a-workspace).
+If you create workspaces using automation, do consider upgrading the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md?view=azureml-api-2&preserve-view=true#create-a-workspace).
 
 For a comparison of SDK v1 and v2 code, see [Workspace management in SDK v1 and SDK v2](migrate-to-v2-resource-workspace.md).
 
@@ -107,7 +108,7 @@ For a comparison of SDK v1 and v2 code, see [Compute management in SDK v1 and SD
 
 ### Endpoint and deployment (endpoint and web service in v1)
 
-With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md). The following table guides our recommendation:
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend upgrading to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md?view=azureml-api-2&preserve-view=true). The following table guides our recommendation:
 
 |Endpoint type in v2|Upgrade from|Notes|
 |-|-|-|
@@ -149,7 +150,7 @@ Datasets are renamed to data assets. *Backwards compatibility* is provided, whic
 
 It should be noted that *forwards compatibility* is **not** provided, which means you **cannot** use V2 data assets in V1.
 
-This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md)
+This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md?view=azureml-api-2&preserve-view=true)
 
 For a comparison of SDK v1 and v2 code, see [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md).
 
@@ -167,7 +168,7 @@ Environments created from v1 can be used in v2. In v2, environments have new fea
 
 The management of Key Vault secrets differs significantly in V2 compared to V1. The V1 set_secret and get_secret SDK methods are not available in V2. Instead, direct access using Key Vault client libraries should be used.
 
-For details about Key Vault, see [Use authentication credential secrets in Azure Machine Learning training jobs](how-to-use-secrets-in-runs.md).
+For details about Key Vault, see [Use authentication credential secrets in Azure Machine Learning training jobs](how-to-use-secrets-in-runs.md?view=azureml-api-2&preserve-view=true).
 
 ## Scenarios across the machine learning lifecycle
 
@@ -187,7 +188,7 @@ We recommend v2 for prototyping models. You may consider using the CLI for an in
 
 We recommend v2 for production model training. Jobs consolidate the terminology and provide a set of consistency that allows for easier transition between types (for example, `command` to `sweep`) and a GitOps-friendly process for serializing jobs into YAML files.
 
-With v2, you should separate your machine learning code from the control plane code. This separation allows for easier iteration and allows for easier transition between local and cloud. We also recommend using MLflow for tracking and model logging. See the [MLflow concept article](concept-mlflow.md) for details.
+With v2, you should separate your machine learning code from the control plane code. This separation allows for easier iteration and allows for easier transition between local and cloud. We also recommend using MLflow for tracking and model logging. See the [MLflow concept article](concept-mlflow.md?view=azureml-api-2&preserve-view=true) for details.
 
 ### Production model deployment
 
@@ -209,5 +210,5 @@ You can obtain a YAML representation of any entity with the CLI via `az ml <enti
 
 ## Next steps
 
-- [Get started with the CLI (v2)](how-to-configure-cli.md)
+- [Get started with the CLI (v2)](how-to-configure-cli.md?view=azureml-api-2&preserve-view=true)
 - [Get started with the Python SDK (v2)](https://aka.ms/sdk-v2-install)

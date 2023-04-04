@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Learnster | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Learnster'
 description: Learn how to configure single sign-on between Azure Active Directory and Learnster.
 services: active-directory
 author: jeevansd

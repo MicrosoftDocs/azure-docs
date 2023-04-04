@@ -1,8 +1,8 @@
 ---
 title: Get started with Android map control | Microsoft Azure Maps
 description: Become familiar with the Azure Maps Android SDK. See how to create a project in Android Studio, install the SDK, and create an interactive map.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -22,7 +22,7 @@ Be sure to complete the steps in the [Quickstart: Create an Android app](quick-a
 
 The Azure Maps Android SDK provides three ways to set the language and regional view of the map. The following code shows how to set the language to French ("fr-FR") and the regional view to "Auto".
 
-1. Pass the language and regional view information into the `AzureMaps` class using the static `setLanguage` and `setView` properties. This will set the default language and regional view properties in your app.
+1. Pass the language and regional view information into the `AzureMaps` class using the static `setLanguage` and `setView` properties. This sets the default language and regional view properties in your app.
 
     ::: zone pivot="programming-language-java-android"
 
@@ -106,11 +106,11 @@ The Azure Maps Android SDK provides three ways to set the language and regional 
 
     ::: zone-end
 
-Here is an example of Azure Maps with the language set to "fr-FR" and regional view set to "Auto".
+Here's an example of Azure Maps with the language set to "fr-FR" and regional view set to "Auto".
 
 ![Azure Maps, map image showing labels in French](media/how-to-use-android-map-control-library/android-localization.png)
 
-For a complete list of supported languages and regional views see [Localization support in Azure Maps](supported-languages.md).
+For a complete list of supported languages and regional views, see [Localization support in Azure Maps](supported-languages.md).
 
 ## Navigating the map
 
@@ -137,7 +137,7 @@ There are several different ways in which the map can be zoomed, panned, rotated
 
 ## Azure Government cloud support
 
-The Azure Maps Android SDK supports the Azure Government cloud. The Azure Maps Android SDK is accessed from the same Maven repository. The following tasks will need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
+The Azure Maps Android SDK supports the Azure Government cloud. The Azure Maps Android SDK is accessed from the same Maven repository. The following tasks need to be done to connect to the Azure Government cloud version of the Azure Maps platform.
 
 In same place where the Azure Maps authentication details are specified, add the following line of code to tell the map to use the Azure Maps government cloud domain.
 
@@ -163,7 +163,7 @@ Be sure to use Azure Maps authentication details from the Azure Government cloud
 
 With the move from preview to general availability, some breaking changes were introduced into the Azure Maps Android SDK. The following are the key details:
 
-* The maven identifier changed from `"com.microsoft.azure.maps:mapcontrol:0.7"` to `"com.azure.android:azure-maps-control:1.0.0"`. The namespace and the major version number has changed.
+* The maven identifier changed from `"com.microsoft.azure.maps:mapcontrol:0.7"` to `"com.azure.android:azure-maps-control:1.0.0"`. The namespace and major version number changed.
 * The import namespace has changed from `com.microsoft.azure.maps.mapcontrol` to `com.azure.android.maps.control`
 * Resource names for XML options, color resources, and image resources have had the text `mapcontrol_` replaced with `azure_maps_`.
 

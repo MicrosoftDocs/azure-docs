@@ -38,7 +38,7 @@ In this release, there are a few known issues:
 
 - When using virtual network injection, use caution in making changes to the virtual network and subnet.  Changes may cause the lab VMs to stop working. For example, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience in the future, but for now make sure to delete labs before deleting networks.
 - Moving lab plan and lab resources from one Azure region to another isn't supported.
-- Azure Compute [resource provider must be registered](../azure-resource-manager/management/resource-providers-and-types.md) before Azure Lab Services can [create and attach an Azure Compute Gallery resource](how-to-attach-detach-shared-image-gallery.md#create-and-attach-a-compute-gallery).
+- Azure Compute [resource provider must be registered](../azure-resource-manager/management/resource-providers-and-types.md) before Azure Lab Services can [create and attach an Azure Compute Gallery resource](how-to-attach-detach-shared-image-gallery.md#attach-an-existing-compute-gallery-to-a-lab-plan).
 
 ### Lab plans replace lab accounts
 
@@ -105,8 +105,8 @@ Let's cover each step to get started with the August 2022 Update in more detail.
 1.    **Configure shared resources**. Optionally, [configure licensing servers](how-to-create-a-lab-with-shared-resource.md). For VMs that require access to a licensing server, create a lab using a lab plan with [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation). You can reuse the same Azure Compute Gallery and the licensing servers that you use with your lab accounts.
 1. **Create Lab plans.**  
 
-    1. [Create](tutorial-setup-lab-plan.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plans.
-    1. [Assign permissions](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role) to educators that will create labs. 
+    1. [Create](quick-create-resources.md) and [configure lab plans](#configure-a-lab-plan). If you plan to use a license server, don't forget to enable [advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) when creating your lab plans.
+    1. [Assign permissions](quick-create-resources.md#add-a-user-to-the-lab-creator-role) to educators that will create labs. 
     1. Enable [Azure Marketplace images](specify-marketplace-images.md).
     1. Optionally, [attach an Azure Compute Gallery](how-to-attach-detach-shared-image-gallery.md).
 
@@ -119,7 +119,7 @@ Let's cover each step to get started with the August 2022 Update in more detail.
 ## Next steps
 
 - As an admin, [Migrate to August 2022 Update](migrate-to-2022-update.md) 
-- As an admin, [create a lab plan](tutorial-setup-lab-plan.md).
+- As an admin, [create a lab plan](quick-create-resources.md).
 - As an admin, [manage your lab plan](how-to-manage-lab-plans.md).
 - As an educator, [create a lab](tutorial-setup-lab.md).
 - As a student, [access a lab](how-to-use-lab.md).

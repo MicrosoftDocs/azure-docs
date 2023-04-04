@@ -9,8 +9,9 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 03/14/2023
 ms.author: justinha
+ms.reviewer: xyuan
 
 ---
 # Virtual network design considerations and configuration options for Azure Active Directory Domain Services
@@ -110,10 +111,13 @@ The following sections cover network security groups and Inbound and Outbound po
 
 The following network security group Inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet for your managed domain.
 
-| Inbound port number | Protocol | Source                             | Destination | Action | Required | Purpose |
-|:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
-| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Optional      | Debugging for support. |
+| Source      | Source service tag                 | Source port ranges |  Destination  | Service | Destination port ranges | Protocol | Action | Required | Purpose |
+|:-----------:|:----------------------------------:|:------------------:|:-------------:|:-------:|:-----------------------:|:--------:|:------:|:--------:|:--------|
+| Service tag | AzureActiveDirectoryDomainServices | *                  | Any           | WinRM   | 5986            | TCP | Allow | Yes | Management of your domain. |
+| Service tag | CorpNetSaw                         | *                  | Any           | RDP     | 3389            | TCP | Allow | Optional | Debugging for support |
+
+
+Note that the **CorpNetSaw** service tag isn't available by using Azure portal, and the network security group rule for **CorpNetSaw** has to be added by using [PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 Azure AD DS also relies on the Default Security rules AllowVnetInBound and AllowAzureLoadBalancerInBound.
 

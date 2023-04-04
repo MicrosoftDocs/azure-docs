@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD groups to manage role assignments - Azure Active Directory
+title: Use Azure AD groups to manage role assignments
 description: Use Azure AD groups to simplify role assignment management in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2023
 ms.author: rolyon
 ms.reviewer: vincesm

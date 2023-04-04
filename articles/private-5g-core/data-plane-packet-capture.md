@@ -53,7 +53,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 
 1. Remove the output files:
 
-    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter –- bash rm <path to output file>`
+    `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter -- rm <path to output file>`
 
 ## Next steps
 
