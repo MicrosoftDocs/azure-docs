@@ -24,8 +24,8 @@ A Spring Cloud Gateway instance routes traffic according to rules. Both *scale i
 
 VMware Spring Cloud Gateway includes the following features:
 
-- Dynamic routing configuration, that's independent of applications that can be applied and changed without recompiling.
-- Commercial API route filters, for transporting authorized JSON Web Token (JWT) claims to application services.
+- Dynamic routing configuration, independent of individual applications, that you can apply and change without recompiling.
+- Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
 - Client certificate authorization.
 - Rate-limiting approaches.
 - Circuit breaker configuration.
@@ -38,7 +38,7 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 - An already provisioned Azure Spring Apps Enterprise tier service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
   > [!NOTE]
-  > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You cannot enable VMware Spring Cloud Gateway after provisioning.
+  > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You can't enable VMware Spring Cloud Gateway after provisioning.
 
 - Azure CLI version 2.0.67 or later. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -48,19 +48,19 @@ This section describes how to assign a public endpoint to Spring Cloud Gateway a
 
 #### [Azure portal](#tab/Azure-portal)
 
-To assign an endpoint in the Azure portal, do the following steps:
+To assign an endpoint in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
 1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Overview**.
 1. Set **Assign endpoint** to **Yes**.
 
-After a few minutes, **URL** will show the configured endpoint URL. Save the URL to use later.
+After a few minutes, **URL** shows the configured endpoint URL. Save the URL to use later.
 
 :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png" alt-text="Screenshot of Azure portal showing the Spring Cloud Gateway overview page for an Azure Spring Apps instance with the Assign endpoint buttons highlighted and the configured endpoint URL displayed." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/gateway-overview.png":::
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-The following command assigns the endpoint.
+Use the following command to assign the endpoint.
 
 ```azurecli
 az spring gateway update --assign-endpoint
@@ -72,13 +72,13 @@ az spring gateway update --assign-endpoint
 
 You can configure VMware Spring Cloud Gateway metadata, which automatically generates OpenAPI version 3 documentation, to display route groups in API portal for VMware Tanzu. For more information, see [Use API portal for VMware Tanzu](./how-to-use-enterprise-api-portal.md).
 
-The available metadata options are described in the following table.
+The following table describes the available metadata options:
 
 | Property      | Description                                                                                                                                                                                                                                                                 |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | title         | A title that describes the context of the APIs available on the Gateway instance. The default value is `Spring Cloud Gateway for K8S`.                                                                                                                                          |
 | description   | A detailed description of the APIs available on the Gateway instance. The default value is `Generated OpenAPI 3 document that describes the API routes configured for '[Gateway instance name]' Spring Cloud Gateway instance deployed under '[namespace]' namespace.*.` |
-| documentation | The location of API documentation that is available on the Gateway instance.                                                                                                                                                                                          |
+| documentation | The location of API documentation that's available on the Gateway instance.                                                                                                                                                                                          |
 | version       | The version of APIs available on this Gateway instance. The default value is `unspecified`.                                                                                                                                                                                 |
 | serverUrl     | The base URL to access APIs on the Gateway instance.                                                                                                                                                                                            |
 
@@ -100,7 +100,7 @@ To edit metadata in the Azure portal, do these steps:
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to configure VMware Spring Cloud Gateway metadata properties. You'll need the endpoint URL obtained from the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
+Use the following command to configure VMware Spring Cloud Gateway metadata properties. You need the endpoint URL obtained from the [Configure Spring Cloud Gateway](#configure-spring-cloud-gateway) section.
 
 ```azurecli
 az spring gateway update \
@@ -115,7 +115,7 @@ az spring gateway update \
 
 ## Configure single sign-on (SSO)
 
-VMware Spring Cloud Gateway supports authentication and authorization using single sign-on (SSO), using an OpenID identity provider, which supports OpenID Connect Discovery protocol.
+VMware Spring Cloud Gateway supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider, which supports the OpenID Connect Discovery protocol.
 
 | Property       | Required? | Description                                                                                                                                                                                                                                                                                                          |
 |----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -130,7 +130,7 @@ You can use the Azure portal and the Azure CLI to edit SSO properties.
 
 #### [Azure portal](#tab/Azure-portal)
 
-To edit SSO properties in the Azure portal, do these steps:
+To edit SSO properties in the Azure portal, use the following steps:
 
 1. Open your Azure Spring Apps instance.
 1. Select **Spring Cloud Gateway** in the navigation pane, and then select **Configuration**.
@@ -141,7 +141,7 @@ To edit SSO properties in the Azure portal, do these steps:
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-The following command configures SSO properties for VMware Spring Cloud Gateway.
+Use the following command to configure SSO properties for VMware Spring Cloud Gateway.
 
 ```azurecli
 az spring gateway update \
@@ -162,7 +162,7 @@ az spring gateway update \
 
 ## Configure single sign-on (SSO) logout
 
-VMware Spring Cloud Gateway service instances provide a default API endpoint to log out of the current SSO session. The path to this endpoint is `/scg-logout`. The logout results in two outcomes depending on how you call the logout endpoint:
+VMware Spring Cloud Gateway service instances provide a default API endpoint to log out of the current SSO session. The path to this endpoint is `/scg-logout`. The logout results in one of the following outcomes, depending on how you call the logout endpoint:
 
 - Logout of session and redirect to the identity provider (IdP) logout.
 - Logout the service instance session.
@@ -173,9 +173,9 @@ If you send a `GET` request to the `/scg-logout` endpoint, then the endpoint sen
 
 The following steps describe an example of how to implement the function in your microservices:
 
-1. Get a route config to route the logout request to your application. For example, see the `Animal Rescue UI Pages` route config in [Azure samples](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/azure/api-route-config.json#L32) on GitHub.
+1. Get a route config to route the logout request to your application. For example, see the Animal Rescue UI pages route config in the [animal-rescue](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/azure/api-route-config.json#L32) repository on GitHub.
 
-1. Add whatever logout logic you need to the application. At the end, you need to a `GET` request to the gateway's `/scg-logout` endpoint as shown in the `return` value for the `getActionButton` method in [Azure samples](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/src/App.js#L84) .
+1. Add whatever logout logic you need to the application. At the end, you need to a `GET` request to the gateway's `/scg-logout` endpoint as shown in the `return` value for the `getActionButton` method in the [animal-rescue](https://github.com/Azure-Samples/animal-rescue/blob/0e343a27f44cc4a4bfbf699280476b0517854d7b/frontend/src/App.js#L84) repository.
 
 > [!NOTE]
 > The value of the redirect parameter must be a valid path on the gateway service instance. You can't redirect to an external URL.
@@ -262,7 +262,7 @@ Updating the configuration can take a few minutes. You should get a notification
 
 #### [Azure CLI](#tab/Azure-CLI)
 
-Use the following command to set up APM using Azure CLI.
+Use the following command to set up APM using Azure CLI:
 
 ```azurecli
 az spring gateway update \
@@ -271,7 +271,7 @@ az spring gateway update \
     --secrets <key=value>
 ```
 
-Allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. The following command shows the usage using Application Insights as an example.
+The allowed values for `--apm-types` are `ApplicationInsights`, `AppDynamics`, `Dynatrace`, `NewRelic`, and `ElasticAPM`. The following command shows the usage using Application Insights as an example.
 
 ```azurecli
 az spring gateway update \
@@ -279,12 +279,13 @@ az spring gateway update \
     --properties APPLICATIONINSIGHTS_CONNECTION_STRING=<THE CONNECTION STRING OF YOUR APPINSIGHTS> APPLICATIONINSIGHTS_SAMPLE_RATE=10
 ```
 
-You can also put environment variables in `--secrets` parameter instead of `--properties`, which makes environment variable more secure in network transmission and data storage in backend.
+You can also put environment variables in the `--secrets` parameter instead of `--properties`, which makes the environment variable more secure in network transmission and data storage in the backend.
 
 ---
 
 > [!NOTE]
 > Azure Spring Apps upgrades the APM agent and deployed apps with the same cadence to keep compatibility of agents between Spring Cloud Gateway and Spring apps.
+>
 > By default, Azure Spring Apps prints the logs of the APM Java agent to `STDOUT`. These logs are included with the Spring Cloud Gateway logs. You can check the version of the APM agent used in the logs. You can query these logs in Log Analytics to troubleshoot.
 > To make the APM agents work correctly, increase the CPU and memory of Spring Cloud Gateway.
 
