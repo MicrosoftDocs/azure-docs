@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Microsoft frequently speaks with research universities that operate in hybrid environments in which applications are either cloud-based or hosted on-premises. In both cases, applications can use different authentication protocols. In some cases, these protocols are reaching end-of-life or are not providing the required level of security.
 
-[![Diagram showing a baseline architecture typical to secondary education environments. The diagram is separated into the cloud-based and on-premises-based areas, the trust, synchronization, and credential validation paths.](media/multilateral-federation-baseline/typical-baseline-environment.png)](media/multilateral-federation-baseline/typical-baseline-environment.png#lightbox)
+[![Diagram of a typical university architecture including cloud and on-premises areas with trust, synchronization, and credential validation paths.](media/multilateral-federation-baseline/typical-baseline-environment.png)](media/multilateral-federation-baseline/typical-baseline-environment.png#lightbox)
 
 Applications drive much of the need for different authentication protocols and different identity management mechanisms (IdM).
 
