@@ -85,7 +85,7 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 ### How long does it take to get a short code? What happens after a short code program brief application is submitted?
 Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. All updates and the status changes for your applications are communicated via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
-## Alphanumeric Sender ID
+## Alphanumeric sender ID
 ### How should an alphanumeric sender Id be formatted?
 **Formatting guidelines**:
 - Must contain at least one letter
@@ -95,17 +95,16 @@ Once you have submitted the short code program brief application in the Azure po
     - Lower case letters: a - z
     - Numbers: 0-9
     - Spaces
-    - Special characters: 
-        - *+* 
-        - *-*
-        - _  
-        - &
+    - Special characters: *+* , *-* ,  _ , &
 
 ### Is a number purchase required to use alphanumeric sender ID?
 The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-senderID.md) for instructions.
 
 ### Can I send SMS immediately after enabling alphanumeric sender ID?
 We recommend waiting for 10 minutes before you start sending messages for best results.
+
+### Why is my alphanumeric sender ID getting replaced by a number?
+Alphanumeric sender ID replacement with a number may occur when a certain wireless carrier does not support alphanumeric sender ID. This is done to ensure high delivery rate.  
 
 ## Toll-Free Verification
 ### What is toll free verification?

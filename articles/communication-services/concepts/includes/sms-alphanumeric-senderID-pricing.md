@@ -1,5 +1,5 @@
 ---
-title: Alphanumeric Sender ID SMS Pricing includes file
+title: Alphanumeric sender ID SMS pricing includes file
 description: include file
 services: azure-communication-services
 author: prakulka
