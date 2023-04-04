@@ -1,5 +1,5 @@
 ---
-title: Update IoT Edge version on devices - Azure IoT Edge | Microsoft Docs 
+title: Update IoT Edge version on devices
 description: How to update IoT Edge devices to run the latest versions of the security subsystem and the IoT Edge runtime
 keywords: 
 author: PatAltimore
@@ -29,7 +29,7 @@ Use the sections of this article to update both the security subsystem and runti
 
 ### Patch releases
 
-When upgrading between *patch* releases, for example 1.4.1 to 1.4.2, the update order isn't important. You can upgrade security subsystem or runtime containers before or after the other. To update between patch releases:
+When you upgrade between *patch* releases, for example 1.4.1 to 1.4.2, the update order isn't important. You can upgrade the security subsystem or the runtime containers before or after the other. To update between patch releases:
 
 1. [Update the security subsystem](#update-the-security-subsystem)
 1. [Update the runtime containers](#update-the-runtime-containers)
@@ -39,7 +39,7 @@ You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
 ### Major or minor releases
 
-When upgrading between major or minor product releases, for example from 1.1 to 1.4, we recommend updating both the security subsystem and the runtime containers. Before a release, we test the security subsystem and the runtime container version combination. To update between major or minor product releases:
+When you upgrade between major or minor releases, for example from 1.1 to 1.4, update both the security subsystem and the runtime containers. Before a release, we test the security subsystem and the runtime container version combination. To update between major or minor product releases:
 
 1. On the device, stop IoT Edge using the command `sudo systemctl stop iotedge` and [uninstall](how-to-provision-single-device-windows-symmetric.md#uninstall-iot-edge).
 
