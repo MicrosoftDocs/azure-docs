@@ -1,31 +1,31 @@
 ---
-title: "Operator Nexus: Cluster Metrics Configuration"
+title: "Operator Nexus: How to configure cluster metrics"
 description: Instructional for the inputs and methods for creating, updating, retrieving, and deleting cluster metrics configurations.
 author: bryan-strassner
 ms.author: bstrassner
-ms.service: azure
+ms.service: operator-nexus
 ms.topic: how-to
 ms.date: 02/09/2023
 ms.custom: template-how-to
 ---
 
-# Cluster Metrics Configuration
+# Cluster metrics configuration
 
 When the user deploys a Cluster, a standard set of metrics are enabled for collection. For the list of metrics, see
 [List of Metrics Collected](List-of-metrics-collected.md).
 
 Users can't control the behavior (enable or disable) for collection of these included standard metrics. Though, users can control the collection of some optional metrics that aren't part of the link in the list. To enable this experience, users will have to create and update a MetricsConfiguration resource for a cluster. By default, creation of this MetricsConfiguration resource doesn't change the collection of metrics. User will have to update the resource to enable or disable these optional metrics collection.  
 
-**Notes:** 
-1. For a cluster, at max, only one MetricsConfiguration resource could be created.
-2. Users need to create a MetricsConfiguration resource to check a list of optional metrics that can be controlled. 
-3. Deletion of the MetricsConfiguration resource will result in the standard set of metrics being restored.
+> [!NOTE] 
+> * For a cluster, at max, only one MetricsConfiguration resource could be created.
+> * Users need to create a MetricsConfiguration resource to check a list of optional metrics that can be controlled. 
+> * Deletion of the MetricsConfiguration resource will result in the standard set of metrics being restored.
 
-## How To Manage Cluster Metrics Configuration
+## How to manage cluster metrics configuration
 
 To support the lifecycle of cluster metrics configurations, the following `az rest` interactions allow for the creation and management of a cluster's metrics configurations.
 
-### Creating a Metrics Configuration
+### Creating a metrics configuration
 
 Use of the `az rest` command requires that the request input is defined, and then a `PUT` request is made to the `Microsoft.NetworkCloud` resource provider.
 
@@ -64,9 +64,9 @@ export CLUSTER=<the cluter name>
 az rest -m put -u "https://management.azure.com/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.NetworkCloud/clusters/${CLUSTER}/metricsConfigurations/default?api-version=2022-12-12-preview" -b @create_metrics_configuration.json --debug
 ```
 
-Specifying `--debug` in REST API will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to Track Asynchronous Operations](howto-Track-Async-Operations-CLI.md).
+Specifying `--debug` in REST API will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
 
-## Retrieving a Metrics Configuration
+## Retrieving a metrics configuration
 
 After a metrics configuration is created, it can be retrieved using a `az rest` command:
 
@@ -80,7 +80,7 @@ az rest -m get -u "https://management.azure.com/subscriptions/${SUBSCRIPTION}/re
 
 This command will return a JSON representation of the metrics configuration.
 
-## Updating a Metrics Configuration
+## Updating a metrics configuration
 
 Much like the creation of a metrics configuration, an update can be performed to change the configuration. A file, containing the metrics to be updated, is consumed as an input.
 
@@ -108,9 +108,9 @@ export CLUSTER=<the cluter name>
 az rest -m put -u "https://management.azure.com/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.NetworkCloud/clusters/${CLUSTER}/metricsConfigurations/default?api-version=2022-12-12-preview" -b @update_metrics_configuration.json --debug
 ```
 
-Specifying `--debug` in REST API will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to Track Asynchronous Operations](howto-Track-Async-Operations-CLI.md).
+Specifying `--debug` in REST API will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
 
-## Deleting a Metrics Configuration
+## Deleting a metrics configuration
 
 Deletion of the metrics configuration will return the cluster to an unaltered configuration. To delete a metrics configuration, `az rest` API is used.
 
@@ -122,4 +122,4 @@ export CLUSTER=<the cluter name>
 az rest -m delete -u "https://management.azure.com/subscriptions/${SUBSCRIPTION}/resourceGroups/${RESOURCE_GROUP}/providers/Microsoft.NetworkCloud/clusters/${CLUSTER}/metricsConfigurations/default?api-version=2022-12-12-preview" --debug
 ```
 
-Specifying `--debug` in REST API will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to Track Asynchronous Operations](howto-Track-Async-Operations-CLI.md).
+Specifying `--debug` in REST API will result in the tracking operation status in the returned command output. This operation status can be queried to monitor the progress of the operation. See: [How-to track asynchronous operations](howto-track-async-operations-cli.md).
