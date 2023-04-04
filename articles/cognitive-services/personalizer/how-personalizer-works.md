@@ -6,7 +6,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 02/18/2020
 ---
 
