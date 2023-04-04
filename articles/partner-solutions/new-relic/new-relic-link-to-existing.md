@@ -58,15 +58,25 @@ When you use Azure Native New Relic Service Preview in the Azure portal for link
 
     |Property |  Description |
     |---|---|
-    | **Subscription**  | Select the Azure subscription that you want to use for creating the New Relic resource. This subscription will be linked to the New Relic account for monitoring purposes.|
+    | **Subscription**  | Select the Azure subscription that you want to use for creating the New Relic resource. This subscription is linked to the New Relic account for monitoring purposes.|
     | **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](../../azure-resource-manager/management/overview.md) is a container that holds related resources for an Azure solution.|
     | **Resource name**  | Specify a name for the New Relic resource.|
     | **Region**  | Select the Azure region where the New Relic resource should be created.|
     | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
 
-1. After you select a New Relic account, the New Relic billing details appear for your reference. The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
+1. After you select an account from New Relic, the New Relic billing details appear for your reference. The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
 
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab and New Relic account details in a red box.":::
+
+1. If the New Relic account you selected has a parent New Relic organization that was created from New Relic portal, your billing is managed by New Relic and continues to be managed by New Relic. 
+
+   > [!NOTE]
+   > Linking requires:
+   > - The account and the New Relic resource reside in the same Azure region 
+   > - The user who is the linking the account and resource must have Global administrator permissions on the New Relic account being linked
+   >
+   > If the account that you want to link to does not appear in the dropdown list, verify that these conditions are satisfied.
+
 
 1. Select **Next**.
 
