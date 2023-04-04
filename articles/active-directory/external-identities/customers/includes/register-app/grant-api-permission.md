@@ -7,7 +7,7 @@ ms.date: 03/30/2023
 ms.author: kengaderdus
 ---
 
-Since this app signs-in users, we will now proceed to select delegated permissions, which is is required by apps signing-in users. 
+Since this app signs-in users, we now proceed to select delegated permissions, which is required by apps that signs users. 
 
 To grant your app (`ciam-client-app`) permissions, follow these steps:
 
@@ -23,7 +23,7 @@ To grant your app (`ciam-client-app`) permissions, follow these steps:
  
 1. Select **Delegated permissions** option.
  
-1. Form the permissions list, select **ToDoList.Read, ToDoList.ReadWrite** (use the search box if necessary).
+1. From the permissions list, select **ToDoList.Read, ToDoList.ReadWrite** (use the search box if necessary).
  
 1. Select the **Add permissions** button.
  
