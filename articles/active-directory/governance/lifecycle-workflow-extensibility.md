@@ -50,6 +50,9 @@ When creating custom task extensions, the scenarios for how it interacts with Li
 - **Launch and wait** - The Azure Logic App is started, and the following task's execution waits on the response from the Logic App. You enter a time duration for how long the custom task extension should wait for a response from the Azure Logic App. If no response is received within a customer defined duration window, the task is considered failed.
  :::image type="content" source="media/lifecycle-workflow-extensibility/custom-task-launch-wait.png" alt-text="Screenshot of custom task launch and wait task choice." lightbox="media/lifecycle-workflow-extensibility/custom-task-launch-wait.png":::
 
+> [!NOTE]
+> You can also deploy a custom task that calls to a third party system. To learn more about this call, see: [taskProcessingResult: resume](/graph/api/identitygovernance-taskprocessingresult-resume).
+
 ## Response authorization
 
 When you create a custom task extension that waits for a response from the Logic App, you're able to define which applications can send a response
@@ -61,8 +64,6 @@ Response authorization can be utilized in one of the following ways:
 - **System-assigned managed identity (Default)** - With this choice you Enable and utilize the Logic Apps system-assigned managed identity. For more information, see: [Authenticate access to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 - **No authorization** -  With this choice you assign a Logic App or third party application an application permission (LifecycleWorkflows.ReadWrite.All), or role assignment (Lifecycle Workflows Administrator). This choice doesn't follow least privilege access as outlined in Azure Active Directory best practices. For more information on best practices for roles, see: [Best Practices for Azure AD roles](/azure/active-directory/roles/best-practices).
 - **Existing application** - With this choice you're able to choose an existing application to respond. You are able to choose applications that are system, user, or regular applications. For more information on managed identity types, see: [Managed identity types](../managed-identities-azure-resources/overview.md#managed-identity-types).
-
-
 
 ## Custom task extension integration with Azure Logic Apps high-level steps
 
