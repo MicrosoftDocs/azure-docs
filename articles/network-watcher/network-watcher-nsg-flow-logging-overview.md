@@ -512,9 +512,10 @@ NSG flow logs for network security groups associated to Azure Application Gatewa
 
 Currently, these Azure services don't support NSG flow logs:
 
-- [Azure Container Instances](https://azure.microsoft.com/services/container-instances/)
-- [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [Azure Functions](https://azure.microsoft.com/services/functions/)
+- [Azure Container Instances](../container-instances/container-instances-overview.md)
+- [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+- [Azure Functions](../azure-functions/functions-overview.md)
+- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support NSG flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
