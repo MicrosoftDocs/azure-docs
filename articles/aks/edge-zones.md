@@ -64,7 +64,7 @@ For the latest available Public MEC Edge Zones, please refer to [Azure public ME
 
 * Your cluster must be running Kubernetes version 1.22 or later
 
-* The identity you're using to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+* The identity you're using to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](./concepts-identity.md).
 
 <!-- TODO: ADD PREREQUISITES 
 Moushumi can send the dodumentation on the min SDK versions.
@@ -266,12 +266,7 @@ az aks create -g $RG_NAME -n $CLUSTER_NAME --edge-zone $EDGE_ZONE_NAME --locatio
 
 In this section you will learn how to deploy a Kubernetes cluster in the Edge Zone.
 
-#### Prerequisites
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-- If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
-
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -311,10 +306,10 @@ In this section you will learn how to deploy a Kubernetes cluster in the Edge Zo
 
 7. On the **Access** page, configure the following options:
 
-    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
+    - The default value for **Resource identity** is **System-assigned managed identity**. Managed identities provide an identity for applications to use when connecting to resources that support Azure Active Directory (Azure AD) authentication. For more details about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
     - The Kubernetes role-based access control (RBAC) option is the default value to provide more fine-grained control over access to the Kubernetes resources deployed in your AKS cluster.
 
-    By default, *Basic* networking is used, and [Container insights](../../azure-monitor/containers/container-insights-overview.md) is enabled.
+    By default, *Basic* networking is used, and [Container insights](../azure-monitor/containers/container-insights-overview.md) is enabled.
 
 8. Click **Review + create**. When you navigate to the **Review + create** tab, Azure runs validation on the settings that you have chosen. If validation passes, you can proceed to create the AKS cluster by selecting **Create**. If validation fails, then it indicates which settings need to be modified.
 
