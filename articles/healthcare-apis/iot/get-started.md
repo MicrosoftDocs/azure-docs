@@ -144,7 +144,7 @@ For more information on the MedTech service device message data transformation, 
 
 ## Step 6: Verify the processed data
 
-You can verify that the data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the data isn't mapped or if the mapping isn't authored properly, the data will be skipped. If there are any problems, check the [device mapping](how-to-configure-device-mappings.md) or the [FHIR destination mapping](how-to-configure-fhir-mappings.md).
+You can verify that the data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the data isn't mapped or if the mapping isn't authored properly, the data will be skipped. If there are any problems, check the [device mapping](overview-of-device-mapping.md) or the [FHIR destination mapping](how-to-configure-fhir-mappings.md).
 
 ### Metrics
 
