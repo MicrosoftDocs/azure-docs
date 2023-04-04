@@ -92,11 +92,11 @@ To install DCR Config Generator:
     
     1. In the portal's search box, type in *template* and then select **Deploy a custom template**.
     
-        :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
+        :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot of the Deploy custom template screen.":::
     
     1. Select **Build your own template in the editor**.
     
-        :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
+        :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot of the template editor.":::
     
     1. Paste the generated template into the editor and select **Save**. 
     1. On the **Custom deployment** screen, specify a **Subscription**, **Resource group**, and **Region**.    
