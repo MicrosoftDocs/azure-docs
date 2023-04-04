@@ -25,6 +25,8 @@
           href: security-tokens.md
         - name: Microsoft Authentication Library (MSAL)
           href: msal-overview.md
+        - name: Auth flows supported by MSAL
+          href: msal-authentication-flows.md
         - name: Microsoft Graph
           href: /graph/overview?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Glossary of terms
@@ -573,8 +575,6 @@
     - name: Microsoft Authentication Library (MSAL) reference
       displayName: SDK, library, msal, auth
       items:
-        - name: Auth flows supported by MSAL
-          href: msal-authentication-flows.md
         - name: Request and cache tokens
           href: msal-acquire-cache-tokens.md
         - name: Public and confidential client apps

@@ -107,6 +107,8 @@ items:
       href: long-running-sessions.md
     - name: Easy upgrade/downgrade
       href: easy-upgrade.md
+    - name: Explicit Proxy
+      href: explicit-proxy.md
 - name: How-to guides
   items:
     - name: Deploy and configure - classic
@@ -146,6 +148,8 @@ items:
     - name: Monitor diagnostic logs
       href: firewall-diagnostics.md
       displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
+    - name: Enable Top 10 flow and Flow trace logs
+      href: enable-top-ten-and-flow-trace.md
     - name: Azure Firewall Workbook
       href: firewall-workbook.md
     - name: Deploy and configure Firewall Premium

@@ -5,15 +5,15 @@ description: Learn how practice cross-workspace MLOps and collaborate across tea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: mabables
-author: ManojBableshwar
+ms.author: kritifaujdar
+author: fkriti
 ms.reviewer: larryfr
 ms.date: 09/21/2022
 ms.topic: how-to
 ms.custom: devx-track-python, ignite-2022, devx-track-azurecli
 ---
 
-# Share models, components and environments across workspaces with registries (preview)
+# Share models, components, and environments across workspaces with registries (preview)
 
 Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
  
@@ -297,7 +297,7 @@ ml_client_registry.components.create_or_update(train_model)
 
 Note down the `name` and `version` of the component from the output and pass them to the `ml_client_registry.component.get()` method to fetch the component from registry. 
 
-You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.component.list()` to list all components in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 
@@ -522,7 +522,7 @@ Note down the `name` and `version` of the model from the output of the `az ml mo
 az ml model show --name <model_name> --version <model_version> --registry-name <registry-name>
 ```
 
-You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 # [Python SDK](#tab/python)
 
@@ -572,7 +572,7 @@ Note down the `name` and `version` of the model from the output and use them wit
 mlflow_model_from_registry = ml_client_registry.models.get(name="nyc-taxi-model", version=str(1))
 print(mlflow_model_from_registry)
 ```
-You can also use `ml_client_registry.models.list()` to list all models in the registry or browse all components in the Azure Machine Learning Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+You can also use `ml_client_registry.models.list()` to list all models in the registry or browse all components in the Azure Machine Learning studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 ---
 
@@ -685,6 +685,7 @@ ml_client_workspace.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ## Next steps
 
+* [How to share data assets using registries](how-to-share-data-across-workspaces-with-registries.md)
 * [How to create and manage registries](how-to-manage-registries.md)
 * [How to manage environments](how-to-manage-environments-v2.md)
 * [How to train models](how-to-train-cli.md)
