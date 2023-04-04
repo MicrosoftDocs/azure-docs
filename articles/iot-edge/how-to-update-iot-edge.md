@@ -53,7 +53,7 @@ When upgrading between major or minor product releases, for example from 1.1 to 
 
 1. In IoT Hub, [update the module deployment](#update-a-specific-tag-image) to reference the newest system modules.
 
-1. On the device, start the IoT Edge runtime using `sudo iotedge config apply`.
+1. On the device, start the IoT Edge using `sudo iotedge config apply`.
 
 You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
