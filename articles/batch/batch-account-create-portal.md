@@ -93,6 +93,9 @@ For example:
 Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept
 ```
 
+> [!IMPORTANT]
+> If you've enabled Private Azure Marketplace, you must follow the steps in [Add new collection](/marketplace/create-manage-private-azure-marketplace-new#add-new-collection) to add a new collection to allow the selected image.
+
 <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>
 ### Allow Batch to access the subscription
 
