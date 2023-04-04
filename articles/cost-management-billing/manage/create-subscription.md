@@ -71,7 +71,7 @@ To clear the filter and view all subscriptions:
 
 ## Create subscription in other tenant and view transfer requests
 
-A user with the following permission can create subscriptions in their customer's directory if they're allowed or exempted with subscription policy. For more information, see [Setting subscription policy](manage-azure-subscription-policy#setting-subscription-policy.md).
+A user with the following permission can create subscriptions in their customer's directory if they're allowed or exempted with subscription policy. For more information, see [Setting subscription policy](manage-azure-subscription-policy.md#setting-subscription-policy).
 
 - Billing account owner or contributor
 - Billing profile owner or contributor
