@@ -35,11 +35,8 @@ This tutorial will show you how to use the Azure Communication Services End of C
 
 -	[Node.js](https://nodejs.org/) active Long Term Support(LTS) versions are recommended.
 
--	An active Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
-
--	An active Log Analytics Workspace, also known as Azure Monitor Logs, to analyze your survey results. [Enable logging in Diagnostic Settings](../analytics/enable-logging.md).
-
-
+-	An active Communication Services resource. [Create a Communication Services resource](../quickstarts/create-communication-resource.md). Survey results are tied to single Communication Services resources.
+-	An active Log Analytics Workspace, also known as Azure Monitor Logs, to analyze your survey results. [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md).
 
 
 ## To invoke API (API category values and API Tags)
@@ -52,14 +49,14 @@ This tutorial will show you how to use the Azure Communication Services End of C
 ## Collect survey data
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md)
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md)
 	
 
 ### View survey data with a Log Analytics workspace
 
-You need to enable a Log Analytics Workspace to both store the log data of your surveys and access survey results. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Select the “CALL DIAGNOSTICS???” data source when choosing category details. Also, choose “Send to Log Analytics workspace” as your destination detail.
+You need to enable a Log Analytics Workspace to both store the log data of your surveys and access survey results. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Select the “CALL DIAGNOSTICS???” data source when choosing category details. Also, choose “Send to Log Analytics workspace” as your destination detail.
 
--	You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../../articles/azure-monitor/logs/log-powerbi.md)
+-	You can also integrate your Log Analytics workspace with Power BI, see: [Integrate Log Analytics with Power BI](../../../articles/azure-monitor/logs/log-powerbi.md)
 
 
 ### Default survey analytics queries
@@ -69,7 +66,7 @@ You can use the following sample query in your Log Analytics workspace or Power 
 
 ### Export survey data
 
-If you want to export your survey data, you can instead choose to send the log data of your surveys to Event Hubs, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Again, select the “CALL DIAGNOSTICS???” data source when choosing category details. Then, choose “Stream to an event hub” as your destination detail.
+If you want to export your survey data, you can instead choose to send the log data of your surveys to Event Hubs, see: [Enable logging in Diagnostic Settings](../concepts/analytics/enable-logging.md). Follow the steps to add a diagnostic setting. Again, select the “CALL DIAGNOSTICS???” data source when choosing category details. Then, choose “Stream to an event hub” as your destination detail.
 
 You can only view your survey data if you have enabled a Diagnostic Setting to capture your survey data. To learn how to use the End of Call Survey and view your survey data, see: **Tutorial Link**
 
@@ -110,8 +107,8 @@ Surveying Guidelines
 ## Next Steps
 -	Learn how to use the End of Call Survey, see **ADD LINK**
 
--	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
+-	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
+-	Create your own queries in Log Analytics, see: [Get Started Queries](../../../articles/azure-monitor/logs/get-started-queries.md)
 
 
