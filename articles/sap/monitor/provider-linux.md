@@ -43,7 +43,7 @@ wget https://github.com/prometheus/node_exporter/releases/download/v*/node_expor
 tar xvfz node_exporter-*.*-amd64.tar.gz
 if [[ "$(grep '^ID=' /etc/*-release)" == *"rhel"* ]]; then
     echo "Open firewall port 9100 on the Linux host"
-    sudo apt install firewalld -y
+    yum install firewalld -y
     systemctl start firewalld
     firewall-cmd --zone=public --permanent --add-port 9100/tcp
 else
