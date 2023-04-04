@@ -161,7 +161,7 @@ To host a VNF on your VM, have it [Azure Arc enrolled](/azure/azure-arc/servers/
 - Azure CLI and extensions installed and available
 - A customized `cloudinit userdata` file (provided):
   - *USERDATA*=
-- The resource ID of the previously created [cloud services network](#create-cloud-services-network) and [L3 networks](#create-an-l3-network) to configure VM connectivity
+- The resource ID of the previously created [cloud services network](#create-a-cloud-services-network) and [L3 networks](#create-an-l3-network) to configure VM connectivity
 
 #### Update the user data file
 
