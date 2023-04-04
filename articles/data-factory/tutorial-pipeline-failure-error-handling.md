@@ -168,18 +168,13 @@ The pattern is a combination of two: conditional and + error handling. The pipel
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-complex-1.png" alt-text="Screenshot showcasing pipeline proceeds to next step if any of the activities pass, or else runs error handling code.":::
 
 
-#### Try-Catch-Proceed 
-The pattern is equivalent to try catch block in coding. It states that if either the activity or the error handling code succeeds, the pipeline should proceed. It's rather complicated and should only be reserved for the most mission critical steps.
-* add the mission critical work step
-* add an error handling activity to the _"Upon Failure"_ path of the main activity
-* add an if condition to contain next steps, in True branch
-* connect _"Upon Completion"_ path of the main activity to the condition activity
-* connect both _"Upon Success"_ and _"Upon Skip"_ paths of the error handling activity to the condition activity
-* logical expression for condition activity reads 
-```json
-@or(equals(activity('ActivityFailed').Status, 'Succeeded'), equals(activity('ErrorHandling').Status, 'Succeeded'))
-```
-* Note the order of expressions: the main activity part has to come first, before the error handling activity part
+### Try-Catch-Proceed 
+The pattern is equivalent to try catch block in coding. It states that if either the activity or the error handling code succeeds, the pipeline should proceed. We have simplified and streamlined the implementation for our customers. Try catch block does not need an if block.
+
+* Add first activity
+* Add error handling to the UponFailure path
+* Add second actvity, but do not connect to the first activity
+* Connect both UponFailure and UponSkip paths from the error handling activity to the second activity
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-complex-2.png" alt-text="Screenshot showcasing pipeline with try catch block.":::
 
