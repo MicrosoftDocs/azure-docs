@@ -141,7 +141,7 @@ msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0
 |-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls`|
 |-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`|
 |-validateSignature|Validates a package's signature file before unpacking package. This parameter will require that the package's certificate is installed on the machine.||
-|Read more: [https://learn.microsoft.com/windows-hardware/drivers/install/certificate-stores](/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`||
+|Read more: (Certificate Stores) [https://learn.microsoft.com/windows-hardware/drivers/install/certificate-stores](/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`||
 
 **-?**  
 Display Help at the command prompt  
