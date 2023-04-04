@@ -27,7 +27,7 @@ before it's too late and they're attempting to deploy in production.
 
 ## Definitions and foundational information
 
-Before getting into the details of Azure Policy as Code workflow, it's important to understand how to author policydefinitions and initiative definitions:
+Before getting into the details of Azure Policy as Code workflow, it's important to understand how to author policy definitions and initiative definitions:
 
 - [Policy definition](./definition-structure.md)
 - [Initiative definition](./initiative-definition-structure.md)
@@ -157,7 +157,7 @@ may be unexpected and unidentified impact from the policy. For more information,
 
 If validation of the assignment meets expectations, the next step is to validate remediation.
 Policies that use either [deployIfNotExists](./effects.md#deployifnotexists) or
-[modify](./effects.md#modify) can gave an associated remediation task triggered to correct resources from a non-compliant state and bring them into compliance.
+[modify](./effects.md#modify) can have an associated remediation task triggered to correct resources from a non-compliant state and bring them into compliance.
 
 The first step to remediating resources is to grant the policy assignment the role assignment
 defined in the policy definition. This role assignment gives the policy assignment managed identity
