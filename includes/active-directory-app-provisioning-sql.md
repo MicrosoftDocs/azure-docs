@@ -148,7 +148,14 @@ The generic SQL connector requires a Data Source Name (DSN) file to connect to t
 
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
 
- 1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the Windows Server that has connectivity to your SQL server.
+  1.  In the Azure portal, select **Azure Active Directory**.
+  2.  On the left, select **Azure AD Connect**.
+  3.  On the left, select **Cloud sync**.
+ 
+ :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
+
+ 4. On the left, select **Agent**.
+ 5. Select **Download on-premises agent**, and select **Accept terms & download**.
 
      >[!NOTE]
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
