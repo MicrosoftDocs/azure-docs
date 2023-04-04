@@ -25,7 +25,6 @@ This article explains how to deploy a small application to run on Azure Spring A
 The application code used in this tutorial is a simple app. When you've completed this example, the application is accessible online, and you can manage it through the Azure portal.
 
 This quickstart explains how to:
-
 > [!div class="checklist"]
 
 > - Generate a basic Spring project.
