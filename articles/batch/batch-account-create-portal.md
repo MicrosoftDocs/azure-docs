@@ -35,7 +35,7 @@ To create a Batch account in the default Batch service mode:
      > The Batch account name is part of its ID and can't be changed after creation.
 
    - **Location**: Select the Azure region for the Batch account if not already selected.
-   - **Storage account**: Select **Select a storage account** to associate an [Azure Storage account](accounts.md#azure-storage-accounts) with the Batch account. 
+   - **Storage account**: Optionally, select **Select a storage account** to associate an [Azure Storage account](accounts.md#azure-storage-accounts) with the Batch account. 
 
      :::image type="content" source="media/batch-account-create-portal/batch-account-portal.png" alt-text="Screenshot of the New Batch account screen.":::
 
@@ -63,7 +63,7 @@ On your Batch account page, you can access all account settings and properties f
 
   :::image type="content" source="media/batch-account-create-portal/batch-account-keys.png" alt-text="Screenshot of Batch account keys in the Azure portal.":::
 
-  Batch also supports Azure Active Directory (Azure AD) authentication. User subscription mode Batch accounts must use Azure AD authentication. For more information, see [Authenticate Azure Batch services with Azure Active Directory](batch-aad-auth.md).
+  Batch also supports Azure Active Directory (Azure AD) authentication. User subscription mode Batch accounts must be accessed by using Azure AD. For more information, see [Authenticate Azure Batch services with Azure Active Directory](batch-aad-auth.md).
 
 - To view the name and keys of the storage account associated with your Batch account, select **Storage account**.
 
@@ -96,7 +96,10 @@ Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-serve
 <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>
 ### Allow Batch to access the subscription
 
-When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch. You need to do this registration only once per subscription. You need **Owner** permissions in the subscription to take this action.
+When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch. You need to do this registration only once per subscription.
+
+> [!IMPORTANT]
+> You need **Owner** permissions in the subscription to take this action.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **subscriptions**.
 1. On the **Subscriptions** page, select the subscription you want to use for the Batch account.
@@ -130,7 +133,7 @@ To create a Batch account in user subscription mode:
 1. Follow the preceding instructions to [create a Batch account](#create-a-batch-account), but select **User subscription** for **Pool allocation mode** on the **Advanced** tab of the **New Batch account** page.
 1. You must then select **Select a key vault** to select an existing key vault or create a new one.
 1. After you select the key vault, select the checkbox next to **I agree to grant Azure Batch access to this key vault**.
-1. Select **Review + create**, and then select **Create**.
+1. Select **Review + create**, and then select **Create** to create the Batch account.
 
 ### Grant access to the key vault manually
 
