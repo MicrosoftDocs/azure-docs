@@ -1643,6 +1643,8 @@ $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
 
+---
+
 ### Example: Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access
 
 The requirements of this condition are:
@@ -1709,6 +1711,8 @@ Here are the settings to add this condition using the Azure portal.
 The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
 
 (image)
+
+---
 
 ### Example: Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint
 
@@ -1777,6 +1781,8 @@ The image below shows how to add the condition for this example. Note that you m
 
 (image)
 
+---
+
 ### Example: Allow access to blobs in specific containers from a specific subnet
 
 This condition allows read, write, add and delete access to blobs in `container1` only from subnet `default` on virtual network `virtualnetwork1`.
@@ -1840,6 +1846,8 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute source | Request |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
+
+---
 
 ### Example: Allow read access to blobs after a specific date and time
 
