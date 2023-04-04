@@ -28,14 +28,14 @@ The following sections explain the steps to create VMs for VNF workloads.
 Isolation domains enable creation of layer 2 (L2) and layer 3 (L3) connectivity between network functions running on Azure Operator Nexus. This connectivity enables inter-rack and intra-rack communication between the workloads.
 You can create as many L2 and L3 isolation domains as needed.
 
-Have the following information already:
+You should have the following information already:
 
 - VLAN and subnet info for each L3 network.
 - Which networks need to talk to each other. (Remember to put VLANs and subnets that need to talk to each other into the same L3 isolation domain.)
 - BGP peering and network policy information for your L3 isolation domains.
 - VLANs for all your L2 networks.
 - VLANs for all your trunked networks.
-- MTU values for your network.
+- MTU values for your networks.
 
 #### L2 isolation domain
 
@@ -47,7 +47,7 @@ Have the following information already:
 
 ### Create networks for VM workloads
 
-The following sections describe how to create the following networks for VM workloads:
+The following sections describe how to create these networks for VM workloads:
 
 - Layer 2 network
 - Layer 3 network
@@ -155,10 +155,10 @@ To host a VNF on your VM, have it [Azure Arc enrolled](/azure/azure-arc/servers/
   - *ACR_USERNAME*=
   - *ACR_TOKEN*=
   - *IMAGE_URL*=
-- SSH public/private key pair:
+- An SSH public/private key pair:
   - *SSH_PURLIC_KEY*=
   - *SSH_PRIVATE_KEY*=
-- Azure CLI and extensions installed and available
+- The Azure CLI and extensions installed and available
 - A customized `cloudinit userdata` file (provided):
   - *USERDATA*=
 - The resource ID of the previously created [cloud services network](#create-a-cloud-services-network) and [L3 networks](#create-an-l3-network) to configure VM connectivity
@@ -232,14 +232,12 @@ Gather this information:
   - RAM (`memorySizeGB`)
   - Disk size (`DiskSize`)
   - Emulator thread (`emulatorThread`) support, if needed
-- Boot method (UEFI or BIOS).
+- The boot method (UEFI or BIOS).
 - The `vmImage` reference and credentials needed to download this image.
 - SSH keys.
 - Placement information.
 
-The sample command contains the information about the VM requirements that cover compute, network, and storage.
-
-Here's a sample command:
+This sample command contains the information about the VM requirements that cover compute, network, and storage:
 
 ```azurecli
 az networkcloud virtualmachine create --name "<YourVirtualMachineName>" \
@@ -277,7 +275,7 @@ You should have the following information already:
 
 - VLAN and subnet info for each of the L3 networks.
 - List of networks that need to talk to each other. (Remember to put VLANs and subnets that need to talk to each other into the same L3 isolation domain.)
-- VLAN/subnet info for your default CNI network (`defaultcninetwork`) for the AKS hybrid cluster.
+- VLAN and subnet info for your default CNI network (`defaultcninetwork`) for the AKS hybrid cluster.
 - BGP peering and network policy information for your L3 isolation domains.
 - VLANs for all your L2 networks.
 - VLANs for all your trunked networks.

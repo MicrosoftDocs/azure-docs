@@ -9,7 +9,7 @@ ms.date: 01/25/2023
 ms.custom: template-how-to-pattern
 ---
 
-# Complete prerequisites for deploying tenant workloads
+# Prerequisites for deploying tenant workloads
 
 This guide explains prerequisites for creating:
 
@@ -60,8 +60,7 @@ To get the list of available zones in the Azure Operator Nexus instance, you can
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) is a managed registry service to store and manage your container images and related artifacts.
 
-The article provides details on how to create and maintain Azure Container Registry operations such as [push/pull an image](../container-registry/container-registry-get-started-docker-cli.md?tabs=azure-cli) and [push/pull a Helm chart](../container-registry/container-registry-helm-repos.md), for security and monitoring.
-For more information, see the [Azure Container Registry documentation](../container-registry/index.yml).
+This article provides details on how to create and maintain Azure Container Registry operations such as [push/pull an image](../container-registry/container-registry-get-started-docker-cli.md?tabs=azure-cli) and [push/pull a Helm chart](../container-registry/container-registry-helm-repos.md), for security and monitoring. For more information, see the [Azure Container Registry documentation](../container-registry/index.yml).
 
 ## Install Azure CLI extensions
 
