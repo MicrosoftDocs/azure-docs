@@ -27,7 +27,7 @@ This quickstart shows how to deploy a Spring Boot web application to Azure Sprin
 
 The following diagram shows the architecture of the system:
 
-:::image type="content" source="media/quickstart-for-web-app/diagram.png" alt-text="Image that shows the architecture of a Spring web application." lightbox="media/quickstart-for-web-app/diagram.png":::
+:::image type="content" source="media/quickstart-deploy-web-app/diagram.png" alt-text="Image that shows the architecture of a Spring web application.":::
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ The following diagram shows the architecture of the system:
 
 1. Go to `http://localhost:8080` in your browser to access the application, as shown in the following screenshot.
 
-   :::image type="content" source="./media/quickstart-for-web-app/todo-app.png" alt-text="Sceenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-for-web-app/todo-app.png":::
+   :::image type="content" source="./media/quickstart-deploy-web-app/todo-app.png" alt-text="Sceenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-deploy-web-app/todo-app.png":::
 
 ## Prepare the cloud environment
 
