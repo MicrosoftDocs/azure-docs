@@ -10,7 +10,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-## Sample Code
+## Sample code
 
 You can find the completed code for this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/sms-url-shortener).
 
@@ -27,11 +27,11 @@ You can find the completed code for this tutorial on [GitHub](https://github.com
 
 In this tutorial, the focus is to set up a middleware that orchestrates requests to send SMS and the shortening of URLs through the Azure URL Shortener service. It interacts with Azure Communication Services to complete the sending of the SMS.
 
-![Diagram for architecture overview](../media/url-shortener/url-shortener-architecture.svg)
+![Diagram for architecture overview](../media/url-shortener/url-shortener-architecture.png)
 
 ## Set up the Azure Function
 
-To get started, you need to create a new Azure Function. You can can create the Azure Function by following the steps in the [Azure Functions documentation](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp). If you aren't using an Azure Function and instead are using a different framework, skip this step and continue to the next section.
+To get started, you need to create a new Azure Function. You can create the Azure Function by following the steps in the [Azure Functions documentation](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp). If you aren't using an Azure Function and instead are using a different framework, skip this step and continue to the next section.
 
 Once the Azure Function is set up, go to the `local.settings.json` file and add three more values that you need to store: the Azure Communication Services connection string, phone number (Ex. +15555555555) and URL Shortener endpoint (Ex. `https://<Azure_Function_URL>/api/UrlCreate`). These variables are all values you generated from the prerequisites at the beginning of the document.
 
