@@ -348,4 +348,4 @@ After deploying your AKS cluster in an Edge Zone, learn about how you can [confi
 [public-mec-sign-up]: https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRx4AG8rZKBBDoHEYyD9u_bxUMUVaSlhYMFA2RjUzSklKR0YyREZZNURTRi4u
 
 [az-aks-create]: /cli/azure/aks#az_aks_create
-[preset-config]: ./quotas-skus-regions#cluster-configuration-presets-in-the-azure-portal
+[preset-config]: ./quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
