@@ -317,7 +317,7 @@ Azure Resource Manager sometimes caches configurations and data to improve perfo
 
 **Solution**
 
-When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect. If you add or remove a built-in role assignment at management group scope and the built-in role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
+When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect. If you add or remove a built-in role assignment at management group scope and the built-in role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane. Custom roles with `DataActions` can't be assigned at the management group scope.
 
 ### Symptom - Role assignments for management group changes are not being detected
 
