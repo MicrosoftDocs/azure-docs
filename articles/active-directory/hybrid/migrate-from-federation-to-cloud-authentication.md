@@ -102,11 +102,11 @@ Here are key migration considerations.
 
 ### Plan for customizations settings 
 
-The onload.js file cannot be duplicated in Azure AD. If your AD FS instance is heavily customized and relies on specific customization settings in the onload.js file, verify if Azure AD can meet your current customization requirements and plan accordingly. Communicate these upcoming changes to your users.
+The onload.js file can't be duplicated in Azure AD. If your AD FS instance is heavily customized and relies on specific customization settings in the onload.js file, verify if Azure AD can meet your current customization requirements and plan accordingly. Communicate these upcoming changes to your users.
 
 #### Sign-in experience
 
-You cannot customize Azure AD sign-in experience. No matter how your users signed-in earlier, you need a fully qualified domain name such as User Principal Name (UPN) or email to sign into Azure AD. 
+You can't customize Azure AD sign-in experience. No matter how your users signed-in earlier, you need a fully qualified domain name such as User Principal Name (UPN) or email to sign into Azure AD. 
 
 #### Organization branding
 
@@ -125,15 +125,15 @@ Consider replacing AD FS access control policies with the equivalent Azure AD [C
 
 ### Plan support for MFA
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing of Azure AD Multi-Factor Authentication by configuring the security setting **federatedIdpMfaBehavior**. Enable the protection for a federated domain in your Azure AD tenant. Make sure that Azure AD Multi-Factor Authentication is always performed when a federated user accesses an application that is governed by a Conditional Access policy that requires MFA. This includes performing Azure AD Multi-Factor Authentication even when federated identity provider has issued federated token claims that on-prem MFA has been performed. Enforcing Azure AD Multi-Factor Authentication every time assures that a bad actor cannot bypass Azure AD Multi-Factor Authentication by imitating that MFA has already been performed by the identity provider, and is highly recommended unless you perform MFA for your federated users using a third party MFA provider.
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing of Azure AD Multi-Factor Authentication by configuring the security setting **federatedIdpMfaBehavior**. Enable the protection for a federated domain in your Azure AD tenant. Make sure that Azure AD Multi-Factor Authentication is always performed when a federated user accesses an application that is governed by a Conditional Access policy that requires MFA. This includes performing Azure AD Multi-Factor Authentication even when federated identity provider has issued federated token claims that on-prem MFA has been performed. Enforcing Azure AD Multi-Factor Authentication every time assures that a bad actor can't bypass Azure AD Multi-Factor Authentication by imitating that identity provider already performed MFA and is highly recommended unless you perform MFA for your federated users using a third party MFA provider.
 
 The following table explains the behavior for each option. For more information, see **federatedIdpMfaBehavior**.
 
 | Value | Description |
 | :--- | :--- |
-| acceptIfMfaDoneByFederatedIdp | Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD performs the MFA. |
-| enforceMfaByFederatedIdp | Azure AD accepts MFA that's performed by federated identity provider. If the federated identity provider didn't perform MFA, it redirects the request to federated identity provider to perform MFA. |
-| rejectMfaByFederatedIdp | Azure AD always performs MFA and rejects MFA that's performed by the federated identity provider. |
+| acceptIfMfaDoneByFederatedIdp | Azure AD accepts MFA that federated identity provider performs. If the federated identity provider didn't perform MFA, Azure AD performs the MFA. |
+| enforceMfaByFederatedIdp | Azure AD accepts MFA that federated identity provider performs.  If the federated identity provider didn't perform MFA, it redirects the request to federated identity provider to perform MFA. |
+| rejectMfaByFederatedIdp | Azure AD always performs MFA and rejects MFA that federated identity provider performs. |
 
 >[!NOTE]
 > The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
@@ -164,7 +164,7 @@ For more information, see **[Migrate from Microsoft MFA Server to Azure Multi-fa
 
 ## Plan for implementation
 
-This section includes pre-work before you switch your sign-in method and convert the domains.
+This section includes prework before you switch your sign-in method and convert the domains.
 
 ### Create necessary groups for staged rollout
 
@@ -176,7 +176,7 @@ We recommend you use a group mastered in Azure AD, also known as a cloud-only gr
 
 The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
 
-### Pre-work for SSO
+### Prework for SSO
 
 The version of SSO that you use is dependent on your device OS and join state.
 
@@ -184,11 +184,11 @@ The version of SSO that you use is dependent on your device OS and join state.
 
 - **For macOS and iOS devices**, we recommend using SSO via the [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md). This feature requires that your Apple devices are managed by an MDM. If you use Intune as your MDM then follow the [Microsoft Enterprise SSO plug-in for Apple Intune deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos). If you use another MDM then follow the [Jamf Pro / generic MDM deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro). 
 
-- **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [pre-work for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso).
+- **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [prework for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso).
 
-### Pre-work for PHS and PTA
+### Prework for PHS and PTA
 
-Depending on the choice of sign-in method, complete the [pre-work for PHS](how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or [for PTA](how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication).
+Depending on the choice of sign-in method, complete the [prework for PHS](how-to-connect-staged-rollout.md#pre-work-for-password-hash-sync) or [for PTA](how-to-connect-staged-rollout.md#pre-work-for-pass-through-authentication).
 
 ## Implement your solution
 
@@ -200,7 +200,7 @@ If you're using staged rollout, follow the steps in the links below:
 
 1. [Enable staged rollout of a specific feature on your tenant.](how-to-connect-staged-rollout.md#enable-staged-rollout)
 
-2. Once testing is complete, [convert domains from federated to managed](#convert-domains-from-federated-to-managed).
+2. Once testing is complete, [convert domains from federated to be managed](#convert-domains-from-federated-to-managed).
 
 ### Without using staged rollout 
 
@@ -296,7 +296,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 1. Select **Pass-through authentication**.
 2. On the **Pass-through authentication** page, select the **Download** button.
-3. On the **Download agent** page, select **Accept terms and download**.
+3. On the **Download agent** page, select **Accept terms and download**.f
 
     More authentication agents start to download. Install the secondary authentication agent on a domain-joined server.
 
@@ -312,7 +312,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 *Available if you didn't initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). Notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). Notice that on the User sign-in page, the **Do not configure** option is preselected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
@@ -386,7 +386,7 @@ If you used staged rollout, you should remember to turn off the staged rollout f
 
 Historically, updates to the **UserPrincipalName** attribute, which uses the sync service from the on-premises environment, are blocked unless both of these conditions are true:
 
-   - The user is in a managed (non-federated) identity domain.
+   - The user is in a managed (nonfederated) identity domain.
    - The user hasn't been assigned a license.
 
 To learn how to verify or turn on this feature, see [Sync userPrincipalName updates](how-to-connect-syncservice-features.md).
