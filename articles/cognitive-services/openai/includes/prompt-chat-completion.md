@@ -6,7 +6,7 @@ author: mrbullwinkle #dereklegenzoff
 ms.author: mbullwin #delegenz
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/21/2023
+ms.date: 04/03/2023
 manager: nitinme
 keywords: ChatGPT
 
