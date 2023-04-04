@@ -283,7 +283,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
       - **Seamless single sign-on** is set to **Enabled**.
       - **Password Hash Sync** is set to **Enabled**.
 
-  ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
+   ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
 
 9. In case you're switching to PTA, follow the next steps.
 
