@@ -93,9 +93,6 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a **m
 
 For more information about quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 
-## How to onboard
-Event Hubs Dedicated tier is generally available (GA). The self-serve experience to create an Event Hubs cluster through the [Azure portal](event-hubs-dedicated-cluster-create-portal.md) is currently in Preview. You can also request for the cluster to be created by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). 
-
 ## FAQs
 
 [!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-dedicated-clusters-faq.md)]

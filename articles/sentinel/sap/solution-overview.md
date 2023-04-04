@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications overview
 description: This article introduces Microsoft Sentinel solution for SAP® applications
-author: MSFTandrelom
-ms.author: andrelom
-ms.topic: how-to
-ms.date: 06/21/2022
+author: limwainstein
+ms.author: lwainstein
+ms.topic: conceptual
+ms.date: 03/22/2023
 ---
 
 # Microsoft Sentinel solution for SAP® applications overview

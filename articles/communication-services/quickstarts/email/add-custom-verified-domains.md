@@ -6,14 +6,11 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Quickstart: How to add custom verified domains to Email Communication Service
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quick start, you'll learn about how to add a custom domain and verify in Azure Communication Services to send email.
 
@@ -59,7 +56,7 @@ To provision a custom domain you need to
 
 9. You can verify the ownership of the domain by clicking **Verify Domain** 
 
-    :::image type="content" source="./media/email-domains-custom-added.png" alt-text="Screenshot that shows that custom domain is successfully added for verification.":::.
+    :::image type="content" source="./media/email-domains-custom-added.png" alt-text="Screenshot that shows custom domain is successfully added for verification.":::.
 
 10. If you would like to resume the verification later, you can click **Close** and resume the verification from **Provision Domains** by clicking **Configure** .
 
@@ -76,7 +73,7 @@ To provision a custom domain you need to
     :::image type="content" source="./media/email-domains-custom-verify-progress.png" alt-text="Screenshot that shows the domain verification is in progress.":::
 15. Once your domain is verified, you can add your SPF and DKIM records to authenticate your domains. 
 
-    :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Screenshot that shows the the custom domain is verified." lightbox="media/email-domains-custom-verified-expanded.png":::
+    :::image type="content" source="./media/email-domains-custom-verified.png" alt-text="Screenshot that shows the custom domain is verified." lightbox="media/email-domains-custom-verified-expanded.png":::
 
 
 ### Configure sender authentication for custom domain
@@ -107,7 +104,7 @@ To provision a custom domain you need to
 
 ## Changing MailFrom and FROM display name for custom domains
 
-When Azure Managed Domain is provisioned to send mail, it has default Mail from address as donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net and the FROM display name would be the same. You'll able to configure and change the Mail from address and FROM display name to more user friendly value.
+When Custom Domain is provisioned to send mail, it has default Mail from address as donotreply@notification.azurecommtest.net and the FROM display name would be the same. You'll able to configure and change the Mail from address and FROM display name to more user friendly value.
 
 1. Go the overview page of the Email Communications Service resource that you created earlier.
 2. Click **Provision Domains** on the left navigation panel. You'll see list of provisioned domains.
@@ -129,7 +126,7 @@ When Azure Managed Domain is provisioned to send mail, it has default Mail from 
 
 7. Click **Save**. You'll see the updated values in the overview page. 
 
-    :::image type="content" source="./media/email-domains-overview-updated.png" alt-text="Screenshot that shows that how to save the modified values of Mail From and display name." lightbox="media/email-domains-custom-overview-expanded.png":::
+    :::image type="content" source="./media/email-domains-overview-updated.png" alt-text="Screenshot that shows that how to save the modified values of Mail From and display name." lightbox="media/email-domains-overview-updated-expanded.png":::
 
 **Your email domain is now ready to send emails.**
 
