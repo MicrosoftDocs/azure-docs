@@ -172,7 +172,7 @@ Unfortunately, this change came with an unavoidable breaking change. The breakin
     | Deploy Workflow Automation for Microsoft Defender for Cloud recommendations | When a Microsoft Defender for Cloud Recommendation is created or triggered |
     | Deploy Workflow Automation for Microsoft Defender for Cloud regulatory compliance | When a Microsoft Defender for Cloud Regulatory Compliance Assessment is created or triggered |
 
-    <sup><a name="footnote1"></a>1</sup> The typo `Clou dAlert` is intentional.
+    <sup><a name="footnote1"></a>1</sup> The typo `Cloud dAlert` is intentional.
 
 ## Next steps
 
