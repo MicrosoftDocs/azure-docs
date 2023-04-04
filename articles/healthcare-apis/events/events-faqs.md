@@ -41,7 +41,7 @@ Events support these [FHIR bundle types](http://hl7.org/fhir/R4/valueset-bundle-
 
 - **Batch**: An event is emitted for each successful data change operation in a bundle. If one of the operations generates an error, no event is emitted for that operation. For example: the batch bundle contains five operations, however, there's an error with one of the operations. Events are emitted for the four successful operations with no event emitted for the operation that generated an error.
 
-- **Transaction**: An event is emitted for each successful bundle operation as long as there are no errors. If there's any errors within a transaction bundle, then no events are emitted. For example: the transaction bundle contains five operations, however, there's an error with one of the operations. No events are emitted for that bundle.
+- **Transaction**: An event is emitted for each successful bundle operation as long as there are no errors. If there are any errors within a transaction bundle, then no events are emitted. For example: the transaction bundle contains five operations, however, there's an error with one of the operations. No events are emitted for that bundle.
 
 > [!NOTE]
 > Events are not sent in the sequence of the data operations in the FHIR bundle.
