@@ -14,10 +14,11 @@ In this article, you can find the relevant option for streaming and filtering lo
 
 ## Stream logs in the CEF and Syslog format to Microsoft Sentinel 
 
-|Scenario  |Options  |
-|---------|---------|
-|Are your logs in raw Syslog, in Common Event Format (CEF), or both?   |• **[CEF (with CEF AMA connector)](connect-cef-ama.md)**<br><br>• **Syslog**: To ingest logs over Syslog with the AMA, [create a DCR](../azure-monitor/essentials/data-collection-rule-structure.md), or for the full procedure, see [forward syslog data to Log Analytics using the AMA](forward-syslog-monitor-agent.md).<br><br>• **[CEF and Syslog](connect-cef-syslog.md)** |
-|Are you sending logs to Microsoft Sentinel directly from your device/appliance, or via a log forwarder?   |• To **[Send logs directly via CEF](connect-cef-ama.md)**, skip the Configure a log forwarder step.<br><br>• **[Send logs directly via Syslog](connect-syslog.md)**<br><br>• **[Configure a log forwarder](connect-log-forwarder.md)** |
+Depending on where your logs are located, select the article that's most relevant to your scenario:
+
+- **[CEF](connect-cef-ama.md)**: Stream CEF logs with the CEF AMA connector.
+- **Syslog**: To ingest logs over Syslog with the AMA, [create a DCR](../azure-monitor/essentials/data-collection-rule-structure.md), or for the full procedure, see [forward syslog data to Log Analytics using the AMA](forward-syslog-monitor-agent.md).
+- **[CEF and Syslog](connect-cef-syslog.md)**: Stream logs in both the CEF and Syslog format.
 
 ## Next steps
 
