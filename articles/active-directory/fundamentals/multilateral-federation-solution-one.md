@@ -64,10 +64,10 @@ The following are some of the advantages of implementing Azure AD with Cirrus br
 
   * Enables you to use Azure AD Join for device management.
 
-  * Azure AD Join provides you with the ability to use Autopilot, Azure Multi-Factor Authentication (Azure MFA), passwordless features, and supports achieving a Zero Trust posture.
+  * Azure AD Join provides you with the ability to use Autopilot, Azure AD Multi-Factor Authentication, passwordless features, and supports achieving a Zero Trust posture.
 
 > [!NOTE]
-> Switching to Azure MFA may allow you to realize significant cost savings over other solutions you have in place.
+> Switching to Azure AD Multi-Factor Authentication may allow you to realize significant cost savings over other solutions you have in place.
 
 ## Considerations and trade-offs
 
