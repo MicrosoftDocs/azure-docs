@@ -23,12 +23,10 @@ In general, you can think of these categories as a Network as a Service (NaaS) o
 
 Microsoft Entra has two products that provide the features that make up Global Secure Access. These are Microsoft Entra Private Access and Microsoft Entra Internet Access. These two products make up the Microsoft solution for SASE, SSE, and Global Secure Access.
 
-> [!NOTE]
-> Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines
-> which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see
-> [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra
-> Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
-
+Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines
+which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see
+[What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra
+Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
  
 |               | Microsoft Entra Private Access |       | Microsoft Entra Internet Access |       |
 |---------------|--------------------------------|-------|---------------------------------|-------|
