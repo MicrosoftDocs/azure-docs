@@ -113,7 +113,7 @@ You cannot customize Azure AD sign-in experience. No matter how your users signe
 You can [customize the Azure AD sign-in page](../fundamentals/customize-branding.md). Some visual changes from AD FS on sign-in pages should be expected after the conversion. 
 
 >[!NOTE] 
->Organization branding is not available in free Azure AD licenses unless you have a Microsoft 365 license.
+>Organization branding is not available in free Azure AD licenses unless you've a Microsoft 365 license.
 
 ### Plan for conditional access policies
 
@@ -170,7 +170,7 @@ This section includes pre-work before you switch your sign-in method and convert
 
 *If you're not using staged rollout, skip this step.*
 
-Create groups for staged rollout. You will also need to create groups for conditional access policies if you decide to add them.
+Create groups for staged rollout and also for conditional access policies if you decide to add them.
 
 We recommend you use a group mastered in Azure AD, also known as a cloud-only group. You can use Azure AD security groups or Microsoft 365 Groups for both moving users to MFA and for conditional access policies. For more information, see [creating an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md), and this [overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups).
 
@@ -204,7 +204,7 @@ If you're using staged rollout, follow the steps in the links below:
 
 ### Without using staged rollout 
 
-You have two options for enabling this change:
+You've two options for enabling this change:
 
 - **Option A:** Switch using Azure AD Connect.
   
@@ -312,7 +312,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 *Available if you didn't initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). Notice that on the User sign-in page, the **Do not configure** option is pre-selected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
@@ -378,7 +378,7 @@ Follow the steps in this link - [Validate sign-in with PHS/ PTA and seamless SSO
 
 ### Remove a user from staged rollout
 
-If you used staged rollout, you should remember to turn off the staged rollout features once you have finished cutting over. 
+If you used staged rollout, you should remember to turn off the staged rollout features once you've finished cutting over. 
 
 **To disable the staged rollout feature, slide the control back to Off.**
 
@@ -434,7 +434,7 @@ For more information, see –
 
 ### Remove relying party trust
 
-If you have Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
+If you've Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it's safe to remove the Microsoft 365 relying party trust.
 
 If you don't use AD FS for other purposes (that is, for other relying party trusts), you can decommission AD FS at this point.
 
