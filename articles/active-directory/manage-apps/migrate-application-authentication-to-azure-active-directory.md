@@ -258,7 +258,7 @@ For certain apps using legacy authentication protocols, sometimes modernizing th
 
 Azure AD can bring great benefits to these legacy apps, as you can enable modern Azure AD security and governance features like [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md), [Conditional Access](../conditional-access/overview.md), [Identity Protection](../identity-protection/index.yml), [Delegated Application Access](./access-panel-manage-self-service-access.md), and [Access Reviews](../governance/manage-user-access-with-access-reviews.md#create-and-perform-an-access-review) against these apps without touching the app at all!
 
-- Start by extending these apps into the cloud with [Azure AD Appliction Proxy](../app-proxy/application-proxy.md). 
+- Start by extending these apps into the cloud with [Azure AD Application Proxy](../app-proxy/application-proxy.md). 
 - Or explore using on of our [Secure Hybrid Access (SHA) partner integrations](secure-hybrid-access.md) that you might have deployed already. 
 
 ### New Line of Business (LoB) apps
