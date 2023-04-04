@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 04/04/2023
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -177,7 +177,7 @@ To find and confirm these settings, follow these steps:
 
    ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-single-tenant-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps** section, not the **Logic Apps (Standard)** section.
+   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you also have the publicly released extension, you can find any logic apps that you created with that extension in the **Logic Apps (Consumption)** section, not the **Logic Apps (Standard)** section.
 
    If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
 
@@ -402,7 +402,7 @@ The workflow in this example uses this trigger and these actions:
 
 ## Enable locally running webhooks
 
-When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app running in Azure, the Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
+When you use a webhook-based trigger or action, such as **HTTP Webhook**, with a logic app workflow running in Azure, the Azure Logic Apps runtime subscribes to the service endpoint by generating and registering a callback URL with that endpoint. The trigger or action then waits for the service endpoint to call the URL. However, when you're working in Visual Studio Code, the generated callback URL starts with `http://localhost:7071/...`. This URL is for your localhost server, which is private so the service endpoint can't call this URL.
 
 To locally run webhook-based triggers and actions in Visual Studio Code, you need to set up a public URL that exposes your localhost server and securely forwards calls from the service endpoint to the webhook callback URL. You can use a forwarding service and tool such as [**ngrok**](https://ngrok.com/), which opens an HTTP tunnel to your localhost port, or you can use your own equivalent tool.
 
@@ -436,16 +436,18 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 #### Set up the forwarding URL in your app settings
 
-1. In Visual Studio Code, on the designer, add the **HTTP + Webhook** trigger or action.
+1. In Visual Studio Code, on the designer, add the webhook-based trigger or action that you want to use.
+
+   This example continues with the **HTTP + Webhook** trigger.
 
 1. When the prompt appears for the host endpoint location, enter the forwarding (redirection) URL that you previously created.
 
    > [!NOTE]
    > Ignoring the prompt causes a warning to appear that you must provide the forwarding URL, 
    > so select **Configure**, and enter the URL. After you finish this step, the prompt won't 
-   > reappear for subsequent webhook triggers or actions that you might add.
+   > appear for subsequent webhook triggers or actions that you might add.
    >
-   > To make the prompt reappear, at your project's root level, open the **local.settings.json** 
+   > To make the prompt appear, at your project's root level, open the **local.settings.json** 
    > file's shortcut menu, and select **Configure Webhook Redirect Endpoint**. The prompt now 
    > appears so you can provide the forwarding URL.
 
@@ -471,7 +473,7 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
    > `"FUNCTIONS_WORKER_RUNTIME"` is set to `"dotnet"`. However, to use **Inline Code Operations**, 
    > you must have `"FUNCTIONS_WORKER_RUNTIME"` set to `"node"`
 
-The first time when you start a local debugging session or run the workflow without debugging, the Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
+The first time when you start a local debugging session or run the workflow without debugging, the Azure Logic Apps runtime registers the workflow with the service endpoint and subscribes to that endpoint for notifying the webhook operations. The next time that your workflow runs, the runtime won't register or resubscribe because the subscription registration already exists in local storage.
 
 When you stop the debugging session for a workflow run that uses locally run webhook-based triggers or actions, the existing subscription registrations aren't deleted. To unregister, you have to manually remove or delete the subscription registrations.
 
@@ -940,7 +942,7 @@ When you're done, a new workflow folder appears in your project along with a **w
 
 ## Manage deployed logic apps in Visual Studio Code
 
-In Visual Studio Code, you can view all the deployed logic apps in your Azure subscription, whether they are the original **Logic Apps** or the **Logic App (Standard)** resource type, and select tasks that help you manage those logic apps. However, to access both resource types, you need both the **Azure Logic Apps** and the **Azure Logic Apps (Standard)** extensions for Visual Studio Code.
+In Visual Studio Code, you can view all the deployed logic apps in your Azure subscription, whether they're Consumption or Standard logic app resources, and select tasks that help you manage those logic apps. However, to access both resource types, you need both the **Azure Logic Apps (Consumption)** and the **Azure Logic Apps (Standard)** extensions for Visual Studio Code.
 
 1. On the left toolbar, select the Azure icon. In the **Azure: Logic Apps (Standard)** pane, expand your subscription, which shows all the deployed logic apps for that subscription.
 
@@ -1013,9 +1015,9 @@ Deleting a logic app affects workflow instances in the following ways:
 
 ## Manage deployed logic apps in the portal
 
-After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they are the original **Logic Apps** resource type or the **Logic App (Standard)** resource type. Currently, each resource type is organized and managed as separate categories in Azure. To find logic apps that have the **Logic App (Standard)** resource type, follow these steps:
+After you deploy a logic app to the Azure portal from Visual Studio Code, you can view all the deployed logic apps that are in your Azure subscription, whether they're Consumption or Standard logic app resources. Currently, each resource type is organized and managed as separate categories in Azure. To find Standard logic apps, follow these steps:
 
-1. In the Azure portal search box, enter `logic apps`. When the results list appears, under **Services**, select **Logic apps**.
+1. In the Azure portal search box, enter **logic apps**. When the results list appears, under **Services**, select **Logic apps**.
 
    ![Screenshot that shows the Azure portal search box with the "logic apps" search text.](./media/create-single-tenant-workflows-visual-studio-code/portal-find-logic-app-resource.png)
 
