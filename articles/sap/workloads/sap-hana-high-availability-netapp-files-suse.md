@@ -253,7 +253,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    sudo cat /etc/idmapd.conf
    ```
    Example output
-   ```config
+   ```output
    [General]
    Domain = defaultv4iddomain.com
    [Mapping]
@@ -335,7 +335,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    sudo vi /etc/hosts
    ```
    Insert the following lines in the /etc/hosts file. Change the IP address and hostname to match your environment 
-   ```config
+   ```output
    10.3.0.4   hanadb1
    10.3.0.5   hanadb2
    ```
