@@ -18,7 +18,7 @@ ms.date: 12/28/2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [v1](v1/how-to-create-manage-compute-instance.md)
+> * [v1](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-create-manage-compute-instance.md)
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace. 
@@ -37,7 +37,7 @@ You can also [use a setup script](how-to-customize-compute-instance.md) to creat
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 
 > [!NOTE]
-> This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md).
+> This article shows CLI v2 in the sections below. If you are still using CLI v1, see [Create an Azure Machine Learning compute cluster CLI v1)](v1/how-to-create-manage-compute-instance.md?view=azureml-api-1&preserve-view=true).
 
 ## Prerequisites
 
@@ -428,7 +428,7 @@ Then use either cron or LogicApps expressions to define the schedule that starts
     }
 ```
 
-* Action can have value of “Start” or “Stop”.
+* Action can have value of "Start" or "Stop".
 * For trigger type of `Recurrence` use the same syntax as logic app, with this [recurrence schema](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger).
 * For trigger type of `cron`, use standard cron syntax:  
 
@@ -502,9 +502,9 @@ You can assign a system- or user-assigned [managed identity](../active-directory
 
 You can create compute instance with managed identity from Azure Machine Learning Studio:
 
-1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
-1.	Select **Next: Advanced Settings**.
-1.	Enable **Assign a managed identity**.
+1.    Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
+1.    Select **Next: Advanced Settings**.
+1.    Enable **Assign a managed identity**.
 1.  Select **System-assigned** or **User-assigned** under **Identity type**.
 1.  If you selected **User-assigned**, select subscription and name of the identity.
 
@@ -563,9 +563,9 @@ az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID
 
 You can set up other applications, such as RStudio, or Posit Workbench (formerly RStudio Workbench), when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
 
-1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
-1.	Select **Next: Advanced Settings**
-1.	Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
+1.    Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
+1.    Select **Next: Advanced Settings**
+1.    Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
 
@@ -573,8 +573,8 @@ You can set up other applications, such as RStudio, or Posit Workbench (formerly
 
 RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench, which provides access to RStudio along with other development tools, to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers
 
-1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
+1.    Follow the steps listed above to **Add application** when creating your compute instance.
+1.    Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
 1. Select **Create** to add Posit Workbench application to your compute instance.
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows Posit Workbench settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
@@ -590,9 +590,9 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
 
 To use RStudio, set up a custom application as follows:
 
-1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **Custom Application** on the **Application** dropdown 
-1.	Configure the **Application name** you would like to use.
+1.    Follow the steps listed above to **Add application** when creating your compute instance.
+1.    Select **Custom Application** on the **Application** dropdown 
+1.    Configure the **Application name** you would like to use.
 1. Set up the application to run on **Target port** `8787` - the docker image for RStudio open source listed below needs to run on this Target port. 
 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
@@ -729,7 +729,7 @@ For each compute instance in a workspace that you created (or that was created f
 
 ---
 
-[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access.  That user has access to Jupyter/JupyterLab/RStudio running on the instance. Compute instance will have single-user sign-in and all actions will use that user’s identity for Azure RBAC and attribution of experiment jobs. SSH access is controlled through public/private key mechanism.
+[Azure RBAC](../role-based-access-control/overview.md) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance, or the user assigned if it was created on their behalf, is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. A compute instance is dedicated to a single user who has root access.  That user has access to Jupyter/JupyterLab/RStudio running on the instance. Compute instance will have single-user sign-in and all actions will use that user's identity for Azure RBAC and attribution of experiment jobs. SSH access is controlled through public/private key mechanism.
 
 These actions can be controlled by Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
