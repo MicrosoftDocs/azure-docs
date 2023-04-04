@@ -14,7 +14,7 @@ ms.custom:
 
 The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. Global Secure Access provides modern network access control for users and devices.
 
-## Understand SASE and SSE
+## Understand SASE, SSE, and modern networking
 
 A new category of computing has emerged as the modern workforce has moved to working both inside and outside of traditional offices. Gartner calls this new category Secure Access Service Edge (SASE) and Forrester divides the concept further with a term called Security Service Edge (SSE). Another term to describe this concept is a Network as a Service (NaaS). Microsoft calls this new area Global Secure Access.
 
@@ -24,6 +24,7 @@ Whatever you call it, think of the new category of networking as a solution that
 
 :::image type="content" source="./media/overview-what-is-global-secure-access/modern_network_traffic.svg" alt-text="Diagram showing the modern line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/modern_network_traffic.svg":::
 
+## Understand Microsoft Entra Private Access and Microsoft Entra Internet Access
 Microsoft Entra has two products that provide the features that make up Global Secure Access. These are Microsoft Entra Private Access and Microsoft Entra Internet Access. These two products make up the Microsoft solution for SASE, SSE, and Global Secure Access.
 
 Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines
@@ -38,10 +39,9 @@ Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is
 | **Feature C** | X                              |       | X                               |       |
 | **Feature D** |                                | X     |                                 | X     |
 
-## [Section 1 H2]
-<!-- add your content here -->
+## Managing Global Secure Access
+You manage Global Secure Access in the Microsoft Entra admin portal.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [abc](#)
-
+- [Get started with Global Secure Access](how-to-get-started-with-global-secure-access.md)
