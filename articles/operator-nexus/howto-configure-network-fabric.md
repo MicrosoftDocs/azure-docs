@@ -366,7 +366,7 @@ The following table specifies parameters used to create Network to Network Inter
 |fabricAsn|ASN number assigned on CE for BGP peering with PE|65048||
 |peerAsn|ASN number assigned on PE for BGP peering with CE. For iBGP between PE/CE, the value should be same as fabricAsn, for eBGP the value should be different from fabricAsn |65048|True|
 |fabricAsn|ASN number assigned on CE for BGP peering with PE|65048||
-|vlanId|Vlan for NNI.Range is between 501-4095 |501||
+|vlan-Id|Vlan for NNI.Range is between 501-4095 |501||
 |importRoutePolicy|Details to import route policy.|||
 |exportRoutePolicy|Details to export route policy.|||
 ||||
