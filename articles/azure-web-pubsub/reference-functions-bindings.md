@@ -79,15 +79,11 @@ Use the function trigger to handle requests from Azure Web PubSub service.
 ```cs
 [FunctionName("WebPubSubTrigger")]
 public static void Run(
-    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")]
-    UserEventRequest request,
-    WebPubSubConnectionContext context,
-    string data,
-    WebPubSubDataType dataType)
+    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")] UserEventRequest request)
 {
-    Console.WriteLine($"Request from: {context.UserId}");
-    Console.WriteLine($"Request message data: {data}");
-    Console.WriteLine($"Request message dataType: {dataType}");
+    Console.WriteLine($"Request from: {request.ConnectionContext.UserId}");
+    Console.WriteLine($"Request message data: {request.Data}");
+    Console.WriteLine($"Request message dataType: {request.DataType}");
 }
 ```
 
@@ -155,7 +151,7 @@ Here's an `WebPubSubTrigger` attribute in a method signature:
 ```csharp
 [FunctionName("WebPubSubTrigger")]
 public static void Run([WebPubSubTrigger("<hub>", <WebPubSubEventType>, "<event-name>")] 
-WebPubSubConnectionContext context, ILogger log)
+    WebPubSubConnectionContext context, ILogger log)
 {
     ...
 }
@@ -194,6 +190,9 @@ In weakly typed language like JavaScript, `name` in `function.json` will be used
 |subprotocols|`IList<string>`|Available subprotocols in system `connect` request | -|
 |clientCertificates|`IList<ClientCertificate>`|A list of certificate thumbprint from clients in system `connect` request|-|
 |reason|`string`|Reason in system `disconnected` request|-|
+
+> [!IMPORTANT]
+> In C#, mutliple types supported parameter __MUST__ be put in the first, i.e. `request` or `data` that other than the default `BinaryData` type to make the function binding correctly. 
 
 ### Return response
 
