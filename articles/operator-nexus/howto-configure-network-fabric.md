@@ -47,7 +47,7 @@ The following table specifies parameters used to create Network Fabric
 | resource-name | Name of the FabricResource | NF-ResourceName |True |
 |  nf-sku  |Fabric SKU ID is the SKU of the ordered BoM. Two SKUs are supported (**M4-A400-A100-C16-aa** and **M8-A400-A100-C16-aa**). | M4-A400-A100-C16-aa |True | String|
 |nfc-id|Network Fabric Controller ARM resource id|/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFCName|True | 
-|rackcount|Number of racks per fabric. Possible values are 2-8|8|True | 
+|rackcount|Number of compute racks per fabric. Possible values are 2-8|8|True | 
 |serverCountPerRack|NNumber of servers per rack. Possible values are 1-16|16|True | 
 |ipv4Prefix|IPv4 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. Prefix length should be at least 19 (/20 isn't allowed, /18 and lower are allowed) | 10.246.0.0/19|True |
 |ipv6Prefix|IPv6 Prefix of the management network. This Prefix should be unique across all Network Fabrics in a Network Fabric Controller. | 10:5:0:0::/59|True |
