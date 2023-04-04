@@ -11,31 +11,46 @@ ms.author: fasantia
 ms.date: 04/03/2023
 reviewer: msakande
 ms.reviewer: mopeakande
-ms.custom: 
+ms.custom: how-to, devplatv2, event-tier1-build-2023
 ---
 
 # How to deploy pipelines with batch endpoints
 
 [!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
 
-In this example, you will learn how to deploy a simple hello world component under batch component deployment and invoke it. The component consists of a simple command job and requires no inputs or outputs.
+In this article, you'll learn how to create a batch deployment that contains a pipeline component. The component consists of a simple command job that prints "hello world!", and it requires no inputs or outputs.
+
+You'll learn to:
+
+> [!div class="checklist"]
+> * Create a pipeline component
+> * Create a batch endpoint with a deployment to host the component
+> * Test the deployment
+
+## About this example
+
+The example in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, change directories to `cli/endpoints/batch` if you're using the Azure CLI or `sdk/endpoints/batch` if you're using the Python SDK.
+
+```azurecli
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples/cli/endpoints/batch
+```
+
+### Follow along in Jupyter Notebooks
+
+<!-- update notebook name and link -->
+You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [NAME.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mnist-batch.ipynb).
 
 ## Prerequisites
 
 # [Azure CLI](#tab/azure-cli)
 
-Update this...
+<!-- Update this... -->
+[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
+
 # [Python](#tab/python)
 
 Update this...
-
-Enable preview features:
-
-```python
-import os
-from azure.ai.ml.constants._common import AZUREML_PRIVATE_FEATURES_ENV_VAR
-os.environ[AZUREML_PRIVATE_FEATURES_ENV_VAR] = "true"
-```
 
 ---
 
@@ -50,9 +65,10 @@ Enter your subscription ID, resource group name, workspace name, and location in
 ```azurecli
 az account set --subscription <subscription>
 az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-``` 
+```
 
 # [Python](#tab/python)
+
 ### Import the required libraries
 
 ```python
@@ -73,7 +89,7 @@ from azure.identity import DefaultAzureCredential
 
 ### Configure workspace details and get a handle to the workspace
 
-To connect to a workspace, we need identifier parameters that include a subscription, resource group, and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential) for this tutorial. 
+To connect to a workspace, we need identifier parameters that include a subscription, resource group, and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential) for this tutorial.
 <!-- Check the [configuration notebook](../../jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace. -->
 
 To configure your workspace details, enter your subscription ID, resource group name, and workspace name in the following code:
@@ -96,7 +112,7 @@ ml_client = MLClient(
 
 ## Create the pipeline component
 
-The pipeline component only prints a "hello world" message in the logs, so no inputs and outputs are required. We will deploy this component under a batch endpoint later.
+The pipeline component only prints a "hello world" message in the logs. It doesn't require any inputs or outputs. We will deploy this component under a batch endpoint later.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -220,7 +236,7 @@ A deployment is a set of resources required for hosting the model that does the 
 
 ### Create a compute cluster
 
-Batch deployments can run on any Azure Machine Learning compute that already exists in the workspace. This means that multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
+Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. This means that multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -240,7 +256,7 @@ if not any(filter(lambda m: m.name == compute_name, ml_client.compute.list())):
     ml_client.begin_create_or_update(compute_cluster)
 ```
 
-Compute may take time to be created. Let's wait for it:
+The compute may take time to be created. Let's wait for it:
 
 ```python
 from time import sleep
@@ -297,6 +313,8 @@ deployment = BatchDeployment(
 
 # [Azure CLI](#tab/azure-cli)
 
+Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
+
 ```azurecli
 az ml batch-deployment create --endpoint $ENDPOINT_NAME -f deployment.yml --set-default
 ```
@@ -308,13 +326,11 @@ az ml batch-deployment create --endpoint $ENDPOINT_NAME -f deployment.yml --set-
 
 Using the `MLClient` created earlier, we will now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-
 ```python
 ml_client.batch_deployments.begin_create_or_update(deployment).result()
 ```
 
 Once created, let's configure this new deployment as the default one:
-
 
 ```python
 endpoint = ml_client.batch_endpoints.get(endpoint.name)
@@ -330,6 +346,8 @@ Once the deployment is created, it is ready to receive jobs.
 
 # [Azure CLI](#tab/azure-cli)
 
+Invoke the default deployment:
+
 ```azurecli
 JOB_NAME = $(az ml batch-endpoint invoke -n $ENDPOINT_NAME | jq -r ".name")
 ```
@@ -341,6 +359,8 @@ az ml job stream --name $JOB_NAME
 ```
 
 # [Python](#tab/python)
+
+Invoke the deployment:
 
 ```python
 job = ml_client.batch_endpoints.invoke(
@@ -374,12 +394,24 @@ Once you're done, delete the associated resources from the workspace:
 
 # [Azure CLI](#tab/azure-cli)
 
-Update this...
+Run the following code to delete the batch endpoint and its underlying deployment. `--yes` is used to confirm the deletion.
+
+```azurecli
+az ml batch-endpoint delete --name $ENDPOINT_NAME --yes
+```
 
 # [Python](#tab/python)
 
+Delete the endpoint:
+
 ```python
 ml_client.batch_endpoints.begin_delete(endpoint.name).result()
+```
+
+(Optional) Delete compute, unless you plan to reuse your compute cluster with later deployments.
+
+```python
+ml_client.compute.begin_delete(name=compute_name)
 ```
 
 ## Next steps
@@ -388,3 +420,7 @@ ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 - [How to deploy a training pipeline with batch endpoints](how-to-use-batch-training-pipeline.md)
 - [How to create a batch endpoint to perform batch scoring with pre-processing](how-to-use-batch-scoring-pipeline.md)
 - [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
+- [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md).
+- [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md).
+- [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md).
+- [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md).
