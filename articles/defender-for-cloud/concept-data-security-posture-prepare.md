@@ -28,7 +28,7 @@ The table summarizes support for data-aware posture management.
 
 **Support** | **Details**
 --- | ---
-What Azure data resources can I discover? | [Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage account encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: [Public network access is disabled](../storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule); Storage account is defined as [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).
+What Azure data resources can I discover? | [Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage account encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: [Public network access is disabled](../storage/common/storage-network-security.md#change-the-default-network-access-rule); Storage account is defined as [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).
 What AWS data resources can I discover? | AWS S3 buckets<br/><br/> Defender for Cloud can discover KMS-encrypted data, but not data encrypted with a customer-managed key.
 What permissions do I need for discovery? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
 What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .csv, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
@@ -42,7 +42,7 @@ What permissions do I need to edit data sensitivity settings? | You need one of 
 ## Configuring data sensitivity settings
 
 The main steps for configuring data sensitivity setting include:
-- [Import custom sensitive info types/labels from Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels-from-microsoft-purview-compliance-portal)
+- [Import custom sensitive info types/labels from Microsoft Purview compliance portal](data-sensitivity-settings.md#import-custom-sensitive-info-typeslabels)
 - [Customize sensitive data categories/types](data-sensitivity-settings.md#customize-sensitive-data-categoriestypes)
 - [Set the threshold for sensitivity labels](data-sensitivity-settings.md#set-the-threshold-for-sensitive-data-labels)
 
@@ -59,7 +59,7 @@ Defender for Cloud starts discovering data immediately after enabling a plan, or
 
 ### Discovering AWS storage
 
-In order to protect AWS resources in Defender for Cloud, you set up an AWS connector, using a CloudFormation template to onboard the AWS account. 
+In order to protect AWS resources in Defender for Cloud, you set up an AWS connector, using a CloudFormation template to onboard the AWS account.
 
 - To discover AWS data resources, Defender for Cloud updates the CloudFormation template.
 - The CloudFormation template creates a new role in AWS IAM, to allow permission for the Defender for Cloud scanner to access data in the S3 buckets. 
