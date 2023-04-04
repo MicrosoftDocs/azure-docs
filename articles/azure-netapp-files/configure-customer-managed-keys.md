@@ -124,7 +124,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
     * The **Enter key URI** option allows you to enter manually the key URI. 
     :::image type="content" source="../media/azure-netapp-files/key-enter-uri.png" alt-text="Screenshot of the encryption menu showing key URI field." lightbox="../media/azure-netapp-files/key-enter-uri.png":::
 
-1. Select the identity type that you want to use for authentication to the Azure Key Vault. If your Azure Key Vault is configured to use Vault access policy as its permission model, then both options are available. Otherwise, only the user-assigned option is available.
+1. Select the identity type that you want to use for authentication to the Azure Key Vault. If your Azure Key Vault is configured to use Vault access policy as its permission model, both options are available. Otherwise, only the user-assigned option is available.
     * If you choose **System-assigned**, select the **Save** button. The Azure portal configures the NetApp account automatically with the following process: A system-assigned identity is added to your NetApp account. An access policy is to be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
 
     :::image type="content" source="../media/azure-netapp-files/encryption-system-assigned.png" alt-text="Screenshot of the encryption menu with system-assigned options." lightbox="../media/azure-netapp-files/encryption-system-assigned.png":::
@@ -228,7 +228,7 @@ To switch from user-assigned to system-assigned identity, you must grant the tar
     az rest -m PATCH -u <netapp-account-resource-id>?api-versions=2022-09-01 -b @path/to/payload.json
     ```
     The payload should use the following structure:
-    ````json
+    ```json
     {
       "identity": {
         "type": "UserAssigned",
@@ -244,9 +244,9 @@ To switch from user-assigned to system-assigned identity, you must grant the tar
         }
       }
     }
-    ````
+    ```
 1. Confirm the operation completed successfully with the `az netappfiles account show` command. The output includes the following fields:
-    ```azurecli
+    ```azurecli    
         "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/account",
         "identity": {
             "principalId": null,
@@ -260,7 +260,7 @@ To switch from user-assigned to system-assigned identity, you must grant the tar
                 }
             }
         },
-        ```
+    ```
     Ensure that:
     * `encryption.identity.principalId` matches the value in `identity.userAssignedIdentities.principalId`
     * `encryption.identity.userAssignedIdentity` matches the value in `identity.userAssignedIdentities[]`
@@ -277,7 +277,7 @@ To switch from user-assigned to system-assigned identity, you must grant the tar
 
 ## Error messages and troubleshooting
 
-This section lists error messages and possible resolutions when Azure NetApp Files fails to configure customer-managed key encryption or create a volume using a customer-managed key. 
+This section lists error messages and possible resolutions when Azure NetApp Files fails to configure customer-managed key encryption or create a volume using a customer-managed key.
 
 ### Errors configuring customer-managed key encryption on a NetApp account 
 
