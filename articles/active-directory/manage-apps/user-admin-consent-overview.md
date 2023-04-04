@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/28/2022
+ms.date: 04/04/2023
 ms.author: jomondi
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
@@ -48,7 +48,7 @@ For most organizations, one of the built-in options will be appropriate. Some ad
 
 ## Admin consent
 
-During admin consent, a Privileged Administrator may grant an application access on behalf of other users (usually, on behalf of the entire organization). Also during admin consent, applications or services provide direct access to an API, which can be used by the application if there's no signed-in user. The specific role needed to grant admin consent differs based on the permissions requested, which are outlined [here.](../manage-apps/grant-admin-consent?pivots=portal#prerequisites)
+During admin consent, a Privileged Administrator may grant an application access on behalf of other users (usually, on behalf of the entire organization). Also during admin consent, applications or services provide direct access to an API, which can be used by the application if there's no signed-in user. The specific role needed to grant admin consent differs based on the permissions requested, which are outlined [here.](grant-admin-consent.md#prerequisites)
 
 When your organization purchases a license or subscription for a new application, you might proactively want to set up the application so that all users in the organization can use it. To avoid the need for user consent, an administrator can grant consent for the application on behalf of all users in the organization.
 
