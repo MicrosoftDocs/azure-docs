@@ -18,9 +18,6 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 # Working with tables in Azure Machine Learning
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you use:"]
-> * [v2 (current version)](how-to-mltable.md)
-
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 

@@ -11,6 +11,22 @@ ms.author: eur
 #### Custom neural voice
 Added support for the `nl-BE` locale with [Custom Neural Voice](../../custom-neural-voice.md) Pro. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
+#### Prebuilt Neural TTS Voices (GA)
+
+The following voices are now generally available. See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+
+| Locale (BCP-47) | Language | Text-to-speech voices |
+| ----- | ----- | ----- | ----- |
+| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-CarlyNeural` (Female)<br/>`en-AU-DarrenNeural` (Male)<br/>`en-AU-DuncanNeural` (Male)<br/>`en-AU-ElsieNeural` (Female)<br/>`en-AU-FreyaNeural` (Female)<br/>`en-AU-JoanneNeural` (Female)<br/>`en-AU-KenNeural` (Male)<br/>`en-AU-KimNeural` (Female)<br/>`en-AU-NeilNeural` (Male)<br/>`en-AU-TimNeural` (Male)<br/>`en-AU-TinaNeural` (Female)<br/>`en-AU-WilliamNeural` (Male) |
+| `en-GB` | English (United Kingdom) | `en-GB-RyanNeural` (Male)<br/>`en-GB-SoniaNeural` (Female) |
+| `es-ES` | Spanish (Spain) | `es-ES-AbrilNeural` (Female)<br/>`es-ES-ArnauNeural` (Male)<br/>`es-ES-DarioNeural` (Male)<br/>`es-ES-EliasNeural` (Male)<br/>`es-ES-EstrellaNeural` (Female)<br/>`es-ES-IreneNeural` (Female)<br/>`es-ES-LaiaNeural` (Female)<br/>`es-ES-LiaNeural` (Female)<br/>`es-ES-NilNeural` (Male)<br/>`es-ES-SaulNeural` (Male)<br/>`es-ES-TeoNeural` (Male)<br/>`es-ES-TrianaNeural` (Female)<br/>`es-ES-VeraNeural` (Female) |
+| `es-MX` | Spanish (Mexico) | `es-MX-JorgeNeural` (Male) |
+| `fr-FR` | French (France) | `fr-FR-HenriNeural` (Male) |
+| `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female) |
+| `ja-JP` | Japanese (Japan) | `ja-JP-AoiNeural` (Female)<br/>`ja-JP-DaichiNeural` (Male)<br/>`ja-JP-MayuNeural` (Female)<br/>`ja-JP-NaokiNeural` (Male)<br/>`ja-JP-ShioriNeural` (Female) |
+
+Added support for the `cheerful` style with the `de-DE-ConradNeural` voice.
+
 ### February 2023 release
 
 #### Prebuilt Neural TTS Voices (GA)
