@@ -28,7 +28,7 @@ Chaos Studio can't inject faults against a resource until that resource has been
 1. Search for **Chaos Studio** in the search bar.
 1. Select **Targets** and find your Virtual Machine Scale Sets resource.
 1. With the Virtual Machine Scale Sets resource selected, select **Enable targets** and **Enable service-direct targets**.
-![A screenshot showing the targets screen within Chaos Studio, with the VMSS resource selected](images/tutorial-dynamic-targets-enable.png)
+![A screenshot showing the targets screen within Chaos Studio, with the VMSS resource selected.](images/tutorial-dynamic-targets-enable.png)
 1. Select **Review + Enable** and **Enable**.
 
 You've now successfully onboarded your Virtual Machine Scale Set to Chaos Studio.
@@ -38,18 +38,18 @@ You've now successfully onboarded your Virtual Machine Scale Set to Chaos Studio
 With your Virtual Machine Scale Sets now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel. 
 
 1. Within Chaos Studio, navigate to **Experiments** and select **Create**.
-![A screenshot showing the Experiments screen, with the Create button highlighted](images/tutorial-dynamic-targets-experiment-browse.png)
+![A screenshot showing the Experiments screen, with the Create button highlighted.](images/tutorial-dynamic-targets-experiment-browse.png)
 1. Add a name for your experiment that complies with resource naming guidelines, and select **Next: experiment designer**.
-![A screenshot showing the experiment creation screen, with the Next button highlighted](images/tutorial-dynamic-targets-create-exp.png)
+![A screenshot showing the experiment creation screen, with the Next button highlighted.](images/tutorial-dynamic-targets-create-exp.png)
 1. Within Step 1 and Branch 1, select **Add action**, then **Add fault**.
-![A screenshot showing the experiment creation screen, with the "add fault" button highlighted](images/tutorial-dynamic-targets-experiment-fault.png)
+![A screenshot showing the experiment creation screen, with the Add Fault button highlighted.](images/tutorial-dynamic-targets-experiment-fault.png)
 1. Select the **VMSS Shutdown (version 2.0)** fault. Choose your desired duration and whether you want the shutdown to be abrupt, then select **Next: Target resources**.
-![A screenshot showing the fault details view](images/tutorial-dynamic-targets-fault-details.png)
+![A screenshot showing the fault details view.](images/tutorial-dynamic-targets-fault-details.png)
 1. Choose the Virtual Machine Scale Sets resource that you want to use in the experiment, then select **Next: Scope**.
-![A screenshot showing the fault details view, with the VMSS resource selected](images/tutorial-dynamic-targets-fault-resources.png)
+![A screenshot showing the fault details view, with the VMSS resource selected.](images/tutorial-dynamic-targets-fault-resources.png)
 1. In the Zones dropdown, select the zone where you want Virtual Machines in the Virtual Machine Scale Sets instance to be shut down.
 1. Select **Add** to add the fault to the experiment.
-![A screenshot showing the zone selection step within the fault pane](images/tutorial-dynamic-targets-enable.png)
+![A screenshot showing the zone selection step within the fault pane.](images/tutorial-dynamic-targets-enable.png)
 1. Select **Review + create** and then **Create** to save the experiment.
 
 ## Give experiment permission to your Virtual Machine Scale Sets
@@ -58,13 +58,13 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 
 1. Navigate to your Virtual Machine Scale Sets resource and select **Access control (IAM)**.
 2. Select **Add role assignment**.
-![A screenshot of the Virtual Machine Scale Sets resource page](images/tutorial-dynamic-targets-vmss-iam.png)
+![A screenshot of the Virtual Machine Scale Sets resource page.](images/tutorial-dynamic-targets-vmss-iam.png)
 3. In the **Role** tab, choose **Virtual Machine Contributor** and then select **Next**.
-![A screenshot of the access control overview](images/tutorial-dynamic-targets-role-selection.png)
+![A screenshot of the access control overview for Virtual Machine Scale Sets.](images/tutorial-dynamic-targets-role-selection.png)
 1. Choose **Select members** and search for your experiment name. Choose your experiment and then **Select**. If there are multiple experiments in the same tenant with the same name, your experiment name is truncated with random characters added.
-![A screenshot of the access control overview](images/tutorial-dynamic-targets-role-assignment.png)
+![A screenshot of the access control overview.](images/tutorial-dynamic-targets-role-assignment.png)
 1. Select **Review + assign** then **Review + assign**.
-![A screenshot of the access control overview](images/tutorial-dynamic-targets-role-confirmation.png)
+![A screenshot of the access control confirmation page.](images/tutorial-dynamic-targets-role-confirmation.png)
 
 
 ## Run your experiment
@@ -72,14 +72,14 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 You're now ready to run your experiment!
 
 1. In **Chaos Studio**, navigate to the **Experiments** view, choose your experiment, and select **Start**.
-![A screenshot of the access control overview](images/tutorial-dynamic-targets-start-experiment.png)
+![A screenshot of the Experiments view, with the Start button highlighted.](images/tutorial-dynamic-targets-start-experiment.png)
 1. Select **OK** to confirm that you want to start the experiment.
 1. When the **Status** changes to **Running**, select **Details** for the latest run under **History** to see details for the running experiment. If any errors occur, you can view them within **Details** by selecting a failed Action and expanding **Failed targets**.
 
 To see the impact, use a tool such as **Azure Monitor** or the **Virtual Machine Scale Sets** section of the portal to check if your Virtual Machine Scale Sets targets are shut down. If they're shut down, check to see that the services running on your Virtual Machine Scale Sets are still running as expected.
 
 In this example, the chaos experiment successfully shut down the instance in Zone 1, as expected.
-![A screenshot of the access control overview](images/tutorial-dynamic-targets-view-vmss.png)
+![A screenshot of the Virtual Machine Scale Sets resource page showing an instance in the Stopped state.](images/tutorial-dynamic-targets-view-vmss.png)
 
 
 ## Next steps
