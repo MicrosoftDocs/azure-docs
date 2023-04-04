@@ -581,7 +581,7 @@ Mirroring has the following limitations:
 Also note the following behaviors:
 
 * A deployment can be configured to receive only live traffic or mirrored traffic, not both.
-* When you invoke your endpoint, you have the option to specify the name of the deployment that will receive incoming traffic. This is true even if the deployment has been configured to receive mirrored traffic (that is, the shadow deployment).
+* When you invoke an endpoint, you can specify the name of any of its deployments—even a shadow deployment—to receive incoming traffic.
 * When you invoke an endpoint with the name of the deployment that will receive incoming traffic, Azure Machine Learning won't mirror traffic to the shadow deployment. Azure Machine Learning mirrors traffic to the shadow deployment from traffic sent to the endpoint when you don't specify a deployment.
 
 Now, let's set the green deployment to receive 10% of mirrored traffic. Clients will still receive predictions from the blue deployment only.
