@@ -54,7 +54,7 @@ To find your current federation settings, run [Get-MgDomainFederationConfigurati
 Get-MgDomainFederationConfiguration –DomainID yourdomain.com
 ```
 
-Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, **federatedIdpMfaBehavior**, **SupportsMfa** (if **federatedIdpMfaBehavior** is not set), and **PromptLoginBehavior**.
+Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, **federatedIdpMfaBehavior**, **SupportsMfa** (if **federatedIdpMfaBehavior** isn't set), and **PromptLoginBehavior**.
 
 ### Back up federation settings
 
@@ -113,7 +113,7 @@ You can't customize Azure AD sign-in experience. No matter how your users signed
 You can [customize the Azure AD sign-in page](../fundamentals/customize-branding.md). Some visual changes from AD FS on sign-in pages should be expected after the conversion. 
 
 >[!NOTE] 
->Organization branding is not available in free Azure AD licenses unless you've a Microsoft 365 license.
+>Organization branding isn't available in free Azure AD licenses unless you've a Microsoft 365 license.
 
 ### Plan for conditional access policies
 
@@ -140,7 +140,7 @@ The following table explains the behavior for each option. For more information,
 
 For domains that have already set the **SupportsMfa** property, these rules determine how **federatedIdpMfaBehavior** and **SupportsMfa** work together:
 
-- Switching between **federatedIdpMfaBehavior** and **SupportsMfa** is not supported.
+- Switching between **federatedIdpMfaBehavior** and **SupportsMfa** isn't supported.
 - Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
 - If the **federatedIdpMfaBehavior** property is never set, Azure AD continues to honor the **SupportsMfa** setting.
 - If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD defaults to `acceptIfMfaDoneByFederatedIdp` behavior.
@@ -174,7 +174,7 @@ Create groups for staged rollout and also for conditional access policies if you
 
 We recommend you use a group mastered in Azure AD, also known as a cloud-only group. You can use Azure AD security groups or Microsoft 365 Groups for both moving users to MFA and for conditional access policies. For more information, see [creating an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md), and this [overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups).
 
-The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
+The members in a group are automatically enabled for staged rollout. Nested and dynamic groups aren't supported for staged rollout.
 
 ### Prework for SSO
 
@@ -266,7 +266,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
       - The computer account's Kerberos decryption key is securely shared with Azure AD.
       - Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
-    The domain administrator credentials are not stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
+    The domain administrator credentials aren't stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
 
 6. On the **Ready to configure** page, make sure that the **Start the synchronization process when configuration completes** check box is selected. Then, select **Configure**.
 
