@@ -238,7 +238,7 @@ The following steps describe setting up your application in the Azure portal and
 
 First, register your application within your organizational tenant. Then provide these values below in auth_config.json in order for your application to run correctly.
 
-For information on how to do this, refer to [Register your application](./tutorial-v2-android.md#register-your-application).
+For information on how to do this, refer to [Register your application](./tutorial-v2-android.md#register-your-application-with-azure-ad).
 
 > [!NOTE]
 > When you register your app, please use the quickstart guide on the left-hand side and then select **Android**. This will lead you to a page where you'll be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You'll then receive a configuration object that you can use for your app that you'll cut and paste into your auth_config.json file.
