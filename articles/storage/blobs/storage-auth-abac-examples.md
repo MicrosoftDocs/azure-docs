@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/01/2023
+ms.date: 04/04/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1508,7 +1508,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ### Example: Allow read access to blobs based on private link and tags
 
-This condition requires requests to read blobs where blob index tag **sensitivity** has a value of `high` to be over a private link (any private link). This means all attempts to read blobs with that tag and value from the public internet will not be allowed.  
+This condition requires requests to read blobs where blob index tag **sensitivity** has a value of `high` to be over a private link (any private link). This means all attempts to read blobs with that tag and value from the public internet will not be allowed. Users can read blobs from the public internet that have **sensitivity** set to some value other than `high`, or where the index tag is not applied to the blob.
 
 A truth table for this ABAC sample condition follows:
 
@@ -1529,14 +1529,12 @@ There are two potential actions for reading existing blobs. To make this conditi
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-The last two expressions in the condition allow users to read blobs from the public internet that have **sensitivity** set to some value other than `high`, or where the index tag is not applied to the blob.
-
-> [!TIP]
-> The `Exists` operator is not supported in the visual ABAC condition builder for the tags attribute. To add the last expression, switch to the **Code** condition editor in the ABAC condition builder.
-
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
 #### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+
+> [!TIP]
+> The `Exists` operator is not supported in the visual ABAC condition builder for the tags attribute. To add the last expression, switch to the **Code** condition editor in the ABAC condition builder.
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
@@ -1587,9 +1585,6 @@ NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/b
 The following image shows the condition after the settings have been entered into the Azure portal:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
-
-> [!IMPORTANT]
-> The expression in the red box needs to be added from the code section of the ABAC condition builder.
 
 #### [Portal: Code editor](#tab/azure-portal-code-editor)
 
@@ -1903,6 +1898,8 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute source | Request |
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
+
+---
 
 ## Next steps
 
