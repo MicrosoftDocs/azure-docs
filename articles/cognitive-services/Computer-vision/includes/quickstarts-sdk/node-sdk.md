@@ -51,7 +51,7 @@ Use the Optical character recognition client library to read printed and handwri
 
     ### Install the client library
 
-    Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM package:
+    Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` npm package:
 
     ```console
     npm install @azure/cognitiveservices-computervision
