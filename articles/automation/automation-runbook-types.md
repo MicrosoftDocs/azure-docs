@@ -106,7 +106,7 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
-- When you use *ExchangeOnlineManagement* module version: 3.0.0 or higher, you may experience job failures. We recommend that you use    *ExchangeOnlineManagement* module version: 3.0.0 or lesser.
+- When you use *ExchangeOnlineManagement* module version: 3.0.0 or higher, you may experience job failures. We recommend that you use    *ExchangeOnlineManagement* module version: 3.0.0 or lower.
 - Executing child scripts using `.\child-runbook.ps1` isn't supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference is not supported in PowerShell 7 runtime.
