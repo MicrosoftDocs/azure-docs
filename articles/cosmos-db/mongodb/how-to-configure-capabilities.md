@@ -7,7 +7,7 @@ ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
-ms.date: 12/2/2022
+ms.date: 03/31/2023
 ms.custom: ignite-2022
 ---
 
@@ -21,7 +21,7 @@ Capabilities are features that can be added or removed to your API for MongoDB a
 
 - An Azure account with an active subscription. [Create an account for free](https://aka.ms/trycosmosdb).
 - Azure Cosmos DB for MongoDB account. [Create an API for MongoDB account](quickstart-nodejs.md#create-an-azure-cosmos-db-account).
-- [Azure Command-Line Interface (CLI)](/cli/azure/)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or Azure Portal access. Changing capabilities via ARM is not supported. 
 
 ## Available capabilities
 

@@ -1,7 +1,7 @@
 ---
-title: Country availability of telephone numbers and subscription eligibility
+title: Country/regional availability of telephone numbers and subscription eligibility
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Country Availability, Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
+description: Learn about Country/Regional Availability, Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
 author: krkutser
 manager: rcole
 services: azure-communication-services
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
-# Country availability of telephone numbers and subscription eligibility
+# Country/regional availability of telephone numbers and subscription eligibility
 
 Numbers can be purchased on eligible Azure subscriptions and in geographies where Communication Services is legally eligible to provide them.
 
@@ -28,13 +28,13 @@ More details on eligible subscription types are as follows:
 | Toll-Free and Local (Geographic) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement*, Pay-As-You-Go |
 | Short-Codes                      | Modern Customer Agreement (Field Led), Enterprise Agreement**, Pay-As-You-Go                                      |
 
-\* In some countries, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this, purchases for CSP and LSP customers is not allowed.
+\* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties is not allowed. Due to this, purchases for CSP and LSP customers is not allowed.
 
 \** Applications from all other subscription types will be reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
 
 ## Number capabilities and availability
 
-The capabilities and numbers that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements.
+The capabilities and numbers that are available to you depend on the country/region that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country/region due to regulatory requirements.
 
 The following tables summarize current availability:
 

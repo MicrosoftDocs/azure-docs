@@ -18,7 +18,7 @@ ms.custom: contperf-fy20q4
 
 # Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how I can manage them.
 ---
-# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD
+# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD 
 
 You can migrate Azure Active Directory (Azure AD) [legacy policy settings](concept-authentication-methods-manage.md#legacy-mfa-and-sspr-policies) that separately control multifactor authentication (MFA) and self-service password reset (SSPR) to unified management with the [Authentication methods policy](./concept-authentication-methods-manage.md). 
 
@@ -38,7 +38,7 @@ If you aren't using SSPR and aren't yet using the Authentication methods policy,
 
 ### Review the legacy MFA policy
 
-Start by documenting which methods are available in the legacy MFA policy. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Go to **Azure Active Directory** > **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
+Start by documenting which methods are available in the legacy MFA policy. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator). Go to **Azure Active Directory** > **Users** > **All users** > **Per-user MFA** > **service settings** to view the settings. These settings are tenant-wide, so there's no need for user or group information. 
 
 :::image type="content" border="false" source="media/how-to-authentication-methods-manage/legacy-mfa-policy.png" alt-text="Screenshot the shows the legacy Azure AD MFA policy." lightbox="media/how-to-authentication-methods-manage/legacy-mfa-policy.png":::
 

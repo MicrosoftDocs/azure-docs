@@ -26,9 +26,9 @@ The `xml-to-json` policy converts a request or response body from XML to JSON. T
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-|kind|The attribute must be set to one of the following values.<br /><br /> -   `javascript-friendly` - the converted JSON has a form friendly to JavaScript developers.<br />-   `direct` - the converted JSON reflects the original XML document's structure.|Yes|N/A|
-|apply|The attribute must be set to one of the following values.<br /><br /> -   `always` - convert always.<br />-   `content-type-xml` - convert only if response Content-Type header indicates presence of XML.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   `true` - apply conversion if JSON is requested in request Accept header.<br />-   `false` -always apply conversion.|No|`true`|
+|kind|The attribute must be set to one of the following values.<br /><br /> -   `javascript-friendly` - the converted JSON has a form friendly to JavaScript developers.<br />-   `direct` - the converted JSON reflects the original XML document's structure.<br/><br/>Policy expressions are allowed.|Yes|N/A|
+|apply|The attribute must be set to one of the following values.<br /><br /> -   `always` - convert always.<br />-   `content-type-xml` - convert only if response Content-Type header indicates presence of XML.<br/><br/>Policy expressions are allowed.|Yes|N/A|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   `true` - apply conversion if JSON is requested in request Accept header.<br />-   `false` -always apply conversion.<br/><br/>Policy expressions are allowed.|No|`true`|
 
 ## Usage
 

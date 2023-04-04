@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/01/2022
+ms.date: 03/23/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -32,7 +32,7 @@ This article outlines how to manage workflows that are already running.
 
 1. This will present a window that shows all the actions that are completed, actions that are in-progress, and the next action for that workflow run.
 
-    :::image type="content" source="./media/how-to-workflow-manage-runs/workflow-details.png" alt-text="Screenshot of the workflow runs page, with an example workflow name selected, and the workflow details page overlaid, showing workflow run, submission time, run I D, status, and a list of all steps in the request timeline.":::
+    :::image type="content" source="./media/how-to-workflow-manage-runs/workflow-details.png" alt-text="Screenshot of the workflow runs page, with an example workflow name selected, and the workflow details page overlaid, showing workflow run, submission time, run ID, status, and a list of all steps in the request timeline.":::
 
 1. You can select any of the actions in the request timeline to see the specific status and sub steps details.
 

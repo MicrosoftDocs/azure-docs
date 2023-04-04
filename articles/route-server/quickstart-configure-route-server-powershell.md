@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 
 # Quickstart: Create and configure Route Server using Azure PowerShell
 
-This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server will learn routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
+This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server learns routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server also advertises the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
 
@@ -55,7 +55,7 @@ $virtualNetwork = New-AzVirtualNetwork @vnet
 
 ### Add a dedicated subnet
 
-Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $subnet = @{
@@ -137,6 +137,8 @@ The output will look like the following:
 RouteServerAsn : 65515
 RouteServerIps : {10.5.10.4, 10.5.10.5}
 ```
+
+[!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
 ## <a name = "route-exchange"></a>Configure route exchange
 

@@ -5,13 +5,13 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 03/22/2023
 ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Security admin rules in Azure Virtual Network Manager
 
-Azure Virtual Network Manager provides two different types of configurations you can deploy across your virtual networks, one of them being a **security admin** configuration. A security admin configuration contains a set of rule collections. Each rule collection contains one or more security admin rules. You then associate the rule collection with the network groups that you want to apply the security admin rules to.
+Azure Virtual Network Manager provides two different types of configurations you can deploy across your virtual networks, one of them being a **security admin** configuration. A security admin configuration contains a set of rule collections. Each rule collection contains one or more security admin rules. Then you associate the rule collection with the network groups that you want to apply the security admin rules to. This article explains what security admin rules are and how they work.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
@@ -22,7 +22,7 @@ Azure Virtual Network Manager provides two different types of configurations you
 
 ## Security admin rules
 
-A security admin rule allows you to enforce security policy criteria that match the conditions set. You can only define security administrative rules for resources within the scope of the Azure Virtual Network Manager instance. These security rules have a higher priority than network security group rules and are evaluated before network security group rules. Also note that security admin rules don't change your network security group rules. 
+A security admin rule allows you to enforce security policy on resources that match a rule's condition set. For example, you can define a security admin rule to block network traffic to virtual networks over a high-risk port such as Remote Desktop Protocol (RDP). These rules only apply to resources within the scope of the Azure Virtual Network Manager instance. For example, security admin rules don't apply to virtual networks not managed by a virtual manager instance.
 
 ### The order of evaluation
 
@@ -30,13 +30,20 @@ Security admin rules are evaluated before network security rules. Depending on t
 
 :::image type="content" source="media/concept-security-admins/traffic-evaluation.png" alt-text="Diagram showing order of evaluation for network traffic with security admin rules and network security rules.":::
 
-There are three kinds of actions – Allow, Always Allow, and Deny. If you create a security admin rule to *Allow* a certain type of traffic, this rule is evaluated first. When the traffic is allowed by a security admin rule, it's further evaluated by network security group rules. It leaves room for network security group rules down the line to handle this type of traffic differently as needed. If you create a security admin rule to *Always Allow* or *Deny* a certain type of traffic, the rule is evaluated first. Then it terminates the network security group evaluation of this traffic – meaning the evaluation is stopped. If the security admin rule is *Always Allow*, the traffic doesn't hit network security groups, and instead delivers directly to virtual machines or other resource. This action can be useful when administrators want to enforce some traffic to be not denied by network security group rules. For example, administrators may want to force the organization to consume software updates from certain ports. When *Deny* is used, evaluation and therefore traffic is stopped without being delivered to the destination. This means that you can use security admin rules to set definitive security rules that can't be overridden by others.
+There are three kinds of actions – Allow, Always Allow, and Deny. If you create a security admin rule to *Allow* a certain type of traffic, this rule is evaluated first. When a security admin rule allows traffic, it's then evaluated by network security group rules. It leaves room for network security group rules down the line to handle this type of traffic differently as needed. If you create a security admin rule to *Always Allow* or *Deny* a certain type of traffic, the rule is evaluated first. Then it terminates the network security group evaluation of this traffic – meaning the evaluation is stopped. If the security admin rule is *Always Allow*, the traffic doesn't hit network security groups, and instead delivers directly to virtual machines or other resource. This action can be useful when administrators want to enforce traffic and prevent denial by network security group rules. For example, administrators may want to force the organization to consume software updates from certain ports. When *Deny* is used, evaluation and therefore traffic is stopped without being delivered to the destination. This means that you can use security admin rules to set definitive security rules that can't be overridden with other rules.
 Security admin rules don't depend on network security groups in order to exist. This means that administrators can use security admin rules to create default security rules. Even if application owners misconfigured or forgot to establish network security groups, your organization is protected by default!
+
+> [!IMPORTANT]
+> When security admin rules are deployed, the eventual consistency model is used. This means that security admin rules will be eventually applied to the resources contained in a virtual network after a short delay.   Resources that are added to a virtual network that already has security admin rules applied on it will eventually receive those same security admin rules with a delay as well.
 
 ### Management at scale
 
-When you apply a security admin configuration to a [network group](concept-network-groups.md#network-group), all of the resources in the selected network groups’ virtual networks have those security admin rules applied to them. It doesn't matter how many or how few virtual networks are contained in the network group. This protection extends to new resources as they're added. If you add new VMs to a virtual network that has a security admin configuration applied on it, those VMs are secured as well. In effect, security admin rules protect your resources from day zero. As soon as your resources are provisioned, they fall under the protection of security admin rules.
-Then, if new security risks are identified, new security admin rules can still protect your resources at scale. You can create security admin rules to protect against the new risk, then apply them to network groups – essentially, hundreds of virtual networks at once.
+Azure Virtual Network Manager provides a way to manage your security policies at scale with security admin rules. When you apply a security admin configuration to a [network group](./concept-network-groups.md), a network group can contain dozens or hundreds of VNets, and all of the resources in the network groups’ scope have those security admin rules applied to them.
+
+New resources are protected along with existing resources. For example, if you add new VMs to a virtual network in the scope of a security admin rule, the VMs are automatically secured as well. Shortly after you deploy these VMs, security admin rules will be applied and protect them.
+
+When new security risks are identified, you can deploy them at scale by creating a security admin rule to protect against the new risk and applying it to your network groups. Once this new rule is deployed, all resources in the scope of the network groups will be protected now and in the future.
+
 
 ### Protect high-risk ports
 
@@ -81,7 +88,7 @@ When you define a security admin rule, there are required and optional fields.
 
 #### Priority
 
-Security rule priority is determined by an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 override an allow rule with a priority of 20. 
+The priority of a security admin rule is an integer between 0 and 99. The lower the value the higher the priority of the rule. For example, a deny rule with a priority of 10 overrides an allow rule with a priority of 20. 
 
 #### <a name = "action"></a>Action
 
