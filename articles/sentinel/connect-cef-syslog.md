@@ -35,18 +35,19 @@ Before you begin, verify that you have:
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed.
 - To ingest Syslog and CEF logs into Microsoft Sentinel, you can designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. [Configure a log forwarder](connect-cef-ama.md#configure-a-log-forwarder)
 
-## Separate your facilities
+## Avoid data ingestion duplication
 
-To avoid data duplication, make sure that the appliance that sends Syslog data and the appliance that sends CEF data do so on different facilities, for example `local1` and `local2`. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
+Using the same facility for both Syslog and CEF messages may result in data ingestion duplication between the CommonSecurityLog and Syslog tables. 
 
-- If you plan to use the same log forwarder machine to forward Syslog messages as well as CEF, to avoid the duplication of events to the Syslog and CommonSecurityLog tables: On each source machine that sends logs to the forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF won't also be sent in Syslog.
-- If changing the facility for the source appliance is not applicable, you can use ingest time transformations to filter out CEF messages from the Syslog stream to avoid duplication:
+To avoid this scenario, use one of these methods:
+
+- **If the source device enables configuration of the target facility**: On each source machine that sends logs to the log forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF won't also be sent in Syslog. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
+- **If changing the facility for the source appliance isn't applicable**: Use an ingest time transformation to filter out CEF messages from the Syslog stream to avoid duplication:
 
     ```kusto
     source |
     where ProcessName !contains “\“CEF\””
     ```
-
 ## Create a DCR for your CEF logs
 
 - Create the DCR via the UI:
@@ -55,7 +56,7 @@ To avoid data duplication, make sure that the appliance that sends Syslog data a
     1. [Select the data source type and create the DCR](connect-cef-ama.md#select-the-data-source-type-and-create-the-dcr).
 
         > [!IMPORTANT]
-        > Make sure to correctly [separate your facilities](#separate-your-facilities) (review the options in this section).
+        > Make sure to **[avoid data ingestion duplication](#avoid-data-ingestion-duplication)** (review the options in this section).
 
     1. [Run the installation script](connect-cef-ama.md).
 
