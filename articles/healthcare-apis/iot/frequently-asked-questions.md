@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 04/03/2023
+ms.date: 04/04/2023
 ms.author: jasteppe
 ---
 
@@ -33,7 +33,7 @@ The MedTech service supports the [HL7 FHIR&#174; R4](https://www.hl7.org/impleme
 
 ### Why do I have to provide device and FHIR destination mappings to the MedTech service?
 
-The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on device message data. To learn how the MedTech service transforms device message data into [FHIR Observations](https://www.hl7.org/fhir/observation.html), see [Understand the MedTech service device message processing stages](understand-service.md). 
+The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on device message data. To learn how the MedTech service transforms device message data into [FHIR Observations](https://www.hl7.org/fhir/observation.html), see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md). 
 
 ### Is JsonPathContent still supported by the MedTech service device mapping?
 
@@ -41,7 +41,7 @@ Yes. JsonPathContent can be used as a template type within [CollectionContent](o
 
 ### How long does it take for device message data to show up in the FHIR service?
 
-The MedTech service buffers [FHIR Observations](https://www.hl7.org/fhir/observation.html) created during the transformation stage and provides near real-time processing. However, this buffer can potentially delay the persistence of FHIR Observations to the FHIR service up to ~five minutes. To learn how the MedTech service transforms device message data into FHIR Observations, see [Understand the MedTech service device message processing stages](understand-service.md).
+The MedTech service buffers [FHIR Observations](https://www.hl7.org/fhir/observation.html) created during the transformation stage and provides near real-time processing. However, this buffer can potentially delay the persistence of FHIR Observations to the FHIR service up to ~five minutes. To learn how the MedTech service transforms device message data into FHIR Observations, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
 
 ### Why are the device messages added to the event hub not showing up as FHIR Observations in the FHIR service?
 
