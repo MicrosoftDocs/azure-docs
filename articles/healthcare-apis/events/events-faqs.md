@@ -37,7 +37,7 @@ For more information about the FHIR service delete types, see [FHIR REST API cap
 
 Yes. The Events feature is designed to emit notifications of data changes at the FHIR resource level. 
 
-Events support FHIR bundles in the following ways:
+Events support these [FHIR bundle types](https://www.hl7.org/fhir/valueset-bundle-type.html) in the following ways:
 
 - **Batch**: An event is emitted for each successful data change operation in a bundle. If one of the operations generates an error, no event is emitted for that operation. For example: the batch bundle contains five operations, however, there's an error with one of the operations. Events are emitted for the four successful operations with no event emitted for the operation that generated an error.
 
