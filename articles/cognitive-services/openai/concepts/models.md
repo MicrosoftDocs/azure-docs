@@ -21,6 +21,7 @@ Azure OpenAI provides access to many different models, grouped by family and cap
 |--|--|
 | [GPT-4](#gpt-4-models) | A set of models that improve on GPT-3.5 and can understand as well as generate natural language and code. **These models are currently in preview.**|
 | [GPT-3](#gpt-3-models) | A series of models that can understand and generate natural language. This includes the new [ChatGPT model (preview)](#chatgpt-gpt-35-turbo-preview). |
+| [DALL-E](#dall-e-models) | A model that can generate original images from natural language. |
 | [Codex](#codex-models) | A series of models that can understand and generate code, including translating natural language to code. |
 | [Embeddings](#embeddings-models) | A set of models that can understand and use embeddings. An embedding is a special format of data representation that can be easily utilized by machine learning models and algorithms. The embedding is an information dense representation of the semantic meaning of a piece of text. Currently, we offer three families of Embeddings models for different functionalities: similarity, text search, and code search. |
 
@@ -109,6 +110,10 @@ The ChatGPT model (gpt-35-turbo) is a language model designed for conversational
 
 To learn more about the ChatGPT model and how to interact with the Chat API check out our [in-depth how-to](../how-to/chatgpt.md).
 
+### DALL-E models
+
+text in and image out.
+
 ## Codex models
 
 The Codex models are descendants of our base GPT-3 models that can understand and generate code. Their training data contains both natural language and billions of lines of public code from GitHub.
@@ -190,6 +195,7 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | text-davinci-fine-tune-002<sup>1</sup>  | N/A | Currently unavailable |  |  |
 | gpt-35-turbo<sup>3</sup> (ChatGPT) (preview) | East US, South Central US | N/A | 4,096 | Sep 2021 |
 
+
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
 <br><sup>2</sup> East US and West Europe were previously available, but due to high demand they are currently unavailable for new customers to use for fine-tuning. Please use US South Central region for fine-tuning.
 <br><sup>3</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
@@ -205,6 +211,13 @@ These models can only be used with the Chat Completion API.
 
 <sup>1</sup> The model is in preview and [only available by request](https://aka.ms/oai/get-gpt4).<br>
 <sup>2</sup> Currently, only version `0314` of this model is available.
+
+### Dall-E Models
+
+|  Model ID  | Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
+|  --- |  --- | --- | --- | --- |
+| tbd | tbd | tbd | tbd | |
+
 
 ### Codex Models
 
