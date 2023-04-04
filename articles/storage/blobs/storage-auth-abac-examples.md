@@ -1662,25 +1662,9 @@ You must add this condition to any role assignments that include the following a
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
 
-```
-( 
- ( 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) 
- ) 
- OR  
- ( 
-  ( 
-   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] 
-   AND 
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
-  ) 
-  OR 
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' 
- ) 
-) 
-```
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
-#### Azure portal
+#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -1710,7 +1694,27 @@ Here are the settings to add this condition using the Azure portal.
 
 The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
 
-(image)
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
+
+#### [Portal: Code editor](#tab/azure-portal-code-editor)
+
+```
+( 
+ ( 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) 
+ ) 
+ OR  
+ ( 
+  ( 
+   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] 
+   AND 
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+  ) 
+  OR 
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' 
+ ) 
+) 
+```
 
 ---
 
@@ -1725,6 +1729,42 @@ You must add this condition to any role assignments that include the following a
 > | --- | --- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+
+Here are the settings to add this condition using the Azure portal.
+
+> [!div class="mx-tableFixed"]
+> | Condition #1 | Setting |
+> | --- | --- |
+> | Actions | [Read a blob conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
+> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
+> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
+> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | Option | Attribute |
+> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
+> | Key | &lt;key&gt; |
+
+> [!div class="mx-tableFixed"]
+> | Condition #2 | Setting |
+> | --- | --- |
+> | Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
+> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
+> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
+> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | Option | Attribute |
+> | Attribute source | Request |
+> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
+> | Key | &lt;key&gt; |
+
+The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
+
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
+
+#### [Portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
 ( 
@@ -1749,7 +1789,23 @@ You must add this condition to any role assignments that include the following a
 > [!NOTE]
 > The last expression allows blobs written without the sensitivity tag to come from the public internet or other private endpoints.
 
-#### Azure portal
+---
+
+### Example: Allow access to blobs in specific containers from a specific subnet
+
+This condition allows read, write, add and delete access to blobs in `container1` only from subnet `default` on virtual network `virtualnetwork1`.
+
+You must add this condition to any role assignments that include the following action.
+
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -1777,23 +1833,11 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 
-The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
+The following image shows the condition after the settings have been entered into the Azure portal:
 
-(image)
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
----
-
-### Example: Allow access to blobs in specific containers from a specific subnet
-
-This condition allows read, write, add and delete access to blobs in `container1` only from subnet `default` on virtual network `virtualnetwork1`.
-
-You must add this condition to any role assignments that include the following action.
-
-> [!div class="mx-tableFixed"]
-> | Action | Notes |
-> | --- | --- |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+#### [Portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
 ( 
@@ -1819,7 +1863,23 @@ You must add this condition to any role assignments that include the following a
 ) 
 ```
 
-#### Azure portal
+---
+
+### Example: Allow read access to blobs after a specific date and time
+
+This condition allows read access to blob container `container1` only after 1 PM on April 1, 2023 Universal Coordinated Time (UTC).
+
+You must add this condition to any role assignments that include the following action.
+
+> [!div class="mx-tableFixed"]
+> | Action | Notes |
+> | --- | --- |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
+> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
+
+#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -1847,19 +1907,11 @@ Here are the settings to add this condition using the Azure portal.
 > | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
 > | Key | &lt;key&gt; |
 
----
+The following image shows the condition after the settings have been entered into the Azure portal:
 
-### Example: Allow read access to blobs after a specific date and time
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
-This condition allows read access to blob container `container1` only after 1 PM on April 1, 2023 Universal Coordinated Time (UTC).
-
-You must add this condition to any role assignments that include the following action.
-
-> [!div class="mx-tableFixed"]
-> | Action | Notes |
-> | --- | --- |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-> | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner. |
+#### [Portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
 ( 
@@ -1878,34 +1930,6 @@ You must add this condition to any role assignments that include the following a
  ) 
 ) 
 ```
-
-#### Azure portal
-
-Here are the settings to add this condition using the Azure portal.
-
-> [!div class="mx-tableFixed"]
-> | Condition #1 | Setting |
-> | --- | --- |
-> | Actions | [Read a blob conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
-> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Option | Attribute |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | Key | &lt;key&gt; |
-
-> [!div class="mx-tableFixed"]
-> | Condition #2 | Setting |
-> | --- | --- |
-> | Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
-> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Option | Attribute |
-> | Attribute source | Request |
-> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | Key | &lt;key&gt; |
 
 ---
 
