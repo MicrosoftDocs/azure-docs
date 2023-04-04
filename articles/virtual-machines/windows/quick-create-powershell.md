@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 03/31/2023
+ms.date: 04/04/2023
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 ---
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The Azure Cloud Shell is a free interactive shell you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the code blocks, paste them into the Cloud Shell, and press enter to run the them.
+To open the Cloud Shell, just select **Open Cloudshell** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the code blocks, paste them into the Cloud Shell, and press enter to run the them.
 
 ## Create resource group
 
@@ -63,7 +63,7 @@ The `-ScriptString` parameter requires version `4.27.0` or later of the `Az.Comp
 
 ## View the web server in action
 
-With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM obtained in a previous step. The following example shows the default IIS web site:
+With IIS installed and port 80 now open on your VM from the Internet, use a web browser of your choice to view the default IIS welcome page. Use the public IP address of your VM that you created. For more information on finding your IP address, see [Test web site](/azure/virtual-machines/windows/tutorial-automate-vm-deployment#test-web-site). The following example shows the default IIS web site:
 
 :::image type="content" source="./media/quick-create-powershell/default-iis-website.png" alt-text="Screenshot showing the default IIS web site.":::
 
