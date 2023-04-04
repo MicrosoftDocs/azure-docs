@@ -12,7 +12,7 @@ ms.service: chaos-studio
 
 Azure [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet) is the fundamental building block for your private network in Azure. VNet enables many types of Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is similar to a traditional network that you'd operate in your own data center, but brings with it other benefits of Azure's infrastructure such as scale, availability, and isolation.
 
-VNet injection allows a Chaos resource provider to inject containerized workloads into your VNet so that resources without public endpoints can be accessed via a private IP address on the VNet. Once you've configured VNet injection for a resource in a VNet and enabled the resource as a target, you can use it in multiple experiments. An experiment can contain a mix of resources 
+VNet injection allows a Chaos resource provider to inject containerized workloads into your VNet so that resources without public endpoints can be accessed via a private IP address on the VNet. Once you've configured VNet injection for a resource in a VNet and enabled the resource as a target, you can use it in multiple experiments. An experiment can target a mix of private and non-private resources, as long as the private resources have been configured according to the instructions on this page. 
 
 ## Resource type support
 Currently, you can only enable certain resource types for Chaos Studio VNet injection.
