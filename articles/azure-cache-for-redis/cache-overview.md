@@ -66,7 +66,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
 
 > [!NOTE]
-> The Enterprise Flash tier currently supports only the RedisJSON and RediSearch modules in preview. 
+> The Enterprise Flash tier currently supports only the RediSearch module (in preview) and the RedisJSON module. 
 
 ### Choosing the right tier
 
