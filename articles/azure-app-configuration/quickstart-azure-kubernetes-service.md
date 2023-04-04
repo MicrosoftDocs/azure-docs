@@ -14,7 +14,7 @@ ms.author: junbchen
 # Quickstart: Use Azure App Configuration in Azure Kubernetes Service (preview)
 In Kubernetes, you set up pods to consume ConfigMaps for configuration. It lets you decouple configuration from your container images, making your applications easily portable. Azure App Configuration Kubernetes Provider can construct ConfigMaps based on your data in Azure App Configuration. It enables you to take advantage of Azure App Configuration for the centralized storage and management of your configuration without any changes to your application code.
 
-In this quickstart, you will incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from environment variables.
+In this quickstart, you incorporate Azure App Configuration Kubernetes Provider in an Azure Kubernetes Service workload where you run a simple ASP.NET Core app consuming configuration from environment variables.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ In this quickstart, you will incorporate Azure App Configuration Kubernetes Prov
 >
 
 ## Create an application running in AKS
-In this section, it creates an ASP.NET Core web application that consumes environment variables as configuration and run it in Azure Kubernetes Service. This section has nothing to do with Azure App Configuration or Azure App Configuration Kubernetes Provider, it just for demonstrating the end-to-end usage scenario of Azure App Configuration Kubernetes Provider later. If you already have an application that is consuming environment variables in Kubernetes, you can just skip it and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). 
+In this section, it creates an ASP.NET Core web application that consumes environment variables as configuration and run it in Azure Kubernetes Service. This section has nothing to do with Azure App Configuration or Azure App Configuration Kubernetes Provider, it just for demonstrating the end-to-end usage scenario of Azure App Configuration Kubernetes Provider later. If you already have an application that is consuming environment variables in Kubernetes, you can just skip this section and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). 
 ### Create an application
 1. Use the .NET Core command-line interface (CLI) to create a new ASP.NET Core web app project. Run the following command to create an ASP.NET Core web app in a new MyWebApp folder:
     ``` dotnetcli
