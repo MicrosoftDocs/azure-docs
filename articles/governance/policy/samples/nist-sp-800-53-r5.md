@@ -33,6 +33,16 @@ initiative definition.
 > definitions for this compliance standard may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/NIST_SP_800-53_R5.json).
 
+>[!IMPORTANT]
+> These Azure Policies are an opinionated view of implementing the NIST 800-53 Rev. 5 controls. Not
+> every policy may be required to meet the controls for your organization. This initiative assumes
+> your orgnization is using Microsoft tools and properties. Some policies may prefer some Azure features
+> over other Azure features that equally implement the security required to meet the controls.
+> This is a choice the Enterprise can make by creating their own initiative.
+> 
+> As such, most enterprises will need to create their own version of this initative and tailor it 
+> to their environment and replace some polices with custom versions to implement the controls required. 
+
 ## Access Control
 
 ### Policy and Procedures
