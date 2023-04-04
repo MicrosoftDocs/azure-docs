@@ -39,16 +39,16 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 | Attribute                | Description                                                                                           | Required | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
-| counter-key         | The key to use for the rate limit policy. For each key value, a single counter is used for all scopes at which the policy is configured.           | Yes      | N/A     |
-| increment-condition | The Boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
-| increment-count | The number by which the counter is increased per request.        | No       | 1     |
-| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
-| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | `Retry-After`  |
-| retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
-| remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
-| remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
-| total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |
+| calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expressions are allowed. | Yes      | N/A     |
+| counter-key         | The key to use for the rate limit policy. For each key value, a single counter is used for all scopes at which the policy is configured. Policy expressions are allowed.         | Yes      | N/A     |
+| increment-condition | The Boolean expression specifying if the request should be counted towards the rate (`true`). Policy expressions are allowed.        | No       | N/A     |
+| increment-count | The number by which the counter is increased per request. Policy expressions are allowed.       | No       | 1     |
+| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds. Policy expressions are allowed.                | Yes      | N/A     |
+| retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
+| retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. Policy expressions aren't allowed. |  No | N/A  |
+| remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. Policy expressions aren't allowed. |  No | N/A  |
+| remaining-calls-variable-name    | The name of a policy expression variable that after each policy execution stores the number of remaining calls allowed for the time interval specified in the `renewal-period`. Policy expressions aren't allowed. |  No | N/A  |
+| total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. Policy expressions aren't allowed. |  No | N/A  |
 
 ## Usage
 

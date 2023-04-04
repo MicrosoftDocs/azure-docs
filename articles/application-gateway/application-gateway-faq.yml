@@ -276,11 +276,13 @@ sections:
 
       - question: How do I use Application Gateway V2 with only private frontend IP address?
         answer: |
-          Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations
+          Application Gateway V2 currently supports private IP frontend configuration only (no public IP) via public preview.  More information can be found [here](application-gateway-private-deployment.md).
+          
+          For current general availability support, Application Gateway V2 supports the following combinations
           * Private IP and Public IP
           * Public IP only
           
-          But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
+          To restrict traffic only to private IP addresses with current functionality, you can follow the process below:
           1. Create an Application Gateway with both public and private frontend IP address
           2. Don't create any listeners for the public frontend IP address. Application Gateway won't listen to any traffic on the public IP address if no listeners are created for it.
           3. Create and attach a [Network Security Group](../virtual-network/network-security-groups-overview.md) for the Application Gateway subnet with the following configuration in the order of priority:
