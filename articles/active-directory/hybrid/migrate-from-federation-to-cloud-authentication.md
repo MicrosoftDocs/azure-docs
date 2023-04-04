@@ -6,9 +6,9 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 01/30/2023
+ms.date: 04/04/2023
 ms.author: billmath
-author: jricketts
+author: gasinh
 manager: amycolannino
 ms.collection: M365-identity-device-management
 ---
