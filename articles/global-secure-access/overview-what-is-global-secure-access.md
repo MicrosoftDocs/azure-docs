@@ -11,10 +11,7 @@ ms.custom:
 ---
 
 
-<!-- 1. H1
-Required. Set expectations for what the content covers, so customers know the 
-content meets their needs. H1 format is # What is <product/service>?
--->
+# What is Global Secure Access?
 
 A new category of computing has emerged as the modern workforce has moved to working both inside and outside of traditional offices. Gartner calls this new category Secure Access Service Edge (SASE) and Forrester divides the concept further with a term called Security Service Edge (SSE). 
 
@@ -22,9 +19,7 @@ In general, you can think of these categories as a Network as a Service (NaaS) o
 
 :::image type="content" source="./media/overview-what-is-global-secure-access/traditional_network_traffic.svg" alt-text="Diagram showing the traditional line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/traditional_network_traffic.svg":::
 
-:::image type="content" source="./media/overview-what-is-global-secure-access/modern_network_traffic.svg" alt-text="Diagram showing the traditional line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/modern_network_traffic.svg":::
-
-# What is Global Secure Access?
+:::image type="content" source="./media/overview-what-is-global-secure-access/modern_network_traffic.svg" alt-text="Diagram showing the modern line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/modern_network_traffic.svg":::
 
 Microsoft Entra has two products that provide the features that make up Global Secure Access. These are Microsoft Entra Private Access and Microsoft Entra Internet Access. These two products make up the Microsoft solution for SASE, SSE, and Global Secure Access.
 
@@ -35,7 +30,7 @@ Microsoft Entra has two products that provide the features that make up Global S
 > Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
 > 
 > | Feature   | Microsoft Entra Private Access | Microsoft Entra Internet Access |
-> |----------|-----------|------------|-----|-----|
+> |----------|:-----------|------------:|:-----|-----:|
 > | | Standard | Premium | Standard | Premium
 > | Feature A | X |   | X |  |
 > | Feature B |   | X |  |  |
