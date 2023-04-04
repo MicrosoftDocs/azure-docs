@@ -66,7 +66,6 @@ Azure Monitor exposes a set of metrics that provide insight into Log Analytics w
 To view Log Analytics workspace health metrics:
 
 1. Select **Metrics** from the Log Analytics workspace menu to open [Metrics Explorer](../essentials/metrics-charts.md) in context of your Log Analytics workspace.
-1. In the **Scope** field, select your Log Analytics workspace. 
 1. In the **Metric** field, select one of the Log Analytics workspace health metrics:
 
    | Metric name | Description |
