@@ -22,7 +22,7 @@ You can find an overview of the response values here:
 
 **Inference type** |**Description**                       |**Values**                              
 -------------------|--------------------------------------|----------------------------------------
-tumorSite          |The tumor site                        |`None, ICD-O-3 tumor site code (C__. \_ )`
+tumorSite          |The tumor site                        |`None, ICD-O-3 tumor site code (e.g. C34.2)`
 histology          |The histology code                    |`None, 4-digit ICD-O-3 histology code`    
 clinicalStageT     |The T category of the clinical stage  |`None, T0, Tis, T1, T2, T3, T4`           
 clinicalStageN     |The N category of the clinical stage  |`None, N0, N+`                            

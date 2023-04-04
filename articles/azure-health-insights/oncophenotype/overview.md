@@ -21,8 +21,8 @@ Onco-Phenotype is an AI model that’s offered within the context of the broader
 > The Onco-Phenotype model is a capability provided “AS IS” and “WITH ALL FAULTS.” The Onco-Phenotype model isn't intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability isn't designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Onco-Phenotype model. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
 
 
-## Onco-Phenotype  features
-The Onco-Phenotype model allows you to infer cancer attributes such as **tumor site**, **histology**, **clinical stage TNM** categories and **pathologic stage TNM categories** from unstructured clinical documents.
+## Onco-Phenotype features
+The Onco-Phenotype model, available in the Azure Health Insights cognitive service as an API, augments traditional clinical natural language processing (NLP) tools by helping healthcare providers rapidly identify key attributes of a cancer within their patient populations with an existing cancer diagnosis. You can use this model to infer tumor site; histology; clinical stage tumor (T), node (N), and metastasis (M) categories; and pathologic stage TNM categories from unstructured clinical documents, along with confidence scores and relevant evidence.
 
 - **Tumor site** refers to the primary tumor location. 
 

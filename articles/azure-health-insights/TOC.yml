@@ -33,9 +33,5 @@ items:
 - name: About Responsible AI
   expanded: true
   items:
-    - name: Transparency note
-      href: responsible-ai/transparency-note.md
-    - name: Integration and responsible use
-      href: responsible-ai/integration-and-responsible-use.md
     - name: Data, privacy, and security
       href: responsible-ai/data-privacy-security.md

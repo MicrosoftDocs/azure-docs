@@ -29,7 +29,7 @@ To deploy Azure Health Insights, you must register your subscription. Let us kno
 
     ![Screenshot of how to create the new Azure Health Insights service.](media/oncophenotype/deploy-to-azure/create-service.png) 
 
-    or Use this [link](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_healthinsightspreview&feature.healthinsightspreview=true#create/Microsoft.CognitiveServiceshealthinsights) to create a new Cognitive Services account.
+    or Use this [link](https://portal.azure.com/#create/Microsoft.CognitiveServicesHealthInsights) to create a new Cognitive Services account.
 
 4. Enter the following values:
     - **Resource group**: Select or create your Resource group name.
@@ -37,11 +37,11 @@ To deploy Azure Health Insights, you must register your subscription. Let us kno
     - **Name**: Enter a Cognitive Services account name.
     - **Pricing tier**: Select your pricing tier.
 
-    ![Screenshot of how to create new Cognitive Services account.](media/oncophenotype/deploy-to-azure/create-health-decision-support.jpg) 
+    ![Screenshot of how to create new Cognitive Services account.](media/oncophenotype/deploy-to-azure/create-health-insights.png) 
 
 5. Navigate to your newly created service.
     
-    ![Screenshot of the Overview of Cognitive Services account.](media/oncophenotype/deploy-to-azure/created-health-decision-support.jpg) 
+    ![Screenshot of the Overview of Cognitive Services account.](media/oncophenotype/deploy-to-azure/created-health-insights.png) 
 
 ## Configure private endpoints
 
@@ -49,7 +49,7 @@ With private endpoints, the network traffic between the clients on the VNet and 
 
 Once the Cognitive Services account is successfully created, configure private endpoints from the Networking page under Resource Management. 
 
-![Screenshot of Private Endpoint.](media/oncophenotype/deploy-to-azure/private-endpoints.jpg) 
+![Screenshot of Private Endpoint.](media/oncophenotype/deploy-to-azure/private-endpoints.png) 
 
 ## Next steps
 

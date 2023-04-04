@@ -12,31 +12,38 @@ ms.author: behoorne
 ---
 
 
-# Onco-Phenotype frequently asked questions
+# Onco-Phenotype Frequently Asked Questions
 
 You’ll find answers to commonly asked questions about Onco-Phenotype, part of Azure Health Insights service, in this article
 
-## What does inference value ```None``` mean?
-```None``` implies that the model couldn't find enough relevant information to make a meaningful prediction.
+- What does inference value `None` mean?
 
-## How is the ```description``` property populated for tumor site inference?
-It's populated based on the [ICD-O-3 SEER Site/Histology Validation List](https://seer.cancer.gov/icd-o-3/).
+  `None` implies that the model couldn't find enough relevant information to make a meaningful prediction.
 
-## Do you support behavior code along with histology code?
-No, we don't support one-digit behavior code. We support only four-digit histology code.
+- How is the `description` property populated for tumor site inference?
 
-## What does inference value ```N+``` mean for clinical/pathologic N category? Why don't you have ```N1, N2, N3``` inference values?
-N+ means there's involvement of regional lymph nodes without explicitly mentioning the extent of spread. Our models were trained to classify whether or not there's regional lymph node involvement but not the extent of spread. Hence we don't have ```N1, N2, N3``` inference values. We plan to support these values in the long term.
+  It's populated based on ICD-O-3 SEER Site/Histology Validation List [here](https://seer.cancer.gov/icd-o-3/).
 
-## Do you have plans to support I-IV stage grouping?
-No, we don't have any plans to support I-IV stage grouping at this time.
+- Do you support behavior code along with histology code?
 
-## Do you check if the tumor site and histology inference values area valid combination?
-No, we don't check if the tumor site and histology inference values are a valid combination.
+  No, the OncoPhenotype API doesn't support 1-digit behavior code. Only 4-digit histology code is supported.
 
-## Are these values for each inference type?
-Yes, for clinical/pathologic TNM categories. For tumor site and histology, the values are only as the training data set labels. We plan to publish this set of labels soon.
+- What does inference value `N+` mean for clinical/pathologic N category? Why don't you have `N1, N2, N3` inference values?
 
+  `N+` means there's involvement of regional lymph nodes without explicitly mentioning the extent of spread. Microsoft has trained the models to classify whether or not there's regional lymph node involvement but not the extent of spread and hence `N1, N2, N3` inference values aren't supported.
 
-## Is there a workaround for patients whose clinical documents exceed the # characters limit?
-Unfortunately, we don't support patients with clinical documents that exceed # characters limit. You might try excluding the progress notes.
+- Do you support subcategories for clinical/pathologic TNM categories?
+
+  No, subcategories or isolated tumor cell modifiers aren't supported. For instance, T3a would be predicted as T3, and N0(i+) would be predicted as N0.
+
+- Do you have plans to support I-IV stage grouping?
+
+  No, Microsoft doesn't have any plans to support I-IV stage grouping at this time.
+
+- Do you check if the tumor site and histology inference values are a valid combination?
+
+  No, the OncoPhenotype API doesn't validate if the tumor site and histology inference values are a valid combination.
+
+- Are the inference values exhaustive for tumor site and histology?
+
+  No, the inference values are only as exhaustive as the training data set labels.

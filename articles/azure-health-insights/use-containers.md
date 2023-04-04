@@ -74,7 +74,7 @@ container-
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 > * The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
->   * The [responsible AI](responsible-ai/transparency-note.md)  (RAI) acknowledgment must also be present with a value of `accept`.
+>   * The responsible AI (RAI) acknowledgment must also be present with a value of `accept`.
 
 
 There are multiple ways you can install and run Azure Health Insights containers. 
