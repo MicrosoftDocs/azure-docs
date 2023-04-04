@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: conceptual
 author: heidilohr
 ms.author: helohr
-ms.date: 04/03/2023
+ms.date: 04/04/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -18,9 +18,9 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |---------|----------------|----------|
 | Public  | 1.2.4066       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4154       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.4155       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.4154 (Insider)
+## Updates for version 1.2.4155 (Insider)
 
 *Date published: March 28, 2023*
 
@@ -47,7 +47,7 @@ In this release, we've made the following changes:
 - Fixed a bug that caused the client to stop responding when disconnecting from the session early.
 - Fixed a bug that caused duplicate error messages to appear while connected to an Azure Active Directory-joined host using the new Remote Desktop Services (RDS) Azure Active Directory (Azure AD) Auth protocol.
 - Fixed a bug that caused scale resolution options to not display in display settings for session desktops.
-- Disabled UPnP for Public release customers after reports of connectivity issues. However, we didn't disable UPnP for Insiders customers.
+- Disabled UPnP for non-Insiders customers after reports of connectivity issues.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Fixed an issue that caused multimedia redirection (MMR) for Azure Virtual Desktop to not load for the ARM64 version of the client.
