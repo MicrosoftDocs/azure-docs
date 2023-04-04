@@ -65,14 +65,14 @@ x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-
 The Windows image alias names and their details outputted by this command are:
 
 ```output
-Alias                   Architecture    Offer                         Publisher               Sku                                 Urn                                                                              Version
------------------------ --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------   ---------
-Win2022Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                      latest
-Win2022AzureEditionCore x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest   latest
-Win2019Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                      latest
-Win2016Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                      latest
-Win2012R2Datacenter     x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                   latest
-Win2012Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                      latest
+Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Alias                    Version
+--------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------ -----------------------  ---------
+x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                    Win2022Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest Win2022AzureEditionCore   latest
+x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                    Win2019Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                    Win2016Datacenter         latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                 Win2012R2Datacenter       latest
+x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                    Win2012Datacenter         latest
 ```
 
 
