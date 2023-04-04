@@ -38,7 +38,7 @@ You detect inactive accounts by evaluating the **lastSignInDateTime** property e
 
 - **Users by name**: In this scenario, you search for a specific user by name, which enables you to evaluate the lastSignInDateTime: `https://graph.microsoft.com/v1.0/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
-- **Users by date**: In this scenario, you request a list of users with a lastSignInDateTime before a specified date: `https://graph.microsoft.com/v1.0/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
+- **Users by date**: In this scenario, you request a list of users with a lastSignInDateTime before a specified date: `https://graph.microsoft.com/v1.0/users?$filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 
 > [!NOTE]
 > There may be the need to generate a report of the last sign in date of all users, if so you can use the following scenario.
