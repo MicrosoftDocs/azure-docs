@@ -46,15 +46,19 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 
     Review the generated rules before you create them, to leverage benefits like [filtering](../essentials/data-collection-transformations.md), granular targeting (per machine), and other optimizations.  
 
-1. Deploy agent extensions and DCR associations: 
-    1. **Test first** by deploying agent extensions<sup>2</sup> and DCR associations on a few non-production machines. As explained in [Migration plan](#migration-plan), you can also deploy Azure Monitor Agent side-by-side with a legacy agent on the same machine.
-    1. Compare the data ingested by Azure Monitor Agent it with legacy agent data to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates 'Azure Monitor Agent' for data collected by the new agent.
-    1. After testing, use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) for at-scale deployment of extensions and DCR associations. Using policy will also ensure automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
-    1. Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
+1. Test the new agent and data collection rules on a few non-production machines: 
+
+    1. Installing the Azure Monitor Agent extension on the machines and associate the generated data collection rules, as described in [Installing and using DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator).
+    1. Compare the data ingested by Azure Monitor Agent with legacy agent data to ensure there are no gaps. You can do this by joining with the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table, which indicates `Azure Monitor Agent` for data collected by the Azure Monitor Agent.
     
-1. **Validate** that Azure Monitor Agent is collecting data as expected and all **downstream dependencies**, such as dashboards, alerts, and workbooks, function properly:
+1. Use [built-in policies](../agents/azure-monitor-agent-manage.md#built-in-policies) to deploy extensions and DCR associations at scale. Using policy will also ensure automatic deployment of extensions and DCR associations for new machines.<sup>3</sup>
+    
+    Use the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to **monitor the at-scale migration** across your machines.  
+    
+1. **Verify** that Azure Monitor Agent is collecting data as expected and all **downstream dependencies**, such as dashboards, alerts, and workbooks, function properly:
     1. Look at the **Overview** and **Usage** tabs of [Log Analytics Workspace Insights](../logs/log-analytics-workspace-insights-overview) for spikes or dips in ingestion rates following the migration. Check both the overall workspace ingestion and the table-level ingestion rates.  
     1. Check your workbooks, dashboards, and alerts for variances from typical behavior following the migration.   
+    
 1. Clean up: After you confirm that Azure Monitor Agent is collecting data properly, you can **either disable or uninstall the legacy Log Analytics agents**.
     1. If you've migrated to Azure Monitor Agent for all your requirements, you may [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from monitored resources. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent. Continue using the legacy Log Analytics for features and solutions that Azure Monitor Agent doesn't support.     
     1. Don't uninstall the legacy agent if you need to use it to upload data to System Center Operations Manager.
