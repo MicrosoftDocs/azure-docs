@@ -34,7 +34,7 @@ The new recommendations require [guest config](https://aka.ms/gcpol).
 These recommendations are based on the following policies:
 
 - [(Preview) Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)
-- [(Preview) Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)
+- [(Preview) Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fca88aadc-6e2b-416c-9de2-5a0f01d1693f)
 
 Learn more about [ADE and EncryptionAtHost and how to enable one of them](../virtual-machines/disk-encryption-overview.md).
 
