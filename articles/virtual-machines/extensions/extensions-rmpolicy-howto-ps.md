@@ -93,7 +93,9 @@ When you're done, hit the **Ctrl + O** and then **Enter** to save the file. Hit 
 
 A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create a policy definition using the [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition) cmdlet.
 
- The policy rules and parameter values below are the files you created and stored as .json files in your Cloud Shell. Replace the file paths as needed.
+
+ The policy rules and parameters are the files you created and stored as .json files in your cloud shell. Replace the example `-Policy` and `-Parameter` file paths as needed.
+
 
 
 ```azurepowershell-interactive
