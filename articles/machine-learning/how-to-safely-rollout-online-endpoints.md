@@ -386,7 +386,7 @@ If you invoke the endpoint with the name of the deployment that will receive tra
 
 If you invoke the endpoint without specifying the deployment that will receive traffic, Azure Machine Learning will route the endpoint's incoming traffic to the deployment(s) in the endpoint based on traffic control settings.
 
-Traffic control settings allocate specified percentages of incoming traffic to each deployment in the endpoint. For example, if your traffic rules specify that a particular deployment in your endpoint will receive incoming traffic 40% of the time, Azure Machine Learning will route 40% of the endpoint's traffic to that deployment. If your endpoint contains only one deployment, then the single deployment will receive 100% of incoming requests.
+Traffic control settings allocate specified percentages of incoming traffic to each deployment in the endpoint. For example, if your traffic rules specify that a particular deployment in your endpoint will receive incoming traffic 40% of the time, Azure Machine Learning will route 40% of the endpoint's traffic to that deployment.
 
 # [Azure CLI](#tab/azure-cli)
 
