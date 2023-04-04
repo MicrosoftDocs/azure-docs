@@ -48,7 +48,7 @@ The following distributions and versions include only Azure-endorsed Linux vendo
 - OpenSUSE 13.1+
 - SUSE Linux Enterprise Server 12
 - Debian 9, 8, 7
-- Red Hat Enterprise Linux (RHEL) 7, 6.7+
+- Red Hat Enterprise Linux (RHEL) 7.9
 - Alma Linux 8
 - Rocky Linux 8
 
