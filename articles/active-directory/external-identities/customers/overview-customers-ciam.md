@@ -19,7 +19,7 @@ ms.custom: it-pro
 
 Microsoft Entra External Identities for Customers is a seamless way to add secure, customized sign-in to your customer-facing apps. For businesses that want to provide their customers with apps for buying products, subscribing to services, or accessing their account data, Microsoft Entra offers robust customer identity and access management (CIAM). This built-in solution lets you easily integrate your apps and get all the security, reliability, and scalability benefits of Microsoft Entra.
 
-:::image type="content" source="media/overview-customers-ciam/overview-diagram.png" alt-text="Diagram showing an overview customer identity and access management" border="false":::
+:::image type="content" source="media/overview-customers-ciam/overview-diagram.png" alt-text="Diagram showing an overview customer identity and access management." border="false":::
 
 ## Customer identity and access management features
 
