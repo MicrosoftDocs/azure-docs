@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions (FAQ) - Azure Active Directory | Microsoft Docs
+  title: Frequently asked questions (FAQ)
   description: Common questions and answers about Azure and Azure Active Directory, password management, and application access.
   services: active-directory
   author: barclayn
@@ -66,7 +66,20 @@ sections:
         answer: |
           No.  This isn't currently available.
           
-          
+        
+        
+      - question: |
+          How can I allow Microsoft Entra admin center URLs on my firewall or proxy server?
+
+        answer: |
+          To optimize connectivity between your network and the Microsoft Entra admin center and its services, you may want to add specific Microsoft Entra admin center URLs to your allowlist. Doing so can improve performance and connectivity between your local- or wide-area network. Network administrators often deploy proxy servers, firewalls, or other devices, which can help secure and give control over how users access the internet. Rules designed to protect users can sometimes block or slow down legitimate business-related internet traffic. This traffic includes communications between you and Microsoft Entra admin center over the URLs listed here.
+         
+          * *.entra.microsoft.com
+          * *.entra.microsoft.us
+          * *.entra.microsoft.scloud
+          * *.entra.microsoft.eaglex.ic.gov
+          * *.entra.microsoftonline.cn    
+    
           
   - name: Get started with Hybrid Azure AD
     questions:
@@ -163,7 +176,7 @@ sections:
           We use a more sophisticated strategy to lock accounts.  This is based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it is an attack.  
 
       - question: |
-          Certain (common) passwords get rejected with the messages 'this password has been used to many times', does this refer to passwords used in the current active directory?
+          Certain (common) passwords get rejected with the messages 'this password has been used too many times', does this refer to passwords used in the current active directory?
         answer: |
           This refers to passwords that are globally common, such as any variants of "Password" and "123456".
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning SDK (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.author: balapv
 author: balapv
 ms.reviewer: mopeakande
@@ -18,7 +18,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK version you are using:"]
-> * [v1](v1/how-to-train-keras.md)
+> * [v1](v1/how-to-train-keras.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-train-keras.md)
 
 In this article, learn how to run your Keras training scripts using the Azure Machine Learning Python SDK v2.

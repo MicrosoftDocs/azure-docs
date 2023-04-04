@@ -3,7 +3,7 @@ title: Azure Virtual Desktop environment host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Azure Virtual Desktop environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-arm-template
 ms.date: 02/17/2021
 ms.author: helohr
 manager: femila

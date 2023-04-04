@@ -56,6 +56,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   North Europe
 *   Norway East
 *   Norway West 
+*   Qatar Central
 *   South Africa North
 *	South Central US
 *   South India 
@@ -204,3 +205,4 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 * [Configure network features for an Azure NetApp Files volume](configure-network-features.md) 
 * [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+* [Configure Virtual WAN for Azure NetApp Files](configure-virtual-wan.md)

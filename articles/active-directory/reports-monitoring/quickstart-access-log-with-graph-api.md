@@ -1,5 +1,5 @@
 ---
-title: Access Azure AD logs with the Microsoft Graph API  | Microsoft Docs
+title: Access Azure AD logs with the Microsoft Graph API 
 description: In this quickstart, you learn how you can access the sign-ins log using the Graph API.
 services: active-directory
 ms.service: active-directory

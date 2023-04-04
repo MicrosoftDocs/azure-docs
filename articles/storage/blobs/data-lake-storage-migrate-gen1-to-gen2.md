@@ -6,9 +6,8 @@ author: normesta
 
 ms.topic: how-to
 ms.author: normesta
-ms.date: 05/11/2022
+ms.date: 03/09/2023
 ms.service: storage
-ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
 ---
 
@@ -27,13 +26,13 @@ Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-intr
 
 To migrate from Gen1 to Gen2, we recommend the following approach.
 
-:heavy_check_mark: Step 1: Assess readiness
+Step 1: Assess readiness
 
-:heavy_check_mark: Step 2: Prepare to migrate
+Step 2: Prepare to migrate
 
-:heavy_check_mark: Step 3: Migrate data and application workloads
+Step 3: Migrate data and application workloads
 
-:heavy_check_mark: Step 4: Cutover from Gen1 to Gen2
+Step 4: Cutover from Gen1 to Gen2
 
 ### Step 1: Assess readiness
 
@@ -159,11 +158,11 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 
 #### Considerations for using the lift and shift pattern
 
-:heavy_check_mark: Cutover from Gen1 to Gen2 for all workloads at the same time.
+- Cutover from Gen1 to Gen2 for all workloads at the same time.
 
-:heavy_check_mark: Expect downtime during the migration and the cutover period.
+- Expect downtime during the migration and the cutover period.
 
-:heavy_check_mark: Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
+- Ideal for pipelines that can afford downtime and all apps can be upgraded at one time.
 
 > [!TIP]
 > Consider using the [Azure portal](data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) to shorten downtime and reduce the number of steps required by you to complete the migration.
@@ -185,11 +184,11 @@ Check out our sample code for the incremental copy pattern in our [Incremental c
 
 #### Considerations for using the incremental copy pattern:
 
-:heavy_check_mark: Cutover from Gen1 to Gen2 for all workloads at the same time.
+- Cutover from Gen1 to Gen2 for all workloads at the same time.
 
-:heavy_check_mark: Expect downtime during cutover period only.
+- Expect downtime during cutover period only.
 
-:heavy_check_mark: Ideal for pipelines where all apps upgraded at one time, but the data copy requires more time.
+- Ideal for pipelines where all apps upgraded at one time, but the data copy requires more time.
 
 ### Dual pipeline pattern
 
@@ -208,11 +207,11 @@ Check out our sample code for the dual pipeline pattern in our [Dual Pipeline mi
 
 #### Considerations for using the dual pipeline pattern:
 
-:heavy_check_mark: Gen1 and Gen2 pipelines run side-by-side.
+- Gen1 and Gen2 pipelines run side-by-side.
 
-:heavy_check_mark: Supports zero downtime.
+- Supports zero downtime.
 
-:heavy_check_mark: Ideal in situations where your workloads and applications can't afford any downtime, and you can ingest into both storage accounts.
+- Ideal in situations where your workloads and applications can't afford any downtime, and you can ingest into both storage accounts.
 
 ### Bi-directional sync pattern
 
@@ -229,9 +228,9 @@ Check out our sample code for the bidirectional sync pattern in our [Bidirection
 
 #### Considerations for using the bi-directional sync pattern:
 
-:heavy_check_mark: Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.
+- Ideal for complex scenarios that involve a large number of pipelines and dependencies where a phased approach might make more sense.
 
-:heavy_check_mark: Migration effort is high, but it provides side-by-side support for Gen1 and Gen2.
+- Migration effort is high, but it provides side-by-side support for Gen1 and Gen2.
 
 ## Next steps
 
@@ -241,5 +240,6 @@ Check out our sample code for the bidirectional sync pattern in our [Bidirection
 
 ## See also
 
-- [The Hitchhiker's Guide to the Data Lake](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
+- [Introduction to Azure Data Lake Storage Gen2 (Training module)](/training/modules/introduction-to-azure-data-lake-storage/)
+- [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
 - [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

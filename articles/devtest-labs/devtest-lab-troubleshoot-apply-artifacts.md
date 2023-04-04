@@ -5,7 +5,6 @@ ms.topic: troubleshooting
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/31/2022
-ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot issues applying artifacts on DevTest Labs virtual machines

@@ -10,7 +10,7 @@ ms.reviewer: ssalgado
 author: ssalgadodev
 ms.author: xunwan
 ms.date: 10/21/2021
-ms.custom: devx-track-python, data4ml, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, data4ml, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 
@@ -21,7 +21,7 @@ ms.custom: devx-track-python, data4ml, event-tier1-build-2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](concept-data.md)
-> * [v2 (current version)](../concept-data.md)
+> * [v2 (current version)](../concept-data.md?view=azureml-api-2&preserve-view=true)
 
 Azure Machine Learning makes it easy to connect to your data in the cloud. It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
 

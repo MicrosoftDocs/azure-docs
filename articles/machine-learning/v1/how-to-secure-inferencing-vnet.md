@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 07/28/2022
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ---
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks (v1)
@@ -20,7 +20,7 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecl
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
 > * [SDK/CLI v1](how-to-secure-inferencing-vnet.md)
-> * [SDK/CLI v2 (current version)](../how-to-secure-inferencing-vnet.md)
+> * [SDK/CLI v2 (current version)](../how-to-secure-inferencing-vnet.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning. This article is specific to the SDK/CLI v1 deployment workflow of deploying a model as a web service.
 
@@ -67,7 +67,7 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 
 * If your AKS cluster is behind of a VNET, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please read tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine learning.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine Learning.
 
 <a id="aksvnet"></a>
 

@@ -349,8 +349,10 @@ You must generate a new registration key that is used to re-register your sessio
 By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
 
 1. Sign in to your session host VM as an administrator and run the agent installer and bootloader for your session host VM:
-        - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
-        - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
+   
+   - [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)
+   
+   - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
    > [!TIP]
    > For each of the the agent and boot loader installers you downloaded, you may need to unblock them. Right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
@@ -371,7 +373,7 @@ By reinstalling the most updated version of the agent and boot loader, the side-
    > [!div class="mx-imgBorder"]
    > ![Screenshot of available session host](media/hostpool-portal.png)
 
-## Remove DisableRegistryTools
+## Remove DisableRegistryTools registry key
 
 If you've performed all four steps but the agent still doesn't work, that may be because the DisableRegistryTools registry key is enabled in one of the following locations:
 

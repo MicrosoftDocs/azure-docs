@@ -11,7 +11,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/27/2021
-ms.custom: seodec18, ignite-2022
+ms.custom: UpdateFrequency5, seodec18, ignite-2022
 #Customer intent: As a professional data scientist, I find and run example Jupyter Notebooks for Azure Machine Learning.
 ---
 
@@ -20,7 +20,7 @@ ms.custom: seodec18, ignite-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning version you are using:"]
 > * [v1](<samples-notebooks-v1.md>)
-> * [v2](../samples-notebooks.md)
+> * [v2](../samples-notebooks.md?view=azureml-api-2&preserve-view=true)
 
 The [Azure Machine Learning Notebooks repository](https://github.com/azure/machinelearningnotebooks) includes Azure Machine Learning Python SDK (v1) samples. These Jupyter notebooks are designed to help you explore the SDK and serve as models for your own machine learning projects.  In this repository, you'll find tutorial notebooks in the **tutorials** folder and feature-specific notebooks in the **how-to-use-azureml** folder.
 

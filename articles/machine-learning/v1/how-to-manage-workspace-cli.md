@@ -10,7 +10,7 @@ author: deeikele
 ms.reviewer: larryfr
 ms.date: 08/12/2022
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces using Azure CLI extension v1
@@ -19,7 +19,7 @@ ms.custom: devx-track-azurecli, cliv1, event-tier1-build-2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
 > * [v1](how-to-manage-workspace-cli.md)
-> * [v2 (current version)](../how-to-manage-workspace-cli.md)
+> * [v2 (current version)](../how-to-manage-workspace-cli.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [cli-version-info](../../../includes/machine-learning-cli-version-1-only.md)]
 
