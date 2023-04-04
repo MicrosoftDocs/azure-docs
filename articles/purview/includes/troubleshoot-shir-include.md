@@ -1,47 +1,11 @@
-
-## Troubleshoot self-hosted integration runtime
-
-[!INCLUDE[appliesto-adf-asa-md](./appliesto-adf-asa-md.md)]
-
-This article explores common troubleshooting methods for self-hosted integration runtime (IR) in Azure Data Factory and Synapse workspaces.
-
-## Gather self-hosted IR logs
-
-For failed activities that are running on a self-hosted IR or a shared IR, the service supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
-
-1. On the Monitor page for the service UI, select **Pipeline runs**.
-
-1. Under **Activity runs**, in the **Error** column, select the highlighted button to display the activity logs, as shown in the following screenshot:
-
-### Azure Data Factory
-
-:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the Azure Data Factory 'Activity runs' section on the 'All pipeline runs' pane.":::
-
-### Azure Synapse
-
-:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the Azure Synapse 'Activity runs' section on the 'All pipeline runs' pane.":::
-
-The activity logs are displayed for the failed activity run.
-
-:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png" alt-text="Screenshot of the activity logs for the failed activity."::: 
-
-1. For further assistance, select **Send logs**.
-
-The window titled **'Share the self-hosted integration runtime (IR) logs with Microsoft'** opens.
-
-:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="Screenshot of the &quot;Share the self-hosted integration runtime (IR) logs with Microsoft&quot; window.":::
-
-1. Select which logs you want to send. 
-* For a *self-hosted IR*, you can upload logs that are related to the failed activity or all logs on the self-hosted IR node. 
-* For a *shared IR*, you can upload only logs that are related to the failed activity.
-
-1. When the logs are uploaded, keep a record of the Report ID for later use if you need further assistance to solve the issue.
-
-:::image type="content" source="../media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png" alt-text="Screenshot of the displayed report ID in the upload progress window for the IR logs.":::
-
-> [!NOTE]
-> Log viewing and uploading requests are executed on all online self-hosted IR instances. If any logs are missing, make sure that all the self-hosted IR instances are online. 
-
+---
+author: abandyop
+ms.author: arindamba
+ms.service: purview
+ms.subservice: purview-data-map
+ms.topic: include
+ms.date: 04/03/2023
+---
 
 ## Self-hosted IR general failure or error
 
@@ -643,7 +607,7 @@ The following is the expected response:
 
 > [!NOTE] 
 > Proxy considerations:
-> * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](../data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
+> * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](../../data-factory/data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
 > * Check to see whether SSL/TLS certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
 > * If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
@@ -811,7 +775,7 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](../data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](../../data-factory/data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - You *are* affected if you're explicitly enabling the allowlist for outbound IPs on your corporate firewall.
 

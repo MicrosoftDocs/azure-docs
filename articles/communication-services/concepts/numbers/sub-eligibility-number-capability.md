@@ -77,7 +77,12 @@ The following tables summarize current availability:
 | Canada            | Local     | -        | -        | General Availability       | General Availability\* |
 | UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
 | UK                | Local     | -        | -        | General Availability       | General Availability\* |
-
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -93,6 +98,12 @@ The following tables summarize current availability:
 | Canada            | Local     | -        | -        | General Availability       | General Availability\* |
 | UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
 | UK                | Local     | -        | -        | General Availability       | General Availability\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -122,6 +133,12 @@ The following tables summarize current availability:
 | Canada             | Local          | -        | -        | General Availability   | General Availability\* |
 | UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
 | UK                 | Local          | -        | -        | General Availability   | General Availability\* |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -137,6 +154,12 @@ The following tables summarize current availability:
 | Canada            | Local     | -        | -        | General Availability       | General Availability\* |
 | USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -219,6 +242,7 @@ The following tables summarize current availability:
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | Norway           | Local**     | -        | -        | Public Preview | Public Preview\* |
+| Norway           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
