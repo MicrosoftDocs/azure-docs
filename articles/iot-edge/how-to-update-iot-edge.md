@@ -69,7 +69,7 @@ Check the version of the security subsystem running on your device by using the 
 >[!IMPORTANT]
 >If you are updating a device from version 1.0 or 1.1 to the latest release, there are differences in the installation and configuration processes that require extra steps. For more information, see the steps later in this article: [Special case: Update from 1.0 or 1.1 to latest release](#special-case-update-from-10-or-11-to-latest-release).
 
-On Linux x64 devices, use `apt-get` or your appropriate package manager to update the runtime module to the latest version.
+On Linux x64 devices, use `apt-get` or your appropriate package manager to update the security subsystem to the latest version.
 
 Update `apt`:
 
