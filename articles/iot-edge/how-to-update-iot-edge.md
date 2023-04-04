@@ -19,9 +19,9 @@ As the IoT Edge service releases new versions, update your IoT Edge devices for 
 
 Two logical components of an IoT Edge device need to be updated if you want to move to a newer version.
 
-1. *Security subsystem* - Although the architecture of the security subsystem [changed between version 1.1 and 1.2](iot-edge-security-manager.md), its responsibilities remained the same. It runs on the device, handles security-based tasks, and starts the modules when the device starts. The *security subsystem* can only be updated from the device itself.
+* *Security subsystem* - Although the architecture of the security subsystem [changed between version 1.1 and 1.2](iot-edge-security-manager.md), its responsibilities remained the same. It runs on the device, handles security-based tasks, and starts the modules when the device starts. The *security subsystem* can only be updated from the device itself.
 
-1. *IoT Edge runtime* - The IoT Edge runtime is made up of the IoT Edge hub (`edgeHub`) and IoT Edge agent (`edgeAgent`) modules. Depending on how you structure your deployment, the *runtime* can be updated from either the device or remotely.
+* *IoT Edge runtime* - The IoT Edge runtime is made up of the IoT Edge hub (`edgeHub`) and IoT Edge agent (`edgeAgent`) modules. Depending on how you structure your deployment, the *runtime* can be updated from either the device or remotely.
 
 ## How to update
 
