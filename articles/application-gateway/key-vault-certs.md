@@ -40,7 +40,7 @@ Application Gateway uses a secret identifier in Key Vault to reference the certi
 
 The Azure portal supports only Key Vault certificates, not secrets. Application Gateway still supports referencing secrets from Key Vault, but only through non-portal resources like PowerShell, the Azure CLI, APIs, and Azure Resource Manager templates (ARM templates).
 
-References to Key Vaults in other Azure subscriptions is supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure Portal today.
+References to Key Vaults in other Azure subscriptions are supported, but must be configured via ARM Template, Azure PowerShell, CLI, Bicep, etc. Cross-subscription key vault configuration is not supported by Application Gateway via Azure portal today.
 
 ## Certificate settings in Key Vault
 
