@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for ThousandEyes - Azure AD'
+title: 'Tutorial: User provisioning for ThousandEyes'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to ThousandEyes.
 services: active-directory
 author: ArvindHarinder1

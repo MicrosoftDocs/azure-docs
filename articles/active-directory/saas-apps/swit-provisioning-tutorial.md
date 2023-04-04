@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Swit for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Swit for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Swit.
 author: twimmers
 writer: twimmers

@@ -23,7 +23,7 @@ To view devices across multiple sensors in a zone, you'll also need an on-premis
 
 ## View devices on OT sensor device map
 
-1. Sign into your OT sensor and select **Device map**. All devices detected by the OT sensor are displayed by default according to [Purdue layer](best-practices/understand-network-architecture.md#purdue-reference-model-and-defender-for-iot).
+1. Sign into your OT sensor and select **Device map**. All devices detected by the OT sensor are displayed by default according to [Purdue layer](best-practices/understand-network-architecture.md).
 
     On the OT sensor's device map:
 
@@ -76,7 +76,7 @@ To see device details, select a device and expand the device details pane on the
 
 ### View IT subnets from an OT sensor device map
 
-By default, IT devices are automatically aggregated by [subnet](how-to-control-what-traffic-is-monitored.md#configure-subnets), so that the map focuses on OT and ICS networks.
+By default, IT devices are automatically aggregated by [subnet](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets), so that the map focuses on your local OT and IoT networks.
 
 **To expand an IT subnet**:
 
@@ -132,7 +132,7 @@ Use one of the following options to import and export device data:
     |  **Activity Report**   | Generates an activity report for the device for the selected timespan.        |
     | **Simulate Attack Vectors**    |   Generates an [attack vector simulation](how-to-create-attack-vector-reports.md) for the selected device.      |
     | **Add to custom group**    | Creates a new [custom group](#create-a-custom-device-group) with the selected device.        |
-    |  **Delete**   |Deletes the device from the inventory.     |
+    |  **Delete**   | Deletes the device from the inventory.     |
 
 ## Merge devices
 
@@ -149,6 +149,8 @@ You can only merge [authorized devices](device-inventory.md#unauthorized-devices
 1. Sign into your OT sensor and select **Device map**.
 
 1. Select the authorized devices you want to merge by using the SHIFT key to select more than one device, and then right-click and select **Merge**. 
+
+1. At the prompt, select **Confirm** to confirm that you want to merge the devices.
 
 The devices are merged, and a confirmation message appears at the top right. Merge events are listed in the OT sensor's event timeline.
 
@@ -195,9 +197,9 @@ The following table lists available responses for each notification, and when we
 | Type | Description | Available responses | Auto-resolve|
 |--|--|--|--|
 | **New IP detected** | A new IP address is associated with the device. This may occur in the following scenarios: <br><br>- A new or additional IP address was associated with a device already detected, with an existing MAC address.<br><br> - A new IP address was detected for a device that's using a NetBIOS name. <br /><br /> - An IP address was detected as the management interface for a device associated with a MAC address. <br /><br /> - A new IP address was detected for a device that's using a virtual IP address. | - **Set Additional IP to Device**: Merge the devices <br />- **Replace Existing IP**: Replaces any existing IP address with the new address <br /> - **Dismiss**: Remove the notification. |**Dismiss** |
-| **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnets Configuration** and [configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets). <br />- **Dismiss**: Remove the notification. |**Dismiss** |
+| **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnet Configuration** and [configure subnets](how-to-control-what-traffic-is-monitored.md#define-ot-and-iot-subnets). <br />- **Dismiss**: Remove the notification. |**Dismiss** |
 | **Operating system changes** | One or more new operating systems have been associated with the device. | - Select the name of the new OS that you want to associate with the device.<br /> - **Dismiss**:  Remove the notification. |No automatic handling|
-| **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**<br />Remove the notification. |**Dismiss** |
+| **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**: <br />Remove the notification. |**Dismiss** |
 | **Device type changes** | A new device type has been associated with the device. | - **Set as {…}**: Associate the new type with the device.<br />- **Dismiss**: Remove the notification. |No automatic handling|
 
 ## View a device map for a specific zone

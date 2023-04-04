@@ -4,10 +4,10 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to verify a virtual network VPN Gateway connection.
 author: cherylmc
 ms.service: vpn-gateway
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/13/2022
 ms.author: cherylmc
-
 ---
 # Verify a connection for VPN Gateway
 

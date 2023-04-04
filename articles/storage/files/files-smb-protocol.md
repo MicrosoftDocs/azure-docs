@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 03/31/2023
 ms.author: kendownie
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
@@ -155,7 +155,7 @@ Azure Files exposes settings that let you toggle the SMB protocol to be more com
 Azure Files exposes the following settings:
 
 - **SMB versions**: Which versions of SMB are allowed. Supported protocol versions are SMB 3.1.1, SMB 3.0, and SMB 2.1. By default, all SMB versions are allowed, although SMB 2.1 is disallowed if "require secure transfer" is enabled, because SMB 2.1 does not support encryption in transit.
-- **Authentication methods**: Which SMB authentication methods are allowed. Supported authentication methods are NTLMv2 and Kerberos. By default, all authentication methods are allowed. Removing NTLMv2 disallows using the storage account key to mount the Azure file share.
+- **Authentication methods**: Which SMB authentication methods are allowed. Supported authentication methods are NTLMv2 (storage account key only) and Kerberos. By default, all authentication methods are allowed. Removing NTLMv2 disallows using the storage account key to mount the Azure file share. Azure Files doesn't support using NTLM authentication for domain credentials.
 - **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are AES-256 (recommended) and RC4-HMAC.
 - **SMB channel encryption**: Which SMB channel encryption algorithms are allowed. Supported encryption algorithms are AES-256-GCM, AES-128-GCM, and AES-128-CCM.
 

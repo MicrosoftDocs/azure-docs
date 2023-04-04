@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/18/2021
+ms.date: 03/29/2023
 ms.author: dmwendia
 ms.reviewer: saeeda, jmprieur
 ms.custom: "devx-track-csharp, aaddev"
@@ -149,7 +149,7 @@ static string GetSignedClientAssertion(X509Certificate2 certificate, string tena
 
 ### Alternative method
 
-You also have the option of using [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) to create the assertion for you. The code will be a more elegant as shown in the example below:
+You also have the option of using [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) to create the assertion for you. The code will be more elegant as shown in the example below:
 
 ```csharp
         string GetSignedClientAssertionAlt(X509Certificate2 certificate)

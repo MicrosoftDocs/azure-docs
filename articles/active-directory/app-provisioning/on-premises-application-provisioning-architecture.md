@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD on-premises application provisioning architecture | Microsoft Docs'
+title: 'Azure AD on-premises application provisioning architecture'
 description: Presents an overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath

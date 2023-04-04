@@ -4,7 +4,7 @@ description: Learn about the new features and documentation improvements for Azu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: rymajidi, sngun
-ms.date: 03/08/2023
+ms.date: 03/17/2023
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
@@ -38,6 +38,7 @@ The following table lists the features of Azure Synapse Analytics that are curre
 | **Distributed Deep Neural Network Training**  | Learn more about new distributed training libraries like Horovod, Petastorm, TensorFlow, and PyTorch in [Deep learning tutorials](./machine-learning/concept-deep-learning.md). |
 | **Embed ADX dashboards** | Azure Data Explorer dashboards be [embedded in an IFrame and hosted in third party apps](/azure/data-explorer/kusto/api/monaco/host-web-ux-in-iframe). |
 | **Multi-column distribution in dedicated SQL pools** | You can now Hash Distribute tables on multiple columns for a more even distribution of the base table, reducing data skew over time and improving query performance. For more information on opting-in to the preview, see [CREATE TABLE distribution options](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#TableDistributionOptions) or [CREATE TABLE AS SELECT distribution options](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse#table-distribution-options).|
+| **Reject options for delimited text files** | Reject options for CREATE EXTERNAL TABLE on delimited files is in preview. |
 | **Time-To-Live in managed virtual network (VNet)** | Reserve compute for the time-to-live (TTL) in managed virtual network TTL period, saving time and improving efficiency. For more information on this preview, see [Announcing public preview of Time-To-Live (TTL) in managed virtual network](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-public-preview-of-time-to-live-ttl-in-managed-virtual/ba-p/3552879).|
 | **User-Assigned managed identities** | Now you can use user-assigned managed identities in linked services for authentication in Synapse Pipelines and Dataflows.To learn more, see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory).|
 
@@ -117,7 +118,7 @@ This section summarizes recent new features and capabilities of Azure Synapse An
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |
-| January 2023 | **SQL CDC incremental extract now supports numeric columns** | Enabling incremental [extract from SQL Server CDC in dataflows](/azure/data-factory/connector-sql-server?tabs=data-factory#native-change-data-capture) allows you to only process rows that have changed since the last time that pipeline was executed. Supported incremental column types now include date/time and numeric columns. |
+| January 2023 | **SQL CDC incremental extract now supports numeric columns** | Enabling incremental [extract from SQL Server CDC in dataflows](../data-factory/connector-sql-server.md?tabs=data-factory#native-change-data-capture) allows you to only process rows that have changed since the last time that pipeline was executed. Supported incremental column types now include date/time and numeric columns. |
 | December 2022 | **Express virtual network injection** | Both the standard and express methods to [inject your SSIS Integration Runtime (IR) into a VNet](https://techcommunity.microsoft.com/t5/sql-server-integration-services/vnet-or-no-vnet-secure-data-access-from-ssis-in-azure-data/ba-p/1062056) are generally available now. For more information, see [General Availability of Express Virtual Network injection for SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993).| 
 | October 2022 | **SAP CDC connector GA** | The data connector for SAP Change Data Capture (CDC) is now GA. For more information, see [Announcing Public Preview of the SAP CDC solution in Azure Data Factory and Azure Synapse Analytics](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-public-preview-of-the-sap-cdc-solution-in-azure-data/ba-p/3420904) and [SAP CDC solution in Azure Data Factory](../data-factory/sap-change-data-capture-introduction-architecture.md).|
 | September 2022 | **Gantt chart view** | You can now view your activity runs with a Gantt chart in [Azure Data Factory Integration Runtime monitoring](../data-factory/monitor-integration-runtime.md). |

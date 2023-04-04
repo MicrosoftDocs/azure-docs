@@ -146,6 +146,8 @@ items:
         href: how-to/model-customization.md
       - name: Migrate a Custom Vision project to Image Analysis
         href: how-to/migrate-from-custom-vision.md
+      - name: Verify a custom model COCO file
+        href: how-to/coco-verification.md
       - name: Call the Image retrieval APIs
         href: how-to/image-retrieval.md
       - name: Call the Background removal API

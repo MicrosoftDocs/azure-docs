@@ -1,8 +1,8 @@
 ---
 title: Request elevation data using the Azure Maps Elevation service
 description: Learn how to request elevation data using the Azure Maps Elevation service.
-author: eriklindeman
-ms.author: eriklind
+author: FarazGIS
+ms.author: fsiddiqui
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -11,12 +11,15 @@ ms.custom: mvc
 
 # Request elevation data using the Azure Maps Elevation service
 
+> [!IMPORTANT]
+> The Azure Maps Elevation services and Render V2 DEM tiles have been retired and will no longer be available or supported after May 5, 2023. No other Azure Maps API, services or tilesets are affected. For more information, see [Elevation Services Retirement](https://azure.microsoft.com/updates/azure-maps-elevation-apis-and-render-v2-dem-tiles-will-be-retired-on-5-may-2023).
+
 The Azure Maps [Elevation service](/rest/api/maps/elevation) provides APIs to query elevation data anywhere on the earth's surface. You can request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. Also, you can use the [Render V2 - Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format. The tiles are delivered in GeoTIFF raster format. This article describes how to use Azure Maps Elevation service and the Get Map Tile API to request elevation data. The elevation data can be requested in both GeoJSON and GeoTiff formats.
 
 ## Prerequisites
 
-1. [Make an Azure Maps account in Gen 1 (S1) or Gen 2 pricing tier](quick-demo-map-app.md#create-an-azure-maps-account).
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+* An [Azure Maps account]
+* A [subscription key]
 
 For more information about authentication in Azure Maps, see [Manage Authentication in Azure Maps](how-to-manage-authentication.md).
 
@@ -527,3 +530,6 @@ For a complete list of Azure Maps REST APIs, see:
 
 > [!div class="nextstepaction"]
 > [Azure Maps REST APIs](/rest/api/maps/)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

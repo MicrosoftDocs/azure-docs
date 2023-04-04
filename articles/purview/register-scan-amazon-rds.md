@@ -4,7 +4,7 @@ description: This how-to guide describes details of how to scan Amazon RDS datab
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 12/07/2022
 ms.custom: references_regions, ignite-fall-2021
