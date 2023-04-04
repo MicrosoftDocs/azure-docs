@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Custom domain names and managed certificates in Azure Container Apps
+# Custom domain names and managed certificates in Azure Container Apps (preview)
 
 Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain.
 
@@ -18,6 +18,8 @@ If you want to set up a custom domain using your own certificate, see [Custom do
 
 > [!NOTE]
 > If you configure a [custom environment DNS suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
+>
+> The managed certificates feature in Azure Container Apps is currently in preview.
 
 ## Free certificate requirements
 
