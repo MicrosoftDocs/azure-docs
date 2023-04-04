@@ -649,7 +649,7 @@ The endpoint details page now shows mirrored traffic allocation of 10% to the `g
 
 :::image type="content" source="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-mirrored-traffic-allocation.png" alt-text="Endpoint details page showing mirrored traffic allocation in the deployment summary." lightbox="media/how-to-safely-rollout-managed-endpoints/endpoint-details-showing-mirrored-traffic-allocation.png":::
 
-To test mirrored traffic, see the Azure CLI or Python tabs to invoke the endpoint several times. Confirm that the specific percentage of the traffic was sent to the `green` deployment by seeing the logs from the deployment. You can access the deployment logs from the endpoint's **Deployment logs** tab. You can also use Metrics and Logs to monitor performance of the mirrored traffic. See [Monitor online endpoints](how-to-monitor-online-endpoints.md) for more.
+To test mirrored traffic, see the Azure CLI or Python tabs to invoke the endpoint several times. Confirm that the specific percentage of the traffic was sent to the `green` deployment by seeing the logs from the deployment. You can access the deployment logs from the endpoint's **Deployment logs** tab. You can also use Metrics and Logs to monitor performance of the mirrored traffic. For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
 
 After testing, you can disable mirroring:
 
