@@ -239,13 +239,13 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
    The **Choose an operation** prompt appears on the designer, and the **Add an action** pane opens so that you can select the next action.
 
-1. By using **send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
+1. By using **office 365 send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
    ![Screenshot showing the designer, the pane named Add an action, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
 1. In the action's information pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
 
-   ![Screenshot showing the designer, the pane named Send an email (V2) with Sign in button selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png)
+   ![Screenshot showing the designer, the pane named Send an email (V2) with Sign in button.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png)
 
 1. When you're prompted for access to your email account, sign in with your account credentials.
 
@@ -275,6 +275,10 @@ This example workflow continues with the [Office 365 Outlook managed connector a
    > Otherwise, the designer won't keep your changes.
 
 1. Save your work. On the designer toolbar, select **Save**.
+
+1. If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow. To find the fully qualified domain names, review [Find domain names for firewall access](#firewall-setup).
+
+   Otherwise, to test your workflow, [manually trigger a run](#trigger-workflow).
 
 ### [Standard (Preview)](#tab/standard-preview)
 
@@ -282,13 +286,13 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
    The **Browse operations** pane opens so that you can select the next action.
 
-1. By using **send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-action) to your workflow.
+1. By using **office send an email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-action) to your workflow.
 
-   ![Screenshot showing the designer, the pane named Add an action, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
+   ![Screenshot showing the preview designer, the picker pane, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action-preview.png)
 
 1. In the action's information pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
 
-   ![Screenshot showing the designer, the pane named Send an email (V2) with Sign in button selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png)
+   ![Screenshot showing the preview designer, the pane named Send an email (V2) with Sign in button.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in-preview.png)
 
 1. When you're prompted for access to your email account, sign in with your account credentials.
 
@@ -319,11 +323,11 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
 1. Save your work. On the designer toolbar, select **Save**.
 
----
-
 1. If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow. To find the fully qualified domain names, review [Find domain names for firewall access](#firewall-setup).
 
    Otherwise, to test your workflow, [manually trigger a run](#trigger-workflow).
+
+---
 
 <a name="firewall-setup"></a>
 
