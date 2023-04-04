@@ -431,7 +431,7 @@ Expected output:
 
 ```
 
-## show Network Fabric NNI (Network to Network Interface)
+## Show Network Fabric NNI (Network to Network Interface)
 
 ```azurecli
 az nf nni show -g "NFResourceGroup" --resource-name "NFNNIName" --fabric "NFFabric"
