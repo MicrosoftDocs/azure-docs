@@ -125,7 +125,7 @@ Consider replacing AD FS access control policies with the equivalent Azure AD [C
 
 ### Plan support for MFA
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing of Azure AD Multi-Factor Authentication by configuring the security setting **federatedIdpMfaBehavior**. Enable the protection for a federated domain in your Azure AD tenant. Make sure that Azure AD Multi-Factor Authentication is always performed when a federated user accesses an application that is governed by a Conditional Access policy that requires MFA. This includes performing Azure AD Multi-Factor Authentication even when federated identity provider has issued federated token claims that on-prem MFA has been performed. Enforcing Azure AD Multi-Factor Authentication every time assures that a bad actor can't bypass Azure AD Multi-Factor Authentication by imitating that identity provider already performed MFA and is highly recommended unless you perform MFA for your federated users using a third party MFA provider.
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing of Azure AD Multi-Factor Authentication by configuring the security setting **federatedIdpMfaBehavior**. Enable the protection for a federated domain in your Azure AD tenant. Make sure that Azure AD Multi-Factor Authentication is always performed when a federated user accesses an application that is governed by a Conditional Access policy that requires MFA. This includes performing Azure AD Multi-Factor Authentication even when federated identity provider has issued federated token claims that on-premises MFA has been performed. Enforcing Azure AD Multi-Factor Authentication every time assures that a bad actor can't bypass Azure AD Multi-Factor Authentication by imitating that identity provider already performed MFA and is highly recommended unless you perform MFA for your federated users using a third party MFA provider.
 
 The following table explains the behavior for each option. For more information, see **federatedIdpMfaBehavior**.
 
@@ -272,8 +272,8 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
     ![Ready to configure page](media/deploy-cloud-user-authentication/ready-to-configure.png)
 
- > [!IMPORTANT] 
- > At this point, all your federated domains changes to managed authentication. Your selected User sign-in method is the new method of authentication.
+   > [!IMPORTANT] 
+   > At this point, all your federated domains changes to managed authentication. Your selected User sign-in method is the new method of authentication.
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
@@ -440,7 +440,7 @@ If you don't use AD FS for other purposes (that is, for other relying party trus
 
 ### Remove AD FS
 
-For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommision guide](/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
+For a full list of steps to take to completely remove AD FS from the environment follow the [Active Directory Federation Services (AD FS) decommission guide](/windows-server/identity/ad-fs/decommission/adfs-decommission-guide). 
 
 ## Next steps
 
