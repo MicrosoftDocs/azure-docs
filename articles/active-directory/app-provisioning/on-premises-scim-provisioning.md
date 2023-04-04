@@ -43,7 +43,7 @@ Once the agent is installed, no further configuration is necesary on-prem, and a
  5.  Now either wait 10 minutes or restart the **Microsoft Azure AD Connect Provisioning Agent** before proceeding to the next step & testing the connection.
  6.  In the **Tenant URL** field, provide the SCIM endpoint URL for your application. The URL is typically unique to each target application and must be resolveable by DNS. An example for a scenario where the agent is installed on the same host as the application is https://localhost:8585/scim ![Screenshot that shows assigning an agent.](./media/on-premises-scim-provisioning/scim-2.png) 
 >[!NOTE]
->The Azure AD provisioning service currently drops everything in the URL after the domain name.
+>The Azure AD provisioning service currently drops everything in the URL after the hostname.
 
  7.  Select **Test Connection**, and save the credentials. The application SCIM endpoint must be actively listening for inbound provisioning requests, otherwise the test will fail. Use the steps [here](on-premises-ecma-troubleshoot.md#troubleshoot-test-connection-issues) if you run into connectivity issues. 
  8.  Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
