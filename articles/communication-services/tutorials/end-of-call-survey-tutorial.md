@@ -25,7 +25,7 @@ ms.subservice: calling
 > [!NOTE] 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
 
-This tutorial will show you how to use the Azure Communication Services End of Call Survey for JavaScript / Web SDK.
+This tutorial shows you how to use the Azure Communication Services End of Call Survey for JavaScript / Web SDK.
 
 
 ## Prerequisites
@@ -89,7 +89,7 @@ call.feature(Features.CallSurvey).submitSurvey({
             }).catch((e) => console.log('error when submitting survey: ' + e ))
 ```
 
-### Check for different types of errors below
+### Check for different types of errors
 -	At least one survey rating is required.
 -	In default scale X should be 1 to 5. - where X is either of
     - overallRating.score
