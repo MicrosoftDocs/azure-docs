@@ -45,7 +45,7 @@ This article provides information about the export process and shows how to expo
 
 - By default, connection credentials aren't cloned from source logic app workflows. Before your logic app workflows can run, you'll have to reauthenticate these connections after export.
 
-- By default, if a Azure connector have a Service Provider connector available, the export tool will convert from Azure to Service provider connector automatically. There is no configuration to opt-out from this behavior.
+- By default, if an Azure connector has a built-in connector version, the export tool automatically converts the Azure connector to the built-in connector. No option exists to opt out from this behavior.
 
 ## Exportable operation types
 
