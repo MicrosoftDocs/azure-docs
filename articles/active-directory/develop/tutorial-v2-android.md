@@ -17,9 +17,9 @@ ms.custom: aaddev, identityplatformtop40, has-adal-ref
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Android application
 
-In this tutorial, you build an Android app that integrates with the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API.
+In this tutorial, you build an Android app that integrates with the Azure Active Directory (Azure AD) to sign in users and get an access token to call the Microsoft Graph API.
 
-When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory (Azure AD).
+When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure AD.
 
 In this tutorial:
 
@@ -42,19 +42,9 @@ In this tutorial:
 
 The app in this tutorial will sign in users and get data on their behalf. This data will be accessed through a protected API (Microsoft Graph API) that requires authorization and is protected by the Microsoft identity platform.
 
-More specifically:
-
-- Your app will sign in the user either through a browser or the Microsoft Authenticator and Intune Company Portal.
-- The end user will accept the permissions your application has requested.
-- Your app will be issued an access token for the Microsoft Graph API.
-- The access token will be included in the HTTP request to the web API.
-- Process the Microsoft Graph response.
-
 This sample uses the Microsoft Authentication Library (MSAL) for Android to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
 
 MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
-
-This tutorial demonstrates examples of working with MSAL for Android. For simplicity, it uses Single Account Mode only. To explore more complex scenarios, see a completed [working code sample](https://github.com/Azure-Samples/ms-identity-android-java/) on GitHub.
 
 ## Create a project
 
@@ -67,9 +57,7 @@ Follow these steps to create a new project if you don't already have an Android 
 5. Change the language from **Kotlin** to **Java**.
 6. Set the **Minimum SDK API level** to **API 19** or higher, and select **Finish**.
 
-## Integrate with the Microsoft Authentication Library
-
-### Register your application
+### Register your application with Azure AD
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
@@ -80,7 +68,7 @@ Follow these steps to create a new project if you don't already have an Android 
 1. Select **Register**.
 1. Under **Manage**, select **Authentication** > **Add a platform** > **Android**.
 1. Enter your project's Package Name. If you downloaded the code, this value is `com.azuresamples.msalandroidapp`.
-1. In the **Signature hash** section of the **Configure your Android app** pane, select **Generating a development Signature Hash.** and copy the KeyTool command to use for your platform.
+1. In the **Signature hash** section of the **Configure your Android app** pane, select **Generating a development Signature Hash.** and copy the KeyTool command to your command line..
 
    - KeyTool.exe is installed as part of the Java Development Kit (JDK). You must also install the OpenSSL tool to execute the KeyTool command. Refer to the [Android documentation on generating a key](https://developer.android.com/studio/publish/app-signing#generate-key) for more information.
 
@@ -141,15 +129,10 @@ Follow these steps to create a new project if you don't already have an Android 
    </activity>
    ```
 
-   - Substitute the package name you registered in the Azure portal for the `android:host=` value. 
+   - Use your Azure portal **Package name** to replace `android:host=.` value. It should look like `com.azuresamples.msalandroidapp`.
+   - Use your Azure portal **Signature Hash** to replace `android:path=` value. Ensure that there's a leading `/` at the beginning of your Signature Hash. It should look like `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`.
 
-     - The "Package Name" you'll replace the `android:host` value with should look similar to: `com.azuresamples.msalandroidapp`.
-
-   - Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL-encoded. Ensure that there's a leading `/` at the beginning of your Signature Hash. 
-
-     - The "Signature Hash" you'll replace your `android:path` value with should look similar to: `/1wIqXSqBj7w+h11ZifsnqwgyKrY=`.
-
-   You'll also be able to find these values in the Authentication blade of your app registration. Note that your redirect URI will look similar to: `msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D`. While the Signature Hash is URL-encoded at the end of this value, the Signature Hash should **not** be URL-encoded in your `android:path` value.
+   You'll also be able to find these values in the Authentication blade of your app registration.
 
 ### Add MSAL and relevant libraries to your project
 
@@ -928,7 +911,9 @@ When no longer needed, delete the app object that you created in the [Register y
 
 ## Next steps
 
-Learn more about building mobile apps that call protected web APIs in our multi-part scenario series.
+To explore more complex scenarios, see a completed [working code sample](https://github.com/Azure-Samples/ms-identity-android-java/) on GitHub.
 
-> [!div class="nextstepaction"] 
-> [Scenario: Mobile application that calls web APIs](scenario-mobile-overview.md)
+For more information about building mobile apps that call protected web APIs in our multi-part scenario series, see:
+
+- [Scenario: Mobile application that calls web APIs](scenario-mobile-overview.md)
+- [Code sample for complex scenarios](https://github.com/Azure-Samples/ms-identity-android-java/)
