@@ -123,7 +123,7 @@ Surveying Guidelines
 - How long will it take for survey data to be available in Azure?
 
 ## Next Steps
--	Learn more about the End of Call Survey, see: [End of Call Survey overview](../concepts/voice-video-calling/end-of-call-survey.md)
+-	Learn more about the End of Call Survey, see: 
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
