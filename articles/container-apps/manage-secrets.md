@@ -115,7 +115,7 @@ Here, a connection string to a queue storage account is declared. The value for 
 
 ---
 
-### Reference secret from Key Vault
+### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault (preview)
 
 When you define a secret, you can specify a reference to a secret stored in Azure Key Vault. Container Apps automatically retrieves the secret value from Key Vault and makes it available in your container app's secret.
 
