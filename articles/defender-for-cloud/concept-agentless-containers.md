@@ -24,7 +24,9 @@ Agentless Container Posture provides the following capabilities:
 
 - Enabling agentless discovery and visibility within Kubernetes parameters.
 - Enabling agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) to enable queries on the Cloud Security Explorer.
+
     A [vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) for Containers in Defender Cloud Security Posture Management (CSPM) gives you frictionless, wide, and instant visibility on actionable posture issues without installed agents, network connectivity requirements, or container performance impact.
+
 - Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, see the [list of Insights](attack-path-reference.md).
 - Using Cloud Security Explorer for risk hunting by querying various risk scenarios.
 - Using Kubernetes Attack Path analysis to visualize risks and threats to Kubernetes environments.
@@ -43,7 +45,7 @@ All of these capabilities are available as part of the [Defender Cloud Security 
 
 ### Permissions
 
-Subscription Owner, or, User Access Admin as well as Security Admin permissions for the Azure subscription used for onboarding.
+You need to have access as a Subscription Owner, or, User Access Admin as well as Security Admin permissions for the Azure subscription used for onboarding.
 
 ### Environment requirements
 
@@ -57,9 +59,9 @@ There's no dependency on Defender for Containers​.
 
 ## How agentless containers works
 
-:::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
-
 The system’s architecture is based on a snapshot mechanism at intervals.
+
+:::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
 
 By enabling Agentless discovery for Kubernetes, the following process occurs:
 
@@ -73,6 +75,7 @@ By enabling Agentless discovery for Kubernetes, the following process occurs:
         - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/write
         - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/read
         - Microsoft.ContainerService/managedClusters/trustedAccessRoleBindings/delete
+
         Learn more about [AKS Trusted Access](/azure/aks/trusted-access-feature).
 
 1. **Discover**: Using the system assigned identity, MDC performs a discovery of the AKS clusters in your environment using API calls to the API server of AKS.
@@ -83,21 +86,21 @@ Agentless information in Defender CSPM is updated once an hour via snapshotting 
 
 ## Onboarding Agentless Containers for CSPM
 
-1. In the Azure portal, navigate to the Defender for Cloud's Environments Settings page.
+1. In the Azure portal, navigate to the Defender for Cloud's **Environment Settings** page.
 
 1. Select the subscription to onboard to the Defender CSPM plan.
 
     :::image type="content" source="media/concept-agentless-containers/environment-settings.png" alt-text="Screenshot of selecting Environment settings and subscription." lightbox="media/concept-agentless-containers/environment-settings.png":::
 
-1. Toggle on the status for the Defender CSPM plan, then select Settings.
+1. Toggle on the status for the Defender CSPM plan, then select **Settings**.
 
     :::image type="content" source="media/concept-agentless-containers/enable-toggle-settings.png" alt-text="Screenshot of selecting the enable toggle for Defender CSPM." lightbox="media/concept-agentless-containers/enable-toggle-settings.png":::
 
-1. Toggle on the Agentless discovery for Kubernetes and Container registries vulnerability assessments extensions, then select Continue.
+1. Toggle on the **Agentless discovery for Kubernetes** and **Container registries vulnerability assessments** extensions, then select **Continue**.
 
     :::image type="content" source="media/concept-agentless-containers/settings-continue.png" alt-text="Screenshot of selecting agentless discovery for Kubernetes and Container registries vulnerability assessments." lightbox="media/concept-agentless-containers/settings-continue.png":::
 
-1. In the Defender plans page, select Save.
+1. In the Defender plans page, select **Save**.
 
 Verify that the settings were saved successfully - a notification message pops up in the top right corner.
 
@@ -114,6 +117,6 @@ Agentless information in Defender CSPM is updated once an hour via snapshotting 
 
 ## Next steps
 
-This article explains how agentless scanning works and how it helps you collect data from your machines.
+This article explains how agentless container posture works.
 
-Learn more about how to [enable vulnerability assessment with agentless scanning](enable-vulnerability-assessment-agentless.md)
+Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
