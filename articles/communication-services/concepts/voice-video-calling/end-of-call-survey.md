@@ -18,9 +18,7 @@ ms.subservice: calling
 # End of Call Survey overview
 
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
- 
+[!INCLUDE [Public Preview](../includes/public-preview-include-document.md)]
 
 > [!NOTE] 
 > End of Call Survey is currently supported only for our JavaScript / Web SDK.
@@ -105,7 +103,7 @@ You can choose to collect each of the four API values or only the ones you find 
 You can only view your survey data if you have enabled a Diagnostic Setting to capture your survey data. To learn how to use the End of Call Survey and view your survey data, see: Tutorial Link
 
 ## Next Steps
--	Learn how to use the End of Call Survey, see **ADD LINK**
+-	Learn how to use the End of Call Survey, see: [End of Call Survey tutorial](../../tutorials/end-of-call-survey-tutorial.md)
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
