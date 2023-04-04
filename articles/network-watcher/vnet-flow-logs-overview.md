@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.date: 03/14/2023
+ms.date: 04/04/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -58,8 +58,6 @@ Key properties of VNet flow logs include:
 
 ## Log format
 
-:::image type="content" source="media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table showing the format of a virtual network flow log."lightbox="media/vnet-flow-logs-overview/vnet-flow-log-format.png"
-
 VNet flow logs have the following properties:
 
 - `time`: Time in UTC when the event was logged. 
@@ -102,9 +100,9 @@ VNet flow logs have the following properties:
 				- `Packets received`: Total number of packets sent from destination to source since the last update. 
 				- `Bytes received`: Total number of packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload. 
 
-## Sample log records
+## Sample log record
 
-In the following examples of VNet flow log, multiple records that follow the property list described earlier.
+In the following example of VNet flow logs, multiple records that follow the property list described earlier.
 
 ```json
 {
@@ -170,11 +168,35 @@ In the following examples of VNet flow log, multiple records that follow the pro
     ]
 }
 
-
-
-
-
-
 ```
+## Log tuple and bandwidth calculation
 
+:::image type="content" source="media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table showing the format of a virtual network flow log."lightbox="media/vnet-flow-logs-overview/vnet-flow-log-format.png"
 
+Here's an example bandwidth calculation for flow tuples from a TCP conversation between `185.170.185.105:35370` and `10.2.0.4:23`:
+
+1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,,
+1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880
+1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072
+
+For continuation (C) and end (E) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
+
+## Considerations for NSG flow logs
+
+### Storage account
+
+- **Location**: The storage account used must be in the same region as the virtual network.
+- **Performance tier**: Currently, only standard-tier storage accounts are supported.
+- **Self-managed key rotation**: If you change or rotate the access keys to your storage account, VNet flow logs stop working. To fix this problem, you must disable and then re-enable VNet flow logs.
+
+### Cost
+
+VNet flow logging is billed on the volume of logs produced. High traffic volume can result in large-flow log volume and the associated costs.
+
+Pricing of VNet flow logs doesn't include the underlying costs of storage. Using the retention policy feature with VNet flow logs means incurring separate storage costs for extended periods of time.
+
+If you want to retain data forever and don't want to apply any retention policy, set retention days to 0. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+
+## Pricing
+
+VNet flow logs are charged per gigabyte of logs collected and come with a free tier of 5 GB/month per subscription. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
