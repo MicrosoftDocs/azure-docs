@@ -83,7 +83,7 @@ You now need to gather some information, which you'll use to get a Grafana API a
 
 ## Get an access token
 
-To access Grafana APIs, you need to get an access token. You can get the access token using 
+To access Grafana APIs, you need to get an access token. You can get the access token using the Azure Command-Line Interface (CLI) or making a POST request.
 
 ### Get an access token using the Azure Command-Line Interface (CLI)
 
