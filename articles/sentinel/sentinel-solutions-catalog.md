@@ -23,7 +23,6 @@ When you deploy a solution, the security content included with the solution, suc
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**[Apache Log4j Vulnerability Detection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-apachelog4jvulnerability?tab=Overview)** | Analytics rules, hunting queries, workbooks, playbooks, watchlist | Application, Security - Threat Protection, Security - Vulnerability Management | Microsoft|
 |**[Attacker Tools Threat Protection Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-attackertools?tab=Overview)**|Analytic rules, hunting queries|Security - Threat Protection|Microsoft|
 |**[Azure Security Benchmark](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-azuresecuritybenchmark?tab=Overview)**|Workbooks, analytic rules, playbooks|Compliance, Security - Automation (SOAR), Security - Cloud Security|Microsoft|
 |**[Cloud Identity Threat Protection Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-cloudthreatdetection?tab=Overview)**|Analytic rules, hunting queries|Security - Cloud Security, Security - Threat Protection|Microsoft|
