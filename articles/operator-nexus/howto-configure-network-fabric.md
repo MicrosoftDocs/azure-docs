@@ -148,7 +148,7 @@ Expected output:
   "provisioningState": "Accepted",
   "rackCount": 3,
   "racks": null,
-  "resourceGroup": "NFResourceGroup",
+  "resourceGroup": "NFResourceGroupName",
   "routerId": null,
   "serverCountPerRack": 7,
   "systemData": {
