@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 03/26/2023
+ms.date: 04/03/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -20,7 +20,23 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in April include:
 
+- [New preview Unified Disk Encryption recommendation](#unified-disk-encryption-recommendation-preview)
 - [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely)
+
+### Unified Disk Encryption recommendation (preview)
+
+We have introduced a unified disk encryption recommendation in public preview, `Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost` and `Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost`. 
+
+These recommendations replace `Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources` which detected Azure Disk Encryption and the policy `Virtual machines and virtual machine scale sets should have encryption at host enabled` which detected EncryptionAtHost. ADE and EncryptionAtHost provide comparable encryption at rest coverage, and either being enabled on a virtual machine is recommended. The new recommendations detect whether either ADE or EncryptionAtHost are enabled and only warn if neither are enabled. We also warn if ADE is enabled on some, but not all disks of a VM (this condition isn't applicable to EncryptionAtHost). 
+
+The new recommendations require [guest config](https://aka.ms/gcpol).
+
+These recommendations are based on the following policies:
+
+- [(Preview) Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3dc5edcd-002d-444c-b216-e123bbfa37c0)
+- [(Preview) Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fca88aadc-6e2b-416c-9de2-5a0f01d1693f)
+
+Learn more about [ADE and EncryptionAtHost and how to enable one of them](../virtual-machines/disk-encryption-overview.md).
 
 ### Changes in the recommendation "Machines should be configured securely"
 
@@ -30,7 +46,6 @@ As part of this update, the recommendation's ID was changed from `181ac480-f7c4-
 
 No action is required on the customer side, and there's no expected impact on the secure score.
 
-
 ## March 2023
 
 Updates in March include:
@@ -38,7 +53,7 @@ Updates in March include:
 - [A new Defender for Storage plan is available, including near-real time malware scanning and sensitive data threat detection](#a-new-defender-for-storage-plan-is-available-including-near-real-time-malware-scanning-and-sensitive-data-threat-detection)
 - [Data-aware security posture (preview)](#data-aware-security-posture-preview)
 - [New experience for managing the Azure default security policy](#improved-experience-for-managing-the-default-azure-security-policies)
-- [Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)](#defender-for-cspm-cloud-security-posture-management-is-now-generally-available-ga)
+- [Defender CSPM (Cloud Security Posture Management) is now Generally Available (GA)](#defender-cspm-cloud-security-posture-management-is-now-generally-available-ga)
 - [Option to create custom recommendations and security standards in Microsoft Defender for Cloud](#option-to-create-custom-recommendations-and-security-standards-in-microsoft-defender-for-cloud)
 - [Microsoft cloud security benchmark (MCSB) version 1.0 is now Generally Available (GA)](#microsoft-cloud-security-benchmark-mcsb-version-10-is-now-generally-available-ga)
 - [Some regulatory compliance standards are now available in government clouds](#some-regulatory-compliance-standards-are-now-available-in-government-clouds)
@@ -87,9 +102,9 @@ Learn how to  [manage security policies](tutorial-security-policy.md).
 
 Read the [Microsoft Defender for Cloud blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/improved-experience-for-managing-the-default-azure-security/ba-p/3776522).
 
-### Defender for CSPM (Cloud Security Posture Management) is now Generally Available (GA)
+### Defender CSPM (Cloud Security Posture Management) is now Generally Available (GA)
 
-We are announcing that Defender for CSPM is now Generally Available (GA). Defender for CSPM offers all of the services available under the Foundational CSPM capabilities and adds the following benefits:
+We are announcing that Defender for CSPM is now Generally Available (GA). Defender CSPM offers all of the services available under the Foundational CSPM capabilities and adds the following benefits:
 
 - **Attack path analysis and ARG API** - Attack path analysis uses a graph-based algorithm that scans the cloud security graph to expose attack paths and suggests recommendations as to how best remediate issues that will break the attack path and prevent successful breach. You can also consume attack paths programmatically by querying Azure Resource Graph (ARG) API. Learn how to use [attack path analysis](how-to-manage-attack-path.md)
 - **Cloud Security explorer** - Use the Cloud Security Explorer to run graph-based queries on the cloud security graph, to proactively identify security risks in your multicloud environments.  Learn more about [cloud security explorer](concept-attack-path.md#what-is-cloud-security-explorer). 
