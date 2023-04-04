@@ -101,10 +101,10 @@ You can choose to collect each of the four API values or only the ones you find 
 > [!IMPORTANT]
 > You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: **[Enable logging in Diagnostic Settings](../analytics/enable-logging.md)**
 
-You can only view your survey data if you have enabled a Diagnostic Setting to capture your survey data. To learn how to use the End of Call Survey and view your survey data, see: [End of Call Survey tutorial](../../tutorials/end-of-call-survey-tutorial.md).
+You can only view your survey data if you have enabled a Diagnostic Setting to capture your survey data. To learn how to use the End of Call Survey and view your survey data, see: .
 
 ## Next Steps
--	Learn how to use the End of Call Survey, see: [End of Call Survey tutorial](../../tutorials/end-of-call-survey-tutorial.md)
+-	Learn how to use the End of Call Survey, see:
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
