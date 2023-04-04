@@ -297,7 +297,7 @@ Azure Resource Manager sometimes caches configurations and data to improve perfo
 
 **Solution 1**
 
-When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect. If you're using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you're making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
+When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect. If you're using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you're making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
 **Cause 2**
 
@@ -317,7 +317,7 @@ Azure Resource Manager sometimes caches configurations and data to improve perfo
 
 **Solution**
 
-When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect. If you add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
+When you assign roles or remove role assignments, it can take up to 10 minutes for changes to take effect. If you add or remove a built-in role assignment at management group scope and the built-in role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
 
 ### Symptom - Role assignments for management group changes are not being detected
 
