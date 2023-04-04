@@ -21,6 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in April include:
 
 - [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely)
+- [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws)
 
 ### Changes in the recommendation "Machines should be configured securely"
 
@@ -30,6 +31,22 @@ As part of this update, the recommendation's ID was changed from `181ac480-f7c4-
 
 No action is required on the customer side, and there's no expected impact on the secure score.
 
+### Agentless scanning now supports encrypted disks in AWS
+
+Agentless scanning for VMs now supports processing of instances with encrypted disks in AWS, using both CMK and PMK.
+
+This extended support increases coverage and visibility over your cloud estate without impacting your running workloads. Support for encrypted disks maintains the same zero impact method on running instances.
+
+- For new customers enabling agentless scanning in AWS - encrypted disks coverage is built-in and supported by default.
+- For existing customers already having an AWS connector with agentless scanning enabled - re-apply the CloudFormation stack to your onboarded AWS accounts to update new permissions required to process encrypted disks. The updated CloudFormation template includes new assignments allowing Defender for Cloud to process encrypted disks. Learn more on [permissions used for scanning AWS instances](concept-agentless-data-collection.md#which-permissions-are-used-by-agentless-scanning).
+
+To re-apply your CloudFormation stack:
+
+1. Go to Defender for Cloud environment settings and open your AWS connector.
+2. Go to **Configure Access** tab, then select **Click to download the CloudFormation template**.
+3. Go to your AWS environment and apply the updated template.
+
+Learn more about [agentless scanning](concept-agentless-data-collection.md) and [enabling agentless scanning in AWS](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
 
 ## March 2023
 
