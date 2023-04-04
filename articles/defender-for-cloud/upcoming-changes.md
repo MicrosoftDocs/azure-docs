@@ -170,7 +170,7 @@ Learn how to [Customize the set of standards in your regulatory compliance dashb
 
 **Estimated date for change: June 2023**
 
-To improve the Defender for DevOps user experience and enable further integration with Defender for Coud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant. 
+To improve the Defender for DevOps user experience and enable further integration with Defender for Cloud's rich set of capabilities, Defender for DevOps will no longer support duplicate instances of a DevOps organization to be onboarded to an Azure tenant. 
 
 If you do not have an instance of a DevOps organization onboarded more than once to your organization, no further action is required. If you do have more than one instance of a DevOps organization onboarded to your tenant, the subscription owner will be notified and will need to delete the DevOps Connector(s) they do not want to keep by navigating to Defender for Cloud Environment Settings. 
 
