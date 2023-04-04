@@ -6,7 +6,7 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
-### Speech SDK 1.27.0: April 2024 release
+### Speech SDK 1.27.0: April 2023 release
 
 #### Notification about upcoming changes
 
@@ -14,14 +14,14 @@ ms.author: eur
 	
 #### New Features
 
-* **JavaScript** – Speaker identification/verification now allows microphone input from the browser.
-* **Embedded Speech Recognition** (SR) - Update support for `PropertyId::Speech_SegmentationSilenceTimeoutMs` setting.
+* **JavaScript** – Added support for microphone input from the browser with Speaker Identification and Verification.
+* **Embedded Speech Recognition** - Update support for `PropertyId::Speech_SegmentationSilenceTimeoutMs` setting.
 
 #### Bug fixes
 
-* **General** - Reliability updates in service reconnection logic.
-* **General** - Fix string conversions leaking memory on Windows.
-* **Embedded SR** - Fix crash on French SR when using certain grammar list entries.
+* **General** - Reliability updates in service reconnection logic (all programing languages except JavaScript).
+* **General** - Fix string conversions leaking memory on Windows (all relevant programing languages except JavaScript).
+* **Embedded Speech Recognition** - Fix crash in French Speech Recognition when using certain grammar list entries.
 * **Source code documentation** - Corrections to SDK reference documentation comments related to audio logging on the service.
 * **Intent recognition** - Fix Pattern Matcher priorities related to list entities.
 
