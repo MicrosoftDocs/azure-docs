@@ -1354,7 +1354,7 @@ Here are the settings to add this condition using the Azure portal.
 
 This section includes examples showing how to restrict access to objects based on the network environment or the current date and time.
 
-### Example 1: Allow access to a container only from a specific private endpoint
+### Example: Allow access to a container only from a specific private endpoint
 
 This condition requires that all read, write and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
 
@@ -1506,7 +1506,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example 2: Allow read access to blobs based on private link and tags
+### Example: Allow read access to blobs based on private link and tags
 
 This condition requires requests to read blobs where blob index tag **sensitivity** has a value of `high` to be over a private link (any private link). This means all attempts to read blobs with that tag and value from the public internet will not be allowed. Users can read blobs from the public internet that have **sensitivity** set to some value other than `high`, or where the index tag is not applied to the blob.
 
@@ -1584,7 +1584,7 @@ NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/b
 
 The following image shows the condition after the settings have been entered into the Azure portal:
 
-:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring any private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
 #### [Portal: Code editor](#tab/azure-portal-code-editor)
 
@@ -1645,7 +1645,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example 3: Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access
+### Example: Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access
 
 The requirements of this condition are:
 
@@ -1778,7 +1778,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example 4: Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint
+### Example: Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint
 
 This condition requires that write operations to blobs use one of a set of predefined values for blob index tag key `sensitivity`, and come from a specific endpoint. If the `sensitivity` tag does not currently exist on the blob, validation of the tag key value is ignored and the request does not have to originate from the endpoint.
 
@@ -1821,7 +1821,7 @@ Here are the settings to add this condition, Condition #1, using the Azure porta
 
 The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
 
-:::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-write-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-write-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-write-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing write access requiring a specific private tag values from an approved list." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-write-portal.png":::
 
 #### [Portal: Code editor](#tab/azure-portal-code-editor)
 
@@ -1885,7 +1885,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example 5: Allow access to blobs in specific containers from a specific subnet
+### Example: Allow access to blobs in specific containers from a specific subnet
 
 This condition allows read, write, add and delete access to blobs in `container1` only from subnet `default` on virtual network `virtualnetwork1`.
 
@@ -1929,7 +1929,7 @@ Here are the settings to add this condition using the Azure portal.
 
 The following image shows the condition after the settings have been entered into the Azure portal:
 
-:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific containers allowed from a specific subnet." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
 #### [Portal: Code editor](#tab/azure-portal-code-editor)
 
@@ -1994,7 +1994,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example 6: Allow read access to blobs after a specific date and time
+### Example: Allow read access to blobs after a specific date and time
 
 This condition allows read access to blob container `container1` only after 1 PM on April 1, 2023 Universal Coordinated Time (UTC).
 
@@ -2038,7 +2038,7 @@ Here are the settings to add this condition using the Azure portal.
 
 The following image shows the condition after the settings have been entered into the Azure portal:
 
-:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access allowed after a specific date and time." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
 #### [Portal: Code editor](#tab/azure-portal-code-editor)
 
