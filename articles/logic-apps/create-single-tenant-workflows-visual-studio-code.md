@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 04/04/2023
 ms.custom: ignite-fall-2021, engagement-fy23
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
@@ -436,16 +436,18 @@ To locally run webhook-based triggers and actions in Visual Studio Code, you nee
 
 #### Set up the forwarding URL in your app settings
 
-1. In Visual Studio Code, on the designer, add the **HTTP + Webhook** trigger or action.
+1. In Visual Studio Code, on the designer, add the webhook-based trigger or action that you want to use.
+
+   This example continues with the **HTTP + Webhook** trigger.
 
 1. When the prompt appears for the host endpoint location, enter the forwarding (redirection) URL that you previously created.
 
    > [!NOTE]
    > Ignoring the prompt causes a warning to appear that you must provide the forwarding URL, 
    > so select **Configure**, and enter the URL. After you finish this step, the prompt won't 
-   > reappear for subsequent webhook triggers or actions that you might add.
+   > appear for subsequent webhook triggers or actions that you might add.
    >
-   > To make the prompt reappear, at your project's root level, open the **local.settings.json** 
+   > To make the prompt appear, at your project's root level, open the **local.settings.json** 
    > file's shortcut menu, and select **Configure Webhook Redirect Endpoint**. The prompt now 
    > appears so you can provide the forwarding URL.
 
