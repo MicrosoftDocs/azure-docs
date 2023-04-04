@@ -16,11 +16,11 @@ ms.collection: M365-identity-device-management
 Learn to configure F5 BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access (SHA) to form-based applications. BIG-IP published services for Azure AD single sign-on (SSO) has benefits:
 
 * Improved Zero Trust governance through Azure AD preauthentication and Conditional Access 
-  * See, [What is Conditional Access?](../conditional-access/overview.md)
-  * See, [Zero Trust security](../../security/fundamentals/zero-trust.md)
+  * See [What is Conditional Access?](../conditional-access/overview.md)
+  * See [Zero Trust security](../../security/fundamentals/zero-trust.md)
 * Full SSO between Azure AD and BIG-IP published services
 * Managed identities and access from one control plane
-  * See, the [Azure portal](https://azure.microsoft.com/features/azure-portal)
+  * See the [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
 Learn more:
 
@@ -67,18 +67,18 @@ You need the following components:
   * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
 * For the account, have Azure AD Application Administrator permissions
 * A BIG-IP or deploy a BIG-IP Virtual Edition (VE) in Azure
-  * See, [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
+  * See [Deploy F5 BIG-IP Virtual Edition VM in Azure](./f5-bigip-deployment-guide.md)
 * Any of the following F5 BIG-IP license SKUs:
   * F5 BIG-IP® Best bundle
   * F5 BIG-IP Access Policy Manager™ (APM) standalone license
   * F5 BIG-IP Access Policy Manager™ (APM) add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
-  * 90-day BIG-IP full feature trial. See, [Free Trials](https://www.f5.com/trial/big-ip-trial.php)
+  * 90-day BIG-IP full feature trial. See [Free Trials](https://www.f5.com/trial/big-ip-trial.php)
 * User identities synchronized from an on-premises directory to Azure AD
-  * See, [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
+  * See [Azure AD Connect sync: Understand and customize synchronization](../hybrid/how-to-connect-sync-whatis.md)
 * An SSL certificate to publish services over HTTPS, or use default certificates while testing
-  * See, [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
+  * See [SSL profile](./f5-bigip-deployment-guide.md#ssl-profile)
 * A form-based authentication application, or set up an IIS FBA app for testing
-  * See, [Forms-based authentication](/troubleshoot/aspnet/forms-based-authentication)
+  * See [Forms-based authentication](/troubleshoot/aspnet/forms-based-authentication)
 
 ## BIG-IP configuration
 
@@ -109,7 +109,7 @@ BIG-IP registration is the first step for SSO between entities. The app you crea
 
 Configure the BIG-IP registration to fulfill SAML tokens that BIG-IP APM requests.
 
-1. In left menu, in the **Manage** section, select **Single sign-on*.
+1. In left menu, in the **Manage** section, select **Single sign-on**.
 2. The **Single sign-on** pane appears.
 3. On the **Select a single sign-on method** page, select **SAML**.
 4. Select **No, I'll save later**.
@@ -225,9 +225,9 @@ Perform FBA SSO in client-initiated mode or BIG-IP-initiated mode. Both methods 
 
    ![Screenshot of the sign in page with callouts for username field and password field.](./media/f5-big-ip-forms-advanced/contoso-example.png)
 
-To learn more, go to techdocs.f5.com for [Manual Chapter: Single sign-on methods](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449)
+To learn more, go to techdocs.f5.com for [Manual Chapter: Single sign-on methods](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration-14-1-0/single-sign-on-methods.html#GUID-F8588DF4-F395-4E44-881B-8D16EED91449).
 
-### Configure an Access profile
+### Configure an access profile
 
 An access profile binds the APM elements that manage access to BIG-IP virtual servers, including access policies, SSO configuration, and UI settings.
 
@@ -289,7 +289,7 @@ An access profile binds the APM elements that manage access to BIG-IP virtual se
 28. The **Successful** branch changes to **Allow**.
 29. Select **Save**.
 
-#### (Optional) configure attribute mappings
+#### (Optional) Configure attribute mappings
 
 You can add a LogonID_Mapping configuration. Then, the BIG-IP active sessions list has the signed-in user UPN, not a session number. Use this information for analyzing logs or troubleshooting.
 
@@ -394,7 +394,7 @@ Learn more:
 
 Your application is published and accessible with SHA with the app URL or Microsoft portals.
 
-The application appears as a target resource in Conditional Access. Learn more: [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md)
+The application appears as a target resource in Conditional Access. Learn more: [Building a Conditional Access policy](../conditional-access/concept-conditional-access-policies.md).
 
 For increased security, block direct access to the application, enforcing a path through the BIG-IP.
 
