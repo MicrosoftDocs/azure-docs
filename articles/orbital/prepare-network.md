@@ -40,6 +40,7 @@ Prerequisites:
 - The subnet/vnet is in the same region as the contact profile.
 
 Ensure the contact profile properties are set as follows:
+
 | Property | Setting |
 |----------|---------|
 | subnetId | Enter the full ID to the delegated subnet, which can be found inside the VNET's JSON view. subnetID is found under networkConfiguration. |
