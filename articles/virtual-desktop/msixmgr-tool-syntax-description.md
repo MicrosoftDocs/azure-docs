@@ -94,7 +94,7 @@ msixmgr.exe -MountImage -imagePath "C:\SomeDirectory\myapp.cim" -fileType CIM
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
-|-readOnly|Boolean (true of false) indicating whether a VHD(X) should be mounted as read only. If not specified, the image is mounted as read-only by default. |`msixmgr.exe -MountImage -imagePath "C:\SomeDirectory\myapp.cim" -filetype CIM -readOnly false`|
+|-readOnly|Boolean (true of false) indicating whether the image should be mounted as read only. If not specified, the image is mounted as read-only by default. |`msixmgr.exe -MountImage -imagePath "C:\SomeDirectory\myapp.cim" -filetype CIM -readOnly false`|
 
 ### -quietUX
 
@@ -144,9 +144,6 @@ Unpacks package (`.appx`, `.msix`, `.appxbundle`, `.msixbundle`) and extract its
 ```
 msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\Apps\myapp"
 ```
-
-
--fileType [VHD | VHDX | CIM] -rootDirectory [Root directory on an image to unpack packages to. For CIM files only] -vhdSize [between 5 and 204000 MB. For VHD or VHDX files only]
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
