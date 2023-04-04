@@ -192,7 +192,7 @@ In weakly typed language like JavaScript, `name` in `function.json` will be used
 |reason|`string`|Reason in system `disconnected` request|-|
 
 > [!IMPORTANT]
-> In C#, mutliple types supported parameter __MUST__ be put in the first, i.e. `request` or `data` that other than the default `BinaryData` type to make the function binding correctly. 
+> In C#, multiple types supported parameter __MUST__ be put in the first, i.e. `request` or `data` that other than the default `BinaryData` type to make the function binding correctly. 
 
 ### Return response
 
