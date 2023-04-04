@@ -44,7 +44,7 @@ The following are some of the trade-offs of using this solution:
 
 * **No granular CA support** - This solution doesn't provide granular Conditional Access (CA) support.
 
-* **No Azure MFA support** - This solution doesn't enable Azure MFA support for multilateral federation or CAS apps and might cause you to miss out on potential cost savings.
+* **No Azure AD Multi-Factor Authentication support** - This solution doesn't enable Azure AD Multi-Factor Authentication support for multilateral federation or CAS apps and might cause you to miss out on potential cost savings.
 
 * **Significant ongoing staff allocation** - IT staff must maintain infrastructure and software for the authentication solution. Any staff attrition might introduce risk.
 
