@@ -13,9 +13,13 @@ ms.custom:
 
 # What is Global Secure Access?
 
-A new category of computing has emerged as the modern workforce has moved to working both inside and outside of traditional offices. Gartner calls this new category Secure Access Service Edge (SASE) and Forrester divides the concept further with a term called Security Service Edge (SSE). 
+The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. Global Secure Access provides modern network access control for users and devices.
 
-In general, you can think of these categories as a Network as a Service (NaaS) or an extension of a traditional corporate network. The idea being that the network your organization controls and monitors is extended down to individual devices and users regardless of whether they are working in a traditional office or a coffee shop on the other side of the world. The diagrams show the traditional line of control and the modern line of control for network traffic.
+## Understand SASE and SSE
+
+A new category of computing has emerged as the modern workforce has moved to working both inside and outside of traditional offices. Gartner calls this new category Secure Access Service Edge (SASE) and Forrester divides the concept further with a term called Security Service Edge (SSE). Another term to describe this concept is a Network as a Service (NaaS). Microsoft calls this new area Global Secure Access.
+
+Whatever you call it, think of the new category of networking as a solution that extends a traditional corporate network down to individual users and devices regardless of their physical location in the world. In other words, the network your organization controls and monitors is extended down to individual devices and users regardless of whether they are working in a traditional office or a coffee shop on the other side of the world. The diagrams show the traditional line of control and the modern line of control for network traffic.
 
 :::image type="content" source="./media/overview-what-is-global-secure-access/traditional_network_traffic.svg" alt-text="Diagram showing the traditional line of control for network traffic." border="false" lightbox="./media/overview-what-is-global-secure-access/traditional_network_traffic.svg":::
 
@@ -35,32 +39,8 @@ Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is
 | **Feature C** | X                              |       | X                               |       |
 | **Feature D** |                                | X     |                                 | X     |
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
-
-A 
-
-
-<!-- 3. H2s
-Required. Give each H2 a heading that sets expectations for the content that follows. 
-Follow the H2 headings with a sentence about how the section contributes to the whole.
--->
-
 ## [Section 1 H2]
 <!-- add your content here -->
-
-## [Section 2 H2]
-<!-- add your content here -->
-
-## [Section n H2]
-<!-- add your content here -->
-
-<!-- 4. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
