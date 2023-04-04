@@ -31,7 +31,7 @@ The following example is a [log alert rule](../alerts/alerts-unified-log.md) tha
 | **Scope** | |
 | Target scope | Select your Log Analytics workspace. |
 | **Condition** | |
-| Query | `Usage \| where IsBillable \| summarize DataGB = sum(Quantity / 1000.)` |
+| Query | `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000)` |
 | Measurement | Measure: *DataGB*<br>Aggregation type: Total<br>Aggregation granularity: 1 day |
 | Alert Logic | Operator: Greater than<br>Threshold value: 50<br>Frequency of evaluation: 1 day |
 | Actions | Select or add an [action group](../alerts/action-groups.md) to notify you when the threshold is exceeded. |
