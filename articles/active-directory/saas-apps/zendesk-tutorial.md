@@ -148,7 +148,7 @@ You can set up one SAML configuration for team members and a second SAML configu
 
 1. Perform the following steps in the **Single sign-on** page.
 
-	![Screenshot shows the Single sign-on.](./media/zendesk-tutorial/zendesk-saml-configuration-settings.png "Single sign-on")
+	![Single sign-on](./media/zendesk-tutorial/zendesk-saml-configuration-settings.png "Single sign-on")
 
     a. In **Configuration name**, enter a name for your configuration. Up to two SAML and two JWT configurations are possible.
 
