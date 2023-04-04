@@ -1,10 +1,10 @@
 ---
 title: MSIXMGR tool parameters - Azure Virtual Desktop
-description: This article contains the command line syntax to help you understand and get the most from the MSIXMGR tool. In this article, we'll show you the syntax of all the parameters used by the MSIXMGR tool.  
+description: This article contains the command line syntax to help you understand and get the most from the MSIXMGR tool. In this article, we'll show you the syntax of all the parameters used by the MSIXMGR tool.
 author: fiza-microsoft
 ms.author: fizaazmi
 ms.topic: concept-article
-ms.date: 03/21/2023
+ms.date: 04/04/2023
 ---
 
 # MSIXMGR tool parameters
@@ -157,7 +157,7 @@ msixmgr.exe -Unpack -packagePath "C:\SomeDirectory\myapp.msix" -destination "C:\
 
 Display help text at the command prompt.
 
-Example:
+#### Example:
 
 ```
 msixmgr.exe -?
