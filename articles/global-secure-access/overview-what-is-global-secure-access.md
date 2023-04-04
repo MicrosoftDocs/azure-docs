@@ -10,7 +10,6 @@ ms.service: network-access
 ms.custom: 
 ---
 
-
 # What is Global Secure Access?
 
 The way people work has changed. Instead of working in traditional offices, people now work from nearly anywhere. Global Secure Access provides modern network access control for users and devices.
