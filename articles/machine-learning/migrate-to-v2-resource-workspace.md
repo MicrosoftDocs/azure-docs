@@ -11,6 +11,7 @@ ms.author: deeikele
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade workspace management to SDK v2
