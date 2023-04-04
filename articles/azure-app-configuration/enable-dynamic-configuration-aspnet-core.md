@@ -230,7 +230,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
     ![Launching updated quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## Monitoring and Troubleshooting (v6.0.0 and later)
+## Logging and Monitoring (v6.0.0 and later)
 
 Logs are output upon configuration refresh and contain detailed information on key-values retrieved from your App Configuration store and configuration changes made to your application.
 
