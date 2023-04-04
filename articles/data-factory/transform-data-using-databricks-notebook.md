@@ -102,7 +102,7 @@ In this section, you author a Databricks linked service. This linked service con
     
     1.  For **Databrick Workspace URL**, the information should be auto-populated.
 
-    1.  For **Authentication type**, if you select  **Access Token**, generate it from Azure Databricks workplace. You can find the steps [here](https://docs.databricks.com/api/latest/authentication.html#generate-token). For **Managed  service identity** and  **User Assigned Mananaged Identity**,  grant **Contributor role** to both identities  in Azure Databricks workspace's *Accecss control* balde.
+    1.  For **Authentication type**, if you select  **Access Token**, generate it from Azure Databricks workplace. You can find the steps [here](https://docs.databricks.com/api/latest/authentication.html#generate-token). For **Managed  service identity** and  **User Assigned Managed Identity**,  grant **Contributor role** to both identities  in Azure Databricks resource's *Access control* menu. 
 
     1.  For **Cluster version**, select the version you want to use.
 
