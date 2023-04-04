@@ -437,7 +437,7 @@ To learn more about authenticating the Azure Maps Control with Azure AD, see:
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Authentication vs. authorization]: ../active-directory/develop/authentication-vs-authorization.md
 [Managed identities for Azure resources]: ../active-directory/managed-identities-azure-resources/overview.md
-[Azure services that can use managed identities to access other services]: ../active-directory/managed-identities-azure-resources/services-support-managed-identities.md
+[Azure services that can use managed identities to access other services]: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
 [Authentication flows and application scenarios]: ../active-directory/develop/authentication-flows-app-scenarios.md
 [Azure role-based access control (Azure RBAC)]: ../role-based-access-control/overview.md
 [Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.md
