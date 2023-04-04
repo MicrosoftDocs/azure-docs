@@ -70,7 +70,7 @@ To view Log Analytics workspace health metrics:
 
    | Metric name | Description |
    | - | - |
-   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number includes only user-initiated queries, and doesn't include queries that are not initiated by a user, such as Sentinel rules and alert-related queries. |
+   | Query count | Total number of user queries in the Log Analytics workspace within the selected time range.<br>This number includes only user-initiated queries, and doesn't include queries that aren't initiated by a user, such as Sentinel rules and alert-related queries. |
    | Query failure count | Total number of failed user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 5XX response codes - except 504 *Gateway Timeout* - which indicate an error related to the application gateway or the backend server.|
    | Query success rate | Total number of successful user queries in the Log Analytics workspace within the selected time range.<br>This number includes all queries that return 2XX, 4XX, and 504 response codes; in other words, all user queries that don't result in a service error. |
 
