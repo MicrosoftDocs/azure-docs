@@ -7,7 +7,7 @@ metadata:
   ms.service: cache
   ms.topic: faq
   ms.custom: devx-track-csharp
-  ms.date: 05/21/2021
+  ms.date: 04/04/2023
 title: Azure Cache for Redis management FAQs
 summary: This article provides answers to common questions about how to manage Azure Cache for Redis.
 
@@ -48,7 +48,7 @@ sections:
           ### Configuration and concepts
 
           * Use Standard or Premium Tier for Production systems. The Basic Tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are typically used for simple dev/test scenarios.
-          * Remember that Redis is an **In-Memory** data store. For more information, see [this article](cache-troubleshoot-data-loss) so that you're aware of scenarios where data loss can occur.
+          * Remember that Redis is an **In-Memory** data store. For more information, see [Troubleshoot data loss in Azure Cache for Redis](cache-troubleshoot-data-loss.md) so that you're aware of scenarios where data loss can occur.
           * Develop your system such that it can handle connection blips caused by [patching and failover](cache-failover.md).
 
           ### Performance testing
