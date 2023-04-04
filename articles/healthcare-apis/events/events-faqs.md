@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/28/2022
+ms.date: 04/04/2022
 ms.author: jasteppe
 ---
 
@@ -35,11 +35,16 @@ For more information about the FHIR service delete types, see [FHIR REST API cap
 
 ### Does Events support FHIR bundles?
 
-Yes. Events support [FHIR bundles](https://www.hl7.org/fhir/bundle.html) in the following ways:
+Yes. The Events feature is designed to emit notifications of data changes at the FHIR resource level. 
 
-* **Batch**: An event is emitted for each successful bundle operation, however, if one of the operations generates an error, no event is emitted for that operation. For example: the batch bundle contains five operations, however, there's an error with one of the operations. Events are emitted for the four successful operations with no event emitted for the operation that generated an error.
+Events support FHIR bundles in the following ways:
 
-* **Transaction**: An event is emitted for each successful bundle operation as long as there are no errors. If there's a single error within a transaction bundle, then no events are emitted. For example: the transaction bundle contains five operations, however, there's an error with one of the operations. No events are emitted for that bundle.
+- **Batch**: An event is emitted for each successful data change operation in a bundle. If one of the operations generates an error, no event is emitted for that operation. For example: the batch bundle contains five operations, however, there's an error with one of the operations. Events are emitted for the four successful operations with no event emitted for the operation that generated an error.
+
+- **Transaction**: An event is emitted for each successful bundle operation as long as there are no errors. If there's any errors within a transaction bundle, then no events are emitted. For example: the transaction bundle contains five operations, however, there's an error with one of the operations. No events are emitted for that bundle.
+
+> [!NOTE]
+> Events are not sent in the sequence of the data operations in the FHIR bundle.
 
 ### What DICOM image events does Events support?
 
