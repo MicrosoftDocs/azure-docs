@@ -4,6 +4,7 @@
 # For valid values of ms.service, ms.prod, and ms.topic, see https://review.learn.microsoft.com/en-us/help/platform/metadata-taxonomies?branch=main
 
 title:       MSIXMGR tool parameters 
+titleSuffix: Azure
 description: This article contains an overview of the command-line syntax to help you understand and get the most from the MSIXMGR Tool. In this documentation, we’ll expand the syntax of all the parameters used by the MSIXMGR tool.  
 author:      fiza-microsoft # GitHub alias
 ms.author:   fizaazmi # Microsoft alias
@@ -30,12 +31,10 @@ Before you can follow the instructions in this article, you'll need to do the fo
 
   
 
-**-AddPackage or -p  
-**  
+**-AddPackage or -p**  
 Adds package at specified file path  
-Example:    
+Example:  
 -AddPackage [path to the MSIX package] [optional arguments]
-
 ```
 msixmgr.exe -AddPackage C:\SomeDirectory\notepadplus.msix
 ```
@@ -56,6 +55,8 @@ msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
 |-QuietUX|Uninstalls MSIX package silently, without any user interaction|`msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe msix `-QuietUX  |
+
+
 
 
 
@@ -100,6 +101,10 @@ msixmgr.exe -MountImage
 
 
 
+
+
+
+
 **-UnmountImage**  
 Unmounts VHD, VHDX, or CIM image  
 Example:
@@ -117,6 +122,10 @@ msixmgr.exe -UnmountImage
  
 
 **-Unpack**  
+Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its contents to a folder.   
+> [!NOTE]
+> VHD Size is recommended to be four times the size of MSIX package  
+
 Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its contents to a folder.   Note: VHD Size is recommended to be four times the size of MSIX package  
 Example:
 
@@ -132,7 +141,7 @@ msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0
 |-applyacls|Applies ACLs to the resulting package folder(s) and their parent folder  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls`|
 |-rootDirectory|Specifies root directory on image to unpack packages to. Required parameter for unpacking to new and existing CIM files  |`msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps`|
 |-validateSignature|Validates a package's signature file before unpacking package. This parameter will require that the package's certificate is installed on the machine.||
-|Read more: [https://learn.microsoft.com/en-us/windows-hardware/drivers/install/certificate-stores](/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`||
+|Read more: [https://learn.microsoft.com/windows-hardware/drivers/install/certificate-stores](/windows-hardware/drivers/install/certificate-stores)|`msixmgr.exe -Unpack -packagePath "C:\vlc.msix" -destination "D:\VLC" -validateSignature -applyacls`||
 
 **-?**  
 Display Help at the command prompt  
@@ -157,5 +166,8 @@ To learn how to set up app attach, check out these articles:
 
 If you have questions about MSIX app attach, see our [App attach FAQ](/azure/virtual-desktop/app-attach-faq) and [App attach glossary](/azure/virtual-desktop/app-attach-glossary) 
    
+
+
+
 
 
