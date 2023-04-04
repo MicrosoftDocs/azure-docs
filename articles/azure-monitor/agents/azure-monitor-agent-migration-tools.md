@@ -88,4 +88,24 @@ To install DCR Config Generator:
 	
 	If the Log Analytics workspace was not [configured to collect data](./log-analytics-agent.md#data-collected) from connected agents, the generated files will be empty. This is a scenario in which the agent was connected to a Log Analytics workspace, but was not configured to send any data from the host machine.
 
-1. [Deploy the generated ARM template](../../azure-resource-manager/templates/deployment-tutorial-local-template.md) to associate the generated data collection rules with virtual machines running the new agent.
+1. Deploy the generated ARM templates:
+    
+    1. In the portal's search box, type in *template* and then select **Deploy a custom template**.
+    
+        :::image type="content" source="media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template.":::
+    
+    1. Select **Build your own template in the editor**.
+    
+        :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
+    
+    1. Paste the generated template into the editor and select **Save**. 
+    1. On the **Custom deployment** screen, specify a **Subscription**, **Resource group**, and **Region**.    
+    1. Select **Review + create** > **Create**.
+
+1. Associate machines to your data collection rules:
+
+    1. From the **Monitor** menu, select **Data Collection Rules**.
+    1. From the **Data Collection Rules** screen, select your data collection rule.
+    1. Select **View resources** > **Add**.
+    1. Select your machines > **Apply**.  
+    
