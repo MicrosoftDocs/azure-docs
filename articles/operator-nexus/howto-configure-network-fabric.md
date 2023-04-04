@@ -834,7 +834,7 @@ Expected output:
   },
   "name": "NFName",
   "networkFabricControllerId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroup/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFCName",
-  "networkFabricSku": "fab1",
+  "networkFabricSku": "NFSKU",
   "operationalState": "Provisioning",
   "provisioningState": "Succeeded",
   "rackCount": 3,
@@ -957,7 +957,7 @@ Expected output:
 
 ```
 
-## Deleting fabric
+## Deleting Fabric
 
 To delete the fabric the operational state of Fabric shouldn't be "Provisioned". To change the operational state from Provisioned to Deprovision, run the deprovision command. Ensure there are no racks associated before deleting fabric.
 
