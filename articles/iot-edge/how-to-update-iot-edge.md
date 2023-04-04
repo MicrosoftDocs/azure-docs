@@ -25,11 +25,11 @@ Two logical components of an IoT Edge device need to be updated if you want to m
 
 ## How to update
 
-Use these sections of this article to update both the runtime and application layers on a device.
+Use these sections of this article to update both the security subsystem and runtime containers on a device.
 
 ### Patch releases
 
-When upgrading between or *patch* releases, for example 1.4.1 to 1.4.2, the update order isn't important. You can upgrade host components or system containers before or after the other. To update between patch releases:
+When upgrading between or *patch* releases, for example 1.4.1 to 1.4.2, the update order isn't important. You can upgrade security subsystem or runtime containers before or after the other. To update between patch releases:
 
 1. [Update the security subsystem](#update-the-security-subsystem)
 1. [Update the runtime containers](#update-the-runtime-containers)
@@ -190,7 +190,7 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 1. In your device deployment runtime settings, verify the *edgeHub* and *edgeAgent* image URI versions match the major and minor version of the security subsystem. If the security subsystem version is 1.4.2, the image versions would be 1.4. For example, *mcr.microsoft.com/azureiotedge-hub:1.4* and *mcr.microsoft.com/azureiotedge-agent:1.4*.
 
 >[!NOTE]
->Update the IoT Edge runtime and application layers, using the same release version. While you can still receive support for mismatched versions, we haven't tested all mismatched version combinations.
+>Update the IoT Edge security subsystem and runtime containers to the same supported release version. While mismatched versions are supported, we haven't tested all version combinations.
 >
 >To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
