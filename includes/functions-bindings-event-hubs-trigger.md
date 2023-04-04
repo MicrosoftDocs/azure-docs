@@ -509,7 +509,7 @@ The following table explains the trigger configuration properties that you set i
 
 ## Usage
 
-To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Event Hubs trigger](../articles/azure-functions/event-driven-scaling.md#event-hubs-triggers).
+To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Consuming Events with Azure Functions](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions#consuming-events-with-azure-functions).
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 

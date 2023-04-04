@@ -253,7 +253,7 @@ Sample `bindings` section of a `function.json` with `MaxItemsPerInvocation` defi
 }
 ```
 > [!NOTE]
-> Since Cosmos DB is a partitioned workload, the target instance count for Cosmos DB is capped by the number of physical partitions in your Cosmos DB. For further documentation on Cosmos DB scaling, please see notes on [physical partitions](../cosmos-db/nosql/change-feed-processor.md?tabs=dotnet#dynamic-scaling:~:text=We%20see%20that,a%20lease%20document) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md?tabs=dotnet#dynamic-scaling:~:text=One%20lease%20can%20only%20be%20owned%20by%20one%20instance%20at%20a%20given%20time%2C%20so%20the%20number%20of%20instances%20should%20not%20be%20greater%20than%20the%20number%20of%20leases.).
+> Since Cosmos DB is a partitioned workload, the target instance count for Cosmos DB is capped by the number of physical partitions in your Cosmos DB. For further documentation on Cosmos DB scaling, please see notes on [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
 
 ## Opting Out
 Target Based Scaling is an opt-out feature except for function apps on the the Premium plan with Runtime Scale Monitoring enabled. This means it is on by default for the Functions Consumption plan, and Premium plans without Runtime Scale Monitoring. If you wish to disable Target Based Scaling and revert to incremental scaling, add the following app setting to your function app:
