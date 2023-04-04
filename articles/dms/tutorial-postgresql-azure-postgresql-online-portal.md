@@ -5,7 +5,7 @@ description: Learn to perform an online migration from PostgreSQL on-premises to
 author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: craigg
-ms.date: 31/03/2023
+ms.date: 03/31/2023
 ms.service: dms
 ms.topic: tutorial
 ms.custom:
@@ -116,18 +116,18 @@ To complete all the database objects like table schemas, indexes and stored proc
 After the service is created, locate it within the Azure portal, open it, and then create a new migration project.
 
 1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
-
-      ![Locate all instances of Azure Database Migration Service](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-search-classic.png)
+      
+      :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-search-classic.png" alt-text="Screenshot of a Search Azure Database Migration Service.":::
 
 2. On the **Azure Database Migration Services** screen, search for the name of Azure Database Migration Service instance that you created, select the instance, and then select + **New Migration Project**.
 
-      ![Locate all instances of Azure Database Migration Service](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-instance-search-classic.png)
+      :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-instance-search-classic.png" alt-text="Screenshot of a Searching the Azure Database Migration Service instance.":::
 
 3. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **PostgreSQL**, in the **Target server type** text box, select **Azure Database for PostgreSQL**.
 
 4. In the **Migration activity type** section, select **Online data migration**.
 
-    ![Create Azure Database Migration Service project](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-create-project-classic.png)
+      :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-create-project-classic.png" alt-text="Screenshot of a Create a new migration project.":::
 
     > [!NOTE]
     > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
@@ -138,32 +138,31 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 1. On the **Add Source Details** screen, specify the connection details for the source PostgreSQL instance.
 
-    ![Add Source Details screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-source-details-classic.png)
-
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-source-details-classic.png" alt-text="Screenshot of an Add source details screen.":::
 
 ## Specify target details
 
 1. On the **Target details** screen, specify the connection details for the target Azure Database for PostgreSQL - Flexible server, which is the pre-provisioned instance to which the schema was deployed by using pg_dump.
 
-    ![Target details screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-target-details-classic.png)
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-target-details-classic.png" alt-text="Screenshot of an Add target details screen.":::
 
 2. Click on **Next:Select databases**, and then on the **Select databases** screen, map the source and the target database for migration.
 
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
 
-    ![Map to target databases screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-map-target-databases-classic.png)
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-map-target-databases-classic.png" alt-text="Screenshot of an map databases with the target screen.":::
 
 3. Click on **Next:Select tables**, and then on the **Select tables** screen, select the required tables that needs to be migrated.
 
-    ![Migration settings screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-select-tables-classic.png)
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-select-tables-classic.png" alt-text="Screenshot of an selecting the tables for migration screen.":::
  
 4. Click on **Next:Configure migration settings**, and then on the **Configure migration settings** screen, accept the default values.
 
-    ![Migration settings screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-migration-settings-classic.png)
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-migration-settings-classic.png" alt-text="Screenshot of configuring migration setting screen.":::
 
 5. On the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity, and then review the summary to ensure that the source and target details match what you previously specified.
 
-    ![Migration summary screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-migration-summary-classic.png)
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-migration-summary-classic.png" alt-text="Screenshot of migration summary screen.":::
 
 ## Run the migration
 
@@ -175,16 +174,16 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 1. On the migration activity screen, select **Refresh** to update the display until the **Status** of the migration shows as **Complete**.
 
-     ![Monitor migration process](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-monitor-migration-classic.png)
+     :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-monitor-migration-classic.png" alt-text="Screenshot of migration monitoring screen.":::
 
 2. When the migration is complete, under **Database Name**, select a specific database to get to the migration status for **Full data load** and **Incremental data sync** operations.
 
    > [!NOTE]
    > **Full data load** shows the initial load migration status, while **Incremental data sync** shows change data capture (CDC) status.
 
-     ![Full data load details](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-full-data-load-details-classic.png)
+     :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-full-data-load-details-classic.png" alt-text="Screenshot of migration full load details screen.":::
 
-     ![Incremental data sync details](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-incremental-data-sync-details-classic.png)
+     :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-incremental-data-sync-details-classic.png" alt-text="Screenshot of migration incremental load details screen.":::
 
 ## Perform migration cutover
 
@@ -194,7 +193,7 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 
 2. Wait until the **Pending changes** counter shows **0** to ensure that all incoming transactions to the source database are stopped, select the **Confirm** checkbox, and then select **Apply**.
 
-    ![Complete cutover screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover-classic.png)
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover-classic.png" alt-text="Screenshot of cutover completion screen.":::
 
 3. When the database migration status shows **Completed**, [recreate sequences](https://wiki.postgresql.org/wiki/Fixing_Sequences) (if applicable), and connect your applications to the new target instance of Azure Database for PostgreSQL.
 
