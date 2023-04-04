@@ -48,18 +48,18 @@ Before you begin, verify that:
  
 1.	Create a service key and record the `url`, `uaa.clientid`, and `uaa.urlfollowing` values. These are required to deploy the data connector.
     
-    Here's an example of these field values in the JSON file.
+    Here's an example of these field values.
 
-    ```json
-    {
-        "url": "https://auditlog-management.cfapps.us10.hana.ondemand.com",
-        "uaa": {
-            "clientid": "sb-ac79fee5-8ad0-4f88-be71-d3f9c566e73a!b136532|auditlog-management!b1237",
-            "clientsecret": "682323d2-42a0-45db-a939-74639efde986$gR3x3ohHTB8iyYSKHW0SNIWG4G0tQkkMdBwO7lKhwcQ=",
-            "url": "https://915a0312trial.authentication.us10.hana.ondemand.com",
-        ...
-              }
-    }
+    ```
+        {
+            "url": "https://auditlog-management.cfapps.us10.hana.ondemand.com",
+            "uaa": {
+                "clientid": "sb-ac79fee5-8ad0-4f88-be71-d3f9c566e73a!b136532|auditlog-management!b1237",
+                "clientsecret": "682323d2-42a0-45db-a939-74639efde986$gR3x3ohHTB8iyYSKHW0SNIWG4G0tQkkMdBwO7lKhwcQ=",
+                "url": "https://915a0312trial.authentication.us10.hana.ondemand.com",
+                ...
+                  }
+        }
     ``` 
 
 1. Log into the Azure portal with the [solution preview feature flag](https://portal.azure.com/?feature.loadTemplateSolutions=true). 
