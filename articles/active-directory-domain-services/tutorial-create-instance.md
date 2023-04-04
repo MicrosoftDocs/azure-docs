@@ -96,11 +96,7 @@ Complete the fields in the *Basics* window of the Azure portal to create a manag
 1. The **SKU** determines the performance and backup frequency. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Azure AD DS SKU concepts][concepts-sku].
 
     For this tutorial, select the *Standard* SKU.
-1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment.
-
-    A *Resource* forest only synchronizes users and groups created directly in Azure AD. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
-
-    For this tutorial, choose to create a *User* forest.
+1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. 
 
     ![Configure basic settings for an Azure AD Domain Services managed domain](./media/tutorial-create-instance/basics-window.png)
 

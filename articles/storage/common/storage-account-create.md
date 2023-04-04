@@ -3,12 +3,12 @@ title: Create a storage account
 titleSuffix: Azure Storage
 description: Learn to create a storage account to store blobs, files, queues, and tables. An Azure storage account provides a unique namespace in Microsoft Azure for reading and writing your data.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/10/2023
-ms.author: jammart
+ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23
 ---
