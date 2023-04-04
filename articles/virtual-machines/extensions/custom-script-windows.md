@@ -26,7 +26,7 @@ This article describes how to use the Custom Script Extension by using the Azure
 ### Supported Windows operating systems
 
 | Windows OS | x64 |
-|:----|:----:|
+|:----|:-----|
 | Windows 10 | Supported |
 | Windows 11 | Supported |
 | Windows Server 2008 SP2 | Supported |
