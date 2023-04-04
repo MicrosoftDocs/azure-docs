@@ -33,7 +33,7 @@ In this tutorial, the focus is to set up a middleware that orchestrates requests
 
 To get started, you need to create a new Azure Function. You can can create the Azure Function by following the steps in the [Azure Functions documentation](https://learn.microsoft.com/azure/azure-functions/create-first-function-vs-code-csharp). If you aren't using an Azure Function and instead are using a different framework, skip this step and continue to the next section.
 
-Once the Azure Function is set up, go to the `local.settings.json` file and add three more values that you need to store: the Azure Communication Services connection string, phone number (Ex. +15555555555) and URL Shortener endpoint (Ex. https://<Azure Function URL>/api/UrlCreate). These variables are all values you generated from the prerequisites at the beginning of the document.
+Once the Azure Function is set up, go to the `local.settings.json` file and add three more values that you need to store: the Azure Communication Services connection string, phone number (Ex. +15555555555) and URL Shortener endpoint (Ex. `https://<Azure_Function_URL>/api/UrlCreate`). These variables are all values you generated from the prerequisites at the beginning of the document.
 
 ```json
 
