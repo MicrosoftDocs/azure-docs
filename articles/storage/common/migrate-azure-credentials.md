@@ -76,7 +76,7 @@ Once your application is configured to use passwordless connections and runs loc
 
 You need to configure your web app to use the managed identity you created. Assign the identity to your app using either the Azure portal or the Azure CLI.
 
-# [Azure Portal](#tab/azure-portal-associate)
+# [Azure portal](#tab/azure-portal-associate)
 
 Complete the following steps in the Azure portal to associate an identity with your app. These same steps apply to the following Azure services:
 
