@@ -30,12 +30,12 @@ Microsoft Entra has two products that provide the features that make up Global S
 > Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
 > 
 > | Feature   | Microsoft Entra Private Access | | Microsoft Entra Internet Access | |
-> |----------|:-----------|------------:|:-----|-----:|
-> | | Standard | Premium | Standard | Premium
-> | Feature A | X |   | X |  |
-> | Feature B |   | X |  |  |
-> | Feature C | X |  | X |  |
-> | Feature D |  | X |  | X |
+> |----------|-----------|------------|-----|-----|
+> | | Standard | Premium | Standard | Premium |
+> | **Feature A** | X |   | X |  |
+> | **Feature B** |   | X |  |  |
+> | **Feature C** | X |  | X |  |
+> | **Feature D** |  | X |  | X |
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
