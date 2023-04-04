@@ -2,7 +2,7 @@
 title: Create a chaos experiment to shut down all targets in a zone
 description: Use the Azure portal to create an experiment that uses dynamic targeting to select hosts in a zone
 author: rsgel
-ms.author: rigel.carlson
+ms.author: carlsonr
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 4/3/2023
@@ -86,4 +86,3 @@ In this example, the chaos experiment successfully shut down the instance in Zon
 Now that you've run a dynamically targeted Virtual Machine Scale Sets shutdown experiment, you're ready to:
 - [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)
 - [Manage your experiment](chaos-studio-run-experiment.md)
-
