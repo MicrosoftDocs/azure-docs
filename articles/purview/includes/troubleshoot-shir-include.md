@@ -607,7 +607,7 @@ The following is the expected response:
 
 > [!NOTE] 
 > Proxy considerations:
-> * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](../data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
+> * Check to see whether the proxy server needs to be put on the Safe Recipients list. If so, make sure [these domains](../../data-factory/data-movement-security-considerations.md#firewall-requirements-for-on-premisesprivate-network) are on the Safe Recipients list.
 > * Check to see whether SSL/TLS certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
 > * If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
@@ -775,7 +775,7 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](../data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](../../data-factory/data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - You *are* affected if you're explicitly enabling the allowlist for outbound IPs on your corporate firewall.
 
