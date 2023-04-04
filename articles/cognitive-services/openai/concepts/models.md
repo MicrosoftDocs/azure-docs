@@ -4,11 +4,11 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 03/21/2023
+ms.date: 03/31/2023
 ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
-author: ChrisHMSFT
-ms.author: chrhoder
+author: mrbullwinkle #ChrisHMSFT
+ms.author: mbullwin #chrhoder
 recommendations: false
 keywords: 
 ---
@@ -128,7 +128,10 @@ Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyz
 
 ## Embeddings models
 
-Currently, we offer three families of Embeddings models for different functionalities: 
+> [!IMPORTANT]
+> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+
+Currently, we offer three families of Embeddings models for different functionalities:
 
 - [Similarity](#similarity-embedding)
 - [Text search](#text-search-embedding)
@@ -221,9 +224,13 @@ These models can only be used with Completions API requests.
 
 These models can only be used with Embedding API requests.
 
+> [!NOTE]
+> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
+| text-embedding-ada-002 (version 2) | East US, South Central US | N/A |8,191 | Sep 2021 |
+| text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |4,095 | Sep 2021 |
 | text-similarity-ada-001| East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001  | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-curie-001 | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |
