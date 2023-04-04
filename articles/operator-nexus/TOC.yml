@@ -49,7 +49,7 @@
   - name: Pre-certification 
     href: howto-precertification.md
   - name: Tracking asynchronous operations
-    href: howto-Track-Async-Operations-CLI.md
+    href: howto-track-async-operations-cli.md
 - name: Sample Deployment
   items:
   - name: VNF Deployment
