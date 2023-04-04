@@ -29,7 +29,7 @@ Microsoft Entra has two products that provide the features that make up Global S
 > [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra
 > Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
 > 
-> | Feature   | Microsoft Entra Private Access | Microsoft Entra Internet Access |
+> | Feature   | Microsoft Entra Private Access | | Microsoft Entra Internet Access | |
 > |----------|:-----------|------------:|:-----|-----:|
 > | | Standard | Premium | Standard | Premium
 > | Feature A | X |   | X |  |
