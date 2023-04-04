@@ -6,10 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 08/31/2020 
-ms.custom: devx-track-azurepowershell
-
+ms.date: 03/06/2023 
 ---
 # Custom Script Extension for Windows
 
@@ -24,21 +23,21 @@ This article details how to use the Custom Script Extension by using the Azure P
 > [!NOTE]  
 > Don't use the Custom Script Extension to run `Update-AzVM` with the same VM as its parameter, because it will wait for itself.  
 
-### Operating system
-
-The Custom Script Extension for Windows will run on these supported operating systems:
-
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
-* Windows 10
-* Windows Server 2016
-* Windows Server 2016 Core
-* Windows Server 2019
-* Windows Server 2019 Core
-* Windows Server 2022
-* Windows Server 2022 Core
-* Windows 11
+### **Windows OS’ Supported**
+| **Windows OS** |	**x64** |
+|:----|:----:|
+| Windows 10 |	Supported |
+| Windows 11 |	Supported |
+| Windows Server 2008 SP2 |	Supported |
+| Windows Server 2008 R2 |	Supported |
+| Windows Server 2012 |	Supported |
+| Windows Server 2012 R2 |	Supported |
+| Windows Server 2016 |	Supported |
+| Windows Server 2016 Core |	Supported |
+| Windows Server 2019 |	Supported |
+| Windows Server 2019 Core |	Supported |
+| Windows Server 2022 |	Supported |
+| Windows Server 2022 Core |	Supported |
 
 ### Script location
 
@@ -68,6 +67,7 @@ If your script is on a local server, you might still need to open additional fir
 * Be aware of non-default directory locations that your scripts or commands might rely on. Have logic to handle this situation.
 * The Custom Script Extension runs under the LocalSystem account.
 * If you plan to use the `storageAccountName` and `storageAccountKey` properties, these properties must be collocated in `protectedSettings`.
+* You can have only one version of an extension applied to the VM. To run a second custom script, you can update the existing extension with a new configuration. Alternatively, you can remove the custom script extension and reapply it with the updated script
 
 ## Extension schema
 

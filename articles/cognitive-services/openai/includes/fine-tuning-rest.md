@@ -96,7 +96,8 @@ The first step in creating a customized model is to choose a base model. The cho
 - `curie`
 - `code-cushman-001`\*
 - `davinci`\*
-    \* available by request
+
+    \* currently unavailable for new customers. 
 
 You can use the [Models API](/rest/api/cognitiveservices/azureopenaistable/models) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 
@@ -131,7 +132,7 @@ api_key = "COPY_YOUR_OPENAI_KEY_HERE"
 api_base =  "COPY_YOUR_OPENAI_ENDPOINT_HERE"
 api_type = 'azure'
 # The API version may change in the future.
-api_version = '2022-06-01-preview'
+api_version = '2022-12-01'
 
 training_file_name = 'training.jsonl'
 validation_file_name = 'validation.jsonl'

@@ -24,7 +24,7 @@ Azure Spring Apps Standard tier is composed of the Spring Cloud Config Server, t
 
 Azure Spring Apps Enterprise tier is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®.
 
-For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] repository on GitHub.
+For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] on GitHub.
 
 Deployment options for this architecture include Azure Resource Manager (ARM), Terraform, Azure CLI, and Bicep. The artifacts in this repository provide a foundation that you can customize for your environment. You can group resources such as Azure Firewall or Application Gateway into different resource groups or subscriptions. This grouping helps keep different functions separate, such as IT infrastructure, security, business application teams, and so on.
 
@@ -278,7 +278,7 @@ Explore this reference architecture through the ARM, Terraform, and Azure CLI de
 [7]: ../web-application-firewall/index.yml
 [8]: ./how-to-config-server.md
 [9]: https://steeltoe.io/
-[10]: https://github.com/Azure/azure-spring-apps-reference-architecture
+[10]: https://github.com/Azure/azure-spring-apps-landing-zone-accelerator/tree/reference-architecture
 [11]: ./how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements
 [12]: ./vnet-customer-responsibilities.md#azure-spring-apps-network-requirements
 [13]: ./vnet-customer-responsibilities.md#azure-spring-apps-fqdn-requirements--application-rules

@@ -37,6 +37,8 @@
     href: about-dual-homed-network.md
   - name: Path selection
     href: path-selection.md
+  - name: Routing preference
+    href: routing-preference.md
   - name: Multi-region design
     href: multiregion.md
   - name: Injecting routes to AVS

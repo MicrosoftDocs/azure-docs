@@ -145,7 +145,8 @@ ms.author: eur
 | `wuu-CN` | Chinese (Wu, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `yue-CN` | Chinese (Cantonese, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zh-CN` | Chinese (Mandarin, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Phrase list |
-| `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) | Plain text |
+| `zh-CN-shandong` | Chinese (Jilu Mandarin, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |
+| `zh-CN-sichuan` | Chinese (Southwestern Mandarin, Simplified) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zh-HK` | Chinese (Cantonese, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zh-TW` | Chinese (Taiwanese Mandarin, Traditional) | Audio + human-labeled transcript<br/><br/>Plain text |
 | `zu-ZA` | Zulu (South Africa) | Plain text |

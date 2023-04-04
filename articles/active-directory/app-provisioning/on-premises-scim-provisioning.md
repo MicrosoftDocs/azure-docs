@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2022
+ms.date: 04/04/2023
 ms.author: billmath
 ms.reviewer: arvinh
 ---
@@ -25,9 +25,9 @@ The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0]
 - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target application, and with outbound connectivity to login.microsoftonline.com, other Microsoft Online Services and Azure domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
 
 ## Deploying Azure AD provisioning agent
-The Azure AD Provisioning agent can be deployed on the same server hosting a SCIM enabled application, or a seperate server, providing it has line of sight to the application's SCIM endpoint. A single agent also supports provision to multiple applications hosted locally on the same server or seperate hosts, again as long as each SCIM endpoint is reachable by the agent.  
+The Azure AD Provisioning agent can be deployed on the same server hosting a SCIM enabled application, or a separate server, providing it has line of sight to the application's SCIM endpoint. A single agent also supports provision to multiple applications hosted locally on the same server or separate hosts, again as long as each SCIM endpoint is reachable by the agent.  
 
- 1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that your SCIM application endpoint is hosted on.
+ 1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that your SCIM application endpoint is hosted on. 
  2. Run the provisioning agent installer, agree to the terms of service, and select **Install**.
  3. Once installed, locate  and launch the **AAD Connect Provisioning Agent wizard**, and when prompted for an extensions select **On-premises provisioning**
  4. For the agent to register itself with your tenant, provide credentials for an Azure AD admin with Hybrid administrator or global administrator permissions.
@@ -41,7 +41,10 @@ Once the agent is installed, no further configuration is necesary on-prem, and a
  3. Select **Automatic** from the dropdown list and expand the **On-Premises Connectivity** option.
  4.  Select the agent that you installed from the dropdown list and select **Assign Agent(s)**.
  5.  Now either wait 10 minutes or restart the **Microsoft Azure AD Connect Provisioning Agent** before proceeding to the next step & testing the connection.
- 6.  In the **Tenant URL** field, provide the SCIM endpoint URL for your application. The URL is typically unique to each target application and must be resolveable by DNS. An example for a scenario where the agent is installed on the same host as the application is https://localhost:8585/scim ![Screenshot that shows assigning an agent.](./media/on-premises-scim-provisioning/scim-2.png)
+ 6.  In the **Tenant URL** field, provide the SCIM endpoint URL for your application. The URL is typically unique to each target application and must be resolveable by DNS. An example for a scenario where the agent is installed on the same host as the application is https://localhost:8585/scim ![Screenshot that shows assigning an agent.](./media/on-premises-scim-provisioning/scim-2.png) 
+>[!NOTE]
+>The Azure AD provisioning service currently drops everything in the URL after the hostname.
+
  7.  Select **Test Connection**, and save the credentials. The application SCIM endpoint must be actively listening for inbound provisioning requests, otherwise the test will fail. Use the steps [here](on-premises-ecma-troubleshoot.md#troubleshoot-test-connection-issues) if you run into connectivity issues. 
  8.  Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
  9.  Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
@@ -64,3 +67,4 @@ The following video provides an overview of on-premises provisoning.
 - [App provisioning](user-provisioning.md)
 - [Generic SQL connector](on-premises-sql-connector-configure.md)
 - [Tutorial: ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)
+- [Known issues](known-issues.md)

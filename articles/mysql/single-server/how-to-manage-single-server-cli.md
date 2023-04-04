@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 06/20/2022
 ---
 
-# Manage an Azure Database for MySQL Single server using the Azure CLI
+# Manage an Azure Database for MySQL single server using the Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
@@ -76,7 +76,7 @@ az mysql server update --resource-group myresourcegroup --name mydemoserver --ad
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
-If you would just like to delete the MySQL Single server, you can run [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
+If you would just like to delete the MySQL single server, you can run [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete) command.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

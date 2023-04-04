@@ -17,7 +17,7 @@ ms.date: 01/23/2023
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-create-register-datasets.md)
+> * [v1](./v1/how-to-create-register-datasets.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-create-data-assets.md)
 
 In this article, you'll learn how to create a data asset in Azure Machine Learning. An Azure Machine Learning data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
@@ -67,9 +67,11 @@ When you create an Azure Machine Learning data asset, you must specify a `path` 
 |A path on a public http(s) server   |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |A path on Azure Storage    |(Blob) `wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/`<br>(ADLS gen2) `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>(ADLS gen1) `adl://<accountname>.azuredatalakestore.net/<path_to_data>/` |
 
+> [!IMPORTANT]
+> When working with folder data, ensure that the correct path structure is used (ex. /<path_to_data>**/**) so the data source is accurately captured.
 
 > [!NOTE]
-> When you create a data asset from a local path, it will automatically upload to the default Azure Machine Learning cloud  datastore.
+> When you create a data asset from a local path, it will automatically upload to the default Azure Machine Learning cloud datastore.
 
 ## Create a File asset
 

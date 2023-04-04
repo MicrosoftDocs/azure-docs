@@ -18,6 +18,8 @@ Track your SAP solution deployment journey through this series of articles:
 
 1. **Deployment prerequisites (*You are here*)**
 
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
+
 1. [Prepare SAP environment](preparing-sap.md)
 
 1. [Deploy data connector agent](deploy-data-connector-agent-container.md)
@@ -59,7 +61,7 @@ To successfully deploy the Microsoft Sentinel solution for SAP® applications, y
 | Prerequisite | Description |
 | ---- | ----------- |
 | **Supported SAP versions** | The SAP data connector agent support SAP NetWeaver systems and was tested on [SAP_BASIS versions 731](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) and above. <br><br>Certain steps in this tutorial provide alternative instructions if you're working on the older [SAP_BASIS version 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows). |
-| **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sentinel4sapsdk))<br>Make sure that you also have an SAP user account in order to access the SAP software download page. Subject to SAP terms and conditions |
+| **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sentinel4sapsdk))<br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
 | **SAP system details** | Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate (This option requires additional configuration steps) |
 
