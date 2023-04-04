@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/29/2023
+ms.date: 04/04/2023
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -69,6 +69,20 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
+* When you use *ExchangeOnlineManagement* module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload *PowerShellGet* and *PackageManagement* modules.
+* When you use *New-item* cmdlet, jobs might be suspended. To resolve the issue, follow the mitigation steps:
+    1. Consume the output of `new-item`cmdlet in a variable and **do not** write it to the output stream using the write-output. 
+       - You can use debug or progress stream after you enable it from **Logging and Tracing** setting of the runbook.
+        ```powershell-interactive
+        $item = New-Item -Path ".\message.txt" -Force -ErrorAction SilentlyContinue
+        write-debug $item # or use write-progress $item
+        ```
+       - Alternatively, you can check if the nonempty if required to do so in the script.
+        ```powershell-interactive
+        $item = New-Item -Path ".\message.txt" -Force -ErrorAction SilentlyContinue
+        if($item) { write-output "File Created" }
+        ```
+    1. You can upgrade your runbooks to PS7.1 or PS7.2 where the same runbook will work as expected.
 * PowerShell runbooks can't retrieve an unencrypted [variable asset](./shared-resources/variables.md) with a null value.
 * PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
 * A [Get-Process](/powershell/module/microsoft.powershell.management/get-process) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
@@ -92,6 +106,7 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
+- When you use *ExchangeOnlineManagement* module version: 3.0.0 or higher, you can experience job failures. We recommend that you use    *ExchangeOnlineManagement* module version: 3.0.0 or less.
 - Executing child scripts using `.\child-runbook.ps1` isn't supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference is not supported in PowerShell 7 runtime.
@@ -128,6 +143,7 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
+- When you use *ExchangeOnlineManagement* module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload *PowerShellGet* and *PackageManagement* modules.
 - Executing child scripts using `.\child-runbook.ps1` is not supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference is not supported in PowerShell 7 runtime.
