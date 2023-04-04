@@ -802,6 +802,8 @@ Follow these steps to create a new project if you don't already have an Android 
 
 ### Layout
 
+If you would like to model your UI off this tutorial, the following is a sample **activity_main.xml**.
+
 1. In **app** > **src** > **main**> **res** > **layout** > **activity_main.xml**. Replace the content of **activity_main.xml** with the following code snippet to display buttons and text boxes:
 
     ```xml
@@ -905,7 +907,7 @@ The first time any user signs into your app, they'll be prompted by Microsoft id
 
 ## Clean up resources
 
-When no longer needed, delete the app object that you created in the [Register your application](#register-your-application) step.
+When no longer needed, delete the app object that you created in the [Register your application](#register-your-application-with-azure-ad) step.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
