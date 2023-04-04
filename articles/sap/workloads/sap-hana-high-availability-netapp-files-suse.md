@@ -707,7 +707,7 @@ This section describes how you can test your setup.
    hanadb1 will either reboot or poweroff based on the action set. Once the server (hanadb1) is down, HANA resource move to hanadb2. You can check the status of cluster from hanadb2.
 
    ```
-   crm status
+   sudo crm status
    ``` 
    Example output
    ```output
