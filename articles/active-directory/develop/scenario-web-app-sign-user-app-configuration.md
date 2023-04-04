@@ -63,7 +63,7 @@ You might want to refer to this sample for full implementation details.
 
 ## Configuration files
 
-Web applications that sign in users by using the Microsoft identity platform are configured through configuration files. These are the values you're required to specify in the configuration:
+Web applications that sign in users by using the Microsoft identity platform are configured through configuration files. Those files must specify the following values:
 
 - The cloud **instance** if you want your app to run in national clouds, for example. The different options include;
   - `https://login.microsoftonline.com/` for Azure public cloud
@@ -199,7 +199,7 @@ CLIENT_SECRET=<client secret>
 TENANT_ID=<tenant id>
 ```
 
-Those environment variables are referenced by *app_config.py*:
+Those environment variables are referenced in *app_config.py*:
 
 :::code language="python" source="~/ms-identity-python-webapp-tutorial/app_config.py" highlight="4,6,9":::
 
@@ -219,7 +219,7 @@ The initialization code differences are platform dependant. For ASP.NET Core and
 In ASP.NET Core web apps (and web APIs), the application is protected because you have a `Authorize` attribute on the controllers or the controller actions. This attribute checks that the user is authenticated. Prior to the release of .NET 6, the code initialization was in the *Startup.cs* file.  New ASP.NET Core projects with .NET 6 no longer contain a *Startup.cs* file.  Taking its place is the *Program.cs* file.  The rest of this tutorial pertains to .NET 5 or lower.
 
 > [!NOTE]
-> If you want to start directly with the new ASP.NET Core templates for Microsoft identity platform, that leverage Microsoft.Identity.Web, you can download a preview NuGet package containing project templates for .NET 5.0. Then, once installed, you can directly instantiate ASP.NET Core web applications (MVC or Blazor). See [Microsoft.Identity.Web web app project templates](https://aka.ms/ms-id-web/webapp-project-templates) for details. This is the simplest approach as it will do all the steps below for you.
+> If you want to start directly with the new ASP.NET Core templates for Microsoft identity platform, that leverage Microsoft.Identity.Web, you can download a preview NuGet package containing project templates for .NET 5.0. Then, once installed, you can directly instantiate ASP.NET Core web applications (MVC or Blazor). See [Microsoft.Identity.Web web app project templates](https://aka.ms/ms-id-web/webapp-project-templates) for details. This is the simplest approach as it will do all the following steps for you.
 >
 > If you prefer to start your project with the current default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleOrg` or `dotnet new webapp --auth SingleOrg`, you'll see code like the following:
 >
@@ -230,7 +230,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
 >
 > This code uses the legacy **Microsoft.AspNetCore.Authentication.AzureAD.UI** NuGet package which is used to create an Azure AD v1.0 application. This article explains how to create a Microsoft identity platform (Azure AD v2.0) application which replaces that code.
 
-1. Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) NuGet packages to your project. Remove the `Microsoft.AspNetCore.Authentication.AzureAD.UI` NuGet package if it is present.
+1. Add the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) and [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) NuGet packages to your project. Remove the `Microsoft.AspNetCore.Authentication.AzureAD.UI` NuGet package if it's present.
 
 2. Update the code in `ConfigureServices` so that it uses the `AddMicrosoftIdentityWebAppAuthentication` and `AddMicrosoftIdentityUI` methods.
 
@@ -268,7 +268,7 @@ In ASP.NET Core web apps (and web APIs), the application is protected because yo
    }
    ```
 
-In the code above:
+In that code:
 - The `AddMicrosoftIdentityWebAppAuthentication` extension method is defined in **Microsoft.Identity.Web**, which;
   - Adds the authentication service.
   - Configures options to read the configuration file (here from the "AzureAD" section)
