@@ -36,7 +36,7 @@ The following IDs are used for a content definition with an ID of `api.signupors
 | `logonIdentifier_email` | Email Address | `< 2.0.0` |
 | `requiredField_email` | Please enter your email | `< 2.0.0` |
 | `invalid_email` | Please enter a valid email address | `< 2.0.0` |
-| `email_pattern` | ```^[a-zA-Z0-9.!#$%&''\*+/=?^\_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)\*$``` | `< 2.0.0` |
+| `email_pattern` | ```^[a-zA-Z0-9.!#$%&'*+\/=?^_`\{\|\}~\-]+@[a-zA-Z0-9\-]+(?:\\.[a-zA-Z0-9\-]+)\*$``` | `< 2.0.0` |
 | `local_intro_username` | Sign in with your user name | `< 2.0.0` |
 | `logonIdentifier_username` | Username | `< 2.0.0` |
 | `requiredField_username` | Please enter your user name | `< 2.0.0` |
