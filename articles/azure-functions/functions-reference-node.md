@@ -260,7 +260,7 @@ Outputs (bindings with `"direction": "out"`) can be set in several ways:
 
 You can use the `dataType` property on an input binding to change the type of your input, however it has some limitations:
 - In Node.js, only `string` and `binary` are supported (`stream` isn't)
-- For http inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [request](#request).
+- For http inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [request](#http-request).
 
 In the following example of a storage queue trigger, the default type of `myQueueItem` is a `string`, but if you set `dataType` to `binary` the type changes to a Node.js `Buffer`.
 
@@ -517,6 +517,7 @@ For more information, see [`retry-policies`](./functions-bindings-errors.md#retr
 ::: zone-end
 
 <a name="contextlog-method"></a>
+<a name="write-trace-output-to-logs"></a>
 
 ## Logging
 
