@@ -89,7 +89,7 @@ az nf fabric create \
 --ipv4-prefix 10.2.0.0/19 
 --ipv6-prefix fda0:d59c:da02::/59 
 --rack-count 4
---server-count-per-rack 7 
+--server-count-per-rack 8
 --ts-config '{"primaryIpv4Prefix":"20.0.1.0/30", "secondaryIpv4Prefix":"20.0.0.0/30", "username":"****", "password": "****", "serialNumber":"TerminalServerSerialNumber"}' 
 --managed-network-config '{"infrastructureVpnConfiguration":{"peeringOption":"OptionB","optionBProperties":{"importRouteTargets":["65048:10039"],"exportRouteTargets":["65048:10039"]}}, "workloadVpnConfiguration":{"peeringOption": "OptionB", "optionBProperties": {"importRouteTargets": ["65048:10050"], "exportRouteTargets": ["65048:10050"]}}}'
 
