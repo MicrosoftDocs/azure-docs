@@ -25,7 +25,7 @@ Two logical components of an IoT Edge device need to be updated if you want to m
 
 ## How to update
 
-Use these sections of this article to update both the security subsystem and runtime containers on a device.
+Use the sections of this article to update both the security subsystem and runtime containers on a device.
 
 ### Patch releases
 
