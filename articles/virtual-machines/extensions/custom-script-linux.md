@@ -30,7 +30,7 @@ Use Version 2 for new and existing deployments. The new version is a drop-in rep
 ### Supported Linux distributions
 
 | Distribution | x64 | ARM64 |
-|:-----|:-----:|:-----:|
+|:-----|:------|:------|
 | Alma Linux | 9.x+ | 9.x+ |
 | CentOS | 7.x+,  8.x+ | 7.x+ |
 | Debian | 10+ | 11.x+ |
