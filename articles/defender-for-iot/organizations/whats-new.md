@@ -102,7 +102,7 @@ For more information, see [Tutorial: Investigate and detect threats for IoT devi
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview)  <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
+| **OT networks** | **Cloud features**: <br>- [Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2](#microsoft-sentinel-microsoft-defender-for-iot-solution-version-202) <br>- [Download updates from the Sites and sensors page (Public preview)](#download-updates-from-the-sites-and-sensors-page-public-preview) <br>- [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal) <br>- [Device inventory GA in the Azure portal](#device-inventory-ga-in-the-azure-portal) <br>- [Device inventory grouping enhancements (Public preview)](#device-inventory-grouping-enhancements-public-preview) <br>- [Focused inventory in the Azure device inventory (Public preview)](#focused-inventory-in-the-azure-device-inventory-public-preview) <br><br> **Sensor version 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview) |
 | **Enterprise IoT networks** | **Cloud features**: [Alerts page GA in the Azure portal](#alerts-ga-in-the-azure-portal)  |
 
 ### Microsoft Sentinel: Microsoft Defender for IoT solution version 2.0.2
@@ -157,6 +157,10 @@ Rich security, governance and admin controls also provide the ability to assign 
 ### Device inventory grouping enhancements (Public preview)
 
 The **Device inventory** page on the Azure portal supports new grouping categories. Now you can group your device inventory by *class*, *data source*, *location*, *Purdue level*, *site*, *type*, *vendor*, and *zone*. For more information, see [View full device details](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
+
+### Focused inventory in the Azure device inventory (Public preview)
+
+The **Device inventory** page on the Azure portal now includes a network location indication for your devices, to help focus your device inventory on the devices within your IoT/OT scope. See and filter which devices are defined as *local* or *routed*, according to your configured subnets. The *Network location* filter is on by default, and the *Network location* column can be added by editing the columns in the device inventory. For more information, see [Subnet](configure-sensor-settings-portal.md#subnet).
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
 

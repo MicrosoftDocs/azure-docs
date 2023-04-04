@@ -7,8 +7,6 @@ items:
     items:
     - name: What is Event Grid?
       href: overview.md
-    - name: Compare messaging services
-      href: compare-messaging-services.md
     - name: Release notes
       href: whats-new.md
   - name: Quickstarts
