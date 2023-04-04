@@ -21,42 +21,51 @@ Before you begin, verify that:
 - The Microsoft Sentinel solution is enabled. 
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - Your organization uses SAP BTP (in a Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.
-- You have an SAP BTP account ready. You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
-- Your Microsoft Sentinel user is assigned the [Microsoft Sentinel Contributor](../../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor).
-- Your SAP user is assigned the SAP BTP Subaccount Administrator role collection role.
-- You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites` and `Microsoft.Web/ServerFarms` permissions.
+- You have a SAP BTP account (which supports BTP accounts in the Cloud Foundry environment). You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
+- You have the SAP BTP auditlog-management service and service key (see [Set up the solution](#set-up-the-btp-account-and-solution)). 
+- You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites` and `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
 - You can create [Data Collection Rules/Endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) with the permissions: 
-    - `Microsoft.Insights/Components`, `Microsoft.Storage/StorageAccounts`, `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`
+    - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
     - Assign the Monitoring Metrics Publisher role to the Azure Function. 
 - You have an [Azure Key Vault](../../key-vault/general/overview.md) to hold the SAP BTP client secret. 
-- You have the SAP BTP auditlog-management service and key: Connectivity and permissions to retrieve SAP BTP Audit logs in the Cloud Foundry environment.
 
 ## Set up the BTP account and solution
 
 1. After you can log into your BTP account (see the [prerequisites](#prerequisites),) follow these [audit log retrieval steps](https://help.sap.com/docs/btp/sap-business-technology-platform/audit-log-retrieval-api-usage-for-subaccounts-in-cloud-foundry-environment) on the SAP BTP system. 
 1. In the SAP BTP Cockpit, select the **Audit Log Management Service**.
-1. Create an instance of the Audit Log Management Service in the sub account. 
-1.	Create a service key and record the following details. These are required to deploy the data connector.
 
-    - url: 
-    - uaa.clientid
-    - uaa.url
+    :::image type="content" source="./media/deploy-sap-btp-solution/btp-audit-log-management-service.png" alt-text="Screenshot of selecting the BTP Audit Log Management Service." lightbox="./media/deploy-sap-btp-solution/btp-audit-log-management-service.png":::
+
+1. Create an instance of the Audit Log Management Service in the sub account.
+
+    :::image type="content" source="./media/deploy-sap-btp-solution/btp-audit-log-sub-account.png" alt-text="Screenshot of creating an instance of the BTP subaccount." lightbox="./media/deploy-sap-btp-solution/btp-audit-log-sub-account.png":::
+ 
+1.	Create a service key and record the `url`, `uaa.clientid`, and `uaa.urlfollowing` values. These are required to deploy the data connector.
     
-    :::image type="content" source="./media/deploy-sap-btp-solution/sap-btp-configuration-parameters.png" alt-text="Screenshot of the configuration parameters for the SAP BTP connector.":::
+    Here's an example of these field values in the JSON file.
 
-1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.
+    ```json
+    {
+    "url": "https://auditlog-management.cfapps.us10.hana.ondemand.com",
+    "uaa": {
+        "clientid": "sb-ac79fee5-8ad0-4f88-be71-d3f9c566e73a!b136532|auditlog-management!b1237",
+        "clientsecret": "682323d2-42a0-45db-a939-74639efde986$gR3x3ohHTB8iyYSKHW0SNIWG4G0tQkkMdBwO7lKhwcQ=",
+        "url": "https://915a0312trial.authentication.us10.hana.ondemand.com",
+    ...
+    }
+    ``` 
 
+1. Log into the Azure portal with the [solution preview feature flag](https://portal.azure.com/?feature.loadTemplateSolutions=true). 
+1. Navigate to the **Microsoft Sentinel** service.
 1. Select **Content hub**, and in the search bar, search for *BTP*.
-
 1. Select **Sentinel Solution for SAP BTP**.
-
 1. Select **Install**.
 
     For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](../sentinel-solutions-deploy.md).
 
 1. Select **Create**.
 
-    :::image type="content" source="./media/deploy-sap-btp-solution/sap-btp-create-solution.png" alt-text="Screenshot of how to create the Microsoft Sentinel Solution® for SAP BTP.":::
+    :::image type="content" source="./media/deploy-sap-btp-solution/sap-btp-create-solution.png" alt-text="Screenshot of how to create the Microsoft Sentinel Solution® for SAP BTP." lightbox="./media/deploy-sap-btp-solution/sap-btp-create-solution.png":::
 
 1. Select the resource group and the Sentinel workspace in which you want to deploy the solution. 
 1. Select **Next** until you pass validation and select **Create**.
