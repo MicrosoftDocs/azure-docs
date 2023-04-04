@@ -51,7 +51,7 @@ Explore data risks and exposure in cloud security graph insights using a query t
 
 ### Use query templates
 
-As an alternative to creating your own query, you can use predefined query templates. These sensitive data query templates are available:
+As an alternative to creating your own query, you can use predefined query templates. A number of sensitive data query templates are available. For example:
 
 - Internet exposed storage containers with sensitive data that allow public access.
 - Internet exposed S3 buckets with sensitive data that allow public access

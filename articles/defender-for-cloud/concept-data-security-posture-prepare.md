@@ -28,7 +28,7 @@ The table summarizes support for data-aware posture management.
 
 **Support** | **Details**
 --- | ---
-What Azure data resources can I discover? | [Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage account encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: [Public network access is disabled](../storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule); Storage account endpoint types is set to [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).
+What Azure data resources can I discover? | [Block blob](../storage/blobs/storage-blobs-introduction.md) storage accounts in Azure Storage v1/v2<br/><br/> Azure Data Lake Storage Gen2<br/><br/>Storage accounts behind private networks are supported.<br/><br/>  Storage account encrypted with a customer-managed server-side key are supported.<br/><br/> Accounts aren't supported if any of these settings are enabled: [Public network access is disabled](../storage/common/storage-network-security?tabs=azure-portal#change-the-default-network-access-rule); Storage account is defined as [Azure DNS Zone](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-create-additional-5000-azure-storage-accounts/ba-p/3465466); The storage account endpoint has a [custom domain mapped to it](../storage/blobs/storage-custom-domain-name.md).
 What AWS data resources can I discover? | AWS S3 buckets<br/><br/> Defender for Cloud can discover KMS-encrypted data, but not data encrypted with a customer-managed key.
 What permissions do I need for discovery? | Storage account: Subscription Owner or Microsoft.Storage/storageaccounts/{read/write} and Microsoft.Authorization/roleAssignments/{read/write/delete}<br/><br/> Amazon S3 buckets: AWS account permission to run Cloud Formation (to create a role).
 What file types are supported for sensitive data discovery? | Supported file types (you can't select a subset) - .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .csv, .json, .psv, .ssv, .tsv, .txt., xml, .parquet, .avro, .orc.
@@ -36,6 +36,7 @@ What Azure regions are supported? | You can discover Azure storage accounts in:<
 What AWS regions are supported? | Asia Pacific (Mumbai); Asia Pacific (Singapore); Asia Pacific (Sydney); Asia Pacific (Tokyo); Canada (Central); Europe (Frankfurt); Europe (Ireland); Europe (London); Europe (Paris); South America (São Paulo); US East (Ohio); US East (N. Virginia); US West (N. California): US West (Oregon).<br/><br/> Discovery is done locally in the region.
 Do I need to install an agent? | No, discovery is agentless.
 What's the cost? | The feature is included with the Defender CSPM and Defender for Storage plans, and doesn’t include other costs except for the respective plan costs.
+What permissions do I need to edit data sensitivity settings? | You need one of these permissions: Global Administrator,  Compliance Administrator, Compliance Data Administrator, Security Administrator, Security Operator.
 
 
 ## Configuring data sensitivity settings
@@ -65,16 +66,14 @@ In order to protect AWS resources in Defender for Cloud, you set up an AWS conne
 - To connect AWS accounts, you need Administrator permissions on the account.
 - The role allows these permissions: S3 read only; KMS decrypt.
 
-## What does internet-exposed/publicly accessible mean?
+## Exposed to the internet/allows public access
 
-Defender CSPM attack paths and cloud security graph insights include information about storage resources that are exposed to the internet. The following table provides more details.
+Defender CSPM attack paths and cloud security graph insights include information about storage resources that are exposed to the internet and allow public access. The following table provides more details.
 
-**State** | **Azure resources** | **AWS resources**
+**State** | **Azure storage accounts** | **AWS S3 Buckets**
 --- | --- | ---
-**Exposed to the internet** | An Azure storage account is considered exposed if public network access is enabled, with either of these settings enabled<br/><br/> Storage_account_name **Networking** > **Public network access** > **Enabled from all networks**<br/><br/> or<br/><br/>  Storage_account_name **Networking** > **Public network access** > **Enable from selected virtual networks and IP addresses**. | An AWS S3 bucket is consider exposed if the AWS account and AWS S3 bucket don't have a condition set for IP addresses.
-**Publicly accessible** | An Azure storage account is considered to be publicly accessible if both these settings are configured on the Azure storage account container:<br/><br/> Storage account name **Configuration** > **Allow blob public access**<br/><br/>and either of these settings:<br/><br/> - Storage account name > **Containers** > container_name > **Public access level** set to **Blob (anonymous read access for blobs only)**<br/><br/> - Or, storage account name > **Containers** > container_name > **Public access level** set to **Container (anonymous read access for containers and blobs)**. | An AWS S2 bucket is considered publicly available if both the AWS account and the AWS S3 bucket have **Block all public access** set to **Off**, and the policy has **either** of these settings:<br/><br/> - In the policy, **RestrictPublicBuckets isn't allowed**, and **Principal is** and **Effect** are set to **Allow**.<br/><br/> - Or, in the access control list, **IgnorePublicAcl** isn't enabled, and permission is allowed for **Everyone**, or for **Authenticated users**.
-
-
+**Exposed to the internet** | An Azure storage account is considered exposed to the internet if either of these settings enabled:<br/><br/> Storage_account_name > **Networking** > **Public network access** > **Enabled from all networks**<br/><br/> or<br/><br/>  Storage_account_name > **Networking** > **Public network access** > **Enable from selected virtual networks and IP addresses**. | An AWS S3 bucket is considered exposed to the internet if the AWS account/AWS S3 bucket policies don't have a condition set for IP addresses.
+**Allows public access** | An Azure storage account container is considered as allowing public access if these settings are enabled on the storage account:<br/><br/> Storage_account_name > **Configuration** > **Allow blob public access** > **Enabled**.<br/><br/>and **either** of these settings:<br/><br/> Storage_account_name > **Containers** > container_name > **Public access level** set to **Blob (anonymous read access for blobs only)**<br/><br/> Or, storage_account_name > **Containers** > container_name > **Public access level** set to **Container (anonymous read access for containers and blobs)**. | An AWS S3 bucket is considered to allow public access if both the AWS account and the AWS S3 bucket have **Block all public access** set to **Off**, and **either** of these settings is set:<br/><br/> In the policy, **RestrictPublicBuckets** isn't enabled, and the **Principal** setting is set to * and **Effect** is set to **Allow**.<br/><br/> Or, in the access control list, **IgnorePublicAcl** isn't enabled, and permission is allowed for **Everyone**, or for **Authenticated users**.
 
 
 ## Next steps
