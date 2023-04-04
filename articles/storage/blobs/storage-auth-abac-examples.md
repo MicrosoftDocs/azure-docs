@@ -48,12 +48,12 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Read or write blobs in named storage account with specific encryption scope](#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) | | | | Storage account name</br> Encryption scope name |
 | [Read or write blobs based on blob index tags and custom security attributes](#example-read-or-write-blobs-based-on-blob-index-tags-and-custom-security-attributes) | | ID | tags | tags |
 | [Read blobs based on blob index tags and multi-value custom security attributes](#example-read-blobs-based-on-blob-index-tags-and-multi-value-custom-security-attributes) | | ID | | tags |
-| [Allow access to a container only from a specific private endpoint](#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) | Private endpoint | | | container name |
-| [Allow read access to blobs based on private link and tags](#example-allow-read-access-to-blobs-based-on-private-link-and-tags) | isPrivateLink | | | tags |
-| [Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access](#example-allow-read-access-to-highly-sensitive-blob-data-only-from-a-specific-private-endpoint-and-for-users-tagged-for-access) | Private endpoint | ID | | tags |
-| [Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint](#example-require-that-write-operations-to-blobs-use-specific-blob-index-tag-keys-and-values-and-from-a-specific-endpoint) | Private endpoint | | tags | |
-| [Allow access to blobs in specific containers from a specific subnet](#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) | Subnet | | | container name |
-| [Allow read access to blobs after a specific date and time](#example-allow-read-access-to-blobs-after-a-specific-date-and-time) | UtcNow | | | container name |
+| [Allow access to a container only from a specific private endpoint](#example-1-allow-access-to-a-container-only-from-a-specific-private-endpoint) | Private endpoint | | | container name |
+| [Allow read access to blobs based on private link and tags](#example-2-allow-read-access-to-blobs-based-on-private-link-and-tags) | isPrivateLink | | | tags |
+| [Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access](#example-3-allow-read-access-to-highly-sensitive-blob-data-only-from-a-specific-private-endpoint-and-for-users-tagged-for-access) | Private endpoint | ID | | tags |
+| [Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint](#example-4-require-that-write-operations-to-blobs-use-specific-blob-index-tag-keys-and-values-and-from-a-specific-endpoint) | Private endpoint | | tags | |
+| [Allow access to blobs in specific containers from a specific subnet](#example-5-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) | Subnet | | | container name |
+| [Allow read access to blobs after a specific date and time](#example-6-allow-read-access-to-blobs-after-a-specific-date-and-time) | UtcNow | | | container name |
 
 ## Blob index tags
 
@@ -1354,7 +1354,7 @@ Here are the settings to add this condition using the Azure portal.
 
 This section includes examples showing how to restrict access to objects based on the network environment or the current date and time.
 
-### Example: Allow access to a container only from a specific private endpoint
+### Example 1: Allow access to a container only from a specific private endpoint
 
 This condition requires that all read, write and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
 
@@ -1390,7 +1390,7 @@ Here are the settings to add this condition using the visual condition editor in
 > | | | | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | | | Value | `container1` |
 > | | | | Logical operator | 'AND' |
-> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | | | | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | | | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
 > | | | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 > | | | | Value | `privateendpoint1` |
@@ -1506,7 +1506,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example: Allow read access to blobs based on private link and tags
+### Example 2: Allow read access to blobs based on private link and tags
 
 This condition requires requests to read blobs where blob index tag **sensitivity** has a value of `high` to be over a private link (any private link). This means all attempts to read blobs with that tag and value from the public internet will not be allowed. Users can read blobs from the public internet that have **sensitivity** set to some value other than `high`, or where the index tag is not applied to the blob.
 
@@ -1645,16 +1645,16 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example: Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access
+### Example 3: Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access
 
 The requirements of this condition are:
 
 > [!div class="checklist"]
-> - The blob has index tag `sensitivity` with a value of *high*.
-> - The value of the user’s customer security attribute, `sensitivity`, matches the value of the blob index tag of the same name.
-> - All blob read operations must be made through a private endpoint named `privateendpoint1`.
+> - The blob has index tag **sensitivity** with a value of `high`.
+> - The value of the user’s customer security attribute, **sensitivity**, matches the value of the blob index tag of the same name.
+> - Blob read operations are only allowed through a private endpoint named `privateendpoint1`.
 
-You must add this condition to any role assignments that include the following action.
+There are two potential actions for reading existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include one of the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
@@ -1667,6 +1667,31 @@ The condition can be added to a role assignment using either the Azure portal or
 #### [Portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
+
+> [!div class="mx-tableFixed"]
+> | Condition | Component | Group | Setting | Value |
+> | --- | --- | - | - | - |
+> | Condition #1 | | | | |
+> | | Actions | | | [Write to a blob with blob index tags </br> (under *Write to a blob*)](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags </br> (under *Create a blob or snapshot, or append data*)Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
+> | | Expressions | | | |
+> | | | Group #1 | | |
+> | | | | Attribute source | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | | | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
+> | | | | Key | `sensitivity` |
+> | | | | Operator | [ForAnyOfAnyValues:StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
+> | | | | Value | `high`</br>`low`</br>`medium` |
+> | | | | Logical operator | 'AND' |
+> | | | | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | | | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
+> | | | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | | | Value | `privateendpoint1` |
+> | | | End of Group #1 | | |
+> | | | | Logical operator | 'OR' |
+> | | | | Attribute source | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | | | | Attribute | [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys) |
+> | | | | Operator | [ForAnyOfAnyValues:StringNotEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
+> | | | | Value | `sensitivity` |
+
 
 > [!div class="mx-tableFixed"]
 > | Condition #1 | Setting |
@@ -1753,11 +1778,11 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example: Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint
+### Example 4: Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint
 
-This condition requires that write operations to blobs use one of a set of values for blob index tag key `sensitivity`, and come from a specific endpoint. If the `sensitivity` tag does not currently exist on the blob, validation of the tag key value is ignored and the request does not have to originate from the endpoint.
+This condition requires that write operations to blobs use one of a set of predefined values for blob index tag key `sensitivity`, and come from a specific endpoint. If the `sensitivity` tag does not currently exist on the blob, validation of the tag key value is ignored and the request does not have to originate from the endpoint.
 
-You must add this condition to any role assignments that include the following action.
+There are two potential actions for reading existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include one of the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
@@ -1769,55 +1794,54 @@ The condition can be added to a role assignment using either the Azure portal or
 
 #### [Portal: Visual editor](#tab/azure-portal-visual-editor)
 
-Here are the settings to add this condition using the Azure portal.
-
+Here are the settings to add this condition, Condition #1, using the Azure portal.
 > [!div class="mx-tableFixed"]
-> | Condition #1 | Setting |
-> | --- | --- |
-> | Actions | [Read a blob conditions](storage-auth-abac-attributes.md#read-content-from-a-blob-with-tag-conditions) |
-> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Option | Attribute |
-> | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | Key | &lt;key&gt; |
-
-> [!div class="mx-tableFixed"]
-> | Condition #2 | Setting |
-> | --- | --- |
-> | Actions | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
-> | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-> | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | Option | Attribute |
-> | Attribute source | Request |
-> | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | Key | &lt;key&gt; |
+> | Condition</br>Component | Group | Setting | Value |
+> | --- | - | - | - |
+> | | | | |
+> | Actions | | | [Write to a blob with blob index tags </br> (under *Write to a blob*)](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags </br> (under *Create a blob or snapshot, or append data*)Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
+> | Expressions | | | |
+> | | Group #1 | | |
+> | | | Attribute source | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
+> | | | Key | `sensitivity` |
+> | | | Operator | [ForAnyOfAnyValues:StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
+> | | | Value | `high`</br>`low`</br>`medium` |
+> | | | Logical operator | 'AND' |
+> | | | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
+> | | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | | Value | `privateendpoint1` |
+> | | End of Group #1 | | |
+> | | | Logical operator | 'OR' |
+> | | | Attribute source | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | | | Attribute | [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys) |
+> | | | Operator | [ForAnyOfAnyValues:StringNotEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
+> | | | Value | `sensitivity` |
 
 The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
 
-:::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-write-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-write-portal.png":::
 
 #### [Portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
-( 
- ( 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'}) 
- ) 
- OR  
- ( 
-  ( 
-   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] ForAnyOfAnyValues:StringEqualsIgnoreCase {'high', 'low', 'medium'} 
-   AND 
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
-  ) 
-  OR 
-  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'} 
- ) 
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'})
+ )
+ OR 
+ (
+  (
+   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] ForAnyOfAnyValues:StringEqualsIgnoreCase {'high', 'low', 'medium'}
+   AND
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/SampleRG/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+  )
+  OR
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'}
+ )
 )
 ```
 
@@ -1832,26 +1856,26 @@ Here's how to add this condition for the Storage Blob Data Contributor role usin
 $subId = "<your subscription id>"
 $rgName = "<resource group name>"
 $storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Reader"
+$roleDefinitionName = "Storage Blob Data Contributor"
 $userObjectID = "<user object id>"
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
 "( `
-    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
-) `
-OR `
-( `
-    ( `
-        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
-        AND `
-        @Environment[isPrivateLink] BoolEquals true `
-    ) `
-    OR `
-    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
-    OR `
-    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
-)"
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND SubOperationMatches{'Blob.Write.WithTagHeaders'}) `
+ ) `
+ OR `
+ ( `
+  ( `
+   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] ForAnyOfAnyValues:StringEqualsIgnoreCase {'high', 'low', 'medium'} `
+   AND `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/SampleRG/providers/Microsoft.Network/privateEndpoints/privateendpoint1' `
+  ) `
+  OR `
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'} `
+ )"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
 $testRa.Condition = $condition
@@ -1861,11 +1885,11 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example: Allow access to blobs in specific containers from a specific subnet
+### Example 5: Allow access to blobs in specific containers from a specific subnet
 
 This condition allows read, write, add and delete access to blobs in `container1` only from subnet `default` on virtual network `virtualnetwork1`.
 
-You must add this condition to any role assignments that include the following action.
+There are two potential actions for reading existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include one of the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
@@ -1970,11 +1994,11 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ---
 
-### Example: Allow read access to blobs after a specific date and time
+### Example 6: Allow read access to blobs after a specific date and time
 
 This condition allows read access to blob container `container1` only after 1 PM on April 1, 2023 Universal Coordinated Time (UTC).
 
-You must add this condition to any role assignments that include the following action.
+There are two potential actions for reading existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include one of the following actions.
 
 > [!div class="mx-tableFixed"]
 > | Action | Notes |
