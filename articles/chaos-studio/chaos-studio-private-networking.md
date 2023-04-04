@@ -37,13 +37,13 @@ This example shows how to configure a private AKS cluster to use with Chaos Stud
 
 1. Within the Azure portal, navigate to **Subscriptions**, then **Resource providers** within your subscription. 
 1. Register the `Microsoft.ContainerInstance` and `Microsoft.Relay` resource providers, if they aren't already registered, by selecting the provider and then the **Register** button. Additionally, re-register the `Microsoft.Chaos` resource provider.
-[ ![Screenshot of how to register a resource provider.](images/vnet-register-resource-provider.png) ](images/vnet-register-resource-provider.png#lightbox)
+:::image type="content" source="images/vnet-register-resource-provider.png" alt-text="Screenshot of how to register a resource provider." lightbox="images/vnet-register-resource-provider.png":::
 1. Navigate to Azure Chaos Studio and select **Targets**. Find your desired AKS cluster and select **Enable targets**, then **Enable service-direct targets**.
-[ ![Screenshot of how to enable targets in Chaos Studio.](images/vnet-enable-targets.png) ](images/vnet-enable-targets.png#lightbox)
+:::image type="content" source="images/vnet-enable-targets.png" alt-text="Screenshot of how to enable targets in Chaos Studio." lightbox="images/vnet-enable-targets.png":::
 1. Select the cluster's Virtual Network. If the VNet already includes subnets named `ChaosStudioContainerSubnet` and `ChaosStudioRelaySubnet`, select them. If they don't already exist, they'll be automatically created for you.
-[ ![Screenshot of how to select the VNet and Subnets.](images/vnet-select-subnets.png) ](images/vnet-select-subnets.png#lightbox)
+:::image type="content" source="images/vnet-select-subnets.png" alt-text="Screenshot of how to select the VNet and Subnets." lightbox="images/vnet-select-subnets.png":::
 1. Select **Review + Enable** and **Enable**.
-[ ![Screenshot of how to review the target enablement.](images/vnet-review.png) ](images/vnet-review.png#lightbox)
+:::image type="content" source="images/vnet-review.png" alt-text="Screenshot of how to review the target enablement." lightbox="images/vnet-review.png":::
 
 Now your private AKS cluster can be used with Chaos Studio! Use the following instructions to learn how to install Chaos Mesh and run the experiment: [Create a chaos experiment that uses a Chaos Mesh fault with the Azure portal](chaos-studio-tutorial-aks-portal.md).
 
