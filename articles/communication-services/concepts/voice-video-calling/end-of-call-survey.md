@@ -50,7 +50,7 @@ The API allows applications to gather data points that describe user perceived r
 |  Overall Call  |   Responses indicate how a call participant perceived their overall call quality.    |
 | Audio   |    Responses indicate if the user perceived any Audio issues.   |
 |   Video |   Responses indicate if the user perceived any Video issues.   |
-| Screen Share   |    Responses indicate if the user perceived any Screen Share issues.   |
+| ScreenShare   |    Responses indicate if the user perceived any Screen Share issues.   |
 
 
 
@@ -63,21 +63,22 @@ The API allows applications to gather data points that describe user perceived r
 | API Rating Categories | Cutoff Value* | Input Range | Comments |
 | ----------- | ----------- | -------- | -------- | 
 | Overall Call | 2 | 1 - 5 | Survey’s a calling participant’s overall quality experience on a scale of 1-5 where 1 indicates an imperfect call experience and 5 indicates a perfect call. The cutoff value of 2 means that a customer response of 1 or 2 indicates a less than perfect call experience.  |
-| Audio |   0 |  0 - 1  | A response of 0 indicates an imperfect audio experience and 1 indicates no audio issues were experienced.  |
-| Video |   0 |   0 - 1 |  A response of 0 indicates an imperfect video experience and 1 indicates no video issues were experienced. |
-| ScreenShare | 0   |0 - 1   |  A response of 0 indicates an imperfect screen share experience and 1 indicates no screen share issues were experienced. |
+| Audio |   2 | 1 - 5  | A response of 0 indicates an imperfect audio experience and 1 indicates no audio issues were experienced.  |
+| Video |   2 | 1 - 5 |  A response of 0 indicates an imperfect video experience and 1 indicates no video issues were experienced. |
+| ScreenShare | 2 | 1 - 5   |  A response of 0 indicates an imperfect screen share experience and 1 indicates no screen share issues were experienced. |
 
 
 
 -	***Note:** A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 ### Additional survey tags
-| API Rating Categories | Optional Tags |
+| Rating Categories | Optional Tags |
 | ----------- | ----------- |
-|  Overall Call  |       |
-| Audio   |       |
-|   Video |       |
-| Screen Share   |       |
+|  Overall Call  |    `CallCannotJoin` `CallCannotInvite` `HadToRejoin` `CallEndedUnexpectedly`  `OtherIssues`    |
+| Audio   |  `NoLocalAudio` `NoRemoteAudio` `Echo` `AudioNoise`  `LowVolume`  `AudioStoppedUnexpectedly` `DistortedSpeech` `AudioInterruption`  `OtherIssues`   |
+|   Video |    `NoVideoReceived` `NoVideoSent` `LowQuality` `Freezes` `StoppedUnexpectedly` `DarkVideoReceived` `AudioVideoOutOfSync` `OtherIssues`   |
+| ScreenShare   |  `NoContentLocal` `NoContentRemote` `CannotPresent` `LowQuality` `Freezes` `StoppedUnexpectedly` `LargeDelay` `OtherIssues`     |
+
 
 
 ### End of Call Survey Customization
@@ -98,7 +99,7 @@ You can choose to collect each of the four API values or only the ones you find 
 ## Store and view survey data:
 
 > [!IMPORTANT]
-> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: [Enable logging in Diagnostic Settings](../analytics/enable-logging.md)
+> You must enable a Diagnostic Setting in Azure Monitor to send the log data of your surveys to a Log Analytics workspace, Event Hubs, or an Azure storage account to receive and analyze your survey data. If you do not send survey data to one of these options your survey data will not be stored and will be lost. To enable these logs for your Communications Services, see: **[Enable logging in Diagnostic Settings](../analytics/enable-logging.md)**
 
 You can only view your survey data if you have enabled a Diagnostic Setting to capture your survey data. To learn how to use the End of Call Survey and view your survey data, see: [End of Call Survey tutorial](../../tutorials/end-of-call-survey-tutorial.md).
 
