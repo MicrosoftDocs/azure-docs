@@ -96,17 +96,17 @@ You can also configure directory schema extension attribute as non-conditional/c
 1.  In the [Azure portal](https://portal.azure.com/), in the **Attributes & Claims** section, select **Edit** to edit the claims.  
 2. Click **Add new claim** or edit an existing claim. 
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension1.png" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-1.png" alt-text="Screenshot of the MultiValue extension configuration section in the Azure portal.":::
 
 3. Select source application from application picker where extension property is defined. 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension2.png" alt-text="Screenshot of the source application aselection in MultiValue extension configuration section in the Azure portal.":::
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-2.png" alt-text="Screenshot of the source application selection in MultiValue extension configuration section in the Azure portal.":::
 
 4. Click **Add** to add the selection to the claims.
 
 <!---
 5. To select single or multi-valued directory schema extension attribute as conditional attribute select **Directory schema extension** option from the source dropdown.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension3.png" alt-text="Screenshot of the MultiValue extension configuration for conditional claims section in the Azure portal.":::
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-3.png" alt-text="Screenshot of the MultiValue extension configuration for conditional claims section in the Azure portal.":::
 --->
 
 5. Click **Save** to commit the changes. 
@@ -138,7 +138,7 @@ To apply a transformation to a user attribute:
 1. Select the function from the transformation dropdown. Depending on the function selected, you'll have to provide parameters and a constant value to evaluate in the transformation. Refer to the following table for more information about the available functions.
 1. Select the source of the attribute by clicking on the appropriate radio button. Directory schema extension source is in preview currently.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension4.png" alt-text="Screenshot of claims transformation.":::
+    :::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-4.png" alt-text="Screenshot of claims transformation.":::
 
 1. Select the attribute name from the dropdown.
 
@@ -268,7 +268,7 @@ For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs 
 
 First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because this is true, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**, because this is also true, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension3.png" alt-text="Screenshot of claims conditional configuration.":::
+:::image type="content" source="./media/active-directory-saml-claims-customization/mv-extension-3.png" alt-text="Screenshot of claims conditional configuration.":::
 
 As another example, consider when Britta Simon tries to sign in and the following configuration is used. Azure AD first evaluates all conditions with source `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
 
