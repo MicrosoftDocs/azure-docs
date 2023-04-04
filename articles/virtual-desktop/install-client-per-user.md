@@ -3,7 +3,7 @@ title: Install the Remote Desktop client for Windows on a per-user basis - Azure
 description: How to install the Azure Virtual Desktop client on a per-user basis using Intune or Configuration Manager.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/03/2023
+ms.date: 04/04/2023
 ms.author: helohr
 manager: femila
 ---
