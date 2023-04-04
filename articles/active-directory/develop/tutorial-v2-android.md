@@ -159,7 +159,7 @@ Follow these steps to create a new project if you don't already have an Android 
    - _OnFragmentInteractionListener_
    - _SingleAccountModeFragment_
 
-1. Open _MSGraphRequestWrapper_ and replace the code with following code snippet to call the Microsoft Graph API using the token provided by MSAL:
+1. Open _MSGraphRequestWrapper.java_ and replace the code with following code snippet to call the Microsoft Graph API using the token provided by MSAL:
 
    ```java
     package com.azuresamples.msalandroidapp;
@@ -236,7 +236,7 @@ Follow these steps to create a new project if you don't already have an Android 
 
    ```
 
-1. Open _OnFragmentInteractionListener_ and replace the code with following code snippet to allow communication between different fragments:
+1. Open _OnFragmentInteractionListener.java_ and replace the code with following code snippet to allow communication between different fragments:
 
    ```java
     package com.azuresamples.msalandroidapp;
@@ -255,7 +255,7 @@ Follow these steps to create a new project if you don't already have an Android 
     }
    ```
 
-1. Open _SingleAccountModeFragment_ and replace the code with following code snippet to initialize a single-account application, loads a user account, and gets a token to call the Microsoft Graph API:
+1. Open _SingleAccountModeFragment.java_ and replace the code with following code snippet to initialize a single-account application, loads a user account, and gets a token to call the Microsoft Graph API:
 
    ```java
     package com.azuresamples.msalandroidapp;
@@ -644,7 +644,7 @@ Follow these steps to create a new project if you don't already have an Android 
 
    ```
 
-1. Open _MainActivity_ and replace the code with following code snippet to manage the UI.
+1. Open _MainActivity.java_ and replace the code with following code snippet to manage the UI.
 
    ```java
     package com.azuresamples.msalandroidapp;
