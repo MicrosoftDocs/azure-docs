@@ -83,7 +83,31 @@ You now need to gather some information, which you'll use to get a Grafana API a
 
 ## Get an access token
 
-To access Grafana APIs, you need to get an access token. Follow the example below to call Azure AD and retrieve a token. Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step.
+To access Grafana APIs, you need to get an access token. You can get the access token using the Azure Command-Line Interface (CLI) or making a POST request.
+
+### Get an access token using the Azure Command-Line Interface (CLI)
+
+Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step and login with Azure CLI:
+
+```
+az login --service-principal -u "<client-id>" -p "client-secret>" --tenant "<tenant-id>"
+```
+
+Use the command `az grafana api-key create` to create a key, here is an example output:
+
+```
+az grafana api-key create --key keyname --name <name> -g <rg> -r editor -o json
+You will only be able to view this key here once. Please save it in a secure place.
+{
+  "id": 3,
+  "key": "<redacted>",
+  "name": "keyname"
+}
+```
+
+### Get an access token using a POST request
+
+Follow the example below to call Azure AD and retrieve a token. Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step.
 
 ```bash
 curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' \
