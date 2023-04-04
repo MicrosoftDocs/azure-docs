@@ -48,18 +48,18 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
 3. Select a **time range** for investigating queries.
 4. On the first tab, review the list of **Long Running Queries**.
 5. Use sliders or zoom to change the observed interval.
-:::image type="content" source="./media/concepts-query-performance-insight/1-long-running-queries.png" alt-text="Screenshot of overview page for parameters.":::
+:::image type="content" source="./media/concepts-query-performance-insight/1-long-running-queries.png" alt-text="Screenshot of using sliders to change the observed interval.":::
 
 6. Optionally, you can select the **custom** to specify a time range.
 
 > [!NOTE]
-> For Azure PostgreSQL Flexible Server to render the information in Query Performance Insight, **Query Store needs to capture a couple hours of data**. If the database has no activity or if Query Store was not active during a certain period, the charts will be empty when Query Performance Insight displays that time range. You can enable Query Store at any time if it's not running. For more information, see [Best practices with Query Store](concepts-query-store-best-practices)
+> For Azure PostgreSQL Flexible Server to render the information in Query Performance Insight, **Query Store needs to capture a couple hours of data**. If the database has no activity or if Query Store was not active during a certain period, the charts will be empty when Query Performance Insight displays that time range. You can enable Query Store at any time if it's not running. For more information, see [Best practices with Query Store](concepts-query-store-best-practices.md)
 
 7. To **view details** of a specific query, click the `QueryId Snapshot` dropdown.
-:::image type="content" source="./media/concepts-query-performance-insight/2-individual-query-details.png" alt-text="Screenshot of overview page for parameters.":::
+:::image type="content" source="./media/concepts-query-performance-insight/2-individual-query-details.png" alt-text="Screenshot of viewing details of a specific query.":::
 
 8. To get the **Query Text** of a specific query, connect to the `azure_sys` database on the server and query `query_store.query_texts_view` with the `QueryId`
-:::image type="content" source="./media/concepts-query-performance-insight/3-view-query-text.png" alt-text="Screenshot of overview page for parameters.":::
+:::image type="content" source="./media/concepts-query-performance-insight/3-view-query-text.png" alt-text="Screenshot of getting query text of a specific query.":::
 
 9. On the Consecutive tabs, you can find other query insights including:
     >[!div class="checklist"]
