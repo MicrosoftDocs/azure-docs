@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.date: 03/21/2023
 ---
 
-# MSIXMGR Tool parameters
+# MSIXMGR tool parameters
 
 This article contains the command line syntax to help you understand and get the most from the MSIXMGR tool. In this article, we'll show you the syntax of all the parameters used by the MSIXMGR tool.  
 
