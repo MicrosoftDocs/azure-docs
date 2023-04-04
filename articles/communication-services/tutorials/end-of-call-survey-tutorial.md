@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services End of Call Survey
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services tutorial document
 description: Learn how to use the End of Call Survey to collect user feedback.
 author: amagginetti
 ms.author: amagginetti
@@ -105,7 +105,7 @@ Surveying Guidelines
 - How long will it take for survey data to be available in Azure?
 
 ## Next Steps
--	Learn how to use the End of Call Survey, see **ADD LINK**
+-	Learn more about the End of Call Survey, see: [End of Call Survey overview](../concepts/voice-video-calling/end-of-call-survey.md)
 
 -	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
