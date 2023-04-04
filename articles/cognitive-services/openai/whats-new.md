@@ -15,6 +15,10 @@ keywords:
 
 # What's new in Azure OpenAI Service
 
+## April 2023
+
+- **DALL-E 2 public preview**. Azure OpenAI customers can now use image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./tbd) and [how-to article](./tbd).
+
 ## March 2023
 
 - **GPT-4 series models are now available in preview on Azure OpenAI**. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4). These models are currently available in the East US and South Central US regions.
