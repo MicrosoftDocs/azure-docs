@@ -135,6 +135,11 @@
       "redirect_url": "/azure/active-directory/saas-apps/f5-big-ip-headers-easy-button",
       "redirect_document_id": false
     },
+	{
+      "source_path_from_root": "/articles/active-directory/saas-apps/tripactions-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/navan-tutorial",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
@@ -168,6 +173,11 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-github.md",
       "redirect_url": "/azure/active-directory/develop/workload-identity-federation-create-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-create-trust-gcp.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation",
       "redirect_document_id": false
     },
     {

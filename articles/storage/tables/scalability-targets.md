@@ -3,12 +3,12 @@ title: Scalability and performance targets for Table storage
 titleSuffix: Azure Storage
 description: Learn about scalability and performance targets for Table storage.
 services: storage
-author: jimmart-dev
+author: tamram
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.author: jammart
+ms.author: tamram
 ms.subservice: tables
 ---
 
