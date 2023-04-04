@@ -11,6 +11,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 12/02/2021
 ms.topic: tutorial
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # How to create a secure workspace by using template
 
@@ -252,6 +253,8 @@ When using the Terraform template, the jump box name is passed using the `dsvm_n
 > * [Create/manage VMs (Windows)](../virtual-machines/windows/tutorial-manage-vm.md).
 > * [Create/manage compute instance](how-to-create-manage-compute-instance.md).
 
+:::moniker range="azureml-api-2"
 To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
+:::moniker-end
 
 To learn more about common secure workspace configurations and input/output requirements, see [Azure Machine Learning secure workspace traffic flow](concept-secure-network-traffic-flow.md).
