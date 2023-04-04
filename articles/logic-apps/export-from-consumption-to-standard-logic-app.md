@@ -173,7 +173,7 @@ If you export actions that depend on an integration account, you have to manuall
 
 ### Batch actions and settings
 
-If you export actions that uses Batch based on an Integration account with multiple configuration, you will have to manually configure your batch action with the correct values. For more invormation, review [Send, receive, and batch process messages in Azure Logic Apps](logic-apps-batch-process-send-receive-messages.md#create-batch-receiver)
+If you export actions that use Batch actions based on an integration account with multiple configuration, you have to manually configure your Batch action with the correct values. For more information, review [Send, receive, and batch process messages in Azure Logic Apps](logic-apps-batch-process-send-receive-messages.md#create-batch-receiver).
 
 ## Project folder structure
 
