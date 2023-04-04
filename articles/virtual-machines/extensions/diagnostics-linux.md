@@ -56,13 +56,13 @@ A distribution that lists only major versions, like Debian 7, is also supported 
 
 ### Python requirement
 
-The Linux diagnostic extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, install it.
+The Linux diagnostic extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2, install it.
 
 > [!NOTE]
-> We are currently planning to converge all versions of the Linux Diagnostic Extensions (LAD) with the new Azure Monitoring Agent - which already supports Python 3. We expect to ship this early to mid 2022. The LAD will be scheduled for deprecation pending announcement and approval.
+> We are currently planning to converge all versions of the Linux Diagnostic Extensions (LAD) with the new Azure Monitoring Agent, which already supports Python 3. The LAD will be scheduled for deprecation pending announcement and approval.
 >
 
-To install and alias Python 2, run one of the following sample commands to install Python 2:
+To install Python 2, run one of the following sample commands:
 
 - Red Hat, CentOS, Oracle: `yum install -y python2`
 - Ubuntu, Debian: `apt-get install -y python2`
@@ -111,7 +111,10 @@ You can install and configure LAD 4.0 in the Azure CLI or in Azure PowerShell.
 If your protected settings are in the file *ProtectedSettings.json* and your public configuration information is in *PublicSettings.json*, run this command:
 
 ```azurecli
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics \
+  --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> \
+  --vm-name <vm_name> --protected-settings ProtectedSettings.json \
+  --settings PublicSettings.json
 ```
 
 The command assumes that you're using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model VMs, switch to Service Management mode (`azure config mode asm`) and omit the resource group name in the command.
@@ -123,7 +126,11 @@ For more information, see the [cross-platform CLI documentation](/cli/azure/auth
 If your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> `
+  -Location <vm_location> -ExtensionType LinuxDiagnostic `
+  -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic `
+  -SettingString $publicSettings -ProtectedSettingString $protectedSettings `
+  -TypeHandlerVersion 4.0
 ```
 
 ---
@@ -135,13 +142,20 @@ To enable automatic update of the agent, we recommend that you enable the [Autom
 # [Azure CLI](#tab/azcli)
 
 ```azurecli
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json --enable-auto-upgrade true
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic \
+  --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> \
+  --protected-settings ProtectedSettings.json --settings PublicSettings.json \
+  --enable-auto-upgrade true
 ```
 
 # [Azure PowerShell](#tab/powershell)
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0 -EnableAutomaticUpgrade $true
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> `
+  -Location <vm_location> -ExtensionType LinuxDiagnostic `
+  -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic `
+  -SettingString $publicSettings -ProtectedSettingString $protectedSettings `
+  -TypeHandlerVersion 4.0 -EnableAutomaticUpgrade $true
 ```
 
 ---
@@ -153,7 +167,7 @@ In these examples, the sample configuration collects a set of standard data and 
 > [!NOTE]
 > For the following samples, fill in the appropriate values for the variables in the first section before you run the code.
 
-In most cases, you should download a copy of the portal settings JSON file and customize it for your needs. Then use templates or your own automation to use a customized version of the configuration file rather than downloading from the URL each time.
+In most cases, you should download a copy of the portal settings JSON file and customize it for your needs. Use templates or your own automation to use a customized version of the configuration file rather than downloading from the URL each time.
 
 When you enable the new Azure Monitor sink, the VMs need to have system-assigned identity enabled to generate Managed Service Identity (MSI) authentication tokens. You can add these settings during or after VM creation. For instructions for the Azure portal, the Azure CLI, PowerShell, and Azure Resource Manager, see [Configure managed identities](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
@@ -181,16 +195,22 @@ az vm identity assign --resource-group $my_resource_group --name $my_linux_vm
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
 # Build the VM resource ID. Replace the storage account name and resource ID in the public settings.
-my_vm_resource_id=$(az vm show --resource-group $my_resource_group --name $my_linux_vm --query "id" -o tsv)
+my_vm_resource_id=$(az vm show --resource-group $my_resource_group \
+  --name $my_linux_vm --query "id" -o tsv)
 sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
 sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 
 # Build the protected settings (storage account SAS token).
-my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
-my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
+my_diagnostic_storage_account_sastoken=$(az storage account generate-sas \
+  --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z \
+  --permissions wlacu --resource-types co --services bt -o tsv)
+my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', \
+  'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finally, tell Azure to install and enable the extension.
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic \
+  --version 4.0 --resource-group $my_resource_group --vm-name $my_linux_vm \
+  --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -217,13 +237,21 @@ $publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 # If you have your own customized public settings, you can inline those rather than using the preceding template: $publicSettings = '{"ladCfg":  { ... },}'
 
 # Generate a SAS token for the agent to use to authenticate with the storage account
-$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table `
+  -ResourceType Service,Container,Object -Permission "racwdlup" `
+  -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup `
+  -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
 
 # Build the protected settings (storage account SAS token)
-$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
+$protectedSettings="{'storageAccountName': '$storageAccountName', `
+  'storageAccountSasToken': '$sasToken'}"
 
 # Finally, install the extension with the settings you built
-Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName `
+  -Location $vm.Location -ExtensionType LinuxDiagnostic `
+  -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic `
+  -SettingString $publicSettings -ProtectedSettingString $protectedSettings `
+  -TypeHandlerVersion 4.0
 ```
 
 ---
@@ -250,16 +278,21 @@ az vmss identity assign --resource-group $my_resource_group --name $my_linux_vms
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
 # Build the virtual machine scale set resource ID. Replace the storage account name and resource ID in the public settings.
-my_vmss_resource_id=$(az vmss show --resource-group $my_resource_group --name $my_linux_vmss --query "id" -o tsv)
+my_vmss_resource_id=$(az vmss show --resource-group $my_resource_group \
+  --name $my_linux_vmss --query "id" -o tsv)
 sed -i "s#__DIAGNOSTIC_STORAGE_ACCOUNT__#$my_diagnostic_storage_account#g" portal_public_settings.json
 sed -i "s#__VM_RESOURCE_ID__#$my_vmss_resource_id#g" portal_public_settings.json
 
 # Build the protected settings (storage account SAS token).
-my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
+my_diagnostic_storage_account_sastoken=$(az storage account generate-sas \
+  --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z \
+  --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finally, tell Azure to install and enable the extension.
-az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
+az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic 
+  --version 4.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss \
+  --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
 ### Update the extension settings
@@ -338,7 +371,7 @@ The `sinksConfig` optional section defines more destinations to which the extens
 | Element | Value |
 | ------- | ----- |
 | name | A string used to refer to this sink elsewhere in the extension configuration. |
-| type | The type of sink being defined. Determines the other values (if any) in instances of this type. |
+| type | The type of sink being defined. Determines the other values, if any, in instances of this type. |
 
 The Linux diagnostic extension 4.0 supports two protected sink types: `EventHub` and `JsonBlob`.
 
@@ -422,7 +455,7 @@ The following sections provide details about the remaining elements.
 
 The `ladCfg` structure controls the gathering of metrics and logs for delivery to the Azure Monitor Metrics service and to other data sinks. Specify either `performanceCounters` or `syslogEvents` or both. Also specify the `metrics` structure.
 
-If you don't want to enable syslog or metrics collection, specify an empty structure for the `ladCfg` element, like so:
+If you don't want to enable syslog or metrics collection, specify an empty structure for the `ladCfg` element:
 
 ```json
 "ladCfg": {
@@ -489,7 +522,7 @@ The `performanceCounters` optional section controls the collection of metrics. R
 
 | Element | Value |
 | ------- | ----- |
-| sinks | (Optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. Example: `"MyEventHubSink, MyJsonSink, MyAzMonSink"`. For more information, see [`sinksConfig` (protected settings)](#sinksconfig) and [`sinksConfig` (public settings)](#sinksconfig-1). |
+| sinks | (Optional) A comma-separated list of names of sinks to which LAD sends aggregated metric results. All aggregated metrics are published to each listed sink. For example, `"MyEventHubSink, MyJsonSink, MyAzMonSink"`. For more information, see [`sinksConfig` (protected settings)](#sinksconfig) and [`sinksConfig` (public settings)](#sinksconfig-1). |
 | type | Identifies the actual provider of the metric. |
 | class | Together with `"counter"`, identifies the specific metric within the provider's namespace. |
 | counter | Together with `"class"`, identifies the specific metric within the provider's namespace. [See a list of available counters](#metrics-supported-by-the-builtin-provider). |
@@ -544,10 +577,10 @@ The `syslogEventConfiguration` collection has one entry for each syslog facility
 | Element | Value |
 | ------- | -----
 sinks | A comma-separated list of names of sinks to which individual log events are published. All log events that match the restrictions in `syslogEventConfiguration` are published to each listed sink. Example: `"EHforsyslog"`
-facilityName | A syslog facility name, such as `"LOG\_USER"` or `"LOG\_LOCAL0"`. For more information, see the "facility" section of the [syslog manual page](http://man7.org/linux/man-pages/man3/syslog.3.html).
-minSeverity | A syslog severity level, such as `"LOG\_ERR"` or `"LOG\_INFO"`. For more information, see the "level" section of the [syslog manual page](http://man7.org/linux/man-pages/man3/syslog.3.html). The extension captures events sent to the facility at or above the specified level.
+facilityName | A syslog facility name, such as `"LOG_USER"` or `"LOG_LOCAL0"`. For more information, see *Values for facility* in the [syslog manual page](http://man7.org/linux/man-pages/man3/syslog.3.html).
+minSeverity | A syslog severity level, such as `"LOG_ERR"` or `"LOG_INFO"`. For more information, see *Values for level* in the [syslog manual page](http://man7.org/linux/man-pages/man3/syslog.3.html). The extension captures events sent to the facility at or above the specified level.
 
-When you specify `syslogEvents`, LAD always writes data to a table in Azure Storage. The same data can be written to JSON blobs or Event Hubs or both. But you can't disable storing data to a table.
+When you specify `syslogEvents`, LAD always writes data to a table in Azure Storage. The same data can be written to JSON blobs or Event Hubs or both. You can't disable storing data to a table.
 
 The partitioning behavior for this table is the same as described for `performanceCounters`. The table name is the concatenation of these strings:
 
@@ -599,7 +632,7 @@ The `fileLogs` section controls the capture of log files. LAD captures new text 
 | Element | Value |
 | ------- | ----- |
 | file | The full path of the log file to be watched and captured. The path can't specify a directory or contain wildcard characters. The `omsagent` user account must have read access to the file path. |
-| table | (Optional) The Azure Storage table into which new lines from the "tail" of the file are written. The table must be in the designated storage account, as specified in the protected configuration. |
+| table | (Optional) The Azure Storage Table into which new lines from the tail of the file are written. The table must be in the designated storage account, as specified in the protected configuration. |
 | sinks | (Optional) A comma-separated list of names of more sinks to which log lines are sent. |
 
 Either `"table"` or `"sinks"` or both must be specified.
@@ -611,10 +644,10 @@ The default metrics that LAD supports are aggregated across all file systems, di
 > [!NOTE]
 > The display names for each metric differ depending on the metrics namespace to which it belongs:
 >
-> - `Guest (classic)` (populated from your storage account): the specified `displayName` in the `performanceCounters` section, or the default display name as seen in Azure Portal. For the VM, under **Monitoring** > **Diagnostic settings**, select **Metrics** tab.
-> - `azure.vm.linux.guestmetrics` (populated from `AzMonSink` if configured): the "`azure.vm.linux.guestmetrics` Display Name" specified in the following tables.
+> - `Guest (classic)` populated from your storage account: the specified `displayName` in the `performanceCounters` section, or the default display name as seen in Azure Portal. For the VM, under **Monitoring** > **Diagnostic settings**, select **Metrics** tab.
+> - `azure.vm.linux.guestmetrics` populated from `AzMonSink`, if configured: the "`azure.vm.linux.guestmetrics` Display Name" specified in the following tables.
 >
-> Due to implementation details, the metric values between `Guest (classic)` and `azure.vm.linux.guestmetrics` versions differ. While the classic metrics had certain aggregations applied in the agent, the new metrics are unaggregated counters, giving customers the flexibility to aggregate as desired at viewing/alerting time.
+> The metric values between `Guest (classic)` and `azure.vm.linux.guestmetrics` versions differ. While the classic metrics had certain aggregations applied in the agent, the new metrics are unaggregated counters, giving customers the flexibility to aggregate as desired at viewing/alerting time.
 
 The `builtin` metric provider is a source of metrics that are the most interesting to a broad set of users. These metrics fall into five broad classes:
 
@@ -668,7 +701,7 @@ The Network class of metrics provides information about network activity on an i
 
 LAD doesn't expose bandwidth metrics. You can get these metrics from host metrics.
 
-| Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning |
+| Counter | azure.vm.linux.guestmetrics Display Name | Meaning |
 | --------- | ---------------------------------- | ------- |
 | BytesTransmitted | `network out guest os` | Total bytes sent since startup |
 | BytesReceived | `network in guest os` | Total bytes received since startup |
@@ -681,9 +714,9 @@ LAD doesn't expose bandwidth metrics. You can get these metrics from host metric
 
 ### builtin metrics for the File system class
 
-The File system class of metrics provides information about file system usage. Absolute and percentage values are reported as they would be displayed to an ordinary user (not root).
+The File system class of metrics provides information about file system usage. Absolute and percentage values are reported as they would be displayed to an ordinary user, not root.
 
-| Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning |
+| Counter | azure.vm.linux.guestmetrics Display Name | Meaning |
 | --------- | ---------------------------------- | ------- |
 | FreeSpace | `filesystem free space` | Available disk space in bytes |
 | UsedSpace | `filesystem used space` | Used disk space in bytes |
@@ -704,7 +737,7 @@ The Disk class of metrics provides information about disk device usage. These st
 
 When a device has multiple file systems, the counters for that device are, effectively, aggregated across all file systems.
 
-| Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning |
+| Counter | azure.vm.linux.guestmetrics Display Name | Meaning |
 | --------- | ---------------------------------- | ------- |
 | ReadsPerSecond | `disk reads` | Read operations per second |
 | WritesPerSecond | `disk writes` | Write operations per second |
@@ -725,7 +758,7 @@ Based on the preceding definitions, this section provides a sample LAD 4.0 exten
 > Depending on whether you use the Azure CLI or Azure PowerShell to install LAD, the method for providing public and protected settings differs:
 >
 > - If you're using the Azure CLI, save the following settings to *ProtectedSettings.json* and *PublicSettings.json* to use the preceding sample command.
-> - If you're using PowerShell, run `$protectedSettings = '{ ... }'` to save the following settings to `$protectedSettings` and `$publicSettings`.
+> - If you're using PowerShell, run `$protectedSettings = '{ ... }'` and `$publicSettings = '{ ... }'` to save the following settings to `$protectedSettings` and `$publicSettings`.
 
 ### Protected settings configuration
 
@@ -781,7 +814,7 @@ The protected settings configure:
 
 The public settings cause LAD to:
 
-- Upload percent-processor-time metrics and used-disk-space metrics to the `WADMetrics*` table,
+- Upload percent-processor-time metrics and used-disk-space metrics to the `WADMetrics*` table.
 - Upload messages from syslog facility `"user"` and severity `"info"` to the `LinuxSyslog*` table.
 - Upload appended lines in file `/var/log/myladtestlog` to the `MyLadTestLog` table.
 
@@ -882,7 +915,7 @@ Use the Azure portal to view performance data or set alerts:
 
 The `performanceCounters` data is always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
 
-Data sent to `JsonBlob` sinks is stored in blobs in the storage account named in the [protected settings](#protected-settings-configuration). You can consume the blob data in any Azure Blob Storage APIs.
+Data sent to `JsonBlob` sinks is stored in blobs in the storage account named in the [protected settings](#protected-settings-configuration). You can consume the blob data in any Azure Blob Storage API.
 
 You also can use these UI tools to access the data in Azure Storage:
 
