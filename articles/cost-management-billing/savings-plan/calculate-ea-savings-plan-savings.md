@@ -1,5 +1,5 @@
 ---
-title: Calculate EA savings plan cost savings
+title: Calculate Enterprise Agreement (EA) savings plan cost savings
 titleSuffix: Microsoft Cost Management
 description: Learn how Enterprise Agreement users manually calculate their savings plan savings.
 author: bandersmsft
