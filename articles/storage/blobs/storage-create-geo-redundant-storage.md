@@ -37,17 +37,11 @@ In part one of the series, you learn how to:
 
 To complete this tutorial:
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 - Install [Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
 
   ![Screenshot of Visual Studio Azure development workload (under Web & Cloud).](media/storage-create-geo-redundant-storage/workloads-net-v12.png)
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-- Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **Azure development** workload.
-
-  ![Screenshot of Visual Studio Azure development workload (under Web & Cloud).](media/storage-create-geo-redundant-storage/workloads.png)
 
 # [Python v12 SDK](#tab/python)
 
@@ -97,21 +91,11 @@ Follow these steps to create a read-access geo-zone-redundant (RA-GZRS) storage 
 
 ## Download the sample
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 Download the [sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip), extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file, then navigate to the v12 folder to find the project files.
 
 You can also use [git](https://git-scm.com/) to clone the repository to your local development environment. The sample project in the v12 folder contains a console application.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
-```
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-Download the [sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip), extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file, then navigate to the v11 folder to find the project files.
-
-You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project in the v11 folder contains a console application.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
@@ -145,29 +129,11 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 ## Configure the sample
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 Application requests to Azure Blob storage must be authorized. Using the `DefaultAzureCredential` class provided by the `Azure.Identity` client library is the recommended approach for connecting to Azure services in your code. The .NET v12 code sample uses this approach. To learn more, please see the [DefaultAzureCredential overview](/dotnet/azure/sdk/authentication#defaultazurecredential).
 
 You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution to protect access keys from being exposed.
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-In the application, you must provide the connection string for your storage account. You can store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
-
-In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Run one of the following commands based on your operating system, replacing \<yourconnectionstring\> with your actual connection string. This command saves an environment variable to the local machine. In Windows, the environment variable isn't available until you reload the **Command Prompt** or shell you're using.
-
-### Linux
-
-```
-export storageconnectionstring=<yourconnectionstring>
-```
-
-### Windows
-
-```powershell
-setx storageconnectionstring "<yourconnectionstring>"
-```
 
 # [Python v12 SDK](#tab/python)
 
@@ -214,7 +180,7 @@ Install the required dependencies by opening a command prompt, navigating to the
 
 ## Run the console application
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if package restore is configured. See [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
 
@@ -225,16 +191,6 @@ Next, the application enters a loop with a prompt to download the blob, initiall
 ![Screenshot of Console output for secondary request.](media/storage-create-geo-redundant-storage/request-secondary-region.png)
 
 To exit the loop and clean up resources, press the `Esc` key at the blob download prompt.
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if package restore is configured, visit [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
-
-A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
-
-![Screenshot of Console application output.](media/storage-create-geo-redundant-storage/figure3.png)
-
-In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) is defined. The operation context defines event handlers that fire when a download completes successfully, or if a download fails and is retrying.
 
 # [Python v12 SDK](#tab/python)
 
@@ -287,7 +243,7 @@ Deleted container newcontainer1550799840726
 
 ## Understand the sample code
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 The sample creates a `BlobServiceClient` object configured with retry options and a secondary region endpoint. This configuration allows the application to automatically switch to the secondary region if the request fails on the primary region endpoint.
 
@@ -323,57 +279,6 @@ BlobServiceClient blobServiceClient = new BlobServiceClient(primaryAccountUri, n
 ```
 
 When the `GeoRedundantSecondaryUri` property is set in `BlobClientOptions`, retries for GET or HEAD requests will switch to use the secondary endpoint. Subsequent retries will alternate between the primary and secondary endpoint. However, if the status of the response from the secondary Uri is 404, then subsequent retries for the request will no longer use the secondary Uri, as this error code indicates the resource hasn't replicated to the secondary region.
-
-# [.NET v11 SDK](#tab/dotnet11)
-
-### Retry event handler
-
-The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint isn't retried indefinitely.
-
-```csharp
-private static void OperationContextRetrying(object sender, RequestEventArgs e)
-{
-    retryCount++;
-    Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
-
-    // Check if we have had more than n retries in which case switch to secondary.
-    if (retryCount >= retryThreshold)
-    {
-
-        // Check to see if we can fail over to secondary.
-        if (blobClient.DefaultRequestOptions.LocationMode != LocationMode.SecondaryOnly)
-        {
-            blobClient.DefaultRequestOptions.LocationMode = LocationMode.SecondaryOnly;
-            retryCount = 0;
-        }
-        else
-        {
-            throw new ApplicationException("Both primary and secondary are unreachable. Check your application's network connection. ");
-        }
-    }
-}
-```
-
-### Request completed event handler
-
-The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
-
-```csharp
-private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
-{
-    if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
-    {
-        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
-        //    then switch back to the primary and see if it's available now.
-        secondaryReadCount++;
-        if (secondaryReadCount >= secondaryThreshold)
-        {
-            blobClient.DefaultRequestOptions.LocationMode = LocationMode.PrimaryThenSecondary;
-            secondaryReadCount = 0;
-        }
-    }
-}
-```
 
 # [Python v12 SDK](#tab/python)
 

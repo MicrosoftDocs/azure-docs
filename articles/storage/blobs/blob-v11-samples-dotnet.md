@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2023
 ms.author: pauljewell
 ---
@@ -15,111 +15,13 @@ ms.author: pauljewell
 
 This article shows code examples that use version 11 of the Azure Blob Storage client library for .NET.
 
-## Optimistic concurrency for blobs
+On 31 March 2023, we retired support for Azure SDK libraries which do not conform to our [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html). The new Azure SDK libraries are updated regularly to drive consistent experiences and strengthen your security posture. Microsoft recommends that you transition to the new Azure SDK libraries to take advantage of the new capabilities and critical security updates.  
 
-```csharp
-public void DemonstrateOptimisticConcurrencyBlob(string containerName, string blobName)
-{
-    Console.WriteLine("Demonstrate optimistic concurrency");
-
-    // Parse connection string and create container.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-    container.CreateIfNotExists();
-
-    // Create test blob. The default strategy is last writer wins, so
-    // write operation will overwrite existing blob if present.
-    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
-    blockBlob.UploadText("Hello World!");
-
-    // Retrieve the ETag from the newly created blob.
-    string originalETag = blockBlob.Properties.ETag;
-    Console.WriteLine("Blob added. Original ETag = {0}", originalETag);
-
-    /// This code simulates an update by another client.
-    string helloText = "Blob updated by another client.";
-    // No ETag was provided, so original blob is overwritten and ETag updated.
-    blockBlob.UploadText(helloText);
-    Console.WriteLine("Blob updated. Updated ETag = {0}", blockBlob.Properties.ETag);
-
-    // Now try to update the blob using the original ETag value.
-    try
-    {
-        Console.WriteLine(@"Attempt to update blob using original ETag
-                            to generate if-match access condition");
-        blockBlob.UploadText(helloText, accessCondition: AccessCondition.GenerateIfMatchCondition(originalETag));
-    }
-    catch (StorageException ex)
-    {
-        if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
-        {
-            Console.WriteLine(@"Precondition failure as expected.
-                                Blob's ETag does not match.");
-        }
-        else
-        {
-            throw;
-        }
-    }
-    Console.WriteLine();
-}
-```
-
-## Pessimistic concurrency for blobs
-
-```csharp
-public void DemonstratePessimisticConcurrencyBlob(string containerName, string blobName)
-{
-    Console.WriteLine("Demonstrate pessimistic concurrency");
-
-    // Parse connection string and create container.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
-    container.CreateIfNotExists();
-
-    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
-    blockBlob.UploadText("Hello World!");
-    Console.WriteLine("Blob added.");
-
-    // Acquire lease for 15 seconds.
-    string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
-    Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
-
-    // Update blob using lease. This operation should succeed.
-    const string helloText = "Blob updated";
-    var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
-    blockBlob.UploadText(helloText, accessCondition: accessCondition);
-    Console.WriteLine("Blob updated using an exclusive lease");
-
-    // Simulate another client attempting to update to blob without providing lease.
-    try
-    {
-        // Operation will fail as no valid lease was provided.
-        Console.WriteLine("Now try to update blob without valid lease.");
-        blockBlob.UploadText("Update operation will fail without lease.");
-    }
-    catch (StorageException ex)
-    {
-        if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
-        {
-            Console.WriteLine(@"Precondition failure error as expected.
-                                Blob lease not provided.");
-        }
-        else
-        {
-            throw;
-        }
-    }
-
-    // Release lease proactively.
-    blockBlob.ReleaseLease(accessCondition);
-    Console.WriteLine();
-}
-```
+Although the older libraries can still be used beyond 31 March 2023, they will no longer receive official support and updates from Microsoft. For more information, see [this announcement](https://azure.microsoft.com/updates/support-for-azure-sdk-libraries-that-do-not-conform-to-our-current-azure-sdk-guidelines-will-be-retired-as-of-31-march-2023/).
 
 ## Create a snapshot
+
+Related article: [Create and manage a blob snapshot in .NET](snapshots-manage-dotnet.md)
 
 To create a snapshot of a block blob using version 11.x of the Azure Storage client library for .NET, use one of the following methods:
 
@@ -164,6 +66,8 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 ## Delete snapshots
 
+Related article: [Create and manage a blob snapshot in .NET](snapshots-manage-dotnet.md)
+
 To delete a blob and its snapshots using version 11.x of the Azure Storage client library for .NET, use one of the following blob deletion methods, and include the [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) enum:
 
 - [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
@@ -178,6 +82,8 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ```
 
 ## Create a service SAS for a blob container
+
+Related article: [Create a service SAS for a container or blob with .NET](sas-service-create-dotnet.md)
 
 To create a service SAS for a container, call the [CloudBlobContainer.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) method.
 
@@ -227,6 +133,8 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 ```
 
 ## Create a service SAS for a blob
+
+Related article: [Create a service SAS for a container or blob with .NET](sas-service-create-dotnet.md)
 
 To create a service SAS for a blob, call the [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) method.
 
@@ -282,6 +190,8 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 
 ## Create an account SAS
 
+Related article: [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
+
 To create an account SAS for a container, call the [CloudStorageAccount.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) method.
 
 The following code example creates an account SAS that is valid for the Blob and File services, and gives the client permissions read, write, and list permissions to access service-level APIs. The account SAS restricts the protocol to HTTPS, so the request must be made with HTTPS. Remember to replace placeholder values in angle brackets with your own values:
@@ -311,6 +221,8 @@ static string GetAccountSASToken()
 ```
 
 ## Use an account SAS from a client
+
+Related article: [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
 
 In this snippet, replace the `<storage-account>` placeholder with the name of your storage account.
 
@@ -354,79 +266,175 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-## Creating an empty page blob of a specified size
+## Optimistic concurrency for blobs
 
-To create a page blob, we first create a **CloudBlobClient** object, with the base URI for accessing the blob storage for your storage account (*pbaccount* in figure 1) along with the **StorageCredentialsAccountAndKey** object, as shown in the following example. The example then shows creating a reference to a **CloudBlobContainer** object, and then creating the container (*testvhds*) if it doesn't already exist. Then using the **CloudBlobContainer** object, create a reference to a **CloudPageBlob** object by specifying the page blob name (os4.vhd) to access. To create the page blob, call [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passing in the max size for the blob to create. The *blobSize* must be a multiple of 512 bytes.
-
-```csharp
-using Microsoft.Azure;
-using Microsoft.Azure.Storage;
-using Microsoft.Azure.Storage.Blob;
-
-long OneGigabyteAsBytes = 1024 * 1024 * 1024;
-// Retrieve storage account from connection string.
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-// Create the blob client.
-CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-// Retrieve a reference to a container.
-CloudBlobContainer container = blobClient.GetContainerReference("testvhds");
-
-// Create the container if it doesn't already exist.
-container.CreateIfNotExists();
-
-CloudPageBlob pageBlob = container.GetPageBlobReference("os4.vhd");
-pageBlob.Create(16 * OneGigabyteAsBytes);
-```
-
-## Resizing a page blob
-
-To resize a page blob after creation, use the [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) method. The requested size should be a multiple of 512 bytes.
+Related article: [Managing Concurrency in Blob storage](concurrency-manage.md)
 
 ```csharp
-pageBlob.Resize(32 * OneGigabyteAsBytes);
-```
-
-## Writing pages to a page blob
-
-To write pages,  use the [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) method.
-
-```csharp
-pageBlob.WritePages(dataStream, startingOffset); 
-```
-
-## Reading pages from a page blob
-
-To read pages, use the [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) method to read a range of bytes from the page blob.
-
-```csharp
-byte[] buffer = new byte[rangeSize];
-pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
-```
-
-To determine which pages are backed by data, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). You can then enumerate the returned ranges and download the data in each range.
-
-```csharp
-IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
-
-foreach (PageRange range in pageRanges)
+public void DemonstrateOptimisticConcurrencyBlob(string containerName, string blobName)
 {
-    // Calculate the range size
-    int rangeSize = (int)(range.EndOffset + 1 - range.StartOffset);
+    Console.WriteLine("Demonstrate optimistic concurrency");
 
-    byte[] buffer = new byte[rangeSize];
+    // Parse connection string and create container.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+    container.CreateIfNotExists();
 
-    // Read from the correct starting offset in the page blob and
-    // place the data in the bufferOffset of the buffer byte array
-    pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, range.StartOffset, rangeSize);
+    // Create test blob. The default strategy is last writer wins, so
+    // write operation will overwrite existing blob if present.
+    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
+    blockBlob.UploadText("Hello World!");
 
-    // Then use the buffer for the page range just read
+    // Retrieve the ETag from the newly created blob.
+    string originalETag = blockBlob.Properties.ETag;
+    Console.WriteLine("Blob added. Original ETag = {0}", originalETag);
+
+    /// This code simulates an update by another client.
+    string helloText = "Blob updated by another client.";
+    // No ETag was provided, so original blob is overwritten and ETag updated.
+    blockBlob.UploadText(helloText);
+    Console.WriteLine("Blob updated. Updated ETag = {0}", blockBlob.Properties.ETag);
+
+    // Now try to update the blob using the original ETag value.
+    try
+    {
+        Console.WriteLine(@"Attempt to update blob using original ETag
+                            to generate if-match access condition");
+        blockBlob.UploadText(helloText, accessCondition: AccessCondition.GenerateIfMatchCondition(originalETag));
+    }
+    catch (StorageException ex)
+    {
+        if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
+        {
+            Console.WriteLine(@"Precondition failure as expected.
+                                Blob's ETag does not match.");
+        }
+        else
+        {
+            throw;
+        }
+    }
+    Console.WriteLine();
+}
+```
+
+## Pessimistic concurrency for blobs
+
+Related article: [Managing Concurrency in Blob storage](concurrency-manage.md)
+
+```csharp
+public void DemonstratePessimisticConcurrencyBlob(string containerName, string blobName)
+{
+    Console.WriteLine("Demonstrate pessimistic concurrency");
+
+    // Parse connection string and create container.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+    container.CreateIfNotExists();
+
+    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
+    blockBlob.UploadText("Hello World!");
+    Console.WriteLine("Blob added.");
+
+    // Acquire lease for 15 seconds.
+    string lease = blockBlob.AcquireLease(TimeSpan.FromSeconds(15), null);
+    Console.WriteLine("Blob lease acquired. Lease = {0}", lease);
+
+    // Update blob using lease. This operation should succeed.
+    const string helloText = "Blob updated";
+    var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
+    blockBlob.UploadText(helloText, accessCondition: accessCondition);
+    Console.WriteLine("Blob updated using an exclusive lease");
+
+    // Simulate another client attempting to update to blob without providing lease.
+    try
+    {
+        // Operation will fail as no valid lease was provided.
+        Console.WriteLine("Now try to update blob without valid lease.");
+        blockBlob.UploadText("Update operation will fail without lease.");
+    }
+    catch (StorageException ex)
+    {
+        if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
+        {
+            Console.WriteLine(@"Precondition failure error as expected.
+                                Blob lease not provided.");
+        }
+        else
+        {
+            throw;
+        }
+    }
+
+    // Release lease proactively.
+    blockBlob.ReleaseLease(accessCondition);
+    Console.WriteLine();
+}
+```
+
+## Build a highly available app with Blob Storage
+
+Related article: [Tutorial: Build a highly available application with Blob storage](storage-create-geo-redundant-storage.md)
+Full code sample: Use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project in the v11 folder contains a console application.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
+```
+
+### Retry event handler
+
+The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint isn't retried indefinitely.
+
+```csharp
+private static void OperationContextRetrying(object sender, RequestEventArgs e)
+{
+    retryCount++;
+    Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
+
+    // Check if we have had more than n retries in which case switch to secondary.
+    if (retryCount >= retryThreshold)
+    {
+
+        // Check to see if we can fail over to secondary.
+        if (blobClient.DefaultRequestOptions.LocationMode != LocationMode.SecondaryOnly)
+        {
+            blobClient.DefaultRequestOptions.LocationMode = LocationMode.SecondaryOnly;
+            retryCount = 0;
+        }
+        else
+        {
+            throw new ApplicationException("Both primary and secondary are unreachable. Check your application's network connection. ");
+        }
+    }
+}
+```
+
+### Request completed event handler
+
+The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
+
+```csharp
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
+{
+    if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
+    {
+        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
+        //    then switch back to the primary and see if it's available now.
+        secondaryReadCount++;
+        if (secondaryReadCount >= secondaryThreshold)
+        {
+            blobClient.DefaultRequestOptions.LocationMode = LocationMode.PrimaryThenSecondary;
+            secondaryReadCount = 0;
+        }
+    }
 }
 ```
 
 ## Upload large amounts of random data to Azure storage
+
+Related article: [Upload large amounts of random data in parallel to Azure storage](storage-blob-scalable-app-upload-files.md)
 
 The minimum and maximum number of threads are set to 100 to ensure that a large number of concurrent connections are allowed.
 
@@ -528,6 +536,8 @@ In addition to setting the threading and connection limit settings, the [BlobReq
 
 ## Download large amounts of random data from Azure storage
 
+Related article: [Download large amounts of random data from Azure storage](storage-blob-scalable-app-download-files.md)
+
 The application reads the containers located in the storage account specified in the **storageconnectionstring**. It iterates through the blobs 10 at a time using the [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmentedasync) method in the containers and downloads them to the local machine using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method.
 
 The following table shows the [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) defined for each blob as it is downloaded.
@@ -624,6 +634,8 @@ private static async Task DownloadFilesAsync()
 
 ## Enable Azure Storage Analytics logs (classic)
 
+Related article: [Enable and manage Azure Storage Analytics logs (classic)](../common/manage-storage-analytics-logs.md)
+
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
@@ -636,6 +648,8 @@ queueClient.SetServiceProperties(serviceProperties);
 ```
 
 ## Modify log data retention period
+
+Related article: [Enable and manage Azure Storage Analytics logs (classic)](../common/manage-storage-analytics-logs.md)
 
 The following example prints to the console the retention period for blob and queue storage services.
 
@@ -666,7 +680,9 @@ blobClient.SetServiceProperties(blobserviceProperties);
 queueClient.SetServiceProperties(queueserviceProperties);  
 ```
 
-## Enable Azure Storage Analytics logs (classic)
+## Enable Azure Storage Analytics metrics (classic)
+
+Related article: [Enable and manage Azure Storage Analytics metrics (classic)](../common/manage-storage-analytics-metrics.md)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -680,6 +696,8 @@ queueClient.SetServiceProperties(serviceProperties);
 ```
 
 ## Configure Transport Layer Security (TLS) for a client application
+
+Related article: [Configure Transport Layer Security (TLS) for a client application](../common/transport-layer-security-configure-client-version.md)
 
 The following sample shows how to enable TLS 1.2 in a .NET client using version 11 of the Azure Storage client library:
 
@@ -703,7 +721,9 @@ static void EnableTls12()
 
 ## Create a stored access policy
 
-To create a stored access policy on a container with version 12 of the .NET client library for Azure Storage, call one of the following methods:
+Related article: [Create a stored access policy with .NET](../common/storage-stored-access-policy-define-dotnet.md)
+
+To create a stored access policy on a container with version 11 of the .NET client library for Azure Storage, call one of the following methods:
 
 - [CloudBlobContainer.SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
 - [CloudBlobContainer.SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
@@ -733,6 +753,8 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ## Monitor, diagnose, and troubleshoot Microsoft Azure Storage (classic)
+
+Related article: [Monitor, diagnose, and troubleshoot Microsoft Azure Storage (classic)](../common/storage-monitoring-diagnosing-troubleshooting.md)
 
 If the Storage Client Library throws a **StorageException** in the client, the **RequestInformation** property contains a **RequestResult** object that includes a **ServiceRequestID** property. You can also access a **RequestResult** object from an **OperationContext** instance.
 
@@ -772,6 +794,8 @@ catch (StorageException storageException)
 
 ## Investigating client performance issues - disable the Nagle algorithm
 
+Related article: [Monitor, diagnose, and troubleshoot Microsoft Azure Storage (classic)](../common/storage-monitoring-diagnosing-troubleshooting.md)
+
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
 ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAccount.QueueEndpoint);
@@ -779,6 +803,8 @@ queueServicePoint.UseNagleAlgorithm = false;
 ```
 
 ## Investigating network latency issues - configure Cross Origin Resource Sharing (CORS)
+
+Related article: [Monitor, diagnose, and troubleshoot Microsoft Azure Storage (classic)](../common/storage-monitoring-diagnosing-troubleshooting.md)
 
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
@@ -794,4 +820,84 @@ cr.MaxAgeInSeconds = 5;
 sp.Cors.CorsRules.Clear();
 sp.Cors.CorsRules.Add(cr);
 client.SetServiceProperties(sp);
+```
+
+## Creating an empty page blob of a specified size
+
+Related article: [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
+
+To create a page blob, we first create a **CloudBlobClient** object, with the base URI for accessing the blob storage for your storage account (*pbaccount* in figure 1) along with the **StorageCredentialsAccountAndKey** object, as shown in the following example. The example then shows creating a reference to a **CloudBlobContainer** object, and then creating the container (*testvhds*) if it doesn't already exist. Then using the **CloudBlobContainer** object, create a reference to a **CloudPageBlob** object by specifying the page blob name (os4.vhd) to access. To create the page blob, call [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passing in the max size for the blob to create. The *blobSize* must be a multiple of 512 bytes.
+
+```csharp
+using Microsoft.Azure;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+
+long OneGigabyteAsBytes = 1024 * 1024 * 1024;
+// Retrieve storage account from connection string.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+// Create the blob client.
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+// Retrieve a reference to a container.
+CloudBlobContainer container = blobClient.GetContainerReference("testvhds");
+
+// Create the container if it doesn't already exist.
+container.CreateIfNotExists();
+
+CloudPageBlob pageBlob = container.GetPageBlobReference("os4.vhd");
+pageBlob.Create(16 * OneGigabyteAsBytes);
+```
+
+## Resizing a page blob
+
+Related article: [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
+
+To resize a page blob after creation, use the [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) method. The requested size should be a multiple of 512 bytes.
+
+```csharp
+pageBlob.Resize(32 * OneGigabyteAsBytes);
+```
+
+## Writing pages to a page blob
+
+Related article: [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
+
+To write pages,  use the [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) method.
+
+```csharp
+pageBlob.WritePages(dataStream, startingOffset); 
+```
+
+## Reading pages from a page blob
+
+Related article: [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
+
+To read pages, use the [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) method to read a range of bytes from the page blob.
+
+```csharp
+byte[] buffer = new byte[rangeSize];
+pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
+```
+
+To determine which pages are backed by data, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). You can then enumerate the returned ranges and download the data in each range.
+
+```csharp
+IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
+
+foreach (PageRange range in pageRanges)
+{
+    // Calculate the range size
+    int rangeSize = (int)(range.EndOffset + 1 - range.StartOffset);
+
+    byte[] buffer = new byte[rangeSize];
+
+    // Read from the correct starting offset in the page blob and
+    // place the data in the bufferOffset of the buffer byte array
+    pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, range.StartOffset, rangeSize);
+
+    // Then use the buffer for the page range just read
+}
 ```
