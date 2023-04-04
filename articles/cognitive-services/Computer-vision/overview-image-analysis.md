@@ -62,9 +62,9 @@ Version 4.0 preview of Image Analysis offers the ability to detect people appear
 
 Generate a caption of an image in human-readable language, using complete sentences. Computer Vision's algorithms generate captions based on the objects identified in the image. 
 
-The version 4.0 image captioning model is a more advanced implementation and works with a wider range of input images. It is only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+The version 4.0 image captioning model is a more advanced implementation and works with a wider range of input images. The model is currently only available to customers with a Computer Vision resource in one of these Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe,and West US.
 
-Version 4.0 also lets you use dense captioning, which generates detailed captions for individual objects that are found in the image. The API returns the bounding box coordinates (in pixels) of each object found in the image, plus a caption. You can use this functionality to generate descriptions of separate parts of an image.
+Version 4.0 also supports dense captioning, which generates captions for up to 10 important regions of the image in addition to a caption for the whole image. The API returns the bounding box coordinates (in pixels) of the regions along with the caption.
 
 [Image captions (v3.2)](concept-describing-images.md) [(v4.0 preview)](concept-describe-images-40.md)
 
