@@ -531,7 +531,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-Executor-IncorrectQuery
 
--	**Message**: Admin Consent is pending.
+-	**Message**: Incorrect syntax. SQL Server error encountered while reading from the given table or while executing the given query.
 -	**Cause**: The query submitted was syntactically incorrect.
 -	**Recommendation**: Check the syntactical correctness of the given query. Ensure to have a non-quoted query string when it is referenced as a pipeline parameter.
 
@@ -895,7 +895,8 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-SQLDW-IncorrectLinkedServiceConfiguration
 
-- **Message**: The linked service is incorrectly configured as type 'Azure Synapse Analytics' instead of 'Azure SQL Database'. Please create a new linked service of type 'Azure SQL Database' \n Note: Please check that the given database is of type 'Dedicated SQL pool (formerly SQL DW)' for linked service type 'Azure Synapse Analytics'.
+- **Message**: The linked service is incorrectly configured as type 'Azure Synapse Analytics' instead of 'Azure SQL Database'. Please create a new linked service of type 'Azure SQL Database'<br>
+Note: Please check that the given database is of type 'Dedicated SQL pool (formerly SQL DW)' for linked service type 'Azure Synapse Analytics'.
 - **Cause**: The linked service is incorrectly configured as type **Azure Synapse Analytics** instead of **Azure SQL Database**. 
 - **Recommendation**: Create a new linked service of type **Azure SQL Database**, and check that the given database is of type Dedicated SQL pool (formerly SQL DW) for linked service type **Azure Synapse Analytics**.
 
