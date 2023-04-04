@@ -11,6 +11,9 @@ manager: nitinme
 keywords: ChatGPT
 ---
 
+> [!NOTE]
+> All of the examples in this section of the guide were tested against the `text-davinci-003` model in English. If you are reading a localized version of this article in another language, these responses represent a localized translation of the English results. To learn more about the potential limitations depending on what language you are using to prompt a model, please consult our [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#limitations).  
+
 ## Start with clear instructions
 
 The sequence in which information is fed in the prompt, matters (GPT style models are built in a certain way and that’s the reason behind this). Our research suggests that telling the model the task you want it to do at the beginning of the prompt, before sharing additional contextual information or examples, can help produce higher-quality outputs.

@@ -14,6 +14,9 @@ keywords: ChatGPT
 
 This guide does not go in-depth into the mechanics behind the message structure for Chat Completions. If you aren't familiar with interacting with the ChatGPT and GPT-4 models programmatically we recommend reading our [how-to guide on the Chat Completion API first](../how-to/chatgpt.md).  
 
+> [!NOTE]
+> All of the examples in this section of the guide were tested against a base GPT-4 model in English. If you are reading a localized version of this article in another language, these responses represent a localized translation of the English results. To learn more about the potential limitations depending on what language you are using to prompt a model, please consult our [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#limitations).  
+
 ## System message
 
 The system message is included at the beginning of the prompt and is used to prime the model with context, instructions, or other information relevant to the use case. You can use the system message to describe the assistant’s personality, define what the model should and shouldn’t answer, and define the format of model responses.
