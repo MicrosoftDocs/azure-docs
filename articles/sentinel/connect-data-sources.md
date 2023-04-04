@@ -70,7 +70,7 @@ Learn which firewalls, proxies, and endpoints connect to Microsoft Sentinel thro
 
 ### Syslog
 
-You can stream events from Linux-based, Syslog-supporting devices into Microsoft Sentinel using the [Azure Monitor Agent (AMA)](forward-syslog-monitor-agent.md). Depending on the device type, the agent is installed either directly on the device, or on a dedicated Linux-based log forwarder. The AMA receives events from the Syslog daemon over UDP. If a Linux machine is expected to collect a high volume of Syslog events, it sends events over TCP from the Syslog daemon to the agent, and from there to Log Analytics. 
+You can stream events from Linux-based, Syslog-supporting devices into Microsoft Sentinel using the [Azure Monitor Agent (AMA)](forward-syslog-monitor-agent.md). Depending on the device type, the agent is installed either directly on the device, or on a dedicated Linux-based log forwarder. The AMA receives events from the Syslog daemon over UDP. The Syslog daemon forwards events to the agent internally, communicating over UDS (Unix Domain Sockets). The AMA then transmits these events to the Microsoft Sentinel workspace.
 
 Here is a simple flow that shows how Microsoft Sentinel streams Syslog data.
 
