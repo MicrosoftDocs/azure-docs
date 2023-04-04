@@ -27,11 +27,10 @@ Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra
 which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see
 [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra
 Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
- 
-|         test      | Microsoft Entra Private Access |     test  | Microsoft Entra Internet Access |    test   |
+
+|               |Private Access - Standard|Private Access - Premium|Internet Access - Standard|Internet Access - Premium|
 |---------------|--------------------------------|-------|---------------------------------|-------|
-|               | Standard                       |Premium| Standard                        |Premium|
-| **Feature A** | X                              |       |  X                              |       |
+| **Feature A** | X                              |       | X                               |       |
 | **Feature B** |                                | X     |                                 |       |
 | **Feature C** | X                              |       | X                               |       |
 | **Feature D** |                                | X     |                                 | X     |
