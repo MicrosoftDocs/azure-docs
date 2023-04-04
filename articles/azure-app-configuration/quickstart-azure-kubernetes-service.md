@@ -32,9 +32,9 @@ In this quickstart, you will incorporate Azure App Configuration Kubernetes Prov
 >
 
 ## Create an application running in AKS
-In this section, we present how to create an ASP.NET Core web application that consumes environment variables as configuration and run it in Azure Kubernetes Service. This part has nothing to do with Azure App Configuration or Azure App Configuration Kubernetes Provider, it just for demonstrating the end-to-end usage scenario of Azure App Configuration Kubernetes Provider later. If you already have an application that is consuming environment variables as configuration in Kubernetes, you can just skip this and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). 
+In this section, it creates an ASP.NET Core web application that consumes environment variables as configuration and run it in Azure Kubernetes Service. This section has nothing to do with Azure App Configuration or Azure App Configuration Kubernetes Provider, it just for demonstrating the end-to-end usage scenario of Azure App Configuration Kubernetes Provider later. If you already have an application that is consuming environment variables in Kubernetes, you can just skip it and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). 
 ### Create an application
-1. Use the .NET Core command-line interface (CLI) to create a new ASP.NET Core web app project. Run the following command to create an ASP.NET Core web app in a new TestAppConfig folder:
+1. Use the .NET Core command-line interface (CLI) to create a new ASP.NET Core web app project. Run the following command to create an ASP.NET Core web app in a new MyWebApp folder:
     ``` dotnetcli
     dotnet new webapp --output MyWebApp --framework net6.0
     ```
@@ -167,16 +167,19 @@ In this section, we present how to create an ASP.NET Core web application that c
 
 1. Open a browser window, use the External IP of the service you get in previous step to visit the app. Your browser should display a page similar to the image below.
 
-    ![Kubernetes Provider after using configMap ](./media/quickstarts/kubernetes-provider-app-launch-before.png)
+    ![Kubernetes Provider before using configMap ](./media/quickstarts/kubernetes-provider-app-launch-before.png)
 
 ## Use App Configuration Kubernetes Provider
 ### Configure the Azure App Configuration store
-1. Add the key-values to your Azure App Configuration that should be consumed as environment variables by your application. We're just using key-values that be consumed by `MyWebApp` as an example, add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
-    
+1. Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+
     |**Key**|**Value**|
     |---|---|
     |Settings__FontColor|*Green*|
     |Settings__Message|*Hello from Azure App Configuration*|
+
+    > [!TIP]
+    > This step adds the key-values to Azure App Configuration that is supposed to be consumed by the application. We're just using application `MyWebApp` as an example. If you are using your own application, you can add the key-values that are required by your application accordingly. 
     
 1. Enable System Assigned Managed Identity of AKS NodePool
    
@@ -238,15 +241,14 @@ In this section, we present how to create an ASP.NET Core web application that c
         name: demo-configmap
     ```
 
-1. Apply the updated *deployment.yaml* to the AKS cluster
+1. Apply the updated *deployment.yaml* to the AKS cluster.
     ``` bash
     kubectl apply -f ./deployment.yaml -n quickstart-appconfig
     ```
 
-### Reload the application
-Refresh the browser, the page shows with updated content.
+1. Refresh the browser, can see the page has been updated based on the configuration from App Configuration.
 
-![Kubernetes Provider after using configMap ](./media/quickstarts/kubernetes-provider-app-launch-after.png)
+    ![Kubernetes Provider after using configMap ](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
 ### Validation and troubleshooting
 A configMap *demo-configmap* is supposed to be created in the *quickstart-appconfig* namespace by the Azure App Configuration Kubernetes Provider.
@@ -265,13 +267,15 @@ kubectl get AppConfigurationProvider appconfigurationprovider-sample -n quicksta
 > ```   
 >
 
+If you see the error message in log with information *RESPONSE 403: 403 Forbidden*, it means that the system-assigned managed identity of AKS node pool does not have the permission to access the App Configuration store. You need to grant the permission to the managed identity by following the instructions in this [doc](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core5x&pivots=framework-dotnet#grant-access-to-app-configuration). If you have assigned the permission, you can wait for up to 15 minutes for the permission to take effect.
+
 ## Clean up resources
-1. Remove the resources that have been deployed to AKS
+1. Remove the resources that have been deployed to AKS.
     ``` bash
     kubectl delete -f ./AKS-AppConfiguration-Demo -n quickstart-appconfig
     kubectl delete namespace quickstart-appconfig
     ```
-1. Uninstall the Azure App Configuration Kubernetes Provider
+1. Uninstall the Azure App Configuration Kubernetes Provider.
    ``` bash
    helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-system
    ```
