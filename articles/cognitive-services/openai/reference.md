@@ -114,7 +114,7 @@ In the example response, `finish_reason` equals `stop`. If `finish_reason` equal
 Get a vector representation of a given input that can be easily consumed by machine learning models and other algorithms.
 
 > [!NOTE]
-> We currently do not support batching of embeddings into a single API call. If you receive the error `InvalidRequestError: Too many inputs. The max number of inputs is 1.  We hope to increase the number of inputs per request soon.` this typically occurs when an array of embeddings is attempted to be passed as a batch rather than a single string.
+> We currently do not support batching of embeddings into a single API call. If you receive the error `InvalidRequestError: Too many inputs. The max number of inputs is 1.  We hope to increase the number of inputs per request soon.`, this typically occurs when an array of embeddings is attempted to be passed as a batch rather than a single string.
 
 **Create an embedding**
 
