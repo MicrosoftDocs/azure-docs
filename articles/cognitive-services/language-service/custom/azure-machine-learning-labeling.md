@@ -31,13 +31,13 @@ Before you can connect your labeling project to Azure Machine Learning, you need
 ## Limitations
 
 * Connecting your labeling project to Azure Machine Learning is a one-to-one connection. If you disconnect your project, you will not be able to:
-    * Connect back your project back to the same Azure Machine Learning project
+    * Connect your project back to the same Azure Machine Learning project
     * Connect the Azure Machine Learning project that you disconnected to any Language Studio project in the future.
 * You can't label in the Language Studio and Azure Machine Learning simultaneously. The labeling experience is enabled in one studio at a time. 
 * The testing and training files in the labeling experience you switch away from will be ignored when training your model.  
 * Only Azure Machine Learning's JSONL file format can be imported into Language Studio.
 * Projects with the multi-lingual option enabled can't be connected to Azure Machine Learning, and not all languages are supported.
-* The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to. Please ensure that the Azure Machine Learning workspace has a Storage blob data reader permission on the storage account. You may refer to the following article to learn how to [assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+* The Azure Machine Learning workspace you're connecting to must be assigned to the same Azure Storage account that Language Studio is connected to. Be sure that the Azure Machine Learning workspace has the storage blob data reader permission on the storage account. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 * Switching between the two labeling experiences isn't instantaneous. It may take time to successfully complete the operation.
 
 ## Import your Azure Machine Learning labels into Language Studio
