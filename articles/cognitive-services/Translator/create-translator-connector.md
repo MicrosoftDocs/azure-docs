@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create a Microsoft Translator V3 connector"
+ title: "Tutorial: Use a Microsoft Translator V3 connector with Power Automate"
 titleSuffix: Azure Cognitive Services
 description: The Microsoft V3 connector enable your applications to translate text
 author: laujan
@@ -11,11 +11,25 @@ ms.date: 04/03/2023
 ms.author: lajanuar
 ---
 
-# Tutorial: Create a Microsoft Translator V3 connector
+<!-- markdownlint-disable MD051 -->
+<!-- markdownlint-disable MD024 -->
 
- In this tutorial, you learn how to create a Translator V3 connector that enables you to build workflows that support both text and document translation. The V3 connector connects your Translator instance to Microsoft Power Automate, Microsoft Power Apps, or Azure Logic to provide one or more prebuilt operations to use as steps in your workflow.
 
-## Prerequisites for text and document translation
+# Tutorial: Configure a Microsoft Translator V3 connector
+
+This tutorial, details how to configure a Translator V3 connector that supports both text and document translation. The V3 connector creates a connection between your Translator instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Create a blob storage account with containers for your source and target files.
+> * Set-up a managed identity with role-based access control (RBAC).
+> * Translate and transliterate text using your connector.
+> * Translate documents in your Azure storage account.
+> * Translate documents on your SharePoint site.
+
+## Prerequisites
 
 To get started, you need:
 
@@ -47,6 +61,8 @@ To get started, you need:
 
    :::image type="content" source="media/keys-and-endpoint-resource.png" alt-text="Get key and endpoint.":::
 
+### Setup Azure storage
+
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You also need to [create containers](/azure/storage/blobs/storage-quickstart-blobs-portal?branch=main#create-a-container) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
@@ -69,7 +85,7 @@ To get started, you need:
 
       1. Select **Save**. It may take up to 5 min for the network changes to propagate.
 
-### Managed identity
+### Create a managed identity with RBAC
 
  Before you can use the V3 connector's operations for document translations, You must grant the Translator resource access to your storage account. In this step, you create a system-assigned managed identity for your Translator resource and grant that identity specific permissions to access your Azure storage account:
 
@@ -83,9 +99,7 @@ To get started, you need:
 
     :::image type="content" source="media/managed-identities/resource-management-identity-tab.png" alt-text="Screenshot: resource management identity tab in the Azure portal.":::
 
-### Role-based access control (RBAC)
-
-Next,  you assign a Storage Blob Data Contributor role to the managed identity at the storage scope for your storage resource.
+Next, assign a Storage Blob Data Contributor role to the managed identity at the storage scope for your storage resource.
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the Translator resource.
@@ -115,6 +129,85 @@ Next,  you assign a Storage Blob Data Contributor role to the managed identity a
 
     :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
-### Get file content from
+Now that completed the prerequisites and initial setup, let's get started using the V3 connector to create a flow:
 
+1. Sign in to [Power Automate](https://powerautomate.microsoft.com/).
+
+1. Select **Create** from the left sidebar menu.
+
+1. Select **Instant cloud flow** from the main content area.
+
+   :::image type="content" source="media/connectors/create-a-flow.png" alt-text="Screenshot showing how to create an instant cloud flow.":::
+
+1. In the popup window, name your flow, choose **Manually trigger a flow**, and select **Create**.
+
+  :::image type="content" source="media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to select manually trigger a flow.":::
+
+1. The first step for your instant flow appears on screen. Select **New step**.
+
+  :::image type="content" source="media/connectors/add-new-step.png" alt-text="Screenshot of add new flow step page.":::
+
+1. A **choose an operation** pop-up window appears. Enter Translator V3 in the **Search connectors and actions** search bar and select the **Microsoft Translator V3** icon.
+
+   :::image type="content" source="media/connectors/choose-an-operation.png" alt-text="Screenshot showing the selection of Translator V3 as the next flow step,":::
+
+Now, we're ready to select an action.
+
+#### [Translate text](#tab/translate)
+
+Let's **Translate text**.
+
+#### [Transliterate text](#tab/transliterate)
+
+Let's **Transliterate text**.
+
+---
+
+1. Enter your Translator resource credentials:
+
+   * **Connection name**. Enter a name for your connection.
+   * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys.
+
+    :::image type="content" source="media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
+
+   * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
+
+      :::image type="content" source="media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
+
+#### [Translate text](#tab/translate)
+
+1. Select the Translate text step
+1. In the **Translate text** step window select the **Source Language** or keep the default **Auto-detect** option.
+1. Select a **Target Language** from the dropdown window.
+1. Enter the **Body Text**.
+1. Select **Save**.
+
+      :::image type="content" source="media/connectors/translate-text-step.png" alt-text="Screenshot showing the translate text step.":::
+
+#### [Transliterate text](#tab/transliterate)
+
+
+
+---
+
+1. Time to check our flow and retrieve the results.
+
+   * You should see a green bar at the top of the page indicating that **Your flow is ready to go.**.
+   * Select Test from the upper-right corner of the page.
+      :::image type="content" source="media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
+   * Select **Manually** from the **Test Flow** side window and select **Test**
+
+      :::image type="content" source="media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manually test flow button.":::
+
+   * The **Run flow** side window appears next. Select **Continue** and then Select **Run flow**.
+
+      :::image type="content" source="media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
+
+* You should receive a "Your flow ran successfully" message and there will be a green checkmark next to each successful step.
+
+   :::image type="content" source="media/connectors/successful-flow.png" alt-text="Screenshot of successful flow.":::
+
+* Select the **Translate text** step to view the full results:
+
+   :::image type="content" source="media/connectors/translated-text-output.png" alt-text="Screenshot of translated text output.":::
 
