@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 03/09/2023
+ms.date: 04/04/2023
 ms.workload: infrastructure-services
 ms.custom: template-quickstart 
 # Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address.
@@ -77,7 +77,7 @@ You can disable DDoS IP Protection on an existing public IP address.
     
 ```
 >[!Note]
->When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
+> When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will no longer be active.
 
 ## Validate and test
 
