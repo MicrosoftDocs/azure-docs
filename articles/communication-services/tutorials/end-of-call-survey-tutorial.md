@@ -45,22 +45,61 @@ This tutorial will show you how to use the Azure Communication Services End of C
 
 ### Sample of API usage
 
+
+
+
 #### Rate call only - no custom data
 
+```javascript
+call.feature(Features.CallSurvey).submitSurvey({
+                overallRating: { score: 3 }
+            }).then(() => console.log('survey submitted successfully'))
+```
+
+
+
+
+#### Rate call only - with custom scale
 ``` javascript
 call.feature(Features.CallSurvey).submitSurvey({
-                overallRating: { score: 3 }
+                overallRating: {
+                    score: 1, // my score
+                    scale: { // my custom scale
+                        lowerBound: 0,
+                        upperBound: 2,
+                        lowScoreThreshold: 1
+                    },
+                    issues: ['HadToRejoin'] // my issues
+                }
             }).then(() => console.log('survey submitted successfully'))
 ```
 
-
-
-``` javascript 
+#### Rate audio / video call with sample issue
+``` javascript
+call.feature(Features.CallSurvey).submitSurvey({
+                overallRating: { score: 3 },
+                audioRating: { score : 4 },
+                videoRating: { score : 3, issues: ['Freezes'] }
+            }).then(() => console.log('survey submitted successfully'))
+```
+#### Handle errors that the SDK can throw
+```javascript
 call.feature(Features.CallSurvey).submitSurvey({
                 overallRating: { score: 3 }
-            }).then(() => console.log('survey submitted successfully'))
-
+            }).catch((e) => console.log('error when submitting survey: ' + e ))
 ```
+
+### Check for different types of errors below
+-	At least one survey rating is required.
+-	In default scale X should be 1 to 5. - where X is either of
+    - overallRating.score
+    - audioRating.score
+    - videoRating.score
+    - screenshareRating.score
+-	${propertyName}: ${rating.score} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
+-	${propertyName}: ${rating.scale?.lowScoreThreshold} should be between ${rating.scale?.lowerBound} and ${rating.scale?.upperBound}. ;
+-	${propertyName} lowerBound: ${rating.scale?.lowerBound} and upperBound: ${rating.scale?.upperBound} should be between 0 and 100. ;
+-	event discarded ACS failed to submit survey
 
 
 
