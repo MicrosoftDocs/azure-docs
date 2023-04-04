@@ -41,7 +41,7 @@ You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
 When upgrading between major or minor product releases, for example from 1.1 to 1.4, we recommend updating both the security subsystem and the runtime containers. Before a release, we test the security subsystem and the runtime container version combination. To update between major or minor product releases:
 
-1. On the device, stop IoT Edge runtime using the command `sudo systemctl stop iotedge` and [uninstall IoT Edge](how-to-provision-single-device-windows-symmetric.md#uninstall-iot-edge).
+1. On the device, stop IoT Edge using the command `sudo systemctl stop iotedge` and [uninstall](how-to-provision-single-device-windows-symmetric.md#uninstall-iot-edge).
 
 1. On the device, upgrade your container engine, either [Docker](https://docs.docker.com/engine/install) or [Moby](how-to-provision-single-device-linux-symmetric.md#install-a-container-engine).
 
