@@ -64,6 +64,8 @@ For the latest available Public MEC Edge Zones, please refer to [Azure public ME
 
 * Your cluster must be running Kubernetes version 1.22 or later
 
+* The identity you're using to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+
 <!-- TODO: ADD PREREQUISITES 
 Moushumi can send the dodumentation on the min SDK versions.
 -->
@@ -260,21 +262,16 @@ az account set --subscription $SUBSCRIPTION
 az aks create -g $RG_NAME -n $CLUSTER_NAME --edge-zone $EDGE_ZONE_NAME --location $LOCATION
 ```
 
----
-
 ### [Azure Portal](#tab/azure-portal)
 
 In this section you will learn how to deploy a Kubernetes cluster in the Edge Zone.
 
-### Prerequisites
+#### Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 - If you're unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
-- The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-
-### Create an AKS cluster in the Edge Zone
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
