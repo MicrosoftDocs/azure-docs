@@ -30,19 +30,21 @@ You're billed based on the number of committed devices associated with each subs
 
 ### Device coverage warning
 
-If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, a warning message will appear in Defender for IoT in the Azure portal, and you will need to update the number of committed devices on the relevant subscription:
+If the number of actual devices detected by Defender for IoT exceeds the number of committed devices currently listed on your subscription, a warning message will appear in Defender for IoT in the Azure portal:
 
 :::image type="content" source="media/billing/device-coverage-warning.png" alt-text="Screenshot of the device coverage warning.":::
 
+This message indicates that you need to update the number of committed devices on the relevant subscription to match the actual number of devices being monitored.
+
 **To update the number of committed devices**:
 
-1. In the warning message, select **Get more device coverage** which will open the pane to edit your plan for the subscription that needs to be updated.
+1. In the warning message, select **Get more device coverage**, which will open the pane to edit your plan for the relevant subscription.
 
 1. In the **Number of devices** field, enter the current number of your devices being monitored by Defender for IoT for this subscription.
 
     For example:
 
-    :::image type="content" source="media/billing/update-number-of-devices.png" alt-text="Screenshot of updating the number of committed devices on a subscription when there is a device coverage warning.":::
+    :::image type="content" source="media/billing/update-number-of-devices.png" alt-text="Screenshot of updating the number of committed devices on a subscription when there is a device coverage warning." lightbox="media/billing/update-number-of-devices.png":::
 
 1. Select **Next**.
 
