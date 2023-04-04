@@ -4,7 +4,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 02/07/2023
+ms.date: 04/03/2023
 ms.custom: references_regions
 ---
 
@@ -40,19 +40,3 @@ For the logical server associated with Azure SQL Database to honor policies from
 Then, on the side menu, select **Identity**. Under **System assigned managed identity**, turn the status to **On**, and then select **Save**.
 
 ![Screenshot that shows the assignment of a system-assigned managed identity to a logical server associated with Azure SQL Database.](../media/how-to-policies-data-owner-sql/assign-identity-azure-sql-db.png)
-
-You also need to enable (and verify) external policy-based authorization on the logical server associated with Azure SQL Database. You can do this in PowerShell:
-
-```powershell
-Connect-AzAccount -UseDeviceAuthentication -TenantId xxxx-xxxx-xxxx-xxxx-xxxx -SubscriptionId xxxx-xxxx-xxxx-xxxx
-
-$server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
-
-#Initiate the call to the REST API to set the externalPolicyBasedAuthorization property to true
-Invoke-AzRestMethod -Method PUT -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview" -Payload '{"properties":{"externalPolicyBasedAuthorization":true}}'
-
-# Verify that externalPolicyBasedAuthorization is set to true
-Invoke-AzRestMethod -Method GET -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview"
-```
-
-In the response, `"properties":{"externalPolicyBasedAuthorization":true}` should appear under `Content`.
