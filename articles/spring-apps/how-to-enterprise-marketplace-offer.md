@@ -45,7 +45,7 @@ To provide the best customer experience to manage the Tanzu component license pu
 
 Under this implicit Azure Marketplace third-party offer purchase from VMware, your personal data and application vCPU usage data is shared with VMware. You agree to this data sharing when you agree to the marketplace terms upon creating the service instance.
 
-To purchase the Tanzu component license successfully, the billing account of your subscription must be included in one of the locations listed in the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account) section. Because of tax management restrictions from VMware in some countries, not all countries are supported.
+To purchase the Tanzu component license successfully, the billing account of your subscription must be included in one of the locations listed in the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account) section. Because of tax management restrictions from VMware in some countries/regions, not all countries/regions are supported.
 
 The extra license fees apply only to the Enterprise tier. In the Azure Spring Apps Standard tier, there are no extra license fees because the managed Spring components use the OSS config server and Eureka server. No other third-party license fees are required.
 
