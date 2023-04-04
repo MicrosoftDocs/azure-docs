@@ -62,6 +62,7 @@ Certificates and secrets, also known as credentials, are a vital part of an appl
 Consider the following guidance related to certificates and secrets:
 
 - Always use [certificate credentials](./active-directory-certificate-credentials.md) whenever possible and don't use password credentials, also known as *secrets*. While it's convenient to use password secrets as a credential, when possible use x509 certificates as the only credential type for getting tokens for an application.
+  - Configure [application authentication method policies](/graph/api/resources/applicationauthenticationmethodpolicy) to govern the use of secrets by limiting their lifetimes or blocking their use altogether.
 - Use Key Vault with [managed identities](../managed-identities-azure-resources/overview.md) to manage credentials for an application.
 - If an application is used only as a Public Client App (allows users to sign in using a public endpoint), make sure that there are no credentials specified on the application object.
 - Review the credentials used in applications for freshness of use and their expiration. An unused credential on an application can result in a security breach. Rollover credentials frequently and don't share credentials across applications. Don't have many credentials on one application.
