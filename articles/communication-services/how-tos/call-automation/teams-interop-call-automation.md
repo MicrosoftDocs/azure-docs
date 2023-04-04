@@ -27,8 +27,8 @@ You need to be part of the Azure Communication Services TAP program. It's likely
 - A deployed [Communication Service resource](../../quickstarts/create-communication-resource.md) and valid connection string found by selecting Keys in left side menu on Azure portal.
 - [Acquire a PSTN phone number from the Communication Service resource](../../quickstarts/telephony/get-phone-number.md). Note the phone number you acquired to use in this quickstart. 
 - An Azure Event Grid subscription to receive the `IncomingCall` event.
-- The latest [Azure Communication Service Call Automation API library](./callflows-for-customer-interactions.md) for your operating system.
-- A web service that implements the Call Automation API library, follow [this tutorial](./callflows-for-customer-interactions.md).
+- The latest [Azure Communication Service Call Automation API library](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-net/NuGet/Azure.Communication.CallAutomation/versions/) for your operating system.
+- A web service that implements the Call Automation API library, follow [this tutorial](../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 
 ## Step 1: Authorization for your Azure Communication Services Resource to enable calling to Microsoft Teams users
 

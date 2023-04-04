@@ -79,7 +79,7 @@ The following list presents the set of features that are currently available in 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Adding a Microsoft Teams user to an ongoing call using Call Automation](./../../how-tos/call-automation/teams-interop-call-automation-quickstart.md)
+> [Get started with Adding a Microsoft Teams user to an ongoing call using Call Automation](./../../how-tos/call-automation/teams-interop-call-automation.md)
 
 Here are some articles of interest to you:
 - Learn more about [Call Automation](../../concepts/call-automation/call-automation.md) and its features.
