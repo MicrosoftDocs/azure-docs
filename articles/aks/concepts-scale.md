@@ -19,7 +19,7 @@ When scaling down nodes, the Kubernetes API calls the relevant Azure Compute API
 
 To get started with manually scaling pods and nodes see [Scale applications in AKS][aks-scale].
 
-## Horizontal pod autoscaler (HPA)
+## Horizontal pod autoscaler
 
 Kubernetes uses the horizontal pod autoscaler (HPA) to monitor the resource demand and automatically scale the number of pods. By default, the HPA checks the Metrics API every 15 seconds for any required changes in replica count, and the Metrics API retrieves data from the Kubelet every 60 seconds. So, the HPA is updated every 60 seconds. When changes are required, the number of replicas is increased or decreased accordingly. The HPA works with AKS clusters that have deployed the Metrics Server for Kubernetes 1.8+.
 
@@ -41,7 +41,7 @@ To respond to changing pod demands, the Kubernetes cluster autoscaler adjusts th
 
 ![Kubernetes cluster autoscaler](media/concepts-scale/cluster-autoscaler.png)
 
-The cluster autoscaler is typically used alongside the [horizontal pod autoscaler](#horizontal-pod-autoscaler-hpa). When combined, the horizontal pod autoscaler increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes to run additional pods.
+The cluster autoscaler is typically used alongside the [horizontal pod autoscaler](#horizontal-pod-autoscaler). When combined, the horizontal pod autoscaler increases or decreases the number of pods based on application demand, and the cluster autoscaler adjusts the number of nodes to run additional pods.
 
 To get started with the cluster autoscaler in AKS, see [Cluster autoscaler on AKS][aks-cluster-autoscaler].
 
@@ -61,7 +61,7 @@ Your applications may experience some disruption as pods are scheduled on differ
 
 ## Burst to Azure Container Instances (ACI)
 
-To rapidly scale your AKS cluster, you can integrate with Azure Container Instances (ACI). Kubernetes has built-in components to scale the replica and node count. However, if your application needs to rapidly scale, the [horizontal pod autoscaler](#horizontal-pod-autoscaler-hpa) may schedule more pods than can be provided by the existing compute resources in the node pool. If configured, this scenario would then trigger the [cluster autoscaler](#cluster-autoscaler) to deploy additional nodes in the node pool, but it may take a few minutes for those nodes to successfully provision and allow the Kubernetes scheduler to run pods on them.
+To rapidly scale your AKS cluster, you can integrate with Azure Container Instances (ACI). Kubernetes has built-in components to scale the replica and node count. However, if your application needs to rapidly scale, the [horizontal pod autoscaler](#horizontal-pod-autoscaler) may schedule more pods than can be provided by the existing compute resources in the node pool. If configured, this scenario would then trigger the [cluster autoscaler](#cluster-autoscaler) to deploy additional nodes in the node pool, but it may take a few minutes for those nodes to successfully provision and allow the Kubernetes scheduler to run pods on them.
 
 ![Kubernetes burst scaling to ACI](media/concepts-scale/burst-scaling.png)
 
