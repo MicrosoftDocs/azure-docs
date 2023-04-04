@@ -11,6 +11,7 @@ ms.author: deeikele
 author: deeikele
 ms.reviewer: larryfr
 ms.date: 11/07/2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As an IT pro, understand how to enable data protection capabilities, to protect against accidental deletion.
 ---
 
@@ -18,8 +19,8 @@ ms.date: 11/07/2022
 
 The soft-delete feature for Azure Machine Learning workspace provides a data protection capability that enables you to attempt recovery of workspace data after accidental deletion. Soft delete introduces a two-step approach in deleting a workspace. When a workspace is deleted, it's first soft deleted. While in soft-deleted state, you can choose to recover or permanently delete a workspace and its data during a data retention period.
 
-> [!IMPORTANT]	
-> Workspace soft delete is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 	
+> [!IMPORTANT]    
+> Workspace soft delete is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.     
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > To enroll your Azure Subscription, see [Register soft-delete on an Azure subscription](#register-soft-delete-on-an-azure-subscription).
 
@@ -62,7 +63,7 @@ A default retention period of 14 days holds for deleted workspaces. The retentio
 During the retention period, soft-deleted workspaces can be recovered or permanently deleted. Any other operations on the workspace, like submitting a training job,  will fail. You can't reuse the name of a workspace that has been soft-deleted until the retention period has passed. Once the retention period elapses, a soft deleted workspace automatically gets permanently deleted.
 
 > [!TIP]
-> During preview of workspace soft-delete, the retention period is fixed to 14 days and can’t be modified. 
+> During preview of workspace soft-delete, the retention period is fixed to 14 days and can't be modified. 
 
 ## Deleting a workspace
 
