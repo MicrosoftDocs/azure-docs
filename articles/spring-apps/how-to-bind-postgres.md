@@ -59,7 +59,7 @@ Use the following steps to prepare your project.
 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
-### [Passwordless](#tab/Passwordlessflex)
+### [Passwordless (Recommended](#tab/Passwordlessflex)
 
 1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
 
