@@ -1716,6 +1716,41 @@ The image below shows how to add the condition for this example. Note that you m
 ) 
 ```
 
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userObjectID = "<user object id>"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+) `
+OR `
+( `
+    ( `
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
+        AND `
+        @Environment[isPrivateLink] BoolEquals true `
+    ) `
+    OR `
+    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+    OR `
+    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
 ---
 
 ### Example: Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint
@@ -1788,6 +1823,41 @@ The image below shows how to add the condition for this example. Note that you m
 
 > [!NOTE]
 > The last expression allows blobs written without the sensitivity tag to come from the public internet or other private endpoints.
+
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userObjectID = "<user object id>"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+) `
+OR `
+( `
+    ( `
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
+        AND `
+        @Environment[isPrivateLink] BoolEquals true `
+    ) `
+    OR `
+    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+    OR `
+    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
 
 ---
 
@@ -1863,6 +1933,41 @@ The following image shows the condition after the settings have been entered int
 ) 
 ```
 
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userObjectID = "<user object id>"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+) `
+OR `
+( `
+    ( `
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
+        AND `
+        @Environment[isPrivateLink] BoolEquals true `
+    ) `
+    OR `
+    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+    OR `
+    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
+```
+
 ---
 
 ### Example: Allow read access to blobs after a specific date and time
@@ -1929,6 +2034,41 @@ The following image shows the condition after the settings have been entered int
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals 'container1'
  ) 
 ) 
+```
+
+#### [PowerShell](#tab/azure-powershell)
+
+Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+
+```azurepowershell
+$subId = "<your subscription id>"
+$rgName = "<resource group name>"
+$storageAccountName = "<storage account name>"
+$roleDefinitionName = "Storage Blob Data Reader"
+$userObjectID = "<user object id>"
+$scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+
+$condition = `
+"( `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+) `
+OR `
+( `
+    ( `
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
+        AND `
+        @Environment[isPrivateLink] BoolEquals true `
+    ) `
+    OR `
+    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+    OR `
+    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+)"
+
+$testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
+$testRa.Condition = $condition
+$testRa.ConditionVersion = "2.0"
+Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
 
 ---
