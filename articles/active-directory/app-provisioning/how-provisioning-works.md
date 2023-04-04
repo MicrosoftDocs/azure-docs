@@ -221,12 +221,12 @@ The table describes how you can configure deprovisioning actions with the Azure 
 
 |Scenario|How to configure in Azure AD|
 |--|--|
-|If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, do nothing.|Remove isSoftDeleted from the attribute mappings and / or set the [skip out of scope deletions](skip-out-of-scope-deletions.md) property to true.|
-|If a user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, set a specific attribute to true / false.|Map isSoftDeleted to the attribute that you would like to set to false.|
-|When a user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in, send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It's not configurable by customers.|
-|When a user is deleted in Azure AD, do nothing in the target application.|Ensure that "Delete" isn't selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
-|When a user is deleted in Azure AD, set the value of an attribute in the target application.|Not supported.|
-|When a user is deleted in Azure AD, delete the user in the target application|This is supported. Ensure that Delete is selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
+|A user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in. You don't want anything to be done.|Remove `isSoftDeleted` from the attribute mappings and / or set the [skip out of scope deletions](skip-out-of-scope-deletions.md) property to true.|
+|A user is unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in. You want to set a specific attribute to `true` / `false`.|Map `isSoftDeleted` to the attribute that you would like to set to false.|
+|A user is disabled in Azure AD, unassigned from an app, soft-deleted in Azure AD, or blocked from sign-in. You want to send a DELETE request to the target application.|This is currently supported for a limited set of gallery applications where the functionality is required. It's not configurable by customers.|
+|A user is deleted in Azure AD. You don't want anything done in the target application.|Ensure that "Delete" isn't selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
+|A user is deleted in Azure AD. You want to set the value of an attribute in the target application.|Not supported.|
+|A user is deleted in Azure AD. You want to delete the user in the target application|Ensure that Delete is selected as one of the target object actions in the [attribute configuration experience](skip-out-of-scope-deletions.md).|
 
 **Known limitations**
 
