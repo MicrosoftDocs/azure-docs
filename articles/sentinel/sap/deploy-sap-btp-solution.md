@@ -16,6 +16,12 @@ This article describes how to deploy the Microsoft Sentinel Solution for SAP® B
 
 ## Prerequisites
 
+### Fill in the sign-up form
+
+To get started, **first [complete the sign-up form](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR5CavmNiVgxCqhcQeRrOyvxUM0Q3NVdHU1hWNjMzQkM3RVNNNldTR1hYOS4u)** so that we can provision your subscription with access to the preview. We’ll send a confirmation email once your subscription is active.
+
+### Additional prerequisites
+
 Before you begin, verify that:
 
 - The Microsoft Sentinel solution is enabled. 
