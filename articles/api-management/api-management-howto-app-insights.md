@@ -7,9 +7,10 @@ author: dlepow
 
 ms.service: api-management
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/03/2023
 ms.author: danlep
+ms.custom: engagement-fy23
 
 ---
 
