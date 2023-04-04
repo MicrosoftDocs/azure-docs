@@ -28,8 +28,8 @@ Before you begin, verify that:
 - You have a defined Microsoft Sentinel workspace and have read and write permissions to the workspace.
 - Your organization uses SAP BTP (in a Cloud Foundry environment) to streamline interactions with SAP applications and other business applications.
 - You have a SAP BTP account (which supports BTP accounts in the Cloud Foundry environment). You can also use a [SAP BTP trial account](https://cockpit.hanatrial.ondemand.com/).
-- You have the SAP BTP auditlog-management service and service key (see [Set up the solution](#set-up-the-btp-account-and-solution)). 
-- You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites` and `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
+- You have the SAP BTP auditlog-management service and service key (see [Set up the BTP account and solution](#set-up-the-btp-account-and-solution)). 
+- You can create an [Azure Function App](../../azure-functions/functions-overview.md) with the `Microsoft.Web/Sites`, `Microsoft.Web/ServerFarms`, `Microsoft.Insights/Components`, and `Microsoft.Storage/StorageAccounts` permissions.
 - You can create [Data Collection Rules/Endpoints](../../azure-monitor/essentials/data-collection-rule-overview.md) with the permissions: 
     - `Microsoft.Insights/DataCollectionEndpoints`, and `Microsoft.Insights/DataCollectionRules`.
     - Assign the Monitoring Metrics Publisher role to the Azure Function. 
@@ -52,12 +52,13 @@ Before you begin, verify that:
 
     ```json
     {
-    "url": "https://auditlog-management.cfapps.us10.hana.ondemand.com",
-    "uaa": {
-        "clientid": "sb-ac79fee5-8ad0-4f88-be71-d3f9c566e73a!b136532|auditlog-management!b1237",
-        "clientsecret": "682323d2-42a0-45db-a939-74639efde986$gR3x3ohHTB8iyYSKHW0SNIWG4G0tQkkMdBwO7lKhwcQ=",
-        "url": "https://915a0312trial.authentication.us10.hana.ondemand.com",
-    ...
+        "url": "https://auditlog-management.cfapps.us10.hana.ondemand.com",
+        "uaa": {
+            "clientid": "sb-ac79fee5-8ad0-4f88-be71-d3f9c566e73a!b136532|auditlog-management!b1237",
+            "clientsecret": "682323d2-42a0-45db-a939-74639efde986$gR3x3ohHTB8iyYSKHW0SNIWG4G0tQkkMdBwO7lKhwcQ=",
+            "url": "https://915a0312trial.authentication.us10.hana.ondemand.com",
+        ...
+              }
     }
     ``` 
 
