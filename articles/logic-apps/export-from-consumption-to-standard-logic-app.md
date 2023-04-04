@@ -60,7 +60,8 @@ This article provides information about the export process and shows how to expo
 
 - Azure reader subscription-level access to the subscription where the logic apps are currently deployed.
 
-- Azure contributor resource group-level access, if Deploy managed connectors option is selected.
+- Azure contributor resource group-level access, if you select the option for **Deploy managed connectors**.
+
 
 - Review and meet the requirements for [how to set up Visual Studio Code with the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
