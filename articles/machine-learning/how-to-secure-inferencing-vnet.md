@@ -15,7 +15,7 @@ ms.date: 09/06/2022
 # Secure an Azure Machine Learning inferencing environment with virtual networks
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [SDK/CLI v1](v1/how-to-secure-inferencing-vnet.md)
+> * [SDK/CLI v1](v1/how-to-secure-inferencing-vnet.md?view=azureml-api-1&preserve-view=true)
 > * [SDK/CLI v2 (current version)](how-to-secure-inferencing-vnet.md)
 
 In this article, you learn how to secure inferencing environments (online endpoints) with a virtual network in Azure Machine Learning. There are two inference options that can be secured using a VNet:

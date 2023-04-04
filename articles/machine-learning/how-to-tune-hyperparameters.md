@@ -19,7 +19,7 @@ ms.custom: devx-track-python, contperf-fy21q1, event-tier1-build-2022
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](v1/how-to-tune-hyperparameters-v1.md)
+> * [v1](v1/how-to-tune-hyperparameters-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-tune-hyperparameters.md)
 
 Automate efficient hyperparameter tuning using Azure Machine Learning SDK v2 and CLI v2 by way of the SweepJob type. 
