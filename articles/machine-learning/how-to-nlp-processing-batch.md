@@ -21,7 +21,7 @@ Batch Endpoints can be used for processing tabular data, but also any other file
 
 ## About this sample
 
-The model we are going to work with was built using the popular library transformers from HuggingFace along with [a pre-trained model from Facebook with the BART architecture](https://huggingface.co/facebook/bart-large-cnn). It was introduced in the paper [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation](https://arxiv.org/abs/1910.13461). This model has the following constrains which are important to keep in mind for deployment:
+The model we are going to work with was built using the popular library transformers from HuggingFace along with [a pre-trained model from Facebook with the BART architecture](https://huggingface.co/facebook/bart-large-cnn). It was introduced in the paper [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation](https://arxiv.org/abs/1910.13461). This model has the following constraints which are important to keep in mind for deployment:
 
 * It can work with sequences up to 1024 tokens.
 * It is trained for summarization of text in English.
@@ -90,7 +90,7 @@ model_local_path = 'model'
 summarizer.save_pretrained(model_local_path)
 ```
 
-We can now register this model in the Azure Machine Leanring registry:
+We can now register this model in the Azure Machine Learning registry:
    
 # [Azure CLI](#tab/cli)
 
@@ -135,7 +135,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
     # [Azure CLI](#tab/azure-cli)
 
-    The following YAML file defines a batch endpoint:.
+    The following YAML file defines a batch endpoint:
     
     __endpoint.yml__
 
@@ -183,7 +183,7 @@ Let's create the deployment that will host the model:
    > [!TIP]
    > Although files are provided in mini-batches by the deployment, this scoring script processes one row at a time. This is a common pattern when dealing with expensive models (like transformers) as trying to load the entire batch and send it to the model at once may result in high-memory pressure on the batch executor (OOM exeptions).
 
-1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `Torch` and it requires the libraries `transformers`, `accelerate`, and `optimium` from HuggingFace. Azure Machine Learning already has an environment with Torch and GPU support available. We are just going to add a couple of dependencies in a `conda.yml` file.
+1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `Torch` and it requires the libraries `transformers`, `accelerate`, and `optimum` from HuggingFace. Azure Machine Learning already has an environment with Torch and GPU support available. We are just going to add a couple of dependencies in a `conda.yml` file.
 
    __environment/conda.yml__
 
@@ -239,7 +239,7 @@ Let's create the deployment that will host the model:
    > [!NOTE]
    > You are not charged for compute at this point as the cluster will remain at 0 nodes until a batch endpoint is invoked and a batch scoring job is submitted. Learn more about [manage and optimize cost for AmlCompute](./how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
-1. Now, let create the deployment.
+1. Now, let's create the deployment.
 
    # [Azure CLI](#tab/cli)
    
@@ -374,7 +374,7 @@ As mentioned in some of the notes along this tutorial, processing text may have 
 
 ## Considerations for MLflow models that process text
 
-The same considerations mentioned above apply to MLflow models. However, since you are not required to provide a scoring script for your MLflow model deployment, some of the recommendation mentioned may require a different approach. 
+The same considerations mentioned above apply to MLflow models. However, since you are not required to provide a scoring script for your MLflow model deployment, some of the recommendations mentioned may require a different approach. 
 
 * MLflow models in Batch Endpoints support reading tabular data as input data, which may contain long sequences of text. See [File's types support](how-to-mlflow-batch.md#files-types-support) for details about which file types are supported.
 * Batch deployments will call your MLflow model's predict function with the content of an entire file in as Pandas dataframe. If your input data contains many rows, chances are that running a complex model (like the one presented in this tutorial) will result in an out-of-memory exception. If this is your case, you can consider:
