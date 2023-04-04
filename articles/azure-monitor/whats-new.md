@@ -15,12 +15,12 @@ This article lists significant changes to Azure Monitor documentation.
 |Subservice| Article | Description |
 |---|---|---|
 Alerts|[Manage your alert rules](alerts/alerts-manage-alert-rules.md)|Updated article to reflect that the user can duplicate an existing alert rule.|
-Alerts|[Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](articles/aks/learn/quick-kubernetes-deploy-portal.md)|You can enable recommended alert rules while creating an AKS cluster in the Azure portal. |
+Alerts|[Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md)|You can enable recommended alert rules while creating an AKS cluster in the Azure portal. |
 Alerts|[Monitor Log Analytics workspace health](logs/log-analytics-workspace-health.md)|If you have a Log Analytics workspace without any configured alert rules, you can enable recommended alert rules from the Alerts page of a Log Analytics Workspace.|
 Alerts|[Connect Azure to ITSM tools by using IT Service Management](alerts/itsmc-definition.md)|Updated the workflow for creating ServieNow ITSM tickets from an Azure Monitor alert. The article now specifies separate workflows for ITSM actions, incidents, and events.|
 Alerts|[Manage your alert rules](alerts/alerts-manage-alert-rules.md)|Recommended alert rules are now enabled for all customers and are no longer public preview.|
 Alerts|[Create a new alert rule](alerts/alerts-create-new-alert-rule.md)|The documentation was updated to reflect the updated "Create new alert rule" UI. The alert rule creation wizard clearly indicates the most commonly used resources and signals for their alerts to help users more easily create alert rules.|
-Alerts|[Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)](articles/active-directory/app-proxy/application-proxy-configure-complex-application.md)|The documentation for the common schema used in the alerts payload has been updated to contain the detailed information about the fields in the payload of each alert type.  |
+Alerts|[Understanding Azure Active Directory Application Proxy Complex application scenario (Preview)](../active-directory/app-proxy/application-proxy-configure-complex-application.md)|The documentation for the common schema used in the alerts payload has been updated to contain the detailed information about the fields in the payload of each alert type.  |
 Alerts|[Supported resources for metric alerts in Azure Monitor](alerts/alerts-metric-near-real-time.md)|Updated list of metrics supported by metric alert rules.|
 Alerts|[Create and manage action groups in the Azure portal](alerts/action-groups.md)|Updated the documentation explaining the retry logic used in action groups that use webhooks.|
 Alerts|[Create and manage action groups in the Azure portal](alerts/action-groups.md)|Added list of countries supported by voice notifications.|
