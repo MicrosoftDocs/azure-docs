@@ -123,7 +123,7 @@ Create a tenant app registration to authorize the Easy Button access to Graph. W
 
 1. Start the APM Guided Configuration. 
 2. Start the **Easy Button** template.
-3. Navigate to **Access > Guided Configuration.
+3. Navigate to **Access > Guided Configuration**.
 4. Select **Microsoft Integration**
 5. Select **Azure AD Application**.
 
@@ -294,7 +294,7 @@ With SSO, users access BIG-IP published services without entering credentials. T
    ![Screenshot of entries and selctions for SSO Headers.](./media/f5-big-ip-easy-button-header/sso-http-headers.png)
 
    >[!NOTE]
-   >APM session variables in curly brackets are case-sensitive. Inconsistencies cause aattribute mapping failures.
+   >APM session variables in curly brackets are case-sensitive. Inconsistencies cause attribute mapping failures.
 
 ### Session Management
 
@@ -365,7 +365,7 @@ Use the following guidance when troubleshooting.
 
 BIG-IP logs help isolate issues with connectivity, SSO, policy, or misconfigured variable mappings. To troubleshoot, increase the log verbosity.
 
-1. Navigate to **Access Policy > Overview.
+1. Navigate to **Access Policy > Overview**.
 2. Select **Event Logs**.
 3. Select **Settings**.
 4. Select the row of your published application
