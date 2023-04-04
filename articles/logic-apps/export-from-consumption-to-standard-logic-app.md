@@ -67,7 +67,8 @@ This article provides information about the export process and shows how to expo
 
 > [!NOTE]
 > 
-> VS Code extension version 2.0.16 or higher is required, as some conversion scenarios will require the latest version of logic apps designer, available on this version.
+  > Make sure to install version 2.0.16 or higher for the Azure Logic Apps (Standard) extension for Visual Studio Code. 
+  > Some conversion scenarios require the latest workflow designer, which is available starting with this version.
 
 ## Group logic apps for export
 
