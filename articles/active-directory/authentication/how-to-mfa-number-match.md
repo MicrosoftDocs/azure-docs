@@ -121,6 +121,10 @@ If the user has a different default authentication method, there's no change to 
 
 Regardless of their default method, any user who is prompted to sign-in with Authenticator push notifications sees number matching. If prompted for another method, they won't see any change. 
 
+### Why does the portal still show the control to enable number matching?
+
+You might need to refresh the browser to update the portal after number matching is enabled by default beginning May 8, 2023. 
+
 ### Is number matching supported with MFA Server?
 
 No, number matching isn't enforced because it's not a supported feature for MFA Server, which is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454).
