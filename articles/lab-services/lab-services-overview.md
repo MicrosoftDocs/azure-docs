@@ -49,7 +49,7 @@ Azure Lab Services supports the following key capabilities and features:
 
 - **Advanced virtual networking support**. [Configure advanced networking](./tutorial-create-lab-with-advanced-networking.md) for your labs to apply network traffic control, network ports management, or access resources in a virtual or internal network. For example, your labs might have to connect to an on-premises licensing server.
 
-- **Cost optimization and analysis**. [Keep your budget in check](cost-management-guide.md) by controlling exactly how many hours your lab users can use the virtual machines. Set up [schedules](how-to-create-schedules.md) in the lab to allow users to use the virtual machines only during designated time slots. Set up [auto-shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) to avoid unneeded VM usage. Keep track of [individual users' usage](how-to-manage-classroom-labs.md) and [set limits](how-to-configure-student-usage.md#set-quotas-for-users).
+- **Cost optimization and analysis**. [Keep your budget in check](cost-management-guide.md) by controlling exactly how many hours your lab users can use the virtual machines. Set up [schedules](how-to-create-schedules.md) in the lab to allow lab users to use the virtual machines only during designated time slots. Set up [auto-shutdown policies](how-to-configure-auto-shutdown-lab-plans.md) to avoid unneeded VM usage. Keep track of [individual lab users' usage](how-to-manage-classroom-labs.md) and [set limits](how-to-configure-student-usage.md#set-quotas-for-users).
 
  
 ## Use cases
