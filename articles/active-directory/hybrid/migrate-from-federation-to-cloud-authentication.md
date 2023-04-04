@@ -272,12 +272,12 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
     ![Ready to configure page](media/deploy-cloud-user-authentication/ready-to-configure.png)
 
-   > [!IMPORTANT] 
-   > At this point, all your federated domains changes to managed authentication. Your selected User sign-in method is the new method of authentication.
+    > [!IMPORTANT] 
+    > At this point, all your federated domains changes to managed authentication. Your selected User sign-in method is the new method of authentication.
 
-1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
+7. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
-2. Verify these settings:
+8. Verify these settings:
 
       - **Federation** is set to **Disabled**.
       - **Seamless single sign-on** is set to **Enabled**.
@@ -285,7 +285,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
   ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
 
-3. In case you're switching to PTA, follow the next steps.
+9. In case you're switching to PTA, follow the next steps.
 
 ##### Deploy more authentication agents for PTA
 
