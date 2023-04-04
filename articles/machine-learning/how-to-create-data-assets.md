@@ -17,7 +17,7 @@ ms.date: 01/23/2023
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
-> * [v1](./v1/how-to-create-register-datasets.md)
+> * [v1](./v1/how-to-create-register-datasets.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-create-data-assets.md)
 
 In this article, you'll learn how to create a data asset in Azure Machine Learning. An Azure Machine Learning data asset is similar to web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
