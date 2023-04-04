@@ -32,11 +32,11 @@ Before you begin migrating from the Log Analytics agent to Azure Monitor Agent, 
 > - **Understand your current needs.**<br>Use the **Workspace overview** tab of the [AMA Migration Helper](./azure-monitor-agent-migration-tools.md#using-ama-migration-helper) to discover solutions enabled on your Log Analytics workspaces that use legacy agents, including per-solution migration recommendations. 
 > - **Check that Azure Monitor Agent can address all of your needs.**<br>Check the [Azure Monitor Agent supported services and features](../agents/agents-overview.md#supported-services-and-features).<br>If you use Microsoft Sentinel, see [Gap analysis for Microsoft Sentinel](../../sentinel/ama-migrate.md#gap-analysis-between-agents) for a comparison of the extra data collected by Microsoft Sentinel.  
 > - **Consider installing Azure Monitor Agent together with a legacy agent for a transition period.**<br>You can run Azure Monitor Agent alongside the legacy Log Analytics agent on the same machine to continue using existing functionality during evaluation or migration.<br>
->     If you're setting up a new environment with resources, such as deployment scripts and onboarding templates, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.<br>
->    **If you have two agents on the same machine, avoid collecting duplicate data.**
+>     If you're setting up a new environment with resources, such as deployment scripts and onboarding templates, install Azure Monitor Agent together with a legacy agent in your new environment to decrease the migration effort later.
+> - **If you have two agents on the same machine, avoid collecting duplicate data.**
 >    - Collecting duplicate data from the same machine can skew query results, affect downstream features like alerts, dashboards, and workbooks, and generate extra charges for data ingestion and retention. To avoid data duplication, ensure that the agents collect data from different machines or send the data to different destinations.
 >    - Running two agents on the same machine consumes double the resources, including but not limited to CPU, memory, storage space, and network bandwidth.<br>
->    To avoid data duplication:
+>    **To avoid data duplication:**
 >    - Configure the agents to send the data to different workspaces or different tables in the same workspace.
 >    - Disable duplicate data collection from legacy agents by [removing the workspace configurations](./agent-data-sources.md#configure-data-sources)
 >    - Defender for Cloud natively deduplicates data when you use both agents, and [you'll be billed once per machine](../../defender-for-cloud/auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents) when you run the agents side by side. 
