@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 04/04/2023
 ms.custom: ignite-fall-2021
 
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
@@ -191,19 +191,15 @@ So now you'll add a trigger that starts your workflow.
 
 ## Add a trigger
 
-This example workflow starts with the built-in [Request trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in triggers run natively in Azure Logic Apps.
+This example workflow starts with the [built-in Request trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
 ### [Standard](#tab/standard)
 
-1. On the workflow designer, make sure that your blank workflow is open and that the **Add an operation** prompt is selected on the designer surface.
+1. On the workflow designer, make sure that your blank workflow is open and that the **Choose an operation** prompt is selected on the designer surface.
 
-   ![Screenshot showing workflow designer with selected shape named Choose an operation.](./media/create-single-tenant-workflows-azure-portal/opened-logic-app-designer-blank-workflow-standard.png)
+1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
-1. Next to the designer surface, in the **Add a trigger** pane, under the **Choose an operation** search box, select **Built-in**.
-
-1. In the **Choose an operation** search box, enter **request**, and select the Request trigger named **When a HTTP request is received**.
-
-   ![Screenshot showing pane named Add a trigger with selected trigger named When a HTTP request is received.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger-standard.png)
+   ![Screenshot showing pane named Add a trigger with selected trigger named When a HTTP request is received.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
@@ -219,13 +215,13 @@ This example workflow starts with the built-in [Request trigger](../connectors/c
 
 1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
-1. Follow the [steps to find the built-in Request trigger named **When an HTTP request is received** using **request** as the search term](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-a-trigger-to-start-your-workflow).
+1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-trigger) to your workflow.
+
+   ![Screenshot showing preview picker with selected trigger named When a HTTP request is received.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger-preview.png)
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
-   > [!NOTE]
-   >
-   > If the information pane doesn't appear, makes sure that the trigger is selected on the designer.
+   ![Screenshot showing the preview workflow designer and trigger information pane.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer-preview.png)
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -233,28 +229,17 @@ This example workflow starts with the built-in [Request trigger](../connectors/c
 
 When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
 
-### Add the Office 365 Outlook action
+## Add an action
 
-* The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md) named **Send an email**.
+This example workflow continues with the [Office 365 Outlook managed connector action](../connectors/connectors-create-api-office365-outlook.md) named **Send an email**. Managed connector operations run in Azure versus natively and directly on the Azure Logic Apps runtime.
 
+### [Standard](#tab/standard)
 
 1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
 
-   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane reopens so that you can select the next action.
+   The **Choose an operation** prompt appears on the designer, and the **Add an action** pane opens so that you can select the next action.
 
-   > [!NOTE]
-   >
-   > If the **Add an action** pane shows the error message, **"Cannot read property 'filter' of undefined"**, 
-   > save your workflow, reload the page, reopen your workflow, and try again.
-
-1. In the **Add an action** pane, under the **Choose an operation** search box, select **Azure**. This tab shows the managed connectors that are available and hosted in Azure.
-
-   > [!NOTE]
-   > If the **Add an action** pane shows the error message, 
-   > **"The access token expiry UTC time {*token-expiration-date-time*} is earlier than current UTC time {*current-date-time*}"**, 
-   > save your workflow, reload the page, reopen your workflow, and try adding the action again.
-
-   This example uses the Office 365 Outlook action that's named **Send an email (V2)**.
+1. By using **send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
    ![Screenshot showing the designer, the pane named Add an action, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
 
@@ -290,6 +275,51 @@ When you save a workflow for the first time, and that workflow starts with a Req
    > Otherwise, the designer won't keep your changes.
 
 1. Save your work. On the designer toolbar, select **Save**.
+
+### [Standard (Preview)](#tab/standard-preview)
+
+1. On the designer, under the trigger that you added, select the plus sign (**+**) > **Add an action**.
+
+   The **Browse operations** pane opens so that you can select the next action.
+
+1. By using **send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard-preview#add-action) to your workflow.
+
+   ![Screenshot showing the designer, the pane named Add an action, and the selected Office 365 Outlook named Send an email.](./media/create-single-tenant-workflows-azure-portal/find-send-email-action.png)
+
+1. In the action's information pane, on the **Create Connection** tab, select **Sign in** so that you can create a connection to your email account.
+
+   ![Screenshot showing the designer, the pane named Send an email (V2) with Sign in button selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-sign-in.png)
+
+1. When you're prompted for access to your email account, sign in with your account credentials.
+
+   > [!NOTE]
+   > If you get the error message, **"Failed with error: 'The browser is closed.'. Please sign in again"**, 
+   > check whether your browser blocks third-party cookies. If these cookies are blocked, 
+   > try adding **https://portal.azure.com** to the list of sites that can use cookies. 
+   > If you're using incognito mode, make sure that third-party cookies aren't blocked while working in that mode.
+   > 
+   > If necessary, reload the page, open your workflow, add the email action again, and try creating the connection.
+
+   After Azure creates the connection, the **Send an email** action appears on the designer and is selected by default. If the action isn't selected, select the action so that its information pane is also open.
+
+1. In the action information pane, on the **Parameters** tab, provide the required information for the action, for example:
+
+   ![Screenshot that shows the designer and the "Send an email" information pane with the "Parameters" tab selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-details.png)
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes. This example uses the fictitious email, **sophiaowen@fabrikam.com**. |
+   | **Subject** | Yes | **An email from your example workflow** | The email subject |
+   | **Body** | Yes | **Hello from your example workflow!** | The email body content |
+
+   > [!NOTE]
+   > When making any changes in the information pane on the **Settings**, **Static Result**, or **Run After** tabs, 
+   > make sure that you select **Done** to commit those changes before you switch tabs or change focus to the designer. 
+   > Otherwise, the designer won't keep your changes.
+
+1. Save your work. On the designer toolbar, select **Save**.
+
+---
 
 1. If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow. To find the fully qualified domain names, review [Find domain names for firewall access](#firewall-setup).
 
