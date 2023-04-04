@@ -143,7 +143,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
 1. Now it is time to create the batch endpoint and deployment. Let's start with the endpoint first. Endpoints only require a name and a description to be created. The name of the endpoint will end-up in the URI associated with your endpoint. Because of that, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/cli)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
     
@@ -151,7 +151,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
     ENDPOINT_NAME="heart-classifier-batch"
     ```
     
-    # [Python](#tab/python)
+    # [Python](#tab/sdk)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
 
@@ -235,7 +235,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
    # [Azure CLI](#tab/cli)
    
-  :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="update_default_deployment" :::
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh" ID="update_default_deployment" :::
    
    # [Python](#tab/sdk)
    
