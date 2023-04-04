@@ -898,7 +898,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |---------|---------|
 |**[name](/java/api/com.microsoft.azure.functions.annotation.tableinput.name)** |  The name of the variable that represents the table or entity in function code.| 
 |**[tableName](/java/api/com.microsoft.azure.functions.annotation.tableinput.tableName)** |  The name of the table.|
- **[partitionKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.partitionkey)** |Optional. The partition key of the table entity to read. | 
+|**[partitionKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.partitionkey)** |Optional. The partition key of the table entity to read. | 
 |**[rowKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.rowkey)** |Optional. The row key of the table entity to read.| 
 |**[take](/java/api/com.microsoft.azure.functions.annotation.tableinput.take)** | Optional. The maximum number of entities to read.| 
 |**[filter](/java/api/com.microsoft.azure.functions.annotation.tableinput.filter)** | Optional. An OData filter expression for table input.| 
