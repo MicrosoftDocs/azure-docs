@@ -42,7 +42,7 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 Clone the [sample project](https://github.com/Azure-Samples/app-service-java-quickstart) and check out the source code that runs with this version of the article.
 
 > [!TIP]
-> Though App Service supports older versions of Java, the sample project uses Java records and requires **Java 17**. For more information about Java records, see [JEP 395](https://openjdk.org/jeps/395).
+> Though App Service supports older versions of Java, the `booty-duke-app-service` sample project uses Java records and requires **Java 17**. For more information about Java records, see [JEP 395](https://openjdk.org/jeps/395).
 
 ```azurecli-interactive
 git clone https://github.com/Azure-Samples/app-service-java-quickstart
@@ -83,11 +83,14 @@ git clone https://github.com/Azure-Samples/app-service-java-quickstart
 
 Change directory to the completed project and build from the top level. Then `cd` to the subdirectory for petstore.
 
+> [!TIP]
+> The `petstore-ee7` sample requires **Java 11 or newer**. The `booty-duke-app-service` sample project requires **Java 17**. If your installed version of Java is less than 17, run the build from within the `petstore-ee7` directory, rather than at the top level.
+
 ```azurecli-interactive
 cd app-service-java-quickstart
 git checkout 20230308
-mvn clean install
 cd petstore-ee7
+mvn clean install
 ```
 
 ---
