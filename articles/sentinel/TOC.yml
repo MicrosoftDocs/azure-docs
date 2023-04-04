@@ -735,12 +735,28 @@
           href: connect-azure-virtual-desktop.md
       - name: AMA migration for Microsoft Sentinel
         href: ama-migrate.md
+      - name: CEF/Syslog        
+        items:
+        - name: CEF/Syslog options
+          href: connect-cef-syslog-options.md
+        - name: CEF via AMA
+          href: connect-cef-ama.md        
+        - name: CEF and Syslog
+          href: connect-cef-syslog.md
+        - name: CEF over Syslog sources (legacy)
+          href: connect-common-event-format.md
+        - name: Deploy a log forwarder (legacy)
+          href: connect-log-forwarder.md
+        - name: Syslog (raw) sources (legacy)
+          href: connect-syslog.md
+      - name: DNS via AMA
+        href: connect-dns-ama.md      
+      - name: Microsoft Purview Information Protection
+        href: connect-microsoft-purview.md
+      - name: Microsoft Sentinel Data Collector API
+        href: connect-rest-api-template.md      
       - name: Azure Functions API connection
-        href: connect-azure-functions-template.md
-      - name: CEF over Syslog sources
-        href: connect-common-event-format.md
-      - name: CEF via AMA
-        href: connect-cef-ama.md
+        href: connect-azure-functions-template.md      
       - name: Custom log sources
         href: connect-custom-logs.md
       - name: DNS via AMA
@@ -752,15 +768,11 @@
       - name: Logstash plugin (legacy)
         href: connect-logstash.md
       - name: Microsoft Sentinel Data Collector API
-        href: connect-rest-api-template.md
-      - name: Syslog (raw) sources
-        href: connect-syslog.md
+        href: connect-rest-api-template.md      
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
     - name: Configure RDP login detection
-      href: configure-connector-login-detection.md
-    - name: Deploy a log forwarder
-      href: connect-log-forwarder.md    
+      href: configure-connector-login-detection.md        
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
