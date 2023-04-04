@@ -8,9 +8,9 @@ ms.custom: H1Hack27Feb2017, devx-track-csharp, contperf-fy21q1
 ---
 # Deploy applications to compute nodes with Batch application packages
 
-Application packages can simplify the code in your Azure Batch solution and make it easier to manage the applications that your tasks run. With application packages, you can upload and manage multiple versions of applications your tasks run, including their supporting files. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
+Application packages can simplify the code in your Azure Batch solution and make it easier to manage the applications that your tasks run. With application packages, you can upload and manage multiple versions of the applications your tasks run, including their supporting files. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
 
-The APIs for creating and managing application packages are part of the [Batch Management .NET](batch-management-dotnet.md) library. The APIs for installing application packages on a compute node are part of the [Batch .NET](quick-run-dotnet.md) library. Comparable features are in the available Batch APIs for other languages.
+The APIs for creating and managing application packages are part of the [Batch Management .NET](batch-management-dotnet.md) library. The APIs for installing application packages on a compute node are part of the [Batch .NET](quick-run-dotnet.md) library. Comparable features are in the available Batch APIs for other programming languages.
 
 This article explains how to upload and manage application packages in the Azure portal. It also shows how to install them on a pool's compute nodes with the [Batch .NET](quick-run-dotnet.md) library.
 
@@ -29,7 +29,7 @@ Within Azure Batch, an *application* refers to a set of versioned binaries that 
 
 Each *application package* is a .zip file that contains the application binaries and any supporting files. Only the .zip format is supported.
 
-![Diagram showing a high-level view of applications and application packages.](./media/batch-application-packages/app_pkg_01.png)
+:::image type="content" source="./media/batch-application-packages/app_pkg_01.png" alt-text="Diagram that shows a high-level view of applications and application packages.":::
 
 You can specify application packages at the pool or task level.
 
@@ -59,44 +59,28 @@ You can use the [Azure portal](https://portal.azure.com) or the Batch Management
 
 To use application packages, you must link an [Azure Storage account](accounts.md#azure-storage-accounts) to your Batch account. The Batch service uses the associated storage account to store your application packages. Ideally, you should create a storage account specifically for use with your Batch account.
 
-If you haven't yet configured a storage account, the Azure portal displays a warning the first time you select **Applications** in your Batch account. To link a storage account to your Batch account, select **Storage account** on the **Warning** window, and then select **Storage Account** again.
+If you haven't yet configured a storage account, the Azure portal displays a warning the first time you select **Applications** from the left navigation menu in your Batch account. To need to link a storage account to your Batch account:
+
+1. Select the **Warning** window that states, "No Storage account configured for this batch account." 
+1. Then choose **Storage Account set...** on the next page. 
+1. Choose the **Select a storage account** link in the **Storage Account Information** section. 
+1. Select the storage account you want to use with this batch account in the list on the **Choose storage account** pane. 
+1. Then select **Save** on the top left corner of the page.
 
 After you link the two accounts, Batch can automatically deploy the packages stored in the linked Storage account to your compute nodes.
 
 > [!IMPORTANT]
-> You can't use application packages with Azure Storage accounts configured with [firewall rules](../storage/common/storage-network-security.md), or with **Hierarchical namespace** set to **Enabled**.
+> You can't use application packages with Azure Storage accounts configured with [firewall rules](../storage/common/storage-network-security.md) or with **Hierarchical namespace** set to **Enabled**.
 
 The Batch service uses Azure Storage to store your application packages as block blobs. You're [charged as normal](https://azure.microsoft.com/pricing/details/storage/) for the block blob data, and the size of each package can't exceed the maximum block blob size. For more information, see [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md). To minimize costs, be sure to consider the size and number of your application packages, and periodically remove deprecated packages.
-
-### View current applications
-
-To view the applications in your Batch account, select **Applications** in the left navigation menu.
-
-![Screenshot of the Applications menu item in the Azure portal.](./media/batch-application-packages/app_pkg_02.png)
-
-Selecting this menu option opens the **Applications** window. This window displays the ID of each application in your account and the following properties:
-
-- **Packages**: The number of versions associated with this application.
-- **Default version**: If applicable, the application version that is installed if no version is specified when deploying the application.
-- **Allow updates**: Specifies whether package updates and deletions are allowed.
-
-To see the [file structure](files-and-directories.md) of the application package on a compute node, navigate to your Batch account in the Azure portal. Select **Pools**. Then select the pool that contains the compute node. Select the compute node on which the application package is installed and open the **applications** folder.
-
-### View application details
-
-To see the details for an application, select it in the **Applications** window. You can configure the following settings for your application.
-
-- **Allow updates**: Indicates whether application packages can be [updated or deleted](#update-or-delete-an-application-package). The default is **Yes**. If set to **No**, existing application packages can't be updated or deleted, but new application package versions can still be added.
-- **Default version**: The default application package to use when the application is deployed if no version is specified.
-- **Display name**: A friendly name that your Batch solution can use when it displays information about the application. For example, this name can be used in the UI of a service that you provide to your customers through Batch.
 
 ### Add a new application
 
 To create a new application, you add an application package and specify a unique application ID.
 
-In your Batch account, select **Applications**, and then select **Add**.
+In your Batch account, select **Applications** from the left navigation menu, and then select **Add**.
 
-![Screenshot of the New application creation process in the Azure portal.](./media/batch-application-packages/app_pkg_05.png)
+:::image type="content" source="./media/batch-application-packages/app_pkg_05.png" alt-text="Screenshot of the New application creation process in the Azure portal.":::
 
 Enter the following information:
 
@@ -113,17 +97,39 @@ The **Application ID** and **Version** you enter must follow these requirements:
 
 When you're ready, select **Submit**. After the .zip file has been uploaded to your Azure Storage account, the portal displays a notification. Depending on the size of the file that you're uploading and the speed of your network connection, this process might take some time.
 
+### View current applications
+
+To view the applications in your Batch account, select **Applications** in the left navigation menu.
+
+:::image type="content" source="./media/batch-application-packages/app_pkg_02.png" alt-text="Screenshot of the Applications menu item in the Azure portal.":::
+
+Selecting this menu option opens the **Applications** window. This window displays the ID of each application in your account and the following properties:
+
+- **Packages**: The number of versions associated with this application.
+- **Default version**: If applicable, the application version that is installed if no version is specified when deploying the application.
+- **Allow updates**: Specifies whether package updates and deletions are allowed.
+
+To see the [file structure](files-and-directories.md) of the application package on a compute node, navigate to your Batch account in the Azure portal. Select **Pools**. Then select the pool that contains the compute node. Select the compute node on which the application package is installed and open the **applications** folder.
+
+### View application details
+
+To see the details for an application, select it in the **Applications** window. You can configure your application by selecting **Settings** in the left navigation menu.
+
+- **Allow updates**: Indicates whether application packages can be [updated or deleted](#update-or-delete-an-application-package). The default is **Yes**. If set to **No**, existing application packages can't be updated or deleted, but new application package versions can still be added.
+- **Default version**: The default application package to use when the application is deployed if no version is specified.
+- **Display name**: A friendly name that your Batch solution can use when it displays information about the application. For example, this name can be used in the UI of a service that you provide to your customers through Batch.
+
 ### Add a new application package
 
-To add an application package version for an existing application, select the application in the **Applications** section of your Batch account. Then select **Add**.
+To add an application package version for an existing application, select the application on the **Applications** page of your Batch account. Then select **Add**.
 
 As you did for the new application, specify the **Version** for your new package, upload your .zip file in the **Application package** field, and then select **Submit**.
 
 ### Update or delete an application package
 
-To update or delete an existing application package, select the application in the **Applications** section of your Batch account. Select the ellipsis in the row of the application package that you want to modify. Then select the action that you want to perform.
+To update or delete an existing application package, select the application on the **Applications** page of your Batch account. Select the ellipsis in the row of the application package that you want to modify. Then select the action that you want to perform.
 
-![Screenshot showing the update and delete options for application packages in the Azure portal.](./media/batch-application-packages/app_pkg_07.png)
+:::image type="content" source="./media/batch-application-packages/app_pkg_07.png" alt-text="Screenshot that shows the update and delete options for application packages in the Azure portal.":::
 
 If you select **Update**, you can upload a new .zip file. This file replaces the previous .zip file that you uploaded for that version.
 
@@ -192,7 +198,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 };
 ```
 
-## Run the installed applications
+## Execute the installed applications
 
 The packages that you specify for a pool or task are downloaded and extracted to a named directory within the `AZ_BATCH_ROOT_DIR` of the node. Batch also creates an environment variable that contains the path to the named directory. Your task command lines use this environment variable when referencing the application on the node.
 
