@@ -42,8 +42,6 @@ Before you begin your migration, ensure that you meet these prerequisites.
 
 For staged rollout, you need to be a Hybrid Identity Administrator on your tenant. 
 
-To enable seamless SSO on a specific Windows Active Directory Forest, you need to be a domain administrator.
-
 ### Step up Azure AD Connect server
 
 Install [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) or [upgrade to the latest version](how-to-upgrade-previous-version.md). When you step up Azure AD Connect server, it reduces the time to migrate from AD FS to the cloud authentication methods from potentially hours to minutes. 
@@ -83,12 +81,6 @@ After migrating to cloud authentication, the user sign-in experience for accessi
 Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
 
 ### Plan the maintenance window
-
-After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for legacy applications authentication can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
-
-During this four-hour window, you may prompt users for credentials repeatedly when reauthenticating to applications that use legacy authentication. Although the user can still successfully authenticate against AD FS, Azure AD no longer accepts the user's issued token because that federation trust is now removed.
-
-Existing Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn't have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after the cached is cleared. Users aren't expected to receive any password prompts as a result of the domain conversion process.
 
 Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without extra configuration.
 
