@@ -36,11 +36,9 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 ## Considerations
 
 > [!IMPORTANT]
-> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. Customer-managed keys feature is expected to be enabled within a week from submitting waitlist request.
-
+> Customer-managed keys for Azure NetApp Files volume encryption is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Customer-managed keys for Azure NetApp Files volume encryption](https://aka.ms/anfcmkpreviewsignup)** page. The customer-managed keys feature is expected to be enabled within a week from submitting waitlist request.
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
-* Switching from user-assigned identity to the system-assigned identity isn't currently supported.
 * MSI Automatic certificate renewal isn't currently supported.  
 * The MSI certificate has a lifetime of 90 days. It becomes eligible for renewal after 46 days. **After 90 days, the certificate is no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
     * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it's not eligible, an error message will communicate the date of eligibility. 
@@ -130,7 +128,7 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 
     :::image type="content" source="../media/azure-netapp-files/encryption-system-assigned.png" alt-text="Screenshot of the encryption menu with system-assigned options." lightbox="../media/azure-netapp-files/encryption-system-assigned.png":::
 
-    * If you choose **User-assigned**, you must select an identity to use. Choosing **Select an identity** opens a context pane prompting you to select a user-assigned managed identity. 
+    * If you choose **User-assigned**, you must select an identity. Choose **Select an identity** to open a context pane where you select a user-assigned managed identity. 
 
     :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned submenu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
     
@@ -156,7 +154,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
     1. `Microsoft.KeyVault/vaults/keys/encrypt/action`
     1. `Microsoft.KeyVault/vaults/keys/decrypt/action`
 
-    Although there are pre-defined roles with these permissions, they grant more privileges than are required. For the minimum level of privileges, you should create a custom role with only the required permissions. For details, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+    Although there are pre-defined roles that include these permissions, those roles grant more privileges than are required. It's recommended that you create a custom role with only the minimum required permissions. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
     ```json
     {
@@ -183,7 +181,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
     }
     ```
 
-1. Once the custom role is created and available to use with the key vault, you can add a role assignment for your user-assigned identity. 
+1. Once the custom role is created and available to use with the key vault, you apply it to the user-assigned identity. 
 
   :::image type="content" source="../media/azure-netapp-files/rbac-review-assign.png" alt-text="Screenshot of RBAC review and assign menu." lightbox="../media/azure-netapp-files/rbac-review-assign.png":::
 
@@ -210,7 +208,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
 
 ## Rekey all volumes under a NetApp account
 
-If you have already configured your NetApp account for customer-managed keys and has one or more volumes encrypted with customer-managed keys, you can change the key that is used to encrypt all volumes under the NetApp account. You can select any key that is in the same key vault, changing key vaults isn't supported. 
+If you have already configured your NetApp account for customer-managed keys and have one or more volumes encrypted with customer-managed keys, you can change the key that is used to encrypt all volumes under the NetApp account. You can select any key that is in the same key vault. Changing key vaults isn't supported. 
 
 1. Under your NetApp account, navigate to the **Encryption** menu. Under the **Current key** input field, select the **Rekey** link.
 :::image type="content" source="../media/azure-netapp-files/encryption-current-key.png" alt-text="Screenshot of the encryption key." lightbox="../media/azure-netapp-files/encryption-current-key.png":::
@@ -222,13 +220,13 @@ If you have already configured your NetApp account for customer-managed keys and
 
 ## Switch from user-assigned to system-assigned identity
 
-To switch from user-assigned to system-assigned identity, you must grant the target identity access to the key vault being used with read/get, ecncrypt, and decrypt permissions. 
+To switch from user-assigned to system-assigned identity, you must grant the target identity access to the key vault being used with read/get, encrypt, and decrypt permissions. 
 
-1. Update the NetApp account using the `az rest` function:
+1. Update the NetApp account by sending a PATCH request using the `az rest` command:
     ```azurecli
     az rest -m PATCH -u <netapp-account-resource-id>?api-versions=2022-09-01 -b @path/to/payload.json
     ```
-    The payload should be:
+    The payload should use the following structure:
     ````json
     {
       "identity": {
@@ -246,7 +244,7 @@ To switch from user-assigned to system-assigned identity, you must grant the tar
       }
     }
     ````
-1. Confirm the operation completed successfully with the `az netappfiles account show` command. The output will look similar to:
+1. Confirm the operation completed successfully with the `az netappfiles account show` command. The output includes the following fields:
     ```azurecli
         "id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.NetApp/netAppAccounts/account",
         "identity": {
@@ -263,8 +261,9 @@ To switch from user-assigned to system-assigned identity, you must grant the tar
         },
         ```
     Ensure that:
-    * `encryption.identity.principalId` matches the value in `identity.userAssignedIdentities[]`
-    * `encryption.identity.userAssignedIdentity` matches the value in in `identity.userAssignedIdentities[]`
+    * `encryption.identity.principalId` matches the value in `identity.userAssignedIdentities.principalId`
+    * `encryption.identity.userAssignedIdentity` matches the value in `identity.userAssignedIdentities[]`
+
     ```azurecli
     "encryption": {
     	"identity": {
