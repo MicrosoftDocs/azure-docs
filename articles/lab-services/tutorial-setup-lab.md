@@ -82,6 +82,38 @@ Follow these steps to add a lab to the lab plan you created earlier:
 
     :::image type="content" source="./media/tutorial-setup-lab/lab-template.png" alt-text="Screenshot of Template page for a lab.":::
 
+## Add a lab schedule
+
+Instead of each lab user starting their lab VM manually, you can optionally create a lab schedule to automatically start and stop the lab VM according to your training calendar. Azure Lab Services supports one-time events or recurring schedules.
+
+Alternately, you can also use [quota](./classroom-labs-concepts.md#quota) to manage the number of hours that lab users can run their lab virtual machine.
+
+Follow these steps to add a recurring schedule to your lab:
+
+1. On the **Schedule** page for the lab, select **Add scheduled event** on the toolbar.
+
+    :::image type="content" source="./media/tutorial-setup-lab/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedule page, highlighting the Schedule menu and Add scheduled event button.":::
+
+1. On the **Add scheduled event** page, enter the following information:
+
+    | Field | Value |
+    | ----- | ----- |
+    | **Event type** | *Standard* |
+    | **Start date** | Enter a start date for the classroom training. |
+    | **Start time** | Enter a start time for the classroom training. |
+    | **Stop time** | Enter an end time for the classroom training. |
+    | **Time zone** | Select your time zone. |
+    | **Repeat** | Keep the default value, which is a weekly recurrence for four months. |
+    | **Notes** | Optionally enter a description for the schedule. |
+
+1. Select **Save** to confirm the lab schedule.
+
+    :::image type="content" source="./media/tutorial-setup-lab/add-schedule-page-weekly.png" alt-text="Screenshot of the Add scheduled event window.":::
+
+1. In the calendar view, confirm that the scheduled event is present.
+
+    :::image type="content" source="./media/tutorial-setup-lab/schedule-calendar.png" alt-text="Screenshot of the Schedule page for Azure Lab Services.  Repeating schedule, Monday through Friday shown in the calendar.":::
+
 ## Customize the lab template
 
 The lab template serves as the basis for the lab VMs. To make sure that lab users have the right configuration and software components, you can customize the lab template.
@@ -110,7 +142,7 @@ You've now customized the lab template for the course. Every VM in the lab will 
 
 ## Publish lab
 
-Before Azure Lab Services can create lab VMs for your lab, you first need to publish the lab. When you publish the lab, you need to specify the maximum number of lab VMs that Azure Lab Services creates. All VMs in the lab share the same configuration as the lab template.
+All VMs in the lab share the same configuration as the lab template. Before Azure Lab Services can create lab VMs for your lab, you first need to publish the lab. When you publish the lab, you can specify the maximum number of lab VMs that Azure Lab Services creates. You can also modify the number of lab virtual machines at a later stage.
 
 To publish the lab and create the lab VMs:
 
@@ -131,35 +163,8 @@ To publish the lab and create the lab VMs:
 
     :::image type="content" source="./media/tutorial-setup-lab/virtual-machines-stopped.png" alt-text="Screenshot that shows the list of virtual machines for the lab. The lab VMs show as unassigned and stopped.":::
 
-## Add a lab schedule
-
-Instead of each lab user starting their lab VM manually, you can create a lab schedule to automatically start and stop the lab VM according to your training calendar. Azure Lab Services supports one-time events or recurring schedules.
-
-Follow these steps to add a recurring schedule to your lab:
-
-1. On the **Schedule** page for the lab, select **Add scheduled event** on the toolbar.
-
-    :::image type="content" source="./media/tutorial-setup-lab/add-schedule-button.png" alt-text="Screenshot of the Add scheduled event button on the Schedule page, highlighting the Schedule menu and Add scheduled event button.":::
-
-1. On the **Add scheduled event** page, enter the following information:
-
-    | Field | Value |
-    | ----- | ----- |
-    | **Event type** | *Standard* |
-    | **Start date** | Enter a start date for the classroom training. |
-    | **Start time** | Enter a start time for the classroom training. |
-    | **Stop time** | Enter an end time for the classroom training. |
-    | **Time zone** | Select your time zone. |
-    | **Repeat** | Keep the default value, which is a weekly recurrence for four months. |
-    | **Notes** | Optionally enter a description for the schedule. |
-
-1. Select **Save** to confirm the lab schedule.
-
-    :::image type="content" source="./media/tutorial-setup-lab/add-schedule-page-weekly.png" alt-text="Screenshot of the Add scheduled event window.":::
-
-1. In the calendar view, confirm that the scheduled event is present.
-
-    :::image type="content" source="./media/tutorial-setup-lab/schedule-calendar.png" alt-text="Screenshot of the Schedule page for Azure Lab Services.  Repeating schedule, Monday through Friday shown in the calendar.":::
+> [!CAUTION]
+> When you republish a lab, Azure Lab Services recreates all existing lab virtual machines and removes all data from the virtual machines.
 
 ## Invite users
 
@@ -222,7 +227,7 @@ After you add users to the lab, they can register for the lab by using a registr
 
 You've successfully created a customized lab for a classroom training, created a recurring lab schedule, and invited users to register for the lab. Next, lab users can now connect to their lab virtual machine by using remote desktop.
 
-In this tutorial, you have the Lab Creator Azure AD role to let you create labs for a lab plan. Depending on your organziation, the responsibilities for creating lab plans and labs might be assigned to different people or teams. Learn more about [mapping permissions across your organization](./classroom-labs-scenarios.md#mapping-organizational-roles-to-permissions).
+In this tutorial, you have the Lab Creator Azure AD role to let you create labs for a lab plan. Depending on your organization, the responsibilities for creating lab plans and labs might be assigned to different people or teams. Learn more about [mapping permissions across your organization](./classroom-labs-scenarios.md#mapping-organizational-roles-to-permissions).
 
 > [!div class="nextstepaction"]
 > [Connect to a lab virtual machine](./tutorial-connect-lab-virtual-machine.md)
