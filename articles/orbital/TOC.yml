@@ -40,6 +40,12 @@ items:
     href: downlink-aqua.md 
   - name: Collect and process AQUA satellite payload
     href: satellite-imagery-with-orbital-ground-station.md
+  - name: Geospatial reference architecture
+    href: geospatial-reference-architecture.md          
+  - name: Organize spaceborne geospatial data with STAC
+    href: organize-stac-data.md
+  - name: Process Synthetic Aperture Radar (SAR) data
+    href: sar-reference-architecture.md  
     
 - name: Concepts
   items:
@@ -49,9 +55,3 @@ items:
     href: concepts-contact-profile.md
   - name: Spacecraft object
     href: spacecraft-object.md
-  - name: Geospatial reference architecture
-    href: geospatial-reference-architecture.md          
-  - name: Organize spaceborne geospatial data with STAC
-    href: organize-stac-data.md
-  - name: Process Synthetic Aperture Radar (SAR) data
-    href: sar-reference-architecture.md  
