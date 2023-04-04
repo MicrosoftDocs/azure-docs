@@ -21,7 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in April include:
 
 - [Changes in the recommendation "Machines should be configured securely"](#changes-in-the-recommendation-machines-should-be-configured-securely)
-- [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-AWS)
+- [Agentless scanning now supports encrypted disks in AWS](#agentless-scanning-now-supports-encrypted-disks-in-aws)
 
 ### Changes in the recommendation "Machines should be configured securely"
 
