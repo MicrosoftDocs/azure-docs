@@ -70,8 +70,8 @@ To install the client on a per-user basis using a batch file:
    msiexec /i RemoteDesktop_x64.msi /qn ALLUSERS=2 MSIINSTALLPERUSER=1 
    ```
 
->[!NOTE]
->The RemoteDesktop_x64.msi installer name must match the MSI contained in the folder.
+   >[!NOTE]
+   >The RemoteDesktop_x64.msi installer name must match the MSI contained in the folder.
 
 1. Open the **Configuration Manager** and go to **Software Library** > **Application Management** > **Applications**.
 
