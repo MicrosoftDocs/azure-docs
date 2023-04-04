@@ -6,6 +6,17 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.27.0: April 2023 release
+
+#### Updates
+
+* Updated to use Speech SDK 1.27.0 
+* Update default endpoint to use v3.1 REST APIs for Custom Speech Recognition and Batch Speech Recognition.
+
+#### Bug fixes
+
+* Fixes related to how query parameters are parsed/configured.
+
 ### Speech CLI 1.26.0: March 2023 release
 
 Updated to use Speech SDK 1.26.0.

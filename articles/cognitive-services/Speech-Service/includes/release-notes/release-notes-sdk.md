@@ -6,9 +6,34 @@ ms.date: 11/01/2022
 ms.author: eur
 ---
 
+### Speech SDK 1.27.0: April 2024 release
+
+#### Notification about upcoming changes
+
+* Online Certificate Status Protocol (OCSP) is about to be removed from the JavaScript SDK, to allow customers to better conform to browser and Node standards for certificate handling. This release will be the last to include our custom OCSP module.
+	
+#### New Features
+
+* **JavaScript** – Speaker identification/verification now allows microphone input from the browser.
+* **Embedded Speech Recognition** (SR) - Update support for `PropertyId::Speech_SegmentationSilenceTimeoutMs` setting.
+
+#### Bug fixes
+
+* **General** - Reliability updates in service reconnection logic.
+* **General** - Fix string conversions leaking memory on Windows.
+* **Embedded SR** - Fix crash on French SR when using certain grammar list entries.
+* **Source code documentation** - Corrections to SDK reference documentation comments related to audio logging on the service.
+* **Intent recognition** - Fix Pattern Matcher priorities related to list entities.
+
+#### Samples
+
+* Properly handle authentication failure in C# Conversation Transcription (CTS) sample.
+* Added example of streaming pronunciation assessment for Python, JavaScript, Objective-C and Swift.
+
+
 ### Speech SDK 1.26.0: March 2023 release
 
-### Breaking changes
+#### Breaking changes
 
 * Bitcode has been disabled in all iOS targets in the following packages: Cocoapod with xcframework, Nuget (for Xamarin and MAUI) and Unity. The change is due to Apple's deprication of bitcode support from Xcode 14 and onwards. This change also means if you are using Xcode 13 version or you have explicitly enabled the bitcode on your application using the Speech SDK, you may encounter an error saying "framework does not contain bitcode and you must rebuild it". To resolve this issue, make sure your targets have bitcode disabled.
 * Minimum iOS deployment target has been upgraded to 11.0 in this release, which means armv7 HW is no longer supported.
