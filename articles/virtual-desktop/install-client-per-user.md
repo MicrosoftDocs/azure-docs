@@ -25,7 +25,7 @@ In order to install the Remote Desktop client for Windows on a per-user basis wi
 
 To install the client on a per-user basis using a batch file:
 
-#### Intune (#tabs/intune)
+#### [Intune](#tab/intune)
 
 1. Create a new folder containing the Remote Desktop client MSI file.
 
@@ -60,7 +60,7 @@ To install the client on a per-user basis using a batch file:
 
 1. Follow the instructions in [Assign apps to groups with Microsoft Intune](/mem/intune/apps/apps-deploy) to deploy the client app to your users.
 
-#### Configuration Manager (#tabs/configmanager)
+#### [Configuration Manager](#tab/configmanager)
 
 1. Create a new folder in your package share.
 
