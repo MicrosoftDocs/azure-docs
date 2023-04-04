@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: troubleshooting
-ms.date: 04/19/2022
+ms.date: 04/04/2023
 ms.author: greglin
 ms.custom: devx-track-azurepowershell
 ---
@@ -45,6 +45,22 @@ HTTP 400 response codes are commonly observed when:
 - Non-HTTP / HTTPS traffic is initiated to an application gateway with an HTTP or HTTPS listener.
 - HTTP traffic is initiated to a listener with HTTPS, with no redirection configured.
 - Mutual authentication is configured and unable to properly negotiate.
+- Not compliant to RFC. 
+
+Below are the common reasons for the request to be non-compliant to RFC. So please review the urls/requests from the clients for the below patterns.
+| Subcategory | Examples |
+| ---------- | ---------- | 
+| Invalid Host in request line  | Host containing two colons ( example.com:8090:8080) |
+| Missing Host Header | Request does not have Host Header |
+| Presence of malformed or illegal character | Reserved characters are &, !. Workaround is to percent code it %& |
+| Invalid HTTP version | Get /content.css HTTP/0.3 |
+| Header field name and URI contains non-ASCII Character | GET /«úü¡»¿.doc HTTP/1.1  |
+| Missing Content Length header for POST request | NA |
+| Invalid HTTP Method | GET123 / HTTP/1.1 |
+| Duplicate Headers | Authorization : <based64 encoded content> , Authorization : <based64 encoded content> |
+| Invalid value in Content-Length | Content-Length : abc |
+
+
 
 For cases when mutual authentication is configured, several scenarios can lead to an HTTP 400 response being returned the client, such as:
 - Client certificate isn't presented, but mutual authentication is enabled.
