@@ -40,6 +40,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
+* Customer-managed keys private endpoints do not support the **Disable public access** option. You must choose one of the **Allow public access** options.
 * Switching from user-assigned identity to the system-assigned identity isn't currently supported.
 * MSI Automatic certificate renewal isn't currently supported.  
 * The MSI certificate has a lifetime of 90 days. It becomes eligible for renewal after 46 days. **After 90 days, the certificate is no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
@@ -53,7 +54,6 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 * Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 * Currently, customer-managed keys can't be configured while creating data replication volumes to establish an Azure NetApp Files cross-region replication or cross-zone replication relationship.
-* Customer-managed keys do not support the **Disable public access** option with firewalls and virtue networks. You must choose one of the **Allow public access** options.
 
 ## Supported regions 
 
