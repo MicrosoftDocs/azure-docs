@@ -20,7 +20,7 @@ The self-hosted integration runtime (SHIR) is also used by Azure Data Factory an
 
 ## Gather Microsoft Purview specific SHIR self-hosted integration runtime logs
 
-For failed Microsoft Purview activities that are running on a self-hosted IR or shared IR, the service supports viewing and uploading error logs from the [Windows Event Viewer](https://learn.microsoft.com/shows/inside/event-viewer).
+For failed Microsoft Purview activities that are running on a self-hosted IR or shared IR, the service supports viewing and uploading error logs from the [Windows Event Viewer](/shows/inside/event-viewer).
 
 You can look up any errors you see in the error guide below.
 To get support and troubleshooting guidance for SHIR issues, you may need to generate an error report ID and [reach out to Microsoft support](https://azure.microsoft.com/support/create-ticket/).
