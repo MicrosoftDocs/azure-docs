@@ -31,6 +31,8 @@ For local development, make sure you're authenticated with the same Azure AD acc
 
 Next you need to update your code to use passwordless connections.
 
+## [.NET](#tab/dotnet)
+
 1. To use `DefaultAzureCredential` in a .NET application, add the **Azure.Identity** NuGet package to your application.
 
    ```dotnetcli
@@ -55,6 +57,8 @@ Next you need to update your code to use passwordless connections.
 1. Make sure to update the storage account name in the URI of your `BlobServiceClient`. You can find the storage account name on the overview page of the Azure portal.
 
    :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name.":::
+
+---
 
 ### Run the app locally
 
@@ -153,6 +157,8 @@ If you connected your services using Service Connector you don't need to complet
 
 You need to configure your application code to look for the specific managed identity you created when it is deployed to Azure. In some scenarios, explicitly setting the managed identity for the app also prevents other environment identities from accidentally being detected and used automatically.
 
+## [.NET](#tab/dotnet)
+
 1. On the managed identity overview page, copy the client ID value to your clipboard.
 1. Update the `DefaultAzureCredential` object in the `Program.cs` file of your app to specify this managed identity client ID.
 
@@ -166,6 +172,8 @@ You need to configure your application code to look for the specific managed ide
                                 ManagedIdentityClientId = "<your-managed-identity-client-id>" 
                             }));
     ```
+
+---
 
 3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
 
