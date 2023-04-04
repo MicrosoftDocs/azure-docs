@@ -9,7 +9,7 @@ ms.author: gimondra
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 12/01/2022
+ms.date: 04/04/2023
 ---
 
 # Indexer troubleshooting guidance for Azure Cognitive Search
@@ -82,7 +82,7 @@ If your SQL database is on a [serverless compute tier](/azure/azure-sql/database
 
 If the database is paused, the first login from your search service will auto-resume the database, but it will also return an error stating that the database is unavailable with error code 40613. After the database is running, retry the login to establish connectivity.
 
-## SharePoint Conditional Access policies
+## Azure Active Directory Conditional Access policies
 
 When creating a SharePoint indexer you will go through a step that requires you to sign in to your Azure AD app after providing a device code. If you receive a message that says `"Your sign-in was successful but your admin requires the device requesting access to be managed"` the indexer is likely being blocked from accessing the SharePoint document library due to a [Conditional Access](../active-directory/conditional-access/overview.md) policy.
 
