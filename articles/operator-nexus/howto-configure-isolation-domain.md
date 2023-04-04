@@ -54,7 +54,7 @@ You'll create isolation-domains to enable layer 2 and layer 3 connectivity betwe
 | subscriptionId      | Your Azure subscriptionId for your Operator Nexus instance. |
 | provisioningState   | Indicates provisioning state |
 
-## L2 isolation-domain
+## L2 Isolation-Domain
 
 You use an L2 isolation-domain to establish layer 2 connectivity between workloads running on Operator Nexus compute nodes.
 
@@ -177,7 +177,7 @@ Expected Output
 This command is used to change the administrative state of the isolation-domain.
 
 **Note:**
-Only after the isolation-domain is Enabled, that the layer 2 isolation-domain configuration is pushed to the Network fabric devices.
+Only after the Isolation-Domain is Enabled, that the layer 2 Isolation-Domain configuration is pushed to the Network Fabric devices.
 
 ```azurecli
 az nf l2domain update-admin-state --resource-group "ResourceGroupName" --resource-name "example-l2domain" --state Enable/Disable
@@ -388,11 +388,11 @@ Expected Output
 
 Once the isolation-domain is created successfully, the next step is to create an internal network.
 
-## Optional Parameters for Isolation Domain
+## Optional parameters for Isolation Domain
 
 | Parameter|Description|Example|Required|
 |---|---|---|---|
-| redistributeConnectedSubnet | Advertise Connected Subnets Default value is True |True |      |
+| redistributeConnectedSubnet | Advertise connected subnets default value is True |True |      |
 | redistributeStaticRoutes  |Advertise Static Routes can have value of true/False.  Defualt Value is False | False       | |
 | aggregateRouteConfiguration|List of Ipv4 and Ipv6 route configurations  |     |   | 
 
@@ -407,7 +407,7 @@ Once the isolation-domain is created successfully, the next step is to create an
 |location|AODS Azure Region used during NFC Creation|eastus | True
 
 
-## Options to create Internal networks by using 
+## Options to create Internal Networks
 
 |Parameter|Description|Example|Required|
 |---|---|---|---|
@@ -434,10 +434,11 @@ az nf internalnetwork create
 --resource-group "ResourceGroupName" 
 --l3-isolation-domain-name "example-l3domain" 
 --resource-name "example-internalnetwork" 
---location "eastus" --vlan-id 805 
+--location "eastus"
+--vlan-id 805 
 --connected-ipv4-subnets '[{"prefix":"10.1.2.0/24"}]' 
 --mtu 1500 
---bgp-configuration  '{"defaultRouteOriginate": "True", "allowAS": 2, "allowASOverride": "Enable", "PeerASN": 65535, "ipv4ListenRangePrefixes": ["10.1.2.0/28"]}
+--bgp-configuration  '{"defaultRouteOriginate": "True", "allowAS": 2, "allowASOverride": "Enable", "PeerASN": 65535, "ipv4ListenRangePrefixes": ["10.1.2.0/28"]}'
 
 ```
 
@@ -494,7 +495,7 @@ Expected Output
 }
 ```
 
-## Multiple Static Routes with single next hop
+## Multiple static routes with single next hop
 
 ```azurecli
 az nf internalnetwork create 
@@ -660,7 +661,7 @@ This command creates an External network using Azure CLI.
 
 **Note:** For Option A You need to create an external network before you enable the L3 isolation Domain. An external is dependent on Internal network, so an external can't be enabled without an internal network. The vlan-id value should be between 501 and 4095.
 
-## External Network Creation using OptionB
+## External Network Creation using Option B
 
 ```azurecli
 az nf externalnetwork create 
@@ -706,7 +707,7 @@ Expected Output
   "type": "microsoft.managednetworkfabric/l3isolationdomains/externalnetworks"
 }
 ```
-## External Network Creation with OptionA
+## External Network creation with Option A
 
 ```azurecli
 az nf externalnetwork create
@@ -762,14 +763,14 @@ Expected Output
 
 ```azurecli
 az nf externalnetwork create 
---resource-group "ResourceGroupName" `
---l3-isolation-domain-name "example-l3domain" `
---resource-name "example-externalipv6network" `
---location "eastus" `
---vlan-id 506 `
---peer-asn 65022 `
---primary-ipv6-prefix "10:101:2::0/127" `
---secondary-ipv6-prefix "10:101:3::0/127" 
+--resource-group "ResourceGroupName"
+--l3-isolation-domain-name "example-l3domain"
+--resource-name "example-externalipv6network"
+--location "eastus"
+--vlan-id 506
+--peer-asn 65022
+--primary-ipv6-prefix "10:101:2::0/127"
+--secondary-ipv6-prefix "10:101:3::0/127"
 ```
 
 **Note:** Primary and Secondary IPv6 supported in this release is /127
