@@ -32,9 +32,56 @@ These values can be passed individually or as an image *URN*, combining the valu
 
 If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Accept purchase plan terms](#accept-purchase-plan-terms).
 
+## Default Images
+
+Powershell offers several pre-defined image aliases to make the resource creation process easier. There are different images for resources with either a Windows or Linux operating system. Several Powershell cmdlets, such as `New-AzVM` and `New-AzVmss`, allow you to input the alias name as a parameter. 
+For example:
+
+```powershell
+$rgname = <Resource Group Name>
+$location = <Azure Region>
+$vmName = "v" + $rgname
+$domainNameLabel = "d" + $rgname
+$securePassword = <Password> | ConvertTo-SecureString -AsPlainText -Force
+$username = <Username>
+$credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
+New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -Image CentOS85Gen2 -Credential $credential -DomainNameLabel $domainNameLabel
+```
+
+The Linux image alias names and their details are:
+```output
+Alias                     Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Version
+-----------------------   --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------ ---------
+CentOS                    x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                    latest
+CentOS85Gen2              x64             CentOS                        OpenLogic               8_5-gen2                            OpenLogic:CentOS:8_5-gen2:latest                                               latest
+Debian11                  x64             Debian-11                     Debian                  11-backports-gen2                   Debian:debian-11:11-backports-gen2:latest                                      latest
+Debian10                  x64             Debian-10                     Debian                  10                                  Debian:debian-10:10:latest                                                     latest
+FlatcarLinuxFreeGen2      x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                             latest
+openSUSE-Leap             x64             opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                            latest
+OpenSuseLeap154Gen2       x64             opensuse-leap-15-4            SUSE                    gen2                                SUSE:opensuse-leap-15-4:gen2:latest                                            latest
+RHEL                      x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                       latest
+RHELRaw8LVMGen2           x64             RHEL                          RedHat                  8-lvm-gen2                          RedHat:RHEL:8-lvm-gen2:latest                                                  latest
+SLES                      x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                   latest
+UbuntuLTS                 x64             UbuntuServer                  Canonical               16.04-LTS                           Canonical:UbuntuServer:16.04-LTS:latest                                        latest
+Ubuntu2204                x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:UbuntuServer:22_04-lts-gen2:latest                                   latest
+```
+
+The Windows image alias names and their details are:
+```output
+Alias                   Architecture    Offer                         Publisher               Sku                                 Urn                                                                              Version
+----------------------- --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------   ---------
+Win2022Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2022-Datacenter                     MicrosoftWindowsServer:WindowsServer:2022-Datacenter:latest                      latest
+Win2022AzureEditionCore x64             WindowsServer                 MicrosoftWindowsServer  2022-datacenter-azure-edition-core  MicrosoftWindowsServer:WindowsServer:2022-datacenter-azure-edition-core:latest   latest
+Win10                   x64             Windows                       MicrosoftVisualStudio   Windows-10-N-x64                    MicrosoftVisualStudio:Windows:Windows-10-N-x64:latest                            latest
+Win2019Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2019-Datacenter                     MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest                      latest
+Win2016Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2016-Datacenter                     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest                      latest
+Win2012R2Datacenter     x64             WindowsServer                 MicrosoftWindowsServer  2012-R2-Datacenter                  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest                   latest
+Win2012Datacenter       x64             WindowsServer                 MicrosoftWindowsServer  2012-Datacenter                     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest                      latest
+```
+
 ## List images
 
-You can use PowerShell to narrow down a list of images. Replace the values of the variables to meet your needs.
+You can use PowerShell to narrow down a list of images if you want to use a specific image that is not provided above. Replace the values of the below variables to meet your needs.
 
 1. List the image publishers using [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher).
     
