@@ -37,7 +37,7 @@ When upgrading between *patch* releases, for example 1.4.1 to 1.4.2, the update 
 
 You can [troubleshoot](#troubleshooting) the upgrade process at any time.
 
-### Major or minor product releases
+### Major or minor releases
 
 When upgrading between major or minor product releases, for example from 1.1 to 1.4, we recommend updating both the security subsystem and the runtime containers. Before a release, we test the security subsystem and the runtime container version combination. To update between major or minor product releases:
 
