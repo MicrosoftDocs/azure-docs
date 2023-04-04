@@ -45,7 +45,7 @@ For the most straightforward dev environment, we use GitHub Codespaces so that y
 1. Create a new GitHub Codespace on the `main` branch of the [`azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app`](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app) GitHub repository.
 
     > [!div class="nextstepaction"]
-    > [Open this project in GitHub Codespaces](https://github.com/azure-samples/msdocs-azure-cosmos-db-mongodb-mern-web-app/codespaces)
+    > [Open this project in GitHub Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=611024069)
 
 1. Wait for the Codespace to start. This startup process can take two to three minutes.
 
@@ -165,13 +165,13 @@ Start by running the sample application's API with the local MongoDB container t
     > [!NOTE]
     > The object ids (`_id`) are randomnly generated and will differ from this truncated example output.
 
-1. In the **client/** directory, create a new **.env** file.
+1. In the **server/** directory, create a new **.env** file.
 
-1. In the **client/.env** file, add an environment variable for this value:
+1. In the **server/.env** file, add an environment variable for this value:
 
     | Environment Variable | Value |
     | --- | --- |
-    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. For now, use `mongodb://localhost`. |
+    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. For now, use `mongodb://localhost:27017?directConnection=true`. |
 
     ```env
     CONNECTION_STRING=mongodb://localhost:27017?directConnection=true
@@ -270,8 +270,13 @@ Now, let's validate that the application works seamlessly with Azure Cosmos DB f
     ```shell
     exit
     ```
+1. In the **client/** directory, create a new **.env** file.
 
-1. Open the **client/.env** file again. Then, update the value of the `CONNECTION_STRING` environment variables with the connection string you used with the mongo shell:
+1. In the **client/.env** file, add an environment variable for this value:
+
+    | Environment Variable | Value |
+    | --- | --- |
+    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. Use the same connection string you used with the mongo shell:
 
     ```output
     CONNECTION_STRING=<your-connection-string>
