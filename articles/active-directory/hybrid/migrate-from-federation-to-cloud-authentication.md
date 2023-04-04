@@ -8,7 +8,7 @@ ms.subservice: hybrid
 ms.topic: conceptual
 ms.date: 04/04/2023
 ms.author: billmath
-author: gasinh
+author: gargi-sinha
 manager: amycolannino
 ms.collection: M365-identity-device-management
 ---
