@@ -21,7 +21,7 @@ Batch Endpoints can be used for processing tabular data, but also any other file
 
 ## About this sample
 
-The model we are going to work with was built using the popular library transformers from HuggingFace along with [a pre-trained model from Facebook with the BART architecture](https://huggingface.co/facebook/bart-large-cnn). It was introduced in the paper [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation](https://arxiv.org/abs/1910.13461). This model has the following constrains that are important to keep in mind for deployment:
+The model we are going to work with was built using the popular library transformers from HuggingFace along with [a pre-trained model from Facebook with the BART architecture](https://huggingface.co/facebook/bart-large-cnn). It was introduced in the paper [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation](https://arxiv.org/abs/1910.13461). This model has the following constrains which are important to keep in mind for deployment:
 
 * It can work with sequences up to 1024 tokens.
 * It is trained for summarization of text in English.
@@ -162,15 +162,15 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
    ```
 
-### Creating the deployment
+## Creating the deployment
 
 Let's create the deployment that will host the model:
 
 1. We need to create a scoring script that can read the CSV files provided by the batch deployment and return the scores of the model with the summary. The following script does the following:
 
    > [!div class="checklist"]
-   > * Indicates an `init` function that load the model using `transformers`. Notice that the tokenizer of the model is loaded separately to account for the limitation in the sequence lenghs of the model we are currently using.
-   > Notice that we are doing some model optimizations too to improve the performance using `optimum`.
+   > * Indicates an `init` function that detects the hardware configuration (CPU vs GPU) and loads the model accordingly. Both the model and the tokenizer are loaded in global variables. We are not using a `pipeline` object from HuggingFace to account for the limitation in the sequence lenghs of the model we are currently using.
+   > * Notice that we are doing performing model optimizations to improve the performance using `optimum` and accelerate libraries. If the model or hardware doesn't support it, we will run the deployment without such optimizations.
    > * Indicates a `run` function that is executed for each mini-batch the batch deployment provides.
    > * The `run` function read the entire batch using the `datasets` library. The text we need to summarize is on the column `text`.
    > * The `run` method iterates over each of the rows of the text and run the prediction. Since this is a very expensive model, running the prediction over entire files will result in an out-of-memory exception. Notice that the model is not execute with the `pipeline` object from `transformers`. This is done to account for long sequences of text and the limitation of 1024 tokens in the underlying model we are using.
@@ -182,7 +182,6 @@ Let's create the deployment that will host the model:
 
    > [!TIP]
    > Although files are provided in mini-batches by the deployment, this scoring script processes one row at a time. This is a common pattern when dealing with expensive models (like transformers) as trying to load the entire batch and send it to the model at once may result in high-memory pressure on the batch executor (OOM exeptions).
-
 
 1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `Torch` and it requires the libraries `transformers`, `accelerate`, and `optimium` from HuggingFace. Azure Machine Learning already has an environment with Torch and GPU support available. We are just going to add a couple of dependencies in a `conda.yml` file.
 
@@ -211,7 +210,6 @@ Let's create the deployment that will host the model:
        image="mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.8-cudnn8-ubuntu22.04:latest",
    )
    ```
-   
    ---
    
    > [!IMPORTANT]
@@ -236,7 +234,6 @@ Let's create the deployment that will host the model:
    )
    ml_client.begin_create_or_update(compute_cluster)
    ```
-
    ---
 
    > [!NOTE]
