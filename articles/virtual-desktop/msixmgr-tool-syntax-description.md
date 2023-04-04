@@ -60,6 +60,12 @@ msixmgr.exe -RemovePackage notepadplus_0.0.0.1_x64__8wekyb3d8bbwe
 
 
 
+
+
+
+
+
+
 **- FindPackage**  
 Finds package with specific package full name  
 Example:
@@ -86,15 +92,16 @@ msixmgr.exe -applyacls
 
 **-MountImage**  
 Mounts VHD, VHDX, or CIM image  
-Example:
+Example:  
+-MountImage [path to the MSIX package] [optional arguments]
 
 ```
-msixmgr.exe -MountImage
+msixmgr.exe -MountImage 
 ```
 
 |Optional parameters|Description|Example|
 | -------- | -------- | -------- |
-|-imagePath|Specifies path to image file to mount or unmount|`msixmgr.exe -MountImage -imagePath "C:\Users\User\abc\xyz.cim"`|
+|-imagePath|Specifies path to image file to mount or unmount|`x`|
 |-filetype |Specifies type of file to mount or unmount. The following file types are currently supported: {VHD, VHDX, CIM}|`msixmgr.exe -MountImage -imagePath "C:\Users\User\abc\xyz.cim" -filetype "cim" `|
 |-readOnly|Boolean (true of false) indicating whether a VHD(X) should be mounted as read only. If not specified, the image is mounted as read-only by default  |`msixmgr.exe -MountImage -imagePath "C:\Users\User\abc\xyz.cim" -filetype "cim" -readOnly false`|
 
@@ -105,10 +112,11 @@ msixmgr.exe -MountImage
 
 
 
+
 **-UnmountImage**  
 Unmounts VHD, VHDX, or CIM image  
-Example:
-
+Example:  
+-UnmountImage [path to the MSIX package] [optional arguments]
 ```
 msixmgr.exe -UnmountImage
 ```
@@ -126,11 +134,16 @@ Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its content
 > [!NOTE]
 > VHD Size is recommended to be four times the size of MSIX package  
 
-Unpacks package (.appx, .msix, .appxbundle, .msixbundle) and extract its contents to a folder.   Note: VHD Size is recommended to be four times the size of MSIX package  
-Example:
-
+Example:  
+For CimFS:
 ```
 msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.cim" -applyacls -create -vhdSize 200 -filetype "cim" -rootDirectory apps
+```
+
+  
+For VHDx:
+```
+
 msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\FileZillaChanged_3.51.1.0_x64__81q6ced8g4aa0.msix" -destination "c:\temp\FileZillaChanged.vhdx" -applyacls -create -vhdSize 200 -filetype "vhdx" -rootDirectory apps
 ```
 
@@ -166,6 +179,16 @@ To learn how to set up app attach, check out these articles:
 
 If you have questions about MSIX app attach, see our [App attach FAQ](/azure/virtual-desktop/app-attach-faq) and [App attach glossary](/azure/virtual-desktop/app-attach-glossary) 
    
+
+
+
+
+
+
+
+
+
+
 
 
 
