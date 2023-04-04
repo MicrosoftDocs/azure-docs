@@ -53,6 +53,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 * Applying Azure network security groups on the private link subnet to Azure Key Vault isn't supported for Azure NetApp Files customer-managed keys. Network security groups don't affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It's recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 * Currently, customer-managed keys can't be configured while creating data replication volumes to establish an Azure NetApp Files cross-region replication or cross-zone replication relationship.
+* Customer-managed keys do not support the **Disable public access** option with firewalls and virtue networks. You must choose one of the **Allow public access** options.
 
 ## Supported regions 
 
