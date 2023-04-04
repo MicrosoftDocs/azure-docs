@@ -47,6 +47,10 @@ For more information on scaling and memory, depending on your tier see either:
 
 If preserving the data in the cache isn't a requirement, consider flushing the data prior to scaling. Flushing the cache helps the scaling operation complete more quickly so the new capacity is available sooner.
 
+## Scaling Enterprise tier caches
+
+Because the _Enterprise_ and _Enterprise Flash_ tiers are built on Redis Enterprise rather than open-source Redis, there are some differences in scaling best practices. See [Best Practices for the Enterprise and Enterprise Flash tiers](cache-best-practices-enterprise-tiers.md) for more information.
+
 ## Next steps
 
 - [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
