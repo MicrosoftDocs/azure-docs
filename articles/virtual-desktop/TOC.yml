@@ -367,6 +367,8 @@
           href: ./users/client-features-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
       - name: Configure device redirections
         href: configure-device-redirections.md
+      - name: Install the Remote Desktop client for Windows on a per-user basis
+        href: install-client-per-user.md
     - name: Set up email discovery
       href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
     - name: Customize feed
