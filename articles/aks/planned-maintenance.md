@@ -23,7 +23,7 @@ There are currently three available configuration types: `default`, `aksManagedA
 
 We recommend using `aksManagedAutoUpgradeSchedule` for all cluster upgrade scenarios and `aksManagedNodeOSUpgradeSchedule` for all node image upgrade scenarios, while `default` is meant exclusively for weekly releases. You can port `default` configurations to `aksManagedAutoUpgradeSchedule` configurations via the `az aks maintenanceconfiguration update` command.
 
-To configure Planned Maintenance using pre-created configurations, see [Use Planned Maintenance pre-created configurations to schedule AKS weekly releases](/aks-planned-maintenance-weekly-releases.md).
+To configure Planned Maintenance using pre-created configurations, see [Use Planned Maintenance pre-created configurations to schedule AKS weekly releases][pm-weekly].
 
 ## Before you begin
 
