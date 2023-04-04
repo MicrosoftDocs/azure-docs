@@ -239,7 +239,7 @@ Logs are output upon configuration refresh and contain detailed information on k
 
     | Log Level | Description |
     |---|---|
-    | Debug | This log level is used for monitoring changes to key-values in your App Configuration store. Logs include the key and label of key-values updated in the App Configuration store. Depending on the content type, logs may also include the App Configuration store endpoint requested and whether the key-value was modified or deleted. |
+    | Debug | Logs include the key and label of key-values your application monitors for changes from your App Configuration store. The information also includes whether the key-value has changed compared with what your application has already loaded. Enable logs at this level to troubleshoot your application if a configuration change didn't happen as expected. |
     | Information | Logs include the keys of configuration settings updated during a configuration refresh. Values of configuration settings are omitted from the log to avoid leaking sensitive data. You can monitor logs at this level to ensure your application picks up expected configuration changes. |
     | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider library will continue to use the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
 - The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log.
