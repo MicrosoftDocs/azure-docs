@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 03/29/2023
+ms.date: 04/04/2023
 ms.author: henrymbugua
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
@@ -43,8 +43,6 @@ In this tutorial:
 The app in this tutorial will sign in users and get data on their behalf. This data will be accessed through a protected API (Microsoft Graph API) that requires authorization and is protected by the Microsoft identity platform.
 
 This sample uses the Microsoft Authentication Library (MSAL) for Android to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
-
-MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
 
 ## Create a project
 
@@ -111,7 +109,7 @@ Follow these steps to create a new project if you don't already have an Android 
 
    As this tutorial only demonstrates how to configure an app in Single Account mode, see [single vs. multiple account mode](./single-multi-account.md) and [configuring your app](./msal-configuration.md) for more information
 
-1. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity after the application body. This entry allows Azure AD to call back to your application after it completes the authentication:
+1. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity as a child of the `<application>` element. This entry allows Azure AD to call back to your application after it completes the authentication:
 
    ```xml
    <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -650,47 +648,47 @@ Follow these steps to create a new project if you don't already have an Android 
 
    ```java
     package com.azuresamples.msalandroidapp;
-    
+
     import android.os.Bundle;
-    
+
     import androidx.annotation.NonNull;
     import androidx.appcompat.app.ActionBarDrawerToggle;
     import androidx.appcompat.app.AppCompatActivity;
     import androidx.appcompat.widget.Toolbar;
     import androidx.constraintlayout.widget.ConstraintLayout;
     import androidx.core.view.GravityCompat;
-    
+
     import android.view.MenuItem;
     import android.view.View;
-    
+
     import androidx.drawerlayout.widget.DrawerLayout;
     import androidx.fragment.app.Fragment;
     import androidx.fragment.app.FragmentTransaction;
-    
-    
+
+
     import com.google.android.material.navigation.NavigationView;
-    
+
     public class MainActivity extends AppCompatActivity
             implements NavigationView.OnNavigationItemSelectedListener,
             OnFragmentInteractionListener{
-    
+
         enum AppFragment {
             SingleAccount,
             MultipleAccount,
             B2C
         }
-    
+
         private AppFragment mCurrentFragment;
-    
+
         private ConstraintLayout mContentMain;
-    
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
-    
+
             mContentMain = findViewById(R.id.content_main);
-    
+
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
             DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -700,92 +698,92 @@ Follow these steps to create a new project if you don't already have an Android 
             drawer.addDrawerListener(toggle);
             toggle.syncState();
             navigationView.setNavigationItemSelectedListener(this);
-    
+
             //Set default fragment
             navigationView.setCheckedItem(R.id.nav_single_account);
             setCurrentFragment(AppFragment.SingleAccount);
         }
-    
+
         @Override
         public boolean onNavigationItemSelected(final MenuItem item) {
             final DrawerLayout drawer = findViewById(R.id.drawer_layout);
             drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
                 @Override
                 public void onDrawerSlide(@NonNull View drawerView, float slideOffset) { }
-    
+
                 @Override
                 public void onDrawerOpened(@NonNull View drawerView) { }
-    
+
                 @Override
                 public void onDrawerClosed(@NonNull View drawerView) {
                     // Handle navigation view item clicks here.
                     int id = item.getItemId();
-    
+
                     if (id == R.id.nav_single_account) {
                         setCurrentFragment(AppFragment.SingleAccount);
                     }
-    
+
                     if (id == R.id.nav_multiple_account) {
                         setCurrentFragment(AppFragment.MultipleAccount);
                     }
-    
+
                     if (id == R.id.nav_b2c) {
                         setCurrentFragment(AppFragment.B2C);
                     }
-    
+
                     drawer.removeDrawerListener(this);
                 }
-    
+
                 @Override
                 public void onDrawerStateChanged(int newState) { }
             });
-    
+
             drawer.closeDrawer(GravityCompat.START);
             return true;
         }
-    
+
         private void setCurrentFragment(final AppFragment newFragment){
             if (newFragment == mCurrentFragment) {
                 return;
             }
-    
+
             mCurrentFragment = newFragment;
             setHeaderString(mCurrentFragment);
             displayFragment(mCurrentFragment);
         }
-    
+
         private void setHeaderString(final AppFragment fragment){
             switch (fragment) {
                 case SingleAccount:
                     getSupportActionBar().setTitle("Single Account Mode");
                     return;
-    
+
                 case MultipleAccount:
                     getSupportActionBar().setTitle("Multiple Account Mode");
                     return;
-    
+
                 case B2C:
                     getSupportActionBar().setTitle("B2C Mode");
                     return;
             }
         }
-    
+
         private void displayFragment(final AppFragment fragment){
             switch (fragment) {
                 case SingleAccount:
                     attachFragment(new com.azuresamples.msalandroidapp.SingleAccountModeFragment());
                     return;
-    
+
                 case MultipleAccount:
                     attachFragment(new MultipleAccountModeFragment());
                     return;
-    
+
                 case B2C:
                     attachFragment(new B2CModeFragment());
                     return;
             }
         }
-    
+
         private void attachFragment(final Fragment fragment) {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -794,7 +792,7 @@ Follow these steps to create a new project if you don't already have an Android 
                     .commit();
         }
     }
-    
+
    ```
 
 > [!NOTE]
@@ -806,93 +804,93 @@ If you would like to model your UI off this tutorial, the following is a sample 
 
 1. In **app** > **src** > **main**> **res** > **layout** > **activity_main.xml**. Replace the content of **activity_main.xml** with the following code snippet to display buttons and text boxes:
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/activity_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
-    
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:weightSum="10">
-    
-            <Button
-                android:id="@+id/signIn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:text="Sign In"/>
-    
-            <Button
-                android:id="@+id/clearCache"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:text="Sign Out"
-                android:enabled="false"/>
-    
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-    
-            <Button
-                android:id="@+id/callGraphInteractive"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Get Graph Data Interactively"
-                android:enabled="false"/>
-    
-            <Button
-                android:id="@+id/callGraphSilent"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:text="Get Graph Data Silently"
-                android:enabled="false"/>
-        </LinearLayout>
-    
-        <TextView
-            android:text="Getting Graph Data..."
-            android:textColor="#3f3f3f"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:id="@+id/graphData"
-            android:visibility="invisible"/>
-    
-        <TextView
-            android:id="@+id/current_user"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="0.8"
-            android:text="Account info goes here..." />
-    
-        <TextView
-            android:id="@+id/txt_log"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="0.8"
-            android:text="Output goes here..." />
-    </LinearLayout>
-    ```
-   
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:tools="http://schemas.android.com/tools"
+       android:id="@+id/activity_main"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:background="#FFFFFF"
+       android:orientation="vertical"
+       tools:context=".MainActivity">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:paddingTop="5dp"
+           android:paddingBottom="5dp"
+           android:weightSum="10">
+
+           <Button
+               android:id="@+id/signIn"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="5"
+               android:gravity="center"
+               android:text="Sign In"/>
+
+           <Button
+               android:id="@+id/clearCache"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="5"
+               android:gravity="center"
+               android:text="Sign Out"
+               android:enabled="false"/>
+
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:orientation="horizontal">
+
+           <Button
+               android:id="@+id/callGraphInteractive"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="5"
+               android:text="Get Graph Data Interactively"
+               android:enabled="false"/>
+
+           <Button
+               android:id="@+id/callGraphSilent"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight="5"
+               android:text="Get Graph Data Silently"
+               android:enabled="false"/>
+       </LinearLayout>
+
+       <TextView
+           android:text="Getting Graph Data..."
+           android:textColor="#3f3f3f"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginLeft="5dp"
+           android:id="@+id/graphData"
+           android:visibility="invisible"/>
+
+       <TextView
+           android:id="@+id/current_user"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_marginTop="20dp"
+           android:layout_weight="0.8"
+           android:text="Account info goes here..." />
+
+       <TextView
+           android:id="@+id/txt_log"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:layout_marginTop="20dp"
+           android:layout_weight="0.8"
+           android:text="Output goes here..." />
+   </LinearLayout>
+   ```
+
 ## Test your app
 
 ### Run locally
