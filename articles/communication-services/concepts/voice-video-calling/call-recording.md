@@ -140,7 +140,7 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
 
 ## Regulatory and privacy concerns
 
-Many countries and states have laws and regulations that apply to call recording. PSTN, voice, and video calls often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
+Many countries/regions and states have laws and regulations that apply to call recording. PSTN, voice, and video calls often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
 
 Regulations around the maintenance of personal data require the ability to export user data. In order to support these requirements, recording metadata files include the participantId for each call participant in the `participants` array. You can cross-reference the MRIs in the `participants` array with your internal user identities to identify participants in a call. 
 
