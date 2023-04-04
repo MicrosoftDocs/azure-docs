@@ -8,7 +8,7 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.reviewer: erd
 ms.collection: windows
-ms.date: 03/31/2023
+ms.date: 04/04/2023
 ---
 # Custom Script Extension for Windows
 
@@ -46,7 +46,7 @@ You can set the extension to use your Azure Blob Storage credentials so that it 
 
 ### Internet connectivity
 
-To download a script externally, such as from GitHub or Azure Storage, then you need to open other firewall or network security group (NSG) ports. For example, if your script is located in Azure Storage, you can allow access by using Azure NSG [service tags for Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
+To download a script externally, such as from GitHub or Azure Storage, you need to open other firewall or network security group (NSG) ports. For example, if your script is located in Azure Storage, you can allow access by using Azure NSG [service tags for Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 The Custom Script Extension doesn't have any way to bypass certificate validation. If you're downloading from a secured location with, for example, a self-signed certificate, you might get errors like *The remote certificate is invalid according to the validation procedure*. Make sure that the certificate is correctly installed in the *Trusted Root Certification Authorities* store on the VM.
 
@@ -146,7 +146,7 @@ You can use this schema inside the VM resource or as a standalone resource. If t
 | storageAccountKey | Optional | The access key of the storage account. |
 | managedIdentity | Optional | The [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading files. Valid values are `clientId` (optional, string), which is the client ID of the managed identity, and `objectId` (optional, string), which is the object ID of the managed identity.|
 
-*Public settings* are sent in clear text to the VM where the script runs. *Protected settings* are encrypted through a key known only to Azure and the VM. The settings are saved to the VM as they were sent. That is, if the settings were encrypted, they're saved encrypted on the VM. The certificate that's used to decrypt the encrypted values is stored on the VM. The certificate is also used to decrypt settings (if necessary) at runtime.
+*Public settings* are sent in clear text to the VM where the script runs. *Protected settings* are encrypted through a key known only to Azure and the VM. The settings are saved to the VM as they were sent. That is, if the settings were encrypted, they're saved encrypted on the VM. The certificate that's used to decrypt the encrypted values is stored on the VM. The certificate is also used to decrypt settings, if necessary, at runtime.
 
 Using public settings might be useful for debugging, but we recommend that you use protected settings.
 
@@ -300,7 +300,8 @@ We recommend that you use [PowerShell](/powershell/module/az.compute/add-azvmsse
 You can retrieve data about the state of extension deployments from the Azure portal and by using the Azure PowerShell module. To see the deployment state of extensions for a VM, run the following command:
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName <resourceGroupName> -VMName <vmName> -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName <resourceGroupName> `
+    -VMName <vmName> -Name myExtensionName
 ```
 
 Extension output is logged to files found under the following folder on the target virtual machine:
