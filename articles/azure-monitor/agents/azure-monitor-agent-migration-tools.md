@@ -49,7 +49,7 @@ To install DCR Config Generator, you need:
 
 1. PowerShell version 5.1 or higher. We recommend using PowerShell version 7.1.3 or higher.
 1. Read access for the specified workspace resources.
-1. The `Az Powershell` module to pull workspace agent configuration information.
+1. The `Az Powershell` module to pull workspace agent configuration information. Make sure `Az.Accounts` and `Az.OperationalInsights` modules are installed.
 1. The Azure credentials for running `Connect-AzAccount` and `Select-AzContext`, which set the context for the script to run.
 
 To install DCR Config Generator:

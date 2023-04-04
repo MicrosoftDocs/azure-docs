@@ -77,7 +77,7 @@ Earlier versions use a legacy support model, with support dates [detailed for ea
 
 ### On-premises appliance security
 
-The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control is allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTP for web access and SSH for the support shell.
+The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control are allowed only through the [management port](best-practices/understand-network-architecture.md), via HTTP for web access and SSH for the support shell.
 
 Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle, including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and should not be modified.
 
@@ -112,7 +112,7 @@ Version 22.3.7 includes the same features as 22.3.6. If you have version 22.3.6 
 - Support for [deleting multiple devices](how-to-investigate-sensor-detections-in-a-device-inventory.md#delete-devices) on OT sensors
 - An enhanced [editing device details](how-to-investigate-sensor-detections-in-a-device-inventory.md#edit-device-details) process on the OT sensor, using an **Edit** button in the toolbar at the top of the page
 - [Enhanced UI on the OT sensor for uploading an SSL/TLS certificate](how-to-deploy-certificates.md#deploy-ssltls-certificates-on-ot-appliances)
-- [Activation files for locally-managed sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
+- [Activation files for locally managed sensors no longer expire](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 - Severity for all [**Suspicion of Malicious Activity**](alert-engine-messages.md#malware-engine-alerts) alerts is now **Critical**
 - [Allow internet connections on an OT network in bulk](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
 
@@ -269,7 +269,7 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [Diagnostic logs automatically available to support for cloud-connected sensors](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 - [Rockwell protocol: Device inventory shows PLC operating mode key state, run state, and security mode](how-to-manage-device-inventory-for-organizations.md)
 - [Automatic CLI session timeouts](references-work-with-defender-for-iot-cli-commands.md)
 - [Sensor health widgets in the Azure portal](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health)
@@ -288,7 +288,7 @@ This version includes the following new updates and fixes:
 
 - [Enhanced sensor Overview page](how-to-manage-individual-sensors.md)
 
-- [New sensor diagnostics log](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support)
+- [New sensor diagnostics log](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 
 - [Alert updates](how-to-view-alerts.md):
 
@@ -310,13 +310,13 @@ This version includes the following new updates and fixes:
 
 - [New connectivity models](architecture-connections.md)
 
-- [New firewall requirements](how-to-set-up-your-network.md#sensor-access-to-azure-portal)
+- [New firewall requirements](networking-requirements.md#sensor-access-to-azure-portal)
 
 - [Improved support for Profinet DCP, Honeywell, and Windows endpoint detection protocols](concept-supported-protocols.md)
 
 - [Sensor reports now accessible from the **Data Mining** page](how-to-create-data-mining-queries.md)
 
-- [Updated process for sensor name changes](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor)
+- [Updated process for sensor name changes](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
@@ -367,7 +367,7 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
+- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
 

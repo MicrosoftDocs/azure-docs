@@ -278,6 +278,8 @@ items:
             href: agents/data-sources-custom-logs.md
           - name: Custom fields
             href: logs/custom-fields.md
+          - name: Migrate from custom fields
+            href: logs/custom-fields-migrate.md
       - name: Azure Diagnostics extension
         items:
         - name: Overview
@@ -353,10 +355,15 @@ items:
       href: logs/custom-logs-migrate.md
     - name: Tutorials
       items:
-      - name: Send data to Azure Monitor Logs using REST API
+      - name: Configure with Azure portal
+        displayName: logs ingestion
         href: logs/tutorial-logs-ingestion-portal.md
-      - name: Send data to Azure Monitor Logs with ARM templates
-        href: logs/tutorial-logs-ingestion-api.md        
+      - name: Configure with ARM templates
+        displayName: logs ingestion
+        href: logs/tutorial-logs-ingestion-api.md
+      - name: Sample code
+        displayName: logs ingestion
+        href: logs/tutorial-logs-ingestion-code.md    
     - name: Data collector API
       items:
       - name: Overview
@@ -538,12 +545,12 @@ items:
           href: logs/personal-data-mgmt.md
         - name: Application data collection, retention, and storage
           href: app/data-retention-privacy.md
-    - name: Integrate with Logic Apps
+    - name: Integrate with Azure Logic Apps
       items:
         - name: Azure Monitor Logs connector
-          href: logs/logicapp-flow-connector.md
+          href: ../connectors/connectors-azure-monitor-logs.md
         - name: Application Insights connector
-          href: app/automate-with-logic-apps.md
+          href: ../connectors/connectors-azure-application-insights.md
     - name: Data export
       items:
           - name: Workspace data export
@@ -618,7 +625,7 @@ items:
               - name: ASP.NET App Monitoring
                 displayName: ASP.NET, c#, csharp, .NET, NET, dotnet
                 href: app/asp-net.md
-            - name: Non-HTTP and background apps
+            - name: Non-HTTP, console, and background apps
               displayName: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
               href: app/worker-service.md
             - name: Advanced ASP.NET SDK topics
@@ -667,6 +674,9 @@ items:
           href: app/sdk-support-guidance.md
         - name: Advanced SDK topics
           items:
+          - name: Distributed tracing and telemetry correlation
+            href: app/distributed-tracing-telemetry-correlation.md
+            displayName: correlation headers, w3c, distributed tracing, tracing
           - name: TelemetryProcessors
             displayName: processors, filtering, telemetry filtering, telemetry processor
             href: app/api-filtering-sampling.md
@@ -754,13 +764,6 @@ items:
       - name: Transaction diagnostics
         href: app/transaction-diagnostics.md
         displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
-      - name: Distributed tracing
-        items:
-        - name: Overview
-          href: app/distributed-tracing.md
-        - name: Telemetry correlation
-          href: app/correlation.md
-          displayName: correlation headers, w3c, distributed tracing, tracing
       - name: Metrics
         items:
         - name: Live Metric stream

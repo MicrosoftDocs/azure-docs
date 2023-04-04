@@ -14,7 +14,7 @@ services: azure-maps
 
 The [Search service] supports geocoding, which means that your API request can have search terms, like an address or the name of a place, and returns the result as latitude and longitude coordinates. For example, [Get Search Address] receives queries that contain location information, and returns results as latitude and longitude coordinates.
 
-However, the [Search service] doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
+However, the [Search service] doesn't have the same level of information and accuracy for all countries/regions. Use this article to determine what kind of locations you can reliably search for in each region.
 
 The ability to geocode in a country/region is dependent upon the road data coverage and geocoding precision of the geocoding service. The following categorizations are used to specify the level of geocoding support in each country/region.
 
@@ -206,7 +206,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Sweden                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Switzerland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tajikistan                                          |                 |                 |       ✓      |      ✓     |          ✓         |
-| Turkey                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Türkiye                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkmenistan                                        |                 |                 |              |      ✓     |           ✓        |
 | Ukraine                                             |        ✓        |        ✓       |       ✓      |      ✓     |           ✓        |
 | United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

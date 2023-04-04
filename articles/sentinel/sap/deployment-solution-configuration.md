@@ -1,10 +1,10 @@
 ---
 title: Configure Microsoft Sentinel solution for SAP® applications
 description: This article shows you how to configure the deployed Microsoft Sentinel solution for SAP® applications
-author: MSFTandrelom
-ms.author: andrelom
+author: limwainstein
+ms.author: lwainstein
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 03/10/2023
 ---
 
 # Configure Microsoft Sentinel solution for SAP® applications
@@ -26,6 +26,8 @@ Track your SAP solution deployment journey through this series of articles:
 1. [Deployment overview](deployment-overview.md)
 
 1. [Deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+
+1. [Work with the solution across multiple workspaces](cross-workspace.md) (PREVIEW)
 
 1. [Prepare SAP environment](preparing-sap.md)
 
@@ -134,3 +136,7 @@ If you need to reenable the Docker container, run this command:
 ```
 docker start sapcon-[SID]
 ```
+
+## Remove the user role and the optional CR installed on your ABAP system
+
+To remove the user role and optional CR imported to your system, import the deletion CR *NPLK900259* into your ABAP system.

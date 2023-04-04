@@ -17,6 +17,7 @@ This article describes how to perform lifecycle management operations on Bare Me
 - Start the BMM
 - Make the BMM unschedulable or schedulable
 - Reinstall the BMM image
+- Replace BMM
 
 ## Prerequisites
 
@@ -75,7 +76,7 @@ state on the BMM are `restarted` when the BMM is `uncordoned`.
 
 ## Reimage a BMM (reinstall a BMM image)
 
-The existing BMM image can be **reinstalled** using the `reimage` command but will not install a new image.
+An existing BMM image is **reinstalled** using the `reimage` command. This command doesn't install a new image.
 Make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, prior to executing the `reimage` command.
 
@@ -85,3 +86,14 @@ az networkcloud baremetalmachine reimage –-name "bareMetalMachineName"  \
 ```
 
 The reimage command restarts the BMM and uncordons it. The re-imaged BMM will have an IP address.You can start deploying workloads on the reimaged BMM.
+
+## Replace BMM
+
+Use `Replace BMM` command whenever a BareMetal machine has encountered hardware issues requiring a complete or partial hardware replacement. After replace the MAC address of Baremetal Host will change, however the IDrac IP address and hostname will remain the same.
+
+```azurecli
+az networkcloud baremetalmachine replace --name "bareMetalMachineName" \
+    --bmc-credentials password="{password}" username="bmcuser" --bmc-mac-address "00:00:4f:00:57:ad" \
+    --boot-mac-address "00:00:4e:00:58:af" --machine-name "name" --serial-number "BM1219XXX" \
+    --resource-group "resourceGroupName" 
+```
