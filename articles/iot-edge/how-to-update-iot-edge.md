@@ -29,7 +29,7 @@ Use these sections of this article to update both the security subsystem and run
 
 ### Patch releases
 
-When upgrading between or *patch* releases, for example 1.4.1 to 1.4.2, the update order isn't important. You can upgrade security subsystem or runtime containers before or after the other. To update between patch releases:
+When upgrading between *patch* releases, for example 1.4.1 to 1.4.2, the update order isn't important. You can upgrade security subsystem or runtime containers before or after the other. To update between patch releases:
 
 1. [Update the security subsystem](#update-the-security-subsystem)
 1. [Update the runtime containers](#update-the-runtime-containers)
