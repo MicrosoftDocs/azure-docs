@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 03/28/2023
+ms.date: 04/03/2023
 ms.author: jasteppe
 ---
 
@@ -34,6 +34,10 @@ The MedTech service supports the [HL7 FHIR&#174; R4](https://www.hl7.org/impleme
 ### Why do I have to provide device and FHIR destination mappings to the MedTech service?
 
 The MedTech service requires device and FHIR destination mappings to perform normalization and transformation processes on device message data. To learn how the MedTech service transforms device message data into [FHIR Observations](https://www.hl7.org/fhir/observation.html), see [Understand the MedTech service device message processing stages](understand-service.md). 
+
+### Is JsonPathContent still supported by the MedTech service device mapping?
+
+Yes. JsonPathContent can be used as a template type within [CollectionContent](overview-of-device-mapping.md#collectioncontent). It's recommended that [CalculatedContent](how-to-use-calculatedcontent-mappings.md) is used as it supports all of the features of JsonPathContent with extra support for more advanced features.
 
 ### How long does it take for device message data to show up in the FHIR service?
 
@@ -90,7 +94,7 @@ For an overview of the MedTech service, see
 To learn about the MedTech service device message data transformation, see
 
 > [!div class="nextstepaction"]
-> [Understand the MedTech service device message data transformation](overview.md)
+> [Understand the MedTech service device message processing stages](overview.md)
 
 To learn about methods for deploying the MedTech service, see
 
