@@ -1,5 +1,5 @@
 ---
-title: Univerity multilateral federation decision tree
+title: University multilateral federation decision tree
 description: Use this decision tree to help design a multilateral federation solution for universities.
 services: active-directory
 author: janicericketts
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Use this decision tree to help you determine the solution best suited for your environment.
 
-[![Decision matrix with key criteria to help choose between solutions one, two, and three.](media/multilateral-federation-decision-tree/tradeoff-decision-matrix.png)](media/multilateral-federation-decision-tree/tradeoff-decision-matrix.png#lightbox)
+[![Diagram that shows decision matrix with key criteria to help choose between solutions one, two, and three.](media/multilateral-federation-decision-tree/tradeoff-decision-matrix.png)](media/multilateral-federation-decision-tree/tradeoff-decision-matrix.png#lightbox)
 
 ## Migration resources
 
