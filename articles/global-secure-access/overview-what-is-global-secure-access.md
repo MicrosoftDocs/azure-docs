@@ -28,7 +28,7 @@ which product is required for each feature in this article. To learn more about 
 [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra
 Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
  
-|               | Microsoft Entra Private Access |       | Microsoft Entra Internet Access |       |
+|         test      | Microsoft Entra Private Access |     test  | Microsoft Entra Internet Access |    test   |
 |---------------|--------------------------------|-------|---------------------------------|-------|
 |               | Standard                       |Premium| Standard                        |Premium|
 | **Feature A** | X                              |       |  X                              |       |
