@@ -78,11 +78,11 @@ When technology projects fail, it's typically because of mismatched expectations
 
 After migrating to cloud authentication, the user sign-in experience for accessing Microsoft 365 and other resources that are authenticated through Azure AD changes. Users who are outside the network see only the Azure AD sign-in page. 
 
-Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
+Proactively communicate with your users how their experience changes, when it changes, and how to gain support if they experience issues.
 
 ### Plan the maintenance window
 
-Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without extra configuration.
+Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients continue to function without extra configuration.
 
 >[!NOTE] 
 >When you migrate from federated to cloud authentication, the process to convert the domain from federated to managed may take up to 60 minutes. During this process, users might not be prompted for credentials for any new logins to Azure portal or other browser based applications protected with Azure AD. We recommend that you include this delay in your maintenance window.
@@ -142,8 +142,8 @@ For domains that have already set the **SupportsMfa** property, these rules dete
 
 - Switching between **federatedIdpMfaBehavior** and **SupportsMfa** is not supported.
 - Once **federatedIdpMfaBehavior** property is set, Azure AD ignores the **SupportsMfa** setting.
-- If the **federatedIdpMfaBehavior** property is never set, Azure AD will continue to honor the **SupportsMfa** setting.
-- If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD will default to `acceptIfMfaDoneByFederatedIdp` behavior.
+- If the **federatedIdpMfaBehavior** property is never set, Azure AD continues to honor the **SupportsMfa** setting.
+- If neither **federatedIdpMfaBehavior** nor **SupportsMfa** is set, Azure AD defaults to `acceptIfMfaDoneByFederatedIdp` behavior.
 
 You can check the status of protection by running [Get-MgDomainFederationConfiguration](/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-beta&preserve-view=true):
 
@@ -273,7 +273,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
     ![Ready to configure page](media/deploy-cloud-user-authentication/ready-to-configure.png)
 
  > [!IMPORTANT] 
- > At this point, all your federated domains will change to managed authentication. Your selected User sign-in method is the new method of authentication.
+ > At this point, all your federated domains changes to managed authentication. Your selected User sign-in method is the new method of authentication.
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
 
