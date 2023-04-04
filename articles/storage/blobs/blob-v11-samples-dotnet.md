@@ -1,7 +1,7 @@
 ---
-title: Azure Blob Storage client library for .NET version 11 code examples
+title: Azure Blob Storage client library for .NET version 11.x code examples
 titleSuffix: Azure Storage
-description: View code examples that use the Azure Blob Storage client library for .NET version 11.
+description: View code examples that use the Azure Blob Storage client library for .NET version 11.x.
 services: storage
 author: pauljewellmsft
 ms.service: storage
@@ -11,9 +11,9 @@ ms.date: 04/03/2023
 ms.author: pauljewell
 ---
 
-# Azure Blob Storage client library for .NET version 11 code examples
+# Azure Blob Storage client library for .NET version 11.x code examples
 
-This article shows code examples that use version 11 of the Azure Blob Storage client library for .NET.
+This article shows code examples that use version 11.x of the Azure Blob Storage client library for .NET.
 
 On 31 March 2023, we retired support for Azure SDK libraries which do not conform to our [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html). The new Azure SDK libraries are updated regularly to drive consistent experiences and strengthen your security posture. Microsoft recommends that you transition to the new Azure SDK libraries to take advantage of the new capabilities and critical security updates.  
 
@@ -79,6 +79,39 @@ The following code example shows how to delete a blob and its snapshots in .NET,
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```
+
+## Create a stored access policy
+
+Related article: [Create a stored access policy with .NET](../common/storage-stored-access-policy-define-dotnet.md)
+
+To create a stored access policy on a container with version 11.x of the .NET client library for Azure Storage, call one of the following methods:
+
+- [CloudBlobContainer.SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
+- [CloudBlobContainer.SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
+
+The following example creates a stored access policy that is in effect for one day and that grants read, write, and list permissions:
+
+```csharp
+private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer container, string policyName)
+{
+    // Create a new stored access policy and define its constraints.
+    // The access policy provides create, write, read, list, and delete permissions.
+    SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
+    {
+        // When the start time for the SAS is omitted, the start time is assumed to be the time when Azure Storage receives the request.
+        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+        Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.List |
+            SharedAccessBlobPermissions.Write
+    };
+
+    // Get the container's existing permissions.
+    BlobContainerPermissions permissions = await container.GetPermissionsAsync();
+
+    // Add the new policy to the container's permissions, and set the container's permissions.
+    permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+    await container.SetPermissionsAsync(permissions);
+}
 ```
 
 ## Create a service SAS for a blob container
@@ -699,7 +732,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 Related article: [Configure Transport Layer Security (TLS) for a client application](../common/transport-layer-security-configure-client-version.md)
 
-The following sample shows how to enable TLS 1.2 in a .NET client using version 11 of the Azure Storage client library:
+The following sample shows how to enable TLS 1.2 in a .NET client using version 11.x of the Azure Storage client library:
 
 ```csharp
 static void EnableTls12()
@@ -716,39 +749,6 @@ static void EnableTls12()
 
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
     container.CreateIfNotExists();
-}
-```
-
-## Create a stored access policy
-
-Related article: [Create a stored access policy with .NET](../common/storage-stored-access-policy-define-dotnet.md)
-
-To create a stored access policy on a container with version 11 of the .NET client library for Azure Storage, call one of the following methods:
-
-- [CloudBlobContainer.SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
-- [CloudBlobContainer.SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
-
-The following example creates a stored access policy that is in effect for one day and that grants read, write, and list permissions:
-
-```csharp
-private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer container, string policyName)
-{
-    // Create a new stored access policy and define its constraints.
-    // The access policy provides create, write, read, list, and delete permissions.
-    SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
-    {
-        // When the start time for the SAS is omitted, the start time is assumed to be the time when Azure Storage receives the request.
-        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-        Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.List |
-            SharedAccessBlobPermissions.Write
-    };
-
-    // Get the container's existing permissions.
-    BlobContainerPermissions permissions = await container.GetPermissionsAsync();
-
-    // Add the new policy to the container's permissions, and set the container's permissions.
-    permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
-    await container.SetPermissionsAsync(permissions);
 }
 ```
 
