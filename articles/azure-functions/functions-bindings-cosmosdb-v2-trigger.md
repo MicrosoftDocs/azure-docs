@@ -2,7 +2,7 @@
 title: Azure Cosmos DB trigger for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 ms.topic: reference
-ms.date: 03/03/2023
+ms.date: 04/04/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, ignite-2022
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -13,6 +13,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 The Azure Cosmos DB Trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) to listen for inserts and updates across partitions. The change feed publishes new and updated items, not including updates from deletions.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
+
+Cosmos DB scaling decisions for the Consumption and Premium plans are done via Target Based Scaling. For more information, see [Target Based Scaling](../articles/azure-functions/functions-target-based-scaling.md).
 
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
