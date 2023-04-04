@@ -48,12 +48,12 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Read or write blobs in named storage account with specific encryption scope](#example-read-or-write-blobs-in-named-storage-account-with-specific-encryption-scope) | | | | Storage account name</br> Encryption scope name |
 | [Read or write blobs based on blob index tags and custom security attributes](#example-read-or-write-blobs-based-on-blob-index-tags-and-custom-security-attributes) | | ID | tags | tags |
 | [Read blobs based on blob index tags and multi-value custom security attributes](#example-read-blobs-based-on-blob-index-tags-and-multi-value-custom-security-attributes) | | ID | | tags |
-| [Allow access to a container only from a specific private endpoint](#example-1-allow-access-to-a-container-only-from-a-specific-private-endpoint) | Private endpoint | | | container name |
-| [Allow read access to blobs based on private link and tags](#example-2-allow-read-access-to-blobs-based-on-private-link-and-tags) | isPrivateLink | | | tags |
-| [Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access](#example-3-allow-read-access-to-highly-sensitive-blob-data-only-from-a-specific-private-endpoint-and-for-users-tagged-for-access) | Private endpoint | ID | | tags |
-| [Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint](#example-4-require-that-write-operations-to-blobs-use-specific-blob-index-tag-keys-and-values-and-from-a-specific-endpoint) | Private endpoint | | tags | |
-| [Allow access to blobs in specific containers from a specific subnet](#example-5-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) | Subnet | | | container name |
-| [Allow read access to blobs after a specific date and time](#example-6-allow-read-access-to-blobs-after-a-specific-date-and-time) | UtcNow | | | container name |
+| [Allow access to a container only from a specific private endpoint](#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) | Private endpoint | | | container name |
+| [Allow read access to blobs based on private link and tags](#example-allow-read-access-to-blobs-based-on-private-link-and-tags) | isPrivateLink | | | tags |
+| [Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access](#example-allow-read-access-to-highly-sensitive-blob-data-only-from-a-specific-private-endpoint-and-for-users-tagged-for-access) | Private endpoint | ID | | tags |
+| [Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint](#example-require-that-write-operations-to-blobs-use-specific-blob-index-tag-keys-and-values-and-from-a-specific-endpoint) | Private endpoint | | tags | |
+| [Allow access to blobs in specific containers from a specific subnet](#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) | Subnet | | | container name |
+| [Allow read access to blobs after a specific date and time](#example-allow-read-access-to-blobs-after-a-specific-date-and-time) | UtcNow | | | container name |
 
 ## Blob index tags
 
