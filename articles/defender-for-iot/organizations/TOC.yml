@@ -185,6 +185,7 @@
         displayName: devices, assets, inventory, device
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
+      displayName: notification, notifications
   - name: Manage alerts
     items:
     - name: Azure portal

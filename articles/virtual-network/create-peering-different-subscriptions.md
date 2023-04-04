@@ -34,7 +34,11 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 - An Azure account with permissions in both subscriptions or an account in each subscription with the proper permissions to create a virtual network peering. For a list of permissions, see [Virtual network peering permissions](virtual-network-manage-peering.md#permissions).
 
-    - If the virtual networks are in different subscriptions and Active Directory tenants, add the user from each tenant as a guest in the opposite tenant. For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
+    - If the virtual networks are in different subscriptions and Active Directory tenants, and you intend to separate the duty of managing the network belonging to each tenant, then add the user from each tenant as a guest in the opposite tenant and assign them a reader role to the virtual network.
+
+    - If the virtual networks are in different subscriptions and Active Directory tenants, and you do not intend to separate the duty of managing the network belonging to each tenant, then add the user from tenant A as a guest in the opposite tenant and assign them the correct permissions to establish a network peering. This user will be able to initiate and connect the network peering from each subscription.
+
+    - For more information about guest users, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory).
 
     - Each user must accept the guest user invitation from the opposite Azure Active Directory tenant.
 
