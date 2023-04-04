@@ -69,6 +69,7 @@ To read this property, you need to grant the app the following Microsoft Graph p
 
 - AuditLog.Read.All
 - Directory.Read.All  
+- User.Read.All
 
 
 ### When does Azure AD update the property?
