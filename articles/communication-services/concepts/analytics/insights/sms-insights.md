@@ -44,14 +44,14 @@ The Overview section provides an overall performance of sent messages along with
 Great to help answer general questions like:
 - How many SMS have I sent through my resource?
 - Are my messages being blocked or failing at a glance?
-- What is my message distribution by country?
+- What is my message distribution by country/region?
 
 #### Top metrics
 :::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview.png" alt-text="Screenshot of SMS insights overview graphs.":::
 
 
-#### SMS by country
-:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview-country.png" alt-text="Screenshot of SMS insights overview by country.":::
+#### SMS by country/region
+:::image type="content" source="..\media\workbooks\sms-insights\sms-insights-overview-country.png" alt-text="Screenshot of SMS insights overview by country/region.":::
 
 ### Message delivery rates section
 The Message Delivery Rates section provides insights into SMS performance and delivery rate per day. The user can select a specific date in the graph to drill into logs.
