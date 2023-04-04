@@ -64,7 +64,7 @@ To get started, you need:
         > [!NOTE]
         > It may take up to 5 min for the network changes to propagate.
 
-    Although network access is now permitted, your Translator resource is still unable to access the data in your Storage account. You need to [create a managed identity](#managed-identity-assignment) for and [assign a specific access role](#grant-storage-account-access-for-your-translator-resource) to your Translator resource. 
+    Although network access is now permitted, your Translator resource is still unable to access the data in your Storage account. You need to [create a managed identity](#managed-identity-assignments) for and [assign a specific access role](#grant-storage-account-access-for-your-translator-resource) to your Translator resource. 
 
 ## Managed identity assignments
 
