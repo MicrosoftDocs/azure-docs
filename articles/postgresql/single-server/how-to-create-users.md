@@ -6,10 +6,14 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 09/22/2019
+ms.date: 06/24/2022
 ---
 
 # Create users in Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This article describes how you can create users within an Azure Database for PostgreSQL server.
 
@@ -40,10 +44,10 @@ The server admin user account can be used to create additional users and grant t
 2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as pgAdmin or psql.
    If you are unsure of how to connect, see [the quickstart](./quickstart-create-server-database-portal.md)
 
-3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placeholder password with your own strong password. 
+3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placeholder password with your own strong password.
 
    ```sql
-   CREATE ROLE <new_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
+   CREATE USER <new_user> CREATEDB CREATEROLE PASSWORD '<StrongPassword!>';
 
    GRANT azure_pg_admin TO <new_user>;
    ```
@@ -61,9 +65,9 @@ The server admin user account can be used to create additional users and grant t
 
    ```sql
    CREATE DATABASE <newdb>;
-   
-   CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
-   
+
+   CREATE USER <db_user> PASSWORD '<StrongPassword!>';
+
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
@@ -75,7 +79,7 @@ The server admin user account can be used to create additional users and grant t
 
    If a user creates a table "role," the table belongs to that user. If another user needs access to the table, you must grant privileges to the other user on the table level.
 
-   For example: 
+   For example:
 
     ```sql
     GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <db_user>;

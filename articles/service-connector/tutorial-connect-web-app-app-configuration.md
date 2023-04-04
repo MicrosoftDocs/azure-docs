@@ -5,7 +5,8 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 05/01/2022
+ms.date: 10/24/2022
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Tutorial: Connect a web app to Azure App Configuration with Service Connector
@@ -26,9 +27,8 @@ In this tutorial, use the Azure CLI to complete the following tasks:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. Your access role within the subscription must be "Contributor" or "Owner". [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. Your access role within the subscription must be "Contributor" or "Owner". [Create an account for free](https://azure.microsoft.com/free).
 - The Azure CLI. You can use it in [Azure Cloud Shell](https://shell.azure.com/) or [install it locally](/cli/azure/install-azure-cli).
-- [.NET SDK](https://dotnet.microsoft.com/download)
 - [Git](/devops/develop/git/install-and-set-up-git)
 
 ## Sign in to Azure
@@ -295,8 +295,8 @@ Service Connector manages the connection configuration for you:
 
 Service Connector manages the connection configuration for you:
 
-- Set up the web app's `AZURE_APPCONFIGURATION_CONNECTIONSTRING` to let the application access it and get the App Configuration connection string. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L9-L12).
-- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/Microsoft.Azure.ServiceConnector.Sample/Program.cs#L43).
+- Set up the web app's `AZURE_APPCONFIGURATION_CONNECTIONSTRING` to let the application access it and get the App Configuration connection string. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/ServiceConnectorSample/Program.cs#L9-L12).
+- Activate the web app's system-assigned managed authentication and grant App Configuration a Data Reader role to let the application authenticate to the App Configuration using DefaultAzureCredential from Azure.Identity. Access [sample code](https://github.com/Azure-Samples/serviceconnector-webapp-appconfig-dotnet/blob/main/connection-string/ServiceConnectorSample/Program.cs#L43).
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Use Azure Storage analytics to collect logs and metrics data | Microsoft Docs
+title: Use Azure Storage analytics to collect logs and metrics data
 description: Storage Analytics enables you to track metrics data for all storage services, and to collect logs for Blob, Queue, and Table storage.
 author: normesta
 ms.service: storage

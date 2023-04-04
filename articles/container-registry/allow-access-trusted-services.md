@@ -4,7 +4,7 @@ description: Enable a trusted Azure service instance to securely access a networ
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 01/26/2022
+ms.date: 10/11/2022
 ---
 
 # Allow trusted services to securely access a network-restricted container registry

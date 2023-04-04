@@ -1,12 +1,13 @@
 ---
-title: Azure IoT Hub Device Provisioning Service - Device concepts
-description: Describes device reprovisioning concepts for the Azure IoT Hub Device Provisioning Service (DPS)
+title: Device lifecycle and reprovisioning concepts
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Describes device reprovisioning concepts and policies for the Azure IoT Hub Device Provisioning Service (DPS)
 author: kgremban
+
 ms.author: kgremban
 ms.date: 04/16/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-dps
-services: iot-dps
 ---
 
 # IoT Hub Device reprovisioning concepts
@@ -41,24 +42,24 @@ Over time, the device state data on the IoT hub may be updated by [device operat
 
 Depending on the scenario, as a device moves between IoT hubs, it may also be necessary to migrate device state updated on the previous IoT hub over to the new IoT hub. This migration is supported by reprovisioning policies in the Device Provisioning Service.
 
-## Reprovisioning policies
+## Reprovision policies
 
 Depending on the scenario, a device could send a request to a provisioning service instance on reboot. It also supports a method to manually trigger provisioning on demand. The reprovisioning policy on an enrollment entry determines how the device provisioning service instance handles these provisioning requests. The policy also determines whether device state data should be migrated during reprovisioning. The same policies are available for individual enrollments and enrollment groups:
 
-* **Re-provision and migrate data**: This policy is the default for new enrollment entries. This policy takes action when devices associated with the enrollment entry submit a new request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The updated device state information from that initial IoT hub will be migrated over to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
+* **Reprovision and migrate data**: This policy is the default for new enrollment entries. This policy takes action when devices associated with the enrollment entry submit a new request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The updated device state information from that initial IoT hub will be migrated over to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
 
     ![Diagram that shows that a policy takes action when devices associated with the enrollment entry submit a new request.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **Re-provision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
+* **Reprovision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
 
     This policy is often used for a factory reset without changing IoT hubs.
 
     ![Diagram that shows how a policy takes action when devices associated with the enrollment entry submit a new provisioning request.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **Never re-provision**: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.
+* **Never reprovision**: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.
 
 > [!NOTE]
-> DPS will always call the custom allocation webhook regardless of re-provisioning policy in case there is new [ReturnData](how-to-send-additional-data.md) for the device. If the re-provisioning policy is set to **never re-provision**, the webhook will be called but the device will not change its assigned hub.
+> DPS will always call the custom allocation webhook regardless of reprovisioning policy in case there is new [ReturnData](concepts-custom-allocation.md#use-device-payloads-in-custom-allocation) for the device. If the reprovisioning policy is set to **never reprovision**, the webhook will be called but the device will not change its assigned hub.
 
 When designing your solution and defining a reprovisioning logic there are a few things to consider. For example:
 

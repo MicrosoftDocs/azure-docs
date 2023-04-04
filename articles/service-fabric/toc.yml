@@ -15,6 +15,9 @@
     href: quickstart-managed-cluster-template.md
   - name: Service Fabric cluster with Azure portal
     href: quickstart-classic-cluster-portal.md
+  - name: Service Fabric cluster with Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-cluster-bicep.md
   - name: Service Fabric cluster with ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
@@ -322,6 +325,8 @@
         href: service-fabric-cluster-upgrade.md
       - name: Scaling
         href: service-fabric-cluster-scaling.md
+      - name: Node auto-repair
+        href: service-fabric-cluster-node-auto-repair.md
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
       - name: Infrastructure Service for Azure clusters
@@ -429,6 +434,10 @@
       href: how-to-managed-cluster-enable-disk-encryption.md
     - name: Select managed disk types for managed cluster nodes
       href: how-to-managed-cluster-managed-disk.md
+    - name: Use Dedicated Hosts with managed cluster
+      href: how-to-managed-cluster-dedicated-hosts.md
+    - name: Use Ephemeral OS disks for node types in managed cluster
+      href: how-to-managed-cluster-ephemeral-os-disks.md
     - name: Configure managed cluster upgrade options
       href: how-to-managed-cluster-upgrades.md
     - name: Deploy application secrets to a managed cluster
@@ -445,6 +454,10 @@
       href: how-to-managed-cluster-large-virtual-machine-scale-sets.md
     - name: Use managed identity for managed cluster nodes
       href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
+    - name: Use managed identity with an application
+      href: how-to-managed-cluster-managed-identity-service-fabric-app-code.md
+    - name: Deploy custom image
+      href: how-to-deploy-custom-image.md
   - name: Set up your development environment
     items:
     - name: Windows
@@ -521,6 +534,8 @@
           href: service-fabric-managed-disk.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
+        - name: Set up Azure Active Directory authentication in Azure portal
+          href: service-fabric-cluster-creation-setup-azure-ad-via-portal.md
         - name: Create a custom cluster template
           href: service-fabric-cluster-creation-create-template.md
         - name: Create using Resource Manager
@@ -537,6 +552,8 @@
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Scale up primary node type
           href: service-fabric-scale-up-primary-node-type.md
+        - name: Scale up non-primary node type
+          href: service-fabric-scale-up-non-primary-node-type.md
         - name: Add a node type
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
         - name: Remove a node type
@@ -628,6 +645,8 @@
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Cluster Diagnostics
         href: service-fabric-diagnostics-oms-syslog.md
+      - name: Linux Cluster Event Aggregation
+        href: service-fabric-diagnostics-event-aggregation-lad.md
     - name: Monitor infrastructure
       items:
       - name: Collect performance counters with the Log Analytics Agent
@@ -779,6 +798,9 @@
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
+    - name: Use the Service Fabric Java client API
+      href: service-fabric-java-rest-api-usage.md
+      
   - name: Manage application lifecycle
     items:
     - name: Package an application
@@ -876,7 +898,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.servicefabric/
   - name: PowerShell
-    href: /powershell/module/servicefabric/?view=azureservicefabricps
+    href: /powershell/module/servicefabric/
   - name: Azure CLI (az sf)
     href: /cli/azure/sf
   - name: Service Fabric CLI (sfctl)

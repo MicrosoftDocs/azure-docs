@@ -3,17 +3,17 @@ title: How trusts work for Azure AD Domain Services | Microsoft Docs
 description: Learn more about how forest trust work with Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 03/02/2023
 ms.author: justinha
 ---
 
-# How trust relationships work for resource forests in Azure Active Directory Domain Services
+# How trust relationships work for forests in Active Directory 
 
 Active Directory Domain Services (AD DS) provides security across multiple domains or forests through domain and forest trust relationships. Before authentication can occur across trusts, Windows must first check if the domain being requested by a user, computer, or service has a trust relationship with the domain of the requesting account.
 
@@ -21,9 +21,12 @@ To check for this trust relationship, the Windows security system computes a tru
 
 The access control mechanisms provided by AD DS and the Windows distributed security model provide an environment for the operation of domain and forest trusts. For these trusts to work properly, every resource or computer must have a direct trust path to a DC in the domain in which it is located.
 
-The trust path is implemented by the Net Logon service using  an authenticated remote procedure call (RPC) connection to the trusted domain authority. A secured channel also extends to other AD DS domains through interdomain trust relationships. This secured channel is used to obtain and verify security information, including security identifiers (SIDs) for users and groups.
+The trust path is implemented by the Net Logon service using an authenticated remote procedure call (RPC) connection to the trusted domain authority. A secured channel also extends to other AD DS domains through interdomain trust relationships. This secured channel is used to obtain and verify security information, including security identifiers (SIDs) for users and groups.
 
-For an overview of how trusts apply to Azure AD DS, see [Resource forest concepts and features][create-forest-trust].
+>[!NOTE]
+>Azure AD DS only supports one-way transitive trusts where the managed domain will trust other domains, but no other directions or trust types are supported.
+
+For an overview of how trusts apply to Azure AD DS, see [Forest concepts and features][create-forest-trust].
 
 To get started using trusts in Azure AD DS, [create a managed domain that uses forest trusts][tutorial-create-advanced].
 
@@ -88,7 +91,7 @@ For example, when a one-way, forest trust is created between *Forest 1* (the tru
 * Members of *Forest 2* can't access resources located in *Forest 1* using the same trust.
 
 > [!IMPORTANT]
-> Azure AD Domain Services resource forest only supports a one-way forest trust to on-premises Active Directory.
+> Azure AD Domain Services only supports a one-way forest trust to on-premises Active Directory.
 
 ### Forest trust requirements
 
@@ -98,13 +101,13 @@ Before you can create a forest trust, you need to verify you have the correct Do
 * When there is no shared root DNS server and the root DNS servers in each forest DNS namespace use DNS conditional forwarders for each DNS namespace to route queries for names in the other namespace.
 
     > [!IMPORTANT]
-    > Azure AD Domain Services resource forest must use this DNS configuration. Hosting a DNS namespace other than the resource forest DNS namespace is not a feature of Azure AD Domain Services. Conditional forwarders is the proper configuration.
+    > Any Azure AD Domain Services forest with a trust must use this DNS configuration. Hosting a DNS namespace other than the forest DNS namespace is not a feature of Azure AD Domain Services. Conditional forwarders is the proper configuration.
 
 * When there is no shared root DNS server and the root DNS servers in each forest DNS namespace are use DNS secondary zones are configured in each DNS namespace to route queries for names in the other namespace.
 
 To create a forest trust, you must be a member of the Domain Admins group (in the forest root domain) or the Enterprise Admins group in Active Directory. Each trust is assigned a password that the administrators in both forests must know. Members of Enterprise Admins in both forests can create the trusts in both forests at once and, in this scenario, a password that is cryptographically random is automatically generated and written for both forests.
 
-A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. The outbound forest trust for Azure AD Domain Services is created in the Azure portal. You don't manually create the trust with the managed domain itself. The incoming forest trust must be configured by a user with the privileges previously noted in the on-premises Active Directory. 
+A managed domain forest supports up to five one-way outbound forest trusts to on-premises forests. The outbound forest trust for Azure AD Domain Services is created in the Azure portal. You don't manually create the trust with the managed domain itself. The incoming forest trust must be configured by a user with the privileges previously noted in the on-premises Active Directory. 
 
 ## Trust processes and interactions
 
@@ -277,11 +280,8 @@ Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nlte
 
 ## Next steps
 
-To learn more about resource forests, see [How do forest trusts work in Azure AD DS?][concepts-trust]
-
-To get started with creating a managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
+To get started with creating a managed domain with a forest trust, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
-[concepts-trust]: concepts-forest-trust.md
 [tutorial-create-advanced]: tutorial-create-instance-advanced.md
 [create-forest-trust]: tutorial-create-forest-trust.md

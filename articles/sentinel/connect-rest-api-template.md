@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Connect your data source to the Microsoft Sentinel Data Collector API to ingest data
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 API integrations built by third-party vendors pull data from their products' data sources and connect to Microsoft Sentinel's [Azure Monitor Data Collector API](../azure-monitor/logs/data-collector-api.md) to push the data into custom log tables in your Microsoft Sentinel workspace.

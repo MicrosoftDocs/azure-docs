@@ -7,9 +7,9 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/24/2022
+ms.custom: devx-track-azurepowershell
+ms.date: 07/18/2022
 ms.reviewer: cynthn
-
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 # Store and share images in an Azure Compute Gallery
@@ -35,7 +35,7 @@ When you use a gallery to store images, multiple resource types are created:
 
 ## Image definitions
 
-Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
+Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created and also contains Image metadata such as, what OS it is for, features it supports and other information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image versions created from the definition.
 
 There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
 
@@ -65,6 +65,23 @@ The following are other parameters that can be set on your image definition so t
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](./windows/cli-ps-findimage.md) and [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).
 
+Image definition contains metadata of the image to allow grouping of images that support same features, plan, os state., os type etc. Some of the features, securitytype can be defined 
+
+-Features
+ - Accelerated Networking: Image supports Accelerated Networking
+
+-Architecture
+ - x64 or ARM64 [Architecture](https://learn.microsoft.com/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
+
+-SecurityType
+ - TrustedLaunch - Image is capable of creating Trusted VMs 
+ - TrustedLaunchSupported - Image capable of creating either a Gen2 VM (or) Trusted Launch VM
+ - [Confidential VM](https://learn.microsoft.com/azure/confidential-computing/create-confidential-vm-from-compute-gallery#confidential-vm-images) - Image capable of creating Confidential VMs
+ - [ConfidentialVMSupported](https://learn.microsoft.com/azure/confidential-computing/create-confidential-vm-from-compute-gallery#confidential-vm-supported-images) - Image capable of creating either a Gen2 VM (or) Confidential VM
+ - TrustedLaunchAndConfidentialVmSupported - Image capable of creating a Gen 2 VM (or) Trusted VM (or) Confidential VM
+
+-Examples
+ - CLI examples for adding [Image Definition features](https://learn.microsoft.com/cli/azure/sig/image-definition?&branch=main#az-sig-image-definition-create)
 
 ## Image versions
 
@@ -111,12 +128,14 @@ Image version:
 
 ## Sharing
 
-You can [share images](share-gallery.md) to users and groups using the standard role-based access control (RBAC) or you can share an entire gallery of images to the public, using a [community gallery (preview)](azure-compute-gallery.md#community).
+There are three main ways to share an Azure Compute Gallery, depending on who you want to share with:
 
-> [!IMPORTANT]
-> Azure Compute Gallery – community gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To share images in the community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs and scale sets from images shared the community gallery is open to all Azure users.
+| Share with\: | Option |
+|----|----|
+|[Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
+| [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
+| [Everyone](./share-gallery-community.md) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
+
 
 
 ## Shallow replication 
@@ -131,7 +150,7 @@ To set an image for shallow replication, use `--replication-mode Shallow` with t
 
 The following SDKs support creating Azure Compute Galleries:
 
-- [.NET](/dotnet/api/overview/azure/virtualmachines/management)
+- [.NET](/dotnet/api/azure.resourcemanager.compute)
 - [Java](/java/azure/)
 - [Node.js](/javascript/api/overview/azure/arm-compute-readme)
 - [Python](/python/api/overview/azure/virtualmachines)
@@ -173,11 +192,29 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Select all the subscriptions under which you'd like to list all the resources.
 1. Look for resources of the **Azure Compute Gallery** type.
   
+### [Azure CLI](#tab/azure-cli)
+
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
 ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure PowerShell:
+
+```azurepowershell
+$params = @{
+    Begin   = { $currentContext = Get-AzContext }
+    Process = { $null = Set-AzContext -SubscriptionObject $_; Get-AzGallery }
+    End     = { $null = Set-AzContext -Context $currentContext }
+}
+
+Get-AzSubscription | ForEach-Object @params
+```
+
+---
 
 For more information, see [List, update, and delete image resources](update-image-resources.md).
 
@@ -213,7 +250,7 @@ No, you may replicate the image versions across regions in a subscription and us
 
 ### Can I share image versions across Azure AD tenants? 
 
-Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](./windows/share-images-across-tenants.md) or [CLI](./linux/share-images-across-tenants.md).
+Yes, you can use RBAC to share to individuals across tenants. But, to share at scale, see "Share gallery images across Azure tenants" using [PowerShell](share-gallery.md?tabs=powershell) or [CLI](share-gallery.md?tabs=cli).
 
 ### How long does it take to replicate image versions across the target regions?
 
@@ -225,7 +262,7 @@ Source region is the region in which your image version will be created, and tar
 
 ### How do I specify the source region while creating the image version?
 
-While creating an image version, you can use the **--location** tag in CLI and the **-Location** tag in PowerShell to specify the source region. Please ensure the managed image that you are using as the base image to create the image version is in the same location as the location in which you intend to create the image version. Also, make sure that you pass the source region location as one of the target regions when you create an image version.  
+While creating an image version, you can use the **--location** argument in CLI and the **-Location** parameter in PowerShell to specify the source region. Please ensure the managed image that you are using as the base image to create the image version is in the same location as the location in which you intend to create the image version. Also, make sure that you pass the source region location as one of the target regions when you create an image version.  
 
 ### How do I specify the number of image version replicas to be created in each region?
 
@@ -234,11 +271,23 @@ There are two ways you can specify the number of image version replicas to be cr
 1. The regional replica count which specifies the number of replicas you want to create per region. 
 2. The common replica count which is the default per region count in case regional replica count is not specified. 
 
-To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2". 
+### [Azure CLI](#tab/azure-cli)
 
-If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified. 
+To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2".
 
-To specify the common replica count in CLI, use the **--replica-count** argument in the `az sig image-version create` command.
+If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified.
+
+To specify the common replica count in Azure CLI, use the **--replica-count** argument in the `az sig image-version create` command.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To specify the regional replica count, pass the location along with the number of replicas you want to create in that region, `@{Name = 'South Central US';ReplicaCount = 2}`, to the **-TargetRegion** parameter in the `New-AzGalleryImageVersion` command.
+
+If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified.
+
+To specify the common replica count in Azure PowerShell, use the **-ReplicaCount** parameter in the `New-AzGalleryImageVersion` command.
+
+---
 
 ### Can I create the gallery in a different location than the one for the image definition and image version?
 

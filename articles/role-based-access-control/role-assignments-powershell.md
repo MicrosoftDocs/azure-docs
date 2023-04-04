@@ -3,11 +3,11 @@ title: Assign Azure roles using Azure PowerShell - Azure RBAC
 description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2021
+ms.date: 10/26/2022
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,7 +24,7 @@ To assign roles, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 - [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
-- The account you use to run the PowerShell command must have the Azure Active Directory Graph `Directory.Read.All` and Microsoft Graph `Directory.Read.All` permissions.
+- The account you use to run the PowerShell command must have the Microsoft Graph `Directory.Read.All` permission.
 
 ## Steps to assign an Azure role
 

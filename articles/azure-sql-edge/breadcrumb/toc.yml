@@ -10,5 +10,5 @@
       tocHref: /azure/asc-for-iot/
       topicHref: /azure/azure-sql-edge/index
     - name: Security
-      tocHref: https://docs.microsoft.com/sql/linux/
+      tocHref: /sql/linux/
       topicHref: /azure/azure-sql-edge/index

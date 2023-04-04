@@ -1,16 +1,19 @@
 ---
 title: Server parameters - Azure Database for MySQL
 description: This topic provides guidelines for configuring server parameters in Azure Database for MySQL.
-author: Bashar-MSFT
-ms.author: bahusse
 ms.service: mysql
 ms.subservice: single-server
+author: code-sidd 
+ms.author: sisawant
 ms.topic: conceptual
-ms.date: 1/26/2021
+ms.date: 06/20/2022
 ---
+
 # Server parameters in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL.
 
@@ -269,7 +272,7 @@ Note that improved performance comes at the expense of longer start-up time for 
 
 To save the state of the buffer pool at server shutdown, set the server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set the server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. You can control the impact on start-up or restart by lowering and fine-tuning the value of the server parameter `innodb_buffer_pool_dump_pct`. By default, this parameter is set to `25`.
 
-> [!Note]
+> [!NOTE]
 > `InnoDB` buffer pool warmup parameters are only supported in general purpose storage servers with up to 16 TB storage. For more information, see [Azure Database for MySQL storage options](./concepts-pricing-tiers.md#storage).
 
 ### time_zone

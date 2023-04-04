@@ -9,10 +9,14 @@ ms.reviewer: ""
 ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 5/6/2019
+ms.date: 06/24/2022
 ---
 
 # Quickstart: Use Node.js to connect and query data in Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 In this quickstart, you connect to an Azure Database for PostgreSQL using a Node.js application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Azure Database for PostgreSQL.
 
@@ -25,6 +29,7 @@ In this quickstart, you connect to an Azure Database for PostgreSQL using a Node
 - [Node.js](https://nodejs.org)
 
 ## Install pg client
+
 Install [pg](https://www.npmjs.com/package/pg), which is a PostgreSQL client for Node.js.
 
 To do so, run the node package manager (npm) for JavaScript from your command line to install the pg client.
@@ -38,6 +43,7 @@ npm list
 ```
 
 ## Get connection information
+
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select the server you have created (such as **mydemoserver**).
@@ -47,11 +53,13 @@ Get the connection information needed to connect to the Azure Database for Postg
    :::image type="content" source="./media/connect-nodejs/server-details-azure-database-postgresql.png" alt-text="Azure Database for PostgreSQL connection string":::
 
 ## Running the JavaScript code in Node.js
+
 You may launch Node.js from the Bash shell, Terminal, or Windows Command Prompt by typing `node`, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch `node filename.js` with the file name as a parameter to run it.
 
 ## Connect, create table, and insert data
+
 Use the following code to connect and load the data using **CREATE TABLE** and  **INSERT INTO** SQL statements.
-The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database. 
+The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database.
 
 Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
@@ -102,9 +110,10 @@ function queryDatabase() {
 ```
 
 ## Read data
-Use the following code to connect and read the data using a **SELECT** SQL statement. The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database. 
 
-Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database. 
+Use the following code to connect and read the data using a **SELECT** SQL statement. The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database.
+
+Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
 ```javascript
 const pg = require('pg');
@@ -128,7 +137,7 @@ client.connect(err => {
 });
 
 function queryDatabase() {
-  
+
     console.log(`Running query to PostgreSQL server: ${config.host}`);
 
     const query = 'SELECT * FROM inventory;';
@@ -150,9 +159,10 @@ function queryDatabase() {
 ```
 
 ## Update data
-Use the following code to connect and read the data using a **UPDATE** SQL statement. The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database. 
 
-Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database. 
+Use the following code to connect and read the data using a **UPDATE** SQL statement. The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database.
+
+Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
 ```javascript
 const pg = require('pg');
@@ -197,9 +207,10 @@ function queryDatabase() {
 ```
 
 ## Delete data
-Use the following code to connect and read the data using a **DELETE** SQL statement. The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database. 
 
-Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database. 
+Use the following code to connect and read the data using a **DELETE** SQL statement. The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database.
+
+Replace the host, dbname, user, and password parameters with the values that you specified when you created the server and database.
 
 ```javascript
 const pg = require('pg');
@@ -255,5 +266,6 @@ az group delete \
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Migrate your database using Export and Import](./how-to-migrate-using-export-and-import.md)

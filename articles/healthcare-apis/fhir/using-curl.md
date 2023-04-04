@@ -2,11 +2,11 @@
 title: Access Azure Health Data Services with cURL
 description: This article explains how to access Azure Health Data Services with cURL
 services: healthcare-apis
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 03/22/2022
-ms.author: ginle
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # Access the Azure Health Data Services with cURL
@@ -124,3 +124,5 @@ To learn about how to access Azure Health Data Services data using REST Client e
 
 >[!div class="nextstepaction"]
 >[Access Azure Health Data Services using REST Client](using-rest-client.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

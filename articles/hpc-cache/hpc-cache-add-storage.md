@@ -1,19 +1,17 @@
 ---
 title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 3/1/2023
 ms.custom: subject-rbac-steps
-ms.author: rohogue
+ms.author: kianaharris
 ---
 
 # Add storage targets
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
-
-You can define 10 different storage targets for any cache, and larger caches can [support up to 20 storage targets](#size-your-cache-correctly-to-support-your-storage-targets).
 
 The cache presents all of the storage targets in one [aggregated namespace](hpc-cache-namespace.md). The namespace paths are configured separately after you add the storage targets.
 
@@ -30,21 +28,6 @@ The procedure to add a storage target is slightly different depending on the typ
 <!-- Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target from the Azure portal.
 
 [![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) -->
-
-## Size your cache correctly to support your storage targets
-
-The number of supported storage targets depends on the cache size, which is set when you create the cache. The cache capacity is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
-
-* Up to 10 storage targets - A standard cache with the smallest or medium cache storage value for your selected throughput can have a maximum of 10 storage targets.
-
-  For example, if you choose 2GB/second throughput and don't choose the highest cache storage size, your cache supports a maximum of 10 storage targets.
-
-* Up to 20 storage targets -
-
-  * All high-throughput caches (which have preconfigured cache storage sizes) can support up to 20 storage targets.
-  * Standard caches can support up to 20 storage targets if you choose the highest available cache size for your selected throughput value. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
-
-Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more about throughput and cache size settings.
 
 ## Choose the correct storage target type
 
@@ -124,12 +107,12 @@ You can do this ahead of time, or by clicking a link on the portal page where yo
     | Setting | Value |
     | --- | --- |
     | Roles | [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
-    | Assign access to | HPC Cache Resource Provider |
+    | Assign access to | "HPC Cache Resource Provider" or "StorageCache Resource Provider" |
 
     ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-   > [!NOTE]
-   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. This was a pre-GA name for the service principal.
+   <!-- > [!NOTE]
+   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. This was a pre-GA name for the service principal. -->
 
 <!-- 
 Steps to add the Azure roles:
@@ -234,7 +217,7 @@ These three options cover most situations:
 
 * **Greater than 15% writes** - This option speeds up both read and write performance.
 
-  Client reads and client writes are both cached. Files in the cache are assumed to be newer than files on the back-end storage system. Cached files are only automatically checked against the files on back-end storage every eight hours. Modified files in the cache are written to the back-end storage system after they have been in the cache for 20 minutes with no other changes.
+  Client reads and client writes are both cached. Files in the cache are assumed to be newer than files on the back-end storage system. Cached files are only automatically checked against the files on back-end storage every eight hours. Modified files in the cache are written to the back-end storage system after they have been in the cache for an hour with no other changes.
 
   Do not use this option if any clients mount the back-end storage volume directly, because there is a risk it will have outdated files.
 

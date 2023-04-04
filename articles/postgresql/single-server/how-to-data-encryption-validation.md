@@ -7,10 +7,14 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.topic: how-to
-ms.date: 04/28/2020
+ms.date: 06/24/2022
 ---
 
 # Validating data encryption for Azure Database for PostgreSQL
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This article helps you validate that data encryption using customer managed key for Azure Database for PostgreSQL is working as expected.
 
@@ -23,11 +27,11 @@ This article helps you validate that data encryption using customer managed key 
     * In the Azure portal, navigate to the **Azure Key Vault** -> **Keys**
     * Select the key used for server encryption.
     * Set the status of the key **Enabled** to **No**.
-  
+
        After some time (**~15 min**), the Azure Database for PostgreSQL server **Status** should be **Inaccessible**. Any I/O operation done against the server will fail which validates that the server is indeed encrypted with customers key and the key is currently not valid.
-    
-        In order to make the server **Available** against, you can revalidate the key. 
-    
+
+        In order to make the server **Available** against, you can revalidate the key.
+
     * Set the status of the key in the Key Vault to **Yes**.
     * On the server **Data Encryption**, select **Revalidate key**.
     * After the revalidation of the key is successful, the server **Status** changes to **Available**

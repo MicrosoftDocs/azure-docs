@@ -10,8 +10,4 @@ ms.azure.devx-azure-tooling: ['vscode-azure-tools']
 ms.custom: devx-track-python
 ---
 
-Sign into Azure using the Visual Studio Code Azure Tools Extension:
-
-1. In Visual Studio Code, select **Azure** from the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface)
-1. Navigate to the **Databases** section from the [sidebar](https://code.visualstudio.com/docs/getstarted/userinterface).
-1. **Sign into Azure**, if you have not already.
+In Visual Studio Code, select the Azure Tools extension. Sign into Azure, if you haven't already.

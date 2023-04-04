@@ -2,6 +2,7 @@
 title: Control plane and data plane operations
 description: Describes the difference between control plane and data plane operations. Control plane operations are handled by Azure Resource Manager. Data plane operations are handled by a service.
 ms.topic: conceptual
+ms.custom: ignite-2022
 ms.date: 09/10/2020
 ---
 # Azure control plane and data plane
@@ -16,7 +17,7 @@ For example:
 
 * You create a storage account through the control plane. You use the data plane to read and write data in the storage account.
 
-* You create a Cosmos database through the control plane. To query data in the Cosmos database, you use the data plane.
+* You create an Azure Cosmos DB database through the control plane. To query data in the Azure Cosmos DB database, you use the data plane.
 
 ## Control plane
 

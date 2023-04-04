@@ -4,6 +4,7 @@ description: This how-to guide describes how to view and use Microsoft Purview c
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: purview
+ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.custom: ignite-fall-2021, event-tier1-build-2022
@@ -13,8 +14,6 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 # Classification insights about your data in Microsoft Purview
 
 This guide describes how to access, view, and filter Microsoft Purview Classification insight reports for your data.
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 In this guide, you'll learn how to:
 

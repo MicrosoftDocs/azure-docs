@@ -3,11 +3,11 @@ title: Tutorial – Deploy Active Directory connector using Azure portal
 description: Tutorial to deploy an Active Directory connector using Azure portal
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: dinethi
-ms.date: 05/24/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 

@@ -12,7 +12,7 @@ ms.subservice: partner
 
 # Tiger Bridge archiving with continuous data protection and disaster recovery
 
-This article will guide you to set up Tiger Bridge data management system with Azure Blob Storage. Tiger Bridge Continuous data protection (CDP) integrates with [Soft Delete](/azure/storage/blobs/soft-delete-blob-overview) and [Versioning](/azure/storage/blobs/versioning-overview) to achieve a complete Continuous Data Protection solution. It applies policies to move data between [Azure Blob tiers](/azure/storage/blobs/access-tiers-overview) for optimal cost. Continuous data protection allows customers to have a real-time file-based backup with snapshots to achieve near zero RPO. CDP enables customers to protect their assets with minimum resources. Optionally, it can be used in WORM scenario using [immutable storage](/azure/storage/blobs/immutable-storage-overview).
+This article will guide you to set up Tiger Bridge data management system with Azure Blob Storage. Tiger Bridge Continuous data protection (CDP) integrates with [Soft Delete](../../../blobs/soft-delete-blob-overview.md) and [Versioning](../../../blobs/versioning-overview.md) to achieve a complete Continuous Data Protection solution. It applies policies to move data between [Azure Blob tiers](../../../blobs/access-tiers-overview.md) for optimal cost. Continuous data protection allows customers to have a real-time file-based backup with snapshots to achieve near zero RPO. CDP enables customers to protect their assets with minimum resources. Optionally, it can be used in WORM scenario using [immutable storage](../../../blobs/immutable-storage-overview.md).
 In addition, Tiger Bridge provides easy and efficient Disaster Recovery. It can be combined with [Microsoft DFSR](/windows-server/storage/dfs-replication/dfsr-overview), but it isn't mandatory. It allows mirrored DR sites, or can be used with minimum storage DR sites (keeping only the most recent data on-prem plus). 
 All the replicated files in Azure Blob Storage are stored as native objects, allowing the organization to access them without using Tiger Bridge. This approach prevents vendor locking.
 
@@ -20,15 +20,15 @@ All the replicated files in Azure Blob Storage are stored as native objects, all
 
 :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-reference-architecture.png" alt-text="Tiger Bridge reference architecture.":::
 
-More information on Tiger Bridge solution, and common use case can be read in [Tiger Bridge deployment guide](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide).
+More information on Tiger Bridge solution, and common use case can be read in [Tiger Bridge deployment guide](../primary-secondary-storage/tiger-bridge-deployment-guide.md).
 
 ## Before you begin
 
-- **Refer to [Tiger Bridge deployment guide](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide)**, it describes initial steps needed for setting up CDP.
+- **Refer to [Tiger Bridge deployment guide](../primary-secondary-storage/tiger-bridge-deployment-guide.md)**, it describes initial steps needed for setting up CDP.
 
 - **Choose the right storage options**. When you use Azure as a backup target, you'll make use of [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). Blob storage is optimized for storing massive amounts of unstructured data, which is data that doesn't adhere to any data model, or definition. It's durable, highly available, secure, and scalable. You can select the right storage for your workload by looking at two aspects:
-    - [Storage redundancy](/azure/storage/common/storage-redundancy)
-    - [Storage tier](/azure/storage/blobs/access-tiers-overview)
+    - [Storage redundancy](../../../common/storage-redundancy.md)
+    - [Storage tier](../../../blobs/access-tiers-overview.md)
 
 ### Sample backup to Azure cost model
 Subscription based model can be daunting to customers who are new to the cloud. While you pay for only the capacity used, you do also pay for transactions (read and write), and egress for data read back to your on-premises environment (depending on the network connection used). We recommend using the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to perform what-if analysis. You can base the analysis on list pricing or on Azure Storage Reserved Capacity pricing, which can deliver up to 38% savings. Below is an example pricing exercise to model the monthly cost of backing up to Azure. 
@@ -44,13 +44,13 @@ Subscription based model can be daunting to customers who are new to the cloud. 
 > This is only an example. Your pricing may vary due to activities not captured here. Estimate was generated with Azure Pricing Calculator using East US Pay-as-you-go pricing. It is based on a 32 MB block size which generates 65,536 PUT Requests (write transactions), per day. This example may not reflect current Azure pricing, or not be applicable towards your requirements.
 
 ## Prepare Azure Blob Storage
-Refer to [Tiger Bridge deployment guide](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide)
+Refer to [Tiger Bridge deployment guide](../primary-secondary-storage/tiger-bridge-deployment-guide.md)
 
 ## Deploy Tiger Bridge
 Before you can install Tiger Bridge, you need to have a Windows file server installed, and fully functional. Windows server must have access to the storage account prepare in [previous step](#prepare-azure-blob-storage).
 
 ## Configure continuous data protection
-1. Deploy Tiger Bridge solution as described in [standalone hybrid configuration](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide#deploy-standalone-hybrid-configuration) (steps 1 to 4).
+1. Deploy Tiger Bridge solution as described in [standalone hybrid configuration](../primary-secondary-storage/tiger-bridge-deployment-guide.md#deploy-standalone-hybrid-configuration) (steps 1 to 4).
 1. Under Tiger Bridge settings, enable **Delete replica when source file is removed** and **Keep replica versions**
     :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-settings.png" alt-text="Screenshot that shows how to enable settings for CDP.":::
 1. Set versioning policy either **By Age** or **By Count**
@@ -71,7 +71,7 @@ Tiger Bridge can move a replicated file between Azure Blob Storage tiers to opti
     
     :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-pair-account.png" alt-text="Screenshot that shows how to pair a storage account with local source.":::
 
-    Change **Default access tier** to **Archive**. You can also select a default **[Rehydration priority](/azure/storage/blobs/archive-rehydrate-to-online-tier)**.
+    Change **Default access tier** to **Archive**. You can also select a default **[Rehydration priority](../../../blobs/archive-rehydrate-to-online-tier.md)**.
 
     :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-change-access-tier.png" alt-text="Screenshot that shows how to change a default access tier in Tiger Bridge Configuration.":::
 
@@ -93,7 +93,7 @@ Tiger Bridge can be configured in Disaster Recovery mode. Typical configuration 
 
 :::image type="content" source="./media/tiger-bridge-cdp-guide/tiger-bridge-dr-active-passive.png" alt-text="Architecture for Tiger Bridge in active - passive DR configuration.":::
 
-1. Deploy and setup Tiger Bridge server on the primary and secondary site as instructed in [Tiger Bridge deployment guide](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/tiger-bridge-deployment-guide#deploy-standalone-hybrid-configuration) for standalone hybrid configuration
+1. Deploy and setup Tiger Bridge server on the primary and secondary site as instructed in [Tiger Bridge deployment guide](../primary-secondary-storage/tiger-bridge-deployment-guide.md#deploy-standalone-hybrid-configuration) for standalone hybrid configuration
 
     > [!NOTE]
     > Both Tiger Bridge servers on primary and secondary site must be connected to the same container and storage account.

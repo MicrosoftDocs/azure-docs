@@ -8,17 +8,19 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 03/24/2023
 ms.author: banders
 ---
 
 # View and download your Microsoft Azure invoice
 
-You can download your invoice in the [Azure portal](https://portal.azure.com/) or have it sent in email. If you're an Azure customer with an Enterprise Agreement (EA customer), you can't download your organization's invoice. Instead, invoices are sent to the person set to receive invoices for the enrollment.
+You can download your invoice in the [Azure portal](https://portal.azure.com/) or have it sent in email. Invoices are sent to the person set to receive invoices for the enrollment.
 
-## When invoices are generated
+If you're an Azure customer with an Enterprise Agreement (EA customer), only an EA administrator can download and view your organization's invoice. Direct EA administrators can [Download or view their Azure billing invoice](../manage/direct-ea-azure-usage-charges-invoices.md#download-or-view-your-azure-billing-invoice). Indirect EA administrators can use the information at [Azure Enterprise enrollment invoices](../manage/ea-portal-enrollment-invoices.md) to download their invoice.
 
-An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP) also called pay-as-you-go, Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
+## Where invoices are generated
+
+An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP) also called pay-as-you-go, Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](../manage/view-all-accounts.md).
 
@@ -160,7 +162,10 @@ You must have an owner, contributor, reader, or an invoice manager role on a bil
 
 ## Get your billing profile's invoice in email
 
-You must have an owner or a contributor role on the billing profile or its billing account to update its email invoice preference. Once you have opted-in, all users with an owner, contributor, readers, and invoice manager roles on a billing profile will get its invoice in email. 
+You must have an owner or a contributor role on the billing profile or its billing account to update its email invoice preference. Once you have opted-in, all users with an owner, contributor, readers, and invoice manager roles on a billing profile will get its invoice in email.
+
+> [!NOTE]
+> The *send by email* and *invoice email preference* invoice functionality isn’t supported for Microsoft Customer Agreements when you work with a Microsoft partner.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 1.  Search for **Cost Management + Billing**.  

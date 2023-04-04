@@ -3,8 +3,8 @@ title: 'Quickstart: Create an Azure Data Science VM - Bicep'
 titleSuffix: Azure Data Science Virtual Machine
 description: In this quickstart, you use Bicep to quickly deploy a Data Science Virtual Machine
 services: machine-learning
-author: schaffererin
-ms.author: v-eschaffer
+author: s-polly
+ms.author: scottpolly 
 ms.date: 05/02/2022
 ms.topic: quickstart
 ms.service: data-science-vm
@@ -13,7 +13,7 @@ ms.custom: subject-armqs, mode-arm
 
 # Quickstart: Create an Ubuntu Data Science Virtual Machine using Bicep
 
-This quickstart will show you how to create an Ubuntu 18.04 Data Science Virtual Machine using Bicep. Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU.
+This quickstart will show you how to create an Ubuntu Data Science Virtual Machine using Bicep. Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU.
 
 [!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -34,14 +34,14 @@ The following resources are defined in the Bicep file:
 * [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 * [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
-* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Create a cloud-based virtual machine. In this template, the virtual machine is configured as a Data Science Virtual Machine running Ubuntu 18.04.
+* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Create a cloud-based virtual machine. In this template, the virtual machine is configured as a Data Science Virtual Machine running Ubuntu.
 
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    # [CLI](#tab/CLI)
+    # [Azure CLI](#tab/CLI)
 
     ```azurecli
     az group create --name exampleRG --location eastus
@@ -66,7 +66,7 @@ The following resources are defined in the Bicep file:
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 ```azurecli-interactive
 az resource list --resource-group exampleRG
@@ -84,7 +84,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
 ```azurecli-interactive
 az group delete --name exampleRG

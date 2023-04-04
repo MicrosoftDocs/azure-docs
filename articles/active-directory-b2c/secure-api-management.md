@@ -80,7 +80,7 @@ https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 
 ## Configure the inbound policy in Azure API Management
 
-You're now ready to add the inbound policy in Azure API Management that validates API calls. By adding a [JSON web token (JWT) validation](../api-management/api-management-access-restriction-policies.md#ValidateJWT) policy that verifies the audience and issuer in an access token, you can ensure that only API calls with a valid token are accepted.
+You're now ready to add the inbound policy in Azure API Management that validates API calls. By adding a [JSON web token (JWT) validation](../api-management/validate-jwt-policy.md) policy that verifies the audience and issuer in an access token, you can ensure that only API calls with a valid token are accepted.
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure API Management instance.
 1. Select **APIs**.

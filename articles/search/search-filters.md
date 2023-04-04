@@ -1,22 +1,22 @@
 ---
 title: Filter on search results
 titleSuffix: Azure Cognitive Search
-description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Cognitive Search, a hosted cloud search service on Microsoft Azure.
+description: Apply filter criteria to include or exclude content before query execution in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 10/27/2022
 ms.custom: devx-track-csharp
 ---
 
 # Filters in Azure Cognitive Search 
 
-A *filter* provides value-based criteria for selecting which documents to include in search results. A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter succeeds only if an exact match is made.
+A *filter* provides value-based criteria for including or excluding content before query execution. For example, including or excluding documents based on dates, locations, or language. Filters are specified on individual fields. A field definition must be attributed as "filterable" if you want to use it in filter expressions.
 
-Filters are specified on individual fields. A field definition must be attributed as "filterable" if you want to use it in filter expressions.
+A filter is specified using [OData filter expression syntax](search-query-odata-filter.md). In contrast with full text search, a filter succeeds only if the match is exact.
 
 ## When to use a filter
 
@@ -32,7 +32,7 @@ Common scenarios include the following:
   + [Geospatial search](search-query-odata-geo-spatial-functions.md) uses a filter to pass coordinates of the current location in "find near me" apps and functions that match within an area or by distance.
   + [Security filters](search-security-trimming-for-azure-search.md) pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
-+ Do a "numbers search". Numeric fields are retrievable and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
++ Do a "numbers search". Numeric fields are retrievable and can appear in search results, but they aren't searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
 
 ## How filters are executed
 
@@ -44,9 +44,9 @@ Filtering occurs in tandem with search, qualifying which documents to include in
 
 Filters are OData expressions, articulated in the [filter syntax](search-query-odata-filter.md) supported by Cognitive Search.
 
-You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple full-text search expressions. In a multi-part filter expression, you can specify predicates in any order (subject to the rules of operator precedence). There is no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
+You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple full-text search expressions. In a multi-part filter expression, you can specify predicates in any order (subject to the rules of operator precedence). There's no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
 
-One of the limits on a filter expression is the maximum size limit of the request. The entire request, inclusive of the filter, can be a maximum of 16 MB for POST, or 8 KB for GET. There is also a limit on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size.
+One of the limits on a filter expression is the maximum size limit of the request. The entire request, inclusive of the filter, can be a maximum of 16 MB for POST, or 8 KB for GET. There's also a limit on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it doesn't generate filters of unbounded size.
 
 The following examples represent prototypical filter definitions in several APIs.
 
@@ -74,7 +74,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 The following examples illustrate several usage patterns for filter scenarios. For more ideas, see [OData expression syntax > Examples](./search-query-odata-filter.md#examples).
 
-+ Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is just an asterisk, which means "match all documents".
++ Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there's no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is just an asterisk, which means "match all documents".
 
   ```json
   {
@@ -101,7 +101,7 @@ The following examples illustrate several usage patterns for filter scenarios. F
    $filter=search.ismatchscoring('luxury | high-end', 'Description') or Category eq 'Luxury'&$count=true
    ```
 
-  It is also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
+  It's also possible to combine full-text search via `search.ismatchscoring` with filters using `and` instead of `or`, but this is functionally equivalent to using the `search` and `$filter` parameters in a search request. For example, the following two queries produce the same result:
 
   ```http
   $filter=search.ismatchscoring('pool') and Rating ge 4
@@ -128,9 +128,9 @@ You can't modify existing fields to make them filterable. Instead, you need to a
 
 Text filters match string fields against literal strings that you provide in the filter: `$filter=Category eq 'Resort and Spa'`
 
-Unlike full-text search, there is no lexical analysis or word-breaking for text filters, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'Sunny'` does not match, but `$filter=f eq 'sunny day'` will. 
+Unlike full-text search, there's no lexical analysis or word-breaking for text filters, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'sunny'` doesn't match, but `$filter=f eq 'sunny day'` will. 
 
-Text strings are case-sensitive. There is no lower-casing of upper-cased words: `$filter=f eq 'Sunny day'` will not find "sunny day".
+Text strings are case-sensitive, which means text filters are case sensitive by default. For example, `$filter=f eq 'Sunny day'` won't find "sunny day". However, you can use a [normalizer](search-normalizers.md) to make it so filtering isn't case sensitive.
 
 ### Approaches for filtering on text
 
@@ -142,9 +142,9 @@ Text strings are case-sensitive. There is no lower-casing of upper-cased words: 
 
 ## Numeric filter fundamentals
 
-Numeric fields are not `searchable` in the context of full text search. Only strings are subject to full text search. For example, if you enter 99.99 as a search term, you won't get back items priced at $99.99. Instead, you would see items that have the number 99 in string fields of the document. Thus, if you have numeric data, the assumption is that you will use them for filters, including ranges, facets, groups, and so forth. 
+Numeric fields aren't `searchable` in the context of full text search. Only strings are subject to full text search. For example, if you enter 99.99 as a search term, you won't get back items priced at $99.99. Instead, you would see items that have the number 99 in string fields of the document. Thus, if you have numeric data, the assumption is that you'll use them for filters, including ranges, facets, groups, and so forth. 
 
-Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retrievable`. The point here is that full text search itself is not applicable to numeric field types.
+Documents that contain numeric fields (price, size, SKU, ID) provide those values in search results if the field is marked `retrievable`. The point here's that full text search itself isn't applicable to numeric field types.
 
 ## Next steps
 

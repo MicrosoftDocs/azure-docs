@@ -1,26 +1,27 @@
 ---
-title: Sync local partner accounts to cloud as B2B users - Azure AD
-description: Give locally-managed external partners access to both local and cloud resources using the same credentials with Azure AD B2B collaboration.
+title: Sync local partner accounts to cloud as B2B users
+description: Give locally managed external partners access to both local and cloud resources using the same credentials with Azure AD B2B collaboration.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 11/17/2022
 
-ms.author: mimart
-author: msmimart
+ms.author: cmulligan
+author: csmulligan
 manager: celestedg
-ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to enable locally-managed external partners' access to both local and cloud resources via the Azure AD B2B collaboration.
 ---
 
-# Grant locally-managed partner accounts access to cloud resources using Azure AD B2B collaboration
+# Grant locally managed partner accounts access to cloud resources using Azure AD B2B collaboration
 
 Before Azure Active Directory (Azure AD), organizations with on-premises identity systems have traditionally managed partner accounts in their on-premises directory. In such an organization, when you start to move apps to Azure AD, you want to make sure your partners can access the resources they need. It shouldn't matter whether the resources are on-premises or in the cloud. Also, you want your partner users to be able to use the same sign-in credentials for both on-premises and Azure AD resources. 
 
-If you create accounts for your external partners in your on-premises directory (for example, you create an account with a sign-in name of "wmoran" for an external user named Wendy Moran in your partners.contoso.com domain), you can now sync these accounts to the cloud. Specifically, you can use Azure AD Connect to sync the partner accounts to the cloud, which creates a user account with UserType = Guest. This enables your partner users to access cloud resources using the same credentials as their local accounts, without giving them more access than they need.
+If you create accounts for your external partners in your on-premises directory (for example, you create an account with a sign-in name of "msullivan" for an external user named Maria Sullivan in your partners.contoso.com domain), you can now sync these accounts to the cloud. Specifically, you can use [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) to sync the partner accounts to the cloud, which creates a user account with UserType = Guest. This enables your partner users to access cloud resources using the same credentials as their local accounts, without giving them more access than they need.
 
 > [!NOTE]
 > See also how to [invite internal users to B2B collaboration](invite-internal-users.md). With this feature, you can invite internal guest users to use B2B collaboration, regardless of whether you've synced their accounts from your on-premises directory to the cloud. Once the user accepts the invitation to use B2B collaboration, they'll be able to use their own identities and credentials to sign in to the resources you want them to access. You won’t need to maintain passwords or manage account lifecycles.

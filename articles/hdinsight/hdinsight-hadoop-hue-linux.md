@@ -4,12 +4,15 @@ description: Learn how to install Hue on HDInsight clusters and use tunneling to
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/31/2020
+ms.date: 11/14/2022
 ---
 
 # Install and use Hue on HDInsight Hadoop clusters
 
 Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue.
+
+> [!NOTE]
+> Hue is not supported in HDInsight 4.0 and later. 
 
 ## What is Hue?
 
@@ -40,42 +43,6 @@ Use the information in the table below for your Script Action. See [Customize HD
 |Name|Install Hue|
 |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`|
 |Node type(s):|Head|
-
-## Use Hue with HDInsight clusters
-
-You can only have one user account with Hue on regular clusters. For multi-user access, enable [Enterprise Security Package](./domain-joined/hdinsight-security-overview.md) on the cluster. SSH Tunneling is the only way to access Hue on the cluster once it's running. Tunneling via SSH allows the traffic to go directly to the headnode of the cluster where Hue is running. After the cluster has finished provisioning, use the following steps to use Hue on an HDInsight cluster.
-
-> [!NOTE]  
-> We recommend using Firefox web browser to follow the instructions below.
-
-1. Use the information in [Use SSH Tunneling to access Apache Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) to create an SSH tunnel from your client system to the HDInsight cluster, and then configure your Web browser to use the SSH tunnel as a proxy.
-
-1. Use [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
-
-    ```cmd
-    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
-    ```
-
-1. Once connected, use the following command to obtain the fully qualified domain name of the primary headnode:
-
-    ```bash
-    hostname -f
-    ```
-
-    This will return a name similar to the following:
-
-    ```output
-    myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
-    ```
-
-    This is the hostname of the primary headnode where the Hue website is located.
-
-1. Use the browser to open the Hue portal at `http://HOSTNAME:8888`. Replace HOSTNAME with the name you obtained in the previous step.
-
-   > [!NOTE]  
-   > When you log in for the first time, you will be prompted to create an account to log in to the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
-
-    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png" alt-text="HDInsight hue portal login window":::
 
 ### Run a Hive query
 

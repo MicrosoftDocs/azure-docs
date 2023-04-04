@@ -17,11 +17,11 @@ This article describes how to troubleshoot common routing problems that you migh
 
 You can request Azure Front Door to return more debugging HTTP response headers. For more information, see [optional response headers](front-door-http-headers-protocol.md#optional-debug-response-headers).
 
-## 503 response from Azure Front Door after a few seconds
+## 503 or 504 response from Azure Front Door after a few seconds
 
 ### Symptom
 
-* Regular requests sent to your backend without going through Azure Front Door are succeeding. Going via Azure Front Door results in 503 error responses.
+* Regular requests sent to your backend without going through Azure Front Door are succeeding. Going via Azure Front Door results in 503 or 504 error responses.
 * The failure from Azure Front Door typically appears after about 30 seconds.
 * Intermittent 503 errors appear with "ErrorInfo: OriginInvalidResponse."
 
@@ -141,7 +141,7 @@ Responses to these requests might also contain an HTML error page in the respons
 
 There are several possible causes for this symptom. The overall reason is that your HTTP request isn't fully RFC-compliant.
 
-An example of noncompliance is a `POST` request sent without either a **Content-Length** or a **Transfer-Encoding** header. An example would be using `curl -X POST https://example-front-door.domain.com`. This request doesn't meet the requirements set out in [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2). Azure Front Door would block it with an HTTP 411 response.
+An example of noncompliance is a `POST` request sent without either a **Content-Length** or a **Transfer-Encoding** header. An example would be using `curl -X POST https://example-front-door.domain.com`. This request doesn't meet the requirements set out in [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2). Azure Front Door would block it with an HTTP 411 response. Such requests will not be logged.
 
 This behavior is separate from the web application firewall (WAF) functionality of Azure Front Door. Currently, there's no way to disable this behavior. All HTTP requests must meet the requirements, even if the WAF functionality isn't in use.
 

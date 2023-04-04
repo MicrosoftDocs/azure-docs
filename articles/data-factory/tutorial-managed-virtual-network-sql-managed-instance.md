@@ -6,7 +6,7 @@ ms.author: lle
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 03/17/2022
+ms.date: 09/26/2022
 ---
 
 # Tutorial: How to access SQL Managed Instance from Data Factory Managed VNET using Private Endpoint
@@ -215,8 +215,12 @@ the page.
 
 ## Creating Forwarding Rule to Endpoint
 
-1. Login and copy script [ip_fwd.sh](https://github.com/sajitsasi/az-ip-fwd/blob/main/ip_fwd.sh) to your backend server VMs. 
-2. Run the script on with the following options:<br/>
+1. Login and copy script [ip_fwd.sh](https://github.com/sajitsasi/az-ip-fwd/blob/main/ip_fwd.sh) to your backend server VMs.
+
+   > [!NOTE]
+   > This script will only temporarily set IP forwarding. To make this setting permanent, please ensure that the line "net.ipv4.ip_forward=1" is uncommented in the file /etc/sysctl.conf
+
+1. Run the script on with the following options:<br/>
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP> is the host of your SQL Managed Instance.
     

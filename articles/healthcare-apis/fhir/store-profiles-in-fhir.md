@@ -1,17 +1,17 @@
 ---
 title: Store profiles in FHIR service in Azure Health Data Services
 description: This article describes how to store profiles in the FHIR service
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
-ms.author: mikaelw
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 
 # Store profiles in FHIR service
 
-HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
+HL7 Fast Healthcare Interoperability Resources (FHIR&#174;) defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) allows you to narrow down and customize resource definitions using constraints and extensions.
 
 The FHIR service in Azure Health Data Services (hereby called FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
@@ -53,14 +53,12 @@ When a resource conforms to a profile, the profile is specified inside the `prof
 > [!NOTE]
 > Profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the profile cannot make it optional.
 
-Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. You can go to the specific IG site to learn more about the IG and the profiles defined within it.
+Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. For more information, visit the specific IG site to learn more about the IG and the profiles defined within it:
 
-|Name |URL
-|---- |----
-Us Core |<https://www.hl7.org/fhir/us/core/>
-CARIN Blue Button |<http://hl7.org/fhir/us/carin-bb/>
-Da Vinci Payer Data Exchange |<http://hl7.org/fhir/us/davinci-pdex/>
-Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
+- [US Core](https://www.hl7.org/fhir/us/core/)
+- [CARIN Blue Button](https://hl7.org/fhir/us/carin-bb)
+- [Da Vinci Payer Data Exchange](https://hl7.org/fhir/us/davinci-pdex)
+- [Argonaut](https://www.fhir.org/guides/argonaut/pd/)
 
 > [!NOTE]
 > The FHIR service does not store any profiles from implementation guides by default. You will need to load them into the FHIR service.
@@ -69,15 +67,19 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ### Storing profiles
 
-To store profiles to the FHIR server, you can `POST` the `StructureDefinition` with the profile content in the body of the request.
+To store profiles in FHIR service, you can `PUT` the `StructureDefinition` with the profile content in the body of the request. A standard `PUT` or a conditional update are both good methods to store profiles on the FHIR service. Use the conditional update if you are unsure which to use.
 
+Standard `PUT`: `PUT http://<your FHIR service base URL>/StructureDefinition/profile-id`
 
-`POST http://<your FHIR service base URL>/StructureDefinition`
+**or**
+
+Conditional update: `PUT http://<your FHIR service base URL>/StructureDefinition?url=http://sample-profile-url`
 
 ```
 { 
 "resourceType" : "StructureDefinition",
 "id" : "profile-id",
+"url": "http://sample-profile-url"
 	…
 }
 ```
@@ -85,7 +87,7 @@ To store profiles to the FHIR server, you can `POST` the `StructureDefinition` w
 For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We've included a snippet of this profile for the example.
 
 ```rest
-POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+PUT https://<your FHIR service base URL>/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 ```
 
 ```json
@@ -123,7 +125,7 @@ You can access your existing custom profiles using a `GET` request, ``GET http:/
 
 For example, if you want to view US Core Goal resource profile:
 
-`GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal`
+`GET https://<your FHIR service base URL>/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal`
 
 This will return the `StructureDefinition` resource for US Core Goal profile, that will start like this:
 
@@ -201,9 +203,18 @@ You'll be returned with a `CapabilityStatement` that includes the following info
         "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
     ],
 ```
+
+### Bindings in Profiles
+A terminology service is a set of functions that can perform operations on medical “terminologies,” such as validating codes, translating codes, expanding value sets, etc.  The FHIR service doesn't support terminology service. Information for supported operations ($), resource types and interactions can be found in the service's CapabilityStatement. Resource types ValueSet, StructureDefinition and CodeSystem are supported with basic CRUD operations and Search (as defined in the CapabilityStatement) as well as being leveraged by the system for use in $validate. 
+
+ValueSets can contain a complex set of rules and external references. Today, the service will only consider the pre-expanded inline codes. Customers need to upload supported ValueSets to the FHIR server prior to utilizing the $validate operation. The ValueSet resources must be uploaded to the FHIR server, using PUT or conditional update as mentioned under Storing Profiles section above. 
+
+
 ## Next steps
 
 In this article, you've learned about FHIR profiles. Next, you'll learn how you can use $validate to ensure that resources conform to these profiles.
 
 >[!div class="nextstepaction"]
 >[Validate FHIR resources against profiles](validation-against-profiles.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

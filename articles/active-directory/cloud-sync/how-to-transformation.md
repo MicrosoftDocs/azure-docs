@@ -3,8 +3,8 @@ title: Azure AD Connect cloud sync transformations
 description: This article describes how to use transformations to alter the default attribute mappings.
 author: billmath
 ms.author: billmath
-manager: davba
-ms.date: 12/02/2019
+manager: amycolannino
+ms.date: 01/11/2023
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs

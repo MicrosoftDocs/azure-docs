@@ -1,9 +1,8 @@
 ---
 title: Create a Windows Server container on an AKS cluster by using PowerShell
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
-services: container-service
 ms.topic: article
-ms.date: 04/29/2022
+ms.date: 11/01/2022
 ms.custom: devx-track-azurepowershell
 
 
@@ -32,11 +31,6 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell][install-azure-powershell].
-* You also must install the [Az.Aks](/powershell/module/az.aks) PowerShell module:
-
-    ```azurepowershell-interactive
-    Install-Module Az.Aks
-    ```
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -59,6 +53,9 @@ The following additional limitations apply to Windows Server node pools:
 * The AKS cluster can have a maximum of 10 node pools.
 * The AKS cluster can have a maximum of 100 nodes in each node pool.
 * The Windows Server node pool name has a limit of 6 characters.
+
+> [!NOTE]
+> Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
 ## Create a resource group
 
@@ -91,9 +88,6 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Create an AKS cluster
 
-Use the `ssh-keygen` command-line utility to generate an SSH key pair. For more details, see
-[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
-
 To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to
 use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more
 detailed information to help plan out the required subnet ranges and network considerations, see
@@ -106,9 +100,8 @@ network resources if they don't exist.
 > node pool.
 
 ```azurepowershell-interactive
-$Username = Read-Host -Prompt 'Please create a username for the administrator credentials on your Windows Server containers: '
-$Password = Read-Host -Prompt 'Please create a password for the administrator credentials on your Windows Server containers: ' -AsSecureString
-New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $Username -WindowsProfileAdminUserPassword $Password
+$AdminCreds = Get-Credential -Message 'Please create the administrator credentials for your Windows Server containers'
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $AdminCreds.UserName -WindowsProfileAdminUserPassword $AdminCreds.Password -GenerateSshKey
 ```
 
 > [!Note]
@@ -130,10 +123,24 @@ New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -
 ```
 
 The above command creates a new node pool named **npwin** and adds it to the **myAKSCluster**. When
-creating a node pool to run Windows Server containers, the default value for **VmSize** is
-**Standard_D2s_v3**. If you choose to set the **VmSize** parameter, check the list of
+creating a node pool to run Windows Server containers, the default value for `-VmSize` is
+**Standard_D2s_v3**. If you choose to set the `-VmSize` parameter, check the list of
 [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is **Standard_D2s_v3**. The
 previous command also uses the default subnet in the default vnet created when running `New-AzAksCluster`.
+
+## Add a Windows Server 2019 or Windows Server 2022 node pool
+
+AKS supports Windows Server 2019 and 2022 node pools. For Kubernetes version 1.25.0 and higher, Windows Server 2022 is the default operating system. For earlier Kubernetes versions, Windows Server 2019 is the default OS. To use Windows Server 2019, you need to specify the following parameters:
+- **osType** set the value to `Windows`
+- **osSKU** set the value to `Windows2019`
+
+> [!NOTE]
+> OsSKU requires PowerShell Az module version "9.2.0" or higher.
+> Windows Server 2022 requires Kubernetes version "1.23.0" or higher.
+
+```azurepowershell-interactive
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 Windows -Name npwin
+```
 
 ## Connect to the cluster
 
@@ -141,7 +148,7 @@ To manage a Kubernetes cluster, you use [kubectl][kubectl], the Kubernetes comma
 you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the
 `Install-AzAksKubectl` cmdlet:
 
-```azurepowershell-interactive
+```azurepowershell
 Install-AzAksKubectl
 ```
 
@@ -183,9 +190,7 @@ of **Windows Server 2019** or greater. The Kubernetes manifest file must also de
 [node selector][node-selector] to tell your AKS cluster to run your ASP.NET sample application's pod
 on a node that can run Windows Server containers.
 
-Create a file named `sample.yaml` and copy in the following YAML definition. If you use the Azure
-Cloud Shell, this file can be created using `vi` or `nano` as if working on a virtual or physical
-system:
+Create a file named `sample.yaml` and copy in the following YAML definition. If you use the Azure Cloud Shell, this file can be created using `code`, `vi`, or `nano` as if working on a virtual or physical system:
 
 ```yaml
 apiVersion: apps/v1
@@ -211,9 +216,6 @@ spec:
           limits:
             cpu: 1
             memory: 800M
-          requests:
-            cpu: .1
-            memory: 300M
         ports:
           - containerPort: 80
   selector:
@@ -233,6 +235,8 @@ spec:
     app: sample
 ```
 
+For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your
 YAML manifest:
 
@@ -249,7 +253,7 @@ service/sample created
 
 ## Test the application
 
-When the application runs, a Kubernetes service exposes the application frontend to the internet.
+When the application runs, a Kubernetes service exposes the application front end to the internet.
 This process can take a few minutes to complete. Occasionally the service can take longer than a few
 minutes to provision. Allow up to 10 minutes in these cases.
 
@@ -307,7 +311,7 @@ Kubernetes cluster tutorial.
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [dotnet-samples]: https://hub.docker.com/_/microsoft-dotnet-framework-samples/
 [node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/

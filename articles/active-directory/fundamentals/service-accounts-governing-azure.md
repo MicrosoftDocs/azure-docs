@@ -2,191 +2,173 @@
 title: Governing Azure Active Directory service accounts
 description: Principles and procedures for managing the lifecycle of service accounts in Azure Active Directory.
 services: active-directory
-author: BarbaraSelden
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 3/1/2021
-ms.author: baselden
+ms.date: 02/09/2023
+ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Governing Azure AD service accounts
+# Governing Azure Active Directory service accounts
 
-There are three types of service accounts in Azure Active Directory (Azure AD): [managed identities](service-accounts-managed-identities.md), [service principals](service-accounts-principal.md), and user accounts employed as service accounts. As you create these service accounts for automated use, they're granted permissions to access resources in Azure and Azure AD. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Azure AD service accounts means that you manage their creation, permissions, and lifecycle to ensure security and continuity.
+There are three types of service accounts in Azure Active Directory (Azure AD): managed identities, service principals, and user accounts employed as service accounts. When you create service accounts for automated use, they're granted permissions to access resources in Azure and Azure AD. Resources can include Microsoft 365 services, software as a service (SaaS) applications, custom applications, databases, HR systems, and so on. Governing Azure AD service account is managing creation, permissions, and lifecycle to ensure security and continuity.
 
-> [!IMPORTANT] 
-> We do not recommend using user accounts as service accounts as they are inherently less secure. This includes on-premises service accounts that are synced to Azure AD, as they are  not converted to service principals. Instead, we recommend the use of managed identities or service principals. Note that at this time the use of conditional access policies with service principals is called Conditional Access for workload identities and it's in public preview.
+Learn more:
 
+* [Securing managed identities](service-accounts-managed-identities.md)
+* [Securing service principals](service-accounts-principal.md)
+
+> [!NOTE] 
+> We do not recommend user accounts as service accounts because they are less secure. This includes on-premises service accounts synced to Azure AD, because they aren't converted to service principals. Instead, we recommend managed identities, or service principals, and the use of Conditional Access.
+
+Lear more: [What is Conditional Access?](../conditional-access/overview.md)
 
 ## Plan your service account
 
-Before creating a service account, or registering an application, document the service account’s key information. Having information documented makes it easier to effectively monitor and govern the account. We recommend collecting the following data and tracking it in your centralized Configuration Management Database (CMDB).
+Before creating a service account, or registering an application, document the service account key information. Use the information to monitor and govern the account. We recommend collecting the following data and tracking it in your centralized Configuration Management Database (CMDB).
 
 | Data| Description| Details |
 | - | - | - |
-| Owner| User or group that is accountable for managing and monitoring the service account.| Provision the owner with necessary permissions to monitor the account and implement a way to mitigate issues. Issue mitigation may be done by the owner, or via a request to IT. |
-| Purpose| How the account will be used.| Map the service account to a specific service, application, or script. Avoid creating multi-use service accounts. |
-| Permissions (Scopes)| Anticipated set of permissions.| Document the resources it will access and the permissions to those resources. |
-| CMDB Link| Link to the resources to be accessed, and scripts in which the service account is used.| Ensure you document the resource and script owners so that you can communicate any necessary upstream and downstream effects of changes. |
-| Risk assessment| Risk and business impact if the account were to be compromised.| Use this information to narrow the scope of permissions and determine who should have access to the account information. |
-| Period for review| The schedule on which the service account is to be reviewed by the owner.| Use this to schedule review communications and reviews. Document what should happen if a review is not performed by a specific time after the scheduled review period. |
-| Lifetime| Anticipated maximum lifetime of account.| Use this to schedule communications to the owner, and to ultimately disable then delete the accounts. Where possible, set an expiration date for credentials, where credentials cannot be rolled over automatically. |
-| Name| Standardized name of account| Create a naming schema for all service accounts so that you can easily search, sort, and filter on service accounts. |
+| Owner| User or group accountable for managing and monitoring the service account| Grant the owner permissions to monitor the account and implement a way to mitigate issues. Issue mitigation is done by the owner, or by request to an IT team. |
+| Purpose| How the account is used| Map the service account to a service, application, or script. Avoid creating multi-use service accounts. |
+| Permissions (Scopes)| Anticipated set of permissions| Document the resources it accesses and permissions for those resources |
+| CMDB Link| Link to the accessed resources, and scripts in which the service account is used| Document the resource and script owners to communicate the effects of change |
+| Risk assessment| Risk and business effect, if the account is compromised|Use the information to narrow the scope of permissions and determine access to information |
+| Period for review| The cadence of service account reviews, by the owner| Review communications and reviews. Document what happens if a review is performed after the scheduled review period. |
+| Lifetime| Anticipated maximum account lifetime| Use this measurement to schedule communications to the owner, disable, and then delete the accounts. Set an expiration date for credentials that prevents them from rolling over automatically. |
+| Name| Standardized account name| Create a naming convention for service accounts to search, sort, and filter them |
 
 
-## Use the principle of least privileges
-Grant the service account only the permissions necessary to perform its tasks, and no more. If a service account needs high-level permissions, for example a global administrator level of privilege, evaluate why and try to reduce the necessary permissions.
+## Principle of least privileges
+Grant the service account permissions needed to perform tasks, and no more. If a service account needs high-level permissions, for example a Global Administrator, evaluate why and try to reduce permissions.
 
 We recommend the following practices for service account privileges.
 
-**Permissions**
+### Permissions
 
-* Do not assign built-in roles to service accounts. Instead, use the [OAuth2 permission grant model for Microsoft Graph](/graph/api/resources/oauth2permissiongrant),
+* Don't assign built-in roles to service accounts
+  * See, [oAuth2PermissionGrant resource type](/graph/api/resources/oauth2permissiongrant)
+* The service principal is assigned a privileged role
+  * [Create and assign a custom role in Azure Active Directory](../roles/custom-create.md)
+* Don't include service accounts as members of any groups with elevated permissions
+  * See, [Get-AzureADDirectoryRoleMember](/powershell/module/azuread/get-azureaddirectoryrolemember):
+   
+>`Get-AzureADDirectoryRoleMember`, and filter for objectType "Service Principal", or use</br>
+>`Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* If the service principal must be assigned a privileged role, consider assigning a [custom role](../roles/custom-create.md) with specific, required privileged, in a time-bound fashion.
+* See, [Introduction to permissions and consent](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource
+* Service principals and managed identities can use OAuth 2.0 scopes in a delegated context impersonating a signed-on user, or as service account in the application context. In the application context, no one is signed in.
+* Confirm the scopes service accounts request for resources
+  * If an account requests Files.ReadWrite.All, evaluate if it needs File.Read.All
+  * [Microsoft Graph permissions reference](/graph/permissions-reference)
+* Ensure you trust the application developer, or API, with the requested access
 
-* Do not include service accounts as members of any groups with elevated permissions. 
+### Duration
 
-* [Use PowerShell to enumerate members of privileged roles](/powershell/module/azuread/get-azureaddirectoryrolemember), such as   
-‎`Get-AzureADDirectoryRoleMember`, and filter for objectType "Service Principal".
+* Limit service account credentials (client secret, certificate) to an anticipated usage period
+* Schedule periodic reviews of service account usage and purpose
+  * Ensure reviews occur prior to account expiration
 
-   or use  
-‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
+After you understand the purpose, scope, and permissions, create your service account, use the instructions in the following articles. 
 
-* [Use OAuth 2.0 scopes](../develop/v2-permissions-and-consent.md) to limit the functionality a service account can access on a resource.
-* Service principals and managed identities can use OAuth 2.0 scopes in either a delegated context that is impersonating a signed-on user, or as service account in the application context. In the application context no is signed-on.
+* [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md?tabs=dotnet)
+* [Create an Azure Active Directory application and service principal that can access resources](../develop/howto-create-service-principal-portal.md)
 
-* Check the scopes service accounts request for resources to ensure they're appropriate. For example, if an account is requesting Files.ReadWrite.All, evaluate if it actually needs only File.Read.All. For more information on permissions, see to [Microsoft Graph permission reference](/graph/permissions-reference).
-
-* Ensure you trust the developer of the application or API with the access requested to your resources.
-
-**Duration**
-
-* Limit service account credentials (client secret, certificate) to an anticipated usage period.
-
-* Schedule periodic reviews the use and purpose of service accounts. Ensure reviews are conducted prior to expiration of the account.
-
-Once you have a clear understanding of the purpose, scope, and necessary permissions, create your service account. 
-
-[Create and use managed identities](../../app-service/overview-managed-identity.md?tabs=dotnet)
-
-[Create and use service principals](../develop/howto-create-service-principal-portal.md)
-
-Use a managed identity when possible. If you cannot use a managed identity, use a service principal. If you cannot use a service principal, then and only then use an Azure AD user account.
-
- 
+Use a managed identity when possible. If you can't use a managed identity, use a service principal. If you can't use a service principal, then use an Azure AD user account.
 
 ## Build a lifecycle process
 
-Managing the lifecycle of a service account starts with planning and ends with its permanent deletion. 
-
-This article has previously covered the planning and creation portion. You must also monitor, review permissions, determine an account's continued usage, and ultimately deprovision the account.
+A service account lifecycle starts with planning, and ends with permanent deletion. The following sections cover how you monitor, review permissions, determine continued account usage, and ultimately deprovision the account.
 
 ### Monitor service accounts
 
-Proactively monitor your service accounts to ensure the service account’s usage patterns reflects the intended patterns and that the service account is still actively used.
+Monitor your service accounts to ensure usage patterns are correct, and that the service account is used.
 
-**Collect and monitor service account sign-ins using one of the following methods:**
+#### Collect and monitor service account sign-ins
 
-* Using the Azure AD Sign-In Logs in the Azure AD Portal.
+Use one of the following monitoring methods:
 
-* Exporting the Azure AD Sign-In Logs to [Azure Storage](../../storage/index.yml), [Azure Event Hubs](../../event-hubs/index.yml), or [Azure Monitor](../../azure-monitor/logs/data-platform-logs.md).
+* Azure AD Sign-In Logs in the Azure portal
+* Export the Azure AD Sign-In Logs to 
+  * [Azure Storage documentation](../../storage/index.yml)
+  * [Azure Event Hubs documentation](../../event-hubs/index.yml), or 
+  * [Azure Monitor Logs overview](../../azure-monitor/logs/data-platform-logs.md)
 
+Use the following screenshot to see service principal sign-ins.
 
-![Screen shot showing service principal sign-in screen.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
+![Screenshot of service principal sign-ins.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
 
-**Intelligence that you should look for in the Sign-In logs includes:**
+#### Sign-in log details
 
-* Are there service accounts that no longer sign in to the tenant?
+Look for the following details in sign-in logs. 
 
-* Are sign-in patterns of service accounts changing?
+* Service accounts not signed in to the tenant
+* Changes in sign-in service account patterns
 
-We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Microsoft Sentinel. Use your SIEM to build alerting and dashboards.
+We recommend you export Azure AD sign-in logs, and then import them into a security information and event management (SIEM) tool, such as Microsoft Sentinel. Use the SIEM tool to build alerts and dashboards.
 
 ### Review service account permissions
 
-Regularly review the permissions granted and scopes accessed by service accounts to see if they can be reduced eliminated.
+Regularly review service account permissions and accessed scopes to see if they can be reduced or eliminated.
 
-* Use [PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) to [build automation for checking and documenting](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes to which consent is granted to a service account.
+* See, [Get-AzureADServicePrincipalOAuth2PermissionGrant](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant)
+  * [Script to list all delegated permissions and application permissions in Azure AD](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes for service account
+* See, [Azure AD/AzureADAssessment](https://github.com/AzureAD/AzureADAssessment) and confirm validity
+* Don't set service principal credentials to **Never expire**
+* Use certificates or credentials stored in Azure Key Vault, when possible
+  * [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md)
 
-* Use PowerShell to [review existing service principals' credentials](https://github.com/AzureAD/AzureADAssessment) and check their validity.
-
-* Do not set service principal’s credentials to "Never expire".
-
-* Use certificates or credentials stored in Azure KeyVault where possible.
-
-Microsoft's free PowerShell sample collects service principal’s OAuth2 grants and credential information, records them in a comma-separated values file (CSV), and a Power BI sample dashboard to interpret and use the data. for more information, see [AzureAD/AzureADAssessment: Tooling for assessing an Azure AD tenant state and configuration (github.com)](https://github.com/AzureAD/AzureADAssessment)
+The free PowerShell sample collects service principal OAuth2 grants and credential information, records them in a comma-separated values (CSV) file, and a Power BI sample dashboard. For more information, see [Azure AD/AzureADAssessment](https://github.com/AzureAD/AzureADAssessment).
 
 ### Recertify service account use
 
-Establish a review process to ensure that service accounts are regularly reviewed by their owners and the security or IT team at regular intervals. 
+Establish a regular review process to ensure service accounts are regularly reviewed by owners, security team, or IT team. 
 
-**The process should include:**
+The process includes:
 
-* How to determine each service accounts’ review cycle (should be documented in your CMDB).
+* Determine service account review cycle, and document it in your CMDB
+* Communications to owner, security team, IT team, before a review
+* Determine warning communications, and their timing, if the review is missed
+* Instructions if owners fail to review or respond
+  * Disable, but don't delete, the account until the review is complete
+* Instructions to determine dependencies. Notify resource owners of effects
 
-* The communications to owner and security or IT teams before reviews start.
+The review includes the owner and an IT partner, and they certify:
 
-* The timing and content of warning communications if the review is missed.
-
-* Instructions on what to do if the owners fail to review or respond. For example, you may want to disable (but not delete) the account until the review is complete.
-
-* Instructions on determining upstream and downstream dependencies and notifying other resource owners of any effects.
-
-**The review should include the owner and their IT partner certifying that:**
-
-* The account is still necessary.
-
-* The permissions granted to the account are adequate and necessary, or a change is requested.
-
-* The access to the account and its credentials is controlled.
-
-* The credentials the account uses are appropriate, in respect to the risk the account was assessed with (both credential type and credential lifetime)
-
-* The account’s risk scoring hasn't changed since the last recertification
-
-* An update on the expected lifetime of the account, and the next recertification date.
+* Account is necessary
+* Permissions to the account are adequate and necessary, or a change is requested
+* Access to the account, and its credentials, are controlled
+* Account credentials are accurate: credential type and lifetime
+* Account risk score hasn't changed since the previous recertification
+* Update the expected account lifetime, and the next recertification date
 
 ### Deprovision service accounts
 
-**Deprovision service accounts under the following circumstances:****
+Deprovision service accounts under the following circumstances:
 
-* The script or application the service account was created for is retired.
+* Account script or application is retired
+* Account script or application function is retired. For example, access to a resource.
+* Service account is replaced by another service account
+* Credentials expired, or the account is non-functional, and there aren’t complaints
 
-* The function within the script or application the service account is used for (for example, access to a specific resource) is retired.
+Deprovisioning includes the following tasks:
 
+After the associated application or script is deprovisioned:
 
-* The service account is replaced with a different service account.
-
-* The credentials expired, or the account is otherwise non-functional, and there aren’t any complaints.
-
-**The processes for deprovisioning should include the following tasks.**
-
-1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-sign-ins.md) and resource access by the service account.
-
-   * If the account still is active, determine how it's being used before taking subsequent steps.
- 
-2. If this is a managed service identity, then disable the service account from signing in, but don't remove it from the directory.
-
-3. Revoke role assignments and OAuth2 consent grants for the service account.
-
-4. After a defined period, and ample warning to owners, delete the service account from the directory.
+* [Sign-in logs in Azure AD](../reports-monitoring/concept-sign-ins.md) and resource access by the service account
+  * If the account is active, determine how it's being used before continuing
+* For a managed service identity, disable service account sign-in, but don't remove it from the directory
+* Revoke service account role assignments and OAuth2 consent grants
+* After a defined period, and warning to owners, delete the service account from the directory
 
 ## Next steps
-For more information on securing Azure service accounts, see:
 
-[Introduction to Azure service accounts](service-accounts-introduction-azure.md)
-
-[Securing managed identities](service-accounts-managed-identities.md)
-
-[Securing service principles](service-accounts-principal.md)
-
-
-
-
- 
+* [Securing cloud-based service accounts](service-accounts-introduction-azure.md)
+* [Securing managed identities](service-accounts-managed-identities.md)
+* [Securing service principal](service-accounts-principal.md)

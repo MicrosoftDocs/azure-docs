@@ -26,8 +26,9 @@ For this tutorial you need:
 
 * An active pay-as-you-go Azure subscription [Create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
 * Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* The latest version of Visual Studio 2019 [(download)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* GIT [(download)](https://git-scm.com/downloads)
+* The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/)
+* Git [(download)](https://git-scm.com/downloads)
+* Git LFS plugin [(download)](https://git-lfs.github.com/)
 * Unity (see [system requirements](../../../overview/system-requirements.md#unity) for supported versions)
 * Intermediate knowledge of Unity and the C# language (for example: creating scripts and objects, using prefabs, configuring Unity events, etc.)
 
@@ -48,6 +49,9 @@ In this example, we'll assume the project is being created in a folder called **
 ## Include the Azure Remote Rendering and OpenXR packages
 
 Follow the instructions on how to [add the Azure Remote Rendering and OpenXR packages](../../../how-tos/unity/install-remote-rendering-unity-package.md) to your Unity Project.
+
+> [!NOTE]
+> If Unity displays a warning dialog after importing the OpenXR package asking whether to enable the native platform backends for the new input system, click **No** for now. You will enable it in a later step.
 
 ## Configure the camera
 
@@ -75,14 +79,8 @@ Follow the instructions on how to [add the Azure Remote Rendering and OpenXR pac
 
         ![Screenshot of the Unity Project Settings dialog. The Quality entry is selected in the list on the left. The context menu for the default quality level is opened on the right. The low entry is selected.](./media/settings-quality.png)
 
-1. Select **Graphics** from the left list menu
-    1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
-        ![Screenshot of the Unity Project Settings dialog. The Graphics entry is selected in the list on the left. The button to select a Universal Render Pipeline asset is highlighted.](./media/settings-graphics-render-pipeline.png)\
-        Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
-        ![Screenshot of the Unity asset browser and Project Settings dialog. The HybridRenderingPipeline asset is highlighted in the asset browser. An arrow points from the asset to the UniversalRenderPipelineAsset field in project settings.](./media/hybrid-rendering-pipeline.png)
-
-        > [!NOTE]
-        > If you're unable to drag and drop the *HybridRenderingPipeline* asset into the Render Pipeline Asset field (possibly because the field doesn't exist!), ensure your package configuration contains the `com.unity.render-pipelines.universal` package.
+    > [!NOTE]
+    > In the scope of this tutorial, we stick with the Unity built-in render pipeline. If you would like to use the Universal Render Pipeline, see [Unity Render Pipelines](../../../how-tos/unity/unity-render-pipelines.md) for additional setup steps.
 
 1. Select **XR Plugin Management** from the left list menu
     1. Click the **Install XR Plugin Management** button.
@@ -436,7 +434,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
         //Implement me
     }
 
-    public void StopRemoteSession()
+    public async void StopRemoteSession()
     {
         //Implement me
     }
@@ -470,7 +468,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     /// <summary>
     /// Connects the local runtime to the current active session, if there's a session available
     /// </summary>
-    public void ConnectRuntimeToRemoteSession()
+    public async void ConnectRuntimeToRemoteSession()
     {
         //Implement me
     }
@@ -598,7 +596,6 @@ public async void InitializeSessionService()
     }
     catch (ArgumentException argumentException)
     {
-        NotificationBar.Message("InitializeSessionService failed: SessionConfiguration is invalid.");
         Debug.LogError(argumentException.Message);
         CurrentCoordinatorState = RemoteRenderingState.NotAuthorized;
         return;
@@ -668,11 +665,11 @@ public async void JoinRemoteSession()
     }
 }
 
-public void StopRemoteSession()
+public async void StopRemoteSession()
 {
     if (ARRSessionService.CurrentActiveSession != null)
     {
-        ARRSessionService.CurrentActiveSession.StopAsync();
+        await ARRSessionService.CurrentActiveSession.StopAsync();
     }
 }
 ```
@@ -697,7 +694,7 @@ The application also needs to listen for events about the connection between the
 /// <summary>
 /// Connects the local runtime to the current active session, if there's a session available
 /// </summary>
-public void ConnectRuntimeToRemoteSession()
+public async void ConnectRuntimeToRemoteSession()
 {
     if (ARRSessionService == null || ARRSessionService.CurrentActiveSession == null)
     {
@@ -705,12 +702,11 @@ public void ConnectRuntimeToRemoteSession()
         return;
     }
 
-    //Connect the local runtime to the currently connected session
-    //This session is set when connecting to a new or existing session
+    // Connect the local runtime to the currently connected session
+    // This session is set when connecting to a new or existing session
 
     ARRSessionService.CurrentActiveSession.ConnectionStatusChanged += OnLocalRuntimeStatusChanged;
-    ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
-    CurrentCoordinatorState = RemoteRenderingState.ConnectingToRuntime;
+    await ARRSessionService.CurrentActiveSession.ConnectAsync(new RendererInitOptions());
 }
 
 public void DisconnectRuntimeFromRemoteSession()

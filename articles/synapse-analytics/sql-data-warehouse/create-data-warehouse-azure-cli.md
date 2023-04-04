@@ -7,13 +7,14 @@ ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: wiassaf
-ms.custom: azure-synapse, devx-track-azurecli, mode-api
+ms.tool: azure-cli
+ms.custom: azure-synapse, mode-api, devx-track-azurecli
 ---
 # Quickstart: Create a Synapse SQL pool with Azure CLI
 
 Create a Synapse SQL pool (data warehouse) in Azure Synapse Analytics using the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Getting started
 

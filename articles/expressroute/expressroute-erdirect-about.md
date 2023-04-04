@@ -4,24 +4,25 @@ description: Learn about key features of Azure ExpressRoute Direct and informati
 services: expressroute
 author: duongau
 ms.service: expressroute
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 10/31/2022
 ms.author: duau
 ---
 
 # About ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed around the world. ExpressRoute Direct provides dual 100 Gbps or 10-Gbps connectivity, which supports Active/Active connectivity at scale. You can work with any service provider for ER Direct.
+ExpressRoute Direct gives you the ability to connect directly into the Microsoft global network at peering locations strategically distributed around the world. ExpressRoute Direct provides dual 100-Gbps or 10-Gbps connectivity, that supports Active/Active connectivity at scale. You can work with any service provider to set up ExpressRoute Direct.
 
-Key features that ExpressRoute Direct provides include, but aren't limited to:
+Key features that ExpressRoute Direct provides include, but not limited to:
 
-* Massive Data Ingestion into services like Storage and Cosmos DB
-* Physical isolation for industries that are regulated and require dedicated and isolated connectivity like: Banking, Government, and Retail
-* Granular control of circuit distribution based on business unit
+* Large data ingestion into services like Azure Storage and Azure Cosmos DB.
+* Physical isolation for industries that regulates and require dedicated or isolated connectivity such as banks, government, and retail companies.
+* Granular control of circuit distribution based on business unit.
 
 ## Onboard to ExpressRoute Direct
 
-Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, run the following commands using Azure PowerShell:
+Before you can set up ExpressRoute Direct, you must first enroll your subscription. Run the following commands using Azure PowerShell:
 
 1.  Sign in to Azure and select the subscription you wish to enroll.
 
@@ -31,7 +32,7 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
     Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
     ```
 
-1. Register your subscription for Public Preview using the following command:
+1. Register your subscription to **AllowExpressRoutePorts** using the following command:
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
@@ -43,33 +44,38 @@ Once enrolled, verify that **Microsoft.Network** resource provider is registered
 
 1. In your subscription, for **Resource Providers**, verify **Microsoft.Network** provider shows a **Registered** status. If the Microsoft.Network resource provider isn't present in the list of registered providers, add it.
 
-If you begin to use ExpressRoute Direct and notice that there are no available ports in your chosen peering location, please log a support request to request more inventory.
+When you start using ExpressRoute Direct and notice that there aren't any available ports for your chosen peering location, submit a support request to request for more inventory.
 
 ## ExpressRoute using a service provider and ExpressRoute Direct
 
-| **ExpressRoute using a service provider** | **ExpressRoute Direct** | 
+| ExpressRoute using a service provider | ExpressRoute Direct | 
 | --- | --- |
-| Uses service providers to enable fast onboarding and connectivity into existing infrastructure | Requires 100 Gbps/10 Gbps infrastructure and full management of all layers
-| Integrates with hundreds of providers including Ethernet and MPLS | Direct/Dedicated capacity for regulated industries and massive data ingestion |
-| Circuits SKUs from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs on 100-Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Customer may select a combination of the following circuit SKUs on 10-Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
-| Optimized for single tenant | Optimized for single tenant with multiple business units and multiple work environments
+| Uses a service provider to enable fast onboarding and connectivity into existing infrastructure | Requires 100-Gbps or 10-Gbps infrastructure and full management of all layers |
+| Integrates with hundreds of providers including Ethernet and MPLS | Direct and Dedicated capacity for regulated industries and large data ingestion |
+| Circuits SKUs ranging from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs on 100-Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Customer may select a combination of the following circuit SKUs on 10-Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+| Optimized for a single tenant | Optimized for single tenant with multiple business units and multiple work environments
 
 ## ExpressRoute Direct circuits
 
-Microsoft Azure ExpressRoute allows you to extend your on-premises network into the Microsoft cloud over a private connection made easier by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, and Microsoft 365.
+Azure ExpressRoute allows you to extend your on-premises network into the Microsoft cloud over a private connection made possible through a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, and Microsoft 365.
 
-Each peering location has access to Microsoft’s global network and can access any region in a geopolitical zone by default. You can access all global regions with a premium circuit.  
+Each peering location has access to the Microsoft global network and can access any region in a geopolitical zone by default. You can access any global regions when you set up a premium circuit.  
 
-The functionality in most scenarios is equivalent to circuits that use an ExpressRoute service provider to operate. To support further granularity and new capabilities offered using ExpressRoute Direct, there are certain key capabilities that exist on ExpressRoute Direct Circuits.
+The functionality in most scenarios is equivalent to circuits that use an ExpressRoute service provider to operate. To support further granularity and new capabilities offered using ExpressRoute Direct, there are certain key capabilities that exist only with ExpressRoute Direct circuits.
 
 ## Circuit SKUs
 
-ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
+ExpressRoute Direct supports large data ingestion scenarios into services such as Azure storage. ExpressRoute circuits  with 100-Gbps ExpressRoute Direct also support **40 Gbps** and **100 Gbps** circuit bandwidth. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. 
 
-| **100-Gbps ExpressRoute Direct** | **10-Gbps ExpressRoute Direct** | 
+### Circuit sizes
+
+| 100-Gbps ExpressRoute Direct | 10-Gbps ExpressRoute Direct | 
 | --- | --- |
-| **Subscribed Bandwidth**: 200 Gbps | **Subscribed Bandwidth**: 20 Gbps |
+| Subscribed Bandwidth: 200 Gbps | Subscribed Bandwidth: 20 Gbps |
 | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+> [!NOTE]
+> You can provision logical ExpressRoute circuits on top of your selected ExpressRoute Direct resource of 10-Gbps or 100-Gbps up to the subscribed Bandwidth of 20Gbps or 200Gbps. For example,you can provision two 10 Gbps ExpressRoute circuits within a single 10 Gbps ExpressRoute Direct resource (port pair). Configuring circuits that over-subscribe the ExpressRoute Direct resource is only available with Azure PowerShell and Azure CLI.
 
 ## Technical Requirements
 
@@ -91,7 +97,7 @@ ExpressRoute Direct supports massive data ingestion scenarios into Azure storage
 
 ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
-* **QinQ VLAN Tagging** allows for isolated routing domains on a per ExpressRoute circuit basis. Azure dynamically gives an S-Tag at circuit creation and cannot be changed. Each peering on the circuit (Private and Microsoft) will use a unique C-Tag as the VLAN. The C-Tag isn't required to be unique across circuits on the ExpressRoute Direct ports.
+* **QinQ VLAN Tagging** allows for isolated routing domains on a per ExpressRoute circuit basis. Azure dynamically gives an S-Tag at circuit creation and can't be changed. Each peering on the circuit (Private and Microsoft) will use a unique C-Tag as the VLAN. The C-Tag isn't required to be unique across circuits on the ExpressRoute Direct ports.
 
 * **Dot1Q VLAN Tagging** allows for a single tagged VLAN on a per ExpressRoute Direct port pair basis. A C-Tag used on a peering must be unique across all circuits and peerings on the ExpressRoute Direct port pair.
 
@@ -99,7 +105,7 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
 ### Set up ExpressRoute Direct
 
-:::image type="content" source="./media/expressroute-erdirect-about/set-up-workflow.png" alt-text="Diagram of the ExpressRoute Direct set up workflow." lightbox="./media/expressroute-erdirect-about/set-up-workflow-expanded.png":::
+:::image type="content" source="./media/expressroute-erdirect-about/set-up-workflow.png" alt-text="Diagram of the ExpressRoute Direct setup workflow." lightbox="./media/expressroute-erdirect-about/set-up-workflow-expanded.png":::
 
 ### Delete ExpressRoute Direct
 
@@ -107,7 +113,7 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
 ## SLA
 
-ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales correctly with customer requirements.
+ExpressRoute Direct provides the same enterprise-grade SLA with Active/Active redundant connections into the Microsoft Global Network. ExpressRoute infrastructure is redundant and connectivity into the Microsoft Global Network is redundant and diverse and scales correctly with customer requirements. For more information, see [ExpressRoute SLA](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/).
 
 ## Pricing
 

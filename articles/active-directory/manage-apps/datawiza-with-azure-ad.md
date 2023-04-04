@@ -1,7 +1,6 @@
 ---
-title: Secure hybrid access with Datawiza
-titleSuffix: Azure AD
-description: Learn how to integrate Datawiza with Azure AD. See how to use Datawiza and Azure AD to authenticate users and give them access to on-premises and cloud apps.
+title: Tutorial to configure Secure Hybrid Access with Azure Active Directory and Datawiza
+description: Learn to use Datawiza and Azure AD to authenticate users and give them access to on-premises and cloud apps.
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -9,84 +8,70 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/19/2022
+ms.date: 01/23/2023
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.custom: kr2b-contr-experiment
 ---
 
-# Tutorial: Configure Datawiza with Azure Active Directory for secure hybrid access
+# Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza
 
-In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) with [Datawiza](https://www.datawiza.com/) for secure hybrid access.
+In this tutorial, learn how to integrate Azure Active Directory (Azure AD) with [Datawiza](https://www.datawiza.com/) for [hybrid access](../devices/concept-azure-ad-join-hybrid.md). [Datawiza Access Proxy (DAP)](https://www.datawiza.com) extends Azure AD to enable single sign-on (SSO) and provide access controls to protect on-premises and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP. With this solution, enterprises can transition from legacy web access managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM, to Azure AD without rewriting applications. Enterprises can use Datawiza as a no-code, or low-code, solution to integrate new applications to Azure AD. This approach enables enterprises to implement their Zero Trust strategy while saving engineering time and reducing costs.
 
-Datawiza's [Datawiza Access Broker (DAB)](https://www.datawiza.com/access-broker) extends Azure AD to enable single sign-on (SSO) and provide granular access controls to protect on-premises and cloud-hosted applications, such as Oracle E-Business Suite, Microsoft IIS, and SAP.
+Learn more: [Zero Trust security](../../security/fundamentals/zero-trust.md)
 
-By using this solution, enterprises can quickly transition from legacy web access managers (WAMs), such as Symantec SiteMinder, NetIQ, Oracle, and IBM, to Azure AD without rewriting applications. Enterprises can also use Datawiza as a no-code or low-code solution to integrate new applications to Azure AD. This approach saves engineering time, reduces cost significantly, and delivers the project in a secured manner.
+## Datawiza with Azure AD Authentication Architecture
+
+Datawiza integration includes the following components:
+
+* **[Azure AD](../fundamentals/active-directory-whatis.md)** - Identity and access management service that helps users sign in and access external and internal resources
+* **Datawiza Access Proxy (DAP)** - This service transparently passes identity information to applications through HTTP headers
+* **Datawiza Cloud Management Console (DCMC)** - UI and RESTful APIs for administrators to manage the DAP configuration and access control policies
+
+The following diagram illustrates the authentication architecture with Datawiza in a hybrid environment.
+
+   ![Architecture diagram of the authentication process for user access to an on-premises application.](./media/datawiza-with-azure-active-directory/datawiza-architecture-diagram.png)
+
+1. The user requests access to the on-premises or cloud-hosted application. DAP proxies the request to the application.
+2. DAP checks user authentication state. If there's no session token, or the session token is invalid, DAP sends the user request to Azure AD for authentication.
+3. Azure AD sends the user request to the endpoint specified during DAP registration in the Azure AD tenant.
+4. DAP evaluates policies and attribute values to be included in HTTP headers forwarded to the application. DAP might call out to the identity provider to retrieve the information to set the header values correctly. DAP sets the header values and sends the request to the application.
+5. The user is authenticated and is granted access.
 
 ## Prerequisites
 
 To get started, you need:
 
-- An Azure subscription. If you don\'t have a subscription, you can get a [trial account](https://azure.microsoft.com/free/).
+* An Azure subscription
+  * If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+* An [Azure AD tenant](../fundamentals/active-directory-access-create-new-tenant.md) linked to the Azure subscription
+* [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) are required to run DAP
+  * Your applications can run on platforms, such as a virtual machine (VM) or bare metal
+* An on-premises or cloud-hosted application to transition from a legacy identity system to Azure AD
+  * In this example, DAP is deployed on the same server as the application
+  * The application runs on localhost: 3001. DAP proxies traffic to the application via localhost: 9772
+  * The traffic to the application reaches DAP, and is proxied to the application
 
-- An [Azure AD tenant](../fundamentals/active-directory-access-create-new-tenant.md)
-that's linked to your Azure subscription.
+## Configure Datawiza Cloud Management Console
 
-- [Docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/), which are required to run DAB. Your applications can run on any platform, such as a virtual machine and bare metal.
+1. Sign in to [Datawiza Cloud Management Console](https://console.datawiza.com/) (DCMC).
+2. Create an application on DCMC and generate a key pair for the app: `PROVISIONING_KEY` and `PROVISIONING_SECRET`. 
+3. To create the app and generate the key pair, follow the instructions in [Datawiza Cloud Management Console](https://docs.datawiza.com/step-by-step/step2.html).
+4. Register your application in Azure AD with [One Click Integration With Azure AD](https://docs.datawiza.com/tutorial/web-app-azure-one-click.html).
 
-- An application that you'll transition from a legacy identity system to Azure AD. In this example, DAB is deployed on the same server as the application. The application runs on localhost: 3001, and DAB proxies traffic to the application via localhost: 9772. The traffic to the application reaches DAB first and is then proxied to the application.
+   ![Screenshot of the Automatic Generator feature on the Configure IdP dialog.](./media/datawiza-with-azure-active-directory/configure-idp.png)
 
-## Scenario description
+5. To use a web application, manually populate form fields: **Tenant ID**, **Client ID**, and **Client Secret**. 
 
-Datawiza integration includes the following components:
+   Learn more: To create a web application and obtain values, go to docs.datawiza.com for [Microsoft Azure AD](https://docs.datawiza.com/idp/azure.html) documentation.
 
-- [Azure AD](../fundamentals/active-directory-whatis.md) - A cloud-based identity and access management service from Microsoft. Azure AD helps users sign in and access external and internal resources.
+   ![Screenshot of the Configure IdP dialog with the Automatic Generator turned off.](./media/datawiza-with-azure-active-directory/use-form.png)
 
-- Datawiza Access Broker (DAB) - The service that users sign on to. DAB transparently passes identity information to applications through HTTP headers.
+6. Run DAP using either Docker or Kubernetes. The docker image is needed to create a sample header-based application.
 
-- Datawiza Cloud Management Console (DCMC) - A centralized management console that manages DAB. DCMC provides UI and RESTful APIs for administrators to manage the DAB configuration and access control policies.
-
-The following architecture diagram shows the implementation.
-
-![Architecture diagram that shows the authentication process that gives a user access to an on-premises application.](./media/datawiza-with-azure-active-directory/datawiza-architecture-diagram.png)
-
-|Step| Description|
-|:----------|:-----------|
-| 1. | The user makes a request to access the on-premises or cloud-hosted application. DAB proxies the request made by the user to the application.|
-| 2. | DAB checks the user's authentication state. If it doesn't receive a session token, or the supplied session token is invalid, it sends the user to Azure AD for authentication.|
-| 3. | Azure AD sends the user request to the endpoint specified during the DAB application's registration in the Azure AD tenant.|
-| 4. | DAB evaluates access policies and calculates attribute values to be included in HTTP headers forwarded to the application. During this step, DAB may call out to the identity provider to retrieve the information needed to set the header values correctly. DAB sets the header values and sends the request to the application. |
-| 5. |  The user is authenticated and has access to the application.|
-
-## Onboard with Datawiza
-
-To integrate your on-premises or cloud-hosted application with Azure AD, sign in to [Datawiza Cloud Management
-Console](https://console.datawiza.com/) (DCMC).
-
-## Create an application on DCMC
-
-In the next step, you create an application on DCMC and generate a key pair for the app. The key pair consists of a `PROVISIONING_KEY` and `PROVISIONING_SECRET`. To create the app and generate the key pair, follow the instructions in [Datawiza Cloud Management Console](https://docs.datawiza.com/step-by-step/step2.html).
-
-For Azure AD, Datawiza offers a convenient [one-click integration](https://docs.datawiza.com/tutorial/web-app-azure-one-click.html). This method to integrate Azure AD with DCMC can create an application registration on your behalf in your Azure AD tenant.
-
-![Screenshot of the Datawiza Configure I D P page. Boxes for name, protocol, and other values are visible. An automatic generator option is turned on.](./media/datawiza-with-azure-active-directory/configure-idp.png)
-
-Instead, if you want to use an existing web application in your Azure AD tenant, you can disable the option and populate the fields of the form. You need the tenant ID, client ID, and client secret. For more information about creating a web application and getting these values, see [Microsoft Azure AD in the Datawiza documentation](https://docs.datawiza.com/idp/azure.html).
-
-![Screenshot of the Datawiza Configure I D P page. Boxes for name, protocol, and other values are visible. An automatic generator option is turned off.](./media/datawiza-with-azure-active-directory/use-form.png)
-
-## Run DAB with a header-based application
-
-You can use either Docker or Kubernetes to run DAB. The docker image is needed to create a sample header-based application.
-
-To run DAB with a header-based application, follow these steps:
-
-1. Use either Docker or Kubernetes to run DAB:
-
-   - For Docker-specific instructions, see [Deploy Datawiza Access Broker With Your App](https://docs.datawiza.com/step-by-step/step3.html).
-   - For Kubernetes-specific instructions, see [Deploy Datawiza Access Broker with a Web App using Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html).
-
-   You can use the following sample docker image docker-compose.yml file:
+  - For Kubernetes, see [Deploy Datawiza Access Proxy with a Web App using Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html)
+  - For Docker, see [Deploy Datawiza Access Proxy With Your App](https://docs.datawiza.com/step-by-step/step3.html)
+    - You can use the following sample docker image docker-compose.yml file:
 
    ```yaml
    services:
@@ -107,36 +92,29 @@ To run DAB with a header-based application, follow these steps:
    - "3001:3001"
    ```
 
-1. To sign in to the container registry and download the images of DAB and the header-based application, follow the instructions in [Important Step](https://docs.datawiza.com/step-by-step/step3.html#important-step).
+7. Sign in to the container registry.
+8. Download the DAP images and the header-based application in this [Important Step](https://docs.datawiza.com/step-by-step/step3.html#important-step).
+9. Run the following command: `docker-compose -f docker-compose.yml up`.
+10. The header-based application has SSO enabled with Azure AD.
+11. In a browser, go to `http://localhost:9772/`. 
+12. An Azure AD sign-in page appears.
+13. Pass user attributes to the header-based application. DAP gets user attributes from Azure AD and passes attributes to the application via a header or cookie. 
+14. To pass user attributes such as email address, first name, and last name to the header-based application, see [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.html).
+15. To confirm configured user attributes, observe a green check mark next to each attribute.
 
-1. Run the following command:
-
-   `docker-compose -f docker-compose.yml up`
-
-   The header-based application should now have SSO enabled with Azure AD.
-
-1. In a browser, go to `http://localhost:9772/`. An Azure AD sign-in page appears.
-
-## Pass user attributes to the header-based application
-
-DAB gets user attributes from Azure AD and can pass these attributes to the application via a header or cookie.
-
-To pass user attributes such as an email address, a first name, and a last name to the header-based application, follow the instructions in [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.html).
-
-After successfully configuring the user attributes, you should see a green check mark next to each attribute.
-
-![Screenshot that shows the Datawiza application home page. Green check marks are visible next to the host, email, firstname, and lastname attributes.](./media/datawiza-with-azure-active-directory/datawiza-application-home-page.png)
+   ![Screenshot of the home page with host, email, firstname, and lastname attributes.](./media/datawiza-with-azure-active-directory/datawiza-application-home-page.png)
 
 ## Test the flow
 
-1. Go to the application URL. DAB should redirect you to the Azure AD sign-in page.
-
-1. After successfully authenticating, you should be redirected to DAB.
-
-DAB evaluates policies, calculates headers, and sends you to the upstream application. Your requested application should appear.
+1. Go to the application URL. 
+2. DAP redirects you to the Azure AD sign-in page.
+3. After authentication, you're redirected to DAP.
+4. DAP evaluates policies, calculates headers, and sends you to the application. 
+5. The requested application appears.
 
 ## Next steps
 
-- [Configure Datawiza with Azure AD B2C](../../active-directory-b2c/partner-datawiza.md)
-
-- [Datawiza documentation](https://docs.datawiza.com)
+* [Tutorial: Configure Azure Active Directory B2C with Datawiza to provide secure hybrid access](../../active-directory-b2c/partner-datawiza.md)
+* [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle JD Edwards](datawiza-azure-ad-sso-oracle-jde.md)
+* [Tutorial: Configure Datawiza to enable Azure AD MFA and SSO to Oracle PeopleSoft](datawiza-azure-ad-sso-oracle-peoplesoft.md)
+* Go to docs.datawiza.com for Datawiza [User Guides](https://docs.datawiza.com)

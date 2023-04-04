@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Expensify | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Expensify'
 description: Learn how to configure single sign-on between Azure Active Directory and Expensify.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/18/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -47,6 +47,8 @@ To configure the integration of Expensify into Azure AD, you need to add Expensi
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Expensify** in the search box.
 1. Select **Expensify** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Expensify
 
@@ -119,7 +121,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Expensify SSO
 
-To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](https://help.expensify.com/domain-control). For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
+To enable SSO in Expensify, you first need to enable **Domain Control** in the application. For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
 
 ![Configure Single Sign-On](./media/expensify-tutorial/domain-control.png)
 

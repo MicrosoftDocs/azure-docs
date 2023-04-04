@@ -1,16 +1,16 @@
 ---
-title: Password protection agent release history - Azure Active Directory
+title: Password protection agent release history
 description: Documents version release and behavior change history
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 06/04/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management

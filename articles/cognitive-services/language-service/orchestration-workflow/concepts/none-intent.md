@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom:  language-service-orchestration
 ms.reviewer: haelhamm
@@ -30,7 +30,7 @@ The score should be set according to your own observations of prediction scores,
 
 When you export a project's JSON file, the None score threshold is defined in the _**"settings"**_ parameter of the JSON as the _**"confidenceThreshold"**_, which accepts a decimal value between 0.0 and 1.0.
 
-The default score for Orchestration Workflow projects is set at **0.5** when creating new project in the language studio.
+The default score for Orchestration Workflow projects is set at **0.5** when creating new project in Language Studio.
 
 > [!NOTE]
 > During model evaluation of your test set, the None score threshold is not applied.

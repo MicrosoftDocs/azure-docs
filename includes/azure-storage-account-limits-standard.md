@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 05/09/2022
+ ms.date: 05/26/2022
  ms.author: tamram
  ms.custom: include file, references_regions
 ---
@@ -19,7 +19,8 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 
 | Resource | Limit |
 |--|--|
-| Number of storage accounts per region per subscription, including standard, and premium storage accounts. | 250 |
+| Maximum number of storage accounts with standard endpoints per region per subscription, including standard and premium storage accounts. | 250 |
+| Maximum number of storage accounts with Azure DNS zone endpoints (preview) per region per subscription, including standard and premium storage accounts. | 5000 (preview) |
 | Default maximum storage account capacity | 5 PiB <sup>1</sup> |
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account. | No limit |
 | Default maximum request rate per storage account | 20,000 requests per second<sup>1</sup> |

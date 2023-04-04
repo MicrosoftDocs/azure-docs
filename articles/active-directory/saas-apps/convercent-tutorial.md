@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 03/29/2023
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Convercent
@@ -43,6 +43,8 @@ To configure the integration of Convercent into Azure AD, you need to add Conver
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Convercent** in the search box.
 1. Select **Convercent** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Convercent
 
@@ -81,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<INSTANCE_NAME>.convercent.com/`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Identifier, Sign-On URL and Relay State. Contact [Convercent Client support team](http://support.convercent.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Sign-On URL and Relay State. Contact [Convercent Client support team](https://www.convercent.com/customers/services/customer-support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -117,11 +119,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Convercent SSO
 
-To configure single sign-on on **Convercent** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Convercent support team](http://support.convercent.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Convercent** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Convercent support team](https://www.convercent.com/customers/services/customer-support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Convercent test user
 
-In this section, you create a user called Britta Simon in Convercent. Work with [Convercent support team](http://support.convercent.com/) to add the users in the Convercent platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Convercent. Work with [Convercent support team](https://www.convercent.com/customers/services/customer-support) to add the users in the Convercent platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

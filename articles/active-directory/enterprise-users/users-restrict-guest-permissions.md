@@ -1,11 +1,11 @@
 ---
-title: Restrict guest user access permissions - Azure Active Directory | Microsoft Docs
+title: Restrict guest user access permissions
 description: Restrict guest user access permissions using the Azure portal, PowerShell, or Microsoft Graph in Azure Active Directory
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
-ms.date: 05/04/2022
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Restrict guest access permissions in Azure Active Directory
 
-Azure Active Directory (Azure AD) allows you to restrict what external guest users can see in their organization in Azure AD. Guest users are set to a limited permission level by default in Azure AD, while the default for member users is the full set of user permissions. There's another guest user permission level in your Azure AD organization's external collaboration settings for even more restricted access, so that the guest access levels are:
+Azure Active Directory (Azure AD), part of Microsoft Entra, allows you to restrict what external guest users can see in their organization in Azure AD. Guest users are set to a limited permission level by default in Azure AD, while the default for member users is the full set of user permissions. There's another guest user permission level in your Azure AD organization's external collaboration settings for even more restricted access, so that the guest access levels are:
 
 Permission level             | Access level | Value
 ----------------             | ------------ | -----
@@ -35,8 +35,8 @@ You must be in the Global Administrator role to configure guest user access. The
 
 We’ve made changes to the existing Azure portal controls for guest user permissions.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Global administrator permissions.
-1. On the **Azure Active Directory** overview page for your organization, select **User settings**.
+1. Sign in to the [Azure portal](https://portal.azure.com) with Global Administrator permissions.
+1. Browse to **Azure Active Directory** > **User settings**.
 1. Under **External users**, select **Manage external collaboration settings**.
 1. On the **External collaboration settings** page, select **Guest user access is restricted to properties and memberships of their own directory objects** option.
 
@@ -145,6 +145,7 @@ Service without current support might have compatibility issues with the new gue
 - Forms
 - Project
 - Yammer
+- Planner in SharePoint
 
 ## Frequently asked questions (FAQ)
 

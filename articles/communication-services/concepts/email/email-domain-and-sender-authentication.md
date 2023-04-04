@@ -6,14 +6,11 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 ---
 # Email domains and sender authentication for Azure Communication Services
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 An email domain is a unique name that appears after the @ sign-in email addresses. It typically takes the form of your organization's name and brand that is recognized in public. Using your domain in email allows users to trust that this message isn't a phishing attempt, and that it is coming from a trusted source, thereby building credibility for your brand. If you prefer, you can utilize the email domains that is offered through the Azure Communication Services. We offer an email domain that can be used to send emails on behalf of your organization.
 
@@ -53,5 +50,5 @@ Email Communication Service resources are designed to enable domain validation s
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [Email client library](../email/sdk-features.md)
-- How to send emails with custom verified domains?[Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
-- How to send emails with Azure Managed Domains?[Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)
+- How to send emails with custom verified domains? [Add custom domains](../../quickstarts/email/add-custom-verified-domains.md)
+- How to send emails with Azure Managed Domains? [Add Azure Managed domains](../../quickstarts/email/add-azure-managed-domains.md)

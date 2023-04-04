@@ -48,13 +48,9 @@ var speechConfig =
 
 // Create an audio config specifying the compressed
 // audio format and the instance of your input stream class.
-var audioFormat =
-    AudioStreamFormat.GetCompressedFormat(
-        AudioStreamContainerFormat.OGG_OPUS);
-var audioConfig =
-    AudioConfig.FromStreamInput(
-        pullStream,
-        audioFormat);
+var pullStream = AudioInputStream.CreatePullStream(
+    AudioStreamFormat.GetCompressedFormat(AudioStreamContainerFormat.OGG_OPUS));
+var audioConfig = AudioConfig.FromStreamInput(pullStream);
 
 using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 var result = await recognizer.RecognizeOnceAsync();

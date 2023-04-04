@@ -1,6 +1,5 @@
 ---
 title: Migrate Okta sync provisioning to Azure AD Connect
-titleSuffix: Active Directory
 description: Learn how to migrate user provisioning from Okta to Azure Active Directory (Azure AD). See how to use Azure AD Connect server or Azure AD cloud provisioning.
 services: active-directory-b2c
 author: gargi-sinha
@@ -218,9 +217,9 @@ You've now successfully migrated to Azure AD Connect server-based provisioning. 
 
 After you disable Okta provisioning, the Azure AD cloud sync agent is ready to begin synchronizing objects.
 
-1. Go to the [Azure AD portal](https://aad.portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 
-1. In the **Configuration** profile, select **Enable**.
+1. Browse to **Azure Active Directory** > **Azure AD Connect** > **Cloud Sync** > **Configuration** profile, select **Enable**.
 
 1. Return to the provisioning menu and select **Logs**.
 

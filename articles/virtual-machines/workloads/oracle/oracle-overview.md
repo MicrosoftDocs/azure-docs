@@ -52,7 +52,7 @@ Run enterprise applications in Azure on supported Oracle Linux images. The follo
 
 * Configure [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [Active Data Guard with FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) or [Golden Gate](https://www.oracle.com/middleware/technologies/goldengate.html) on Azure infrastructure in conjunction with [Availability Zones](../../../availability-zones/az-overview.md) for high availability in-region. You may also setup these configurations across multiple Azure regions for added availability and disaster recovery.
 
-* Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure and your physical servers. 
+* Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure and your physical servers in conjunction with Oracle DataGuard or Oracle consistent backup measures that meet the Recovery Point Objective and Recovery Time Objective (RPO/RTO). Azure Site Recovery has a [block change limit](../../../site-recovery/azure-to-azure-support-matrix.md) for the storage used by Oracle database. 
 
 ## Backup Oracle Workloads
 

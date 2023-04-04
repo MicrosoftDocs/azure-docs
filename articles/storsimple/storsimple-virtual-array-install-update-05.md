@@ -12,10 +12,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/10/2017
+ms.date: 08/19/2022
 ms.author: alkohli
 ---
 # Install Update 0.5 on your StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 

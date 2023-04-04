@@ -47,7 +47,7 @@ In the pane that opens, supply a name for the new API Management instance. It mu
 A new API Management instance (and parent resource group) will be created with the specified name. By default, the instance is created in the *West US* region with *Consumption* SKU.
 
 > [!TIP]
-> If you enable **Advanced Creation** in the *Azure API Management Extension Settings*, you can also specify an [API Management SKU](https://azure.microsoft.com/pricing/details/api-management/), [Azure region](https://status.azure.com/en-us/status), and a [resource group](../azure-resource-manager/management/overview.md) to deploy your API Management instance.
+> If you enable **Advanced Creation** in the *Azure API Management Extension Settings*, you can also specify an [API Management SKU](https://azure.microsoft.com/pricing/details/api-management/), [Azure region](https://azure.status.microsoft/en-us/status), and a [resource group](../azure-resource-manager/management/overview.md) to deploy your API Management instance.
 >
 > While the *Consumption* SKU takes less than a minute to set up, other SKUs typically take 30-40 minutes to create.
 

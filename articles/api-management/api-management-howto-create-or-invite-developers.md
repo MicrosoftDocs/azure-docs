@@ -52,6 +52,8 @@ When a developer is invited, an email is sent to the developer. This email is ge
 
 Once the invitation is accepted, the account becomes active.
 
+Invitation link will be active for 2 days.
+
 ## <a name="block-developer"> </a> Deactivate or reactivate a developer account
 
 By default, newly created or invited developer accounts are **Active**. To deactivate a developer account, click **Block**. To reactivate a blocked developer account, click **Activate**. A blocked developer account can't access the developer portal or call any APIs. To delete a user account, click **Delete**.

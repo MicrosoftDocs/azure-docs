@@ -22,6 +22,9 @@ ms.custom: fasttrack-new, fasttrack-update, devx-track-js
 This scenario shows you how to configure your Azure API Management instance to protect an API.
 We'll use the Azure AD B2C SPA (Auth Code + PKCE) flow to acquire a token, alongside API Management to secure an Azure Functions backend using EasyAuth.
 
+For a conceptual overview of API authorization, see [Authentication and authorization in API Management](authentication-authorization-overview.md#gateway-data-plane). 
+
+
 ## Aims
 
 We're going to see how API Management can be used in a simplified scenario with Azure Functions and Azure AD B2C. You'll create a JavaScript (JS) app calling an API, that signs in users with Azure AD B2C. Then you'll use API Management's validate-jwt, CORS, and Rate Limit By Key policy features to protect the Backend API.
@@ -167,7 +170,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
    ```
 
    > [!TIP]
-   > The c# script function code you just pasted simply logs a line to the functions logs, and returns the text "Hello World" with some dynamic data (the date and time).
+   > The C# script function code you just pasted simply logs a line to the functions logs, and returns the text "Hello World" with some dynamic data (the date and time).
 
 1. Select “Integration” from the left-hand blade, then click the http (req) link inside the 'Trigger' box.
 1. From the 'Selected HTTP methods' dropdown, uncheck the http POST method, leaving only GET selected, then click Save.
@@ -278,12 +281,12 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
    ```
 
    > [!NOTE]
-   > Now Azure API management is able respond to cross origin requests from  your JavaScript SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE forwarding the request on to the Function API.
+   > Now Azure API management is able to respond to cross origin requests from  your JavaScript SPA apps, and it will perform throttling, rate-limiting and pre-validation of the JWT auth token being passed BEFORE forwarding the request on to the Function API.
    > 
    > Congratulations, you now have Azure AD B2C, API Management and Azure Functions working together to publish, secure AND consume an API!
 
    > [!TIP]
-   > If you're using the API Management consumption tier then instead of rate limiting by the JWT subject or incoming IP Address (Limit call rate by key policy is not supported today for the "Consumption" tier), you can Limit by call rate quota see [here](./api-management-access-restriction-policies.md#LimitCallRate).  
+   > If you're using the API Management consumption tier then instead of rate limiting by the JWT subject or incoming IP Address (Limit call rate by key policy is not supported today for the "Consumption" tier), you can Limit by call rate quota see [here](rate-limit-policy.md).  
    > As this example is a JavaScript Single Page Application, we use the API Management Key only for rate-limiting and billing calls. The actual Authorization and Authentication is handled by Azure AD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by the backend Azure Function.
 
 ## Upload the JavaScript SPA sample to static storage

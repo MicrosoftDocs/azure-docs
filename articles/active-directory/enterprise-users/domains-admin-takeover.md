@@ -1,16 +1,16 @@
 ---
-title: Admin takeover of an unmanaged directory - Azure AD | Microsoft Docs
+title: Admin takeover of an unmanaged directory
 description: How to take over a DNS domain name in an unmanaged Azure AD organization (shadow tenant). 
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/01/2021
-ms.author: curtand
+ms.date: 06/23/2022
+ms.author: barclayn
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"
 
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
 
-This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD). When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
+This article describes two ways to take over a DNS domain name in an unmanaged directory in Azure Active Directory (Azure AD), part of Microsoft Entra. When a self-service user signs up for a cloud service that uses Azure AD, they are added to an unmanaged Azure AD directory based on their email domain. For more about self-service or "viral" sign-up for a service, see [What is self-service sign-up for Azure Active Directory?](directory-self-service-signup.md)
 
 
 > [!VIDEO https://www.youtube.com/embed/GOSpjHtrRsg]
@@ -36,7 +36,7 @@ Some products that include SharePoint and OneDrive, such as Microsoft 365, do no
 
 1. Create a user context in the unmanaged organization through signing up for Power BI. For convenience of example, these steps assume that path.
 
-2. Open the [Power BI site](https://powerbi.com) and select **Start Free**. Enter a user account that uses the domain name for the organization; for example, `admin@fourthcoffee.xyz`. After you enter in the verification code, check your email for the confirmation code.
+2. Open the [Power BI site](https://powerbi.microsoft.com) and select **Start Free**. Enter a user account that uses the domain name for the organization; for example, `admin@fourthcoffee.xyz`. After you enter in the verification code, check your email for the confirmation code.
 
 3. In the confirmation email from Power BI, select **Yes, that's me**.
 
@@ -56,14 +56,14 @@ When you complete the preceding steps, you are now the global administrator of t
 
 1. Open the [Microsoft 365 admin center](https://admin.microsoft.com).
 2. Select **Users** tab, and create a new user account with a name like *user\@fourthcoffeexyz.onmicrosoft.com* that does not use the custom domain name. 
-3. Ensure that the new user account has global admin privileges for the Azure AD organization.
+3. Ensure that the new user account has Global Administrator privileges for the Azure AD organization.
 4. Open **Domains** tab in the Microsoft 365 admin center, select the domain name and select **Remove**. 
   
    ![Remove the domain name from Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
 5. If you have any users or groups in Microsoft 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user\@fourthcoffeexyz.onmicrosoft.com*.
   
-6. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the global admin for the Azure AD organization.
+6. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the Azure AD organization.
   
 7. Select **Custom domain names**, then add the domain name. You'll have to enter the DNS TXT records to verify ownership of the domain name. 
   

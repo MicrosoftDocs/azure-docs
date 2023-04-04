@@ -6,10 +6,14 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: dianas
 author: dianaputnam
-ms.date: 07/09/2020
+ms.date: 06/24/2022
 ---
 
 # Optimize autovacuum on an Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This article describes how to effectively optimize autovacuum on an Azure Database for PostgreSQL server.
 

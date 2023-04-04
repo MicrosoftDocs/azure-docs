@@ -8,10 +8,14 @@ ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/26/2022 
+ms.date: 06/24/2022
 ---
 
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using Azure CLI
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 > [!div class="checklist"]
@@ -26,7 +30,7 @@ In this tutorial, you use Azure CLI (command-line interface) and other utilities
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 

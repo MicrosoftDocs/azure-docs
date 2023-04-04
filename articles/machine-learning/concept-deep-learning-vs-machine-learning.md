@@ -4,11 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how deep learning relates to machine learning and AI. In Azure Machine Learning, use deep learning models for fraud detection, object detection, and more.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.author: lagayhar
 author: lgayhardt
-ms.date: 04/12/2021
+ms.reviewer: lagayhar
+ms.date: 11/04/2022
 ms.custom: contperf-fy21q1,contperfq1
 ---
 
@@ -142,5 +143,3 @@ The following articles show you more options for using open-source deep learning
 - [Classify handwritten digits by using a TensorFlow model](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri) 
 
 - [Classify handwritten digits by using a TensorFlow estimator and Keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
-
-- [Classify handwritten digits by using a Chainer model](./how-to-set-up-training-targets.md?WT.mc_id=docs-article-lazzeri)

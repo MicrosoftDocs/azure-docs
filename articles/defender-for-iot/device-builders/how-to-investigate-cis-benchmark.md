@@ -1,7 +1,7 @@
 ---
 title: Investigate CIS benchmark recommendation
 description: Perform basic and advanced investigations based on OS baseline recommendations.
-ms.date: 11/09/2021
+ms.date: 05/03/2022
 ms.topic: how-to
 ---
 
@@ -12,48 +12,44 @@ Perform basic and advanced investigations based on OS baseline recommendations.
 > [!NOTE]
 > The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
 
-## Basic OS baseline security recommendation investigation  
+## Basic OS baseline security recommendation investigation
 
 You can investigate OS baseline recommendations by navigating to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
 
-## Advanced OS baseline security recommendation investigation  
+## Advanced OS baseline security recommendation investigation
 
-This section describes how to better understand the OS baseline test results, and querying events in Azure Log Analytics.  
+This section describes how to better understand the OS baseline test results, and querying events in Azure Log Analytics.
 
-The advanced OS baseline security recommendation investigation is only supported by using log analytics. Connect Defender for IoT to a Log Analytics workspace before continuing. For more information on advanced OS baseline security recommendations, see how to [Configure Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md).
+**Prerequisites**:
 
-To query your IoT security events in Log Analytics for alerts:
+The advanced OS baseline security recommendation investigation is only supported by using Azure Log Analytics and you must connect Defender for IoT to a Log Analytics workspace before continuing.
 
-1. Navigate to the **Alerts** page.
+For more information, see [Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md).
 
-1. Select **Investigate recommendations in Log Analytics workspace**.
+**To query your IoT security events in Log Analytics for alerts**:
 
-To query your IoT security events in Log Analytics for recommendations:
+1. In your Log Analytics workspace, go to **Logs** > **AzureSecurityOfThings** > **SecurityAlert**.
 
-1. Navigate to the **Recommendations** page.
+1. In the query editor on the right, enter a KQL query to display the alerts you want to see. 
 
-1. Select **Investigate recommendations in Log Analytics workspace**.
+1. Select **Run** to display the alerts that match your query.
 
-1. Select **Show Operation system (OS) baseline rules details** from the **Recommendation details** quick view page to see the details of a specific device.
+For example:
 
-   :::image type="content" source="media/how-to-investigate-cis-benchmark/recommendation-details.png" alt-text="See the details of a specific device.":::
+:::image type="content" source="media/how-to-investigate-cis-benchmark/log-analytics.png" alt-text="Screenshot of the Log Analytics workspace with a Defender for I o T alert query." lightbox="media/how-to-investigate-cis-benchmark/log-analytics.png":::
 
-To query your IoT security events in Log Analytics workspace directly:
-
-1. Navigate to the **Logs** page.
-
-    :::image type="content" source="media/how-to-investigate-cis-benchmark/logs.png" alt-text="Select logs from the left side pane.":::
-
-1. Select **Investigate the alerts** or, select the **Investigate the alerts in Log Analytics** option from any security recommendation, or alert.
+> [!NOTE]
+> In addition to alerts, you can also use this same procedure to query for recommendations or raw event data.
+>
 
 ## Useful queries to investigate the OS baseline resources
 
 > [!Note]
-> Make sure to Replace `<device-id>` with the name(s) you gave your device in each of the following queries.
+> Make sure to replace `<device-id>` with the name(s) you gave your device in each of the following queries.
 
 ### Retrieve the latest information
 
-- **Device fleet failure**: Run the following query to retrieve the latest information about checks that failed across the device fleet:
+- **Device fleet failure**: Run this query to retrieve the latest information about checks that failed across the device fleet:
 
     ```kusto
     let lastDates = SecurityIoTRawEvent |
@@ -65,7 +61,7 @@ To query your IoT security events in Log Analytics workspace directly:
     project DeviceId, event.BaselineCheckId, event.BaselineCheckDescription
     ```
 
-- **Specific device failure** - Run the following query to retrieve the latest information about checks that failed on a specific device:  
+- **Specific device failure** - Run this query to retrieve the latest information about checks that failed on a specific device:  
 
     ```kusto
     let id = SecurityIoTRawEvent | 

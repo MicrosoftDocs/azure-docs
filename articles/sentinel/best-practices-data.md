@@ -1,16 +1,13 @@
 ---
 title: Best practices for data collection in Microsoft Sentinel
 description: Learn about best practices to employ when connecting data sources to Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: limwainstein
+ms.author: lwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.custom: ignite-fall-2021
+ms.date: 01/09/2023
 ---
 
 #  Data collection best practices
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This section reviews best practices for collecting data using Microsoft Sentinel data connectors. For more information, see [Connect data sources](connect-data-sources.md), [Microsoft Sentinel data connectors reference](data-connectors-reference.md), and the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
@@ -57,7 +54,7 @@ Standard configuration for data collection may not work well for your organizati
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Microsoft Sentinel features are not supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](identify-threats-with-entity-behavior-analytics.md#entity-pages), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, you'll need to make updates in resources such as threat hunting queries and analytics rules     |
+|**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Microsoft Sentinel features are not supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](entity-pages.md), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, you'll need to make updates in resources such as threat hunting queries and analytics rules     |
 |**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#connector-options)       |   Using Windows Event forwarding lowers load-balancing events per second from the Windows Event Collector, from 10,000 events to 500-1000 events.|
 |**Servers do not connect to the internet**     | Use the [Log Analytics gateway](../azure-monitor/agents/gateway.md)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.        |
 |**Requires tagging and enrichment at ingestion**     |Use Logstash to inject a ResourceID <br><br>Use an ARM template to inject the ResourceID into on-premises machines <br><br>Ingest the resource ID into separate workspaces        | Log Analytics doesn't support RBAC for custom tables <br><br>Microsoft Sentinel doesn’t support row-level RBAC <br><br>**Tip**: You may want to adopt cross workspace design and functionality for Microsoft Sentinel.        |
@@ -94,7 +91,7 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
-|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](./data-connectors-reference.md#microsoft-office-365) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
+|**Collect raw data from Teams, message trace, phishing data, and so on**     |    Use the built-in [Office 365 connector](./data-connectors/office-365.md) functionality, and then create a custom connector for other raw data.  |  Mapping events to the corresponding recordID may be challenging.  |
 |**Requires RBAC for splitting countries, departments, and so on**     | Customize your data collection by adding tags to data and creating dedicated workspaces for each separation needed.|   Custom data collection has extra ingestion costs.     |
 |**Requires multiple tenants in a single workspace**     |  Customize your data collection using Azure LightHouse and a unified incident view.|  Custom data collection has extra ingestion costs.  <br><br>For more information, see [Extend Microsoft Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md).      |
 

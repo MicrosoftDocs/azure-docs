@@ -6,14 +6,14 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-workflows
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/01/2022
+ms.date: 02/20/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 
 # Approval workflow for business terms
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 This guide will take you through the creation and management of approval workflows for business terms.
 

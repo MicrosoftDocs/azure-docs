@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -87,7 +87,7 @@ Use the following steps to label your utterances:
     * *Unique utterances per labeled entity* where each utterance is counted if it contains at least one labeled instance of this entity.
     * *Utterances per intent* where you can view count of utterances per intent.
 
-:::image type="content" source="../media/label-distribution.png" alt-text="A screenshot showing entity distribution in the Language Studio." lightbox="../media/label-distribution.png":::
+:::image type="content" source="../media/label-distribution.png" alt-text="A screenshot showing entity distribution in Language Studio." lightbox="../media/label-distribution.png":::
 
 
   > [!NOTE]

@@ -1,17 +1,17 @@
 ---
-title: Use Azure Table storage or Azure Cosmos DB Table API from Node.js
+title: Use Azure Table storage or Azure Cosmos DB for Table from Node.js
 description: Store structured data in the cloud using Azure Tables client library for Node.js.
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
+ms.subservice: table
 ms.devlang: javascript
 ms.topic: sample
 ms.date: 07/23/2020
-author: sakash279
-ms.author: akshanka
-ms.custom: devx-track-js
+author: seesharprun
+ms.author: sidandrews
+ms.custom: devx-track-js, ignite-2022
 ---
-# How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
-[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
+# How to use Azure Table storage or the Azure Cosmos DB for Table from Node.js
+[!INCLUDE[Table](../includes/appliesto-table.md)]
 
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -26,7 +26,7 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 [!INCLUDE [cosmos-db-create-storage-account](../includes/cosmos-db-create-storage-account.md)]
 
-**Create an Azure Cosmos DB Table API account**
+**Create an Azure Cosmos DB for Table account**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../includes/cosmos-db-create-tableapi-account.md)]
 
@@ -51,27 +51,33 @@ communicate with the Storage REST services.
 Add the following code to the top of the **server.js** file in your application:
 
 ```javascript
-const { TableServiceClient } = require("@azure/data-tables");
+const { TableServiceClient, TableClient, AzureNamedKeyCredential, odata } = require("@azure/data-tables");
 ```
 
 ## Connect to Azure Table service
 
-You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the shared key or connection string based on the type of account you are using.
+You can either connect to the Azure storage account or the Azure Cosmos DB for Table account. Get the shared key or connection string based on the type of account you are using.
 
 ### Creating the Table service client from a shared key
 
-The Azure module reads the environment variables AZURE_ACCOUNT and AZURE_ACCESS_KEY and AZURE_TABLES_ENDPOINT for information required to connect to your Azure Storage account or Cosmos DB. If these environment variables are not set, you must specify the account information when calling `TableServiceClient`. For example, the following code creates a `TableServiceClient` object:
+The Azure module reads the environment variables AZURE_ACCOUNT and AZURE_ACCESS_KEY and AZURE_TABLES_ENDPOINT for information required to connect to your Azure Storage account or Azure Cosmos DB. If these environment variables are not set, you must specify the account information when calling `TableServiceClient`. For example, the following code creates a `TableServiceClient` object:
 
 ```javascript
+const endpoint = "<table-endpoint-uri>";
+const credential = new AzureNamedKeyCredential(
+  "<account-name>",
+  "<account-key>"
+);
+
 const tableService = new TableServiceClient(
-  tablesEndpoint,
-  new AzureNamedKeyCredential("<accountName>", "<accountKey>")
+  endpoint,
+  credential
 );
 ```
 
 ### Creating the Table service client from a connection string
 
-To add an Azure Cosmos DB or Storage account connection, create a `TableServiceClient` object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account or Storage account. For example:
+To add an Azure Cosmos DB or Storage account connection, create a `TableServiceClient` object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Azure Cosmos DB account or Storage account. For example:
 
 ```javascript
 const tableService = TableServiceClient.fromConnectionString("<connection-string>");
@@ -82,7 +88,19 @@ const tableService = TableServiceClient.fromConnectionString("<connection-string
 The call to `createTable` creates a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
 
 ```javascript
-await tableService.createTable('mytable');
+await tableService.createTable('<table-name>');
+```
+
+### Creating the Table client
+
+To interact with a table, you should create a `TableClient` object using the same credentials you used to create the `TableServiceClient`. The `TableClient` also requires the name of the target table.
+
+```javascript
+const tableClient = new TableClient(
+  endpoint,
+  '<table-name>',
+  credential
+);
 ```
 
 ## Add an entity to a table
@@ -186,8 +204,11 @@ For successful batch operations, `result` contains information for each operatio
 To return a specific entity based on the **PartitionKey** and **RowKey**, use the **getEntity** method.
 
 ```javascript
-let result = await tableClient.getEntity("hometasks", "1");
-    // result contains the entity
+let result = await tableClient.getEntity("hometasks", "1")
+  .catch((error) => {
+    // handle any errors
+  });
+  // result contains the entity
 ```
 
 After this operation is complete, `result` contains the entity.

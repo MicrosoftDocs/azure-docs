@@ -1,9 +1,11 @@
 ---
 author: cephalin
-ms.service: app-service-web
+ms.service: app-service
 ms.topic: include
 ms.date: 10/19/2021
 ms.author: cephalin
+ms.subservice: web-apps
+ms.custom: devx-track-azurepowershell
 ---
 ## Clean up resources
 

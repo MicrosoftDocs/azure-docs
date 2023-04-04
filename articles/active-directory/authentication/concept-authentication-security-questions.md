@@ -1,5 +1,5 @@
 ---
-title: Security questions authentication method - Azure Active Directory
+title: Security questions authentication method
 description: Learn about using security questions in Azure Active Directory to help improve and secure sign-in events
 
 services: active-directory
@@ -10,7 +10,7 @@ ms.date: 09/02/2020
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 

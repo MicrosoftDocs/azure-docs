@@ -7,10 +7,14 @@ ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
-ms.date: 6/30/2020
+ms.date: 06/24/2022
 ---
 
 # Azure Database for PostgreSQL Infrastructure double encryption
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 Azure Database for PostgreSQL uses storage [encryption of data at-rest](concepts-security.md#at-rest) for data using Microsoft's managed keys. Data, including backups, are encrypted on disk and this encryption is always on and can't be disabled. The encryption uses FIPS 140-2 validated cryptographic module and an AES 256-bit cipher for the Azure storage encryption.
 
@@ -19,9 +23,9 @@ Infrastructure double encryption adds a second layer of encryption using service
 > [!NOTE]
 > This feature is only supported for "General Purpose" and "Memory Optimized" pricing tiers in Azure Database for PostgreSQL.
 
-Infrastructure Layer encryption has the benefit of being implemented at the layer closest to the storage device or network wires. Azure Database for PostgreSQL implements the two layers of encryption using service-managed keys. Although still technically in the service layer, it is very close to hardware that stores the data at rest. You can still optionally enable data encryption at rest using [customer managed key](concepts-data-encryption-postgresql.md) for the provisioned PostgreSQL server.  
+Infrastructure Layer encryption has the benefit of being implemented at the layer closest to the storage device or network wires. Azure Database for PostgreSQL implements the two layers of encryption using service-managed keys. Although still technically in the service layer, it is very close to hardware that stores the data at rest. You can still optionally enable data encryption at rest using [customer managed key](concepts-data-encryption-postgresql.md) for the provisioned PostgreSQL server.
 
-Implementation at the infrastructure layers also supports a diversity of keys. Infrastructure must be aware of different clusters of machine and networks. As such, different keys are used to minimize the blast radius of infrastructure attacks and a variety of hardware and network failures. 
+Implementation at the infrastructure layers also supports a diversity of keys. Infrastructure must be aware of different clusters of machine and networks. As such, different keys are used to minimize the blast radius of infrastructure attacks and a variety of hardware and network failures.
 
 > [!NOTE]
 > Using Infrastructure double encryption will have performance impact on the Azure Database for PostgreSQL server due to the additional encryption process.
@@ -45,7 +49,6 @@ The encryption capabilities that are provided by Azure Database for PostgreSQL c
 | 2     | *Yes*              | *Yes*                            | *No*                                         |
 | 3     | *Yes*              | *No*                             | *Yes*                                        |
 | 4     | *Yes*              | *Yes*                            | *Yes*                                        |
-|       |                    |                                  |                                              |
 
 > [!Important]
 > - Scenario 2 and 4 will have performance impact on the Azure Database for PostgreSQL server due to the additional layer of infrastructure encryption.

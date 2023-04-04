@@ -8,7 +8,6 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.author: danlep
-ms.custom: devx-track-azurepowershell
 ---
 # Connect to a virtual network using Azure API Management
 
@@ -89,7 +88,7 @@ For more information and considerations, see [IP addresses of Azure API Manageme
 
 [!INCLUDE [api-management-virtual-network-vip-dip](../../includes/api-management-virtual-network-vip-dip.md)]
 
-
+[!INCLUDE [api-management-virtual-network-forced-tunneling](../../includes/api-management-virtual-network-forced-tunneling.md)]
 
 ## <a name="network-configuration-issues"> </a>Common network configuration issues
 

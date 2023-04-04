@@ -4,15 +4,15 @@ description: This article describes how to use the custom setup interface for an
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-author: swinarko
-ms.author: sawinark
+author: chugugrace
+ms.author: chugu
 ms.custom: seo-lt-2019
-ms.date: 02/15/2022
+ms.date: 08/09/2022
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can customize your Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines via custom setups. They allow you to add your own steps during the provisioning or reconfiguration of your Azure-SSIS IR. 
 

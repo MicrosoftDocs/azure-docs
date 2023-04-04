@@ -1,18 +1,18 @@
 ---
-title: Reference - CloudEvents extension for Azure Web PubSub
-description: The reference describes CloudEvents extension defined for Azure Web PubSub service
+title: Reference - CloudEvents extension for Azure Web PubSub event handler with HTTP protocol
+description: The reference describes CloudEvents extensions for Azure Web PubSub event handler with HTTP protocol.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/08/2021
 ---
 
-#  CloudEvents extension for Azure Web PubSub
+#  CloudEvents extension for Azure Web PubSub event handler with HTTP protocol
 
-Service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
+The Web PubSub service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
 
-The data sending from service to server is always in CloudEvents `binary` format.
+The data sent from the Web PubSub service to the server is always in CloudEvents `binary` format.
 
 - [Webhook Validation](#protection)
 - [Web PubSub CloudEvents Attribute Extension](#extension)
@@ -114,8 +114,8 @@ ce-eventName: connect
 * Status code:
     * `204`: Success, with no content.
     * `200`: Success, the content SHOULD be a JSON format, with following properties allowed:
-* Header `ce-connectionState`: If this header exists, the connection state of this connection will be updated to the value of the header. Please note that only *blocking* events can update the connection state. The below sample uses base64 encoded JSON string to store complex state for the connection.
-* 
+* Header `ce-connectionState`: If this header exists, the connection state of this connection will be updated to the value of the header. Please note that only *blocking* events can update the connection state. The below sample uses base64 encoded JSON string to store the complex state for the connection.
+*
 ```HTTP
 HTTP/1.1 200 OK
 ce-connectionState: eyJrZXkiOiJhIn0=
@@ -131,23 +131,23 @@ ce-connectionState: eyJrZXkiOiJhIn0=
 
 * `subprotocols`
 
-    The `connect` event forwards the subprotocol and authentication information to Upstream from the client. The Azure SignalR Service uses the status code to determine if the request will be upgraded to WebSocket protocol.
+    The `connect` event forwards the subprotocol and authentication information to Upstream from the client. Web PubSub service uses the status code to determine if the request will be upgraded to WebSocket protocol.
 
     If the request contains the `subprotocols` property, the server should return one subprotocol it supports. If the server doesn't want to use any subprotocols, it should **not** send the `subprotocol` property in response. [Sending a blank header is invalid](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#Subprotocols).
 
 * `userId`: `{auth-ed user ID}`
 
-    As the service allows anonymous connections, it's the `connect` event's responsibility to tell the service the user ID of the client connection. The Service will read the user ID from the response payload `userId` if it exists. The connection will be dropped if user ID cannot be read from the request claims nor the `connect` event's response payload.
+    As the service allows anonymous connections, it's the `connect` event's responsibility to tell the service the user ID of the client connection. The service will read the user ID from the response payload `userId` if it exists. The connection will be dropped if the user ID cannot be read from the request claims nor the `connect` event's response payload.
 
 <a name="connect_response_header_group"></a>
- 
+
 * `groups`: `{groups to join}`
 
     The property provides a convenient way for user to add this connection to one or multiple groups. In this way, there's no need to have another call to add this connection to some group.
 
 * `roles`: `{roles the client has}`
-    
-    The property provides a way for the upstream to authorize the client. Different roles define different initial permissions the client has, it can be useful when the client is a PubSub WebSocket client. Details about the permissions are described in [Client permissions](./concept-client-protocols.md#permissions).
+
+    The property provides a way for the upstream Webhook to authorize the client.   There are different roles to grant initial permissions for PubSub WebSocket clients. Details about the permissions are described in [Client permissions](./concept-client-protocols.md#permissions).
 
 #### Error response format:
 
@@ -258,7 +258,7 @@ HTTP/1.1 200 OK
 The service invokes the event handler upstream for every WebSocket message frame.
 
 * `ce-type`: `azure.webpubsub.user.message`
-* `Content-Type`: `application/octet-stream` for binary frame; `text/plain` for text frame; 
+* `Content-Type`: `application/octet-stream` for binary frame; `text/plain` for text frame;
 
 UserPayload is what the client sends.
 
@@ -291,11 +291,11 @@ UserPayload
 * Status code
     * `204`: Success, with no content.
     * `200`: Success, the format of the `UserResponsePayload` depends on the `Content-Type` of the response.
-* `Content-Type`: `application/octet-stream` for binary frame; `text/plain` for text frame; 
-* Header `Content-Type`: `application/octet-stream` for binary frame; `text/plain` for text frame; 
+* `Content-Type`: `application/octet-stream` for binary frame; `text/plain` for text frame;
+* Header `Content-Type`: `application/octet-stream` for binary frame; `text/plain` for text frame;
 * Header `ce-connectionState`: If this header exists, the connection state of this connection will be updated to the value of the header. Please note that only *blocking* events can update the connection state. The below sample uses base64 encoded JSON string to store complex state for the connection.
 
-When the `Content-Type` is `application/octet-stream`, the service sends `UserResponsePayload` to the client using `binary` WebSocket frame. When the `Content-Type` is `text/plain`, the service sends `UserResponsePayload` to the client using `text` WebSocket frame. 
+When the `Content-Type` is `application/octet-stream`, the service sends `UserResponsePayload` to the client using `binary` WebSocket frame. When the `Content-Type` is `text/plain`, the service sends `UserResponsePayload` to the client using `text` WebSocket frame.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -357,7 +357,7 @@ text data
     "dataType" : "json",
     "data": {
         "hello": "world"
-    }, 
+    },
 }
 ```
 
@@ -433,8 +433,8 @@ UserResponsePayload
 ```
 * Status code
     * `204`: Success, with no content.
-    * `200`: Success, data sending to the PubSub WebSocket client depends on the `Content-Type`; 
-* Header `ce-connectionState`: If this header exists, the connection state of this connection will be updated to the value of the header. Please note that only *blocking* events can update the connection state. The below sample uses base64 encoded JSON string to store complex state for the connection.
+    * `200`: Success, data sending to the PubSub WebSocket client depends on the `Content-Type`;
+* Header `ce-connectionState`: If this header exists, the connection state of this connection will be updated to the value of the header. Please note that only *blocking* events can update the connection state. The below sample uses base64 encoded JSON string to store the complex state for the connection.
 * When Header `Content-Type` is `application/octet-stream`, the service sends `UserResponsePayload` back to the client using `dataType` as `binary` with payload base64 encoded. A sample response:
     ```json
     {

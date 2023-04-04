@@ -6,10 +6,14 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal 
-ms.date: 2/17/2022
+ms.date: 06/24/2022
 ---
 
 # Planned maintenance notification in Azure Database for PostgreSQL - Single Server
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 Learn how to prepare for planned maintenance events on your Azure Database for PostgreSQL.
 
@@ -17,7 +21,7 @@ Learn how to prepare for planned maintenance events on your Azure Database for P
 
 Azure Database for PostgreSQL service performs automated patching of the underlying hardware, OS, and database engine. The patch includes new service features, security, and software updates. For PostgreSQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patch is tested extensively and rolled out using safe deployment practices.
 
-A planned maintenance is a maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers. Minimum duration between two planned maintenance is 30 days. You receive a notification of the next maintenance window 72 hours in advance.
+A planned maintenance is a maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers. Minimum duration between two planned maintenance periods is 30 days. You receive a notification of the next maintenance window 72 hours in advance.
 
 ## Planned maintenance - duration and customer impact
 
@@ -31,19 +35,18 @@ You can utilize the planned maintenance notifications feature to receive alerts 
 
 ### Planned maintenance notification
 
-
 **Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance event to your Azure Database for PostgreSQL. These notifications are integrated with [Service Health's](../../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 calendar hours before the event.
 
 We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
 
-You can either check the planned maintenance notification on Azure portal or configure alerts to receive notification. 
+You can either check the planned maintenance notification on Azure portal or configure alerts to receive notification.
 
 ### Check planned maintenance notification from Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), select **Service Health**.
 2. Select **Planned Maintenance** tab
-3. Select **Subscription**, **Region, and **Service** for which you want to check the planned maintenance notification. 
-   
+3. Select **Subscription**, **Region, and **Service** for which you want to check the planned maintenance notification.
+
 ### To receive planned maintenance notification
 
 1. In the [portal](https://portal.azure.com), select **Service Health**.
@@ -68,7 +71,6 @@ No, all the Azure regions are patched during the deployment wise window timings.
 ## Retry logic
 
 A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](./concepts-connectivity.md#transient-errors) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](./concepts-connectivity.md#handling-transient-errors).
-
 
 ## Next steps
 

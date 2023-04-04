@@ -2,7 +2,6 @@
 title: Best practices for cluster isolation
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for isolation in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
 ms.date: 03/09/2021
 
@@ -50,7 +49,7 @@ For more information about these features, see [Best practices for authenticatio
 ### Containers
 *Containers* include:
 * The Azure Policy Add-on for AKS to enforce pod security.
-* The use of pod security contexts.
+* The use of pod security admission.
 * Scanning both images and the runtime for vulnerabilities. 
 * Using App Armor or Seccomp (Secure Computing) to restrict container access to the underlying node.
 

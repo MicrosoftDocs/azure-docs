@@ -2,10 +2,10 @@
 title: Tutorial - Sign and make requests to Azure Communication Services' SMS API with Postman
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to sign and makes requests for Azure Communication Services with Postman to send an SMS Message.
-author: ProbablePrime
+author: tophpalmer
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
@@ -241,6 +241,6 @@ The Mobile phone, which owns the number you provided in the "to" value, should a
 You might also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
-- [Create user access tokens](../quickstarts/access-tokens.md)
+- [Create user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)

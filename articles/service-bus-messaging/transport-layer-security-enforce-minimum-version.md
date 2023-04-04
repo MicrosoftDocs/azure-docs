@@ -6,12 +6,13 @@ services: service-bus
 author: EldertGrootenboer
 
 ms.service: service-bus-messaging
+ms.custom: ignite-2022
 ms.topic: article
-ms.date: 04/12/2022
+ms.date: 09/26/2022
 ms.author: egrootenboer
 ---
 
-# Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace (Preview)
+# Enforce a minimum required version of Transport Layer Security (TLS) for requests to a Service Bus namespace
 
 Communication between a client application and an Azure Service Bus namespace is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://datatracker.ietf.org/wg/tls/about/).
 
@@ -35,7 +36,7 @@ Role assignments must be scoped to the level of the Service Bus namespace or hig
 Be careful to restrict assignment of these roles only to those who require the ability to create a Service Bus namespace or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [**Owner**](../role-based-access-control/built-in-roles.md#owner) role. The  **Owner**  role includes all actions, so a user with one of these administrative roles can also create and manage Service Bus namespaces. For more information, see [**Classic subscription administrator roles, Azure roles, and Azure AD administrator roles**](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [**Owner**](../role-based-access-control/built-in-roles.md#owner) role. The  **Owner**  role includes all actions, so a user with one of these administrative roles can also create and manage Service Bus namespaces. For more information, see [**Azure roles, Azure AD roles, and classic subscription administrator roles**](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Network considerations
 

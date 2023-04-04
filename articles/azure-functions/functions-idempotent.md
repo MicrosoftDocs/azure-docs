@@ -1,9 +1,7 @@
 ---
 title: Designing Azure Functions for identical input
 description: Building Azure Functions to be idempotent
-author: craigshoemaker
-ms.author: cshoe
-ms.date: 9/12/2019
+ms.date: 06/09/2022
 ms.topic: article
 ---
 
@@ -23,18 +21,24 @@ When it comes to building applications, consider the following scenarios:
 
 There are many contexts where requests to a function may receive identical commands. Some situations include:
 
-- Retry policies sending the same request many times
-- Cached commands replayed to the application
-- Application errors sending multiple identical requests
+- Retry policies sending the same request many times.
+- Cached commands replayed to the application.
+- Application errors sending multiple identical requests.
 
 To protect data integrity and system health, an idempotent application contains logic that may contain the following behaviors:
 
-- Verifying of the existence of data before trying to execute a delete
-- Checking to see if data already exists before trying to execute a create action
-- Reconciling logic that creates eventual consistency in data
-- Concurrency controls
-- Duplication detection
-- Data freshness validation
-- Guard logic to verify input data
+- Verifying of the existence of data before trying to execute a delete.
+- Checking to see if data already exists before trying to execute a create action.
+- Reconciling logic that creates eventual consistency in data.
+- Concurrency controls.
+- Duplication detection.
+- Data freshness validation.
+- Guard logic to verify input data.
 
 Ultimately idempotency is achieved by ensuring a given action is possible and is only executed once.
+ 
+## Next steps
+
++ [Azure Functions reliable event processing](functions-reliable-event-processing.md) 
++ [Concurrency in Azure Functions](functions-concurrency.md)
++ [Azure Functions error handling and retries](functions-bindings-error-pages.md)

@@ -20,7 +20,7 @@ Azure Synapse Data Explorer provides customers with an interactive query experie
 To learn more, see the following video:
 
 >
-> [!VIDEO https://docs.microsoft.com/shows/data-exposed/azure-synapse-data-explorer-for-log--telemetry-management/player?WT.mc_id=dataexposed-c9-niner]
+> [!VIDEO https://learn.microsoft.com/shows/data-exposed/azure-synapse-data-explorer-for-log--telemetry-management/player?WT.mc_id=dataexposed-c9-niner]
 
 ## What makes Azure Synapse Data Explorer unique?
 
@@ -64,7 +64,7 @@ The implementation of the index depends on the type of the field, as follows:
 | Field type | Indexing implementation |
 | -- | -- |
 | **String** | The engine builds an inverted term index for string column values. Each string value is analyzed and split into normalized terms and an ordered list of logical positions, containing record ordinals, is recorded for each term. The resulting sorted list of terms and their associated positions is stored as an immutable B-tree. |
-| **Numeric**<br />**DateIime**<br />**TimeSpan** | The engine builds a simple range-based forward index. The index records the min/max values for each block, for a group of blocks and for the entire column within the data shard. |
+| **Numeric**<br />**DateTime**<br />**TimeSpan** | The engine builds a simple range-based forward index. The index records the min/max values for each block, for a group of blocks and for the entire column within the data shard. |
 | **Dynamic** | The ingestion process enumerates all "atomic" elements within the dynamic value, such as property names, values, and array elements, and forwards them to the index builder. Dynamic fields have the same inverted term index as string fields. |
 
 These efficient indexing capabilities enables Data Explore to make the data available in near-real-time for high-performance and high-concurrency queries. The system automatically optimizes data shards to further boost performance.

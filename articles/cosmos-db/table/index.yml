@@ -1,0 +1,57 @@
+### YamlMime:Landing
+
+title: Azure Cosmos DB for Table documentation
+summary: Azure Cosmos DB provides the API for Table for applications that are written for Azure Table storage and require premium capabilities.
+
+metadata:
+  title: Azure Cosmos DB for Table documentation
+  description: Azure Cosmos DB provides the API for Table for applications that are written for Azure Table storage and require premium capabilities.
+  services: cosmos-db
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: markjbrown
+  ms.service: cosmos-db
+  ms.subservice: table
+  ms.topic: landing-page
+  ms.collection: collection
+  ms.date: 02/28/2023
+  ms.custom: ignite-2022
+landingContent:
+  - title: About API for Table
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Cosmos DB for Table?
+            url: introduction.md
+          - text: FAQ
+            url: table-api-faq.yml
+      - linkListType: concept
+        links:
+          - text: Differences between API for Table and Azure Table storage
+            url: support.md
+          - text: Partitioning
+            url: ../partitioning-overview.md
+          - text: Optimize your costs
+            url: ../optimize-costs.yml
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage your data using a .NET app
+            url: quickstart-dotnet.md
+          - text: Manage your data using a Java app
+            url: quickstart-java.md
+      - linkListType: tutorial
+        links:
+          - text: Query data
+            url: tutorial-query.md
+          - text: Distribute data globally
+            url: tutorial-global-distribution.md
+      - linkListType: how-to-guide
+        links:
+          - text: Develop .NET applications
+            url: how-to-dotnet-get-started.md
+          - text: Create a table
+            url: how-to-create-container.md
+          - text: Measure request unit charge
+            url: find-request-unit-charge.md

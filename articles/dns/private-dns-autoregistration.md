@@ -2,11 +2,11 @@
 title: What is auto registration feature in Azure DNS private zones?
 description: Overview of auto registration feature in Azure DNS private zones.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 04/26/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # What is the auto registration feature in Azure DNS private zones?
@@ -24,7 +24,6 @@ To enable auto registration, select the checkbox for "Enable auto registration" 
 * Auto registration works only for virtual machines. For all other resources like internal load balancers, you can create DNS records manually in the private DNS zone linked to the virtual network.
 * DNS records are created automatically only for the primary virtual machine NIC. If your virtual machines have more than one NIC, you can manually create the DNS records for other network interfaces.
 * DNS records are created automatically only if the primary virtual machine NIC is using DHCP. If you're using static IPs, such as a configuration with [multiple IP addresses in Azure](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config), auto registration doesn't create records for that virtual machine.
-* Auto registration for IPv6 (AAAA records) isn't supported.
 * A specific virtual network can be linked to only one private DNS zone when automatic VM DNS registration is enabled. You can, however, link multiple virtual networks to a single DNS zone.
 
 ## Next steps

@@ -1,28 +1,26 @@
 ### YamlMime:Landing
 
-title: Datadog integration with Azure
+title: Datadog - An Azure Native ISV Service
 summary: Provides monitoring and analytics for large-scale applications.
 
 metadata:
-  title: Datadog with Azure documentation
-  description: Datadog with Azure provides monitoring and analytics for large-scale applications.
+  title: Datadog - An Azure Native ISV Service documentation
+  description: Datadog - An Azure Native ISV Service provides monitoring and analytics for large-scale applications.
   ms.service: partner-services
   ms.subservice: datadog
   ms.topic: landing-page
   ms.collection: na
-  author: davidsmatlak
-  ms.author: davidsmatlak
-  ms.date: 03/25/2022
+  ms.date: 02/16/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: About Datadog on Azure
+  - title: About Datadog - An Azure Native ISV Service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Datadog?
+          - text: What is Datadog - An Azure Native ISV Service?
             url: overview.md
       - linkListType: how-to-guide
         links:
@@ -42,7 +40,7 @@ landingContent:
         links:
           - text: Configure environment before Datadog deployment
             url: prerequisites.md
-          - text: Fix common errors for Datadog on Azure
+          - text: Fix common errors for Datadog - An Azure Native ISV Service
             url: troubleshoot.md
 
   # Card
@@ -54,3 +52,6 @@ landingContent:
             url: /cli/azure/datadog
           - text: REST API
             url: /rest/api/datadog
+          - text: Terraform
+            url: "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/datadog_monitors"
+        

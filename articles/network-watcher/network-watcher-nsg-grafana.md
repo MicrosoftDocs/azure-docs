@@ -3,21 +3,16 @@ title: Manage NSG Flow Logs using Grafana
 titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 services: network-watcher
-documentationcenter: na
-author: damendo
-
+author: halkazwini
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
-ms.author: damendo
-
+ms.date: 09/15/2022
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
-# Manage and analyze Network Security Group flow logs using Network Watcher and Grafana
+# Manage and analyze network security group flow logs using Network Watcher and Grafana
 
 [Network Security Group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
@@ -66,7 +61,7 @@ You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
         storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
         container => "insights-logs-networksecuritygroupflowevent"
         codec => "json"
-        # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+        # Refer https://learn.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
         file_head_bytes => 12
         file_tail_bytes => 2
@@ -204,4 +199,3 @@ By integrating Network Watcher with ElasticSearch and Grafana, you now have a co
 ## Next steps
 
 - Learn more about using [Network Watcher](network-watcher-monitoring-overview.md).
-

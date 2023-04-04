@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 06/24/2021
+ms.date: 11/10/2022
 ---
 
 # Firmware security

@@ -6,10 +6,14 @@ ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila
 author: sunilagarwal
-ms.date: 11/20/2019
+ms.date: 06/24/2022
 ---
 
 # Manage an Azure Database for PostgreSQL server using the Azure portal
+
+[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
 This article shows you how to manage your Azure Database for PostgreSQL servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
@@ -82,7 +86,7 @@ You can change the administrator role's password using the Azure portal.
 
 ## Delete a server
 
-You can delete your server if you no longer need it. 
+You can delete your server if you no longer need it.
 
 1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
 

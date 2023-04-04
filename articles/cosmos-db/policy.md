@@ -1,24 +1,24 @@
 ---
 title: Use Azure Policy to implement governance and controls for Azure Cosmos DB resources
 description: Learn how to use Azure Policy to implement governance and controls for Azure Cosmos DB resources.
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: ignite-2022
 ---
 
 # Use Azure Policy to implement governance and controls for Azure Cosmos DB resources
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 [Azure Policy](../governance/policy/overview.md) helps to enforce organizational governance standards, assess resource compliance, and implement automatic remediation. Common use cases include security, cost management, and configuration consistency.
 
 Azure Policy provides built-in policy definitions. You can create custom policy definitions for scenarios that are not addressed by the built-in policy definitions. See the [Azure Policy documentation](../governance/policy/overview.md) for more details.
 
 > [!IMPORTANT]
-> Azure Policy is enforced at the resource provider level for Azure services. Cosmos DB SDKs can perform most management operations on database, container and throughput resources that bypass Cosmos DB's resource provider, thus ignoring any policies created using Azure Policy. To ensure enforcement of policies see, [Preventing changes from the Azure Cosmos DB SDKs](role-based-access-control.md#prevent-sdk-changes)
+> Azure Policy is enforced at the resource provider level for Azure services. Azure Cosmos DB SDKs can perform most management operations on database, container and throughput resources that bypass Azure Cosmos DB's resource provider, thus ignoring any policies created using Azure Policy. To ensure enforcement of policies see, [Preventing changes from the Azure Cosmos DB SDKs](role-based-access-control.md#prevent-sdk-changes)
 
 ## Assign a built-in policy definition
 
@@ -28,7 +28,7 @@ You can create policy assignments with the [Azure portal](../governance/policy/a
 
 To create a policy assignment from a built-in policy definition for Azure Cosmos DB, use the steps in [create a policy assignment with the Azure portal](../governance/policy/assign-policy-portal.md) article.
 
-At the step to select a policy definition, enter `Cosmos DB` in the Search field to filter the list of available built-in policy definitions. Select one of the available built-in policy definitions, and then choose **Select** to continue creating the policy assignment.
+At the step to select a policy definition, enter `Azure Cosmos DB` in the Search field to filter the list of available built-in policy definitions. Select one of the available built-in policy definitions, and then choose **Select** to continue creating the policy assignment.
 
 > [!TIP]
 > You can also use the built-in policy definition names shown in the **Available Definitions** pane with Azure PowerShell, Azure CLI, or ARM templates to create policy assignments.
@@ -114,7 +114,7 @@ The following screenshot shows two example policy assignments.
 
 One assignment is based on a built-in policy definition, which checks that the Azure Cosmos DB resources are deployed only to the allowed Azure regions. Resource compliance shows policy evaluation outcome (compliant or non-compliant) for in-scope resources.
 
-The other assignment is based on a custom policy definition. This assignment checks that Cosmos DB accounts are configured for multiple write locations.
+The other assignment is based on a custom policy definition. This assignment checks that Azure Cosmos DB accounts are configured for multiple write locations.
 
 After the policy assignments are deployed, the compliance dashboard shows evaluation results. Note that this can take up to 30 minutes after deploying a policy assignment. Additionally, [policy evaluation scans can be started on-demand](../governance/policy/how-to/get-compliance-data.md#on-demand-evaluation-scan) immediately after creating policy assignments.
 

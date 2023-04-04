@@ -15,6 +15,14 @@ The following configuration was used for the steps below:
 Use the following commands to install the required strongSwan configuration:
 
 ```
+sudo apt-get update
+```
+
+```
+sudo apt-get upgrade
+```
+
+```
 sudo apt install strongswan
 ```
 

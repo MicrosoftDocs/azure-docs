@@ -2,8 +2,13 @@
 title: Upgrading Azure Service Fabric clusters
 description: Learn about options for updating your Azure Service Fabric cluster
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Upgrading and updating Azure Service Fabric clusters
 
 An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. This article describes the options for when and how to update your Azure Service Fabric cluster.

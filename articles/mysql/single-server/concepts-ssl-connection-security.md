@@ -1,17 +1,19 @@
 ---
 title: SSL/TLS connectivity - Azure Database for MySQL
 description: Information for configuring Azure Database for MySQL and associated applications to properly use SSL connections
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
+author: mksuni
+ms.author: sumuth
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 06/20/2022
 ---
 
 # SSL/TLS connectivity in Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL supports connecting your database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
@@ -56,14 +58,14 @@ Azure Database for MySQL provides the ability to enforce the TLS version for the
 
 For example, setting the value of minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2+ and all connections with TLS 1.0 and TLS 1.1 will be rejected.
 
-> [!Note] 
+> [!NOTE] 
 > By default, Azure Database for MySQL does not enforce a minimum TLS version (the setting `TLSEnforcementDisabled`).
 >
 > Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
 The minimum TLS version setting doesnt require any restart of the server can be set while the server is online. To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](how-to-tls-configurations.md).
 
-## Cipher support by Azure Database for MySQL Single server
+## Cipher support by Azure Database for MySQL single server
 
 As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database serer. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
 

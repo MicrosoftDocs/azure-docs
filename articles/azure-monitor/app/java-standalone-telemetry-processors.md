@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.devlang: java
 ms.custom: devx-track-java
+ms.reviewer: mmcc
 ---
 
 # Telemetry processors (preview) - Azure Monitor Application Insights for Java

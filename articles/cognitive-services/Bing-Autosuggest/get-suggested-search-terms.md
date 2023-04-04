@@ -49,6 +49,6 @@ Familiarize yourself with the [Bing Autosuggest API v7](/rest/api/cognitiveservi
 Visit the [Bing Search API hub page](../bing-web-search/overview.md) to explore the other available APIs.
 
 
-Learn how to search the web by using the [Bing Web Search API](../bing-web-search/overview.md), and explore the other[Bing Search APIs](../bing-web-search/index.yml).
+Learn how to search the web by using the [Bing Web Search API](../bing-web-search/overview.md), and explore the other [Bing Search APIs](../bing-web-search/index.yml).
 
 Be sure to read [Bing Use and Display Requirements](../bing-web-search/use-display-requirements.md) so you don't break any of the rules about using the search results.

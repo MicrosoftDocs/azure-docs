@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Modify content to use the Advanced Security Information Model (ASIM) (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
 <a name="builtin"></a>You can find normalized, out-of-the-box content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing, custom content to use normalized data.
@@ -77,7 +75,7 @@ imDns(responsecodename='NXDOMAIN')
 
 The two options in the example [above](#sample-normalization-for-analytics-rules) are functionally identical. The normalized, source-agnostic version has the following differences:
 
-- The `_In_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
+- The `_Im_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
 
 - The normalized parsers fetch only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
 

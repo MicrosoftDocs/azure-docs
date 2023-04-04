@@ -1,18 +1,15 @@
 ---
-title: Azure Network Watcher Connection Monitor schemas | Microsoft Docs
-description: Understand the Tests data schema and the Path data schema of Azure Network Watcher Connection Monitor.
+title: Connection monitor schemas
+titleSuffix: Azure Network Watcher
+description: Understand the tests data schema and the path data schema of Azure Network Watcher connection monitor.
 services: network-watcher
-documentationcenter: na
-author: mjha
-manager: vinigam
-editor:
-
+author: halkazwini
 ms.service: network-watcher
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 07/05/2021
-ms.author: mjha
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 08/14/2021
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
 # Azure Network Watcher Connection Monitor schemas
@@ -36,7 +33,7 @@ Here are some benefits of Connection Monitor:
 * Support for connectivity checks that are based on HTTP, TCP, and ICMP 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
-There are two types of logs or data ingested into Log Analytics. The test data (NWConnectionMonitorTestResult query) is updated based on monitoring frequency of a particular test group. The path data (NWConnectionMonitorPathResult query) is updated when there is significant change in loss percentage or round-trip time. For some time durations, test data might keep getting updated while path data is not frequently updated, because both are independent.
+There are two types of logs or data ingested into Log Analytics. The test data (NWConnectionMonitorTestResult query) is updated based on the monitoring frequency of a particular test group. The path data (NWConnectionMonitorPathResult query) is updated when there is a significant change in loss percentage or round-trip time. For some time durations, test data might keep getting updated while path data is not frequently updated because both are independent.
 
 ## Connection Monitor Tests schema
 
