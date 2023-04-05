@@ -12,16 +12,16 @@ zone_pivot_groups: get-dev-box-support
 
 # Get support for Microsoft Dev Box
 
-Multiple channels are available for support in Microsoft Dev Box. The support channel you choose depends on your role and hence your access to existing Dev Box resources. 
 
-## 
+## Choose the correct channel to get help
 
+There are multiple channels available to give you help and support in Microsoft Dev Box. The support channel you choose depends on your role and hence your access to existing Dev Box resources. 
 
+To begin, make sure you've chosen your role at the beginning of this article.
 
 :::zone pivot="role-dev-infra-admin"
 
-### Urgent
-
+### [Urgent](#tab/Urgent/)
 #### Open an MS support ticket
 As an infrastructure administrator, you have access to dev box dev centers, and all other resources in the [Azure portal](https://portal.azure.com). 
 
@@ -29,8 +29,11 @@ If you have an issue that you cannot resolve, open a support request to contact 
 
 To learn more about support requests, refer to: [Create an Azure support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
-### Non-urgent
+
+### [Non-urgent](#tab/Non-urgent)
 [!INCLUDE [get-support-non-urgent](includes/get-support-non-urgent.md)]
+
+---
 
 :::zone-end
 
@@ -43,11 +46,13 @@ Some basic troubleshooting steps you can try include:
 •	If a developer can’t create a dev box from the desired project or pool, ensure they are assigned the Dev Box User role for the project.
 •	If a dev box can’t access network services, verify network connectivity for other devices. 
 
-### Urgent
+### [Urgent](#tab/Urgent/)
 If these basic troubleshooting steps do not resolve the issue, contact your Dev Box dev center administrator (typically a dev infrastructure administrator) or your internal support teams. 
 
-### Non-urgent
+### [Non-urgent](#tab/Non-urgent)
 [!INCLUDE [get-support-non-urgent](includes/get-support-non-urgent.md)]
+
+---
 
 :::zone-end
 
