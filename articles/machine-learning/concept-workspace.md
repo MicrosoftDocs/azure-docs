@@ -37,7 +37,7 @@ For machine learning teams, the workspace is a place to organize their work. To 
 
 ## What content is stored in a workspace?
 
-Your workspace keeps a history of all training runs, with logs, metrics, output, lineage metadata, and a snapshot of your scripts. When performing tasks in Azure Machine Learning, artifacts are generated. Their metadata and data are stored in the workspace and on its [associated resources](#associated-resources).  
+Your workspace keeps a history of all training runs, with logs, metrics, output, lineage metadata, and a snapshot of your scripts. As you perform tasks in Azure Machine Learning, artifacts are generated. Their metadata and data are stored in the workspace and on its [associated resources](#associated-resources).  
 
 ## Tasks performed within a workspace 
 
