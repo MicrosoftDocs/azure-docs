@@ -115,7 +115,7 @@ These sub resources are the main resources that are made in the Azure Machine Le
 
 ## Associated resources
 
-When you create a new workspace, you are required to bring a number of additional Azure resources to store your data:
+When you create a new workspace, you're required to bring other Azure resources to store your data:
 
 + [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
   
