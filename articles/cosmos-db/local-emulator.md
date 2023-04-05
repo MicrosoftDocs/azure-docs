@@ -291,7 +291,7 @@ Start the emulator from an administrator [command prompt](emulator-command-line-
     > [!NOTE]
     > For the remainder of these steps, we will assume that you installed the console to the `%ProgramFiles%\gremlin` folder.
 
-1. From the emulator's data explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
+1. From the emulator's data explorer create a database "db1" and a container "coll1"; for the partition key, choose "/name"
 
 1. Run the following commands in a regular command prompt window:
 
