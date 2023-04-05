@@ -13,7 +13,7 @@ ms.author: lajanuar
 
 <!-- markdownlint-disable MD051 -->
 <!-- markdownlint-disable MD024 -->
-
+<!-- markdownlint-disable MD029 -->
 
 # Tutorial: Configure a Microsoft Translator V3 connector
 
@@ -155,14 +155,7 @@ Now, we're ready to select an action.
 
 #### [Translate text](#tab/translate)
 
-Let's **Translate text**.
-
-#### [Transliterate text](#tab/transliterate)
-
-Let's **Transliterate text**.
-
----
-
+1. Select the **Translate text** action.
 1. Enter your Translator resource credentials:
 
    * **Connection name**. Enter a name for your connection.
@@ -174,19 +167,35 @@ Let's **Transliterate text**.
 
       :::image type="content" source="media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
 
-#### [Translate text](#tab/translate)
-
-1. Select the Translate text step
-1. In the **Translate text** step window select the **Source Language** or keep the default **Auto-detect** option.
+1. Next, the **Translate text** step window appears. 
+1. Select the **Source Language** or keep the default **Auto-detect** option.
 1. Select a **Target Language** from the dropdown window.
 1. Enter the **Body Text**.
 1. Select **Save**.
 
-      :::image type="content" source="media/connectors/translate-text-step.png" alt-text="Screenshot showing the translate text step.":::
+   :::image type="content" source="media/connectors/translate-text-step.png" alt-text="Screenshot showing the translate text step.":::
 
 #### [Transliterate text](#tab/transliterate)
 
+1. Select the **Transliterate text** action.
+1. Enter your Translator resource credentials:
 
+   * **Connection name**. Enter a name for your connection.
+   * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys.
+
+    :::image type="content" source="media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
+
+   * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
+
+      :::image type="content" source="media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
+
+1. Next the **Transliterate** step window appears.
+1. **Language**. Select the language of the text that is to be converted.
+1. **Source script**. Select the name of the input text script.
+1. **Target script**. Select the name of transliterated text script.
+1. Select **Save**.
+
+   :::image type="content" source="media/connectors/transliterate-text-step.png" alt-text="Screenshot showing the transliterate text step.":::
 
 ---
 
@@ -203,11 +212,18 @@ Let's **Transliterate text**.
 
       :::image type="content" source="media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
 
-* You should receive a "Your flow ran successfully" message and there will be a green checkmark next to each successful step.
+1. You should receive a "Your flow ran successfully" message and there will be a green checkmark next to each successful step.
 
    :::image type="content" source="media/connectors/successful-flow.png" alt-text="Screenshot of successful flow.":::
 
-* Select the **Translate text** step to view the full results:
+#### [Translate text](#tab/translate)
+
+3. Select the **Translate text** step to view the complete results:
 
    :::image type="content" source="media/connectors/translated-text-output.png" alt-text="Screenshot of translated text output.":::
 
+#### [Transliterate text](#tab/transliterate)
+
+3. Select the **Transliterate** step to view the complete results:
+
+   :::image type="content" source="media/connectors/transliterated-text-output.png" alt-text="Screenshot of transliterated text output.":::
