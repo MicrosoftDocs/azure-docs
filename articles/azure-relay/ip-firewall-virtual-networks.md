@@ -25,6 +25,18 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     3. If you want to allow Microsoft services trusted by the Azure Relay service to bypass this firewall, select **Yes** for **Allow trusted Microsoft services to bypass this firewall?**. 
   
         :::image type="content" source="./media/ip-firewall/selected-networks-trusted-access-disabled.png" alt-text="Screenshot showing the Public access tab of the Networking page with the Firewall enabled.":::
+
+    The following services are the trusted services for Azure Relay.
+    - Azure Event Grid
+    - Azure IoT Hub
+    - Azure Stream Analytics
+    - Azure Monitor
+    - Azure API Management
+    - Azure Synapse
+    - Azure Data Explorer
+    - Azure Healthcare APIs
+    - Azure Digital Twins
+    - Azure Arc
 1. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
 
