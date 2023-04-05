@@ -76,7 +76,11 @@
     - name: Workload profiles
       href: workload-profiles-overview.md
     - name: Dapr integration
-      href: dapr-overview.md
+      items:
+      - name: Dapr overview
+        href: dapr-overview.md
+      - name: Dapr FAQ
+        href: dapr-faq.yml
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
 - name: How-to guides
