@@ -169,7 +169,7 @@ items:
       - name: Apply for toll-free verification
         href: quickstarts/sms/apply-for-toll-free-verification.md
       - name: Enable alphanumeric sender ID
-        href: quickstarts/sms/enable-alphanumeric-senderID.md
+        href: quickstarts/sms/enable-alphanumeric-sender-id.md
     - name: Events
       items:
       - name: View SMS events
