@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: conceptual
-ms.date: 03/21/2023
+ms.date: 04/04/2023
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -113,6 +113,9 @@ In the example response, `finish_reason` equals `stop`. If `finish_reason` equal
 ## Embeddings
 Get a vector representation of a given input that can be easily consumed by machine learning models and other algorithms.
 
+> [!NOTE]
+> We currently do not support batching of embeddings into a single API call. If you receive the error `InvalidRequestError: Too many inputs. The max number of inputs is 1.  We hope to increase the number of inputs per request soon.`, this typically occurs when an array of embeddings is attempted to be passed as a batch rather than a single string. The string can be up to 8191 tokens in length when using the text-embedding-ada-002 (Version 2) model.
+
 **Create an embedding**
 
 ```http
@@ -136,7 +139,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| ```input```| string or array | Yes | N/A | Input text to get embeddings for, encoded as a string or array of tokens. To get embeddings for multiple inputs in a single request, pass an array of strings or array of token arrays. Each input must not exceed 2048 tokens in length. Currently we accept a max array of 1. <br> Unless you're embedding code, we suggest replacing newlines (\n) in your input with a single space, as we have observed inferior results when newlines are present.|
+| ```input```| string | Yes | N/A | Input text to get embeddings for, encoded as a string. The number of input tokens varies depending on what [model you are using](./concepts/models.md). <br> Unless you're embedding code, we suggest replacing newlines (\n) in your input with a single space, as we have observed inferior results when newlines are present.|
 | ```user``` | string | No | Null | A unique identifier representing for your end-user. This will help Azure OpenAI monitor and detect abuse. **Do not pass PII identifiers instead use pseudoanonymized values such as GUIDs** |
 
 #### Example request
