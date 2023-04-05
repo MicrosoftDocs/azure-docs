@@ -110,7 +110,9 @@ sudo rpm qa | grep nfs-utils
 ```bash
 sudo rpm qa | grep nfs-client
 ``` 
-# [Ubuntu/Debian](#tab/Ubuntu/Debian)
+# [Ubuntu](#tab/Ubuntu)
+
+Same commands on this section applies for Debian.
  
 ```bash
 sudo dpkg -l | grep -i nfs-common
@@ -142,8 +144,9 @@ sudo dnf install nfs-utils
 sudo zypper install nfs-client
 ```
 
-# [Ubuntu/Debian](#tab/Ubuntu/Debian)
+# [Ubuntu](#tab/Ubuntu)
 
+Same commands on this section applies for Debian.
 
 ```bash
 sudo apt update
