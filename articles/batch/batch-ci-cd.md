@@ -343,134 +343,153 @@ The [linked templates](/azure/azure-resource-manager/templates/linked-templates)
 
 The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
 
-1. Select **Pipelines** > **Releases** in the left navigation. > **Create a **New Release Definition**, then select an empty definition. Rename the newly created environment to something relevant for your pipeline.
+1. In your Azure DevOps project, select **Pipelines** > **Releases** in the left navigation.
 
-    ![Screenshot of the initial release pipeline.](media/batch-ci-cd/Release-0.jpg)
+1. On the **New release pipeline** page, select **Edit**.
 
-1. Create a dependency on the Build Pipeline to get the output for the HPC application.
+1. On the next screen, select the **New release pipeline** name and rename the pipeline to something relevant for your pipeline, such as *Deploy Azure Batch + Pool*.
 
-    > [!NOTE]
-    > Take note of the **Source Alias**, as this will be needed when tasks are created inside of the Release Definition.
+   ![Screenshot of the initial release pipeline.](media/batch-ci-cd/rename.png)
 
-    ![Screenshot showing an artifact link to the HPCApplicationPackage in the appropriate build pipeline.](media/batch-ci-cd/Release-1.jpg)
+1. Under **Artifacts**, select **Add**.
 
-1. Create a link to another artifact, this time, an Azure Repo. This is required to access the Resource Manager templates stored in your repository. As Resource Manager templates do not require compilation, you don't need to push them through a build pipeline.
+1. On the **Add an artifact** screen, select **Build** and then select your Build pipeline to to get the output for the HPC application.
 
-    > [!NOTE]
-    > Once again, note the **Source Alias**, as this will be needed later.
+   > [!NOTE]
+   > You can create a **Source alias** or accept the default. Take note of the **Source alias** value, as you need it to create tasks in the release definition.
 
-    ![Screenshot showing an artifact link to the Azure Repos.](media/batch-ci-cd/Release-2.jpg)
+   ![Screenshot showing an artifact link to the hpc-application package in the build pipeline.](media/batch-ci-cd/build-artifact.png)
 
-1. Navigate to the **variables** section. You'll want to create a number of variables in your pipeline so that you don't have to re-enter the same information into multiple tasks. This example uses the following variables:
+1. Select **Add**.
+
+1. On the pipeline page, select **Add** under **Artifacts** to create a link to another artifact, your Azure Repos repository. This link is required to access the ARM templates in your repository. ARM templates don't need compilation, so you don't need to push them through a build pipeline.
+
+   > [!NOTE]
+   > Again note the **Source alias** value to use later.
+
+    ![Screenshot showing an artifact link to the Azure Repos repository.](media/batch-ci-cd/repo-artifact.png)
+
+1. Select the **Variables** tab. Create the following variables in your pipeline so you don't have to re-enter the same information into multiple tasks.
 
    - **applicationStorageAccountName**: Name of the storage account that holds the HPC application binaries
    - **batchAccountApplicationName**: Name of the application in the Batch account
    - **batchAccountName**: Name of the Batch account
    - **batchAccountPoolName**: Name of the pool of VMs doing the processing
    - **batchApplicationId**: Unique ID for the Batch application
-   - **batchApplicationVersion**: Semantic version of your Batch application (that is, the ffmpeg binaries)
+   - **batchApplicationVersion**: Semantic version of your Batch application, the ffmpeg binaries)
    - **location**: Location for the Azure resources to be deployed
-   - **resourceGroupName**: Name of the resource group to be created, and where your resources will be deployed
-   - **storageAccountName**: Name of the storage account that holds the linked Resource Manager templates
+   - **resourceGroupName**: Name of the resource group where your resources are deployed
+   - **storageAccountName**: Name of the storage account that holds the linked ARM templates
 
-   ![Screenshot showing variables set for the Azure Pipelines release.](media/batch-ci-cd/Release-4.jpg)
+   ![Screenshot showing variables set for the Azure Pipelines release.](media/batch-ci-cd/variables.png)
 
-1. Navigate to the tasks for the Dev environment. In the below snapshot, you can see six tasks. These tasks will: download the zipped ffmpeg files, deploy a storage account to host the nested Resource Manager templates, copy those Resource Manager templates to the storage account, deploy the batch account and required dependencies, create an application in the Azure Batch Account and upload the application package to the Azure Batch Account.
+1. Select the **Tasks** tab.
 
-    ![Screenshot showing the tasks used to release the HPC Application to Azure Batch.](media/batch-ci-cd/Release-3.jpg)
+1. Create six tasks to:
+   - Download the zipped ffmpeg files.
+   - Deploy a storage account to host the nested ARM templates
+   - Copy the ARM templates to the Storage account.
+   - Deploy the Batch account and required dependencies.
+   - Create an application in the Batch account.
+   - Upload the application package to the Batch account.
 
-1. Add the **Download Pipeline Artifact (Preview)** task and set the following properties:
-    - **Display Name:** Download ApplicationPackage to Agent
-    - **The name of the artifact to download:** hpc-application
-    - **Path to download to**: $(System.DefaultWorkingDirectory)
+   For each new task, select the **+** symbol next to **Agent job** in the left pane. Search for and select the task in the right pane, configure the task, and then select **Add**.
 
-1. Create a Storage Account to store your Azure Resource Manager templates. An existing storage account from the solution could be used, but to support this self-contained sample and isolation of content, you'll make a dedicated storage account.
+   ![Screenshot showing the tasks used to release the HPC Application to Azure Batch.](media/batch-ci-cd/release-pipeline.png)
 
-    Add the **Azure Resource Group Deployment** task and set the following properties:
-    - **Display Name:** Deploy storage account for Resource Manager templates
-    - **Azure Subscription:** Select the appropriate Azure subscription
-    - **Action**: Create or update resource group
-    - **Resource Group**: $(resourceGroupName)
+1. Add the **Download Pipeline Artifacts** task and set the following properties:
+    - **Display name:** Download ApplicationPackage to Agent
+    - **Artifact name:** hpc-application
+    - **Destination directory**: $(System.DefaultWorkingDirectory)
+
+1. Create a Storage account to store your ARM templates. You could use an existing storage account from the solution, but to support this self-contained sample and isolation of content, make a dedicated storage account.
+
+    Add the **ARM Template deployment: Resource Group scope** task and set the following properties:
+    - **Display name:** Deploy storage account for ARM templates
+    - **Subscription:** Select the appropriate Azure subscription.
+    - **Action**: Create or update resource group.
+    - **Resource group**: $(resourceGroupName)
     - **Location**: $(location)
-    - **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
+    - **Template**: $(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json
     - **Override template parameters**: -accountName $(storageAccountName)
 
 1. Upload the artifacts from source control into the storage account by using Azure Pipelines. As part of this Azure Pipelines task, the storage account container URI and SAS Token can be outputted to a variable in Azure Pipelines, allowing them to be reused throughout this agent phase.
 
     Add the **Azure File Copy** task and set the following properties:
-    - **Source:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
-    - **Azure Connection Type**: Azure Resource Manager
-    - **Azure Subscription:** Select the appropriate Azure subscription
+    - **Source:** $(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/
+    - **Azure Subscription:** Select the appropriate Azure subscription.
     - **Destination Type**: Azure Blob
     - **RM Storage Account**: $(storageAccountName)
     - **Container Name**: templates
-    - **Storage Container URI**: templateContainerUri
-    - **Storage Container SAS Token**: templateContainerSasToken
 
-1. Deploy the orchestrator template. This template includes parameters for the storage account container URI and SAS token. The variables required in the Resource Manager template are either held in the variables section of the release definition, or were set from another Azure Pipelines task (for example, part of the Azure Blob Copy task).
+1. Deploy the orchestrator template. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are either held in the variables section of the release definition, or were set from another Azure Pipelines task, for example the AzureBlob File Copy task.
 
-    Add the **Azure Resource Group Deployment** task and set the following properties:
-    - **Display Name:** Deploy Azure Batch
-    - **Azure Subscription:** Select the appropriate Azure subscription
-    - **Action**: Create or update resource group
-    - **Resource Group**: $(resourceGroupName)
-    - **Location**: $(location)
-    - **Template**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
-    - **Override template parameters**: `-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)`
+   Add the **ARM Template deployment: Resource Group scope** task and set the following properties:
+   - **Display name:** Deploy Azure Batch
+   - **Subscription:** Select the appropriate Azure subscription.
+   - **Action**: Create or update resource group
+   - **Resource group**: $(resourceGroupName)
+   - **Location**: $(location)
+   - **Template**: $(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/deployment.json
+   - **Override template parameters**: -templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)
 
-   A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policies set, it can download secrets from an Azure Key Vault and be used as variables in your pipeline. The name of the secret will be set with the associated value. For example, a secret of sshPassword could be referenced with $(sshPassword) in the release definition.
+   A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policy set, it can download secrets from an Key Vault and be used as a variable in your pipeline. The name of the secret is set with the associated value. For example, you could reference a secret of **sshPassword** with *$(sshPassword)* in the release definition.
 
-1. The next steps call the Azure CLI. The first is used to create an application in Azure Batch and upload associated packages.
+1. The next task calls Azure CLI to create an application in Azure Batch and upload associated packages.
 
-    Add the **Azure CLI** task and set the following properties:
-    - **Display Name:** Create application in Azure Batch account
-    - **Azure Subscription:** Select the appropriate Azure subscription
-    - **Script Location**: Inline Script
-    - **Inline Script**: `az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)`
+   Add the **Azure CLI** task and set the following properties:
+   - **Display name:** Create application in Azure Batch account
+   - **Azure Resource Manager connection:** Select the appropriate Azure subscription
+   - **Script Location**: Inline script
+   - **Inline Script**: az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)
 
-1. The second step is used to upload associated packages to the application (in this case, the ffmpeg files).
+1. The next task calls Azure CLI to upload associated packages to the application, in this case, the ffmpeg files.
 
-    Add the **Azure CLI** task and set the following properties:
-    - **Display Name:** Upload package to Azure Batch account
-    - **Azure Subscription:** Select the appropriate Azure subscription
-    - **Script Location**: Inline Script
-    - **Inline Script**: `az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip`
+   Add the **Azure CLI** task and set the following properties:
+   - **Display name:** Upload package to Azure Batch account
+   - **Azure Subscription:** Select the appropriate Azure subscription
+   - **Script Location**: Inline Script
+   - **Inline Script**: az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip
 
-    > [!NOTE]
-    > The version number of the application package is set to a variable. This allows overwriting previous versions of the package and lets you manually control the version number of the package pushed to Azure Batch.
+   > [!NOTE]
+   > The version number of the application package is set to a variable. This allows overwriting previous versions of the package and lets you manually control the package version pushed to Azure Batch.
 
-1. Create a new release by selecting **Release** > **Create a new release**. Once you trigger the release, select the link to your new release to view the status.
+1. When you finish creating all the steps, select **Save** at the top of the pipeline page, and then select **OK**.
 
-1. View the live output from the agent by selecting the **Logs** button underneath your environment.
+1. Select **Release** at the top of the page, and then select **Create** on the **Create a new release** screen.
 
-   ![Screenshot showing status of the release.](media/batch-ci-cd/Release-5.jpg)
+1. To view the release status, select the link to the new release at the top of the pipeline page.
+
+1. To view the live output from the agent, select the **Logs** button underneath your environment.
+
+   ![Screenshot showing status of the release.](media/batch-ci-cd/release.png)
 
 ## Test the environment
 
-Once the environment is set up, confirm the following tests can be completed successfully.
+Once the environment is set up, confirm that the following tests run successfully.
 
-Connect to the new Azure Batch Account, using the Azure CLI from a PowerShell command prompt.
+Connect to the new Batch account by using Azure CLI from a command prompt.
 
-- Sign in to your Azure account with `az login` and follow the instructions to authenticate.
-- Now authenticate the Batch account: `az batch account login -g <resourceGroup> -n <batchAccount>`
+1. Sign in to your Azure account with `az login` and follow the instructions to authenticate.
+1. Authenticate the Batch account with `az batch account login -g <resourceGroup> -n <batchAccount>`.
 
 #### List the available applications
 
 ```azurecli
-az batch application list -g <resourcegroup> -n <batchaccountname>
+az batch application list -g <resourceGroup> -n <batchAccount>
 ```
 
-#### Check the pool is valid
+#### Check that the pool is valid
 
 ```azurecli
 az batch pool list
 ```
 
-Note the value of `currentDedicatedNodes` from the output of this command. This value is adjusted in the next test.
+In the command output, note the value of `currentDedicatedNodes` to adjust in the next test.
 
 #### Resize the pool
 
-Resize the pool so there are compute nodes available for job and task testing, check with the pool list command to see the current status until the resizing has completed and there are available nodes
+Resize the pool so there are compute nodes available for job and task testing. Check status by running the `pool list` command until the resizing completes and there are available nodes.
 
 ```azurecli
 az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
