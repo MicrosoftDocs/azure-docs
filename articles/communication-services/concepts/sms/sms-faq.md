@@ -56,28 +56,28 @@ Below is a list with examples of common URL shorteners you should avoid to maxim
 - budurl.com
 - bc.vc
 
-## Opt out handling
-### How does Azure Communication Services handle optouts for toll-free numbers?
+## Opt-out handling
+### How does Azure Communication Services handle opt outs for toll-free numbers?
 
 Opt outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden. 
 - **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop", which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
 - **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP’ to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”*
 - Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
-- The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
+- The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
-### How does Azure Communication Services handle opt-outs for short codes?
-Azure communication service offers an opt out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you are asked for your preference to manage opt outs. If you opt in to use it, the opt out management service automatically uses your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
+### How does Azure Communication Services handle opt outs for short codes?
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you are asked for your preference to manage opt outs. If you opt-in to use it, the opt out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword. 
 
 *Example:* 
 - **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
-- **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send ‘START’ to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt out.”*
+- **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send ‘START’ to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
 - **HELP** - If the recipient wishes to get help with your service, they can send 'HELP' to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *"Thanks for texting Contoso! Call 1-800-800-8000 for support."*
 
-Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
+Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
-### How does Azure Communication Services handle opt-outs for alphanumeric sender ID?
+### How does Azure Communication Services handle opt outs for alphanumeric sender ID?
 
-Alphanumeric sender ID is not capable of receiving inbound messages or STOP messages. Azure Communication Services does not enforce or manage opt-out lists for alphanumeric sender ID. You must provide customers with instructions to opt out using other channels such as, calling support, providing an opt out link in the message, or emailing support. See [messaging policy guidelines](./messaging-policy.md#how-we-handle-opt-out-requests-for-sms) for further details.
+Alphanumeric sender ID is not capable of receiving inbound messages or STOP messages. Azure Communication Services does not enforce or manage opt out lists for alphanumeric sender ID. You must provide customers with instructions to opt out using other channels such as, calling support, providing an opt out link in the message, or emailing support. See [messaging policy guidelines](./messaging-policy.md#how-we-handle-opt-out-requests-for-sms) for further details.
 
 ## Short codes
 ### What is the eligibility to apply for a short code?
@@ -105,7 +105,7 @@ Once you have submitted the short code program brief application in the Azure po
     - Special characters: *+* , *-* ,  _ , &
 
 ### Is a number purchase required to use alphanumeric sender ID?
-The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-sender-id.md) for instructions.
+The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-senderID.md) for instructions.
 
 ### Can I send SMS immediately after enabling alphanumeric sender ID?
 We recommend waiting for 10 minutes before you start sending messages for best results.

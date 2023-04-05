@@ -29,7 +29,7 @@ To enable alphanumeric sender ID, go to your Communication Services resource on 
 ## Enable alphanumeric sender ID
 Navigate to the Alphanumeric Sender ID blade in the resource menu and click on "Enable Alphanumeric Sender ID" button to enable alphanumeric sender ID service. If the enable button is not available for your subscription and your [subscription address](../../concepts/numbers/sub-eligibility-number-capability.md) is supported for alphanumeric sender ID, [create a support ticket](https://aka.ms/ACS-Support).
 
-:::image type="content" source="./media/enable-alphanumeric-senderid/enable-alphanumeric-sender-id.png"alt-text="Screenshot showing an Alphanumeric senderID blade.":::
+:::image type="content" source="./media/enable-alphanumeric-sender-id/enable-alphanumeric-sender-id.png"alt-text="Screenshot showing an Alphanumeric senderID blade.":::
 
 ## Next steps
 
