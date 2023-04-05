@@ -72,8 +72,6 @@ items:
       href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
       href: quickstarts/sms/send.md
-    - name: Send an SMS in Azure Logic Apps
-      href: quickstarts/sms/logic-app.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
   - name: Voice and Video
@@ -116,8 +114,6 @@ items:
         href: quickstarts/identity/access-tokens.md
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md 
-      - name: Send Chat messages in Azure Logic Apps
-        href: quickstarts/chat/logic-app.md
     - name: Connect to Teams
       items:
       - name: Use an external identity
@@ -148,6 +144,8 @@ items:
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
+    - name: Add multiple sender addresses
+      href: quickstarts/email/add-multiple-senders.md
     - name: Send an email in Azure Logic Apps
       href: quickstarts/email/logic-app.md
   - name: Network Traversal
@@ -516,6 +514,8 @@ items:
       href: concepts/voice-video-calling/call-recording.md
     - name: Media access
       href: concepts/voice-video-calling/media-access.md
+    - name: Video constraints
+      href: concepts/voice-video-calling/video-constraints.md
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
     - name: Events

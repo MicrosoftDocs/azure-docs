@@ -3,11 +3,12 @@ title: Azure Confidential virtual machine options on AMD processors
 description: Azure Confidential Computing offers multiple options for confidential virtual machines that run on AMD processors backed by SEV-SNP technology.
 author: mamccrea
 ms.author: mamccrea
+ms.reviewer: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 3/29/2023
 ---
 
 # Azure Confidential VM options on AMD
@@ -58,7 +59,7 @@ Consider the following settings and choices before deploying confidential VMs.
 
 ### Azure subscription
 
-To deploy a confidential VM instance, consider a pay-as-you-go subscription or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
+To deploy a confidential VM instance, consider a [pay-as-you-go subscription](/azure/virtual-machines/linux/azure-hybrid-benefit-linux) or other purchase option. If you're using an [Azure free account](https://azure.microsoft.com/free/), the quota doesn't allow the appropriate number of Azure compute cores.
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
@@ -113,3 +114,4 @@ Make sure to specify the following properties for your VM in the parameters sect
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM on AMD from the Azure portal](quick-create-confidential-vm-portal-amd.md)
+

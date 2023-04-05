@@ -796,17 +796,14 @@
         href: ./linux/tutorial-secure-web-server.md
     - name: Windows
       items:
-      - name: Specialized disk - Portal
-        displayName: Create VM, Create
-        href: ./windows/create-vm-specialized-portal.md
-      - name: Specialized disk - PowerShell
-        displayName: Create VM, Create
-        href: ./windows/create-vm-specialized.md
       - name: ARM template
         displayName: Create VM, Create, ARM
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
+    - name: Create from an existing OS disk or VHD
+      displayName: attach
+      href: attach-os-disk.md
   - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines

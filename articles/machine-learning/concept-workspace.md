@@ -11,6 +11,7 @@ ms.author: deeikele
 author: deeikele
 ms.reviewer: sgilley
 ms.date: 03/13/2023
+monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -47,7 +48,12 @@ The following constructs you can find and manage within the workspace boundary.
 + [Pipelines](concept-ml-pipelines.md) are reusable workflows for training and retraining your model.
 + [Data assets](concept-data.md) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
+:::moniker range="azureml-api-2"
 + Use the registered model and a scoring script to create an [online endpoint](concept-endpoints.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
++ Use the registered model and a scoring script to [deploy the model](./v1/how-to-deploy-and-where.md)
+:::moniker-end
 
 ## Tools for workspace interaction
 
@@ -56,8 +62,14 @@ You can interact with your workspace in the following ways:
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
-+ In any Python environment with the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
-+ On the command line using the Azure Machine Learning [CLI extension](how-to-configure-cli.md)
+:::moniker range="azureml-api-2"
++ In any Python environment with the [Azure Machine Learning SDK v2 for Python](https://aka.ms/sdk-v2-install).
++ On the command line using the Azure Machine Learning [CLI extension v2](how-to-configure-cli.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
++ In any Python environment with the [Azure Machine Learning SDK v1 for Python](/python/api/overview/azure/ml/)
++ On the command line using the Azure Machine Learning [CLI extension v1](./v1/reference-azure-machine-learning-cli.md)
+:::moniker-end
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
 ## Workspace management
@@ -81,7 +93,12 @@ There are multiple ways to create a workspace:
 * Use [Azure Machine Learning studio](quickstart-create-resources.md) to quickly create a workspace with default settings.
 * Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more options. 
 * Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks.
+:::moniker range="azureml-api-2"
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
+:::moniker-end
+:::moniker range="azureml-api-1"
+* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
+:::moniker-end
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
@@ -110,8 +127,13 @@ When you create a new workspace, you are required to bring a number of additiona
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR): When you build custom docker containers via Azure Machine Learning. For example in the following scenarios:
     * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
+    :::moniker range="azureml-api-2"
     * [AutoML](concept-automated-ml.md) when deploying
+    :::moniker-end
+    :::moniker range="azureml-api-1"
+    * [AutoML](./v1/concept-automated-ml-v1.md) when deploying
     * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
+    :::moniker-end
 
     > [!NOTE] 
     > Workspaces can be created without Azure Container Registry as a dependency if you do not have a need to build custom docker containers. To read container images, Azure Machine Learning also works with external container registries. Azure Container Registry is automatically provisioned when you build customer docker images. Use Azure RBAC to prevent customer docker containers from being build. 
@@ -119,7 +141,10 @@ When you create a new workspace, you are required to bring a number of additiona
     > [!NOTE]
     > If your subscription setting requires adding tags to resources under it, Azure Container Registry (ACR) created by Azure Machine Learning will fail, since we cannot set tags to ACR.
 
-+ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring and diagnostics information. For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
++ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring and diagnostics information. 
+    :::moniker range="azureml-api-2"
+    For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+    :::moniker-end
 
     > [!NOTE]
     > You can delete the Application Insights instance after cluster creation if you want. Deleting it limits the information gathered from the workspace, and may make it more difficult to troubleshoot problems. __If you delete the Application Insights instance created by the workspace, you cannot re-create it without deleting and recreating the workspace__.

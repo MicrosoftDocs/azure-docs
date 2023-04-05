@@ -8,9 +8,9 @@ manager: mtillman
 ms.service: virtual-network
 ms.topic: sample
 ms.workload: infrastructure
+ms.custom: devx-track-azurepowershell
 ms.date: 07/15/2019
 ms.author: allensu
-
 ---
 # Azure PowerShell samples for virtual network
 

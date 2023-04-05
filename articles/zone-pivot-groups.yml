@@ -1098,6 +1098,42 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-azcli-js-csharp-java-python-swift-android-power-platform
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-android
+    title: Android
+  - id: programming-language-power-platform
+    title: Power Platform
+- id: acs-azcli-js-csharp-java-python-power-platform
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-power-platform
+    title: Power Platform
 - id: acs-azcli-js-csharp-java-python-swift-android
   title: Programming languages
   prompt: Choose a programming language
@@ -1869,6 +1905,15 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: cshoe
+- id: arm-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-resource-manager
+    title: ARM template
 # Owner: cebundy
 - id: container-apps-interface-types
   title: Interaction type
@@ -1901,10 +1946,21 @@ groups:
   title: Azure Spring Apps tier
   prompt: Select an Azure Spring Apps tier
   pivots:
-  - id: sc-standard-tier
-    title: Basic/Standard tier
-  - id: sc-enterprise-tier
-    title: Enterprise tier
+  - id: sc-standard
+    title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
+# Owner: karler
+- id: spring-apps-plan-selection
+  title: Azure Spring Apps plan
+  prompt: Select an Azure Spring Apps plan
+  pivots:
+  - id: sc-consumption-plan
+    title: Standard consumption (Preview)
+  - id: sc-standard
+    title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)
@@ -1995,7 +2051,7 @@ groups:
   - id: msgraph-powershell
     title: Microsoft graph PowerShell
   - id: ms-graph
-    title: Microsoft Graph  
+    title: Microsoft Graph
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
@@ -2023,6 +2079,15 @@ groups:
     title: Cloud build
   - id: docker-local
     title: Local build (requires Docker)
+# Owner: cebundy
+- id: container-apps-image-build-from-repo
+  title: Container GitHub and local build methods
+  prompt: Choose your source location
+  pivots:
+  - id: github-build
+    title: GitHub build
+  - id: local-build
+    title: Local build
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal
@@ -2121,6 +2186,15 @@ groups:
     title: Recovery Services vault
   - id: vaults-backup-vault
     title: Backup vault
+# Owner: robswain
+- id: ase-pro-version
+  title: Azure Stack Edge Pro 2 or Azure Stack Edge Pro
+  prompt: Choose your Azure Stack Edge Pro version
+  pivots:
+  - id: ase-pro-2
+    title: ASE Pro 2
+  - id: ase-pro-gpu
+    title: ASE Pro
 # Owner: rolyon
 - id: app-provisioning-cross-tenant-synchronization
   title: Application provisioning or cross-tenant synchronization
