@@ -41,15 +41,15 @@ To get started, export the ARM template for the Azure load testing resource and 
 
 1. Export the ARM template that contains settings and information for your Azure Load Testing resource by following the steps mentioned [here](../azure-resource-manager/templates/export-template-portal.md).
 
-    :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/load-testing-export-arm-template.png" alt-text="Screenshot that shows the ARM template to export an Azure load testing resource in the Azure portal.":::
+    :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/load-testing-export-arm-template.png" alt-text="Screenshot that shows the ARM template to export an Azure load testing resource in the Azure portal." lightbox="media/how-to-move-an-azure-load-testing-resource/load-testing-export-arm-template.png":::
 
 1. Download the input artifacts for each existing test in the resource:
 
     1. Navigate to the **Tests** section for the load testing resource.
     
-    1. Select the test name to go to the list of test runs. 
+    1. Select the test name to go to the list of test runs.
     
-    1. Select **...**, and then select **Download input file** for a test run.
+    1. Select the ellipsis (**...**) for a test run, and then select **Download input file**.
     
         The browser should now start downloading a zipped folder that contains all input files for the test, such as the [test configuration YAML file](./reference-test-config-yaml.md), the JMeter script, and any configuration or data files.
         
