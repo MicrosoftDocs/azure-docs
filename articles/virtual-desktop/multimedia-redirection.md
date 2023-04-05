@@ -3,14 +3,14 @@ title: Use multimedia redirection on Azure Virtual Desktop - Azure
 description: How to use multimedia redirection on Azure Virtual Desktop.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 04/11/2023
 ms.author: daknappe
 manager: femila
 ---
 # Use multimedia redirection on Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Azure Virtual Desktop webRTC-based calls are currently in PREVIEW.
+> Multimedia Redirection Call Redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article will show you how to use multimedia redirection (MMR) for Azure Virtual Desktop with Microsoft Edge or Google Chrome browsers. For more information about how multimedia redirection works, see [Understanding multimedia redirection for Azure Virtual Desktop](multimedia-redirection-intro.md).
@@ -29,7 +29,7 @@ Before you can use multimedia redirection on Azure Virtual Desktop, you'll need 
 
 To use MMR video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
 
-To use MMR WebRTC calling redirection, you must install the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
+To use MMR WebRTC call redirection, you must install the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
 
 ## Install the multimedia redirection extension
 
@@ -157,11 +157,11 @@ You can install the multimedia redirection extension using Group Policy, either 
 
 ---
 
-### Configure the Remote Desktop client for WebRTC calling redirection (preview)
+## Configure call redirection (preview) for the Remote Desktop client only
 
-If you want to test the WebRTC calling redirection (preview) feature, you'll need to configure the Remote Desktop client to use Insider features, then enable the feature.
+If you want to test the MMR call redirection (preview) feature, you first need to configure the Remote Desktop client to use Insider features, then enable the feature. You won't be able to use the feature unless you have Insider features enabled.
 
-To enable Insider features, on your client device:
+To enable Insider features, follow these instructions on your client device:
 
 1. Create a registry key with the following values:
    
@@ -179,9 +179,9 @@ Once you've installed the extension, you can check its status by visiting a webs
 
 ### Features supported on current page
 
-To find out what kinds of redirections are enabled on the webpage you're visiting, you can open up the extension menu and look for the section named **Features supported on this website**. If a feature is currently enabled, you'll see a green check mark next to it, as shown in the following screenshot.
+To find out what kinds of redirections are enabled on the webpage you're visiting, you can open up the extension menu and look for the section named **Features supported on current page**. If a feature is currently enabled, you'll see a green check mark next to it, as shown in the following screenshot.
 
-:::image type="content" source="./media/extension-menu-enabled.png" alt-text="A screenshot of the MMR extension menu. Both video playback redirection and calling redirection are enabled, shown by a green circle with a white check mark inside next to each of them.":::
+:::image type="content" source="./media/extension-menu-enabled.png" alt-text="A screenshot of the MMR extension menu. Both video playback redirection and call redirection are enabled, shown by a green circle with a white check mark inside next to each of them.":::
 
 ## Teams live events
 
@@ -231,17 +231,17 @@ When you enable video status overlay, you'll see a short message at the top of t
 
 1. Toggle **Video Status Overlay** to **on**. You'll need to refresh the webpage for the change to take effect.
 
-## Enable WebRTC calling redirection
+## Enable WebRTC call redirection for all sites
 
-Multimedia redirection is currently limited to the web apps listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. If you're using a listed calling app with an internal URL, you must turn the **Enable WebRTC for all sites** setting on to use WebRTC calling redirection in your deployment. You can also enable calling redirection for all sites to test the feature with web apps that aren't officially supported yet.
+Multimedia redirection is currently limited to the web apps listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection) by default. If you're using a listed calling app with an internal URL, you must turn the **Enable WebRTC for all sites** setting on to use WebRTC call redirection in your deployment. You can also enable call redirection for all sites to test the feature with web apps that aren't officially supported yet.
 
-To enable calling redirection for all sites:
+To enable call redirection for all sites:
 
 1.	On your client device, create a registry key with the following values:
 
-   - **Key**: HKLM\Software\Microsoft\Terminal Server Client 
+   - **Key**: HKCU\Software\Microsoft\MMR
    - **Type**: REG_DWORD 
-   - **Name**: AllowWebRTCRedirectAllSites 
+   - **Name**: AllowCallRedirectionAllSites 
 
 1. Set the key's value to **1**.
 
@@ -249,7 +249,7 @@ To enable calling redirection for all sites:
 
 2. Select **Show Advanced Settings**.
 
-3. Toggle **Enable WebRTC for all sites (beta)** on.
+3. Toggle **Enable call redirection for all sites (experimental)** on.
 
 ## Next steps
 

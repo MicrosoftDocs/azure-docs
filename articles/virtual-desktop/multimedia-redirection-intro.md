@@ -3,14 +3,14 @@ title: Understanding multimedia redirection on Azure Virtual Desktop - Azure
 description: An overview of multimedia redirection on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/07/2023
+ms.date: 04/11/2023
 ms.author: helohr
 manager: femila
 ---
 # Understanding multimedia redirection for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Multimedia Redirection WebRTC redirected calls are currently in PREVIEW.
+> Multimedia Redirection Call Redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Multimedia redirection (MMR) gives you smooth video playback and clear audio calls in a browser in Azure Virtual Desktop. Multimedia redirection redirects the media content from Azure Virtual Desktop to your local machine for faster processing and rendering. Both Microsoft Edge and Google Chrome support this feature.
@@ -18,7 +18,7 @@ Multimedia redirection (MMR) gives you smooth video playback and clear audio cal
 MMR also has two key features:
 
 - Video playback redirection, which optimizes video playback experience for streaming sites and websites with embedded videos like YouTube and Facebook. For more information about which sites are compatible with this feature, see [Video playback redirection](#video-playback-redirection).
-- WebRTC calling redirection (preview), which optimizes audio calls for WebRTC-based calling apps like Content Guru Storm. For more information about which sites are compatible with this feature, see [WebRTC call redirection](#webrtc-call-redirection).
+- WebRTC call redirection (preview), which optimizes audio calls for WebRTC-based calling apps like Content Guru Storm. For more information about which sites are compatible with this feature, see [Call redirection](#call-redirection).
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In order to use MMR for Azure Virtual Desktop, you need:
 
 To use MMR video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
 
-To use MMR WebRTC calling redirection, you must install the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
+To use MMR WebRTC call redirection, you must install the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
 
 <!--Which version?-->
 
@@ -91,9 +91,9 @@ The following sites work with video playback redirection:
    :::column-end:::
 :::row-end:::
 
-### WebRTC calling redirection
+### Call redirection
 
-The following sites work with webRTC calling redirection:
+The following sites work with call redirection:
 
 - WebRTC Sample Site 
 - Content Guru Storm 
@@ -114,7 +114,7 @@ To quickly tell if multimedia redirection is active in your browser, we've added
 | :::image type="content" source="./media/mmr-extension-playback.png" alt-text="The MMR extension icon with a green square with a play button icon inside of it, indicating that multimedia redirection is working."::: | The green square with a play button icon inside of it means that the extension is currently redirecting video playback. |
 | :::image type="content" source="./media/mmr-extension-webrtc.png" alt-text="The MMR extension icon with a green square with telephone icon inside of it, indicating that multimedia redirection is working."::: | The green square with a phone icon inside of it means that the extension is currently redirecting a WebRTC call. This icon also appears when the service is redirecting both video playback and calls at the same time. |
 
-Selecting the icon in your browser will display a pop-up menu where it lists the features supported on the current page, you can select to enable or disable video playback redirection and WebRTC calling redirection on all websites and collect logs. It also lists the version numbers for each component of the service.
+Selecting the icon in your browser will display a pop-up menu where it lists the features supported on the current page, you can select to enable or disable video playback redirection and WebRTC call redirection on all websites and collect logs. It also lists the version numbers for each component of the service.
 
 You can use the icon to check the status of the extension by following the directions in [Check the extension status](multimedia-redirection.md#check-the-extension-status).
 

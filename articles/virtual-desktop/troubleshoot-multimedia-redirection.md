@@ -3,14 +3,14 @@ title: Troubleshoot Multimedia redirection on Azure Virtual Desktop - Azure
 description: Known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 02/07/2023
+ms.date: 04/11/2023
 ms.author: helohr
 manager: femila
 ---
 # Troubleshoot multimedia redirection for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> Azure Virtual Desktop webRTC-based calls are currently in PREVIEW.
+> Multimedia Redirection Call Redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 >[!NOTE]
@@ -20,7 +20,7 @@ manager: femila
 >
 >Multimedia redirection video playback redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 > 
->Multimedia redirection WebRTC calling redirection (preview) on Azure Virtual Deskto pis only available for the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
+>Multimedia redirection call redirection (preview) on Azure Virtual Deskto pis only available for the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
 
 This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop.
 
@@ -28,13 +28,13 @@ This article describes known issues and troubleshooting instructions for multime
 
 The following issues are ones we're already aware of, so you won't need to report them:
 
-- In the first browser tab a user opens, the extension pop-up might show a message that says, "The extension is not loaded", or a message that says video playback or calling redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
+- In the first browser tab a user opens, the extension pop-up might show a message that says, "The extension is not loaded", or a message that says video playback or call redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
 
 - Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md). Any other clients, such as the web client, don't support multimedia redirection. Clients on any other non-Windows platforms, such as the macOS, iOS, Android, or Linux clients, don't support multimedia redirection.
 
 - Multimedia redirection won't work as expected if the VMs in your deployment are blocking cmd.exe.
   
-- Multimedia redirection is disabled by default on all sites except for the ones listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection features for all websites by following the directions in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites) and [Enable calling redirection for all sites](multimedia-redirection.md#enable-webrtc-calling-redirection). We added the option to enable multimedia redirection on sites that aren't officially supported so organizations can test the feature on their company websites.
+- Multimedia redirection is disabled by default on all sites except for the ones listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection features for all websites by following the directions in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites) and [Enable call redirection for all sites](multimedia-redirection.md#enable-webrtc-call-redirection). We added the option to enable multimedia redirection on sites that aren't officially supported so organizations can test the feature on their company websites.
 
 ### The MSI installer doesn't work
 
@@ -55,11 +55,13 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - If you access a video site, sometimes the video will remain in a loading or buffering state but never actually start playing. We're aware of this issue and are currently investigating it. For now, you can make videos load again by signing out of Azure Virtual Desktop and restarting your session.
 
-### WebRTC call redirection
+### Call redirection
 
-- Calling redirection only works for WebRTC-based audio calls on the sites listed in [WebRTC call redirection](multimedia-redirection-intro#webrtc-call-redirection).
+- Call redirection only works for WebRTC-based audio calls on the sites listed in [Call redirection](multimedia-redirection-intro#call-redirection).
 
-- When disconnecting from a remote session, calling redirection might stop working. You can make redirection start working again by refreshing the webpage.
+- When disconnecting from a remote session, call redirection might stop working. You can make redirection start working again by refreshing the webpage.
+
+- If you enabled the **Enable video playback for all sites** setting in the MMR extension pop-up and see issues on a supported WebRTC audio calling site, disable the setting and try again.
 
 ## Log collection
 
