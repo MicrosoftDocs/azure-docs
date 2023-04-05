@@ -12,7 +12,7 @@ Now you can associate applications with the user flow. Associating your user flo
 
 1. Select **External Identities**, then **User flows**.
 
-1. Select the self-service sign-up user flow that you created from the list, for example, *SignInSignUpSample*
+1. Select the self-service sign-up user flow that you created earlier from the list, for example, *SignInSignUpSample*.
 
 1. Under **Use**, select **Applications**.
 
