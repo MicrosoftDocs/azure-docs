@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/27/2023
+ms.date: 04/04/2023
 ms.author: jasteppe
 ---
 
@@ -112,7 +112,7 @@ In this article, you learned about the MedTech service and its capabilities.
 To learn about how the MedTech service processes device messages, see
 
 > [!div class="nextstepaction"]
-> [Understand the MedTech service device message data transformation](understand-service.md)
+> [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md)
 
 To learn about the different deployment methods for the MedTech service, see
 
