@@ -23,31 +23,31 @@ This article provides architectural best practices for Azure. The guidance is ba
 ## Reliability
 
 
-[!INCLUDE [waf-app-reliability](waf-app-reliability.md)]
+[!INCLUDE [../includes/[waf-app-reliability](waf-app-reliability.md)]
 
 
 ## Security
 
 
-[!INCLUDE [waf-app-security](waf-app-security.md)]
+[!INCLUDE [../includes/[waf-app-security](waf-app-security.md)]
 
 
 ## Cost optimization
 You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
-[!INCLUDE [waf-app-cost](waf-app-cost.md)]
+[!INCLUDE [../includes/[waf-app-cost](waf-app-cost.md)]
 
 
 ## Operational excellence
 
 
-[!INCLUDE [waf-app-operation](waf-app-operation.md)]
+[!INCLUDE [../includes/[waf-app-operation](waf-app-operation.md)]
 
 
 ## Performance efficiency
 
 
-[!INCLUDE [waf-app-performance](waf-app-performance.md)]
+[!INCLUDE [../includes/[waf-app-performance](waf-app-performance.md)]
 
 ## Next step
 

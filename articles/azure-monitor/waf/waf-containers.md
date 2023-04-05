@@ -23,31 +23,31 @@ This article provides architectural best practices for monitoring containers in 
 ## Reliability
 
 
-[!INCLUDE [waf-containers-reliability](waf-containers-reliability.md)]
+[!INCLUDE [../includes/[waf-containers-reliability](waf-containers-reliability.md)]
 
 
 ## Security
 
 
-[!INCLUDE [waf-containers-security](waf-containers-security.md)]
+[!INCLUDE [../includes/[waf-containers-security](waf-containers-security.md)]
 
 
 ## Cost optimization
 You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
-[!INCLUDE [waf-containers-cost](waf-containers-cost.md)]
+[!INCLUDE [../includes/[waf-containers-cost](waf-containers-cost.md)]
 
 
 ## Operational excellence
 
 
-[!INCLUDE [waf-containers-operation](waf-containers-operation.md)]
+[!INCLUDE [../includes/[waf-containers-operation](waf-containers-operation.md)]
 
 
 ## Performance efficiency
 
 
-[!INCLUDE [waf-containers-performance](waf-containers-performance.md)]
+[!INCLUDE [../includes/[waf-containers-performance](waf-containers-performance.md)]
 
 ## Next step
 
