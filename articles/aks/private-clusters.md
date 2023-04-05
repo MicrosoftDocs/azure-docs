@@ -41,7 +41,7 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 
 ### Create a resource group
 
-Create a resource group using the[`az group create`][az-group-create] command. You can also use an existing resource group for your AKS cluster.
+Create a resource group using the [`az group create`][az-group-create] command. You can also use an existing resource group for your AKS cluster.
 
 ```azurecli-interactive
 az group create -l eastus -n myResourceGroup
@@ -177,7 +177,7 @@ Virtual network peering is one way to access your private cluster. To use virtua
 > Conditional Forwarding doesn't support subdomains.
 
 > [!NOTE]
-> If you're using [bring your own route table with kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) and bring your own DNS with private clusters, the cluster creation will fail. You need to associate the [``RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed to make the creation successful.
+> If you're using [bring your own route table with kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) and bring your own DNS with private clusters, the cluster creation will fail. You need to associate the [`RouteTable`](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed to make the creation successful.
 
 ## Use a private endpoint connection
 
@@ -205,18 +205,18 @@ Create a private endpoint resource in your VNet:
   > [!IMPORTANT]
   > Check that the region selected is the same as the virtual network where you want to connect from, otherwise you won't see your virtual network in the **Configuration** tab.
 
-1. Select **Next: Resource** and set up the following options:
+6. Select **Next: Resource** and set up the following options:
    * **Connection method**: Select *Connect to an Azure resource in my directory.*
    * **Subscription**: Select the subscription where your private cluster is located.
    * **Resource type**: Select *Microsoft.ContainerService/managedClusters*.
    * **Resource**: Select your private cluster.
    * **Target sub-resource**: Select *management*.
-2. Select **Next: Virtual Network** and set up the following options:
+7. Select **Next: Virtual Network** and set up the following options:
    * **Networking**:
      * **Virtual network**: Select your virtual network.
      * **Subnet**: Select your subnet.
-3. Select **Next: DNS** > **Next: Tags** and (optionally) set up key-values as needed.
-4.  Select **Next: Review + create** > **Create**.
+8. Select **Next: DNS** > **Next: Tags** and (optionally) set up key-values as needed.
+9. Select **Next: Review + create** > **Create**.
 
 Once the resource is created, record the private IP address of the private endpoint for future use.
 
