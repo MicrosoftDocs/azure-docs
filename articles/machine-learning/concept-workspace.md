@@ -31,7 +31,7 @@ For machine learning teams, the workspace is a place to organize their work. To 
 + **Use [user roles](how-to-assign-roles.md)** for permission management in the workspace between users. For example a data scientist, a machine learning engineer or an admin.
 + **Assign access to user groups**: By using Azure Active Directory user groups, you don't have to add individual users to each workspace and other resources the same group of users requires access to.
 + **Create a workspace per project**: While a workspace can be used for multiple projects, limiting it to one project per workspace allows for cost reporting accrued to a project level. It also allows you to manage configurations like datastores in the scope of each project.
-+ **Share Azure resources**: Workspaces require you to create a number of [associated resources](#associated-resources). Share these resources between workspaces to save repetitive set up steps.
++ **Share Azure resources**: Workspaces require you to create several [associated resources](#associated-resources). Share these resources between workspaces to save repetitive setup steps.
 + **Enable self-serve**: Pre-create and secure [associated resources](#associated-resources) as an IT admin, and use [user roles](how-to-assign-roles.md) to let data scientists create workspaces on their own.
 + **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
 
