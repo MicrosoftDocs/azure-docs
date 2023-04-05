@@ -121,6 +121,15 @@ If no value is specified at runtime, `learning_rate` and `learning_rate_schedule
 python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0.01 --learning_rate_schedule time-based --model_output some_output_path
 ```
 
+## Common errors and recommendation
+
+Following are some common errors and corresponding recommended suggestions when you define a component.
+
+| Key | Errors | Recommendation | 
+| --- | ---- | ----------- |
+|command|1. Only optional inputs can be in `$[[]]`<br>2. Using `\` to make a new line is not supported in command.<br>3. Inputs or outputs are not found.|1. Check that all the inputs or outputs used in command are already defined in the `inputs` and `outputs` sections, and use the correct format for optional inputs `$[[]]` or required ones `${{}}`.<br>2. Do not use `\` to make a new line.|
+|environment|1. No definition exists for environment `{envName}` version `{envVersion}`. <br>2. No environment exists for name `{envName}`, version `{envVersion}`.<br>3. Could not find asset with ID `{envAssetId}`. |1. Make sure the environment name and version you refer in the component definition exists. <br>2. You need to specify the version if you refer to a registered environment.|
+|inputs/outputs|1. Inputs/outputs names conflict with system reserved parameters.<br>2. Deplicated names of inputs or outputs.|1. Do not use any of these reserved parameters as your inputs/outputs name: `path`, `ld_library_path`, `user`, `logname`, `home`, `pwd`, `shell`.<br>2. Make sure names of inputs and outputs are not duplicated.|
 
 ## Next steps
 
