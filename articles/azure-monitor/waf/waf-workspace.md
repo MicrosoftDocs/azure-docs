@@ -23,31 +23,31 @@ This article provides architectural best practices for Azure. The guidance is ba
 ## Reliability
 
 
-[!INCLUDE [waf-workbooks-reliability](waf-workbooks-reliability.md)]
+[!INCLUDE [waf-workbook-reliability](waf-workbook-reliability.md)]
 
 
 ## Security
 
 
-[!INCLUDE [waf-workbooks-security](waf-workbooks-security.md)]
+[!INCLUDE [waf-workbook-security](waf-workbook-security.md)]
 
 
 ## Cost optimization
 You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
-[!INCLUDE [waf-workbooks-cost](waf-workbooks-cost.md)]
+[!INCLUDE [waf-workbook-cost](waf-workbook-cost.md)]
 
 
 ## Operational excellence
 
 
-[!INCLUDE [waf-workbooks-operation](waf-workbooks-operation.md)]
+[!INCLUDE [waf-workbook-operation](waf-workbook-operation.md)]
 
 
 ## Performance efficiency
 
 
-[!INCLUDE [waf-workbooks-performance](waf-workbooks-performance.md)]
+[!INCLUDE [waf-workbook-performance](waf-workbook-performance.md)]
 
 ## Next step
 
