@@ -20,7 +20,7 @@ ms.custom: "include file"
 | Alert rules and alert processing rules description length| Log search alerts 4,096 characters.<br/>All others are 2,048 characters. | Same as default. |
 
 ### Alerts API
-Azure Monitor alerts have several throttling limits to protect against users making an excessive number of calls. Such behavior can potentially overload the system back-end resources and jeopardize service responsiveness. The following limits are designed to protect customers from interruptions and ensure a consistent service level. The user throttling and limits are designed to affect only extreme-usage scenarios. They shouldn't be relevant for typical usage.
+Azure Monitor alerts have several throttling limits to protect against users making an excessive number of calls. Such behavior can potentially overload the system back-end resources and jeopardize service responsiveness. The following limits are designed to protect customers from interruptions and ensure a consistent service level. The user throttling and limits are designed to affect only extreme usage scenarios. They shouldn't be relevant for typical usage.
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |

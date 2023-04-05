@@ -20,7 +20,7 @@ ms.custom: "include file"
 | Log Analytics dashboard queries | Maximum number of records returned in a single Log Analytics dashboard query is 2,000. |
 
 ### User query throttling
-Azure Monitor has several throttling limits to protect against users sending an excessive number of queries. Such behavior can potentially overload the system back-end resources and jeopardize service responsiveness. The following limits are designed to protect customers from interruptions and ensure consistent service level. The user throttling and limits are designed to affect only extreme-usage scenarios and shouldn't be relevant for typical usage.
+Azure Monitor has several throttling limits to protect against users sending an excessive number of queries. Such behavior can potentially overload the system back-end resources and jeopardize service responsiveness. The following limits are designed to protect customers from interruptions and ensure consistent service level. The user throttling and limits are designed to affect only extreme usage scenarios and shouldn't be relevant for typical usage.
 
 | Measure | Limit per user | Description |
 |:---|:---|:---|
