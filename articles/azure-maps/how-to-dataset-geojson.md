@@ -1,8 +1,8 @@
 ---
 title: How to create a dataset using a GeoJson package
 description: Learn how to create a dataset using a GeoJson package.
-author: eriklindeman
-ms.author: eriklind
+author: brendansco
+ms.author: Brendanc
 ms.date: 11/01/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -139,7 +139,7 @@ Feature IDs can only contain alpha-numeric (a-z, A-Z, 0-9), hyphen (-), dot (.) 
 - The top level element is [facility], which defines each building in the file *facility.geojson*.
 - Each facility has one or more levels, which are defined in the file *levels.goejson*.
   - Each level must be inside the facility.
-- Each [level] contains [units], [structures], [verticalPenetrations] and [openings]. All of the items defined in the level must be fully contained within the Level geometry.
+- Each [level] contains [units], [structures], [verticalPenetrations] and [openings]. All items defined in the level must be fully contained within the Level geometry.
   - `unit` can consist of an array of items such as hallways, offices and courtyards, which are defined by [area], [line] or [point] elements. Units are defined in the file *unit.goejson*.
     - All `unit` elements must be fully contained within their level and intersect with their children.
   - `structure` defines physical, non-overlapping areas that can't be navigated through, such as a wall. Structures are defined in the file *structure.goejson*.

@@ -30,10 +30,10 @@ landingContent:
         links:
           - text: What's new?
             url: cache-whats-new.md
-          - text: Managed identity with Azure Cache for Redis
-            url: cache-managed-identity.md
-          - text: Create an Enterprise tier cache
-            url: quickstart-create-redis-enterprise.md
+          - text: Configure disk encryption
+            url: cache-how-to-encryption.md
+          - text: Change the size and tier of a cache
+            url: cache-how-to-scale.md
   - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart

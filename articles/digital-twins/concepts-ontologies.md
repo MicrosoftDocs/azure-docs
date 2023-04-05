@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twin ontologies, how they're used in Azure Digital Twins, and how these DTDL ontologies can be used for modeling in the context of certain industries.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/28/2022
+ms.date: 04/05/2023
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -20,17 +20,19 @@ ms.custom: engagement-fy23
 
 This article describes the concept of industry ontologies and how they can be used within the context of Azure Digital Twins.
 
-The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment. An *ontology* is a set of models for a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
+The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment. An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
 
-Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. This article explains more about using pre-existing industry ontologies for your Azure Digital Twins scenarios, including strategies for using the ontologies that are available today.
+When you author a model set from scratch that is complete and describes a domain, you're creating your own ontology. Sometimes, however, when modeling standards for an industry already exist, it can be easier and more effective to lean on that existing ontology instead of creating the ontology from scratch yourself. 
 
-## Using ontologies for Azure Digital Twins
+The articles in this section explain more about using pre-existing industry ontologies for your Azure Digital Twins scenarios, including what ontologies are available today, and the different strategies for turning industry standards into ontologies for use in Azure Digital Twins.
 
-Ontologies provide a great starting point for digital twin solutions. They encompass a set of domain-specific models and relationships between entities for designing, creating, and parsing a digital twin graph. Ontologies enable solution developers to begin a digital twins solution from a proven starting point, and focus on solving business problems. The ontologies provided by Microsoft are also designed to be easily extensible, so that you can customize them for your solution. 
+## Using existing ontologies for Azure Digital Twins
 
-Also, using these ontologies in your solutions can set them up for more seamless integration between different partners and vendors, because ontologies can provide a common vocabulary across solutions.
+Microsoft has created several [open-source DTDL ontologies](concepts-ontologies-adopt.md) built on widely adopted industry standards. You can use these model sets out-of-the-box in your solutions, or [extend the ontologies](concepts-ontologies-extend.md) with your own additions for a customized solution.
 
-Because models in Azure Digital Twins are represented in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md), ontologies for use with Azure Digital Twins are also written in DTDL. 
+Either way, existing industry ontologies provide a great starting point for digital twin solutions. They encompass a set of domain-specific models and relationships between entities for designing, creating, and parsing a digital twin graph. Industry ontologies enable solution developers to begin a digital twins solution from a proven starting point, and focus on solving business problems. The industry ontologies provided by Microsoft are also designed to be easily extensible, so that you can customize them for your solution. Because models in Azure Digital Twins are represented in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md), ontologies for use with Azure Digital Twins are also written in DTDL.
+
+Using these ontologies in your solutions can also set them up for more seamless integration between different partners and vendors, because ontologies can provide a common vocabulary across solutions.
 
 Here are some other benefits to using industry-standard DTDL ontologies as schemas for your twin graphs:
 * Harmonization of software components, documentation, query libraries, and more
@@ -40,15 +42,16 @@ Here are some other benefits to using industry-standard DTDL ontologies as schem
 
 ## Strategies for integrating ontologies
 
-There are three possible strategies for integrating industry-standard ontologies with DTDL. You can pick the one that works best for you depending on your needs:
+Here are the main strategies for integrating existing industry-standard ontologies with DTDL for use in Azure Digital Twins. Choose the one that works best for you, depending on how closely the existing materials for your industry already match your solution.
 
 | Strategy | Description | Resources |
 | --- | --- | --- |
-| Adopt | You can start your solution with an open-source DTDL ontology that has been built on widely adopted industry standards. You can either use these model-sets out-of-the-box, or extend them with your own additions for a customized solution. | [Adopting&nbsp;industry&nbsp;standard ontologies](concepts-ontologies-adopt.md)<br><br>[Extending&nbsp;ontologies](concepts-ontologies-extend.md) |
-| Convert | If you already have existing models represented in another standard format, you can convert them to DTDL to use them with Azure Digital Twins. | [Converting&nbsp;ontologies](concepts-ontologies-convert.md)<br><br>[Extending&nbsp;ontologies](concepts-ontologies-extend.md) |
-| Author | You can always develop your own custom DTDL models from scratch, using any applicable industry standards as inspiration. | [DTDL models](concepts-models.md) |
+| Adopt | You can jump-start your solution by adopting one of Microsoft's open-source DTDL ontologies that has been built on widely accepted industry standards. If the ontologies contain all the models you need, you can take these model sets as they are and use them out-of-the-box. | [Adopting&nbsp;industry&nbsp;standard ontologies](concepts-ontologies-adopt.md) |
+| Extend | If an existing DTDL ontology has most, but not all, of the models you need in your solution, you can extend the ontology with your own additions to create a customized ontology. | [Adopting&nbsp;industry&nbsp;standard ontologies](concepts-ontologies-adopt.md)<br><br>[Extending&nbsp;ontologies](concepts-ontologies-extend.md) |
+| Convert | If you already have existing models represented in another standard industry format, you can convert them to DTDL to use them with Azure Digital Twins. | [Converting&nbsp;ontologies](concepts-ontologies-convert.md) |
+| Author | You can always develop your own custom DTDL ontologies from scratch, using any applicable industry standards as inspiration. | [DTDL models](concepts-models.md) |
 
-### Using ontology strategies in a model development path
+### Full model development path
 
 No matter which strategy you choose for integrating an ontology into Azure Digital Twins, you can follow the complete path below to guide you through creating and uploading your ontology as DTDL models.
 

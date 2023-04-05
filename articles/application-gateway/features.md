@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/17/2023
+ms.date: 03/24/2023
 ms.author: greglin
 ---
 
@@ -88,7 +88,7 @@ For more information, see [Application Gateway redirect overview](redirect-overv
 
 ## Session affinity
 
-The cookie-based session affinity feature is useful when you want to keep a user session on the same server. By using gateway-managed cookies, the Application Gateway can direct subsequent traffic from a user session to the same server for processing. This is important in cases where session state is saved locally on the server for a user session.
+The cookie-based session affinity feature is useful when you want to keep a user session on the same server. Using gateway-managed cookies, the Application Gateway can direct subsequent traffic from a user session to the same server for processing. This is important in cases where session state is saved locally on the server for a user session.
 
 For more information, see [How an application gateway works](how-application-gateway-works.md#modifications-to-the-request).
 
@@ -102,14 +102,16 @@ For more information, see [WebSocket support](application-gateway-websocket.md) 
 
 ## Connection draining
 
-Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the aplication gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are
-- explicitly removed from the backend pool after a configuration change by a user,
+Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are:
+- explicitly removed from the backend pool after a configuration change by a user
 - reported as unhealthy by the health probes, or
-- removed during a scale-in operation.
+- removed during a scale-in operation
 
-The only exception is when requests continue to be proxied to the deregistering instances because of gateway-managed session affinity.
+The only exception is when requests continue to be proxied to the deregistering instances because of gateway-managed session affinity. 
 
-The connection draining is honored for WebSocket connections as well. For information on time limits, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
+The connection draining is honored for WebSocket connections as well. Connection draining is invoked for every single update to the gateway. To prevent connection loss to existing members of the backend pool, make sure to enable connection draining.
+
+For information on time limits, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
 
 ## Custom error pages
 
@@ -125,7 +127,7 @@ HTTP headers allow the client and server to pass additional information with the
 - Removing response header fields that can reveal sensitive information.
 - Stripping port information from X-Forwarded-For headers.
 
-Application Gateway and WAF v2 SKU supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and backend pools. You can also rewrite URLs, query string parameters and host name. With URL rewrite and URL path-based routing, you can choose to either route requests to one of the backend pools based on the original path or the rewritten path, using the re-evaluate path map option. 
+Application Gateway and WAF v2 SKU supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and backend pools. You can also rewrite URLs, query string parameters and host name. With URL rewrite and URL path-based routing, you can choose to either route requests to one of the backend pools based on the original path or the rewritten path, using the reevaluate path map option. 
 
 It also provides you with the capability to add conditions to ensure the specified headers or URL are rewritten only when certain conditions are met. These conditions are based on the request and response information.
 

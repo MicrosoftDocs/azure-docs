@@ -1,8 +1,8 @@
 ---
 title: Create an iOS app
 description: Steps to create an Azure Maps account and the first iOS App.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
@@ -87,7 +87,7 @@ See the [Creating a Xcode Project for an App](https://developer.apple.com/docume
 
 The next step in building your application is to install the Azure Maps iOS SDK. Complete these steps to install the SDK:
 
-1. With the desired Xcode iOS project selected in the **Project navigator** select the **+** button to **Add package dependency**.
+1. With the desired Xcode iOS project selected in the **Project navigator**, select the **+** button to **Add package dependency**.
 
    ![Add package dependency.](./media/ios-sdk/quick-ios-app/xcode-add-package-dependency.png)
 
@@ -110,18 +110,18 @@ The next step in building your application is to install the Azure Maps iOS SDK.
 
    ![Add an Azure maps control.](./media/ios-sdk/quick-ios-app/add-map-control.png)
 
-1. In the **AppDelegate.swift** file you'll need to:
+1. In the **AppDelegate.swift** file:
 
    * add import for the Azure Maps SDK
    * set your Azure Maps authentication information
 
-Setting the authentication information on the AzureMaps class globally using the `AzureMaps.configure(subscriptionKey:)` or `AzureMaps.configure(aadClient:aadAppId:aadTenant:)` methods makes it so you won't have to add your authentication information on every view.
+By setting the authentication information on the AzureMaps class globally using the `AzureMaps.configure(subscriptionKey:)` or `AzureMaps.configure(aadClient:aadAppId:aadTenant:)` you won't need to add your authentication information on every view.
 
 1. Select the run button, as shown in the following graphic (or press `CMD` + `R`), to build your application.
 
    ![Run the iOS application.](./media/ios-sdk/quick-ios-app/run.png)
 
-Xcode will take a few seconds to build the application. After the build is complete, you can test your application in the simulated iOS device. You should see a map like this one:
+Xcode takes a few seconds to build the application. After the build is complete, you can test your application in the simulated iOS device. You should see a map like this one:
 
 ![Your first map on an iOS application.](./media/ios-sdk/quick-ios-app/example.png)
 
@@ -148,7 +148,7 @@ If you don't plan on continuing to develop with the Azure Maps iOS SDK:
 
 ## Additional information
 
-See the following articles for additional code examples:
+See the following articles for more code examples:
 
 * [Manage authentication in Azure Maps](how-to-manage-authentication.md)
 * [Change map styles in iOS maps](set-map-style-ios-sdk.md)

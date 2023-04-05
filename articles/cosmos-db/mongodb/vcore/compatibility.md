@@ -604,7 +604,7 @@ Azure Cosmos DB for MongoDB vCore supports the following aggregation pipeline fe
 | Command | Supported |
 |---------|---------|
 | `$mergeObjects` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
-| `$objectToArray` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
+| `$objectToArray` | :::image type="icon" source="media/compatibility/yes-icon.svg"::: Yes |
 | `$setField` | :::image type="icon" source="media/compatibility/no-icon.svg"::: No |
 
 ## Data types

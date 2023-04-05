@@ -25,7 +25,7 @@ Here's what you need to configure MSIX app attach:
 
 ## Turn off automatic updates for MSIX app attach applications
 
-Before you get started, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt:
+Before you get started, it is a best practice to disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt, or you can also deploy the code to the session hosts through Group Policy:
 
 ```cmd
 rem Disable Store auto update:
