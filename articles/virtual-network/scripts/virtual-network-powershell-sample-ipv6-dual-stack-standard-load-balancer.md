@@ -2,6 +2,7 @@
 title: Azure PowerShell script sample - Configure IPv6 frontend with an Azure Standard Load Balancer
 titlesuffix: Azure Virtual Network
 description: Learn about configuring an IPv6 frontend in a virtual network script sample with an Azure Standard Load Balancer.
+ms.service: virtual-network
 author: asudbring
 ms.topic: sample
 ms.date: 04/04/2023
