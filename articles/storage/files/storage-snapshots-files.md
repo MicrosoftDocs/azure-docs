@@ -93,6 +93,19 @@ Before you deploy the share snapshot scheduler, carefully consider your share sn
 
 Share snapshots provide only file-level protection. Share snapshots don't prevent fat-finger deletions on a file share or storage account. To help protect a storage account from accidental deletions, you can either [enable soft delete](storage-files-prevent-file-share-deletion.md), or lock the storage account and/or the resource group.
 
+**Powershell command to delete multiple snapshots.**
+```powerShell
+$storageAccount = "storageaccount_name" 
+$RG = "resource-GROUP" $sharename = "sharename"
+$sa = get-azstorageaccount -Name $storageAccount -ResourceGroupName $RG $items = "","","" 
+ForEach ($item in $items)
+{
+    $snapshotTime = "$item"
+    $snap = Get-AzStorageShare -Name $sharename -SnapshotTime "$snapshotTime" -Context $sa.Context
+    $lease = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($snap.ShareClient)
+    $l
+}
+```
 ## Next steps
 - Working with share snapshots in:
     - [Azure file share backup](../../backup/azure-file-share-backup-overview.md)
