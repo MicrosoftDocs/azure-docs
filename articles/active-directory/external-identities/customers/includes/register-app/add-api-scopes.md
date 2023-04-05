@@ -17,7 +17,7 @@ ms.author: kengaderdus
  
 1. Under **Scopes defined by this API**, select **Add a scope**, and on the pane that appears, create a scope that defines read access to the API:
     
-    1. For **Scope name**, enter `ToDoList.Read`.
+    1. For **Scope name**, enter *ToDoList.Read*.
     
     1. For **Admin consent display name**, enter **Read users ToDo list using the 'TodoListApi'**.
     
@@ -28,7 +28,7 @@ ms.author: kengaderdus
 
 1. Select **Add a scope** again, and then add a scope that defines read and write access to the API:
 
-    1. For **Scope name**, enter `ToDoList.ReadWrite`.
+    1. For **Scope name**, enter *ToDoList.ReadWrite*.
     
     1. For **Admin consent display name**, enter **Read and write users ToDo list using the 'TodoListApi'**.
     

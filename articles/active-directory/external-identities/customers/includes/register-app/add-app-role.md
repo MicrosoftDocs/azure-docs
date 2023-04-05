@@ -7,7 +7,7 @@ ms.date: 03/30/2023
 ms.author: kengaderdus
 ---
 
-1. From the **App registrations** page, select the application that you created (such as `*ciam-ToDoList-api*`) to open its **Overview** page.
+1. From the **App registrations** page, select the application that you created (such as *ciam-ToDoList-api*) to open its **Overview** page.
 
 1. Under **Manage**, select **App roles**.
  
