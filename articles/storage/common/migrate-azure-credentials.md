@@ -98,12 +98,12 @@ Next, update your code to use passwordless connections.
 1. Identify the locations in your code that create a `BlobServiceClient` object to connect to Azure Storage. Update your code to match the following example:
 
     ```nodejs
-    const defaultAzureCredential = new DefaultAzureCredential();
+    const credential = new DefaultAzureCredential();
     
     // TODO: Update the <storage-account-name> placeholder.
     const blobServiceClient = new BlobServiceClient(
       "https://<storage-account-name>.blob.core.windows.net",
-      defaultAzureCredential
+      credential
     );    
     ```
 
@@ -248,7 +248,7 @@ You need to configure your application code to look for the specific managed ide
             ManagedIdentityClientId = "<managed-identity-client-id>"
         });
     ```
-    
+
     ## [Java](#tab/java)
     
     ```java
@@ -262,7 +262,7 @@ You need to configure your application code to look for the specific managed ide
     
     ```nodejs
     // TODO: Update the <managed-identity-client-id> placeholder.
-    const defaultAzureCredential = new DefaultAzureCredential({
+    const credential = new DefaultAzureCredential({
       managedIdentityClientId: "<managed-identity-client-id>"
     });
     ```
