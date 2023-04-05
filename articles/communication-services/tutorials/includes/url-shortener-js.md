@@ -27,7 +27,7 @@ You can find the completed code for this tutorial on [GitHub](https://github.com
 
 In this tutorial, the focus is to set up a middleware that orchestrates requests to send SMS and the shortening of URLs through the Azure URL Shortener service. It interacts with Azure Communication Services to complete the sending of the SMS.
 
-![Diagram for architecture overview](../media/url-shortener/url-shortener-architecture.png)
+![Diagram for architecture overview.](../media/url-shortener/url-shortener-architecture.png)
 
 ## Set up the Azure Function
 
