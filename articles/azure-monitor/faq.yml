@@ -925,7 +925,7 @@ sections:
       - question: |
           Can I test OpenTelemetry in a web browser today?
         answer: |
-          The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser. It's not yet possible to send telemetry to Application Insights or 1DS Collector. The SDK doesn't currently have defined general client events.
+          The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser. It's not yet possible to send telemetry to Application Insights. The SDK doesn't currently have defined general client events.
 
       - question: |
           How do I determine if OpenTelemetry is right for me?
