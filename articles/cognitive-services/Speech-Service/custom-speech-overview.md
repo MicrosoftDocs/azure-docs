@@ -15,7 +15,7 @@ ms.custom: contperf-fy21q2, references_regions
 
 # What is Custom Speech?
 
-With Custom Speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for [real-time speech-to-text](speech-to-text), [speech translation](speech-translation), and [batch transcription](batch-transcription.md).
+With Custom Speech, you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for [real-time speech-to-text](speech-to-text.md), [speech translation](speech-translation.md), and [batch transcription](batch-transcription.md).
 
 Out of the box, speech recognition utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. The base model is pre-trained with dialects and phonetics representing a variety of common domains. When you make a speech recognition request, the most recent base model for each [supported language](language-support.md?tabs=stt) is used by default. The base model works very well in most speech recognition scenarios.
 

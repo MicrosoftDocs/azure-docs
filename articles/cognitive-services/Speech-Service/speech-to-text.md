@@ -40,7 +40,7 @@ Batch transcription is used to transcribe a large amount of audio in storage. Yo
 
 ## Custom Speech
 
-With [Custom Speech](./custom-speech-overview.md), you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for [real-time speech-to-text](speech-to-text), [speech translation](speech-translation), and [batch transcription](batch-transcription.md).
+With [Custom Speech](./custom-speech-overview.md), you can evaluate and improve the accuracy of speech recognition for your applications and products. A custom speech model can be used for [real-time speech-to-text](speech-to-text.md), [speech translation](speech-translation.md), and [batch transcription](batch-transcription.md).
 
 > [!TIP]
 > A [hosted deployment endpoint](how-to-custom-speech-deploy-model.md) isn't required to use Custom Speech with the [Batch transcription API](batch-transcription.md). You can conserve resources if the [custom speech model](how-to-custom-speech-train-model.md) is only used for batch transcription. For more information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
