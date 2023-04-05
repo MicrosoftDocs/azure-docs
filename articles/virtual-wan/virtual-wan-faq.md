@@ -434,6 +434,8 @@ If you have already configured BGP peering between your Virtual WAN hub and an N
 
 If your Virtual WAN hub is connected to a combination of spoke virtual networks in the same region as the hub and a separate region than the hub, then you may need to delete and recreate your spoke virtual network connections after upgrading. We are actively working on removing this requirement. 
 
+The Virtual WAN hub router can not currently be upgraded if you have a network virtual appliance in the virtual hub. We are actively working on removing this limitation. 
+
 If the update fails for any reason, your hub will be auto recovered to the old version to ensure there is still a working setup.
 
 >[!NOTE]
