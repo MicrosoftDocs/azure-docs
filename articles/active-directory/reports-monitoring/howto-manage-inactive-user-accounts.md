@@ -28,7 +28,7 @@ The challenge of this method is to define what *for a while* means for your envi
 
 The last successful sign-in provides potential insights into a user's continued need for access to resources.  It can help with determining if group membership or app access is still needed or could be removed. For external user management, you can understand if an external user is still active within the tenant or should be cleaned up. 
 
-## How to detect inactive user accounts
+## Detect inactive user accounts with Microsoft Graph
 
 You can detect inactive accounts by evaluating the `lastSignInDateTime` property exposed by the `signInActivity` resource type of the **Microsoft Graph API**. The `lastSignInDateTime` property shows the last time a user made a successful interactive sign-in to Azure AD. Using this property, you can implement a solution for the following scenarios:
 
@@ -44,9 +44,9 @@ You can detect inactive accounts by evaluating the `lastSignInDateTime` property
 > [!NOTE]
 > When you request the `signInActivity` property while listing users, the maximum page size is 120 users. Requests with $top set higher than 120 will fail. The `signInActivity` property supports `$filter` (`eq`, `ne`, `not`, `ge`, `le`) *but not with any other filterable properties*. 
 
-## What you need to know
+### What you need to know
 
-This section lists several details about the `lastSignInDateTime` property.
+The following details relate to the `lastSignInDateTime` property.
 
 - The `lastSignInDateTime` property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity) of the [Microsoft Graph API](/graph/overview#whats-in-microsoft-graph).   
 
@@ -66,6 +66,18 @@ This section lists several details about the `lastSignInDateTime` property.
     - The affected user account was never used for a successful sign-in.
 
 - The last sign-in date is associated with the user object. The value is retained until the next sign-in of the user. 
+
+## How to investigate a single user
+
+If you need to view the latest sign-in activity for a user you can view the user's sign-in details in Azure AD. You can also use the Microsoft Graph scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Go to **Azure AD** > **Users** > select a user from the list.
+1. In the **My Feed** area of the user's Overview, locate the **Sign-ins** tile. 
+
+    ![Screenshot of the user overview page with the sign-in activity tile highlighted.](media/howto-manage-inactive-user-accounts/last-sign-activity-tile.png)
+
+The last sign-in date and time shown on this tile may take up to 24 hours to update, which means the date and time may not be current. If you need to see the activity in near real time, select the **See all sign-ins** link on the **Sign-ins** tile to view all sign-in activity for that user. 
 
 ## Next steps
 
