@@ -39,7 +39,7 @@ With your Virtual Machine Scale Sets now onboarded, you can create your experime
 
 1. Within Chaos Studio, navigate to **Experiments** and select **Create**.
 ![A screenshot showing the Experiments screen, with the Create button highlighted.](images/tutorial-dynamic-targets-experiment-browse.png)
-1. Add a name for your experiment that complies with resource naming guidelines, and select **Next: experiment designer**.
+1. Add a name for your experiment that complies with resource naming guidelines, and select **Next: Experiment designer**.
 ![A screenshot showing the experiment creation screen, with the Next button highlighted.](images/tutorial-dynamic-targets-create-exp.png)
 1. Within Step 1 and Branch 1, select **Add action**, then **Add fault**.
 ![A screenshot showing the experiment creation screen, with the Add Fault button highlighted.](images/tutorial-dynamic-targets-experiment-fault.png)
@@ -47,17 +47,15 @@ With your Virtual Machine Scale Sets now onboarded, you can create your experime
 ![A screenshot showing the fault details view.](images/tutorial-dynamic-targets-fault-details.png)
 1. Choose the Virtual Machine Scale Sets resource that you want to use in the experiment, then select **Next: Scope**.
 ![A screenshot showing the fault details view, with the VMSS resource selected.](images/tutorial-dynamic-targets-fault-resources.png)
-1. In the Zones dropdown, select the zone where you want Virtual Machines in the Virtual Machine Scale Sets instance to be shut down.
-1. Select **Add** to add the fault to the experiment.
-![A screenshot showing the zone selection step within the fault pane.](images/tutorial-dynamic-targets-enable.png)
+1. In the Zones dropdown, select the zone where you want Virtual Machines in the Virtual Machine Scale Sets instance to be shut down, then select **Add**.
+![A screenshot showing the fault details view, with only Zone 1 selected.](images/tutorial-dynamic-targets-fault-zones.png)
 1. Select **Review + create** and then **Create** to save the experiment.
 
 ## Give experiment permission to your Virtual Machine Scale Sets
 
 When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully. These steps can be used for any resource and target type by modifying the role assignment in step #3 to match the [appropriate role for that resource and target type](chaos-studio-fault-providers.md).
 
-1. Navigate to your Virtual Machine Scale Sets resource and select **Access control (IAM)**.
-2. Select **Add role assignment**.
+1. Navigate to your Virtual Machine Scale Sets resource and select **Access control (IAM)**, then select **Add role assignment**.
 ![A screenshot of the Virtual Machine Scale Sets resource page.](images/tutorial-dynamic-targets-vmss-iam.png)
 3. In the **Role** tab, choose **Virtual Machine Contributor** and then select **Next**.
 ![A screenshot of the access control overview for Virtual Machine Scale Sets.](images/tutorial-dynamic-targets-role-selection.png)
@@ -81,8 +79,11 @@ To see the impact, use a tool such as **Azure Monitor** or the **Virtual Machine
 In this example, the chaos experiment successfully shut down the instance in Zone 1, as expected.
 ![A screenshot of the Virtual Machine Scale Sets resource page showing an instance in the Stopped state.](images/tutorial-dynamic-targets-view-vmss.png)
 
-
 ## Next steps
+
+> [!TIP]
+> If your Virtual Machine Scale Set uses an Autoscale policy, try improving this experiment by adding a parallel branch with the **Disable Autoscale** fault against the Virtual Machine Scale Set's `microsoft.insights/autoscaleSettings` resource.
+
 Now that you've run a dynamically targeted Virtual Machine Scale Sets shutdown experiment, you're ready to:
 - [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)
 - [Manage your experiment](chaos-studio-run-experiment.md)
