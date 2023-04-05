@@ -38,6 +38,8 @@
       href: faq.md  
 - name: How-to guides
   items: 
+    - name: Best practices for optimal performance
+      href: best-practice-performance.md   
     - name: Add service principal for deployment
       href: add-service-principal.md 
     - name: Configure Customer-Managed Keys

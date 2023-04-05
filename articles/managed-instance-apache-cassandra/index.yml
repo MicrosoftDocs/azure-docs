@@ -65,6 +65,8 @@ landingContent:
             url: configure-hybrid-cluster.md               
       - linkListType: how-to-guide
         links: 
+          - text: Best practices for optimal performance
+            url: best-practice-performance.md   
           - text: Manage resources with Azure CLI
             url: manage-resources-cli.md   
           - text: Enable LDAP Authentication
