@@ -50,6 +50,7 @@ When accessing the Microsoft Graph, the managed identity needs to have proper pe
 
 1. Run the following script to add the requested Microsoft Graph API permissions to the managed identity service principal object.
 
+    ```powershell
     # Install the module.
     # Install-Module Microsoft.Graph -Scope CurrentUser
     
