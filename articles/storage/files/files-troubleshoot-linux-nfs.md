@@ -100,7 +100,7 @@ To check if the NFS package is installed, run:
 
 # [RHEL](#tab/RHEL) 
 
-Same commands on this section applies for CentOS and Oracle Linux.
+Same commands on this section apply for CentOS and Oracle Linux.
 
 ```bash
 sudo rpm -qa | grep nfs-utils
@@ -112,7 +112,7 @@ sudo rpm -qa | grep nfs-client
 ``` 
 # [Ubuntu](#tab/Ubuntu)
 
-Same commands on this section applies for Debian.
+Same commands on this section apply for Debian.
  
 ```bash
 sudo dpkg -l | grep nfs-common
@@ -125,7 +125,7 @@ If the package isn't installed, install the package using your distro-specific c
 
 # [RHEL](#tab/RHEL) 
 
-Same commands on this section applies for CentOS and Oracle Linux.
+Same commands on this section apply for CentOS and Oracle Linux.
 
 Os Version 7.X
 
@@ -146,7 +146,7 @@ sudo zypper install nfs-client
 
 # [Ubuntu](#tab/Ubuntu)
 
-Same commands on this section applies for Debian.
+Same commands on this section apply for Debian.
 
 ```bash
 sudo apt update
