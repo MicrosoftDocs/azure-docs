@@ -1,30 +1,19 @@
 --- 
-
 title: VM Boot Optimization for SIG Images with Azure VM Image Builder 
-
 description: Optimize VM Boot and Provisioning time with Azure VM Image Builder 
-
 ms.author: surbhijain 
-
 ms.reviewer: kofiforson 
-
 ms.date: 04/05/2023 
-
 ms.topic: how-to 
-
 ms.service: virtual-machines 
-
 ms.subservice: image-builder
-
 --- 
 
   
 
 # VM Optimization for SIG Images with Azure VM Image Builder 
 
-  
-
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Virtual Machine Scale Sets 
+  **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Virtual Machine Scale Sets 
 
   
 
@@ -44,27 +33,22 @@ Optimization for the following images is supported:
 
   
 
-||| 
-
-|--|--| 
-
-| OS Type|Windows/Linux | 
-
-| Partition|MBR/GPT| 
-
-|Hyper-V|Gen1/Gen2| 
-
-|OS State|Generalized| 
+| | | 
+| --- | --- | 
+| OS Type | Windows/Linux | 
+| Partition | MBR/GPT | 
+| Hyper-V | Gen1/Gen2 | 
+| OS State | Generalized |
 
   
 
 The following types of images aren't supported: 
 
-*Images with size greater than 2 TB 
+* Images with size greater than 2 TB 
 
-*ARM64 Images 
+* ARM64 Images 
 
-*Specialized Images 
+* Specialized Images 
 
  
 
@@ -74,7 +58,7 @@ Optimization can be enabled while creating a VM image via CLI. Go through the fo
 
   
 
-1. Customers can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization and distribution. For more information on how to create an image builder template, see [Create an Azure Image Builder Bicep or ARM JSON template](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-json?tabs=json%2Cazure-powershell). 
+1. Customers can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization and distribution. For more information on how to create an image builder template, see [Create an Azure Image Builder Bicep or ARM JSON template](/azure/virtual-machines/linux/image-builder-json). 
 
 To optimize the image, you can enable additional fields in the template like shown in below snippet. 
 
@@ -126,7 +110,8 @@ This creates optimized image in given target location.
 
 Same process can be done via [PowerShell](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/Readme.md#submit-the-template) 
 
-NOTE: Use API Version '2022-07-01' or beyond to avail optimization benefits 
+> [!NOTE]
+> Use API Version `2022-07-01` or beyond to avail optimization benefits.
 
   
 
@@ -174,13 +159,10 @@ No, this optimization feature won't update an existing SIG image version. Howeve
 
  The below latencies have been observed at various percentiles: 
 
-|OS|Size|P50|P95|Average| 
-
-|--|--| 
-
-|Linux|30 GB VHD|20 mins|21 mins|20 mins| 
-
-|Windows|127 GB VHD|34 mins|35 mins|33 mins| 
+| OS | Size | P50 | P95 | Average |
+| --- | --- | --- | --- | --- |
+| Linux | 30 GB VHD | 20 mins | 21 mins | 20 mins |
+| Windows | 127 GB VHD | 34 mins | 35 mins | 33 mins |
 
   
 
@@ -198,4 +180,4 @@ Yes, the OS VHD is copied from customer subscription to Azure subscription for o
 
   
 
-Learn more about [Azure Compute Gallery](../shared-image-galleries.md). 
+Learn more about [Azure Compute Gallery](../shared-image-galleries.md).
