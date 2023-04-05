@@ -1,13 +1,10 @@
 ---
-title: Azure PowerShell script sample - Configure IPv6 frontend with Standard Load Balancer (preview)
+title: Azure PowerShell script sample - Configure IPv6 frontend with an Azure Standard Load Balancer
 titlesuffix: Azure Virtual Network
-description: Learn about configuring an IPv6 frontend in a virtual network script sample with Standard Load Balancer.
-services: virtual-network
+description: Learn about configuring an IPv6 frontend in a virtual network script sample with an Azure Standard Load Balancer.
 author: asudbring
-ms.service: virtual-network
 ms.topic: sample
-ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 04/04/2023
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,29 +13,17 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
-You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the Azure Az PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
-Before you deploy a dual stack application in Azure, you must configure your subscription only once for this preview feature using the following Azure PowerShell:
 
-Register as follows:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure PowerShell command:
-Check on the registration as follows:
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-After the registration is complete, run the following command:
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
+- Azure PowerShell installed locally or Azure Cloud Shell.
+
+- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
+- Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command `Update-Module -Name Az.Network` if necessary.
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sample script
 
