@@ -10,17 +10,17 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
-1. If you have access to multiple tenants, make sure you use the directory that contains your Microsoft Entra tenant:
+1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD for customers directory in the **Directory name** list, and then select **Switch**. 
 
-1. In the Microsoft Entra admin center, select **Azure Active Directory**.
+1. On the sidebar menu, select **Azure Active Directory**.
 
-1. Select **External Identities**, and then select **User flows**.
+1. Select **External Identities**, then select **User flows**.
 
-1. Select **New user flow**.
+1. Select **+ New user flow**.
 
    <!--[Screenshot](media/17-create-user-flow-new-user-flow.png)-->
 

@@ -9,7 +9,7 @@ ms.author: kengaderdus
 
 Create a client secret for the registered web application. The web application uses the client secret to prove its identity when it requests tokens.
 
-1. From the **App registrations** page, select the application that you created (such as `ciam-client-app`) to open its **Overview** page.
+1. From the **App registrations** page, select the application that you created (such as *ciam-client-app*) to open its **Overview** page.
 
 1. Under **Manage**, select **Certificates & secrets**.
 

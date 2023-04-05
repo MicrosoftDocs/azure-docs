@@ -9,9 +9,9 @@ ms.author: kengaderdus
 
 Since this app signs-in users, we now proceed to select delegated permissions, which is required by apps that signs users. 
 
-To grant your app (`ciam-client-app`) permissions, follow these steps:
+To grant your app (*ciam-client-app*) permissions, follow these steps:
 
-1. From the **App registrations** page, select the application that you created (such as `ciam-client-app`) to open its **Overview** page.
+1. From the **App registrations** page, select the application that you created (such as *ciam-client-app*) to open its **Overview** page.
  
 1. Under **Manage**, select **API permissions**.
  
@@ -19,7 +19,7 @@ To grant your app (`ciam-client-app`) permissions, follow these steps:
 
 1. Select the **My APIs** tab.
  
-1. In the list of APIs, select the API such as `ciam-ToDoList-api`.
+1. In the list of APIs, select the API such as *ciam-ToDoList-api*.
  
 1. Select **Delegated permissions** option.
  
@@ -28,8 +28,6 @@ To grant your app (`ciam-client-app`) permissions, follow these steps:
 1. Select the **Add permissions** button.
  
 1. Select **Grant admin consent for \<your tenant name\>**.
-
-1. Select **Yes**.
 
 1. Select **Refresh**, and then verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
 
