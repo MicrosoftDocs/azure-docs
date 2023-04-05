@@ -46,7 +46,7 @@ Regardless of how consent is obtained, you and your customers must ensure that t
 
 ### Consent requirements:
 
-- Provide a “Call to Action” before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
+- Provide a “Call to Action” before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
 - Consent isn't transferable or assignable. Any consent that an individual provides to you cannot be transferred or sold to an unaffiliated third party. If you collect an individual’s consent for a third party, then you must clearly identify the third party to the individual. You must also state that the consent you obtained applies only to communications from the third party.
 - Consent is limited in purpose. An individual who provides their number or an email address for a particular purpose consents to receive communications only for that specific purpose and from that specific message sender. Before obtaining consent, you should clearly notify the intended message recipient if you'll send recurring messages or messages from an affiliate.
 
@@ -68,12 +68,12 @@ In addition to the messaging requirements discussed above, you may want to imple
 
 ## Double opt-In consent:
 
-Azure Communication Services recommends that you use double opt in consent for all messaging campaigns. Double opt in consent is a two-step process where an individual first provides consent to receive certain types of messages from you. You then send a follow-up opt in message to confirm their consent. You should send more messages only once the message recipient confirms their consent.
+Azure Communication Services recommends that you use double opt-in consent for all messaging campaigns. Double opt-in consent is a two-step process where an individual first provides consent to receive certain types of messages from you. You then send a follow-up opt-in message to confirm their consent. You should send more messages only once the message recipient confirms their consent.
 
 The initial confirmation message that you send should include your identity, the option to opt-out of future messages (such as the use of a “STOP” command), a toll-free number or “HELP” command for additional information, notification that the individual is enrolled in a recurring message program, a brief description of the program, the frequency with which you intend to send recurring messages, and any associated fees. 
 
-### Does Azure Communication Services ever require double opt in consent?
-Yes, while double opt in consent is always recommended, Azure Communication Services requires that you use double opt in consent for some types of messaging campaigns due to their frequent use in phishing schemes or their tendency to result in consumer complaints. These campaigns include:
+### Does Azure Communication Services ever require double opt-in consent?
+Yes, while double opt-in consent is always recommended, Azure Communication Services requires that you use double opt-in consent for some types of messaging campaigns due to their frequent use in phishing schemes or their tendency to result in consumer complaints. These campaigns include:
 - Auto-warranty messages
 - Short-term health insurance plans
 - Debt refinancing or interest rate reduction messages if not made by a financial institution
@@ -81,7 +81,7 @@ Yes, while double opt in consent is always recommended, Azure Communication Serv
 - Sweepstakes, contests, and giveaways
 - Work-from-home offers
 
-The campaigns for which double opt in consent is required are subject to change at the discretion of Azure Communication Services.
+The campaigns for which double opt-in consent is required are subject to change at the discretion of Azure Communication Services.
 
 ### Exceptions to traditional consent rules:
 While prior express consent is normally required before sending a message, there are two situations in which consent to message an individual is implied.
@@ -102,7 +102,7 @@ Message recipients may revoke consent and opt-out of receiving future messages t
 
 Ensure that message recipients can opt-out of future messages at any time. You must also offer multiple opt-out options. After a message recipient opts-out, you should not send additional messages unless the individual provides renewed consent.
 
-One of the most common opt out mechanisms in SMS applications is to include a “STOP” keyword in the initial message of every new conversation. Be prepared to remove customers that reply with a lowercase “stop” or other common keywords, such as “unsubscribe” or “cancel.”  
+One of the most common opt-out mechanisms in SMS applications is to include a “STOP” keyword in the initial message of every new conversation. Be prepared to remove customers that reply with a lowercase “stop” or other common keywords, such as “unsubscribe” or “cancel.”  
 
 For email, it is to embed a link to unsubscribe in every email sent to the customer. If the customer selects the unsubscribe link, you should be prepared to remove that customer email address(es) from your communication list.
 
