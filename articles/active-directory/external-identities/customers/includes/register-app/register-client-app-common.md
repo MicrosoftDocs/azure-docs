@@ -12,7 +12,7 @@ During registration, you'll specify a **Redirect URI** which redirects the user 
 
 The following steps show you how to register your app in the Microsoft Entra admin center:
 
-1. 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Microsoft Entra tenant:
     
