@@ -774,8 +774,8 @@ items:
         href: app/transaction-diagnostics.md
         displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
       - name: Live Metric stream
-          displayName: live, quickpulse, quick pulse, live metrics
-          href: app/live-stream.md
+        displayName: live, quickpulse, quick pulse, live metrics
+        href: app/live-stream.md
       - name: Transaction search
         href: app/diagnostic-search.md
       - name: Smart Detection
