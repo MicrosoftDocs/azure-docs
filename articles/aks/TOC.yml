@@ -147,6 +147,8 @@
               href: operator-best-practices-storage.md
             - name: Business continuity (BC) and disaster recovery (DR)
               href: operator-best-practices-multi-region.md
+            - name: Back up AKS
+              href: ../backup/azure-kubernetes-service-backup-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: For application developers
           items:
             - name: Resource management
