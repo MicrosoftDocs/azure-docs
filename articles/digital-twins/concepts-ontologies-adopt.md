@@ -32,6 +32,6 @@ Each ontology is focused on an initial set of models. You can contribute to the 
 
 ## Next steps
 
-* Learn more about extending industry-standard ontologies to meet your specifications: [Extending industry ontologies](concepts-ontologies-extend.md).
+Learn about extending existing industry-standard ontologies for your specific solution: [Extending industry ontologies](concepts-ontologies-extend.md).
 
-* Or, continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#full-model-development-path).
+Or, continue on the path for developing models based on ontologies: [Full model development path](concepts-ontologies.md#full-model-development-path).

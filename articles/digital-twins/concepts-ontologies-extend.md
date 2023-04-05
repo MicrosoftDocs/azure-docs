@@ -175,4 +175,4 @@ The DTDL for the extended interfaces, limited to the portion discussed above, wo
 
 ## Next steps
 
-Continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#full-model-development-path).
+Continue on the path for developing models based on ontologies: [Full model development path](concepts-ontologies.md#full-model-development-path).
