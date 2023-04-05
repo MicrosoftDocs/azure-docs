@@ -22,7 +22,7 @@ $$ desiredWorkers = \lceil  \frac{eventsourceLength}{targetExecutionsPerInstance
 Target Based Scaling is supported for the [Consumption](consumption-plan.md) and [Premium](functions-premium-plan.md) plans. Your function app runtime must be 4.3.0 or higher.
 
 > [!NOTE]
-> In order to achieve the most accurate scaling based on metrics, we recommend one trigger type per function app.
+> In order to achieve the most accurate scaling based on metrics, we recommend one target based triggered function per function app.
 
 ## Customizing Target Based Scaling
 
@@ -43,7 +43,7 @@ The defaults are the same as set by the SDKs used by the Azure Functions extensi
 | Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Storage Queue                                                  | extensions.queues.batchSize                                       |       16      |
 
-For the Cosmos DB extension, the target is set in the a function attribute:
+For the Cosmos DB extension, the target is set in the function attribute:
 
 | Extension   | Function trigger setting | Default Value | 
 | ------------| ------------------------ | ------------- |
@@ -149,7 +149,7 @@ For Functions host **v2.x+**, modify the `host.json` setting `maxMessageCount` i
 ```
 
 ### Event Hubs
-For Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the hub. By default, the `host.json` attributes used are `maxEventBatchSize` and `maxBatchSize`. However, if you wish to fine-tune target based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that override the target value without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
+For Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the hub. By default, the `host.json` attributes used are `maxEventBatchSize` and `maxBatchSize`. However, if you wish to fine-tune target based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides the target value without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
 
 > [!NOTE]
 > Since Event Hubs is a partitioned workload, the target instance count for Event Hubs is capped by the number of partitions in your Event Hub. 
@@ -256,7 +256,7 @@ Sample `bindings` section of a `function.json` with `MaxItemsPerInvocation` defi
 > Since Cosmos DB is a partitioned workload, the target instance count for Cosmos DB is capped by the number of physical partitions in your Cosmos DB. For further documentation on Cosmos DB scaling, please see notes on [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
 
 ## Opting Out
-Target Based Scaling is an opt-out feature except for function apps on the the Premium plan with Runtime Scale Monitoring enabled. It is on by default for apps on the Consumption plan or Premium plans without Runtime Scale Monitoring. If you wish to disable Target Based Scaling and revert to incremental scaling, add the following app setting to your function app:
+Target Based Scaling is on by default for apps on the Consumption plan or Premium plans without Runtime Scale Monitoring. If you wish to disable Target Based Scaling and revert to incremental scaling, add the following app setting to your function app:
 
 |          App Setting          | Value |
 | ----------------------------- | ----- |
