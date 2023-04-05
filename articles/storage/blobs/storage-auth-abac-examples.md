@@ -1,4 +1,4 @@
----
+ ---
 title: Example Azure role assignment conditions for Blob Storage
 titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Blob Storage.
@@ -1692,7 +1692,6 @@ Here are the settings to add this condition using the Azure portal.
 > | | | | Operator | [ForAnyOfAnyValues:StringNotEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
 > | | | | Value | `sensitivity` |
 
-
 > [!div class="mx-tableFixed"]
 > | Condition #1 | Setting |
 > | --- | --- |
@@ -1796,14 +1795,17 @@ The condition can be added to a role assignment using either the Azure portal or
 
 Here are the settings to add this condition, Condition #1, using the Azure portal.
 
-##### Actions
+##### Add action
 
-[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) (under *Write to a blob*)
-[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) (under *Create a blob or snapshot, or append data*)
+Select **Add action**, then select only the following operations under the actions listed. Do not select the top-level action or any other operations.
 
-##### Expressions
+| Action                                    | Operation |
+| ----------------------------------------- | --------- |
+| Write to a blob                           | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
+| Create a blob or snapshot, or append data | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
 
-> [!div class="mx-tableFixed"]
+##### Build expression
+
 > | Group | Setting | Value |
 > | ----- | ------- | ----- |
 > | Group #1 | | |
