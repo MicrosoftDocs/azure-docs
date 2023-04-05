@@ -26,7 +26,7 @@ For more information on networking concepts in Container Apps, see [Networking A
 
 * **Internal environment**: An internal container app environment on the workload profiles architecture that's integrated with a custom virtual network. When you create an internal container app environment, your container app environment has no public IP addresses, and all traffic is routed through the virtual network. For more information, see the [guide for how to create a container app environment on the workload profiles architecture](./workload-profiles-manage-cli.md).
 
-* **`curl` support**: Your container app must have a container that supports `curl` commands. In this how to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with curl deployed, you can deploy the following container which supports curl, `mcr.microsoft.com/k8se/quickstart:latest`.
+* **`curl` support**: Your container app must have a container that supports `curl` commands. In this how-to, you use `curl` to verify the container app is deployed correctly. If you don't have a container app with `curl` deployed, you can deploy the following container which supports `curl`, `mcr.microsoft.com/k8se/quickstart:latest`.
 
 ## Create the firewall subnet
 
