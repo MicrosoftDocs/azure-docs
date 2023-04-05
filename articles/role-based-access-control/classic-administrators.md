@@ -18,6 +18,9 @@ ms.reviewer: bagovind
 
 # Azure classic subscription administrators
 
+> [!IMPORTANT]
+> [Azure Cloud Services (classic) is deprecated](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) and will be retired on August 31, 2024. This deprecation includes the classic administrator roles. Microsoft recommends that you manage access to Azure resources using [Azure role-based access control (Azure RBAC)](role-assignments-portal.md).
+
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
 This article describes how to add or change the Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
@@ -48,9 +51,6 @@ This article describes how to add or change the Co-Administrator and Service Adm
     ![Screenshot that adds co-administrator](./media/classic-administrators/add-coadmin.png)
 
 ## Add a guest user as a Co-Administrator
-
-> [!NOTE]
-> Removing a guest user from your Azure Active Directory does not remove the guest user's classic Co-Administrator access to a subscription. You must follow the steps in the [Remove a Co-Administrator](#remove-a-co-administrator) section to remove the guest user's classic Co-Administrator access to a subscription.
 
 To add a guest user as a Co-Administrator, follow the same steps as in the previous [Add a Co-Administrator](#add-a-co-administrator) section. The guest user must meet the following criteria:
 

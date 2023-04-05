@@ -232,4 +232,3 @@ If a guest user has been granted access to a directory, but they do not see the 
 - [Add Azure Active Directory B2B collaboration users in the Azure portal](../active-directory/external-identities/add-users-administrator.md)
 - [Properties of an Azure Active Directory B2B collaboration user](../active-directory/external-identities/user-properties.md)
 - [The elements of the B2B collaboration invitation email - Azure Active Directory](../active-directory/external-identities/invitation-email-elements.md)
-- [Add a guest user as a Co-Administrator](classic-administrators.md#add-a-guest-user-as-a-co-administrator)
