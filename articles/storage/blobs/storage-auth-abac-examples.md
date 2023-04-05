@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/04/2023
+ms.date: 04/05/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1795,29 +1795,34 @@ The condition can be added to a role assignment using either the Azure portal or
 #### [Portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition, Condition #1, using the Azure portal.
+
+##### Actions
+
+[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) (under *Write to a blob*)
+[Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) (under *Create a blob or snapshot, or append data*)
+
+##### Expressions
+
 > [!div class="mx-tableFixed"]
-> | Condition</br>Component | Group | Setting | Value |
-> | --- | - | - | - |
-> | | | | |
-> | Actions | | | [Write to a blob with blob index tags </br> (under *Write to a blob*)](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags)<br/>[Write to a blob with blob index tags </br> (under *Create a blob or snapshot, or append data*)Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
-> | Expressions | | | |
-> | | Group #1 | | |
-> | | | Attribute source | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
-> | | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | | | Key | `sensitivity` |
-> | | | Operator | [ForAnyOfAnyValues:StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
-> | | | Value | `high`</br>`low`</br>`medium` |
-> | | | Logical operator | 'AND' |
-> | | | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
-> | | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
-> | | | Value | `privateendpoint1` |
-> | | End of Group #1 | | |
-> | | | Logical operator | 'OR' |
-> | | | Attribute source | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
-> | | | Attribute | [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys) |
-> | | | Operator | [ForAnyOfAnyValues:StringNotEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
-> | | | Value | `sensitivity` |
+> | Group | Setting | Value |
+> | ----- | ------- | ----- |
+> | Group #1 | | |
+> | | Attribute source | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
+> | | Key | `sensitivity` |
+> | | Operator | [ForAnyOfAnyValues:StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
+> | | Value | `high`</br>`low`</br>`medium` |
+> | | Logical operator | 'AND' |
+> | | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
+> | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | Value | `privateendpoint1` |
+> | End of Group #1 | | |
+> | | Logical operator | 'OR' |
+> | | Attribute source | [Request](../../role-based-access-control/conditions-format.md#request-attributes) |
+> | | Attribute | [Blob index tags [Keys]](storage-auth-abac-attributes.md#blob-index-tags-keys) |
+> | | Operator | [ForAnyOfAnyValues:StringNotEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#foranyofanyvalues) |
+> | | Value | `sensitivity` |
 
 The image below shows how to add the condition for this example. Note that you must group expressions to ensure correct evaluation:
 
