@@ -116,17 +116,11 @@ If you want to set the authenticated user context:
 
     > [!TIP]
     > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
-3. Declare the tag `parentDataTag` when you want the plug-in to search for parent element info when a clicked HTML element doesn't have parent info directly linked to it. If declared, the plug-in fetches the data-* attributes and values from all the parent HTML elements of this clicked element. Declaring this tag is useful when you want to use the plug-in with customized options.
+3. The tag `parentDataTag` indicates whether the plug-in should search for parent element info when there is no parent info directly linked to the clicked HTML element. If the clicked HTML element already has valid parentid/name attributes, the plug-in uses those attributes directly. Declaring this tag is useful when you need to use the plug-in with customized options.
 
-   - If you declare the tag `parentDataTag`, specify the path for identifying the parent node when traversing up the DOM. You must declare it alongside the parentid data attribute. 
+    - If you declare the tag `parentDataTag`, specify the path for identifying the parent node when traversing up the Document Object Model (DOM). It must be declared alongside the `parentid` data attribute.
      
-     If it is declared and parentid/name attributes aren't set for the clicked HTML element, the plug-in searches for its closest parent element id. The plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
-        
-     If no such element exists, the plug-in fetches the closest parent element `data-id` or `customDataPrefix-id` of the clicked HTML element.
-
-     If no such element exists, the plug-in fetches the `id` attribute of the clicked HTML element if `useDefaultContentNameOrId` is set to true or uses `“not_specified”` if `useDefaultContentNameOrId` is set to false.
-
-     To improve efficiency, the plug-in uses this tag as a flag. When encountered, it stops itself from further processing the Document Object Model (DOM) upward.
+     If `parentDataTag` is declared, `useDefaultContentNameOrId` is set to true, and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the attributes and values from its closest parent element. First, it fetches the closest `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id`. If no such attribute exists, it fetches the closest `data-id` or `customDataPrefix-id`. If no such attribute exists, it fetches the closest `element.id` or `element.contentName`. If no such attribute exists, the value `"not_specified"` is used.
      
      For example:
 
@@ -139,7 +133,7 @@ If you want to set the authenticated user context:
         };
   
      Element1.setAttribute("id", "testId1");
-     Element1.setAttribute("data-id", "testdataId1"
+     Element1.setAttribute("data-id", "testdataId1");
      Element1Parent.setAttribute("id", "parentId1");
      pageAction.capturePageAction(Element1);
      eventdata["parentId"] = "not_specified";
@@ -148,19 +142,26 @@ If you want to set the authenticated user context:
      Element2Parent.setAttribute("id", "parentId2");
      Element2Parent.setAttribute("data-ele1", "testId2");
      pageAction.capturePageAction(Element2);
-     eventdata["parentId"] = "parentId2"; // If useDefaultContentNameOrId is false, this value is "not_specified".
+     // If useDefaultContentNameOrId is false, this value is "not_specified".
+     eventdata["parentId"] = "parentId2"; 
 
      Element3.setAttribute("id", "testId4");
      Parent.appendChild(Element3);
      GrandParent.appendChild(Parent);
      Parent.setAttribute("id", "parentId1");
      GrandParent.setAttribute("id", "parentId2");
-     GrandParent.setAttribute("data-ele1", "testId2"); // Help identify parentDataTag node tree.
+     // Help identify parentDataTag node tree.
+     GrandParent.setAttribute("data-ele1", "testId2");
      pageAction.capturePageAction(Element3);
-     eventdata["parentId"] = "parentId1"; // Will use the closest parent id with parentDataTag tree.
+     // Use the closest parent id with parentDataTag tree.
+     eventdata["parentId"] = "parentId1"; 
      ```
 
-  - If you don't declare the tag `parentDataTag`, the plug-in doesn't search for parent info. 
+     As noted in the example, if `parentDataTag` is declared, `useDefaultContentNameOrId` is set to false, and parentid/name attributes aren't set for the clicked HTML element, the value `"not_specified"` is used.
+     
+     To improve efficiency, the plug-in uses `parentDataTag` as a flag. When encountered, it stops itself from further processing the DOM upward.
+
+  - If `parentDataTag` isn't declared, the plug-in doesn't search for parent info when parent info isn't directly linked to the clicked HTML element. You shouldn't declare the tag `parentDataTag` if you don't need to use the plug-in with customized options.
   
     For example: 
   
@@ -172,7 +173,8 @@ If you want to set the authenticated user context:
                };
    
        Element1.setAttribute("id", "testId1");
-       Element1.setAttribute("data-id", "testdataId1"); // If customDataPrefix: "data-test-" is defined, it should be "data-test-id".
+       // If customDataPrefix: "data-test-" is defined, it should be "data-test-id".
+       Element1.setAttribute("data-id", "testdataId1"); 
        Element1.setAttribute("parentId", "testparentId1");
        Element1Parent.setAttribute("id", "parentId1");
        pageAction.capturePageAction(element1);
@@ -184,7 +186,8 @@ If you want to set the authenticated user context:
        Element2Parent.setAttribute("id", "parentId2");
        pageAction.capturePageAction(element2);
        eventdata["parentId"] = "testparentId2";
-       eventdata["name"] = "testId2"; // If useDefaultContentNameOrId is false, this value is "not_specified". 
+       // If useDefaultContentNameOrId is false, this value is "not_specified". 
+       eventdata["name"] = "testId2"; 
     ```
     
     > [!CAUTION]
