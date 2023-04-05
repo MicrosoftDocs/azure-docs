@@ -168,7 +168,7 @@ runs = mlflow.search_runs(experiment_ids=[ "1234-5678-90AB-CDEFG" ])
 runs[runs.status == "FINISHED"]
 ```
 
-### Searching runs accross experiments
+### Searching runs across experiments
 
 The method `search_runs` require you to indicate the experiment name or ID you want to search runs in. However, if you want to query runs across multiple experiments, you can indicate the argument `search_all_experiments=True` to expand the search.
 
