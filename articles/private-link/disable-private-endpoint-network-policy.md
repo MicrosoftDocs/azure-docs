@@ -200,7 +200,7 @@ This section describes how to disable subnet private endpoint policies using an 
 ---
 
 > [!IMPORTANT]
-> There are limitations to the network policy feature. For more information, see [Limitations](private-endpoint-overview.md#limitations).
+> There are limitations to private endpoints in relation to the network policy feature and Network Security Groups and User Defined Routes. For more information, see [Limitations](private-endpoint-overview.md#limitations).
 
 ## Next steps
 - Learn more about [Azure private endpoint](private-endpoint-overview.md)
