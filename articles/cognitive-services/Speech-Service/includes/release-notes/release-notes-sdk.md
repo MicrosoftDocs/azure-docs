@@ -10,7 +10,7 @@ ms.author: eur
 
 #### Notification about upcoming changes
 
-* Online Certificate Status Protocol (OCSP) is about to be removed from the JavaScript SDK, to allow customers to better conform to browser and Node standards for certificate handling. This release will be the last to include our custom OCSP module.
+* We plan to remove Online Certificate Status Protocol (OCSP) in the next JavaScript SDK release. This allows clients to better conform to browser and Node standards for certificate handling. Version 1.27 is the last release that includes our custom OCSP module.
 	
 #### New Features
 
