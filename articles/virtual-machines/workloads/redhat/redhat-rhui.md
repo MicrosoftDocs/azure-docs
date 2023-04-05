@@ -58,11 +58,11 @@ RedHat:rhel-raw:8-raw:8.6.2022052413
 RedHat:rhel-raw:9-raw:9.1.2022112101
 ```
 
-The SKUs are either X-LVM or X-RAW. The minor version is indicated in the version, which is the fourth element in the name, of these images.
+The SKUs are either X-LVM or X-RAW. The minor version is indicated in the version of these images, which is the fourth element in the name.
 
 ### Images connected to EUS repositories
 
-If you provision a VM from a RHEL image that is connected to EUS repositories, you aren't upgraded to the latest RHEL minor version when you run `sudo yum update`. This situation happens because the images connected to EUS repositories are also version-locked to their specific minor version.
+If you provision a VM from a RHEL image that is connected to EUS repositories, it isn't upgraded to the latest RHEL minor version when you run `sudo yum update`. This situation happens because the images connected to EUS repositories are also version-locked to their specific minor version.
 
 Images connected to EUS repositories contain a minor version number in the SKU. For example, all of the following images come attached to EUS repositories:
 
@@ -96,19 +96,19 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 >[!NOTE]
 > This procedure only applies for RHEL 8.x versions for which EUS is available. Currently, this includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
 
-1. Disable non-EUS repositories:
+1. Disable non-EUS repositories.
 
    ```bash
    sudo yum --disablerepo='*' remove 'rhui-azure-rhel8'
    ```
 
-1. Get the EUS repository *config* file:
+1. Get the EUS repository *config* file.
 
    ```bash
    sudo wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
    ```
 
-1. Add EUS repositories:
+1. Add EUS repositories.
 
    ```bash
    sudo yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
@@ -125,41 +125,41 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
    > [!NOTE]
    > This instruction locks the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` locks your RHEL version to RHEL 8.1.
 
-1. Update your RHEL VM
+1. Update your RHEL VM.
 
    ```bash
    sudo yum update
    ```
 
-### Switch a RHEL 8.x VM back to non-EUS (remove a version lock)
+### Switch a RHEL 8.x VM back to non-EUS
 
-Tor remove the version lock, use the following commands. Run the commands as `root`.
+To remove the version lock, use the following commands. Run the commands as `root`.
 
-1. Remove the `releasever` file:
+1. Remove the `releasever` file.
 
    ```bash
    sudo rm /etc/yum/vars/releasever
     ```
 
-1. Disable EUS repositories:
+1. Disable EUS repositories.
 
    ```bash
    sudo yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
    ```
 
-1. Get the regular repositories `config` file:
+1. Get the regular repositories `config` file.
 
     ```bash
     sudo wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
     ```
 
-1. Add non-EUS repository:
+1. Add non-EUS repository.
 
    ```bash
    sudo yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
    ```
 
-1. Update your RHEL VM
+1. Update your RHEL VM.
 
    ```bash
    sudo yum update
@@ -256,13 +256,13 @@ This procedure is provided for reference only. RHEL PAYG images already have the
      EOF
      ```
 
-  1. Save the file and run the following command:
+  1. Run the following command.
 
      ```bash
      sudo dnf --config rhel8.config install 'rhui-azure-rhel8'
      ```
 
-  1. Update your VM
+  1. Update your VM.
 
      ```bash
      sudo dnf update
