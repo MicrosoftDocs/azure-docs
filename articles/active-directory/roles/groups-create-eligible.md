@@ -23,8 +23,9 @@ You can only assign a role to a group that was created with the ‘isAssignableT
 ## Prerequisites
 
 - Azure AD Premium P1 or P2 license
-- Privileged Role Administrator or Global Administrator
-- AzureAD module when using PowerShell
+- [Privileged Role Administrator](./permissions-reference.md#privileged-role-administrator)
+- Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation?branch=main)
+- AzureAD module when using [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -59,7 +60,21 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## PowerShell
 
-### Create a group that can be assigned to role
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+### Create a role-assignable group
+
+Use the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup?branch=main) command to create a group.
+
+```powershell
+$group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group has Helpdesk Administrator built-in role assigned to it in Azure AD." -MailEnabled:$false -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+### Create a role-assignable group
+
+Use the [New-AzureADMSGroup](/powershell/module/azuread/new-azureadmsgroup?branch=main) command to create a group.
 
 ```powershell
 $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $false -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
@@ -101,9 +116,13 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 }
 ```
 
+---
+
 ## Microsoft Graph API
 
-### Create a role-assignable group in Azure AD
+### Create a role-assignable group
+
+Use the [Create group](/graph/api/group-post-groups?branch=main) API to create a group.
 
 ```http
 POST https://graph.microsoft.com/v1.0/groups
