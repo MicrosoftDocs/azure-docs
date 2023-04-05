@@ -33,7 +33,7 @@ This article provides architectural best practices for monitoring containers in 
 
 
 ## Cost optimization
-You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
+You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](../usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
 [!INCLUDE [waf-containers-cost](../includes/waf-containers-cost.md)]
 
@@ -51,4 +51,4 @@ You can significantly reduce your cost for Azure Monitor by understanding your d
 
 ## Next step
 
-- [Get best practices for a complete deployment of Azure Monitor](best-practices.md).
+- [Get best practices for a complete deployment of Azure Monitor](../best-practices.md).
