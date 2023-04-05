@@ -11,7 +11,7 @@ ms.author: kengaderdus
 
 1. Under **Manage**, select **Expose an API**.
 
-1. Next to **Application ID URI**, select the **Set** link to generate a URI that is unique for this app.
+1. At the top of the page, next to **Application ID URI**, select the **Set** link to generate a URI that is unique for this app.
  
 1. Accept the proposed Application ID URI such as `https://{tenantName}.ciamlogin.com/{clientId}`, and then select **Save**. When your web application requests an access token for the web API, it should add this URI as the prefix for each scope that you define for the API.
  
