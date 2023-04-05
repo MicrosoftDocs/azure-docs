@@ -417,7 +417,7 @@ groups:
     title: JavaScript
   - id: devlang-react
     title: React
-## WEB APP ##
+## Web app ##  
 - id: web-app-quickstart
   title: web-app-quickstart
   prompt: Choose a language or framework
@@ -432,7 +432,19 @@ groups:
     title: Java
   - id: devlang-python
     title: Python
-## WEB API ##
+- id: web-app-tutorial
+  title: web-app-tutorial
+  prompt: Choose a language or framework
+  pivots:
+  - id: devlang-asp-net
+    title: ASP.NET
+  - id: devlang-python-flask
+    title: Python Flask
+  - id: devlang-java-spring
+    title: Java Spring
+  - id: devlang-blazor-server
+    title: Blazor Server
+## WEB API ##  
 - id: web-api-quickstart
   title: web-api-quickstart
   prompt: Choose a language or framework
@@ -441,6 +453,14 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
+- id: web-api-howto-prereq
+  title: web-api-howto-prereq
+  prompt: Make a selection
+  pivots: 
+  - id: no-api
+    title: I don't have an API
+  - id: api
+    title: I have an API
 ## Mobile app ##
 - id: mobile-app-quickstart
   title: desktop-app-quickstart
