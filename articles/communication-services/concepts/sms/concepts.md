@@ -28,7 +28,7 @@ Key features of Azure Communication Services SMS SDKs include:
 - **Bulk Messaging** supported to enable sending messages to multiple recipients at a time.
 - **Two-way** conversations to support scenarios like customer support, alerts, and appointment reminders.
 - **Reliable Delivery** with real-time delivery reports for messages sent from your application.
-- **Analytics** to track your SMS usage patterns. See[SMS insights](../../concepts/analytics/insights/sms-insights.md) for details.
+- **Analytics** to track your SMS usage patterns. See [SMS insights](../../concepts/analytics/insights/sms-insights.md) for details.
 - **Opt-Out** handling support to automatically detect and respect opt-outs for toll-free numbers and short codes. Opt-outs for US toll-free numbers are mandated and enforced by US carriers. See [opt-out handling FAQ](./sms-faq.md#opt-out-handling) for details.
 
 ## Sender types supported
