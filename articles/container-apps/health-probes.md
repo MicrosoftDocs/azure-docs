@@ -24,7 +24,7 @@ Container Apps support the following probes:
 For a full listing of the specification supported in Azure Container Apps, refer to [Azure REST API specs](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/app/resource-manager/Microsoft.App/stable/2022-03-01/CommonDefinitions.json#L119-L236).
 
 > [!NOTE]
-> TCP startup probes are not supported for Consumption workload profiles in the Consumption + Dedicated plan structure.
+> TCP startup probes are not supported for Consumption workload profiles in the [Consumption + Dedicated plan structure](./plans.md#consumption-dedicated).
 
 ## HTTP probes
 
