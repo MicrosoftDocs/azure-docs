@@ -28,7 +28,7 @@ Only two steps are required to enable the Application Insights SDK for JavaScrip
 
 #### Add the code snippet
 
-Add the following code snippet to beginning of every <head> tag for each HTML page you want to monitor.
+Directly instrument your webpages with Application Insights by pasting this snippet at the top of each your pages. Preferably, it should be the first script in your <head> section so that it can monitor any potential issues with all of your dependencies.
 
 ```html
 <script type="text/javascript">

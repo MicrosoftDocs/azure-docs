@@ -300,7 +300,7 @@ To build locally, use the following steps:
    customers-service     eastus      <resource group>                                                                      default                  Succeeded             1      2Gi       1/1                1/1                    -                     True                     True
    ```
 
-## Use Application Insight
+## Use Application Insights
 
 Azure Spring Apps Enterprise tier uses buildpack bindings to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
