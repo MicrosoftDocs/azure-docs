@@ -29,6 +29,7 @@ The challenge of this method is to define what *for a while* means for your envi
 The last successful sign-in provides potential insights into a user's continued need for access to resources.  It can help with determining if group membership or app access is still needed or could be removed. For external user management, you can understand if an external user is still active within the tenant or should be cleaned up. 
 
 ## Detect inactive user accounts with Microsoft Graph
+<a name="how-to-detect-inactive-user-accounts"></a>
 
 You can detect inactive accounts by evaluating the `lastSignInDateTime` property exposed by the `signInActivity` resource type of the **Microsoft Graph API**. The `lastSignInDateTime` property shows the last time a user made a successful interactive sign-in to Azure AD. Using this property, you can implement a solution for the following scenarios:
 
@@ -69,7 +70,7 @@ The following details relate to the `lastSignInDateTime` property.
 
 ## How to investigate a single user
 
-If you need to view the latest sign-in activity for a user you can view the user's sign-in details in Azure AD. You can also use the Microsoft Graph scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
+If you need to view the latest sign-in activity for a user you can view the user's sign-in details in Azure AD. You can also use the Microsoft Graph **users by name** scenario described in the [previous section](#detect-inactive-user-accounts-with-microsoft-graph).
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Go to **Azure AD** > **Users** > select a user from the list.
