@@ -20,7 +20,7 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric
 ::: zone-end
 
 ::: zone pivot="alphanumeric-senderid"
-[!INCLUDE [Alphanumeric Sender ID](./includes/sms-alphanumeric-senderID-pricing.md)]
+[!INCLUDE [Alphanumeric Sender ID](./includes/sms-alphanumeric-senderid-pricing.md)]
 ::: zone-end
 
 ## Next steps
