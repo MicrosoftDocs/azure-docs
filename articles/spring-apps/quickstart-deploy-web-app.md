@@ -23,7 +23,7 @@ This quickstart shows how to deploy a Spring Boot web application to Azure Sprin
 
 - A frontend bounded [React](https://reactjs.org/) application.
 - A backend Spring web application that uses Spring Data JPA to access a relational database.
-- A relational database. For localhost, the application uses [H2 Database Engine](https://www.h2database.com/html/main.html). For Azure Spring Apps, the application uses Azure Database for PreSql. For more information about Azure Database for PreSql, see [Flexible Server documentation](/azure/postgresql/flexible-server/).
+- A relational database. For localhost, the application uses [H2 Database Engine](https://www.h2database.com/html/main.html). For Azure Spring Apps, the application uses Azure Database for PreSql. For more information about Azure Database for PreSql, see [Flexible Server documentation](../postgresql/flexible-server/overview.md).
 
 The following diagram shows the architecture of the system:
 
@@ -37,6 +37,8 @@ The following diagram shows the architecture of the system:
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
 ## Clone and run the sample project locally
+
+Use the following steps to clone and run the app locally.
 
 1. The sample project is available on GitHub. Use the following command to clone the sample project:
 
@@ -65,7 +67,7 @@ The following diagram shows the architecture of the system:
 
 The main resources required to run this sample are an Azure Spring Apps instance and an Azure Database for PostgreSQL instance. This section provides the steps to create these resources.
 
-### Step 1 - Provide names for each resource
+### Provide names for each resource
 
 Set the following names for the resources. Make adjustments as needed to avoid conflicts with existing resources.
 
@@ -79,7 +81,7 @@ APP_NAME=webapp
 CONNECTION=WebAppConnection
 ```
 
-### Step 2 - Create a new resource group
+### Create a new resource group
 
 Use the following steps to create a new resource group.
 
@@ -119,7 +121,7 @@ Use the following steps to create a new resource group.
    az configure --defaults group=${RESOURCE_GROUP}
    ```
 
-### Step 3 - Create an Azure Spring Apps instance
+### Create an Azure Spring Apps instance
 
 Azure Spring Apps is used to host the Spring web app. Create an Azure Spring Apps instance and an application inside it.
 
@@ -139,7 +141,7 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
        --assign-endpoint true
    ```
 
-### Step 4 - Prepare the PostgreSQL instance
+### Prepare the PostgreSQL instance
 
 The Spring web app uses H2 for the database in localhost, and Azure Database for PostgreSQL for the database in Azure.
 
@@ -154,14 +156,14 @@ az postgres flexible-server create \
 
 To ensure that the application is accessible only by PostgreSQL in Azure Spring Apps, enter `n` to the prompts to enable access to a specific IP address and to enable access for all IP addresses.
 
-```azurecli
+```output
 Do you want to enable access to client xxx.xxx.xxx.xxx (y/n) (y/n): n
 Do you want to enable access for all IPs  (y/n): n
 ```
 
-### Step 5 - Connect app instance to PostgreSQL instance
+### Connect app instance to PostgreSQL instance
 
-After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. The following steps use Service Connector to configure the needed network settings and connection information. For more information about Service Connector, see [What is Service Connector?](/azure/service-connector/overview).
+After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. The following steps use Service Connector to configure the needed network settings and connection information. For more information about Service Connector, see [What is Service Connector?](../service-connector/overview.md).
 
 1. If you're using Service Connector for the first time, register the Service Connector resource provider.
 
@@ -190,7 +192,7 @@ After the application instance and the PostgreSQL instance are created, the appl
        --connection ${CONNECTION}
    ```
 
-   The `--system-identity` parameter is required for the passwrodless connection. For more information, see [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/spring-apps/how-to-bind-postgres?tabs=Passwordlessflex).
+   The `--system-identity` parameter is required for the passwrodless connection. For more information, see [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](how-to-bind-postgres.md).
 
 1. After the connection is created, use the following command to validate the connection:
 
@@ -274,8 +276,11 @@ Now that the cloud environment is prepared, the application is ready to deploy.
 
 ## Next steps
 
-[Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](/azure/spring-apps/how-to-bind-postgres?tabs=Secrets)
+> [!div class="nextstepaction"]
+> [Create a service connection in Azure Spring Apps with the Azure CLI](../service-connector/quickstart-cli-spring-cloud-connection.md)
 
-[Create a service connection in Azure Spring Apps with the Azure CLI](/azure/service-connector/quickstart-cli-spring-cloud-connection)
+For more information, see the following articles:
 
-[Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Spring on Azure](/azure/developer/java/spring/)
+- [Spring Cloud Azure](/azure/developer/java/spring-framework/)
