@@ -116,23 +116,76 @@ If you want to set the authenticated user context:
 
     > [!TIP]
     > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
-3. Declare the tag `parentDataTag` when you want to fetch all child HTML elements. This is useful when you don't set parentid/name attributes for the HTML elements. If all HTML elements have valid parentid/name attributes, you don't need to declare the tag `parentDataTag`.
-    
-    - When you declare the tag `parentDataTag`, you must add it alongside the parentid data attribute. 
-    
-       If it is declared and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
+3. Declare the tag `parentDataTag` when you want the plug-in to search for parent element info when a clicked HTML element doesn't have parent info directly linked to it. If declared, the plug-in fetches the data-* attributes and values from all the parent HTML elements of this clicked element. Declaring this tag is useful when you want to use the plug-in with customized options.
+
+   - If you declare the tag `parentDataTag`, specify the path for identifying the parent node when traversing up the DOM. You must declare it alongside the parentid data attribute. 
+     
+     If it is declared and parentid/name attributes aren't set for the clicked HTML element, the plug-in searches for its closest parent element id. The plug-in fetches the closest parent element `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id` of the clicked element.
         
-       If no such element exists, the plug-in fetches the closest parent element `data-id` or `customDataPrefix-id` of the clicked HTML element.
+     If no such element exists, the plug-in fetches the closest parent element `data-id` or `customDataPrefix-id` of the clicked HTML element.
 
-       If no such element exists, the plug-in fetches the `id` attribute of the clicked HTML element if `useDefaultContentNameOrId` is set to true or uses `“not_specified”` if `useDefaultContentNameOrId` is set to false.
+     If no such element exists, the plug-in fetches the `id` attribute of the clicked HTML element if `useDefaultContentNameOrId` is set to true or uses `“not_specified”` if `useDefaultContentNameOrId` is set to false.
 
-       To improve efficiency, the plug-in uses this tag as a flag. When encountered, it stops itself from further processing the Document Object Model (DOM) upward.
+     To improve efficiency, the plug-in uses this tag as a flag. When encountered, it stops itself from further processing the Document Object Model (DOM) upward.
+     
+     For example:
 
-       When declared, the logs are saved....
+     ```javascript
+     const config = {
+                 dataTags : {
+                   useDefaultContentNameOrId : true,
+                   parentDataTag: "ele1"
+          }
+        };
+  
+     Element1.setAttribute("id", "testId1");
+     Element1.setAttribute("data-id", "testdataId1"
+     Element1Parent.setAttribute("id", "parentId1");
+     pageAction.capturePageAction(Element1);
+     eventdata["parentId"] = "not_specified";
 
-     - When you don't declare the tag `parentDataTag`, the plug-in fetches the parentid/name attributes of the clicked HTML element directly if it already has them and they are valid.
-      
-       When not declared, logs are saved/rendered....
+     Element2.setAttribute("id", "testId2");
+     Element2Parent.setAttribute("id", "parentId2");
+     Element2Parent.setAttribute("data-ele1", "testId2");
+     pageAction.capturePageAction(Element2);
+     eventdata["parentId"] = "parentId2"; // If useDefaultContentNameOrId is false, this value is "not_specified".
+
+     Element3.setAttribute("id", "testId4");
+     Parent.appendChild(Element3);
+     GrandParent.appendChild(Parent);
+     Parent.setAttribute("id", "parentId1");
+     GrandParent.setAttribute("id", "parentId2");
+     GrandParent.setAttribute("data-ele1", "testId2"); // Help identify parentDataTag node tree.
+     pageAction.capturePageAction(Element3);
+     eventdata["parentId"] = "parentId1"; // Will use the closest parent id with parentDataTag tree.
+     ```
+
+  - If you don't declare the tag `parentDataTag`, the plug-in doesn't search for parent info. 
+  
+    For example: 
+  
+     ```javascript
+       const config = {
+         dataTags : {
+          useDefaultContentNameOrId : true,
+             }
+               };
+   
+       Element1.setAttribute("id", "testId1");
+       Element1.setAttribute("data-id", "testdataId1"); // If customDataPrefix: "data-test-" is defined, it should be "data-test-id".
+       Element1.setAttribute("parentId", "testparentId1");
+       Element1Parent.setAttribute("id", "parentId1");
+       pageAction.capturePageAction(element1);
+       eventdata["parentId"] = "not_specified";
+       eventdata["name"] = "testdataId1";
+
+       Element2.setAttribute("id", "testId2");
+       Element2.setAttribute("data-parentId", "testparentId2");
+       Element2Parent.setAttribute("id", "parentId2");
+       pageAction.capturePageAction(element2);
+       eventdata["parentId"] = "testparentId2";
+       eventdata["name"] = "testId2"; // If useDefaultContentNameOrId is false, this value is "not_specified". 
+    ```
     
     > [!CAUTION]
     > After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it. If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
