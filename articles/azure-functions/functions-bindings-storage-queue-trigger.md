@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 The queue storage trigger runs a function as messages are added to Azure Queue storage.
 
-Azure Queue storage scaling decisions for the Consumption and Premium plans are done via Target Based Scaling. For more information, see [Target Based Scaling](functions-target-based-scaling.md).
+Azure Queue storage scaling decisions for the Consumption and Premium plans are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
 ::: zone pivot="programming-language-python"  
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.

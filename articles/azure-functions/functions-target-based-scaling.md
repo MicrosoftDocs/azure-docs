@@ -1,34 +1,45 @@
 ---
-title: Target Based Scaling in Azure Functions
-description: Explains target based scaling behaviors of Consumption plan and Premium plan function apps.
+title: Target-based scaling in Azure Functions
+description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
 ms.date: 04/04/2023
 ms.topic: conceptual
 ms.service: azure-functions
 
 ---
-# Target Based Scaling
+# Target-based scaling
 
-Target Based Scaling provides a fast and intuitive scaling model for customers and is currently supported for the following extensions:
+Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for the following extensions:
 
 - Service Bus Queues and Topics
 - Storage Queues
 - Event Hubs
 - Cosmos DB
 
-Target Based Scaling  replaces the previous incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of 1 worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale out and scale in. In contrast, Target Based Scaling allows scale up of 4 instances at a time, and the scaling decision is based on a simple target based equation:
+Target-based scaling  replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of 1 worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of 4 instances at a time, and the scaling decision is based on a simple target-based equation:
 
-$$ desiredWorkers = \lceil  \frac{eventsourceLength}{targetExecutionsPerInstance} \rceil $$
+![Desired instances = event source length / target executions per instance](./media/functions-target-based-scaling/targetbasedscalingformula.png)
 
-Target Based Scaling is supported for the [Consumption](consumption-plan.md) and [Premium](functions-premium-plan.md) plans. Your function app runtime must be 4.3.0 or higher.
+The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
 
 > [!NOTE]
-> In order to achieve the most accurate scaling based on metrics, we recommend one target based triggered function per function app.
+> In order to achieve the most accurate scaling based on metrics, we recommend one target-based triggered function per function app.
 
-## Customizing Target Based Scaling
+## Prerequisites
 
-The defaults are the same as set by the SDKs used by the Azure Functions extensions and you don't need to make any changes to your applications for Target Based Scaling to work. But to achieve a desired scale behavior for your app's workload, you can adjust _targetExecutionsPerInstance_ for each extension type. For example, Storage Queues use the `batchSize` defined in host.json as the _targetExecutionsPerInstance_.
+Target-based scaling is supported for the [Consumption](consumption-plan.md) and [Premium](functions-premium-plan.md) plans. Your function app runtime must be 4.3.0 or higher.
 
- This table summarizes the `host.json` values that are used for target based scaling and the default values for each extension type:
+## Opting out
+Target-based scaling is on by default for apps on the Consumption plan or Premium plans without runtime scale monitoring. If you wish to disable target-based scaling and revert to incremental scaling, add the following app setting to your function app:
+
+|          App Setting          | Value |
+| ----------------------------- | ----- |
+|`TARGET_BASED_SCALING_ENABLED` |   0   |
+
+## Customizing target-based scaling
+
+You can make the scaling behavior more or less aggressive based on your app's workload by adjusting _target executions per instance_. Each extension has different settings that you can use to set _target executions per instance_. 
+
+This table summarizes the `host.json` values that are used for the _target executions per instance_ values and the defaults:
 
 | Extension                                                      | host.json values                                                  | Default Value |
 | -------------------------------------------------------------- | ----------------------------------------------------------------- | ------------- |
@@ -43,27 +54,46 @@ The defaults are the same as set by the SDKs used by the Azure Functions extensi
 | Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Storage Queue                                                  | extensions.queues.batchSize                                       |       16      |
 
-For the Cosmos DB extension, the target is set in the function attribute:
+For Cosmos DB _target executions per instance_ is set in the function attribute:
 
 | Extension   | Function trigger setting | Default Value | 
 | ------------| ------------------------ | ------------- |
 | Cosmos DB   | maxItemsPerInvocation    |  100          |
 
-The following section explains how to configure the target for each of the supported extensions.
+See [Details per extension](#details-per-extension) for example configurations of the supported extensions.
 
-## Details per Extension
-### Service Bus Queues and Topics
+## Premium plan with runtime scale monitoring enabled
+In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#premium-plan-with-virtual-network-triggers), the extensions handle target-based scaling. Hence, in addition to the function app runtime version requirement, your extension packages must meet the following minimum versions:
+
+| Extension Name | Minimum Version Needed | 
+| -------------- | ---------------------- |
+| Storage Queue  |         5.1.0          |
+| Event Hubs     |         5.2.0          |
+| Service Bus    |         5.9.0          |
+| Cosmos DB      |         4.1.0          |
+
+Additionally, target-based scaling is currently an **opt-in** feature with runtime scale monitoring. In order to use target-based scaling with the Premium plan when runtime scale monitoring is enabled, add the following app setting to your function app:
+
+|          App Setting          | Value |
+| ----------------------------- | ----- |
+|`TARGET_BASED_SCALING_ENABLED` |   1   |
+
+## Dynamic concurrency support
+Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus or Storage queues you also have the option of enabling [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
+
+## Details per extension
+### Service Bus queues and topics
 
 The Service Bus extension support three execution models, determined by the `IsBatched` and `IsSessionsEnabled` attributes of your Service Bus trigger. The default value for `IsBatched` and `IsSessionsEnabled` is `false`.
 
-|                                            | IsBatched | IsSessionsEnabled | Concurrency Setting Used for Target Based Scaling |
+|                                            | IsBatched | IsSessionsEnabled | Concurrency Setting Used for target-based scaling |
 | ------------------------------------------ | --------- | ----------------- | ------------------------------------------------- |
 | Single Dispatch Processing                 | false     | false             | maxConcurrentCalls                                |
 | Single Dispatch Processing (Session Based) | false     | true              | maxConcurrentSessions                             |
 | Batch Processing                           | true      | false             | maxMessageBatchSize or maxMessageCount            |
 
 > [!NOTE]
-> **Scale efficiency:** For the Service Bus extension, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights, scaling isn't as accurate because the queue length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+> **Scale efficiency:** For the Service Bus extension, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights scaling will revert to incremental scale because the queue or topic length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 
 
 #### Single Dispatch Processing
@@ -149,7 +179,7 @@ For Functions host **v2.x+**, modify the `host.json` setting `maxMessageCount` i
 ```
 
 ### Event Hubs
-For Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the hub. By default, the `host.json` attributes used are `maxEventBatchSize` and `maxBatchSize`. However, if you wish to fine-tune target based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides the target value without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
+For Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the hub. By default, the `host.json` attributes used are `maxEventBatchSize` and `maxBatchSize`. However, if you wish to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides the target value without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
 
 > [!NOTE]
 > Since Event Hubs is a partitioned workload, the target instance count for Event Hubs is capped by the number of partitions in your Event Hub. 
@@ -254,29 +284,3 @@ Sample `bindings` section of a `function.json` with `MaxItemsPerInvocation` defi
 ```
 > [!NOTE]
 > Since Cosmos DB is a partitioned workload, the target instance count for Cosmos DB is capped by the number of physical partitions in your Cosmos DB. For further documentation on Cosmos DB scaling, please see notes on [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
-
-## Opting Out
-Target Based Scaling is on by default for apps on the Consumption plan or Premium plans without Runtime Scale Monitoring. If you wish to disable Target Based Scaling and revert to incremental scaling, add the following app setting to your function app:
-
-|          App Setting          | Value |
-| ----------------------------- | ----- |
-|`TARGET_BASED_SCALING_ENABLED` |   0   |
-
-## Premium Plans with Runtime Scale Monitoring Enabled
-In [Runtime Scale Monitoring](functions-networking-options.md?tabs=azure-cli#premium-plan-with-virtual-network-triggers), the extensions handle Target Based Scaling. Hence, in addition to the function app runtime version requirement, your extension packages must meet the following minimum versions:
-
-| Extension Name | Minimum Version Needed | 
-| -------------- | ---------------------- |
-| Storage Queue  |         5.1.0          |
-| Event Hubs     |         5.2.0          |
-| Service Bus    |         5.9.0          |
-| Cosmos DB      |         4.1.0          |
-
-Additionally, Target Based Scaling is currently an **opt-in** feature for this configuration. In order to use Target Based Scaling with the Premium plan when Runtime Scale Monitoring is enabled, add the following app setting to your function app:
-
-|          App Setting          | Value |
-| ----------------------------- | ----- |
-|`TARGET_BASED_SCALING_ENABLED` |   1   |
-
-## Dynamic Concurrency Support
-Target Based Scaling introduces faster scale out and in, and uses defaults for the targets. When using Service Bus or Storage queues with Target Based Scaling, you have the option of enabling [Dynamic Concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the target metric is determined automatically by Dynamic Concurrency feature over time, instead of the `host.json` and function attributes.

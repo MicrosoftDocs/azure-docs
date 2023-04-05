@@ -16,7 +16,7 @@ Function code files are stored on Azure Files shares on the function's main stor
 
 ## Runtime scaling
 
-Azure Functions uses a component called the *scale controller* to monitor the rate of events and determine whether to scale out or scale in. The scale controller uses heuristics for each trigger type. For example, when you're using an Azure Queue storage trigger, it uses [target based scaling](functions-target-based-scaling.md).
+Azure Functions uses a component called the *scale controller* to monitor the rate of events and determine whether to scale out or scale in. The scale controller uses heuristics for each trigger type. For example, when you're using an Azure Queue storage trigger, it uses [target-based scaling](functions-target-based-scaling.md).
 
 The unit of scale for Azure Functions is the function app. When the function app is scaled out, more resources are allocated to run multiple instances of the Azure Functions host. Conversely, as compute demand is reduced, the scale controller removes function host instances. The number of instances is eventually "scaled in" when no functions are running within a function app.
 
@@ -32,7 +32,7 @@ Scaling can vary based on several factors, and apps scale differently based on t
 
 * **Maximum instances:** A single function app only scales out to a [maximum allowed by the plan](functions-scale.md#scale). A single instance may process more than one message or request at a time though, so there isn't a set limit on number of concurrent executions.  You can [specify a lower maximum](#limit-scale-out) to throttle scale as required.
 * **New instance rate:** For HTTP triggers, new instances are allocated, at most, once per second. For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds. Scaling is faster when running in a [Premium plan](functions-premium-plan.md).
-* **Target Based Scaling:** Target Based Scaling provides a fast and intuitive scaling model for customers and is currently supported for Service Bus Queues and Topics, Storage Queues, Event Hubs, and Cosmos DB extensions. Make sure to review target based scaling to understand their scaling behavior.
+* **Target-based scaling:** Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for Service Bus Queues and Topics, Storage Queues, Event Hubs, and Cosmos DB extensions. Make sure to review target-based scaling to understand their scaling behavior.
 
 ## Limit scale-out
 
