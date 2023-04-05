@@ -21,17 +21,27 @@ In this overview, you learn about the benefits and capabilities of the speech-to
 > [!NOTE]
 > To compare pricing of [real-time](#real-time-speech-to-text) to [batch transcription](#batch-transcription), see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). 
 
-Speech-to-text is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-speech-to-text.md), and the [Speech CLI](spx-overview.md). For a full list of available speech-to-text languages, see [Language and voice support](language-support.md?tabs=stt).
+For a full list of available speech-to-text languages, see [Language and voice support](language-support.md?tabs=stt).
 
 ## Real-time speech-to-text
 
-With real-time speech-to-text, the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech-to-text for:
-- Applications that need to transcribe audio in real-time, such as a call center or a video conference.
-- Keyword spotting to detect a specific word or phrase. For example, you can detect the phrase "hey copilot" in the audio and then take action. For more information, see [keyword recognition](keyword-recognition-overview.md). 
+With real-time speech-to-text, the audio is transcribed as speech is recognized from a microphone or file. Use real-time speech-to-text for applications that need to transcribe audio in real-time such as:
+- Transcriptions, captions, or subtitles for live meetings
+- Contact center agent assist
+- Dictation
+- Voice agents
+- Pronunciation assessment
+
+Real-time speech to text is available via the [Speech SDK](speech-sdk.md) and the [Speech CLI](spx-overview.md). 
 
 ## Batch transcription
 
-Batch transcription is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Batch transcription is available via:
+Batch transcription is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
+- Transcriptions, captions, or subtitles for pre-recorded audio
+- Contact center post-call analytics
+- Diarization
+
+Batch transcription is available via:
 - [Speech-to-text REST API](rest-speech-to-text.md): To get started, see [How to use batch transcription](batch-transcription.md) and [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
 - The [Speech CLI](spx-overview.md) supports both real-time and batch transcription. For Speech CLI help with batch transcriptions, run the following command:
     ```azurecli-interactive
