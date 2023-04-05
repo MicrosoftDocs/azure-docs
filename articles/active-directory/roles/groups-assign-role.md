@@ -27,7 +27,7 @@ If you have Azure AD Premium P2, you can use Azure AD Privileged Identity Manage
 - Azure AD Premium P1 or P2 license
 - [Privileged Role Administrator](./permissions-reference.md#privileged-role-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation?branch=main)
-- AzureAD module when using Azure AD PowerShell
+- AzureAD module when using [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
@@ -40,11 +40,11 @@ Assigning an Azure AD role to a group is similar to assigning users and service 
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
+    :::image type="content" source="media/manage-roles-portal/roles-and-administrators.png" alt-text="Screenshot of Roles and administrators page in Azure Active Directory." lightbox="media/manage-roles-portal/roles-and-administrators.png":::
 
 1. Select the role name to open the role. Don't add a check mark next to the role.
 
-    ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
+    :::image type="content" source="media/manage-roles-portal/role-select-mouse.png" alt-text="Screenshot that shows selecting a role." lightbox="media/manage-roles-portal/role-select-mouse.png":::
 
 1. Select **Add assignments**.
 
@@ -118,7 +118,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinit
 
 ### Create a role-assignable group
 
-Use the [Create group](/graph/api/group-post-groups) API to create a group.
+Use the [Create group](/graph/api/group-post-groups?branch=main) API to create a group.
 
 **Request**
 
@@ -146,7 +146,7 @@ HTTP/1.1 201 Created
 
 ### Get the role definition you want to assign
 
-Use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get a role definition.
+Use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions?branch=main) API to get a role definition.
 
 **Request**
 
@@ -176,7 +176,7 @@ GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions?$f
 
 ### Create the role assignment
 
-Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
+Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments?branch=main) API to assign the role.
 
 **Request**
 
