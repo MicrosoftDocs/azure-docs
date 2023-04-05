@@ -189,6 +189,13 @@ These ratings can be seen by all users with read access, and rating can be [adde
 Asset can be tagged by users with data curator permissions or better, and any users with reader permissions on these assets in Microsoft Purview can see these tags.
 Users can add tags [as a filter](how-to-search-catalog.md#filtering-results) when [searching the data catalog](how-to-search-catalog.md), so users can see all assets with certain tags.
 
+>[!NOTE]
+>Tag limitations:
+>
+> - An asset can only have up to 50 tags
+> - Tags can only be 50 characters
+> - Allowed characters: numbers, letters, -, and _
+
 ### Add a tag to an asset
 
 If you have [data curator](catalog-permissions.md) permissions Microsoft Purview, you can add a tag to an asset by:
