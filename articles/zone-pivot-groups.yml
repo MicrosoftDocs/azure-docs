@@ -1839,7 +1839,7 @@ groups:
   - id: client-clitier
     title: CLI
 # Owner: prakulka
-- id: acs-tollfree-shortcode
+- id: acs-tollfree-shortcode-alphanumeric
   title: Number Type
   prompt: Choose a Number Type
   pivots:
@@ -1847,6 +1847,8 @@ groups:
     title: Toll-Free
   - id: shortcode
     title: Short Code
+  - id: alphanumeric-senderid
+    title: Alphanumeric Sender ID
 # Owner: timlt
 - id: iot-develop-nxp-toolset
   title: IoT Devices
