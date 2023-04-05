@@ -5,7 +5,7 @@ author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/03/2023
+ms.date: 04/05/2023
 ms.reviewer: erd
 ms.subservice: image-builder
 ms.custom: references_regions
@@ -28,7 +28,7 @@ This article contains all major API changes and feature updates for the Azure VM
 - Added support to pull the latest image version stored in Azure Compute Gallery to AIB templates
 - Added support to pull the latest image version stored in Azure Compute Gallery as the source for the image template
 - Added support for image versioning
-- Added `DistributeVersioner` to support generating version numbers for image distributions. For more information, see [properties: DistributeVersioner](../../articles/virtual-machines/linux/image-builder-json.md#properties-distributeversioner)
+- Added `versioning` to support generating version numbers for image distributions. For more information, see [properties: versioning](../../articles/virtual-machines/linux/image-builder-json.md#versioning)
 - Added support for per region configuration when distributing to Azure Compute Gallery
 
 
