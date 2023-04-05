@@ -25,11 +25,11 @@ landingContent:
         links:
           - text: Deploy using the portal
             url: deploy-portal.md
-  - title: Onco-Phenotype
+  - title: Onco Phenotype
     linkLists:
       - linkListType: overview
         links:
-          - text: About Onco-Phenotype
+          - text: About Onco Phenotype
             url: oncophenotype/overview.md
       - linkListType: concept
         links:

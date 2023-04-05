@@ -56,7 +56,7 @@ Once the Cognitive Services account is successfully created, configure private e
 To get started using Azure Health Insights, get started with one of the following models:
 
 >[!div class="nextstepaction"]
-> [Onco-Phenotype](oncophenotype/index.yml) 
+> [Onco Phenotype](oncophenotype/index.yml) 
 
 >[!div class="nextstepaction"]
 > [Trial Matcher](trial-matcher/index.yml) 

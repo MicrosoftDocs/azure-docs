@@ -1,7 +1,7 @@
 ---
-title: Onco-Phenotype patient info 
+title: Onco Phenotype patient info 
 titleSuffix: Azure Health Insights
-description: This article describes how and which patient information can be sent to the Onco-Phenotype model
+description: This article describes how and which patient information can be sent to the Onco Phenotype model
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,17 +12,15 @@ ms.author: behoorne
 ---
 
 
-# Onco-Phenotype patient info
+# Onco Phenotype patient info
 
-The Onco-Phenotype currently can receive patient information in the form of ```Unstructured clinical notes```.
+The Onco Phenotype currently can receive patient information in the form of ```Unstructured clinical notes```.
 The payload should contain a ```patients``` section with one or more objects where the ```data``` property contains one or more JSON object of ```kind``` "note". 
                       
 
 ## Example request
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model will check for a cancer case but not include the evidence. 
-In this example the Onco-Phenotype model receives patient information in the form of Unstructured clinical notes
-
+The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence. In this example, the Onco Phenotype model receives patient information in the form of unstructured clinical notes
 
 ```json
 {
@@ -55,7 +53,7 @@ In this example the Onco-Phenotype model receives patient information in the for
 
 ## Next steps
 
-To get started using the Onco-Phenotype model:
+To get started using the Onco Phenotype model:
 
 >[!div class="nextstepaction"]
 > [Deploy the service via the portal](../deploy-portal.md) 

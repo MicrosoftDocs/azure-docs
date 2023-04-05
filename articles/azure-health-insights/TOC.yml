@@ -6,7 +6,7 @@ items:
   items:
     - name: About Azure Health Insights
       href: overview.md
-    - name: Onco-Phenotype
+    - name: Onco Phenotype
       href: ./oncophenotype/index.yml
     - name: Trial Matcher 
       href: ./trial-matcher/index.yml

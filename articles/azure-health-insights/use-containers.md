@@ -44,10 +44,10 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 
 ## Get the container images with `docker pull`
 
-Azure Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They resides within the `azure-cognitive-services/health-insights/` repository and can be found by their model name. 
+Azure Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They reside within the `azure-cognitive-services/health-insights/` repository and can be found by their model name. 
 
 - Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/clinical-matching`
-- Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
+- Onco Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
 
 To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/product/azure-cognitive-services/health-insights/<ModelName>/tags`.
 
@@ -79,9 +79,9 @@ container-
 
 There are multiple ways you can install and run Azure Health Insights containers. 
 
-- Use the Azure portal to create a Azure Health Insights resource, and use Docker to get your container.
+- Use the Azure portal to create an Azure Health Insights resource, and use Docker to get your container.
 - Use an Azure VM with Docker to run the container. 
-- Use PowerShell and Azure CLI scripts to automate resource deployment and container conffiguration.
+- Use PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
 When you use Azure Health Insights container, the data contained in your API requests and responses is not visible to Microsoft, and is **not** used for training the model applied to your data. 
 
