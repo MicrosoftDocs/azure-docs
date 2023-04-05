@@ -94,10 +94,10 @@ Your terms of service must contain ALL of the following:
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send an email with the screenshots to phone@microsoft.com with "[CompanyName - ProgramName] Short Code Request".
 
-### Program Sign up type and URL 
+### Program Sign-up type and URL 
 This field captures the call-to-action, an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call-to-action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call-to-action.
 
-In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design. If the program sign up type is SMS, then you must provide the keywords the customer will send to the short code for opting in. 
+In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design. If the program sign-up type is SMS, then you must provide the keywords the customer will send to the short code for opting in. 
 
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com with Subject "[CompanyName - ProgramName] Short Code Request".
@@ -172,14 +172,14 @@ CTIA requires that the customer must actively opt into short code programs by se
 
 In this field, you are required to provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
 
-**Example:** Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.
+**Example:** Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt out.
 
 ### Help message response
 Message senders are required to respond to messages containing the HELP keyword with the program name and further information about how to contact the message sender.
 
 In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
 
-**Example:** Contoso Appointment reminders: Get help at support@contoso.com or 1-800 123 4567.Msg&Data Rates May Apply. Txt HELP for help. Txt STOP to opt-out.
+**Example:** Contoso Appointment reminders: Get help at support@contoso.com or 1-800 123 4567.Msg&Data Rates May Apply. Txt HELP for help. Txt STOP to opt out.
 
 ### Opt-out message
 Message senders are required to have mechanisms to opt customers out of the program and respond to messages containing the STOP keyword with the program name and confirmation that no additional messages will be sent. 
