@@ -115,7 +115,7 @@ sudo rpm -qa | grep nfs-client
 Same commands on this section applies for Debian.
  
 ```bash
-sudo dpkg -l | grep -i nfs-common
+sudo dpkg -l | grep nfs-common
 ``` 
 ---
 
