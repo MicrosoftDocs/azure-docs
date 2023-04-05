@@ -6,7 +6,7 @@ ms.author: jaredro
 ms.date: 01/23/2023
 ms.topic: how-to
 # ms.prod: used for on prem applications
-ms.service: operator-nexus 
+ms.service: azure-operator-nexus 
 ---
 
 # Cluster Manager: How to manage the Cluster Manager in Operator Nexus
