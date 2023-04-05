@@ -51,7 +51,7 @@ While the application is paused, open a command prompt on Windows as an administ
 
 Get information about the storage account primary endpoint domain by entering the following command on a command prompt or terminal, replacing `STORAGEACCOUNTNAME` with the name of your storage account.
 
-```
+```bash
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 ```
 
@@ -63,7 +63,7 @@ To add a static route for a destination host, type the following command on a Wi
 
 #### Linux
 
-```
+```bash
 route add <destination_ip> gw <gateway_ip>
 ```
 
