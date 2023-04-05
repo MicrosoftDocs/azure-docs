@@ -250,4 +250,5 @@ These models can only be used with Embedding API requests.
 
 ## Next steps
 
-[Learn more about Azure OpenAI](../overview.md)
+- [Learn more about Azure OpenAI](../overview.md)
+- [Learn more about fine-tuning Azure OpenAI models](../how-to/fine-tuning.md)

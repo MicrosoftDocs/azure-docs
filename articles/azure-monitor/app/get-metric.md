@@ -3,7 +3,7 @@ title: Get-Metric in Azure Monitor Application Insights
 description: Learn how to effectively use the GetMetric() call to capture locally pre-aggregated metrics for .NET and .NET Core applications with Azure Monitor Application Insights.
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/05/2023
 ms.devlang: csharp
 ms.reviewer: casocha
 ---
@@ -306,6 +306,8 @@ SeverityLevel.Error);
 
 ## Next steps
 
+* [Metrics - Get - REST API](https://learn.microsoft.com/rest/api/application-insights/metrics/get)
+* [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Learn more](./worker-service.md) about monitoring worker service applications.
 * Use [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
 * Get started with [metrics explorer](../essentials/metrics-getting-started.md).
