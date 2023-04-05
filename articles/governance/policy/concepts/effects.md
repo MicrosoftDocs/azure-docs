@@ -271,6 +271,7 @@ related resources to match.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
     However, an [audit](#audit) effect should be considered instead.
+  - Can be made generic by hardcoding or concatenating the wildcard character '?'. For example, ` "name": "[concat(field('name'), '/?')]"`.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
@@ -555,6 +556,7 @@ related resources to match and the template deployment to execute.
     resource instead of all resources of the specified type.
   - When the condition values for **if.field.type** and **then.details.type** match, then **Name**
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
+  - Can be made generic by hardcoding or concatenating the wildcard character '?'. For example, ` "name": "[concat(field('name'), '/?')]"`.
 - **ResourceGroupName** (optional)
   - Allows the matching of the related resource to come from a different resource group.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
