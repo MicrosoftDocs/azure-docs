@@ -28,4 +28,4 @@ ms.author: kengaderdus
 
 1. Select **Register** to create the application.
 
-1. Record the **Application (client) ID** and **Directory (tenant) ID** for later use, when you configure the sample application.
+1. The application's **Overview pane** is displayed when registration is complete. Record the **Directory (tenant) ID** and the **Application (client) ID** to be used in your application source code.
