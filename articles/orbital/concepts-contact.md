@@ -14,7 +14,7 @@ ms.author: hrshelar
 
 A contact occurs when the spacecraft passes over a specified ground station. You can find available passes and schedule contacts for your spacecraft through the Azure Orbital Ground Station platform. A contact and ground station pass mean the same thing.
 
-When you schedule a contact for a spacecraft, a contact object is created under your spacecraft object in your resource group. The contact is only associated with that particular spacecraft and cannot be transferred to another spacecraft, resource group, or region.
+When you schedule a contact for a spacecraft, a contact object is created under your spacecraft object in your resource group. The contact is only associated with that particular spacecraft and can't be transferred to another spacecraft, resource group, or region.
 
 ## Contact object
 
@@ -45,11 +45,11 @@ In order to create a contact, you must have the following pre-requisites:
 
 Contacts are created on a per-pass and per-site basis. If you already know the pass timings for your spacecraft and selected ground station, you can directly proceed to schedule the pass with these times. The service will succeed in creating the contact object if the window is available and fail if the window is unavailable. 
 
-If you do not know the pass timings, or which sites are available, then you can use the Orbital portal or API to determine those details. Query the available passes and use the results to schedule your passes accordingly.
+If you don't know the pass timings, or which sites are available, then you can use the Orbital portal or API to determine those details. Query the available passes and use the results to schedule your passes accordingly.
 
 | Method | List available contacts | Schedule contacts | Notes |
 |-|-|-|-|
-|Portal| Yes | Yes | Custom pass timings are not possible. You must use the results from the query. |
+|Portal| Yes | Yes | Custom pass timings aren't possible. You must use the results from the query. |
 |API | Yes | Yes| Custom pass timings are possible. |
 
 See [how-to schedule a contact](schedule-contact.md) for the Portal method. The API can also be used to create a contact. See the [API docs](https://learn.microsoft.com/rest/api/orbital/) for this method.
