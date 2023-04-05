@@ -115,6 +115,7 @@ sudo rpm qa | grep nfs-client
 ```bash
 sudo dpkg -l | grep -i nfs-common
 ``` 
+---
 
 #### Solution
 
