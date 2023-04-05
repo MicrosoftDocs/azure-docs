@@ -43,7 +43,7 @@ This section explains the route selection algorithm in a virtual hub along with 
    * **AS Path**
 
       1. Prefer routes with the shortest BGP AS-Path length irrespective of the source of the route advertisements. For example, whether the routes are learned from on-premises connected via S2S VPN or ER.
-      1. Prefer routes from connections local to the virtual hub over routes learned from remote hub.
+      1. Prefer routes from connedctions local to the virtual hub over routes learned from remote hub.
       1. If there are routes from both ER and S2S VPN connections, then see below. Else proceed to the next rule.
          * If all the routes are local to the virtual hub, then choose routes from ER connections.
          * If all the routes are through remote virtual hubs, then choose routes from S2S VPN connections.
@@ -51,6 +51,7 @@ This section explains the route selection algorithm in a virtual hub along with 
 **Things to note:**
 
 * When there are multiple virtual hubs in a Virtual WAN scenario, a virtual hub selects the best routes using the route selection algorithm described above, and then advertises them to the other virtual hubs in the virtual WAN.
+* For a given set of destination route-prefixes, if the ExpressRoute routes are preferred and the ExpressRoute connection subsequently goes down, then routes from S2S VPN or SD-WAN NVA connections will be preferred for traffic destined to the same route-prefixes. When the ExpressRoute connection is restored, traffic destined for these route-prefixes will continue to prefer the S2S VPN or SD-WAN NVA connections. 
 
 ## Routing scenarios
 
