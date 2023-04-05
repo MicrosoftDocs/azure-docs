@@ -46,6 +46,14 @@ In this article, you’ll do the following tasks:
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
 
+## Add app client secret 
+
+[!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)] 
+
+## Add app permissions
+
+[!INCLUDE [active-directory-b2c-add-delegated-permissions](./includes/register-app/grant-api-permission-graph.md)] 
+
 ## Create a user flow 
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)] 
