@@ -27,12 +27,14 @@ Azure failover groups use the same distributed availability groups technology th
 ## Prerequisites
 
 The following prerequisites must be met before setting up Azure Failover groups between two Arc enabled SQL managed instances:
-1. An Azure Arc data controller and an Arc enabled SQL managed instance provisioned at the primary site with `--license-type` as one of ` BasePrice` or `LicenseIncluded`. 
-2. An Azure Arc data controller and an Arc enabled SQL managed instance provisioned at the secondary site with identical configuration as the primary in terms of CPU, memory, storage, Service tier etc. AND `--license-type` as `DisasterRecovery`
+1. An Azure Arc data controller and an Arc enabled SQL managed instance provisioned at the primary site with `--license-type` as one of `BasePrice` or `LicenseIncluded`. 
+2. An Azure Arc data controller and an Arc enabled SQL managed instance provisioned at the secondary site with identical configuration as the primary in terms of CPU, memory, storage, Service tier, collation etc. AND `--license-type` as `DisasterRecovery`
 
+> [!NOTE]
+> - It is important to specify the `--license-type` **during** the Azure Arc SQL MI creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
 
 ## Deployment process
-Setting up Azure failover group between two Arc enabled SQL managed instances involves the following steps:
+Setting up an Azure failover group between two Arc enabled SQL managed instances involves the following steps:
 1. Create custom resource for distributed availability group at the primary site
 1. Create custom resource for distributed availability group at the secondary site
 1. Copy the binary data from the mirroring certificates 
@@ -53,6 +55,10 @@ If primary and secondary sites are within a few miles of each other, `sync` mode
 Follow the steps below if the Arc data services was deployed in `directly` connected mode. 
 Once the prerequisites are met, run the below command to setup Azure failover group between the two Arc enabled SQL managed instances:
 
+```azurecli
+az sql instance-failover-group-arc create --name <name of FOG> --mi <primary SQL MI> --partner-mi <Partner MI> --resource-group <name of RG> --partner-resource-group <name of partner MI RG>
+```
+Example:
 ```azurecli
 az sql instance-failover-group-arc create --name sql-fog --mi sql1 --partner-mi sql2 --resource-group rg-name --partner-resource-group rg-name
 ```
@@ -123,7 +129,7 @@ Follow the steps below if the Arc data services was deployed in `indirectly` con
    > Ensure the SQL instances have different names for both primary and secondary sites, and the `shared-name` value should be identical on both sites.
    
     ```azurecli
-    az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for primary DAG resource> --mi <local SQL managed instance name> --role primary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<secondary IP> --partner-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s
+    az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for primary FOG resource> --mi <local SQL managed instance name> --role primary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<secondary IP> --partner-mirroring-cert-file <secondary.pem> --k8s-namespace <namespace> --use-k8s
     ```
 
     Example:
@@ -134,7 +140,7 @@ Follow the steps below if the Arc data services was deployed in `indirectly` con
     On the secondary instance, run the following command to setup the FOG CR. The ```--partner-mirroring-cert-file``` in this case should point to a path that has the mirroring certificate file generated from the primary instance as described in 3(a) above.
 
     ```azurecli
-    az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for secondary DAG resource> --mi <local SQL managed instance name> --role secondary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<primary IP> --partner-mirroring-cert-file <primary.pem> --k8s-namespace <namespace> --use-k8s
+    az sql instance-failover-group-arc create --shared-name <name of failover group> --name <name for secondary FOG resource> --mi <local SQL managed instance name> --role secondary --partner-mi <partner SQL managed instance name>  --partner-mirroring-url tcp://<primary IP> --partner-mirroring-cert-file <primary.pem> --k8s-namespace <namespace> --use-k8s
     ```
 
     Example:
@@ -181,7 +187,7 @@ Use `az sql instance-failover-group-arc update ...` command group to initiate a 
 Run the following command to initiate a manual failover, in `direct` connected mode using ARM APIs:
 
 ```azurecli
-az sql instance-failover-group-arc update --name <shared name of DAG> --mi <primary Arc SQL MI> --role secondary --resource-group <resource group>
+az sql instance-failover-group-arc update --name <shared name of FOG> --mi <primary Arc SQL MI> --role secondary --resource-group <resource group>
 ```
 Example:
 
@@ -192,7 +198,7 @@ az sql instance-failover-group-arc update --name myfog --mi sqlmi1 --role second
 Run the following command to initiate a manual failover, in `indirect` connected mode using kubernetes APIs:
 
 ```azurecli
-az sql instance-failover-group-arc update --name <name of DAG resource> --role secondary --k8s-namespace <namespace> --use-k8s 
+az sql instance-failover-group-arc update --name <name of FOG resource> --role secondary --k8s-namespace <namespace> --use-k8s 
 ```
 
 Example:
@@ -212,7 +218,7 @@ On the geo-secondary DR instance, run the following command to promote it to pri
 
 ### Directly connected mode
 ```azurecli
-az sql instance-failover-group-arc update --name <shared name of DAG> --mi <secondary Arc SQL MI> --role force-primary-allow-data-loss --resource-group <resource group> --partner-sync-mode async
+az sql instance-failover-group-arc update --name <shared name of FOG> --mi <secondary Arc SQL MI> --role force-primary-allow-data-loss --resource-group <resource group> --partner-sync-mode async
 ```
 Example:
 
@@ -229,7 +235,7 @@ When the geo-primary Arc SQL MI instance becomes available, run the below comman
 
 ### Directly connected mode
 ```azurecli
-az sql instance-failover-group-arc update --name <shared name of DAG> --mi <old primary Arc SQL MI> --role force-secondary --resource-group <resource group>
+az sql instance-failover-group-arc update --name <shared name of FOG> --mi <old primary Arc SQL MI> --role force-secondary --resource-group <resource group>
 ```
 
 ### Indirectly connected mode
