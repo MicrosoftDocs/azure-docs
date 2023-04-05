@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
 ms.author: ankitadutta
-ms.date: 12/13/2022
+ms.date: 03/31/2023
 ms.custom: engagement-fy23
 ---
 
