@@ -10,7 +10,7 @@ To enable your application to sign in with Microsoft Entra, Azure Active Directo
 
 During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Microsoft Entra. The app registration process also generates a unique identifier known as an **Application (client) ID**. Once registered, Microsoft Entra uses both values to create authentication requests.
 
-Follow these steps to register your app in the Microsoft Entra admin center:
+The following steps show you how to register your app in the Microsoft Entra admin center:
 
 1. 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
