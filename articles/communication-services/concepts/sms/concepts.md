@@ -44,7 +44,7 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 |**Provisioning time**| 5-6 weeks| 6-8 weeks  | Instant               |
 |**Throughput**       | 200 messages/min (can be increased upon request)| 6000 messages/ min (can be increased upon request) | 600 messages/ min (can be increased upon request)|
 |**Supported Destinations**| United States, Canada, Puerto Rico| United States   |  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia |
-|**Get started**|[Get a toll-free number](../../quickstarts/telephony/get-phone-number.md)|[Get a short code](../../quickstarts/sms/apply-for-short-code.md) | [Enable alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-senderid.md) |
+|**Get started**|[Get a toll-free number](../../quickstarts/telephony/get-phone-number.md)|[Get a short code](../../quickstarts/sms/apply-for-short-code.md) | [Enable alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md) |
 
 \* See [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) for detailed formatting requirements.
 
