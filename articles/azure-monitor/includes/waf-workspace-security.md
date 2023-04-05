@@ -26,6 +26,7 @@ ms.date: 03/30/2023
 | Recommendation | Description |
 |:---|:---|
 | Assign only required permissions to users accessing Azure Monitor data | No RBAC required for resource owners who only need access to their data in resource-centric mode.<br><br>Assign roles.<br><br>RBAC for users who require access to data for multiple resources.<br><br>Table level RBAC for unique tables. This will give user access to all data in the table even for resources they have no access to. Use transformations to send data to multiple tables, each with unique RBAC. |
+| 
 
 
 #### Auditing
