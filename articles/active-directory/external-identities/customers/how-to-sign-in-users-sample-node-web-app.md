@@ -28,7 +28,7 @@ In this article, you’ll do the following tasks:
 
 - Associate your web application with the user flow. 
 
-- Update a sample Node.js web application use your own Azure Active Directory (Azure AD) for customers tenant.
+- Update a sample Node.js web application using your own Azure Active Directory (Azure AD) for customers tenant.
 
 - Run and test the sample web application.
 
