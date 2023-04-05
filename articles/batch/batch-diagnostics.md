@@ -20,9 +20,9 @@ See the [list of supported Batch metrics](../azure-monitor/essentials/metrics-su
 
 Metrics are:
 
-- Enabled by default in each Batch account without extra configuration
-- Generated every 1 minute
-- Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of diagnostic logging.
+- Enabled by default in each Batch account without extra configuration.
+- Generated every 1 minute.
+- Not persisted automatically, they but have a 30-day rolling history. You can persist activity metrics as part of diagnostic logging.
 
 ## View Batch metrics
 
@@ -39,28 +39,28 @@ To view other metrics for a Batch account:
 You can also retrieve metrics programmatically with the Azure Monitor APIs. For an example, see [Retrieve Azure Monitor metrics with .NET](/samples/azure-samples/monitor-dotnet-metrics-api/monitor-dotnet-metrics-api/).
 
 > [!NOTE]
-> Metrics emitted in the last 3 minutes may still be aggregating, so values may be under-reported during this timeframe. Metric delivery is not guaranteed, and may be affected by out-of-order delivery, data loss, or duplication.
+> Metrics emitted in the last 3 minutes might still be aggregating, so values might be under-reported during this time frame. Metric delivery is not guaranteed and might be affected by out-of-order delivery, data loss, or duplication.
 
 ## Batch metric alerts
 
 You can configure near real-time metric alerts that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is "Activated" (when the threshold is crossed and the alert condition is met). The alert also generates an alert when it is "Resolved" (when the threshold is crossed again and the condition is no longer met).
 
-Because metric delivery can be subject to inconsistencies such as out-of-order delivery, data loss, or duplication, we recommend avoiding alerts that trigger on a single data point. Instead, use thresholds to account for any inconsistencies such as out-of-order delivery, data loss, and duplication over a period of time.
+Because metric delivery can be subject to inconsistencies such as out-of-order delivery, data loss, or duplication, you should avoid alerts that trigger on a single data point. Instead, use thresholds to account for any inconsistencies such as out-of-order delivery, data loss, and duplication over a period of time.
 
-For example, you might want to configure a metric alert when your low priority core count falls to a certain level. You could then use this alert to adjust the composition of your pools. For best results, set a period of 10 or more minutes, where the alert will be triggered if the average low priority core count falls below the threshold value for the entire period. This time period all for metrics to aggregate so that you get more accurate results.
+For example, you might want to configure a metric alert when your low priority core count falls to a certain level. You could then use this alert to adjust the composition of your pools. For best results, set a period of 10 or more minutes where the alert will be triggered if the average low priority core count falls lower than the threshold value for the entire period. This time period all for metrics to aggregate so that you get more accurate results.
 
 To configure a metric alert in the Azure portal:
 
 1. In the Azure portal, search and select **Batch accounts**, and then select the name of your Batch account.
 1. Under **Monitoring** in the left side navigation menu, select **Alerts**, and then select **Create** > **Alert Rule**.
 1. On the **Condition page**, select a **Signal** from the dropdown list.
-1. Enter the logic for you **Alert Rule** in the fields specific to the **Signal** you choose.
+1. Enter the logic for your **Alert Rule** in the fields specific to the **Signal** you choose.
 1. Enter the name for your alert on the **Details** page. 
 1. Then select **Review + create** > **Create**.
 
 For more information about creating metric alerts, see [Types of Azure Monitor alerts](../azure-monitor/alerts/alerts-metric-overview.md) and [Create a new alert rule](../azure-monitor/alerts/alerts-metric.md).
 
-You can also configure a near real-time alert using the [Azure Monitor REST API](/rest/api/monitor/). For more information, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see [Create a new alert rule](../azure-monitor/alerts/alerts-log.md).
+You can also configure a near real-time alert by using the [Azure Monitor REST API](/rest/api/monitor/). For more information, see [Overview of alerts in Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see [Create a new alert rule](../azure-monitor/alerts/alerts-log.md).
 
 ## Batch diagnostics
 
@@ -77,11 +77,11 @@ A common scenario is to select an Azure Storage account as the log destination. 
 
 Alternately, you can:
 
-- Stream Batch diagnostic log events to [Azure Event Hubs](../event-hubs/event-hubs-about.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider.
+- Stream Batch diagnostic log events to [Azure Event Hubs](../event-hubs/event-hubs-about.md). Event Hubs can ingest millions of events per second, which you can then transform and store by using any real-time analytics provider.
 - Send diagnostic logs to [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
 
 > [!NOTE]
-> You may incur additional costs to store or process diagnostic log data with Azure services.
+> You might incur additional costs to store or process diagnostic log data with Azure services.
 
 ### Enable collection of Batch diagnostic logs
 
