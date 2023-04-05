@@ -44,7 +44,7 @@ Next, update your code to use passwordless connections.
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Storage. This task is often handled in `Program.cs`, potentially as part of your service registration with the .NET dependency injection container. Update your code to match the following example:
+1. Identify the locations in your code that create a `BlobServiceClient` to connect to Azure Storage. Update your code to match the following example:
 
    ```csharp
    var credential = new DefaultAzureCredential();
