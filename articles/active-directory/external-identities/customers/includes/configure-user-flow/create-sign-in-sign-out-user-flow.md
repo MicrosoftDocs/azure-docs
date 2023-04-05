@@ -26,7 +26,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. On the **Create** page:
 
-   1. Enter a **Name** for the user flow. For example, *SignInSignUpSample*.
+   1. Enter a **Name** for the user flow, such as *SignInSignUpSample*.
 
    1. In the **Identity providers** list, select the  **Email Accounts** identity provider. This identity provider allows uses to sign-in or sign-up  with their email address.
    
