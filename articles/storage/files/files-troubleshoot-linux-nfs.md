@@ -103,12 +103,12 @@ To check if the NFS package is installed, run:
 Same commands on this section applies for CentOS and Oracle Linux.
 
 ```bash
-sudo rpm qa | grep nfs-utils
+sudo rpm -qa | grep nfs-utils
 ``` 
 # [SLES](#tab/SLES) 
 
 ```bash
-sudo rpm qa | grep nfs-client
+sudo rpm -qa | grep nfs-client
 ``` 
 # [Ubuntu](#tab/Ubuntu)
 
