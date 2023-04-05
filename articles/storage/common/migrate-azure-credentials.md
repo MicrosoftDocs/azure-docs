@@ -5,12 +5,11 @@ description: Learn to migrate existing applications away from Shared Key authori
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
-ms.date: 12/07/2022
+ms.date: 04/05/2023
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: csharp
 ---
 
 # Migrate an application to use passwordless connections with Azure Storage
@@ -161,7 +160,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 * Azure Spring Apps
 * Azure Container Apps
 * Azure virtual machines
-* Azure Kubernetes Service.
+* Azure Kubernetes Service
 
 1. Navigate to the overview page of your web app.
 1. Select **Identity** from the left navigation.
