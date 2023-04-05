@@ -308,7 +308,7 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
 1. In the action information pane, on the **Parameters** tab, provide the required information for the action, for example:
 
-   ![Screenshot that shows the designer and the "Send an email" information pane with the "Parameters" tab selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-details.png)
+   ![Screenshot that shows the designer and the "Send an email" information pane with the "Parameters" tab selected.](./media/create-single-tenant-workflows-azure-portal/send-email-action-details-preview.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
