@@ -11,7 +11,6 @@ ms.topic: quickstart
 ms.date: 01/27/2023
 ms.custom: devx-track-csharp, mode-api
 ---
-
 # Quickstart: Create a search index using the Azure.Search.Documents client library
 
 Learn how to use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
