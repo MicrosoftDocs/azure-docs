@@ -26,7 +26,7 @@ ms.author: kengaderdus
     1. Keep **State** as **Enabled** and select **Add scope**.
     
 
-1. Select **Add a scope** again, and then add a scope that defines write and write access to the API:
+1. Select **Add a scope** again, and then add a scope that defines read and write access to the API:
 
     1. For **Scope name**, enter `ToDoList.ReadWrite`.
     
