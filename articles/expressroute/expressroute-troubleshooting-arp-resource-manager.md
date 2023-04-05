@@ -63,9 +63,14 @@ Ensure that the information below is true before you progress further:
 >
 
 ## Getting the ARP tables for your ExpressRoute circuit
+
 This section provides instructions on how you can view the ARP tables per peering using PowerShell. You or your connectivity provider must have configured the peering before progressing further. Each circuit has two paths (primary and secondary). You can check the ARP table for each path independently.
 
+>[!NOTE]
+> Depending on the hardware platform, the ARP results may vary and only display the *On-premises* interface.
+
 ### ARP tables for Azure private peering
+
 The following cmdlet provides the ARP tables for Azure private peering
 
 ```azurepowershell
@@ -104,7 +109,6 @@ Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitNam
 # ARP table for Azure public peering - Secondary path
 Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 ```
-
 
 Sample output is shown below for one of the paths
 
@@ -164,9 +168,6 @@ Age InterfaceProperty IpAddress  MacAddress
 --- ----------------- ---------  ----------    
  10 On-Prem           65.0.0.1   ffff.eeee.dddd
 ```
-
->[!NOTE]
-> Depending on the hardware platform, the ARP results may vary and only display the *On-premises* interface.
 
 ### ARP table when on-premises / connectivity provider side has problems
 If a problem with the on-premises or connectivity provider occurs, the ARP table will show one of two things. You'll either see the on-premises MAC address show incomplete or only see the Microsoft entry in the ARP table.
