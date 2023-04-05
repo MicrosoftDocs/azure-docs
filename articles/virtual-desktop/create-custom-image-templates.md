@@ -4,7 +4,7 @@ description: Learn how to use Custom image templates to create custom images whe
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 03/10/2023
+ms.date: 04/05/2023
 ---
 
 # Use Custom image templates to create custom images in Azure Virtual Desktop (preview)

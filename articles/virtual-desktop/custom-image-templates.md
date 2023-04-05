@@ -4,7 +4,7 @@ description: Learn about Custom image templates in Azure Virtual Desktop, where 
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 03/10/2023
+ms.date: 04/05/2023
 ---
 
 # Custom image templates in Azure Virtual Desktop (preview)
@@ -13,7 +13,7 @@ ms.date: 03/10/2023
 > Custom image templates in Azure Virtual Desktop is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Custom image templates in Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop.
+Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates are built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop.
 
 ## Creation process
 
@@ -25,7 +25,7 @@ The source image must be [supported for Azure Virtual Desktop](prerequisites.md#
 - An existing managed image.
 - An existing custom image template.
 
-We've added several built-in scripts available for you to use that configure some of the most popular features and settings when using Azure Virtual Desktop. You can also add your own custom scripts to the template, as long as they're hosted at a publicly available location, such as GitHub or a web service. You need to specify a duration for the build, so make sure you allow enough time for your scripts to complete. Here are some examples of the built-in scripts you can add to a custom image template:
+We've added several built-in scripts available for you to use that configures some of the most popular features and settings when using Azure Virtual Desktop. You can also add your own custom scripts to the template, as long as they're hosted at a publicly available location, such as GitHub or a web service. You need to specify a duration for the build, so make sure you allow enough time for your scripts to complete. Here are some examples of the built-in scripts you can add to a custom image template:
 
 - Install language packs.
 - Set the default language of the operating system.
