@@ -22,4 +22,4 @@ Now you can associate applications with the user flow. Associating your user flo
 
 1. Select the application from the list such as `ciam-client-app` or use the search box to find the application, and then select it.
 
-1. Choose **Select**.
+1. Choose **Select**. 
