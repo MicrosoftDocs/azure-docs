@@ -192,14 +192,6 @@ The static IP address of the Container Apps environment can be found in the Azur
 
 ## Managed resources
 
-When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. The resource group name can be configured during container app environment creation. In addition to the [Azure Container Apps billing](./billing.md), you're billed for:
-
-- Two standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/), one for ingress and one for egress. If you need more IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
-
-- Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has fewer than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
-
-## Managed resources
-
 When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and it shouldn't be modified.
 
 #### Consumption only architecture
