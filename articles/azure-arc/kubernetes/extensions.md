@@ -107,6 +107,12 @@ The following parameters are required when using `az k8s-extension create` to cr
 
 Use one or more of these optional parameters as needed for your scenarios, along with the required parameters.
 
+> [!NOTE]
+> You can choose to automatically upgrade your extension instance to the latest minor and patch versions by setting `auto-upgrade-minor-version` to `true`, or you can instead set the version of the extension instance manually using the `--version` parameter. We recommend enabling automatic upgrades for minor and patch versions so that you always have the latest security patches and capabilities.
+>
+> Because major version upgrades may include breaking changes, automatic upgrades for new major versions of an extension instance aren't supported.
+
+
 | Parameter name | Description |
 |--------------|------------|
 | `--auto-upgrade-minor-version` | Boolean property that determines whether the extension minor version is automatically upgraded. The default setting is `true`. If this parameter is set to `true`, you can't set the `version` parameter, as the version will be dynamically updated. If set to `false`, the extension won't be automatically upgraded, even for patch versions. |
@@ -118,11 +124,6 @@ Use one or more of these optional parameters as needed for your scenarios, along
 | `--release-namespace` | This parameter indicates the namespace within which the release will be created. Only relevant if `scope` is set to `cluster`. |
 | `--release-train` |  Extension authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter isn't set explicitly, `Stable` is used as default. This parameter can't be used when `--auto-upgrade-minor-version` is set to `false`. |
 | `--target-namespace` | Indicates the namespace within which the release will be created. Permission of the system account created for this extension instance will be restricted to this namespace. Only relevant if `scope` is set to `namespace`. |
-
-> [!NOTE]
-> You can choose to automatically upgrade your extension instance to the latest minor and patch versions by setting `auto-upgrade-minor-version` to `true`, or you can instead set the version of the extension instance manually using the `--version` parameter. We recommend enabling automatic upgrades for minor and patch versions so that you always have the latest security patches and capabilities.
->
-> Because major version upgrades may include breaking changes, automatic upgrades for new major versions of an extension instance aren't supported.
 
 ## Show extension details
 
