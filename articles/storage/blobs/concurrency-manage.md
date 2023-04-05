@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 04/05/2023
 ms.author: pauljewell
 ms.subservice: common
 ms.devlang: csharp
@@ -40,7 +40,7 @@ The outline of this process is as follows:
 
 1. Retrieve a blob from Azure Storage. The response includes an HTTP ETag Header value that identifies the current version of the object.
 1. When you update the blob, include the ETag value you received in step 1 in the **If-Match** conditional header of the write request. Azure Storage compares the ETag value in the request with the current ETag value of the blob.
-1. If the blob's current ETag value differs from that specified in the **If-Match** conditional header provided on the request, then Azure Storage returns HTTP status code 412 (Precondition Failed). This error indicates to the client that another process has updated the blob since the client first retrieved it.
+1. If the blob's current ETag value differs from that specified in the **If-Match** conditional header provided on the request, then Azure Storage returns HTTP status code 412 (Precondition Failed). This error indicates to the client that another process has updated the blob since the client first retrieved it. The client should fetch the blob again to get the updated content and properties.
 1. If the current ETag value of the blob is the same version as the ETag in the **If-Match** conditional header in the request, Azure Storage performs the requested operation and updates the current ETag value of the blob.
 
 The following code examples show how to construct an **If-Match** condition on the write request that checks the ETag value for a blob. Azure Storage evaluates whether the blob's current ETag is the same as the ETag provided on the request and performs the write operation only if the two ETag values match. If another process has updated the blob in the interim, then Azure Storage returns an HTTP 412 (Precondition Failed) status message.
