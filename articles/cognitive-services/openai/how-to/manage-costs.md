@@ -49,7 +49,7 @@ Azure OpenAI fine-tuned models are charged based on three factors:
 
 The hosting hours cost is important to be aware of since once a fine-tuned model is deployed it continues to incur an hourly cost regardless of whether you're actively using it. Fine-tuned model costs should be monitored closely.
 
-[!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md.md)]
+[!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md)]
 
 ### Other costs that might accrue with Azure OpenAI Service
 

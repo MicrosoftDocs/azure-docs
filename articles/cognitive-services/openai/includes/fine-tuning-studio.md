@@ -241,7 +241,7 @@ From the model page, you can also select **Download training file** to download 
 
 When the fine-tune job has succeeded, you can deploy the customized model from the **Models** pane. You must deploy your customized model to make it available for use with completion calls.
 
-[!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md.md)]
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error message is displayed if you select an already-deployed customized model.
@@ -289,7 +289,7 @@ When you're done with your customized model, you can delete the deployment and m
 
 ### Delete your model deployment
 
-[!INCLUDE [Fine-tuning deletion](../includes/fine-tune.md.md)]
+[!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
 You can delete the deployment for your customized model from the **Deployments** page for Azure OpenAI Studio. Select the deployment to delete, and then select **Delete** to delete the deployment. 
 
