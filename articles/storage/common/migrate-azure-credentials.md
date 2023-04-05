@@ -15,7 +15,7 @@ ms.devlang: csharp
 
 # Migrate an application to use passwordless connections with Azure Storage
 
-Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use passwords or secret keys create additional security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
+Application requests to Azure Storage must be authenticated using either account access keys or passwordless connections. However, you should prioritize passwordless connections in your applications when possible. Traditional authentication methods that use passwords or secret keys create security risks and complications. Visit the [passwordless connections for Azure services](/azure/developer/intro/passwordless-overview) hub to learn more about the advantages of moving to passwordless connections.
 
 The following tutorial explains how to migrate an existing application to connect to Azure Storage to use passwordless connections instead of a key-based solution. These same migration steps should apply whether you're using access keys directly, or through connection strings.
 
@@ -29,7 +29,7 @@ For local development, make sure you're authenticated with the same Azure AD acc
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-Next you need to update your code to use passwordless connections.
+Next, update your code to use passwordless connections.
 
 ## [.NET](#tab/dotnet)
 
@@ -50,7 +50,7 @@ Next you need to update your code to use passwordless connections.
    ```csharp
    var credential = new DefaultAzureCredential();
 
-   // TODO: Update <storage-account-name> placeholder to your storage account name.
+   // TODO: Update the <storage-account-name> placeholder.
    var blobServiceClient = new BlobServiceClient(
        new Uri("https://<storage-account-name>.blob.core.windows.net"),
        credential);
@@ -74,13 +74,12 @@ Next you need to update your code to use passwordless connections.
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
         .build();
 
-    // TODO: Update the <storage-account-name> placeholder to your storage account name.
+    // TODO: Update the <storage-account-name> placeholder.
     BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
             .endpoint("https://<storage-account-name>.blob.core.windows.net")
             .credential(credential)
             .buildClient();
     ```
-
 
 ## [Node.js](#tab/nodejs)
 
@@ -101,7 +100,7 @@ Next you need to update your code to use passwordless connections.
     ```nodejs
     const defaultAzureCredential = new DefaultAzureCredential();
     
-    // TODO: Update the <storage-account-name> placeholder to your storage account name.
+    // TODO: Update the <storage-account-name> placeholder.
     const blobServiceClient = new BlobServiceClient(
       "https://<storage-account-name>.blob.core.windows.net",
       defaultAzureCredential
@@ -127,7 +126,7 @@ Next you need to update your code to use passwordless connections.
     ```python
     credential = DefaultAzureCredential()
 
-    # TODO: Update the <storage-account-name> placeholder to your storage account name.
+    # TODO: Update the <storage-account-name> placeholder.
     blob_service_client = BlobServiceClient(
         account_url = "https://<storage-account-name>.blob.core.windows.net",
         credential = credential
@@ -135,7 +134,7 @@ Next you need to update your code to use passwordless connections.
     ```
 ---
 
-1. Make sure to update the storage account name in the URI of your `BlobServiceClient`. You can find the storage account name on the overview page of the Azure portal.
+4. Make sure to update the storage account name in the URI of your `BlobServiceClient`. You can find the storage account name on the overview page of the Azure portal.
 
    :::image type="content" source="../blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="Screenshot showing how to find the storage account name.":::
 
