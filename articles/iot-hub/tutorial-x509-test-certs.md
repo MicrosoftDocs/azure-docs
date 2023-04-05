@@ -44,7 +44,7 @@ The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL
 You must first create an internal root certificate authority (CA) and a self-signed root CA certificate, to serve as a trust anchor from which you can create other certificates for testing. The files used to create and maintain your internal root CA are stored in a folder structure and initialized as part of this process. Perform the following steps to:
 
 - Create and initialize the folders and files used by your root CA
-- Create a configuration file used by OpenSSL to configure your root CA, as well as certificates created with your root CA
+- Create a configuration file used by OpenSSL to configure your root CA and certificates created with your root CA
 - Request and create a self-signed CA certificate that serves as your root CA certificate
 
 1. Start a Bash window and run the following command, replacing *{base_dir}* with the desired directory in which to create the root CA.
@@ -166,7 +166,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
       -keyout private/rootca.key
     ```
     
-    You're prompted to enter a PEM pass phrase, as shown below, for the private key file. Enter and confirm a pass phrase to generate your private key and CSR.
+    You're prompted to enter a PEM pass phrase, as shown in the following example, for the private key file. Enter and confirm a pass phrase to generate your private key and CSR.
 
     ```bash
     Enter PEM pass phrase:
@@ -183,7 +183,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
       -extensions ca_ext
     ```
 
-    You're prompted to provide the PEM pass phrase, as shown below, for the private key file. After providing the pass phrase, OpenSSL generates a certificate, then prompts you to sign and commit the certificate for your root CA. Specify *y* for both prompts to generate the self-signed certificate for your root CA. 
+    You're prompted to provide the PEM pass phrase, as shown in the following example, for the private key file. After providing the pass phrase, OpenSSL generates a certificate, then prompts you to sign and commit the certificate for your root CA. Specify *y* for both prompts to generate the self-signed certificate for your root CA. 
 
     ```bash
     Using configuration from rootca.conf
@@ -201,17 +201,18 @@ You must first create an internal root certificate authority (CA) and a self-sig
     Data Base Updated
     ```
     
-    After the certificate database is updated, confirm that both the certificate file, *rootca.crt*, is present in the *rootca* directory and the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the root CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    After updating the certificate database, confirm that both the certificate file, *rootca.crt*, is present in the *rootca* directory and the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the root CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
 ## Create a subordinate CA
 
-After you've created your internal root CA, you should create a subordinate CA to use as an *intermediate CA* with which to sign client certificates for your devices. In theory, you don't need to create a subordinate CA; you can upload your root CA certificate to your IoT hub and sign client certificates directly from your root CA. However, using a subordinate CA as an intermediate CA to sign client certificates more closely simulates a recommended production environment, in which your root CA is kept offline. An intermediate CA can in turn sign another intermediate CA, and so on, until the last intermediate CA terminates this process by signing a client certificate for your device into a cascaded hierarchy of certificates known as a *certificate chain of trust*. In a production environment, the certificate chain of trust allows a delegation of trust towards signing devices. For more information about signing devices into a certificate chain of trust, see [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust).
+After you've created your internal root CA, you should create a subordinate CA to use as an *intermediate CA* with which to sign client certificates for your devices. In theory, you don't need to create a subordinate CA; you can upload your root CA certificate to your IoT hub and sign client certificates directly from your root CA. However, using a subordinate CA as an intermediate CA to sign client certificates more closely simulates a recommended production environment, in which your root CA is kept offline. You can also use a subordinate CA to sign another subordinate CA, which in turn can sign another subordinate CA, and so on to create a hierarchy of intermediate CAs as part of a *certificate chain of trust.* In a production environment, the certificate chain of trust allows a delegation of trust towards signing devices. For more information about signing devices into a certificate chain of trust, see [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust).
 
 Similar to your root CA, the files used to create and maintain your subordinate CA are stored in a folder structure and initialized as part of this process. Perform the following steps to:
 
-- Create and initialize the folders and files used by your subordinate CA
-- Create a configuration file used by OpenSSL to configure your subordinate CA, as well as certificates created with your subordinate CA
-- Request and create a CA certificate signed by your root CA that serves as your subordinate CA certificate
+> [!div class="checklist"]
+> * Create and initialize the folders and files used by your subordinate CA
+> * Create a configuration file used by OpenSSL to configure your subordinate CA and certificates created with your subordinate CA
+> * Request and create a CA certificate signed by your root CA that serves as your subordinate CA certificate
 
 1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA.
 
@@ -225,7 +226,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     | --- | --- |
     | {subca_dir} | The name of the directory for the subordinate CA. For example, `subca`. |
     
-    This step creates a directory structure and support files for the subordinate CA similar to that created for the root CA in [Create a root CA](#create-a-root-ca).
+    This step creates a directory structure and support files for the subordinate CA similar to the folder structure and files created for the root CA in [Create a root CA](#create-a-root-ca).
 
     ```bash
     mkdir {subca_dir}
@@ -321,7 +322,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
       -keyout private/subca.key
     ```
 
-    You're prompted to enter a PEM pass phrase, as shown below, for the private key file. Enter and verify a pass phrase to generate your private key and CSR.
+    You're prompted to enter a PEM pass phrase, as shown in the following example, for the private key file. Enter and verify a pass phrase to generate your private key and CSR.
     
     ```bash
     Enter PEM pass phrase:
@@ -338,7 +339,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
       -extensions sub_ca_ext
     ```
 
-    You're prompted to enter the pass phrase, as shown below, for the private key file of your root CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
+    You're prompted to enter the pass phrase, as shown in the following example, for the private key file of your root CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the certificate for your subordinate CA. Specify *y* for both prompts to generate the certificate for your subordinate CA. 
 
     ```bash
     Using configuration from rootca.conf
@@ -356,7 +357,7 @@ Similar to your root CA, the files used to create and maintain your subordinate 
     Data Base Updated
     ```
     
-    After the certificate database is updated, confirm that the certificate file, *subca.crt*, is present in the subordinate CA directory and that the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the subordinate CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    After updating the certificate database, confirm that the certificate file, *subca.crt*, is present in the subordinate CA directory and that the PEM certificate (.pem) file for the certificate is present in the *rootca/certs* directory. The file name of the .pem file matches the serial number of the subordinate CA certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
 ## Register your subordinate CA certificate to your IoT hub
 
@@ -386,8 +387,9 @@ The client certificate must have the value of its Subject Common Name (CN) field
 
 Perform the following steps to:
 
-- Create a private key and certificate signing request (CSR) for a client certificate
-- Create a client certificate signed by your subordinate CA certificate
+> [!div class="checklist"]
+> * Create a private key and certificate signing request (CSR) for a client certificate
+> * Create a client certificate signed by your subordinate CA certificate
 
 1. Start a Bash window and run the following command, replacing *{base_dir}* with the directory that contains your previously created root CA and subordinate CA.
 
@@ -411,7 +413,7 @@ Perform the following steps to:
     openssl req -new -key private/{device_name}.key -out {device_name}.csr
     ```
 
-    You're prompted to provide certificate details, as shown below. Replace the following placeholders with the corresponding values. 
+    You're prompted to provide certificate details, as shown in the following example. Replace the following placeholders with the corresponding values. 
 
     | Placeholder | Description |
     | --- | --- |
@@ -445,7 +447,7 @@ Perform the following steps to:
       -extensions client_ext
     ```
     
-    You're prompted to enter the pass phrase, as shown below, for the private key file of your subordinate CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the client certificate for your device. Specify *y* for both prompts to generate the client certificate. 
+    You're prompted to enter the pass phrase, as shown in the following example, for the private key file of your subordinate CA. After you enter the pass phrase, OpenSSL generates and displays the details of the certificate, then prompts you to sign and commit the client certificate for your device. Specify *y* for both prompts to generate the client certificate. 
 
     ```bash
     Using configuration from subca.conf
@@ -463,7 +465,7 @@ Perform the following steps to:
     Data Base Updated
     ```
 
-    After the certificate database is updated, confirm that the certificate file for the client certificate is present in the subordinate CA directory and that the PEM certificate (.pem) file for the client certificate is present in the *certs* subdirectory of the subordinate CA directory. The file name of the .pem file matches the serial number of the client certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    After updating the certificate database, confirm that the certificate file for the client certificate is present in the subordinate CA directory and that the PEM certificate (.pem) file for the client certificate is present in the *certs* subdirectory of the subordinate CA directory. The file name of the .pem file matches the serial number of the client certificate. For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
 
 ## Next steps
 

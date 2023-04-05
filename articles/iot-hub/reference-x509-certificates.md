@@ -203,9 +203,9 @@ When you upload your root certificate authority (CA) certificate or subordinate 
 
     - If you're using the PowerShell script supplied by Microsoft, run `New-CACertsVerificationCert "<verification code>"` to create a certificate named `VerifyCert4.cer`, replacing `<verification code>` with the previously generated verification code. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c).
 
-    - If you're using the Bash script supplied by Microsoft, run ./certGen.sh create_verification_certificate "<verification code>" to create a certificate named verification-code.cert.pem, replacing <verification code> with the previously generated verification code. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the Azure IoT Hub Device SDK for C.
+    - If you're using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "<verification code>"` to create a certificate named verification-code.cert.pem, replacing `<verification code>` with the previously generated verification code. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the Azure IoT Hub Device SDK for C.
 
-    - If you're using OpenSSL to generate your certificates, you must first generate a private key, then generate a certificate signing request (CSR) file. In the following example, replace <verification code> with the previously generated verification code:
+    - If you're using OpenSSL to generate your certificates, you must first generate a private key, then generate a certificate signing request (CSR) file. In the following example, replace `<verification code>` with the previously generated verification code:
     
     ```bash
     openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
