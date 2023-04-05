@@ -24,7 +24,12 @@ When using the cluster stop/start feature, the following conditions apply:
 - The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, you can't recover the state. For more information, see the [AKS support policies](support-policies.md).
 - You can only start or delete a stopped AKS cluster. To perform other operations, like scaling or upgrading, you need to start your cluster first.
 - If you provisioned PrivateEndpoints linked to private clusters, they need to be deleted and recreated again when starting a stopped AKS cluster.
-- Because the stop process drains all nodes, any standalone pods (i.e. pods not managed by a Deployment, StatefulSet, DaemonSet, Job, etc.) will be deleted.
+- AKS will scale down VMSS to 0
+  - pod won't be drained, since no where for them to go, since all VM is getting deleted.
+  - pod lifecycle is not guaranteed during stop.
+    - kubelet receive stop signal from VM stop, and exit itself.
+    - kubelet won't stop pod. (consider kubelet get killed randomly, you don't want running pod get impacted)
+    - any pod prestop hook won't work, since kubelet exit on is own.
 - When you start your cluster back up, the following behavior is expected:
   - The IP address of your API server may change.
   - If you're using cluster autoscaler, when you start your cluster, your current node count may not be between the min and max range values you set. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count, and your cluster will eventually enter and remain in that desired range until you stop your cluster.
