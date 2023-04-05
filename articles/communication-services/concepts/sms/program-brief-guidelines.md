@@ -188,7 +188,7 @@ In this field, you are required to provide a sample of the response message that
 
 **Example:** Contoso Appointment reminders: You’re opted out and will receive no further messages.
 
-Please see our [guide on opt-outs](./sms-faq.md#how-does-azure-communication-services-handle-optouts-for-toll-free-numbers) to learn about how Azure Communication Services handles opt-outs.
+Please see our [guide on opt-outs](./sms-faq.md#opt-out-handling) to learn about how Azure Communication Services handles opt-outs.
 
 ### Example messages
 Message senders are required to disclose all the types/categories of messages with samples that will be sent over the short code.
