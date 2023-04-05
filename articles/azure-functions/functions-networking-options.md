@@ -285,7 +285,7 @@ The following APIs let you programmatically manage regional virtual network inte
 
 ## Testing
 
-To test functions in a function app with private endpoints, you must test them from within the same virtual network, such as a Virtual Machine (VM) in that network. To use the Code + Test option in the portal from that VM, you need to add following [CORS origins](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#cors) to your function app.
+When testing functions in a function app with private endpoints, you must do your testing from within the same virtual network, such as on a virtual machine (VM) in that network. To use the **Code + Test** option in the portal from that VM, you need to add following [CORS origins](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#cors) to your function app:
 
 * https://functions-next.azure.com
 * https://functions-staging.azure.com
