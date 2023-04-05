@@ -1131,14 +1131,16 @@ items:
           href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
         - name: Azure Storage client library version 2.1
           href: https://github.com/Azure/azure-storage-python
-    - name: Code examples for deprecated SDKs
+    - name: Code samples using deprecated SDKs
       items:
       - name: .NET version 11.x
-        items:
-          - name: Azure Storage client library code examples
-            href: blob-v11-samples-dotnet.md
-          - name: Design highly available applications (.NET version 11.x)
-            href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: blob-v11-samples-dotnet.md
+      - name: JavaScript version 11.x
+        href: blob-v11-samples-javascript.md
+      - name: Python version 2.1
+        href: blob-v2-samples-python.md
+      - name: Design highly available applications (.NET version 11.x)
+        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Compliance offerings
       href: ../common/storage-compliance-offerings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
 - name: Data Lake Storage Gen2

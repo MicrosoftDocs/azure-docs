@@ -1,7 +1,7 @@
 ---
-title: Azure Blob Storage client library for .NET version 11.x code examples
+title: Azure Blob Storage code samples using .NET version 11.x client libraries
 titleSuffix: Azure Storage
-description: View code examples that use the Azure Blob Storage client library for .NET version 11.x.
+description: View code samples that use the Azure Blob Storage client library for .NET version 11.x.
 services: storage
 author: pauljewellmsft
 ms.service: storage
@@ -11,13 +11,11 @@ ms.date: 04/03/2023
 ms.author: pauljewell
 ---
 
-# Azure Blob Storage client library for .NET version 11.x code examples
+# Azure Blob Storage code samples using .NET version 11.x client libraries
 
-This article shows code examples that use version 11.x of the Azure Blob Storage client library for .NET.
+This article shows code samples that use version 11.x of the Azure Blob Storage client library for .NET.
 
-On 31 March 2023, we retired support for Azure SDK libraries which do not conform to our [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html). The new Azure SDK libraries are updated regularly to drive consistent experiences and strengthen your security posture. Microsoft recommends that you transition to the new Azure SDK libraries to take advantage of the new capabilities and critical security updates.  
-
-Although the older libraries can still be used beyond 31 March 2023, they will no longer receive official support and updates from Microsoft. For more information, see [this announcement](https://azure.microsoft.com/updates/support-for-azure-sdk-libraries-that-do-not-conform-to-our-current-azure-sdk-guidelines-will-be-retired-as-of-31-march-2023/).
+[!INCLUDE [storage-v11-sdk-support-retirement](../../../includes/storage-v11-sdk-support-retirement.md)]
 
 ## Create a snapshot
 
@@ -409,14 +407,37 @@ public void DemonstratePessimisticConcurrencyBlob(string containerName, string b
 
 ## Build a highly available app with Blob Storage
 
-Related article: [Tutorial: Build a highly available application with Blob storage](storage-create-geo-redundant-storage.md)
-Full code sample: Use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project in the v11 folder contains a console application.
+Related article: [Tutorial: Build a highly available application with Blob storage](storage-create-geo-redundant-storage.md).
+
+### Download the sample
+
+Download the [sample project](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip), extract (unzip) the storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip file, then navigate to the **v11** folder to find the project files.
+
+You can also use [git](https://git-scm.com/) to download a copy of the application to your development environment. The sample project in the v11 folder contains a console application.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-### Retry event handler
+### Configure the sample
+
+In the application, you must provide the connection string for your storage account. You can store this connection string within an environment variable on the local machine running the application. Follow one of the examples below depending on your Operating System to create the environment variable.
+
+In the Azure portal, navigate to your storage account. Select **Access keys** under **Settings** in your storage account. Copy the **connection string** from the primary or secondary key. Run one of the following commands based on your operating system, replacing \<yourconnectionstring\> with your actual connection string. This command saves an environment variable to the local machine. In Windows, the environment variable isn't available until you reload the **Command Prompt** or shell you're using.
+
+### Run the console application
+
+In Visual Studio, press **F5** or select **Start** to begin debugging the application. Visual Studio automatically restores missing NuGet packages if package restore is configured, visit [Installing and reinstalling packages with package restore](/nuget/consume-packages/package-restore#package-restore-overview) to learn more.
+
+A console window launches and the application begins running. The application uploads the **HelloWorld.png** image from the solution to the storage account. The application checks to ensure the image has replicated to the secondary RA-GZRS endpoint. It then begins downloading the image up to 999 times. Each read is represented by a **P** or an **S**. Where **P** represents the primary endpoint and **S** represents the secondary endpoint.
+
+![Screenshot of Console application output.](media/storage-create-geo-redundant-storage/figure3.png)
+
+In the sample code, the `RunCircuitBreakerAsync` task in the `Program.cs` file is used to download an image from the storage account using the [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. Prior to the download, an [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) is defined. The operation context defines event handlers that fire when a download completes successfully, or if a download fails and is retrying.
+
+### Understand the sample code
+
+#### Retry event handler
 
 The `OperationContextRetrying` event handler is called when the download of the image fails and is set to retry. If the maximum number of retries defined in the application are reached, the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) of the request is changed to `SecondaryOnly`. This setting forces the application to attempt to download the image from the secondary endpoint. This configuration reduces the time taken to request the image as the primary endpoint isn't retried indefinitely.
 
@@ -444,7 +465,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 }
 ```
 
-### Request completed event handler
+#### Request completed event handler
 
 The `OperationContextRequestCompleted` event handler is called when the download of the image is successful. If the application is using the secondary endpoint, the application continues to use this endpoint up to 20 times. After 20 times, the application sets the [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) back to `PrimaryThenSecondary` and retries the primary endpoint. If a request is successful, the application continues to read from the primary endpoint.
 
