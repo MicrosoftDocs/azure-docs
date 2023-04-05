@@ -196,10 +196,12 @@ To remediate the exisiting resources, follow these steps:
    ```azurepowershell-interactive
    $Subscription = Get-AzSubscription -SubscriptionName 'Subscription01'
    $Policy = Get-AzPolicyDefinition -Name 'ModifyVMIdentities'
-   $VMuserassignedidentity = Get-AzUserAssignedIdentity -ResourceGroupName $rgname -Name $VMuserassignedidentityname
+   $VMuserassignedidentity = Get-AzUserAssignedIdentity -ResourceGroupName 'NMidentityRG' -Name $VMuserassignedidentityname
    $VMuserassignedidentityid = $VMuserassignedidentity.Id
    New-AzPolicyAssignment -Name 'ModifyVMIdentities' -PolicyDefinition $Policy -Scope "/subscriptions/$($Subscription.Id)" -EnforcementMode DoNotEnforce -Location 'westus' -IdentityType "SystemAssigned" -PolicyParameterObject $VMuserassignedidentityid
    ```
+  > [!NOTE]
+   > The definition  MUST be assigned with enforcement mode disabled (DoNotEnforce) to prevent failures on newly created resources.  
 
    Replace _Subscription01_ with the name of your intended resource group.
 
@@ -215,6 +217,11 @@ To remediate the exisiting resources, follow these steps:
    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Subscription - `/subscriptions/{subId}`
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
+1. After you create the policy assignment, you can create a remediation task to add the identity to exisiting virtual machine and virtual machine scale sets resources by running the following command: 
+
+```azurepowershell-interactive
+Start-AzPolicyRemediation -Name 'remediationVMidentities' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/ModifyVMIdentities'
+```
 
 For more information about managing resource policies using the Resource Manager PowerShell
 module, see [Az.Resources](/powershell/module/az.resources/#policy).
