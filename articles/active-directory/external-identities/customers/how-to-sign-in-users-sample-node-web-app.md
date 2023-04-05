@@ -60,7 +60,7 @@ In this article, you’ll do the following tasks:
 ## Step 5: Install project dependencies 
 
 
-## Step 4: Run and test sample web app 
+## Step 6: Run and test sample web app 
 
 
 ## Next steps
