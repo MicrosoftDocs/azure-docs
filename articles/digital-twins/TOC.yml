@@ -27,7 +27,7 @@
   items:
   - name: DTDL models
     href: concepts-models.md
-  - name: Ontologies
+  - name: Industry ontologies
     items:
     - name: What is an ontology?
       href: concepts-ontologies.md

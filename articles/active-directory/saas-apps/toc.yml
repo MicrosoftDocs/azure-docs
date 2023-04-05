@@ -1539,6 +1539,8 @@
         href: maverics-identity-orchestrator-saml-connector-tutorial.md
       - name: Maxient Conduct Manager Software
         href: maxient-conduct-manager-software-tutorial.md
+      - name: Maximo Application Suite
+        href: maximo-application-suite-tutorial.md
       - name: MaxxPoint
         href: maxxpoint-tutorial.md
       - name: MCM
@@ -2539,8 +2541,8 @@
         href: trendminer-tutorial.md
       - name: Tribeloo
         href: tribeloo-tutorial.md
-      - name: TripActions
-        href: tripactions-tutorial.md
+      - name: Navan
+        href: navan-tutorial.md
       - name: Tripwire Enterprise
         href: tripwire-enterprise-tutorial.md
       - name: Trisotech Digital Enterprise Server
