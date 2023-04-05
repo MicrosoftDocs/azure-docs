@@ -41,26 +41,26 @@ In this article, you’ll do the following tasks:
 - Azure AD for customers tenant. If you don't already have one, [sign up for a free trial](http://developer.microsoft.com/identity/customers)
 
 
-## Step 1: Register the web app
+## Register the web app
 
 [!INCLUDE [active-directory-b2c-register-app](./includes/register-app/register-client-app-common.md)]
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/register-app/add-platform-redirect-url-node.md)]  
 
-## Step 2: Create a user flow 
+## Create a user flow 
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/create-sign-in-sign-out-user-flow.md)] 
 
-## Step 3: Associate the web application with the user flow
+## Associate the web application with the user flow
 
 [!INCLUDE [active-directory-b2c-app-integration-add-user-flow](./includes/configure-user-flow/add-app-user-flow.md)]
 
-## Step 4: Clone or download sample web application
+## Clone or download sample web application
 
 
-## Step 5: Install project dependencies 
+## Install project dependencies 
 
 
-## Step 6: Run and test sample web app 
+## Run and test sample web app 
 
 
 ## Next steps
