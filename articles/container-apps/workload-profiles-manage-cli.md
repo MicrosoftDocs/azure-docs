@@ -98,15 +98,6 @@ Use the following commands to create an environment with a workload profile.
 
     ---
 
-      ```bash
-      az containerapp env create \
-        --enable-workload-profiles \
-        --resource-group "<RESOURCE_GROUP>" \
-        --name "<NAME>" \
-        --location "<LOCATION>" \
-        --infrastructure-subnet-resource-id "<SUBNET_ID>"
-      ```
-
       This command can take up to 10 minutes to complete.
 
 1. Check status of environment. Here, you're looking to see if the environment is created successfully.
