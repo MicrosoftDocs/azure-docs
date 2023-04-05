@@ -42,11 +42,9 @@
     - name: Data visualization in Power BI
       displayName: Stream Analytics
       href: iot-hub-live-data-visualization-in-power-bi.md
-    - name: Use X.509 certificates
-      items:
-        - name: Create and upload certificates for testing
-          displayName: X.509 certificates, root certificate authority (CA), verify certificate, certificate signing request (CSR)
-          href: tutorial-x509-test-ca-certs.md
+    - name: Create and upload certificates for testing
+      displayName: X.509 certificates, root certificate authority (CA), verify certificate, certificate signing request (CSR)
+      href: tutorial-x509-test-certs.md
 - name: Concepts
   items:
     - name: IoT Hub concepts overview
