@@ -185,7 +185,7 @@ If your service provider can establish two Ethernet virtual circuits over the ph
 
 No. We don't support layer 2 connectivity extensions into Azure.
 
-### Can I've more than one ExpressRoute circuit in my subscription?
+### Can I have more than one ExpressRoute circuit in my subscription?
 
 Yes. You can have more than one ExpressRoute circuit in your subscription. The default limit is set to 50. You can contact Microsoft Support to increase the limit, if needed.
 
