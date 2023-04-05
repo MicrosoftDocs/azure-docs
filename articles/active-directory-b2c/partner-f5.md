@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 04/05/2023
 ---
 
-# Tutorial: Enable secure hybrid access for applications with Azure Active Directory B2C and F5 BIG-IP
+# Tutorial: Enable secure hybrid access for applications with Azure Active Directory B2C and F5 BIG-IP 
 
 Learn to integrate Azure Active Directory B2C (Azure AD B2C) with F5 BIG-IP Access Policy Manager (APM). You can expose legacy applications securely to the internet through BIG-IP security, with Azure AD B2C preauthentication, Conditional Access (CA), and single sign-on (SSO). F5 Inc. focuses on delivery, security, performance, and availability of connected services, including computing, storage, and network resources. It provides hardware, modularized software, and cloud-ready virtual appliance solutions.
 
