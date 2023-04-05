@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 01/09/2023
 ---
 
-# TCreate a Power BI report from Microsoft Sentinel data
+# Create a Power BI report from Microsoft Sentinel data
 
 [Power BI](https://powerbi.microsoft.com/) is a reporting and analytics platform that turns data into coherent, immersive, interactive visualizations. Power BI lets you easily connect to data sources, visualize and discover relationships, and share insights with whoever you want.
 
@@ -24,7 +24,7 @@ In this article, you:
 People you granted access in the Power BI service, and members of the Teams channel, can see the report without needing Microsoft Sentinel permissions.
 
 > [!NOTE]
-> This article provides a scenario-based procedure for viewing analysis reports in PowerBI for your Microsoft Sentinel data. For more information, see [Connect data sources](connect-data-sources.md) and [Visualize collected data](get-visibility.md).
+> This article provides a scenario-based procedure to view analysis reports in PowerBI for your Microsoft Sentinel data. For more information, see [Connect data sources](connect-data-sources.md) and [Visualize collected data](get-visibility.md).
 >
 ## Prerequisites
 
