@@ -1,6 +1,6 @@
 ---
 title: Remediate identities for virtual machines
-description: Learn how to update virtual machines' and virtual machine scale sets' identities to be user assigned as a prereqiste to install the Azure Monitoring Agent
+description: Learn how to update virtual machines' and virtual machine scale sets' identities to be user assigned as a prerequisite to install the Azure Monitoring Agent
 ms.date: 04/02/2023
 ms.topic: how-to
 author: kenieva
@@ -32,7 +32,7 @@ To remediate the existing resources, follow these steps:
 1. On the tab, set the following options:
 
    - **Definition Location**: Set to target scope.
-   - **Name**: Set to name the custom definition. Example: "Modify identities on existing VMs and VMSS [ASSIGN TO DO NOT ENFORCE]"
+   - **Name**: Set to name the custom definition. Example: "Modify identities on existing VM and VMSS [ASSIGN TO DO NOT ENFORCE]"
 
 1. In the **Policy Rule** json block, remove the example JSON and paste the following definition that uses the `modify` effect to add the user assign identity: 
 
@@ -92,22 +92,22 @@ To remediate the existing resources, follow these steps:
 
 ```
 
-   1. Select **Save**. Once the custom policy definition is created successfully, click **Assign** within the definition view blade. Or navigate the **Assignments** tab to assign the definition. 
+   1. Select **Save**. Once the custom policy definition is created successfully, the definition view will be populate and select the **Assign** button or you can navigate to the **Assignments** tab to assign the definition. 
 
    1. Ensure that the information in **Scope** and **Basics** is set as expected. 
 
-   1. Set **Policy enforcement** to **Disabled**. EnforcementMode will disable any enforcement at resource creation or update time. Learn more on [enforcement mode](../concepts/assignment-structure.md#enforcement-mode)
+   1. Set **Policy enforcement** to **Disabled**. EnforcementMode disables any enforcement at resource creation or update time. Learn more on [enforcement mode](../concepts/assignment-structure.md#enforcement-mode)
 
    > [!NOTE]
    > The definition template MUST be assigned with enforcement mode disabled (DoNotEnforce) to prevent failures on newly created resources.  
 
-   1. Click the **Parameters** tab. The parameter `userAssignedIdentities` expects an existing user assigned identity ID with proper permissions to the virtual machine or virtual machine scale set. The ID should be inputted in the following format: `/subscriptions/subID/resourceGroups/RGName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testUAMI`
+   1. Select the **Parameters** tab. The parameter `userAssignedIdentities` expects an existing user assigned identity ID with proper permissions to the virtual machine or virtual machine scale set. The ID should be inputted in the following format: `/subscriptions/subID/resourceGroups/RGName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testUAMI`
 
-   1. Click the **Remediation** tab, check the **create a remediation task** box so that any existing VMs and VMSS can be remediated. For assignments at the management group level, a remediation can be triggered after assignment creation, following the [remediate resources tutorial](./remediate-resources.md). 
+   1. Select the **Remediation** tab, check the **create a remediation task** box so that any existing virtual machines and virtual machine scale sets can be remediated. For assignments at the management group level, a remediation can be triggered after assignment creation, following the [remediate resources tutorial](./remediate-resources.md). 
 
    1. Ensure that the information in **managed identity** is as expected. 
 
-   1. Select **Review + create**. Your custom definition has been assigned. For assignments at the subscription level or lower scope, all existing virtual machines and virtual machines scale sets will be remediated via a policy remediation task. Any future virtual machines and virtual machine scale sets or assignments at the management group level must be remediated by following the [remediate resources tutorial](./remediate-resources.md). 
+   1. Select **Review + create**. Your custom definition has been assigned. For assignments at the subscription level or below, the existing virtual machines and virtual machines scale sets are remediated via a policy remediation task. Any future virtual machines and virtual machine scale sets or assignments at the management group level must be remediated by following the [remediate resources tutorial](./remediate-resources.md). 
 
 
 ### Using PowerShell
@@ -224,7 +224,7 @@ Start-AzPolicyRemediation -Name 'remediationVMidentities' -PolicyAssignmentId '/
 ```
 
 For more information about managing resource policies using the Resource Manager PowerShell
-module, see [Az.Resources](/powershell/module/az.resources/#policy).
+module, see [Az PowerShell module](/powershell/module/az.resources/#policy).
 
 
 ## Next steps
