@@ -31,15 +31,15 @@ items:
   expanded: true
   items:
      - name: REST API
-       href: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/onco-phenotype
+       href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
      - name: SDKs
        items:
         - name: .NET
-          href: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/onco-phenotype
+          href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
         - name: Java
-          href: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/onco-phenotype
+          href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
         - name: Python
-          href: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/onco-phenotype
+          href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
 - name: Resources
   items:
      - name: FAQ
