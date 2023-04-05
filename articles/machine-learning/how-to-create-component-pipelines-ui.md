@@ -48,13 +48,13 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 
 To build pipeline using components in UI, you need to register components to your workspace first. You can use UI, CLI or SDK to register components to your workspace, so that you can share and reuse the component within the workspace. Registered components support automatic versioning so you can update the component but assure that pipelines that require an older version will continue to work.  
 
-The example below uses UI to register components, and the component source files are in the [`cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components` directory](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components) of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples). You need to clone the repo to local at first.
+The example below uses UI to register components, and the [component source files](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components)  are in the `cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples). You need to clone the repo to local first.
 
-1. In your Azure Machine Learning workspace, navigate to **Components** page and select **New Component**. 
+1. In your Azure Machine Learning workspace, navigate to **Components** page and select **New Component**.
 
 :::image type="content" source="./media/how-to-create-component-pipelines-ui/register-component-entry-button.png" alt-text="Screenshot showing register entry button in component page." lightbox ="./media/how-to-create-component-pipelines-ui/register-component-entry-button.png":::
 
-1. This example will use `train.yml` [in the directory](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components). The YAML file defines the name, type, interface including inputs and outputs, code, environment and command of this component. The code of this component `train.py` is under `./train_src` folder, which describes the execution logic of this component. You can learn more about the component schema [here](reference-yaml-component-command.md).
+1. This example will use `train.yml` [in the directory](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components). The YAML file defines the name, type, interface including inputs and outputs, code, environment and command of this component. The code of this component `train.py` is under `./train_src` folder, which describes the execution logic of this component. To learn more about the component schema, see the [command component YAML schema reference](reference-yaml-component-command.md).
 
 >[!Note]
 > When register components in UI, `code` defined in the component YAML file can only point to the current folder where YAML file locates or the subfolders, which means you cannot specify `../` for `code` as UI cannot recognize the parent directory.
