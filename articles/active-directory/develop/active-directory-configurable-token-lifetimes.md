@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2023
+ms.date: 04/04/2023
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
-ms.reviewer: ludwignick, sreyanthmora, marsma
+ms.reviewer: ludwignick, sreyanthmora
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)
 
@@ -74,7 +74,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 
 Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. (These tokens cannot be revoked.) The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
 
-For an example, see [Create a policy for web sign-in](registration-config-change-token-lifetime-how-to.md).
+For an example, see [Create a policy for web sign-in](configure-token-lifetimes.md).
 
 Access, ID, and SAML2 token configuration are affected by the following properties and their respectively set values:
 

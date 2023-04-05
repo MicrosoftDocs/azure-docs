@@ -294,13 +294,13 @@ When you deploy a scale set, you specify the host group.
 
 ### [CLI](#tab/cli)
 
-When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
+When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying a Linux image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --image UbuntuLTS \
+  --image myImage \
   --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --host-group myHostGroup \

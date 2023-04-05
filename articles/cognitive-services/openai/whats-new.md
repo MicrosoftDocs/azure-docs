@@ -8,7 +8,7 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 03/27/2023
+ms.date: 03/21/2023
 recommendations: false
 keywords:  
 ---
@@ -16,12 +16,6 @@ keywords:
 # What's new in Azure OpenAI Service
 
 ## March 2023
-
-### Fine-tuned model change
-
-Deployed customized models (fine-tuned models) that are inactive for greater than 90 days will now automatically have their deployments deleted. **The underlying fine-tuned model is retained and can be redeployed at any time**. Once a fine-tuned model is deployed, it will continue to incur an hourly hosting cost regardless of whether you're actively using the model. To learn more about planning and managing costs with Azure OpenAI, refer to our [cost management guide](/azure/cognitive-services/openai/how-to/manage-costs#base-series-and-codex-series-fine-tuned-models).
-
-### New Features
 
 - **GPT-4 series models are now available in preview on Azure OpenAI**. To request access, existing Azure OpenAI customers can [apply by filling out this form](https://aka.ms/oai/get-gpt4). These models are currently available in the East US and South Central US regions.
 

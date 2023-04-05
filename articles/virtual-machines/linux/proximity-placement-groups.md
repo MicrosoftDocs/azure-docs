@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.date: 3/8/2021
 ms.author: mattmcinnes
-
 ---
 
 # Deploy VMs to proximity placement groups using Azure CLI

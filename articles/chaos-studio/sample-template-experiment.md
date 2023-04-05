@@ -57,11 +57,6 @@ In this sample, we create a chaos experiment with a single target resource and a
         "type": "SystemAssigned"
       },
       "properties": {
-        "identity": {
-          "properties": {
-            "type": "SystemAssigned"
-          }
-        },
         "selectors": [
           {
             "id": "Selector1",

@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: faq
-  ms.date: 01/29/2023
+  ms.date: 04/03/2023
   ms.author: justinha
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
@@ -80,9 +80,9 @@ sections:
           No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) invite process are synchronized into your Azure AD Domain Services managed domain. However, passwords for these users aren't stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to synchronize NTLM and Kerberos hashes for these users into your managed domain. Such users can't sign in or join computers to the managed domain.
           
       - question: |
-          Can a two-way forest trust be created between a resource forest and an on-premises forest?
+          Can a two-way forest trust be created between Azure AD DS and an on-premises forest?
         answer: |
-          No. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. 
+          No. A managed domain supports up to five one-way outbound forest trusts to on-premises forests. 
 
       - question: |
           Can I move a managed domain?
@@ -198,7 +198,7 @@ sections:
           No. Azure AD Domain Services has a single-domain, single-forest design, and you can't create child domains.
 
       - question: |
-          What Azure regions is the service available in?
+          Which Azure regions have the service available?
         answer: |
           Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.
           
