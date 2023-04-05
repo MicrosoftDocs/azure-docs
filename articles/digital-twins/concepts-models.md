@@ -226,9 +226,11 @@ For a DTDL model to be compatible with Azure Digital Twins, it must also meet th
 
 This section describes additional considerations and recommendations for modeling.
 
-### Use DTDL industry-standard ontologies
+### Use existing industry-standard ontologies
 
-If your solution is for a certain established industry (like smart buildings, smart cities, or energy grids), consider starting with a pre-existing set of models for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model sets based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
+An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
+
+If your solution is for a certain industry that uses any sort of modeling standard, consider starting with a pre-existing set of models designed for your industry instead of designing your models from scratch. Microsoft has partnered with domain experts to create DTDL model ontologies based on industry standards, to help minimize reinvention and encourage consistency and simplicity across industry solutions. You can read more about these ontologies, including how to use them and what ontologies are available now, in [What is an ontology?](concepts-ontologies.md).
 
 ### Consider query implications
 
