@@ -86,7 +86,7 @@ Target-based scaling introduces faster scaling, and uses defaults for _target ex
 
 The Service Bus extension support three execution models, determined by the `IsBatched` and `IsSessionsEnabled` attributes of your Service Bus trigger. The default value for `IsBatched` and `IsSessionsEnabled` is `false`.
 
-|                                            | IsBatched | IsSessionsEnabled | Concurrency Setting Used for target-based scaling |
+| Execution Model                            | IsBatched | IsSessionsEnabled | Setting Used for _target executions per instance_ |
 | ------------------------------------------ | --------- | ----------------- | ------------------------------------------------- |
 | Single Dispatch Processing                 | false     | false             | maxConcurrentCalls                                |
 | Single Dispatch Processing (Session Based) | false     | true              | maxConcurrentSessions                             |
@@ -97,7 +97,7 @@ The Service Bus extension support three execution models, determined by the `IsB
 
 
 #### Single Dispatch Processing
-In this model, each invocation of your function processes a single message. The `maxConcurrentCalls` setting governs concurrency.
+In this model, each invocation of your function processes a single message. The `maxConcurrentCalls` setting governs _target executions per instance_.
 
 For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxConcurrentCalls`:
 ```json
@@ -126,7 +126,8 @@ For Functions host **v2.x+**, modify the `host.json` setting `maxConcurrentCalls
 ```
 #### Single Dispatch Processing (Session Based)
 In this model, each invocation of your function processes a single message. However, depending on the number of active sessions for your Service Bus topic or queue, each instance leases one or more sessions.
-For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxConcurrentSessions`:
+
+For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxConcurrentSessions` to set _target executions per instance_:
 ```json
 {
     "version": "2.0",
@@ -137,7 +138,7 @@ For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxC
     }
 }
 ```
-For Functions host **v2.x+**, modify the `host.json` setting `maxConcurrentSessions` in `sessionHandlerOptions`:
+For Functions host **v2.x+**, modify the `host.json` setting `maxConcurrentSessions` in `sessionHandlerOptions`  to set _target executions per instance_:
 ```json
 {
     "version": "2.0",
@@ -153,7 +154,7 @@ For Functions host **v2.x+**, modify the `host.json` setting `maxConcurrentSessi
 #### Batch Processing
 In this model, each invocation of your function processes a batch of messages.
 
-For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxMessageBatchSize`:
+For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxMessageBatchSize`  to set _target executions per instance_:
 ```json
 {
     "version": "2.0",
@@ -164,7 +165,7 @@ For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxM
     }
 }
 ```
-For Functions host **v2.x+**, modify the `host.json` setting `maxMessageCount` in `batchOptions`:
+For Functions host **v2.x+**, modify the `host.json` setting `maxMessageCount` in `batchOptions`  to set _target executions per instance_:
 ```json
 {
     "version": "2.0",
@@ -179,12 +180,12 @@ For Functions host **v2.x+**, modify the `host.json` setting `maxMessageCount` i
 ```
 
 ### Event Hubs
-For Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the hub. By default, the `host.json` attributes used are `maxEventBatchSize` and `maxBatchSize`. However, if you wish to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides the target value without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
+For Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the hub. By default, the `host.json` attributes used for _target executions per instance_ are `maxEventBatchSize` and `maxBatchSize`. However, if you wish to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides  to set _target executions per instance_ without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
 
 > [!NOTE]
 > Since Event Hubs is a partitioned workload, the target instance count for Event Hubs is capped by the number of partitions in your Event Hub. 
 
-For **v5.x+** of the Event Hubs extension, modify the `host.json` setting `maxEventBatchSize`:
+For **v5.x+** of the Event Hubs extension, modify the `host.json` setting `maxEventBatchSize` to set _target executions per instance_:
 ```json
 {
     "version": "2.0",
@@ -196,7 +197,7 @@ For **v5.x+** of the Event Hubs extension, modify the `host.json` setting `maxEv
 }
 ```
 
-For **v3.x+** of the Event Hubs extension, modify the `host.json` setting `maxBatchSize` under `eventProcessorOptions`:
+For **v3.x+** of the Event Hubs extension, modify the `host.json` setting `maxBatchSize` under `eventProcessorOptions` to set _target executions per instance_:
 ```json
 {
     "version": "2.0",
@@ -210,7 +211,7 @@ For **v3.x+** of the Event Hubs extension, modify the `host.json` setting `maxBa
 }
 ```
 
-If defined, `targetUnprocessedEventThreshold` in `host.json` will be used as the target value instead of `maxBatchSize` or `maxEventBatchSize`:
+If defined, `targetUnprocessedEventThreshold` in `host.json` will be used as _target executions per instance_ instead of `maxBatchSize` or `maxEventBatchSize`:
 ```json
 {
     "version": "2.0",
@@ -223,7 +224,7 @@ If defined, `targetUnprocessedEventThreshold` in `host.json` will be used as the
 ```
 
 ### Storage Queues
-For **v2.x**+ of the Storage extension, modify the `host.json` setting `batchSize`:
+For **v2.x**+ of the Storage extension, modify the `host.json` setting `batchSize` to set _target executions per instance_:
 ```json
 {
     "version": "2.0",
@@ -237,7 +238,7 @@ For **v2.x**+ of the Storage extension, modify the `host.json` setting `batchSiz
 
 ### Cosmos DB
 
-Cosmos DB uses a function-level attribute, `MaxItemsPerInvocation`. Modify this in `function.json`, or directly in the trigger definition:
+Cosmos DB uses a function-level attribute, `MaxItemsPerInvocation`. Modify this in `function.json` , or directly in the trigger definition, to set _target executions per instance_:
 ```C#
 namespace CosmosDBSamplesV2
 {
