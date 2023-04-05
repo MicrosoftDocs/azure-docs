@@ -79,7 +79,6 @@ This article has a list of the metadata that is available for a Power BI tenant 
 | IsOnDedicatedCapacity | Automatic         | Power BI          | Power BI Workspace | No       | workspace.IsOnDedicatedCapacity |
 | users                 | Automatic         | Power BI          | Power BI Workspace | No       | workspace.Users                 |
 
-
 ## Next steps
 
 - [Connect to and manage a Power BI tenant](register-scan-power-bi-tenant.md)
