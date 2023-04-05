@@ -36,7 +36,6 @@ ms.author: kengaderdus
     
     1. Keep **State** as **Enabled** and select **Add scope**.
     
-    1. Select the **Add scope** button at the bottom of the pane to save the scope.
 
 1. Under **Manage**, select **Manifest** to open the API manifest editor.
 
