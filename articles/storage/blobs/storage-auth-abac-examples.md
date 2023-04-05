@@ -1,4 +1,4 @@
- ---
+---
 title: Example Azure role assignment conditions for Blob Storage
 titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Blob Storage.
@@ -1374,38 +1374,51 @@ The condition can be added to a role assignment using either the Azure portal or
 > [!NOTE]
 > Without the last expression in this sample, access to all other containers not named `container1` will fail.
 
-#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the visual condition editor in the Azure portal.
 
-> [!div class="mx-tableFixed"]
-> | Condition | Component | Group | Setting | Value |
-> | --- | --- | - | - | - |
-> | Condition #1 | | | | |
-> | | Actions | | | [Delete a blob](storage-auth-abac-attributes.md#delete-a-blob)<br/>[Read a blob](storage-auth-abac-attributes.md#read-a-blob)<br/>[Write to a blob](storage-auth-abac-attributes.md#write-to-a-blob)<br/>[Create a blob or snapshot, or append data](storage-auth-abac-attributes.md#create-a-blob-or-snapshot-or-append-data) |
-> | | Expressions | | | |
-> | | | Group #1 | | |
-> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | | | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
-> | | | | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | | | | Value | `container1` |
-> | | | | Logical operator | 'AND' |
-> | | | | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | | | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
-> | | | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
-> | | | | Value | `privateendpoint1` |
-> | | | End of Group #1 | | |
-> | | | | Logical operator | 'OR' |
-> | | | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | | | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
-> | | | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
-> | | | | Value | `container1` |
+##### Add action
+
+Select **Add action**, then select only the top-level actions shown in the following table.
+
+| Action                                    | Suboperation |
+| ----------------------------------------- | ------------ |
+| All read operations                       | *n/a*        |
+| Write to a blob                           | *n/a*        |
+| Create a blob or snapshot, or append data | *n/a*        |
+| Delete a blob                             | *n/a*        |
+
+Do not select any individual suboperations as shown in the following image:
+
+:::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-select-read-write-delete-portal.png":::
+
+##### Build expression
+
+> | Group | Setting | Value |
+> | ----- | ------- | ----- |
+> | Group #1 | | |
+> | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | Value | `container1` |
+> | | Logical operator | 'AND' |
+> | | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+> | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
+> | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+> | | Value | `privateendpoint1` |
+> | End of Group #1 | | |
+> | | Logical operator | 'OR' |
+> | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+> | | Attribute | [Container name](storage-auth-abac-attributes.md#container-name) |
+> | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringnotequals) |
+> | | Value | `container1` |
 
 The following image shows the condition after the settings have been entered into the Azure portal:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png" alt-text="Screenshot of condition editor in Azure portal showing read, write, or delete blobs in named containers with private endpoint environment attribute." lightbox="./media/storage-auth-abac-examples/environ-private-endpoint-containers-read-write-delete-portal.png":::
 
-#### [Portal: Code editor](#tab/azure-portal-code-editor)
+#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
 
 Choose one of the condition code samples below, depending on the role associated with the assignment.
 
@@ -1531,7 +1544,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
-#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
 
 > [!TIP]
 > The `Exists` operator is not supported in the visual ABAC condition builder for the tags attribute. To add the last expression, switch to the **Code** condition editor in the ABAC condition builder.
@@ -1586,7 +1599,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring any private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
-#### [Portal: Code editor](#tab/azure-portal-code-editor)
+#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
  ( 
@@ -1664,7 +1677,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
-#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -1720,7 +1733,7 @@ The image below shows how to add the condition for this example. Note that you m
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access requiring private link for sensitive data." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
-#### [Portal: Code editor](#tab/azure-portal-code-editor)
+#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
 ( 
@@ -1791,7 +1804,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
-#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition, Condition #1, using the Azure portal.
 
@@ -1830,7 +1843,9 @@ The image below shows how to add the condition for this example. Note that you m
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-write-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing write access requiring a specific private tag values from an approved list." lightbox="./media/storage-auth-abac-examples/environ-specific-private-link-sensitive-write-portal.png":::
 
-#### [Portal: Code editor](#tab/azure-portal-code-editor)
+#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
+
+Here's how to add this condition using the code editor in the Azure portal.
 
 ```
 (
@@ -1906,7 +1921,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
-#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -1938,7 +1953,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific containers allowed from a specific subnet." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
-#### [Portal: Code editor](#tab/azure-portal-code-editor)
+#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
 ( 
@@ -2015,7 +2030,7 @@ There are two potential actions for reading existing blobs. To make this conditi
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
 
-#### [Portal: Visual editor](#tab/azure-portal-visual-editor)
+#### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
 
 Here are the settings to add this condition using the Azure portal.
 
@@ -2047,7 +2062,7 @@ The following image shows the condition after the settings have been entered int
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access allowed after a specific date and time." lightbox="./media/storage-auth-abac-examples/environ-private-link-sensitive-read-portal.png":::
 
-#### [Portal: Code editor](#tab/azure-portal-code-editor)
+#### [Azure portal: Code editor](#tab/azure-portal-code-editor)
 
 ```
 ( 
