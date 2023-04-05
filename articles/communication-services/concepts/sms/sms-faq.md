@@ -105,7 +105,7 @@ Once you have submitted the short code program brief application in the Azure po
     - Special characters: *+* , *-* ,  _ , &
 
 ### Is a number purchase required to use alphanumeric sender ID?
-The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-senderID.md) for instructions.
+The use of alphanumeric sender ID does not require purchase of any phone number. Alphanumeric sender ID can be enabled through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-sender-id.md) for instructions.
 
 ### Can I send SMS immediately after enabling alphanumeric sender ID?
 We recommend waiting for 10 minutes before you start sending messages for best results.
