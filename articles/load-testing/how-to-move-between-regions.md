@@ -45,16 +45,16 @@ To get started, export the ARM template for the Azure load testing resource and 
 
 1. Download the input artifacts for each existing test in the resource:
 
-  1. Navigate to the **Tests** section for the load testing resource.
-
-  1. Select the test name to go to the list of test runs. 
-
-  1. Select **...**, and then select **Download input file** for a test run.
-
-    The browser should now start downloading a zipped folder that contains all input files for the test, such as the [test configuration YAML file](./reference-test-config-yaml.md), the JMeter script, and any configuration or data files.
-
-    :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/download-input-artifacts.png" alt-text="Screenshot that shows how to download input files for a test.":::
-
+    1. Navigate to the **Tests** section for the load testing resource.
+    
+    1. Select the test name to go to the list of test runs. 
+    
+    1. Select **...**, and then select **Download input file** for a test run.
+    
+        The browser should now start downloading a zipped folder that contains all input files for the test, such as the [test configuration YAML file](./reference-test-config-yaml.md), the JMeter script, and any configuration or data files.
+        
+        :::image type="content" source="media/how-to-move-an-azure-load-testing-resource/download-input-artifacts.png" alt-text="Screenshot that shows how to download input files for a test.":::
+        
 > [!NOTE]
 > If you are using an Azure Key Vault to configure secrets for your load test, you can continue to use the same Key Vault.  
 
