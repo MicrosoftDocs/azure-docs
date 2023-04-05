@@ -3,8 +3,8 @@ title: Create an Azure Image Builder Bicep file or ARM JSON template
 description: Learn how to create a Bicep file or ARM JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
-ms.date: 04/03/2023
+ms.reviewer:erd
+ms.date: 04/05/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -940,6 +940,9 @@ Distribute properties for galleries:
   - "Standard_ZRS"","
 
 > [!NOTE]
+>`replicationRegions` is deprecated for gallery distributions. For more information, use [gallery-replicated-regions](/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples&preserve-view=true)
+
+> [!NOTE]
 > If the image template and referenced `image definition` aren't in the same location, you'll see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in `westus` and you want the image version replicated to `eastus`, a blob is copied to `westus`, an image version resource in `westus` is created, and then replicate to `eastus`. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
 
 ### Distribute: VHD
@@ -992,7 +995,7 @@ az resource show \
 > [!NOTE]
 > Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you'll lose the VHD.
 
-## Properties: DistributeVersioner
+## Properties: versioning
 
 The **versioning** property is an enum with two possible values:
 - **latest** - New monotonically increasing schema per design
