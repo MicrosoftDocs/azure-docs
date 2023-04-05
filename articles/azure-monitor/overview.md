@@ -45,7 +45,7 @@ Azure Monitor achieves observability by correlating data from multiple pillars a
 
 The following diagram gives a high-level view of Azure Monitor. 
 
-:::image type="content" source="media/overview/overview_2023_02.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview_2023_02_expanded.svg":::
+:::image type="content" source="media/overview/overview-2023-02.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-2023-02-expanded.svg":::
 
 The diagram depicts the Azure Monitor system components:
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. The data is collected and routed to the **data platform**.
@@ -57,7 +57,7 @@ The diagram depicts the Azure Monitor system components:
 
 Azure Monitor can collect data from multiple sources, including from your application, operating systems, the services they rely on, and from the platform itself. The diagram below shows an expanded version of the datasource types gathered by Azure Monitor. 
 
-:::image type="content" source="media/overview/data-sources-2.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-blowup-type2.svg":::
+:::image type="content" source="media/overview/data-sources-2.svg" alt-text="Diagram that shows an overview of Azure Monitor data sources." border="false" lightbox="media/overview/data-sources-blowup-type-2.svg":::
 
 Click on the diagram above to see a larger version of the data sources in context.
 
@@ -78,7 +78,7 @@ For detailed information about each of the data sources, see [data sources](./da
 
 Azure Monitor stores data in data stores for each of the pillars of observability: metrics, logs, distributed traces, and changes. Each store is optimized for specific types of data and monitoring scenarios.
 
-:::image type="content" source="media/overview/data-platform-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type2.svg":::
+:::image type="content" source="media/overview/data-platform-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type-2.svg":::
 
 
 Click on the picture to see a larger version of the data platform diagram in context.
@@ -98,7 +98,7 @@ For less expensive, long-term archival of monitoring data for auditing or compli
 
 Azure Monitor collects and routes monitoring data using a few different mechanisms depending on the data being routed and the destination.  Much like a road system built over time, not all roads lead to all locations. Some are legacy, some new, and some are better to take than others given how Azure Monitor has evolved over time. For more information, see **[data sources](data-sources.md)**.
 
-:::image type="content" source="media/overview/data-collection-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-blowup-type2.svg":::
+:::image type="content" source="media/overview/data-collection-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data collection and routing." border="false" lightbox="media/overview/data-collection-blowup-type-2.svg":::
 
 Click on the diagram to see a larger version of the data collection in context.
 
@@ -132,7 +132,7 @@ The Azure portal is a web-based, unified console that provides an alternative to
 
 Some Azure resource providers have curated visualizations that provide a customized monitoring experience and require minimal configuration. Insights are large, scalable, curated visualizations. 
 
-:::image type="content" source="media/overview/insights-box.svg"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-blowup-type2.svg":::
+:::image type="content" source="media/overview/insights-box.svg"  alt-text="Diagram that shows the Insights part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/insights-blowup-type-2.svg":::
 
 The following table describes some of the larger insights:
 
@@ -147,7 +147,7 @@ For more information, see the [list of insights and curated visualizations in th
 
 ### Visualize
 
-:::image type="content" source="media/overview/visualize-box.svg" alt-text="Diagram that shows the Visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-blowup-type2.svg":::
+:::image type="content" source="media/overview/visualize-box.svg" alt-text="Diagram that shows the Visualize part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/visualize-blowup-type-2.svg":::
 
 Visualizations such as charts and tables are effective tools for summarizing monitoring data and presenting it to different audiences. Azure Monitor has its own features for visualizing monitoring data and uses other Azure services for publishing it to different audiences. Power BI and Grafana are not officially part of the Azure Monitor product, but they're a core integration and part of the Azure Monitor story.
 
@@ -162,7 +162,7 @@ Visualizations such as charts and tables are effective tools for summarizing mon
 
 The Azure portal contains built in tools that allow you to analyze monitoring data.
 
-:::image type="content" source="media/overview/analyze-box.svg" alt-text="Diagram that shows the Analyze part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/analyze-blowup-type2.svg":::
+:::image type="content" source="media/overview/analyze-box.svg" alt-text="Diagram that shows the Analyze part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/analyze-blowup-type-2.svg":::
 
 |Tool  |Description  |
 |---------|---------|
@@ -174,7 +174,7 @@ The Azure portal contains built in tools that allow you to analyze monitoring da
 
 An effective monitoring solution proactively responds to critical events, without the need for an individual or team to notice the issue. The response could be a text or email to an administrator, or an automated process that attempts to correct an error condition.
 
-:::image type="content" source="media/overview/respond-box.svg" alt-text="Diagram that shows the Respond part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/respond-blowup-type2.svg":::
+:::image type="content" source="media/overview/respond-box.svg" alt-text="Diagram that shows the Respond part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/respond-blowup-type-2.svg":::
 
 **[Alerts](alerts/alerts-overview.md)** notify you of critical conditions and can take corrective action. Alert rules can be based on metric or log data. Metric alert rules provide near-real-time alerts based on collected metrics. Log alerts rules based on logs allow for complex logic across data from multiple sources. 
 Alert rules use action groups, which can perform actions like sending email or SMS notifications. Action groups can send notifications using webhooks to trigger external processes or to integrate with your IT service management tools. Action groups, actions, and sets of recipients can be shared across multiple rules.
