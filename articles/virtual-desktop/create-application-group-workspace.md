@@ -2,6 +2,7 @@
 title: Create an application group, a workspace, and assign users - Azure Virtual Desktop
 description: Learn how to create an application group and a workspace, and assign users in Azure Virtual Desktop by using the Azure portal, Azure CLI, or Azure PowerShell.
 ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 03/22/2023

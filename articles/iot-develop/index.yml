@@ -51,6 +51,10 @@ landingContent:
       links:
         - text: Connect a sample device to IoT Hub
           url: tutorial-connect-device.md
+    - linkListType: concept
+      links:
+        - text: Manage device reconnections
+          url: concepts-manage-device-reconnections.md
   - title: Device development framework
     linkLists:
     - linkListType: concept

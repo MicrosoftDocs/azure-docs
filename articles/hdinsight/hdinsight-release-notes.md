@@ -91,3 +91,4 @@ End of support for Azure HDInsight clusters on Spark 2.4 February 10, 2024. For 
 
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
+* [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)

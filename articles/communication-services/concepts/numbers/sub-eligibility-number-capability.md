@@ -1,7 +1,7 @@
 ---
-title: Country availability of telephone numbers and subscription eligibility
+title: Country/regional availability of telephone numbers and subscription eligibility
 titleSuffix: An Azure Communication Services concept document
-description: Learn about Country Availability, Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
+description: Learn about Country/Regional Availability, Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
 author: krkutser
 manager: rcole
 services: azure-communication-services
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.custom: references_regions
 ---
 
-# Country availability of telephone numbers and subscription eligibility
+# Country/regional availability of telephone numbers and subscription eligibility
 
 Numbers can be purchased on eligible Azure subscriptions and in geographies where Communication Services is legally eligible to provide them.
 
@@ -35,7 +35,7 @@ More details on eligible subscription types are as follows:
 
 ## Number capabilities and availability
 
-The capabilities and numbers that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements.
+The capabilities and numbers that are available to you depend on the country/region that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country/region due to regulatory requirements.
 
 The following tables summarize current availability:
 
@@ -81,8 +81,13 @@ The following tables summarize current availability:
 | Canada            | Local     | -        | -        | General Availability       | General Availability\* |
 | UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
 | UK                | Local     | -        | -        | General Availability       | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
 |  Ireland, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
-
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
@@ -100,6 +105,12 @@ The following tables summarize current availability:
 | Canada            | Local     | -        | -        | General Availability       | General Availability\* |
 | UK                | Toll-Free | -        | -        | General Availability       | General Availability\* |
 | UK                | Local     | -        | -        | General Availability       | General Availability\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
 |  Denmark, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -128,6 +139,18 @@ The following tables summarize current availability:
 | :------ | :-------- | :------------ | :------------ | :------------- | :--------------- |
 | Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
 | Italy   | Local**     | - | - | General Availability | General Availability\* |
+| USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
+| USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
+| Canada             | Toll-Free      | General Availability       | General Availability       | General Availability   | General Availability\* |
+| Canada             | Local          | -        | -        | General Availability   | General Availability\* |
+| UK                 | Toll-Free      | -        | -        | General Availability   | General Availability\* |
+| UK                 | Local          | -        | -        | General Availability   | General Availability\* |
+| Sweden            | Toll-Free | -        | -        | General Availability | General Availability\* |
+| Sweden            | Local     | -        | -        | General Availability | General Availability\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
 | Italy, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \***  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -146,6 +169,12 @@ The following tables summarize current availability:
 | Canada            | Local     | -        | -        | General Availability       | General Availability\* |
 | USA & Puerto Rico | Toll-Free | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local     | -        | -        | General Availability | General Availability\* |
+| Ireland           | Toll-Free | -        | -        | General Availability       | General Availability\* |
+| Ireland           | Local     | -        | -        | General Availability       | General Availability\* |
+| Denmark           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
+| Denmark           | Local     | -        | -        | Public Preview | Public Preview\* |
+| Italy   | Toll-Free** | - | - | General Availability | General Availability\* |
+| Italy   | Local**     | - | - | General Availability | General Availability\* |
 |  Sweden, Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia              | Alphanumeric Sender ID  \**  | Public Preview      | -        | -  | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -246,6 +275,7 @@ The following tables summarize current availability:
 | Number            | Type      | Send SMS             | Receive SMS          | Make Calls     | Receive Calls    |
 | :---------------- | :-------- | :------------------- | :------------------- | :------------- | :--------------- |
 | Norway           | Local**     | -        | -        | Public Preview | Public Preview\* |
+| Norway           | Toll-Free | -        | -        | Public Preview | Public Preview\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 

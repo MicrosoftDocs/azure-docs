@@ -29,15 +29,17 @@ items:
   - name: Manage users
     expanded: false
     items: 
-    - name: Update user info
-      href: active-directory-users-profile-azure-portal.md
     - name: Assign roles to users
       href: active-directory-users-assign-role-azure-portal.md
+    - name: Manage 'Stay signed in?' prompt
+      href: how-to-manage-stay-signed-in-prompt.md
+    - name: Manage user profile info
+      href: how-to-manage-user-profile-info.md
     - name: Reset a user's password
       href: active-directory-users-reset-password-azure-portal.md
     - name: Restore a deleted user
       href: active-directory-users-restore.md
-    - name: Default user permissions
+    - name: Set default user permissions
       href: users-default-permissions.md
   - name: Manage groups
     expanded: false
