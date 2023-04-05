@@ -98,7 +98,9 @@ Before running the `mount` command, install the nfs-utils, nfs-client or the nfs
 
 To check if the NFS package is installed, run:
 
-# [RHEL/CentOS/OracleLinux](#tab/RHEL/CentOS/OracleLinux) 
+# [RHEL](#tab/RHEL) 
+
+Same commands on this section applies for CentOS and Oracle Linux.
 
 ```bash
 sudo rpm qa | grep nfs-utils
@@ -118,7 +120,9 @@ sudo dpkg -l | grep -i nfs-common
 
 If the package isn't installed, install the package using your distro-specific command.
 
-# [RHEL-CentOS-OracleLinux](#tab/RHEL-CentOS-OracleLinux) 
+# [RHEL](#tab/RHEL) 
+
+Same commands on this section applies for CentOS and Oracle Linux.
 
 Os Version 7.X
 
@@ -131,7 +135,7 @@ OS Version 8.X or 9.X
 sudo dnf install nfs-utils
 ```
 
-# [SLES](#tab/SLES) 
+# [SLES](#tab/SLES)
 
 ```bash
 sudo zypper install nfs-client
