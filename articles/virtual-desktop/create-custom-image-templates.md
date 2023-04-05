@@ -13,13 +13,13 @@ ms.date: 04/05/2023
 > Custom image templates in Azure Virtual Desktop is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Custom image templates in Azure Virtual Desktop enables you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop.
+Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates are built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop.
 
 This article shows you how to create a custom image template, then create a custom image using that template. For more information, see [Custom image templates](custom-image-templates.md).
 
 ## Prerequisites
 
-Before you can create a custom image template, you'll need to meet the following prerequisites.
+Before you can create a custom image template, you need to meet the following prerequisites.
 
 - The following resource providers registered on your subscription. For information on how you can check their registration status and how to register them if needed, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -34,7 +34,7 @@ Before you can create a custom image template, you'll need to meet the following
 
 - A [user-assigned Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). We recommend you create one specifically to use with custom image templates.
 
-- [Create a custom role-based access control (RBAC) role definition](../role-based-access-control/custom-roles.md) with the following permissions as *actions*. Assign this role definition to the Managed Identity, scoped appropriately for your deployment, ideally to the resource group you'll use store custom image templates.
+- [Create a custom role-based access control (RBAC) role definition](../role-based-access-control/custom-roles.md) with the following permissions as *actions*. Assign this role definition to the Managed Identity, scoped appropriately for your deployment, ideally to the resource group you use store custom image templates.
 
    ```json/
    "Microsoft.Compute/galleries/read",
@@ -46,9 +46,9 @@ Before you can create a custom image template, you'll need to meet the following
    "Microsoft.Compute/images/delete"
    ```
    
-- *Optional*: If you want to distribute your image to Azure Compute Gallery, [create an Azure Compute Gallery](../virtual-machines/create-gallery.md), then [create a VM image definition](../virtual-machines/image-version.md). When you create a VM image definition in the gallery you will need to specify the *generation* of the image you intend to create, either *generation 1* or *generation 2*. The generation of the image you want to use as the source image needs to match the generation specified in the VM image definition. Don't create a *VM image version* at this stage. This will be done by Azure Virtual Desktop.
+- *Optional*: If you want to distribute your image to Azure Compute Gallery, [create an Azure Compute Gallery](../virtual-machines/create-gallery.md), then [create a VM image definition](../virtual-machines/image-version.md). When you create a VM image definition in the gallery you need to specify the *generation* of the image you intend to create, either *generation 1* or *generation 2*. The generation of the image you want to use as the source image needs to match the generation specified in the VM image definition. Don't create a *VM image version* at this stage. This will be done by Azure Virtual Desktop.
 
-- *Optional*: You can use an existing virtual network when building an image. If you do, the managed identity you are using will need access to the virtual network or the resource group it is contained within. For more information, see [Permission to customize images on your virtual networks](../virtual-machines/linux/image-builder-permissions-powershell.md#permission-to-customize-images-on-your-virtual-networks).
+- *Optional*: You can use an existing virtual network when building an image. If you do, the managed identity you're using needs access to the virtual network, or the resource group it's contained within. For more information, see [Permission to customize images on your virtual networks](../virtual-machines/linux/image-builder-permissions-powershell.md#permission-to-customize-images-on-your-virtual-networks).
 
    If this virtual network is using a *private service policy*, it needs to be disabled for Azure Image Builder to work correctly. For more information, see [Disable private service policy on the subnet](../virtual-machines/windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet).
 
@@ -120,7 +120,7 @@ To create a custom image using the Azure portal:
       |--|--|
       | Gallery name | Select the Azure Compute Gallery you want to distribute the image to from the list. |
       | Gallery image definition | Select the Gallery image definition you want to use from the list. |
-      | Gallery image version | *Optional* Enter a version number for the image. If you don't Enter a value, one will be generated automatically. |
+      | Gallery image version | *Optional* Enter a version number for the image. If you don't Enter a value, one is generated automatically. |
       | Run output name | Enter a run output name for the image. This is a free text field. |
       | Replicated regions | Select which Azure regions to store and replicate the image. The region you selected for the custom image template is automatically selected. |
       | Excluded from latest | Select **Yes** to prevent this image version from being used where you specify `latest` as the version of the [*ImageReference* element](/azure/templates/microsoft.compute/virtualmachines?pivots=deployment-language-arm-template#imagereference-1) when you create a VM. Otherwise, select **No**.<br /><br />To change this later, see [List, update, and delete gallery resources](../virtual-machines/update-image-resources.md). |
@@ -133,15 +133,15 @@ To create a custom image using the Azure portal:
    | Parameter | Value/Description |
    |--|--|
    | Build timeout (minutes) | Enter the [maximum duration to wait](../virtual-machines/linux/image-builder-json.md#properties-buildtimeoutinminutes) while building the image template (includes all customizations, validations, and distributions). |
-   | Build VM size | Select a size for the temporary VM created and used to build the template. You'll need to select a [VM size that matches the generation](../virtual-machines/generation-2.md) of your source image. |
+   | Build VM size | Select a size for the temporary VM created and used to build the template. You need to select a [VM size that matches the generation](../virtual-machines/generation-2.md) of your source image. |
    | OS disk size GB) | Select the resource group you assigned the Managed Identity to.<br /><br />Alternatively, if you assigned the Managed Identity to the subscription, you can create a new resource group here. |
-   | Staging group | Enter a name for a new resource group you want Azure Image Builder to use to create the Azure resources it needs to create the image. If you leave this blank Azure Image Builder will create its own default resource group. |
-   | Virtual network | Select an existing virtual network for the VM used to build the template. This is optional. If you don't select an existing virtual network, a temporary one will be created, along with a public IP address for the temporary VM. |
+   | Staging group | Enter a name for a new resource group you want Azure Image Builder to use to create the Azure resources it needs to create the image. If you leave this blank Azure Image Builder creates its own default resource group. |
+   | Virtual network | Select an existing virtual network for the VM used to build the template. This is optional. If you don't select an existing virtual network, a temporary one is created, along with a public IP address for the temporary VM. |
    | Subnet | If you selected an existing virtual network, select a subnet from the list. |
 
    Once you've completed this tab, select **Next**.
 
-1. On the **Customizations** tab, you can add built-in scripts or your own scripts that will run when building the image.
+1. On the **Customizations** tab, you can add built-in scripts or your own scripts that run when building the image.
 
    To add a built-in script:
 
@@ -155,15 +155,15 @@ To create a custom image using the Azure portal:
 
    1. Select **+Add your own script**.
 
-   1. Enter a name for your script and the Uniform Resource Identifier (URI) for your script. This needs to be a publicly available location, such as GitHub, a web service, or your own storage account. To use a storage account, you'll need to assign the managed identity an appropriate RBAC role, such as **Storage Blob Data Reader**.
+   1. Enter a name for your script and the Uniform Resource Identifier (URI) for your script. This needs to be a publicly available location, such as GitHub, a web service, or your own storage account. To use a storage account, you need to assign the managed identity an appropriate RBAC role, such as **Storage Blob Data Reader**.
    
    1. Select **Save**. You can repeat these steps for each of your own scripts you want to add.
 
-   You can change the order the scripts will run by selecting **Move up**, **Move down**, **Move to top**, or **Move to bottom**. Once you've completed this tab, select **Next**.
+   You can change the order the scripts run by selecting **Move up**, **Move down**, **Move to top**, or **Move to bottom**. Once you've completed this tab, select **Next**.
 
 1. On the **Tags** tab, enter any name and value pairs you can use to help organize your resources, then select **Next**. A default tag of `AVD_IMAGE_TEMPLATE : AVD_IMAGE_TEMPLATE` is automatically created. For more information, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/).
 
-1. On the **Review and create** tab, review the information that will be used during deployment, then select **Create**.
+1. On the **Review and create** tab, review the information that is used during deployment, then select **Create**.
 
 > [!TIP]
 > The new template may take about 20 seconds to appear. From **Custom images templates**, select **Refresh** to check the status.
@@ -174,7 +174,7 @@ Once your custom image template has been successfully created, you need to build
 
 1. From **Custom images templates**, check the box for the custom image template you want to build.
 
-1. Select **Start build**. The image will start to be built. The time it takes to complete depends on how long it takes any built-in scripts and your own scripts to complete.
+1. Select **Start build**. The image starts to be built. The time it takes to complete depends on how long it takes any built-in scripts and your own scripts to complete.
 
 1. Select **Refresh** to check the status. You can see more information on the build status by selecting the name of the custom image template where you can see the **Build run state**.
 
