@@ -64,12 +64,12 @@ To add a static route for a destination host, type the following command on a Wi
 #### Linux
 
 ```bash
-route add <destination_ip> gw <gateway_ip>
+sudo route add <destination_ip> gw <gateway_ip>
 ```
 
 #### Windows
 
-```
+```console
 route add <destination_ip> <gateway_ip>
 ```
 
@@ -82,7 +82,7 @@ To simulate the primary endpoint becoming functional again, delete the invalid s
 #### Linux
 
 ```bash
-route del <destination_ip> gw <gateway_ip>
+sudo route del <destination_ip> gw <gateway_ip>
 ```
 
 #### Windows
