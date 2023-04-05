@@ -11,7 +11,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 04/05/2023
 ms.author: anfdocs
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files
@@ -29,6 +29,8 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 ## Configure NFSv4.1 domain for server
 
 Using the Azure portal, you can update the account settings to set or modify the NFSv4.1 ID domain on all non-LDAP volumes. Modifying the value will update all volumes in that subscription and region. 
+
+ustomer can resolve users and groups for non ldap volumes only, but for ldap enabled volumes and on a separate VM, LDAP client can also be configured in the same subscription as SVM for LDAP and non LDAP volumes are different and hence communication route will also be different.  
 
 ### Register the feature
 

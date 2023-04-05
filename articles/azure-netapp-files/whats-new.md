@@ -12,12 +12,14 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 03/16/2023
+ms.date: 04/05/2023
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Set NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md) (Preview)
 
 ## March 2023
 
@@ -28,8 +30,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Active Directory support improvement](create-active-directory-connections.md#preferred-server-ldap) (Preview)
 
     The Preferred server for LDAP client option allows you to submit the IP addresses of up to two Active Directory (AD) servers as a comma-separated list. Rather than sequentially contacting all of the discovered AD services for a domain, the LDAP client will contact the specified servers first. 
-
-* [Set NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md) (Preview)
 
 ## February 2023
 
