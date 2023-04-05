@@ -364,8 +364,10 @@
           items:
             - name: Export API as custom connector
               href: export-api-power-platform.md
-            - name: Enable CORS to test custom connector
+              displayName: Power Platform
+            - name: Enable CORS for custom connector
               href: enable-cors-power-platform.md
+              displayName: Power Platform
       - name: Monitor APIs
         items:
         - name: Get API analytics

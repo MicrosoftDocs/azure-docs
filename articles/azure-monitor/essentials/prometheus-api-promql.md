@@ -38,7 +38,7 @@ To set up Azure Active Directory authentication, follow the steps below:
 1. To register an app, follow the steps in [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md?tabs=portal)
 
 ### Allow your app access to your workspace
-Allow your app to query data from your Azure Monitor workspace.
+Assign the *Monitoring Data Reader* role your app so it can query data from your Azure Monitor workspace.
 
 1. Open your Azure Monitor workspace in the Azure portal.
 
@@ -78,7 +78,7 @@ curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=<your apps client ID>' \
 --data-urlencode 'client_secret=<your apps client secret' \
---data-urlencode 'resource= https://prometheus.monitor.azure.com'
+--data-urlencode 'resource=https://prometheus.monitor.azure.com'
 ```
 
 Sample response body:
@@ -203,6 +203,8 @@ The following limitations are in addition to those detailed in the Prometheus sp
     Experimental features such as exemplars aren't supported.
 
 For more information on Prometheus metrics limits, see [Prometheus metrics](../../azure-monitor/service-limits.md#prometheus-metrics)
+
+[!INCLUDE [prometheus-case-sensitivity.md](..//includes/prometheus-case-sensitivity.md)]
 
 ## Next steps
 

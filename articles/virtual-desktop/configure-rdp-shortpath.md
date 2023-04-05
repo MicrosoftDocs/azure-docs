@@ -13,6 +13,9 @@ ms.author: daknappe
 
 RDP Shortpath is a feature of Azure Virtual Desktop that establishes a direct UDP-based transport between a supported Windows Remote Desktop client and session host. This article shows you how to configure RDP Shortpath for managed networks and public networks. For more information, see [RDP Shortpath](rdp-shortpath.md).
 
+> [!IMPORTANT]
+> RDP Shortpath is only available in the Azure public cloud.
+
 ## Prerequisites
 
 Before you can enable RDP Shortpath, you'll need to meet the prerequisites. Select a tab below for your scenario.

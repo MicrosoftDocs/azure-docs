@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/28/2023
+ms.date: 04/04/2023
 ms.author: jasteppe
 ---
 
@@ -41,7 +41,7 @@ This property represents the operation being performed by the MedTech service wh
 |FHIRConversion|The data flow stage where the grouped-normalized data is transformed into an Observation resource.|
 
 > [!NOTE]
-> To learn about the MedTech service device message data transformation, see [Understand the MedTech service device message data transformation](understand-service.md).
+> To learn about the MedTech service device message data transformation, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
 
 ## MedTech service health check exceptions and fixes
 
