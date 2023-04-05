@@ -61,7 +61,7 @@ With [real-time speech-to-text](get-started-speech-to-text.md), the audio is tra
 
 ### Batch transcription
 
-[Batch transcription](batch-transcription) is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
+[Batch transcription](batch-transcription.md) is used to transcribe a large amount of audio in storage. You can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcription results. Use batch transcription for applications that need to transcribe audio in bulk such as:
 - Transcriptions, captions, or subtitles for pre-recorded audio
 - Contact center post-call analytics
 - Diarization
