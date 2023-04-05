@@ -99,9 +99,9 @@ To move the resource to the target Azure region, modify the ARM template, create
                     "apiVersion": "2021-12-01-preview",
                     "name": "[parameters('loadtest_name')]",
                     "location": "eastus",
-      ```
+        ```
 
-      To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/data-residency/). The code for a region is the region name with no spaces. For example, East US = eastus.
+        To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/data-residency/). The code for a region is the region name with no spaces. For example, East US = eastus.
 
 1. Select **Save**.
 
