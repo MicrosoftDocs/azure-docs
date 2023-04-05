@@ -14,10 +14,10 @@ ms.custom: template-how-to
 When the user deploys a Cluster, a standard set of metrics are enabled for collection. For the list of metrics, see
 [List of Metrics Collected](List-of-metrics-collected.md).
 
-Users can't control the behavior (enable or disable) for collection of these included standard metrics. Though, users can control the collection of some optional metrics that aren't part of the link in the list. To enable this experience, users will have to create and update a MetricsConfiguration resource for a cluster. By default, creation of this MetricsConfiguration resource doesn't change the collection of metrics. User will have to update the resource to enable or disable these optional metrics collection.  
+Users can't control the behavior (enable or disable) for collection of these included standard metrics. Though, users can control the collection of some optional metrics that aren't part of the link to the list. To enable this experience, users will have to create and update a MetricsConfiguration resource for a cluster. By default, creation of this MetricsConfiguration resource doesn't change the collection of metrics. User will have to update the resource to enable or disable these optional metrics collection.  
 
 > [!NOTE] 
-> * For a cluster, at max, only one MetricsConfiguration resource could be created.
+> * For a cluster, at max, only one MetricsConfiguration resource can be created.
 > * Users need to create a MetricsConfiguration resource to check a list of optional metrics that can be controlled. 
 > * Deletion of the MetricsConfiguration resource will result in the standard set of metrics being restored.
 
@@ -53,6 +53,9 @@ Example filename: create_metrics_configuration.json
     }
 }
 ```
+
+> [!NOTE] 
+> * The default metrics collection interval for standard set of metrics is set to every 5 minutes. Changing the `collectionInterval` will also impact the collection frequency for default standard metrics.
 
 The following commands will create the metrics configuration. The only name allowed for the metricsConfiguration is `default`.
 
