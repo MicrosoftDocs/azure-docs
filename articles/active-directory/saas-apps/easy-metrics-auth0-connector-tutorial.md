@@ -62,14 +62,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Identifier** textbox, type the value:
-	`urn:auth0:easymetrics:ups-saml-sso`
+	a. In the **Identifier** textbox, type the value provided by [Easy Metrics Auth0 Connector support team](mailto:support@easymetrics.com).
 
-	b. In the **Reply URL** textbox, type the URL:
-	`https://easymetrics.auth0.com/login/callback?connection=ups-saml-sso&organization=org_T8ro1Kth3Gleygg5`
+	b. In the **Reply URL** textbox, type the value provided by [Easy Metrics Auth0 Connector support team](mailto:support@easymetrics.com).
 
-	c. In the **Sign on URL** textbox, type the URL:
-	`https://azureapp.gcp-easymetrics.com`
+	c. In the **Sign on URL** textbox, type the value provided by [Easy Metrics Auth0 Connector support team](mailto:support@easymetrics.com).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 

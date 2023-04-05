@@ -387,6 +387,10 @@ Minimum Microsoft Authenticator version for number matching which prompts to ent
 - Android 6.2111.7701
 - iOS 6.5.85
 
+### How can users recheck the number on mobile iOS devices after the match request appears?
+
+During mobile iOS broker flows, the number match request appears over the number after a two-second delay. To recheck the number, click **Show me the number again**. This action only occurs in mobile iOS broker flows. 
+
 ## Next steps
 
 [Authentication methods in Azure Active Directory](concept-authentication-authenticator-app.md)

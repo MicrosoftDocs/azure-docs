@@ -52,8 +52,11 @@ Azure CNI powered by Cilium currently has the following limitations:
 ## Prerequisites
 
 * Azure CLI version 2.41.0 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI][/cli/azure/install-azure-cli].
-* Azure CLI with aks-preview extension 0.5.109 or later.
+* Azure CLI with aks-preview extension 0.5.135 or later.
 * If using ARM templates or the REST API, the AKS API version must be 2022-09-02-preview or later.
+
+> [!NOTE]
+> Previous AKS API versions (2022-09-02preview to 2023-01-02preview) used the field [`networkProfile.ebpfDataplane=cilium`](https://github.com/Azure/azure-rest-api-specs/blob/06dbe269f7d9c709cc225c92358b38c3c2b74d60/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2022-09-02-preview/managedClusters.json#L6939-L6955). AKS API versions since 2023-02-02preview use the field [`networkProfile.networkDataplane=cilium`](https://github.com/Azure/azure-rest-api-specs/blob/06dbe269f7d9c709cc225c92358b38c3c2b74d60/specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2023-02-02-preview/managedClusters.json#L7152-L7173) to enable Azure CNI Powered by Cilium.
 
 ## Install the aks-preview Azure CLI extension
 
@@ -109,7 +112,7 @@ az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --na
 az network vnet subnet create -g <resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
 ```
 
-Create the cluster using `--enable-cilium-dataplane`:
+Create the cluster using `--network-dataplane=cilium`:
 
 ```azurecli-interactive
 az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
@@ -117,8 +120,11 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --network-plugin azure \
   --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
   --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
-  --enable-cilium-dataplane
+  --network-dataplane=cilium
 ```
+
+> [!NOTE]
+> The `--network-dataplane=cilium` flag replaces the deprecated `--enable-ebpf-dataplane` flag used in earlier versions of the aks-preview CLI extension.
 
 ### Option 2: Assign IP addresses from an overlay network
 
@@ -129,7 +135,7 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
   --network-plugin azure \
   --network-plugin-mode overlay \
   --pod-cidr 192.168.0.0/16 \
-  --enable-cilium-dataplane
+  --network-dataplane=cilium
 ```
 
 ## Frequently asked questions

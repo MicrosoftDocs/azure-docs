@@ -223,7 +223,7 @@ items:
               href: manage-integration-runtimes.md
             - name: Self-hosted integration runtime auto-update and expiration
               href: self-hosted-integration-runtime-version.md
-            - name: Troubleshoot SHIR Self-hosted integration runtime
+            - name: Troubleshoot self-hosted integration runtime
               href: scanning-shir-troubleshooting.md
         - name: Scan
           items:
@@ -237,7 +237,7 @@ items:
             href: how-to-monitor-data-map-population.md
           - name: Troubleshoot scans & connections
             href: troubleshoot-connections.md
-          - name: Troubleshoot SHIR Self-hosted integration runtime
+          - name: Troubleshoot self-hosted integration runtime
             href: scanning-shir-troubleshooting.md
         - name: Classify
           items:
