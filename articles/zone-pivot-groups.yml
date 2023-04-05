@@ -2221,3 +2221,14 @@ groups:
     title: Automated host pool
   - id: host-pool-standard
     title: Standard host pool
+# Owner: rosemalcolm (Microsoft Dev Box)
+- id: get-dev-box-support
+  title: Get support 
+  prompt: Choose your role 
+  pivots:
+    - id: role-dev-box-user
+      title: Developer (Dev Box User)
+    - id: role-devcenter-project-admin
+      title: Dev team lead (Project Admin) 
+    - id: role-dev-infra-admin
+      title: Dev Infrastructure Admin  
