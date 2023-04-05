@@ -61,7 +61,7 @@ The required folder structure for a JavaScript project looks like the following 
 The main project folder, *<project_root>*, can contain the following files:
 
 * *.vscode/*: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
-* *myFirstFunction/function.json*: Registers a function. The name of the parent directory is always the name of your function.
+* *myFirstFunction/function.json*: Contains configuration for the function's inputs and outputs. The name of the directory determines the name of your function.
 * *myFirstFunction/index.js*: Stores your function code. To change this default file path, see [using scriptFile](#using-scriptfile).
 * *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *test/* to ignore test cases, and *local.settings.json* to prevent local app settings being published.
 * *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
@@ -111,15 +111,38 @@ The main project folder, *<project_root>*, can contain the following files:
 
 ::: zone pivot="nodejs-model-v3"
 
-The first file required to register a function in the v3 model is a `function.json` file, which must be located in a folder one level down from the root of your app. The name of this folder corresponds to the function's name. The second file is your code itself, and by default the Functions runtime looks for an `index.js` file in the same folder as your `function.json` file. Your code must export a function using [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). In the default case, your exported function should be the only export from its file or the export named `run` or `index`. To customize the file location or export name of your function, see [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point).
+The v3 model registers a function based on the existence of two files. First, you need a `function.json` file located in a folder one level down from the root of your app. The name of the folder determines the function's name and the file contains configuration for your function's inputs/outputs. Second, you need a JavaScript file containing your code. By default, the model looks for an `index.js` file in the same folder as your `function.json`. Your code must export a function using [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). To customize the file location or export name of your function, see [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point).
 
 The function you export should always be declared as an [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) in the v3 model. You can export a synchronous function, but then you must call [`context.done()`](#contextdone) to signal that your function is completed, which is deprecated and not recommended.
 
-The following example is a simple function that logs that it was triggered and immediately completes execution.
+The following example is a simple function that logs that it was triggered and responds with `Hello, world!`:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "authLevel": "anonymous",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
 
 ```javascript
-module.exports = async function (context) {
-    context.log('JavaScript trigger function processed a request.');
+module.exports = async function (context, request) {
+    context.log('Http function was triggered.');
+    context.res = { body: 'Hello, world!' };
 };
 ```
 
@@ -133,16 +156,15 @@ In order to register a function, you must import the `app` object from the `@azu
 
 Registering a function can be done from any file in your project, as long as that file is loaded (directly or indirectly) based on the `main` field in your `package.json` file. The function should be registered at a global scope because you can't register functions once executions have started.
 
-The following example is a simple function that logs that it was triggered and responds with `Hello, world!`.
+The following example is a simple function that logs that it was triggered and responds with `Hello, world!`:
 
 ```javascript
 const { app } = require('@azure/functions');
 
 app.http('httpTrigger1', {
     methods: ['POST', 'GET'],
-    handler: async (_request, context) => {
-        context.log('Http function processed request');
-
+    handler: async (request, context) => {
+        context.log('Http function was triggered.');
         return { body: 'Hello, world!' };
     }
 });
@@ -156,21 +178,24 @@ app.http('httpTrigger1', {
 
 ::: zone pivot="nodejs-model-v3"
 
-In JavaScript, [bindings](functions-triggers-bindings.md) represent the inputs and outputs of your function and are configured in your `function.json` files.
+Your function is required to have exactly one primary input called the trigger. It may also have secondary inputs and/or outputs. Inputs and outputs are configured in your `function.json` files and are also referred to as [bindings](./functions-triggers-bindings.md).
 
 ### Inputs
 
-Your function is required to have exactly one primary input called the trigger and may also have secondary inputs. All inputs (bindings with `"direction": "in"`) are used in the following ways:
-- **_[Recommended]_ As parameters passed to your function.** They're passed to the function in the same order that they're defined in `function.json`. The `name` property defined in `function.json` doesn't need to match the name of your parameter, although it should.
+Inputs are bindings with `direction` set to `in`. The main difference between a trigger and a secondary input is that the `type` for a trigger ends in `Trigger`, for example type [`blobTrigger`](./functions-bindings-storage-blob-trigger.md) vs type [`blob`](./functions-bindings-storage-blob-input.md). Most functions only use a trigger, and not many secondary input types are supported.
+
+Inputs can be accessed in several ways:
+
+- **_[Recommended]_ As arguments passed to your function:** Use the arguments in the same order that they're defined in `function.json`. The `name` property defined in `function.json` doesn't need to match the name of your argument, although it's recommended for the sake of organization.
 
     ```javascript
-    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
+    module.exports = async function (context, myTrigger, myInput, myOtherInput) { ... };
     ```
 
-- **As members of the [`context.bindings`](#contextbindings-property) object.** Each member matches the `name` property defined in `function.json`.
+- **As properties of [`context.bindings`](#contextbindings):** Use the key matching the `name` property defined in `function.json`.
 
     ```javascript
-    module.exports = async function(context) { 
+    module.exports = async function (context) { 
         context.log("This is myTrigger: " + context.bindings.myTrigger);
         context.log("This is myInput: " + context.bindings.myInput);
         context.log("This is myOtherInput: " + context.bindings.myOtherInput);
@@ -179,9 +204,9 @@ Your function is required to have exactly one primary input called the trigger a
 
 ### Outputs
 
-Outputs (bindings with `"direction": "out"`) can be set in several ways:
+Outputs are bindings with `direction` set to `out` and can be set in several ways:
 
-- **_[Recommended for single output]_ Return the value directly.** If you're using an async function, you can return the value directly. You must change the `name` property of the output binding to `$return` in `function.json` like in the following example:
+- **_[Recommended for single output]_ Return the value directly:** If you're using an async function, you can return the value directly. You must change the `name` property of the output binding to `$return` in `function.json` like in the following example:
 
     ```json
     {
@@ -192,7 +217,7 @@ Outputs (bindings with `"direction": "out"`) can be set in several ways:
     ```
 
     ```javascript
-    module.exports = async function (context, req) {
+    module.exports = async function (context, request) {
         context.log('JavaScript HTTP trigger function processed a request.');
         return {
             body: "Hello, world!"
@@ -200,7 +225,7 @@ Outputs (bindings with `"direction": "out"`) can be set in several ways:
     }
     ```
 
-- **_[Recommended for multiple outputs]_ Return an object containing all outputs.** If you're using an async function, you can return an object with a property matching the name of each binding in your `function.json`. The following example uses output bindings named "httpResponse" and "queueOutput":
+- **_[Recommended for multiple outputs]_ Return an object containing all outputs:** If you're using an async function, you can return an object with a property matching the name of each binding in your `function.json`. The following example uses output bindings named "httpResponse" and "queueOutput":
 
     ```json
     {
@@ -218,18 +243,18 @@ Outputs (bindings with `"direction": "out"`) can be set in several ways:
     ```
 
     ```javascript
-    module.exports = async function(context) {
-        let retMsg = 'Hello, world!';
+    module.exports = async function (context, request) {
+        let message = 'Hello, world!';
         return {
             httpResponse: {
-                body: retMsg
+                body: message
             },
-            queueOutput: retMsg
+            queueOutput: message
         };
     };
     ```
 
-- **Assigning values to `context.bindings`** If you're not using an async function or you don't want to use the previous options, you can assign values directly to `context.bindings`, where the property name matches the name of each binding. The following example uses output bindings named "httpResponse" and "queueOutput":
+- **Set values on `context.bindings`:** If you're not using an async function or you don't want to use the previous options, you can set values directly on `context.bindings`, where the key matches the name of the binding. The following example uses output bindings named "httpResponse" and "queueOutput":
 
     ```json
     {
@@ -247,12 +272,12 @@ Outputs (bindings with `"direction": "out"`) can be set in several ways:
     ```
 
     ```javascript
-    module.exports = async function(context) {
-        let retMsg = 'Hello, world!';
+    module.exports = async function (context, request) {
+        let message = 'Hello, world!';
         context.bindings.httpResponse = {
-            body: retMsg
+            body: message
         };
-        context.bindings.queueOutput = retMsg;
+        context.bindings.queueOutput = message;
     };
     ```
 
@@ -260,9 +285,9 @@ Outputs (bindings with `"direction": "out"`) can be set in several ways:
 
 You can use the `dataType` property on an input binding to change the type of your input, however it has some limitations:
 - In Node.js, only `string` and `binary` are supported (`stream` isn't)
-- For http inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [request](#http-request).
+- For HTTP inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [request](#http-request).
 
-In the following example of a storage queue trigger, the default type of `myQueueItem` is a `string`, but if you set `dataType` to `binary` the type changes to a Node.js `Buffer`.
+In the following example of a [storage queue trigger](./functions-bindings-storage-queue-trigger.md), the default type of `myQueueItem` is a `string`, but if you set `dataType` to `binary` the type changes to a Node.js `Buffer`.
 
 ```json
 {
@@ -276,8 +301,14 @@ In the following example of a storage queue trigger, the default type of `myQueu
 ```
 
 ```javascript
+const { Buffer } = require('node:buffer');
+
 module.exports = async function (context, myQueueItem) {
-    context.log('JavaScript queue trigger function processed work item', myQueueItem);
+    if (typeof myQueueItem === 'string') {
+        context.log('myQueueItem is a string');
+    } else if (Buffer.isBuffer(myQueueItem)) {
+        context.log('myQueueItem is a buffer');
+    }
 };
 ```
 
@@ -285,7 +316,7 @@ module.exports = async function (context, myQueueItem) {
 
 ::: zone pivot="nodejs-model-v4"
 
-Your function is required to have exactly one primary input called the trigger. It may also have secondary inputs, a primary output called the return output, and/or secondary outputs. Inputs and outputs are also referred to as bindings outside the context of the Node.js programming model. Before v4 of the model, these bindings were configured in `function.json` files.
+Your function is required to have exactly one primary input called the trigger. It may also have secondary inputs, a primary output called the return output, and/or secondary outputs. Inputs and outputs are also referred to as [bindings](./functions-triggers-bindings.md) outside the context of the Node.js programming model. Before v4 of the model, these bindings were configured in `function.json` files.
 
 ### Trigger input
 
@@ -303,7 +334,7 @@ app.http('helloWorld1', {
 
 ### Return output
 
-The return output is optional, and in some cases configured by default. For example, an http trigger registered with `app.http` is configured to return an http response output automatically. For most output types, you specify the return configuration on the `options` argument with the help of the `output` object exported from the `@azure/functions` module. During execution, you set this output by returning it from your handler.
+The return output is optional, and in some cases configured by default. For example, an HTTP trigger registered with `app.http` is configured to return an HTTP response output automatically. For most output types, you specify the return configuration on the `options` argument with the help of the `output` object exported from the `@azure/functions` module. During execution, you set this output by returning it from your handler.
 
 ```javascript
 const { app, output } = require('@azure/functions');
@@ -354,7 +385,7 @@ app.storageQueue('copyBlob1', {
 
 The `app`, `trigger`, `input`, and `output` objects exported by the `@azure/functions` module provide type-specific methods for most types. For all the types that aren't supported, a `generic` method has been provided to allow you to manually specify the configuration. The `generic` method can also be used if you want to change the default settings provided by a type-specific method.
 
-The following example is a simple http triggered function using generic methods instead of type-specific methods.
+The following example is a simple HTTP triggered function using generic methods instead of type-specific methods.
 
 ```javascript
 const { app, output, trigger } = require('@azure/functions');
@@ -383,28 +414,20 @@ app.generic('helloWorld1', {
 
 ::: zone pivot="nodejs-model-v3"
 
-Each invocation of your function is passed an invocation `context` object, used to read and set binding data, write to logs, and read various metadata. In the v3 model, the context object is always the first argument passed to your handler. The `context` object has the following properties:
+Each invocation of your function is passed an invocation `context` object, used to read inputs, set outputs, write to logs, and read various metadata. In the v3 model, the context object is always the first argument passed to your handler.
+
+The `context` object has the following properties:
 
 | Property | Description |
 | --- | --- |
-| `invocationId` | The ID of the current function invocation. |
-| `executionContext` | See [execution context](#contextexecutioncontext) |
-| `bindings` | See [bindings](#contextbindings) |
-| `bindingData` | Metadata about the trigger input for this invocation other than the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
-| `traceContext` | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/). |
-| `bindingDefinitions` | Bindings your function uses, as defined in `function.json`. |
-| `req` | See [accessing the request and response](#accessing-the-request-and-response). |
-| `res` | See [accessing the request and response](#accessing-the-request-and-response). |
-
-The following example shows how to return the `invocationId`.
-
-```javascript
-module.exports = async function (context, req) {
-    context.res = {
-        body: context.executionContext.invocationId
-    };
-};
-```
+| **`invocationId`** | The ID of the current function invocation. |
+| **`executionContext`** | See [execution context](#contextexecutioncontext). |
+| **`bindings`** | See [bindings](#contextbindings). |
+| **`bindingData`** | Metadata about the trigger input for this invocation, not including the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
+| **`traceContext`** | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/). |
+| **`bindingDefinitions`** | The configuration of your inputs and outputs, as defined in `function.json`. |
+| **`req`** | See [HTTP request](#http-request). |
+| **`res`** | See [HTTP response](#http-response). |
 
 ### context.executionContext
 
@@ -412,10 +435,10 @@ The `context.executionContext` object has the following properties:
 
 | Property | Description |
 | --- | --- |
-| `invocationId` | The ID of the current function invocation. |
-| `functionName` | The name of the function that is being invoked. It's always the same as the name of the `function.json`'s parent directory. |
-| `functionDirectory` | The parent directory of the `function.json` file. |
-| `retryContext` | See [retry context](#contextexecutioncontextretrycontext) |
+| **`invocationId`** | The ID of the current function invocation. |
+| **`functionName`** | The name of the function that is being invoked. The name of the folder containing the `function.json` file determines the name of the function. |
+| **`functionDirectory`** | The folder containing the `function.json` file. |
+| **`retryContext`** | See [retry context](#contextexecutioncontextretrycontext). |
 
 #### context.executionContext.retryContext
 
@@ -423,15 +446,15 @@ The `context.executionContext.retryContext` object has the following properties:
 
 | Property | Description |
 | --- | --- |
-| `retryCount` | Current retry count of the function executions. |
-| `maxRetryCount` | The maximum number of times an execution is retried before eventual failure. A value of -1 means to retry indefinitely. |
-| `exception` | Exception that caused the retry. |
+| **`retryCount`** | A number representing the current retry attempt. |
+| **`maxRetryCount`** | Maximum number of times an execution is retried. A value of `-1` means to retry indefinitely. |
+| **`exception`** | Exception that caused the retry. |
 
 <a name="contextbindings-property"></a>
 
 ### context.bindings
 
-The `context.bindings` object is used to read inputs or set outputs. The following example is a function triggered by a storage queue, which uses `context.bindings` to copy a storage blob input to a storage blob output. The queue message's content replaces `{queueTrigger}` as the file name to be copied, with the help of a [binding expression](./functions-bindings-expressions-patterns.md).
+The `context.bindings` object is used to read inputs or set outputs. The following example is a [storage queue trigger](./functions-bindings-storage-queue-trigger.md), which uses `context.bindings` to copy a [storage blob input](./functions-bindings-storage-blob-input.md) to a [storage blob output](./functions-bindings-storage-blob-output.md). The queue message's content replaces `{queueTrigger}` as the file name to be copied, with the help of a [binding expression](./functions-bindings-expressions-patterns.md).
 
 ```json
 {
@@ -471,7 +494,7 @@ module.exports = async function (context, myQueueItem) {
 The `context.done` method is deprecated. Before async functions were supported, you would signal your function is done by calling `context.done()`:
 
 ```javascript
-module.exports = function (context, req) {
+module.exports = function (context, request) {
     context.log("this pattern is now deprecated");
     context.done();
 };
@@ -480,7 +503,7 @@ module.exports = function (context, req) {
 Now, it's recommended to remove the call to `context.done()` and mark your function as async so that it returns a promise (even if you don't `await` anything). As soon as your function finishes (in other words, the returned promise resolves), the v3 model knows your function is done.
 
 ```javascript
-module.exports = async function (context, req) {
+module.exports = async function (context, request) {
     context.log("you don't need context.done or an awaited call")
 };
 ```
@@ -489,18 +512,20 @@ module.exports = async function (context, req) {
 
 ::: zone pivot="nodejs-model-v4"
 
-Each invocation of your function is passed an invocation context object, with extra information about the context and methods used for logging. In the v4 model, the `context` object is typically the second argument passed to your handler. The `InvocationContext` class has the following properties:
+Each invocation of your function is passed an invocation `context` object, with information about your invocation and methods used for logging. In the v4 model, the `context` object is typically the second argument passed to your handler.
+
+The `InvocationContext` class has the following properties:
 
 | Property | Description |
 | --- | --- |
-| `invocationId` | The ID of the current function invocation. |
-| `functionName` | The name of the function. |
-| `extraInputs` | Used to get the values of extra inputs. For more information, see [extra inputs and outputs](#extra-inputs-and-outputs). |
-| `extraOutputs` | Used to set the values of extra outputs. For more information, see [extra inputs and outputs](#extra-inputs-and-outputs). |
-| `retryContext` | See [retry context](#retry-context). |
-| `traceContext` | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/). |
-| `triggerMetadata` | Metadata about the trigger input for this invocation other than the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
-| `options` | The options used when registering the function, after they've been validated and with defaults explicitly specified. |
+| **`invocationId`** | The ID of the current function invocation. |
+| **`functionName`** | The name of the function. |
+| **`extraInputs`** | Used to get the values of extra inputs. For more information, see [extra inputs and outputs](#extra-inputs-and-outputs). |
+| **`extraOutputs`** | Used to set the values of extra outputs. For more information, see [extra inputs and outputs](#extra-inputs-and-outputs). |
+| **`retryContext`** | See [retry context](#retry-context). |
+| **`traceContext`** | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/). |
+| **`triggerMetadata`** | Metadata about the trigger input for this invocation, not including the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
+| **`options`** | The options used when registering the function, after they've been validated and with defaults explicitly specified. |
 
 ### Retry context
 
@@ -508,9 +533,9 @@ The `context.executionContext.retryContext` object has the following properties:
 
 | Property | Description |
 | --- | --- |
-| `retryCount` | Current retry count of the function executions. |
-| `maxRetryCount` | The maximum number of times an execution is retried before eventual failure. A value of -1 means to retry indefinitely. |
-| `exception` | Exception that caused the retry. |
+| **`retryCount`** | A number representing the current retry attempt. |
+| **`maxRetryCount`** | Maximum number of times an execution is retried. A value of `-1` means to retry indefinitely. |
+| **`exception`** | Exception that caused the retry. |
 
 For more information, see [`retry-policies`](./functions-bindings-errors.md#retry-policies).
 
@@ -521,12 +546,12 @@ For more information, see [`retry-policies`](./functions-bindings-errors.md#retr
 
 ## Logging
 
-In Azure Functions, you use the `context.log` method to write logs. When you call `context.log()`, your message is written with the default level "information". Azure Functions integrates with Azure Application Insights to better capture your function app logs. Application Insights, part of Azure Monitor, provides facilities for collection, visual rendering, and analysis of both application logs and your trace outputs. To learn more, see [monitoring Azure Functions](functions-monitoring.md).
+In Azure Functions, it's recommended to use `context.log()` to write logs. Azure Functions integrates with Azure Application Insights to better capture your function app logs. Application Insights, part of Azure Monitor, provides facilities for collection, visual rendering, and analysis of both application logs and your trace outputs. To learn more, see [monitoring Azure Functions](functions-monitoring.md).
 
 > [!NOTE]  
 > If you use the alternative Node.js `console.log` method, those logs are tracked at the app-level and will *not* be associated with any specific function. It is *highly recommended* to use `context` for logging instead of `console` so that all logs are associated with a specific function.
 
-The following example writes a log at the information level, including the invocation ID:
+The following example writes a log at the default "information" level, including the invocation ID:
 
 ```javascript
 context.log(`Something has happened. Invocation ID: "${context.invocationId}"`); 
@@ -536,38 +561,36 @@ context.log(`Something has happened. Invocation ID: "${context.invocationId}"`);
 
 ### Log levels
 
-In addition to the default `context.log` method, the following methods are available that let you write function logs at specific log levels.
+In addition to the default `context.log` method, the following methods are available that let you write logs at specific levels:
 
 ::: zone pivot="nodejs-model-v3"
 
-| Method                             | Description                                    |
-| ---------------------------------- | ---------------------------------------------- |
-| **context.log.error(_message_)**   | Writes an error-level event to the logs.       |
-| **context.log.warn(_message_)**    | Writes a warning-level event to the logs.      |
-| **context.log.info(_message_)**    | Writes an information-level event to the logs. |
-| **context.log.verbose(_message_)** | Writes a trace-level event to the logs.        |
+| Method                      | Description                                    |
+| --------------------------- | ---------------------------------------------- |
+| **`context.log.error()`**   | Writes an error-level event to the logs.       |
+| **`context.log.warn()`**    | Writes a warning-level event to the logs.      |
+| **`context.log.info()`**    | Writes an information-level event to the logs. |
+| **`context.log.verbose()`** | Writes a trace-level event to the logs.        |
 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
-| Method                       | Description                                    |
-| ---------------------------- | ---------------------------------------------- |
-| **context.trace(_message_)** | Writes a trace-level event to the logs.        |
-| **context.debug(_message_)** | Writes a debug-level event to the logs.        |
-| **context.info(_message_)**  | Writes an information-level event to the logs. |
-| **context.warn(_message_)**  | Writes a warning-level event to the logs.      |
-| **context.error(_message_)** | Writes an error-level event to the logs.       |
+| Method                | Description                                    |
+| --------------------- | ---------------------------------------------- |
+| **`context.trace()`** | Writes a trace-level event to the logs.        |
+| **`context.debug()`** | Writes a debug-level event to the logs.        |
+| **`context.info()`**  | Writes an information-level event to the logs. |
+| **`context.warn()`**  | Writes a warning-level event to the logs.      |
+| **`context.error()`** | Writes an error-level event to the logs.       |
 
 ::: zone-end
 
 <a name="configure-the-trace-level-for-logging"></a>
 
-### Configure the log level
+### Configure log level
 
-Azure Functions lets you define the threshold level to be used when tracking and viewing logs. The specific threshold settings depend on your version of the Functions runtime.
-
-To set the threshold, use the `logging.logLevel` property in the `host.json` file. This property lets you define a default level applied to all functions, or a threshold for each individual function. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+Azure Functions lets you define the threshold level to be used when tracking and viewing logs. To set the threshold, use the `logging.logLevel` property in the `host.json` file. This property lets you define a default level applied to all functions, or a threshold for each individual function. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -580,7 +603,7 @@ const appInsights = require("applicationinsights");
 appInsights.setup();
 const client = appInsights.defaultClient;
 
-module.exports = async function (context, req) {
+module.exports = async function (context, request) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     // Use this with 'tagOverrides' to correlate custom logs to the parent function invocation.
@@ -622,23 +645,23 @@ HTTP and webhook triggers use `HttpRequest` and `HttpResponse` objects to repres
 
 ::: zone pivot="nodejs-model-v3"
 
-The request can be accessed in multiple different ways:
+The request can be accessed in several ways:
 
-- **As the second argument to your function**
+- **As the second argument to your function:**
 
     ```javascript
-    module.exports = async function (context, req) {
-        context.log(`Http function processed request for url "${req.url}"`);
+    module.exports = async function (context, request) {
+        context.log(`Http function processed request for url "${request.url}"`);
     ```
 
-- **From the `context.req` property**: 
+- **From the `context.req` property:** 
 
     ```javascript
     module.exports = async function (context, request) {
         context.log(`Http function processed request for url "${context.req.url}"`);
     ```
 
-- **From the named input bindings.**: This option works the same as any non HTTP binding. The binding name in `function.json` must match the property name on `context.bindings`, or "request1" in the following example: 
+- **From the named input bindings:** This option works the same as any non HTTP binding. The binding name in `function.json` must match the key on `context.bindings`, or "request1" in the following example: 
 
     ```json
     {
@@ -675,7 +698,7 @@ The `HttpRequest` object has the following properties:
 
 ::: zone pivot="nodejs-model-v4"
 
-The request can be accessed as the first argument to your handler for an http triggered function.
+The request can be accessed as the first argument to your handler for an HTTP triggered function.
 
 ```javascript
 async (request, context) => {
@@ -716,16 +739,16 @@ In order to access a request or response's body, the following methods can be us
 
 ::: zone pivot="nodejs-model-v3"
 
-The response can be set in multiple different ways.
+The response can be set in several ways:
 
-- **By setting the `context.res` property**: 
+- **Set the `context.res` property:** 
 
     ```javascript
     module.exports = async function (context, request) {
         context.res = { body: `Hello, world!` };
     ```
 
-- **By returning the response.** If you set the binding name to `$return` in your `function.json`, you can return the response directly instead of setting it on `context`:
+- **Return the response:** If your function is async and you set the binding name to `$return` in your `function.json`, you can return the response directly instead of setting it on `context`.
 
     ```json
     {
@@ -740,7 +763,7 @@ The response can be set in multiple different ways.
         return { body: `Hello, world!` };
     ```
 
-- **By calling `context.res.send(body?: any)`.** This option is deprecated. It implicitly calls `context.done()` and can't be used in an async function.
+- **Call `context.res.send()`:** This option is deprecated. It implicitly calls `context.done()` and can't be used in an async function.
 
     ```javascript
     module.exports = function (context, request) {
@@ -774,9 +797,9 @@ You can also modify the `context.res` object without overwriting it. The default
 
 ::: zone pivot="nodejs-model-v4"
 
-The response can be set in multiple different ways.
+The response can be set in several ways:
 
-- **As a simple interface with type `HttpResponseInit`**: This option is the most concise way of returning responses.
+- **As a simple interface with type `HttpResponseInit`:** This option is the most concise way of returning responses.
 
     ```javascript
     return { body: `Hello, world!` };
@@ -792,7 +815,7 @@ The response can be set in multiple different ways.
     | **`headers`**  | [`HeadersInit`](https://developer.mozilla.org/docs/Web/API/Headers) (optional) | HTTP response headers |
     | **`cookies`**  | `Cookie[]` (optional) | HTTP response cookies |
 
-- **As a class with type `HttpResponse`**: This option provides helper methods for reading and modifying various parts of the response like the headers.
+- **As a class with type `HttpResponse`:** This option provides helper methods for reading and modifying various parts of the response like the headers.
 
     ```javascript
     const response = new HttpResponse({ body: `Hello, world!` });
@@ -816,10 +839,10 @@ The response can be set in multiple different ways.
 
 By default, Azure Functions automatically monitors the load on your application and creates more host instances for Node.js as needed. Azure Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](event-driven-scaling.md).
 
-This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes. You can increase the number of worker processes per host from the default of 1 up to a max of 10 by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. This behavior makes it less likely that a CPU-intensive function blocks other functions from running. The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Azure Functions creates when scaling out your application to meet demand.
+This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes. You can increase the number of worker processes per host from the default of 1 up to a max of 10 by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. This behavior makes it less likely that a CPU-intensive function blocks other functions from running. The setting applies to each host that Azure Functions creates when scaling out your application to meet demand.
 
 > [!WARNING]
-> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running at the same time can lead to unpredictable behavior and increase function load times. If you use this setting, it is *highly recommended* to offset these downsides by [running from a package file](./run-functions-from-deployment-package.md) which significantly helps with load times.
+> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running at the same time can lead to unpredictable behavior and increase function load times. If you use this setting, it's *highly recommended* to offset these downsides by [running from a package file](./run-functions-from-deployment-package.md).
 
 ## Node version
 
@@ -843,9 +866,33 @@ az functionapp config set --linux-fx-version "node|18" --name "<MY_APP_NAME>" --
 
 To learn more about Azure Functions runtime support policy, refer to this [article](./language-support-policy.md).
 
+<a name="access-environment-variables-in-code"></a>
+
 ## Environment variables
 
-Add your own environment variables to a function app, in both your local and cloud environments, such as operational secrets (connection strings, keys, and endpoints) or environmental settings (such as profiling variables). Access these settings using `process.env` in your function code.
+Environment variables can be useful for operational secrets (connection strings, keys, endpoints, etc.) or environmental settings such as profiling variables. You can add environment variables in both your local and cloud environments and access them through `process.env` in your function code.
+
+The following example logs the `WEBSITE_SITE_NAME` environment variable:
+
+::: zone pivot="nodejs-model-v3"
+
+```javascript
+async function timerTrigger1(context, myTimer) {
+    context.log(`WEBSITE_SITE_NAME: ${process.env["WEBSITE_SITE_NAME"]}`);
+}
+```
+
+::: zone-end
+
+::: zone pivot="nodejs-model-v4"
+
+```javascript
+async function timerTrigger1(myTimer, context) {
+    context.log(`WEBSITE_SITE_NAME: ${process.env["WEBSITE_SITE_NAME"]}`);
+}
+```
+
+::: zone-end
 
 ### In local development environment
 
@@ -870,40 +917,16 @@ When you run in Azure, the function app lets you set and use [Application settin
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-### Access environment variables in code
-
-Access application settings as environment variables using `process.env`, as shown here in the call to `context.log()` where we log the `WEBSITE_SITE_NAME` environment variable:
-
-::: zone pivot="nodejs-model-v3"
-
-```javascript
-async function timerTrigger1(context, myTimer) {
-    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
-}
-```
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-```javascript
-async function timerTrigger1(myTimer, context) {
-    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
-}
-```
-
-::: zone-end
-
 ### Worker environment variables
 
 There are several Functions environment variables specific to Node.js:
 
 #### languageWorkers__node__arguments
 
-This setting allows you to specify custom arguments when starting your Node.js process. It's most often used locally to start the worker in debug mode, but can also be used in Azure if you need to use custom arguments.
+This setting allows you to specify custom arguments when starting your Node.js process. It's most often used locally to start the worker in debug mode, but can also be used in Azure if you need custom arguments.
 
 > [!WARNING]
-> If possible, avoid using `languageWorkers__node__arguments` in Azure because it can have a negative effect on cold start times. Rather than using pre-warmed workers, Azure has to start a new worker from scratch with your custom arguments.
+> If possible, avoid using `languageWorkers__node__arguments` in Azure because it can have a negative effect on cold start times. Rather than using pre-warmed workers, the runtime has to start a new worker from scratch with your custom arguments.
 
 #### logging__logLevel__Worker
 
@@ -923,7 +946,7 @@ To use ES modules in a function, change its filename to use a `.mjs` extension. 
 ```js
 import { v4 as uuidv4 } from 'uuid';
 
-async function httpTrigger1(context, req) {
+async function httpTrigger1(context, request) {
     context.res.body = uuidv4();
 };
 
@@ -937,7 +960,7 @@ export default httpTrigger1;
 ```js
 import { v4 as uuidv4 } from 'uuid';
 
-async function httpTrigger1(req, context) {
+async function httpTrigger1(request, context) {
     context.res.body = uuidv4();
 };
 ```
@@ -957,18 +980,17 @@ By default, a JavaScript function is executed from `index.js`, a file that share
 `scriptFile` can be used to get a folder structure that looks like the following example:
 
 ```
-FunctionApp
- | - host.json
- | - myNodeFunction
+<project_root>/
+ | - node_modules/
+ | - myFirstFunction/
  | | - function.json
- | - lib
+ | - lib/
  | | - sayHello.js
- | - node_modules
- | | - ... packages ...
+ | - host.json
  | - package.json
 ```
 
-The `function.json` for `myNodeFunction` should include a `scriptFile` property pointing to the file with the exported function to run.
+The `function.json` for `myFirstFunction` should include a `scriptFile` property pointing to the file with the exported function to run.
 
 ```json
 {
@@ -981,35 +1003,24 @@ The `function.json` for `myNodeFunction` should include a `scriptFile` property 
 
 ### Using `entryPoint`
 
-In `scriptFile` (or `index.js`), a function must be exported using `module.exports` in order to be found and run. By default, the function that executes when triggered is the only export from that file, the export named `run`, or the export named `index`. The following example uses `entryPoint` in `function.json`:
+In the v3 model, a function must be exported using `module.exports` in order to be found and run. By default, the function that executes when triggered is the only export from that file, the export named `run`, or the export named `index`. The following example sets `entryPoint` in `function.json` to a custom value, "logHello":
 
 ```json
 {
-  "entryPoint": "logFoo",
+  "entryPoint": "logHello",
   "bindings": [
     ...
   ]
 }
 ```
 
-In Functions v2.x or higher, which supports the `this` parameter in user functions, the function code could then be as in the following example:
-
 ```javascript
-class MyObj {
-    constructor() {
-        this.foo = 1;
-    };
-
-    async logFoo(context) { 
-        context.log("Foo is " + this.foo); 
-    }
+async function logHello(context) { 
+    context.log('Hello, world!'); 
 }
 
-const myObj = new MyObj();
-module.exports = myObj;
+module.exports = { logHello };
 ```
-
-In this example, it's important to note that although an object is being exported, there are no guarantees for preserving state between executions.
 
 ::: zone-end
 
@@ -1107,7 +1118,7 @@ When you create a function app that uses the App Service plan, we recommend that
 
 ### Run from a package file
 
-When you develop Azure Functions in the serverless hosting model, cold starts are a reality. *Cold start* refers to the first time your function app starts after a period of inactivity, taking longer to start up. For JavaScript functions with large dependency trees in particular, cold start can be significant. To speed up the cold start process, [run your functions as a package file](run-functions-from-deployment-package.md) when possible. Many deployment methods use this model by default, but if you're experiencing large cold starts you should check to make sure you're running this way.
+When you develop Azure Functions in the serverless hosting model, cold starts are a reality. *Cold start* refers to the first time your function app starts after a period of inactivity, taking longer to start up. For JavaScript apps with large dependency trees in particular, cold start can be significant. To speed up the cold start process, [run your functions as a package file](run-functions-from-deployment-package.md) when possible. Many deployment methods use this model by default, but if you're experiencing large cold starts you should check to make sure you're running this way.
 
 <a name="connection-limits"></a>
 
@@ -1121,9 +1132,9 @@ When you use a service-specific client in an Azure Functions application, don't 
 
 When writing Azure Functions in JavaScript, you should write code using the `async` and `await` keywords. Writing code using `async` and `await` instead of callbacks or `.then` and `.catch` with Promises helps avoid two common problems:
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
- - Unexpected behavior, such as missing logs from context.log, caused by asynchronous calls that aren't properly awaited.
+ - Unexpected behavior, such as missing logs from `context.log`, caused by asynchronous calls that aren't properly awaited.
 
-In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope crashed the entire process (issue #1). Calling the 1.x `context.done()` outside of the scope of the callback function means that the function invocation may end before the file is read (issue #2). In this example, calling 1.x `context.done()` too early results in missing log entries starting with `Data from file:`.
+In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Calling the deprecated `context.done()` method outside of the scope of the callback can signal the function is finished before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
 
 ```javascript
 // NOT RECOMMENDED PATTERN
@@ -1144,20 +1155,18 @@ module.exports = function (context) {
 }
 ```
 
-Using the `async` and `await` keywords helps avoid both of these errors. You should use the Node.js utility function [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) to turn error-first callback-style functions into awaitable functions.
+Use the `async` and `await` keywords to help avoid both of these issues. Most APIs in the Node.js ecosystem have been converted to support promises in some form. For example, starting in v14, Node.js provides an `fs/promises` API to replace the `fs` callback API.
 
-In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised an exception. The `await` keyword means that steps following `readFileAsync` only execute after `readFile` is complete. With `async` and `await`, you also don't need to call the `context.done()` callback.
+In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised an exception. The `await` keyword means that steps following `readFile` only execute after it's complete. With `async` and `await`, you also don't need to call the `context.done()` callback.
 
 ```javascript
 // Recommended pattern
-const fs = require('fs');
-const util = require('util');
-const readFileAsync = util.promisify(fs.readFile);
+const fs = require('fs/promises');
 
 module.exports = async function (context) {
     let data;
     try {
-        data = await readFileAsync('./hello.txt');
+        data = await fs.readFile('./hello.txt');
     } catch (err) {
         context.log.error('ERROR', err);
         // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
