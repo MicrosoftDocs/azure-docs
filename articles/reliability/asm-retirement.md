@@ -1,6 +1,6 @@
 ---
-title: Azure Service Manager Retirement
-description: Azure Service Manager Retirement documentation for all classic compute, networking and storage resources
+title: Azure Service Manager retirement
+description: Azure Service Manager retirement documentation for all classic compute, networking and storage resources
 author: surbhijain
 ms.topic: overview
 ms.date: 03/24/2023
@@ -9,7 +9,7 @@ ms.service: azure-asm
 
 ---
 
-# Azure Service Manager Retirement
+# Azure Service Manager retirement
 
 Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations, and has been in use since 2011. ASM is retiring in August 2024, and customers can now migrate to [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview). ARM provides a management layer that enables you to create, update, and delete resources in your Azure account. You can use management features like access control, locks, and tags to secure and organize your resources after deployment.
 

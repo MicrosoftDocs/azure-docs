@@ -243,7 +243,7 @@
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure VPN Gateway
         href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: ASM Retirement
+    - name:  Azure Service Manager retirement
       items:
       - name: Overview
         href: asm-retirement.md 
