@@ -531,8 +531,6 @@
         href: data-connectors/microsoft-defender-for-iot.md
       - name: Microsoft Defender for Office 365
         href: data-connectors/microsoft-defender-for-office-365.md
-      - name: Microsoft Defender Threat Intelligence (Preview)
-        href: data-connectors/microsoft-defender-threat-intelligence.md
       - name: Microsoft PowerBI
         href: data-connectors/microsoft-powerbi.md
       - name: Microsoft Project
@@ -737,30 +735,44 @@
           href: connect-azure-virtual-desktop.md
       - name: AMA migration for Microsoft Sentinel
         href: ama-migrate.md
+      - name: CEF/Syslog        
+        items:
+        - name: CEF/Syslog options
+          href: connect-cef-syslog-options.md
+        - name: CEF via AMA
+          href: connect-cef-ama.md        
+        - name: CEF and Syslog
+          href: connect-cef-syslog.md
+        - name: CEF over Syslog sources (legacy)
+          href: connect-common-event-format.md
+        - name: Deploy a log forwarder (legacy)
+          href: connect-log-forwarder.md
+        - name: Syslog (raw) sources (legacy)
+          href: connect-syslog.md
+      - name: DNS via AMA
+        href: connect-dns-ama.md      
+      - name: Microsoft Purview Information Protection
+        href: connect-microsoft-purview.md
+      - name: Microsoft Sentinel Data Collector API
+        href: connect-rest-api-template.md      
       - name: Azure Functions API connection
-        href: connect-azure-functions-template.md
-      - name: CEF over Syslog sources
-        href: connect-common-event-format.md
-      - name: CEF via AMA
-        href: connect-cef-ama.md
+        href: connect-azure-functions-template.md      
       - name: Custom log sources
         href: connect-custom-logs.md
       - name: DNS via AMA
         href: connect-dns-ama.md
+      - name: GCP audit logs
+        href: connect-google-cloud-platform.md
       - name: Logstash plugin with Data Collection Rules
         href: connect-logstash-data-connection-rules.md
       - name: Logstash plugin (legacy)
         href: connect-logstash.md
       - name: Microsoft Sentinel Data Collector API
-        href: connect-rest-api-template.md
-      - name: Syslog (raw) sources
-        href: connect-syslog.md
+        href: connect-rest-api-template.md      
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
     - name: Configure RDP login detection
-      href: configure-connector-login-detection.md
-    - name: Deploy a log forwarder
-      href: connect-log-forwarder.md    
+      href: configure-connector-login-detection.md        
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
@@ -781,6 +793,8 @@
       href: normalization-modify-content.md
   - name: Integrate threat intelligence
     items:
+    - name: Enable MDTI data connector
+      href: connect-mdti-data-connector.md
     - name: Connect threat intelligence platforms
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
@@ -992,8 +1006,10 @@
       href: sap/sap-solution-log-reference.md
     - name: SAP solution content overview
       href: sap/sap-solution-security-content.md
+    - name: Monitored SAP security parameters
+      href: sap/sap-suspicious-configuration-security-parameters.md
     - name: SAP audit log workbook
-      href: sap/sap-audit-log-workbook.md
+      href: sap/sap-audit-log-workbook.md    
     - name: Kickstart script reference
       href: sap/reference-kickstart.md
     - name: Container update script reference
@@ -1107,7 +1123,7 @@
   - name: Sample workspace architecture
     href: sample-workspace-designs.md
   - name: Microsoft Sentinel blog
-    href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
+    href: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/bg-p/MicrosoftSentinelBlog
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing

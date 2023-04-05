@@ -11,6 +11,7 @@ author: jhirono
 ms.date: 09/06/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # How to create a secure workspace
 
@@ -549,4 +550,9 @@ To delete all resources created in this tutorial, use the following steps:
 1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
+:::moniker range="azureml-api-2"
 Now that you've created a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+Now that you've created a secure workspace, learn how to [deploy a model](./v1/how-to-deploy-and-where.md).
+:::moniker-end

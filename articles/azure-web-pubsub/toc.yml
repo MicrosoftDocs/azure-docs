@@ -91,11 +91,11 @@
           href: howto-secure-network-access-control.md
         - name: Secure outbound traffic through shared private endpoints
           href: howto-secure-shared-private-endpoints.md
-        - name: Access Key Vault in private network through Shared Private Endpoints
+        - name: Access Key Vault through shared private endpoints
           href: howto-secure-shared-private-endpoints-key-vault.md
         - name: Use a managed identity
           href: howto-use-managed-identity.md
-        - name: Configure Azure AD Authorization
+        - name: Configure Azure AD Authorizations
           items:
             - name: Authorize from Azure applications
               href: howto-authorize-from-application.md

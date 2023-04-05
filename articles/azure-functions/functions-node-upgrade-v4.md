@@ -23,11 +23,11 @@ Version 4 was designed with the following goals in mind:
 
 Version 4 of the Node.js programming model requires the following minimum versions:
 
-- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.8+
+- [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0-alpha.9+
 - [Node.js](https://nodejs.org/en/download/releases/) v18+
 - [TypeScript](https://www.typescriptlang.org/) v4+
 - [Azure Functions Runtime](./functions-versions.md) v4.16+
-- [Azure Functions Core Tools](./functions-run-local.md) v4.0.4915+ (if running locally)
+- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally)
 
 ## Enable v4 programming model
 

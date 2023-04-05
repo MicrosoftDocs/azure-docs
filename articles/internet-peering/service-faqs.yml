@@ -7,7 +7,7 @@ metadata:
   author: halkazwini
   ms.service: internet-peering
   ms.topic: faq
-  ms.date: 02/24/2023
+  ms.date: 03/29/2023
   ms.author: halkazwini
   ms.custom: engagement-fy23
 title: Peering Service frequently asked questions (FAQ)
@@ -18,33 +18,22 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          Can a carrier use their existing Direct peering with Microsoft to support Peering Service?
+          Can a carrier use existing direct peering connections with Microsoft to support Peering Service?
         answer: |
-          Yes, a carrier can use its existing Private Network Interconnect (PNI) to support Peering Service. A Peering Service PNI requires redundancy to support HA. If existing PNI already has diversity, then no new infrastructure is required. If existing PNI needs diversity, then it can be augmented.
+          Yes, a carrier may leverage existing Private Network Interconnects (PNIs) to support Peering Service. Additional PNIs may be required to support local and geo diversity requirements. Primary and secondary connections must have equal capacity.  In the Azure portal, carriers can request the conversion of existing PNIs to the Peering Service configuration and can also request new Peering Service connections PNIs.
 
       - question: |
-          Can a carrier use new Direct peering with Microsoft to support Peering Service?
+          What are the diversity requirements on a direct peering to support Peering Service?
         answer: |
-          Yes, that is also possible. Microsoft works with the carrier to create new Direct peering to support Peering Service.  
+          A PNI must support local-redundancy and geo-redundancy. Local-redundancy is defined as two diverse peering connections on two routers in the same facility or in different facilities in the same metro. Geo-redundancy requires that the carrier has additional connectivity at a different Microsoft edge site within the geo-region in case the primary site fails. The carrier will route customer traffic through the backup site selected by the customer.
 
       - question: |
-          Why is Direct peering a requirement to support Peering Service?
+          The carrier already offers enterprise-grade internet, how is this offering different?
         answer: |
-          One of primary drivers behind Peering Service is to provide connectivity to Microsoft online services through a well-connected SP. Direct peering is in the Gbps range and hence a fundamental building block for high throughput connectivity between carrier and Microsoft.
+          Carriers that offer SLA and enterprise-grade internet are doing so on their part of the network. However, customer traffic may use several different carrier networks before reaching the last mile that the customer has internet access contracted through. In Peering Service, Microsoft offers a higher guarantee that customer traffic will ONLY route through the Microsoft network and handoff directly to the selected carrier network, thereby receiving a full end-to-end performance guarantee.
 
       - question: |
-          What are the redundancy requirements on a Direct peering to support Peering Service?
+          If a service provider already peers with Microsoft, what kind of changes are required to support Peering Service?
         answer: |
-          A Direct peering must support local-redundancy and geo-redundancy. Local-redundancy is defined as two different paths in a particular peering site. Geo-redundancy requires that the carrier has connectivity at a different Microsoft edge site in case the primary site fails. For the short failure duration carrier can route traffic through the backup site.
-
-      - question: |
-          The carrier already offers SLA and enterprise grade internet, how is this offering different?
-        answer: |
-          Some carriers offer SLA and enterprise grade internet on their part of the network. In Peering Service, Microsoft offers SLA for traffic on Microsoft part of the network. By selecting Peering Service, you get end-to-end SLA. The ISP provides SLA for traffic traveling on its network from your site to Microsoft edge. Microsoft provides SLA for traffic traveling in Microsoft global network from Microsoft edge to end users application.
-
-      - question: |
-          If a service provider has Direct peering with Microsoft, what are the required changes to support Peering Service?
-        answer: |
-          * Software changes to identify a Peering Service user and its traffic. May require routing policy changes to exchange a user's traffic at the nearest Microsoft edge through Peering Service connection.
-          * Ensure the connectivity has local-redundancy and geo-redundancy.
+          Peering Service partners must have an Azure subscription and manage the Peering Service connections using the Azure Portal as this is where customer prefixes are registered, performance metrics are viewed, and support tickets are logged, among other features. If a provider has existing peering with Microsoft but no Azure subscription, the resources must be added to your subscription before you will be able to convert these to the Peering Service configuration. During the configuration change, Microsoft changes the policy group during a hard restart of the BGP session. No configuration changes are required on the partner’s side, unless the telco partner is supporting Peering Service for voice then BFD configuration is required. For more information, see [Azure Internet peering for Communications Services walkthrough](walkthrough-communications-services-partner.md)
           
