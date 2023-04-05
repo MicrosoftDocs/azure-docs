@@ -8,13 +8,13 @@ ms.author: surbhijain
 
 ms.reviewer: kofiforson 
 
-ms.date: 02/15/2023 
+ms.date: 04/05/2023 
 
 ms.topic: how-to 
 
 ms.service: virtual-machines 
 
-ms.subservice: image-builder 
+ms.subservice: image-builder
 
 --- 
 
@@ -58,7 +58,7 @@ Optimization for the following images is supported:
 
   
 
-The following types of images are not supported: 
+The following types of images aren't supported: 
 
 *Images with size greater than 2 TB 
 
@@ -70,13 +70,13 @@ The following types of images are not supported:
 
 ## Optimization in Azure VM Image Builder 
 
-Optimization can be enabled while creating a VM image via CLI. Please go through the following workflow to avail the optimization benefits 
+Optimization can be enabled while creating a VM image via CLI. Go through the following workflow to avail the optimization benefits 
 
   
 
-1. Customer can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization and distribution. The sample template which can be used as reference can be found [here](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/PrefetchSIG.json).  
+1. Customers can create an Azure VM Image Builder template using CLI. It contains details regarding source, type of customization and distribution. For more information on how to create an image builder template, see [Create an Azure Image Builder Bicep or ARM JSON template](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-json?tabs=json%2Cazure-powershell). 
 
-To optimize the image, you need to enable additional field in the template like shown in below snippet. 
+To optimize the image, you can enable additional fields in the template like shown in below snippet. 
 
   
 
@@ -122,11 +122,11 @@ To optimize the image, you need to enable additional field in the template like 
 
   
 
-This will create optimized image in given target location. 
+This creates optimized image in given target location. 
 
-Same process can be done via [powershell](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/Readme.md#submit-the-template) 
+Same process can be done via [PowerShell](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/Readme.md#submit-the-template) 
 
-NOTE: Please use API Version '2022-07-01' or beyond to avail optimization benefits 
+NOTE: Use API Version '2022-07-01' or beyond to avail optimization benefits 
 
   
 
@@ -164,7 +164,7 @@ Microsoft.VirtualMachineImages
 
 ### Can an existing SIG image version be optimized? 
 
-No, this optimization feature will not update an existing SIG image version. However, optimization can be enabled during new version creation for an existing image 
+No, this optimization feature won't update an existing SIG image version. However, optimization can be enabled during new version creation for an existing image 
 
   
 
@@ -184,7 +184,7 @@ No, this optimization feature will not update an existing SIG image version. How
 
   
 
-This is the end to end duration observed. Please note, image generation duration varies based on different factors such as, OS Type, VHD size, OS State, etc. 
+This is the end to end duration observed. Note, image generation duration varies based on different factors such as, OS Type, VHD size, OS State, etc. 
 
   
 
