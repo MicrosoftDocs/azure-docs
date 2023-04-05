@@ -467,7 +467,7 @@ az group delete --name $RESOURCE_GROUP
 
 ## Integrating with a registry with private link enabled
 
-To pull content from a registry with private link enabled, clients must allow access to the registry REST endpoint, as well as all regional data endpoints." The client proxy or firewall must allow access to
+To pull content from a registry with private link enabled, clients must allow access to the registry REST endpoint, as well as all regional data endpoints. The client proxy or firewall must allow access to
 
 REST endpoint: `.azurecr.io`
 Data endpoint(s): `..data.azurecr.io`
