@@ -25,7 +25,7 @@ Using a combination of [Service Connector](../service-connector/overview.md) and
 1. From the top menu, select **Add** > **Azure component** to open the **Add Dapr Component** configuration pane.
 
    > [!NOTE]
-   > Currently, creating Dapr components using Service Connector in the Azure portal only works with Azure services (Azure Service Bus, Azure Cosmos DB, etc.). To create non-Azure Dapr components (Redis, AWS), use the manual component creation option.    
+   > Currently, creating Dapr components using Service Connector in the Azure portal only works with Azure services (Azure Service Bus, Azure Cosmos DB, etc.). To create non-Azure Dapr components (Redis), use the manual component creation option.    
 
 1. In the **Basics** tab, enter the Dapr component details. For example, for a pub/sub Azure Service Bus component:
 
