@@ -171,6 +171,20 @@ items:
         href: multi-tenant-common-considerations.md
       - name: Common solutions
         href: multi-tenant-common-solutions.md
+    - name: University multilateral federation solutions
+      items:
+      - name: Introduction
+        href: multilateral-federation-introduction.md
+      - name: Baseline
+        href: multilateral-federation-baseline.md     
+      - name: Solution 1 - Azure AD with Cirrus Bridge
+        href: multilateral-federation-solution-one.md
+      - name: Solution 2 - Azure AD to Shibboleth as SP Proxy
+        href: multilateral-federation-solution-two.md
+      - name: Solution 3 - Azure AD with ADFS and Shibboleth
+        href: multilateral-federation-solution-three.md    
+      - name: Decision tree
+        href: multilateral-federation-decision-tree.md    
     - name: Authentication protocols
       items:
       - name: Overview

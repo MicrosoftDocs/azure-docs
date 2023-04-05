@@ -83,9 +83,6 @@ After you cancel, your services are disabled. That means your virtual machines a
 
 After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it, or if you want to reactivate the subscription. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
-> [!NOTE]
-> All pay-as-you-go resource types, including SaaS Marketplace pay-as-you-go resources, are canceled when the parent subscription is cancelled.
-
 ## Delete subscriptions
 
 The **Delete subscription** option isn't available until at least 15 minutes after you cancel your subscription.
