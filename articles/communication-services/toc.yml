@@ -428,6 +428,8 @@ items:
       href: concepts/sms/concepts.md
     - name: SDK features
       href: concepts/sms/sdk-features.md
+    - name: Pricing
+      href: concepts/sms-pricing.md
     - name: Messaging policy
       href: concepts/sms/messaging-policy.md
     - name: Phone numbers
@@ -458,6 +460,8 @@ items:
       href: concepts/voice-video-calling/calling-sdk-features.md
     - name: Voice and video terminology
       href: concepts/voice-video-calling/about-call-types.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Teams interoperability
       items:
       - name: Overview
@@ -562,6 +566,8 @@ items:
       href: concepts/chat/concepts.md
     - name: SDK features
       href: concepts/chat/sdk-features.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Events
       items:
       - name: Overview
@@ -584,6 +590,8 @@ items:
       items:
       - name: Overview
         href: concepts/telephony/telephony-concept.md
+      - name: Pricing
+        href: concepts/pstn-pricing.md
       - name: Phone number types
         href: concepts/numbers/number-types.md
       - name: Subscription eligibility 
@@ -606,6 +614,8 @@ items:
       items:
       - name: Overview
         href: concepts/call-automation/call-automation.md
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/communication-services/
       - name: Learn about inbound calls
         href: concepts/call-automation/incoming-call-notification.md
       - name: Play audio in call
@@ -636,6 +646,8 @@ items:
       href: concepts/email/email-overview.md
     - name: SDK features
       href: concepts/email/sdk-features.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
       items:
       - name: Email domains and sender authentication 
@@ -659,7 +671,9 @@ items:
   - name: Network Traversal
     items:
     - name: Overview
-      href: concepts/network-traversal.md    
+      href: concepts/network-traversal.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 

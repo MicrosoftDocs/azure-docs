@@ -27,8 +27,8 @@ There are two architectures in Container Apps: the Consumption only architecture
 
 | Architecture Type | Description |
 |-----------|-------------|
-| Workload profiles architecture (preview) | Supports UDR and egress through NAT Gateway. The minimum required subnet size is /27. |
-| Consumption only architecture | Doesn't support user defined routes (UDRs) and egress through NAT Gateway. The minimum required subnet size is /23. |
+| Workload profiles architecture (preview) | Supports user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /27. |
+| Consumption only architecture | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
 
 ## Accessibility Levels
 
