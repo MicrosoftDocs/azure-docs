@@ -543,8 +543,6 @@ items:
           href: logs/private-storage.md
         - name: Personal log data handling
           href: logs/personal-data-mgmt.md
-        - name: Application data collection, retention, and storage
-          href: app/data-retention-privacy.md
     - name: Integrate with Azure Logic Apps
       items:
         - name: Azure Monitor Logs connector
@@ -630,6 +628,17 @@ items:
               href: app/worker-service.md
             - name: Advanced ASP.NET SDK topics
               items:
+              - name: Metrics
+                items:
+                - name: GetMetric
+                  displayName: get metric, custom metrics, metrics, TrackMetric
+                  href: app/get-metric.md
+                - name: Log-based & pre-aggregated metrics
+                  href: app/pre-aggregated-metrics-log-metrics.md
+                - name: Log-based metrics definitions
+                  href: essentials/app-insights-metrics.md
+                - name: Standard metrics
+                  href: app/standard-metrics.md
               - name: EventCounters
                 href: app/eventcounters.md
               - name: Dependencies
@@ -764,20 +773,9 @@ items:
       - name: Transaction diagnostics
         href: app/transaction-diagnostics.md
         displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
-      - name: Metrics
-        items:
-        - name: Live Metric stream
+      - name: Live Metric stream
           displayName: live, quickpulse, quick pulse, live metrics
           href: app/live-stream.md
-        - name: GetMetric
-          displayName: get metric, custom metrics, metrics, TrackMetric
-          href: app/get-metric.md
-        - name: Log-based & pre-aggregated metrics
-          href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Log-based metrics definitions
-          href: essentials/app-insights-metrics.md
-        - name: Standard metrics
-          href: app/standard-metrics.md
       - name: Transaction search
         href: app/diagnostic-search.md
       - name: Smart Detection
@@ -886,9 +884,11 @@ items:
         href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
+      - name: Application data collection, retention, and storage
+        href: app/data-retention-privacy.md
       - name: Azure AD authentication
         href: app/azure-ad-authentication.md
-      - name: IP addresses and ports
+      - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
       - name: IP address collection
