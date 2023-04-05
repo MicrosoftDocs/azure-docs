@@ -23,7 +23,7 @@ This quickstart shows how to deploy a Spring Boot web application to Azure Sprin
 
 - A frontend bounded [React](https://reactjs.org/) application.
 - A backend Spring web application that uses Spring Data JPA to access a relational database.
-- A relational database. For localhost, the application uses [H2 Database Engine](https://www.h2database.com/html/main.html). For Azure Spring Apps, the application uses Azure Database for PreSql. For more information about Azure Database for PreSql, see [Flexible Server documentation](../postgresql/flexible-server/overview.md).
+- A relational database. For localhost, the application uses [H2 Database Engine](https://www.h2database.com/html/main.html). For Azure Spring Apps, the application uses Azure Database for PostgreSQL. For more information about Azure Database for PostgreSQL, see [Flexible Server documentation](../postgresql/flexible-server/overview.md).
 
 The following diagram shows the architecture of the system:
 
