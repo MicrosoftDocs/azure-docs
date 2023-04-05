@@ -8,7 +8,7 @@ ms.author: kengaderdus
 ---
 To enable your application to sign in with Microsoft Entra, Azure Active Directory (Azure AD) for customers must be made aware of the application you create. The app registration establishes a trust relationship between the app and Microsoft Entra.
 
-During app registration, you'll specify the *Redirect URI*. The redirect URI is the endpoint to which the user is redirected by Microsoft Entra after they authenticate with Microsoft Entra. The app registration process generates an *Application ID*, also known as the *client ID*, that uniquely identifies your app. After your app is registered, Microsoft Entra uses both the application ID, and the redirect URI to create authentication requests.
+During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Microsoft Entra. The app registration process also generates a unique identifier known as an **Application (client) ID**. Once registered, Microsoft Entra uses both values to create authentication requests.
 
 Follow these steps to register your app in the Microsoft Entra admin center:
 
