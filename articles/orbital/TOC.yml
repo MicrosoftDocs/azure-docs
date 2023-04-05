@@ -19,12 +19,12 @@ items:
     
 - name: Concepts
   items:
+  - name: Spacecraft object
+    href: spacecraft-object.md
   - name: Contact object
     href: concepts-contact.md
   - name: Contact profile
     href: concepts-contact-profile.md
-  - name: Spacecraft object
-    href: spacecraft-object.md
     
 - name: How-to guides
   items:
