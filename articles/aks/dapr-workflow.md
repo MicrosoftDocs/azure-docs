@@ -61,7 +61,7 @@ Create an AKS cluster and attach to [the ACR provided with the sample][deploymen
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys --attach-acr samples
 ```
 
-Make sure `kubectl` is installed and pointed to your AKS cluster.
+Make sure `kubectl` is installed and pointed to your AKS cluster. If you use [the Azure Cloud Shell][az-cloud-shell], kubectl is already installed. 
 
 For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 
@@ -197,6 +197,7 @@ In this guide, you deployed and ran workflows on a Dapr extension for AKS. You l
 [cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-service-provider
 [dapr-config]: ./dapr-settings.md
+[az-cloud-shell]: ./learn/quick-kubernetes-deploy-powershell.md#azure-cloud-shell
 
 <!-- Links External -->
 [dapr-workflow-sample]: https://github.com/shubham1172/dapr-workflows-aks-sample
