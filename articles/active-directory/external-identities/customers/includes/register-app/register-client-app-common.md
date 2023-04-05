@@ -30,7 +30,7 @@ The following steps show you how to register your app in the Microsoft Entra adm
     
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ciam-client-app`.
     
-    1. Under **Supported account types**, select **Accounts in this organizational directory only (Contoso CIAM only - Single tenant)**
+    1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 
 1. Select **Register** to create the application.
 
