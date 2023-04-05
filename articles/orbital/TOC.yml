@@ -19,9 +19,9 @@ items:
     
 - name: Concepts
   items:
-  - name: Spacecraft object
+  - name: Spacecraft
     href: spacecraft-object.md
-  - name: Contact object
+  - name: Contact
     href: concepts-contact.md
   - name: Contact profile
     href: concepts-contact-profile.md
