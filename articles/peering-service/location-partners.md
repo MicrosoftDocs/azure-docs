@@ -86,7 +86,7 @@ The following table provides information on the Peering Service connectivity par
 | Paris | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Prague | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Singapore | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct), [Telekom Malaysia](https://www.tm.com.my/), [Colt](https://www.colt.net/product/cloud-prioritisation/), [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
-| Seoul | Sejong Telecom |
+| Seoul | [Sejong Telecom](https://www.sejongtelecom.net/) |
 | Sofia | [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |
 | Sydney | [Kordia](https://www.kordia.co.nz/cloudconnect), [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) |
 | Tokyo | [IIJ](https://www.iij.ad.jp/en/), [Colt](https://www.colt.net/product/cloud-prioritisation/), [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |
