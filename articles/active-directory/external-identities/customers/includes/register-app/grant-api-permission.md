@@ -27,7 +27,7 @@ To grant your app (`ciam-client-app`) permissions, follow these steps:
  
 1. Select the **Add permissions** button.
  
-1. Select **Grant admin consent for \<your tenant name\>**.
+1. Select **Grant admin consent for \<your tenant name\>**, then select **Yes**.
 
 1. Select **Yes**.
 
