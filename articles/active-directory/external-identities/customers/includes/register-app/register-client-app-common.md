@@ -6,13 +6,13 @@ ms.topic: include
 ms.date: 03/30/2023
 ms.author: kengaderdus
 ---
-To enable your application sign in with Microsoft Entra, register your app in the Azure AD for customers directory. The app registration establishes a trust relationship between the app and Microsoft Entra.
+To enable your application to sign in with Microsoft Entra, Azure Active Directory (Azure AD) for customers must be made aware of the application you create. The app registration establishes a trust relationship between the app and Microsoft Entra.
 
-During app registration, you'll specify the *Redirect URI*. The redirect URI is the endpoint to which the user is redirected by Microsoft Entra after they authenticate with Microsoft Entra. The app registration process generates an *Application ID*, also known as the *client ID*, that uniquely identifies your app. After your app is registered, Microsoft Entra uses both the application ID, and the redirect URI to create authentication requests.
+During registration, you'll specify a **Redirect URI** which redirects the user after authentication with Microsoft Entra. The app registration process also generates a unique identifier known as an **Application (client) ID**. Once registered, Microsoft Entra uses both values to create authentication requests.
 
-Follow these steps to register your app in the Microsoft Entra admin center:
+The following steps show you how to register your app in the Microsoft Entra admin center:
 
-1. 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
+1.  Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
 1. If you have access to multiple tenants, make sure you use the directory that contains your Azure AD for customers tenant:
     
@@ -30,7 +30,7 @@ Follow these steps to register your app in the Microsoft Entra admin center:
     
     1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example *ciam-client-app*.
     
-    1. Under **Supported account types**, select **Accounts in this organizational directory only (Contoso CIAM only - Single tenant)**
+    1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 
 1. Select **Register** to create the application.
 
