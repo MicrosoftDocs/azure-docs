@@ -16,9 +16,9 @@ Each site in your deployment contains an Azure Stack Edge (ASE) Pro device that 
 
 The following table provides information on which versions of the ASE device are compatible with each packet core version.
 
-| Packet core version  | ASE Pro 1 GPU compatible versions  | ASE Pro 2 compatible versions |
-|-----|-----|----|
-| 2303 | 2301  | 2301 |
+| Packet core version  | ASE Pro GPU compatible versions  | ASE Pro 2 compatible versions |
+|-----|-----|-----|
+| 2303 | 2301, 2303  | 2301, 2303 |
 | 2302 | 2301  | N/A |
 | 2301 | 2210, 2301  | N/A |
 | 2211 | 2210  | N/A |
