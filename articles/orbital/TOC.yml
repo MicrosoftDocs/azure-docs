@@ -17,6 +17,15 @@ items:
   - name: Schedule a contact
     href: schedule-contact.md
     
+- name: Concepts
+  items:
+  - name: Spacecraft object
+    href: spacecraft-object.md
+  - name: Contact object
+    href: concepts-contact.md
+  - name: Contact profile
+    href: concepts-contact-profile.md
+    
 - name: How-to guides
   items:
   - name: Prepare network to send and receive data
@@ -46,12 +55,3 @@ items:
     href: organize-stac-data.md
   - name: Process Synthetic Aperture Radar (SAR) data
     href: sar-reference-architecture.md  
-    
-- name: Concepts
-  items:
-  - name: Contact
-    href: concepts-contact.md
-  - name: Contact profile
-    href: concepts-contact-profile.md
-  - name: Spacecraft object
-    href: spacecraft-object.md
