@@ -276,7 +276,7 @@ You need to configure your application code to look for the specific managed ide
     )
     ```
 
----
+    ---
 
 3. Redeploy your code to Azure after making this change in order for the configuration updates to be applied.
 
