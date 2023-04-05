@@ -66,6 +66,4 @@ This converter was used to translate the [Real Estate Core Ontology](https://doc
 
 ## Next steps 
 
-* Learn more about extending industry-standard ontologies to meet your specifications: [Extending industry ontologies](concepts-ontologies-extend.md).
-
-* Or, continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#full-model-development-path).
+Continue on the path for developing models based on ontologies: [Full model development path](concepts-ontologies.md#full-model-development-path).
