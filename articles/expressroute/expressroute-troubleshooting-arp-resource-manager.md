@@ -157,6 +157,16 @@ Age InterfaceProperty IpAddress  MacAddress
  10 On-Prem           65.0.0.1   ffff.eeee.dddd
   0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 ```
+or
+
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           65.0.0.1   ffff.eeee.dddd
+```
+
+>[!NOTE]
+> Depending on the hardware platform, the ARP results may vary and only display the *On-premises* interface.
 
 ### ARP table when on-premises / connectivity provider side has problems
 If a problem with the on-premises or connectivity provider occurs, the ARP table will show one of two things. You'll either see the on-premises MAC address show incomplete or only see the Microsoft entry in the ARP table.
