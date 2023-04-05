@@ -10,7 +10,7 @@ Follow these steps to create a user flow a customer can use to sign in or sign u
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
 
-1. If you have access to multiple tenants, make sure you use the directory that contains your Microsoft Entra tenant:
+1. If you have access to multiple tenants, make sure you use the directory that contains your customer tenant:
     
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     
