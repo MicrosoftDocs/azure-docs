@@ -135,6 +135,7 @@ traces
 
 ### Control queue / Partition ID logs
 The following query searches for activity associated with an instanceId's control queue. You'll need to provide the value for the instanceID in `targetInstanceId` as well as the query's start time in `start`.
+
 ```kusto
 let targetInstanceId = "XXXXXX"; // edit this
 let start = datetime(XXXX-XX-XXTXX:XX:XX); // edit this
@@ -168,6 +169,7 @@ traces
 ) on partitionId
 | sort by timestamp asc
 | project timestamp, appName, severityLevel, pid, taskName, eventType, message, details, messageId, partitionId, instanceId, executionId, age, latencyMs, dequeueCount, eventCount, newEvents, taskHub, account, extendedSession, sdkVersion
+```
 
 |Column |Description |
 |-------|------------|
