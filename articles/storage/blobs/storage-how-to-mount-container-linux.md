@@ -68,7 +68,6 @@ Another example on an Ubuntu 20.04 distribution:
 sudo wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
-sudo apt-get install libfuse3-dev fuse3 
 ```
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
