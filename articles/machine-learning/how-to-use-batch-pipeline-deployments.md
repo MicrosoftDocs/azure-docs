@@ -56,7 +56,7 @@ Update this...
 
 ## Connect to the Azure Machine Learning Workspace
 
-The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section we will connect to the workspace in which the job will be run.
+The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -89,7 +89,7 @@ from azure.identity import DefaultAzureCredential
 
 ### Configure workspace details and get a handle to the workspace
 
-To connect to a workspace, we need identifier parameters that include a subscription, resource group, and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential) for this tutorial.
+To connect to a workspace, we need identifier parameters that include a subscription, resource group, and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential) for this tutorial.
 <!-- Check the [configuration notebook](../../jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace. -->
 
 To configure your workspace details, enter your subscription ID, resource group name, and workspace name in the following code:
@@ -112,7 +112,7 @@ ml_client = MLClient(
 
 ## Create the pipeline component
 
-The pipeline component only prints a "hello world" message in the logs. It doesn't require any inputs or outputs. We will deploy this component under a batch endpoint later.
+The pipeline component only prints a "hello world" message in the logs. It doesn't require any inputs or outputs. We'll deploy this component under a batch endpoint later.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -138,7 +138,7 @@ Batch endpoints receive pointers to data and run jobs asynchronously to process 
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a batch endpoint we will use the `BatchEndpoint` class. This class allows a user to configure the following key aspects of the endpoint:
+To create a batch endpoint, we'll use the `BatchEndpoint` class. This class allows a user to configure the following key aspects of the endpoint:
 - `name` - Name of the endpoint. It needs to be unique at the Azure region level.
 - `auth_mode` - The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based (`aad_token`) authentication is supported.
 - `properties.ComponentDeployment.Enabled` - Set this property to `True` to use component deployments in Batch Endpoints.
@@ -162,6 +162,9 @@ properties:
 
 A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, we'll append a random suffix to the endpoint's name in this tutorial.
 
+> [!TIP]
+> In practice, you won't need to use this technique to name an endpoint but will use a more meaningful name.
+
 Let's configure the name:
 
 ```azurecli
@@ -183,7 +186,7 @@ az ml batch-endpoint show -name $ENDPOINT_NAME
 
 # [Python](#tab/python)
 
-To create a batch endpoint we will use the `BatchEndpoint` class. This class allows a user to configure the following key aspects of the endpoint:
+To create a batch endpoint, we'll use the `BatchEndpoint` class. This class allows a user to configure the following key aspects of the endpoint:
 - `name` - Name of the endpoint. It needs to be unique at the Azure region level.
 - `auth_mode` - The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based (`aad_token`) authentication is supported.
 - `defaults` - Default settings for the endpoint.
@@ -195,6 +198,9 @@ To create a batch endpoint we will use the `BatchEndpoint` class. This class all
 We'll create the endpoint that is going to host the batch deployments. Remember that each endpoint can host multiple deployments at any time.
 
 First, we'll configure the endpoint's name. A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, we'll append a random suffix to the endpoint's name in this tutorial.
+
+> [!TIP]
+> In practice, you won't need to use this technique to name an endpoint but will use a more meaningful name.
 
 ```python
 import random
@@ -232,11 +238,11 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
 
 ## Create a batch deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. We will create a deployment for our endpoint using the `BatchDeployment` class.
+A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `BatchDeployment` class.
 
 ### Create a compute cluster
 
-Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. This means that multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
+Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. Therefore, multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -324,7 +330,7 @@ az ml batch-deployment create --endpoint $ENDPOINT_NAME -f deployment.yml --set-
 
 # [Python](#tab/python)
 
-Using the `MLClient` created earlier, we will now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
 ```python
 ml_client.batch_deployments.begin_create_or_update(deployment).result()
@@ -342,7 +348,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
 
 ### Test the deployment
 
-Once the deployment is created, it is ready to receive jobs.
+Once the deployment is created, it's ready to receive jobs.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -420,7 +426,7 @@ ml_client.compute.begin_delete(name=compute_name)
 - [How to deploy a training pipeline with batch endpoints](how-to-use-batch-training-pipeline.md)
 - [How to create a batch endpoint to perform batch scoring with pre-processing](how-to-use-batch-scoring-pipeline.md)
 - [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
-- [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md).
-- [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md).
-- [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md).
-- [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md).
+- [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
+- [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md)
+- [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md)
+- [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
