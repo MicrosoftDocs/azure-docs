@@ -49,7 +49,7 @@ Use the following table to quickly locate an example that fits your ABAC scenari
 | [Read or write blobs based on blob index tags and custom security attributes](#example-read-or-write-blobs-based-on-blob-index-tags-and-custom-security-attributes) | | ID | tags | tags |
 | [Read blobs based on blob index tags and multi-value custom security attributes](#example-read-blobs-based-on-blob-index-tags-and-multi-value-custom-security-attributes) | | ID | | tags |
 | [Allow access to a container only from a specific private endpoint](#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) | Private endpoint | | | container name |
-| [Example: Require private link access to read blobs with high sensitivity](#example-require-private-link-access-to-read-blobs-with-high-sensitivity) | isPrivateLink | | | tags |
+| [Require private link access to read blobs with high sensitivity](#example-require-private-link-access-to-read-blobs-with-high-sensitivity) | isPrivateLink | | | tags |
 | [Allow read access to highly sensitive blob data only from a specific private endpoint and for users tagged for access](#example-allow-read-access-to-highly-sensitive-blob-data-only-from-a-specific-private-endpoint-and-for-users-tagged-for-access) | Private endpoint | ID | | tags |
 | [Require that write operations to blobs use specific blob index tag keys and values, and from a specific endpoint](#example-require-that-write-operations-to-blobs-use-specific-blob-index-tag-keys-and-values-and-from-a-specific-endpoint) | Private endpoint | | tags | |
 | [Allow access to blobs in specific containers from a specific subnet](#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) | Subnet | | | container name |
@@ -1705,34 +1705,35 @@ Select **Add action**, then select only the suboperation shown in the following 
 
 Do not select the top-level action as shown in the following image:
 
-:::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read, write, add and delete operations." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
+:::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of read a blob operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
 ##### Build expression
 
 Use the values in the following table to build the expression portion of the condition:
 
-> | Group | Setting | Value |
-> | ----- | ------- | ----- |
-> | Group #1 | | |
-> | | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
-> | | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
-> | | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | | Option | Attribute |> | | Logical operator | 'AND' |
-> | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
-> | | Key | &lt;key&gt; |
-> | | Logical operator | 'AND' |
-> | | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
-> | | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
-> | | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
-> | | Value | `privateendpoint1` |
-> | End of Group #1 | | |
-> | | Logical operator | 'OR' |
-> | | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
-> | | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#container-name) |
-> | | Key | `sensitivity` |
-> | | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringequals) |
-> | | Value | `high` |
+| Group | Setting | Value |
+| ----- | ------- | ----- |
+| Group #1 | | |
+| | Attribute source | [Principal](../../role-based-access-control/conditions-format.md#principal-attributes) |
+| | Attribute | &lt;attributeset&gt;_&lt;key&gt; |
+| | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+| | Option | Attribute |
+| | Logical operator | 'AND' |
+| | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+| | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#blob-index-tags-values-in-key) |
+| | Key | &lt;key&gt; |
+| | Logical operator | 'AND' |
+| | Attribute source | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
+| | Attribute | [Private endpoint](storage-auth-abac-attributes.md#private-endpoint) |
+| | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
+| | Value | `privateendpoint1` |
+| End of Group #1 | | |
+| | Logical operator | 'OR' |
+| | Attribute source | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
+| | Attribute | [Blob index tags [Values in key]](storage-auth-abac-attributes.md#container-name) |
+| | Key | `sensitivity` |
+| | Operator | [StringNotEquals](../../role-based-access-control/conditions-format.md#stringequals) |
+| | Value | `high` |
 
 #### [Azure portal: Code editor](#tab/azure-portal-code-editor)
 

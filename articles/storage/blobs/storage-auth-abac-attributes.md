@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 04/05/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -487,7 +487,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute** | `isPrivateLink` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
-> | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Allow read access to blobs based on private link and tags](storage-auth-abac-examples.md#example-allow-read-access-to-blobs-based-on-private-link-and-tags) |
+> | **Examples** | `@Environment[isPrivateLink] BoolEquals true`<br/>[Example: Require private link access to read blobs with high sensitivity](storage-auth-abac-examples.md#example-require-private-link-access-to-read-blobs-with-high-sensitivity) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
 
 ### Private endpoint
