@@ -227,7 +227,7 @@ The following table lists possible error messages related to enabling the Guest 
 
 ## Next steps
 
-- For more information about the machine configuration extension, see [Understand the machine configuration feature of Azure Automanage](/azure/virtual-machines/extensions/guest-configuration).
+- For more information about the machine configuration extension, see [Understand the machine configuration feature of Azure Automanage](/azure/governance/machine-configuration/overview).
 - For more information about how the Linux Agent and extensions work, see [Virtual machine extensions and features for Linux](features-linux.md).
 - For more information about how the Windows Guest Agent and extensions work, see [Virtual machine extensions and features for Windows](features-windows.md).
 - To install the Windows Guest Agent, see [Azure Virtual Machine Agent overview](agent-windows.md).
