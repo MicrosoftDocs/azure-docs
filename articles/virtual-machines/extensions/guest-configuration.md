@@ -9,7 +9,7 @@ ms.author: migreene
 ms.date: 04/05/2023
 ---
 
-# Overview of the Azure Automanage machine configuration extension
+# Azure Automanage machine configuration extension
 
 The machine configuration extension is a feature of Azure Automanage that performs audit and configuration operations inside virtual machines (VMs).
 
@@ -80,13 +80,13 @@ az vm extension set  --publisher Microsoft.GuestConfiguration --name Configurati
 To deploy the extension for Linux:
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName '<myResourceGroup>' -Location '<myLocation>' -VMName '<myVM>' -EnableAutomaticUpgrade $true
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -ExtensionType 'ConfigurationForLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName '<myResourceGroup>' -Location '<myLocation>' -VMName '<myVM>' -EnableAutomaticUpgrade $true
 ```
 
 To deploy the extension for Windows:
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName '<myResourceGroup>' -Location '<myLocation>' -VMName '<myVM>' -EnableAutomaticUpgrade $true
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -ExtensionType 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName '<myResourceGroup>' -Location '<myLocation>' -VMName '<myVM>' -EnableAutomaticUpgrade $true
 ```
 
 ### ARM template
@@ -104,7 +104,7 @@ To deploy the extension for Linux:
   ],
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
-    "type": "ConfigurationforLinux",
+    "type": "ConfigurationForLinux",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "enableAutomaticUpgrade": true, 
@@ -151,7 +151,7 @@ resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extens
   location: resourceGroup().location
   properties: {
     publisher: 'Microsoft.GuestConfiguration'
-    type: 'ConfigurationforLinux'
+    type: 'ConfigurationForLinux'
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
     enableAutomaticUpgrade: true
@@ -192,7 +192,7 @@ resource "azurerm_virtual_machine_extension" "gc" {
   name                       = "AzurePolicyforLinux"
   virtual_machine_id         = "<myVMID>"
   publisher                  = "Microsoft.GuestConfiguration"
-  type                       = "ConfigurationforLinux"
+  type                       = "ConfigurationForLinux"
   type_handler_version       = "1.0"
   auto_upgrade_minor_version = "true"
 }
