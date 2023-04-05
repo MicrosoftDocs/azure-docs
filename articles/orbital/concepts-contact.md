@@ -10,7 +10,7 @@ ms.author: hrshelar
 #Customer intent: As a satellite operator or user, I want to understand how to what the contact object is so I can manage my mission operations.
 ---
 
-# Ground station contact
+# Ground station contact object
 
 A contact occurs when the spacecraft passes over a specified ground station. You can find available passes and schedule contacts for your spacecraft through the Azure Orbital Ground Station platform. A contact and ground station pass mean the same thing.
 
