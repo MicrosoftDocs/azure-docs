@@ -111,6 +111,8 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 
 
 
+
+
 ## A comparison of Flexible, Uniform, and availability sets
 
 The following table compares the Flexible orchestration mode, Uniform orchestration mode, and Availability Sets by their features.
@@ -198,6 +200,8 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 
 
 
+
+
 ### Unsupported parameters
 
 The following Virtual Machine Scale Set parameters aren't currently supported with Virtual Machine Scale Sets in Flexible orchestration mode:
@@ -217,6 +221,8 @@ The following Virtual Machine Scale Set parameters aren't currently supported wi
 ## Get started with Flexible orchestration mode
 
 Register and get started with [Flexible orchestration mode](..\virtual-machines\flexible-virtual-machine-scale-sets.md) for your Virtual Machine Scale Sets. 
+
+
 
 
 
@@ -245,5 +251,7 @@ Register and get started with [Flexible orchestration mode](..\virtual-machines\
 
 > [!div class="nextstepaction"]
 > [Learn how to deploy your application on scale set.](virtual-machine-scale-sets-deploy-app.md)
+
+
 
 
