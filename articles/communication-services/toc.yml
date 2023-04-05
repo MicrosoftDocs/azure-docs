@@ -158,6 +158,8 @@ items:
       href: quickstarts/identity/service-principal.md
     - name: Use Postman to send SMS messages
       href: tutorials/postman-tutorial.md
+    - name: Send short URL
+      href: tutorials/sms-url-shortener.md
     - name: Phone numbers
       items:
       - name: Port a phone number into Azure
