@@ -14,8 +14,6 @@ ms.author: behoorne
 
 # Onco Phenotype Frequently Asked Questions
 
-You’ll find answers to commonly asked questions about Onco Phenotype, part of Azure Health Insights service, in this article
-
 - What does inference value `None` mean?
 
   `None` implies that the model couldn't find enough relevant information to make a meaningful prediction.
@@ -26,7 +24,7 @@ You’ll find answers to commonly asked questions about Onco Phenotype, part of 
 
 - Do you support behavior code along with histology code?
 
-  No, the OncoPhenotype API doesn't support 1-digit behavior code. Only 4-digit histology code is supported.
+  No, only four digit histology code is supported.
 
 - What does inference value `N+` mean for clinical/pathologic N category? Why don't you have `N1, N2, N3` inference values?
 

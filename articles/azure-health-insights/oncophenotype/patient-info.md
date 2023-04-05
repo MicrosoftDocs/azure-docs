@@ -20,9 +20,7 @@ The payload should contain a ```patients``` section with one or more objects whe
 
 ## Example request
 
-The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model will check for a cancer case but not include the evidence. 
-In this example the Onco Phenotype model receives patient information in the form of Unstructured clinical notes
-
+The following example represents a case finding. The ```checkForCancerCase``` has been set to ```true``` and ```includeEvidence``` has been set to ```false```. Meaning the model checks for a cancer case but not include the evidence. In this example, the Onco Phenotype model receives patient information in the form of unstructured clinical notes
 
 ```json
 {
