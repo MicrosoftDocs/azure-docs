@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 04/04/2023
+  ms.date: 04/05/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -56,7 +56,7 @@ landingContent:
           - text: Device mapping
             url: overview-of-device-mapping.md
           - text: FHIR destination mapping
-            url: how-to-configure-fhir-mappings.md 
+            url: overview-of-fhir-destination-mapping.md 
       - linkListType: how-to-guide
         links:
           - text: Mapping debugger
