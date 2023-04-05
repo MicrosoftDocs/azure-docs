@@ -93,3 +93,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create a stored access policy](/rest/api/storageservices/define-stored-access-policy)
 - [Configure Azure Storage connection strings](storage-configure-connection-string.md)
+
+## Resources
+
+For related code samples using .NET version 11.x SDKs, see [Code samples using .NET version 11.x](../blobs/blob-v11-samples-dotnet.md#create-a-stored-access-policy).

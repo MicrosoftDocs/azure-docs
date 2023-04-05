@@ -88,3 +88,7 @@ The following example shows how to create a service SAS for a directory:
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas)
+
+## Resources
+
+For related code samples using .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#create-a-service-sas-for-a-blob-container).

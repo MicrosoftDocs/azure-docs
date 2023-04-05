@@ -37,3 +37,7 @@ To use the account SAS to access service-level APIs for the Blob service, constr
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create an account SAS](/rest/api/storageservices/create-account-sas)
+
+## Resources
+
+For related code samples using .NET version 11.x SDKs, see [Code samples using .NET version 11.x](../blobs/blob-v11-samples-dotnet.md#create-an-account-sas).

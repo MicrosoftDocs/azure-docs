@@ -94,3 +94,7 @@ await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, nul
 - [Blob snapshots](snapshots-overview.md)
 - [Blob versions](versioning-overview.md)
 - [Soft delete for blobs](./soft-delete-blob-overview.md)
+
+## Resources
+
+For related code samples using .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#create-a-snapshot).

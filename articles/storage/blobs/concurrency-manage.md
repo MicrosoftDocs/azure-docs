@@ -68,3 +68,7 @@ Leases on containers enable the same synchronization strategies that are support
 - [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations)
 - [Lease Container](/rest/api/storageservices/lease-container)
 - [Lease Blob](/rest/api/storageservices/lease-blob)
+
+## Resources
+
+For related code samples using .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#optimistic-concurrency-for-blobs).

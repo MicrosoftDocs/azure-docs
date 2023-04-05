@@ -193,14 +193,6 @@ We're currently working to create code snippets reflecting version 12.x of the A
 
 ---
 
-## Resources
-
-For related code samples using deprecated SDKs, see the following resources:
-
-- [.NET version 11.x](blob-v11-samples-dotnet.md#build-a-highly-available-app-with-blob-storage)
-- [JavaScript version 11.x](blob-v11-samples-javascript.md#build-a-highly-available-app-with-blob-storage)
-- [Python version 2.1](blob-v2-samples-python.md#build-a-highly-available-app-with-blob-storage)
-
 ## Next steps
 
 In part one of the series, you learned about making an application highly available with RA-GZRS storage accounts.
@@ -209,3 +201,11 @@ Advance to part two of the series to learn how to simulate a failure and force y
 
 > [!div class="nextstepaction"]
 > [Simulate a failure in reading from the primary region](simulate-primary-region-failure.md)
+
+## Resources
+
+For related code samples using deprecated SDKs, see the following resources:
+
+- [.NET version 11.x](blob-v11-samples-dotnet.md#build-a-highly-available-app-with-blob-storage)
+- [JavaScript version 11.x](blob-v11-samples-javascript.md#build-a-highly-available-app-with-blob-storage)
+- [Python version 2.1](blob-v2-samples-python.md#build-a-highly-available-app-with-blob-storage)
