@@ -1,6 +1,6 @@
 ---
 title: Assign Azure AD roles to groups
-description: Assign Azure AD roles to role-assignable groups in the Azure portal, PowerShell, or Graph API.
+description: Assign Azure AD roles to role-assignable groups in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
 manager: amycolannino
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Assign Azure AD roles to groups
 
-This article describes how to assign Azure AD roles to [role-assignable groups](groups-concept.md) using the Azure portal, PowerShell or Microsoft Graph API.
+This article describes how to assign Azure AD roles to [role-assignable groups](groups-concept.md) using the Azure portal, PowerShell, or Microsoft Graph API.
 
 If you have Azure AD Premium P2, you can use Azure AD Privileged Identity Management (Azure AD PIM) to provide just-in-time access to roles, rather than granting permanent access. For information about how to assign Azure AD roles using PIM, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
@@ -64,7 +64,7 @@ Assigning an Azure AD role to a group is similar to assigning users and service 
 
 ### Create a role-assignable group
 
-Use the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup?branch=main) command to create a group.
+Use the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup?branch=main) command to create a role-assignable group.
 
 ```powershell
 $group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group has Helpdesk Administrator built-in role assigned to it in Azure AD." -MailEnabled:$false -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true
@@ -90,7 +90,7 @@ $roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId 
 
 ### Create a role-assignable group
 
-Use the [New-AzureADMSGroup](/powershell/module/azuread/new-azureadmsgroup?branch=main) command to create a group.
+Use the [New-AzureADMSGroup](/powershell/module/azuread/new-azureadmsgroup?branch=main) command to create a role-assignable group.
 
 ```powershell
 $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $false -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true 
@@ -118,7 +118,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinit
 
 ### Create a role-assignable group
 
-Use the [Create group](/graph/api/group-post-groups?branch=main) API to create a group.
+Use the [Create group](/graph/api/group-post-groups?branch=main) API to create a role-assignable group.
 
 **Request**
 
