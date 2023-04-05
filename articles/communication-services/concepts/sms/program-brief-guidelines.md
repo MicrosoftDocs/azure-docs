@@ -45,7 +45,7 @@ A random short code is a 5–6-digit phone number that is randomly selected and 
 A vanity short code is a 5–6-digit phone number that is chosen by you for your program. You can look up the list of available short codes in the [US Short Codes directory](https://usshortcodedirectory.com/).
 Additionally, you may pick a number that the customer can spell out on their phone dial pad as an alphanumeric equivalent – for example, Contoso can use OFFERS (633377). 
 
-When you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list is not available to lease. 
+When you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list isn't available to lease. 
 Example: 234567, 234578, 234589.
 
 > [!Note]
@@ -147,44 +147,44 @@ You need to provide information about your company and point of contact. Status 
 ### Customer care
 Customer care contact information must be clear and readily available to help customers understand program details as well as their status with the program. Customer care information should result in customers receiving help.
 
-In these fields, you are required to provide the customer care email address and a customer care phone number where customers can reach out to receive help.
+In these fields, you're required to provide the customer care email address and a customer care phone number where customers can reach out to receive help.
 
 ## Volume 
 ### Messages sent per user
-In this field, you are required to provide an approximate number of messages that will be sent out per customer monthly.
+In this field, you're required to provide an approximate number of messages that will be sent out per customer monthly.
 
 ### Replies per user 
-In this field, you are required to provide an approximate number of replies you expect to get per customer.
+In this field, you're required to provide an approximate number of replies you expect to get per customer.
 
 ### Expected total messages sent
-In this field, you are required to provide an estimate of total messages sent per month.
+In this field, you're required to provide an estimate of total messages sent per month.
 
 ### Traffic spikes
-In this field, you are required to provide information on traffic spikes and their expected timing.
+In this field, you're required to provide information on traffic spikes and their expected timing.
 Example: Traffic spikes are expected for delivery notifications program around holidays like Christmas.
 
 ## Templates
 
-Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you will be asked for your preference to manage opt-outs. If you opt-in, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you'll be asked for your preference to manage opt-outs. If you opt-in, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
 
 ### Opt-in confirmation message
 CTIA requires that the customer must actively opt into short code programs by sending a keyword from their mobile device to the short code, providing consent on website, IVR, etc.
 
-In this field, you are required to provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
+In this field, you're required to provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
 
 **Example:** Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt out.
 
 ### Help message response
 Message senders are required to respond to messages containing the HELP keyword with the program name and further information about how to contact the message sender.
 
-In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
+In this field, you're required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
 
 **Example:** Contoso Appointment reminders: Get help at support@contoso.com or 1-800 123 4567.Msg&Data Rates May Apply. Txt HELP for help. Txt STOP to opt out.
 
 ### Opt-out message
 Message senders are required to have mechanisms to opt customers out of the program and respond to messages containing the STOP keyword with the program name and confirmation that no additional messages will be sent. 
 
-In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. 
+In this field, you're required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. 
 
 **Example:** Contoso Appointment reminders: You’re opted out and will receive no further messages.
 
@@ -193,7 +193,7 @@ Please see our [guide on opt-outs](./sms-faq.md#opt-out-handling) to learn about
 ### Example messages
 Message senders are required to disclose all the types/categories of messages with samples that will be sent over the short code.
 
-In this field, you are required to provide a sample message for each content type you intend on using the short code for. 
+In this field, you're required to provide a sample message for each content type you intend on using the short code for. 
 
 #### Example flow:
 - **Contoso**: Contoso: Your reservation has been confirmed for 30th February 2022. Txt R to reschedule. Txt HELP or STOP. Msg&Data rates may apply.
