@@ -21,7 +21,7 @@ This article provides a guide for troubleshooting common scenarios in Durable Fu
 > [!TIP]
 > When debugging and diagnosing issues, it's recommended that you start by ensuring your app is using the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the **Durable Function Best Practice and Diagnostic Tools** article for instructions on how to upgrade your extension version. 
 
-The **Diagnose and solve problems** tab in Azure portal is a useful resource to monitor and diagnose potential issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [the Durable Functions Diagnostics guide](./durable-functions-diagnostics.md) for more details. 
+The **Diagnose and solve problems** tab in Azure portal is a useful resource to monitor and diagnose possible issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [the Durable Functions Diagnostics guide](./durable-functions-diagnostics.md) for more details. 
 
 If the resources above didn't solve your problem, the following sections provide advice for specific application symptoms:
 
@@ -107,7 +107,7 @@ traces
 | extend taskHub = customDimensions["prop__TaskHub"] 
 | extend pid = customDimensions["ProcessId"]
 | extend appName = cloud_RoleName
-| extend newEvents = customDimensions["NewEvents"]
+| extend newEvents = customDimensions["prop__NewEvents"]
 | where instanceId == targetInstanceId
 | sort by timestamp asc
 | project timestamp, taskName, eventType, extendedSession, account, details, instanceId, messageId, executionId, age, latencyMs, dequeueCount, partitionId, eventCount, taskHub, pid, newEvents, message, severityLevel, sdkVersion, appName
@@ -132,12 +132,47 @@ traces
 | sort by timestamp asc 
 ```
 
+### Control queue / Partition ID logs
+The following query searches for activity associated with an instanceId's control queue. You'll need to provide the value for the instanceID in `targetInstanceId` as well as the query's start time in `start`.
+```kusto
+let targetInstanceId = "XXXXXX"; // edit this
+let start = datetime(XXXX-XX-XXTXX:XX:XX); // edit this
+traces  // determine control queue for this orchestrator
+| where timestamp > start and timestamp < start + 1h 
+| extend instanceId = customDimensions["prop__TargetInstanceId"] 
+| extend partitionId = tostring(customDimensions["prop__PartitionId"])
+| where partitionId contains "control" 
+| where instanceId == targetInstanceId
+| join (
+traces  
+| where timestamp > start and timestamp < start + 1h 
+| where customDimensions.Category == "DurableTask.AzureStorage" 
+| extend taskName = customDimensions["EventName"]
+| extend eventType = customDimensions["prop__EventType"] 
+| extend extendedSession = customDimensions["prop__IsExtendedSession"]
+| extend account = customDimensions["prop__Account"] 
+| extend details = customDimensions["prop__Details"] 
+| extend instanceId = customDimensions["prop__InstanceId"] 
+| extend messageId = customDimensions["prop__MessageId"] 
+| extend executionId = customDimensions["prop__ExecutionId"] 
+| extend age = customDimensions["prop__Age"] 
+| extend latencyMs = customDimensions["prop__LatencyMs"] 
+| extend dequeueCount = customDimensions["prop__DequeueCount"] 
+| extend partitionId = tostring(customDimensions["prop__PartitionId"])
+| extend eventCount = customDimensions["prop__TotalEventCount"] 
+| extend taskHub = customDimensions["prop__TaskHub"] 
+| extend pid = customDimensions["ProcessId"]
+| extend appName = cloud_RoleName
+| extend newEvents = customDimensions["prop__NewEvents"]
+) on partitionId
+| sort by timestamp asc
+| project timestamp, taskName, eventType, extendedSession, account, details, instanceId, messageId, executionId, age, latencyMs, dequeueCount, partitionId, eventCount, taskHub, pid, newEvents, message, severityLevel, sdkVersion, appName
 
 |Column |Description |
 |-------|------------|
 |pid|Process ID of the function app instance. This is useful for determining if the process was recycled while an orchestration was executing.|
 |taskName|The name of the event being logged.|
-|eventType|The type of message, which usually represents work done by an orchestrator. A full list of its possible values, and their descriptions, is [here](https://github.com/Azure/durabletask/blob/d76cf22bef5a298ab8744997758f4c8921457924/src/DurableTask.Core/History/EventType.cs#L19.)|
+|eventType|The type of message, which usually represents work done by an orchestrator. A full list of its possible values, and their descriptions, is [here](https://github.com/Azure/durabletask/blob/main/src/DurableTask.Core/History/EventType.cs)|
 |extendedSession|Boolean value indicating whether [ExtendedSessions](durable-functions-azure-storage-provider.md#extended-sessions) is enabled.|
 |account|The storage account used by the app.|
 |details|Additional information about a particular event. This is where you would find error messages as well.|
