@@ -75,7 +75,7 @@ The roles and permissions used by Defender for Cloud to perform agentless scanni
     | Actions | Conditions | Resources | Effect |
     |---------|---------|---------|---------|
     | SID: **VmScannerDeleteSnapshotAccess** |  |  |  |
-    | `ec2:DeleteSnapshot` | "StringEquals": {"ec2:ResourceTag/CreatedBy”:"Microsoft Defender for Cloud"} | `arn:aws:ec2:::snapshot/` | Allow |
+    | `ec2:DeleteSnapshot` | "StringEquals":<br>{"ec2:ResourceTag/CreatedBy”:<br>"Microsoft Defender for Cloud"} | `arn:aws:ec2:::snapshot/` | Allow |
     | SID: **VmScannerAccess** |   |  |  |
     | `ec2:ModifySnapshotAttribute` <br> `ec2:DeleteTags` <br> `ec2:CreateTags` <br> `ec2:CreateSnapshots` <br> `ec2:CopySnapshots` <br> `ec2:CreateSnapshot` | None | `arn:aws:ec2:::instance/` <br> `arn:aws:ec2:::snapshot/` <br> `arn:aws:ec2:::volume/` | Allow |
     | SID: **VmScannerVerificationAccess** |  |  |  |
