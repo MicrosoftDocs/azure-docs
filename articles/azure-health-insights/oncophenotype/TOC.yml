@@ -1,17 +1,15 @@
 items: 
-- name: Onco-Phenotype
+- name: Onco Phenotype
   href: index.yml
 - name: Overview
   expanded: true
   items:
-    - name: About Onco-Phenotype
+    - name: About Onco Phenotype
       href: overview.md
-    - name: FAQ
-      href: faq.md
 - name: Quickstarts
   expanded: true
   items:
-     - name: Use the Onco-Phenotype model
+     - name: Use the Onco Phenotype model
        href: get-started.md
 - name: Responsible use of AI
   expanded: true
@@ -20,16 +18,6 @@ items:
       href: /legal/azure-health-insights/oncophenotype/transparency-note?context=/azure/azure-health-insights/oncophenotype/context/context
     - name: Data, privacy, and security
       href: ../responsible-ai/data-privacy-security.md
-- name: Resources
-  items:
-     - name: Enterprise readiness
-       items:
-        - name: Region Support
-          href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services
-        - name: Compliance and certification
-          href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-     - name: Support and help options
-       href: support-and-help.md
 - name: Concepts
   expanded: true
   items:
@@ -39,3 +27,28 @@ items:
        href: patient-info.md
      - name: Inference information
        href: inferences.md
+- name: Reference
+  expanded: true
+  items:
+     - name: REST API
+       href: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/Onco Phenotype
+     - name: SDKs
+       items:
+        - name: .NET
+          href: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/Onco Phenotype
+        - name: Java
+          href: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/Onco Phenotype
+        - name: Python
+          href: https://learn.microsoft.com/rest/api/cognitiveservices/healthinsights/Onco Phenotype
+- name: Resources
+  items:
+     - name: FAQ
+       href: faq.md
+     - name: Enterprise readiness
+       items:
+        - name: Region Support
+          href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=cognitive-services
+        - name: Compliance and certification
+          href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+     - name: Support and help options
+       href: support-and-help.md

@@ -1,7 +1,7 @@
 ---
-title: Onco-Phenotype frequently asked questions
+title: Onco Phenotype frequently asked questions
 titleSuffix: Azure Health Insights
-description: Onco-Phenotype frequently asked questions
+description: Onco Phenotype frequently asked questions
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# Onco-Phenotype Frequently Asked Questions
+# Onco Phenotype Frequently Asked Questions
 
-You’ll find answers to commonly asked questions about Onco-Phenotype, part of Azure Health Insights service, in this article
+You’ll find answers to commonly asked questions about Onco Phenotype, part of Azure Health Insights service, in this article
 
 - What does inference value `None` mean?
 

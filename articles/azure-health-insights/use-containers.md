@@ -47,7 +47,7 @@ CPU core and memory correspond to the `--cpus` and `--memory` settings, which ar
 Azure Health Insights container images can be found on the `mcr.microsoft.com` container registry syndicate. They resides within the `azure-cognitive-services/health-insights/` repository and can be found by their model name. 
 
 - Clinical Trial Matcher: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/clinical-matching`
-- Onco-Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
+- Onco Phenotype: The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/health-insights/cancer-profiling`
 
 To use the latest version of the container, you can use the `latest` tag. You can  find a full list of tags on the MCR via `https://mcr.microsoft.com/product/azure-cognitive-services/health-insights/<ModelName>/tags`.
 
