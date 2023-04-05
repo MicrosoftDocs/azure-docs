@@ -8,7 +8,7 @@ ms.author: mbullwin
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: overview
-ms.date: 03/21/2023
+ms.date: 04/05/2023
 recommendations: false
 keywords:  
 ---
@@ -17,7 +17,7 @@ keywords:
 
 ## April 2023
 
-- **DALL-E 2 public preview**. Azure OpenAI customers can now use image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./tbd) and [how-to article](./tbd).
+- **DALL-E 2 public preview**. Azure OpenAI customers can now use image generation APIs powered by OpenAI's DALL-E 2 model. Get AI-generated images based on the descriptive text you provide. To learn more, check out the [quickstart](./dall-e-quickstart.md) and [how-to article](./tbd). To request access, existing Azure OpenAI customers can [apply by filling out this form](tbd).
 
 ## March 2023
 
