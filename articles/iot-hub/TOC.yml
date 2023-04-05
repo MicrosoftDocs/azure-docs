@@ -284,9 +284,9 @@
           - name: Upgrade an IoT hub
             displayName: scale up, size, tier
             href: iot-hub-upgrade.md
-          - name: Automatically migrate an IoT hub
+          - name: Automatically migrate an IoT hub using CLI
             href: migrate-hub-state-cli.md
-          - name: Manually clone an IoT hub
+          - name: Manually migrate an IoT hub using ARM
             href: iot-hub-how-to-clone.md
           - name: Bulk import and export IoT devices
             href: iot-hub-bulk-identity-mgmt.md

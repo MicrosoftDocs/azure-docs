@@ -24,7 +24,7 @@ The steps in this article are useful if you want to:
 
 ## Compare automatic and manual migration steps
 
-The outcome of this article is similar to [How to clone an Azure IoT hub to another region](iot-hub-how-to-clone.md), but with a different process. Before you begin, decide which process is right for your scenario.
+The outcome of this article is similar to [How to migrate an Azure IoT hub using Azure Resource Manager templates](iot-hub-how-to-clone.md), but with a different process. Before you begin, decide which process is right for your scenario.
 
 * The Azure CLI process (this article):
 
@@ -158,7 +158,7 @@ If the destination IoT hub already exists, then the `arm` aspect is not required
 * Data residency
 * Features
 
-If the `--resource-group` is specified in the import command and is different than IoT hub's current resource group, the hub will be moved.
+If the `--resource-group` is specified in the import command and is different than IoT hub's current resource group, then the command will fail because it will attempt to create a new hub with the same name as the one that already exists.
 
 If you include the `--replace` flag in the import command, then the following IoT hub aspects will be removed from the destination hub before the hub state is uploaded:
 

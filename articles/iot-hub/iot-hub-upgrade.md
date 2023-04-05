@@ -21,7 +21,7 @@ When you have more devices and need more capabilities, there are three ways to a
 
 * Upgrade to a higher tier. For example, upgrade a hub from the B1 tier to the S1 tier for access to advanced features with the same messaging capacity.
    > [!Warning]
-   > You cannot upgrade from a Free Hub to a Paid Hub through our upgrade function.  You must create a Paid hub and migrate the configurations and devices from the Free hub to the Paid hub. This process is documented at [How to clone an IoT Hub](./iot-hub-how-to-clone.md).
+   > You cannot upgrade from a Free Hub to a Paid Hub through our upgrade function.  You must create a Paid hub and migrate the configurations and devices from the Free hub to the Paid hub. This process is documented at [How to migrate an IoT hub](./migrate-hub-state-cli.md).
    > [!Tip]
    > When you are upgrading your IoT Hub to a higher tier, some messages may be received out of order for a short period of time. If your business logic relies on the order of messages, we recommend upgrading during non-business hours.
 

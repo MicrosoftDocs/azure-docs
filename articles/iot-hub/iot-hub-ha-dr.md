@@ -149,7 +149,7 @@ Failover capability won't be available if you disable disaster recovery for an I
 
 :::image type="content" source="media/iot-hub-ha-dr/disaster-recovery-disabled.png" alt-text="Screenshot that shows disaster recovery disabled for an IoT hub in Singapore region.":::
 
-You can only disable disaster recovery to avoid data replication outside of the paired region in Brazil South or Southeast Asia when you create an IoT hub. If you want to configure your existing IoT hub to disable disaster recovery, you need to create a new IoT hub with disaster recovery disabled and manually migrate your existing IoT hub. For guidance, see [How to clone an Azure IoT Hub to another region](iot-hub-how-to-clone.md). This article contains advice about migrating routes, custom endpoints, and other IoT Hub artifacts when migrating to a new Iot hub. You can ignore concerns that have to do with migrating across regions.
+You can only disable disaster recovery to avoid data replication outside of the paired region in Brazil South or Southeast Asia when you create an IoT hub. If you want to configure your existing IoT hub to disable disaster recovery, you need to create a new IoT hub with disaster recovery disabled and manually migrate your existing IoT hub. For guidance, see [How to migrate an IoT hub](migrate-hub-state-cli.md).
 
 ## Achieve cross region HA
 
