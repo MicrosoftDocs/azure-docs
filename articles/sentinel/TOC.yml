@@ -27,8 +27,6 @@
     href: tutorial-log4j-detection.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
-  - name: Create a Power BI report from Microsoft Sentinel
-    href: powerbi.md
   - name: Build and monitor Zero Trust
     href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
@@ -813,6 +811,8 @@
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: ./monitor-your-data.md
+    - name: Create a Power BI report
+      href: powerbi.md
   - name: Detect threats and analyze data
     items:
     - name: MITRE ATT&CK coverage
