@@ -79,7 +79,7 @@
       items:
       - name: Dapr overview
         href: dapr-overview.md
-      - name: Dapr FAQ
+      - name: Frequently asked questions
         href: dapr-faq.yml
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
