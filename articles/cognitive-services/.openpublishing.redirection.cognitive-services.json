@@ -5316,6 +5316,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-voice-assistants.yml",
+            "redirect_url": "/azure/cognitive-services/Speech-Service/voice-assistants",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Translator/collaborative-translation-framework-reporting-api.md",
             "redirect_url": "/azure/cognitive-services/translator/ctf-reporting",
             "redirect_document_id": false

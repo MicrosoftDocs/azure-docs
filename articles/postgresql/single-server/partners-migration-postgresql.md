@@ -13,6 +13,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 
 To broadly support your Azure Database for PostgreSQL solution, you can choose from a wide variety of industry-leading partners and tools. This article highlights Microsoft partners with migration solutions that support Azure Database for PostgreSQL.
 
