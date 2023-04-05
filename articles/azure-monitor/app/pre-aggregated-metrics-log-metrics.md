@@ -2,7 +2,7 @@
 title: Log-based and pre-aggregated metrics in Application Insights | Microsoft Docs
 description: This article explains when to use log-based versus pre-aggregated metrics in Application Insights.
 ms.topic: conceptual
-ms.date: 01/06/2023
+ms.date: 04/05/2023
 ms.reviewer: vitalyg
 ---
 
@@ -23,7 +23,7 @@ At the same time, collecting a complete set of events might be impractical or ev
 
 ## Pre-aggregated metrics
 
-In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that's optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they're stored as pre-aggregated time series, and only with key dimensions. This change makes the new metrics superior at query time. Retrieving data happens much faster and requires less compute power. As a result, new scenarios are enabled, such as [near real time alerting on dimensions of metrics](../alerts/alerts-metric-near-real-time.md) and more responsive [dashboards](./overview-dashboard.md).
+In addition to log-based metrics, in late 2018, the Application Insights team shipped a public preview of metrics that are stored in a specialized repository that's optimized for time series. The new metrics are no longer kept as individual events with lots of properties. Instead, they're stored as pre-aggregated time series, and only with key dimensions. This change makes the new metrics superior at query time. Retrieving data happens faster and requires less compute power. As a result, new scenarios are enabled, such as [near real time alerting on dimensions of metrics](../alerts/alerts-metric-near-real-time.md) and more responsive [dashboards](./overview-dashboard.md).
 
 > [!IMPORTANT]
 > Both log-based and pre-aggregated metrics coexist in Application Insights. To differentiate the two, in the Application Insights user experience the pre-aggregated metrics are now called Standard metrics (preview). The traditional metrics from the events were renamed to Log-based metrics.
@@ -79,7 +79,7 @@ Pre-aggregated metrics are stored as time series in Azure Monitor. [Azure Monito
 
 ## Why is collection of custom metrics dimensions turned off by default?
 
-The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights. Storing the non-dimensional custom metrics will remain free (up to a quota). You can learn about the upcoming pricing model changes on our official [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights. Storing the nondimensional custom metrics remain free (up to a quota). You can learn about the upcoming pricing model changes on our official [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Create charts and explore log-based and standard pre-aggregated metrics
 
