@@ -12,7 +12,7 @@ ms.author: eur
 The Speech SDK depends on the following Linux system libraries:
 
 - The shared libraries of the GNU C library, including the POSIX Threads Programming library, `libpthreads`
-- The OpenSSL library (`libssl`) version 1.x
+- The OpenSSL library (`libssl`) version 1.x and certificates (`ca-certificates`)
 - The shared library for ALSA applications (`libasound`)
 - You should also install `ca-certificates` to establish a secure websocket and avoid the `WS_OPEN_ERROR_UNDERLYING_IO_OPEN_FAILED` error.
 
