@@ -23,6 +23,8 @@ items:
     - name: GPT-35-Turbo (preview) & GPT-4 (preview)
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
+    - name: DALL-E (preview)
+      href: dall-e-quickstart.md
 - name: Concepts
   items:
     - name: Prompt engineering
