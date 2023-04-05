@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Manage workflows with the Dapr extension for Azure Kubernetes Service (AKS)
 
-With the Dapr Workflow API, you can easily orchestrate messaging, state management, and failure-handling logic across various microservices. Dapr Workflow can help you create long-running, fault-tolerant, and stateful applications. 
+With Dapr Workflow, you can easily orchestrate messaging, state management, and failure-handling logic across various microservices. Dapr Workflow can help you create long-running, fault-tolerant, and stateful applications.  
 
 In this guide, you use the [provided order processing workflow example][dapr-workflow-sample] to:
 
@@ -39,12 +39,12 @@ The workflow example is an ASP.NET Core project with:
 
 ## Set up the environment
 
-### Download the sample project
+### Clone the sample project
 
-Fork and clone the example workflow application. For more information on forking a repo, see GitHub's guide, [Fork a repo][gh-fork].
+Clone the example workflow application. 
 
 ```sh
-git clone https://github.com/<your-repo>/dapr-workflows-aks-sample.git
+git clone https://github.com/Azure-Samples/dapr-workflows-aks-sample.git
 ```
 
 Navigate to the sample's root directory.
@@ -53,47 +53,12 @@ Navigate to the sample's root directory.
 cd dapr-workflows-aks-sample
 ```
 
-### Prepare the Docker image
-
-Run the following commands to test that the Docker image works for the application.
-
-```sh       
-docker build -t ghcr.io/<your-repo>/workflows-sample:0.1.0 -f Deploy/Dockerfile .
-docker push ghcr.io/<your-repo>/workflows-sample:0.1.0
-```
-
-### Create an Azure Container Registry
-
-Create an Azure Container Registry (ACR) and log in to retrieve the ACR Login Server. 
-
-```sh
-az group create --name myResourceGroup --location eastus
-az acr create --resource-group myResourceGroup --name acrName --sku Basic
-az acr login --name acrName
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
-```
-
-Expected output:
-
-```sh
-acrName.azurecr.io
-```
-
-Tag the [Docker image](#prepare-the-docker-image) you prepared earlier and push to your new ACR using the result from the ACR query:
-
-```sh
-docker tag ghcr.io/<your-repo>/workflows-sample:0.1.0 acrName.azurecr.io/workflows-sample:0.1.0
-docker push acrName.azurecr.io/workflows-sample:0.1.0
-```
-
-For more information, see the [Deploy and use ACR][acr] tutorial.
-
 ### Create a Kubernetes cluster
 
-Create an AKS cluster and attach to your ACR:
+Create an AKS cluster and attach to [the ACR provided with the sample][deployment-yaml]:
 
 ```sh
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys --attach-acr acrName
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys --attach-acr samples
 ```
 
 Make sure `kubectl` is installed and pointed to your AKS cluster.
@@ -101,25 +66,6 @@ Make sure `kubectl` is installed and pointed to your AKS cluster.
 For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 
 ## Deploy the application to AKS
-
-### Update the containers for deployment
-
-Navigate to the [`deployment.yaml` file][deployment-yaml] in your fork of the sample project and open in your preferred code editor.
-
-```sh
-cd Deploy
-code .
-```
-
-In the `deployment.yaml` file, update the `containers` spec value to your new ACR name and image:
-
-```yaml
-containers:
-- name: workflows-sample
-  image: acrName.azurecr.io/workflows-sample:0.1.0
-```
-
-Save and close the `deployment.yaml` file.
 
 ### Install Dapr on your AKS cluster
 
@@ -131,7 +77,7 @@ Install the Dapr extension on your AKS cluster. Before you start, make sure you'
 az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup --name dapr --extension-type Microsoft.Dapr
 ```
 
-Verify Dapr has been installed by running either of the following commands:
+Verify Dapr has been installed by running _either_ of the following commands:
 
 ```sh
 az k8s-extension show --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup --name dapr
