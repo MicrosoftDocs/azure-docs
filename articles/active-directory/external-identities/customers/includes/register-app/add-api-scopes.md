@@ -23,7 +23,7 @@ ms.author: kengaderdus
     
     1. For **Admin consent description**, enter **Allow the app to read the user's ToDo list using the 'TodoListApi'**.
     
-    1. Keep **State** as **Enabled**.
+    1. Keep **State** as **Enabled** and select **Add scope**.
     
     1. Select the **Add scope** button at the bottom of the pane to save the scope.
 
