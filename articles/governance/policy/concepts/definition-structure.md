@@ -1174,7 +1174,7 @@ Limits to the size of objects that are processed by policy functions during poli
 }
 ```
 
-The length of the string created by the `concat()` function depends of the value of properties in the evaluated resource.
+The length of the string created by the `concat()` function depends on the value of properties in the evaluated resource.
 
 | Limit | Value | Example |
 |:---|:---|:---|
