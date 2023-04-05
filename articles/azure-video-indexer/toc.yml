@@ -59,16 +59,27 @@
     href: considerations-when-use-at-scale.md
     displayName: 30-GB upload size limitation, six best practices, world wide web, serverless event-driven platform, Azure Video Indexer, videoUrl optional parameter, upload video API, HTTP 429 response code, byte array file, callBack URL definition, Media Reserved Units, right indexing parameters, file size limitations, Azure description, Azure Functions, upload speed, videoUrl field, HTTP response, code samples, right parameters, upload request, efficient way, high dependency, service reliability, First consideration, Operations&operation, reliable way, Automatic Scaling, price optimization, price reduction, many cases, next retry, POST notification, use case, different parameters, media file, next request, technological constraints, excess money, business needs, many requests, status change, indexing process, storage account, title, Things, scale, topic, date, juliako, videos, archive, article, questions, smart, choice, information, considerations, 2 GB, issues, performance, files, multi-part, network, connectivity, packets, image, first-consideration, path, location, care, rest, api-portal, videoindexer, details, TIP, example, fast, content, August, media-services, concept, MRUs, AMS, result, Respect, system, capabilities, integration, batch, movies, fact, minute, header, throttling, github, master, flow, decisions, uploading
   - name: Insights
-    href: insights-overview.md
     displayName: optical character recognition elements, Azure Video Indexer account, Azure Video Indexer OCR, Azure Video Indexer insights, specific predefined text, Detect textual logo, timestamped transcript lines, Textual logo detection, Audio effects detection, insights output file, detailed JSON output, 30+ AI models, Azure portal, account types, audio content, audio cues, video insights, entire video, ms.topic, rich insights, aggregated view, time ranges, common insights, frame(s, representative frames, aesthetic properties, easier consumption, Faces detection, different appearances, Microsoft" logo, sentimentType` field, single audio-file, other insights, Insights tab, right-top corner, response status, response content, Operations&operation, JSON content, insight type, one insight, brief overview, Named entities, Sixteen speakers, Topics inference, title, description, article, juliako, data, transcripts, OCRs, emotions, details, example, instances, information, audio-effects-detection-transparency-note, Scenes, shots, keyframes, contrast, stableness, navigation, speech, azure-video-indexer, face-detection-transparency, user, word, Labels, entities-transparency, People, ocr-transparency-note, Sentiments, Transcription, translation, language, features, website, videoindexer, Screenshot, indexer-output, Press, artifacts, API
-  - name: Post-production insights
+    href: insights-overview.md
     items:
-    - name: Slate detection
-      href: slate-detection-insight.md
-      displayName: Slate detection insights description, following slate detection insights, Textless slate detection, movie post-production process, advanced indexing option, Digital patterns detection, The Timeline tab, The Insight tab, indexing process, post-production insights, slate insight, audio indexing, Advanced** presets, advanced setting, slate metadata, post-production checkmark, clapper board, color bars, Next steps, metadata extraction, Juliako manager, scene matching, clapperboard instances, title, author, femila, topic, article, video, customers, wikipedia, org, information, example, SMPTE_color_bars, order, image, media/slate-detection-process, advanced-setting, file, list, post-production-checkmark, details, color-bars
-  - name: Compare Azure Video Indexer and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md
-    displayName: Azure Media Services v3 presets, Azure Video Indexer Video Analysis, Microsoft%20Azure%20Compliance%20Offerings, capabilities, APIs, Audio Analyzer Presets, Cognitive Services availability, Media Services availability, current compliance updates, Video Analyzer, presets description, Microsoft.Media, video insights, Media Insights, current guideline, following table, full list, East US, Region availability, Next steps, title, Comparison, article, conceptual, juliako, overlap, features, github, api-specs, specification, resource-manager, json, deprecation, media-services, release, notes, retirement, azure-media-redactor-video-analyzer, september, functionality, differences, similarities, Fundamentals, video-audio-files, Experiences, Pricing, details, analytics, technet, certificate, interest, Trial, global-infrastructure/services, cognitive-services, overview
+    - name: Audio effects detection
+      href: audio-effects-detection-overview.md
+    - name: Faces detection
+      href: face-detection.md
+    - name: OCR
+      href: ocr.md
+    - name: Keywords extraction
+      href: keywords.md
+    - name: Transcription, translation, language
+      href: transcription-translation-lid.md
+    - name: Labels identification
+      href: labels-identification.md
+    - name: Named entities
+      href: named-entities.md
+    - name: Observed people tracking & matched faces
+      href: observed-matched-people.md
+    - name: Topics inference
+      href: topics-inference.md
   - name: Customizing content models
     displayName: customize, customizing
     items:
@@ -86,6 +97,12 @@
     - name: Customize person model overview
       href: customize-person-model-overview.md
       displayName: multiple Person model support, multiple custom Person models, Azure Video Indexer website, top LinkedIn influencers, to 1 million people, multiple Person models, specific custom model, celebrity recognition feature, separate Person model, specific Person model, one million faces, Person model ID, default Person model, 50 Person models, Azure  description, ms.author, Gate notice, data source, image files, different use-cases, different channels, ms.topic, new face, title, article, overview, conceptual, videos, IMDB, Wikipedia, Customers, name, account, example, content, NOTE, limit, API
+  - name: Slate detection
+    href: slate-detection-insight.md
+    displayName: Slate detection insights description, following slate detection insights, Textless slate detection, movie post-production process, advanced indexing option, Digital patterns detection, The Timeline tab, The Insight tab, indexing process, post-production insights, slate insight, audio indexing, Advanced** presets, advanced setting, slate metadata, post-production checkmark, clapper board, color bars, Next steps, metadata extraction, Juliako manager, scene matching, clapperboard instances, title, author, femila, topic, article, video, customers, wikipedia, org, information, example, SMPTE_color_bars, order, image, media/slate-detection-process, advanced-setting, file, list, post-production-checkmark, details, color-bars
+  - name: Compare Azure Video Indexer and Media Services presets
+    href: compare-video-indexer-with-media-services-presets.md
+    displayName: Azure Media Services v3 presets, Azure Video Indexer Video Analysis, Microsoft%20Azure%20Compliance%20Offerings, capabilities, APIs, Audio Analyzer Presets, Cognitive Services availability, Media Services availability, current compliance updates, Video Analyzer, presets description, Microsoft.Media, video insights, Media Insights, current guideline, following table, full list, East US, Region availability, Next steps, title, Comparison, article, conceptual, juliako, overlap, features, github, api-specs, specification, resource-manager, json, deprecation, media-services, release, notes, retirement, azure-media-redactor-video-analyzer, september, functionality, differences, similarities, Fundamentals, video-audio-files, Experiences, Pricing, details, analytics, technet, certificate, interest, Trial, global-infrastructure/services, cognitive-services, overview
 - name: How to guides
   items:
   - name: Manage accounts

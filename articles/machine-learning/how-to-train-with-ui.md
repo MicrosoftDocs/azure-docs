@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use the job creation UI in Azure Machine Learning studio to create a training job. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.topic: how-to
 ms.custom: devplatv2, event-tier1-build-2022
 author: wenxwei

@@ -223,6 +223,8 @@ items:
               href: manage-integration-runtimes.md
             - name: Self-hosted integration runtime auto-update and expiration
               href: self-hosted-integration-runtime-version.md
+            - name: Troubleshoot self-hosted integration runtime
+              href: scanning-shir-troubleshooting.md
         - name: Scan
           items:
           - name: Scan a registered source
@@ -235,6 +237,8 @@ items:
             href: how-to-monitor-data-map-population.md
           - name: Troubleshoot scans & connections
             href: troubleshoot-connections.md
+          - name: Troubleshoot self-hosted integration runtime
+            href: scanning-shir-troubleshooting.md
         - name: Classify
           items:
           - name: Automatically apply classifications
@@ -267,8 +271,6 @@ items:
             href: how-to-lineage-purview-data-sharing.md
           - name: Power BI lineage
             href: how-to-lineage-powerbi.md
-          - name: Spark lineage
-            href: how-to-lineage-spark-atlas-connector.md
           - name: SQL Server Integration Services lineage
             href: how-to-lineage-sql-server-integration-services.md
   - name: Data catalog

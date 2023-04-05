@@ -49,6 +49,8 @@ The table in this article provides information on the Peering Service connectivi
 | [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia, Europe |
 | [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) |Oceania |
 | [Vodacom](https://www.vodacom.com/index.php) |Africa |
+| [Vodafone](https://www.vodafone.com/business/solutions/fixed-connectivity/internet-services#solutions) |Europe, North America, Asia|
+
 
 > [!NOTE]
 >For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.

@@ -72,8 +72,6 @@ items:
       href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
       href: quickstarts/sms/send.md
-    - name: Send an SMS in Azure Logic Apps
-      href: quickstarts/sms/logic-app.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
   - name: Voice and Video
@@ -116,8 +114,6 @@ items:
         href: quickstarts/identity/access-tokens.md
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md 
-      - name: Send Chat messages in Azure Logic Apps
-        href: quickstarts/chat/logic-app.md
     - name: Connect to Teams
       items:
       - name: Use an external identity
@@ -148,6 +144,8 @@ items:
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
+    - name: Add multiple sender addresses
+      href: quickstarts/email/add-multiple-senders.md
     - name: Send an email in Azure Logic Apps
       href: quickstarts/email/logic-app.md
   - name: Network Traversal
@@ -168,6 +166,8 @@ items:
         href: quickstarts/telephony/port-phone-number.md
       - name: Apply for a short code
         href: quickstarts/sms/apply-for-short-code.md
+      - name: Apply for toll-free verification
+        href: quickstarts/sms/apply-for-toll-free-verification.md
     - name: Events
       items:
       - name: View SMS events
@@ -426,8 +426,6 @@ items:
     items:
     - name: Overview
       href: concepts/sms/concepts.md
-    - name: FAQ
-      href: concepts/sms/sms-faq.md
     - name: SDK features
       href: concepts/sms/sdk-features.md
     - name: Messaging policy
@@ -438,6 +436,8 @@ items:
         href: concepts/numbers/number-types.md
       - name: Short code program brief filling guidelines
         href: concepts/sms/program-brief-guidelines.md
+      - name: Toll-free verification guidelines
+        href: concepts/sms/toll-free-verification-guidelines.md
     - name: Events
       items:
       - name: Overview
@@ -450,6 +450,8 @@ items:
         href: concepts/logging-and-diagnostics.md
       - name: Metrics overview
         href: concepts/metrics.md
+    - name: SMS FAQ
+      href: concepts/sms/sms-faq.md
   - name: Voice and Video Calling
     items:
     - name: Overview
@@ -512,6 +514,8 @@ items:
       href: concepts/voice-video-calling/call-recording.md
     - name: Media access
       href: concepts/voice-video-calling/media-access.md
+    - name: Video constraints
+      href: concepts/voice-video-calling/video-constraints.md
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
     - name: Events

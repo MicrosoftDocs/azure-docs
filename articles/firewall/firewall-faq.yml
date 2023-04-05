@@ -38,7 +38,7 @@ sections:
 
           There are three types of rule collections:
 
-          * *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a subnet.
+          * *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a Virtual Network.
           * *Network rules*: Configure rules that contain source addresses, protocols, destination ports, and destination addresses.
           * *NAT rules*: Configure DNAT rules to allow incoming Internet connections.
 

@@ -39,7 +39,7 @@ Azure Firewall supports both Classic rules and policies, but policies is the rec
 
 ## Basic, Standard, and Premium policies
 
-Azure Firewall supports Basic (preview), Standard, and Premium policies. The following table summarizes the difference between these policies:
+Azure Firewall supports Basic, Standard, and Premium policies. The following table summarizes the difference between these policies:
 
 
 |Policy type|Feature support  | Firewall SKU support|

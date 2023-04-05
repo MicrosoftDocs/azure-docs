@@ -49,6 +49,14 @@ sections:
           
           See [Create a custom topic or a domain in Azure Event Grid](create-custom-topic.md#advanced-page) to learn more about how to configure data residency when creating a topic or domain or see [Configure a custom topic or a domain in Azure Event Grid](configure-custom-topic.md#configure-data-residency) to learn how to configure data residency in a pre-existing topic or domain.
 
+  - name: Event Grid on IoT Edge
+    questions:
+      - question: |
+          Where happened to Event Grid on Azure IoT Edge?
+        answer: |
+          On March 31, 2023, Event Grid on Azure IoT Edge support was retired. Use IoT Edge native capabilities instead. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md).
+
+
 additionalContent: | 
 
   ## Next steps

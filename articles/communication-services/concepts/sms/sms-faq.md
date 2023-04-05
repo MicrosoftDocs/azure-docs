@@ -3,11 +3,11 @@ title: SMS FAQ
 titleSuffix: An Azure Communication Services concept document
 description: SMS FAQ
 author: prakulka
-manager: shahen
+manager: sundraman
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 08/19/2022
+ms.date: 3/22/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
@@ -23,7 +23,7 @@ Azure Communication Services customers can use Azure Event Grid to receive incom
 
 ### How are messages sent to landline numbers treated?
 
-In the United States, Azure Communication Services does not check for landline numbers and will attempt to send it to carriers for delivery. Customers will be charged for messages sent to landline numbers. 
+In the United States, Azure Communication Services does not check for landline numbers and attempts to send it to carriers for delivery. Customers are charged for messages sent to landline numbers. 
 
 ### Can I send messages to multiple recipients?
 
@@ -53,20 +53,20 @@ Below is a list with examples of common URL shorteners you should avoid to maxim
 ### How does Azure Communication Services handle opt-outs for toll-free numbers?
 
 Opt-outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden. 
-- **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop" which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
+- **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop", which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
 - **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP’ to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”*
-- Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
+- Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
 - The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
 ### How does Azure Communication Services handle opt-outs for short codes?
-Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you will be asked for your preference to manage opt-outs. If you opt-in to use it, the opt-out management service will automatically use your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
+Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Prior to provisioning your short code, you are asked for your preference to manage opt-outs. If you opt-in to use it, the opt-out management service automatically uses your responses in the program brief for Opt-in/ Opt-out/ Help keywords in response to STOP/START/HELP keyword. 
 
 *Example:* 
 - **STOP** - If a text message recipient wishes to opt out, they can send ‘STOP’ to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You’re opted out and will receive no further messages."*
 - **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send ‘START’ to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
 - **HELP** - If the recipient wishes to get help with your service, they can send 'HELP' to the short code. Azure Communication Service sends the response you configured in the program brief for HELP: *"Thanks for texting Contoso! Call 1-800-800-8000 for support."*
 
-Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
+Azure Communication Services detects STOP messages and blocks all further messages to the recipient. The delivery report indicates a failed delivery with status message as “Sender blocked for given recipient.” The STOP, UNSTOP and START messages are relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
 ## Short codes
 ### What is the eligibility to apply for a short code?
@@ -79,7 +79,7 @@ No. Texting to a toll-free number from a short code is not supported. You also w
 Short codes do not fall under E.164 formatting guidelines and do not have a country code, or a "+" sign prefix. In the SMS API request, your short code should be passed as the 5-6 digit number you see in your short codes blade without any prefix. 
 
 ### How long does it take to get a short code? What happens after a short code program brief application is submitted?
-Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. We will let you know any updates and the status of your applications via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
+Once you have submitted the short code program brief application in the Azure portal, the service desk works with the aggregators to get your application approved by each wireless carrier. This process generally takes 8-12 weeks. All updates and the status changes for your applications are communicated via the email you provide in the application. For more questions about your submitted application, please email acstnrequest@microsoft.com.
 
 ## Toll-Free Verification
 ### What is toll free verification?
@@ -88,32 +88,49 @@ The toll-free verification process ensures that your services running on toll-fr
 This verification is **required** for best SMS delivery experience.
 
 ### What happens if I don't verify my toll-free numbers?
-What happens to the unverified toll-free number depends on the destination of SMS traffic.
+
 #### SMS to US phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to US phone numbers will be subjected to the following: 
 
-1. **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (i.e., SMS messages with URLs might be blocked).  
+1. **Stricter filtering** - SMS messages are more likely to get blocked due to strict filtering, preventing messages to be delivered (that is, SMS messages with URLs might be blocked).  
 2. **SMS volume thresholds**:
-- **Daily Limit:** 2,000 messages
-- **Weekly limit:** 12,000 messages
-- **Monthly limit:** 25,000 messages
+Effective April 1, 2023, the industry’s toll-free aggregator is implementing new limits to messaging traffic for restricted and pending toll-free numbers. Messaging that exceeds a limit returns Error Code 795/ 4795: tfn-not-verified.
 
-This would not apply to TFNs in a [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
+New limits are as follows:
+
+|Limit type  |Verification Status|Current limit| Limit effective April 1, 2023 |
+|------------|-------------------|-------------|-------------------------------|
+|Daily limit |Unverified         | 2,000       |500|
+|Weekly limit| Unverified| 12,000| 1,000|
+|Monthly Limit| Unverified| 25,000| 2,000|
+|Daily limit| Pending Verification| No Limit| 2,000|
+|Weekly limit| Pending Verification| No Limit| 6,000|
+|Monthly Limit| Pending Verification| 500,000| 10,000|
+|Daily limit| Verified | No Limit| No Limit|
+|Weekly limit| Verified| No Limit| No Limit|
+|Monthly Limit| Verified| No Limit| No Limit|
+
+
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam will have a [4010 error code](../troubleshooting-info.md#sms-error-codes)  returned for both scenarios.
 > 
 > The unverified volume daily cap is a daily maximum limit (not a guaranteed daily minimum), so unverified traffic can still experience message filtering even when it’s well below the daily limits.
 
+> [!IMPORTANT]
+> In the near future, the verification process will need to be completed before sending any traffic on a toll-free number. The official date will be shared in the coming weeks. In the meantime, please start to prepare for this change in your onboarding processes.
+
 #### SMS to Canadian phone numbers
 Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and be in [pending or verified status](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean).
 
 ### What do the different application statuses (verified, pending and unverified) mean? 
-- **Verified:** Verified numbers have gone through the toll-free verification process and have been approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content will be blocked but the number will not be automatically blocked.
-- **Pending**: Numbers in pending state have an associated toll-free verification form being reviewed by the toll-free messaging aggregator. They can send at a lower throughput than verified numbers, but higher than unverified numbers. Blocking can be applied to individual content or there can be an automatic block of all traffic from the number. These numbers will remain in this pending state until a decision has been made on verification status.
-- **Unverified:** Unverified numbers have either 1) not submitted a verification application or 2) have had their application denied. These numbers are subject to the highest amount of filtering, and numbers in this state will automatically get shut off if any spam or unwanted traffic is detected.
+- **Verified:** Verified numbers have gone through the toll-free verification process and have been approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content is blocked but the number is not automatically blocked.
+- **Pending**: Numbers in pending state have an associated toll-free verification form being reviewed by the toll-free messaging aggregator. They can send at a lower throughput than verified numbers, but higher than unverified numbers. Blocking can be applied to individual content or there can be an automatic block of all traffic from the number. These numbers remain in this pending state until a decision has been made on verification status.
+- **Unverified:** Unverified numbers have either 1) not submitted a verification application or 2) have had their application denied. These numbers are subject to the highest amount of filtering, and numbers in this state automatically get shut off if any spam or unwanted traffic is detected.
 
 ### What happens after I submit the toll-free verification form?
-:::image type="content" source="./media/tf-status-blue.png" alt-text="A picture of the toll-free application timeline and the different application statuses.":::
+:::image type="content" source="./media/tf-status-blue.png" alt-text="A picture of the toll-free application timeline and the different application statuses." lightbox="./media/tf-status-blue.png":::
+
+
 
 After submission of the form, we will coordinate with our downstream peer to get the application verified by the toll-free messaging aggregator. While we are reviewing your application, we may reach out to you for more information.
 - From Application Submitted to Pending = **1-5 business days** 
@@ -127,7 +144,7 @@ Updates for changes and the status of your applications will be communicated via
 To submit a toll-free verification application, navigate to Azure Communication Service resource that your toll-free number is associated with in Azure portal and navigate to the Phone numbers blade. Click on the Toll-Free verification application link displayed as "Submit Application" in the infobox at the top of the phone numbers blade. Complete the form.
 
 ### What is considered a high quality toll-free verification application? 
-The higher the quality of the application the higher chances your application will enter [pending state](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean) faster.  
+The higher the quality of the application the higher chances your application enters [pending state](#what-do-the-different-application-statuses-verified-pending-and-unverified-mean) faster.  
 
 Pointers to ensure you are submitting a high quality application:
 - Phone number(s) listed is/are Toll-free number(s)
@@ -156,8 +173,8 @@ Toll-free verification (TFV) involves an integration between Microsoft and the T
 ### What is the SMS character limit?
  The size of a single SMS message is 140 bytes. The character limit per single message being sent depends on the message content and encoding used. Azure Communication Services supports both GSM-7 and UCS-2 encoding. 
 
-- **GSM-7** - A message containing text characters only will be encoded using GSM-7
-- **UCS-2** - A message containing unicode (emojis, international languages) will be encoded using UCS-2
+- **GSM-7** - A message containing text characters only is encoded using GSM-7
+- **UCS-2** - A message containing unicode (emojis, international languages) is encoded using UCS-2
 
 This table shows the maximum number of characters that can be sent per SMS segment to carriers:
 
@@ -174,7 +191,7 @@ Azure Communication Services supports sending and receiving of long messages ove
 
 ### Are there any limits on sending messages?
 
-To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit will receive a 429 HTTP Status Code Response. If your company has requirements that exceed the rate-limits, please email us at phone@microsoft.com.
+To ensure that we continue offering the high quality of service consistent with our SLAs, Azure Communication Services applies rate limits (different for each primitive). Developers who call our APIs beyond the limit receives a 429 HTTP Status Code Response. If your company has requirements that exceed the rate-limits, email us at phone@microsoft.com.
 
 Rate Limits for SMS:
 
@@ -185,12 +202,12 @@ Rate Limits for SMS:
 
 ## Carrier Fees 
 ### What are the carrier fees for SMS?
-US and CA carriers charge an added fee for SMS messages sent and/or received from toll-free numbers and short codes. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. Please refer to [SMS pricing](../sms-pricing.md) for more details. 
+US and CA carriers charge an added fee for SMS messages sent and/or received from toll-free numbers and short codes. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. Refer to [SMS pricing](../sms-pricing.md) for more details. 
 
-### When will we come to know of changes to these surcharges?
-As with similar Azure services, customers will be notified at least 30 days prior to the implementation of any price changes. These charges will be reflected on our SMS pricing page along with the effective dates. 
+### When do we come to know of changes to these surcharges?
+As with similar Azure services, customers are notified at least 30 days prior to the implementation of any price changes. These charges are reflected on our SMS pricing page along with the effective dates. 
 
 ## Emergency support
 ### Can a customer use Azure Communication Services for emergency purposes?
 
-Azure Communication Services does not support text-to-911 functionality in the United States, but it’s possible that you may have an obligation to do so under the rules of the Federal Communications Commission (FCC).  You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you're covered by these rules, you'll be responsible for routing 911 text messages to emergency call centers that request them. You're free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.
+Azure Communication Services does not support text-to-911 functionality in the United States, but it’s possible that you may have an obligation to do so under the rules of the Federal Communications Commission (FCC).  You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you're covered by these rules, you are responsible for routing 911 text messages to emergency call centers that request them. You're free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.

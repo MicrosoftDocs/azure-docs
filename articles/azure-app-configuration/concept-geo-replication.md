@@ -1,5 +1,5 @@
 ---
-title: Geo-replication in Azure App Configuration (Preview)
+title: Geo-replication in Azure App Configuration
 description: Details of the geo-replication feature in Azure App Configuration. 
 author: maud-lv
 ms.author: malev
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/01/2022
 ---
 
-# Geo-replication overview (Preview)
+# Geo-replication overview
 
 For application developers and IT engineers, a common goal is to build and run resilient applications. Resiliency is defined as the ability of your application to react to failure and still remain functional. To achieve resilience in the face of regional failures in the cloud, the first step is to build in redundancy to avoid a single point of failure. This redundancy can be achieved with geo-replication.
 
-The App Configuration geo-replication feature allows you to replicate your configuration store at-will to the regions of your choice.  Each new **replica** will be in a different region and creates a new endpoint for your applications to send requests to. The original endpoint of your configuration store is called the **Origin**. The origin can't be removed, but otherwise behaves like any replica. 
+The App Configuration geo-replication feature allows you to replicate your configuration store at-will to the regions of your choice. Each new **replica** will be in a different region and creates a new endpoint for your applications to send requests to. The original endpoint of your configuration store is called the **Origin**. The origin can't be removed, but otherwise behaves like any replica. 
 
 Changing or updating your key-values can be done in any replica. These changes will be synchronized with all other replicas following an eventual consistency model. 
 
@@ -35,7 +35,6 @@ This team would benefit from geo-replication. They can create a replica of their
 - Geo-replication isn't available in the free tier.  
 - Each replica has limits, as outlined in the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration/). These limits are isolated per replica. 
 - Azure App Configuration also supports Azure availability zones to create a resilient and highly available store within an Azure Region. Availability zone support is automatically included for a replica if the replica's region has availability zone support. The combination of availability zones for redundancy within a region, and geo-replication across multiple regions, enhances both the availability and performance of a configuration store.
-- Currently, you can only authenticate with replica endpoints with [Azure Active Directory (Azure AD)](../app-service/overview-managed-identity.md).
 <!--
 To add once these links become available: 
  - Request handling for replicas will vary by configuration provider, for further information reference [.NET Geo-replication Reference](https://azure.microsoft.com/pricing/details/app-configuration/) and [Java Geo-replication Reference](https://azure.microsoft.com/pricing/details/app-configuration/). 
