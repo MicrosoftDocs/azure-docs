@@ -1,11 +1,12 @@
 ---
 title: 'Quickstart: Connect using Azure CLI - Azure Database for MySQL - Flexible Server'
 description: This quickstart provides several ways to connect with Azure CLI with Azure Database for MySQL - Flexible Server.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devx-track-azurecli, mode-api
+ms.subservice: flexible-server
 ms.topic: quickstart
+author: shreyaaithal 
+ms.author: shaithal 
+ms.custom: mvc, mode-api, devx-track-azurecli
 ms.date: 03/01/2021
 ---
 
@@ -13,7 +14,7 @@ ms.date: 03/01/2021
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This quickstart demonstrates how to connect to an Azure Database for MySQL Flexible Server using Azure CLI with ```az mysql flexible-server connect``` and execute single query or sql file with ```az mysql flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode.
+This quickstart demonstrates how to connect to an Azure Database for MySQL - Flexible Server using Azure CLI with ```az mysql flexible-server connect``` and execute single query or sql file with ```az mysql flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode.
 
 ## Prerequisites
 

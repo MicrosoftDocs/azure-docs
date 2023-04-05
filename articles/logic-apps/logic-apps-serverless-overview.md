@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 08/20/2022
 ---
 
 # Azure serverless overview: Create cloud-based apps and solutions with Azure Logic Apps and Azure Functions
@@ -26,13 +26,13 @@ If no connector is available to meet your needs, you can use the built-in HTTP o
 
 Based on the logic app resource type that you choose, the associated workflow runs in either multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or a dedicated integration service environment (ISE). Each has their own capabilities, benefits, and billing models. The Azure portal provides the fastest way to get started creating logic app workflows. However, you can also use other tools such as Visual Studio Code, Visual Studio, Azure PowerShell, and others. For more information, review [What is Azure Logic Apps](logic-apps-overview.md)?
 
-To get started with Azure Logic Apps, try a [quickstart to create your first logic app workflow in the Azure portal](quickstart-create-first-logic-app-workflow.md). Or, try these [steps that create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio](create-serverless-apps-visual-studio.md).
+To get started with Azure Logic Apps, try a [quickstart to create an example Consumption logic app workflow in multi-tenant Azure Logic Apps using the Azure portal](quickstart-create-example-consumption-workflow.md). Or, try these [steps that create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio](create-serverless-apps-visual-studio.md).
 
 For other information, review the following documentation:
 
 * [What is Azure Logic Apps?](logic-apps-overview.md)
-* [About connectors in Azure Logic Apps](../connectors/apis-list.md)
-* [Connectors - Azure Logic Apps, Microsoft Power Automate, Microsoft Power Apps](/connectors/connectors)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)
 * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
 * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
 

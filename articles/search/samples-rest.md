@@ -8,19 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 01/04/2023
 ---
 
-# REST code samples for Azure Cognitive Search
+# REST samples for Azure Cognitive Search
 
 Learn about the REST API samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Search REST APIs**](/rest/api/searchservice).
 
 REST is the definitive programming interface for Azure Cognitive Search, and all operations that can be invoked programmatically are available first in REST, and then in SDKs. For this reason, most examples in the documentation leverage the REST APIs to demonstrate or explain important concepts.
 
-REST samples are usually developed and tested on Postman, but you can use any client that supports HTTP calls:
-
-+ Start with [Quickstart: Create an Azure Cognitive Search index using REST APIs](search-get-started-rest.md) for help in formulating HTTP calls.
-+ Try [Visual Studio Code extension for Azure Cognitive Search](search-get-started-vs-code.md), currently in preview, if you work in Visual Studio Code.
+REST samples are usually developed and tested on Postman, but you can use any client that supports HTTP calls, including the [Postman app](https://www.postman.com/downloads/). [This quickstart](search-get-started-rest.md) explains how to formulate the HTTP request from end-to-end.
 
 ## Doc samples
 
@@ -36,7 +33,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [projections](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) | Source code for [Define projections in a knowledge store](knowledge-store-projections-examples.md). This article explains how to specify the physical data structures in a knowledge store.|
 | [index-encrypted-blobs](https://github.com/Azure-Samples/azure-search-postman-samples/commit/f5ebb141f1ff98f571ab84ac59dcd6fd06a46718) | Source code for [How to index encrypted blobs using blob indexers and skillsets](search-howto-index-encrypted-blobs.md). This article shows how to index documents in Azure Blob Storage that have been previously encrypted using Azure Key Vault. |
 
-> [!Tip]
+> [!TIP]
 > Try the [Samples browser](/samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples

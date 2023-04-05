@@ -44,9 +44,15 @@
   - name: Create a shared query - Azure PowerShell
     displayName: powershell, queries, Az.ResourceGraph
     href: ./shared-query-azure-powershell.md
+  - name: Deploy a shared query - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: ./shared-query-bicep.md
   - name: Deploy a shared query - ARM template
     displayName: resource manager, queries
     href: ./shared-query-template.md
+  - name: Paginate query results with Azure PowerShell
+    displayName: queries, powershell, Az.ResourceGraph
+    href: ./paginate-powershell.md
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal

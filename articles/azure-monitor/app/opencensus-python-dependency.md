@@ -2,9 +2,10 @@
 title: Dependency Tracking in Azure Application Insights with OpenCensus Python | Microsoft Docs
 description: Monitor dependency calls for your Python apps via OpenCensus Python.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 03/22/2023
 ms.devlang: python
 ms.custom: devx-track-python
+ms.reviewer: mmcc
 ---
 
 # Track dependencies with OpenCensus Python
@@ -80,7 +81,7 @@ conn.close()
 Track your outgoing Django requests with the OpenCensus `django` integration.
 
 > [!NOTE]
-> The only outgoing Django requests that are tracked are calls made to a database. For requests made to the Django application, see [incoming requests](./opencensus-python-request.md#tracking-django-applications).
+> The only outgoing Django requests that are tracked are calls made to a database. For requests made to the Django application, see [incoming requests](./opencensus-python-request.md#track-django-applications).
 
 Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-django/) and add the following line to the `MIDDLEWARE` section in the Django `settings.py` file.
 
@@ -103,6 +104,8 @@ OPENCENSUS = {
     }
 }
 ```
+
+You can find a Django sample application that uses dependencies in the Azure Monitor OpenCensus Python samples repository located [here](https://github.com/Azure-Samples/azure-monitor-opencensus-python/tree/master/azure_monitor/django_sample).
 
 ## Dependencies with "mysql" integration
 
@@ -165,7 +168,7 @@ config_integration.trace_integrations(['sqlalchemy'])
 ## Next steps
 
 * [Application Map](./app-map.md)
-* [Availability](./monitor-web-app-availability.md)
+* [Availability](./availability-overview.md)
 * [Search](./diagnostic-search.md)
 * [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)

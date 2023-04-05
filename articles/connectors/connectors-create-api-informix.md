@@ -3,8 +3,8 @@ title: Connect to IBM Informix database
 description: Automate tasks and workflows that manage resources stored in IBM Informix by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: ChristopherHouser
-ms.author: daberry
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/07/2020
@@ -142,4 +142,6 @@ For technical details about triggers, actions, and limits, which are described b
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

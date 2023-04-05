@@ -1,10 +1,10 @@
 ---
-title: Admin role docs across Microsoft 365 services - Azure AD | Microsoft Docs
+title: Admin role docs across Microsoft 365 services
 description: Find content and API references for administrator roles for Microsoft 365 services in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

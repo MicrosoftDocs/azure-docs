@@ -45,22 +45,22 @@ In this section, you'll map the Private Link service to a private endpoint creat
     
        :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-link-by-alias.png" alt-text="Screenshot of enabling private link to an internal load balancer using an ID or alias":::
 
-1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the App service you want Azure Front Door Premium to connect with privately.
+1. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the internal load balancer you want Azure Front Door Premium to connect with privately.
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter a name to identify this custom origin. |
     | Origin Type | Custom |
-    | Host name | Select the host from the dropdown that you want as an origin. |
+    | Host name | HostName is used for SNI (SSL negotiation) and should match your server side certificate. |
     | Origin host header | You can customize the host header of the origin or leave it as default. |
     | HTTP port | 80 (default) |
     | HTTPS port | 443 (default) |
     | Priority | Different origin can have different priorities to provide primary, secondary, and backup origins. |
     | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
-    | Resource | If you select **In my directory**, specify the ILB resource in your subscription. |
+    | Resource | If you select **In my directory**, specify the Private Link Service resource for the ILB in your subscription. |
     | ID/alias | If you select **By ID or alias**, specify the resource ID of the Private Link Service resource you want to enable private link to. |
     | Region | Select the region that is the same or closest to your origin. |
-    | Request message | Customize message or choose the default. |
+    | Request message | Custom message to see while approving the Private Endpoint. |
 
 1. Then select **Add** and then **Update** to save the origin group settings.
 

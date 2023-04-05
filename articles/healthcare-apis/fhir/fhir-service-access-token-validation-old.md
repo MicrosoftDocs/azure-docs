@@ -2,12 +2,12 @@
 title: FHIR service access token validation
 description: Access token validation procedure and troubleshooting guide for FHIR service
 services: healthcare-apis
-author: caitlinv39
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/01/2022
-ms.author: cavoeg
+ms.date: 06/06/2022
+ms.author: kesheth
 ---
 # FHIR service access token validation
 
@@ -117,3 +117,5 @@ In this article, you learned about the FHIR service access token validation step
  
 >[!div class="nextstepaction"]
 >[Supported FHIR Features](fhir-portal-quickstart.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

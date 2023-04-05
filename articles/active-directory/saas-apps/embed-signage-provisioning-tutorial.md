@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure embed signage for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure embed signage for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to embed signage.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/24/2022
+ms.date: 11/21/2022
 ms.author: Thwimmer
 ---
 

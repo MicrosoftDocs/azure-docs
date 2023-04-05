@@ -1,0 +1,73 @@
+### YamlMime:Landing
+
+title: Azure Managed Grafana documentation
+summary: Learn how to use Azure Managed Grafana. Access quickstarts, how-to guides and tutorials to learn how to create, configure and manage Azure Managed Grafana instances.
+
+metadata:
+  title: Azure Managed Grafana
+  description: Learn about Azure Managed Grafana
+  ms.service: managed-grafana
+  ms.topic: landing-page
+  author: maud-lv
+  ms.author: malev
+  ms.date: 01/18/2023
+
+landingContent:
+  - title: About Azure Managed Grafana
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Managed Grafana?
+            url: overview.md
+          - text: What's new
+            url: concept-whats-new.md
+  - title: Create an instance
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure portal
+            url: quickstart-managed-grafana-portal.md
+          - text: Azure CLI
+            url: quickstart-managed-grafana-cli.md
+  - title: Configure Azure Managed Grafana
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure data sources with Managed Identity
+            url: how-to-data-source-plugins-managed-identity.md
+          - text: Call Grafana APIs programmatically
+            url: how-to-api-calls.md
+          - text: Enable zone redundancy
+            url: how-to-enable-zone-redundancy.md
+          - text: Set up authentication and permissions
+            url: how-to-authentication-permissions.md
+          - text: Create a dashboard
+            url: how-to-create-dashboard.md
+          - text: Share a dashboard
+            url: how-to-share-dashboard.md
+          - text: Configure SMTP settings
+            url: how-to-smtp-settings.md
+  - title: Manage Azure Managed Grafana
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Modify access to Azure Monitor
+            url: how-to-permissions.md
+          - text: Share an instance
+            url: how-to-share-grafana-workspace.md
+          - text: Monitor an instance
+            url: how-to-monitor-managed-grafana-workspace.md
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Service reliability
+            url: high-availability.md
+          - text: Control plane APIs
+            url: /rest/api/managed-grafana
+          - text: Data plane APIs
+            url: https://aka.ms/managed-grafana/docs/http-api
+          - text: Grafana UI
+            url: grafana-app-ui.md
+          - text: Support
+            url: find-help-open-support-ticket.md

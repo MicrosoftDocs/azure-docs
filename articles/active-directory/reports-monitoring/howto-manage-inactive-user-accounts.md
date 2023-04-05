@@ -1,20 +1,15 @@
 ---
-title: How to manage inactive user accounts in Azure AD | Microsoft Docs
+title: How to manage inactive user accounts in Azure AD
 description: Learn about how to detect and handle user accounts in Azure AD that have become obsolete
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
-ms.assetid: ada19f69-665c-452a-8452-701029bf4252
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/17/2021
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
@@ -24,9 +19,6 @@ ms.collection: M365-identity-device-management
 In large environments, user accounts are not always deleted when employees leave an organization. As an IT administrator, you want to detect and handle these obsolete user accounts because they represent a security risk.
 
 This article explains a method to handle obsolete user accounts in Azure AD. 
-
-> [!IMPORTANT]
-> APIs under the `/beta` version in Microsoft Graph are subject to change. Use of these APIs in production applications is not supported. To determine whether an API is available in v1.0, use the **Version** selector.
 
 ## What are inactive user accounts?
 
@@ -41,13 +33,16 @@ The last successful sign-in provides potential insights into a user's continued 
 
 You detect inactive accounts by evaluating the **lastSignInDateTime** property exposed by the **signInActivity** resource type of the **Microsoft Graph** API. The **lastSignInDateTime** property shows the last time a user made a successful interactive sign-in to Azure AD. Using this property, you can implement a solution for the following scenarios:
 
-- **Users by name**: In this scenario, you search for a specific user by name, which enables you to evaluate the lastSignInDateTime: `https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
+- **Users by name**: In this scenario, you search for a specific user by name, which enables you to evaluate the lastSignInDateTime: `https://graph.microsoft.com/v1.0/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
-- **Users by date**: In this scenario, you request a list of users with a lastSignInDateTime before a specified date: `https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
+- **Users by date**: In this scenario, you request a list of users with a lastSignInDateTime before a specified date: `https://graph.microsoft.com/v1.0/users?$filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
+
+> [!NOTE]
+> When you request the signInActivity property while listing users, the maximum page size is 120 users. Requests with $top set higher than 120 will fail. SignInActivity supports `$filter` (`eq`, `ne`, `not`, `ge`, `le`) *but* not with any other filterable properties. 
 
 > [!NOTE]
 > There may be the need to generate a report of the last sign in date of all users, if so you can use the following scenario.
-> **Last Sign In Date and Time for All Users**: In this scenario, you request a list of all users, and the last lastSignInDateTime for each respective user: `https://graph.microsoft.com/beta/users?$select=displayName,signInActivity` 
+> **Last Sign In Date and Time for All Users**: In this scenario, you request a list of all users, and the last lastSignInDateTime for each respective user: `https://graph.microsoft.com/v1.0/users?$select=displayName,signInActivity` 
 
 ## What you need to know
 
@@ -55,10 +50,7 @@ This section lists what you need to know about the lastSignInDateTime property.
 
 ### How can I access this property?
 
-The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph API](/graph/overview#whats-in-microsoft-graph).   
-
-> [!NOTE]
-> The signInActivity resource type is available only on the Microsoft Graph `beta` endpoint and isn't yet supported in US Government GCC High environments.
+The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity) of the [Microsoft Graph API](/graph/overview#whats-in-microsoft-graph).   
 
 ### Is the lastSignInDateTime property available through the Get-AzureAdUser cmdlet?
 
@@ -70,10 +62,11 @@ To access this property, you need an Azure Active Directory Premium edition.
 
 ### What permission do I need to read the property?
 
-To read this property, you need to grant the following rights: 
+To read this property, you need to grant the app the following Microsoft Graph permissions: 
 
 - AuditLog.Read.All
 - Directory.Read.All  
+- User.Read.All
 
 
 ### When does Azure AD update the property?

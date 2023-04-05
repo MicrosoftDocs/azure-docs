@@ -1,24 +1,22 @@
 ---
-title: Share gallery images across tenants 
-description: Learn how to create scale sets using images that are shared across Azure tenants using Shared Image Galleries.
+title: Share gallery images using an app registration
+description: Learn how to create scale sets using images that are shared across Azure tenants using an app registration.
 author: sandeepraichura
 ms.author: saraic
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
-ms.date: 04/05/2019
+ms.date: 02/02/2023
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
 
 ---
-# Share images across tenants with Azure Compute Gallery
+# Share images across tenants using an app registration
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
-[!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
-
+[!INCLUDE [virtual-machines-share-images-across-tenants](../virtual-machines/includes/virtual-machines-share-images-across-tenants.md)]
 
 ## Create a scale set using Azure CLI
+
 
 Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
 

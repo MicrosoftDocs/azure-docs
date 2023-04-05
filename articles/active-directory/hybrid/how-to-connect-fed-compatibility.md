@@ -4,14 +4,13 @@ description: This page has non-Microsoft identity providers that can be used to 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
-editor: curtand
+manager: amycolannino
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 

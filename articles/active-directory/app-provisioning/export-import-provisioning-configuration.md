@@ -3,12 +3,12 @@ title: Export Application Provisioning configuration and roll back to a known go
 description: Learn how to export your Application Provisioning configuration and roll back to a known good state for disaster recovery in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -52,7 +52,7 @@ You can use the Microsoft Graph API and the Microsoft Graph Explorer to export y
 ### Step 2: Sign into Microsoft Graph Explorer
 
 1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
+1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Administrator or App Admin credentials.
 
     ![Microsoft Graph Sign-in](./media/export-import-provisioning-configuration/wd_export_02.png)
 

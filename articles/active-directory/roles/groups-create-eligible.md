@@ -1,13 +1,13 @@
 ---
-title: Create a group for assigning roles in Azure Active Directory | Microsoft Docs
+title: Create a group for assigning roles in Azure Active Directory
 description: Learn how to create a role-assignable group in Azure AD. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/30/2021
 ms.author: rolyon
 ms.reviewer: vincesm
@@ -31,7 +31,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Groups** > **All groups** > **New group**.
 
@@ -102,7 +102,7 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 ### Create a role-assignable group in Azure AD
 
 ```http
-POST https://graph.microsoft.com/beta/groups
+POST https://graph.microsoft.com/v1.0/groups
 {
   "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
   "displayName": "Contoso_Helpdesk_Administrators",

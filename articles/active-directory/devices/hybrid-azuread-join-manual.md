@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 07/05/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ This article covers the manual configuration of requirements for hybrid Azure AD
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) version 1.1.819.0 or later.
    - To get device registration sync join to succeed, as part of the device registration configuration, don't exclude the default device attributes from your Azure AD Connect sync configuration. To learn more about default device attributes synced to Azure AD, see [Attributes synchronized by Azure AD Connect](../hybrid/reference-connect-sync-attributes-synchronized.md#windows-10).
    - If the computer objects of the devices you want to be hybrid Azure AD joined belong to specific organizational units (OUs), configure the correct OUs to sync in Azure AD Connect. To learn more about how to sync computer objects by using Azure AD Connect, see [Organizational unit–based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
-- Global administrator credentials for your Azure AD tenant.
+- Global Administrator credentials for your Azure AD tenant.
 - Enterprise administrator credentials for each of the on-premises Active Directory Domain Services forests.
 - (**For federated domains**) Windows Server 2012 R2 with Active Directory Federation Services installed.
 - Users can register their devices with Azure AD. More information about this setting can be found under the heading **Configure device settings**, in the article, [Configure device settings](device-management-azure-portal.md#configure-device-settings).
@@ -66,6 +66,8 @@ After these configurations are complete, follow the guidance to [verify registra
 
 Your devices use a service connection point (SCP) object during the registration to discover Azure AD tenant information. In your on-premises Active Directory instance, the SCP object for the hybrid Azure AD joined devices must exist in the configuration naming context partition of the computer's forest. There's only one configuration naming context per forest. In a multi-forest Active Directory configuration, the service connection point must exist in all forests that contain domain-joined computers.
 
+The SCP object contains two keywords values – `azureADid:<TenantID>` and `azureADName:<verified domain>`. The `<verified domain>` value in the `azureADName` keyword dictates the type of the device registration flow (federated or managed) the device will follow after reading the SCP value from your on-premises Active Directory instance. More about the managed and federated flows can be found in the article [How Azure AD device registration works](device-registration-how-it-works.md).    
+
 You can use the [**Get-ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)) cmdlet to retrieve the configuration naming context of your forest.  
 
 For a forest with the Active Directory domain name *fabrikam.com*, the configuration naming context is:
@@ -93,30 +95,6 @@ The **$scp.Keywords** output shows the Azure AD tenant information. Here's an ex
    azureADName:microsoft.com
    azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
    ```
-
-If the service connection point doesn't exist, you can create it by running the `Initialize-ADSyncDomainJoinedComputerSync` cmdlet on your Azure AD Connect server. Enterprise admin credentials are required to run this cmdlet.  
-
-The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
-
-* Creates the service connection point in the Active Directory forest that Azure AD Connect is connected to.
-* Requires you to specify the `AdConnectorAccount` parameter. This account is configured as the Active Directory connector account in Azure AD Connect.
-
-
-The following script shows an example for using the cmdlet. In this script, `$aadAdminCred = Get-Credential` requires you to type a user name. Provide the user name in the user principal name (UPN) format (`user@example.com`).
-
-   ```PowerShell
-   Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
-
-   $aadAdminCred = Get-Credential;
-
-   Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
-   ```
-
-The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
-
-* Uses the Active Directory PowerShell module and Active Directory Domain Services (AD DS) tools. These tools rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
-* Is only supported by the MSOnline PowerShell module version 1.1.166.0. To download this module, use [this link](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
-* If the AD DS tools aren't installed, `Initialize-ADSyncDomainJoinedComputerSync` will fail. You can install the AD DS tools through Server Manager under **Features** > **Remote Server Administration Tools** > **Role Administration Tools**.
 
 ### Set up issuance of claims
 
@@ -430,7 +408,7 @@ The following script helps you with the creation of the issuance transform rules
 #### Remarks
 
 * This script appends the rules to the existing rules. Don't run the script twice, because the set of rules would be added twice. Make sure that no corresponding rules exist for these claims (under the corresponding conditions) before running the script again.
-* If you have multiple verified domain names (as shown in the Azure AD portal or via the **Get-MsolDomain** cmdlet), set the value of **$multipleVerifiedDomainNames** in the script to **$true**. Also make sure that you remove any existing **issuerid** claim that might have been created by Azure AD Connect or via other means. Here's an example for this rule:
+* If you have multiple verified domain names (as shown in the Azure portal or via the **Get-MsolDomain** cmdlet), set the value of **$multipleVerifiedDomainNames** in the script to **$true**. Also make sure that you remove any existing **issuerid** claim that might have been created by Azure AD Connect or via other means. Here's an example for this rule:
 
    ```
    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]

@@ -11,9 +11,9 @@ ms.date: 04/12/2022
 ms.topic: how-to
 ---
 
-# Move an Azure Load Testing Preview resource to another region
+# Move an Azure Load Testing resource to another region
 
-This article describes how to move your Azure Load Testing Preview resource to another Azure region. You might want to move your resource for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+This article describes how to move your Azure Load Testing resource to another Azure region. You might want to move your resource for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
 Azure Load Testing resources are region-specific and can't be moved across regions automatically. You can use an Azure Resource Manager template (ARM template) to export the existing configuration of your Load Testing resource instead. Then, stage the resource in another region and create the tests in the new resource.
 
@@ -27,7 +27,7 @@ Azure Load Testing resources are region-specific and can't be moved across regio
 
 To get started, you'll need to export and then modify an ARM template. You will also need to download artifacts for any exiting tests in the resource.
 
-1. Export the ARM template that contains settings and information for your Azure Load Testing resource by following the steps mentioned [here](/azure/azure-resource-manager/templates/export-template-portal).
+1. Export the ARM template that contains settings and information for your Azure Load Testing resource by following the steps mentioned [here](../azure-resource-manager/templates/export-template-portal.md).
 
 1. Download the input artifacts for all the existing tests from the resource. Navigate to the **Tests** section in the resource and then click on the test name. **Download the input file** for the test by clicking the More button (...) on the right side of the latest test run.
 
@@ -86,7 +86,7 @@ Load and modify the template so you can create a new Azure Load Testing resource
 
 ### Create tests
 
-Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](/azure/load-testing/quickstart-create-and-run-load-test#create_test).
+Once the resource is created in the target location, you can create new tests by following the steps mentioned [here](how-to-create-and-run-load-test-with-jmeter-script.md#create-a-load-test).
 
 1. You can refer to the test configuration in the config.yaml file of the input artifacts downloaded earlier.
 
@@ -95,7 +95,7 @@ Once the resource is created in the target location, you can create new tests by
 If you are invoking the previous Azure Load Testing resource in a CI/CD workflow you can update the `loadTestResource` parameter in the [Azure Load testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) or [Azure Load Testing action](https://github.com/marketplace/actions/azure-load-testing) of your workflow.
 
 > [!NOTE]
-> If you have configured any of your load test with secrets from Azure Key Vault, make sure to grant the new resource access to the Key Vault following the steps mentioned [here](/azure/load-testing/how-to-use-a-managed-identity?tabs=azure-portal#grant-access-to-your-azure-key-vault).
+> If you have configured any of your load test with secrets from Azure Key Vault, make sure to grant the new resource access to the Key Vault following the steps mentioned [here](./how-to-use-a-managed-identity.md?tabs=azure-portal#grant-access-to-your-azure-key-vault).
 
 ## Clean up source resources
 

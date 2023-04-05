@@ -1,13 +1,11 @@
 ---
 title: 'Enable and work with Azure Bastion resource logs'
 description: Learn how to enable and work with Azure Bastion diagnostic logs.
-services: bastion
-author: charwen
-
+author: cherylmc
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
-ms.author: charwen
+ms.author: cherylmc
 
 ---
 
@@ -66,7 +64,7 @@ To access your diagnostics logs, you can directly use the storage account that y
       "message":"Successfully Connected.",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
-      "userEmail":"<userAzureAccountEmailAddress>"
+      "userEmail":"<userAzureAccountEmailAddress>",
       "tunnelId":"<tunnelID>"
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
@@ -96,7 +94,7 @@ To access your diagnostics logs, you can directly use the storage account that y
       "message":"Login Failed",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
-      "userEmail":"<userAzureAccountEmailAddress>"
+      "userEmail":"<userAzureAccountEmailAddress>",
       "tunnelId":"<tunnelID>"
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",

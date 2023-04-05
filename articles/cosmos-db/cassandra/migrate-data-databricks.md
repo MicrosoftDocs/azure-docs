@@ -1,39 +1,40 @@
 ---
-title: Migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using Databricks (Spark)
-description: Learn how to migrate data from an Apache Cassandra database to the Azure Cosmos DB Cassandra API by using Azure Databricks and Spark. 
+title: Migrate data from Apache Cassandra to the Azure Cosmos DB for Apache Cassandra by using Databricks (Spark)
+description: Learn how to migrate data from an Apache Cassandra database to the Azure Cosmos DB for Apache Cassandra by using Azure Databricks and Spark. 
 author: TheovanKraay
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: thvankra
 ms.reviewer: thvankra
 ---
 
-# Migrate data from Cassandra to an Azure Cosmos DB Cassandra API account by using Azure Databricks
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Migrate data from Cassandra to an Azure Cosmos DB for Apache Cassandra account by using Azure Databricks
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for several reasons:
+API for Cassandra in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for several reasons:
 
 * **No overhead of managing and monitoring:** It eliminates the overhead of managing and monitoring settings across OS, JVM, and YAML files and their interactions.
 
 * **Significant cost savings:** You can save costs with the Azure Cosmos DB, which includes the cost of VMs, bandwidth, and any applicable licenses. You don't have to manage datacenters, servers, SSD storage, networking, and electricity costs.
 
-* **Ability to use existing code and tools:** The Azure Cosmos DB provides wire protocol-level compatibility with existing Cassandra SDKs and tools. This compatibility ensures that you can use your existing codebase with the Azure Cosmos DB Cassandra API with trivial changes.
+* **Ability to use existing code and tools:** The Azure Cosmos DB provides wire protocol-level compatibility with existing Cassandra SDKs and tools. This compatibility ensures that you can use your existing codebase with the Azure Cosmos DB for Apache Cassandra with trivial changes.
 
-There are many ways to migrate database workloads from one platform to another. [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service (PaaS) offering for [Apache Spark](https://spark.apache.org/) that offers a way to perform offline migrations on a large scale. This article describes the steps required to migrate data from native Apache Cassandra keyspaces and tables into the Azure Cosmos DB Cassandra API by using Azure Databricks.
+There are many ways to migrate database workloads from one platform to another. [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service (PaaS) offering for [Apache Spark](https://spark.apache.org/) that offers a way to perform offline migrations on a large scale. This article describes the steps required to migrate data from native Apache Cassandra keyspaces and tables into the Azure Cosmos DB for Apache Cassandra by using Azure Databricks.
 
 ## Prerequisites
 
-* [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account).
+* [Provision an Azure Cosmos DB for Apache Cassandra account](manage-data-dotnet.md#create-a-database-account).
 
-* [Review the basics of connecting to an Azure Cosmos DB Cassandra API](connect-spark-configuration.md).
+* [Review the basics of connecting to an Azure Cosmos DB for Apache Cassandra](connect-spark-configuration.md).
 
-* Review the [supported features in the Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure compatibility.
+* Review the [supported features in the Azure Cosmos DB for Apache Cassandra](support.md) to ensure compatibility.
 
-* Ensure you've already created empty keyspaces and tables in your target Azure Cosmos DB Cassandra API account.
+* Ensure you've already created empty keyspaces and tables in your target Azure Cosmos DB for Apache Cassandra account.
 
-* [Use cqlsh for validation](cassandra-support.md#cql-shell).
+* [Use cqlsh for validation](support.md#cql-shell).
 
 ## Provision an Azure Databricks cluster
 
@@ -51,6 +52,9 @@ Select **Install**, and then restart the cluster when installation is complete.
 
 > [!NOTE]
 > Make sure that you restart the Databricks cluster after the Cassandra Connector library has been installed.
+
+> [!WARNING]
+> The samples shown in this article have been tested with Spark **version 3.0.1** and the corresponding Cassandra Spark Connector **com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0**. Later versions of Spark and/or the Cassandra connector may not function as expected.
 
 ## Create Scala Notebook for migration
 
@@ -129,4 +133,4 @@ You might see a 429 error code or "request rate is large" error text even if you
 * [Provision throughput on containers and databases](../set-throughput.md)
 * [Partition key best practices](../partitioning-overview.md#choose-partitionkey)
 * [Estimate RU/s using the Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)
-* [Elastic Scale in Azure Cosmos DB Cassandra API](scale-account-throughput.md)
+* [Elastic Scale in Azure Cosmos DB for Apache Cassandra](scale-account-throughput.md)

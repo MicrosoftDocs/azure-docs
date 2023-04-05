@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Wizergos Productivity Software | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Wizergos Productivity Software'
 description: Learn how to configure single sign-on between Azure Active Directory and Wizergos Productivity Software.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Wizergos Productivity Software
@@ -130,11 +130,11 @@ To configure Azure AD single sign-on with Wizergos Productivity Software, perfor
 	
 	a. Click **UPLOAD** button to upload the downloaded certificate from Azure AD.
 	
-	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value which you have copied from Azure portal.
+	b. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value that you copied from the Azure portal.
 	
-	c. In the **Single Sign-On URL** textbox, paste the **Login URL** value which you have copied from Azure portal.
+	c. In the **Single Sign-On URL** textbox, paste the **Login URL** value that you copied from the Azure portal.
 	
-	d. In the **Single Sign-Out URL** textbox, paste the **Logout URL** value which you have copied from Azure portal.
+	d. In the **Single Sign-Out URL** textbox, paste the **Logout URL** value that you copied from Azure portal.
 	
 	e. Click **Save** button.
 
@@ -190,7 +190,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Wizergos Productivity Software test user
 
-In this section, you create a user called Britta Simon in Wizergos Productivity Software. Work with [Wizergos Productivity Software support team](mailTo:support@wizergos.com) to add the users in the Wizergos Productivity Software platform.
+In this section, you create a user called Britta Simon in Wizergos Productivity Software. Work with [Wizergos Productivity Software support team](mailto:support@wizergos.com) to add the users in the Wizergos Productivity Software platform.
 
 ### Test single sign-on 
 

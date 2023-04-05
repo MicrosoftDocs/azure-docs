@@ -2,10 +2,10 @@
 title: Show real-time traffic on an Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
 description: In this article, you will learn how to show real-time traffic on an Azure Maps Power BI visual.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 11/29/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---

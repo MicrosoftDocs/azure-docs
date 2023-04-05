@@ -24,12 +24,13 @@ You learn how to:
 > * Generate metrics by consuming APIs on the self-hosted gateway.
 > * Use the metrics from the OpenTelemetry Collector.
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 ## Prerequisites
 
 - [Create an Azure API Management instance](get-started-create-service-instance.md)
-- [Create an Azure Kubernetes cluster](../aks/kubernetes-walkthrough-portal.md)
+- Create an Azure Kubernetes cluster [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
 - [Provision a self-hosted gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
-
 
 ## Introduction to OpenTelemetry
 
@@ -88,10 +89,7 @@ Now that we have the chart repository configured, we can deploy the OpenTelemetr
 1. Create a local configuration file called `opentelemetry-collector-config.yml` with the following configuration:
 
     ```yaml
-    agentCollector:
-      enabled: false
-    standaloneCollector:
-      enabled: true
+    mode: deployment
     config:
       exporters:
         prometheus:
@@ -115,7 +113,7 @@ Now that we have the chart repository configured, we can deploy the OpenTelemetr
         protocol: TCP
     ```
 
-This allows us to use a standalone collector with the Prometheus exporter being exposed on port `8889`. To expose the Prometheus metrics, we are asking the Helm chart to configure a ´LoadBalancer` service.
+This allows us to use a standalone collector with the Prometheus exporter being exposed on port `8889`. To expose the Prometheus metrics, we are asking the Helm chart to configure a `LoadBalancer` service.
 
 > [!NOTE]
 > We are disabling the compact Jaeger port given it uses UDP and `LoadBalancer` service does not allow you to have multiple protocols at the same time.

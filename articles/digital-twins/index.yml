@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: Get started with Azure Digital Twins Explorer
             url: quickstart-azure-digital-twins-explorer.md
+          - text: Get started with 3D Scenes Studio
+            url: quickstart-3d-scenes-studio.md
       - linkListType: how-to-guide
         links:
           - text: Set up an instance and authentication
@@ -68,13 +70,13 @@ landingContent:
           - text: REST APIs
             url:  /rest/api/azure-digitaltwins/
           - text: Control plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
+            url:  /dotnet/api/overview/azure/digitaltwins
           - text: Data plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
+            url:  /dotnet/api/overview/azure/digitaltwins.core-readme
       - linkListType: how-to-guide
         links:
-          - text: Make API requests with Postman 
-            url: how-to-use-postman.md
+          - text: Call the Azure Digital Twins APIs with Postman
+            url: how-to-use-postman-with-digital-twins.md
 
   - title: DTDL-based industry ontologies
     linkLists:
@@ -93,9 +95,9 @@ landingContent:
           - text: Energy grid ontology
             url: https://github.com/Azure/opendigitaltwins-energygrid/
             
-  - title: Scenario-based learning with Microsoft Learn
+  - title: Scenario-based learning
     linkLists:
       - linkListType: learn
         links:
           - text: 'Learning path: Extend IoT solutions by using Azure Digital Twins'
-            url: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
+            url: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Miro for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Miro for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Miro.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -20,7 +20,6 @@ The objective of this tutorial is to demonstrate the steps to be performed in Mi
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -45,7 +44,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Set up Miro for provisioning
 
-1.	To retrieve the needed **Secret Token** contact Miro support team at support@miro.com. This value will be entered in the Secret Token field in the Provisioning tab of your Miro application in the Azure portal.
+To retrieve the needed **Secret Token** contact [Miro Support Team](mailto:support@miro.com). This value will be entered in the Secret Token field in the Provisioning tab of your Miro application in the Azure portal.
 
 ## Add Miro from the gallery
 
@@ -57,15 +56,15 @@ Before configuring Miro for automatic user provisioning with Azure AD, you need 
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Go to **Enterprise applications**, and then select **All applications**.
+1. Go to **Enterprise applications**, and then select **All applications**.
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add a new application, select the **New application** button at the top of the pane.
+1. To add a new application, select the **New application** button at the top of the pane.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, enter **Miro**, select **Miro** in the results panel, and then click the **Add** button to add the application.
+1. In the search box, enter **Miro**, select **Miro** in the results panel, and then click the **Add** button to add the application.
 
 	![Miro in the results list](common/search-new-app.png)
 
@@ -74,7 +73,7 @@ Before configuring Miro for automatic user provisioning with Azure AD, you need 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Miro based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Miro, following the instructions provided in the [Miro Single sign-on tutorial](./miro-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Miro, following the instructions provided in the [Miro Single sign-on tutorial](./miro-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
 > [!NOTE]
 > To learn more about Miro's SCIM endpoint, refer [this](https://help.miro.com/hc/en-us/articles/360036777814).
@@ -85,55 +84,55 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Miro**.
+1. In the applications list, select **Miro**.
 
 	![The Miro link in the Applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select the **Provisioning** tab.
 
 	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. Set the **Provisioning Mode** to **Automatic**.
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://miro.com/api/v1/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Miro. If the connection fails, ensure your Miro account has Admin permissions and try again.
+1. Under the **Admin Credentials** section, input `https://miro.com/api/v1/scim` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Miro. If the connection fails, ensure your Miro account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Click **Save**.
+1. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Miro**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Miro**.
 
 	![Miro User Mappings](media/miro-provisioning-tutorial/usermappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Miro in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Miro for update operations. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to Miro in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Miro for update operations. Select the **Save** button to commit any changes.
 
 	![Miro User Attributes](media/miro-provisioning-tutorial/userattributes.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Miro**.
+1. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Miro**.
 
 	![Miro Group Mappings](media/miro-provisioning-tutorial/groupmappings.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Miro in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Miro for update operations. Select the **Save** button to commit any changes. Uncheck **Create** and **Delete** under **Target Object Actions** as Miro SCIM API does not support creating and deleting groups.
+1. Review the group attributes that are synchronized from Azure AD to Miro in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Miro for update operations. Select the **Save** button to commit any changes. Uncheck **Create** and **Delete** under **Target Object Actions** as Miro SCIM API does not support creating and deleting groups.
 
 	![Miro Group Attributes](media/miro-provisioning-tutorial/groupattributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Miro, change the **Provisioning Status** to **On** in the **Settings** section.
+1. To enable the Azure AD provisioning service for Miro, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Miro by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and/or groups that you would like to provision to Miro by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+1. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -144,6 +143,12 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 ## Connector limitations
 
 * Miro's SCIM endpoint does not allow **Create** and **Delete** operations on groups. It only supports group **Update** operation.
+
+## Troubleshooting Tips
+
+* If experiencing errors with group creation, then it is required to  disable it by unchecking **Create** and **Delete** under **Target Object Actions** as Miro SCIM API does not support creating and deleting groups.
+
+	![Miro Group Tips](media/miro-provisioning-tutorial/groupattributes.png)
 
 ## Additional resources
 

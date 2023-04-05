@@ -1,11 +1,12 @@
 ---
 title: External error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with external error codes. 
-ms.author: sidram
-author: sidramadoss
+author: ahartoon
+ms.author: anboisve
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
+ms.custom: ignite-2022
 ---
 
 # Azure Stream Analytics external error codes
@@ -14,7 +15,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## AdapterInitializationError
 
-* **Cause**: An error occurred when initializing the an adapter.
+* **Cause**: An error occurred when initializing an adapter.
 
 ## AdapterFailedToWriteEvents
 
@@ -30,15 +31,15 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## AzureFunctionRedirectError
 
-* **Cause**: There is a redirect error when outputting to Azure Functions.
+* **Cause**: There's a redirect error when outputting to Azure Functions.
 
 ## AzureFunctionClientError
 
-* **Cause**: There is a client error outputting to Azure Functions.
+* **Cause**: There's a client error outputting to Azure Functions.
 
 ## AzureFunctionServerError
 
-* **Cause**: There is a server error outputting to Azure Functions.
+* **Cause**: There's a server error outputting to Azure Functions.
 
 ## AzureFunctionHttpTimeOutError
 
@@ -52,19 +53,19 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## EventHubFailedToWriteEvents
 
-* **Cause**: An error occurred while sending data to Event Hub.
+* **Cause**: An error occurred while sending data to Event Hubs.
 
 ## CosmosDBConnectionFailureAfterMaxRetries
 
-* **Cause**: Stream Analytics failed to connect to a Cosmos DB account after the maximum number of retries.
+* **Cause**: Stream Analytics failed to connect to an Azure Cosmos DB account after the maximum number of retries.
 
 ## CosmosDBFailureAfterMaxRetries
 
-* **Cause**: Stream Analytics failed to query the Cosmos DB database and collection after the maximum number of retries.
+* **Cause**: Stream Analytics failed to query the Azure Cosmos DB database and collection after the maximum number of retries.
 
 ## CosmosDBFailedToCreateStoredProcedure
 
-* **Cause**: CosmosDB can't create a stored procedure after several retries.
+* **Cause**: Azure Cosmos DB can't create a stored procedure after several retries.
 
 ## CosmosDBOutputRequestTimeout
 

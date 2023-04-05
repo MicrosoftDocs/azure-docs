@@ -1,26 +1,22 @@
 ---
-title: Troubleshoot outbound SMTP connectivity in Azure | Microsoft Docs
+title: Troubleshoot outbound SMTP connectivity in Azure
 description: Learn the recommended method for sending email and how to troubleshoot problems with outbound SMTP connectivity in Azure.
 services: virtual-network
-author: genlin
+author: asudbring
 manager: dcscontentpm
-editor: ''
-
 ms.service: virtual-network
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/28/2021
-ms.author: genli
+ms.author: allensu
 ---
-
 
 # Troubleshoot outbound SMTP connectivity problems in Azure
 
 Outbound email messages that are sent directly to external domains (such as outlook.com and gmail.com) from a virtual machine (VM) are made available only to certain subscription types in Microsoft Azure. 
 
 > [!IMPORTANT]
-> For all examples below, the process applies *only* to Virtual Machines & VM Scale Sets resources (`Microsoft.Compute/virtualMachines` & `Microsoft.Compute/virtualMachineScaleSets`). Sending email on Port 25 is unsupported from all Azure Platform-as-a-Service (PaaS) resources, including [Azure App Service](https://azure.microsoft.com/services/app-service) and [Azure Functions](https://azure.microsoft.com/services/functions).
+> For all examples below, the process applies mainly to Virtual Machines & VM Scale Sets resources (`Microsoft.Compute/virtualMachines` & `Microsoft.Compute/virtualMachineScaleSets`). It is possible to use port 25 for outbound communication on [Azure App Service](https://azure.microsoft.com/services/app-service) and [Azure Functions](https://azure.microsoft.com/services/functions) through the [virtual network integration feature](../app-service/environment/networking.md#network-routing) or when using [App Service Environment v3](../app-service/environment/networking.md#network-routing). However, the subscription limitations described below still apply. Sending email on Port 25 is unsupported for all other Azure Platform-as-a-Service (PaaS) resources. 
 
 ## Recommended method of sending email
 We recommend you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. (These relay services typically connect through TCP port 587, but they support other ports.) These services are used to maintain IP and domain reputation to minimize the possibility that external domains reject your messages or put them to the SPAM folder. [SendGrid](https://sendgrid.com/partners/azure/) is one such SMTP relay service, but there are others. You might also have an authenticated SMTP relay service on your on-premises servers.

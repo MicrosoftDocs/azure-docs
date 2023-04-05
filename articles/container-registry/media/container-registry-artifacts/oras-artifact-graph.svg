@@ -437,7 +437,7 @@
              font-size="14px"
              x="696.98181"
              y="211.91513"
-             id="tspan9615-5-0-7-0-1">cncf.oras.artifact.manifest.v1</tspan></text>
+             id="tspan9615-5-0-7-0-1">vnd.oci.artifact.manifest.v1</tspan></text>
       </g>
     </g>
     <path
@@ -578,7 +578,7 @@
              font-size="14px"
              x="696.98181"
              y="211.91513"
-             id="tspan9615-5-0-7-0-3">cncf.oras.artifact.manifest.v1</tspan></text>
+             id="tspan9615-5-0-7-0-3">vnd.oci.artifact.manifest.v1</tspan></text>
       </g>
       <g
          clip-path="url(#clip0-3-3)"
@@ -949,7 +949,7 @@
            font-size="14px"
            x="696.98181"
            y="211.91513"
-           id="tspan9615-5-0-7-0">cncf.oras.artifact.manifest.v1</tspan></text>
+           id="tspan9615-5-0-7-0">vnd.oci.artifact.manifest.v1</tspan></text>
     </g>
     <g
        clip-path="url(#clip0)"

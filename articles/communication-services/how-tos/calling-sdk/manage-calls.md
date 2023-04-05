@@ -2,8 +2,8 @@
 title: Manage calls
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to manage calls.
-author: probableprime
-ms.author: rifox
+author: tophpalmer
+ms.author: chpalm
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
@@ -22,7 +22,7 @@ Learn how to manage calls with the Azure Communication Services SDKS. We'll lear
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/access-tokens.md)
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
 - Optional: Complete the quickstart for [getting started with adding calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 ::: zone pivot="platform-web"

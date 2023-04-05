@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure CybSafe for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure CybSafe for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to CybSafe.
 services: active-directory
 author: twimmers
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 

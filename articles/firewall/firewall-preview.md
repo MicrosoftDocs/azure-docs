@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 11/07/2022
 ms.author: victorh
 ---
 
@@ -27,60 +27,27 @@ This article will be updated to reflect the features that are currently in previ
 
 The following features are available in preview.
 
-### Network rule name logging (preview)
+### Structured Firewall Logs (preview)
 
-Currently, a network rule hit event shows the following attributes in the logs: 
+With Structured Firewall Logs, you'll be able to choose to use Resource Specific tables instead of an existing AzureDiagnostics table. Structured Firewall Logs is required for Policy Analytics. This new method helps you with better log querying and is recommended because:
 
-   - Source and destination IP/port
-   - Action (allow, or deny)
+- It's easier to work with the data in the log queries
+- It's easier to discover schemas and their structure
+- It improves performance across both ingestion latency and query times
+- It allows you to grant Azure RBAC rights on a specific table
 
- With this new feature, the event logs for network rules also show the following attributes:
-   - Policy name
-   - Rule collection group
-   - Rule collection
-   - Rule name 
+For more information, see [Azure Structured Firewall Logs (preview)](firewall-structured-logs.md).
 
-To enable the Network Rule name Logging feature, the following commands need to be run in Azure PowerShell. For the feature to immediately take effect, an operation needs to be run on the firewall. This can be a rule change (least intrusive), a setting change, or a stop/start operation. Otherwise, the firewall/s is updated with the feature within several days.
+### Policy Analytics (preview)
 
-Run the following Azure PowerShell commands to configure Azure Firewall network rule name logging:
+Policy Analytics provides insights, centralized visibility, and control to Azure Firewall. IT teams today are challenged to keep Firewall rules up to date, manage existing rules, and remove unused rules. Any accidental rule updates can lead to a significant downtime for IT teams.
 
-```azurepowershell
-Connect-AzAccount 
-Select-AzSubscription -Subscription "subscription_id or subscription_name" 
-Register-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network 
-```
+### Explicit proxy (preview)
 
-Run the following Azure PowerShell command to turn off this feature:
+With the Azure Firewall Explicit proxy set on the outbound path, you can configure a proxy setting on the sending application (such as a web browser) with Azure Firewall configured as the proxy. As a result, traffic from a sending application goes to the firewall's private IP address, and therefore egresses directly from the firewall without using a user defined route (UDR).
 
-```azurepowershell
-Unregister-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network 
-```
+For more information, see [Azure Firewall Explicit proxy (preview)](explicit-proxy.md).
 
-### Azure Firewall Premium performance boost (preview)
-
-As more applications move to the cloud, the performance of the network elements can become a bottleneck. As the central piece of any network design, the firewall needs to support all the workloads. The Azure Firewall Premium performance boost feature allows more scalability for these deployments.
-
-This feature significantly increases the throughput of Azure Firewall Premium. For more details, see [Azure Firewall performance](firewall-performance.md).
-
-To enable the Azure Firewall Premium Performance boost feature, run the following commands in Azure PowerShell. Stop and start the firewall for the feature to take effect immediately. Otherwise, the firewall/s is updated with the feature within several days. 
-
-The Premium performance boost feature can be enabled on both the [hub virtual network](../firewall-manager/vhubs-and-vnets.md) firewall and the [secured virtual hub](../firewall-manager/vhubs-and-vnets.md) firewall. This feature has no effect on Standard Firewalls.
-
-Run the following Azure PowerShell commands to configure the Azure Firewall Premium performance boost:
-
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -Subscription "subscription_id or subscription_name"
-Register-AzProviderFeature -FeatureName AFWEnableAccelnet -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Run the following Azure PowerShell command to turn off this feature:
-
-```azurepowershell
-Unregister-AzProviderFeature -FeatureName AFWEnableAccelnet -ProviderNamespace Microsoft.Network
-```
 
 ## Next steps
 

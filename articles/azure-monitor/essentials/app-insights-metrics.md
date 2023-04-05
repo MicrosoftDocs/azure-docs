@@ -2,11 +2,10 @@
 title: Azure Application Insights log-based metrics | Microsoft Docs
 description: This article lists Azure Application Insights metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements.
 author: vgorbenko
-services: azure-monitor
-
+services: azure-monitor  
 ms.topic: reference
-ms.date: 07/03/2019
-ms.author: vitalyg
+ms.date: 07/03/2019    
+ms.reviewer: vitalyg
 ---
 
 # Application Insights log-based metrics
@@ -37,7 +36,7 @@ When you plot the same metric in [metrics explorer](./metrics-getting-started.md
 
 ## Availability metrics
 
-Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../app/monitor-web-app-availability.md) to start using any metrics from this category.
+Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) to start using any metrics from this category.
 
 ### Availability (availabilityResults/availabilityPercentage)
 The *Availability* metric shows the percentage of the web test runs that didn't detect any issues. The lowest possible value is 0, which indicates that all of the web test runs have failed. The value of 100 means that all of the web test runs passed the validation criteria.
@@ -54,7 +53,7 @@ availabilityResults
 
 ### Availability test duration (availabilityResults/duration)
 
-The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](../app/availability-multistep.md), the metric reflects the total execution time of all steps.
+The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](/previous-versions/azure/azure-monitor/app/availability-multistep), the metric reflects the total execution time of all steps.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|---|---|---|

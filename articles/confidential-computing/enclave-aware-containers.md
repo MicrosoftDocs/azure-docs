@@ -2,8 +2,7 @@
 title: Enclave aware containers on Azure
 description: enclave ready application containers support on Azure Kubernetes Service (AKS)
 author: agowdamsft
-ms.service: container-service
-ms.subservice: confidential-computing
+ms.service: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
@@ -12,7 +11,7 @@ ms.custom: ignite-fall-2021
 
 # Enclave Aware Containers with Intel SGX
 
-An enclave is a protected memory region that provides confidentiality for data and code execution. It is an instance of a Trusted Execution Environment (TEE) which is secured by hardware. Confidential computing VM's support on AKS uses [Intel Software Guard Extensions (SGX)](https://software.intel.com/sgx) to create isolated enclave environments in the nodes between each container application.
+An enclave is a protected memory region that provides confidentiality for data and code execution. It's an instance of a Trusted Execution Environment (TEE) which is secured by hardware. Confidential computing VM's support on AKS uses [Intel Software Guard Extensions (SGX)](https://software.intel.com/sgx) to create isolated enclave environments in the nodes between each container application.
 
 Just like Intel SGX virtual machines, container applications that are developed to run in enclaves have two components:
 
@@ -26,7 +25,7 @@ Enclave aware containers application architecture give you the most control on t
 ## Enablers
 
 ### Open Enclave SDK
-[Open Enclave SDK](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs) is a hardware-agnostic open-source library for developing C, C++ applications that uses Hardware-based Trusted Execution Environments. The current implementation provides support for Intel SGX and preview support for [OP-TEE OS on Arm TrustZone](https://optee.readthedocs.io/en/latest/general/about.html).
+[Open Enclave SDK](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs) is a hardware-agnostic open-source library for developing C, C++ applications that use Hardware-based Trusted Execution Environments. The current implementation provides support for Intel SGX and preview support for [OP-TEE OS on Arm TrustZone](https://optee.readthedocs.io/en/latest/general/about.html).
 
 Get started with Open Enclave based container application [here](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs)
 

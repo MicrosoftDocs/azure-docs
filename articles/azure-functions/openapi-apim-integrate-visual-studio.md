@@ -2,10 +2,10 @@
 title: Create serverless APIs in Visual Studio using Azure Functions and API Management
 description: Use Visual Studio to create an HTTP triggered function along with an OpenAPI definition, which enables Azure API Management integration so that other apps and services can call your serverless function-based API.
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 01/18/2023
 ---
 
-# Create serverless APIs in Visual Studio using Azure Functions and API Management integration (preview)
+# Create serverless APIs in Visual Studio using Azure Functions and API Management integration
 
 REST APIs are often described using an OpenAPI definition. This file contains information about operations in an API and how the request and response data for the API should be structured.
 
@@ -21,11 +21,11 @@ In this tutorial, you learn how to:
 The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Because both the function app and API Management instance you create use consumption plans, your cost for completing this tutorial is minimal.
 
 > [!NOTE]
-> The OpenAPI and API Management integration featured in this article is currently in preview. This method for exposing a serverless API is only supported for C# class library (.NET Core 3.1) functions. All other language runtimes should instead [use Azure API Management integration from the portal](functions-openapi-definition.md). 
+> The OpenAPI and API Management integration featured in this article is currently only supported for [in-process](functions-dotnet-class-library.md) C# class library functions. [Isolated worker process](dotnet-isolated-process-guide.md) C# class library functions and all other language runtimes should instead [use Azure API Management integration from the portal](functions-openapi-definition.md). 
 
 ## Prerequisites
 
-+ [Visual Studio 2019](https://azure.microsoft.com/downloads/), version 16.10, or a later version. Make sure you select the **Azure development** workload during installation. 
++ [Visual Studio 2022](https://azure.microsoft.com/downloads/). Make sure you select the **Azure development** workload during installation. 
 
 + An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet/) before you begin.
 
@@ -43,9 +43,9 @@ The Azure Functions project template in Visual Studio creates a project that you
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET Core 3 (LTS)** | This value creates a function project that uses the version 3.x runtime of Azure Functions. OpenAPI file generation is only supported for version 3.x of the Functions runtime. |
+    | **Functions worker** | **.NET 6** | This value creates a function project that runs in-process on version 4.x of the Azure Functions runtime, which is required for OpenAPI file generation.    |
     | **Function template** | **HTTP trigger with OpenAPI** | This value creates a function triggered by an HTTP request, with the ability to generate an OpenAPI definition file.  |
-    | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | You can use the emulator for local development of HTTP trigger functions. Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. |
+    | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | **Selected** | You can use the emulator for local development of HTTP trigger functions. Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. |
     | **Authorization level** | **Function** | When running in Azure, clients must provide a key when accessing the endpoint. For more information about keys and authorization, see [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). |
     
     ![Azure Functions project settings](./media/openapi-apim-integrate-vs/functions-project-settings.png)
@@ -151,11 +151,13 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. In the **Publish** tab, select the ellipses (**...**) next to **Hosting** and select **Open API in Azure portal**. The API Management instance you created is opened in the Azure portal in your default browser. This API Management instance is already linked to your function app. 
 
-1. Under **APIs**, select **Azure Functions OpenAPI Extension** > **Test** > **POST Run**, then under **Inbound policy** select **Add policy**.
+1. Under **APIs**, select **OpenAPI Document on Azure Functions** > **POST Run**, then under **Inbound processing** select **Add policy**.
 
     :::image type="content" source="media/openapi-apim-integrate-vs/apim-add-policy.png" alt-text="Add an inbound policy to the API":::
 
-1. In **Add inbound policy**, choose **Set query parameters**, type `code` for **Name**, select **+Value**, paste in the copied function key, and select **Save**. API Management includes the function key when it passes call through to the function endpoint. 
+1. Below **Inbound processing**, in **Set query parameters**, type `code` for **Name**, select **+Value**, paste in the copied function key, and select **Save**. API Management includes the function key when it passes calls through to the function endpoint.
+
+    :::image type="content" source="media/openapi-apim-integrate-vs/inbound-processing-rule.png" alt-text="Provide Function credentials to the API inbound processing rule":::
 
 Now that the function key is set, you can call the API to verify that it works when hosted in Azure.
 
@@ -180,7 +182,7 @@ Now that the function key is set, you can call the API to verify that it works w
 
 If your API works as expected, you can download the OpenAPI definition.
 
-1. 1. Under **APIs**, select **Azure Functions OpenAPI Extension**, select the ellipses (**...**), and select **Export**.
+1. 1. Under **APIs**, select **OpenAPI Document on Azure Functions**, select the ellipses (**...**), and select **Export**.
    
    ![Download OpenAPI definition](media/openapi-apim-integrate-vs/download-definition.png)
 
@@ -198,7 +200,7 @@ Select **Delete resource group**, type the name of your group in the text box to
 
 ## Next steps
 
-You've used Visual Studio 2019 to create a function that is self-documenting because of the [OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) and integrated with API Management. You can now refine the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
+You've used Visual Studio 2022 to create a function that is self-documenting because of the [OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) and integrated with API Management. You can now refine the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
 > [Edit the OpenAPI definition in API Management](../api-management/edit-api.md)

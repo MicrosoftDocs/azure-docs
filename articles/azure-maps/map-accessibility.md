@@ -1,8 +1,8 @@
 ---
 title: Create an accessible map application with Azure Maps | Microsoft Azure Maps
 description: Learn about accessibility considerations in Azure Maps. See what features are available for making map applications accessible, and view accessibility tips.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -10,12 +10,12 @@ ms.service: azure-maps
 
 # Building an accessible application
 
-Upwards of 20% of internet users have a need for accessible web applications. As such, it's important to make sure your application is designed such that any user can easily use it. Rather than thinking of accessibility as a set of tasks to complete, think of it as part of your overall user experience. The more accessible your application, the more people who can use it. 
+Upwards of 20% of internet users have a need for accessible web applications. As such, it's important to make sure your application is designed such that any user can easily use it. Rather than thinking of accessibility as a set of tasks to complete, think of it as part of your overall user experience. The more accessible your application, the more people who can use it.
 
 When it comes to rich interactive content like a map, some common accessibility considerations are:
 - Support the screen reader for users who have difficulty seeing the web application.
 - Have multiple methods for interacting with and navigating the web application such as mouse, touch, and keyboard.
-- Ensure color contrast is such that colors don't blend together and become hard to distinguish from each other. 
+- Ensure color contrast is such that colors don't blend together and become hard to distinguish from each other.
 
 The Azure Maps Web SDK comes prebuilt with many accessibility features such as:
 - Screen reader descriptions when the map moves and when the user focuses on a control or popup.
@@ -23,7 +23,7 @@ The Azure Maps Web SDK comes prebuilt with many accessibility features such as:
 - Accessible color contrast support in the road map style.
 - High contrast support.
 
-Full accessibility conformance details for all Microsoft products can be found [here](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Search for "Azure Maps web" to find the document specifically for the Azure Maps Web SDK. 
+For accessibility conformance details for all Microsoft products, see [Accessibility Conformance Reports](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Search for "Azure Maps web" to find the document specifically for the Azure Maps Web SDK.
 
 ## Navigating the map
 
@@ -49,16 +49,16 @@ There are several different ways in which the map can be zoomed, panned, rotated
 
 **Rotate the map**
 
-- Using a mouse, press down with the right mouse button on the map and drag left or right. 
+- Using a mouse, press down with the right mouse button on the map and drag left or right.
 - Using a touch screen, touch the map with two fingers and rotate.
 - With the map focused, use the shift key and the left or right arrow keys.
 - Using the rotation control with a mouse, touch or keyboard tab/enter keys.
 
 **Pitch the map**
 
-- Using the mouse, press down with the right mouse button on the map and drag up or down. 
+- Using the mouse, press down with the right mouse button on the map and drag up or down.
 - Using a touch screen, touch the map with two fingers and drag them up or down together.
-- With the map focused, use the shift key plus the up or down arrow keys. 
+- With the map focused, use the shift key plus the up or down arrow keys.
 - Using the pitch control with a mouse, touch or keyboard tab/enter keys.
 
 ## Change the Map Style
@@ -153,10 +153,10 @@ Learn about accessibility in the Web SDK modules.
 > [!div class="nextstepaction"]
 > [Drawing tools accessibility](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Learn about developing accessible apps with Microsoft Learn:
+Learn about developing accessible apps:
 
 > [!div class="nextstepaction"]
-> [Accessibility in Action Digital Badge Learning Path](https://ready.azurewebsites.net/learning/track/2940)
+> [Accessibility in Action Digital Badge learning path](https://techcommunity.microsoft.com/t5/microsoft-learn/how-to-get-accessibility-in-action-badge/m-p/1735188)
 
 Take a look at these useful accessibility tools:
 > [!div class="nextstepaction"]

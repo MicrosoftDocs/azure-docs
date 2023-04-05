@@ -7,8 +7,8 @@ author: TomSh
 manager: rkarlin
 
 ms.assetid:
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -216,15 +216,17 @@ Encryption in transit is a mechanism of protecting data when it is transmitted a
 
 #### Encryption at Rest
 
-For many organizations, [data encryption at rest](isolation-choices.md) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
+For many organizations, [data encryption at rest](isolation-choices.md) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is "at rest":
 
 - [Storage Service Encryption](../../storage/blobs/security-recommendations.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 - [Client-side Encryption](../../storage/blobs/security-recommendations.md) also provides the feature of encryption at rest.
-- [Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
+- [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md).
+
+For more information, see [Overview of managed disk encryption options](../../virtual-machines/disk-encryption-overview.md).
 
 #### Azure Disk Encryption
 
-[Azure Disk Encryption](./azure-disk-encryption-vms-vmss.md) for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) help you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
@@ -256,7 +258,7 @@ SQL Database is a relational database service in the Microsoft cloud based on th
 
 ### SQL Database Application Model
 
-[Microsoft SQL Database](../../azure-sql/database/single-database-create-quickstart.md) is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
+[Microsoft SQL Database](/azure/azure-sql/database/single-database-create-quickstart) is a cloud-based relational database service built on SQL Server technologies. It provides a highly available, scalable, multi-tenant database service hosted by Microsoft in cloud.
 
 From an application perspective, SQL Database provides the following hierarchy:
 Each level has one-to-many containment of levels below.

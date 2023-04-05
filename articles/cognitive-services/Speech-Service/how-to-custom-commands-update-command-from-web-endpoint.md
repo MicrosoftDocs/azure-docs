@@ -10,9 +10,12 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Update a command from a web endpoint
+
+[!INCLUDE [deprecation notice](./includes/custom-commands-retire.md)]
 
 If your client application requires an update to the state of an ongoing command without voice input, you can use a call to a web endpoint to update the command.
 

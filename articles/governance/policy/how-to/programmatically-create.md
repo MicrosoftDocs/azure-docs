@@ -3,6 +3,7 @@ title: Programmatically create policies
 description: This article walks you through programmatically creating and managing policies for Azure Policy with Azure CLI, Azure PowerShell, and REST API.
 ms.date: 08/17/2021
 ms.topic: how-to
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Programmatically create policies
 

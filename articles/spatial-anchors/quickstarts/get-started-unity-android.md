@@ -8,7 +8,7 @@ ms.author: pamistel
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
 
@@ -58,6 +58,7 @@ Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-pa
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
+## Configure the account information
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the Android Studio project

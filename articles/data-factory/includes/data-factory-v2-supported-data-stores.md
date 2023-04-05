@@ -5,17 +5,17 @@ services: data-factory
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/29/2021
+ms.date: 10/24/2022
 ms.author: jianleishen
-ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 | Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime) | Supported by [self-hosted IR](../concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cognitive Search index](../connector-azure-search.md) | |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB (SQL API)](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB's API for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB for NoSQL](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Explorer](../connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen2](../connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
@@ -25,7 +25,7 @@ ms.custom: include file
 | &nbsp; |[Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Files](../connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure SQL Managed Instance](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |✓ | |✓ |✓  |

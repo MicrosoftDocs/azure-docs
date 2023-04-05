@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 09/02/2019
+ms.date: 04/15/2022
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
 ---
@@ -21,17 +21,43 @@ This sample script creates an app in App Service with its related resources, and
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-github-continuous/deploy-github-continuous.sh?highlight=3-4 "Create an app with continuous deployment from GitHub")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+### To create the web app
 
-## Script explanation
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-github/deploy-github.sh" id="FullScript":::
+
+### To configure continuous deployment from GitHub
+
+1. Create the following variables containing your GitHub information.
+
+   ```azurecli
+   gitrepo=<replace-with-URL-of-your-own-GitHub-repo>
+   token=<replace-with-a-GitHub-access-token>
+   ```
+
+1. Configure continuous deployment from GitHub.
+
+   > [!TIP]
+   > The `--git-token` parameter is required only once per Azure account (Azure remembers token).
+
+   ```azurecli
+   az webapp deployment source config --name $webapp --resource-group $resourceGroup --repo-url $gitrepo --branch master --git-token $token
+   ```
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

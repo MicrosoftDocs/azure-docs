@@ -4,6 +4,7 @@ description: This Azure CLI sample script shows how to monitor and scale a singl
 author: shreyaaithal
 ms.author: shaithal
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
@@ -16,7 +17,7 @@ This sample CLI script scales compute, storage and IOPS for a single Azure Datab
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 

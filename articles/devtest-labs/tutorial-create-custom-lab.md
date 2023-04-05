@@ -21,9 +21,9 @@ In the [next tutorial](tutorial-use-custom-lab.md), lab users, such as developer
 
 ## Prerequisite
 
-- To create a lab, you need at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- To create a lab, you need at least [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- To add users to a lab, you must have [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) role in the subscription the lab is in.
+- To add users to a lab, you must have [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner) role in the subscription the lab is in.
 
 ## Create a lab
 
@@ -109,7 +109,7 @@ From the lab **Overview** page, you can select **Claimable virtual machines** in
 
 ## Add a user to the DevTest Labs User role
 
-To add users to a lab, you must be a [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner) of the subscription the lab is in. For more information, see [Add lab owners, contributors, and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+To add users to a lab, you must be a [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner) of the subscription the lab is in. For more information, see [Add lab owners, contributors, and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 1. On the lab's **Overview** page, under **Settings**, select **Configuration and policies**.
 
@@ -126,6 +126,15 @@ To add users to a lab, you must be a [User Access Administrator](/azure/role-bas
 1. On the **Members** tab, select the user to assign the role to.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+## Share a link to the lab
+
+1. In the [Azure portal](https://portal.azure.com), go to the lab.
+2. Copy the **lab URL** from your browser, and then share it with your lab users.
+          
+> [!NOTE]
+> If a lab user is an external user who has a Microsoft account, but who is not a member of your organization's Active Directory instance, the user might see an error message when they try to access the shared link. If an external user sees an error message, ask the user to first select their name in the upper-right corner of the Azure portal. Then, in the Directory section of the menu, the user can select the directory where the lab exists.
+          
 
 ## Clean up resources
 

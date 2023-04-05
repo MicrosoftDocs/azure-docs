@@ -1,18 +1,17 @@
 ---
-title: Self-service sign-up portal for B2B collaboration - Azure AD
+title: Self-service sign-up portal for B2B collaboration
 description: Learn how to customize the onboarding workflow for Azure Active Directory B2B users to fit your organization’s needs.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 11/25/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 ---
 
 # Self-service for Azure AD B2B collaboration sign-up
@@ -21,7 +20,7 @@ Customers can do a lot with the built-in features that are exposed through the [
 
 ## Azure AD entitlement management for B2B guest user sign-up
 
-As an inviting organization, you might not know ahead of time who the individual external collaborators are who need access to your resources. You need a way for users from partner companies to sign themselves up with policies that you control. If you want to enable users from other organizations to request access, and upon approval be provisioned with guest accounts and assigned to groups, apps and SharePoint Online sites, you can use [Azure AD entitlement management](../governance/entitlement-management-overview.md) to configure policies that [manage access for external users](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
+As an inviting organization, you might not know ahead of time who the individual external collaborators are who need access to your resources. You need a way for users from partner companies to sign themselves up with policies that you control. You can use [Azure AD entitlement management](../governance/entitlement-management-overview.md) to configure policies, which [manage access for external users](../governance/entitlement-management-external-users.md#how-access-works-for-external-users). This will enable users from other organizations to request access, and upon approval be provisioned with guest accounts and assigned to groups, apps and SharePoint Online sites.
 
 ## Azure Active Directory B2B invitation API
 
@@ -29,6 +28,6 @@ Organizations can use the [Microsoft Graph invitation manager API](/graph/api/re
 
 ## Next steps
 
-* [What is Azure AD B2B collaboration?](what-is-b2b.md)
-* [External Identities pricing](external-identities-pricing.md)
-* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](faq.yml)
+- [Self-service sign-up user flows](self-service-sign-up-overview.md)
+- [What is Azure AD B2B collaboration?](what-is-b2b.md)
+- [External Identities pricing](external-identities-pricing.md)

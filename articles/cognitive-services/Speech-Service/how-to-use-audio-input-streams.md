@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 07/05/2019
+ms.date: 06/13/2022
 ms.author: fmegen
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
-# About the Speech SDK audio input stream API
+# How to use the audio input stream
 
-The Speech SDK audio input stream API provides a way to stream audio into the recognizers instead of using either the microphone or the input file APIs.
+The Speech SDK provides a way to stream audio into the recognizer as an alternative to microphone or file input.
 
 The following steps are required when you use audio input streams:
 
@@ -24,7 +24,7 @@ The following steps are required when you use audio input streams:
 
   Audio samples are:
 
-   - PCM format
+   - PCM format (int-16)
    - One channel
    - 16 bits per sample, 8,000 or 16,000 samples per second (16,000 bytes or 32,000 bytes per second)
    - Two-block aligned (16 bit including padding for a sample)

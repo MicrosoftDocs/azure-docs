@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/25/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 
 ---
@@ -50,6 +50,8 @@ To configure the integration of FortiSASE into Azure AD, you need to add FortiSA
 1. In the **Add from the gallery** section, type **FortiSASE** in the search box.
 1. Select **FortiSASE** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for FortiSASE
 
 Configure and test Azure AD SSO with FortiSASE using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in FortiSASE.
@@ -75,17 +77,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/saml/metadata`
+	a. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
 
-	b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/saml/login`
+	| User | URL |
+	|------|-----|
+	| For FortiSASE VPN User SSO | `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/saml/metadata` |
+	| For FortiSASE SWG User SSO | `https://<TENANTHOSTNAME>.edge.prod.fortisase.com:7831/XX/YY/ZZ/saml/metadata` |
+
+	b. In the **Reply URL** text box, type a URL using one of the following patterns:
+
+	| User | URL |
+	|------|-----|
+	| For FortiSASE VPN User SSO | `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/saml/login` |
+	| For FortiSASE SWG User SSO | `https://<TENANTHOSTNAME>.edge.prod.fortisase.com:7831/XX/YY/ZZ/saml/login` |
 	
-	c. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/login`
+	c. In the **Sign on URL** text box, type a URL using one of the following patterns:
+
+    | User | URL |
+	|------|-----|
+	| For FortiSASE VPN User SSO | `https://<TENANTHOSTNAME>.edge.prod.fortisase.com/remote/login` |
+	| For FortiSASE SWG User SSO | `https://<TENANTHOSTNAME>.edge.prod.fortisase.com:7831/XX/YY/ZZ/login` |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [FortiSASE Client support team](mailto:fgc@fortinet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. On the FortiSASE portal, go to **Configuration > VPN User SSO** or **Configuration > SWG User SSO** to find the service provider URLs. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. FortiSASE application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -132,11 +146,31 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure FortiSASE SSO
 
-To configure single sign-on on **FortiSASE** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [FortiSASE support team](mailto:fgc@fortinet.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to your FortiSASE company site as an administrator.
+
+1. Go to **Configuration > VPN User SSO** or **Configuration > SWG User SSO** depending on the FortiSASE mode used.
+
+1. In the **Configure Identity Provider** section, copy the following URLs and paste in the **Basic SAML Configuration** section in the Azure portal.
+
+	![Screenshot that shows the Configuration](./media/fortisase-tutorial/general.png "Configuration")
+
+1. In the **Configure Service Provider** section, perform the following steps:
+
+	![Screenshot that shows Service Provider configuration](./media/fortisase-tutorial/certificate.png "Service Provider")
+
+	a. In the **IdP Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+
+	b. In the **IdP Single Sign-On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+
+	c. In the **IdP Single Log-Out URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+
+	d. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and upload the content into the  **IdP Certificate** textbox.
+
+1. Review and submit the configuration.
 
 ### Create FortiSASE test user
 
-In this section, a user called Britta Simon is created in FortiSASE. FortiSASE supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in FortiSASE, a new one is created after authentication.
+FortiSASE supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section.
 
 ## Test SSO 
 

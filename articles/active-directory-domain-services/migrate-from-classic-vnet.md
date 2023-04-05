@@ -2,16 +2,14 @@
 title: Migrate Azure AD Domain Services from a Classic virtual network | Microsoft Docs
 description: Learn how to migrate an existing Azure AD Domain Services managed domain from the Classic virtual network model to a Resource Manager-based virtual network.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2022
+ms.date: 03/14/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Migrate Azure Active Directory Domain Services from the Classic virtual network model to Resource Manager
@@ -172,11 +170,18 @@ Before you begin the migration process, complete the following initial checks an
 
     Make sure that network settings don't block necessary ports required for Azure AD DS. Ports must be open on both the Classic virtual network and the Resource Manager virtual network. These settings include route tables (although it's not recommended to use route tables) and network security groups.
 
-    Azure AD DS needs a network security group to secure the ports needed for the managed domain and block all other incoming traffic. This network security group acts as an extra layer of protection to lock down access to the managed domain. To view the ports required, see [Network security groups and required ports][network-ports].
+    Azure AD DS needs a network security group to secure the ports needed for the managed domain and block all other incoming traffic. This network security group acts as an extra layer of protection to lock down access to the managed domain. 
 
-    If you use secure LDAP, add a rule to the network security group to allow incoming traffic for *TCP* port *636*. For more information, see [Lock down secure LDAP access over the internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
+    The following network security group Inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
 
-    Make a note of this target resource group, target virtual network, and target virtual network subnet. These resource names are used during the migration process.
+    | Source      | Source service tag                 | Source port ranges |  Destination  | Service | Destination port ranges | Protocol | Action | Required | Purpose |
+    |:-----------:|:----------------------------------:|:------------------:|:-------------:|:-------:|:-----------------------:|:--------:|:------:|:--------:|:--------|
+    | Service tag | AzureActiveDirectoryDomainServices | *                  | Any           | WinRM   | 5986        | TCP       | Allow  | Yes       | Management of your domain |
+    | Service tag | CorpNetSaw                         | *                  | Any           | RDP   | 3389        | TCP       | Allow  | Optional  | Debugging for support |
+    
+    Make a note of the target resource group, target virtual network, and target virtual network subnet. These resource names are used during the migration process.
+
+    Note that the **CorpNetSaw** service tag isn't available by using Azure portal, and the network security group rule for **CorpNetSaw** has to be added by using [PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 1. Check the managed domain health in the Azure portal. If you have any alerts for the managed domain, resolve them before you start the migration process.
 1. Optionally, if you plan to move other resources to the Resource Manager deployment model and virtual network, confirm that those resources can be migrated. For more information, see [Platform-supported migration of IaaS resources from Classic to Resource Manager][migrate-iaas].

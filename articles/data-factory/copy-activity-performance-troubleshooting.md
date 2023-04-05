@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ---
 
 # Troubleshoot copy activity performance
@@ -186,7 +186,7 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - Azure SQL Database tier is not high enough.
 
-    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and consider to upgrade the Azure SQL Database tier.
+    - Azure SQL Database DTU usage is close to 100%. You can [monitor the performance](/azure/azure-sql/database/monitor-tune-overview) and consider to upgrade the Azure SQL Database tier.
 
     - Indexes are not set properly. Remove all the indexes before data load and recreate them after load complete.
 
@@ -223,7 +223,7 @@ Here is performance monitoring and tuning references for some of the supported d
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and check the Database Transaction Unit (DTU) percentage.
+* Azure SQL Database: You can [monitor the performance](/azure/azure-sql/database/monitor-tune-overview) and check the Database Transaction Unit (DTU) percentage.
 * Azure Synapse Analytics: Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
 * SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).

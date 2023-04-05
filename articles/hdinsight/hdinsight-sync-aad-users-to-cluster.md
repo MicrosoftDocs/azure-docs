@@ -1,24 +1,23 @@
 ---
 title: Synchronize Azure Active Directory users to HDInsight cluster 
 description: Synchronize authenticated users from Azure Active Directory to an HDInsight cluster.
-ms.reviewer: jasonh 
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/21/2019
+ms.date: 02/27/2023
 ---
 
 # Synchronize Azure Active Directory users to an HDInsight cluster
 
-[HDInsight clusters with Enterprise Security Package (ESP)](./domain-joined/hdinsight-security-overview.md) can use strong authentication with Azure Active Directory (Azure AD) users, as well as use *Azure role-based access control (Azure RBAC)* policies. As you add users and groups to Azure AD, you can synchronize the users who need access to your cluster.
+[HDInsight clusters with Enterprise Security Package (ESP)](./domain-joined/hdinsight-security-overview.md) can use strong authentication with Azure Active Directory (Azure AD) users, and use *Azure role-based access control (Azure RBAC)* policies. As you add users and groups to Azure AD, you can synchronize the users who need access to your cluster.
 
 ## Prerequisites
 
-If you have not already done so, [create a HDInsight cluster with Enterprise Security Package](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
+If you haven't already done so, [create a HDInsight cluster with Enterprise Security Package](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ## Add new Azure AD users
 
-To view your hosts, open the Ambari Web UI. Each node will be updated with  new unattended upgrade settings.
+To view your hosts, open the Ambari Web UI. Each node is updated with  new unattended upgrade settings.
 
 1. From the [Azure portal](https://portal.azure.com), navigate to the Azure AD directory associated with your ESP cluster.
 
@@ -38,7 +37,7 @@ User groups specified during the cluster creation process are synchronized at th
 
 The following method uses POST with the Ambari REST API. For more information, see [Manage HDInsight clusters by using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-1. Use [ssh command](hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing `CLUSTERNAME` with the name of your cluster, and then enter the command:
+1. Use [ssh command](hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command by replacing `CLUSTERNAME` with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net

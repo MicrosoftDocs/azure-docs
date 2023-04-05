@@ -4,8 +4,8 @@ description: In this tutorial, learn how to enrich your question answering proje
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 This tutorial shows you how to enhance your question answering project with active learning. If you notice that customers are asking questions, which are not part of your project. There are often variations of questions that are paraphrased differently.
 
-These variations when added as alternate questions to the relevant question answer pair, help to optimize the project to answer real world user queries. You can manually add alternate questions to question answer pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
+These variations when added as alternate questions to the relevant question answer pair, help to optimize the project to answer real world user queries. You can manually add alternate questions to question answer pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the project receives regular user traffic to generate suggestions.
 
 ## Enable active learning
 
@@ -41,10 +41,10 @@ curl "https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob
 
 ## Import file
 
-From the edit knowledge base pane for your project, select the `...` (ellipsis) icon from the menu > **Import questions and answers** > **Import as TSV**. The select **Choose file** to browse to the copy of `SampleActiveLearning.tsv` that you downloaded to your computer in the previous step, and then select done.
+From the edit project pane for your project, select the `...` (ellipsis) icon from the menu > **Import questions and answers** > **Import as TSV**. The select **Choose file** to browse to the copy of `SampleActiveLearning.tsv` that you downloaded to your computer in the previous step, and then select done.
 
 > [!div class="mx-imgBorder"]
-> [ ![Screenshot of edit knowledge base menu bar with import as TSV option displayed.]( ../media/active-learning/import-questions.png) ]( ../media/active-learning/import-questions.png#lightbox)
+> [ ![Screenshot of edit project menu bar with import as TSV option displayed.]( ../media/active-learning/import-questions.png) ]( ../media/active-learning/import-questions.png#lightbox)
 
 ## View and add/reject active learning suggestions
 
@@ -52,6 +52,9 @@ Once the import of the test file is complete, active learning suggestions can be
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot with review suggestions page displayed.]( ../media/active-learning/review-suggestions.png) ]( ../media/active-learning/review-suggestions.png#lightbox)
+
+> [!NOTE]
+> Active learning suggestions are not real time. There is an approximate delay of 30 minutes before the suggestions can show on this pane. This delay is to ensure that we balance the high cost involved for real time updates to the index and service performance.
 
 We can now either accept these suggestions or reject them using the options on the menu bar to **Accept all suggestions** or **Reject all suggestions**.
 
@@ -62,7 +65,7 @@ Alternatively, to accept or reject individual suggestions, select the checkmark 
 
 ## Add alternate questions
 
-While active learning automatically suggests alternate questions based on the user queries hitting the project, we can also add variations of a question on the edit knowledge base page by selecting **Add alternate phrase** to question answer pairs.
+While active learning automatically suggests alternate questions based on the user queries hitting the project, we can also add variations of a question on the edit project page by selecting **Add alternate phrase** to question answer pairs.
 
 By adding alternate questions along with active learning, we further enrich the project with variations of a question that helps to provide consistent answers to user queries.
 

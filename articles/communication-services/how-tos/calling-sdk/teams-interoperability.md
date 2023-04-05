@@ -2,8 +2,8 @@
 title: Join a Teams meeting
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to join a Teams meeting.
-author: probableprime
-ms.author: rifox
+author: tophpalmer
+ms.author: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.topic: how-to 
@@ -21,7 +21,7 @@ Azure Communication Services SDKs can allow your users to join regular Microsoft
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
+- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 To join a Teams meeting, use the `join` method and pass a meeting link or a meeting's coordinates.
@@ -42,13 +42,6 @@ const locator = {
     tenantId: <tenant id>,
     messageId: <message id>
 }
-const call = callAgent.join(locator);
-```
-
-Join by using meeting id (this is currently in limited preview):
-
-```js
-const locator = { meetingId: '<MEETING_ID>'}
 const call = callAgent.join(locator);
 ```
 

@@ -1,16 +1,16 @@
 ---
-title: FAQs for hybrid FIDO2 security key deployment - Azure Active Directory
+title: FAQs for hybrid FIDO2 security key deployment
 description: Learn about some frequently asked questions for passwordless hybrid FIDO2 security key sign-in using Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 02/22/2021
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: aakapo
 
 ms.collection: M365-identity-device-management
@@ -156,7 +156,7 @@ On a Windows Server 2016 or 2019 domain controller, check that the following pat
 
 ### Can I deploy the FIDO2 credential provider on an on-premises only device?
 
-No, this feature isn't supported for on-premise only device. The FIDO2 credential provider wouldn't show up.
+No, this feature isn't supported for on-premises only device. The FIDO2 credential provider wouldn't show up.
 
 ### FIDO2 security key sign-in isn't working for my Domain Admin or other high privilege accounts. Why?
 

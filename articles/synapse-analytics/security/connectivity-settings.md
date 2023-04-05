@@ -16,7 +16,7 @@ This article will explain connectivity settings in Azure Synapse Analytics and h
 
 ## Public network access 
 
-You can use the public network access feature to allow incoming public network connectivity to you Azure Synapse workspace. 
+You can use the public network access feature to allow incoming public network connectivity to your Azure Synapse workspace. 
 
 - When public network access is **disabled**, you can connect to your workspace only using [private endpoints](synapse-workspace-managed-private-endpoints.md). 
 - When public network access is **enabled**, you can connect to your workspace also from public networks. You can manage this feature both during and after your workspace creation. 
@@ -57,7 +57,7 @@ Selecting the **Disable** option will not apply any firewall rules that you may 
 5.    Select **Save** to save the change. A notification will confirm that the network setting was successfully saved.
 
 ## Connection policy
-The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. You can learn more about how that affects connections to Synapse SQL in Azure Synapse Analytics [here](../../azure-sql/database/connectivity-architecture.md#connection-policy). 
+The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. You can learn more about how that affects connections to Synapse SQL in Azure Synapse Analytics [here](/azure/azure-sql/database/connectivity-architecture#connection-policy). 
 
 ## Minimal TLS version
 The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above.

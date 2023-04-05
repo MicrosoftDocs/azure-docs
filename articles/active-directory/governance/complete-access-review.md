@@ -1,10 +1,10 @@
 ---
-title: Complete an access review of groups & applications - Azure AD
-description: Learn how to complete an access review of group members or application access in Azure Active Directory access reviews.
+title: Complete an access review of groups & applications
+description: Learn how to complete an access review of group members or application access in Microsoft Entra access reviews.
 services: active-directory
 documentationcenter: ''
-author: ajburnle
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 02/18/2022
-ms.author: ajburnle
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
  
-# Complete an access review of groups and applications in Azure AD access reviews
+# Complete an access review of groups and applications in access reviews
  
 As an administrator, you [create an access review of groups or applications](create-access-review.md) and reviewers [perform the access review](perform-access-review.md). This article describes how to see the results of the access review and apply them.
  
@@ -116,7 +116,7 @@ Manually or automatically applying results doesn't have an effect on a group tha
  
 On review creation, the creator can choose between two options for denied guest users in an access review. 
  - Denied guest users can have their access to the resource removed. This is the default.
- - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user has not had access to the resource granted to them again, they will be removed from the tenant permanently. In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
+ - The denied guest user can be blocked from signing in for 30 days, then deleted from the tenant. During the 30-day period the guest user is able to be restored access to the tenant by an administrator. After the 30-day period is completed, if the guest user has not had access to the resource granted to them again, they will be removed from the tenant permanently. In addition, using the Azure portal, a Global Administrator can explicitly [permanently delete a recently deleted user](../fundamentals/active-directory-users-restore.md) before that time period is reached. Once a user has been permanently deleted, the data about that guest user will be removed from active access reviews. Audit information about deleted users remains in the audit log.
  
 ### Actions taken on denied B2B direct connect users
 Denied B2B direct connect users and teams will lose access to all shared channels in the Team.

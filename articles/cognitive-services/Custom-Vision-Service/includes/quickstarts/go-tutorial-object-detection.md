@@ -3,6 +3,7 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 02/25/2021
+ms.topic: include
 ---
 
 This guide provides instructions and sample code to help you get started using the Custom Vision client library for Go to build an object detection model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
@@ -19,7 +20,7 @@ Use the Custom Vision client library for Go to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-Reference documentation [(training)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training) [(prediction)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)| Library source code [(training)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/customvision/training) [(prediction)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.1/customvision/prediction) 
+Reference documentation [(training)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training) [(prediction)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction) 
 
 ## Prerequisites
 
@@ -51,7 +52,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Create a new file called *sample.go* in your preferred project directory, and open it in your preferred code editor.
 
-Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
+Add the following code to your script to create a new Custom Vision service project. Insert your keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
 See the [CreateProject](/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).
 
@@ -98,6 +99,9 @@ func main() {
     fmt.Println("Creating project...")
     project, _ := trainer.CreateProject(ctx, project_name, "", objectDetectDomain.ID, "")
 ```
+
+> [!IMPORTANT]
+> Remember to remove the keys from your code when you're done, and never post them publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ## Create tags in the project
 
@@ -177,18 +181,20 @@ var fork_images []training.ImageFileCreateEntry
 for file, region := range forkImageRegions {
     imageFile, _ := ioutil.ReadFile(path.Join(sampleDataDirectory, "fork", file))
 
-    imageRegion := training.Region { 
-        TagID:forkTag.ID,
-        Left:&region[0],
-        Top:&region[1],
-        Width:&region[2],
-        Height:&region[3],
+    regiontest := forkImageRegions[file]
+    imageRegion := training.Region{
+        TagID:  forkTag.ID,
+        Left:   &regiontest[0],
+        Top:    &regiontest[1],
+        Width:  &regiontest[2],
+        Height: &regiontest[3],
     }
+    var fileName string = file
 
-    fork_images = append(fork_images, training.ImageFileCreateEntry {
-        Name: &file,
+    fork_images = append(fork_images, training.ImageFileCreateEntry{
+        Name:     &fileName,
         Contents: &imageFile,
-        Regions: &[]training.Region{ imageRegion },
+        Regions:  &[]training.Region{imageRegion}
     })
 }
     

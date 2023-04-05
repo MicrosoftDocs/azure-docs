@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/15/2022
+ ms.date: 03/31/2023
  ms.author: rogarana
  ms.custom: include file, devx-track-azurecli
 ---
@@ -30,11 +30,13 @@ diskName=yourDiskName
 
 az account set --subscription $subscriptionId
 
+az group create --resource-group $rgName --location $location
+
 az keyvault create -n $keyVaultName \
 -g $rgName \
 -l $location \
 --enable-purge-protection true 
-                    
+
 az keyvault key create --vault-name $keyVaultName \
 -n $keyName \
 --protection software
@@ -45,7 +47,7 @@ az keyvault key create --vault-name $keyVaultName \
 ```azurecli
 keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
 
-az disk-encryption-set create -n $diskEncryptionSetName 
+az disk-encryption-set create -n $diskEncryptionSetName \
 -l $location \
 -g $rgName \
 --key-url $keyVaultKeyUrl \
@@ -73,8 +75,8 @@ Alternatively, you can use a Managed HSM to handle your keys.
 To do this, you must complete the following prerequisites:
 
 - Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account in with [az login](/cli/azure/reference-index).
-- [Create and configure a managed HSM](/azure/key-vault/managed-hsm/quick-create-cli).
-- [Assign permissions to a user, so they can manage your Managed HSM](/azure/key-vault/managed-hsm/role-management).
+- [Create and configure a managed HSM](../articles/key-vault/managed-hsm/quick-create-cli.md).
+- [Assign permissions to a user, so they can manage your Managed HSM](../articles/key-vault/managed-hsm/role-management.md).
 
 #### Configuration
 
@@ -101,7 +103,7 @@ Then, create a DiskEncryptionSet.
 ```azurecli
 keyVaultKeyUrl=$(az keyvault key show --vault-name $keyVaultName --name $keyName --query [key.kid] -o tsv)
     
-az disk-encryption-set create -n $diskEncryptionSetName 
+az disk-encryption-set create -n $diskEncryptionSetName \
 -l $location \
 -g $rgName \
 --key-url $keyVaultKeyUrl \

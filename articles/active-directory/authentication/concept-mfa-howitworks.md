@@ -6,11 +6,11 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 03/13/2023
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -44,7 +44,8 @@ When users sign in to an application or service and receive an MFA prompt, they 
 
 The following additional forms of verification can be used with Azure AD Multi-Factor Authentication:
 
-* Microsoft Authenticator app
+* Microsoft Authenticator 
+* Authenticator Lite (in Outlook)
 * Windows Hello for Business
 * FIDO2 security key
 * OATH hardware token (preview)

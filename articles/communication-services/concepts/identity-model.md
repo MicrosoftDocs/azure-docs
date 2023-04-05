@@ -56,7 +56,9 @@ The properties of an access token are:
 * Expiration.
 * Scopes.
 
-An access token is always valid for 24 hours. After it expires, the access token is invalidated and can't be used to access any primitive.
+An access token is valid for a period of time between 1 and 24 hours. After it expires, the access token is invalidated and can't be used to access any primitive.
+To generate a token with a custom validity, specify the desired validity period when generating the token. If no custom validity is specified, the token will be valid for 24 hours. 
+We recommend using short lifetime tokens for one-off meetings and longer lifetime tokens for agents using the application for longer periods of time.
 
 An identity needs a way to request a new access token from a server-side service. The *scope* parameter defines a nonempty set of primitives that can be used. Azure Communication Services supports the following scopes for access tokens.
 
@@ -80,7 +82,7 @@ If you cache access tokens to a backing store, we recommend using encryption. An
 
 ## Next steps
 
-* For an introduction to access token management, see [Create and manage access tokens](../quickstarts/access-tokens.md).
+* For an introduction to access token management, see [Create and manage access tokens](../quickstarts/identity/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
 * For an introduction to data residency and privacy, see [Region availability and data residency](./privacy.md).
 * To learn how to quickly create identities for testing, see the [quick-create identity quickstart](../quickstarts/identity/quick-create-identity.md).

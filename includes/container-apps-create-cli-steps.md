@@ -8,7 +8,7 @@ ms.author: cshoe
 
 ## Setup
 
-First, sign in to Azure from the CLI. Run the following command, and follow the prompts to complete the authentication process.
+To begin, sign in to Azure. Run the following command, and follow the prompts to complete the authentication process.
 
 # [Bash](#tab/bash)
 
@@ -16,34 +16,42 @@ First, sign in to Azure from the CLI. Run the following command, and follow the 
 az login
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az login
+```azurepowershell
+Connect-AzAccount
 ```
 
 ---
+
+# [Bash](#tab/bash)
 
 Next, install the Azure Container Apps extension for the CLI.
 
-# [Bash](#tab/bash)
-
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az extension add --name containerapp
+You must have the latest Az module installed.  Ignore any warnings about modules currently in use.
+
+```azurepowershell
+Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+```
+
+Now install the Az.App module.
+
+```azurepowershell
+Install-Module -Name Az.App
 ```
 
 ---
 
-Now that the extension is installed, register the `Microsoft.App` namespace.
+Now that the current extension or module is installed, register the `Microsoft.App` namespace.
 
 > [!NOTE]
-> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
@@ -51,10 +59,26 @@ Now that the extension is installed, register the `Microsoft.App` namespace.
 az provider register --namespace Microsoft.App
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.App
+```
+
+---
+
+Register the `Microsoft.OperationalInsights` provider for the Azure Monitor Log Analytics workspace if you have not used it before.
+
+# [Bash](#tab/bash)
 
 ```azurecli
-az provider register --namespace Microsoft.App
+az provider register --namespace Microsoft.OperationalInsights
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.OperationalInsights
 ```
 
 ---
@@ -69,12 +93,12 @@ LOCATION="canadacentral"
 CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$RESOURCE_GROUP="my-container-apps"
-$LOCATION="canadacentral"
-$CONTAINERAPPS_ENVIRONMENT="my-environment"
+```azurepowershell
+$ResourceGroupName = 'my-container-apps'
+$Location = 'canadacentral'
+$ContainerAppsEnvironment = 'my-environment'
 ```
 
 ---
@@ -89,12 +113,10 @@ az group create \
   --location $LOCATION
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```azurecli
-az group create `
-  --name $RESOURCE_GROUP `
-  --location $LOCATION
+```azurepowershell
+New-AzResourceGroup -Location $Location -Name $ResourceGroupName
 ```
 
 ---

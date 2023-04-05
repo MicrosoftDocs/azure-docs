@@ -1,8 +1,12 @@
 ---
 title: Monitor containers with Azure Monitor logs 
 description: Use Azure Monitor logs for monitoring containers running on Azure Service Fabric clusters.
-ms.topic: conceptual
-ms.date: 02/25/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Monitor containers with Azure Monitor logs
@@ -39,7 +43,7 @@ The agent enables the collection of several container-specific logs that can be 
 
 
 ## Next steps
-* Learn more about [Azure Monitor logs Containers solution](../azure-monitor/containers/containers.md).
+* Learn more about [Azure Monitor logs Containers solution](/previous-versions/azure/azure-monitor/containers/containers).
 * Read more about container orchestration on Service Fabric - [Service Fabric and containers](service-fabric-containers-overview.md)
 * Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
 * Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/alerts/alerts-overview.md) rules to aid in detecting and diagnostics

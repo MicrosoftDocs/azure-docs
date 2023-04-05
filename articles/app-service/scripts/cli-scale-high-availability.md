@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 12/11/2017
+ms.date: 04/15/2022
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
 ---
@@ -18,17 +18,25 @@ This sample script creates a resource group, two App Service plans, two apps, a 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "Geographic Scale")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+### Run the script
 
-## Script explanation
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/scale-geographic/scale-geographic.sh" id="FullScript":::
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 This script uses the following commands to create a resource group, App Service app, traffic manager profile, and all related resources. Each command in the table links to command specific documentation.
 

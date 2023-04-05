@@ -1,25 +1,25 @@
 ---
-title: Reprocess assignments for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to reprocess assignments for an access package in Azure Active Directory entitlement management.
+title: Reprocess assignments for an access package in entitlement management
+description: Learn how to reprocess assignments for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
-author: ajburnle
-manager: karenhoran
+author: owinfreyatl
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/25/2021
-ms.author: ajburnle
+ms.date: 01/26/2023
+ms.author: owinfrey
 ms.reviewer: 
 ms.collection: M365-identity-device-management
 
 #Customer intent: As a global administrator or access package manager, I want detailed information about how I can reprocess assignments for an access package in the event of a partial delivery, so that requestors have all of the resources they need to perform their job.
 
 ---
-# Reprocess assignments for an access package in Azure AD entitlement management
+# Reprocess assignments for an access package in entitlement management
 
 As an access package manager, you can automatically reevaluate and enforce users’ original assignments in an access package using the reprocess functionality. Reprocessing eliminates the need for users to repeat the access package request process if their access to resources was impacted by changes outside of Entitlement Management.
 
@@ -31,7 +31,7 @@ This article describes how to reprocess assignments in an existing access packag
 
 ## Prerequisites
 
-To use Azure AD entitlement management and assign users to access packages, you must have one of the following licenses:
+To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license

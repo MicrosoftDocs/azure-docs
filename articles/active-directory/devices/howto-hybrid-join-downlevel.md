@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 01/24/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -21,6 +21,7 @@ If some of your domain-joined devices are Windows [downlevel devices](hybrid-azu
 
 - Configure the local intranet settings for device registration
 - Install Microsoft Workplace Join for Windows downlevel computers
+- Need AD FS (for federated domains) or Seamless SSO configured (for managed domains).
 
 > [!NOTE]
 > Windows 7 support ended on January 14, 2020. For more information, [Support for Windows 7 has ended](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
@@ -39,7 +40,7 @@ You also must enable **Allow updates to status bar via script** in the user’s 
 
 To register Windows downlevel devices, organizations must install [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join for non-Windows 10 computers is available in the Microsoft Download Center.
 
-You can deploy the package by using a software distribution system like [Microsoft Endpoint Configuration Manager](/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
+You can deploy the package by using a software distribution system like [Microsoft Configuration Manager](/configmgr/). The package supports the standard silent installation options with the `quiet` parameter. The current branch of Configuration Manager offers benefits over earlier versions, like the ability to track completed registrations.
 
 The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD by using the user credentials after it authenticates with Azure AD.
 

@@ -1,10 +1,11 @@
 ---
-title: Guidance for developing Azure Functions 
+title: Guidance for developing Azure Functions
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
-ms.date: 9/02/2021
+ms.date: 11/11/2022
 ms.devlang: csharp
+ms.custom: ignite-2022
 ---
 # Azure Functions developer guide
 In Azure Functions, specific functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
@@ -42,7 +43,7 @@ The `bindings` property is where you configure both triggers and bindings. Each 
 | name | Function identifier.<br><br>For example, `myQueue`. | string | The name that is used for the bound data in the function. For C#, this is an argument name; for JavaScript, it's the key in a key/value list. |
 
 ## Function app
-A function app provides an execution context in Azure in which your functions run. As such, it is the unit of deployment and management for your functions. A function app is comprised of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. Think of a function app as a way to organize and collectively manage your functions. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
+A function app provides an execution context in Azure in which your functions run. As such, it is the unit of deployment and management for your functions. A function app is comprised of one or more individual functions that are managed, deployed, and scaled together. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. Think of a function app as a way to organize and collectively manage your functions. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md).
 
 > [!NOTE]
 > All functions in a function app must be authored in the same language. In [previous versions](functions-versions.md) of the Azure Functions runtime, this wasn't required.
@@ -102,6 +103,11 @@ However, a connection name can also refer to a collection of multiple configurat
 
 For example, the `connection` property for an Azure Blob trigger definition might be "Storage1". As long as there is no single string value configured by an environment variable named "Storage1",  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
 
+> [!NOTE]
+> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+>
+> For example, `Storage1:blobServiceUri`.
+
 ### Configure an identity-based connection
 
 Some connections in Azure Functions can be configured to use an identity instead of a secret. Support depends on the extension using the connection. In some cases, a connection string may still be required in Functions even though the service to which you are connecting supports identity-based connections. For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md).
@@ -110,16 +116,24 @@ Identity-based connections are supported by the following components:
 
 | Connection source                                       | Plans supported | Learn more                                                                                                         |
 |---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
-| Azure Blob triggers and bindings               | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-blob.md#install-extension)     |
-| Azure Queue triggers and bindings            | All             | [Extension version 5.0.0 or later](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
-| Azure Event Hubs triggers and bindings     | All             | [Extension version 5.0.0 or later](./functions-bindings-event-hubs.md?tabs=extensionv5)    |
-| Azure Service Bus triggers and bindings       | All             | [Extension version 5.0.0 or later](./functions-bindings-service-bus.md)  |
-| Azure Cosmos DB triggers and bindings - Preview         | Elastic Premium | [Extension version 4.0.0-preview1 or later](.//functions-bindings-cosmosdb-v2.md?tabs=extensionv4) |
-| Azure Tables (when using Azure Storage) - Preview | All | [Table API extension](./functions-bindings-storage-table.md#table-api-extension) |
+| Azure Blobs triggers and bindings               | All             | [Azure Blobs extension version 5.0.0 or later][blobv5],<br/>[Extension bundle 3.3.0 or later][blobv5]  |
+| Azure Queues triggers and bindings            | All             | [Azure Queues extension version 5.0.0 or later][queuev5],<br/>[Extension bundle 3.3.0 or later][queuev5] |
+| Azure Tables (when using Azure Storage)  | All | [Azure Tables extension version 1.0.0 or later](./functions-bindings-storage-table.md#table-api-extension),<br/>[Extension bundle 3.3.0 or later][tablesv1] |
+| Azure Event Hubs triggers and bindings     | All             | [Azure Event Hubs extension version 5.0.0 or later][eventhubv5],<br/>[Extension bundle 3.3.0 or later][eventhubv5]   |
+| Azure Service Bus triggers and bindings       | All             | [Azure Service Bus extension version 5.0.0 or later][servicebusv5],<br/>[Extension bundle 3.3.0 or later][servicebusv5] |
+| Azure Cosmos DB triggers and bindings         | All | [Azure Cosmos DB extension version 4.0.0 or later][cosmosv4],<br/> [Extension bundle 4.0.2 or later][cosmosv4]|
+| Azure SignalR triggers and bindings           | All | [Azure SignalR extension version 1.7.0 or later][signalr] <br/>[Extension bundle 3.6.1 or later][signalr] |
+| Durable Functions storage provider (Azure Storage) | All | [Durable Functions extension version 2.7.0 or later][durable-identity],<br/>[Extension bundle 3.3.0 or later][durable-identity] |
 | Host-required storage ("AzureWebJobsStorage") - Preview | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity-preview)                        |
 
-> [!NOTE]
-> Identity-based connections are not supported with Durable Functions.
+[blobv5]: ./functions-bindings-storage-blob.md#install-extension
+[queuev5]: ./functions-bindings-storage-queue.md#storage-extension-5x-and-higher
+[eventhubv5]: ./functions-bindings-event-hubs.md?tabs=extensionv5
+[servicebusv5]: ./functions-bindings-service-bus.md
+[cosmosv4]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4
+[tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
+[signalr]: ./functions-bindings-signalr-service.md#install-extension
+[durable-identity]: ./durable/durable-functions-configure-durable-functions-with-credentials.md
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
@@ -133,6 +147,10 @@ Choose a tab below to learn about permissions for each component:
 
 [!INCLUDE [functions-queue-permissions](../../includes/functions-queue-permissions.md)]
 
+# [Azure Tables extension](#tab/table)
+
+[!INCLUDE [functions-table-permissions](../../includes/functions-table-permissions.md)]
+
 # [Event Hubs extension](#tab/eventhubs)
 
 [!INCLUDE [functions-event-hubs-permissions](../../includes/functions-event-hubs-permissions.md)]
@@ -141,13 +159,16 @@ Choose a tab below to learn about permissions for each component:
 
 [!INCLUDE [functions-service-bus-permissions](../../includes/functions-service-bus-permissions.md)]
 
-# [Azure Cosmos DB extension (preview)](#tab/cosmos)
+# [Azure Cosmos DB extension](#tab/cosmos)
 
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
 
-# [Azure Tables API extension (preview)](#tab/table)
+# [Azure SignalR extension](#tab/signalr)
+You'll need to create a role assignment that provides access to Azure SignalR Service data plane REST APIs. We recommend you to use the built-in role [SignalR Service Owner](../role-based-access-control/built-in-roles.md#signalr-service-owner). Management roles like [Owner](../role-based-access-control/built-in-roles.md#owner) aren't sufficient.
 
-[!INCLUDE [functions-table-permissions](../../includes/functions-table-permissions.md)]
+# [Durable Functions storage provider](#tab/durable)
+
+[!INCLUDE [functions-durable-permissions](../../includes/functions-durable-permissions.md)]
 
 # [Functions host storage (preview)](#tab/azurewebjobsstorage)
 
@@ -169,7 +190,7 @@ Additional options may be supported for a given connection type. Please refer to
 ##### Local development with identity-based connections
 
 > [!NOTE]
-> Local development with identity-based connections requires updated versions of the [Azure Functions Core Tools](./functions-run-local.md). You can check your currently installed version by running `func -v`. For Functions v3, use version `3.0.3904` or later. For Functions v4, use version `4.0.3904` or later. 
+> Local development with identity-based connections requires updated versions of the [Azure Functions Core Tools](./functions-run-local.md). You can check your currently installed version by running `func -v`. For Functions v3, use version `3.0.3904` or later. For Functions v4, use version `4.0.3904` or later.
 
 When running locally, the above configuration tells the runtime to use your local developer identity. The connection will attempt to get a token from the following locations, in order:
 
@@ -190,7 +211,7 @@ In some cases, you may wish to specify use of a different identity. You can add 
 | Client ID | `<CONNECTION_NAME_PREFIX>__clientId` |  The client (application) ID of an app registration in the tenant. |
 | Client secret | `<CONNECTION_NAME_PREFIX>__clientSecret` | A client secret that was generated for the app registration. |
 
-Here is an example of `local.settings.json` properties required for identity-based connection to Azure Blobs: 
+Here is an example of `local.settings.json` properties required for identity-based connection to Azure Blobs:
 
 ```json
 {
@@ -224,7 +245,7 @@ To use an identity-based connection for "AzureWebJobsStorage", configure the fol
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
-If you are configuring "AzureWebJobsStorage" using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The blob and queue endpoints will be inferred for this account. This will not work if the storage account is in a sovereign cloud or has a custom DNS.
+If you are configuring "AzureWebJobsStorage" using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service will be inferred for this account. This will not work if the storage account is in a sovereign cloud or has a custom DNS.
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|

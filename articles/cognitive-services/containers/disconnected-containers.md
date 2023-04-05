@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 03/28/2022
+ms.date: 02/27/2022
 ms.author: aahi
 ---
 
@@ -15,9 +15,10 @@ ms.author: aahi
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs disconnected from the internet. Currently, the following containers can be run in this manner:
 
-* [Speech to Text (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
-* [Neural Text to Speech](../speech-service/speech-container-howto.md?tabs=ntts)
-* [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#host-computer)
+* [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt)
+* [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt)
+* [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts)
+* [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
 * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md)
 * Azure Cognitive Service for Language
   * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
@@ -27,7 +28,7 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
 
 Disconnected container usage is also available for the following Applied AI service:
 
-* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#required-containers)
+* [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
 
 Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
 
@@ -44,7 +45,7 @@ Fill out and submit the [request form](https://aka.ms/csdisconnectedcontainers) 
 
 Access is limited to customers that meet the following requirements:
 
-* Your organization must have a Microsoft Enterprise Agreement or an equivalent agreement and should be identified as strategic customer or partner with Microsoft.
+* Your organization should be identified as strategic customer or partner with Microsoft.
 * Disconnected containers are expected to run fully offline, hence your use cases must meet one of below or similar requirements:
   * Environment or device(s) with zero connectivity to internet.
   * Remote location that occasionally has internet access.
@@ -87,7 +88,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:l
 
 ## Configure the container to be run in a disconnected environment
 
-Now that you've downloaded your container, you'll need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a speech-to-text container with a form recognizer container.
+Now that you've downloaded your container, you'll need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a speech-to-text container with a form recognizer container. Please do not rename or modify the license file as this will prevent the container from running successfully.
 
 > [!IMPORTANT]
 >
@@ -100,18 +101,20 @@ The following example shows the formatting of the `docker run` command you'll us
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
-| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/volume/license:/path/to/license/directory` |
+| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
 
 ```bash
-docker run {IMAGE} --rm -it -p 5000:5000 \ 
+docker run --rm -it -p 5000:5000 \ 
 -v {LICENSE_MOUNT} \
+{IMAGE} \
 eula=accept \
 billing={ENDPOINT_URI} \
 apikey={API_KEY} \
 DownloadLicense=True \
-Mounts:License={LICENSE_MOUNT} \ 
+Mounts:License={CONTAINER_LICENSE_DIRECTORY} 
 ```
 
 After you've configured the container, use the next section to run the container in your environment with the license, and appropriate memory and CPU allocations.
@@ -130,16 +133,19 @@ Placeholder | Value | Format or example |
 | `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
  `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` |
 | `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
-| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/volume/license:/path/to/license/directory` |
+| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/license:/path/to/license/directory` |
 | `{OUTPUT_PATH}` | The output path for logging [usage records](#usage-records). | `/host/output:/path/to/output/directory` |
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
+| `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
 
 ```bash
-docker run {IMAGE} --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
 -v {LICENSE_MOUNT} \ 
 -v {OUTPUT_PATH} \
+{IMAGE} \
 eula=accept \
-Mounts:License={LICENSE_MOUNT}
-Mounts:Output={OUTPUT_PATH}
+Mounts:License={CONTAINER_LICENSE_DIRECTORY}
+Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
 ```
 
 ### Additional parameters and commands
@@ -155,15 +161,68 @@ If you're using the [Translator container](../translator/containers/translator-h
 -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
 ```
 
-#### Speech-to-text and Neural text-to-speech containers
+#### Speech containers
 
-The [speech-to-text](../speech-service/speech-container-howto.md?tabs=stt) and [neural text-to-speech](../speech-service/speech-container-howto.md?tabs=ntts) containers provide a default directory for writing the license file and billing log at runtime. When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+# [Speech-to-text](#tab/stt)
+
+The [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
 
 Below is a sample command to set file/directory ownership.
 
 ```bash
 sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
 ```
+
+# [Neural Text-to-Speech](#tab/ntts)
+
+The [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+# [Custom Speech-to-Text](#tab/cstt)
+
+In order to prepare and configure the Custom Speech-to-Text container you will need two separate speech resources:
+
+1. A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This will be used to train, download, and configure your custom speech models for use in your container.
+1. An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
+   
+To download all the required models into your Custom Speech-to-Text container follow the instructions for Custom Speech-to-Text containers on the [Install and run Speech containers](../speech-service/speech-container-howto.md?tabs=cstt) page and use the  speech resource in step 1.
+
+After all required models have been downloaded to your host computer, you need to download the disconnected license file using the instructions in the above chapter, titled [Configure the container to be run in a disconnected environment](./disconnected-containers.md#configure-the-container-to-be-run-in-a-disconnected-environment), using the Speech resource from step 2.
+
+To run the container in disconnected mode, follow the instructions from above chapter titled [Run the container in a disconnected environment](./disconnected-containers.md#run-the-container-in-a-disconnected-environment) and add an additional `-v` parameter to mount the directory containing your custom speech model.
+
+Example for running a Custom Speech-to-Text container in disconnected mode:
+```bash
+docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+-v {LICENSE_MOUNT} \ 
+-v {OUTPUT_PATH} \
+-v {MODEL_PATH} \
+{IMAGE} \
+eula=accept \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY}
+Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
+```
+
+The [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+---
 
 ## Usage records
 
@@ -247,3 +306,7 @@ If you run the container with an output mount and logging enabled, the container
 ## Next steps
 
 [Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
+
+
+
+

@@ -14,9 +14,9 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/09/2019
+ms.date: 04/15/2022
 ms.author: madsd
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, ignite-2022
 ---
 
 # Integrate App Service with Application Gateway using CLI
@@ -25,19 +25,27 @@ This sample script creates an Azure App Service web app, an Azure Virtual Networ
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
- - This tutorial requires version 2.0.74 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/integrate-with-app-gateway/integrate-with-app-gateway.sh "Integrate with Application Gateway")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+### Run the script
 
-## Script explanation
+:::code language="azurecli" source="~/azure_cli_scripts/app-service/integrate-with-app-gateway/integrate-with-app-gateway.sh" id="FullScript":::
 
-This script uses the following commands to create a resource group, App Service app, Cosmos DB, and all related resources. Each command in the table links to command specific documentation.
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
+
+This script uses the following commands to create a resource group, an App Service app, an Azure Cosmos DB instance, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|

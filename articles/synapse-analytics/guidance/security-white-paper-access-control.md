@@ -1,8 +1,8 @@
 ---
 title: "Azure Synapse Analytics security white paper: Access control"
 description: Use different approaches or a combination of techniques to control access to data with Azure Synapse Analytics.
-author: peter-myers
-ms.author: v-petermyers
+author: SnehaGunda
+ms.author: sngun
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -47,7 +47,7 @@ In addition to securing SQL tables in Azure Synapse, dedicated SQL pool (formerl
 
 ## Dynamic data masking
 
-[Dynamic data masking](../../azure-sql/database/dynamic-data-masking-overview.md) allows security administrators to restrict sensitive data exposure by masking it on read to non-privileged users. It helps prevent unauthorized access to sensitive data by enabling administrators to determine how the data is displayed at query time. Based on the identity of the authenticated user and their group assignment in the SQL pool, a query returns either masked or unmasked data. Masking is always applied regardless of whether data is accessed directly from a table or by using a view or stored procedure.
+[Dynamic data masking](/azure/azure-sql/database/dynamic-data-masking-overview) allows security administrators to restrict sensitive data exposure by masking it on read to non-privileged users. It helps prevent unauthorized access to sensitive data by enabling administrators to determine how the data is displayed at query time. Based on the identity of the authenticated user and their group assignment in the SQL pool, a query returns either masked or unmasked data. Masking is always applied regardless of whether data is accessed directly from a table or by using a view or stored procedure.
 
 > [!NOTE]
 > Dynamic data masking is supported in Azure Synapse and dedicated SQL pool (formerly SQL DW), but it's not supported for Apache Spark pool and serverless SQL pool.

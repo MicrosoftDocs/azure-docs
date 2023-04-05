@@ -6,8 +6,8 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 07/29/2021
+ms.topic: how-to
+ms.date: 03/24/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -25,7 +25,7 @@ Review the prerequisites and integration instructions in [Configure authenticati
 
 ## Create an iOS Swift app project
 
-If you don't already have an iOS Swift application, set up a new project by doing the following:
+If you don't already have an iOS Swift application, set up a new project by doing the following steps:
 
 1. Open [Xcode](https://developer.apple.com/xcode/), and then select **File** > **New** > **Project**.
 1. For iOS apps, select **iOS** > **App**, and then select **Next**.
@@ -41,7 +41,7 @@ If you don't already have an iOS Swift application, set up a new project by doin
 
 ## Step 1: Install the MSAL library
 
-1. Use [CocoaPods](https://cocoapods.org/) to install the MSAL library.   In the same folder as your project's *.xcodeproj* file, if the *podfile* file doesn't exist, create an empty file called *podfile*. Add the following code to the *podfile* file:
+1. Use [CocoaPods](https://cocoapods.org/) to install the MSAL library. In the same folder as your project's *.xcodeproj* file, if the *podfile* file doesn't exist, create an empty file and name it *podfile*. Add the following code to the *podfile* file:
 
    ```
    use_frameworks!
@@ -90,7 +90,7 @@ The [sample code](configure-authentication-sample-ios-app.md#step-4-get-the-ios-
 - Contains information about your Azure AD B2C identity provider. The app uses this information to establish a trust relationship with Azure AD B2C. 
 - Contains the authentication code to authenticate users, acquire tokens, and validate them.
 
-Choose a `UIViewController` where users will authenticate.  In your `UIViewController`, merge the code with the [code that's provided in GitHub](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/blob/vNext/MSALiOS/ViewController.swift). 
+Choose a `UIViewController` where users authenticate.  In your `UIViewController`, merge the code with the [code that's provided in GitHub](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/blob/vNext/MSALiOS/ViewController.swift). 
 
 ## Step 4: Configure your iOS Swift app
 
@@ -100,7 +100,7 @@ To learn how to configure your iOS Swift app, see [Configure authentication in a
 
 ## Step 5: Run and test the mobile app
 
-1. Build and run the project with a [simulator of a connected iOS device](https://developer.apple.com/documentation/xcode/running-your-app-in-the-simulator-or-on-a-device).
+1. Build and run the project with a [simulator of a connected iOS device](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device).
 1. Select **Sign In**, and then sign up or sign in with your Azure AD B2C local or social account.
 1. After you've authenticated successfully, you'll see your display name in the navigation bar.
 
@@ -192,7 +192,7 @@ Authorization: Bearer <access-token>
 
 When users [authenticate interactively](#step-62-start-an-interactive-authorization-request), the app gets an access token in the `acquireToken` closure. For subsequent web API calls, use the acquire token silent (`acquireTokenSilent`) method, as described in this section. 
 
-The `acquireTokenSilent` method does the following:
+The `acquireTokenSilent` method does the following actions:
 
 1. It attempts to fetch an access token with the requested scopes from the token cache. If the token is present and hasn't expired, the token is returned. 
 1. If the token isn't present in the token cache or it has expired, the MSAL library attempts to use the refresh token to acquire a new access token. 

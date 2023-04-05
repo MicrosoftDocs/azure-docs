@@ -1,21 +1,22 @@
 ---
-title: Integrate Apache Kafka and Azure Cosmos DB Cassandra API using Kafka Connect
-description: Learn how to ingest data from Kafka to Azure Cosmos DB Cassandra API using DataStax Apache Kafka Connector
-author: rothja
+title: Integrate Apache Kafka and Azure Cosmos DB for Apache Cassandra using Kafka Connect
+description: Learn how to ingest data from Kafka to Azure Cosmos DB for Apache Cassandra using DataStax Apache Kafka Connector
+author: seesharprun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
+ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.author: jroth
+ms.author: sidandrews
 ms.reviewer: abhishgu
 ---
 
-# Ingest data from Apache Kafka into Azure Cosmos DB Cassandra API using Kafka Connect
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+# Ingest data from Apache Kafka into Azure Cosmos DB for Apache Cassandra using Kafka Connect
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
-Existing Cassandra applications can easily work with the [Azure Cosmos DB Cassandra API](cassandra-introduction.md) because of its [CQLv4 driver compatibility](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). You leverage this capability to integrate with streaming platforms such as [Apache Kafka](https://kafka.apache.org/) and bring data into Azure Cosmos DB.
+Existing Cassandra applications can easily work with the [Azure Cosmos DB for Apache Cassandra](introduction.md) because of its [CQLv4 driver compatibility](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). You leverage this capability to integrate with streaming platforms such as [Apache Kafka](https://kafka.apache.org/) and bring data into Azure Cosmos DB.
 
-Data in Apache Kafka (topics) is only useful when consumed by other applications or ingested into other systems. It's possible to build a solution using the [Kafka Producer/Consumer](https://kafka.apache.org/documentation/#api) APIs [using a language and client SDK of your choice](https://cwiki.apache.org/confluence/display/KAFKA/Clients). Kafka Connect provides an alternative solution. It's a platform to stream data between Apache Kafka and other systems in a scalable and reliable manner. Since Kafka Connect supports off the shelf connectors which includes Cassandra, you don't need to write custom code to integrate Kafka with Azure Cosmos DB Cassandra API. 
+Data in Apache Kafka (topics) is only useful when consumed by other applications or ingested into other systems. It's possible to build a solution using the [Kafka Producer/Consumer](https://kafka.apache.org/documentation/#api) APIs [using a language and client SDK of your choice](https://cwiki.apache.org/confluence/display/KAFKA/Clients). Kafka Connect provides an alternative solution. It's a platform to stream data between Apache Kafka and other systems in a scalable and reliable manner. Since Kafka Connect supports off the shelf connectors which includes Cassandra, you don't need to write custom code to integrate Kafka with Azure Cosmos DB for Apache Cassandra. 
 
 In this article, we will be using the open-source [DataStax Apache Kafka connector](https://docs.datastax.com/en/kafka/doc/kafka/kafkaIntro.html), that works on top of Kafka Connect framework to ingest records from a Kafka topic into rows of one or more Cassandra tables. The example provides a reusable setup using Docker Compose. This is quite convenient since it enables you to bootstrap all the required components locally with a single command. These components include Kafka, Zookeeper, Kafka Connect worker, and the sample data generator application.
 
@@ -27,9 +28,9 @@ Here is a breakdown of the components and their service definitions - you can re
 
 ## Prerequisites
 
-* [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account)
+* [Provision an Azure Cosmos DB for Apache Cassandra account](manage-data-dotnet.md#create-a-database-account)
 
-* [Use cqlsh for validation](cassandra-support.md#cql-shell)
+* [Use cqlsh for validation](support.md#cql-shell)
 
 * Install [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install)
 
@@ -123,8 +124,8 @@ Here is a summary of the attributes:
 
 **Basic connectivity**
 
-- `contactPoints`: enter the contact point for Cosmos DB Cassandra
-- `loadBalancing.localDc`: enter the region for Cosmos DB account e.g. Southeast Asia
+- `contactPoints`: enter the contact point for Azure Cosmos DB Cassandra
+- `loadBalancing.localDc`: enter the region for Azure Cosmos DB account e.g. Southeast Asia
 - `auth.username`: enter the username
 - `auth.password`: enter the password
 - `port`: enter the port value (this is `10350`, not `9042`. leave it as is)

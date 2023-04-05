@@ -3,12 +3,12 @@ title: 'Azure AD Cloud Governed Management for On-Premises Workloads - Azure'
 description: This topic describes cloud governed management for on-premises workloads.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/05/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -112,4 +112,4 @@ In hybrid environments, Microsoft's strategy is to enable deployments where the 
 
 ## Next steps
 
-For more information on how to get started on this journey, see the Azure AD deployment plans, located at <https://aka.ms/deploymentplans>. They provide end-to-end guidance about how to deploy Azure Active Directory (Azure AD) capabilities. Each plan explains the business value, planning considerations, design, and operational procedures needed to successfully roll out common Azure AD capabilities. Microsoft continually updates the deployment plans with best practices learned from customer deployments and other feedback when we add new capabilities to managing from the cloud with Azure AD.
+For more information on how to get started on this journey, see the [Azure AD deployment plans](https://aka.ms/deploymentplans). These plans provide end-to-end guidance for deploying Azure Active Directory (Azure AD) capabilities. Each plan explains the business value, planning considerations, design, and operational procedures needed to successfully roll out common Azure AD capabilities. Microsoft continually updates the deployment plans with best practices learned from customer deployments and other feedback when we add new capabilities to managing from the cloud with Azure AD.

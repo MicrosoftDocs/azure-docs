@@ -1,10 +1,10 @@
 ---
-title: Configure managed identities on virtual machine scale set - Azure AD
+title: Configure managed identities on virtual machine scale set
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set using the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: msi

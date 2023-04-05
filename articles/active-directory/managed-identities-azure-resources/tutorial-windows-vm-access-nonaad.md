@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Use a managed identity to access Azure Key Vault - Windows - Azure AD"
+title: "Tutorial: Use a managed identity to access Azure Key Vault - Windows"
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Key Vault. 
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: daveba
 
 ms.service: active-directory

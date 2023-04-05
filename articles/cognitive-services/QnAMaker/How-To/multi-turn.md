@@ -3,8 +3,8 @@ title: Multi-turn conversations - QnA Maker
 description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back-and-forth conversation where the previous question's context influences the next question and answer.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: jboback
+author: jboback
 ms.topic: how-to
 ms.date: 11/18/2021
 ---
@@ -362,4 +362,4 @@ QnA Maker supports version control by including multi-turn conversation steps in
 
 ## Next steps
 
-* Learn more about contextual conversations from this [dialog sample](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/11.qnamaker) or learn more about [conceptual bot design for multi-turn conversations](/azure/bot-service/bot-builder-conversations).
+* Learn more about contextual conversations from this [dialog sample](https://github.com/microsoft/BotBuilder-Samples/tree/main/archive/samples/csharp_dotnetcore/11.qnamaker) or learn more about [conceptual bot design for multi-turn conversations](/azure/bot-service/bot-builder-conversations).

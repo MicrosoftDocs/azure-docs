@@ -1,9 +1,12 @@
 ---
 title: Set up monitoring with Azure Monitor logs 
 description: Learn how to set up Azure Monitor logs for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
-ms.topic: conceptual
-ms.date: 02/20/2019 
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Set up Azure Monitor logs for a cluster
@@ -118,4 +121,4 @@ You can also add other solutions or make other modifications to your Log Analyti
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
 * Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
-* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/visualize/view-designer.md)
+* [Use View Designer to create custom views in Azure Monitor logs](/previous-versions/azure/azure-monitor/visualize/view-designer)

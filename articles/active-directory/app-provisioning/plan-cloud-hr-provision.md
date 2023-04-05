@@ -3,12 +3,12 @@ title: Plan cloud HR application to Azure Active Directory user provisioning
 description: This article describes the deployment process of integrating cloud HR systems, such as Workday and SuccessFactors, with Azure Active Directory. Integrating Azure AD with your cloud HR system results in a complete identity lifecycle management system. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/13/2021
+ms.date: 10/20/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -24,6 +24,10 @@ Azure AD uses this integration to enable the following cloud HR application (app
 - **Provision users to Active Directory:** Provision selected sets of users from a cloud HR app into one or more Active Directory domains.
 - **Provision cloud-only users to Azure AD:** In scenarios where Active Directory isn't used, provision users directly from the cloud HR app to Azure AD.
 - **Write back to the cloud HR app:** Write the email addresses and username attributes from Azure AD back to the cloud HR app.
+
+The following video provides guidance on planning your HR-driven provisioning integrations.  
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/HsdBt40xEHs]
 
 > [!NOTE]
 > This deployment plan shows you how to deploy your cloud HR app workflows with Azure AD user provisioning. For information on how to deploy automatic user provisioning to software as a service (SaaS) apps, see [Plan an automatic user provisioning deployment](./plan-auto-user-provisioning.md).
@@ -90,7 +94,8 @@ You also need a valid Azure AD Premium P1 or higher subscription license for eve
 | Videos | [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) |
 | | [How to deploy user provisioning in Active Azure Directory](https://youtu.be/pKzyts6kfrw) |
 | Tutorials | [List of tutorials on how to integrate SaaS apps with Azure AD](../saas-apps/tutorial-list.md) |
-| | [Tutorial: Configure Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| | [Tutorial: Configure automatic user provisioning with Workday](../saas-apps/workday-inbound-tutorial.md) |
+| | [Tutorial: Configure automatic user provisioning with SAP SuccessFactors](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) |
 | FAQ | [Automated user provisioning](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisioning from Workday to Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
@@ -145,7 +150,7 @@ To facilitate Azure AD provisioning workflows between the cloud HR app and Activ
 
 For example, the following image lists the Workday connector apps that are available in the Azure AD app gallery.
 
-![Azure Active Directory portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
+![Azure portal app gallery](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img2.png)
 
 ### Decision flow chart
 
@@ -202,7 +207,7 @@ The cloud HR app to Active Directory user provisioning solution requires that yo
 To prepare the on-premises environment, the Azure AD Connect provisioning agent configuration wizard registers the agent with your Azure AD tenant, [opens ports](../app-proxy/application-proxy-add-on-premises-application.md#open-ports), [allows access to URLs](../app-proxy/application-proxy-add-on-premises-application.md#allow-access-to-urls), and supports [outbound HTTPS proxy configuration](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication).
 
 The provisioning agent configures a [Global Managed Service Account (GMSA)](../cloud-sync/how-to-prerequisites.md#group-managed-service-accounts)
-to communicate with the Active Directory domains. If you want to use a non-GMSA service account for provisioning, you can [skip GMSA configuration](../cloud-sync/how-to-manage-registry-options.md#skip-gmsa-configuration) and specify your service account during configuration. 
+to communicate with the Active Directory domains.
 
 You can select domain controllers that should handle provisioning requests. If you have several geographically distributed domain controllers, install the provisioning agent in the same site as your preferred domain controllers. This positioning improves the reliability and performance of the end-to-end solution.
 
@@ -244,7 +249,7 @@ This topology supports business requirements where attribute mapping and provisi
 
 Use this topology to manage multiple independent child AD domains belonging to the same forest, if managers always exist in the same domain as the user and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* does not require a forest-wide lookup. It also offers the flexibility of delegating the administration of each provisioning job by domain boundary. 
 
-For example: In the diagram below, the provisioning apps are setup for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
+For example: In the diagram below, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Delegated administration of the provisioning app is possible so that *EMEA administrators* can independently manage the provisioning configuration of users belonging to the EMEA region.  
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to multiple AD domains" lightbox="media/plan-cloud-hr-provision/topology-3-separate-apps-with-multiple-ad-domains-no-cross-domain.png":::
 
@@ -261,7 +266,7 @@ For example: In the diagram below, the provisioning apps are setup for each geog
 
 Use this topology to manage multiple independent child AD domains belonging to the same forest, if a user's manager may exist in the different domain and your unique ID generation rules for attributes like *userPrincipalName*, *samAccountName* and *mail* requires a forest-wide lookup. 
 
-For example: In the diagram below, the provisioning apps are setup for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Cross-domain manager references and forest-wide lookup is handled by enabling referral chasing on the provisioning agent. 
+For example: In the diagram below, the provisioning apps are set up for each geographic region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). Depending on the location, users are provisioned to the respective AD domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png" alt-text="Screenshot of separate apps to provision users from Cloud HR to multiple AD domains with cross domain support" lightbox="media/plan-cloud-hr-provision/topology-4-separate-apps-with-multiple-ad-domains-cross-domain.png":::
 
@@ -280,7 +285,7 @@ For example: In the diagram below, the provisioning apps are setup for each geog
 
 Use this topology if you want to use a single provisioning app to manage users belonging to all your parent and child AD domains. This topology is recommended if provisioning rules are consistent across all domains and there is no requirement for delegated administration of provisioning jobs. This topology supports resolving cross-domain manager references and can perform forest-wide uniqueness check. 
 
-For example: In the diagram below, a single provisioning app manages users present in three different child domains grouped by region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). The attribute mapping for *parentDistinguishedName* is used to dynamically create a user in the appropriate child domain. Cross-domain manager references and forest-wide lookup is handled by enabling referral chasing on the provisioning agent. 
+For example: In the diagram below, a single provisioning app manages users present in three different child domains grouped by region: North America (NA), Europe, Middle East and Africa (EMEA) and Asia Pacific (APAC). The attribute mapping for *parentDistinguishedName* is used to dynamically create a user in the appropriate child domain. Cross-domain manager references and forest-wide lookup are handled by enabling referral chasing on the provisioning agent. 
 
 :::image type="content" source="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png" alt-text="Screenshot of single app to provision users from Cloud HR to multiple AD domains with cross domain support" lightbox="media/plan-cloud-hr-provision/topology-5-single-app-with-multiple-ad-domains-cross-domain.png":::
 
@@ -463,7 +468,7 @@ It's common for a security review to be required as part of the deployment of a 
 
 The cloud HR user provisioning implementation might fail to work as desired in the production environment. If so, the following rollback steps can assist you in reverting to a previous known good state.
 
-1. Review the [provisioning summary report](../app-provisioning/check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) and [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs-preview) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
+1. Review the [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md#provisioning-logs) to determine what incorrect operations were performed on the affected users or groups. For more information on the provisioning summary report and logs, see [Manage cloud HR app user provisioning](#manage-your-configuration).
 2. The last known good state of the users or groups affected can be determined through the provisioning audit logs or by reviewing the target systems (Azure AD or Active Directory).
 3. Work with the app owner to update the users or groups affected directly in the app by using the last known good state values.
 

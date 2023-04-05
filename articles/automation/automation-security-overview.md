@@ -4,22 +4,26 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 11/05/2021
+ms.date: 03/07/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Automation account authentication overview
 
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+
 Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have business or operational processes to manage outside of Azure. Working in any one of these environments require permissions to securely access the resources with the minimal rights required.
 
 This article covers authentication scenarios supported by Azure Automation and tells how to get started based on the environment or environments that you need to manage.
+
 
 ## Automation account
 
 When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources, runbooks, assets, and configurations from the resources of other accounts. You can use Automation accounts to separate resources into separate logical environments or delegated responsibilities. For example, you might use one account for development, another for production, and another for your on-premises environment. Or you might dedicate an Automation account to manage operating system updates across all of your machines with [Update Management](update-management/overview.md).
 
-An Azure Automation account is different from your Microsoft account or accounts created in your Azure subscription. For an introduction to creating an Automation account, see [Create an Automation account](./quickstarts/create-account-portal.md).
+An Azure Automation account is different from your Microsoft account or accounts created in your Azure subscription. For an introduction to creating an Automation account, see [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md).
 
 ## Automation resources
 
@@ -57,7 +61,12 @@ For details on using managed identities, see [Enable managed identity for Azure 
 
 ## Run As accounts
 
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+
 Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. There are two types of Run As accounts in Azure Automation:
+- Azure Run As Account
+- Azure Classic Run As Account
 
 To create or renew a Run As account, permissions are needed at three levels:
 
@@ -65,8 +74,6 @@ To create or renew a Run As account, permissions are needed at three levels:
 - Azure Active Directory (Azure AD), and
 - Automation account
 
-> [!NOTE]
-> Azure Automation does not automatically create the Run As account, it has been replaced by using managed identities. However, we continue to support a RunAs account for existing and new Automation accounts. You can [create a Run As account](create-run-as-account.md) in your Automation account from the Azure portal or by using PowerShell.
 
 ### Subscription permissions
 
@@ -118,6 +125,9 @@ When you create a Run As account, it performs the following tasks:
 * Creates an Automation connection asset named `AzureRunAsConnection` in the specified Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint.
 
 ### Azure Classic Run As account
+
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
 
 When you create an Azure Classic Run As account, it performs the following tasks:
 

@@ -1,5 +1,5 @@
 ---
-title: What is the Univariate Anomaly Detector?
+title: What is Anomaly Detector?
 titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API's algorithms to apply anomaly detection on your time series data.
 services: cognitive-services
@@ -8,94 +8,77 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 02/16/2021
+ms.date: 10/27/2022
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: 
 ---
 
-# What is Univariate Anomaly Detector?
+# What is Anomaly Detector?
 
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
-
-![Detect pattern changes in service requests](./media/anomaly_detection2.png)
-
-Using the Anomaly Detector doesn't require any prior experience in machine learning, and the REST API enables you to easily integrate the service into your applications and processes.
+Anomaly Detector is an AI service with a set of APIs, which enables you to monitor and detect anomalies in your time series data with little machine learning (ML) knowledge, either batch validation or real-time inference.
 
 This documentation contains the following types of articles:
-* The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
-* The [how-to guides](./how-to/identify-anomalies.md) contain instructions for using the service in more specific or customized ways.
-* The [conceptual articles](./concepts/anomaly-detection-best-practices.md) provide in-depth explanations of the service's functionality and features.
-* The [tutorials](./tutorials/batch-anomaly-detection-powerbi.md) are longer guides that show you how to use this service as a component in broader business solutions.
+* [**Quickstarts**](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* [**Interactive demo**](https://aka.ms/adDemo) could you help understand how Anomaly Detector works with easy operations.
+* [**How-to guides**](./how-to/identify-anomalies.md) contain instructions for using the service in more specific or customized ways.
+* [**Tutorials**](./tutorials/batch-anomaly-detection-powerbi.md) are longer guides that show you how to use this service as a component in broader business solutions.
+* [**Code samples**](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook) demonstrate how to use Anomaly Detector.
+* [**Conceptual articles**](./concepts/anomaly-detection-best-practices.md) provide in-depth explanations of the service's functionality and features.
 
-## Features
+## Anomaly Detector capabilities
 
-With the Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time.
+With Anomaly Detector, you can either detect anomalies in one variable using Univariate Anomaly Detector, or detect anomalies in multiple variables with Multivariate Anomaly Detector.
 
 |Feature  |Description  |
 |---------|---------|
-|Anomaly detection in real-time. | Detect anomalies in your streaming data by using previously seen data points to determine if your latest one is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data as it's created. |
-|Detect anomalies throughout your data set as a batch. | Use your time series to detect any anomalies that might exist throughout your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.         |
-|Detect change points throughout your data set as a batch. | Use your time series to detect any trend change points that exist in your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.    |
-| Get additional information about your data. | Get useful details about your data and any observed anomalies, including expected values, anomaly boundaries, and positions. |
-| Adjust anomaly detection boundaries. | The Anomaly Detector API automatically creates boundaries for anomaly detection. Adjust these boundaries to increase or decrease the API's sensitivity to data anomalies, and better fit your data. |
+|Univariate Anomaly Detection | Detect anomalies in one variable, like revenue, cost, etc. The model was selected automatically based on your data pattern. |
+|Multivariate Anomaly Detection| Detect anomalies in multiple variables with correlations, which are usually gathered from equipment or other complex system. The underlying model used is a Graph Attention Network.|
 
-## Demo
+### Univariate Anomaly Detection
 
-Check out this [interactive demo](https://aka.ms/adDemo) to understand how Anomaly Detector works.
-To run the demo, you need to create an Anomaly Detector resource and get the API key and endpoint.
+The Univariate Anomaly Detection API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
-## Notebook
+![Line graph of detect pattern changes in service requests.](./media/anomaly_detection2.png)
 
-To learn how to call the Anomaly Detector API, try this [Notebook](https://aka.ms/adNotebook). This Jupyter Notebook shows you how to send an API request and visualize the result.
+Using the Anomaly Detector doesn't require any prior experience in machine learning, and the REST API enables you to easily integrate the service into your applications and processes.
 
-To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
+With the Univariate Anomaly Detector, you can automatically detect anomalies throughout your time series data, or as they occur in real-time.
 
-## Workflow
+|Feature  |Description  |
+|---------|---------|
+| Streaming detection| Detect anomalies in your streaming data by using previously seen data points to determine if your latest one is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data as it's created. |
+| Batch detection | Use your time series to detect any anomalies that might exist throughout your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.         |
+| Change points detection | Use your time series to detect any trend change points that exist in your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.    |
 
-The Anomaly Detector API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON.
+### Multivariate Anomaly Detection
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+The **Multivariate Anomaly Detection** APIs further enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between up to 300 different signals are now automatically counted as key factors. This new capability helps you to proactively protect your complex systems such as software applications, servers, factory machines, spacecraft, or even your business, from failures.
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+![Line graph for multiple variables including: rotation, optical filter, pressure, bearing with anomalies highlighted in orange.](./media/multivariate-graph.png)
 
-After signing up:
-
-1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/anomaly-detection-best-practices.md) when preparing your data to get the best results.
-1. Send a request to the Anomaly Detector API with your data.
-1. Process the API response by parsing the returned JSON message.
-
-
-## Algorithms
-
-* See the following technical blogs for information about the algorithms used:
-    * [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
-    * [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
-
-You can read the paper [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepted by KDD 2019) to learn more about the SR-CNN algorithms developed by Microsoft.
-
-> [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
-
-## Service availability and redundancy
-
-### Is the Anomaly Detector service zone resilient?
-
-Yes. The Anomaly Detector service is zone-resilient by default.
-
-### How do I configure the Anomaly Detector service to be zone-resilient?
-
-No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Anomaly Detector resources is available by default and managed by the service itself.
-
-## Deploy on premises using Docker containers
-
-[Use Anomaly Detector containers](anomaly-detector-container-howto.md) to deploy API features on-premises. Docker containers enable you to bring the service closer to your data for compliance, security, or other operational reasons.
+Imagine 20 sensors from an auto engine generating 20 different signals like rotation, fuel pressure, bearing, etc. The readings of those signals individually may not tell you much about system level issues, but together they can represent the health of the engine. When the interaction of those signals deviates outside the usual range, the multivariate anomaly detection feature can sense the anomaly like a seasoned expert. The underlying AI models are trained and customized using your data such that it understands the unique needs of your business. With the new APIs in Anomaly Detector, developers can now easily integrate the multivariate time series anomaly detection capabilities into predictive maintenance solutions, AIOps monitoring solutions for complex enterprise software, or business intelligence tools.
 
 ## Join the Anomaly Detector community
 
-* Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
+Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin) for better support and any updates!
 
+## Algorithms
+
+* Blogs and papers:
+    * [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
+    * [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
+    * [Introducing Multivariate Anomaly Detection](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multivariate-anomaly-detection/ba-p/2260679)
+    * [Multivariate time series Anomaly Detection via Graph Attention Network](https://arxiv.org/abs/2009.02040)
+    * [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepted by KDD 2019)
+
+* Videos:
+    > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+    
+    > [!VIDEO https://www.youtube.com/embed/FwuI02edclQ]
+    
 ## Next steps
 
-* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](quickstarts/client-libraries.md)
-* The Anomaly Detector API [online demo](https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook)
-* The Anomaly Detector [REST API reference](https://aka.ms/anomaly-detector-rest-api-ref)
+* [Quickstart: Detect anomalies in your time series data using the Univariate Anomaly Detection](quickstarts/client-libraries.md)
+* [Quickstart: Detect anomalies in your time series data using the Multivariate Anomaly Detection](quickstarts/client-libraries-multivariate.md)
+* The Anomaly Detector [REST API reference](https://aka.ms/ad-api)

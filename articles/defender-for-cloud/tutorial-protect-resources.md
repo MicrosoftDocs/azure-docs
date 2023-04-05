@@ -3,12 +3,10 @@ title: Access & application controls tutorial - Microsoft Defender for Cloud
 description: This tutorial shows you how to configure a just-in-time VM access policy and an application control policy.
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/09/2021
+ms.date: 01/08/2023
 
 ---
 # Tutorial: Protect your resources with Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Defender for Cloud limits your exposure to threats by using access and application controls to block malicious activity. Just-in-time (JIT) virtual machine (VM) access reduces your exposure to attacks by enabling you to deny persistent access to VMs. Instead, you provide controlled and audited access to VMs only when needed. Adaptive application controls help harden VMs against malware by controlling which applications can run on your VMs. Defender for Cloud uses machine learning to analyze the processes running in the VM and helps you apply allowlist rules using this intelligence.
 
@@ -24,7 +22,7 @@ To step through the features covered in this tutorial, you must have Defender fo
 ## Manage VM access
 JIT VM access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
-Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Defender for Cloud uses Network Security Group (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
+Management ports don't need to be open always. They only need to be open while you're connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Defender for Cloud uses Network Security Group (NSG) rules, which restrict access to management ports so they can't be targeted by attackers.
 
 Follow the guidance in [Secure your management ports with just-in-time access](just-in-time-access-usage.md).
 

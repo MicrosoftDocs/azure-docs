@@ -2,7 +2,7 @@
 title: Linter rule - secure parameter default
 description: Linter rule - secure parameter default
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 02/10/2023
 ---
 
 # Linter rule - secure parameter default
@@ -36,6 +36,10 @@ You can fix it by removing the default value.
 @secure()
 param adminPassword string
 ```
+
+Optionally, you can use **Quick Fix** to remove the insecured default value:
+
+:::image type="content" source="./media/linter-rule-secure-parameter-default/linter-rule-secure-parameter-default-quick-fix.png" alt-text="The screenshot of Secured default value linter rule quick fix.":::
 
 Or, by providing an empty string for the default value.
 

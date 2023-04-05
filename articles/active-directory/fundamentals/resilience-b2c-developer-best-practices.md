@@ -1,5 +1,5 @@
 ---
-title: Resilience through developer best practices using Azure AD B2C | Microsoft Docs
+title: Resilience through developer best practices using Azure AD B2C
 description: Resilience through developer best practices in Customer Identity and Access Management using Azure AD B2C
 services: active-directory 
 ms.service: active-directory
@@ -9,8 +9,7 @@ ms.topic: how-to
 author: gargi-sinha
 ms.author: gasinh
 manager: martinco
-ms.reviewer: 
-ms.date: 11/30/2020
+ms.date: 12/01/2022
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
@@ -33,9 +32,7 @@ The Microsoft Azure AD B2C directory service supports billions of authentication
 
 ### How to optimize directory reads and writes
 
-- **Avoid write functions to the directory on sign-in**: Never execute a write on sign-in without a precondition (if clause) in your custom policies. One use case that requires a write on a sign-in is [just-in-time migration of user passwords](https://github.com/azure-ad-b2c/user-migration/tree/master/seamless-account-migration). Avoid any scenario that requires a write on every sign-in.
-
-  - [Preconditions](../../active-directory-b2c/userjourneys.md) in a user journey will look like this:
+- **Avoid write functions to the directory on sign-in**: Never execute a write on sign-in without a precondition (if clause) in your custom policies. One use case that requires a write on a sign-in is [just-in-time migration of user passwords](https://github.com/azure-ad-b2c/user-migration/tree/master/seamless-account-migration). Avoid any scenario that requires a write on every sign-in. [Preconditions](../../active-directory-b2c/userjourneys.md) in a user journey will look like this:
 
   ```xml
   <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
@@ -44,21 +41,15 @@ The Microsoft Azure AD B2C directory service supports billions of authentication
   <Precondition/>
   ```
 
-  -	Build resistance to bot-driven [sign-ups by integrating with a CAPTCHA system](https://github.com/azure-ad-b2c/samples/tree/master/policies/captcha-integration).
-
-  - Use a [load testing sample](../../active-directory-b2c/best-practices.md#testing) to simulate sign-up and sign-in. 
-
 - **Understand throttling**: The directory implements both application and tenant level throttling rules. There are further rate limits for Read/GET, Write/POST, Update/PUT, and Delete/DELETE operations and each operation have different limits.
 
   - A write at the time of sign-in will fall under a POST for new users or PUT for existing users.
-
   - A custom policy that creates or updates a user on every sign-in, can potentially hit an application level PUT or POST rate limit. The same limits apply when updating directory objects via Azure AD or Microsoft Graph. Similarly, examine the reads to keep the number of reads on every sign-in to the minimum.
-
-  - Estimate peak load to predict the rate of directory writes and avoid throttling. Peak traffic estimates should include estimates for actions such as sign-up, sign-in, and Multi-factor authentication (MFA). Be sure to test both the Azure AD B2C system and your application for peak traffic. It's possible that Azure AD B2C can handle the load without throttling, when your downstream applications or services won’t.
-
+  - Estimate peak load to predict the rate of directory writes and avoid throttling. Peak traffic estimates should include estimates for actions such as sign-up, sign-in, and Multi-factor authentication (MFA). Be sure to test both the Azure AD B2C system and your application for peak traffic. It's possible that Azure AD B2C can handle the load without throttling, when your downstream applications or services won't.
   - Understand and plan your migration timeline. When planning to migrate users to Azure AD B2C using Microsoft Graph, consider the application and tenant limits to calculate the time needed to complete the migration of users. If you split your user creation job or script using two applications, you can use the per application limit. It would still need to remain below the per tenant threshold.
-
-  - Understand the effects of your migration job on other applications. Consider the live traffic served by other relying applications to make sure you don’t cause throttling at the tenant level and resource starvation for your live application. For more information, see the [Microsoft Graph throttling guidance](/graph/throttling).
+  - Understand the effects of your migration job on other applications. Consider the live traffic served by other relying applications to make sure you don't cause throttling at the tenant level and resource starvation for your live application. For more information, see the [Microsoft Graph throttling guidance](/graph/throttling).
+  - Use a [load test sample](https://github.com/azure-ad-b2c/load-tests) to simulate sign-up and sign-in. 
+  - Learn more about [Azure Active Directory B2C service limits and restrictions](../../active-directory-b2c/service-limits.md?pivots=b2c-custom-policy).
   
 ## Extend token lifetimes
 
@@ -68,20 +59,12 @@ Your business requirements and desired end-user experience will dictate your fre
 
 ### How to extend token lifetimes
 
-- **Web applications**: For web applications where the authentication token is validated at the beginning of sign-in, the application depends on the session cookie to continue to extend the session validity.
-
-  - Enable users to remain signed in by implementing rolling session times that will continue to renew sessions based on user activity. If there is a long-term token issuance outage, these session times can be further increased as a onetime configuration on the application. Keep the lifetime of the session to the maximum allowed.
-
-- **SPAs**: A SPA may depend on access tokens to make calls to the APIs. A SPA traditionally uses the implicit flow that doesn't result in a refresh token. The SPA can use a hidden iframe to perform new token requests against the authorization endpoint if the browser still has an active session with the Azure AD B2C. For SPAs, there are a few options available to allow the user to continue to use the application.
-
-  - Extend the access token’s validity duration to meet your business requirements.
-
-  - Build your application to use an API gateway as the authentication proxy. In this configuration, the SPA loads without any authentication and the API calls are made to the API gateway. The API gateway sends the user through a sign-in process using an [authorization code grant](https://oauth.net/2/grant-types/authorization-code/) based on a policy and authenticates the user. Subsequently, the authentication session between the API gateway and the client is maintained using an authentication cookie. The APIs are serviced from the API gateway using the token that is obtained by the API gateway or some other direct authentication method such as certificates, client credentials, or API keys.
-
+- **Web applications**: For web applications where the authentication token is validated at the beginning of sign-in, the application depends on the session cookie to continue to extend the session validity. Enable users to remain signed in by implementing rolling session times that will continue to renew sessions based on user activity. If there's a long-term token issuance outage, these session times can be further increased as a onetime configuration on the application. Keep the lifetime of the session to the maximum allowed.
+- **SPAs**: A SPA may depend on access tokens to make calls to the APIs. A SPA traditionally uses the implicit flow that doesn't result in a refresh token. The SPA can use a hidden `iframe` to perform new token requests against the authorization endpoint if the browser still has an active session with the Azure AD B2C. For SPAs, there are a few options available to allow the user to continue to use the application.
+  - Extend the access token's validity duration to meet your business requirements.
+  - Build your application to use an API gateway as the authentication proxy. In this configuration, the SPA loads without any authentication and the API calls are made to the API gateway. The API gateway sends the user through a sign-in process using an [authorization code grant](https://oauth.net/2/grant-types/authorization-code/) based on a policy and authenticates the user. Then the authentication session between the API gateway and the client is maintained using an authentication cookie. The API gateway services the APIs using the token that is obtained by the API gateway (or some other direct authentication method such as certificates, client credentials, or API keys).
   - [Migrate your SPA from implicit grant](https://developer.microsoft.com/identity/blogs/msal-js-2-0-supports-authorization-code-flow-is-now-generally-available/) to [authorization code grant flow](../../active-directory-b2c/implicit-flow-single-page-application.md) with Proof Key for Code Exchange (PKCE) and Cross-origin Resource Sharing (CORS) support. Migrate your application from MSAL.js 1.x to MSAL.js 2.x to realize the resiliency of Web applications.
-
   - For mobile applications, it's recommended to extend both the refresh and access token lifetimes.
-
 - **Backend or microservice applications**: Because backend (daemon) applications are non-interactive and aren't in a user context, the prospect of token theft is greatly diminished. Recommendation is to strike a balance between security and lifetime and set a long token lifetime.
 
 ## Configure Single sign-on
@@ -98,13 +81,13 @@ Upon subsequent authentication requests, Azure AD B2C reads and validates the co
 
 The most common disrupters of service are the code and configuration changes. Adoption of Continuous Integration and Continuous Delivery (CICD) processes and tools help with rapid deployment at a large scale and reduces human errors during testing and deployment into production. Adopt CICD for error reduction, efficiency, and consistency. [Azure Pipelines](/azure/devops/pipelines/apps/cd/azure/cicd-data-overview) is an example of CICD.
 
-## Web application firewall
+## Protect from bots
 
 Protect your applications against known vulnerabilities such as Distributed Denial of Service (DDoS) attacks, SQL injections, cross-site scripting, remote code execution, and many others as documented in [OWASP Top 10](https://owasp.org/www-project-top-ten/). Deployment of a Web Application Firewall (WAF) can defend against common exploits and vulnerabilities.
 
 - Use Azure [WAF](../../web-application-firewall/overview.md), which provides centralized protection against attacks.
-
-- Use WAF with Azure AD [Identity Protection and Conditional Access to provide multi-layer protection](../../active-directory-b2c/conditional-access-identity-protection-overview.md) when using Azure AD B2C.  
+- Use WAF with Azure AD [Identity Protection and Conditional Access to provide multi-layer protection](../../active-directory-b2c/conditional-access-identity-protection-overview.md) when using Azure AD B2C.
+- Build resistance to bot-driven [sign-ups by integrating with a CAPTCHA system](https://github.com/azure-ad-b2c/samples/tree/master/policies/captcha-integration).
 
 ## Secrets rotation
 
@@ -113,11 +96,8 @@ Azure AD B2C uses secrets for applications, APIs, policies, and encryption. The 
 ### How to implement secret rotation
 
 - Use [managed identities](../managed-identities-azure-resources/overview.md) for supported resources to authenticate to any service that supports Azure AD authentication. When you use managed identities, you can manage resources automatically, including rotation of credentials.
-
 - Take an inventory of all the [keys and certificates configured](../../active-directory-b2c/policy-keys-overview.md) in Azure AD B2C. This list is likely to include keys used in custom policies, [APIs](../../active-directory-b2c/secure-rest-api.md), signing ID token, and certificates for SAML.
-
 - Using CICD, rotate secrets that are about to expire within two months from the anticipated peak season. The recommended maximum cryptoperiod of private keys associated to a certificate is one year.
-
 - Proactively monitor and rotate the API access credentials such as passwords, and certificates.
 
 ## Test REST APIs

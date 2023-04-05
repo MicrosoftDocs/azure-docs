@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Protect a web API with the Microsoft identity platform | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Protect a web API with the Microsoft identity platform"
 description: In this quickstart, you download and modify a code sample that demonstrates how to protect a web API by using the Microsoft identity platform for authorization.
 services: active-directory
 author: Dickson-Mwendia
@@ -9,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 01/11/2022
+ms.date: 12/09/2022
 ms.author: dmwendia
 ms.custom: aaddev, scenarios:getting-started, devx-track-js
 zone_pivot_groups: web-api-quickstart

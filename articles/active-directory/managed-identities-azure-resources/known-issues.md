@@ -1,10 +1,10 @@
 ---
-title: Known issues with managed identities - Azure Active Directory
+title: Known issues with managed identities
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -55,6 +55,23 @@ Workaround for managed identities in a subscription that has been moved to anoth
 
 For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
+## Error during managed identity assignment operations
+In rare cases, you may see error messages indicating errors related to assignment of managed identities with Azure resources. Some of the example error messages are as follows: 
+- Azure resource ‘azure-resource-id' does not have access to identity 'managed-identity-id'.  
+- No managed service identities are associated with resource ‘azure-resource-id'
+
+**Workaround**
+In these rare cases the best next steps are
+
+1. For identities no longer needed to be assigned to the resource, remove them from the resource.
+2. For User Assigned Managed Identity, reassign the identity to the Azure resource. 
+3. For System Assigned Managed Identity, disable the identity and enable it again. 
+
+>[!NOTE]
+>To assign/unassign Managed identities please follow below links
+
+- [Documentation for VM](qs-configure-portal-windows-vm.md)
+- [Documentation for VMSS](qs-configure-portal-windows-vmss.md)
 
 ## Next steps
 

@@ -2,15 +2,12 @@
 title: Set up Service Fabric backend in Azure API Management | Microsoft Docs
 description: How to create a Service Fabric service backend in Azure API Management using the Azure portal
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
 
 ms.service: api-management
 ms.topic: article
 ms.date: 01/29/2021
 ms.author: danlep 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Set up a Service Fabric backend in API Management using the Azure portal
@@ -69,7 +66,7 @@ For steps to add a certificate to your API Management instance, see [How to secu
 
 ## Use the backend
 
-To use a custom backend, reference it using the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy. This policy transforms the default backend service base URL of an incoming API request to a specified backend, in this case the Service Fabric backend. 
+To use a custom backend, reference it using the [`set-backend-service`](set-backend-service-policy.md) policy. This policy transforms the default backend service base URL of an incoming API request to a specified backend, in this case the Service Fabric backend. 
 
 The `set-backend-service` policy can be useful with an existing API to transform an incoming request to a different backend than the one specified in the API settings. For demonstration purposes in this article, create a test API and set the policy to direct API requests to the Service Fabric backend. 
 
@@ -106,20 +103,20 @@ To test the integration of API Management with the cluster, add the correspondin
     
     :::image type="content" source="media/backends/configure-get-operation.png" alt-text="Add GET operation to API":::
 
-### Configure `set-backend` policy
+### Configure `set-backend-service` policy
 
-Add the [`set-backend-service`](api-management-transformation-policies.md#SetBackendService) policy to the test API.
+Add the [`set-backend-service`](set-backend-service-policy.md) policy to the test API.
 
 1. On the **Design** tab, in the **Inbound processing** section, select the code editor (**</>**) icon. 
 1. Position the cursor inside the **&lt;inbound&gt;** element
 1. Add the `set-service-backend` policy statement. 
-      * In `backend-id`, substitute the name of your Service Fabric backend.
+    * In `backend-id`, substitute the name of your Service Fabric backend.
 
-      * The `sf-resolve-condition` is a condition for re-resolving a service location and resending a request. The number of retries was set when configuring the backend. For example:
+    * The `sf-resolve-condition` is a condition for re-resolving a service location and resending a request. The number of retries was set when configuring the backend. For example:
 
       ```xml
       <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"/>
-    ```
+      ```
 1. Select **Save**.
 
     :::image type="content" source="media/backends/set-backend-service.png" alt-text="Configure set-backend-service policy":::

@@ -1,20 +1,17 @@
 ---
-title: Micro agent security alerts (Preview)
+title: Micro agent security alerts
 description: Learn about security alerts and recommended remediation using Defender for IoT device's features, and services.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/01/2023
 ---
 
-# Micro agent security alerts (Preview)
+# Micro agent security alerts
 
 Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 In addition, you can create custom alerts based on your knowledge of expected device behavior.
 An alert acts as an indicator of potential compromise, and should be investigated and remediated.
 
-In this article, you will find a list of built-in alerts, which can be triggered on your IoT devices.
-In addition to built-in alerts, Defender for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
-
-For more information, see [customizable alerts](concept-customizable-security-alerts.md).
+In this article, you'll find a list of built-in alerts, which can be triggered on your IoT devices.
 
 ## Security alerts
 
@@ -27,18 +24,25 @@ For more information, see [customizable alerts](concept-customizable-security-al
 | Port forwarding detection | High | Defender-IoT-micro-agent | Initiation of port forwarding to an external IP address detected. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_PortForwarding |
 | Possible attempt to disable Auditd logging detected | High | Defender-IoT-micro-agent | Linux Auditd system provides a way to track security-relevant information on the system. The system records as much information about the events that are happening on your system as possible. This information is crucial for mission-critical environments to determine who violated the security policy and the actions they performed. Disabling Auditd logging may prevent your ability to discover violations of security policies used on the system. | Check with the device owner if this was legitimate activity with business reasons. If not, this event may be hiding activity by malicious actors. Immediately escalated the incident to your information security team. | IoT_DisableAuditdLogging |
 | Reverse shells | High | Defender-IoT-micro-agent | Analysis of host data on a device detected a potential reverse shell. Reverse shells are often used to get a compromised machine to call back into a machine controlled by a malicious actor. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_ReverseShell |
-| Successful local login | High | Defender-IoT-micro-agent | Successful local sign in to the device detected | Make sure the signed in user is an authorized party. | IoT_SucessfulLocalLogin |
+| Successful local login | High | Defender-IoT-micro-agent | Successful local sign-in to the device detected. | Make sure the signed in user is an authorized party. | IoT_SucessfulLocalLogin |
 | Web shell | High | Defender-IoT-micro-agent | Possible web shell detected. Malicious actors commonly upload a web shell to a compromised machine to gain persistence or for further exploitation. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_WebShell |
 | Behavior similar to ransomware detected | High | Defender-IoT-micro-agent | Execution of files similar to known ransomware that may prevent users from accessing their system, or personal files, and may demand ransom payment to regain access. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_Ransomware |
 | Crypto coin miner image | High | Defender-IoT-micro-agent | Execution of a process normally associated with digital currency mining detected. | Verify with the user that ran the command if this was legitimate activity on the device. If not, escalate the alert to the information security team. | IoT_CryptoMiner |
+| New USB Connection | High | Defender-IoT-micro-agent | A USB device connection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_USBConnection |
+| USB Disconnection | High | Defender-IoT-micro-agent | A USB device disconnection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_UsbDisconnection |
+| New Ethernet Connection | High | Defender-IoT-micro-agent | A new Ethernet connection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_EthernetConnection |
+| Ethernet Disconnection | High | Defender-IoT-micro-agent | A new Ethernet disconnection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_EthernetDisconnection |
+| New File Created | High | Defender-IoT-micro-agent | A new file was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileCreated |
+| File Modified | High | Defender-IoT-micro-agent | File modification was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileModified |
+| File Deleted | High | Defender-IoT-micro-agent | File deletion was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileDeleted |
 
 ### Medium severity
 
 | Name | Severity | Data Source | Description | Suggested remediation steps | Alert type |
 |--|--|--|--|--|--|
 | Behavior similar to common Linux bots detected | Medium | Defender-IoT-micro-agent | Execution of a process normally associated with common Linux botnets detected. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_CommonBots |
-| Behavior similar to Fairware ransomware detected | Medium | Defender-IoT-micro-agent | Execution of rm -rf commands applied to suspicious locations detected using analysis of host data. Because rm -rf recursively deletes files, it is normally only used on discrete folders. In this case, it is being used in a location that could remove a large amount of data. Fairware ransomware is known to execute rm -rf commands in this folder. | Review with the user that ran the command this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_FairwareMalware |
-| Crypto coin miner container image detected | Medium | Defender-IoT-micro-agent | Container detecting running known digital currency mining images. | 1. If this behavior is not intended, delete the relevant container image. <br> 2. Make sure that the Docker daemon is not accessible via an unsafe TCP socket. <br> 3. Escalate the alert to the information security team. | IoT_CryptoMinerContainer |
+| Behavior similar to Fairware ransomware detected | Medium | Defender-IoT-micro-agent | Execution of rm -rf commands applied to suspicious locations detected using analysis of host data. Because rm -rf recursively deletes files, it's normally only used on discrete folders. In this case, it's being used in a location that could remove a large amount of data. Fairware ransomware is known to execute rm -rf commands in this folder. | Review with the user that ran the command this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_FairwareMalware |
+| Crypto coin miner container image detected | Medium | Defender-IoT-micro-agent | Container detecting running known digital currency mining images. | 1. If this behavior isn't intended, delete the relevant container image. <br> 2. Make sure that the Docker daemon isn't accessible via an unsafe TCP socket. <br> 3. Escalate the alert to the information security team. | IoT_CryptoMinerContainer |
 | Detected suspicious use of the nohup command | Medium | Defender-IoT-micro-agent | Suspicious use of the nohup command on host detected. Malicious actors commonly run the nohup command from a temporary directory, effectively allowing their executables to run in the background. Seeing this command run on files located in a temporary directory is not expected or usual behavior. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_SuspiciousNohup |
 | Detected suspicious use of the useradd command | Medium | Defender-IoT-micro-agent | Suspicious use of the useradd command detected on the device. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_SuspiciousUseradd |
 | Exposed Docker daemon by TCP socket | Medium | Defender-IoT-micro-agent | Machine logs indicate that your Docker daemon (dockerd) exposes a TCP socket. By default, Docker configuration, does not use encryption or authentication when a TCP socket is enabled. Default Docker configuration enables full access to the Docker daemon, by anyone with access to the relevant port. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_ExposedDocker |
@@ -57,6 +61,7 @@ For more information, see [customizable alerts](concept-customizable-security-al
 | Suspicious compilation detected | Medium | Defender-IoT-micro-agent | Suspicious compilation detected. Malicious actors often compile exploits on a compromised machine to escalate privileges. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_SuspiciousCompilation |
 | Suspicious file download followed by file run activity | Medium | Defender-IoT-micro-agent | Analysis of host data detected a file that was downloaded and run in the same command. This technique is commonly used by malicious actors to get infected files onto victim machines. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_DownloadFileThenRun |
 | Suspicious IP address communication | Medium | Defender-IoT-micro-agent | Communication with a suspicious IP address detected. | Verify if the connection is legitimate. Consider blocking communication with the suspicious IP. | IoT_TiConnection |
+| Malicious Domain Name Request | Medium | Defender-IoT-micro-agent | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Disconnect the source from the network. Perform incident response. | IoT_MaliciousNameQueriesDetection |
 
 ### Low severity
 

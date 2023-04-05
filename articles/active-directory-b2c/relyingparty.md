@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 03/13/2023
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -43,7 +43,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
-      <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
+      <SessionExpiryInSeconds>900</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       <ContentDefinitionParameters>
         <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
@@ -77,6 +77,8 @@ The optional **RelyingParty** element contains the following elements:
 | Endpoints | 0:1 | A list of endpoints. For more information, see [UserInfo endpoint](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | The scope of the user journey behaviors. |
 | TechnicalProfile | 1:1 | A technical profile that's supported by the RP application. The technical profile provides a contract for the RP application to contact Azure AD B2C. |
+
+You need to create the **RelyingParty** child elements in the order presented in the preceding table.
 
 ## Endpoints
 
@@ -144,7 +146,8 @@ The **UserJourneyBehaviors** element contains the following elements:
 | JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 | ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 
-
+When you use the above elements, you need add them to your **UserJourneyBehaviors** element in the order specified in the table. For example, the **JourneyInsights** element must be added before (above) the **ScriptExecution** element. 
+ 
 ### SingleSignOn
 
 The **SingleSignOn** element contains the following attributes:
@@ -286,7 +289,7 @@ The **SubjectNamingInfo** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection. |
+| ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection with a **PartnerClaimType**. For example, `<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />`, or `<OutputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="signInName" />`. |
 | Format | No | Used for SAML Relying parties to set the **NameId format** returned in the SAML Assertion. |
 
 The following example shows how to define an OpenID Connect relying party. The subject name info is configured as the `objectId`:

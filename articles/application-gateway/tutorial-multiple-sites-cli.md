@@ -3,11 +3,11 @@ title: Host multiple web sites using CLI
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that hosts multiple web sites using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: victorh
+ms.author: greglin
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
@@ -31,7 +31,7 @@ If you prefer, you can complete this procedure using [Azure PowerShell](tutorial
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -88,7 +88,8 @@ az network application-gateway create \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 10
 ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features of it:
@@ -153,7 +154,8 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener contosoListener \
   --rule-type Basic \
-  --address-pool contosoPool
+  --address-pool contosoPool \
+  --priority 200
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
@@ -161,7 +163,8 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener fabrikamListener \
   --rule-type Basic \
-  --address-pool fabrikamPool
+  --address-pool fabrikamPool \
+  --priority 100
 
 az network application-gateway rule delete \
   --gateway-name myAppGateway \

@@ -5,7 +5,7 @@ ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli, subject-rbac-steps
 ---
 
 # Repair an Automanage Account
@@ -65,12 +65,24 @@ If you're using an ARM template or the Azure CLI, you'll need the Principal ID (
 - Azure portal: Go to **Azure Active Directory** and search for your Automanage Account by name. Under **Enterprise Applications**, select the Automanage Account name when it appears.
 
 ### Azure portal
+
 1. Under **Subscriptions**, go to the subscription that contains your automanaged VMs.
-1. Go to **Access control (IAM)**.
-1. Select **Add role assignments**.
-1. Select the **Contributor** role and enter the name of your Automanage Account.
-1. Select **Save**.
-1. Repeat steps 3 through 5, this time with the **Resource Policy Contributor** role.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+    | Setting          | Value                              |
+    | ---------------- | ---------------------------------- |
+    | Role             | Contributor                        |
+    | Assign access to | User, group, or service principal  |
+    | Members          | \<Name of your Automanage account> |
+
+    ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
+1. Repeat steps 2 through 4, selecting the **Resource Policy Contributor** role.
 
 ### ARM template
 Run the following ARM template. You'll need the Principal ID of your Automanage Account. The steps to get it are at the start of this section. Enter the ID when you're prompted.
@@ -124,4 +136,4 @@ az role assignment create --assignee-object-id <your Automanage Account Object I
 ```
 
 ## Next steps
-[Learn more about Azure Automanage](./automanage-virtual-machines.md)
+[Learn more about Azure Automanage](./overview-about.md)

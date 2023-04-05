@@ -194,10 +194,11 @@ To detect which categories your issue is in, run the most appropriate Azure CLI 
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
 
-The two common types of issue that cause device data to not appear in IoT Central are:
+The three common types of issue that cause device data to not appear in IoT Central are:
 
 - Device template to device data mismatch.
 - Data is invalid JSON.
+- Old versions of IoT Edge cause telemetry from components to display incorrectly as unmodeled data.
 
 ### Device template to device data mismatch
 
@@ -231,7 +232,7 @@ The validation commands also report an error if the same telemetry name is defin
 
 If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled.
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view":::
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view" lightbox="media/troubleshoot-connection/raw-data-view.png":::
 
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
@@ -243,8 +244,12 @@ If there are no errors reported, but a value isn't appearing, then it's probably
 
 You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
 
+### IoT Edge version
+
+To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from components in IoT Edge modules displays as *_unmodeleddata*.
+
 ## Next steps
 
 If you need more help, you can contact the Azure experts on the [Microsoft Q&A and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an [Azure support ticket](https://portal.azure.com/#create/Microsoft.Support).
 
-For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).
+For more information, see [Azure IoT support and help options](../../iot/iot-support-help.md).

@@ -1,12 +1,13 @@
 ---
 author: tamram
 ms.service: storage
+ms.custom: devx-track-azurepowershell
 ms.topic: include
-ms.date: 03/27/2019
+ms.date: 06/23/2022
 ms.author: tamram
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
-    There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
+    There is one for Azure Table Storage and one for Azure Cosmos DB for Table -->
 
 ## Managing table entities
 
@@ -71,7 +72,7 @@ This command yields results similar to the following table:
 | 2 | Jessie | partition2 | NM |
 | 4 | Steven | partition2 | TX |
 
-#### Retrieve entities for a specific partition
+#### Retrieve entities for a specific partition key
 
 ```powershell
 Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft

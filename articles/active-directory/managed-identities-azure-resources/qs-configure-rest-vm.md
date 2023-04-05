@@ -1,10 +1,10 @@
 ---
-title: Configure managed identities on Azure VM using REST - Azure AD
+title: Configure managed identities on Azure VM using REST
 description: Step-by-step instructions for configuring a system and user-assigned managed identities on an Azure VM using CURL to make REST API calls.
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -35,7 +35,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 - If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## System-assigned managed identity
 

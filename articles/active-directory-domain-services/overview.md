@@ -3,13 +3,13 @@ title: Overview of Azure Active Directory Domain Services | Microsoft Docs
 description: In this overview, learn what Azure Active Directory Domain Services provides and how to use it in your organization to provide identity services to applications and services in the cloud.
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 03/23/2023
 ms.author: justinha
 
 ms.custom: contperf-fy21q1
@@ -82,7 +82,7 @@ The following features of Azure AD DS simplify deployment and management operati
 Some key aspects of a managed domain include the following:
 
 * The managed domain is a stand-alone domain. It isn't an extension of an on-premises domain.
-    * If needed, you can create one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment. For more information, see [Resource forest concepts and features for Azure AD DS][ forest-trusts].
+    * If needed, you can create one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment. For more information, see [Forest concepts and features for Azure AD DS][forest-trusts].
 * Your IT team doesn't need to manage, patch, or monitor domain controllers for this managed domain.
 
 For hybrid environments that run AD DS on-premises, you don't need to manage AD replication to the managed domain. User accounts, group memberships, and credentials from your on-premises directory are synchronized to Azure AD via [Azure AD Connect][azure-ad-connect]. These user accounts, group memberships, and credentials are automatically available within the managed domain.
@@ -103,7 +103,7 @@ To get started, [create a managed domain using the Azure portal][tutorial-create
 [tutorial-create]: tutorial-create-instance.md
 [azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 [password-hash-sync]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/availability-zones-overview.md
 [forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md

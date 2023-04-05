@@ -56,7 +56,7 @@ sitename=<your-site-name>
 
 az deployment group create \
   --resource-group <resource_group_name> \
-  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/main/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
 ```
 
@@ -64,7 +64,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your Azure Cache for Redis instance
 

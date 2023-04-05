@@ -1,15 +1,15 @@
 ---
-title: Create or delete administrative units - Azure Active Directory
+title: Create or delete administrative units
 description: Create administrative units to restrict the scope of role permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 01/25/2023
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -38,7 +38,7 @@ You can create a new administrative unit by using either the Azure portal, Power
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units**.
 
@@ -66,6 +66,20 @@ Use the [New-AzureADMSAdministrativeUnit](/powershell/module/azuread/new-azuread
 New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
+### Microsoft Graph PowerShell
+
+Use the [New-MgDirectoryAdministrativeUnit](/powershell/module/microsoft.graph.identity.directorymanagement/new-mgdirectoryadministrativeunit) command to create a new administrative unit.
+
+```powershell
+Import-Module Microsoft.Graph.Identity.DirectoryManagement
+$params = @{
+	DisplayName = "Seattle District Technical Schools"
+	Description = "Seattle district technical schools administration"
+	Visibility = "HiddenMembership"
+}
+New-MgDirectoryAdministrativeUnit -BodyParameter $params
+```
+
 ### Microsoft Graph API
 
 Use the [Create administrativeUnit](/graph/api/administrativeunit-post-administrativeunits) API to create a new administrative unit.
@@ -91,7 +105,7 @@ In Azure AD, you can delete an administrative unit that you no longer need as a 
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory** > **Administrative units** and then select the administrative unit you want to delete.
 

@@ -5,10 +5,11 @@ description: Identify and manage common pitfalls of ML models with Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.reviewer: nibaccam
-author: nibaccam
-ms.author: nibaccam
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.date: 10/21/2021
 ---
 
@@ -78,7 +79,7 @@ Automated ML also implements explicit **model complexity limitations** to preven
 **Cross-validation (CV)** is the process of taking many subsets of your full training data and training a model on each subset. The idea is that a model could get "lucky" and have great accuracy with one subset, but by using many subsets the model won't achieve this high accuracy every time. When doing CV, you provide a validation holdout dataset, specify your CV folds (number of subsets) and automated ML will train your model and tune hyperparameters to minimize error on your validation set. One CV fold could be overfitted, but by using many of them it reduces the probability that your final model is overfitted. The tradeoff is that CV does result in longer training times and thus greater cost, because instead of training a model once, you train it once for each *n* CV subsets. 
 
 > [!NOTE]
-> Cross-validation is not enabled by default; it must be configured in automated ML settings. However, after cross-validation is configured and a validation data set has been provided, the process is automated for you. Learn more about [cross validation configuration in Auto ML](how-to-configure-cross-validation-data-splits.md)
+> Cross-validation is not enabled by default; it must be configured in automated ML settings. However, after cross-validation is configured and a validation data set has been provided, the process is automated for you. Learn more about [cross validation configuration in Auto ML (SDK v1)](./v1/how-to-configure-cross-validation-data-splits.md?view=azureml-api-1&preserve-view=true)
 
 <a name="imbalance"></a>
 
@@ -86,7 +87,7 @@ Automated ML also implements explicit **model complexity limitations** to preven
 
 Imbalanced data is commonly found in data for machine learning classification scenarios, and refers to data that contains a disproportionate ratio of observations in each class. This imbalance can lead to a falsely perceived positive effect of a model's accuracy, because the input data has bias towards one class, which results in the trained model to mimic that bias. 
 
-In addition, automated ML runs generate the following charts automatically, which can help you understand the correctness of the classifications of your model, and identify models potentially impacted by imbalanced data.
+In addition, automated ML jobs generate the following charts automatically, which can help you understand the correctness of the classifications of your model, and identify models potentially impacted by imbalanced data.
 
 Chart| Description
 ---|---
@@ -114,7 +115,7 @@ The following techniques are additional options to handle imbalanced data **outs
 
 See examples and learn how to build models using automated machine learning:
 
-+ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md)
++ Follow the [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 
 + Configure the settings for automatic training experiment:
   + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Active Directory SSO integration with Cloud Academy'
-description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Cloud Academy.
+description: In this tutorial, you learn how to configure single sign-on between Azure Active Directory and Cloud Academy.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2021
+ms.date: 03/15/2023
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on integration with Cloud Academy
+# Tutorial: Azure Active Directory SSO integration with Cloud Academy
 
-In this tutorial, you'll learn how to integrate Cloud Academy with Azure Active Directory (Azure AD). When you integrate Cloud Academy with Azure AD, you can:
+In this tutorial, you learn how to integrate Cloud Academy with Azure Active Directory (Azure AD). When you integrate Cloud Academy with Azure AD, you can:
 
 * Use Azure AD to control who can access Cloud Academy.
 * Enable your users to be automatically signed in to Cloud Academy with their Azure AD accounts.
@@ -30,7 +30,7 @@ To get started, you need the following items:
 
 ## Tutorial description
 
-In this tutorial, you'll configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cloud Academy supports **SP** initiated SSO.
 * Cloud Academy supports **Just In Time** user provisioning.
@@ -46,6 +46,8 @@ To configure the integration of Cloud Academy into Azure AD, you need to add Clo
 1. To add an application, select **New application**.
 1. In the **Add from the gallery** section, enter **Cloud Academy** in the search box.
 1. Select **Cloud Academy** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Cloud Academy
 
@@ -104,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user called B.Simon in the Azure portal.
+In this section, you create a test user called B.Simon in the Azure portal.
 
 1. In the left menu of the Azure portal, select **Azure Active Directory**. Select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
@@ -116,14 +118,14 @@ In this section, you'll create a test user called B.Simon in the Azure portal.
 
 ### Grant access to the test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting that user access to Cloud Academy.
+In this section, you enable B.Simon to use Azure single sign-on by granting that user access to Cloud Academy.
 
 1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
 1. In the applications list, select **Cloud Academy**.
 1. On the app's overview page, in the **Manage** section, select **Users and groups**:
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box:
 1. In the **Users and groups** dialog box, select **B.Simon** in the **Users** list, and then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. If you're expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
 ## Configure single sign-on for Cloud Academy
@@ -148,15 +150,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     1. Open the downloaded Base64 certificate from the Azure portal in Notepad. Paste its contents into the **Certificate** box.
 
-    1. In the **Email Domains** box, enter all the domain values your company uses for user emails.
-
 1. Perform the following steps in the below page:
 
     ![Screenshot that shows the Integrations in additional settings.](./media/cloud-academy-sso-tutorial/additional-settings.png)
 
     1. In the **SAML Attributes Mapping** section, fill in the required fields with the source attribute values:
   
-       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+       `http://schemas.microsoft.com/identity/claims/objectidentifier`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
@@ -190,14 +190,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
 1. If sign-in is successful, you can activate SSO integration for the entire organization:
 
-    :::image type="content" source="./media/cloud-academy-sso-tutorial/test-successful.png" alt-text="Screenshot that shows S S O activation is successful..":::
+    :::image type="content" source="./media/cloud-academy-sso-tutorial/test-successful.png" alt-text="Screenshot that shows S S O activation is successful.":::
 
 > [!NOTE]
 > For more information about how to configure Cloud Academy, see [Setting Up Single Sign-On](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
 
 ### Create a Cloud Academy test user
 
-In this section, a user called B.Simon is created in Cloud Academy. Cloud Academy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Cloud Academy, a new one is created after authentication.
+In this section, a user called B.Simon is created in Cloud Academy. Cloud Academy supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Cloud Academy, a new one is created after authentication.
 
 Cloud Academy also supports automatic user provisioning. For more information, see the [Cloud Academy SSO provisioning tutorial](./cloud-academy-sso-provisioning-tutorial.md).
 

@@ -1,10 +1,10 @@
 ---
 title: Create an experiment that uses an agent-based fault with Azure Chaos Studio with the portal
 description: Create an experiment that uses an agent-based fault and configure the chaos agent with the portal
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: how-to
 ms.date: 11/01/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: template-how-to, ignite-fall-2021
 ---
@@ -39,7 +39,7 @@ sudo apt-get update && sudo apt-get -y install unzip && sudo apt-get -y install 
 or
 
 ```bash
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm && sudo yum -y install stress-ng
+sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && sudo yum -y install stress-ng
 ```
 
 ### Enable chaos target, capabilities, and agent
@@ -59,6 +59,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 ![Reviewing agent-based target enablement](images/tutorial-agent-based-targets-enable-review.png)
 7. After a few minutes, a notification will appear indicating that the resource(s) selected were successfully enabled. The Azure portal will add the user-assigned identity to the virtual machine, enable the agent target and capabilities, and install the chaos agent as a virtual machine extension.
 ![Notification showing target successfully enabled](images/tutorial-agent-based-targets-enable-confirm.png)
+8. If enabling a virtual machine scale set, upgrade instances to the latest model by going to the virtual machine scale set resource blade, clicking **Instances**, then selecting all instances and clicking **Upgrade** if not on the latest model.
 
 You have now successfully onboarded your Linux virtual machine to Chaos Studio. In the **Targets** view you can also manage the capabilities enabled on this resource. Clicking the **Manage actions** link next to a resource will display the capabilities enabled for that resource.
 

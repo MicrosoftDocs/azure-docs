@@ -1,16 +1,14 @@
 ---
-title: Azure AD B2C service limits and restrictions
-titleSuffix: Azure AD B2C
+title: Azure Active Directory B2C service limits and restrictions
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
 services: active-directory-b2c
 author: kengaderdus
-manager: celestedg
-
+ms.author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/21/2021
-ms.author: mimart
+ms.date: 12/29/2022
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -20,6 +18,9 @@ zone_pivot_groups: b2c-policy-type
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 This article outlines the usage constraints and other service limits for the Azure Active Directory B2C (Azure AD B2C) service. These limits are in place to protect by effectively managing threats and ensuring a high level of service quality.
+
+> [!NOTE]
+> To increase any of the service limits mentioned in this article, contact **[Support](find-help-open-support-ticket.md)**.
 
 ## User/consumption related limits
 
@@ -34,7 +35,7 @@ The number of users able to authenticate through an Azure AD B2C tenant is gated
 
 Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
 
-The frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
+The frequency of requests made to Azure AD B2C endpoints determines the overall token issuance capability. Azure AD B2C exposes endpoints, which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
 
 |Endpoint                 |Endpoint type     |Requests consumed |
 |-----------------------------|---------|------------------|
@@ -74,7 +75,7 @@ When you add more features to a User Flow, such as multifactor authentication, m
 
 |Feature |Additional requests consumed    |
 |---------|---------|
-|Azure Multi-Factor Authentication          |2   |
+|Azure Active Directory Multi-Factor Authentication          |2   |
 |Email one-time password      |2   |
 |Age gating     |2   |
 |Federated identity provider  |2   |
@@ -119,7 +120,7 @@ Tokens/sec = 200/requests-consumed
 
 ## Calculate the token issuance rate of your Custom Policy
 
-You can craete your own Custom Policy to provide a unique authentication experience for your application. The number of requests consumed at the dynamic endpoint depends on which features a user traverses through your Custom Policy. The below table shows how many requests are consumed for each feature in a Custom Policy.
+You can create your own Custom Policy to provide a unique authentication experience for your application. The number of requests consumed at the dynamic endpoint depends on which features a user traverses through your Custom Policy. The below table shows how many requests are consumed for each feature in a Custom Policy.
 
 |Feature                                          |Requests consumed|
 |-------------------------------------------------|-----------------|
@@ -148,7 +149,7 @@ You can optimize the token issuance rate by considering the following configurat
 - Increasing access and refresh [token lifetimes](./configure-tokens.md).
 - Increasing the Azure AD B2C [web session lifetime](./session-behavior.md).
 - Enabling [Keep Me Signed In](./session-behavior.md#enable-keep-me-signed-in-kmsi).
-- Caching the [OpenId Connect metadata](./openid-connect.md#validate-the-id-token) documents at your API's.
+- Caching the [OpenId Connect metadata](./openid-connect.md#validate-the-id-token) documents at your APIs.
 - Enforcing conditional MFA using [Conditional Access](./conditional-access-identity-protection-overview.md).
 
 ## Azure AD B2C configuration limits
@@ -160,16 +161,20 @@ The following table lists the administrative configuration limits in the Azure A
 |Number of scopes per application        |1000          |
 |Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |100         |
 |Number of redirect URLs per application       |100         |
-|Number of sign out URLs per application        |1          |
+|Number of sign-out URLs per application        |1          |
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
+|Total number of objects (user accounts and applications) per tenant (default limit)|1.25 million |
+|Total number of objects (user accounts and applications) per tenant (using a verified custom domain)|5.25 million |
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |
+|Number of API connectors per tenant     |20         |
 
 <sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
 ## Next steps
 
-- Learn about [Microsoft Graph’s throttling guidance](/graph/throttling) 
+- Learn about [Microsoft Graph's throttling guidance](/graph/throttling) 
 - Learn about the [validation differences for Azure AD B2C applications](../active-directory/develop/supported-accounts-validation.md)
+- Learn about [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md)

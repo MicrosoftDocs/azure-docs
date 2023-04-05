@@ -1,18 +1,17 @@
 ---
-title: Sharing accounts and credentials - Azure Active Directory | Microsoft Docs
+title: Sharing accounts and credentials
 description: Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 
@@ -22,10 +21,10 @@ ms.collection: M365-identity-device-management
 
 ## Overview
 
-Sometimes organizations need to use a single username and password for multiple people, which typically happens in two cases:
+In Azure Active Directory (Azure AD), part of Microsoft Entra, sometimes organizations need to use a single username and password for multiple people, which often happens in the following cases:
 
 * When accessing applications that require a unique sign in and password for each user, whether on-premises apps or consumer cloud services (for example, corporate social media accounts).
-* When creating multi-user environments. You might have a single, local account that has elevated privileges and is used to do core setup, administration, and recovery activities. For example, the local "global administrator" account for Microsoft 365 or the root account in Salesforce.
+* When creating multi-user environments. You might have a single, local account that has elevated privileges and is used to do core setup, administration, and recovery activities. For example, the local Global Administrator account for Microsoft 365 or the root account in Salesforce.
 
 Traditionally, these accounts are shared by distributing the credentials (username and password) to the right individuals or storing them in a shared location where multiple trusted agents can access them.
 

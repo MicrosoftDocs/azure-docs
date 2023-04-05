@@ -3,13 +3,13 @@ title: Change the SKU for an Azure AD Domain Services | Microsoft Docs
 description: Learn how to the SKU tier for an Azure AD Domain Services managed domain if your business requirements change
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 03/23/2023
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to change the SKU for my Azure AD Domain Services managed domain to use different features as my business requirements change.
@@ -36,12 +36,9 @@ To complete this article, you need the following resources and privileges:
 
 ## SKU change limitations
 
-You can change SKUs up or down after the managed domain has been deployed. However, if you use a resource forest and have created one-way outbound forest trusts from Azure AD DS to an on-premises AD DS environment, there are some limitations for the SKU change operation. The *Premium* and *Enterprise* SKUs define a limit on the number of trusts you can create. You can't change to a SKU with a lower maximum limit than you currently have configured.
+You can change SKUs up or down after the managed domain has been deployed. However, the *Premium* and *Enterprise* SKUs define a limit on the number of trusts you can create. You can't change to a SKU with a lower maximum limit than you currently have configured.
 
-For example:
-
-* You can't change down to the *Standard* SKU. Azure AD DS resource forest doesn't support the *Standard* SKU. 
-* Or, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
+For example, if you have created seven trusts on the *Premium* SKU, you can't change down to the *Enterprise* SKU. The *Enterprise* SKU supports a maximum of five trusts.
 
 For more information on these limits, see [Azure AD DS SKU features and limits][concepts-sku].
 

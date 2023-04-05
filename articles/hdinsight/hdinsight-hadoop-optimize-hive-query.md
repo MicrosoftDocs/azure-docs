@@ -4,7 +4,7 @@ description: This article describes how to optimize your Apache Hive queries in 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 10/28/2020
+ms.date: 09/21/2022
 ---
 
 # Optimize Apache Hive queries in Azure HDInsight
@@ -19,7 +19,7 @@ Choose the appropriate cluster type to help optimize performance for your worklo
 
 * Choose **Interactive Query** cluster type to optimize for `ad hoc`, interactive queries. 
 * Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. 
-* **Spark** and **HBase** cluster types can also run Hive queries, and might be appropriate if you are running those workloads. 
+* **Spark** and **HBase** cluster types can also run Hive queries, and might be appropriate if you're running those workloads. 
 
 For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
@@ -41,7 +41,7 @@ For more information about scaling HDInsight, see [Scale HDInsight clusters](hdi
 
 [Apache Tez](https://tez.apache.org/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
-:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png" alt-text="HDInsight Apache Tez overview diagram":::
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine-new.png" alt-text="HDInsight Apache Tez overview diagram":::
 
 Tez is faster because:
 
@@ -71,7 +71,7 @@ Some partitioning considerations:
 
 * **Don't under partition** - Partitioning on columns with only a few values can cause few partitions. For example, partitioning on gender only creates two partitions to be created (male and female), so reduce the latency by a maximum of half.
 * **Don't over partition** - On the other extreme, creating a partition on a column with a unique value (for example, userid) causes multiple partitions. Over partition causes much stress on the cluster namenode as it has to handle the large number of directories.
-* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. For example, partitioning on *State* column may skew the distribution of data. Since the state of California has a population almost 30x that of Vermont, the partition size is potentially skewed and performance may vary tremendously.
+* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. For example, partitioning on *State* column may skew the distribution of data. Since the state of California has a population almost 30x that of Vermont, the partition size is potentially skewed, and performance may vary tremendously.
 
 To create a partition table, use the *Partitioned By* clause:
 

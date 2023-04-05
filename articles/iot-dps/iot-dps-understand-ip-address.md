@@ -1,22 +1,23 @@
 ---
-title: Understanding the IP address of your IoT Device Provisioning Service (DPS) instance | Microsoft Docs
-description: Understand how to query your IoT Device Provisioning Service (DPS) address and its properties. The IP address of your DPS instance can change during certain scenarios such as disaster recovery or regional failover.
+title: Understanding the IP address of your DPS instance
+titleSuffix: Azure IoT Hub Device Provisioning Service
+description: Query your DPS IP address and its properties. The IP address of your DPS instance can change during scenarios like disaster recovery or regional failover.
 author: kgremban
+
 ms.author: kgremban
 ms.service: iot-dps
-services: iot-dps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/22/2022
 ---
 
-# IoT Hub DPS IP addresses
+# Device Provisioning Service IP addresses
 
 The IP address prefixes for the public endpoints of an IoT Hub Device Provisioning Service (DPS) are published periodically under the _AzureIoTHub_ [service tag](../virtual-network/service-tags-overview.md). You may use these IP address prefixes to control connectivity between an IoT DPS instance and devices or network assets to implement a variety of network isolation goals:
 
 | Goal | Approach |
 |------|----------|
-| Ensure your devices and services communicate with IoT Hub DPS endpoints only | Use the _AzureIoTHub_ service tag to discover IoT Hub DPS instances. Configure ALLOW rules on your devices' and services' firewall setting for those IP address prefixes accordingly. Configure rules to drop traffic to other destination IP addresses that you don't want devices or services to communicate with. |
-| Ensure your IoT Hub DPS endpoint receives connections only from your devices and network assets | Use IoT DPS [IP filter feature](iot-dps-ip-filtering.md) to create filter rules for the device and DPS service APIs. These filter rules can be used to allow connections only from your devices and network asset IP addresses (see [limitations](#limitations-and-workarounds) section). |
+| Ensure your devices and services communicate with DPS endpoints only | Use the _AzureIoTHub_ service tag to discover DPS instances. Configure ALLOW rules on your devices' and services' firewall setting for those IP address prefixes accordingly. Configure rules to drop traffic to other destination IP addresses that you don't want devices or services to communicate with. |
+| Ensure your DPS endpoint receives connections only from your devices and network assets | Use IoT DPS [IP filter feature](iot-dps-ip-filtering.md) to create filter rules for the device and DPS service APIs. These filter rules can be used to allow connections only from your devices and network asset IP addresses (see [limitations](#limitations-and-workarounds) section). |
 
 ## Best practices
 

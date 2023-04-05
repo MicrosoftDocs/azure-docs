@@ -1,23 +1,22 @@
 ---
-title: 'Quickstart: Create and configure Route Server using Azure PowerShell'
-description: In this quickstart, you learn how to create and configure a Route Server using Azure PowerShell.
+title: 'Quickstart: Create and configure Route Server - Azure PowerShell'
+description: In this quickstart, you learn how to create and configure an Azure Route Server using Azure PowerShell.
 services: route-server
-author: duongau
-ms.author: duau
-ms.date: 09/01/2021
+author: halkazwini
+ms.author: halkazwini
+ms.date: 07/28/2022
 ms.topic: quickstart
 ms.service: route-server
-ms.custom: devx-track-azurepowershell, mode-api
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 ---
 
 # Quickstart: Create and configure Route Server using Azure PowerShell
 
-This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server will learn routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
+This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server learns routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server also advertises the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
 
-> [!IMPORTANT]
-> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
+[!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
 ## Prerequisites
 
@@ -56,7 +55,7 @@ $virtualNetwork = New-AzVirtualNetwork @vnet
 
 ### Add a dedicated subnet
 
-Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server. Create a subnet configuration named **RouteServerSubnet** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $subnet = @{
@@ -67,6 +66,9 @@ $subnet = @{
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
 
 $virtualnetwork | Set-AzVirtualNetwork
+
+$vnetInfo = Get-AzVirtualNetwork -Name myVirtualNetwork
+$subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNetwork $vnetInfo).Id
 ```
 
 ## Create the Route Server
@@ -87,12 +89,12 @@ $virtualnetwork | Set-AzVirtualNetwork
     
 2. Create the Azure Route Server with [New-AzRouteServer](/powershell/module/az.network/new-azrouteserver). This example creates an Azure Route Server named **myRouteServer** in the **WestUS** location. The *HostedSubnet* is the resource ID of the RouteServerSubnet created in the previous section.
 
-    ```azurepowershell-interactive
+    ```azurepowershell-interactive      
     $rs = @{
         RouteServerName = 'myRouteServer'
         ResourceGroupName = 'myRouteServerRG'
         Location = 'WestUS'
-        HostedSubnet = $subnetConfig.Id
+        HostedSubnet = $subnetId
         PublicIP = $publicIp
     }
     New-AzRouteServer @rs 
@@ -136,11 +138,13 @@ RouteServerAsn : 65515
 RouteServerIps : {10.5.10.4, 10.5.10.5}
 ```
 
+[!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
+
 ## <a name = "route-exchange"></a>Configure route exchange
 
 If you have an ExpressRoute and an Azure VPN gateway in the same virtual network and you want them to exchange routes, you can enable route exchange on the Azure Route Server.
 
-1. To enable route exchange between Azure Route Server and the gateway(s) use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) with the *-AllowBranchToBranchTraffic* flag:
+1. To enable route exchange between Azure Route Server and the gateway(s), use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) with the *-AllowBranchToBranchTraffic* flag:
 
 ```azurepowershell-interactive
 $routeserver = @{
@@ -151,7 +155,7 @@ $routeserver = @{
 Update-AzRouteServer @routeserver 
 ```
 
-2. To disable route exchange between Azure Route Server and the gateway(s) use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) without the *-AllowBranchToBranchTraffic* flag:
+2. To disable route exchange between Azure Route Server and the gateway(s), use [Update-AzRouteServer](/powershell/module/az.network/update-azrouteserver) without the *-AllowBranchToBranchTraffic* flag:
 
 ```azurepowershell-interactive
 $routeserver = @{
@@ -171,32 +175,32 @@ $remotepeer = @{
     ResourceGroupName = 'myRouteServerRG'
     PeerName = 'myNVA'
 }
-Get-AzRouteServerPeerAdvertisedRoute @routeserver
+Get-AzRouteServerPeerAdvertisedRoute @remotepeer
 ```
 
 Use the [Get-AzRouteServerPeerLearnedRoute](/powershell/module/az.network/get-azrouteserverpeerlearnedroute) to view routes learned by the Azure Route Server.
 
 ```azurepowershell-interactive
-$routeserver = @{
+$remotepeer = @{
     RouteServerName = 'myRouteServer'
     ResourceGroupName = 'myRouteServerRG'
-    AllowBranchToBranchTraffic
+    PeerName = 'myNVA'
 }  
-Get-AzRouteServerPeerLearnedRoute @routeserver
+Get-AzRouteServerPeerLearnedRoute @remotepeer
 ```
 ## Clean up resources
 
-If you no longer need the Azure Route Server, use the first command to remove the BGP peering and then the second command to remove the Route Server. 
+If you no longer need the Azure Route Server, use the first command to remove the BGP peering, and then the second command to remove the Route Server. 
 
 1. Remove the BGP peering between Azure Route Server and an NVA with [Remove-AzRouteServerPeer](/powershell/module/az.network/remove-azrouteserverpeer):
 
 ```azurepowershell-interactive
-$peer = @{
+$remotepeer = @{
     PeerName = 'myNVA'
     RouteServerName = 'myRouteServer'
     ResourceGroupName = 'myRouteServerRG'
 } 
-Remove-AzRouteServerPeer @peer
+Remove-AzRouteServerPeer @remotepeer
 ```
 
 2. Remove the Azure Route Server with [Remove-AzRouteServer](/powershell/module/az.network/remove-azrouteserver):

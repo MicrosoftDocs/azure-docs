@@ -1,0 +1,39 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/cloud-shell/quickstart-powershell.md",
+            "redirect_url": "/azure/cloud-shell/quickstart",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/cloud-shell-windows-users.md",
+            "redirect_url": "/azure/cloud-shell/quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/features-powershell.md",
+            "redirect_url": "/azure/cloud-shell/features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/index.md",
+            "redirect_url": "/azure/cloud-shell/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/persisting-shell-storage-powershell.md",
+            "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
+            "redirect_url": "/azure/developer/terraform/quickstart-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/security-baseline.md",
+            "redirect_url": "/security/benchmark/azure/baselines/cloud-shell-security-baseline",
+            "redirect_document_id": false
+        }
+    ]
+}

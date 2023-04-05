@@ -3,12 +3,12 @@ title: Problem installing the Azure Active Directory Application Proxy Agent Con
 description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector for Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ---
@@ -49,9 +49,9 @@ When the installation of a connector fails, the root cause is usually one of the
 >
 >
 
-**Review the pre-requisites required:**
+**Review the prerequisites required:**
 
-1.  Verify the machine supports TLS1.2 – All Windows versions after 2012 R2 should support TLS 1.2. If your connector machine is from a version of 2012 R2 or prior, make sure that the following KBs are installed on the machine: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Verify the machine supports TLS1.2 – All Windows versions after 2012 R2 should support TLS 1.2. If your connector machine is from a version of 2012 R2 or prior, make sure that the [required updates](https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2) are installed.
 
 2.  Contact your network admin and ask to verify that the backend proxy and firewall do not block SHA512 for outgoing traffic.
 

@@ -1,25 +1,25 @@
 ---
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
-ms.author: aahi
+ms.date: 01/04/2023
+ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 
 # [Named Entity Recognition](#tab/ner)
 
-Named Entity Recognition detects words and phrases mentioned in unstructured text that can be associated with one or more semantic types, such as diagnosis, medication name, symptom/sign, or age.
+Named entity recognition is used to perform a semantic extraction of words and phrases mentioned from unstructured text that are associated with any of the [supported entity types](../concepts/health-entity-categories.md), such as diagnosis, medication name, symptom/sign, or age.
 
 > [!div class="mx-imgBorder"]
 > ![Text Analytics for health NER](../media/call-api/health-named-entity-recognition.png)
 
 # [Relation Extraction](#tab/relation-extraction)
 
-Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
+Relation extraction is used to identify meaningful connections between concepts mentioned in text that are associated with any of the [supported relations](../concepts/relation-extraction.md), such as the "time of condition" relation, which connects a condition name with a time. 
 
 > [!div class="mx-imgBorder"]
 > ![Text Analytics for health relation extraction](../media/call-api/health-relation-extraction.png)
@@ -27,19 +27,17 @@ Relation extraction identifies meaningful connections between concepts mentioned
 
 # [Entity Linking](#tab/entity-linking)
 
-Entity linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts including the Unified Medical Language System (UMLS). Medical concepts are also assigned preferred naming, as an additional form of normalization.
+Entity linking is used to disambiguate the extracted entities by associating them with preferred names and codes from the biomedical vocabularies supported by the [Unified Medical Language System (UMLS) Metathesaurus](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
 > [!div class="mx-imgBorder"]
 > ![Text Analytics for health entity linking](../media/call-api/health-entity-linking.png)
 
-Text Analytics for health supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
 # [Assertion Detection](#tab/assertion-detection) 
 
-The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. Text Analytics for health supports three categories of assertion detection for entities in the text: 
-
+[Assertion detection](../concepts/assertion-detection.md) is used to preserve the meaning of medical content by   adding contextual modifiers to the extracted entities using these categories: 
 * Certainty
-* Conditional
+* Conditionality
 * Association
 
 > [!div class="mx-imgBorder"]

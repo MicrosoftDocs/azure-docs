@@ -3,17 +3,17 @@
 title: Application and HR provisioning documentation
 summary: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
 
-metadata: 
-   title: Application provisioning documentation
-   description: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
-   ms.service: active-directory
-   ms.subservice: app-provisioning
-   ms.workload: identity
-   ms.topic: landing-page
-   ms.date: 08/12/2021
-   author: kenwith
-   ms.author: kenwith
-   manager: karenhoran
+metadata:
+  title: Application provisioning documentation
+  description: Azure Active Directory app provisioning lets you automatically create and manage user identities in your cloud (SaaS) apps. Azure AD also offers provisioning with cloud-based human resources (HR) applications. Learn how to manage and deploy cloud app and HR provisioning with our quickstarts, tutorials, and guidance.
+  ms.service: active-directory
+  ms.subservice: app-provisioning
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 10/20/2022
+  author: kenwith
+  ms.author: kenwith
+  manager: amycolannino
 
 landingContent:
   - title: Provision users and groups to a cloud app
@@ -64,9 +64,4 @@ landingContent:
             url: ../saas-apps/workday-inbound-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
           - text: SAP SuccessFactors provisioning
             url: ../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-  - title: New in docs
-    linkLists:
-      - linkListType: whats-new
-        links:
-          - text: What's new in docs
-            url: whats-new-docs.md            
+      

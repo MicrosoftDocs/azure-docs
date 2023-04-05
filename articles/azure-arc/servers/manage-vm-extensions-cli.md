@@ -13,7 +13,7 @@ This article shows you how to deploy, upgrade, update, and uninstall VM extensio
 > [!NOTE]
 > Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
 
-[!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Azure CLI Prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Install the Azure CLI extension
 
@@ -50,7 +50,13 @@ az connectedmachine extension create --resource-group "resourceGroupName" --mach
 The following example enables the Microsoft Antimalware extension on an Azure Arc-enabled Windows server:
 
 ```azurecli
-az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '{"AntimalwareEnabled": true}'
+az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '"{\"AntimalwareEnabled\": \"true\"}"'
+```
+
+The following example enables the Datadog extension on an Azure Arc-enabled Windows server:
+
+```azurecli
+az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Datadog.Agent" --type "DatadogWindowsAgent" --settings '{"site": "us3.datadoghq.com"}' --protected-settings '{"api_key": "YourDatadogAPIKey" }'
 ```
 
 ## List extensions installed

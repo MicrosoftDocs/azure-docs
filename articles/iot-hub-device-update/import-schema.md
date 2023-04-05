@@ -1,145 +1,61 @@
 ---
-title: Importing updates into Device Update for IoT Hub - schema and other information | Microsoft Docs
-description: Schema and other related information (including objects) that is used when importing updates into Device Update for IoT Hub.
+title: Importing updates into Device Update for IoT Hub - import manifest schema
+description: Schema used to create the import manifest required to import updates into Device Update for IoT Hub.
 author: andrewbrownmsft
 ms.author: andbrown
-ms.date: 2/25/2021
-ms.topic: conceptual
+ms.date: 09/9/2022
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
-# Importing updates into Device Update for IoT Hub - schema and other information
-If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [How-To guide](import-update.md) first. If you're interested in the details of import manifest schema, or information about API permissions, see below.
+# Importing updates into Device Update for IoT Hub: schema and other information
 
-## Import manifest JSON schema version 4.0
+If you want to import an update into Device Update for IoT Hub, be sure you've reviewed the [concepts](import-concepts.md) and [how-to guide](import-update.md) first. If you're interested in the details of the import manifest schema itself, see below.
 
-Import manifest JSON schema is hosted at [SchemaStore.org](https://json.schemastore.org/azure-deviceupdate-import-manifest-4.0.json).
+The import manifest JSON schema is hosted at [SchemaStore.org](https://json.schemastore.org/azure-deviceupdate-import-manifest-5.0.json).
 
-### Schema
+## Schema
 
-**Properties**
-
-|Name|Type|Description|Required|
+|Property|Type|Description|Required|
 |---|---|---|---|
 |**$schema**|`string`|JSON schema reference.|No|
 |**updateId**|`updateId`|Unique update identifier.|Yes|
-|**description**|`string`|Optional update description.|No|
+|**description**|`string`|Optional update description.<br><br>Maximum length: 512 characters|No|
 |**compatibility**|`compatibility`|List of device property sets this update is compatible with.|Yes|
 |**instructions**|`instructions`|Update installation instructions.|Yes|
 |**files**|`file` `[0-10]`|List of update payload files. Sum of all file sizes may not exceed 2 GB. May be empty or null if all instruction steps are reference steps.|No|
-|**manifestVersion**|`string`|Import manifest schema version. Must be 4.0.|Yes|
-|**createdDateTime**|`string`|Date & time import manifest was created in ISO 8601 format.|Yes|
+|**manifestVersion**|`string`|Import manifest schema version. Must be 5.0.|Yes|
+|**createdDateTime**|`string`|Date & time import manifest was created in ISO 8601 format.<br><br>Example: `"2020-10-02T22:18:04.9446744Z"`|Yes|
 
-Additional properties are not allowed.
+Additional properties aren't allowed.
 
-#### $schema
+## updateId object
 
-JSON schema reference.
+The *updateID* object is a unique identifier for each update.
 
-* **Type**: `string`
-* **Required**: No
-
-#### updateId
-
-Unique update identifier.
-
-* **Type**: `updateId`
-* **Required**: Yes
-
-#### description
-
-Optional update description.
-
-* **Type**: `string`
-* **Required**: No
-* **Minimum Length**: `>= 1`
-* **Maximum Length**: `<= 512`
-
-#### compatibility
-
-List of device property sets this update is compatible with.
-
-* **Type**: `compatibility`
-* **Required**: Yes
-
-#### instructions
-
-Update installation instructions.
-
-* **Type**: `instructions`
-* **Required**: Yes
-
-#### files
-
-List of update payload files. Sum of all file sizes may not exceed 2 GB. May be empty or null if all instruction steps are reference steps.
-
-* **Type**: `file` `[0-10]`
-* **Required**: No
-
-#### manifestVersion
-
-Import manifest schema version. Must be `4.0`.
-
-* **Type**: `string`
-* **Required**: Yes
-
-#### createdDateTime
-
-Date & time import manifest was created in ISO 8601 format.
-
-* **Type**: `string`
-* **Required**: Yes
-* **Examples**:
-    * `"2020-10-02T22:18:04.9446744Z"`
-
-### updateId object
-
-Unique update identifier.
-
-**`Update identity` Properties**
-
-|Name|Type|Description|Required|
+|Property|Type|Description|Required|
 |---|---|---|---|
-|**provider**|`string`|Entity who is creating or directly responsible for the update. It can be a company name.|Yes|
-|**name**|`string`|Identifier for a class of update. It can be a device class or model name.|Yes|
-|**version**|`string`|Two to four part dot separated numerical version numbers. Each part must be a number between 0 and 2147483647 and leading zeroes will be dropped.|Yes|
+|**provider**|`string`|Entity who is creating or directly responsible for the update. It can be a company name.<br><br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
+|**name**|`string`|Identifier for a class of update. It can be a device class or model name.<br><br>Pattern: `^[a-zA-Z0-9.-]+$`<br>Maximum length: 64 characters|Yes|
+|**version**|`string`|Two- to four-part dot-separated numerical version numbers. Each part must be a number between 0 and 2147483647 and leading zeroes will be dropped.<br><br>Pattern: `^\d+(?:\.\d+)+$`<br>Examples: `"1.0"`, `"2021.11.8"`|Yes|
 
-Additional properties are not allowed.
+Additional properties aren't allowed.
 
-#### updateId.provider
+For example:
 
-Entity who is creating or directly responsible for the update. It can be a company name.
+```json
+{
+  "updateId": {
+    "provider": "Contoso",
+    "name": "Toaster",
+    "version": "1.0"
+  }
+}
+```
 
-* **Type**: `string`
-* **Required**: Yes
-* **Pattern**: `^[a-zA-Z0-9.-]+$`
-* **Minimum Length**: `>= 1`
-* **Maximum Length**: `<= 64`
+## compatibility object
 
-#### updateId.name
-
-Identifier for a class of update. It can be a device class or model name.
-
-* **Type**: `string`
-* **Required**: Yes
-* **Pattern**: `^[a-zA-Z0-9.-]+$`
-* **Minimum Length**: `>= 1`
-* **Maximum Length**: `<= 64`
-
-#### updateId.version
-
-Two to four part dot separated numerical version numbers. Each part must be a number between 0 and 2147483647 and leading zeroes will be dropped.
-
-* **Type**: `string`
-* **Required**: Yes
-* **Pattern**: `^\d+(?:\.\d+)+$`
-* **Examples**:
-    * `"1.0"`
-    * `"2021.11.8"`
-
-### compabilityInfo object
-
-Properties of a device this update is compatible with.
+The *compatibility* object describes the properties of a device that this update is compatible with.
 
 * **Type**: `object`
 * **Minimum Properties**: `1`
@@ -152,184 +68,210 @@ Each property is a name-value pair of type string.
 * **Minimum Property Value Length**: `1`
 * **Maximum Property Value Length**: `64`
 
-_Note that the same exact set of compatibility properties cannot be re-used with a different Provider and Name combination._
+The same exact set of compatibility properties can't be used with more than one update provider and name combination.
 
-### instructions object
+For example:
 
-Update installation instructions.
+```json
+{
+  "compatibility": [
+    {
+      "manufacturer": "Contoso",
+      "model": "Toaster"
+    }
+  ]
+}
+```
 
-**Properties**
+## instructions object
 
-|Name|Type|Description|Required|
+The *instructions* object provides the update installation instructions. The instructions object contains a list of steps to be performed. Steps can either be code to execute or a pointer to another update.
+
+|Property|Type|Description|Required|
 |---|---|---|---|
-|**steps**|`array[1-10]`||Yes|
+|**steps**|`array[1-10]`|Each element in the array must be either an [inlineStep object](#inlinestep-object) or a [referenceStep object](#referencestep-object).|Yes|
 
-Additional properties are not allowed.
+Additional properties aren't allowed.
 
-#### instructions.steps
+For example:
 
-* **Type**: `array[1-10]`
-    * Each element in the array must be one of the following values:
-        * `inlineStep` object
-        * `referenceStep` object
-* **Required**: Yes
+```json
+{
+  "instructions": {
+    "steps": [
+      {
+        "type": "inline",
+        ...
+      },
+      {
+        "type": "reference",
+        ...
+      }
+    ]
+  }
+}
+```
 
-### inlineStep object
+## inlineStep object
 
-Installation instruction step that performs code execution.
+An *inline* step object is an installation instruction step that performs code execution.
 
-**Properties**
-
-|Name|Type|Description|Required|
+|Property|Type|Description|Required|
 |---|---|---|---|
-|**type**|`string`|Instruction step type that performs code execution.|No|
-|**description**|`string`|Optional instruction step description.|No|
-|**handler**|`string`|Identity of handler on device that can execute this step.|Yes|
-|**files**|`string` `[1-10]`|Names of update files that agent will pass to handler.|Yes|
+|**type**|`string`|Instruction step type that performs code execution. Must be `inline`.<br><br>Defaults to `inline` if no value is provided.|No|
+|**description**|`string`|Optional instruction step description.<br><br>Maximum length: 64 characters|No|
+|**handler**|`string`|Identity of the handler on the device that can execute this step.<br><br>Pattern: `^\S+/\S+:\d{1,5}$`<br>Minimum length: 5 characters<br>Maximum length: 32 characters<br>Examples: `microsoft/script:1`, `microsoft/swupdate:1`, `microsoft/apt:1` |Yes|
+|**files**|`string` `[1-10]`| Names of update files defined as [file objects](#file-object) that the agent will pass to the handler. Each element in the array must have length between 1 and 255 characters. |Yes|
 |**handlerProperties**|`inlineStepHandlerProperties`|JSON object that agent will pass to handler as arguments.|No|
 
-Additional properties are not allowed.
+Additional properties aren't allowed.
 
-#### inlineStep.type
+For example:
 
-Instruction step type that performs code execution. Must be `inline`.
+```json
+{
+  "steps": [
+    {
+      "description": "pre-install script",
+      "handler": "microsoft/script:1",
+      "handlerProperties": {
+        "arguments": "--pre-install"
+      },
+      "files": [
+        "configure.sh"
+      ]
+    }
+  ]
+}
+```
 
-* **Type**: `string`
-* **Required**: No
+## referenceStep object
 
-#### inlineStep.description
+A *reference* step object is an installation instruction step that installs another update.
 
-Optional instruction step description.
-
-* **Type**: `string`
-* **Required**: No
-* **Minimum Length**: `>= 1`
-* **Maximum Length**: `<= 64`
-
-#### inlineStep.handler
-
-Identity of handler on device that can execute this step.
-
-* **Type**: `string`
-* **Required**: Yes
-* **Pattern**: `^\S+/\S+:\d{1,5}$`
-* **Minimum Length**: `>= 5`
-* **Maximum Length**: `<= 32`
-* **Examples**:
-    * `microsoft/script:1`
-    * `microsoft/swupdate:1`
-    * `microsoft/apt:1`
-
-#### inlineStep.files
-
-Names of update files that agent will pass to handler.
-
-* **Type**: `string` `[1-10]`
-    * Each element in the array must have length between `1` and `255`.
-* **Required**: Yes
-
-#### inlineStep.handlerProperties
-
-JSON object that agent will pass to handler as arguments.
-
-* **Type**: `object`
-* **Required**: No
-
-### referenceStep object
-
-Installation instruction step that installs another update.
-
-**Properties**
-
-|Name|Type|Description|Required|
+|Property|Type|Description|Required|
 |---|---|---|---|
-|**type**|`referenceStepType`|Instruction step type that installs another update.|Yes|
-|**description**|`stepDescription`|Optional instruction step description.|No|
+|**type**|`referenceStepType`|Instruction step type that installs another update. Must be `reference`.|Yes|
+|**description**|`stepDescription`|Optional instruction step description.<br><br>Maximum length: 64 characters |No|
 |**updateId**|`updateId`|Unique update identifier.|Yes|
 
-Additional properties are not allowed.
+Additional properties aren't allowed.
 
-#### referenceStep.type
+For example:
 
-Instruction step type that installs another update. Must be `reference`.
+```json
+{
+  "steps": [
+    {
+      "type": "reference",
+      "updateId": {
+        "provider": "Contoso",
+        "name": "Toaster.HeatingElement",
+        "version": "1.0"
+      }
+    }
+  ]
+}
+```
 
-* **Type**: `string`
-* **Required**: Yes
+## file object
 
-#### referenceStep.description
+A *file* object is an update payload file, for example, binary, firmware, script, etc. Each file object must be unique within an update.
 
-Optional instruction step description.
-
-* **Type**: `string`
-* **Required**: No
-* **Minimum Length**: `>= 1`
-* **Maximum Length**: `<= 64`
-
-#### referenceStep.updateId
-
-Unique update identifier.
-
-* **Type**: `updateId`
-* **Required**: Yes
-
-### file object
-
-Update payload file, e.g. binary, firmware, script, etc. Must be unique within update.
-
-**Properties**
-
-|Name|Type|Description|Required|
+|Property|Type|Description|Required|
 |---|---|---|---|
-|**filename**|`string`|Update payload file name.|Yes|
-|**sizeInBytes**|`number`|File size in number of bytes.|Yes|
-|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent.|Yes|
+|**filename**|`string`|Update payload file name.<br><br>Maximum length: 255 characters|Yes|
+|**sizeInBytes**|`number`|File size in number of bytes.<br><br>Maximum size: 2147483648 bytes|Yes|
+|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
+|**relatedFiles**|`relatedFile[0-4]`|Collection of related files to one or more of your primary payload files. |No|
+|**downloadHandler**|`downloadHandler`|Specifies how to process any related files. |Yes only if using relatedFiles|
 
-Additional properties are not allowed.
+Additional properties aren't allowed.
 
-#### file.filename
+For example:
 
-Update payload file name.
+```json
+{
+  "files": [
+    {
+      "filename": "configure.sh",
+      "sizeInBytes": 7558,
+      "hashes": {...}
+    }
+  ]
+}
+```
 
-* **Type**: `string`
-* **Required**: Yes
-* **Minimum Length**: `>= 1`
-* **Maximum Length**: `<= 255`
+## fileHashes object
 
-#### file.sizeInBytes
+Base64-encoded file hashes with the algorithm name as key. At least the SHA-256 algorithm must be specified, and other algorithms may be specified if supported by the agent. For an example of how to calculate the hash correctly, see the Get-AduFileHashes function in [AduUpdate.psm1 script](https://github.com/Azure/iot-hub-device-update/blob/main/tools/AduCmdlets/AduUpdate.psm1).
 
-File size in number of bytes.
-
-* **Type**: `number`
-* **Required**: Yes
-* **Minimum**: ` >= 1`
-* **Maximum**: ` <= 2147483648`
-
-#### file.hashes
-
-File hashes.
-
-* **Type**: `fileHashes`
-* **Required**: Yes
-* **Type of each property**: `string`
-
-### fileHashes object
-
-Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. For an example of how to calculate the hash correctly, see the [AduUpdate.psm1 script](https://github.com/Azure/iot-hub-device-update/blob/main/tools/AduCmdlets/AduUpdate.psm1).
-
-**Properties**
-
-|Name|Type|Description|Required|
+|Property|Type|Description|Required|
 |---|---|---|---|
 |**sha256**|`string`|Base64-encoded file hash value using SHA-256 algorithm.|Yes|
 
 Additional properties are allowed.
 
-#### fileHashes.sha256
+For example:
 
-Base64-encoded file hash value using SHA-256 algorithm.
+```json
+{
+  "hashes": {
+    "sha256": "/CD7Sn6fiknWa3NgcFjGlJ+ccA81s1QAXX4oo5GHiFA="
+  }
+}
+```
 
-* **Type**: `string`
-* **Required**: Yes
+## relatedFiles object
+
+Collection of related files to one or more of your primary payload files.
+
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**filename**|`string`|List of related files associated with a primary payload file.|Yes|
+|**sizeInBytes**|`number`|File size in number of bytes.<br><br>Maximum size: 2147483648 bytes|Yes|
+|**hashes**|`fileHashes`|Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. See below for details on how to calculate the hash. |Yes|
+|**properties**|`relatedFilesProperties` `[0-5]`|Limit of 5 key-value pairs, where key is limited to 64 ASCII characters and value is JObject (with up to 256 ASCII characters). |No|
+
+Additional properties are allowed.
+
+For example:
+
+```json
+"relatedFiles": [
+  {
+    "filename": "in1_in2_deltaupdate.dat",
+    "sizeInBytes": 102910752,
+    "hashes": {
+      "sha256": "2MIldV8LkdKenjJasgTHuYi+apgtNQ9FeL2xsV3ikHY="
+    },
+    "properties": {
+      "microsoft.sourceFileHashAlgorithm": "sha256",
+      "microsoft.sourceFileHash": "YmFYwnEUddq2nZsBAn5v7gCRKdHx+TUntMz5tLwU+24="
+    }
+  }
+],
+```
+
+For more information, see [Use the related files feature to reference multiple update files](related-files.md).
+
+## downloadHandler object
+
+Specifies how to process any related files.
+
+|Property|Type|Description|Required|
+|---|---|---|---|
+|**id**|`string`|Identifier for downloadHandler. Limit of 64 ASCII characters.|Yes|
+
+Additional properties are not allowed.
+
+For example:
+
+```json
+"downloadHandler": {
+  "id": "microsoft/delta:1"
+}
+```
 
 ## Next steps
 

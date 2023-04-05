@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/24/2022
+ms.date: 11/12/2022
 ms.author: eur
-zone_pivot_groups: acs-js-csharp
+zone_pivot_groups: acs-js-csharp-python
 ms.devlang: csharp, javascript
-ms.custom: ignite-fall-2021
+ms.custom: cogserv-non-critical-speech, ignite-fall-2021
 ---
 
 # Quickstart: Real-time Conversation Transcription
@@ -24,10 +24,6 @@ You can transcribe meetings and other conversations with the ability to add, rem
 * Only available in the following subscription regions: `centralus`, `eastasia`, `eastus`, `westeurope`
 * Requires a 7-mic circular multi-microphone array. The microphone array should meet [our specification](./speech-sdk-microphone.md).
 
-## Prerequisites
-
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
-
 > [!NOTE]
 > The Speech SDK for C++, Java, Objective-C, and Swift support Conversation Transcription, but we haven't yet included a guide here. 
 
@@ -37,6 +33,10 @@ This article assumes that you have an Azure account and Speech service subscript
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/conversation-transcription/real-time-csharp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python Basics include](includes/how-to/conversation-transcription/real-time-python.md)]
 ::: zone-end
 
 ## Next steps

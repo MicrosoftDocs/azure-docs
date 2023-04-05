@@ -1,15 +1,18 @@
 ---
-title: Microsoft Connected Cache preview deployment scenario samples | Microsoft Docs
+title: Microsoft Connected Cache preview deployment scenario samples
 titleSuffix:  Device Update for Azure IoT Hub
 description: Microsoft Connected Cache preview deployment scenario samples tutorials
 author: andyriv
 ms.author: andyriv
 ms.date: 2/16/2021
-ms.topic: tutorial
+ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
 # Microsoft Connected Cache preview deployment scenario samples
+
+> [!NOTE]
+> This information relates to a preview feature that's available for early testing and use in a production environment. This feature is fully supported but it's still in active development and may receive substantial changes until it becomes generally available.
 
 ## Single level Azure IoT Edge gateway no proxy
 

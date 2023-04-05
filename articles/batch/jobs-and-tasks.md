@@ -19,7 +19,7 @@ A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be 
 
 You can assign an optional job priority to jobs that you create. The Batch service uses the priority value of the job to determine the order of scheduling (for all tasks within the job) wtihin each pool.
 
-To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to 1000 (highest priority).
+To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to +1000 (highest priority).
 
 Within the same pool, higher-priority jobs have scheduling precedence over lower-priority jobs. Tasks in lower-priority jobs that are already running won't be preempted by tasks in a higher-priority job. Jobs with the same priority level have an equal chance of being scheduled, and ordering of task execution is not defined.
 

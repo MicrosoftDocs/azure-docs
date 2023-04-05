@@ -4,11 +4,11 @@ description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in 
 services: virtual-machines
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subervice: vm-sizes-gpu
+ms.subservice: sizes
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/11/2019
+ms.date: 12/16/2022
 ms.author: vikancha
 ---
 
@@ -46,32 +46,21 @@ Then run installation commands specific for your distribution.
 
 1. Download and install the CUDA drivers from the NVIDIA website. 
     > [!NOTE]
-   >  The example below shows the CUDA package path for Ubuntu 16.04. Replace the path specific to the version you plan to use. 
+   >  The example below shows the CUDA package path for Ubuntu 20.04. Replace the path specific to the version you plan to use. 
    >  
-   >  Visit the [Nvidia Download Center] (https://developer.download.nvidia.com/compute/cuda/repos/) for the full path specific to each version. 
+   >  Visit the [NVIDIA Download Center](https://developer.download.nvidia.com/compute/cuda/repos/) or the [NVIDIA CUDA Resources page](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=20.04&target_type=deb_network) for the full path specific to each version.
    > 
    ```bash
-   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
-   wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
-
-   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-   rm -f /tmp/${CUDA_REPO_PKG}
-
+   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-keyring_1.0-1_all.deb 
+   sudo dpkg -i cuda-keyring_1.0-1_all.deb
    sudo apt-get update
-   sudo apt-get install cuda-drivers
+   sudo apt-get -y install cuda-drivers
+
    ```
 
    The installation can take several minutes.
- 
 
-2. To optionally install the complete CUDA toolkit, type:
-
-   ```bash
-   sudo apt-get install cuda
-   ```
-
-3. Reboot the VM and proceed to verify the installation.
+2. Reboot the VM and proceed to verify the installation.
 
 #### CUDA driver updates
 
@@ -86,6 +75,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
+
 ### CentOS or Red Hat Enterprise Linux
 
 1. Update the kernel (recommended). If you choose not to update the kernel, ensure that the versions of `kernel-devel` and `dkms` are appropriate for your kernel.
@@ -97,7 +87,7 @@ sudo reboot
 
 2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected (and documented above), installing LIS is not required.
 
-   Please note that LIS is applicable to Red Hat Enterprise Linux, CentOS, and the Oracle Linux Red Hat Compatible Kernel 5.2-5.11, 6.0-6.10, and 7.0-7.7. Please refer to the [Linux Integration Services documentation] (https://www.microsoft.com/en-us/download/details.aspx?id=55106) for more details. 
+   Please note that LIS is applicable to Red Hat Enterprise Linux, CentOS, and the Oracle Linux Red Hat Compatible Kernel 5.2-5.11, 6.0-6.10, and 7.0-7.7. Please refer to the [Linux Integration Services documentation](https://www.microsoft.com/en-us/download/details.aspx?id=55106) for more details. 
    Skip this step if you plan to use CentOS/RHEL 7.8 (or higher versions) as LIS is no longer required for these versions.
 
       ```bash
@@ -110,18 +100,11 @@ sudo reboot
       ```
 
 3. Reconnect to the VM and continue installation with the following commands:
-
    ```bash
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-   sudo yum install dkms
-   
-   CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-   rm -f /tmp/${CUDA_REPO_PKG}
-
-   sudo yum install cuda-drivers
+   sudo yum-config-manager --add-repo https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo
+   sudo yum clean all
+   sudo yum -y install nvidia-driver-latest-dkms cuda-drivers
    ```
 
    The installation can take several minutes. 
@@ -136,11 +119,7 @@ For example, CentOS 8 and RHEL 8 will need the following steps.
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    sudo yum install dkms
    
-   CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-   rm -f /tmp/${CUDA_REPO_PKG}
+   sudo wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo -O /etc/yum.repos.d/cuda-rhel8.repo
 
    sudo yum install cuda-drivers
    ```
@@ -333,7 +312,7 @@ If the driver is installed, you will see output similar to the following. Note t
  
 
 ### X11 server
-If you need an X11 server for remote connections to an NV or NVv2 VM, [x11vnc](http://www.karlrunge.com/x11vnc/) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X11 configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
+If you need an X11 server for remote connections to an NV or NVv2 VM, [x11vnc](https://wiki.archlinux.org/title/X11vnc) is recommended because it allows hardware acceleration of graphics. The BusID of the M60 device must be manually added to the X11 configuration file (usually, `etc/X11/xorg.conf`). Add a `"Device"` section similar to the following:
  
 ```
 Section "Device"

@@ -1,15 +1,15 @@
 ---
-title: Manage users or devices for an administrative unit with dynamic membership rules (Preview) - Azure Active Directory
+title: Manage users or devices for an administrative unit with dynamic membership rules (Preview)
 description: Manage users or devices for an administrative unit with dynamic membership rules (Preview) in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 03/22/2022
+ms.date: 05/13/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -23,6 +23,9 @@ ms.collection: M365-identity-device-management
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 You can add or remove users or devices for administrative units manually. With this preview, you can add or remove users or devices for administrative units dynamically using rules. This article describes how to create administrative units with dynamic membership rules using the Azure portal, PowerShell, or Microsoft Graph API.
+
+> [!NOTE]
+> Dynamic membership rules for administrative units can be created using the same attributes available for dynamic groups. For more information about the specific attributes available and examples on how to use them, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 Although administrative units with members assigned manually support multiple object types, such as user, group, and devices, it is currently not possible to create an administrative unit with dynamic membership rules that includes more than one object type. For example, you can create administrative units with dynamic membership rules for users or devices, but not both. Administrative units with dynamic membership rules for groups are currently not supported.
 
@@ -46,7 +49,7 @@ Follow these steps to create administrative units with dynamic membership rules 
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -130,7 +133,7 @@ When an administrative unit has been configured for dynamic membership, the usua
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 
@@ -177,7 +180,7 @@ Follow these steps to change an administrative unit with dynamic membership rule
 
 ### Azure portal
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Azure Active Directory**.
 

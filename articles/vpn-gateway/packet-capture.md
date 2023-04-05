@@ -2,14 +2,11 @@
 title: 'Configure packet capture for VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
-services: vpn-gateway
-author: anzaman
-
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/31/2022
-ms.author: alzam 
-ms.custom: devx-track-azurepowershell
+ms.author: cherylmc
 ---
 
 # Configure packet capture for VPN gateways
@@ -393,6 +390,7 @@ For more information on parameter options, see [Stop-AzVirtualNetworkGatewayConn
 - Packet capture data files are generated in PCAP format. Use Wireshark or other commonly available applications to open PCAP files.
 - Packet captures aren't supported on policy-based gateways.
 - If the `SASurl` parameter isn't configured correctly, the trace might fail with Storage errors. For examples of how to correctly generate an `SASurl` parameter, see [Stop-AzVirtualNetworkGatewayPacketCapture](/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+- If you are configuring a User Delegated SAS, make sure the user account is granted proper RBAC permissions on the storage account such as Storage Blob Data Owner.
 
 
 

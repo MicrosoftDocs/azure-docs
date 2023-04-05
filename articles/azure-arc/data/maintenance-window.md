@@ -3,9 +3,9 @@ title: Maintenance window - Azure Arc-enabled data services
 description: Article describes how to set a maintenance window
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
-author: grrlgeek
-ms.author: jeschult
+ms.subservice: azure-arc-data-sqlmi
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 03/31/2022
 ms.topic: how-to
@@ -134,9 +134,9 @@ Example:
 az arcdata dc update --maintenance-enabled true --k8s-namespace arc --use-k8s
 ```
 
-## Change maintenance window start time 
+## Change maintenance window options 
 
-The update command can be used to change the maintenance start time.
+The update command can be used to change any of the options. In this example, I will update the start time.
 
 ```cli
 az arcdata dc update --maintenance-start <date and time> --k8s-namespace arc --use-k8s

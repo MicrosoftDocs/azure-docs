@@ -1,12 +1,12 @@
 ---
 title: Assess on-premises servers using an imported CSV file with Azure Migrate Server Assessment
 description: Describes how to discover on-premises servers for migration to Azure using an imported CSV file in Azure Migrate Server Assessment
-author: vineetvikram
-ms.author: vivikram
+author: vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
-ms.custom: subject-rbac-steps
+ms.date: 02/27/2023
+ms.custom: subject-rbac-steps, engagement-fy23
 #Customer intent: As a server admin, I want to discover servers using an imported CSV file. 
 ---
 
@@ -106,7 +106,7 @@ Download the CSV template and add server information to it.
 
 ### Download the template
 
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
+1. In **Migration goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
 2. In **Discover machines**, select **Import using CSV**.
 3. Select **Download** to download the CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -117,7 +117,7 @@ Download the CSV template and add server information to it.
 Gather server data and add it to the CSV file.
 
 - To gather data, you can export it from tools you use for on-premises server management, such as VMware vSphere or your configuration-management database (CMDB).
-- To review sample data, download our [example file](https://go.microsoft.com/fwlink/?linkid=2108405).
+- To review sample data, download our [example file](https://go.microsoft.com/fwlink/?linkid=2109031).
 
 The following table summarizes the file fields to fill in:
 
@@ -202,7 +202,7 @@ Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux
 
 ## Assessment considerations
 
-- If you import serves by using a CSV file and creating an assessment with sizing criteria as "performance-based":
+- If you import servers by using a CSV file and creating an assessment with sizing criteria as "performance-based":
     - For Azure VM assessment, the performance values you specify (CPU utilization, Memory utilization, Disk IOPS and throughput) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information. 
     - For Azure VMware Solution assessment, the performance values you specify (CPU utilization, Memory utilization, Storage in use(GB)) are used if you choose performance-based sizing. You will not be able to provide performance history and percentile information. 
 - To get an accurate OS suitability/readiness in Azure VM and Azure VMware Solution assessment, please enter the Operating system version and architecture in the respective columns.

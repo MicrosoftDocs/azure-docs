@@ -2,14 +2,14 @@
 title: Create and manage group policy in Azure AD Domain Services | Microsoft Docs
 description: Learn how to edit the built-in group policy objects (GPOs) and create your own custom policies in an Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 01/29/2023
 ms.author: justinha
 
 ---
@@ -24,7 +24,7 @@ This article shows you how to install the Group Policy Management tools, then ed
 If you are interested in server management strategy, including machines in Azure and
 [hybrid connected](../azure-arc/servers/overview.md),
 consider reading about the
-[guest configuration](../governance/policy/concepts/guest-configuration.md)
+[guest configuration](../governance/machine-configuration/overview.md)
 feature of
 [Azure Policy](../governance/policy/overview.md).
 

@@ -13,7 +13,7 @@ services: iot-edge
 
 # Add custom metrics
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Gather custom metrics from your IoT Edge modules in addition to the built-in metrics that the system modules provide. The [built-in metrics](how-to-access-built-in-metrics.md) provide great baseline visibility into your deployment health. However, you may require additional information from custom modules to complete the picture. Custom modules can be integrated into your monitoring solution by using the appropriate [Prometheus client library](https://prometheus.io/docs/instrumenting/clientlibs/) to emit metrics. This additional information can enable new views or alerts specialized to your requirements.
 
@@ -61,7 +61,7 @@ InsightsMetrics
 
 Once you have confirmed ingestion, you can either create a new workbook or augment an existing workbook. Use [workbooks docs](../azure-monitor/visualize/workbooks-overview.md) and queries from the curated [IoT Edge workbooks](how-to-explore-curated-visualizations.md) as a guide.
 
-When happy with the results, you can [share the workbook](../azure-monitor/visualize/workbooks-access-control.md) with your team or [deploy them programmatically](../azure-monitor/visualize/workbooks-automate.md) as part of your organization's resource deployments.
+When happy with the results, you can [share the workbook](../azure-monitor/visualize/workbooks-overview.md#access-control) with your team or [deploy them programmatically](../azure-monitor/visualize/workbooks-automate.md) as part of your organization's resource deployments.
 
 ## Next steps
 

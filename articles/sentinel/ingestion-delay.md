@@ -1,17 +1,17 @@
 ---
 title: Handle ingestion delay in Microsoft Sentinel | Microsoft Docs
 description:  Handle ingestion delay in Microsoft Sentinel scheduled analytics rules.
-author: batamig
+author: limwainstein
 ms.topic: how-to
-ms.date: 04/25/2021
-ms.author: bagol
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Handle ingestion delay in scheduled analytics rules
 
 While Microsoft Sentinel can ingest data from [various sources](connect-data-sources.md), ingestion time for each data source may differ in different circumstances.
 
-This article describes how to ingestion delay might impact your scheduled analytics rules and how you can fix them to cover these gaps.
+This article describes how ingestion delay might impact your scheduled analytics rules and how you can fix them to cover these gaps.
 
 ## Why delay is significant
 

@@ -1,17 +1,17 @@
 ---
 title: "Quickstart: ASP.NET web app that signs in users"
-titleSuffix: Microsoft identity platform
 description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: portal
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2021
 ROBOTS: NOINDEX
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", contperf-fy21q1, mode-other
 #Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
 ---

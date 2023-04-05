@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 08/20/2022
 ---
 
 # Create cross-environment parameters for workflow inputs in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In Azure Logic Apps, you can abstract values that might change in workflows across development, test, and production environments by defining *parameters*. When you use parameters rather than environment-specific variables, you can initially focus more on designing your workflows, and insert your environment-specific variables later.
 
@@ -22,7 +24,7 @@ For more information about multi-tenant and single-tenant Azure Logic Apps, revi
 
 * A Consumption or Standard logic app workflow
 
-  If you don't have a logic app workflow yet, review [Create your first Consumption logic app workflow using the Azure portal](quickstart-create-first-logic-app-workflow.md) or [Create your first Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md).
+  If you don't have a logic app workflow yet, see [Create an example Consumption logic app workflow using the Azure portal](quickstart-create-example-consumption-workflow.md) or [Create an example Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
     > [!NOTE]
     > Currently, you can create parameters for Consumption logic app workflows only by using the Azure portal. 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure Zscaler One for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Zscaler One for automatic user provisioning with Azure Active Directory'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Zscaler One.
 services: active-directory
 author: twimmers
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -151,6 +151,9 @@ This operation starts the initial synchronization of all users or groups defined
 You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Azure AD provisioning service on Zscaler One.
 
 For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+
+## Change Logs
+* 05/16/2022 - **Schema Discovery** feature enabled on this app.
 
 ## Additional resources
 
