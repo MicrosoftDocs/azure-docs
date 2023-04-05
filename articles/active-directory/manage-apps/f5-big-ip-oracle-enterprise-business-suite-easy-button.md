@@ -148,7 +148,7 @@ The **Configuration Properties** tab creates a BIG-IP application config and SSO
 To reduce time and effort, reuse global settings to publish other applications.
 
 1. Enter a **Configuration Name**.
-2. For **Single Sign-On (SSO) & HTTP Headers**, select **On**.
+2. For **Single sign-on (SSO) & HTTP Headers**, select **On**.
 3. For **Tenant ID, Client ID**, and **Client Secret** enter what you noted during Easy Button client registration.
 4. Confirm the BIG-IP connects to your tenant.
 5. Select **Next**.
@@ -317,7 +317,7 @@ See, Microsoft [My Apps](https://myapplications.microsoft.com/)
 
 The SAML federation metadata for the published application is imported from the tenant. This action provides the APM with the SAML sign out endpoint for Azure AD. Then, SP-initiated sign out terminates the client and Azure AD session. Ensure the APM knows when a user signs out.
 
-If you use the BIG-IP webtop portal to access published applications, APM processes a sign out to call the Azure AD sign out endpoint. If you don't use the BIG-IP webtop portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. Ensure SP-initiated sign out triggers secure sessions terminatation. Add an SLO function to the applications **Sign out** button to redirect the client to the Azure AD SAML or BIG-IP sign out endpoint. Find the SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
+If you use the BIG-IP webtop portal to access published applications, APM processes a sign out to call the Azure AD sign out endpoint. If you don't use the BIG-IP webtop portal, the user can't instruct the APM to sign out. If the user signs out of the application, the BIG-IP is oblivious to the action. Ensure SP-initiated sign out triggers secure sessions termination. Add an SLO function to the applications **Sign out** button to redirect the client to the Azure AD SAML or BIG-IP sign out endpoint. Find the SAML sign out endpoint URL for your tenant in **App Registrations > Endpoints**.
 
 If you can't change the app, have the BIG-IP listen for the application sign out call and then trigger SLO. 
 
