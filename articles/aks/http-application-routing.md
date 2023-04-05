@@ -20,9 +20,10 @@ The HTTP application routing add-on makes it easy to access applications that ar
 * Creating publicly accessible DNS names for application endpoints
 * Creating a DNS zone in your subscription. For more information about DNS cost, see [DNS pricing][dns-pricing].
 
-## Limitations
+## Before you begin
 
-HTTP application routing doesn't work with AKS versions 1.22.6+
+* The HTTP application routing add-on doesn't work with AKS versions 1.22.6+.
+* If you're running commands locally, install [`kubectl`][kubectl] using the [`az aks install-cli`][az-aks-install-cli] command.
 
 ## HTTP application routing add-on overview
 
@@ -59,8 +60,6 @@ The add-on deploys two components: a [Kubernetes ingress controller][ingress] an
 
 ## Connect to your AKS cluster
 
-You can connect to the Kubernetes cluster from your local computer using [kubectl][kubectl]. If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [`az aks install-cli`][az-aks-install-cli] command.
-
 * Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in the *myResourceGroup*:
 
     ```azurecli
@@ -69,12 +68,13 @@ You can connect to the Kubernetes cluster from your local computer using [kubect
 
 ## Use HTTP application routing
 
-The HTTP application routing add-on can only be triggered on ingress resources with the following annotation:
-
-```yaml
-annotations:
-  kubernetes.io/ingress.class: addon-http-application-routing
-```
+> [!IMPORTANT]
+> The HTTP application routing add-on can only be triggered on ingress resources with the following annotation:
+>
+> ```yaml
+> annotations:
+>  kubernetes.io/ingress.class: addon-http-application-routing
+> ```
 
 1. Create a file named **samples-http-application-routing.yaml** and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name you collected in the previous step.
 
