@@ -40,7 +40,7 @@ This message indicates that you need to update the number of committed devices o
 
 1. In the warning message, select **Get more device coverage**, which will open the pane to edit your plan for the relevant subscription.
 
-1. In the **Number of devices** field, enter the current number of your devices being monitored by Defender for IoT for this subscription.
+1. In the **Number of devices** field, update the number of committed devices to the actual number of devices being monitored by Defender for IoT for this subscription.
 
     For example:
 
