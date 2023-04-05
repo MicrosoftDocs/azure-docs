@@ -47,11 +47,11 @@ The validation process validates the FHIR destination mapping before allowing th
 
 ## CollectionFhir
 
-CollectionFhir is the root template type used by the MedTech service FHIR destination mapping. CollectionFhir is a list of all templates that are used during the transformation stage. You can define one or more templates within CollectionFhir, with each normalized message received by the MedTech service being evaluated against all templates.
+CollectionFhir is the root template type used by the MedTech service FHIR destination mapping. CollectionFhir is a list of all templates that are used during the transformation stage. You can define one or more templates within CollectionFhir, with each normalized message evaluated against all templates.
 
 ### CodeValueFhir
 
-The CodeValueFhir is currently the only template supported in FHIR destination mapping at this time.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), and [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
+CodeValueFhir is currently the only template supported in FHIR destination mapping at this time.  It allows you to define codes, the effective period, and the value of the observation. Multiple value types are supported: [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept), and [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). Along with these configurable values, the identifier for the Observation resource and linking to the proper Device and Patient resources are handled automatically.
 
 |Property|Description| 
 |:-------|-----------|
@@ -71,7 +71,7 @@ The CodeValueFhir is currently the only template supported in FHIR destination m
 
 ### Value type codes
 
-These codes are the currently supported value type codes for the MedTech service FHIR destination mapping:
+The supported value type codes for the MedTech service FHIR destination mapping:
 
 ### SampledData
 
