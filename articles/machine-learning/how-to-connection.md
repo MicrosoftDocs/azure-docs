@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: amar.badal
+ms.author: ambadal
 author: AmarBadal
 ms.reviewer: franksolomon
 ms.date: 04/05/2023
