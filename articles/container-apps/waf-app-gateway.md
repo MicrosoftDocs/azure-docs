@@ -7,7 +7,6 @@ ms.service: container-apps
 ms.topic:  how-to
 ms.date: 03/31/2023
 ms.author: wviriya
-zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Protect Azure Container Apps with Web Application Firewall on Application Gateway
