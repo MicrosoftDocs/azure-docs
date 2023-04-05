@@ -111,7 +111,7 @@ using Microsoft.Data.SqlClient;
 try
 {
 //
-// Open a connection to the server using Active Direcotry Managed Identity authentication.
+// Open a connection to the server using Active Directory Managed Identity authentication.
 //
 string connectionString = "Data Source=<AZURE-SQL-SERVERNAME>; Initial Catalog=<DATABASE>; Authentication=Active Directory Managed Identity; Encrypt=True";
 SqlConnection conn = new SqlConnection(connectionString);

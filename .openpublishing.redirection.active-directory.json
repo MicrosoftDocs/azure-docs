@@ -6,8 +6,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/configure-token-lifetimes.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "source_path_from_root": "/articles/active-directory/develop/registration-config-change-token-lifetime-how-to.md",
+      "redirect_url": "/azure/active-directory/develop/configure-token-lifetimes",
       "redirect_document_id": false
     },
     {
@@ -133,6 +133,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/headerf5-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/f5-big-ip-headers-easy-button",
+      "redirect_document_id": false
+    },
+	{
+      "source_path_from_root": "/articles/active-directory/saas-apps/tripactions-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/navan-tutorial",
       "redirect_document_id": false
     },
     {

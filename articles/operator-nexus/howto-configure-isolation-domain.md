@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: How to configure the L2 and L3 isolation-domains i
 description: Learn to create, view, list, update, delete commands for Layer 2 and Layer isolation-domains in Operator Nexus instances
 author: surajmb #Required
 ms.author: surmb #Required
-ms.service: azure  #Required
+ms.service: azure-operator-nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 02/02/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
