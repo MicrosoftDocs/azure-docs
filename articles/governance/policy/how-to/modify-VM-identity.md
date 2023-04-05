@@ -13,12 +13,12 @@ Existing virtual machines and virtual machines scale sets that need to use the [
  > [!NOTE]
 > The definition template MUST be assigned with enforcement mode disabled (DoNotEnforce) to prevent failures on newly created resources. 
 
-# Prerequisites 
+## Prerequisites 
 
 1. Create an user assigned identity that has permissions needed to install the Azure Monitoring Agent within the resources. 
 
-
-# Using Portal
+## Create, assign and remediate policy definition 
+### Using Portal
 
 To remediate the exisiting resources, follow these steps:
 
@@ -108,6 +108,116 @@ To remediate the exisiting resources, follow these steps:
    1. Ensure that the information in **managed identity** is as expected. 
 
    1. Select **Review + create**. Your custom definition has been assigned. For assignments at the subscription level or lower scope, all exisiting virtual machines and virtual machines scale sets will be remediated via a policy remediation task. Any future virtual machine or virtual machine scale sets or assignments at the management group level must can be remediated by following the [remediate resources tutorial](./remediate-resources.md). 
+
+
+### Using PowerShell
+
+1. Use the following JSON snippet to create a JSON file with the name ModifyVMIdentities.json.
+
+ ```json 
+{
+  "mode": "Indexed",
+  "parameters": {
+    "userAssignedIdentities": {
+      "type": "String",
+      "metadata": {
+        "displayName": "userAssignedIdentities"
+      }
+    }
+  },
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "type",
+          "in": [
+            "Microsoft.Compute/virtualMachines",
+            "Microsoft.Compute/virtualMachineScaleSets"
+          ]
+        },
+        {
+          "value": "[requestContext().apiVersion]",
+          "greaterOrEquals": "2018-10-01"
+        },
+        {
+          "field": "identity.userAssignedIdentities",
+          "notContainsKey": "[parameters('userAssignedIdentities')]"
+        }
+      ]
+    },
+    "then": {
+      "effect": "modify",
+      "details": {
+        "roleDefinitionIds": [
+          "/providers/microsoft.authorization/roleDefinitions/9980e02c-c2be-4d73-94e8-173b1dc7cf3c"
+        ],
+        "operations": [
+          {
+            "operation": "AddOrReplace",
+            "field": "identity.type",
+            "value": "[if(contains(field('identity.type'), 'SystemAssigned'), 'SystemAssigned,UserAssigned', 'UserAssigned')]"
+          },
+          {
+            "operation": "addOrReplace",
+            "field": "identity.userAssignedIdentities",
+            "value": "[createObject(parameters('userAssignedIdentities'), createObject())]"
+          }
+        ]
+      }
+    }
+  }
+}
+
+```
+
+   For more information about authoring a policy definition, see [Azure Policy Definition
+   Structure](../concepts/definition-structure.md).
+
+1. Run the following command to create a policy definition using the ModifyVMIdentities.json file.
+
+   ```azurepowershell-interactive
+   New-AzPolicyDefinition -Name 'ModifyVMIdentities' -DisplayName 'Modify identities on existing VMs and VMSS' -Policy 'ModifyVMIdentities.json'
+   ```
+
+   The command creates a policy definition named _Modify identities on existing VMs and VMSS_.
+   For more information about other parameters that you can use, see
+   [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
+
+   When called without location parameters, `New-AzPolicyDefinition` defaults to saving the policy
+   definition in the selected subscription of the sessions context. To save the definition to a
+   different location, use the following parameters:
+
+   - **SubscriptionId** - Save to a different subscription. Requires a _GUID_ value.
+   - **ManagementGroupName** - Save to a management group. Requires a _string_ value.
+
+1. After you create your policy definition, you can create a policy assignment by running the
+   following commands:
+
+   ```azurepowershell-interactive
+   $Subscription = Get-AzSubscription -SubscriptionName 'Subscription01'
+   $Policy = Get-AzPolicyDefinition -Name 'ModifyVMIdentities'
+   $VMuserassignedidentity = Get-AzUserAssignedIdentity -ResourceGroupName $rgname -Name $VMuserassignedidentityname
+   $VMuserassignedidentityid = $VMuserassignedidentity.Id
+   New-AzPolicyAssignment -Name 'ModifyVMIdentities' -PolicyDefinition $Policy -Scope "/subscriptions/$($Subscription.Id)" -EnforcementMode DoNotEnforce -Location 'westus' -IdentityType "SystemAssigned" -PolicyParameterObject $VMuserassignedidentityid
+   ```
+
+   Replace _Subscription01_ with the name of your intended resource group.
+
+   The **Scope** parameter on `New-AzPolicyAssignment` works with management group, subscription,
+   resource group, or a single resource. The parameter uses a full resource path, which the
+   **ResourceId** property on `Get-AzResourceGroup` returns. The pattern for **Scope** for each
+   container is as follows. Replace `{rName}`, `{rgName}`, `{subId}`, and `{mgName}` with your
+   resource name, resource group name, subscription ID, and management group name, respectively.
+   `{rType}` would be replaced with the **resource type** of the resource, such as
+   `Microsoft.Compute/virtualMachines` for a VM.
+
+   - Resource - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Subscription - `/subscriptions/{subId}`
+   - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
+
+For more information about managing resource policies using the Resource Manager PowerShell
+module, see [Az.Resources](/powershell/module/az.resources/#policy).
 
 
 ## Next steps
