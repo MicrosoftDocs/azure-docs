@@ -19,7 +19,7 @@ This configuration uses a flow table to route traffic from an external (host) IP
 
 :::image type="content" source="./media/nat-rules-vpn-gateway/diagram.png" alt-text="Diagram showing architecture." lightbox="./media/nat-rules-vpn-gateway/diagram.png":::
 
-In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors aren't supported in conjunction with NAT configuration.
+To use NAT, VPN devices need to use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors aren't supported in conjunction with NAT configuration.
 
 ## <a name="rules"></a>Configure NAT rules
 
@@ -31,12 +31,12 @@ NAT on a gateway device translates the source and/or destination IP addresses, b
 
 * **Static NAT**: Static rules define a fixed address mapping relationship. For a given IP address, it will be mapped to the same address from the target pool. The mappings for static rules are stateless because the mapping is fixed. For example, a NAT rule created to map 10.0.0.0/24 to 192.168.0.0/24 will have a fixed 1-1 mapping. 10.0.0.0 is translated to 192.168.0.0, 10.0.0.1 is translated to 192.168.0.1, and so on.
 
-* **Dynamic NAT**: For dynamic NAT, an IP address can be translated to different target IP addresses and TCP/UDP port based on availability, or with a different combination of IP address and TCP/UDP port. The latter is also called NAPT, Network Address and Port Translation. Dynamic rules will result in stateful translation mappings depending on the traffic flows at any given time. Due to the nature of Dynamic NAT and the ever changing IP/Port combinations, flows that make use of Dynamic NAT rules have to be initiated from the **Internal Mapping** (Pre-NAT) IP Range. The dynamic mapping is released once the flow is disconnected or gracefully terminated.
+* **Dynamic NAT**: For dynamic NAT, an IP address can be translated to different target IP addresses and TCP/UDP port based on availability, or with a different combination of IP address and TCP/UDP port. The latter is also called NAPT, Network Address and Port Translation. Dynamic rules will result in stateful translation mappings depending on the traffic flows at any given time. Due to the nature of Dynamic NAT and the ever-changing IP/Port combinations, flows that make use of Dynamic NAT rules have to be initiated from the **Internal Mapping** (Pre-NAT) IP Range. The dynamic mapping is released once the flow is disconnected or gracefully terminated.
 
 Another consideration is the address pool size for translation. If the target address pool size is the same as the original address pool, use static NAT rule to define a 1:1 mapping in a sequential order. If the target address pool is smaller than the original address pool, use dynamic NAT rule to accommodate the differences.
 
 > [!NOTE]
-> Site-to-site NAT is not supported with site-to-site VPN connections where policy based traffic selectors are used.
+> Site-to-site NAT is not supported with site-to-site VPN connections where policy-based traffic selectors are used.
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing how to edit rules."lightbox="./media/nat-rules-vpn-gateway/edit-rules.png":::
 
@@ -56,7 +56,7 @@ Another consideration is the address pool size for translation. If the target ad
    * **Link Connection:** Connection resource that virtually connects a VPN site to the Azure Virtual WAN hub's site-to-site VPN gateway.
 
 > [!NOTE]
-> If you want the site-to-site VPN gateway to advertise translated (**External Mapping**) address prefixes via BGP, click the **Enable BGP Translation** button, due to which on-premises will automatically learn the post-NAT range of Egress Rules and Azure (Virtual WAN hub, connected virtual networks, VPN and ExpressRoute branches) will automatically learn the post-NAT range of Ingress rules. The new POST NAT ranges will be shown in the Effective Routes table in a virtual hub. The **Enable Bgp Translation** setting is applied to all NAT rules on the Virtual WAN hub site-to-site VPN gateway.
+> If you want the site-to-site VPN gateway to advertise translated (**External Mapping**) address prefixes via BGP, click the **Enable BGP Translation** button, due to which on-premises will automatically learn the post-NAT range of Egress Rules and Azure (Virtual WAN hub, connected virtual networks, VPN and ExpressRoute branches) will automatically learn the post-NAT range of Ingress rules. The new POST NAT ranges will be shown on the Effective Routes table in a virtual hub. The **Enable Bgp Translation** setting is applied to all NAT rules on the Virtual WAN hub site-to-site VPN gateway.
 
 ## <a name="examples"></a>Example configurations
 
@@ -66,15 +66,15 @@ Another consideration is the address pool size for translation. If the target ad
 
 In this example, we'll NAT site1 to 172.30.0.0.0/24. The Virtual WAN spoke virtual networks and branches other will automatically learn this post-NAT address space.
 
-The following diagram shows the projected end result:
+The following diagram shows the projected result:
 
 :::image type="content" source="./media/nat-rules-vpn-gateway/diagram-bgp.png" alt-text="Diagram showing Ingress mode NAT for Sites that are BGP-enabled." lightbox="./media/nat-rules-vpn-gateway/diagram-bgp.png":::
 
 1. Specify a NAT rule.
 
-   Specify a NAT rule to ensure the site-to-site VPN gateway is able to distinguish between the two branches with overlapping address spaces (such as 10.30.0.0/24). In this example, we focus on Link A for VPN Site 1.
+   Specify a NAT rule to ensure the site-to-site VPN gateway can distinguish between the two branches with overlapping address spaces (such as 10.30.0.0/24). In this example, we focus on Link A for VPN Site 1.
 
-   The following NAT rule can be set up and associated to Link A. Because this is a static NAT rule, the address spaces of the **Internal Mapping** and **External Mapping** contain the same number of IP addresses.
+   The following NAT rule can be set up and associated with Link A. Because this is a static NAT rule, the address spaces of the **Internal Mapping** and **External Mapping** contain the same number of IP addresses.
 
    * **Name:** ingressRule01
    * **Type:** Static
@@ -87,9 +87,9 @@ The following diagram shows the projected end result:
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/enable-bgp.png" alt-text="Screenshot showing how to enable BGP translation.":::
 
-1. Ensure the site-to-site VPN gateway is able to peer with the on-premises BGP peer.
+1. Ensure the site-to-site VPN gateway can peer with the on-premises BGP peer.
 
-   In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 172.30.0.132. In order to do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (172.30.0.132).
+   In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 172.30.0.132. To do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (172.30.0.132).
 
    :::image type="content" source="./media/nat-rules-vpn-gateway/edit-site-bgp.png" alt-text="Screenshot showing how to change the BGP peering IP."lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
 
@@ -114,9 +114,9 @@ In this example, we'll NAT VPN site 1 to 172.30.0.0.0/24. However, because the V
 
 1. Specify a NAT rule.
 
-    Specify a NAT rule to ensure the site-to-site VPN gateway is able to distinguish between the two branches with the same address space 10.30.0.0/24. In this example, we focus on Link A for VPN Site 1.
+    Specify a NAT rule to ensure the site-to-site VPN gateway can distinguish between the two branches with the same address space 10.30.0.0/24. In this example, we focus on Link A for VPN Site 1.
 
-    The following NAT rule can be set up and associated to Link A of one of VPN site 1. Because this is a static NAT rule, the address spaces of the **Internal Mapping** and **External Mapping** contain the same number of IP addresses.
+    The following NAT rule can be set up and associated with Link A of one of VPN site 1. Because this is a static NAT rule, the address spaces of the **Internal Mapping** and **External Mapping** contain the same number of IP addresses.
 
     * **Name**: IngressRule01
     * **Type**: Static
@@ -155,7 +155,7 @@ In the preceding examples, an on-premises device wants to reach a resource in a 
    * Source IP Address: 10.200.0.4
    * Destination IP Address: **172.30.0.4**
 
-1. Traffic enters the site-to-site VPN gateway and the translation is reversed and sent to on-premises.
+1. Traffic enters the site-to-site VPN gateway, and the translation is reversed and sent to on-premises.
    * Source IP Address: 10.200.0.4
    * Destination IP Address: **10.30.0.4**
 
@@ -187,25 +187,25 @@ From the previous example:
 
 #### Validate address prefixes
 
-This example applies to resources in virtual networks that are associated to the DefaultRouteTable.
+This example applies to resources in virtual networks that are associated with the DefaultRouteTable.
 
-The **Effective Routes** on the Network Interface Cards (NIC) of any virtual machine that is sitting in a spoke virtual network connected to the virtual WAN hub should also contain the address prefixes of the **External Mapping** specified in the **Ingress NAT rule**.
+The **Effective Routes** on Network Interface Cards (NIC) of any virtual machine that is sitting in a spoke virtual network connected to the virtual WAN hub should also contain the address prefixes of the **External Mapping** specified in the **Ingress NAT rule**.
 
 The on-premises device should also contain routes for prefixes contained within the **External Mapping** of **Egress NAT rules**.
 
 #### Common configuration patterns
 
 > [!NOTE]
-> Site-to-site NAT is not supported with site-to-site VPN connections where policy based traffic selectors are used.
+> Site-to-site NAT is not supported with site-to-site VPN connections where policy-based traffic selectors are used.
 
 The following table shows common configuration patterns that arise when configuring different types of NAT rules on the site-to-site VPN gateway.
 
 | Type of VPN site | Ingress NAT rules | Egress NAT rules
 |--- |--- | ---|
-|VPN site with statically configured routes |Edit 'Private Address Space' in the VPN Site to contain the **External Mapping** of the NAT rule.| Apply routes for the **External Mapping** of the NAT rule on the on-premises device.|
-|VPN site (BGP translation enabled)|Put the **External Mapping** address of the BGP peer in the VPN site Link Connection's BGP address. | No special considerations. |
-| VPN site (BGP translation disabled) | Ensure the on-premises BGP Speaker advertises the prefixes in the **External Mapping** of the NAT rule. Also put the External Mapping address of the BGP peer in the VPN site Link Connection's BGP address.| Apply routes for the **External Mapping** of the NAT rule on the on-premises device.|
+|VPN site with statically configured routes |Edit 'Private Address Space' in the VPN Site to contain the **External Mapping** of the NAT rule. | Apply routes for the **External Mapping** of the NAT rule on the on-premises device. |
+|VPN site (BGP translation enabled) |Put the **External Mapping** address of the BGP peer in the VPN site Link Connection's BGP address. | No special considerations. |
+| VPN site (BGP translation disabled) | Ensure the on-premises BGP Speaker advertises the prefixes in the **External Mapping** of the NAT rule. Also put the External Mapping address of the BGP peer in the VPN site Link Connection's BGP address. | Apply routes for the **External Mapping** of the NAT rule on the on-premises device.|
 
 ## Next steps
 
-For more information about site-to-site configurations, see [Configure a Virtual WAN site-to-site connection](virtual-wan-site-to-site-portal.md).
+For more information about site-to-site configurations, see [Configure a Virtual WAN site-to-site connection] (virtual-wan-site-to-site-portal.md).

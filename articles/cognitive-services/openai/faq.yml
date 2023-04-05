@@ -100,7 +100,10 @@ sections:
           What are the SLAs for API responses in Azure OpenAI?
         answer:
           We don't have a defined API response time Service Level Agreement (SLA) at this time. The overall SLA for Azure OpenAI Service is the same as for other Azure Cognitive Services. For more information, see the Cognitive Services section of the [Service Level Agreements (SLA) for Online Services page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).  
-  
+      - question: |
+          Why was my fine-tuned model deployment deleted? 
+        answer:
+          If a customized (fine-tuned) model is deployed for more than fifteen (15) days during which no completions or chat completions calls are made to it, the deployment will automatically be deleted (and no further hosting charges will be incurred for that deployment). The underlying customized model will remain available and can be redeployed at any time. To learn more check out the [how-to-article](/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#deploy-a-customized-model).  
 additionalContent: |
 
   ## Next steps
