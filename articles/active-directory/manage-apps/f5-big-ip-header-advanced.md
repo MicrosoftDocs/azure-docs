@@ -13,7 +13,7 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on
+# Tutorial: Configure F5 BIG-IP Access Policy Manager for header-based single sign-on 
 
 Learn to implement secure hybrid access (SHA) with single sign-on (SSO) to header-based applications, using F5 BIG-IP advanced configuration. BIG-IP published applications and Azure AD configuration benefits:
 
