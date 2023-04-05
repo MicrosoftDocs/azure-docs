@@ -44,8 +44,12 @@
     href: howto-monitor-aks-h-cluster.md
   - name: Monitor VMs for VNF
     href: howto-monitor-virtualized-network-functions-virtual-machines.md
+  - name: Cluster metrics configuration management
+    href: howto-cluster-metrics-configuration-management.md
   - name: Pre-certification 
     href: howto-precertification.md
+  - name: Tracking asynchronous operations
+    href: howto-track-async-operations-cli.md
 - name: Sample Deployment
   items:
   - name: VNF Deployment
@@ -56,6 +60,6 @@
   items:
   - name: Instance to On-Premises WAN Connectivity
     href: reference-customer-edge-provider-edge-connectivity.md
-  - name: List of Metrics Collected
+  - name: List of metrics collected
     href: List-of-metrics-collected.md
   
