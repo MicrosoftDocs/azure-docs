@@ -18,46 +18,87 @@ ms.collection: M365-identity-device-management
 
 # Assign Azure AD roles to groups
 
-This section describes how an IT admin can assign Azure Active Directory (Azure AD) role to an Azure AD group.
+This article describes how to assign Azure AD roles to [role-assignable groups](groups-concept.md) using the Azure portal, PowerShell or Microsoft Graph API.
+
+If you have Azure AD Premium P2, you can use Azure AD Privileged Identity Management (Azure AD PIM) to provide just-in-time access to roles, rather than granting permanent access. For information about how to assign Azure AD roles using PIM, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
 ## Prerequisites
 
 - Azure AD Premium P1 or P2 license
-- Privileged Role Administrator or Global Administrator
-- AzureAD module when using PowerShell
+- [Privileged Role Administrator](./permissions-reference.md#privileged-role-administrator)
+- Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation?branch=main)
+- AzureAD module when using Azure AD PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
 For more information, see [Prerequisites to use PowerShell or Graph Explorer](prerequisites.md).
 
 ## Azure portal
 
-Assigning a group to an Azure AD role is similar to assigning users and service principals except that only groups that are role-assignable can be used. In the Azure portal, only groups that are role-assignable are displayed.
+Assigning an Azure AD role to a group is similar to assigning users and service principals except that only groups that are role-assignable can be used.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Microsoft Entra admin center](https://entra.microsoft.com).
 
-1. Select **Azure Active Directory** > **Roles and administrators** and select the role you want to assign.
+1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-1. On the ***role name*** page, select > **Add assignment**.
+    ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
 
-   ![Add the new role assignment](./media/groups-assign-role/add-assignment.png)
+1. Select the role name to open the role. Don't add a check mark next to the role.
 
-1. Select the group. Only the groups that can be assigned to Azure AD roles are displayed.
+    ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
 
-    [![Only groups that are assignable are shown for a new role assignment.](./media/groups-assign-role/eligible-groups.png "Only groups that are assignable are shown for a new role assignment.")](./media/groups-assign-role/eligible-groups.png#lightbox)
+1. Select **Add assignments**.
 
-1. Select **Add**.
+    If you see something different from the following screenshot, you might have PIM enabled. For more information, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
-For more information on assigning role permissions, see [Assign administrator and non-administrator roles to users](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+    :::image type="content" source="media/groups-assign-role/add-assignments.png" alt-text="Screenshot of Add assignments pane to assign role to users or groups." lightbox="media/groups-assign-role/add-assignments.png":::
+
+1. Select the group you want to assign to this role. Only role-assignable groups are displayed.
+
+    If group isn't listed, you will need to create a role-assignable group. For more information, see [Create a role-assignable group in Azure Active Directory](groups-create-eligible.md).
+
+1. Select **Add** to assign the role to the group.
 
 ## PowerShell
 
-### Create a group that can be assigned to role
+# [Microsoft Graph PowerShell](#tab/ms-powershell)
+
+### Create a role-assignable group
+
+Use the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup?branch=main) command to create a group.
+
+```powershell
+$group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group has Helpdesk Administrator built-in role assigned to it in Azure AD." -MailEnabled:$false -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true
+```
+
+### Get the role definition you want to assign
+
+Use the [Get-MgRoleManagementDirectoryRoleDefinition](/powershell/module/microsoft.graph.devicemanagement.enrolment/get-mgrolemanagementdirectoryroledefinition?branch=main) command to get a role definition.
+
+```powershell
+$roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'"
+```
+
+### Create a role assignment
+
+Use the [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment?branch=main) command to assign the role.
+
+```powershell
+$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
+```
+
+# [Azure AD PowerShell](#tab/aad-powershell)
+
+### Create a role-assignable group
+
+Use the [New-AzureADMSGroup](/powershell/module/azuread/new-azureadmsgroup?branch=main) command to create a group.
 
 ```powershell
 $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $false -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true 
 ```
 
-### Get the role definition for the role you want to assign
+### Get the role definition you want to assign
+
+Use the [Get-AzureADMSRoleDefinition](/powershell/module/azuread/get-azureadmsroledefinition?branch=main) command to get a role definition.
 
 ```powershell
 $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk Administrator'" 
@@ -65,15 +106,21 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk 
 
 ### Create a role assignment
 
+Use the [New-AzureADMSRoleAssignment](/powershell/module/azuread/new-azureadmsroleassignment?branch=main) command to assign the role.
+
 ```powershell
 $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 ```
 
+---
+
 ## Microsoft Graph API
 
-### Create a group that can be assigned Azure AD role
+### Create a role-assignable group
 
 Use the [Create group](/graph/api/group-post-groups) API to create a group.
+
+**Request**
 
 ```http
 POST https://graph.microsoft.com/v1.0/groups
@@ -91,28 +138,74 @@ POST https://graph.microsoft.com/v1.0/groups
 }
 ```
 
-### Get the role definition
+**Response**
+
+```http
+HTTP/1.1 201 Created
+```
+
+### Get the role definition you want to assign
 
 Use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get a role definition.
 
+**Request**
+
 ```http
 GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions?$filter = displayName eq 'Helpdesk Administrator'
+```
+
+**Response**
+
+```json
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleDefinitions",
+    "value": [
+        {
+            "id": "729827e3-9c14-49f7-bb1b-9608f156bbb8",
+            "description": "Can reset passwords for non-administrators and Helpdesk Administrators.",
+            "displayName": "Helpdesk Administrator",
+            "isBuiltIn": true,
+            "isEnabled": true,
+            "resourceScopes": [
+                "/"
+            ],
+
+    ...
+
 ```
 
 ### Create the role assignment
 
 Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
 
+**Request**
+
 ```http
 POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 
 {
     "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
-    "principalId": "<Object Id of Group>",
+    "principalId": "<Object ID of Group>",
     "roleDefinitionId": "<ID of role definition>",
     "directoryScopeId": "/"
 }
 ```
+
+**Response**
+
+```json
+HTTP/1.1 201 Created
+Content-type: application/json
+{
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#roleManagement/directory/roleAssignments/$entity",
+    "id": "<Role assignment ID>",
+    "roleDefinitionId": "<ID of role definition>",
+    "principalId": "<Object ID of Group>",
+    "directoryScopeId": "/"
+}
+
+```
+
 ## Next steps
 
 - [Use Azure AD groups to manage role assignments](groups-concept.md)

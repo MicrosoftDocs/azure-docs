@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Use Azure AD groups to manage role assignments
 
-Azure Active Directory (Azure AD) lets you target Azure AD groups for role assignments. Assigning roles to groups can simplify the management of role assignments in Azure AD with minimal effort from your Global Administrators and Privileged Role Administrators.
+With Azure AD Premium P1 or P2, you can create role-assignable groups and assign Azure AD roles to these groups. This feature simplifies role management, ensures consistent access, and makes auditing permissions more straightforward. Assigning roles to a group instead of individuals allows for easy addition or removal of users from a role and creates consistent permissions for all members of the group. You can also create custom roles with specific permissions and assign them to groups.
 
 ## Why assign roles to groups?
 

@@ -35,23 +35,27 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 1. Select **Azure Active Directory** > **Groups** > **All groups** > **New group**.
 
-    [![Open Azure Active Directory and create a new group.](./media/groups-create-eligible/new-group.png "Open Azure Active Directory and create a new group.")](./media/groups-create-eligible/new-group.png#<lightbox>)
-
 1. On the **New Group** tab, provide group type, name and description.
 
-1. Turn on **Azure AD roles can be assigned to the group**. This switch is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set the switch.
+1. Set **Azure AD roles can be assigned to the group** to **Yes**.
 
-    [![Make the new group eligible for role assignment](./media/groups-create-eligible/eligible-switch.png "Make the new group eligible for role assignment")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
+    This option is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set this option.
 
+    :::image type="content" source="media/groups-create-eligible/eligible-switch.png" alt-text="Screenshot of option to make group a role-assignable group." lightbox="media/groups-create-eligible/eligible-switch.png":::
+    
 1. Select the members and owners for the group. You also have the option to assign roles to the group, but assigning a role isn't required here.
 
-    [![Add members to the role-assignable group and assign roles.](./media/groups-create-eligible/specify-members.png "Add members to the role-assignable group and assign roles.")](./media/groups-create-eligible/specify-members.png#<lightbox>)
+1. Select **Create**.
 
-1. After the members and owners are specified, select **Create**.
+    You see the following message:
+    
+    Creating a group to which Azure AD roles can be assigned is a setting that cannot be changed later. Are you sure you want to add this capability?
 
-    [![The Create button is at the bottom of the page.](./media/groups-create-eligible/create-button.png "The Create button is at the bottom of the page.")](./media/groups-create-eligible/create-button.png#<lightbox>)
+    :::image type="content" source="media/groups-create-eligible/group-create-message.png" alt-text="Screenshot of confirm message when creating a role-assignable group." lightbox="media/groups-create-eligible/group-create-message.png":::
 
-The group is created with any roles you might have assigned to it.
+1. Select **Yes**.
+
+    The group is created with any roles you might have assigned to it.
 
 ## PowerShell
 

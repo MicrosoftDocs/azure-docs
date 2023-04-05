@@ -62,7 +62,7 @@ The following diagram shows an example of a role assignment. In this example, Ch
 
 ### Security principal
 
-A security principal represents a user, group, or service principal that is assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory. A group is a new Microsoft 365 or security group with the isAssignableToRole property set to true (currently in preview). A service principal is an identity created for use with applications, hosted services, and automated tools to access Azure AD resources.
+A security principal represents a user, group, or service principal that is assigned access to Azure AD resources. A user is an individual who has a user profile in Azure Active Directory. A group is a new Microsoft 365 or security group that has been set as a [role-assignable group](groups-concept.md). A service principal is an identity created for use with applications, hosted services, and automated tools to access Azure AD resources.
 
 ### Role definition
 
@@ -88,6 +88,14 @@ If you specify an Azure AD resource as a scope, it can be one of the following:
 - Application registrations
 
 For more information, see [Assign Azure AD roles at different scopes](assign-roles-different-scopes.md).
+
+## Role assignment options
+
+Azure AD provides multiple options for assigning roles:
+
+- You can assign roles to users directly, which is the default way to assign roles. Both built-in and custom Azure AD roles can be assigned to users, based on access requirements.
+- With Azure AD Premium P1, you can create role-assignable groups and assign roles to these groups. Assigning roles to a group instead of individuals allows for easy addition or removal of users from a role and creates consistent permissions for all members of the group. For more information, see [Assign Azure AD roles to users](./manage-roles-portal.md) and [Assign Azure AD roles to groups](groups-assign-role.md).
+- With Azure AD Premium P2, you can use Azure AD Privileged Identity Management (Azure AD PIM) to provide just-in-time access to roles. This feature allows you to grant time-limited access to a role to users who require it, rather than granting permanent access. It also provides detailed reporting and auditing capabilities. For more information, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
 ## License requirements
 
