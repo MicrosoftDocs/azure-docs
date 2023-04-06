@@ -238,7 +238,7 @@
 		</g>
 		<g id="shape17442-12" v:mID="17442" v:groupContext="shape" transform="translate(261.904,-355.951)">
 			<title>Sheet.17442</title>
-			<desc>Data Collection &#38; Routing</desc>
+			<desc>Data Collection and Routing</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(5353000):26"/>
 			</v:userDefs>
@@ -246,7 +246,7 @@
 			<v:textRect cx="141.75" cy="770.543" width="283.5" height="51.1931"/>
 			<rect x="0" y="744.946" width="283.5" height="51.1931" class="st2"/>
 			<text x="37.61" y="775.95" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data Collection<v:newlineChar/><tspan
-						x="72.72" dy="1.2em" class="st6">&#38; Routing</tspan></text>		</g>
+						x="72.72" dy="1.2em" class="st6">and Routing</tspan></text>		</g>
 		<g id="shape17443-16" v:mID="17443" v:groupContext="shape" transform="translate(830.75,-369.451)">
 			<title>Sheet.17443</title>
 			<v:userDefs>

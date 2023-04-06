@@ -51,7 +51,7 @@
 		</g>
 		<g id="shape16363-3" v:mID="16363" v:groupContext="shape" transform="translate(217.094,-592.557)">
 			<title>Sheet.16363</title>
-			<desc>Data Collection, Routing &#38; Transform</desc>
+			<desc>Data Collection, Routing and Transform</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visNavOrder" v:prompt="" v:val="VT0(4879000):26"/>
 			</v:userDefs>
@@ -59,7 +59,7 @@
 			<v:textRect cx="193.5" cy="626.543" width="387" height="51.1931"/>
 			<rect x="0" y="600.946" width="387" height="51.1931" class="st2"/>
 			<text x="85.74" y="631.95" class="st3" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Data Collection, <v:newlineChar/><tspan
-						x="50.5" dy="1.2em" class="st4">Routing &#38; Transform</tspan></text>		</g>
+						x="50.5" dy="1.2em" class="st4">Routing, and Transform</tspan></text>		</g>
 		<g id="shape16364-7" v:mID="16364" v:groupContext="shape" transform="translate(332.217,-28.6565)">
 			<title>Sheet.16364</title>
 			<v:userDefs>

@@ -161,7 +161,7 @@ Visualizations such as charts and tables are effective tools for summarizing mon
 
 The Azure portal contains built in tools that allow you to analyze monitoring data.
 
-:::image type="content" source="media/overview/analyze-box.svg" alt-text="Diagram that shows the Analyze part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/analyze-blowup-type-2.svg":::
+:::image type="content" source="media/overview/analyze-box-opt.svg" alt-text="Diagram that shows the Analyze part of the Consumption section of the Azure Monitor system." border="false" lightbox="media/overview/analyze-blowup-type-2-opt.svg":::
 
 |Tool  |Description  |
 |---------|---------|
