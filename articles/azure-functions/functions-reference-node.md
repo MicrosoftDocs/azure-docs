@@ -60,13 +60,13 @@ The required folder structure for a JavaScript project looks like the following 
 
 The main project folder, *<project_root>*, can contain the following files:
 
-* *.vscode/*: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
-* *myFirstFunction/function.json*: Contains configuration for the function's inputs and outputs. The name of the directory determines the name of your function.
-* *myFirstFunction/index.js*: Stores your function code. To change this default file path, see [using scriptFile](#using-scriptfile).
-* *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *test/* to ignore test cases, and *local.settings.json* to prevent local app settings being published.
-* *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-* *local.settings.json*: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
-* *package.json*: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
+- **.vscode/**: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
+- **myFirstFunction/function.json**: Contains configuration for the function's inputs and outputs. The name of the directory determines the name of your function.
+- **myFirstFunction/index.js**: Stores your function code. To change this default file path, see [using scriptFile](#using-scriptfile).
+- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *test/* to ignore test cases, and *local.settings.json* to prevent local app settings being published.
+- **host.json**: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+- **local.settings.json**: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
+- **package.json**: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
 
 ::: zone-end
 
@@ -94,13 +94,13 @@ The recommended folder structure for a JavaScript project looks like the followi
 
 The main project folder, *<project_root>*, can contain the following files:
 
-* *.vscode/*: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
-* *src/functions/*: The default location for all functions and their related triggers and bindings.
-* *test/*: (Optional) Contains the test cases of your function app.
-* *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *test/* to ignore test cases, and *local.settings.json* to prevent local app settings being published.
-* *host.json*: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-* *local.settings.json*: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
-* *package.json*: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
+- **.vscode/**: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
+- **src/functions/**: The default location for all functions and their related triggers and bindings.
+- **test/**: (Optional) Contains the test cases of your function app.
+- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains *.vscode/* to ignore your editor setting, *test/* to ignore test cases, and *local.settings.json* to prevent local app settings being published.
+- **host.json**: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+- **local.settings.json**: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
+- **package.json**: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
 
 ::: zone-end
 
@@ -202,6 +202,8 @@ Inputs can be accessed in several ways:
     };
     ```
 
+<a name="returning-from-the-function"></a>
+
 ### Outputs
 
 Outputs are bindings with `direction` set to `out` and can be set in several ways:
@@ -218,7 +220,6 @@ Outputs are bindings with `direction` set to `out` and can be set in several way
 
     ```javascript
     module.exports = async function (context, request) {
-        context.log('JavaScript HTTP trigger function processed a request.');
         return {
             body: "Hello, world!"
         };
@@ -285,7 +286,7 @@ Outputs are bindings with `direction` set to `out` and can be set in several way
 
 You can use the `dataType` property on an input binding to change the type of your input, however it has some limitations:
 - In Node.js, only `string` and `binary` are supported (`stream` isn't)
-- For HTTP inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [request](#http-request).
+- For HTTP inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [HTTP request](#http-request).
 
 In the following example of a [storage queue trigger](./functions-bindings-storage-queue-trigger.md), the default type of `myQueueItem` is a `string`, but if you set `dataType` to `binary` the type changes to a Node.js `Buffer`.
 
@@ -324,6 +325,7 @@ The trigger is the only required input or output. For most trigger types, you re
 
 ```javascript
 const { app } = require('@azure/functions');
+
 app.http('helloWorld1', {
     route: 'hello/world',
     handler: async (request, ...) => {
@@ -336,8 +338,11 @@ app.http('helloWorld1', {
 
 The return output is optional, and in some cases configured by default. For example, an HTTP trigger registered with `app.http` is configured to return an HTTP response output automatically. For most output types, you specify the return configuration on the `options` argument with the help of the `output` object exported from the `@azure/functions` module. During execution, you set this output by returning it from your handler.
 
+The following examples uses a [timer trigger](./functions-bindings-timer.md) and a [storage queue output](./functions-bindings-storage-queue-output.md):
+
 ```javascript
 const { app, output } = require('@azure/functions');
+
 app.timer('timerTrigger1', {
     ...
     return: output.storageQueue({
@@ -354,7 +359,7 @@ app.timer('timerTrigger1', {
 
 In addition to the trigger and return, you may specify extra inputs or outputs on the `options` argument when registering a function. The `input` and `output` objects exported from the `@azure/functions` module provide type-specific methods to help construct the configuration. During execution, you get or set the values with `context.extraInputs.get` or `context.extraOutputs.set`, passing in the original configuration object as the first argument.
 
-The following example is a function triggered by a storage queue, with an extra blob input that is copied to an extra blob output. The queue message's content replaces `{queueTrigger}` as the blob name to be copied, with the help of a [binding expression](./functions-bindings-expressions-patterns.md).
+The following example is a function triggered by a [storage queue](./functions-bindings-storage-queue-trigger.md), with an extra [storage blob input](./functions-bindings-storage-blob-input.md) that is copied to an extra [storage blob output](./functions-bindings-storage-blob-output.md). The queue message should be the name of a file and replaces `{queueTrigger}` as the blob name to be copied, with the help of a [binding expression](./functions-bindings-expressions-patterns.md).
 
 ```javascript
 const { app, input, output } = require('@azure/functions');
@@ -529,7 +534,7 @@ The `InvocationContext` class has the following properties:
 
 ### Retry context
 
-The `context.executionContext.retryContext` object has the following properties:
+The `retryContext` object has the following properties:
 
 | Property | Description |
 | --- | --- |
@@ -604,8 +609,6 @@ appInsights.setup();
 const client = appInsights.defaultClient;
 
 module.exports = async function (context, request) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
     // Use this with 'tagOverrides' to correlate custom logs to the parent function invocation.
     var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
 
@@ -684,11 +687,11 @@ The `HttpRequest` object has the following properties:
 
 | Property         | Type                     | Description |
 | ---------------- | ------------------------ | ----------- |
-| **`method`**     | `string` | HTTP request method used to invoke this function |
-| **`url`**        | `string` | Request URL |
+| **`method`**     | `string` | HTTP request method used to invoke this function. |
+| **`url`**        | `string` | Request URL. |
 | **`headers`**    | `Record<string, string>` | HTTP request headers. This object is case sensitive. It's recommended to use `request.get('header-name')` instead, which is case insensitive. |
-| **`query`**      | `Record<string, string>` | Query string parameter keys and values from the URL |
-| **`params`**     | `Record<string, string>` | Route parameter keys and values |
+| **`query`**      | `Record<string, string>` | Query string parameter keys and values from the URL. |
+| **`params`**     | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**       | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
 | **`body`**       | `Buffer | string | any` | If the media type is "application/octet-stream" or "multipart/*", the body is a Buffer. If the value is a JSON parse-able string, the body is the parsed object. Otherwise, the body is a string. |
 | **`rawBody`**    | `Buffer | string` | If the media type is "application/octet-stream" or "multipart/*", the body is a Buffer. Otherwise, the body is a string. The only difference between `body` and `rawBody` is that `rawBody` doesn't JSON parse a string body. |
@@ -709,14 +712,14 @@ The `HttpRequest` object has the following properties:
 
 | Property       | Type                     | Description |
 | -------------- | ------------------------ | ----------- |
-| **`method`**   | `string` | HTTP request method used to invoke this function |
-| **`url`**      | `string` | Request URL |
-| **`headers`**  | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers) | HTTP request headers |
-| **`query`**    | [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams) | Query string parameter keys and values from the URL |
-| **`params`**   | `Record<string, string>` | Route parameter keys and values |
+| **`method`**   | `string` | HTTP request method used to invoke this function. |
+| **`url`**      | `string` | Request URL. |
+| **`headers`**  | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers) | HTTP request headers. |
+| **`query`**    | [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams) | Query string parameter keys and values from the URL. |
+| **`params`**   | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**     | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
-| **`body`**     | [`ReadableStream | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream |
-| **`bodyUsed`** | `boolean` | A boolean indicating if the body has been read from already |
+| **`body`**     | [`ReadableStream | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream. |
+| **`bodyUsed`** | `boolean` | A boolean indicating if the body has been read from already. |
 
 In order to access a request or response's body, the following methods can be used:
 
@@ -774,9 +777,9 @@ If you create a new object when setting the response, that object must match the
 
 | Property       | Type | Description |
 | -------------- | ---- | ----------- |
-| **`headers`**  | `Record<string, string>` (optional) | HTTP response headers |
-| **`cookies`**  | `Cookie[]` (optional) | HTTP response cookies |
-| **`body`**     | `any` (optional) | HTTP response body |
+| **`headers`**  | `Record<string, string>` (optional) | HTTP response headers. |
+| **`cookies`**  | `Cookie[]` (optional) | HTTP response cookies. |
+| **`body`**     | `any` (optional) | HTTP response body. |
 | **`statusCode`**   | `number` (optional) | HTTP response status code. If not set, defaults to `200`. |
 | **`status`**   | `number` (optional) | The same as `statusCode`. This property is ignored if `statusCode` is set. |
 
@@ -809,11 +812,11 @@ The response can be set in several ways:
 
     | Property       | Type | Description |
     | -------------- | ---- | ----------- |
-    | **`body`**     | `BodyInit` (optional) | HTTP response body as one of [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`AsyncIterable<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), [`Blob`](https://developer.mozilla.org/docs/Web/API/Blob), [`FormData`](https://developer.mozilla.org/docs/Web/API/FormData), [`Iterable<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), [`NodeJS.ArrayBufferView`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams), `null`, or `string` |
-    | **`jsonBody`** | `any` (optional) | A JSON-serializable HTTP Response body. If set, the `HttpResponseInit.body` property is ignored in favor of this property |
+    | **`body`**     | `BodyInit` (optional) | HTTP response body as one of [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`AsyncIterable<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), [`Blob`](https://developer.mozilla.org/docs/Web/API/Blob), [`FormData`](https://developer.mozilla.org/docs/Web/API/FormData), [`Iterable<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), [`NodeJS.ArrayBufferView`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams), `null`, or `string`. |
+    | **`jsonBody`** | `any` (optional) | A JSON-serializable HTTP Response body. If set, the `HttpResponseInit.body` property is ignored in favor of this property. |
     | **`status`**   | `number` (optional) | HTTP response status code. If not set, defaults to `200`. |
-    | **`headers`**  | [`HeadersInit`](https://developer.mozilla.org/docs/Web/API/Headers) (optional) | HTTP response headers |
-    | **`cookies`**  | `Cookie[]` (optional) | HTTP response cookies |
+    | **`headers`**  | [`HeadersInit`](https://developer.mozilla.org/docs/Web/API/Headers) (optional) | HTTP response headers. |
+    | **`cookies`**  | `Cookie[]` (optional) | HTTP response cookies. |
 
 - **As a class with type `HttpResponse`:** This option provides helper methods for reading and modifying various parts of the response like the headers.
 
@@ -827,11 +830,11 @@ The response can be set in several ways:
     
     | Property       | Type | Description |
     | -------------- | ---- | ----------- |
-    | **`status`**   | `number` | HTTP response status code |
-    | **`headers`**  | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers) | HTTP response headers |
-    | **`cookies`**  | `Cookie[]` | HTTP response cookies |
-    | **`body`**     | [`ReadableStream | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream |
-    | **`bodyUsed`** | `boolean` | A boolean indicating if the body has been read from already |
+    | **`status`**   | `number` | HTTP response status code. |
+    | **`headers`**  | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers) | HTTP response headers. |
+    | **`cookies`**  | `Cookie[]` | HTTP response cookies. |
+    | **`body`**     | [`ReadableStream | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream. |
+    | **`bodyUsed`** | `boolean` | A boolean indicating if the body has been read from already. |
 
 ::: zone-end
 
@@ -842,7 +845,7 @@ By default, Azure Functions automatically monitors the load on your application 
 This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes. You can increase the number of worker processes per host from the default of 1 up to a max of 10 by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. This behavior makes it less likely that a CPU-intensive function blocks other functions from running. The setting applies to each host that Azure Functions creates when scaling out your application to meet demand.
 
 > [!WARNING]
-> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running at the same time can lead to unpredictable behavior and increase function load times. If you use this setting, it's *highly recommended* to offset these downsides by [running from a package file](./run-functions-from-deployment-package.md).
+> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, it's *highly recommended* to offset these downsides by [running from a package file](./run-functions-from-deployment-package.md).
 
 ## Node version
 
@@ -877,7 +880,7 @@ The following example logs the `WEBSITE_SITE_NAME` environment variable:
 ::: zone pivot="nodejs-model-v3"
 
 ```javascript
-async function timerTrigger1(context, myTimer) {
+module.exports = async function (context) {
     context.log(`WEBSITE_SITE_NAME: ${process.env["WEBSITE_SITE_NAME"]}`);
 }
 ```
@@ -904,9 +907,8 @@ When you run locally, your functions project includes a [`local.settings.json` f
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
-    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "languageWorkers__node__arguments": "--prof"
+    "CUSTOM_ENV_VAR_1": "hello",
+    "CUSTOM_ENV_VAR_2": "world"
   }
 }
 ```
@@ -1157,7 +1159,7 @@ module.exports = function (context) {
 
 Use the `async` and `await` keywords to help avoid both of these issues. Most APIs in the Node.js ecosystem have been converted to support promises in some form. For example, starting in v14, Node.js provides an `fs/promises` API to replace the `fs` callback API.
 
-In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised an exception. The `await` keyword means that steps following `readFile` only execute after it's complete. With `async` and `await`, you also don't need to call the `context.done()` callback.
+In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised the exception. The `await` keyword means that steps following `readFile` only execute after it's complete. With `async` and `await`, you also don't need to call the `context.done()` callback.
 
 ```javascript
 // Recommended pattern
