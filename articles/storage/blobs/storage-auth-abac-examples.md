@@ -1,4 +1,4 @@
- ---
+---
 title: Example Azure role assignment conditions for Blob Storage
 titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Blob Storage.
