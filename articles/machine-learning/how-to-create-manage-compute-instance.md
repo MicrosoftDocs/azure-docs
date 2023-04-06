@@ -350,29 +350,27 @@ Where the file *create-instance.yml* is:
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 ```python
+from azure.ai.ml.entities import ComputeInstance, ComputeSchedules, ComputeStartStopSchedule, RecurrenceTrigger, RecurrencePattern
 from azure.ai.ml import MLClient
 from azure.ai.ml.constants import TimeZone
-from azure.ai.ml.entities import ComputeInstance, AmlCompute, ComputeSchedules, ComputeStartStopSchedule, RecurrencePattern, RecurrenceTrigger
 from azure.identity import DefaultAzureCredential
-from dateutil import tz
-import datetime
-# Enter details of your Azure Machine Learning workspace
-subscription_id = "<guid>"
-resource_group = "sample-rg"
-workspace = "sample-ws"
+
+subscription_id = "sub-id"
+resource_group = "rg-name"
+workspace = "ws-name"
 # get a handle to the workspace
 ml_client = MLClient(
     DefaultAzureCredential(), subscription_id, resource_group, workspace
 )
-ci_minimal_name = "sampleCI"
-mytz = tz.gettz("Asia/Kolkata")
-now = datetime.datetime.now(tz = mytz)
-starttime = now + datetime.timedelta(minutes=25)
-triggers = RecurrenceTrigger(frequency="day", interval=1, schedule=RecurrencePattern(hours=17, minutes=30))
-myschedule = ComputeStartStopSchedule(start_time=starttime, time_zone=TimeZone.INDIA_STANDARD_TIME, trigger=triggers, action="Stop")
+
+ci_minimal_name = "ci-name"
+
+rec_trigger = RecurrenceTrigger(start_time="yyyy-mm-ddThh:mm:ss", time_zone=TimeZone.INDIA_STANDARD_TIME, frequency="week", interval=1, schedule=RecurrencePattern(week_days=["Friday"], hours=15, minutes=[30]))
+myschedule = ComputeStartStopSchedule(trigger=rec_trigger, action="start")
 com_sch = ComputeSchedules(compute_start_stop=[myschedule])
-ci_minimal = ComputeInstance(name=ci_minimal_name, schedules=com_sch)
-ml_client.begin_create_or_update(ci_minimal)
+
+my_compute = ComputeInstance(name=ci_minimal_name, schedules=com_sch)
+ml_client.compute.begin_create_or_update(my_compute)
 ```
 
 ### Create a schedule with a Resource Manager template
