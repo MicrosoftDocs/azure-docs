@@ -104,13 +104,13 @@ $subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNe
 
 To establish BGP peering from the Route Server to your NVA use [Add-AzRouteServerPeer](/powershell/module/az.network/add-azrouteserverpeer):
 
-The “your_nva_ip” is the virtual network IP assigned to the NVA. The “your_nva_asn” is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs is reserved by Microsoft.
+The `your_nva_ip` is the virtual network IP assigned to the NVA. The `your_nva_asn` is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs is reserved by Microsoft.
 
 ```azurepowershell-interactive
 $peer = @{
-    PeerName = 'myNVA"
-    PeerIp = '192.168.0.1'
-    PeerAsn = '65501'
+    PeerName = 'myNVA'
+    PeerIp = 'your_nva_ip'
+    PeerAsn = 'your_nva_asn'
     RouteServerName = 'myRouteServer'
     ResourceGroupName = myRouteServerRG'
 }
