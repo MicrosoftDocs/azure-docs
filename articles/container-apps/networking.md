@@ -69,7 +69,7 @@ HTTP applications scale based on the number of HTTP requests and connections. En
 
 Under the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) section, you can configure the following settings:
 
-- **Accessibility level**: You can set your container app as externally or internally accessible in the environment. An environment variable `CONTAINER_APP_ENV_DNS_SUFFIX` is used to automatically resolve the FQDN suffix for your environment.
+- **Accessibility level**: You can set your container app as externally or internally accessible in the environment. An environment variable `CONTAINER_APP_ENV_DNS_SUFFIX` is used to automatically resolve the FQDN suffix for your environment. When communicating between Container Apps within the same environment, you may also use the `app name`.
 
 - **Traffic split rules**: You can define traffic splitting rules between different revisions of your application.  For more information, see [Traffic splitting](traffic-splitting.md).
 
@@ -88,9 +88,6 @@ Container Apps generates the first URL, which is used to access your app. See th
 The second URL grants access to the log streaming service and the console. If necessary, you may need to add `https://azurecontainerapps.dev/` to the allowlist of your firewall or proxy.
 
 ## Ports and IP addresses
-
->[!NOTE]
-> The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
 
 The following ports are exposed for inbound connections.
 
