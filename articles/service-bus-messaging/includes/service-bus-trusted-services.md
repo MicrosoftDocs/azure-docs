@@ -23,7 +23,7 @@ When you enable the **Allow trusted Microsoft services to bypass this fir
 | Azure IoT Central | <p>Allows IoT Central to export data to Service Bus queues or topics in your Service Bus namespace. You also need to do the following steps:</p><ul><li>Enable system-assigned identity for your IoT Central application</li><li>Add the identity to the **Azure Service Bus Data Sender** role on the Service Bus namespace. </li><li>Then, configure the Service Bus [export destination on your IoT Central application](../../iot-central/core/howto-export-data.md) to use identity-based authentication. </li>
 | Azure Digital Twins | Allows Azure Digital Twins to egress data to Service Bus topics in your Service Bus namespace. You also need to do the following steps: <p><ul><li>Enable system-assigned identity for your Azure Digital Twins instance.</li><li>Add the identity to the **Azure Service Bus Data Sender** role on the Service Bus namespace.</li><li>Then, configure an Azure Digital Twins endpoint or Azure Digital Twins data history connection that uses the system-assigned identity to authenticate. For more information about configuring endpoints and event routes to Service Bus resources from Azure Digital Twins, see [Route Azure Digital Twins events](../../digital-twins/concepts-route-events.md) and [Create endpoints in Azure Digital Twins](../../digital-twins/how-to-create-endpoints.md). </li></ul> |
 
-Here are a few other trusted services for Azure Service Bus:  
+The other trusted services for Azure Service Bus can be found below: 
 -	Azure Synapse
 -	Azure Data Explorer
 -	Azure Health Data Services
