@@ -53,6 +53,12 @@ You'll also need sufficient Azure Active Directory permissions (either a member 
     az provider register -n Microsoft.RedHatOpenShift --wait
     ```
     
+1. Enable end-to-end encryption at Host level:
+
+    ```azurecli-interactive
+    az feature register --namespace Microsoft.Compute --name EncryptionAtHost --wait
+    ```
+
 1. Register the `Microsoft.Compute` resource provider:
 
     ```azurecli-interactive
