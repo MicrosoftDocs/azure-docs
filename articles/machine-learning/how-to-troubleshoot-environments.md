@@ -13,9 +13,9 @@ ms.topic: troubleshooting
 ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 ---
 
-# Troubleshooting environment image builds using troubleshooting log error messages
+# Troubleshooting environment vulnerabilities and image builds
 
-In this article, learn how to troubleshoot common problems you may encounter with environment image builds.
+In this article, learn how to troubleshoot common problems you may encounter with environment image builds and learn about AzureML environment vulnerabilities.
 
 We are actively seeking your feedback! If you navigated to this page via your Environment Definition or Build Failure Analysis logs, we'd like to know if the feature was helpful to you, or if you'd like to report a failure scenario that isn't yet covered by our analysis. You can also leave feedback on this documentation. Leave your thoughts [here](https://aka.ms/azureml/environment/log-analysis-feedback). 
 
@@ -138,6 +138,8 @@ materialized is pushed to the container registry and used if you trigger experim
 Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. 
 
 ## **Environment definition problems**
+
+Troubleshooting environment image builds using troubleshooting log error messages.
 
 ## *Environment name issues*
 ### Curated prefix not allowed
