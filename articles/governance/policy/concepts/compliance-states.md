@@ -125,9 +125,4 @@ The overall resource compliance is 95% (19 out of 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot of policy compliance details from Compliance page." border="false":::
 
-> [!NOTE]
-> Regulatory Compliance in Azure Policy is a Preview feature. Compliance properties from SDK and
-> pages in portal are different for enabled initiatives. For more information, see
-> [Regulatory Compliance](../concepts/regulatory-compliance.md)
-
 ## Next steps
