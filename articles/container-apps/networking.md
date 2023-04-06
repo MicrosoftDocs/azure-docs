@@ -69,7 +69,7 @@ HTTP applications scale based on the number of HTTP requests and connections. En
 
 Under the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) section, you can configure the following settings:
 
-- **Accessibility level**: You can set your container app as externally or internally accessible in the environment. An environment variable `CONTAINER_APP_ENV_DNS_SUFFIX` is used to automatically resolve the FQDN suffix for your environment.
+- **Accessibility level**: You can set your container app as externally or internally accessible in the environment. An environment variable `CONTAINER_APP_ENV_DNS_SUFFIX` is used to automatically resolve the FQDN suffix for your environment. When communicating between Container Apps within the same environment, you may also use the app name. For more information on how to access your apps, see [ingress](./ingress-overview.md#domain-names).
 
 - **Traffic split rules**: You can define traffic splitting rules between different revisions of your application.  For more information, see [Traffic splitting](traffic-splitting.md).
 
@@ -88,9 +88,6 @@ Container Apps generates the first URL, which is used to access your app. See th
 The second URL grants access to the log streaming service and the console. If necessary, you may need to add `https://azurecontainerapps.dev/` to the allowlist of your firewall or proxy.
 
 ## Ports and IP addresses
-
->[!NOTE]
-> The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
 
 The following ports are exposed for inbound connections.
 
@@ -192,12 +189,21 @@ The static IP address of the Container Apps environment can be found in the Azur
 
 ## Managed resources
 
-When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer. The resource group name can be configured during container app environment creation. In addition to the [Azure Container Apps billing](./billing.md), you're billed for:
+When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and it shouldn't be modified.
 
+#### Consumption only architecture
+The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `MC_` by default, and the resource group name *cannot* be customized during container app creation. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment and a load balancer.
+
+In addition to the [Azure Container Apps billing](./billing.md), you're billed for:
 - Two standard static [public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/), one for ingress and one for egress. If you need more IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
-
 - Two standard [Load Balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has fewer than six rules. The cost of data processed (GB) includes both ingress and egress for management operations.
 
+#### Workload profiles architecture
+The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `me_` by default, and the resource group name *can* be customized during container app environment creation. For external environments, the resource group contains a public IP address used specifically for inbound connectivity to your external environment and a load balancer. For internal environments, the resource group only contains a Load Balancer.
+
+In addition to the [Azure Container Apps billing](./billing.md), you're billed for:
+- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress in external environments and one standard [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+- The cost of data processed (GB) includes both ingress and egress for management operations.
 
 ## Next steps
 
