@@ -75,7 +75,7 @@ $VnetName = 'my-custom-vnet'
 Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have two subnets available for the container app instance.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
 # [Bash](#tab/bash)
 
@@ -92,7 +92,7 @@ az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
   --name infrastructure-subnet \
-  --address-prefixes 10.0.0.0/21
+  --address-prefixes 10.0.0.0/23
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -100,7 +100,7 @@ az network vnet subnet create \
 ```azurepowershell
 $SubnetArgs = @{
     Name = 'infrastructure-subnet'
-    AddressPrefix = '10.0.0.0/21'
+    AddressPrefix = '10.0.0.0/23'
 }
 $subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
@@ -119,7 +119,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 ---
 
 > [!NOTE]
-> Network subnet address prefix requires a minimum CIDR range of `/23`.
+> Network subnet address prefix requires a minimum CIDR range of `/23`for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
 With the VNET established, you can now query for the infrastructure subnet ID.
 
@@ -312,7 +312,7 @@ You must either provide values for all three of these properties, or none of the
 
 | Parameter | Description |
 |---|---|
-| `platform-reserved-cidr` | The address range used internally for environment infrastructure services. Must have a size between `/21` and `/12`. |
+| `platform-reserved-cidr` | The address range used internally for environment infrastructure services. Must have a size between `/23` and `/12` when using the [Consumption only architecture](./networking.md)|
 | `platform-reserved-dns-ip` | An IP address from the `platform-reserved-cidr` range that is used for the internal DNS server. The address can't be the first address in the range, or the network address. For example, if `platform-reserved-cidr` is set to `10.2.0.0/16`, then `platform-reserved-dns-ip` can't be `10.2.0.0` (the network address), or `10.2.0.1` (infrastructure reserves use of this IP). In this case, the first usable IP for the DNS would be `10.2.0.2`. |
 | `docker-bridge-cidr` | The address range assigned to the Docker bridge network. This range must have a size between `/28` and `/12`. |
 
@@ -324,7 +324,7 @@ You must either provide values for all three of these properties, or none of the
 
 | Parameter | Description |
 |---|---|
-| `VnetConfigurationPlatformReservedCidr` | The address range used internally for environment infrastructure services. Must have a size between `/21` and `/12`. |
+| `VnetConfigurationPlatformReservedCidr` | The address range used internally for environment infrastructure services. Must have a size between `/23` and `/12` when using the [Consumption only architecture](./networking.md) |
 | `VnetConfigurationPlatformReservedDnsIP` | An IP address from the `VnetConfigurationPlatformReservedCidr` range that is used for the internal DNS server. The address can't be the first address in the range, or the network address. For example, if `VnetConfigurationPlatformReservedCidr` is set to `10.2.0.0/16`, then `VnetConfigurationPlatformReservedDnsIP` can't be `10.2.0.0` (the network address), or `10.2.0.1` (infrastructure reserves use of this IP). In this case, the first usable IP for the DNS would be `10.2.0.2`. |
 | `VnetConfigurationDockerBridgeCidr` | The address range assigned to the Docker bridge network. This range must have a size between `/28` and `/12`. |
 
