@@ -25,7 +25,10 @@ If you want to retrieve metrics for analysis using your tool of choice or for lo
 
 ## Visualize metrics using the Azure portal
 
-You can use the Azure portal to monitor your deployment's health and performance on the **Packet Core Control Plane** resource's **Overview** page.
+You can use the Azure portal to monitor your deployment's health and performance on the **Packet Core Control Plane** resource's **Overview** page. This displays data captured from both the control plane and data plane:
+
+- The control plane generates metrics relating to access, mobility and session management, such as registration and session establishment successes and failures.
+- The data plane generates metrics relating to the data plane, such as throughput and packet drops.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Packet Core Control Plane** resource for the site you're interested in monitoring. For example:
