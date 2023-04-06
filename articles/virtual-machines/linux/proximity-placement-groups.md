@@ -7,7 +7,7 @@ ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli
-ms.date: 3/8/2021
+ms.date: 4/6/2023
 ms.author: mattmcinnes
 ---
 
