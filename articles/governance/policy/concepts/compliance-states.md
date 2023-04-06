@@ -9,9 +9,11 @@ ms.topic: conceptual
 
 When initiative or policy definitions are assigned, Azure Policy will determine which resources are [applicable](./policy-applicability.md) then evaluate those which have not been [excluded](./assignment-structure.md#excluded-scopes). Evaluation yields **compliance states** based on conditions in the policy rule and each resources' adherence to those requirements. 
 
-## Available compliance states
+## How compliance works
 
-### Non-compliant
+### Available compliance states
+
+#### Non-compliant
 
 Policy assignments with `audit`, `auditIfNotExists`, or `modify` effects are considered non-compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. 
 
@@ -26,7 +28,11 @@ Policy assignments with `manual` effects are considered non-compliant under two 
 1. The policy definition has a default compliance state of non-compliant and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise.
 1. The resource has been attested as non-compliant. 
 
-### Compliant
+When a resource is determined to be **non-compliant**, there are many possible reasons. To determine
+the reason a resource is **non-compliant** or to find the change responsible, see
+[Determine non-compliance](../how-to/determine-non-compliance.md).
+
+#### Compliant
 
 Policy assignments with `append`, `audit`, `auditIfNotExists`, `deny`, `deployIfNotExists`, or `modify` effects are considered compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **FALSE**. 
 
@@ -34,46 +40,32 @@ Policy assignments with `manual` effects are considered compliant under two circ
 1. The policy definition has a default compliance state of compliant and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise.
 1. The resource has been attested as compliant. 
 
-### Conflicting
+#### Conflicting
 
 A policy assignment is considered conflicting when there are two or more policy assignments existing in the same scope with contradicting or conflicting rules. For example, two definitions that append the same tag with different values.
 
-### Exempt
+#### Exempt
 
 An [exemption](./exemption-structure.md) can be created on an assignment for an applicable resource or resource hierarchy, and resources within that scope are given a compliance state of exempt.
 
 > [!NOTE]
 > A key distinction between [exemption](./exemption-structure.md) and [exclusion](./assignment-structure.md#excluded-scopes) is that evaluation is bypassed for excluded scopes but still occurs for exempted scopes. Resources belonging to exempted scopes do not have a compliance state. 
 
-### Unknown (preview)
+#### Unknown (preview)
 
 This compliance state only occurs for policy assignments with `manual` effect, when the policy definition has a default compliance state of unknown and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise. 
 
-### Not registered
+#### Not registered
 
 This compliance state is visible in portal when the Azure Policy Resource Provider hasn't been registered, or when the account logged in doesn't have permission to read compliance data.
 
-### Not started
+#### Not started
 
 This compliance state indicates that the evaluation cycle hasn't started for the policy or resource.
 
-## How compliance works
+### Example
 
-Now that you have an understanding of what compliance states exist and what each one means, let's talk in more depth about how they work. 
-
-### Compliant and non-compliant states
-
-In an assignment, a resource is **non-compliant** if it's applicable to the policy assignment and doesn't adhere to conditions in the policy rule. The following table shows how different policy effects work with the condition evaluation for the resulting compliance state:
-
-| Resource State | Effect | Policy Evaluation | Compliance State |
-| --- | --- | --- | --- |
-| New or Updated | Audit, Modify, AuditIfNotExist | True | Non-Compliant |
-| New or Updated | Audit, Modify, AuditIfNotExist | False | Compliant |
-| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Non-Compliant |
-| Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | Compliant |
-
-
-#### Example
+Now that you have an understanding of what compliance states exist and what each one means, let's look at an example. 
 
 Suppose you have a resource group - ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
@@ -87,12 +79,6 @@ In this example, you need to be wary of security risks. Assume you assign a poli
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagram of storage account compliance in the Contoso R G resource group." border="false":::
    Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three now have green checkmarks beneath them, while storage accounts two, four, and five now have red warning signs beneath them.
 :::image-end:::
-
-#### Understand non-compliance
-
-When a resource is determined to be **non-compliant**, there are many possible reasons. To determine
-the reason a resource is **non-compliant** or to find the change responsible, see
-[Determine non-compliance](../how-to/determine-non-compliance.md).
 
 ### Other compliance states
 
