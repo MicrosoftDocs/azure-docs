@@ -58,7 +58,7 @@ To create a workflow based on a template:
 
 1. On the **Review tasks** tab, you can add a task to the template by selecting **Add task**. To enable an existing task on the list, select **Enable**. To disable a task, select **Disable**. To remove a task from the template, select **Remove**.
 
-    When you're finished with tasks for your workflow, select **Next**.
+    When you're finished with tasks for your workflow, select **Next: Review and create**.
 
     :::image type="content" source="media/create-lifecycle-workflow/template-tasks.png" alt-text="Screenshot of adding tasks to templates.":::
 
@@ -69,9 +69,9 @@ To create a workflow based on a template:
 > [!IMPORTANT]
 > By default, a newly created workflow is disabled to allow for the testing of it first on smaller audiences. For more information about testing workflows before rolling them out to many users, see [Run an on-demand workflow](on-demand-workflow.md).
 
-## Create a workflow by using Microsoft Graph
+## Create a lifecycle workflow by using Microsoft Graph
 
-To create a workflow by using the Microsoft Graph API, see [Create a lifecycle workflow](/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows).
+To create a lifecycle workflow by using the Microsoft Graph API, see [Create workflow](/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows).
 
 ## Next steps
 

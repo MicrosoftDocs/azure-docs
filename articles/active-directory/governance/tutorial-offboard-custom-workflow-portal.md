@@ -70,7 +70,7 @@ Use the following steps to create a leaver on-demand workflow that will execute 
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-users.png" alt-text="Screenshot of the option for selecting users to run now." lightbox="media/tutorial-lifecycle-workflows/real-time-users.png":::
 
-10. Select **Add users** to designate the users to be executed on this workflow.
+10. Select **Add users** to designate the users for this workflow.
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-add-users.png" alt-text="Screenshot of the button for adding users." lightbox="media/tutorial-lifecycle-workflows/real-time-add-users.png":::
 
@@ -95,7 +95,7 @@ To run the workflow immediately, you can use the on-demand feature.
 > [!NOTE]
 > You currently can't run a workflow on demand if it's set to **Disabled**. You need to set the workflow to **Enabled** to use the on-demand feature.
 
-To run a workflow on demand for users who are using the Azure portal:
+To run a workflow on demand for users by using the Azure portal:
 
 1. On the workflow screen, select the specific workflow that you want to run.
 2. Select **Run on demand**.
@@ -125,7 +125,7 @@ At any time, you can monitor the status of workflows and tasks. Three data pivot
 
 1. Select **Unprocessed tasks** for a user to view the total number of unprocessed or canceled tasks assigned to that user.
 
-  :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png" alt-text="Screenshot of unprocessed tasks for a real-time workflow." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png" alt-text="Screenshot of unprocessed tasks for a real-time workflow." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png":::
 
 ## Next steps
 

@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Delete a lifecycle workflow (preview)
 
-You can remove workflows that you no longer need. Deleting these workflows allows you to make sure your lifecycle strategy is up to date. 
+You can remove workflows that you no longer need. Deleting these workflows helps keep your lifecycle strategy up to date.
 
 When a workflow is deleted, it enters a soft-delete state. During this period, you can still view it in the list of deleted workflows and restore it if needed. A workflow is permanently removed 30 days after it  enters a soft-delete state. If you don't want to wait 30 days for a workflow to be permanently deleted, you can manually delete it.
 
@@ -28,7 +28,7 @@ The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Pr
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the search bar near the top of the page, type **Identity Governance** and select it.
+1. On the search bar near the top of the page, enter **Identity Governance**. Then select **Identity Governance** in the results.
 
 1. On the left menu, select **Lifecycle Workflows (Preview)**.
 
@@ -38,7 +38,7 @@ The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Pr
 
     :::image type="content" source="media/delete-lifecycle-workflow/delete-button.png" alt-text="Screenshot of a list of workflows with one selected, along with the Delete button.":::
 
-1. Confirm that you want to delete the selected workflow by selecting the **Delete** button.
+1. Confirm that you want to delete the workflow by selecting the **Delete** button.
 
     :::image type="content" source="media/delete-lifecycle-workflow/delete-workflow.png" alt-text="Screenshot of confirming the deletion of a workflow.":::
 
@@ -64,9 +64,13 @@ To delete a workflow by using an API via Microsoft Graph, see [Delete a lifecycl
 
 To view a list of deleted workflows by using an API via Microsoft Graph, see [List deleted workflows](/graph/api/identitygovernance-lifecycleworkflowscontainer-list-deleteditems).
 
-To permanently delete a workflow by using API via Microsoft Graph, see [Permanently delete a deleted workflow](/graph/api/identitygovernance-deleteditemcontainer-delete).
+## Permanently delete a workflow by using Microsoft Graph
 
-To restore a soft-deleted workflow by using an API via Microsoft Graph, see [Restore a deleted workflow](/graph/api/identitygovernance-workflow-restore).
+To permanently delete a workflow by using an API via Microsoft Graph, see [Permanently delete a deleted workflow](/graph/api/identitygovernance-deleteditemcontainer-delete).
+
+## Restore a deleted workflow by using Microsoft Graph
+
+To restore a deleted workflow by using an API via Microsoft Graph, see [Restore a deleted workflow](/graph/api/identitygovernance-workflow-restore).
 
 > [!NOTE]
 > You can't restore permanently deleted workflows.
