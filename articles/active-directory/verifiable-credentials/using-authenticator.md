@@ -47,11 +47,11 @@ Using the Authenticator for the first time presents a set of screens that you ha
 
   ![Screenshot of Accept screen](media/using-authenticator/accept-screen.png)
 
-1. Select your choice of sharing app usage data and press **Continue**.
+2. Select your choice of sharing app usage data and press **Continue**.
 
   ![Screenshot of app usage data screen](media/using-authenticator/app-usage-sharing-screen.png)
 
-1. Press **Skip** in the upper right corner of the screen asking you to **Sign in with Microsoft**.
+3. Press **Skip** in the upper right corner of the screen asking you to **Sign in with Microsoft**.
 
   ![Screenshot of Skip Sign in with Microsoft screen](media/using-authenticator/skip-signin-with-microsoft-screen.png)
  
@@ -65,46 +65,46 @@ When the Microsoft Authenticator app is installed and ready, you use the public 
     1. Select **Verify with True Identity**
     1. Click **Take a selfie** and **Upload government issued ID**. The demo uses simulated data and you don't need to provide a real selfie or an ID. 
     1. Click **Next** and **OK**
-1. Open your Microsoft Authenticator app
-1. Select **Verified IDs** in the lower right corner on the start screen
-1. Select **Scan QR code** button. This screen only shows if you have to verifiable credential cards in the app. 
+2. Open your Microsoft Authenticator app
+3. Select **Verified IDs** in the lower right corner on the start screen
+4. Select **Scan QR code** button. This screen only shows if you have to verifiable credential cards in the app. 
 
   ![Screenshot of scan qr code screen](media/using-authenticator/scan-qr-code-screen.png)
 
-1. If this is the first time you scan a QR code, the mobile device notifies you that the Authenticator is trying to access the camera. Select **OK** to continue scanning the QR code.
+5. If this is the first time you scan a QR code, the mobile device notifies you that the Authenticator is trying to access the camera. Select **OK** to continue scanning the QR code.
 
   ![Screenshot of access camera screen](media/using-authenticator/access-camera-screen.png)
 
-1. Scan the QR code and enter the pin code in the Authenticator and select **Next**. The pin code is shown in the browser page. 
+6. Scan the QR code and enter the pin code in the Authenticator and select **Next**. The pin code is shown in the browser page. 
 
   ![Screenshot of entering pin code screen](media/using-authenticator/enter-pin-code-screen.png)
 
-1. Select **Add** to add the verifiable credential card to the Authenticator wallet.
+7. Select **Add** to add the verifiable credential card to the Authenticator wallet.
 
   ![Screenshot of add VC card screen](media/using-authenticator/add-vc-screen.png)
-s
-1. Select **Return to Woodgrove** in the browser
+
+8. Select **Return to Woodgrove** in the browser
 
 Note the following.
 
 - After you've scanned the QR code, the Authenticator displays who the issuing party is for the verifiable credential. In the above screenshots, you can see that it's **True Identity** and that the issuance request comes from a verified domain **did.woodgrovedemo.com**. As a user, it is your choice if you trust this issuing party.
 - Not all issuance requests involve a pin code. It's up to the issuing party to decide to include the use of a pin code. 
-- The purpose of using a pin code is to add an extra level of security of the issuance process so only you, the intended recipient, can issue the verifiable credential issued.
+- The purpose of using a pin code is to add an extra level of security of the issuance process so only you, the intended recipient, can issue the verifiable credential.
 - The demo displays the pin code in the browser page next to the QR code. In a real world scenario, the pin code wouldn't be displayed there, but instead be given to you in some alternate way, like in an email or an SMS text message.
 
 ## Present a verifiable credential
 
-In learning how to present a verifiable credential, you continue where you left off in the end to end demo. You present the True Identity verifiable credential to the demo webapp, so if you haven't gone through the steps for issuance, please do so before continuing.
+In learning how to present a verifiable credential, you continue where you left off above. Here, you'll present the True Identity verifiable credential to the demo webapp. Make sure you have a **True Identity** verifiable credential in the Authenticator before continuing.
 
-1. If you're continuing where you left off, select **Access personalized portal** in the end to end demo webapp. If you have the True Identity verifiable credential in the Authenticator but closed the browser, then first select **I've been verified** in the [end to end](https://woodgroveemployee.azurewebsites.net/verification) demo webapp and then select **Access personalized portal**. A QR code is displayed in the webpage.
-1. Open your Microsoft Authenticator app
-1. Select **Verified IDs** in the lower right corner on the start screen
-1. Press the **QR code symbol** in the top right corner to turn on the camera and scan the QR code.
-1. Select **Share** in the Authenticator to present the verifiable credential to the end to end demo webapp.
+1. If you're continuing where you left off, select **Access personalized portal** in the end to end demo webapp. If you have the True Identity verifiable credential in the Authenticator but closed the browser, then first select **I've been verified** in the [end to end](https://woodgroveemployee.azurewebsites.net/verification) demo webapp and then select **Access personalized portal**. Selecting  **Access personalized portal** will present a QR code in the webpage.
+2. Open your Microsoft Authenticator app
+3. Select **Verified IDs** in the lower right corner on the start screen
+4. Press the **QR code symbol** in the top right corner to turn on the camera and scan the QR code.
+5. Select **Share** in the Authenticator to present the verifiable credential to the end to end demo webapp.
 
   ![Screenshot of sharing a VC card screen](media/using-authenticator/share-vc-screen.png)
 
-1. In the browser, click the  **Continue onboarding** button
+6. In the browser, click the  **Continue onboarding** button
 
 Note the following.
 
@@ -115,12 +115,12 @@ Note the following.
 
 ## Continue onboarding in the end to end demo
 
-The end to end demo continues with onboarding you as a new employee to the Woodgrove company. Continuing with the demo repeats the process of issuance and presentation in the Authenticator. Follow these steps to continue where you left off.
+The end to end demo continues with onboarding you as a new employee to the Woodgrove company. Continuing with the demo repeats the process of issuance and presentation in the Authenticator. Follow these steps to continue the onboarding process.
 
 ### Issue yourself a Woodgrove employee verifiable credential
 
 1. Select **Retrieve my Verified ID** in the browser. This displays a QR code in the webpage.
-1. Press the **QR code symbol** in the top right corner to turn on the camera
+1. Press the **QR code symbol** in the top right corner of the Authenticator to turn on the camera
 1. Scan the QR code and enter the pin code in the Authenticator and select **Next**. The pin code is shown in the browser page. 
 1. Select **Add** to add the verifiable credential card to the Authenticator wallet.
 
@@ -129,9 +129,9 @@ The end to end demo continues with onboarding you as a new employee to the Woodg
 1. Select **Visit Proseware** in the browser.
 1. Select **Access discounts** in the browser.
 1. Select **Verify my Employee Credential** in the browser.
-1. Press the **QR code symbol** in the top right corner to turn on the camera and scan the QR code.
+1. Press the **QR code symbol** in the top right corner of the Authenticator to turn on the camera and scan the QR code.
 1. Select **Share** in the Authenticator to present the verifiable credential to the **Proseware** webapp.
-1. Notice that a Woodgrove employee discount is applied to the prices when Proseware have verified your credentials.
+1. Notice that a Woodgrove employee discounts are applied to the prices when Proseware have verified your credentials.
 
 ## View activity details of when and where you have presented your verifiable credentials
 
@@ -147,7 +147,7 @@ Click on the credential card you want to delete to view its details. Then click 
 
 ![Screenshot of delete VC screen](media/using-authenticator/delete-vc-screen.png)
 
-Deleting a verifiable credential from the Authenticator is an irrevocable process and there is no recycle bin to bring it back. If you have deleted a credential, you must go through the issuance process again.
+Deleting a verifiable credential from the Authenticator is an irrevocable process and there is no recycle bin to bring it back from. If you have deleted a credential, you must go through the issuance process again.
 
 ## How do I see the version number of the Microsoft Authenticator app
 
