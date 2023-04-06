@@ -762,7 +762,7 @@ items:
           href: app/availability-standard-tests.md
         - name: Private testing
           href: app/availability-private-test.md
-        - name: Availability + Azure Functions
+        - name: Azure Functions + TrackAvailability()
           href: app/availability-azure-functions.md
           displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
         - name: Availability alerts
