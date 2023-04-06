@@ -66,22 +66,22 @@ Access is limited to customers that meet the following requirements:
 
 4. See the following documentation for steps on downloading and configuring the container for disconnected usage:
 
-    * [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet-authorization-required) 
-    * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet) 
+    * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet)
     * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
     * [Form recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
 
     **Speech service**
 
-    * [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt#run-the-container-disconnected-from-the-internet-authorization-required)
-    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt#run-the-container-disconnected-from-the-internet-authorization-required-1)
-    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts#run-the-container-disconnected-from-the-internet-authorization-required-2)
+    * [Speech-to-Text](../speech-service/speech-container-howto.md?tabs=stt#run-the-container-disconnected-from-the-internet)
+    * [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt#run-the-container-disconnected-from-the-internet-1)
+    * [Neural Text-to-Speech](../speech-service/speech-container-howto.md?tabs=ntts#run-the-container-disconnected-from-the-internet-2)
 
     **Language service**
 
-    * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#run-the-container-disconnected-from-the-internet-authorization-required)
-    * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#run-the-container-disconnected-from-the-internet-authorization-required)
-    * [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet-authorization-required)
+    * [Sentiment Analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
+    * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
+    * [Language Detection](../language-service/language-detection/how-to/use-containers.md#run-the-container-disconnected-from-the-internet)
     
 
 ## Usage records
