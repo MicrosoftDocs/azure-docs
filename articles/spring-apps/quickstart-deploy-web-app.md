@@ -19,9 +19,7 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Basic/Standard tier
 
-This quickstart shows how to deploy a Spring Boot web application to Azure Spring Apps.
-
-The sample project is a simle ToDo application that help customer record the task list: What tasks need to be done and what tasks has already been finished. Here is a screenshot of the application:
+This quickstart shows how to deploy a Spring Boot web application to Azure Spring Apps. The sample project is a simple ToDo application to add tasks, mark when they're complete, and then delete them. The following screenshot shows the application:
 
 :::image type="content" source="./media/quickstart-deploy-web-app/todo-app.png" alt-text="Sceenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-deploy-web-app/todo-app.png":::
 
@@ -65,9 +63,7 @@ Use the following steps to clone and run the app locally.
    java -jar web/target/simple-todo-web-0.0.1-SNAPSHOT.jar
    ```
 
-1. Go to `http://localhost:8080` in your browser to access the application, as shown in the following screenshot.
-
-   :::image type="content" source="./media/quickstart-deploy-web-app/todo-app.png" alt-text="Sceenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-deploy-web-app/todo-app.png":::
+1. Go to `http://localhost:8080` in your browser to access the application.
 
 ## Prepare the cloud environment
 
