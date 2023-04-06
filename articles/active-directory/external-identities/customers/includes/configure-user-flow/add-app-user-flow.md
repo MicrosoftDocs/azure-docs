@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 03/30/2023
 ms.author: kengaderdus
 ---
-Now you can associate applications with the user flow. Associating your user flow with an application allows you to enable sign-in or sign-up for that app. You can choose more than one application to be associated with the user flow. A single application can be associated only with one user flow. Once you associate the user flow with one or more applications, users who visit that application can sign up or sign in using the options configured in the user flow.
+Although many applications can be associated with your user flow, a single application can only be associated with one user flow. A user flow allows configuration of the user experience for specific applications. For example, you can configure a user flow that requires users to sign-in or sign-up with a phone number or email address.
 
 1. On the sidebar menu, select **Azure Active Directory**.
 
