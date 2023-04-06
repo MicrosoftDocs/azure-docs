@@ -36,6 +36,9 @@ To view other metrics for a Batch account:
 1. Select an **Aggregation** option for the metric. For count-based metrics (like "Dedicated Core Count" or "Low-Priority Node Count"), use the **Avg** aggregation. For event-based metrics (like "Pool Resize Complete Events"), use the **Count**" aggregation. Avoid using the **Sum** aggregation, which adds up the values of all data points received over the period of the chart.
 1. To add other metrics, repeat steps 3 and 4.
 
+    :::image type="content" source="./media/batch-diagnostics/add-metric.png" alt-text="Screenshot of the metrics page of a batch account in the Azure portal. Metrics is highlighted in the left side navigation menu. The Metric and Aggregation options for a metric are highlighted as well."::: 
+
+
 You can also retrieve metrics programmatically with the Azure Monitor APIs. For an example, see [Retrieve Azure Monitor metrics with .NET](/samples/azure-samples/monitor-dotnet-metrics-api/monitor-dotnet-metrics-api/).
 
 > [!NOTE]
@@ -54,7 +57,10 @@ To configure a metric alert in the Azure portal:
 1. In the Azure portal, search and select **Batch accounts**, and then select the name of your Batch account.
 1. Under **Monitoring** in the left side navigation menu, select **Alerts**, and then select **Create** > **Alert Rule**.
 1. On the **Condition page**, select a **Signal** from the dropdown list.
-1. Enter the logic for your **Alert Rule** in the fields specific to the **Signal** you choose.
+1. Enter the logic for your **Alert Rule** in the fields specific to the **Signal** you choose. The following screenshot shows the options for **Task Fail Events**.
+
+    :::image type="content" source="./media/batch-diagnostics/create-alert-rule.png" alt-text="Screenshot of the Conditions tab on the Create and alert rule page." lightbox="./media/batch-diagnostics/create-alert-rule-lightbox.png":::
+
 1. Enter the name for your alert on the **Details** page. 
 1. Then select **Review + create** > **Create**.
 
@@ -94,6 +100,10 @@ To create a new diagnostic setting in the Azure portal, use the following steps.
 5. Select a destination: **Send to Log Analytics workspace**, **Archive to a storage account**, **Stream to an event hub**, or **Send to partner solution**. If you select a storage account, you can optionally select the number of days to retain data for each log. If you don't specify the number of days for retention, data is retained during the life of the storage account.
 6. Select any options in either the  **Logs** or **Metrics** section.
 7. Select **Save** to create the diagnostic setting.
+
+The following screenshot shows an example diagnostic setting called *My diagnostic setting*. It sends **allLogs** and **AllMetrics** to a Log Analytics workspace.
+
+:::image type="content" source="./media/batch-diagnostics/configure-diagnostic-setting.png" alt-text="Screenshot of the Diagnostic setting page that shows an example." lightbox="./media/batch-diagnostics/configure-diagnostic-setting-lightbox.png":::
 
 You can also enable log collection by [creating diagnostic settings in the Azure portal](../azure-monitor/essentials/diagnostic-settings.md) by using a [Resource Manager template](../azure-monitor/essentials/resource-manager-diagnostic-settings.md). You can also use Azure PowerShell or the Azure CLI. For more information, see [Overview of Azure platform logs](../azure-monitor/essentials/platform-logs-overview.md).
 
