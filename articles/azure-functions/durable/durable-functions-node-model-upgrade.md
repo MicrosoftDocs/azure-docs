@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-functions-nodejs
 >[!NOTE]
 > Version 4 of the Node.js programming model is currently in public preview.
 
-This article provides a guide to upgrade your existing Durable Functions app to newly-released version 4 of the Node.js programming model for Azure Functions from the existing version 3. If you are instead interested in creating a brand new v4 app, follow the Visual Studio Code quickstarts for [JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4) and [TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4). This article uses "TIP" sections to highlight the most important concrete actions you should take to upgrade your app. Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md). You can also learn more about the new v4 programming model through the [Node.js developer reference](../functions-reference-node.md?pivots=nodejs-model-v4).
+This article provides a guide to upgrade your existing Durable Functions app to newly released version 4 of the Node.js programming model for Azure Functions from the existing version 3. If you're instead interested in creating a brand new v4 app, follow the Visual Studio Code quickstarts for [JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4) and [TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4). This article uses "TIP" sections to highlight the most important concrete actions you should take to upgrade your app. Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md). You can also learn more about the new v4 programming model through the [Node.js developer reference](../functions-reference-node.md?pivots=nodejs-model-v4).
 
 >[!TIP]
 > Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md).
@@ -26,8 +26,8 @@ Before following this guide, make sure you follow these steps first:
 
 - Install have [Node.js](https://nodejs.org/en/download/releases) version 18.x+.
 - Install [TypeScript](https://www.typescriptlang.org/) version 4.x+.
-- Run your app on [Azure Functions Runtime](https://learn.microsoft.com/azure/azure-functions/functions-versions?tabs=v4&pivots=programming-language-javascript) version 4.16.5+.
-- Install [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local?tabs=v4) version 4.0.5095+.
+- Run your app on [Azure Functions Runtime](../functions-versions.md?tabs=v4&pivots=programming-language-javascript) version 4.16.5+.
+- Install [Azure Functions Core Tools](../functions-run-local.md?tabs=v4) version 4.0.5095+.
 - Follow the general [Azure Functions Node.js programming model v4 upgrade guide](../functions-node-upgrade-v4.md).
 
 ## Upgrade durable-functions npm package
@@ -155,7 +155,7 @@ export default orchestrator;
 
 #### Migrating an entity
 
-:::zone pivot="programming-model-javascript"
+:::zone pivot="programming-language-javascript"
 
 # [v4 model](#tab/v4)
 
@@ -216,7 +216,7 @@ module.exports = df.entity(function (context) {
 ---
 :::zone-end
 
-:::zone pivot="programming-model-typescript"
+:::zone pivot="programming-language-typescript"
 
 # [v4 model](#tab/v4)
 
@@ -361,4 +361,29 @@ export default helloActivity;
 ```
 
 ---
+:::zone-end
+
+>[!TIP]
+> Remove `function.json` files from your Durable Functions app. Instead, register your durable functions using the methods on the `app` namespace: `df.app.orchestration()`, `df.app.entity()`, and `df.app.activity()`.
+
+
+## Update your Durable Client input config
+
+In the v4 model, registering extra inputs has been moved from `function.json` files to your own code! You can use the `input.durableClient()` method to register an extra durable client input to your preferred durable client function. You can then use `getClient()` to retrieve the client instance as before. See the example below using an HTTP trigger.
+
+:::zone pivot="programming-language-javascript"
+
+# [v4 model](#tab/v4)
+
+```javascript
+
+```
+
+# [v3 model](#tab/v3)
+
+---
+:::zone-end
+
+:::zone pivot="programming-language-typescript"
+
 :::zone-end
