@@ -12,7 +12,7 @@ ms.author: ananyagarg
 ---
 
 # Edgeless Systems
-
+:::image type="content" source="../media/partner-pages-images/edgeless.jpg" alt-text="Edgeless logo.":::
 
 ## Overview
 

@@ -12,7 +12,7 @@ ms.author: ananyagarg
 ---
 
 # Anjuna Security
-
+:::image type="content" source="../media/partner-pages-images/anjuna.jpg" alt-text="Anjuna Security logo.":::
 
 ## Overview
 
