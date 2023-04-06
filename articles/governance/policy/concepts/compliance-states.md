@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 ## How compliance works
 
-When initiative or policy definitions are assigned, Azure Policy determines which resources are [applicable](./policy-applicability.md) then evaluates those which haven't been [excluded](./assignment-structure.md#excluded-scopes). Evaluation yields **compliance states** based on conditions in the policy rule and each resources' adherence to those requirements. 
+When initiative or policy definitions are assigned, Azure Policy determines which resources are [applicable](./policy-applicability.md) then evaluates those which haven't been [excluded](./assignment-structure.md#excluded-scopes) or [exempted](./exemption-structure.md). Evaluation yields **compliance states** based on conditions in the policy rule and each resources' adherence to those requirements. 
 
 ## Available compliance states
 
@@ -46,10 +46,10 @@ A policy assignment is considered conflicting when there are two or more policy 
 
 ### Exempt
 
-An [exemption](./exemption-structure.md) can be created on an assignment for an applicable resource or resource hierarchy, and resources within that scope are given a compliance state of exempt.
+An applicable resource has a compliance state of exempt for a policy assignment when it is in the scope of an [exemption](./exemption-structure.md).
 
 > [!NOTE]
-> A key distinction between [exemption](./exemption-structure.md) and [exclusion](./assignment-structure.md#excluded-scopes) is that evaluation is bypassed for excluded scopes but still occurs for exempted scopes. Resources belonging to exempted scopes do not have a compliance state. 
+> _Exempt_ is different than _excluded_. For more details, see [scope](./scope.md).
 
 ### Unknown (preview)
 
