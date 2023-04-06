@@ -139,7 +139,9 @@ Associated to your Azure Machine Learning workspace is an Azure Container Regist
 materialized is pushed to the container registry and used if you trigger experimentation or deployment for the corresponding environment. Azure
 Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. 
 
-# Troubleshooting environment image builds
+## Troubleshooting environment image builds
+
+Learn how to troubleshoot issues with environment image builds and package installations.
 
 ## **Environment definition problems**
 
