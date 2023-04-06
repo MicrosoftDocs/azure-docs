@@ -32,12 +32,15 @@ BlobFuse binaries are available on [the Microsoft software repositories for Linu
 BlobFuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHEL versions: 7.5, 7.8, 7.9, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, Oracle Linux  8.1. Run this command to make sure that you have one of those versions deployed:
 
 ```bash
-lsb_release -a
+cat /etc/*-release
 ```
 
 ### Configure the Microsoft package repository
 
 Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
+
+
+# [RHEL](#tab/RHEL) 
 
 As an example, on a Redhat Enterprise Linux 8 distribution:
 
@@ -47,35 +50,59 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-pr
 
 Similarly, change the URL to `.../rhel/7/...` to point to a Redhat Enterprise Linux 7 distribution.
 
+# [CentOS](#tab/CentOS)
+ 
+As an example, on a CentOS 8 distribution:
+
+```bash
+sudo rpm -Uvh https://packages.microsoft.com/config/centos/8/packages-microsoft-prod.rpm
+```
+
+Similarly, change the URL to `.../centos/7/...` to point to a CentOS 7 distribution.
+
+# [Ubuntu](#tab/Ubuntu)
+
 Another example on an Ubuntu 20.04 distribution:
 
 ```bash
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+sudo wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
-### Install BlobFuse v1
-
-On an Ubuntu/Debian distribution:
+# [SLES](#tab/SLES) 
 
 ```bash
-sudo apt-get install blobfuse
+sudo rpm -Uvh https://packages.microsoft.com/config/sles/15/packages-microsoft-prod.rpm
 ```
+--- 
 
-On a Redhat Enterprise Linux distribution:
+### Install BlobFuse v1
+
+# [RHEL](#tab/RHEL) 
+
+```bash
+sudo yum install blobfuse
+```
+# [CentOS](#tab/CentOS)
 
 ```bash
 sudo yum install blobfuse
 ```
 
-On a SUSE distribution:
+# [Ubuntu](#tab/Ubuntu)
+
+```bash
+sudo apt-get install blobfuse
+```
+# [SLES](#tab/SLES)  
 
 ```bash
 sudo zypper install blobfuse
 ```
+---
 
 ## Prepare for mounting
 
@@ -124,13 +151,13 @@ The `accountName` is the name of your storage account, and not the full URL.
 Create this file using:
 
 ```bash
-touch /path/to/fuse_connection.cfg
+sudo touch /path/to/fuse_connection.cfg
 ```
 
 Once you've created and edited this file, make sure to restrict access so no other users can read it.
 
 ```bash
-chmod 600 /path/to/fuse_connection.cfg
+sudo chmod 600 /path/to/fuse_connection.cfg
 ```
 
 > [!NOTE]
@@ -139,7 +166,7 @@ chmod 600 /path/to/fuse_connection.cfg
 ### Create an empty directory for mounting
 
 ```bash
-mkdir ~/mycontainer
+sudo mkdir ~/mycontainer
 ```
 
 ## Mount
@@ -151,7 +178,7 @@ mkdir ~/mycontainer
 To mount BlobFuse, run the following command with your user. This command mounts the container specified in '/path/to/fuse_connection.cfg' onto the location '/mycontainer'.
 
 ```bash
-blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
 > [!NOTE]
@@ -160,9 +187,9 @@ blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path
 You should now have access to your block blobs through the regular file system APIs. The user who mounts the directory is the only person who can access it, by default, which secures the access. To allow access to all users, you can mount via the option `-o allow_other`.
 
 ```bash
-cd ~/mycontainer
-mkdir test
-echo "hello world" > test/blob.txt
+sudo cd ~/mycontainer
+sudo mkdir test
+sudo echo "hello world" > test/blob.txt
 ```
 
 ## Persist the mount

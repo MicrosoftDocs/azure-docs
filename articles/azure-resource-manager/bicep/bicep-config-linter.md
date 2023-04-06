@@ -91,7 +91,7 @@ The following example shows the rules that are available for configuration.
         },
         "simplify-json-null": {
           "level": "warning"
-        }
+        },
         "use-parent-property": {
           "level": "warning"
         },
@@ -102,6 +102,9 @@ The following example shows the rules that are available for configuration.
           "level": "warning"
         },
         "use-resource-id-functions": {
+          "level": "warning"
+        },
+        "use-resource-symbol-reference": {
           "level": "warning"
         },
         "use-stable-resource-identifiers": {

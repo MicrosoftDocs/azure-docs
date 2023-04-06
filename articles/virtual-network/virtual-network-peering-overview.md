@@ -51,6 +51,7 @@ Addresses can be resized in the following ways:
 - Modifying the address range prefix of an existing address range (For example changing 10.1.0.0/16 to 10.1.0.0/18)
 - Adding address ranges to a virtual network
 - Deleting address ranges from a virtual network
+- Resizing of address space is supported cross-tenant
 
 Synching of virtual network peers can be performed through the Azure portal or with Azure PowerShell. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation. To learn how to update the address space for a peered virtual network, see [Updating the address space for a peered virtual network](./update-virtual-network-peering-address-space.md).
 > [!IMPORTANT]

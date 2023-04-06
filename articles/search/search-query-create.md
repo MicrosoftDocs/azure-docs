@@ -37,7 +37,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Choose a client
 
-For early development and proof-of-concept testing, we recommend starting with an interactive tool like Azure portal, or the Postman Desktop App for making REST API calls. With these approaches, you can test a query request in isolation and assess the effects of different properties without having to write any code.
+For early development and proof-of-concept testing, we recommend starting with an interactive tool like Azure portal, or the Postman app for making REST API calls. With these approaches, you can test a query request in isolation and assess the effects of different properties without having to write any code.
 
 To call search from within an app, we recommend the Azure.Document.Search client libraries in the Azure SDKs for .NET, Java, JavaScript, and Python.
 
@@ -55,7 +55,7 @@ You can select any index and REST API version, including preview. A query string
 
 ### Use a REST client
 
-The [Postman desktop app](https://www.postman.com/downloads/) can function as a query client. Using the app, you can connect to your search service and send [Search Documents (REST)](/rest/api/searchservice/search-documents) requests. Numerous tutorials and examples demonstrate REST clients for querying indexing. 
+The [Postman app](https://www.postman.com/downloads/) can function as a query client. Using the app, you can connect to your search service and send [Search Documents (REST)](/rest/api/searchservice/search-documents) requests. Numerous tutorials and examples demonstrate REST clients for querying indexing. 
 
 Start with [Create a search index using REST and Postman](search-get-started-rest.md) for step-by-step instructions for setting up requests.
 

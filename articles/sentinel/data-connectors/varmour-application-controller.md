@@ -3,7 +3,7 @@ title: "vArmour Application Controller connector for Microsoft Sentinel"
 description: "Learn how to install the connector vArmour Application Controller to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -17,7 +17,7 @@ vArmour reduces operational risk and increases cyber resiliency by visualizing a
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (vArmour)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [vArmour Networks](https://www.varmour.com/contact-us/) |
 
 ## Query samples

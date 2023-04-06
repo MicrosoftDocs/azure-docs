@@ -4,14 +4,16 @@
   items:
   - name: Introduction
     href: iot-introduction.md
+  - name: Device development
+    href: iot-overview-device-development.md
+  - name: Device connectivity
+    href: iot-overview-device-connectivity.md
+  - name: Device management and control
+    href: iot-overview-device-management.md
   - name: Choose the right IoT solution
     href: iot-solution-options.md
   - name: Azure IoT services and technologies
     href: iot-services-and-technologies.md  
-  - name: Support and help options
-    href: iot-support-help.md  
-  - name: IoT Glossary
-    href: iot-glossary.md
 - name: How-to guides
   items:
     - name: Use smartphone device app
@@ -26,6 +28,10 @@
     href: iot-security-architecture.md
 - name: Resources
   items:
+  - name: Support and help options
+    href: iot-support-help.md  
+  - name: IoT Glossary
+    href: iot-glossary.md
   - name: Azure IoT services
     items:
     - name: IoT Hub
@@ -42,29 +48,12 @@
       href: ../time-series-insights/index.yml
   - name: IoT device developer
     href: ../iot-develop/index.yml
-  - name: Azure IoT SDKs
+  - name: Azure IoT device SDKs and samples
     href: iot-sdks.md
-  - name: Azure IoT samples
-    items:
-    - name: C# (.NET)
-      href: https://github.com/Azure/azure-iot-sdk-csharp#samples
-    - name: Node.js
-      href: https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples
-    - name: Java
-      href: https://github.com/Azure/azure-iot-sdk-java#samples
-    - name: Python
-      href: https://github.com/Azure/azure-iot-sdk-python/tree/main/samples
-    - name: iOS Platform
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
     href: https://catalog.azureiotsolutions.com/
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Azure IoT Tools for VS Code
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: Azure IoT Explorer tool
     href: https://github.com/Azure/azure-iot-explorer
-  - name: iothub-diagnostics tool
-    href: https://github.com/Azure/iothub-diagnostics
+

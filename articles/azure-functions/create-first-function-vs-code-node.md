@@ -16,10 +16,9 @@ zone_pivot_groups: functions-nodejs-model
 
 Use Visual Studio Code to create a JavaScript function that responds to HTTP requests. Test the code locally, then deploy it to the serverless environment of Azure Functions.
 
->[!NOTE]
->The v4 programming model for authoring Functions in Node.js is currently in Preview. Compared to the current v3 model, the v4 model is designed to have a more idiomatic and intuitive experience for JavaScript and TypeScript developers. To learn more, see the [Developer Reference Guide](functions-reference-node.md).
+[!INCLUDE [functions-nodejs-model-pivot-description](../../includes/functions-nodejs-model-pivot-description.md)]
 
-Use the selector at the top to choose the programming model of your choice for completing this quickstart. Note that completion will incur a small cost of a few USD cents or less in your Azure account.
+Completion of this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 There's also a [CLI-based version](create-first-function-cli-node.md) of this article.
 
@@ -36,7 +35,7 @@ Before you get started, make sure you have the following requirements in place:
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in JavaScript. Later in this article, you'll publish your function code to Azure.
+In this section, you use Visual Studio Code to create a local Azure Functions project in JavaScript. Later in this article, you publish your function code to Azure.
 
 1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
@@ -151,7 +150,7 @@ To enable your V4 programming model app to run in Azure, you need to add a new a
     ```
 1. [Rerun the function](#run-the-function-locally) app locally.
 
-1. In the prompt **Enter request body** change the request message body to { "name": "Tom","sport":"basketball" }. Press Enter to send this request message to your function.
+1. In the prompt **Enter request body**, change the request message body to { "name": "Tom","sport":"basketball" }. Press Enter to send this request message to your function.
 
 1. View the response in the notification:
 
@@ -169,7 +168,7 @@ To enable your V4 programming model app to run in Azure, you need to add a new a
 
 ## Troubleshooting
 
-Use the table below to resolve the most common issues encountered when using this quickstart.
+Use the following table to resolve the most common issues encountered when using this quickstart.
 
 |Problem|Solution|
 |--|--|
