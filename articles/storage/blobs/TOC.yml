@@ -329,7 +329,7 @@ items:
           href: ../common/storage-account-move.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Upgrade to Data Lake Storage Gen2
           href: upgrade-to-data-lake-storage-gen2-how-to.md
-        - name: Migrate to Azure Resource Manager
+        - name: Classic storage account retirement
           items:
           - name: Overview
             href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json

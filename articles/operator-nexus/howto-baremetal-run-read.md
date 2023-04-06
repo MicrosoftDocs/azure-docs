@@ -3,7 +3,7 @@ title: Troubleshoot BMM issues using the `az networkcloud baremetalmachine run-r
 description: Step by step guide on using the `az networkcloud baremetalmachine run-read-command` to run diagnostic commands on a BMM.
 author: eak13
 ms.author: ekarandjeff
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/23/2023
 ms.custom: template-how-to
