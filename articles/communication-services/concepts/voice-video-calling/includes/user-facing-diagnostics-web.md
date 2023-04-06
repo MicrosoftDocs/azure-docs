@@ -10,7 +10,6 @@ ms.date: 04/06/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other
 ---
 
 ## Accessing diagnostics

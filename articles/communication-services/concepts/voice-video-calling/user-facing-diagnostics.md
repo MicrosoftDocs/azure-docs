@@ -76,17 +76,17 @@ The following user-facing diagnostics are available:
 | microphoneNotFunctioningDeviceInUse | Microphone is already in use. Either the device is being used in exclusive mode, or the device is being used in shared mode and the caller asked to use the device in exclusive mode. | - Set to `True` when the microphone device stream acquisition times out (audio). <br/> - Set to `False` when microphone acquisition is successful. | Your audio not reaching other participants in the call. | When value is set to `True` give visual notification to end user so they can check if another application is using the microphone and try closing it. |
 
 ::: zone pivot="platform-web"
-[!INCLUDE [User Facing Diagnostic for Web](./ufd/user-facing-diagnostics-web.md)]
+[!INCLUDE [User Facing Diagnostic for Web](./includes/user-facing-diagnostics-web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [User Facing Diagnostic for Android](./ufd/user-facing-diagnostics-android.md)]
+[!INCLUDE [User Facing Diagnostic for Android](./includes/user-facing-diagnostics-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [User Facing Diagnostic for iOS](./ufd/user-facing-diagnostics-ios.md)]
+[!INCLUDE [User Facing Diagnostic for iOS](./includes/user-facing-diagnostics-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [User Facing Diagnostic for Windows](./ufd/user-facing-diagnostics-windows.md)]
+[!INCLUDE [User Facing Diagnostic for Windows](./includes/user-facing-diagnostics-windows.md)]
 ::: zone-end
