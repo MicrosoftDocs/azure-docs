@@ -47,11 +47,11 @@ If your region supports availability zones, we highly recommended that you confi
 
 In this step, you'll need to validate that the required Azure services and SKUs are available in the availability zones of your selected Azure region. 
 
-To check for regional support of services, see [Products available by region](/explore/global-infrastructure/products-by-region/).
+To check for regional support of services, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
 To list the available VM SKUs by Azure region and zone, see [Check VM SKU availability](/azure/virtual-machines/windows/create-powershell-availability-zone#check-vm-sku-availability). 
 
-If your region doesn't support the services and SKUs that your application requires, you'll need to go back to [Step 1: Check the product availability in the Azure region](#step-1-check-the-product-availability-in-the-azure-region) to find a new region.  
+If your region doesn't support the services and SKUs that your application requires, you'll need to go back to [Step 1: Check the product availability in the Azure region](#step-1-check-if-the-azure-region-supports-availability-zones) to find a new region.  
 
  the services and SKUs that your application requires, we highly recommended that you configure your workload with with zone-redundancy. For zonal high availability of Azure IaaS Virtual Machines, use [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes). to spread VMs across multiple fault domains in a region or within an availability zone.
 
@@ -64,7 +64,7 @@ Below are three important questions you'll that'll help you choose the correct a
 
 #### Does your application include latency sensitive components?
 
-Azure availability zones within the same Azure region are connected by a high-performance network [with a round-trip latency of less than 2ms](https://learn.microsoft.com/azure/reliability/availability-zones-overview#availability-zones). 
+Azure availability zones within the same Azure region are connected by a high-performance network [with a round-trip latency of less than 2ms](/azure/reliability/availability-zones-overview#availability-zones). 
 
 The recommended approach to achieving high availability, if low latency isn't a strict requirement, is to configure your workload with a zone redundant deployment.
 
@@ -125,7 +125,7 @@ If multi-region is needed, or when availability zones aren't available in the Az
 
 - Each data center in a region is assigned to a physical zone. Physical zones are mapped to the logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM API, [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers?tabs=HTTP) to compare zone mapping for resilient solutions that span across multiple subscriptions. 
 
-- Inter-zone bandwidth charges apply when traffic moves across zones. To learn more about bandwidth pricing, see [Bandwidth pricing](/pricing/details/bandwidth/).  
+- Inter-zone bandwidth charges apply when traffic moves across zones. To learn more about bandwidth pricing, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).  
 
 ## Next steps
 
