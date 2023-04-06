@@ -7,64 +7,50 @@ ms.service: dev-box
 ms.topic: how-to 
 ms.date: 04/03/2023
 ms.custom: template-how-to-pattern
-zone_pivot_groups: get-dev-box-support
 ---
 
 # Get support for Microsoft Dev Box
 
+There are multiple channels available to give you help and support in Microsoft Dev Box. The support channel you choose depends on your role and your access to existing Dev Box resources. 
 
-## Choose the correct channel to get help
+## IT Admin or Dev infrastructure admin (dev center admin)
 
-There are multiple channels available to give you help and support in Microsoft Dev Box. The support channel you choose depends on your role and hence your access to existing Dev Box resources. 
+### Urgent issues
 
-To begin, make sure you've chosen your role at the beginning of this article.
+- **Internal troubleshooting** </br>
+Always use your internal troubleshooting processes before contacting support. As a dev infrastructure admin, you have access to all Dev Box resources through the Azure portal.
+- **Contact support** </br>
+If you can't resolve the issue, open a support request to contact Azure support: [Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).
 
-:::zone pivot="role-dev-infra-admin"
+### Non-urgent issues
 
-### [Urgent](#tab/Urgent/)
-#### Open an MS support ticket
-As an infrastructure administrator, you have access to dev box dev centers, and all other resources in the [Azure portal](https://portal.azure.com). 
-
-If you have an issue that you cannot resolve, open a support request to contact Azure support: [Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).
-
-To learn more about support requests, refer to: [Create an Azure support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
-
-
-### [Non-urgent](#tab/Non-urgent)
 [!INCLUDE [get-support-non-urgent](includes/get-support-non-urgent.md)]
 
----
+## Developer Team Lead (DevCenter Project Admin) 
 
-:::zone-end
+### Urgent issues
 
-:::zone pivot="role-devcenter-project-admin"
+- **Internal troubleshooting** </br>
+Always use your internal troubleshooting processes before escalating an issue.
+As a DevCenter Project Admin, you can:
+    - View the network connections attached to the dev center.
+    - View the dev box definitions attached to the dev center.
+    - Create, view, update, and delete dev box pools in the project. 
+- **Contact your dev infrastructure admin** </br>
+If you can't resolve the issue, escalate it to your dev infrastructure admin.
 
-#### Internal troubleshooting 
-As a developer team lead or project admin, you have access to manage projects and pools in the [Azure portal](https://portal.azure.com).
+### Non-urgent issues
 
-Some basic troubleshooting steps you can try include:
-•	If a developer can’t create a dev box from the desired project or pool, ensure they are assigned the Dev Box User role for the project.
-•	If a dev box can’t access network services, verify network connectivity for other devices. 
-
-### [Urgent](#tab/Urgent/)
-If these basic troubleshooting steps do not resolve the issue, contact your Dev Box dev center administrator (typically a dev infrastructure administrator) or your internal support teams. 
-
-### [Non-urgent](#tab/Non-urgent)
 [!INCLUDE [get-support-non-urgent](includes/get-support-non-urgent.md)]
 
----
+## Developer (Dev Box User) 
 
-:::zone-end
-
-:::zone pivot="role-dev-box-user"
-
-#### Developer Portal
-As a developer, you can manage your dev boxes through the [developer portal](https://aka.ms/devbox-portal). You can create dev boxes from pools in the projects you have access to, and you can start, stop, and delete your existing dev boxes.
-
-If you have issues with any of these tasks, contact your developer team lead or project admin for help. They can troubleshoot the issue through the Azure portal and escalate to the dev infra admin if necessary.
-
-:::zone-end
-
+- **Internal troubleshooting** </br>
+Always use your internal troubleshooting processes before escalating an issue.
+As a developer, you can troubleshoot your dev boxes through the developer portal. You can create a dev box, start, stop, and delete your dev boxes. 
+- **Contact your dev team lead** </br>
+If you can't resolve the issue, escalate it to your dev team lead (DevCenter Project Admin).
 
 ## Next steps
-TODO: Add your next step link(s)
+
+- To learn more about support requests, refer to: [Create an Azure support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
