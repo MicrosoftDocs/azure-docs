@@ -45,7 +45,7 @@ Azure Monitor achieves observability by correlating data from multiple pillars a
 
 The following diagram gives a high-level view of Azure Monitor. Click on the diagram to show an even more detailed expanded version. 
 
-:::image type="content" source="media/overview/overview-2023-02.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-2023-02-expanded-opt.svg":::
+:::image type="content" source="media/overview/overview-2023-02.png" alt-text="Diagram that shows an overview of Azure Monitor with data sources on the left sending data to a central data platform and features of Azure Monitor on the right that use the collected data." border="false" lightbox="media/overview/overview-2023-02-expanded-opt.svg":::
 
 The diagram depicts the Azure Monitor system components:
 - The **[data sources](data-sources.md)** are the types of data collected from each monitored resource. The data is collected and routed to the **data platform**.
