@@ -19,7 +19,13 @@ ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2
 
 **This article applies to:** ✔️ Basic/Standard tier
 
-This quickstart shows how to deploy a Spring Boot web application to Azure Spring Apps. The sample project is a typical three-layers web application:
+This quickstart shows how to deploy a Spring Boot web application to Azure Spring Apps.
+
+The sample project is a simle ToDo application that help customer record the task list: What tasks need to be done and what tasks has already been finished. Here is a screenshot of the application:
+
+:::image type="content" source="./media/quickstart-deploy-web-app/todo-app.png" alt-text="Sceenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-deploy-web-app/todo-app.png":::
+
+This application is a typical three-layers web application:
 
 - A frontend bounded [React](https://reactjs.org/) application.
 - A backend Spring web application that uses Spring Data JPA to access a relational database.
