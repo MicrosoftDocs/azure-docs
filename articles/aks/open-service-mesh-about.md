@@ -12,7 +12,7 @@ ms.author: pgibson
 
 OSM runs an Envoy-based control plane on Kubernetes and can be configured with [SMI](https://smi-spec.io/) APIs. OSM works by injecting an Envoy proxy as a sidecar container with each instance of your application. The Envoy proxy contains and executes rules around access control policies, implements routing configuration, and captures metrics. The control plane continually configures the Envoy proxies to ensure policies and routing rules are up to date and proxies are healthy.
 
-The OSM project was originated by Microsoft and has since been donate. It's now governed by the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/).
+Microsoft started the OSM project, but it's now governed by the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/).
 
 ## Enable the OSM add-on
 
@@ -43,13 +43,13 @@ OSM provides the following capabilities and features:
 - Integrate with external certificate management.
 - Integrate with existing ingress solutions such as [NGINX][nginx], [Contour][contour], and [Web Application Routing][web-app-routing].
 
-For more details on ingress and OSM, see [Using ingress to manage external access to services within the cluster][osm-ingress] and [Integrate OSM with Contour for ingress][osm-contour]. For an example on integrating OSM with ingress controllers using the `networking.k8s.io/v1` API, such as NGINX, see [Ingress with Kubernetes Nginx ingress controller][osm-nginx]. For more details on using Web Application Routing, which automatically integrates with OSM, see [Web Application Routing][web-app-routing].
+For more information on ingress and OSM, see [Using ingress to manage external access to services within the cluster][osm-ingress] and [Integrate OSM with Contour for ingress][osm-contour]. For an example of how to integrate OSM with ingress controllers using the `networking.k8s.io/v1` API, see [Ingress with Kubernetes Nginx ingress controller][osm-nginx]. For more information on using Web Application Routing, which automatically integrates with OSM, see [Web Application Routing][web-app-routing].
 
 ## Limitations
 
 The OSM AKS add-on has the following limitations:
 
-- After installation, you must enable Iptables redirection for port IP address and port range exclusion using `kubectl patch`. For more details, see [iptables redirection][ip-tables-redirection].
+- After installation, you must enable Iptables redirection for port IP address and port range exclusion using `kubectl patch`. For more information, see [iptables redirection][ip-tables-redirection].
 - Any pods that need access to IMDS, Azure DNS, or the Kubernetes API server must have their IP addresses added to the global list of excluded outbound IP ranges using [Global outbound IP range exclusions][global-exclusion].
 - OSM doesn't support Windows Server containers.
 
