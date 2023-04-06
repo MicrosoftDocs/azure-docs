@@ -102,7 +102,7 @@ A list of all Azure CLI references for Private Link Configuration on Application
 ---
 
 >[!Note]
->Feature registration may take up to 30 mintues to move from Registering to Registered status. 
+>Feature registration may take up to 30 minutes to transition from Registering to Registered status. 
 
 For more information about preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md)
 
