@@ -50,7 +50,7 @@ There are other ways to customize and combine Microsoft tools to deliver a virtu
 -  **Replace Teams’ provider experience with Azure.** You can still use Microsoft 365 and Bookings to manage meetings but have the business user launch a custom Azure application to join the Teams meeting. This might be useful where you want to split or customize virtual appointment interactions from day-to-day employee Teams activity.
 
 ## Next steps
-- [Build your own virtual appointments](../../../tutorials/virtual-visits/sample-buidler.md)
+- [Build your own virtual appointments](../../../tutorials/virtual-visits/sample-builder.md)
 - [Learn about Teams controls](../guest/teams-administration.md).
 - [Govern user experience in Teams meetings](./govern-meeting-experience.md)
 - [Plan user experience in Teams meetings](./plan-user-experience.md)
