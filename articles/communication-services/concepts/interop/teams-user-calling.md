@@ -67,7 +67,8 @@ The following list presents the set of features that are currently available in 
 |                   | Adding Teams user honors Teams guest access configuration                                                           |   ✔️      |
 |                   | Add a phone number                                                                                                  | ✔️        |
 |                   | Remove a participant                                                                                                | ✔️        |
-|                   | Manage participants in the lobby                                                                                     |   ✔️      |
+|                   | Admit participants in the lobby into the Teams meeting                                                             |   ✔️      |
+|                   | Be admitted from the lobby into the Teams meeting                                                                   |   ✔️      |
 |                   | Adding Teams users honors information barriers                                                                       |   ✔️      |
 | Device Management | Ask for permission to use audio and/or video                                                                        | ✔️        |
 |                   | Get camera list                                                                                                     | ✔️        |
