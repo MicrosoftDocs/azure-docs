@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 04/04/2023
 ms.custom: ignite-2022
 ---
 
@@ -33,7 +33,7 @@ The table below shows the supported capabilities for each data source. Select th
 || [Azure Databricks](register-scan-azure-databricks.md) | [Yes](register-scan-azure-databricks.md#register) | No | [Yes](register-scan-azure-databricks.md#lineage) | No | No |
 ||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No | No |
 ||    [Azure Files](register-scan-azure-files-storage-source.md)|[Yes](register-scan-azure-files-storage-source.md#register) | [Yes](register-scan-azure-files-storage-source.md#scan) | Limited* |  No | No |
-||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register-the-data-source) |[Yes](register-scan-azure-sql-database.md#scope-and-run-the-scan)| [Yes (Preview)](register-scan-azure-sql-database.md#extract-lineage-preview) | [Yes](register-scan-azure-sql-database.md#set-up-access-policies) (Preview) | No |
+||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register-the-data-source) |[Yes](register-scan-azure-sql-database.md#scope-and-run-the-scan)| [Yes (Preview)](register-scan-azure-sql-database.md#extract-lineage-preview) | [Yes](register-scan-azure-sql-database.md#set-up-access-policies) | No |
 ||    [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)|  [Yes](register-scan-azure-sql-managed-instance.md#scan) | [Yes](register-scan-azure-sql-managed-instance.md#scan) | No* | No | No |
 ||    [Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)| [Yes](register-scan-synapse-workspace.md#register) | [Yes](register-scan-synapse-workspace.md#scan)| [Yes - Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No| No |
 |Database| [Amazon RDS](register-scan-amazon-rds.md) | [Yes](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [Yes](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | No | No | No |
