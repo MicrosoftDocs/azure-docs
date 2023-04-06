@@ -11586,7 +11586,7 @@ Yes
 
 -------------------------------------
 
-### Taiwan national identification number
+### Taiwanese identification number
 
 #### Format
 

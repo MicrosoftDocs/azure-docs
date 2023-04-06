@@ -23,7 +23,7 @@ Think about your broad requirements:
 - **Determine business needs**. Keep first steps simple, and then iterate to accommodate future change. Decide your goals for a successful adoption, and then the metrics you’ll use to define success.
 - **Determine ownership**. Figure out where multicloud capabilities fall under your teams. Review the [determine ownership requirements](plan-multicloud-security-determine-ownership-requirements.md#determine-ownership-requirements) and [determine access control requirements](plan-multicloud-security-determine-access-control-requirements.md#determine-access-control-requirements) articles to answer these questions:
 
-  - How will your organization use Defender for cloud as a multicloud solution?
+  - How will your organization use Defender for Cloud as a multicloud solution?
   - What [cloud security posture management (CSPM)](plan-multicloud-security-determine-multicloud-dependencies.md) and [cloud workload protection (CWP)](plan-multicloud-security-determine-multicloud-dependencies.md) capabilities do you want to adopt?
   - Which teams will own the different parts of Defender for Cloud?
   - What is your process for responding to security alerts and recommendations? Remember to consider Defender for Cloud’s governance feature when making decisions about recommendation processes.

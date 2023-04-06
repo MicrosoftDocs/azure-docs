@@ -7,13 +7,13 @@ ms.topic: how-to
 
 # Link your partner ID to track your impact on delegated resources 
 
-If you're a member of the [Microsoft Cloud Partner Program](https://partner.microsoft.com/), you can link your partner ID with the credentials used to manage delegated customer resources. This link allows Microsoft to identify and recognize partners who drive Azure customer success. It also allows [CSP (Cloud Solution Provider)](/partner-center/csp-overview) partners to receive [partner earned credit for managed services (PEC)](/partner-center/partner-earned-credit) for customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started).
+If you're a member of the [Microsoft Cloud Partner Program](https://partner.microsoft.com/), you can link your partner ID with the credentials used to manage delegated customer resources. This link allows Microsoft to identify and recognize partners who drive Azure customer success. It also allows [CSP (Cloud Solution Provider)](/partner-center/csp-overview) partners to receive [partner earned credit (PEC)](/partner-center/partner-earned-credit) for customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started).
 
 To earn recognition for Azure Lighthouse activities, you'll need to [link your partner ID](../../cost-management-billing/manage/link-partner-id.md) with at least one user account in your managing tenant, and ensure that the linked account has access to each of your onboarded subscriptions.
 
 ## Associate your partner ID when you onboard new customers
 
-Use the following process to link your partner ID (and enable partner earned credit, if applicable). You'll need to know your [partner ID](/partner-center/partner-center-account-setup#locate-your-partner-id) to complete these steps. Be sure to use the **Associated Partner ID** shown on your partner profile.
+Use the following process to link your partner ID (and enable partner earned credit, if applicable). You'll need to know your [partner ID](/partner-center/partner-center-account-setup#locate-your-partnerd) to complete these steps. Be sure to use the **Associated Partner ID** shown on your partner profile.
 
 For simplicity, we recommend creating a service principal account in your tenant, linking it to your **Associated Partner ID**, then granting it an [Azure built-in role that is eligible for PEC](/partner-center/azure-roles-perms-pec) to every customer that you onboard.
 
@@ -33,7 +33,7 @@ Once the account has been [linked to your Associated Partner ID](../../cost-mana
 
 ## Confirm partner earned credit
 
-You can [view PEC details in the Azure portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) and confirm which costs have received the benefit of PEC. Remember that PEC only applies to CSP customers who have signed the MCA and are under the Azure plan.
+You can [view PEC details in the Azure portal](/partner-center/partner-earned-credit-explanation#use-acm-to-view-your-partner-earned-credit) and confirm which costs have received the benefit of PEC. Remember that PEC only applies to CSP customers who have signed the MCA and are under the Azure plan.
 
 If you have followed the steps above, and do not see the expected association, [open a support request in the Azure portal](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 

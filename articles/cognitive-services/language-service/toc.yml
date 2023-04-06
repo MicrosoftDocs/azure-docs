@@ -99,7 +99,7 @@ items:
     - name: Label data
       href: custom-text-classification/how-to/tag-data.md
     - name: Auto label your data (preview)
-      href: custom-text-classification/how-to/use-autotagging.md
+      href: custom-text-classification/how-to/use-autolabeling.md
     - name: Train a model
       href: custom-text-classification/how-to/train-model.md
     - name: Model performance (preview)
@@ -195,7 +195,7 @@ items:
     - name: Label data
       href: custom-named-entity-recognition/how-to/tag-data.md
     - name: Auto label your data (preview)
-      href: custom-named-entity-recognition/how-to/use-autotagging.md
+      href: custom-named-entity-recognition/how-to/use-autolabeling.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md
     - name: Model performance (preview)

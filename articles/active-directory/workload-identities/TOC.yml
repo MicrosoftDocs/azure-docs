@@ -31,8 +31,6 @@
         href: workload-identity-federation-create-trust.md
       - name: Configure a managed identity to trust an external identity provider
         href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
-      - name: Access identity platform-protected resources from GCP
-        href: workload-identity-federation-create-trust-gcp.md
       - name: Block creation of federated credentials
         href: workload-identity-federation-block-using-azure-policy.md
   - name: Create an access review
@@ -47,6 +45,12 @@
         href: ../reports-monitoring/recommendation-remove-unused-credential-from-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
       - name: Renew expiring application credentials
         href: ../reports-monitoring/recommendation-renew-expiring-application-credential.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  - name: Enforce app management restrictions
+    items:
+      - name: All apps and service principals in a tenant
+        href: /graph/api/resources/tenantappmanagementpolicy?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+      - name: Specific apps and service principals
+        href: /graph/api/resources/appmanagementpolicy?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
   - name: Reference
     items:
     - name: Federated identity credentials considerations and limitations

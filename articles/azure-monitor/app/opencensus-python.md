@@ -96,7 +96,7 @@ OpenCensus maps the following exporters to the types of telemetry that you see i
    logger.addHandler(AzureLogHandler())
 
    # Alternatively manually pass in the connection_string
-   # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+   # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
    """Generate random log data."""
    for num in range(5):
@@ -122,7 +122,7 @@ OpenCensus maps the following exporters to the types of telemetry that you see i
     logger = logging.getLogger(__name__)
     logger.addHandler(AzureLogHandler())
     # Alternatively manually pass in the connection_string
-    # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+    # logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
     properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
 
@@ -184,7 +184,7 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler())
 # Alternatively, manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
 properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
 
@@ -208,7 +208,7 @@ from opencensus.ext.azure.log_exporter import AzureEventHandler
 logger = logging.getLogger(__name__)
 logger.addHandler(AzureLogHandler())
 # Alternatively manually pass in the connection_string
-# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>)
+# logger.addHandler(AzureLogHandler(connection_string=<appinsights-connection-string>))
 
 logger.setLevel(logging.INFO)
 logger.info('Hello, World!')

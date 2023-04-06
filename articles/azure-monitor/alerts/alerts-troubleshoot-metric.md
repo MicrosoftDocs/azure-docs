@@ -1,8 +1,6 @@
 ---
 title: Frequently asked questions about Azure Monitor metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
-author: harelbr
-ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 8/31/2022
 ms:reviwer: harelbr

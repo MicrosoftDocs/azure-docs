@@ -20,7 +20,7 @@ In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, i
 - Configure DDoS Protection diagnostic logs. To learn more, see [Configure diagnostic logs](diagnostic-logging.md).
 - Simulate an attack using one of our simulation partners. To learn more, see [Test with simulation partners](test-through-simulations.md).
 
-### View in log analytics workspace
+### View in Log Analytics workspace
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the search box at the top of the portal, enter **Log Analytics workspace**. Select **Log Analytics workspace** in the search results.
@@ -113,4 +113,4 @@ Attack mitigation reports use the Netflow protocol data, which is aggregated to 
 
 ## Next steps
 
-*[Engage DDoS Rapid Response](ddos-rapid-response.md)
+* [Engage DDoS Rapid Response](ddos-rapid-response.md)

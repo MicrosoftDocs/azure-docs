@@ -72,8 +72,6 @@ items:
       href: quickstarts/telephony/get-phone-number.md
     - name: Send an SMS message
       href: quickstarts/sms/send.md
-    - name: Send an SMS in Azure Logic Apps
-      href: quickstarts/sms/logic-app.md
     - name: Receive and reply to SMS
       href: quickstarts/sms/receive-sms.md
   - name: Voice and Video
@@ -116,8 +114,6 @@ items:
         href: quickstarts/identity/access-tokens.md
       - name: Add chat to your app
         href: quickstarts/chat/get-started.md 
-      - name: Send Chat messages in Azure Logic Apps
-        href: quickstarts/chat/logic-app.md
     - name: Connect to Teams
       items:
       - name: Use an external identity
@@ -148,8 +144,8 @@ items:
       href: quickstarts/email/connect-email-communication-resource.md
     - name: Send an email
       href: quickstarts/email/send-email.md
-    - name: Send an email in Azure Logic Apps
-      href: quickstarts/email/logic-app.md
+    - name: Add multiple sender addresses
+      href: quickstarts/email/add-multiple-senders.md
   - name: Network Traversal
     items:
     - name: Access TURN relays
@@ -162,12 +158,18 @@ items:
       href: quickstarts/identity/service-principal.md
     - name: Use Postman to send SMS messages
       href: tutorials/postman-tutorial.md
+    - name: Send short URL
+      href: tutorials/sms-url-shortener.md
     - name: Phone numbers
       items:
       - name: Port a phone number into Azure
         href: quickstarts/telephony/port-phone-number.md
       - name: Apply for a short code
         href: quickstarts/sms/apply-for-short-code.md
+      - name: Apply for toll-free verification
+        href: quickstarts/sms/apply-for-toll-free-verification.md
+      - name: Enable alphanumeric sender ID
+        href: quickstarts/sms/enable-alphanumeric-sender-id.md
     - name: Events
       items:
       - name: View SMS events
@@ -381,11 +383,15 @@ items:
     - name: Calling hero sample
       href: samples/calling-hero-sample.md
     - name: Xamarin calling sample
-      href: samples/ui-library-cross-platform.md
+      href: samples/ui-library-cross-platform.md?pivots=platform-xamarin
     - name: React Native calling sample
-      href: samples/ui-library-cross-platform.md
+      href: samples/ui-library-cross-platform.md?pivots=platform-react
+    - name: MAUI calling sample
+      href: samples/ui-library-cross-platform.md?pivots=platform-maui
     - name: Web calling sample
       href: samples/web-calling-sample.md
+    - name: Web calling - Push notifications sample
+      href: samples/web-calling-push-notifications-sample.md
     - name: Authentication service hero sample
       href: samples/trusted-auth-sample.md
   - name: Chat
@@ -396,7 +402,7 @@ items:
       href: samples/trusted-auth-sample.md
   - name: Phone calling
     items:
-    - name: Appointment remainder sample
+    - name: Appointment reminder sample
       href: samples/call-automation-appointment-reminder.md
 - name: Concepts 
   items:
@@ -422,10 +428,10 @@ items:
     items:
     - name: Overview
       href: concepts/sms/concepts.md
-    - name: FAQ
-      href: concepts/sms/sms-faq.md
     - name: SDK features
       href: concepts/sms/sdk-features.md
+    - name: Pricing
+      href: concepts/sms-pricing.md
     - name: Messaging policy
       href: concepts/sms/messaging-policy.md
     - name: Phone numbers
@@ -434,6 +440,8 @@ items:
         href: concepts/numbers/number-types.md
       - name: Short code program brief filling guidelines
         href: concepts/sms/program-brief-guidelines.md
+      - name: Toll-free verification guidelines
+        href: concepts/sms/toll-free-verification-guidelines.md
     - name: Events
       items:
       - name: Overview
@@ -446,12 +454,16 @@ items:
         href: concepts/logging-and-diagnostics.md
       - name: Metrics overview
         href: concepts/metrics.md
+    - name: SMS FAQ
+      href: concepts/sms/sms-faq.md
   - name: Voice and Video Calling
     items:
     - name: Overview
       href: concepts/voice-video-calling/calling-sdk-features.md
     - name: Voice and video terminology
       href: concepts/voice-video-calling/about-call-types.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Teams interoperability
       items:
       - name: Overview
@@ -508,6 +520,8 @@ items:
       href: concepts/voice-video-calling/call-recording.md
     - name: Media access
       href: concepts/voice-video-calling/media-access.md
+    - name: Video constraints
+      href: concepts/voice-video-calling/video-constraints.md
     - name: Simulcast
       href: concepts/voice-video-calling/simulcast.md
     - name: Events
@@ -554,6 +568,8 @@ items:
       href: concepts/chat/concepts.md
     - name: SDK features
       href: concepts/chat/sdk-features.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Events
       items:
       - name: Overview
@@ -576,6 +592,8 @@ items:
       items:
       - name: Overview
         href: concepts/telephony/telephony-concept.md
+      - name: Pricing
+        href: concepts/pstn-pricing.md
       - name: Phone number types
         href: concepts/numbers/number-types.md
       - name: Subscription eligibility 
@@ -598,6 +616,8 @@ items:
       items:
       - name: Overview
         href: concepts/call-automation/call-automation.md
+      - name: Pricing
+        href: https://azure.microsoft.com/pricing/details/communication-services/
       - name: Learn about inbound calls
         href: concepts/call-automation/incoming-call-notification.md
       - name: Play audio in call
@@ -628,6 +648,8 @@ items:
       href: concepts/email/email-overview.md
     - name: SDK features
       href: concepts/email/sdk-features.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Domains
       items:
       - name: Email domains and sender authentication 
@@ -651,7 +673,9 @@ items:
   - name: Network Traversal
     items:
     - name: Overview
-      href: concepts/network-traversal.md    
+      href: concepts/network-traversal.md
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/communication-services/
   - name: Azure Advisor
     href: concepts/advisor-overview.md
 - name: Resources 
