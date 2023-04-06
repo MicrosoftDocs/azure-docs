@@ -3,7 +3,7 @@ title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 11/18/2022
+ms.date: 4/6/2023
 ms.custom: "references_regions, engagement-fy23"
 ---
 
@@ -114,7 +114,7 @@ The following permissions are assigned to the **cloudadmin** user in Azure VMwar
 
 > [!NOTE]
 > **VMware NSX-T Data Center cloudadmin user** on Azure VMware Solution is not the same as the **cloudadmin user** mentioned in the VMware product documentation.
-> Permissions below apply to NSX-T's Policy API.  Manager API functionality may be limited.
+> Permissions below apply to NSX-T Data Center's Policy API.  Manager API functionality may be limited.
 
 | Category        | Type                  | Operation                                                            | Permission                                                       |
 |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
@@ -211,13 +211,13 @@ You can create custom roles in NSX-T Data Center with permissions lesser than or
 4. **Apply** the changes and **Save** the Role.
 
 > [!NOTE]
-> The VMware NSX-T Data Center **System** > **Identity Firewall AD** configuration option isn't supported by the NSX custom role. The recommendation is to assign the **Security Operator** role to the user with the custom role to allow managing the Identity Firewall (IDFW) feature for that user.
+> The VMware NSX-T Data Center **System** > **Identity Firewall AD** configuration option isn't supported by the NSX-T Data Center custom role. The recommendation is to assign the **Security Operator** role to the user with the custom role to allow managing the Identity Firewall (IDFW) feature for that user.
 
 > [!NOTE]
 > The VMware NSX-T Data Center Traceflow feature isn't supported by the VMware NSX-T Data Center custom role. The recommendation is to assign the **Auditor** role to the user along with above custom role to enable Traceflow feature for that user.
 
 > [!NOTE]
-> VMware vRealize Automation(vRA) integration with the NSX-T Data Center component of the Azure VMware Solution requires the “auditor” role to be added to the user with the NSX-T Manager cloudadmin role.
+> VMware vRealize Automation (vRA) integration with the NSX-T Data Center component of the Azure VMware Solution requires the “auditor” role to be added to the user with the NSX-T Manager cloudadmin role.
 
 ## Next steps
 
