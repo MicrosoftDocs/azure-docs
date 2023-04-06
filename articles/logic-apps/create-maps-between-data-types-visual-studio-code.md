@@ -21,7 +21,7 @@ ms.date: 04/12/2023
 
 - [Same prerequisites for creating Standard logic app workflows with Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites)
 
-- [Data Mapper extension 2.0.21 for Visual Studio Code]
+- Data Mapper extension 2.0.21 for Visual Studio Code
 
 - Your source schema (.xsd) file, which is in XML schema definition (XSD) format 
 
@@ -82,7 +82,5 @@ ms.date: 04/12/2023
    | Zoom in | Double click on the map |
    | Zoom out | SHIFT + double click on the map |
    | Pan around | Drag the map |
-
-1. 
 
 ## Next steps
