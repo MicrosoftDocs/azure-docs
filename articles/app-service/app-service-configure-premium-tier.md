@@ -81,11 +81,6 @@ If your app runs in an App Service deployment where **PremiumV3** isn't availabl
 
     In the **Clone app** page, you can create an App Service plan using **PremiumV3** in the region you want, and specify the app settings and configuration that you want to clone.
  
-
-## Moving from Premium Container to Premium V3 SKU
-
-The Premium Container SKU will be retired on **30th June 2022**.  You should move your applications to the **Premium V3 SKU** ahead of this date. Use the clone functionality in the Azure App Service CLI experience to [move your application from your Premium Container App Service Plan to a new Premium V3 App Service plan](https://aka.ms/pcsku). 
-
 ## Automate with scripts
 
 You can automate app creation in the **PremiumV3** tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
