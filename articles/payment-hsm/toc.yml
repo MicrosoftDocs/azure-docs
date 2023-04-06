@@ -51,6 +51,8 @@
     href: change-performance-level.md
   - name: Peer payment HSM virtual networks
     href: peer-vnets.md
+  - name: Inspect traffic
+    href: inspect-traffic.md
 - name: Deployment scenarios
   items:
   - name: High availability & disaster recovery
