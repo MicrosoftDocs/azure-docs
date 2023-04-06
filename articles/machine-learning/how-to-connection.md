@@ -33,12 +33,12 @@ In this article, learn how to connect to data sources located outside of Azure, 
 - An Azure Machine Learning workspace.
 
 > [!NOTE]
-> An Azure Machine Learning connection stores the credentials passed during connection creation in the Workspace Azure Key Vault. A connection references the credentials from that location for further use. The YAML cna pass the credentials. A CLI command or SDK can override them. We recommend that you **avoid** credential storage in YAML files.
+> An Azure Machine Learning connection securely stores the credentials passed during connection creation in the Workspace Azure Key Vault. A connection references the credentials from the key vault storage location for further use. You won't need to directly deal with the credentials after they are stored in the key vault. You have the option to store the credentials in the YAML file. A CLI command or SDK can override them. We recommend that you **avoid** credential storage in a YAML file, because a security breach could lead to a credential leak.
 
 ## Create a Snowflake DB connection
 
 # [CLI: Username/password](#tab/cli-username-password)
-This YAML script creates a Snowflake DB connection. Be sure to update the appropriate values:
+This YAML file creates a Snowflake DB connection. Be sure to update the appropriate values:
 
 ```yaml
 # my_snowflakedb_connection.yaml
@@ -56,7 +56,7 @@ credentials:
 
 Create the Azure Machine Learning datastore in the CLI:
 
-### Option 1: Use the username and password in a YAML script
+### Option 1: Use the username and password in YAML file
 
 ```azurecli
 az ml connection create --file my_snowflakedb_connection.yaml
@@ -70,7 +70,7 @@ az ml connection create --file my_snowflakedb_connection.yaml --set credentials.
 
 # [Python SDK: username/ password](#tab/sdk-username-password)
 
-### Option 1: Load the connection in a YAML script
+### Option 1: Load connection from YAML file
 
 ```python
 from azure.ai.ml import MLClient, load_workspace_connection
@@ -83,7 +83,6 @@ wps_connection.credentials.password="XXXXXXXX"
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ```
----
 
 ### Option 2: Use WorkspaceConnection() in a Python script
 
@@ -103,6 +102,8 @@ credentials= UsernamePasswordConfiguration(username="XXXXX", password="XXXXXX")
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ```
+
+---
 
 ## Create an Azure SQL DB connection
 
@@ -125,15 +126,15 @@ credentials:
     password: <password> # add the sql database password here or leave this blank and type in CLI command line
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Azure Machine Learning connection in the CLI:
 
-### Option 1: Use the username/ password in a YAML script
+### Option 1: Use the username / password from YAML file
 
 ```azurecli
 az ml connection create --file my_sqldb_connection.yaml
 ```
 
-### Option 2: Override the username and password in the YAML file
+### Option 2: Override the username and password in YAML file
 
 ```azurecli
 az ml connection create --file my_sqldb_connection.yaml --set credentials.username="XXXXX" credentials.password="XXXXX" 
@@ -141,7 +142,7 @@ az ml connection create --file my_sqldb_connection.yaml --set credentials.userna
 
 # [Python SDK: username/ password](#tab/sdk-sql-username-password)
 
-### Option 1: Load the connection in a YAML script
+### Option 1: Load connection from YAML file
 
 ```python
 from azure.ai.ml import MLClient, load_workspace_connection
@@ -154,7 +155,6 @@ wps_connection.credentials.password="XXXXXxXXX"
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ```
----
 
 ### Option 2: Using WorkspaceConnection()
 
@@ -174,6 +174,8 @@ credentials= UsernamePasswordConfiguration(username="XXXXX", password="XXXXXX")
 ml_client.connections.create_or_update(workspace_connection=wps_connection)
 
 ```
+
+---
 
 ## Create Amazon S3 connection
 
@@ -195,7 +197,7 @@ credentials:
     secret_access_key: XxXxXxXXXXXXXxXxXxxXxxXXXXXXXXxXxxXXxXXXXXXXxxxXxXXxXXXXXxXXxXXXxXxXxxxXXxXXxXXXXXxXxxXX # add access key secret
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Azure Machine Learning connection in the CLI:
 
 ```azurecli
 az ml connection create --file my_s3_connection.yaml
@@ -203,7 +205,7 @@ az ml connection create --file my_s3_connection.yaml
 
 # [Python SDK: Access key](#tab/sdk-s3-access-key)
 
-### Option 1: Load the connection in a YAML script
+### Option 1: Load connection from YAML file
 
 ```python
 from azure.ai.ml import MLClient, load_workspace_connection
