@@ -80,31 +80,21 @@ In this example, you need to be wary of security risks. Assume you assign a poli
    Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three now have green checkmarks beneath them, while storage accounts two, four, and five now have red warning signs beneath them.
 :::image-end:::
 
-
-The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total
-resources_. _Total resources_ include **Compliant**, **Non-compliant**,
-**Exempt**, and **Conflicting** resources. The overall compliance numbers are the sum of distinct
-resources that are **Compliant**, **Exempt**, and **Unknown** divided by the sum of all distinct resources. In the
-image below, there are 20 distinct resources that are applicable and only one is **Non-compliant**.
-The overall resource compliance is 95% (19 out of 20).
-
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot of policy compliance details from Compliance page." border="false":::
-
-> [!NOTE]
-> Regulatory Compliance in Azure Policy is a Preview feature. Compliance properties from SDK and
-> pages in portal are different for enabled initiatives. For more information, see
-> [Regulatory Compliance](../concepts/regulatory-compliance.md)
-
 ### Compliance rollup
 
-There are several ways to view aggregated compliance results:
+Compliance state is determined per-resource, per-policy assignment. However, we often need a big-picture view of the state of the environment, which is where aggregate compliance comes into play.
 
-| Aggregate scope | Factors determining resulting compliance state |
+There are several ways to view aggregated compliance results in the portal:
+
+| Aggregate compliance view | Factors determining compliance state |
 | --- | --- |
-| Initiative | All policies within |
-| Initiative group or control | All policies within  |
-| Policy | All applicable resources |
+| Scope | All policies within the selected scope |
+| Initiative | All policies within the initiative |
+| Initiative group or control | All policies within the group or control |
+| Policy  | All applicable resources |
 | Resource | All applicable policies |
+
+#### Comparing different compliance states
 
 So how is the aggregate compliance state determined if multiple resources or policies have different compliance states themselves? This is done by ranking each compliance state so that one "wins" over another in this situation. The rank order is:
 1. Non-compliant
@@ -113,8 +103,31 @@ So how is the aggregate compliance state determined if multiple resources or pol
 1. Exempted
 1. Unknown (preview)
 
+> [!NOTE]
+> [Not started](#not-started) and [not registered](#not-registered) are not considered in compliance rollup calculations.
+
 This means that if there are both non-compliant and compliant states, the rolled up aggregate would be non-compliant, and so on. Let's look at an example:
 
 Assume an initiative contains 10 policies, and a resource is exempt from one policy but compliant to the remaining nine. Because a compliant state has a higher rank than an exempted state, the resource would register as compliant in the rolled-up summary of the initiative. So, a resource will only show as exempt for the entire initiative if it's exempt from, or has unknown compliance to, every other single applicable policy in that initiative. On the other extreme, if the resource is non-compliant to at least one applicable policy in the initiative, it will have an overall compliance state of non-compliant, regardless of the remaining applicable policies.
+
+#### Compliance percentage 
+
+The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total resources_. _Total resources_ include **Compliant**, **Non-compliant**,
+**Exempt**, and **Conflicting** resources. The overall compliance numbers are the sum of distinct
+resources that are **Compliant**, **Exempt**, and **Unknown** divided by the sum of all distinct resources. 
+
+```text
+overall compliance % = (compliant + exempt + unknown)  / (compliant + non-compliant + exempt + conflicting)
+```
+
+In the image below, there are 20 distinct resources that are applicable and only one is **Non-compliant**.
+The overall resource compliance is 95% (19 out of 20).
+
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot of policy compliance details from Compliance page." border="false":::
+
+> [!NOTE]
+> Regulatory Compliance in Azure Policy is a Preview feature. Compliance properties from SDK and
+> pages in portal are different for enabled initiatives. For more information, see
+> [Regulatory Compliance](../concepts/regulatory-compliance.md)
 
 ## Next steps
