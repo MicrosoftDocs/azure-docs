@@ -7,9 +7,9 @@ ms.topic: conceptual
 
 # Azure Policy compliance states
 
-When initiative or policy definitions are assigned, Azure Policy will determine which resources are [applicable](./policy-applicability.md) then evaluate those which have not been [excluded](./assignment-structure.md#excluded-scopes). Evaluation yields **compliance states** based on conditions in the policy rule and each resources' adherence to those requirements. 
-
 ## How compliance works
+
+When initiative or policy definitions are assigned, Azure Policy will determine which resources are [applicable](./policy-applicability.md) then evaluate those which have not been [excluded](./assignment-structure.md#excluded-scopes). Evaluation yields **compliance states** based on conditions in the policy rule and each resources' adherence to those requirements. 
 
 ### Available compliance states
 
@@ -80,19 +80,6 @@ In this example, you need to be wary of security risks. Assume you assign a poli
    Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three now have green checkmarks beneath them, while storage accounts two, four, and five now have red warning signs beneath them.
 :::image-end:::
 
-### Other compliance states
-
-Besides **Compliant** and **Non-compliant**, policies and resources have four other states:
-
-- **Exempt**: The resource is in scope of an assignment, but has a
-  [defined exemption](../concepts/exemption-structure.md).
-- **Conflicting**: Two or more policy definitions exist with conflicting rules. For example, two
-  definitions append the same tag with different values.
-- **Not started**: The evaluation cycle hasn't started for the policy or resource.
-- **Not registered**: The Azure Policy Resource Provider hasn't been registered or the account
-  logged in doesn't have permission to read compliance data.
-
-Azure Policy relies on several factors to determine whether a resource is considered [applicable](../concepts/policy-applicability.md), then to determine its compliance state.
 
 The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total
 resources_. _Total resources_ include **Compliant**, **Non-compliant**,
