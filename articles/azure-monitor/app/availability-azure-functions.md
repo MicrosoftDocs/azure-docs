@@ -13,7 +13,7 @@ This article explains how to review TrackAvailability() test results in the Azur
 > [!div class="checklist"]
 > - [Azure subscription](https://azure.microsoft.com/free) and user account with the ability to create and delete resources
 > - [Workspace-based Application Insights resource](create-workspace-resource.md)
-> - [Azure Functions app](../../azure-functions/functions-overview.md#introduction-to-azure-functions) running [TrackAvailability()](https://learn.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) with your own business logic.
+> - Custom [Azure Functions app](../../azure-functions/functions-overview.md#introduction-to-azure-functions) running [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) with your own business logic
 
 ## Check availability
 
