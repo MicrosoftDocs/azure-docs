@@ -172,8 +172,7 @@ az vm extension set \
   }'
 ```
 
-<a href="troubleshoot-and-support"></a>
-## Troubleshoot issues
+## <a name="troubleshoot-and-support"></a> Troubleshoot issues
 
 Here are some suggestions for how to troubleshoot deployment issues.
 
