@@ -148,7 +148,7 @@ And the corresponding JSON:
 
 ## Example 2
 
-You want to allow traffic only from the US using the GeoMatch operator and still have the managed rules apply:
+You want to allow traffic only from the United States using the GeoMatch operator and still have the managed rules apply:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -207,7 +207,7 @@ And the corresponding JSON:
 
 You want to block all requests from IP addresses in the range 198.168.5.0/24.
 
-In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 10.
+In this example, you block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 10.
 
 Logic: p
 
@@ -266,7 +266,7 @@ Corresponding CRS rule:
 
 ## Example 4
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This configuration ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
 
 Logic: p **and** q
 
@@ -509,7 +509,7 @@ Corresponding JSON:
 
 ## Example 7
 
-It is not uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on this, please see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
+It isn't uncommon to see Azure Front Door deployed in front of Application Gateway. In order to make sure the traffic received by Application Gateway comes from the Front Door deployment, the best practice is to check if the `X-Azure-FDID` header contains the expected unique value.  For more information on securing access to your application using Azure Front Door, see [How to lock down the access to my backend to only Azure Front Door](../../frontdoor/front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)
 
 Logic: **not** p
 
