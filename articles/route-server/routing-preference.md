@@ -16,6 +16,9 @@ Azure Route Server enables dynamic routing between network virtual appliances (N
 
 When **branch-to-branch** is enabled and Route Server learns multiple routes across site-to-site (S2S) VPN, ExpressRoute and SD-WAN NVAs, for the same on-premises destination route prefix, users can now configure connection preferences to influence Route Server route selection.
 
+> [!IMPORTANT]
+> Routing preference is only available for Route Servers deployed on or after April 7th, 2023. Support for existing Route Servers, deployed before April 7th 2023, will be backfilled at a later date. For any questions, [please open a support request in the Azure Portal](http://aka.ms/azsupt).
+
 ## Routing preference configuration
 
 When Route Server has multiple routes to an on-premises destination prefix, Route Server selects the best route(s) in order of preference, as follows:
