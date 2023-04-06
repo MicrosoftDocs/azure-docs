@@ -4,7 +4,7 @@ description: Describes how to deploy a web application to Azure Spring Apps.
 author: karlerickson
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 04/05/2023
+ms.date: 04/06/2023
 ms.author: rujche
 ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022, engagement-fy23
 ---
@@ -73,7 +73,7 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 Create variables to hold the resource names. Be sure to replace the placeholders with your own values.
 
-```azurecli-interactive
+```azurecli
 RESOURCE_GROUP=<resource-group-name>
 LOCATION=<location>
 POSTGRESQL_SERVER=<server-name>
@@ -89,37 +89,37 @@ Use the following steps to create a new resource group.
 
 1. Use the following command to sign in to Azure CLI.
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    ```
 
 1. Use the following command to set the default location.
 
-   ```azurecli-interactive
+   ```azurecli
    az configure --defaults location=${LOCATION}
    ```
 
 1. Set the default subscription. Use the following command to first list all available subscriptions:
 
-   ```azurecli-interactive
+   ```azurecli
    az account list --output table
    ```
 
 1. Choose a subscription and set it as the default subscription with the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az account set --subscription <subscription-ID>
    ```
 
 1. Use the following command to create a resource group.
 
-   ```azurecli-interactive
+   ```azurecli
    az group create --resource-group ${RESOURCE_GROUP}
    ```
 
 1. Use the following command to set the newly created resource group as the default resource group.
 
-   ```azurecli-interactive
+   ```azurecli
    az configure --defaults group=${RESOURCE_GROUP}
    ```
 
@@ -129,13 +129,13 @@ Azure Spring Apps is used to host the Spring web app. Create an Azure Spring App
 
 1. Use the following command to create an Azure Spring Apps service instance.
 
-   ```azurecli-interactive
+   ```azurecli
    az spring create --name ${AZURE_SPRING_APPS_NAME}
    ```
 
 1. Use the following command to create an application in the Azure Spring Apps instance.
 
-   ```azurecli-interactive
+   ```azurecli
    az spring app create \
        --service ${AZURE_SPRING_APPS_NAME} \
        --name ${APP_NAME} \
@@ -149,7 +149,7 @@ The Spring web app uses H2 for the database in localhost, and Azure Database for
 
 Use the following command to create a PostgreSQL instance:
 
-```azurecli-interactive
+```azurecli
 az postgres flexible-server create \
     --name ${POSTGRESQL_SERVER} \
     --database-name ${POSTGRESQL_DB} \
@@ -169,19 +169,19 @@ After the application instance and the PostgreSQL instance are created, the appl
 
 1. If you're using Service Connector for the first time, use the following command to register the Service Connector resource provider.
 
-   ```azurecli-interactive
+   ```azurecli
    az provider register --namespace Microsoft.ServiceLinker
    ```
 
 1. Use the following command to achieve a passwordless connection:
 
-   ```azurecli-interactive
+   ```azurecli
    az extension add --name serviceconnector-passwordless --upgrade
    ```
 
 1. Use the following command to create a service connection between the application and the PostgreSQL database:
 
-   ```azurecli-interactive
+   ```azurecli
    az spring connection create postgres-flexible \
        --resource-group ${RESOURCE_GROUP} \
        --service ${AZURE_SPRING_APPS_NAME} \
@@ -198,7 +198,7 @@ After the application instance and the PostgreSQL instance are created, the appl
 
 1. After the connection is created, use the following command to validate the connection:
 
-   ```azurecli-interactive
+   ```azurecli
    az spring connection validate \
        --resource-group ${RESOURCE_GROUP} \
        --service ${AZURE_SPRING_APPS_NAME} \
@@ -251,7 +251,7 @@ Now that the cloud environment is prepared, the application is ready to deploy.
 
 1. Use the following command to deploy the app:
 
-   ```azurecli-interactive
+   ```azurecli
    az spring app deploy \
        --service ${AZURE_SPRING_APPS_NAME} \
        --name ${APP_NAME} \
@@ -262,7 +262,7 @@ Now that the cloud environment is prepared, the application is ready to deploy.
 
 1. If there's a problem when you deploy the app, check the app's log to investigate by using the following command:
 
-   ```azurecli-interactive
+   ```azurecli
    az spring app logs \
        --service ${AZURE_SPRING_APPS_NAME} \
        --name ${APP_NAME}
@@ -272,7 +272,7 @@ Now that the cloud environment is prepared, the application is ready to deploy.
 
 1. To avoid unnecessary costs, use the following command to delete the resource group.
 
-   ```azurecli-interactive
+   ```azurecli
    az group delete --name ${RESOURCE_GROUP}
    ```
 
