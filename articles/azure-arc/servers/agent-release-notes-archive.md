@@ -16,6 +16,26 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Known issues
 - Bug fixes
 
+## Version 1.24 - November 2022
+
+### New features
+
+- `azcmagent logs` improvements:
+  - Only the most recent log file for each component is collected by default. To collect all log files, use the new `--full` flag.
+  - Journal logs for the agent services are now collected on Linux operating systems
+  - Logs from extensions are now collected
+- Agent telemetry is no longer sent to `dc.services.visualstudio.com`. You may be able to remove this URL from any firewall or proxy server rules if no other applications in your environment require it.
+- Failed extension installs can now be retried without removing the old extension as long as the extension settings are different
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Azure Update Management Center extension on Linux to reduce downtime during update operations
+
+### Fixed
+
+- Improved logic for detecting machines running on Azure Stack HCI to reduce false positives
+- Auto-registration of required resource providers only happens when they are unregistered
+- Agent will now detect drift between the proxy settings of the command line tool and background services
+- Fixed a bug with proxy bypass feature that caused the agent to incorrectly use the proxy server for bypassed URLs
+- Improved error handling when extensions don't download successfully, fail validation, or have corrupt state files
+
 ## Version 1.23 - October 2022
 
 ### New features
