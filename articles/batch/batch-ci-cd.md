@@ -11,7 +11,7 @@ ms.topic: how-to
 
 Azure DevOps tools can automate building and testing Azure Batch high performance computing (HPC) solutions. [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) provides modern continuous integration (CI) and continuous deployment (CD) processes for building, deploying, testing, and monitoring software. These processes accelerate your software delivery, allowing you to focus on your code rather than support infrastructure and operations.
 
-This article explains how to set up CI/CD processes by using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) with Azure Resource Manager templates (ARM templates) to deploy HPC solutions on Azure Batch.
+This article shows how to set up CI/CD processes by using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) with Azure Resource Manager templates (ARM templates) to deploy HPC solutions on Azure Batch.
 
 ## Prerequisites
 
@@ -28,6 +28,9 @@ This example creates a build and release pipeline to deploy an Azure Batch infra
 ![Diagram showing the flow of deployment in the pipeline.](media/batch-ci-cd/DeploymentFlow.png)
 
 The example uses several ARM templates and existing binaries to deploy the solution. You can copy or download these examples and push them to an Azure DevOps repository.
+
+>[!IMPORTANT]
+>This article deploys Windows software on Windows-based Batch node pools. Azure Pipelines, ARM templates, and Batch also fully support Linux and macOS software and nodes.
 
 ### Understand the ARM templates
 
@@ -353,16 +356,15 @@ The [linked templates](/azure/azure-resource-manager/templates/linked-templates)
 
 The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
 
->[!IMPORTANT]
-> To run the release, the Pipeline agent pools for your Azure DevOps organization must be Windows machines, which is the default.
-
 #### Set up the pipeline
 
 1. In your Azure DevOps project, select **Pipelines** > **Releases** in the left navigation.
 
-1. On the **New release pipeline** page, select **Edit**.
+1. On the next screen, select **New** > **New release pipeline**.
 
-1. On the next screen, select the **New release pipeline** name and rename the pipeline to something relevant for your pipeline, such as *Deploy Azure Batch + Pool*.
+1. On the **Select a template** screen, select **Empty job**, and then close the **Stage** screen.
+
+1. Select **New release pipeline** at the top of the page and rename the pipeline to something relevant for your pipeline, such as *Deploy Azure Batch + Pool*.
 
    ![Screenshot of the initial release pipeline.](media/batch-ci-cd/rename.png)
 
@@ -400,18 +402,29 @@ The following example demonstrates how to deploy an infrastructure with template
 
 #### Add tasks
 
-Select the **Tasks** tab, and create six tasks to:
+1. Select the **Tasks** tab, and then select **Agent job**.
 
-- Download the zipped ffmpeg files.
-- Deploy a storage account to host the nested ARM templates.
-- Copy the ARM templates to the Storage account.
-- Deploy the Batch account and required dependencies.
-- Create an application in the Batch account.
-- Upload the application package to the Batch account.
+1. On the **Agent job** screen, under **Agent pool**, select **Azure Pipelines**.
 
-For each new task, select the **+** symbol next to **Agent job** in the left pane. Search for and select the task in the right pane, configure the task, and then select **Add**.
+1. Under **Agent Specification**, select **windows-latest**.
 
-![Screenshot showing the tasks used to release the HPC Application to Azure Batch.](media/batch-ci-cd/release-pipeline.png)
+1. Create six tasks to:
+
+   - Download the zipped ffmpeg files.
+   - Deploy a storage account to host the nested ARM templates.
+   - Copy the ARM templates to the Storage account.
+   - Deploy the Batch account and required dependencies.
+   - Create an application in the Batch account.
+   - Upload the application package to the Batch account.
+
+   For each new task:
+
+   1. Select the **+** symbol next to **Agent job** in the left pane.
+   1. Search for and select the task in the right pane.
+   1. Configure the task.
+   1. Select **Add**.
+
+   ![Screenshot showing the tasks used to release the HPC Application to Azure Batch.](media/batch-ci-cd/release-pipeline.png)
 
 1. Add the **Download Pipeline Artifacts** task and set the following properties:
    - **Display name:** *Download ApplicationPackage to Agent*
@@ -430,7 +443,7 @@ For each new task, select the **+** symbol next to **Agent job** in the left pan
    - **Template**: *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json*
    - **Override template parameters**: `-accountName $(storageAccountName)`
 
-1. Upload the artifacts from source control into the storage account by using Azure Pipelines. As part of this Azure Pipelines task, the storage account container URI and SAS Token can be output to a variable in Azure Pipelines, so they can be reused throughout this agent phase.
+1. Upload the artifacts from source control into the storage account. As part of this Azure Pipelines task, the storage account container URI and SAS Token can be output to a variable in Azure Pipelines, so they can be reused throughout this agent phase.
 
    Add the **Azure File Copy** task and set the following properties:
    - **Source:** *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/*
@@ -439,7 +452,7 @@ For each new task, select the **+** symbol next to **Agent job** in the left pan
    - **RM Storage Account**: *$(storageAccountName)*
    - **Container Name**: *templates*
 
-1. Deploy the orchestrator template. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are either held in the variables section of the release definition, or were set from another Azure Pipelines task, for example the AzureBlob File Copy task.
+1. Deploy the orchestrator template to create the Batch account and pool. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are either held in the variables section of the release definition, or were set from another Azure Pipelines task, for example the AzureBlob File Copy task.
 
    Add the **ARM Template deployment: Resource Group scope** task and set the following properties:
    - **Display name:** *Deploy Azure Batch*
@@ -452,7 +465,7 @@ For each new task, select the **+** symbol next to **Agent job** in the left pan
 
    A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policy set, it can download secrets from Key Vault and be used as a variable in your pipeline. The name of the secret is set with the associated value. For example, you could reference a secret of **sshPassword** with *$(sshPassword)* in the release definition.
 
-1. The next task calls Azure CLI to create an application in Azure Batch and upload associated packages.
+1. Call Azure CLI to create an application in Azure Batch and upload associated packages.
 
    Add the **Azure CLI** task and set the following properties:
    - **Display name:** *Create application in Azure Batch account*
@@ -460,7 +473,7 @@ For each new task, select the **+** symbol next to **Agent job** in the left pan
    - **Script Location**: Select **Inline script**.
    - **Inline Script**: `az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)`
 
-1. The next task calls Azure CLI to upload associated packages to the application, in this case, the ffmpeg files.
+1. Call Azure CLI to upload associated packages to the application, in this case the ffmpeg files.
 
    Add the **Azure CLI** task and set the following properties:
    - **Display name:** *Upload package to Azure Batch account*
@@ -475,9 +488,9 @@ For each new task, select the **+** symbol next to **Agent job** in the left pan
 
 1. When you finish creating all the steps, select **Save** at the top of the pipeline page, and then select **OK**.
 
-1. Select **Release** at the top of the page, and then select **Create** on the **Create a new release** screen.
+1. Select **Create release** at the top of the page.
 
-1. To view the release status, select the link to the new release at the top of the pipeline page.
+1. To view the release status, select the link to the new release.
 
 1. To view the live output from the agent, select the **Logs** button underneath your environment.
 
