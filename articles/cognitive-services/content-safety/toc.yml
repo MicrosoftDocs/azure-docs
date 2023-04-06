@@ -1,3 +1,4 @@
+items:
 - name: Content Safety Documentation
   href: index.yml
 - name: Overview
@@ -5,7 +6,6 @@
   items:
   - name: What is Content Safety?
     href: overview.md
-  - name: Language support
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-safety
     expanded: true
@@ -18,7 +18,9 @@
 - name: How-to guides
   items:
   - name: Moderate content
-    items:
+    href: tbd
+  - name: Use a custom blocklist
+    href: how-to/use-custom-blocklist.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Enterprise readiness
@@ -34,7 +36,7 @@
 - name: Reference
   items:
   - name: Content Safety REST API
-    href: 
+    href: tbd
 - name: Resources
   items:
   - name: Enterprise readiness
