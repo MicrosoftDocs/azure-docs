@@ -33,12 +33,13 @@ Optimization for the following images is supported:
 
   
 
-||| 
-|--|--|
-| OS Type|Windows/Linux | 
-| Partition|MBR/GPT| 
-|Hyper-V|Gen1/Gen2| 
-|OS State|Generalized| 
+
+|   |   |
+|---|---|
+|OS Type| Windows/Linux |
+| Partition | MBR/GPT |
+| Hyper-V | Gen1/Gen2 |
+| OS State | Generalized |
 
   
 
