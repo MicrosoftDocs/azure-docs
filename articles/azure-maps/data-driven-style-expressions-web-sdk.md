@@ -35,20 +35,20 @@ Expressions are represented as JSON arrays. The first element of an expression i
 
 The Azure Maps Web SDK supports many types of expressions. Expressions can be used on their own or in combination with other expressions.
 
-| Type of expressions | Description |
-|---------------------|-------------|
-| [Aggregate expression](#aggregate-expression) | An expression that defines a calculation that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. |
-| [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
-| [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
-| [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
-| [Data expressions](#data-expressions) | Provides access to the property data in a feature. |
-| [Interpolate and Step expressions](#interpolate-and-step-expressions) | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
-| [Layer specific expressions](#layer-specific-expressions) | Special expressions that are only applicable to a single layer. |
-| [Math expressions](#math-expressions) | Provides mathematical operators to perform data-driven calculations within the expression framework. |
-| [String operator expressions](#string-operator-expressions) | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
-| [Type expressions](#type-expressions) | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
-| [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions store the results of a calculation in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
-| [Zoom expression](#zoom-expression) | Retrieves the current zoom level of the map at render time. |
+| Type of expressions       | Description |
+|---------------------------|-------------|
+| [Aggregate expression]    | An expression that defines a calculation that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. |
+| [Boolean expressions]     | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
+| [Color expressions]       | Color expressions make it easier to create and manipulate color values. |
+| [Conditional expressions] | Conditional expressions provide logic operations that are like if-statements. |
+| [Data expressions]        | Provides access to the property data in a feature. |
+| [Interpolate and Step expressions] | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
+| [Layer specific expressions] | Special expressions that are only applicable to a single layer. |
+| [Math expressions]        | Provides mathematical operators to perform data-driven calculations within the expression framework. |
+| [String operator expressions] | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
+| [Type expressions]        | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
+| [Variable binding expressions] | Variable binding expressions store the results of a calculation in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
+| [Zoom expression]         | Retrieves the current zoom level of the map at render time. |
 
 All examples in this document use the following feature to demonstrate different ways in which the different types of expressions can be used.
 
@@ -432,8 +432,8 @@ Type expressions provide tools for testing and converting different data types l
 | `['string', value]` \| `["string", value, fallback: value, fallback: value, ...]` | string | Asserts that the input value is a string. If multiple values are provided, each one is evaluated in order until a string is obtained. If none of the inputs are strings, the expression is an error. |
 | `['to-boolean', value]` | boolean | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise its `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converts the input value to a color. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, it's converted to a number using the [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
-| `['to-string', value]` | string | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, it's converted to a string using the [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number function of the ECMAScript Language Specification. If the input is a color, it's converted to CSS RGBA color string `"rgba(r,g,b,a)"`. Otherwise, the input is converted to a string using the [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) function of the ECMAScript Language Specification. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, it's converted to a number using the [ToNumber] string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
+| `['to-string', value]` | string | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, it's converted to a string using the [ToString] number function of the ECMAScript Language Specification. If the input is a color, it's converted to CSS RGBA color string `"rgba(r,g,b,a)"`. Otherwise, the input is converted to a string using the [JSON.stringify] function of the ECMAScript Language Specification. |
 | `['typeof', value]` | string | Returns a string describing the type of the given value. |
 
 > [!TIP]
@@ -531,7 +531,7 @@ There are three types of interpolation methods that can be used in an `interpola
 
 - `['linear']` -  Interpolates linearly between the pair of stops.
 - `['exponential', base]` - Interpolates exponentially between the stops. The `base` value controls the rate at which the output increases. Higher values make the output increase more towards the high end of the range. A `base` value close to 1 produces an output that increases more linearly.
-- `['cubic-bezier', x1, y1, x2, y2]` - Interpolates using a [cubic Bezier curve](https://developer.mozilla.org/docs/Web/CSS/timing-function) defined by the given control points.
+- `['cubic-bezier', x1, y1, x2, y2]` - Interpolates using a [cubic Bezier curve] defined by the given control points.
 
 Here's an example of what these different types of interpolations look like.
 
@@ -578,7 +578,7 @@ The following image demonstrates how the colors are chosen for the above express
 
 ### Step expression
 
-A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function](https://mathworld.wolfram.com/PiecewiseConstantFunction.html) defined by stops.
+A `step` expression can be used to calculate discrete, stepped result values by evaluating a [piecewise-constant function] defined by stops.
 
 The following pseudocode defines the structure of the `step` expression.
 
@@ -624,7 +624,7 @@ Special expressions that only apply to specific layers.
 
 ### Heat map density expression
 
-A heat map density expression retrieves the heat map density value for each pixel in a heat map layer and is defined as `['heatmap-density']`. This value is a number between `0` and `1`. It's used in combination with a `interpolation` or `step` expression to define the color gradient used to colorize the heat map. This expression can only be used in the [color option](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) of the heat map layer.
+A heat map density expression retrieves the heat map density value for each pixel in a heat map layer and is defined as `['heatmap-density']`. This value is a number between `0` and `1`. It's used in combination with a `interpolation` or `step` expression to define the color gradient used to colorize the heat map. This expression can only be used in the [color option] of the heat map layer.
 
 > [!TIP]
 > The color at index 0, in an interpolation expression or the default color of a step color, defines the color of the area where there's no data. The color at index 0 can be used to define a background color. Many prefer to set this value to transparent or a semi-transparent black.
@@ -664,11 +664,11 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-For more information, see the [Add a heat map layer](map-add-heat-map-layer.md) documentation.
+For more information, see the [Add a heat map layer] documentation.
 
 ### Line progress expression
 
-A line progress expression retrieves the progress along a gradient line in a line layer and is defined as `['line-progress']`. This value is a number between 0 and 1. It's used in combination with an `interpolation` or `step` expression. This expression can only be used with the [strokeGradient option](/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) of the line layer.
+A line progress expression retrieves the progress along a gradient line in a line layer and is defined as `['line-progress']`. This value is a number between 0 and 1. It's used in combination with an `interpolation` or `step` expression. This expression can only be used with the [strokeGradient option] of the line layer.
 
 > [!NOTE]
 > The `strokeGradient` option of the line layer requires the `lineMetrics` option of the data source to be set to `true`.
@@ -693,7 +693,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[See live example](map-add-line-layer.md#line-stroke-gradient)
+For an interactive working example, see [Add a stroke gradient to a line].
 
 ### Text field format expression
 
@@ -756,10 +756,10 @@ This layer renders the point feature as shown in the following image:
 
 ### Number format expression
 
-The `number-format` expression can only be used with the `textField` option of a symbol layer. This expression converts the provided number into a formatted string. This expression wraps JavaScript's [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function and supports the following set of options.
+The `number-format` expression can only be used with the `textField` option of a symbol layer. This expression converts the provided number into a formatted string. This expression wraps JavaScript's [Number.toLocalString] function and supports the following set of options.
 
-- `locale` - Specify this option for converting numbers to strings in a way that aligns with the specified language. Pass a [BCP 47 language tag](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) into this option.
-- `currency` - To convert the number into a string representing a currency. Possible values are the [ISO 4217 currency codes](https://en.wikipedia.org/wiki/ISO_4217), such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
+- `locale` - Specify this option for converting numbers to strings in a way that aligns with the specified language. Pass a [BCP 47 language tag] into this option.
+- `currency` - To convert the number into a string representing a currency. Possible values are the [ISO 4217 currency codes], such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
 - `'min-fraction-digits'` - Specifies the minimum number of decimal places to include in the string version of the number.
 - `'max-fraction-digits'` - Specifies the maximum number of decimal places to include in the string version of the number.
 
@@ -860,7 +860,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 };
 ```
 
-[See live example](map-add-heat-map-layer.md#consistent-zoomable-heat-map)
+For an interactive working example, see [Consistent zoomable heat map].
 
 ## Variable binding expressions
 
@@ -916,7 +916,7 @@ See the following articles for more code samples that implement expressions:
 > [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Add a heat map layer](map-add-heat-map-layer.md)
+> [Add a heat map layer]
 
 Learn more about the layer options that support expressions:
 
@@ -934,3 +934,36 @@ Learn more about the layer options that support expressions:
 
 > [!div class="nextstepaction"]
 > [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+
+<!---------   Internal Links     --------------->
+[Aggregate expression]: #aggregate-expression
+[Boolean expressions]: #boolean-expressions
+[Color expressions]: #color-expressions
+[Conditional expressions]: #conditional-expressions
+[Data expressions]: #data-expressions
+[Interpolate and Step expressions]: #interpolate-and-step-expressions
+[Layer specific expressions]: #layer-specific-expressions
+[Math expressions]: #math-expressions
+[String operator expressions]: #string-operator-expressions
+[Type expressions]: #type-expressions
+[Variable binding expressions]: #variable-binding-expressions
+[Zoom expression]: #zoom-expression
+
+<!---------   learn.microsoft.com links     --------------->
+[Add a heat map layer]: map-add-heat-map-layer.md
+[Add a stroke gradient to a line]: map-add-line-layer.md#line-stroke-gradient
+[Consistent zoomable heat map]: map-add-heat-map-layer.md#consistent-zoomable-heat-map
+
+<!---------   External Links     --------------->
+[BCP 47 language tag]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation
+[cubic Bezier curve]: https://developer.mozilla.org/docs/Web/CSS/timing-function
+[ISO 4217 currency codes]: https://en.wikipedia.org/wiki/ISO_4217
+[JSON.stringify]: https://tc39.github.io/ecma262/#sec-json.stringify
+[Number.toLocalString]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString
+[piecewise-constant function]: https://mathworld.wolfram.com/PiecewiseConstantFunction.html
+[ToNumber]: https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type
+[ToString]: https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type
+
+<!---------   JavaScript API Links     --------------->
+[color option]: /javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color
+[strokeGradient option]: /javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient
