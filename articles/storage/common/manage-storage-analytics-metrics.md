@@ -260,4 +260,4 @@ Once you've added charts to your dashboard, you can further customize them as de
 
 - To learn more about Storage Analytics, see [Storage Analytics](storage-analytics.md) for Storage Analytics.
 - [Configure Storage Analytics logs](manage-storage-analytics-logs.md).
-- Learn more about the the metrics schema. See [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema).
+- Learn more about the metrics schema. See [Storage Analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema).
