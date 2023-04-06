@@ -113,9 +113,9 @@ The following tables contain the ports you need to open for Azure Private 5G Cor
 |Port No.|In/Out|Port Scope|Required|Notes|
 |--|--|--|--|--|
 |UDP 123 (NTP)|Out|WAN|In some cases|This port is only required if you are using a local NTP server or internet-based server for ASE.|
-|UDP 53 (DNS)|Out|WAN|In some cases|Check Configure Domain Name System (DNS) servers section in Prepare to deploy a private mobile network - Azure Private 5G Core | Microsoft Learn.|
-|TCP 5985 (WinRM)|Out/In|LAN|Yes|Required for WinRM to connect ASE via PowerShell during AP5GC deployment. Commission an AKS cluster - Azure Private 5G Core | Microsoft Learn|
-|TCP 5986 (WinRM)|Out/In|LAN|Yes|Required for WinRM to connect ASE via PowerShell during AP5GC deployment. Commission an AKS cluster - Azure Private 5G Core | Microsoft Learn|
+|UDP 53 (DNS)|Out|WAN|In some cases| See [Configure Domain Name System (DNS) servers](#configure-domain-name-system-dns-servers). | Microsoft Learn.|
+|TCP 5985 (WinRM)|Out/In|LAN|Yes|Required for WinRM to connect ASE via PowerShell during AP5GC deployment.</br> See [Commission an AKS cluster](commission-cluster.md).  | Microsoft Learn|
+|TCP 5986 (WinRM)|Out/In|LAN|Yes|Required for WinRM to connect ASE via PowerShell during AP5GC deployment.</br> See [Commission an AKS cluster](commission-cluster.md). | Microsoft Learn|
 |UDP 67 (DHCP)|Out|LAN|Yes|
 |TCP 445 (SMB)|In|LAN|No|ASE for AP5GC does not require a local file server.|
 |TCP 2049 (NFS)|In|LAN|No|ASE for AP5GC does not require a local file server.|
