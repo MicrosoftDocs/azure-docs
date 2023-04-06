@@ -69,7 +69,7 @@ ms.date: 04/12/2023
 
    The map surface now shows fields from the target schema.
 
-## Create mapping between data types
+## Create mappings between data types
 
 1. On the map toolbar, select **Overview**.
 
@@ -82,6 +82,14 @@ ms.date: 04/12/2023
    | Zoom in | Double click on the map |
    | Zoom out | SHIFT + double click on the map |
    | Pan around | Drag the map |
+
+## Save your map
+
+
+## Test your map
+
+
+
 
 ## Known issues
 
