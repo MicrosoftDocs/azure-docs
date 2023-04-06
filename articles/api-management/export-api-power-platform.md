@@ -50,7 +50,7 @@ You can manage your custom connector in your Power Apps or Power Platform enviro
 1. Select the pencil (Edit) icon to edit and test the custom connector. 
 
 > [!IMPORTANT]
-> To call the API from the Power Apps test console, you need to configure a CORS policy in your API Management instance and create a policy in the custom connector to set an Origin header in HTTP requests. For more information, see [Enable CORS policies to test custom connector from Power Platform](enable-cors-power-platform.md).
+> To call the API from the Power Apps test console, you need to configure a CORS policy in your API Management instance and create a policy in the custom connector to set an Origin header in HTTP requests. For more information, see [Enable CORS policies for custom connector](enable-cors-power-platform.md).
 > 
 
 ## Update a custom connector
