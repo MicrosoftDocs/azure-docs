@@ -28,9 +28,9 @@ Policy assignments with `manual` effects are considered non-compliant under two 
 1. The policy definition has a default compliance state of non-compliant and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise.
 1. The resource has been attested as non-compliant. 
 
-When a resource is determined to be **non-compliant**, there are many possible reasons. To determine
-the reason a resource is **non-compliant** or to find the change responsible, see
-[Determine non-compliance](../how-to/determine-non-compliance.md).
+To determine
+the reason a resource is non-compliant or to find the change responsible, see
+[Determine non-compliance](../how-to/determine-non-compliance.md). To [remediate](./remediation-structure.md) non-compliant resources for `deployIfNotExists` and `modify` policies, see  [Remediate non-compliant resources with Azure Policy](../how-to/remediate-resources.md).
 
 ### Compliant
 
