@@ -16,7 +16,7 @@ ms.date: 04/06/2022
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-In this tutorial, you'll learn how to install the Microsoft Authenticator app and use it for the first time with Verified ID. You use the public end to end demo webapp to issue a verifiable credential to the Authenticator and present verifiable credentials from the Authenticator.
+In this tutorial, you learn how to install the Microsoft Authenticator app and use it for the first time with Verified ID. You use the public end to end demo webapp to issue a verifiable credential to the Authenticator and present verifiable credentials from the Authenticator.
 
 In this article, you learn how to:
 
@@ -94,7 +94,7 @@ Note the following.
 
 ## Present a verifiable credential
 
-In learning how to present a verifiable credential, you'll continue where you left off in the end to end demo. You present the True Identity verifiable credential to the demo webapp, so if you haven't gone through the steps for issuance, please do so before continuing.
+In learning how to present a verifiable credential, you continue where you left off in the end to end demo. You present the True Identity verifiable credential to the demo webapp, so if you haven't gone through the steps for issuance, please do so before continuing.
 
 1. If you're continuing where you left off, select **Access personalized portal** in the end to end demo webapp. If you have the True Identity verifiable credential in the Authenticator but closed the browser, then first select **I've been verified** in the [end to end](https://woodgroveemployee.azurewebsites.net/verification) demo webapp and then select **Access personalized portal**. A QR code is displayed in the webpage.
 1. Open your Microsoft Authenticator app
@@ -108,10 +108,10 @@ In learning how to present a verifiable credential, you'll continue where you le
 
 Note the following.
 
-- After you've scanned the QR code, the Authenticator will display who the verifying party is for the verifiable credential. In the above screenshots you can see that it is **True Identity** and that the issuance request comes from a verified domain **did.woodgrovedemo.com**. As a user, it is your choice if you trust this party and want to share your credential with them.
+- After you've scanned the QR code, the Authenticator will display who the verifying party is for the verifiable credential. In the above screenshots, you can see that it is **True Identity** and that the issuance request comes from a verified domain **did.woodgrovedemo.com**. As a user, it is your choice if you trust this party and want to share your credential with them.
 - If the presentation request does not match any of the verifiable credentials you have in the Authenticator, you get a message that you haven't the credentials requested.
 - If the presentation request matches multiple verifiable credentials you have in the Authenticator, you are asked to pick the one you want to share.
-- If you have an expired verifiable credential that matches the presentation request, you'll get a message that it's expired and you can't share the credentials requested.
+- If you have an expired verifiable credential that matches the presentation request, you get a message that it's expired and you can't share the credentials requested.
 
 ## Continue onboarding in the end to end demo
 
@@ -119,7 +119,7 @@ The end to end demo continues with onboarding you as a new employee to the Woodg
 
 ### Issue yourself a Woodgrove employee verifiable credential
 
-1. Select **Retrieve my Verified ID** in the browser. This will display a QR code in the webpage.
+1. Select **Retrieve my Verified ID** in the browser. This displays a QR code in the webpage.
 1. Press the **QR code symbol** in the top right corner to turn on the camera
 1. Scan the QR code and enter the pin code in the Authenticator and select **Next**. The pin code is shown in the browser page. 
 1. Select **Add** to add the verifiable credential card to the Authenticator wallet.
