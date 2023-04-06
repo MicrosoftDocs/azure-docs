@@ -9,9 +9,12 @@ ms.author: varundhawan
 ms.date: 4/1/2023
 ---
 
-# Query Performance Insight (Preview)
+# Query Performance Insight Preview
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
+> [!NOTE]
+> Query Performance Insight for PostgreSQL Flexible Server is currently in preview.
 
 Query Performance Insight provides intelligent query analysis for Azure Postgres Flexible server databases. It helps identify the top resource consuming and long-running queries in your workload. This helps you find the queries to optimize to improve overall workload performance and efficiently use the resource that you are paying for. Query Performance Insight helps you spend less time troubleshooting database performance by providing:
 
@@ -37,7 +40,7 @@ Query Performance Insight provides intelligent query analysis for Azure Postgres
 3. **[Log analytics workspace](howto-configure-and-access-logs.md)** is configured for storing 3 log categories including - PostgreSQL Sessions logs, PostgreSQL Query Store and Runtime and PostgreSQL Query Store Wait Statistics. To configure log analytics, refer [Log analytics workspace](howto-configure-and-access-logs.md#configure-diagnostic-settings).
 
 > [!NOTE]
-> The **Query Store data is not being transmitted to the log analytics workspace**. The PostgreSQL logs (Sessions data / Query Store Runtime / Query Store Wait Statistics) is not being sent to the log analytics workspace, which is necessary to use Query Performance Insight . To configure the logging settings for category PostgreSQL sessions and send the data to a log analytics workspace.
+> The **Query Store data is not being transmitted to the log analytics workspace**. The PostgreSQL logs (Sessions data / Query Store Runtime / Query Store Wait Statistics) is not being sent to the log analytics workspace, which is necessary to use Query Performance Insight. To configure the logging settings for category PostgreSQL sessions and send the data to a log analytics workspace.
 
 ## Using Query Performance Insight
 
