@@ -187,7 +187,7 @@ Version 2 of the Python programming model requires the following minimum version
 
 ## Enable v2 programming model
 
-The following application setting is required to run the v4 programming model while it is in preview: 
+The following application setting is required to run the v2 programming model while it is in preview: 
 - Name: `AzureWebJobsFeatureFlags`
 - Value: `EnableWorkerIndexing`
 
