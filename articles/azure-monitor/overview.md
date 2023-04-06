@@ -43,7 +43,7 @@ Azure Monitor achieves observability by correlating data from multiple pillars a
 
 ## High level architecture
 
-The following diagram gives a high-level view of Azure Monitor. 
+The following diagram gives a high-level view of Azure Monitor. Click on the diagram to show an even more detailed expanded version. 
 
 :::image type="content" source="media/overview/overview-2023-02.png" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/overview-2023-02-expanded.svg":::
 
@@ -80,8 +80,7 @@ Azure Monitor stores data in data stores for each of the pillars of observabilit
 
 :::image type="content" source="media/overview/data-platform-box.svg" alt-text="Diagram that shows an overview of Azure Monitor data platform." border="false" lightbox="media/overview/data-platform-blowup-type-2.svg":::
 
-
-Click on the picture to see a larger version of the data platform diagram in context.
+Click on the picture above for a to see the Data Platform in the context of the whole of Azure Monitor. 
 
 |Pillar of Observability/<br>Data Store|Description|
 |---------|---------|
