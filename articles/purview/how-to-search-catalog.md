@@ -40,7 +40,7 @@ Your keyword will be highlighted in the return results, so you can see where the
 
 The Microsoft Purview relevance engine sorts through all the matches and ranks them based on what it believes their usefulness is to a user. For example, a data consumer is likely more interested in a table curated by a data steward that matches on multiple keywords than an unannotated folder. Many factors determine an asset’s relevance score and the Microsoft Purview search team is constantly tuning the relevance engine to ensure the top search results have value to you.
 
-## Filtering results
+## Refine results
 
 If the top results don’t include the assets you're looking for, there are two ways you can filter results:
 
