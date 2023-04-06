@@ -313,7 +313,7 @@ The JSON response object has the same object graph as the asynchronous version. 
 
 For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">TypeScript sandbox here </a> and select **Run** to visualize its ease-of-use.
 
-## Run the container disconnected from the internet (authorization required)
+## Run the container disconnected from the internet
 
 [!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
 

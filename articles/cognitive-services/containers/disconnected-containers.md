@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 02/27/2022
+ms.date: 04/06/2023
 ms.author: aahi
 ---
 
@@ -25,9 +25,6 @@ Containers enable you to run Cognitive Services APIs in your own environment, an
   * [Key Phrase Extraction](../language-service/key-phrase-extraction/how-to/use-containers.md)
   * [Language Detection](../language-service/language-detection/how-to/use-containers.md)
 * [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md)
-
-Disconnected container usage is also available for the following Applied AI service:
-
 * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
 
 Before attempting to run a Docker container in an offline environment, make sure you know the steps to successfully download and use the container. For example:
@@ -65,16 +62,14 @@ Access is limited to customers that meet the following requirements:
     > * You will only see the option to purchase a commitment tier if you have been approved by Microsoft.
     > * Pricing details are for example only.
 
-    :::image type="content" source="media/offline-container-signup.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/offline-container-signup.png":::
-
 3. Select **Review + Create** at the bottom of the page. Review the information, and select **Create**.
 
 4. See the following documentation for steps on downloading and configuring the container for disconnected usage:
 
     * [Computer Vision - Read](../computer-vision/computer-vision-how-to-install-containers.md#run-the-container-disconnected-from-the-internet-authorization-required) 
     * [Language Understanding (LUIS)](../LUIS/luis-container-howto.md#run-the-container-disconnected-from-the-internet-authorization-required)
-    * [Text Translation (Standard)](../translator/containers/translator-how-to-install-container.md#run-the-container-disconnected-from-the-internet-authorization-required)
-    * [Form recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md)
+    * [Text Translation (Standard)](../translator/containers/translator-disconnected-containers.md)
+    * [Form recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-disconnected-containers.md)
 
     **Speech service**
 

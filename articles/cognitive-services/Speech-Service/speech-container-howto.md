@@ -261,7 +261,7 @@ This command:
 > To install GStreamer in a container, 
 > follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
 
-### Run the container disconnected from the internet (authorization required)
+### Run the container disconnected from the internet
 
 [!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
 
@@ -486,7 +486,7 @@ ApiKey={API_KEY}
 Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
 
-### Run the container disconnected from the internet (authorization required)
+### Run the container disconnected from the internet
 
 To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../containers/disconnected-containers.md) for more information.
 
@@ -574,7 +574,7 @@ This command:
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 
-### Run the container disconnected from the internet (authorization required)
+### Run the container disconnected from the internet
 
 [!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
 

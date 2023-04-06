@@ -106,7 +106,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 [!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 
-### Run the container disconnected from the internet (authorization required)
+### Run the container disconnected from the internet
 
 [!INCLUDE [configure-disconnected-container](../../../containers/includes/configure-disconnected-container.md)]
 

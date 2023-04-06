@@ -373,7 +373,7 @@ After the log is uploaded, [review the endpoint](./luis-concept-review-endpoint-
 
 [!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## Run the container disconnected from the internet (authorization required)
+## Run the container disconnected from the internet
 
 [!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
 
