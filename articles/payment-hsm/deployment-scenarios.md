@@ -40,8 +40,11 @@ This scenario caters to regional-level failure. The usual strategy is to complet
 
 ## Next steps
 
-- Learn more about [Azure Payment HSM](overview.md)
-- See the Azure Payment HSM [Solution design](solution-design.md)
-- Find out how to [get started with Azure Payment HSM](getting-started.md)
-- Learn how to [Create a payment HSM](create-payment-hsm.md)
-- Read the [frequently asked questions](faq.yml)
+## Next steps
+
+- [What is Azure Payment HSM?](overview.md)
+- [Azure Payment HSM solution design](solution-design.md)
+- [Azure Payment HSM traffic inspection](traffic-inspection.md)
+- [Get started with Azure Payment HSM](getting-started.md)
+- [Create a payment HSM](create-payment-hsm.md)
+- [Frequently asked questions](faq.yml)
