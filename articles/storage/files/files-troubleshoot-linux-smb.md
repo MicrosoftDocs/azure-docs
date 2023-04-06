@@ -66,6 +66,8 @@ By default, mounting Azure file shares on Linux by using SMB doesn't enable supp
 
 ```bash
 sudo ln -s linked -n t
+```
+```output
 ln: failed to create symbolic link 't': Operation not supported
 ```
 
