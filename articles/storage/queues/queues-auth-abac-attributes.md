@@ -108,8 +108,8 @@ The following table summarizes the available attributes by source:
 | :--------------- | :------------------- | :----------------------------------------------------------------- |
 | **Environment**  | | |
 | | [Is private link](#is-private-link)   | Whether access is over a private link.                             |
-| | [Private endpoint](#private-endpoint) | The name of the private endpoint from which an object is accessed. |
-| | [Subnet name](#subnet-name)           | The name of the subnet from which an object is accessed.           |
+| | [Private endpoint](#private-endpoint) | The private endpoint from which an object is accessed. |
+| | [Subnet name](#subnet-name)           | The subnet from which an object is accessed.           |
 | | [UTC now](#utc-now)                   | The current date and time in Coordinated Universal Time.           |
 | **Resource**      | | |
 | | [Account name](#account-name)         | The storage account name.                                          |
@@ -146,7 +146,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Private endpoint |
-> | **Description** | The name of the private endpoint from which an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
+> | **Description** | The private endpoint from which an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
 > | **Attribute** | `Microsoft.Network/privateEndpoints` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -170,7 +170,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Subnet name |
-> | **Description** | The name of the subnet from which an object is accessed.<br/>Use to restrict access to a specific subnet. |
+> | **Description** | The subnet from which an object is accessed.<br/>Use to restrict access to a specific subnet. |
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -187,7 +187,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute** | `UtcNow` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [DateTime](../../role-based-access-control/conditions-format.md#datetime-comparison-operators)</br> *(Only operators* ***DateTimeGreaterThan*** *and* ***DateTimeLessThan*** *are supported for the UTC now attribute.)* |
-> | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-03-29T22:03:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](../blobs/storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
+> | **Examples** | `@Environment[UtcNow] DateTimeGreaterThan '2023-05-01T13:00:00.0Z'`<br/>[Example: Allow read access to blobs after a specific date and time](../blobs/storage-auth-abac-examples.md#example-allow-read-access-to-blobs-after-a-specific-date-and-time) |
 
 ## See also
 
