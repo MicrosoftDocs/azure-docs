@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 03/06/2023
+ms.date: 04/06/2023
 ms.author: anaharris
 ms.custom: references_regions
 ---
@@ -33,7 +33,7 @@ To see which Azure services support availability zones, see [Availability zone s
 
  There are a number of possible ways to create a reliable Azure application with availability zones that meet both SLAs and reliability targets.  Follow the steps below to choose the right approach for your needs based on technical and regulatory considerations, service capabilities, data residency, compliance requirements, and latency. 
 
-### Step 1: Check the product availability in the Azure region
+### Step 1: Check if the Azure region supports availability zones
 
 In this first step, you'll need to [validate](availability-zones-service-support.md) that your selected Azure region support availability zones and the required Azure services for your application.
 
@@ -43,7 +43,7 @@ If your region supports availability zones, we highly recommended that you confi
 >For some services, availability zones can only be configured during deployment. If you want to include availability zones for existing services, you may need to redeploy. Please refer to service specific documentation in [Availability zone migration guidance overview for Microsoft Azure products and services](/azure/reliability/availability-zones-migration-overview). 
 
 
-### Step 2: Check for service and SKU availability in the Azure region
+### Step 2: Check for product and SKU availability in the Azure region
 
 In this step, you'll need to validate that the required Azure services and SKUs are available in the availability zones of your selected Azure region. 
 
@@ -64,7 +64,7 @@ Below are three important questions you'll that'll help you choose the correct a
 
 #### Are some of the components of your application latency sensitive, such as gaming components, engineering simulations, and high-frequency trading (HFT)?
 
-For latency sensitive applications, We highly recommended that you configure your workload with with zone-redundancy. Note that Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. Zone redundancy is recommended to design critical and sensitive workloads with high availability. For latency sensitive critical application components that require physical proximity and low latency for high performance, we recommend that you use zonal deployment. [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) provides zone aligned compute along with attached storage disks. 
+For latency sensitive applications, we highly recommended that you configure your workload with with zone-redundancy. Note that Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. Zone redundancy is recommended to design critical and sensitive workloads with high availability. For latency sensitive critical application components that require physical proximity and low latency for high performance, we recommend that you use zonal deployment. [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) provides zone aligned compute along with attached storage disks. 
 
 
 #### Does your application code have the readiness to handle a distributed model?
