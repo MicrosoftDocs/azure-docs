@@ -73,7 +73,9 @@ ms.date: 04/12/2023
 
 1. On the map toolbar, select **Overview**.
 
-1. Zoom in on the field in the source schema that you want to start mapping. To navigate around the map, follow these steps:
+1. In the source schema column, move your mouse over the field that you want to start mapping.
+
+   To navigate around the map, you have the following options:
 
    | Action | Step |
    |--------|------|
