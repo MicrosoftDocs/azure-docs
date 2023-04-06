@@ -68,12 +68,9 @@ items:
       href: device-update-multi-step-updates.md
     - name: Region mapping for BCDR
       href: device-update-region-mapping.md  
-  - name: Updating disconnected devices
-    items:
-    - name: Support for disconnected devices
-      href: connected-cache-disconnected-device-update.md
-    - name: Configure Connected Cache for Device Update
-      href: connected-cache-configure.md
+  - name: Updates for disconnected devices
+    href: connected-cache-disconnected-device-update.md
+    displayName: Microsoft Connected Cache, MCC, gateway
   - name: Diagnostic features
     href: device-update-diagnostics.md
   - name: Security
@@ -116,10 +113,10 @@ items:
     items:
     - name: Single gateway
       href: connected-cache-single-level.md
+      displayName: Microsoft Connected Cache, MCC
     - name: Nested gateways
       href: connected-cache-nested-level.md
-    - name: Multi-level industrial IoT (IIOT) configuration
-      href: connected-cache-industrial-iot-nested.md
+      displayName: Industrial IoT, IIoT, Microsoft Connected Cache, MCC
   - name: Migrate devices to public preview refresh
     href: migration-public-preview-refresh-to-ga.md
   - name: Troubleshoot
