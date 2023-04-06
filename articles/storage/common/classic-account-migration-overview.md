@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/27/2023
+ms.date: 04/05/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -29,7 +29,17 @@ Storage accounts created using the classic deployment model will follow the [Mod
 > [!WARNING]
 > If you do not migrate your classic storage accounts to Azure Resource Manager by August 31, 2024, you will permanently lose access to the data in those accounts.
 
-## What resources are available for this migration?
+## What actions should I take?
+
+To migrate your classic storage accounts, you should:
+
+1. Identify all classic storage accounts in your subscription.
+1. Migrate any classic storage accounts to Azure Resource Manager.
+1. Check your applications and logs to determine whether you are dynamically creating, updating, or deleting classic storage accounts from your code, scripts, or templates. If you are, then you need to update your applications to use Azure Resource Manager accounts instead.
+
+For step-by-step instructions, see [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md).
+
+## How to get help
 
 - If you have questions, get answers from community experts in [Microsoft Q&A](/answers/tags/98/azure-storage-accounts).
 - If your organization or company has partnered with Microsoft or works with Microsoft representatives, such as cloud solution architects (CSAs) or customer success account managers (CSAMs), contact them for additional resources for migration.
@@ -46,16 +56,6 @@ Storage accounts created using the classic deployment model will follow the [Mod
     1. Under **Problem type**, select **Data Migration**.
     1. Under **Problem subtype**, select **Migrate account to new resource group/subscription/region/tenant**.
     1. Select **Next**, then follow the instructions to submit your support request.
-
-## What actions should I take?
-
-To migrate your classic storage accounts, you should:
-
-1. Identify all classic storage accounts in your subscription.
-1. Migrate any classic storage accounts to Azure Resource Manager.
-1. Check your applications and logs to determine whether you are dynamically creating, updating, or deleting classic storage accounts from your code, scripts, or templates. If you are, then you need to update your applications to use Azure Resource Manager accounts instead.
-
-For step-by-step instructions, see [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md).
 
 ## See also
 
