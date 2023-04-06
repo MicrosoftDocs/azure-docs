@@ -116,6 +116,7 @@ You can navigate to the contact tab of the edit screen to update owners and expe
 Both column-level and asset-level updates such as adding a description, glossary term or classification don't impact scan updates. Scans will update new columns and classifications regardless if these changes are made.
 
 If you update the **name** or **data type** of a column, subsequent scans **won't** update the asset schema. New columns and classifications **won't** be detected.
+
 ### Request access to data
 
 If a [self-service data access workflow](how-to-workflow-self-service-data-access-hybrid.md) has been created, you can request access to a desired asset directly from the asset details page! To learn more about Microsoft Purview's data policy applications, see [how to enable data use management](how-to-enable-data-use-management.md).
