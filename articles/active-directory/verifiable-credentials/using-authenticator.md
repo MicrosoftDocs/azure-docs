@@ -67,7 +67,7 @@ When the Microsoft Authenticator app is installed and ready, you use the public 
     1. Click **Next** and **OK**
 2. Open your Microsoft Authenticator app
 3. Select **Verified IDs** in the lower right corner on the start screen
-4. Select **Scan QR code** button. This screen only shows if you have to verifiable credential cards in the app. 
+4. Select **Scan QR code** button. This screen only shows if you have no verifiable credential cards in the app. 
 
   ![Screenshot of scan qr code screen](media/using-authenticator/scan-qr-code-screen.png)
 
