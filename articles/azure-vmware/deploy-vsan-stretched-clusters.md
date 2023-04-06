@@ -1,15 +1,15 @@
 ---
-title: Deploy vSAN stretched clusters (Preview)
+title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 09/02/2022
+ms.date: 04/05/2023
 ms.custom: references_regions
 ---
 
-# Deploy vSAN stretched clusters (Preview)
+# Deploy vSAN stretched clusters
 
-In this article, you'll learn how to implement a vSAN stretched cluster for an Azure VMware Solution private cloud.
+In this article, learn how to implement a vSAN stretched cluster for an Azure VMware Solution private cloud.
 
 ## Background
 
@@ -51,9 +51,14 @@ It's important to understand that stretched cluster private clouds only offer an
 
 It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of those types of rare failures, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. It's important you understand that a stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. The reason is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region. For example, one vCenter Server, one NSX-T Manager cluster, one NSX-T Data Center Edge VM pair.
 
-## Deploy a stretched cluster private cloud
+##Stretched clusters region availablility
 
-Currently, Azure VMware Solution stretched clusters is in the (preview) phase. While in the (preview) phase, you must contact Microsoft to request and qualify for support.
+Azure VMware Solution stretched clusters are available in the following regions: 
+
+- UK South (on AV36) 
+- West Europe (on AV36) 
+- Germany West Central (on AV36) 
+- Australia East (on AV36P) 
 
 ## Prerequisites
 
@@ -65,6 +70,8 @@ To request support, send an email request to **avsStretchedCluster@microsoft.com
 - Region requested (West Europe, UK South, Germany West Central)
 - Number of nodes in first stretched cluster (minimum 6, maximum 16 - in multiples of two)
 - Estimated provisioning date (used for billing purposes)
+
+## Deploy a stretched cluster private cloud
 
 When the request support details are received, quota will be reserved for a stretched cluster environment in the region requested. The subscription gets enabled to deploy a stretched cluster SDDC through the Azure portal. A confirmation email will be sent to the designated point of contact within two business days upon which you should be able to [self-deploy a stretched cluster private cloud via the Azure portal](./tutorial-create-private-cloud.md?tabs=azure-portal#create-a-private-cloud). Be sure to select **Hosts in two availability zones** to ensure that a stretched cluster gets deployed in the region of your choice.
 
