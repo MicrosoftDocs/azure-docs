@@ -12,7 +12,7 @@ ms.reviewer: bwren
 
 
 
-This article provides architectural best practices for Azure. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/):
+This article provides architectural best practices for Logs Analytics workspaces in Azure Monitor. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/):
 
 - Reliability
 - Security

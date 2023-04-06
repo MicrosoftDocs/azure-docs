@@ -467,6 +467,8 @@ items:
         - name: Overview
           displayName: Log Analytics workspace
           href: logs/log-analytics-workspace-overview.md
+        - name: Well Architected Framework
+          href: waf/waf-workspace.md
         - name: Cost details
           displayName: Log Analytics workspace,Logs
           href: logs/cost-logs.md
