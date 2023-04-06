@@ -53,4 +53,4 @@ If you can't resolve the issue, escalate it to your dev team lead (DevCenter Pro
 
 ## Next steps
 
-- To learn more about support requests, refer to: [Create an Azure support request](\azure-portal\supportability\how-to-create-azure-support-request.md).
+- To learn more about support requests, refer to: [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
