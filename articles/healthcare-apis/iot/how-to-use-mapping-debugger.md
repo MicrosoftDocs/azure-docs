@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 04/06/2023
 ms.author: jasteppe
 ---
 
@@ -22,6 +22,8 @@ In this article, you'll learn how to use the MedTech service Mapping debugger. T
 
 > [!TIP]
 > To learn about how the MedTech service transforms and persists device message data into the FHIR service see, [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md).
+
+> [!VIDEO https://youtu.be/OEGuCSGnECY]
 
 ## Overview of the Mapping debugger
 
