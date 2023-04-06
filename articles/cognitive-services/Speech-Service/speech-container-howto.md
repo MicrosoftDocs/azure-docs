@@ -88,6 +88,8 @@ Fill out and submit the [request form](https://aka.ms/csgate) to request access 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
+If you want to run a container in a disconnected environment, you must submit a [separate request form](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
+
 ## Speech container images
 
 # [Speech-to-text](#tab/stt)
