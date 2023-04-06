@@ -43,8 +43,8 @@ In this article, you will learn which capabilities are supported for Teams exter
 |                   | Send and receive rich text messages                                                                    | ✔️ | 
 |                   | Send and receive typing indicators                                                                                                |  ✔️ |
 |                   | [Receive inline images](../../../tutorials/chat-interop/meeting-interop-features-inline-image.md)                                                                    | ✔️** |
-|                   | receive read receipts                                                                                                |  ❌ |
-|                   | receive shared files                                                                                                |  ❌ |
+|                   | Receive read receipts                                                                                                |  ❌ |
+|                   | Receive shared files                                                                                                |  ❌ |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/Unmute mic                                                                                                     | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |
