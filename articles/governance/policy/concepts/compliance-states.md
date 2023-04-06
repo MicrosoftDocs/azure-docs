@@ -13,9 +13,14 @@ When initiative or policy definitions are assigned, Azure Policy will determine 
 
 ### Non-compliant
 
-Policy assignments with `audit`, `auditIfNotExists`, or `modify` effects are considered non-compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **true**. 
+Policy assignments with `audit`, `auditIfNotExists`, or `modify` effects are considered non-compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. 
 
-Policy assignments with `append`, `deny`, and `deployIfNotExists` effects are considered non-compliant for _existing_ resources when the conditions of the policy rule evaluate to **true**. _New_ and _updated_ resources are not considered non-compliant in this case because enforcement will block or remediate resources which would otherwise be deemed non-compliant.
+Policy assignments with `append`, `deny`, and `deployIfNotExists` effects are considered non-compliant for _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. _New_ and _updated_ resources are not considered non-compliant in this case because enforcement will block or remediate resources which would otherwise be deemed non-compliant.
+
+> [!NOTE]
+> The DeployIfNotExist and AuditIfNotExist effects require the IF statement to be TRUE and the
+> existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers
+> evaluation of the existence condition for the related resources.
 
 Policy assignments with `manual` effects are considered non-compliant under two circumstances:
 1. The policy definition has a default compliance state of non-compliant and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise.
@@ -23,7 +28,7 @@ Policy assignments with `manual` effects are considered non-compliant under two 
 
 ### Compliant
 
-Policy assignments with `append`, `audit`, `auditIfNotExists`, `deny`, `deployIfNotExists`, or `modify` effects are considered compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **false**. 
+Policy assignments with `append`, `audit`, `auditIfNotExists`, `deny`, `deployIfNotExists`, or `modify` effects are considered compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **FALSE**. 
 
 Policy assignments with `manual` effects are considered compliant under two circumstances:
 1. The policy definition has a default compliance state of compliant and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise.
@@ -37,7 +42,8 @@ A policy assignment is considered conflicting when there are two or more policy 
 
 An [exemption](./exemption-structure.md) can be created on an assignment for an applicable resource or resource hierarchy, and resources within that scope are given a compliance state of exempt.
 
-> Note: A key distinction between [exemption](./exemption-structure.md) and [exclusion](./assignment-structure.md#excluded-scopes) is that evaluation is bypassed for excluded scopes but still occurs for exempted scopes. Resources belonging to exempted scopes do not have a compliance state. 
+> [!NOTE]
+> A key distinction between [exemption](./exemption-structure.md) and [exclusion](./assignment-structure.md#excluded-scopes) is that evaluation is bypassed for excluded scopes but still occurs for exempted scopes. Resources belonging to exempted scopes do not have a compliance state. 
 
 ### Unknown (preview)
 
@@ -53,6 +59,8 @@ This compliance state indicates that the evaluation cycle hasn't started for the
 
 ## How compliance works
 
+Now that you have an understanding of what compliance states exist and what each one means, let's talk in more depth about how they work. 
+
 ### Compliant and non-compliant states
 
 In an assignment, a resource is **non-compliant** if it's applicable to the policy assignment and doesn't adhere to conditions in the policy rule. The following table shows how different policy effects work with the condition evaluation for the resulting compliance state:
@@ -64,10 +72,7 @@ In an assignment, a resource is **non-compliant** if it's applicable to the poli
 | Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | True | Non-Compliant |
 | Exists | Deny, Audit, Append, Modify, DeployIfNotExist, AuditIfNotExist | False | Compliant |
 
-> [!NOTE]
-> The DeployIfNotExist and AuditIfNotExist effects require the IF statement to be TRUE and the
-> existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers
-> evaluation of the existence condition for the related resources.
+
 #### Example
 
 For example, assume that you have a resource group - ContsoRG, with some storage accounts
