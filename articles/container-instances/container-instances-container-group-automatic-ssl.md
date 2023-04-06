@@ -301,9 +301,9 @@ Navigate to https://my-app.westeurope.azurecontainer.io and verify the certifica
 
 To see the certicicate details, click on "Connection is secure" followed by "certificate is valid".
 
-:::image type="content" source="media/container-instances-container-group-automatic-ssl/my-app-2.png" alt-text="":::
+:::image type="content" source="media/container-instances-container-group-automatic-ssl/my-app-2.png" alt-text="Certificate issued by Let's Encrypt":::
 
 ## Next steps
 - [Caddy documentation](https://caddyserver.com/docs/)
-- [YAML reference](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-reference-yaml)
 - [GitHub aci-helloworld](https://github.com/Azure-Samples/aci-helloworld)
+- [YAML reference: Azure Container Instances](container-instances-reference-yaml.md)
