@@ -53,7 +53,9 @@ At a high level, when you create a container app into a workload profile, you go
   | Environment name | Plan |
   | Enter an environment name | Select **(Preview) Consumption and Dedicated workload profiles** |
 
-1. Select the **Workload profiles** tab.
+  Select the **Workload profiles** tab.
+
+  :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Create an Azure Container Apps Consumption + Dedicated plan environment.":::
 
 1. Select the **Add workload profile** button.
 
@@ -70,6 +72,8 @@ At a high level, when you create a container app into a workload profile, you go
 1. Select the **Select** button.
 
 1. For the *Autoscaling instance count range*, select the minimum and maximum number of instances you want available to this workload profile.
+
+  :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profile-slider.png" alt-text="Select the min and max instances for a workload profile.":::
 
 1. Select **Add**.
 
@@ -100,6 +104,8 @@ Add a new workload profile to an existing environment.
 1. Select the **Select** button.
 
 1. For the *Autoscaling instance count range*, select the minimum and maximum number of instances you want available to this workload profile.
+
+  :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profile-slider.png" alt-text="Select the minimum and maximum instances for a workload profile.":::
 
 1. Select **Add**.
 
