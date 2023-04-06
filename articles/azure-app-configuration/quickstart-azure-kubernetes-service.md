@@ -175,7 +175,7 @@ In this section, it creates an ASP.NET Core web application that consumes enviro
     ![Kubernetes Provider before using configMap ](./media/quickstarts/kubernetes-provider-app-launch-before.png)
 
 ## Use App Configuration Kubernetes Provider
-Now that you have an application running in AKS, you will deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider will retrieve data from your App Configuration store and create a ConfigMap, which is consumable as environment variables by your application.
+Now that you have an application running in AKS, you will deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and create a ConfigMap, which is consumable as environment variables by your application.
 ### Setup the Azure App Configuration store
 1. Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
@@ -226,9 +226,9 @@ Now that you have an application running in AKS, you will deploy the App Configu
     ``` yaml
     env:
     - name: Settings__Message
-      value: "Hello from the environment variable"
+      value: "Message from the local configuration"
     - name: Settings__FontColor
-      value: "Orange"
+      value: "Black"
     ```
     with
     ``` yaml
