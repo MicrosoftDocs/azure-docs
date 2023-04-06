@@ -248,4 +248,3 @@ Now that you've attached a datastore on Azure NetApp Files-based NFS volume to y
 - **Can a single Azure NetApp Files datastore be added to multiple clusters within the same Azure VMware Solution SDDC?**
 
     Yes, you can select multiple clusters at the time of creating the datastore. Additional clusters may be added or removed after the initial creation as well.
->>>>>>> 747411066061d336f354a8137a526dcbac0df104
