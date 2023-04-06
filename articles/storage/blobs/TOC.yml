@@ -488,11 +488,7 @@ items:
         - name: Change redundancy configuration
           href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Design highly available applications
-          items:
-          - name: .NET (v12 SDK)
-            href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: .NET (v11 SDK)
-            href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          href: ../common/geo-redundant-design.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Check the Last Sync Time property
           href: ../common/last-sync-time-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Initiate account failover
@@ -1135,6 +1131,18 @@ items:
           href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
         - name: Azure Storage client library version 2.1
           href: https://github.com/Azure/azure-storage-python
+    - name: Code samples using deprecated SDKs
+      items:
+      - name: .NET
+        items:
+          - name: Version 11.x samples
+            href: blob-v11-samples-dotnet.md
+          - name: Design highly available applications (.NET version 11.x)
+            href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: JavaScript version 11.x samples
+        href: blob-v11-samples-javascript.md
+      - name: Python version 2.1 samples
+        href: blob-v2-samples-python.md
     - name: Compliance offerings
       href: ../common/storage-compliance-offerings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
 - name: Data Lake Storage Gen2
