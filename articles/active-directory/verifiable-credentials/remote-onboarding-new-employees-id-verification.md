@@ -7,49 +7,50 @@ manager: amycolannino
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 02/23/2023
+ms.date: 04/06/2023
 ms.author: barclayn
 ---
 
 
 # Onboard new remote employees using ID verification
 
-Enterprises onboarding new remote users face a significant challenge because onboarding users aren't yet inside the trust boundary. Microsoft Entra Verified ID can help establish trust based on identity verification using attestations based from government-issued documents.
+Enterprises onboarding users face significant challenges onboarding remote users who are not yet inside the trust boundary. Microsoft Entra Verified ID can help customers facing these scenarios because it can use government issued ID based attestations as a way to establish trust. 
 
 ## When to use this pattern
 
-1. You have a modern Human resources (HR) system with API support that allows programmatic integration to query the HR system to do a reliable matching of user profiles.
-
-2. Your organization has already started their passwordless journey.
+1. You have a modern Human resources (HR) system with API support. 
+1. Your HR system allows programmatic integration to query the HR system to do a reliable matching of user profiles.
+1. Your organization has already started their passwordless journey.
 
 ## Solution
 
 1. A custom portal for new employee onboarding.
 
-2. A backend job provides new hires with a uniquely identifiable link to the employee onboarding portal from (A) that represents the new hire’s specific process. For this use case, the account for the new hire should already be provisioned in Azure AD. Consider using [Lifecycle Workflows](../governance/what-are-lifecycle-workflows.md)   as the triggering point of this flow.
+2. A backend job provides new hires with a uniquely identifiable link to the employee onboarding portal from (A) that represents the new hire’s specific process. For this use case, the account for the new hire should already be provisioned in Azure AD. Consider using [Lifecycle Workflows](../governance/what-are-lifecycle-workflows.md) as the triggering point of this flow.
 
 3. New hires select the link to the portal in (A) above and are guided through a wizard-like experience:
   - **Step 1**: New Hires are redirected to acquire a verified ID from the Identity verification partner (also referred to IDV. To learn more about the identity verification partners: <https://aka.ms/verifiedidisv>)
   - **Step 2**: New Hires present the Verified ID acquired in Step 1
-  - **Step 3**: System receives the claims from identity verification partner, looks up the user account for the new hire and performs the validation. For considerations on how to perform the user lookup, [k]()
-  - **Step 4**: System executes the onboarding logic to locate the Azure AD account of the user, and [generate a temporary access pass using MS Graph](https://learn.microsoft.com/graph/api/resources/temporaryaccesspassauthenticationmethod?view=graph-rest-1.0)
+  - **Step 3**: System receives the claims from identity verification partner, looks up the user account for the new hire and performs the validation.
+  - **Step 4**: System executes the onboarding logic to locate the Azure AD account of the user, and [generate a temporary access pass using MS Graph](/graph/api/resources/temporaryaccesspassauthenticationmethod?view=graph-rest-1.0&preserve-view=true)
 
 ![High level flow diagram](media/remote-onboarding-new-employees-id-verification/high-level-flow-diagram.png)
 
 ## Issues and considerations
 
-1. The link used to initiate the process needs to:
-    - Be specific to the remote employee.
-    - Be valid for a short period of time.
-    - Become invalid after the user completes the flow.
-    - Be designed with a mechanism to correlate the link to the unique identifier of the HR Record, and the Azure AD account should be defined and used to validate when the new hire comes to the site.
-2. It isn't uncommon to have discrepancies between the claims in the VC and the attributes in IT systems (HR/Directory) for legitimate users. For example, an employee might have a first name “James” but his profile says “Jim”. For those scenarios:
-  1. At the beginning of the HR process, ask candidates to provide the name exactly as it appears in government issued documents when they first are created in the HR system, and ask separately the name the user might prefer. This simplifies validation logic.
+1. The link used to initiate the process needs to meet some criteria:
+    - The link should be specific to each remote employee.
+    - The link should be valid for only a short period of time. 
+    - It should become invalid after a user finishes going through the flow.
+    - The link should be designed to correlate to a unique HR record identifier
+1. An Azure AD account should be pre-created for every user. The account should be used as part of the site's request validation process.
+1. Administrators frequently deal with discrepancies between users' information held in a company's IT systems, like human resource applications or identity management solutions, and the information the users provide. For example, an employee might have “James” as their first name but their profile has their name as “Jim”. For those scenarios:
+  1. At the beginning of the HR process, candidates must use their name exactly as it appears in government issued documents. Taking this approach simplifies validation logic.
   2. Design validation logic to include attributes that are more likely to have an exact match against the HR system. Common attributes include street address, date of birth, nationality, national identification number (if applicable), in addition to first and last name.
-  3. As a fallback, plan for human review to disambiguate lookups who result in ambiguous/non-conclusive results. This might include temporarily storing the attributes presented in the VC, phone call with the user, etc.
-3. For multinational organizations, customers might need to work with different identity proofing partners based on the region of the user.
-4. Assume that the initial interaction between the user and the onboarding partner is untrusted. The onboarding portal should generate detailed auditing on each specific request / notification generated for auditing purposes.
+  3. As a fallback, plan for human review to work through ambiguous/non-conclusive results. This process might include temporarily storing the attributes presented in the VC, phone call with the user, etc.
+1. Multinational organizations, may need to work with different identity proofing partners based on the region of the user.
+1. Assume that the initial interaction between the user and the onboarding partner is untrusted. The onboarding portal should generate detailed logs for all requests processed that could be used for auditing purposes.
 
 ## Additional resources
 
--   Public architecture document for generalized account onboarding: [Plan your Microsoft Entra Verified ID verification solution](plan-verification-solution.md#account-onboarding)
+- Public architecture document for generalized account onboarding: [Plan your Microsoft Entra Verified ID verification solution](plan-verification-solution.md#account-onboarding)
