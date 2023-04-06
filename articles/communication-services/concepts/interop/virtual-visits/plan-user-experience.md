@@ -1,7 +1,7 @@
 ---
-title: Plan user experience for Virtual appointments
+title: Plan user experience for virtual appointments
 titleSuffix: An Azure Communication Services concept document
-description: Plan the user experience for Virtual appointments with Azure Communication Services and Microsoft Teams
+description: Plan the user experience for virtual appointments with Azure Communication Services and Microsoft Teams.
 author: tomaschladek
 ms.author: tchladek
 ms.date: 4/3/2023
@@ -25,7 +25,7 @@ How to improve the user experience:
 You can learn more about Microsoft Teams controls [here](../guest/teams-administration.md).
 
 ## Role assignment changes 
-Organizers, coorganizers, and presenters can promote and demote participants during the meeting. This role change can lead to the loss or gain of new functionality. Developers can subscribe to the `roleChanged` event of the `Call` object to update the user interface based on the role. Developers can find an assigned role in the property `role` of the object `Call`. You can learn more details [here](./../../../how-tos/calling-sdk/manage-role-assignment.md). You can find available actions for individual roles [here](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019).
+Organizers, coorganizers, and presenters can promote and demote participants during the meeting. This role change can lead to the loss or gain of new functionality. Developers can subscribe to the `roleChanged` event of the `Call` object to update the user interface based on the role. Developers can find an assigned role in the property `role` of the object `Call`. You can learn more details [here](./../../../how-tos/calling-sdk/manage-role-assignment.md). You can find available actions for individual roles [here](https://support.microsoft.com/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019).
 
 ## Teams meeting option changes
 The meeting organizer can change Teams meeting options before and during the meeting. Developers can read meeting options before the meeting starts with [Graph API for `onlineMeeting` resource](/graph/api/onlinemeeting-get). As developers currently don't have a way to read changes during the meeting, we recommend limiting the changes during the meeting to ensure the best user experience.
