@@ -103,6 +103,10 @@ SET IDENTITY_INSERT dbo.TableName ON;
 
 2.  User can remove the specific identity column from mapping while performing inserts.
 
+## Issue: Trouble using Self-hosted integration runtime.
+
+Currently, Self-hosted integtration runtime is not supported in the CDC resource. If trying to connect to an on-premise source, please use Azure integration runtime with managed virtual network. 
+
 
 ## Next steps
 - [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
