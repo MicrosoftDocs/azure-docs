@@ -20,6 +20,9 @@ The following example shows you how to create a Container Apps environment in an
 <!-- Create -->
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
+> [!NOTE]
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
 9. Next to the *Virtual network* box, select the **Create new** link and enter the following value.
@@ -75,7 +78,7 @@ $VnetName = 'my-custom-vnet'
 Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have two subnets available for the container app instance.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
+> Network subnet address prefix requires a minimum CIDR range of `/23`for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
 # [Bash](#tab/bash)
 
@@ -117,9 +120,6 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 ```
 
 ---
-
-> [!NOTE]
-> Network subnet address prefix requires a minimum CIDR range of `/23`for use with Container Apps when using the Consumption only Architecture. When using the Workload Profiles Architecture, a `/27` or larger is required. To learn more about subnet sizing, see the [networking architecture overview](./networking.md#subnet).
 
 With the VNET established, you can now query for the infrastructure subnet ID.
 
