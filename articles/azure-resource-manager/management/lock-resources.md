@@ -474,6 +474,15 @@ You lock deployed resources with Python by using the [ManagementLockClient.manag
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
 ```python
+import os
+from azure.identity import AzureCliCredential
+from azure.mgmt.resource import ManagementLockClient
+
+credential = AzureCliCredential()
+subscription_id = os.environ["AZURE_SUBSCRIPTION_ID"]
+
+lock_client = ManagementLockClient(credential, subscription_id)
+
 lock_result = lock_client.management_locks.create_or_update_at_resource_level(
     "exampleGroup",
     "Microsoft.Web",
