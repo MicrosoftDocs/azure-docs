@@ -83,6 +83,8 @@ AKS defines a GA version as a version enabled in all SLO or SLA measurements and
 
 AKS may also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
+AKS provides platform support only for two GA minor versions of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3 to N-4". See platform support policy.
+
 > [!NOTE]
 > AKS uses safe deployment practices which involve gradual region deployment. This means it may take up to 10 business days for a new release or a new version to be available in all regions.
 
@@ -127,6 +129,35 @@ New Supported Version List
 ----------------------
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
+
+## Platform Support Policy
+For the two minor versions after the Kubernetes support policy, AKS provides platform support. The platform support window of Kubernetes versions on AKS is known as "N-3 to N-4".
+
+During platform support, customers running N-3 or N-4 versions will only receive support from Microsoft for AKS platform related issues. Any issues related to the upstream Kubernetes community will not be supported. AKS will not create or apply security updates to any Kubernetes version after it enters the Platform Support period.
+
+|  | Community Support (N-2) | Platform Support (N-3, N-4) | 
+|---|---|---|
+| Software Updates and fixes | Supported | Not supported|
+| Software Hotfixes | Supported | Not supported| 
+| Backporting features |Supported | Not supported| 
+
+The below table outlines expected support responses depending on your support policy. 
+| Support Topics | Community Support (N-2) | Platform Support (N-3, N-4) | 
+|---|---|---|
+| Create, Upgrade, Scale and Delete Operations | Fully Supported | Only Scaling and Delete operations are supported |
+| Pod creation an scheduling | Fully Supported | Fully Supported |
+| Node/node pool availability and performance | Fully Supported | Fully Supported |
+| Storage | Fully Supported | Fully Supported |
+| Connectivity | Fully Supported | Fully Supported |
+| Identity and Security Management | Fully Supported | Fully Supported |
+| DNS, Subnet, and IP Config | Fully Supported | Fully Supported |
+| Application and Development | Fully Supported | Fully Supported |
+| Load Balancer and Ingress controller | Fully Supported | Fully Supported |
+| Monitoring and Logging | Fully Supported | Fully Supported |
+| Extentions, Policies and Add-Ons | Fully Supported | Fully Supported |
+| Quota Requests | Fully Supported | Fully Supported |
+| Planned Maintenance (AKS) | Fully Supported | Fully Supported |
+| Deprecation and Retirement | Fully Supported | Not Supported |
 
 ### Supported `kubectl` versions
 
