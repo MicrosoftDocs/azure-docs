@@ -102,7 +102,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
    sudo yum --disablerepo='*' remove 'rhui-azure-rhel8'
    ```
 
-1. Get the EUS repository *config* file.
+1. Get the EUS repository `config` file.
 
    ```bash
    sudo wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
@@ -120,7 +120,7 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
    sudo echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
    ```
 
-   If there are permission issues to access the `releasever`, you can edit the file using text editor, add the image version details, and save the file.  
+   If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  
 
    > [!NOTE]
    > This instruction locks the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` locks your RHEL version to RHEL 8.1.
@@ -187,7 +187,9 @@ eastus - 52.142.4.99
 australiaeast - 20.248.180.252
 southeastasia - 20.24.186.80
 
-# Azure US Government (To be deprecated after 10th April 2023. For RHUI 4 connections, use public RHUI IPs as provided above) 
+# Azure US Government.
+# To be deprecated after 10th April 2023.
+# For RHUI 4 connections, use public RHUI IPs as provided above.
 13.72.186.193
 13.72.14.155
 52.244.249.194
@@ -215,9 +217,9 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
    - If the reference points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 
-1. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+1. Verify that access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-1. If you're using the new configuration, verify that the VM connects from the Azure IP range, and still can't connect to Azure RHUI, file a support case with Microsoft or Red Hat.
+1. If you're using the new configuration and you've verified that the VM connects from the Azure IP range, and you still can't connect to Azure RHUI, file a support case with Microsoft or Red Hat.
 
 ### Infrastructure update
 
