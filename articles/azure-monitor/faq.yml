@@ -925,7 +925,7 @@ sections:
       - question: |
           Can I test OpenTelemetry in a web browser today?
         answer: |
-          The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser. It's not yet possible to send telemetry to Application Insights or 1DS Collector. The SDK doesn't currently have defined general client events.
+          The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser. It's not yet possible to send telemetry to Application Insights. The SDK doesn't currently have defined general client events.
 
       - question: |
           How do I determine if OpenTelemetry is right for me?
@@ -1198,7 +1198,7 @@ sections:
           * Monitored VMs are now included in the server port group nodes. The donut chart shows the proportion of monitored versus unmonitored machines in the group. It can also be used to filter the list of machines when the group is expanded.
           * The map style was updated to be more consistent with App Map from Application insights.
           * The side panes have been updated and don't have the full set of integrations that were supported in Service Map: Update Management, Change Tracking, Security, and Service Desk.
-          * The option for choosing groups and machines to map was updated and now supports subscriptions, resource groups, Azure virtual machine scale sets, and cloud services.
+          * The option for choosing groups and machines to map was updated and now supports subscriptions, resource groups, Azure Virtual Machine Scale Sets, and cloud services.
           * You can't create new Service Map machine groups in the VM insights Map feature.
           
       - question: |
@@ -1225,7 +1225,7 @@ sections:
       - question: |
           How does the Map feature handle duplicate IPs across different virtual networks and subnets?
         answer: |
-          If you're duplicating IP ranges either with VMs or Azure virtual machine scale sets across subnets and virtual networks, VM insights Map might display incorrect information. This issue is known. We're investigating options to improve this experience.
+          If you're duplicating IP ranges either with VMs or Azure Virtual Machine Scale Sets across subnets and virtual networks, VM insights Map might display incorrect information. This issue is known. We're investigating options to improve this experience.
 
       - question: |
           Does the Map feature support IPv6?
