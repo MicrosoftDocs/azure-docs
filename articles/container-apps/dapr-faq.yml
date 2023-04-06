@@ -6,7 +6,7 @@ metadata:
   author: hhunter-ms
   ms.topic: faq
   ms.service: container-apps
-  ms.date: 04/05/2023
+  ms.date: 04/06/2023
   ms.author: hannahhunter
 title: Dapr integration with Azure Container Apps frequently asked questions
 summary: This article lists commonly asked questions about the Dapr integration with Azure Container Apps together with related answers.
@@ -17,27 +17,19 @@ sections:
       - question: |
           What Dapr features and APIs are available in Azure Container Apps?
         answer: |
-          Each Dapr capability is evaluated for:
-          - Its impact in the Azure Container Apps environment
-          - The proper experience for surfacing it in Azure Container Apps. 
-
-          Dapr APIs/features are prioritized based on customer demand and scenarios.
+          Dapr is a highly adaptable platform that prioritizes customer needs and demands. Each Dapr capability undergoes thorough evaluation to ensure it positively impacts the Azure Container Apps environment and provides the best possible experience.
 
       - question: |
           Are alpha Dapr APIs and components supported or available in Azure Container Apps?
         answer: |
-          Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. If available to use, they are on a self-service, opt-in basis. Alpha APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. 
-          
-          Alpha APIs and components aren't covered by customer support.
+          Azure Container Apps offers developers the flexibility to experiment with the latest Dapr alpha APIs and features on a self-service, opt-in basis. Although the availability of these alpha APIs and components is not guaranteed, you can stay ahead of the curve and explore cutting-edge technologies as they become available. While these alpha APIs and components are provided "as is" and "as available," their continuous evolution towards stable status ensures that developers can always be at the forefront of innovation. By embracing these early-stage technologies, developers can gain a competitive edge and create exciting, game-changing applications that will benefit their users and drive success.
 
   - name: Dapr releases
     questions:
       - question: |
           What is the Dapr release cadence in Azure Container Apps?
         answer: |
-          The latest version of Dapr in Azure Container Apps is typically available within six weeks after [the Dapr OSS release][dapr-release]. This timeframe depends on thorough testing that the new release works as expected in an Azure Container Apps environment. 
-
-          Region rollouts generally take up to two weeks.
+          Thanks to Dapr's commitment to delivering the latest updates to Azure Container Apps, a typical release timeline of just six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). This fast turnaround is made possible by the rigorous testing process that ensures the new release functions seamlessly within an Azure Container Apps environment. Region rollouts are completed within two weeks, ensuring that customers have timely access to the latest features.
 
   - name: Dapr enhancements
     questions:
