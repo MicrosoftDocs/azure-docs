@@ -6,7 +6,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/22/2022
+ms.date: 04/06/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
