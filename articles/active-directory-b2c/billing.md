@@ -61,7 +61,7 @@ Your Azure AD B2C tenant must also be linked to the appropriate Azure pricing ti
 
 ## About Go-Local add-on 
 
-Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). *Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country. This feature isn't available in all countries. 
+Azure AD B2C's [Go-Local add-on](data-residency.md#go-local-add-on) enables you to create Azure AD B2C tenant within the country/region you choose when you [create your Azure AD B2C](tutorial-create-tenant.md). *Go-Local* refers to Microsoft’s commitment to allow some customers to configure some services to store their data at rest in the Geo of the customer’s choice, typically a country/region. This feature isn't available in all countries/regions. 
 
 > [!NOTE]
 > If you enable  Go-Local add-on , the 50,000 free MAUs per month given by your AD B2C subscription doesn't apply for  Go-Local add-on . You'll incur a charge per MAU, on the Go-Local add-on from the first MAU. However, you'll continue to enjoy free 50,000 MAUs per month on the other features available on your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). 
