@@ -75,17 +75,14 @@ In an assignment, a resource is **non-compliant** if it's applicable to the poli
 
 #### Example
 
-For example, assume that you have a resource group - ContsoRG, with some storage accounts
+Suppose you have a resource group - ContsoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagram of storage accounts exposed to public networks in the Contoso R G resource group." border="false":::
    Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three are blue, while storage accounts two, four, and five are red.
 :::image-end:::
 
-In this example, you need to be wary of security risks. Now that you've created a policy assignment,
-it's evaluated for all included and non-exempt storage accounts in the ContosoRG resource group. It
-audits the three non-compliant storage accounts, changing their states to
-**Non-compliant.**
+In this example, you need to be wary of security risks. Assume you assign a policy definition that audits for storage accounts that are exposed to public networks, and that no exemptions are created for this assignment. The policy checks for applicable resources (which includes all storage accounts in the ContosoRG resource group), then evaluates those resources which are not excluded from evaluation. It audits the three storage accounts exposed to public networks, changing their compliance states to **Non-compliant.** The remainder are marked **compliant**.
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagram of storage account compliance in the Contoso R G resource group." border="false":::
    Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three now have green checkmarks beneath them, while storage accounts two, four, and five now have red warning signs beneath them.
