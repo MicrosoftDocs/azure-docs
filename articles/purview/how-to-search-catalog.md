@@ -66,7 +66,7 @@ For certain annotations, you can select the ellipses to choose between an AND co
 
 #### Available facets
 
-- **Assigned term** - refines your search to assets with selected terms applied.'
+- **Assigned term** - refines your search to assets with the selected terms applied.
 - **Classification** - refines your search to assets with certain classifications.
 - **Collection** - refines your search by assets in a specific collection.
 - **Contact** - refines your search to assets that have selected users listed as a contact.
