@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: How to configure the Network Fabric"
 description: Learn to create, view, list, update, delete commands for Network Fabric
 author: surajmb #Required
 ms.author: surmb #Required
-ms.service: azure  #Required
+ms.service: azure-operator-nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 03/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
