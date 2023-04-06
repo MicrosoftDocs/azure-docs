@@ -95,24 +95,12 @@ If you don't have access to install the extension, you must request access from 
     pool:
       vmImage: 'windows-latest'
     steps:
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 3.1.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 5.0.x
-    - task: UseDotNet@2
-      displayName: 'Use dotnet'
-      inputs:
-        version: 6.0.x
     - task: MicrosoftSecurityDevOps@1
       displayName: 'Microsoft Security DevOps'
     ```
 
 > [!Note] 
-> The MicrosoftSecurityDevOps build task depends on .NET 6. The CredScan analyzer depends on .NET 3.1. See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops).
+> See more [here](https://marketplace.visualstudio.com/items?itemName=ms-securitydevops.microsoft-security-devops-azdevops).
 
 1. Select **Save and run**.
 
