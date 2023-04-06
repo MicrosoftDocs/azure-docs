@@ -27,7 +27,32 @@ Batch endpoints allow you to deploy models to perform long-running inference at 
 
 ## Understanding the scoring script
 
-The scoring script is a Python file (`.py`) that contains the logic about how to run the model and read the input data submitted by the batch deployment executor driver. Each model deployment has to provide a scoring script, however, an endpoint may host multiple deployments using different scoring script versions. 
+The scoring script is a Python file (`.py`) that contains the logic about how to run the model and read the input data submitted by the batch deployment executor. Each model deployment provides the scoring script (allow with any other depenency required) at creation time. It is usually indicated as follows:
+
+# [Azure CLI](#tab/cli)
+
+__deployment.yml__
+
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml" range="8-10":::
+
+# [Python](#tab/python)
+
+```python
+deployment = BatchDeployment(
+    ...
+    code_path="deployment-torch/code",
+    scoring_script="batch_driver.py",
+    ...
+)
+```
+
+# [Studio](#tab/azure-studio)
+
+On [Azure Machine Learning studio portal](https://ml.azure.com), when creating a new deployment, you will be prompted for an scoring script and dependencies as follows:
+
+:::image type="content" source="./media/how-to-batch-scoring-script/configure-scoring-script.png" alt-text="Screenshot of the step where you can configure the scroing script in a new deployment.":::
+    
+---
 
 The scoring script must contain two methods:
 
