@@ -123,7 +123,8 @@ OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
 string prompt = "When was Microsoft founded?";
 Console.Write($"Input: {prompt}\n");
 
-Response<Completions> completionsResponse = client.GetCompletions(engine, prompt);
+Response<Completions> completionsResponse = 
+    await client.GetCompletionsAsync(engine, prompt);
 string completion = completionsResponse.Value.Choices[0].Text;
 Console.WriteLine($"Chatbot: {completion}");
 ```
