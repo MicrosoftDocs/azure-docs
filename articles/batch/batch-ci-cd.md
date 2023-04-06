@@ -17,7 +17,7 @@ This article explains how to set up CI/CD processes by using [Azure Pipelines](/
 
 To follow the steps in this article, you need:
 
-- An [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization) and [Azure DevOps project](/azure/devops/organizations/projects/create-project) created in the organization.
+- An [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization) and an [Azure DevOps project](/azure/devops/organizations/projects/create-project) created in the organization.
 
 - A basic understanding of [source control](/azure/devops/user-guide/source-control) and [ARM template syntax](/azure/azure-resource-manager/templates/syntax).
 
@@ -27,15 +27,17 @@ This example creates a build and release pipeline to deploy an Azure Batch infra
 
 ![Diagram showing the flow of deployment in the pipeline.](media/batch-ci-cd/DeploymentFlow.png)
 
-The example uses several ARM templates and existing binaries to deploy the solution. You can download these examples and push them to Azure DevOps.
+The example uses several ARM templates and existing binaries to deploy the solution. You can copy or download these examples and push them to an Azure DevOps repository.
 
 ### Understand the ARM templates
 
-Three capability templates, similar to units or modules, implement specific pieces of functionality. An end-to-end *deployment.json* solution template then deploys the underlying capability templates. This [linked template structure ](/azure/azure-resource-manager/templates/deployment-tutorial-linked-template) allows each capability template to be individually tested and reused across solutions.
+Three capability templates, similar to units or modules, implement specific pieces of functionality. An end-to-end solution template then deploys the underlying capability templates. This [linked template structure](/azure/azure-resource-manager/templates/deployment-tutorial-linked-template) allows each capability template to be individually tested and reused across solutions.
 
 ![Diagram showing a linked template structure using ARM templates.](media/batch-ci-cd/ARMTemplateHierarchy.png)
 
 For detailed information about the templates, see the [Resource Manager template reference guide for Microsoft.Batch resource types](/azure/templates/microsoft.batch/allversions).
+
+#### Storage account template
 
 The following *storageAccount.json* template defines an Azure Storage account, which is required to deploy the application to the Batch account.
 
@@ -77,6 +79,8 @@ The following *storageAccount.json* template defines an Azure Storage account, w
 }
 ```
 
+#### Batch account template
+
 The next *batchAccount.json* template defines an [Azure Batch account](accounts.md). The Batch account acts as a platform to run several applications across [pools](nodes-and-pools.md#pools).
 
 ```json
@@ -116,6 +120,8 @@ The next *batchAccount.json* template defines an [Azure Batch account](accounts.
 }
 ```
 
+#### Batch pool template
+
 The next *batchAccountPool.json* template creates a Batch pool in the Batch account.
 
 ```json
@@ -146,21 +152,23 @@ The next *batchAccountPool.json* template creates a Batch pool in the Batch acco
                 "deploymentConfiguration": {
                     "virtualMachineConfiguration": {
                         "imageReference": {
-                            "publisher": "Canonical",
-                            "offer": "UbuntuServer",
-                            "sku": "18.04-LTS",
+                            "publisher": "MicrosoftWindowsServer",
+                            "offer": "WindowsServer",
+                            "sku": "2022-datacenter",
                             "version": "latest"
                         },
-                        "nodeAgentSkuId": "batch.node.ubuntu 18.04"
+                        "nodeAgentSkuId": "batch.node.windows amd64"
                     }
                 },
-                "vmSize": "Standard_D1_v2"
+                "vmSize": "Standard_D2s_v3"
             }
           }
     ],
     "outputs": {}
 }
 ```
+
+#### Orchestrator template
 
 The final *deployment.json* template acts as an orchestrator, deploying the three underlying capability templates.
 
@@ -264,23 +272,23 @@ The final *deployment.json* template acts as an orchestrator, deploying the thre
 
 Upload the ARM templates, existing binaries, and YAML build definition file into an Azure Repos repository.
 
-1. Set up a structure for your repository with four main sections:
+1. Set up a folder structure for your repository with four main sections:
 
-   - An *arm-templates* folder that contains the ARM templates.
-   - An *hpc-application* folder that contains ffmpeg.
-   - A *pipelines* folder containing the YAML file that defines the build pipeline.
+   - An *arm-templates* folder to contain the ARM templates.
+   - A *hpc-application* folder to contain ffmpeg.
+   - A *pipelines* folder to contain the YAML build definition file for the Build pipeline.
    - Optionally, a *client-application* folder, with a copy of the [Azure Batch .NET File Processing with ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) sample. The current article doesn't use this sample.
 
    ![Screenshot of the repository structure.](media/batch-ci-cd/git-repository.png)
 
    > [!NOTE]
-   > This codebase structure is just an example to demonstrate that you can store application, infrastructure, and pipeline code in the same repository.
+   > This example codebase structure demonstrates that you can store application, infrastructure, and pipeline code in the same repository.
 
 1. Upload the four ARM templates to the *arm-templates* folder of your repository.
 
 1. This solution uses ffmpeg as the application package. [Download the Windows 64-bit version of ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) if you don't have it, and upload it to the *hpc-application* folder of your repository.
 
-1. Upload the following *hpc-app.build.yml* build definition file to the *pipelines* folder of your repository.
+1. Upload the following build definition in a file named *hpc-app.build.yml* to the *pipelines* folder of your repository.
 
    ```yml
    # To publish an application into Batch, you need to
@@ -345,6 +353,9 @@ The [linked templates](/azure/azure-resource-manager/templates/linked-templates)
 
 The following example demonstrates how to deploy an infrastructure with templates from an Azure Storage blob.
 
+>[!IMPORTANT]
+> To run the release, the Pipeline agent pools for your Azure DevOps organization must be Windows machines, which is the default.
+
 #### Set up the pipeline
 
 1. In your Azure DevOps project, select **Pipelines** > **Releases** in the left navigation.
@@ -373,14 +384,14 @@ The following example demonstrates how to deploy an infrastructure with template
 
     ![Screenshot showing an artifact link to the Azure Repos repository.](media/batch-ci-cd/repo-artifact.png)
 
-1. Select the **Variables** tab. Create the following variables in your pipeline so you don't have to re-enter the same information into multiple tasks.
+1. Select the **Variables** tab. Create the following variables in your pipeline so you don't have to reenter the same information into multiple tasks.
 
    - **applicationStorageAccountName**: Name of the storage account that holds the HPC application binaries
    - **batchAccountApplicationName**: Name of the application in the Batch account
    - **batchAccountName**: Name of the Batch account
    - **batchAccountPoolName**: Name of the pool of VMs doing the processing
    - **batchApplicationId**: Unique ID for the Batch application
-   - **batchApplicationVersion**: Semantic version of your Batch application, the ffmpeg binaries)
+   - **batchApplicationVersion**: Semantic version of your Batch application, the ffmpeg binaries
    - **location**: Location for the Azure resources to be deployed
    - **resourceGroupName**: Name of the resource group where your resources are deployed
    - **storageAccountName**: Name of the storage account that holds the linked ARM templates
@@ -403,39 +414,40 @@ For each new task, select the **+** symbol next to **Agent job** in the left pan
 ![Screenshot showing the tasks used to release the HPC Application to Azure Batch.](media/batch-ci-cd/release-pipeline.png)
 
 1. Add the **Download Pipeline Artifacts** task and set the following properties:
-   - **Display name:** Download ApplicationPackage to Agent
-   - **Artifact name:** hpc-application
-   - **Destination directory**: $(System.DefaultWorkingDirectory)
+   - **Display name:** *Download ApplicationPackage to Agent*
+   - **Artifact name:** *hpc-application*
+   - **Destination directory**: *$(System.DefaultWorkingDirectory)*
 
 1. Create a Storage account to store your ARM templates. You could use an existing storage account from the solution, but to support this self-contained sample and isolation of content, make a dedicated storage account.
 
    Add the **ARM Template deployment: Resource Group scope** task and set the following properties:
-   - **Display name:** Deploy storage account for ARM templates
+   - **Display name:** *Deploy storage account for ARM templates*
+   - **Azure Resource Manager connection**: Select the service connection to use.
    - **Subscription:** Select the appropriate Azure subscription.
-   - **Action**: Create or update resource group.
-   - **Resource group**: $(resourceGroupName)
-   - **Location**: $(location)
-   - **Template**: $(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json
-   - **Override template parameters**: -accountName $(storageAccountName)
+   - **Action**: Select **Create or update resource group**.
+   - **Resource group**: *$(resourceGroupName)*
+   - **Location**: *$(location)*
+   - **Template**: *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json*
+   - **Override template parameters**: `-accountName $(storageAccountName)`
 
 1. Upload the artifacts from source control into the storage account by using Azure Pipelines. As part of this Azure Pipelines task, the storage account container URI and SAS Token can be output to a variable in Azure Pipelines, so they can be reused throughout this agent phase.
 
    Add the **Azure File Copy** task and set the following properties:
-   - **Source:** $(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/
+   - **Source:** *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/*
    - **Azure Subscription:** Select the appropriate Azure subscription.
-   - **Destination Type**: Azure Blob
-   - **RM Storage Account**: $(storageAccountName)
-   - **Container Name**: templates
+   - **Destination Type**: *Azure Blob*
+   - **RM Storage Account**: *$(storageAccountName)*
+   - **Container Name**: *templates*
 
 1. Deploy the orchestrator template. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are either held in the variables section of the release definition, or were set from another Azure Pipelines task, for example the AzureBlob File Copy task.
 
    Add the **ARM Template deployment: Resource Group scope** task and set the following properties:
-   - **Display name:** Deploy Azure Batch
+   - **Display name:** *Deploy Azure Batch*
    - **Subscription:** Select the appropriate Azure subscription.
    - **Action**: Create or update resource group
-   - **Resource group**: $(resourceGroupName)
-   - **Location**: $(location)
-   - **Template**: $(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/deployment.json
+   - **Resource group**: *$(resourceGroupName)*
+   - **Location**: *$(location)*
+   - **Template**: *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/deployment.json*
    - **Override template parameters**: `-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)`
 
    A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policy set, it can download secrets from Key Vault and be used as a variable in your pipeline. The name of the secret is set with the associated value. For example, you could reference a secret of **sshPassword** with *$(sshPassword)* in the release definition.
@@ -443,17 +455,17 @@ For each new task, select the **+** symbol next to **Agent job** in the left pan
 1. The next task calls Azure CLI to create an application in Azure Batch and upload associated packages.
 
    Add the **Azure CLI** task and set the following properties:
-   - **Display name:** Create application in Azure Batch account
+   - **Display name:** *Create application in Azure Batch account*
    - **Azure Resource Manager connection:** Select the appropriate Azure subscription
-   - **Script Location**: Inline script
+   - **Script Location**: Select **Inline script**.
    - **Inline Script**: `az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)`
 
 1. The next task calls Azure CLI to upload associated packages to the application, in this case, the ffmpeg files.
 
    Add the **Azure CLI** task and set the following properties:
-   - **Display name:** Upload package to Azure Batch account
+   - **Display name:** *Upload package to Azure Batch account*
    - **Azure Subscription:** Select the appropriate Azure subscription
-   - **Script Location**: Inline Script
+   - **Script Location**: Select **Inline script**.
    - **Inline Script**: `az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip`
 
    > [!NOTE]
