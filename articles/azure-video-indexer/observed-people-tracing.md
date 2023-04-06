@@ -66,6 +66,7 @@ The following JSON response illustrates what Video Indexer returns when tracing 
     ]
 }
 ```
+
 ## Limitations and assumptions 
 
 For more information, see [Considerations and limitations when choosing a use case](observed-matched-people.md#considerations-and-limitations-when-choosing-a-use-case).
