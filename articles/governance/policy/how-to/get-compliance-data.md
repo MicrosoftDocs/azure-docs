@@ -29,12 +29,6 @@ assignments:
 Before looking at the methods to report on compliance, let's look at when compliance information is
 updated and the frequency and events that trigger an evaluation cycle.
 
-> [!WARNING]
-> If compliance state is being reported as **Not registered**, verify that the
-> **Microsoft.PolicyInsights** Resource Provider is registered and that the user has the appropriate
-> Azure role-based access control (Azure RBAC) permissions as described in
-> [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
-
 ## Evaluation triggers
 
 The results of a completed evaluation cycle are available in the `Microsoft.PolicyInsights` Resource

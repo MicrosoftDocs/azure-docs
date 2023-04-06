@@ -59,6 +59,12 @@ This compliance state only occurs for policy assignments with `manual` effect, w
 
 This compliance state is visible in portal when the Azure Policy Resource Provider hasn't been registered, or when the account logged in doesn't have permission to read compliance data.
 
+> [!NOTE]
+> If compliance state is being reported as **Not registered**, verify that the
+> **Microsoft.PolicyInsights** Resource Provider is registered and that the user has the appropriate Azure role-based access control (Azure RBAC) permissions as described in
+> [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
+> To register Microsoft.PolicyInsights, [follow these steps](../../../azure-resource-manager/management/resource-providers-and-types.md).
+
 ### Not started
 
 This compliance state indicates that the evaluation cycle hasn't started for the policy or resource.
