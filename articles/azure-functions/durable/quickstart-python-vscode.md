@@ -182,8 +182,8 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 Version 2 of the Python programming model requires the following minimum versions:
 
-- [Azure Functions Runtime](./functions-versions.md) v4.16+
-- [Azure Functions Core Tools](./functions-run-local.md) v4.0.5095+ (if running locally)
+- [Azure Functions Runtime](../functions-versions.md) v4.16+
+- [Azure Functions Core Tools](../functions-run-local.md) v4.0.5095+ (if running locally)
 
 ## Enable v2 programming model
 
@@ -191,7 +191,7 @@ The following application setting is required to run the v4 programming model wh
 - Name: `AzureWebJobsFeatureFlags`
 - Value: `EnableWorkerIndexing`
 
-If you're running locally using [Azure Functions Core Tools](functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
+If you're running locally using [Azure Functions Core Tools](../functions-run-local.md), you should add this setting to your `local.settings.json` file. If you're running in Azure, follow these steps with the tool of your choice:
 
 # [Azure CLI](#tab/azure-cli-set-indexing-flag)
 
