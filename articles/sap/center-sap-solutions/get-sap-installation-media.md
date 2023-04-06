@@ -44,7 +44,7 @@ The following operating system (OS) software versions are compatible with these 
 | SUSE | SLES 15sp3-gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 | 
 | SUSE | SLES 12sp4-gen2 latest | S/4HANA 1909 SPS 03 |
 
-- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforseen issue, the deployment may fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
+- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforeseen issue, the deployment may fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
 
 
     ```Powershell
@@ -105,7 +105,7 @@ Before downloading the SAP software, set up an Azure Storage account to store th
 
 Next, set up a virtual machine (VM) where you will download the SAP components later.
 
-1. Create a **Ubuntu 20.04** VM in Azure. For more information, see [how to create a Linux VM in the Azure portal](../../virtual-machines/linux/quick-create-portal.md).
+1. Create an **Ubuntu 20.04** VM in Azure. For more information, see [how to create a Linux VM in the Azure portal](../../virtual-machines/linux/quick-create-portal.md).
 
 1. Sign in to the VM.
 
@@ -236,7 +236,7 @@ Next, download the SAP installation media to the VM using a script.
 
 1. Where `BOM_directory_path` is the absolute path to **SAP-automation-samples/SAP**. e.g. */home/loggedinusername/SAP-automation-samples/SAP*
 
-1. Where `orchestration_ansible_user` is the user with **admin** privileges. e.g. root.
+1. Where `orchestration_ansible_user` is the user with **admin** privileges like (e.g. root).
 
 
 Now you can [install the SAP software](install-software.md) through Azure Center for SAP solutions.
@@ -256,15 +256,15 @@ First, set up an Azure Storage account for the SAP components:
 
 1. Grant the roles **Storage Blob Data Reader** and **Reader and Data Access** to the user-assigned managed identity, which you used during infrastructure deployment.
 
-1. Create a container within the storage account. You can choose any container name, such as **sapbits**. 
+1. Create a container within the storage account. You can choose any container name, such as `sapbits`.
 
-1. Create a folder within the container, named **sapfiles**. 
+1. Create a folder within the container, named `sapfiles`. 
 
-1. Go to the **sapfiles** folder.
+1. Go to the `sapfiles` folder.
 
-1. Create two subfolders named **archives** and **boms**. 
+1. Create two subfolders named `archives` and `boms`. 
 
-1. In the **boms** folder, create four subfolders with the following names, depending on the SAP version that you're using.. 
+1. In the `boms` folder, create four subfolders with the following names, depending on the SAP version that you're using: 
 
     1. For S/4HANA 1909 SPS 03:
 
@@ -410,9 +410,9 @@ Next, upload the SAP software files to the storage account:
     	
         1. [S4HANA_2021_ISS_v0001ms-web-inifile-param.j2](https://raw.githubusercontent.com/Azure/SAP-automation-samples/main/SAP/S4HANA_2021_ISS_v0001ms/templates/S4HANA_2021_ISS_v0001ms-web-inifile-param.j2)
 
-1. Upload all the files that you downloaded to the **templates** folder.
+1. Upload all the files that you downloaded to the `templates` folder.
 
-1. Go back to the **sapfiles** folder, then go to the **archives** subfolder.
+1. Go back to the `sapfiles` folder, then go to the `archives` subfolder.
 
 1. Download all packages that aren't labeled as `download: false` from the main BOM URL. Choose the packages based on your SAP version. You can use the URL mentioned in the BOM to download each package. Make sure to download the exact package versions listed in each BOM. 
 
@@ -449,19 +449,19 @@ Next, upload the SAP software files to the storage account:
 
 1. Repeat the previous step for the main and dependent BOM files.
 
-1. Upload all the packages that you downloaded to the **archives** folder. Don't rename the files.
+1. Upload all the packages that you downloaded to the `archives` folder. Don't rename the files.
 
 1. Optionally, install other packages that aren't required.
 
     1. Download the package files.
 
-    1. Upload the files to the **archives** folder.
+    1. Upload the files to the `archives` folder.
 
     1. Open the `S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms` YAML file for the BOM.
 
     1. Edit the information for each optional package to `download:true`.
 
-    1. Save and reupload the YAML file. Make sure you only have one YAML file in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms`) of the **boms** folder. 
+    1. Save and reupload the YAML file. Make sure you only have one YAML file in the subfolder (`S41909SPS03_v0011ms` or `S42020SPS03_v0003ms` or `S4HANA_2021_ISS_v0001ms`) of the `boms` folder. 
 
 Now you can [install the SAP software](install-software.md) through Azure Center for SAP solutions.
 
