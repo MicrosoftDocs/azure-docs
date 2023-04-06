@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 04/05/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -371,21 +371,11 @@ No, number matching isn't enforced because it's not a supported feature for MFA 
 
 ### What happens if a user runs an older version of Microsoft Authenticator?  
 
-If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in if they use Android versions prior to 6.2006.4198, or iOS versions prior to 6.4.12.
+If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.
 
 ### Why is my user prompted to tap on one of three numbers rather than enter the number in their Microsoft Authenticator app?
 
-Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator if they use Android versions prior to 6.2108.5654, or iOS versions prior to 6.5.82, so they can use number match.
-
-Minimum Microsoft Authenticator version supporting number matching:
-
-- Android: 6.2006.4198
-- iOS: 6.4.12
-
-Minimum Microsoft Authenticator version for number matching which prompts to enter a number:
-
-- Android 6.2111.7701
-- iOS 6.5.85
+Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator.
 
 ### How can users recheck the number on mobile iOS devices after the match request appears?
 
