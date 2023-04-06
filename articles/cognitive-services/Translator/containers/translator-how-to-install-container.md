@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 01/18/2023
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -96,7 +96,7 @@ The Translator container image can be found on the `mcr.microsoft.com` container
 
 To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/translator/text-translation/tags).
 
-## Get container images with Docker
+## Get container images with **docker commands**
 
 > [!IMPORTANT]
 >
@@ -142,51 +142,6 @@ curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en&to=zh-HANS
 
 > [!NOTE]
 > If you attempt the cURL POST request before the container is ready, you'll end up getting a *Service is temporarily unavailable* response. Wait until the container is ready, then try again.
-
-
-### Run the container disconnected from the internet (authorization required)
-
-To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../../containers/disconnected-containers.md) for more information.
-
-If you have been approved to run the container disconnected from the internet, the `DownloadLicense=True` parameter in your `docker run` command will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a speech-to-text container with a translator container.
-
-> [!IMPORTANT]
-> The `docker run` command will generate a template that you can use to run the container. The template contains parameters you'll need for the downloaded models and configuration file. Make sure you save this template.
-
-The following example shows the formatting for the `docker run` command with placeholder values. Replace these placeholder values with your own values.
-
-| Placeholder | Value | Format|
-|-------------|-------|---|
-| `[image]` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/translator/text-translation` |
-| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
- | `{MODEL_MOUNT_PATH}`| The path where the machine translation models will be downloaded, and mounted.  Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
-| `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, in the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`{string}`|
-| `{LANGUAGES_LIST}` | List of language codes separated by commas. It's mandatory to have English (en) language as part of the list.| `en`, `fr`, `it`, `zu`, `uk` |
-| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
-
-  **Example `docker run` command**
-
-```docker
-docker run --rm -it -p 5000:5000 \
--v {MODEL_MOUNT_PATH} \
--v {LICENSE_MOUNT_PATH} \
--e Mounts:License={CONTAINER_LICENSE_DIRECTORY} \
--e DownloadLicense=true \
--e eula=accept \
--e billing={ENDPOINT_URI} \
--e apikey={API_KEY} \
--e Languages={LANGUAGES_LIST} \
-```
-
-Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
-
-Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written. You'll also need to add parameters for the downloaded translation models and container configuration. These values are generated and displayed in the container output when you configure the container as described above. For example:
-
-```bash
--e MODELS= /path/to/model1/, /path/to/model2/
--e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
-```
 
 ## Stop the container
 
