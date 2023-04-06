@@ -45,38 +45,39 @@ uname -r
     The cifs-utils package can be installed using the package manager on the Linux distribution of your choice. 
 
 
-# [Ubuntu](#tab/Ubuntu) 
+# [Ubuntu](#tab/Ubuntu)
 
-    On **Ubuntu** and **Debian**, use the `apt` package manager:
+On **Ubuntu** and **Debian**, use the `apt` package manager:
 
     ```bash
     sudo apt update
     sudo apt install cifs-utils
     ```
-# [RHEL](#tab/RHEL) 
+# [RHEL](#tab/RHEL)
 
     Same applies for CentOS or Oracle Linux
 
-    On **Red Hat Enterprise Linux 8+** use the `dnf` package manager:
+On **Red Hat Enterprise Linux 8+** use the `dnf` package manager:
 
     ```bash
     sudo dnf install cifs-utils
     ```
 
-    On older versions of **Red Hat Enterprise Linux** use the `yum` package manager:
+On older versions of **Red Hat Enterprise Linux** use the `yum` package manager:
 
     ```bash
     sudo yum install cifs-utils 
     ```
-# [SLES](#tab/SLES) 
+# [SLES](#tab/SLES)
 
-    On **SUSE Linux Enterprise Server**, use the `zypper` package manager:
+On **SUSE Linux Enterprise Server**, use the `zypper` package manager:
 
     ```bash
     sudo zypper install cifs-utils
     ```
 ---
-    On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
+
+On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may; however, the instructions in this article are for the Azure CLI.
 
