@@ -414,6 +414,8 @@ You also need to configure the following information for your network
 
 ##### Create default CNI Network for AKS-Hybrid cluster
 
+Each cluster will need it's own default CNI Network (Calico Network). 
+
 You need the following information:
 
 - `resourceId` of the L3 Isolation Domain you created earlier that configures the VLAN for this network.
