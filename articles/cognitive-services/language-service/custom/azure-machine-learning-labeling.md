@@ -89,7 +89,7 @@ Once the connection has been established, you can switch to Azure Machine Learni
 
 When you switch, your ability to label data in Language Studio will be disabled, and you will be able to label data in Azure Machine Learning. You can switch back to labeling in Language Studio at any time through Azure Machine Learning.
 
-See the [Azure Machine Learning documentation](/azure/machine-learning/how-to-label-data) for information and guidance for labeling your data and other available features. 
+For information on how to label the text, see [Azure Machine Learning how to label](/azure/machine-learning/how-to-label-data#label-text).  For information about managing and tracking the text labeling project, see [Azure Machine Learning set up and manage a text labeling project](/azure/machine-learning/how-to-create-text-labeling-projects.md). 
 
 ## Train your model using labels from Azure Machine Learning
 
