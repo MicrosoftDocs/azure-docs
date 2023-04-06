@@ -2,7 +2,7 @@
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 03/06/2023
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -22,6 +22,24 @@ To modify the HTTP response, configure an [output binding](./functions-bindings-
 For more information about HTTP bindings, see the [overview](./functions-bindings-http-webhook.md) and [output binding reference](./functions-bindings-http-webhook-output.md).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+::: zone pivot="programming-language-python"
+Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
+
+# [v2](#tab/python-v2)
+The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
+
+# [v1](#tab/python-v1)
+The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+---
+
+This article supports both programming models.
+
+> [!IMPORTANT]
+> The Python v2 programming model is currently in preview.
+::: zone-end
+
 
 ## Example
 
@@ -442,7 +460,27 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
+
+# [v2](#tab/python-v2)
+
+```python
+import azure.functions as func
+import logging
+
+app = func.FunctionApp()
+
+@app.function_name(name="HttpTrigger1")
+@app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
+def test_function(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+    return func.HttpResponse(
+        "This HTTP triggered function executed successfully.",
+        status_code=200
+        )
+```
+
+# [v1](#tab/python-v1)
 
 Here's the *function.json* file:
 
@@ -496,6 +534,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
+---
+
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 ## Attributes
@@ -540,6 +580,25 @@ The following table explains the trigger configuration properties that you set i
 ---
 
 ::: zone-end  
+
+::: zone pivot="programming-language-python"
+## Decorators
+
+_Applies only to the Python v2 programming model._
+
+For Python v2 functions defined using a decorator, the following properties for a trigger are defined in the `route` decorator, which adds HttpTrigger and HttpOutput binding:
+
+| Property    | Description |
+|-------------|-----------------------------|
+| `route` | Route for the http endpoint, if None, it will be set to function name if present or user defined python function name. |
+| `trigger_arg_name` | Argument name for HttpRequest, defaults to 'req'. |
+| `binding_arg_name` | Argument name for HttpResponse, defaults to '$return'. |
+| `methods` | A tuple of the HTTP methods to which the function responds. |
+| `auth_level` | Determines what keys, if any, need to be present on the request in order to invoke the function. |
+
+For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
+::: zone-end
+
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
@@ -555,6 +614,13 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
+::: zone-end
+
+::: zone pivot="programming-language-python" 
+_Applies only to the Python v1 programming model._
+
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 
 The following table explains the trigger configuration properties that you set in the *function.json* file, which differs by runtime version.
 
@@ -705,7 +771,7 @@ public class HttpTriggerJava {
 ```
 
 ::: zone-end 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-powershell"  
 
 As an example, the following *function.json* file defines a `route` property for an HTTP trigger with two parameters, `category` and `id`:
 
@@ -727,6 +793,43 @@ As an example, the following *function.json* file defines a `route` property for
     ]
 }
 ```
+
+::: zone-end 
+::: zone pivot="programming-language-python"
+
+As an example, the following code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`:
+
+# [v2](#tab/python-v2)
+
+```python
+@app.function_name(name="httpTrigger")
+@app.route(route="products/{category:alpha}/{id:int?}")
+```
+
+# [v1](#tab/python-v1)
+
+In the *function.json* file:
+
+```json
+{
+    "bindings": [
+    {
+        "type": "httpTrigger",
+        "name": "req",
+        "direction": "in",
+        "methods": [ "get" ],
+        "route": "products/{category:alpha}/{id:int?}"
+    },
+    {
+        "type": "http",
+        "name": "res",
+        "direction": "out"
+    }
+    ]
+}
+```
+
+---
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"
@@ -810,6 +913,16 @@ Route parameters that defined a function's `route` pattern are available to each
 
 The following configuration shows how the `{id}` parameter is passed to the binding's `rowKey`.
 
+# [v2](#tab/python-v2)
+
+```python
+@app.table_input(arg_name="product", table_name="products", 
+                 row_key="{id}", partition_key="products",
+                 connection="AzureWebJobsStorage")
+```
+
+# [v1](#tab/python-v1)
+
 ```json
 {
     "type": "table",
@@ -820,6 +933,8 @@ The following configuration shows how the `{id}` parameter is passed to the bind
     "rowKey": "{id}"
 }
 ```
+
+---
 
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 

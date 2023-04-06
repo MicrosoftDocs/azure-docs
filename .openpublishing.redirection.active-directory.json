@@ -6,8 +6,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/configure-token-lifetimes.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "source_path_from_root": "/articles/active-directory/develop/registration-config-change-token-lifetime-how-to.md",
+      "redirect_url": "/azure/active-directory/develop/configure-token-lifetimes",
       "redirect_document_id": false
     },
     {
@@ -61,6 +61,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/easy-metrics-auth0-connector-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/easy-metrics-connector-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
       "redirect_document_id": false
@@ -72,6 +77,11 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/icertisicm-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/teamzskill-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
     },
@@ -131,6 +141,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/tripactions-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/navan-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -163,6 +178,11 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-github.md",
       "redirect_url": "/azure/active-directory/develop/workload-identity-federation-create-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-create-trust-gcp.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation",
       "redirect_document_id": false
     },
     {
@@ -11174,6 +11194,16 @@
     {
       "source_path_from_root": "/articles/active-directory/governance/create-access-review-privileged-access-groups.md",
       "redirect_url": "/azure/active-directory/governance/create-access-review-pim-for-groups",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/concepts-resource-forest.md",
+      "redirect_url": "/azure/active-directory-domain-services/concepts-forest-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory-domain-services/create-resource-forest-powershell.md",
+      "redirect_url": "/azure/active-directory-domain-services/create-forest-trust-powershell",
       "redirect_document_id": false
     }
   ]

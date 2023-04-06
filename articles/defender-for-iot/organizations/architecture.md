@@ -1,11 +1,11 @@
 ---
-title: System architecture for OT monitoring - Microsoft Defender for IoT
+title: System architecture for OT/IoT monitoring - Microsoft Defender for IoT
 description: Learn about the Microsoft Defender for IoT system architecture and data flow.
-ms.topic: overview
-ms.date: 12/25/2022
+ms.topic: conceptual
+ms.date: 01/18/2023
 ---
 
-# System architecture for OT system monitoring
+# Microsoft Defender for IoT components
 
 The Microsoft Defender for IoT system is built to provide broad coverage and visibility from diverse data sources.
 
@@ -18,30 +18,28 @@ Defender for IoT connects to both cloud and on-premises components, and is built
 Defender for IoT includes the following OT security monitoring components:
 
 - **The Azure portal**, for cloud management and integration to other Microsoft services, such as Microsoft Sentinel.
-- **OT network sensors**, to detect OT devices across your network. OT network sensors are deployed on either a virtual machine or a physical appliance, and configured as cloud-connected sensors, or fully on-premises, locally managed sensors.
-- **An on-premises management console** for centralized OT site management in local, air-gapped environments.
 
-## What is a Defender for IoT committed device?
+- **Operational technology (OT) or Enterprise IoT network sensors**, to detect devices across your network. Defender for IoT network sensors are deployed on either a virtual machine or a physical appliance. OT sensors can be configured as cloud-connected sensors, or fully on-premises, locally managed sensors.
 
-[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
+- **An on-premises management console** for centralized OT sensor management and monitoring for local, air-gapped environments.
 
-## OT network sensors
+## OT and Enterprise IoT network sensors
 
-OT network sensors discover and continuously monitor network traffic across your OT devices.
+Defender for IoT network sensors discover and continuously monitor network traffic across your network devices.
 
-- Network sensors are purpose-built for OT networks and connect to a SPAN port or network TAP. OT network sensors can provide visibility into risks within minutes of connecting to the network.
+- Network sensors are purpose-built for OT/IoT networks and connect to a SPAN port or network TAP. Defender for IoT network sensors can provide visibility into risks within minutes of connecting to the network.
 
-- Network sensors use OT-aware analytics engines and Layer-6 Deep Packet Inspection (DPI) to detect threats, such as fileless malware, based on anomalous or unauthorized activity.
+- Network sensors use OT/IoT-aware analytics engines and Layer-6 Deep Packet Inspection (DPI) to detect threats, such as fileless malware, based on anomalous or unauthorized activity.
 
 Data collection, processing, analysis, and alerting takes place directly on the sensor, which can be ideal for locations with low bandwidth or high-latency connectivity. Only telemetry and insights are transferred on for management, either to the Azure portal or an on-premises management console.
 
-For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
+For more information, see [Defender for IoT OT deployment path](ot-deploy/ot-deploy-path.md).
 
 ### Cloud-connected vs. local OT sensors
 
 Cloud-connected sensors are sensors that are connected to Defender for IoT in Azure, and differ from locally managed sensors as follows:
 
-When you have a cloud connected OT network sensor:
+**When you have a cloud connected OT network sensor**:
 
 - All data that the sensor detects is displayed in the sensor console, but alert information is also delivered to Azure, where it can be analyzed and shared with other Azure services.
 
@@ -49,7 +47,7 @@ When you have a cloud connected OT network sensor:
 
 - The sensor name defined during onboarding is the name displayed in the sensor, and is read-only from the sensor console.
 
-In contrast, when working with locally managed sensors:
+**In contrast, when working with locally managed sensors**:
 
 - View any data for a specific sensor from the sensor console. For a unified view of all information detected by several sensors, use an on-premises management console.
 
@@ -69,15 +67,15 @@ For example, the **policy violation detection** engine models industry control s
 
 Since many detection algorithms were built for IT, rather than OT networks, the extra baseline for ICS networks helps to shorten the system's learning curve for new detections.
 
-Defender for IoT network sensors include the following analytics engines:
+Defender for IoT network sensors include the following main analytics engines:
 
-|Name  |Description  |
-|---------|---------|
-|**Protocol violation detection engine**     |  Identifies the use of packet structures and field values that violate ICS protocol specifications. <br><br>For example, Modbus exceptions or the initiation of an obsolete function code alerts.       |
-|**Industrial malware detection engine**     |  Identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry, NotPetya, and Triton.       |
-|**Anomaly detection engine**     | Detects unusual machine-to-machine (M2M) communications and behaviors. <br><br>This engine models ICS networks and therefore requires a shorter learning period than analytics developed for IT. Anomalies are detected faster, with minimal false positives. <br><br>For example, Excessive SMB sign-in attempts, and PLC Scan Detected alerts.        |
-|**Operational incident detection**     |   Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. <br><br> For example, the device might be disconnected (unresponsive), or the Siemens S7 stop PLC command was sent alerts.      |
-
+|Name  |Description  | Examples |
+|---------|---------|---------|
+|**Protocol violation detection engine**     |  Identifies the use of packet structures and field values that violate ICS protocol specifications. <br><br>Protocol violations occur when the packet structure or field values don't comply with the protocol specification.| An *"Illegal MODBUS Operation (Function Code Zero)"* alert indicates that a primary device sent a request with function code 0 to a secondary device. This action isn't allowed according to the protocol specification, and the secondary device might not handle the input correctly     |
+| **Policy Violation** | A policy violation occurs with a deviation from baseline behavior defined in learned or configured settings. | An *"Unauthorized HTTP User Agent"* alert indicates that an application that wasn't learned or approved by policy is used as an HTTP client on a device. This might be a new web browser or application on that device.|
+|**Industrial malware detection engine**     |  Identifies behaviors that indicate the presence of malicious network activity via known malware, such as Conficker, Black Energy, Havex, WannaCry, NotPetya, and Triton. | A *"Suspicion of Malicious Activity (Stuxnet)"* alert indicates that the sensor detected suspicious network activity known to be related to the Stuxnet malware. This malware is an advanced persistent threat aimed at industrial control and SCADA networks.     |
+|**Anomaly detection engine**     | Detects unusual machine-to-machine (M2M) communications and behaviors. <br><br>This engine models ICS networks and therefore requires a shorter learning period than analytics developed for IT. Anomalies are detected faster, with minimal false positives. | A *"Periodic Behavior in Communication Channel"* alert reflects periodic and cyclic behavior of data transmission, which is common in industrial networks.   <br>Other examples include excessive SMB sign-in attempts, and PLC scan detected alerts.    |
+|**Operational incident detection**     |   Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure.  | A *"Device is Suspected to be Disconnected (Unresponsive)"* alert is triggered when a device isn't responding to any kind of request for a predefined period. This alert might indicate a device shutdown, disconnection, or malfunction.  <br>Another example might be if the Siemens S7 stop PLC command was sent alerts.   |
 
 ## Management options
 
@@ -93,15 +91,17 @@ Defender for IoT provides hybrid network support using the following management 
 
     :::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
 
-- **The on-premises management console**. In air-gapped environments, the on-premises management console provides a centralized view and management options for devices and threats detected by connected OT network sensors. The on-premises management console also lets you organize your network into separate sites and zones to support a [Zero Trust](/security/zero-trust/) mindset, and provides extra maintenance tools and reporting features.
+- **The on-premises management console**. In air-gapped environments, you can get a central view of data from all of your sensors from an on-premises management console, using extra maintenance tools and reporting features.
+
+    The software version on your on-premises management console must be equal to that of your most up-to-date sensor version. Each on-premises management console version is backwards compatible to older, supported sensor versions, but cannot connect to newer sensor versions.
+
+    For more information, see [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
+
+## What is a Defender for IoT committed device?
+
+[!INCLUDE [devices-inventoried](includes/devices-inventoried.md)]
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Understand OT sensor connection methods](architecture-connections.md)
-
-> [!div class="nextstepaction"]
-> [Connect OT sensors to Microsoft Defender for IoT](connect-sensors.md)
-
-> [!div class="nextstepaction"]
-> [Frequently asked questions](resources-frequently-asked-questions.md)
+> [!div class="step-by-step"]
+> [Understand your network architecture »](architecture.md)

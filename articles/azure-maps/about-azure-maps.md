@@ -20,7 +20,6 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
 * Time zone and Geolocation services.
-* Elevation services with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
 
@@ -181,18 +180,6 @@ Maps Creator provides the following services:
 * [WFS service]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API] standards for querying a single dataset.
 
 * [Wayfinding service] (preview). Use the [wayfinding API] to generate a path between two points within a facility. Use the [routeset API] to create the data that the wayfinding service needs to generate paths.
-
-### Elevation service
-
-The Azure Maps Elevation service is a web service that developers can use to retrieve elevation data from anywhere on the Earth’s surface.
-
-The Elevation service allows you to retrieve elevation data in two formats:
-
-* **GeoTIFF raster format**. Use the [Render V2-Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format.
-
-* **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates.
-
-:::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
 
 ## Programming model
 

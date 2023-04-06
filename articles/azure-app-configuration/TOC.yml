@@ -11,6 +11,8 @@
 - name: Quickstarts
   expanded: true
   items:
+    - name: Create an App Configuration store
+      href: quickstart-azure-app-configuration-create.md
     - name: Configuration
       items:
         - name: ASP.NET Core

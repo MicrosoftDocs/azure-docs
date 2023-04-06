@@ -93,7 +93,7 @@ Any library that your scoring script requires to run needs to be indicated in th
 
 __mnist/environment/conda.yml__
         
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/mnist/environment/conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yml":::
 
 Refer to [Create a batch deployment](how-to-use-batch-endpoint.md#create-a-batch-deployment) for more details about how to indicate the environment for your model.
 

@@ -314,6 +314,8 @@
     href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
   - name: Monitoring Azure Files reference
     href: storage-files-monitoring-reference.md
+  - name: Premium file shares ZRS support
+    href: redundancy-premium-file-shares.md    
   - name: Resource Manager template
     displayName: arm
     href: /azure/templates/microsoft.storage/allversions
