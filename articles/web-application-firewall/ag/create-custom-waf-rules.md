@@ -26,7 +26,7 @@ The JSON snippets shown in this article are derived from a [ApplicationGatewayWe
 
 ## Example 1
 
-You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you’ll block on the User-Agent *evilbot* in the request headers.
+You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you block on the User-Agent *evilbot* in the request headers.
 
 Logic: p
 
@@ -51,7 +51,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here is the corresponding JSON:
+And here's the corresponding JSON:
 
 ```json
 {
@@ -266,7 +266,7 @@ Corresponding CRS rule:
 
 ## Example 4
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This configuration ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this action, you can create two separate match conditions, and put them both in the same rule. This configuration ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
 
 Logic: p **and** q
 
@@ -535,7 +535,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here is the corresponding JSON:
+And here's the corresponding JSON:
 
 ```json
 {
