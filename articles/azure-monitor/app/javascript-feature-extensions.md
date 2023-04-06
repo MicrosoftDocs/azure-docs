@@ -1,6 +1,6 @@
 ---
 title: Feature extensions for Application Insights JavaScript SDK (Click Analytics)
-description: Learn how to install and use JavaScript feature extensions (Click Analytics) for Application Insights JavaScript SDK. 
+description: Learn how to install and use JavaScript feature extensions (Click Analytics) for the Application Insights JavaScript SDK. 
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
@@ -9,21 +9,21 @@ ms.devlang: javascript
 ms.reviewer: mmcc
 ---
 
-# Feature extensions for Application Insights JavaScript SDK (Click Analytics)
+# Feature extensions for the Application Insights JavaScript SDK (Click Analytics)
 
-App Insights JavaScript SDK feature extensions are extra features that can be added to the Application Insights JavaScript SDK to enhance its functionality.
+Application Insights JavaScript SDK feature extensions are extra features that can be added to the Application Insights JavaScript SDK to enhance its functionality.
 
-In this article, we cover the Click Analytics plugin that automatically tracks click events on web pages and uses data-* attributes on HTML elements to populate event telemetry.
+In this article, we cover the Click Analytics plug-in that automatically tracks click events on webpages and uses `data-*` attributes on HTML elements to populate event telemetry.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-## Getting started
+## Get started
 
-Users can set up the Click Analytics Auto-collection plugin via npm.
+Users can set up the Click Analytics Autocollection plug-in via npm.
 
 ### npm setup
 
-Install npm package:
+Install the npm package:
 
 ```bash
 npm install --save @microsoft/applicationinsights-clickanalytics-js @microsoft/applicationinsights-web
@@ -52,7 +52,9 @@ const appInsights = new ApplicationInsights({ config: configObj });
 appInsights.loadAppInsights();
 ```
 
-## Snippet Setup (ignore if using npm setup)
+## Snippet setup
+
+Ignore this setup if you use the npm setup.
 
 ```html
 <script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.6.2.min.js"></script>
@@ -65,7 +67,7 @@ appInsights.loadAppInsights();
       useDefaultContentNameOrId: true
     }
   }
-  // Application Insights Configuration
+  // Application Insights configuration
   var configObj = {
     instrumentationKey: "YOUR INSTRUMENTATION KEY",
     extensions: [
@@ -84,54 +86,54 @@ appInsights.loadAppInsights();
 </script>
 ```
 
-## How to effectively use the plugin
+## Use the plug-in
 
 1. Telemetry data generated from the click events are stored as `customEvents` in the Application Insights section of the Azure portal.
-2. The `name` of the customEvent is populated based on the following rules:
-    1.  The `id` provided in the `data-*-id` is used as the customEvent name. For example, if the clicked HTML element has the attribute "data-sample-id"="button1", then "button1" is the customEvent name.
-    2. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, then the clicked element's HTML attribute `id` or content name of the element is used as the customEvent name. If both `id` and content name are present, precedence is given to `id`.
-    3. If `useDefaultContentNameOrId` is false, then the customEvent name is "not_specified".
+1. The `name` of the `customEvent` is populated based on the following rules:
+    1. The `id` provided in the `data-*-id` is used as the `customEvent` name. For example, if the clicked HTML element has the attribute `"data-sample-id"="button1"`, then `"button1"` is the `customEvent` name.
+    1. If no such attribute exists and if the `useDefaultContentNameOrId` is set to `true` in the configuration, the clicked element's HTML attribute `id` or content name of the element is used as the `customEvent` name. If both `id` and the content name are present, precedence is given to `id`.
+    1. If `useDefaultContentNameOrId` is `false`, the `customEvent` name is `"not_specified"`.
 
     > [!TIP]
-    > We recommend settings `useDefaultContentNameOrId` to true for generating meaningful data.  
-3. `parentDataTag` does two things:
-    1. If this tag is present, the plugin fetches the `data-*` attributes and values from all the parent HTML elements of the clicked element.
-    2. To improve efficiency, the plugin uses this tag as a flag, when encountered it stops itself from further processing the DOM (Document Object Model) upwards.
+    > We recommend setting `useDefaultContentNameOrId` to `true` for generating meaningful data.
+1. The tag `parentDataTag` does two things:
+    1. If this tag is present, the plug-in fetches the `data-*` attributes and values from all the parent HTML elements of the clicked element.
+    1. To improve efficiency, the plug-in uses this tag as a flag. When encountered, it stops itself from further processing the Document Object Model (DOM) upward.
     
     > [!CAUTION]
-    > Once `parentDataTag` is used, the SDK will begin looking for parent tags across your entire application and not just the HTML element where you used it.
-4. `customDataPrefix` provided by the user should always start with `data-`, for example `data-sample-`. In HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers (Internet Explorer, Safari) drop attributes that it doesn't understand, unless they start with `data-`.
+    > After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it.
+1. The `customDataPrefix` provided by the user should always start with `data-`. An example is `data-sample-`. In HTML, the `data-*` global attributes are called custom data attributes that allow proprietary information to be exchanged between the HTML and its DOM representation by scripts. Older browsers like Internet Explorer and Safari drop attributes they don't understand, unless they start with `data-`.
 
-    The `*` in `data-*`  may be replaced by any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions:
-    - The name must not start with "xml", whatever case is used for these letters.
-    - The name must not contain any semicolon (U+003A).
+    The asterisk (`*`) in `data-*` can be replaced by any name following the [production rule of XML names](https://www.w3.org/TR/REC-xml/#NT-Name) with the following restrictions:
+    - The name must not start with "xml," whatever case is used for the letters.
+    - The name must not contain a semicolon (U+003A).
     - The name must not contain capital letters.
 
-## What data does the plugin collect
+## What data does the plug-in collect?
 
-The following are some of the key properties captured by default when the plugin is enabled:
+The following key properties are captured by default when the plug-in is enabled.
 
-### Custom Event Properties
+### Custom event properties
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
-| Name                  | The `name` of the customEvent. More info on how name gets populated is shown [here](#how-to-effectively-use-the-plugin).| About              |
+| Name                  | The name of the custom event. More information on how a name gets populated is shown in the [preceding section](#use-the-plug-in).| About              |
 | itemType              | Type of event.                                      | customEvent      |
-|sdkVersion             | Version of Application Insights SDK along with click plugin|JavaScript:2.6.2_ClickPlugin2.6.2|
+|sdkVersion             | Version of Application Insights SDK along with click plug-in.|JavaScript:2.6.2_ClickPlugin2.6.2|
 
-### Custom Dimensions
+### Custom dimensions
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
-| actionType            | Action type that caused the click event. Can be left or right click. | CL              |
+| actionType            | Action type that caused the click event. It can be a left or right click. | CL              |
 | baseTypeSource        | Base Type source of the custom event.                                      | ClickEvent      |
 | clickCoordinates      | Coordinates where the click event is triggered.                            | 659X47          |
 | content               | Placeholder to store extra `data-*` attributes and values.            | [{sample1:value1, sample2:value2}] |
 | pageName              | Title of the page where the click event is triggered.                      | Sample Title    |
-| parentId              | ID or name of the parent element                                           | navbarContainer |
+| parentId              | ID or name of the parent element.                                           | navbarContainer |
 
-### Custom Measurements
+### Custom measurements
 | Name                  | Description                            | Sample          |
 | --------------------- | ---------------------------------------|-----------------|
-| timeToAction          | Time taken in milliseconds for the user to click the element since initial page load | 87407              |
+| timeToAction          | Time taken in milliseconds for the user to click the element since the initial page load. | 87407              |
 
 ## Configuration
 
@@ -143,39 +145,41 @@ The following are some of the key properties captured by default when the plugin
 | dataTags              | [ICustomDataTags](#icustomdatatags)| Null    | Custom Data Tags provided to override default tags used to capture click data. |
 | urlCollectHash        | Boolean                            | False   | Enables the logging of values after a "#" character of the URL.                |
 | urlCollectQuery       | Boolean                            | False   | Enables the logging of the query string of the URL.                            |
-| behaviorValidator     | Function                           | Null  | Callback function to use for the `data-*-bhvr` value validation. For more information, go to [behaviorValidator section](#behaviorvalidator).|
-| defaultRightClickBhvr | String (or) number                 | ''      | Default Behavior value when Right Click event has occurred. This value is overridden if the element has the `data-*-bhvr` attribute. |
+| behaviorValidator     | Function                           | Null  | Callback function to use for the `data-*-bhvr` value validation. For more information, see the [behaviorValidator section](#behaviorvalidator).|
+| defaultRightClickBhvr | String (or) number                 | ''      | Default behavior value when a right-click event has occurred. This value is overridden if the element has the `data-*-bhvr` attribute. |
 | dropInvalidEvents     | Boolean                            | False   | Flag to drop events that don't have useful click data.                                                                                   |
 
 ### IValueCallback
 
 | Name               | Type     | Default | Description                                                                             |
 | ------------------ | -------- | ------- | --------------------------------------------------------------------------------------- |
-| pageName           | Function | Null    | Function to override the default pageName capturing behavior.                           |
-| pageActionPageTags | Function | Null    | A callback function to augment the default pageTags collected during pageAction event.  |
-| contentName        | Function | Null    | A callback function to populate customized contentName.                                 |
+| pageName           | Function | Null    | Function to override the default `pageName` capturing behavior.                           |
+| pageActionPageTags | Function | Null    | A callback function to augment the default `pageTags` collected during a `pageAction` event.  |
+| contentName        | Function | Null    | A callback function to populate customized `contentName`.                                 |
 
 ### ICustomDataTags
 
-| Name                      | Type    | Default   | Default Tag to Use in HTML |   Description                                                                                |
+| Name                      | Type    | Default   | Default tag to use in HTML |   Description                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | Boolean | False     | N/A         |Collects standard HTML attribute for contentName when a particular element isn't tagged with default customDataPrefix or when customDataPrefix isn't provided by user. |
+| useDefaultContentNameOrId | Boolean | False     | N/A         |Collects standard HTML attribute for `contentName` when a particular element isn't tagged with default `customDataPrefix` or when `customDataPrefix` isn't provided by user. |
 | customDataPrefix          | String  | `data-`   | `data-*`| Automatic capture content name and value of elements that are tagged with provided prefix. For example, `data-*-id`, `data-<yourcustomattribute>` can be used in the HTML tags.   |
-| aiBlobAttributeTag        | String  | `ai-blob` |  `data-ai-blob`| Plugin supports a JSON blob attribute instead of individual `data-*` attributes. |
-| metaDataPrefix            | String  | Null      | N/A  | Automatic capture HTML Head's meta element name and content with provided prefix when capture. For example, `custom-` can be used in the HTML meta tag. |
-| captureAllMetaDataContent | Boolean | False     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled it overrides provided metaDataPrefix. |
+| aiBlobAttributeTag        | String  | `ai-blob` |  `data-ai-blob`| Plug-in supports a JSON blob attribute instead of individual `data-*` attributes. |
+| metaDataPrefix            | String  | Null      | N/A  | Automatic capture HTML Head's meta element name and content with provided prefix when captured. For example, `custom-` can be used in the HTML meta tag. |
+| captureAllMetaDataContent | Boolean | False     | N/A   | Automatic capture all HTML Head's meta element names and content. Default is false. If enabled, it overrides provided `metaDataPrefix`. |
 | parentDataTag             | String  | Null      |  N/A  | Stops traversing up the DOM to capture content name and value of elements when encountered with this tag. For example, `data-<yourparentDataTag>` can be used in the HTML tags.|
-| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| HTML elements with this attribute are ignored by the plugin for capturing telemetry data.|
+| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| HTML elements with this attribute are ignored by the plug-in for capturing telemetry data.|
 
 ### behaviorValidator
 
-The behaviorValidator functions automatically check that tagged behaviors in code conform to a pre-defined list. It ensures tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios. There are three different behaviorValidator callback functions exposed as part of this extension. However, users can use their own callback functions if the exposed functions don't solve your requirement. The intent is to bring your own behaviors data structure, the plugin uses this validator function while extracting the behaviors from the data tags.
+The `behaviorValidator` functions automatically check that tagged behaviors in code conform to a predefined list. The functions ensure that tagged behaviors are consistent with your enterprise's established taxonomy. It isn't required or expected that most Azure Monitor customers use these functions, but they're available for advanced scenarios.
+
+Three different `behaviorValidator` callback functions are exposed as part of this extension. You can also use your own callback functions if the exposed functions don't solve your requirement. The intent is to bring your own behavior's data structure. The plug-in uses this validator function while extracting the behaviors from the data tags.
 
 | Name                   | Description                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
-| BehaviorValueValidator | Use this callback function if your behaviors data structure is an array of strings.|
-| BehaviorMapValidator   | Use this callback function if your behaviors data structure is a dictionary.       |
-| BehaviorEnumValidator  | Use this callback function if your behaviors data structure is an Enum.            |
+| BehaviorValueValidator | Use this callback function if your behavior's data structure is an array of strings.|
+| BehaviorMapValidator   | Use this callback function if your behavior's data structure is a dictionary.       |
+| BehaviorEnumValidator  | Use this callback function if your behavior's data structure is an Enum.            |
 
 #### Sample usage with behaviorValidator
 
@@ -198,16 +202,16 @@ var behaviorMap = {
   SORT: 6, // Sorting content
   EXPAND: 7, // Expanding content or content container
   REDUCE: 8, // Sorting content
-  CONTEXTMENU: 9, // Context Menu
+  CONTEXTMENU: 9, // Context menu
   TAB: 10, // Tab control
   COPY: 11, // Copy the contents of a page
-  EXPERIMENTATION: 12, // Used to identify a third party experimentation event
+  EXPERIMENTATION: 12, // Used to identify a third-party experimentation event
   PRINT: 13, // User printed page
-  SHOW: 14, //  Displaying an overlay
-  HIDE: 15, //  Hiding an overlay
-  MAXIMIZE: 16, //  Maximizing an overlay
+  SHOW: 14, // Displaying an overlay
+  HIDE: 15, // Hiding an overlay
+  MAXIMIZE: 16, // Maximizing an overlay
   MINIMIZE: 17, // Minimizing an overlay
-  BACKBUTTON: 18, //  Clicking the back button
+  BACKBUTTON: 18, // Clicking the back button
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   // Scenario Process [20-39]
@@ -267,7 +271,7 @@ var behaviorMap = {
   // Feedback [140-159]
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   VOTE: 140, // Rating content or voting for content
-  SURVEYCHECKPOINT: 145, // reaching the survey page/form
+  SURVEYCHECKPOINT: 145, // Reaching the survey page/form
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   // Registration, Contact [160-179]
@@ -288,25 +292,25 @@ var behaviorMap = {
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   // Trial [200-209]
   ///////////////////////////////////////////////////////////////////////////////////////////////////
-  TRIALSIGNUP: 200, // Signing-up for a trial
+  TRIALSIGNUP: 200, // Signing up for a trial
   TRIALINITIATE: 201, // Initiating a trial
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   // Signup [210-219]
   ///////////////////////////////////////////////////////////////////////////////////////////////////
-  SIGNUP: 210, // Signing-up for a notification or service
-  FREESIGNUP: 211, // Signing-up for a free service
+  SIGNUP: 210, // Signing up for a notification or service
+  FREESIGNUP: 211, // Signing up for a free service
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
-  // Referals [220-229]
+  // Referrals [220-229]
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   PARTNERREFERRAL: 220, // Navigating to a partner's web property
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   // Intents [230-239]
   ///////////////////////////////////////////////////////////////////////////////////////////////////
-  LEARNLOWFUNNEL: 230, // Engaging in learning behavior on a commerce page (ex. "Learn more click")
-  LEARNHIGHFUNNEL: 231, // Engaging in learning behavior on a non-commerce page (ex. "Learn more click")
+  LEARNLOWFUNNEL: 230, // Engaging in learning behavior on a commerce page (for example, "Learn more click")
+  LEARNHIGHFUNNEL: 231, // Engaging in learning behavior on a non-commerce page (for example, "Learn more click")
   SHOPPINGINTENT: 232, // Shopping behavior prior to landing on a commerce page
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -314,9 +318,9 @@ var behaviorMap = {
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   VIDEOSTART: 240, // Initiating a video
   VIDEOPAUSE: 241, // Pausing a video
-  VIDEOCONTINUE: 242, // Pausing or resuming a video.
-  VIDEOCHECKPOINT: 243, // Capturing predetermined video percentage complete.
-  VIDEOJUMP: 244, // Jumping to a new video location.
+  VIDEOCONTINUE: 242, // Pausing or resuming a video
+  VIDEOCHECKPOINT: 243, // Capturing predetermined video percentage complete
+  VIDEOJUMP: 244, // Jumping to a new video location
   VIDEOCOMPLETE: 245, // Completing a video (or % proxy)
   VIDEOBUFFERING: 246, // Capturing a video buffer event
   VIDEOERROR: 247, // Capturing a video error
@@ -326,12 +330,12 @@ var behaviorMap = {
   VIDEOUNFULLSCREEN: 251, // Making a video return from full screen to original size
   VIDEOREPLAY: 252, // Making a video replay
   VIDEOPLAYERLOAD: 253, // Loading the video player
-  VIDEOPLAYERCLICK: 254, //  Click on a button within the interactive player
-  VIDEOVOLUMECONTROL: 255, //  Click on video volume control
+  VIDEOPLAYERCLICK: 254, // Click on a button within the interactive player
+  VIDEOVOLUMECONTROL: 255, // Click on video volume control
   VIDEOAUDIOTRACKCONTROL: 256, // Click on audio control within a video
-  VIDEOCLOSEDCAPTIONCONTROL: 257, //  Click on the closed caption control
-  VIDEOCLOSEDCAPTIONSTYLE: 258, //  Click to change closed caption style
-  VIDEORESOLUTIONCONTROL: 259, //  Click to change resolution
+  VIDEOCLOSEDCAPTIONCONTROL: 257, // Click on the closed-caption control
+  VIDEOCLOSEDCAPTIONSTYLE: 258, // Click to change closed-caption style
+  VIDEORESOLUTIONCONTROL: 259, // Click to change resolution
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   // 	Advertisement Engagement [280-299]
@@ -341,7 +345,7 @@ var behaviorMap = {
   ADSTART: 285, // Ad start
   ADCOMPLETE: 286, // Ad complete
   ADSKIP: 287, // Ad skipped
-  ADTIMEOUT: 288, // Ad timed-out
+  ADTIMEOUT: 288, // Ad timed out
   OTHER: 300 // Other
 };
 
@@ -362,20 +366,20 @@ var appInsights = new Microsoft.ApplicationInsights.ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-## Enable Correlation
+## Enable correlation
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation, reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
+JavaScript correlation is turned off by default to minimize the telemetry we send by default. To enable correlation, see the [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Sample app
 
-[Simple web app with Click Analytics Auto-collection Plugin enabled](https://go.microsoft.com/fwlink/?linkid=2152871).
+[Simple web app with the Click Analytics Autocollection Plug-in enabled](https://go.microsoft.com/fwlink/?linkid=2152871)
 
 ## Next steps
 
-- Check out the [documentation on utilizing HEART Workbook](usage-heart.md) for expanded product analytics.
-- Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
-- Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
-- Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). For more information, see [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871).
-- Build a [Workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.
+- See the [documentation on utilizing HEART workbook](usage-heart.md) for expanded product analytics.
+- See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
+- Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
+- Find click data under the content field within the `customDimensions` attribute in the `CustomEvents` table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). For more information, see a [sample app](https://go.microsoft.com/fwlink/?linkid=2152871).
+- Build a [workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.
