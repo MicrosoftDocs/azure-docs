@@ -4,7 +4,7 @@ description: Create maps between data types for Azure Logic Apps with Visual Stu
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, kewear, alexzuniga, azla
 ms.topic: how-to
 ms.date: 04/12/2023
 # As a developer, I want to create a mapping between data types in Azure Logic Apps using Visual Studio Code.
