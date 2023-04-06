@@ -9,31 +9,7 @@ ms.date: 03/31/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
-
-<!--
-This template provides the basic structure of a how-to article.
-See the [how-to guidance](contribute-how-to-write-howto.md) in the contributor guide.
-
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
-
-<!-- 1. H1
-Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task the 
-user will complete.
--->
-
 # Enable automatic HTTPS with Caddy in a sidecar container
-
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
 
 This article describes how Caddy can be used as a sidecar container in a [container group](container-instances-container-groups.md) acting as a reverse proxy to provide an automatically managed HTTPS endpoint for your application. 
 
@@ -213,20 +189,17 @@ To view the state of the deployment, use the following [az container show](/cli/
 az container show --resource-group <resource-group> --name my-app --output table
 ```
 
-* TODO: alternatively check the caddy logs by using... 
-
-### Verity TLS connection 
+### Verify TLS connection 
 
 * Navigate to ... 
 * Check cert with browser 
 * Todo insert screenshot here
 
+### Troubleshooting
+
+* TODO: alternatively check the caddy logs by using... 
+
 ## Next steps
 <!-- Add a context sentence for the following links -->
 - [Write how-to guides](contribute-how-to-write-howto.md)
 - [Links](links-how-to.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
