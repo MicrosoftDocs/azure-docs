@@ -19,6 +19,8 @@ ms.custom: ignite-2022
 
 Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB.
 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXr4T]
+
 > [!TIP]
 > Want to try the API for MongoDB with no commitment? Create an Azure Cosmos DB account using [Try Azure Cosmos DB](../try-free.md) for free.
 

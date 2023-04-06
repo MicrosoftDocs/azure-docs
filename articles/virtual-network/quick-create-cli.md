@@ -1,5 +1,5 @@
 ---
-title: Create a virtual network - quickstart - Azure CLI
+title: 'Quickstart: Create a virtual network - Azure CLI'
 titleSuffix: Azure Virtual Network
 description: In this quickstart, learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet.
 author: asudbring

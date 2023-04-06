@@ -42,14 +42,14 @@ You can either use one of the [built-in security roles](../role-based-access-con
 The following examples show different ways to start batch deployment jobs using different types of credentials:
 
 > [!IMPORTANT] 
-> When working on a private link-enabled workspaces, batch endpoints can't be invoked from the UI in Azure ML studio. Please use the Azure ML CLI v2 instead for job creation.
+> When working on a private link-enabled workspaces, batch endpoints can't be invoked from the UI in Azure Machine Learning studio. Please use the Azure Machine Learning CLI v2 instead for job creation.
 
 ### Running jobs using user's credentials
 
 In this case, we want to execute a batch endpoint using the identity of the user currently logged in. Follow these steps:
 
 > [!NOTE]
-> When working on Azure ML studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
+> When working on Azure Machine Learning studio, batch endpoints/deployments are always executed using the identity of the current user logged in.
 
 # [Azure CLI](#tab/cli)
 
@@ -67,7 +67,7 @@ In this case, we want to execute a batch endpoint using the identity of the user
 
 # [Python](#tab/sdk)
 
-1. Use the Azure ML SDK for Python to log in using either interactive or device authentication:
+1. Use the Azure Machine Learning SDK for Python to log in using either interactive or device authentication:
 
     ```python
     from azure.ai.ml import MLClient

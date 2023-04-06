@@ -8,8 +8,8 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
-
 ---
+
 # Create a custom IPv4 address prefix using the Azure portal
 
 A custom IPv4 address prefix enables you to bring your own IPv4 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 

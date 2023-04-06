@@ -52,7 +52,7 @@ The collection endpoint pre-aggregates events before ingestion sampling. For thi
 |-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
 | ASP.NET                 | Supported <sup>1<sup>    | Not supported                             | Not supported                           |
 | ASP.NET Core            | Supported <sup>2<sup>    | Not supported                             | Not supported                           |
-| Java                    | Not supported            | Not supported                             | [Supported](java-in-process-agent.md#metrics) |
+| Java                    | Not supported            | Not supported                             | [Supported](opentelemetry-enable.md?tabs=java#metrics) |
 | Node.js                 | Not supported            | Not supported                             | Not supported                           |
 
 1. ASP.NET codeless attach on virtual machines/virtual machine scale sets and on-premises emits standard metrics without dimensions. The same is true for Azure App Service, but the collection level must be set to recommended. The SDK is required for all dimensions.

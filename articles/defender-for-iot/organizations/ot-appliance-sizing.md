@@ -2,7 +2,7 @@
 title: Which OT appliances do I need? - Microsoft Defender for IoT
 description: Learn about the deployment options for Microsoft Defender for IoT sensors and on-premises management consoles.
 ms.date: 04/04/2022
-ms.topic: conceptual
+ms.topic: limits-and-quotas
 ---
 
 # Which appliances do I need?

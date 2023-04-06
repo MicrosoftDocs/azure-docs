@@ -1,12 +1,11 @@
 ---
-title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity
+title: Modernize your Azure Kubernetes Service (AKS) application to use workload identity (preview)
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with workload identity.
-services: container-service
 ms.topic: article
-ms.date: 11/3/2022
+ms.date: 02/08/2023
 ---
 
-# Modernize application authentication with workload identity
+# Modernize application authentication with workload identity (preview)
 
 This article focuses on pod-managed identity migration to Azure Active Directory (Azure AD) workload identity (preview) for your Azure Kubernetes Service (AKS) cluster. It also provides guidance depending on the version of the [Azure Identity][azure-identity-supported-versions] client library used by your container-based application.
 
@@ -164,7 +163,7 @@ spec:
 This configuration applies to any configuration where a pod is being created. After updating or deploying your application, you can verify the pod is in a running state using the [kubectl describe pod][kubectl-describe] command. Replace the value `podName` with the image name of your deployed pod.
 
 ```bash
-kubectl describe pods podName -c azwi-proxy
+kubectl describe pods podName
 ```
 
 To verify that pod is passing IMDS transactions, use the [kubectl logs][kubelet-logs] command. Replace the value `podName` with the image name of your deployed pod:
@@ -211,3 +210,4 @@ This article showed you how to set up your pod to authenticate using a workload 
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubelet-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs

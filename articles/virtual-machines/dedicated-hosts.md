@@ -88,6 +88,27 @@ Known issues and limitations when using automatic VM placement:
 - You won't be able to redeploy your VM.
 - You won't be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts.
 
+## Host Service Healing
+
+In case of any failure relating to the underlying node, network connectivity or software issues can push the host and VMs on the host to a non-healthy state causing disruption and downtime to your workloads. The default action is for Azure to automatically service heal the impacted host to a healthy node and move all VMs to the healthy host. Once the VMs are service healed and restarted the impacted host will be deallocated. During the service healing process the host and VMs would become unavailable incurring a slight downtime. 
+
+The newly created host would have all the same constraints as the old host: 
+ - Resource group
+ - Region
+ - Fault Domain 
+ - Host Group
+ - ADH SKU  
+ - Auto replace on failure setting
+
+Users with compliance requirements might need a strong affinity between the host and underlying node and would not like to be automatically service healed, in such scenarios users can choose to opt out of auto service healing at host level by disabling the 'Automatically replace host on failure setting'.
+
+### Implications
+
+If you decide to disable auto service healing and if the underlying node encounters a failure your host state will change to 'Host Pending Deallocate' and will eventually be deallocated. 
+
+To avoid deallocation, you would need to manually redeploy the host by creating a new dedicated host and moving all the VMs from  the old host to the new host.
+
+The auto replace host setting is a create time setting and cannot be changed once the host is created. VMs that are manually stopped/deallocated from the impacted host are not moved as part of the automatic service healing.
 
 ## Virtual Machine Scale Set support
 

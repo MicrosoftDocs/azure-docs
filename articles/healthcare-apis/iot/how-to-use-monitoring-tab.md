@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 1/18/2023
+ms.date: 02/09/2023
 ms.author: jasteppe
 ---
 
@@ -52,7 +52,7 @@ Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
 |Availability|IotConnector Health Status|The overall health of the MedTech service.|
 |Errors|**Total Error Count**|The total number of errors.|
-|Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](understand-service.md#group) performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](understand-service.md#group---optional) performs buffering, aggregating, and grouping on normalized messages.|
 |Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](understand-service.md#normalize) performs normalization on raw incoming messages.|
 |Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](understand-service.md#persist) by the MedTech service.|
 |Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](understand-service.md#ingest) (for example, the device events) from the configured source event hub.|

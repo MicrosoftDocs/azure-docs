@@ -150,6 +150,8 @@
     items:
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md
+    - name: Changes to the reservation exchange policy
+      href: reservation-exchange-policy-changes.md
   - name: Renew reservations
     items:
     - name: Renew a reservation

@@ -110,4 +110,4 @@ If the deployment of your project succeeds without failure, you can select any p
 
 ## Next steps
 
-* Review the migration guidance in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+* Review the migration guidance in the Microsoft [Database Migration Guide](/data-migration/).

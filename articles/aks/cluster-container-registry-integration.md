@@ -1,7 +1,6 @@
 ---
 title: Integrate Azure Container Registry with Azure Kubernetes Service
 description: Learn how to integrate Azure Kubernetes Service (AKS) with Azure Container Registry (ACR)
-services: container-service
 ms.topic: article
 ms.date: 11/16/2022
 ms.tool: azure-cli, azure-powershell

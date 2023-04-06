@@ -1,7 +1,6 @@
 ---
 title: Use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to use `command invoke` to access a private Azure Kubernetes Service (AKS) cluster
-services: container-service
 ms.topic: article
 ms.date: 1/14/2022
 ---

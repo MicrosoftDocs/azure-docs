@@ -1,7 +1,7 @@
 ---
 title: General FAQs - Microsoft Defender for IoT
 description: Find answers to the most frequently asked questions about Microsoft Defender for IoT features and service.
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 07/07/2022
 ---
 

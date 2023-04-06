@@ -141,6 +141,8 @@ items:
             href: communication-services-email-events.md
         - name: Azure Container Registry
           href: event-schema-container-registry.md
+        - name: Azure Data Box
+          href: event-schema-data-box.md
         - name: Azure Event Hubs
           href: event-schema-event-hubs.md
         - name: Azure Health Data Services

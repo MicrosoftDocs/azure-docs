@@ -27,7 +27,8 @@ A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) 
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-You can also use the Microsoft.Extensions.Logging.ApplicationInsights package to capture logs. For more information, see [Application Insights logging with .NET](ilogger.md). For an example, see [Console application](ilogger.md#console-application).
+> [!NOTE]
+> If you want to use standalone ILogger provider, use [Microsoft.Extensions.Logging.ApplicationInsight](./ilogger.md).
 
 ## Supported scenarios
 
@@ -664,7 +665,7 @@ It's important to note that the following example doesn't cause the Application 
 }
 ```
 
-For more information, see [ILogger configuration](ilogger.md#logging-level).
+For more information, see [ILogger configuration](/dotnet/core/extensions/logging#configure-logging).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
@@ -755,5 +756,5 @@ For the latest updates and bug fixes, see the [release notes](./release-notes.md
 * [Explore user flows](./usage-flows.md) to understand how users move through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
-* Use [availability tests](./monitor-web-app-availability.md) to check your app constantly from around the world.
+* Use [availability tests](./availability-overview.md) to check your app constantly from around the world.
 * Learn about [dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection).

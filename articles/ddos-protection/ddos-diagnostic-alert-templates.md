@@ -2,11 +2,9 @@
 title: 'Configure Azure DDoS Protection diagnostic logging alerts'
 description: Learn how to configure DDoS protection diagnostic alerts for Azure DDoS Protection.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2023
 ms.author: abell

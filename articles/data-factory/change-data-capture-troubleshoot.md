@@ -78,6 +78,42 @@ In non-virtual network factories, CDC resources requiring a virtual network will
 
 If you create a new linked service using the CDC fly-out process that points to an Azure Key Vault linked service, the CDC resource will break. This fix is in progress. 
 
+## Issue: Trouble in tracking delete operations.
+
+Currently CDC resource supports delete operations for following sink types – Azure SQL Database & Delta. To achieve this, in the column mapping page, please select **keys** column that can be used to determine if a row from the source matches a row from the sink. 
+
+## Issue: My CDC resource fails when target SQL table has identity columns.
+
+Getting following error on running a CDC when your target sink table has identity columns,
+
+*_Cannot insert explicit value for identity column in table 'TableName' when IDENTITY_INSERT is set to OFF._*
+ 
+Run below query to determine if you have an identity column in your SQL based target. 
+
+**Query 4**
+
+```sql
+SELECT * 
+FROM sys.identity_columns 
+WHERE OBJECT_NAME(object_id) = 'TableName'
+```
+
+To resolve this user can follow either of the steps
+
+
+1.  Set IDENTITY_INSERT to ON by running following query at database level and rerun the CDC Mapper
+    
+**Query 5**
+
+```sql
+SET IDENTITY_INSERT dbo.TableName ON; 
+```
+
+(Or)
+
+2.  User can remove the specific identity column from mapping while performing inserts.
+
+
 ## Next steps
 - [Learn more about the change data capture resource](concepts-change-data-capture-resource.md)
 - [Set up a change data capture resource](how-to-change-data-capture-resource.md)

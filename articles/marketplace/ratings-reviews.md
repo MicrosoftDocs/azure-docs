@@ -4,10 +4,9 @@ description: Learn how to access a consolidated view of customer feedback for yo
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: smannepalle
-ms.author: smannepalle
-ms.reviewer: sroy
-ms.date: 04/26/2022
+author: saurabhsharmaa
+ms.author: saurasharma
+ms.date: 02/20/2023
 ---
 
 # Ratings and Reviews dashboard in commercial marketplace analytics
@@ -20,67 +19,7 @@ This article provides information on the Ratings and Reviews dashboard in Partne
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).
 
-## Access the Ratings & reviews dashboard
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. On the Home page, select the **Insights** tile.
-
-    ![Screenshot showing the Workspaces home page with the Insights tile highlighted.](media/ratings-reviews/menu-home.png)
-
-1. In the left-nav menu, select **[Ratings & reviews](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/ratingsandreviews)**.
-
-    :::image type="content" source="media/ratings-reviews/ratings-reviews-main.png" alt-text="Screenshot showing the main Ratings and Reviews page of the Insights section." lightbox="media/ratings-reviews/ratings-reviews-main.png":::
-
-The dashboard displays a graphical representation of the following customer activity:
-
-- Ratings  
-- Review comments
-
-Use the tabs to view your offer's **Azure Marketplace** and **Microsoft AppSource** metrics separately. To view an offer's specific metrics, select it from the dropdown list.
-
-## Elements of the Ratings and Reviews dashboard
-
-The following sections describe how to use this dashboard.
-
-### Download
-
-:::image type="content" source="media/ratings-reviews/button-download.png" alt-text="Screenshot showing the Download option on the Insights screen of the Ratings and Reviews dashboard.":::
-
-To download a snapshot of the dashboard, select **Download as PDF**. Alternatively, go to the [Downloads](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) dashboard and download the report.
-
-### Share
-
-:::image type="content" source="media/ratings-reviews/button-share.png" alt-text="Screenshot showing the Share option on the Insights screen of the Ratings and Reviews dashboard.":::
-
-To email dashboard widgets data, select **Share** and provide the email information. Share report URLs using **Copy link** and **Share to Teams**, or **Copy as image** to send a snapshot of chart data.
-
-:::image type="content" source="media/ratings-reviews/email-window.png" alt-text="Screenshot showing the Email window option of the Share function on the Insights screen of the Ratings and Reviews dashboard.":::
-
-### What’s new
-
-:::image type="content" source="media/ratings-reviews/button-what-new.png" alt-text="Screenshot showing the What's New option on the Insights screen of the Ratings and Reviews dashboard.":::
-
-Use this to check on changes and enhancements.
-  
-### About data refresh
-
-:::image type="content" source="media/ratings-reviews/button-data.png" alt-text="Screenshot showing the Data Refresh Details menu option on the Insights screen of the Ratings and Reviews dashboard.":::
-
-View the data source and the data refresh details, such as frequency of the data refresh.
-
-### Got feedback?
-
-:::image type="content" source="media/ratings-reviews/button-feedback.png" alt-text="Screenshot showing the Feedback menu option on the Insights screen of the Ratings and Reviews dashboard.":::
-
-Submit feedback about the report/dashboard along with an optional screenshot.
-
-:::image type="content" source="media/ratings-reviews/feedback.png" alt-text="Screenshot showing the Feedback window for the Share function on the Insights screen of the Ratings and Reviews dashboard.":::
-
-### Month range
-
-:::image type="content" source="media/ratings-reviews/month-range.png" alt-text="Screenshot showing the duration filter menu option on the Insights screen of the Ratings and Reviews dashboard.":::
-
-A month range selection is at the top-right corner of each page. Customize the output of graphs by selecting a month range based on the last **six** or **12** months, or by selecting a **custom** month range with a maximum duration of 12 months. The default month range is six months.
+### Ratings and Reviews dashboard filters
 
 :::image type="content" source="media/ratings-reviews/button-filters.png" alt-text="Screenshot showing the Filters button on the Insights screen of the Customers dashboard.":::
 
@@ -93,7 +32,7 @@ The page has dashboard-level filters for the following:
 
 Each filter is expandable with multiple options that you can select. Filter options are dynamic and based on the selected date range.
 
-### Ratings and reviews summary
+## Ratings and reviews summary
 
 The summary section displays the following metrics for a selected date range:
 
@@ -108,13 +47,13 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 :::image type="content" source="media/ratings-reviews/menu-elipsis.png" alt-text="Screenshot showing the Filters menu on the Insights screen of the Ratings and Reviews dashboard.":::
 
-### Review comments
+## Review comments
 
 Reviews appear in chronological order as posted. The default view displays all reviews; filter reviews by star rating using the **rating filter** in the dropdown menu. Additionally, you can search by keywords that appear in the review.  
 
 :::image type="content" source="media/ratings-reviews/review-contact.png" alt-text="Screenshot showing a sample review for an app in the commercial marketplace." :::
 
-### Respond to a review
+## Respond to a review
 
 Your response will be visible on either the AppSource or Azure Marketplace storefront. This applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 apps on Dataverse and Power Apps, Dynamics 365 Operations Apps, IoT Edge Module, Managed service, Power BI app, and Software as a Service.
 
@@ -128,11 +67,11 @@ To respond to a review:
 
 The response will appear under the text of the original review in the product detail page in the storefront:
 
-##### Microsoft AppSource
+### Microsoft AppSource
 
 :::image type="content" source="media/ratings-reviews/review-appsource.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Microsoft Appsource." lightbox="media/ratings-reviews/review-appsource.png":::
 
-##### Azure Marketplace
+### Azure Marketplace
 
 :::image type="content" source="media/ratings-reviews/review-azure.png" alt-text="Screenshot showing a sample review and publisher reply for an offer in Azure Marketplace." lightbox="media/ratings-reviews/review-azure.png":::
 

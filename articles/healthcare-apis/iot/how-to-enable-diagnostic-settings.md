@@ -125,7 +125,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 > [!WARNING]
 > The above custom query is not saved and will have to be recreated if you leave your Log Analytics workspace without saving the custom query.
 >
-> To learn how to save a custom query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
+> To learn how to save a custom query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](../../azure-monitor/logs/save-query.md) 
 
 > [!TIP]
 > To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
@@ -154,7 +154,7 @@ The MedTech service comes with pre-defined queries that can be used anytime in y
 > [!WARNING]
 > Any changes that you've made to the pre-defined queries are not saved and will have to be recreated if you leave your Log Analytics workspace without saving custom changes you've made to the pre-defined queries.
 >
-> To learn how to save a query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](/azure/azure-monitor/logs/save-query) 
+> To learn how to save a query in Log Analytics, see [Save a query in Azure Monitor Log Analytics](../../azure-monitor/logs/save-query.md) 
 
 > [!TIP]
 > To learn how to use the Log Analytics workspace, see [Azure Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).

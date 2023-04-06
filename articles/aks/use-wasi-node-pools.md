@@ -168,9 +168,16 @@ spec:
     spec:
       runtimeClassName: wasmtime-slight-v1
       containers:
-        - name: testwasm
+        - name: hello-slight
           image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:latest
           command: ["/"]
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10Mi
+            limits:
+              cpu: 500m
+              memory: 128Mi
 ---
 apiVersion: v1
 kind: Service

@@ -137,4 +137,4 @@ The following table describes the fields shown in table level migration progress
 > CDC values of Insert, Update and Delete and Total Applied may decrease when database is cutover or migration is restarted.
 
 ## Next steps
-- Review the migration guidance in the Microsoft [Database Migration Guide](https://datamigration.microsoft.com/).
+- Review the migration guidance in the Microsoft [Database Migration Guide](/data-migration/).

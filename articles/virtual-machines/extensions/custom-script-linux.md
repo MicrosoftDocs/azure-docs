@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 ms.custom: GGAL-freshness822
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: linux
 ms.date: 04/25/2018
 

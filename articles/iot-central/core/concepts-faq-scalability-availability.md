@@ -1,9 +1,10 @@
 ---
-title: Azure IoT Central scalability and high availability | Microsoft Docs
+title: Scalability and high availability
+titleSuffix: Azure IoT Central
 description: This article describes how IoT Central automatically scales to handle more devices, its high availability disaster recovery capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2022
+ms.date: 02/13/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -24,7 +25,7 @@ IoT Central automatically scales its IoT hubs based on the load profiles in your
 
 ## High availability and disaster recovery
 
-For highly available device connectivity, an IoT Central application always have at least two IoT hubs. For exceptions to to this rule, see [Limitations](#limitations). The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
+For highly available device connectivity, an IoT Central application always has at least two IoT hubs. For exceptions to this rule, see [Limitations](#limitations). The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
 
 IoT Central also uses [availability zones](../../availability-zones/az-overview.md#availability-zones) to make various services it uses highly available.
 

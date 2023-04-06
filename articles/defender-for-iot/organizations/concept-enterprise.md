@@ -1,7 +1,7 @@
 ---
 title: Securing IoT devices in the enterprise with Microsoft Defender for Endpoint
 description: Learn how integrating Microsoft Defender for Endpoint and Microsoft Defender for IoT's security content and network sensors enhances your IoT network security.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/19/2022
 ---
 
@@ -18,7 +18,7 @@ While the number of IoT devices continues to grow, they often lack the security 
 
 ## IoT security across Microsoft 365 Defender and Azure
 
-Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and Azure portals using the following methods:
+Defender for IoT provides IoT security functionality across both the Microsoft 365 Defender and [Azure portals](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) using the following methods:
 
 |Method  |Description and requirements | Configure in ... |
 |---------|---------|---------|

@@ -55,7 +55,7 @@ You can also use the `net-use` command from a Windows prompt to mount the file s
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName>
 ```
 
-If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) for guidance.
+If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure file shares with AD credentials](files-troubleshoot-smb-authentication.md#unable-to-mount-azure-file-shares-with-ad-credentials).
 
 ## Mount the file share from a non-domain-joined VM
 

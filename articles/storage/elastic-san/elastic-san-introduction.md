@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN (preview), a service that enables 
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 11/17/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
@@ -77,5 +77,7 @@ The status of items in this table may change over time.
 | Snapshots | ⛔ |
 
 ## Next steps
+
+For a video introduction to Azure Elastic SAN, see [Accelerate your SAN migration to the cloud](/shows/inside-azure-for-it/accelerate-your-san-migration-to-the-cloud).
 
 [Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)

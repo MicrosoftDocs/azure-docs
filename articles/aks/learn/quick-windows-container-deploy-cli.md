@@ -1,7 +1,6 @@
 ---
 title: Create a Windows Server container on an AKS cluster by using Azure CLI
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
-services: container-service
 ms.topic: article
 ms.custom: event-tier1-build-2022
 ms.date: 11/01/2022

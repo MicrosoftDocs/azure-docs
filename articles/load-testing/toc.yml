@@ -54,8 +54,8 @@ items:
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
-        - name: Troubleshoot with load test logs
-          href: how-to-find-download-logs.md
+        - name: Troubleshoot failing load tests
+          href: how-to-troubleshoot-failing-test.md
         - name: Get insights from App Service Diagnostics
           href: how-to-appservice-insights.md
         - name: Export test results

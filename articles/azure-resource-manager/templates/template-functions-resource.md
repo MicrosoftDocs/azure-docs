@@ -780,7 +780,7 @@ The identifier is returned in the following format:
 
 You use this function to get the resource ID for resources that are [deployed to the management group](deploy-to-management-group.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a subscription ID and a resource group value.
 
-### managementGrouopResourceID example
+### managementGroupResourceID example
 
 The following template creates and assigns a policy definition. It uses the `managementGroupResourceId` function to get the resource ID for policy definition.
 

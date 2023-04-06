@@ -96,3 +96,7 @@
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
   - name: Partners
     href: resources-partner-solutions.md
+  - name: Troubleshooting
+    items:
+    - name: Troubleshoot manifest ingestion
+      href: troubleshoot-manifest-ingestion.md

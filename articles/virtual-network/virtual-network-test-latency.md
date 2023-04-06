@@ -1,23 +1,15 @@
 ---
-title: Test Azure virtual machine network latency in an Azure virtual network | Microsoft Docs
+title: Test Azure virtual machine network latency in an Azure virtual network
 description: Learn how to test network latency between Azure virtual machines on a virtual network
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: Marina Lipshteyn
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: allensu
-
 ---
-
-
 
 # Test VM network latency
 
@@ -150,7 +142,8 @@ Run the following commands:
     sudo apt-get install -y automake
     sudo apt-get install -y autoconf
     sudo apt-get install -y libtool
-    sudo yum update
+    sudo apt update
+    sudo apt upgrade
 ```
 
 #### For all distros

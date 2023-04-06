@@ -166,6 +166,9 @@
         - name: JavaScript
           displayName: Connect to a database, Azure Cosmos DB
           href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-javascript
+        - name: Python
+          displayName: Connect to a database, Azure Cosmos DB
+          href: functions-add-output-binding-cosmos-db-vs-code.md?pivots=programming-language-python
 - name: Tutorials
   items:
     - name: Functions with Logic Apps

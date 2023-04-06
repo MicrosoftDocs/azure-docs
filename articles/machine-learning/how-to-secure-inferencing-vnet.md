@@ -59,7 +59,7 @@ For information on securing managed online endpoints, see the [Use network isola
 To use Azure Kubernetes Service cluster for secure inference, use the following steps:
 
 1. Create or configure a [secure Kubernetes inferencing environment](how-to-secure-kubernetes-inferencing-environment.md).
-2. Deploy [AzureML extension](how-to-deploy-kubernetes-extension.md).
+2. Deploy [Azure Machine Learning extension](how-to-deploy-kubernetes-extension.md).
 3. [Attach the Kubernetes cluster to the workspace](how-to-attach-kubernetes-anywhere.md).
 4. Model deployment with Kubernetes online endpoint can be done using CLI v2, Python SDK v2 and Studio UI.
  

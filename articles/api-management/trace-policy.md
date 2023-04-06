@@ -4,7 +4,7 @@ description: Reference for the trace policy available for use in Azure API Manag
 services: api-management
 author: dlepow
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -17,6 +17,8 @@ The `trace` policy adds a custom trace into the request tracing output in the te
 -   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` specified in the policy is equal to or greater than the `verbosity` specified in the diagnostic setting.
 -   The policy adds a property in the log entry when [resource logs](./api-management-howto-use-azure-monitor.md#resource-logs) are enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 -   The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
+
+[!INCLUDE [api-management-tracing-alert](../../includes/api-management-tracing-alert.md)]
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 

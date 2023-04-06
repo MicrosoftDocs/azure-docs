@@ -2,12 +2,19 @@
 title: Create a new Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
 ms.topic: conceptual
-ms.date: 01/28/2023
+ms.date: 02/28/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: dalek
 ---
 
 # Create an Application Insights resource
+
+> [!CAUTION]
+> This article applies to Application Insights Classic resources, which are [no longer recommended](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024).
+>
+> The information in this article is stale and won't be updated.
+> 
+> [Transition to workspace-based Application Insights](convert-classic-resource.md) to take advantage of [new capabilities](create-workspace-resource.md#new-capabilities).
 
 Application Insights displays data about your application in an Azure resource. Creating a new resource is part of [setting up Application Insights to monitor a new application][start]. After you've created your new resource, you can get its instrumentation key and use it to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
 
@@ -34,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and create an Applicatio
    | **Resource mode** | `Classic` or `Workspace-based` | Workspace-based resources allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see [Workspace-based Application Insights resources](create-workspace-resource.md).
 
 > [!NOTE]
-> You can use the same resource name across different resource groups, but it can be beneficial to use a globally unique name. If you plan to [perform cross-resource queries](../logs/cross-workspace-query.md#identifying-an-application), using a globally unique name simplifies the required syntax.
+> You can use the same resource name across different resource groups, but it can be beneficial to use a globally unique name. If you plan to [perform cross-resource queries](../logs/cross-workspace-query.md#identify-an-application), using a globally unique name simplifies the required syntax.
 
 Enter the appropriate values in the required fields. Select **Review + create**.
 
@@ -45,7 +52,7 @@ After your app is created, a new pane displays performance and usage data about 
 
 ## Copy the instrumentation key
 
-The instrumentation key identifies the resource that you want to associate with your telemetry data. You'll need to copy the instrumentation key and add it to your application's code.
+The instrumentation key identifies the resource that you want to associate with your telemetry data. You need to copy the instrumentation key and add it to your application's code.
 
 ## Install the SDK in your app
 
@@ -107,7 +114,7 @@ To access the preview Application Insights Azure CLI commands, you first need to
  az extension add -n application-insights
 ```
 
-If you don't run the `az extension add` command, you'll see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+If you don't run the `az extension add` command, you see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Run the following command to create your Application Insights resource:
 
@@ -161,7 +168,7 @@ For the full Azure CLI documentation for this command, and to learn how to retri
 > [!WARNING]
 > Don't modify endpoints. [Transition to connection strings](migrate-from-instrumentation-keys-to-connection-strings.md#migrate-from-application-insights-instrumentation-keys-to-connection-strings) to simplify configuration and eliminate the need for endpoint modification.
 
-To send data from Application Insights to certain regions, you'll need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article.
+To send data from Application Insights to certain regions, you need to override the default endpoint addresses. Each SDK requires slightly different modifications, all of which are described in this article.
 
 These changes require you to adjust the sample code and replace the placeholder values for `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`, and `Profile_Query_Endpoint_address` with the actual endpoint addresses for your specific region. The end of this article contains links to the endpoint addresses for regions where this configuration is required.
 
@@ -291,7 +298,7 @@ The endpoints can also be configured through environment variables:
 
 # [JavaScript](#tab/js)
 
-The current snippet listed here is version 5. The version is encoded in the snippet as `sv:"#"`. The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+The current snippet listed here's version 5. The version is encoded in the snippet as `sv:"#"`. The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
@@ -331,7 +338,7 @@ Currently, the only regions that require endpoint modifications are [Azure Gover
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-If you currently use the [Application Insights REST API](/rest/api/application-insights/), which is normally accessed via `api.applicationinsights.io`, you'll need to use an endpoint that's local to your region.
+If you currently use the [Application Insights REST API](/rest/api/application-insights/), which is normally accessed via `api.applicationinsights.io`, you need to use an endpoint that's local to your region.
 
 |Region |  Endpoint name | Value |
 |-----------------|:------------|:-------------|

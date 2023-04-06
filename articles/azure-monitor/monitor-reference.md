@@ -58,7 +58,7 @@ The services and [older monitoring solutions](insights/solutions.md) in the foll
 | Windows | [Windows Update Compliance](/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](/configmgr/desktop-analytics/overview) - Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
 | **The following solutions also integrate with parts of Azure Monitor. Note that solutions, which are based on Azure Monitor Logs and Log Analytics, are no longer under active development. Use [Insights](insights/insights-overview.md) instead.**  | |
 | Network - [Network Performance Monitor solution](insights/network-performance-monitor.md) |
-| Network - [Azure Application Gateway solution](insights/azure-networking-analytics.md#azure-application-gateway-analytics) | .
+| Network - [Azure Application Gateway solution](insights/azure-networking-analytics.md#application-gateway-analytics) | 
 | [Office 365 solution](insights/solution-office-365.md) | Monitor your Office 365 environment. Updated version with improved onboarding available through Microsoft Sentinel. |
 | [SQL Analytics solution](insights/azure-sql.md) | Use SQL Insights instead. |
 | [Surface Hub solution](insights/surface-hubs.md) |  |

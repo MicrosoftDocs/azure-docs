@@ -37,7 +37,7 @@ Once ASE connectivity resumes, several features will resume:
 - **Monitoring** tabs will show metrics for sites after 10 minutes, but won't populate stats for the disconnected duration.
 - **Kubernetes Arc Insights** will show new stats after 10 minutes, but won't populate stats for the disconnected duration.
 - **Resource Health** views will be viewable immediately.
-- [Workbooks](/azure/update-center/workbooks) for the ASE will be viewable immediately and will populate for the disconnected duration.
+- [Workbooks](../update-center/workbooks.md) for the ASE will be viewable immediately and will populate for the disconnected duration.
 
 ## Disconnected mode for Azure Private 5G Core
 

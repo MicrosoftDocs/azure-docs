@@ -2,13 +2,12 @@
 title: Use Azure AD and Kubernetes RBAC for clusters
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using Kubernetes role-based access control (Kubernetes RBAC) in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
-ms.date: 01/10/2023
+ms.date: 02/13/2023
 
 ---
 
-# Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service
+# Use Kubernetes role-based access control with Azure Active Directory in Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (Azure AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. Once authenticated, you can use the built-in Kubernetes role-based access control (Kubernetes RBAC) to manage access to namespaces and cluster resources based on a user's identity or group membership.
 
@@ -20,32 +19,32 @@ This article shows you how to:
 
 ## Before you begin
 
-* This article assumes that you have an existing AKS cluster enabled with Azure AD integration. If you need an AKS cluster, see [Integrate Azure AD with AKS][azure-ad-aks-cli].
-* Kubernetes RBAC is enabled by default during AKS cluster creation. If Kubernetes RBAC wasn't enabled when you originally deployed your cluster, you'll need to delete and recreate your cluster.
+* You have an existing AKS cluster with Azure AD integration enabled. If you need an AKS cluster with this configuration, see [Integrate Azure AD with AKS][azure-ad-aks-cli].
+* Kubernetes RBAC is enabled by default during AKS cluster creation. To upgrade your cluster with Azure AD integration and Kubernetes RBAC, [Enable Azure AD integration on your existing AKS cluster][enable-azure-ad-integration-existing-cluster].
 * Make sure that Azure CLI version 2.0.61 or later is installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 * If using Terraform, install [Terraform][terraform-on-azure] version 2.99.0 or later.
 
-Use the Azure portal or Azure CLI to verify if Kubernetes RBAC is enabled.
+Use the Azure portal or Azure CLI to verify Azure AD integration with Kubernetes RBAC is enabled.
 
 #### [Azure portal](#tab/portal)
 
-Verify Kubernetes RBAC is enabled using the Azure portal:
+To verify using the Azure portal:
 
 * From your browser, sign in to the [Azure portal](https://portal.azure.com).
-* Navigate to Kubernetes services, and from the left-hand pane select **Cluster configuration**.
-* Under the **Authentication and Authorization** section, check to see if the **Local accounts with Kubernetes RBAC** or the **Azure AD authentication with Kubernetes RBAC** option is shown.
+* Navigate to **Kubernetes services**, and from the left-hand pane select **Cluster configuration**.
+* Under the **Authentication and Authorization** section, verify the **Azure AD authentication with Kubernetes RBAC** option is selected.
 
-:::image type="content" source="./media/azure-ad-rbac/rbac-portal.png" alt-text="Example of Authentication and Authorization page in Azure portal." lightbox="./media/azure-ad-rbac/rbac-portal.png":::
+:::image type="content" source="./media/azure-ad-rbac/rbac-portal.png" alt-text="Example of AKS Authentication and Authorization page in Azure portal." lightbox="./media/azure-ad-rbac/rbac-portal.png":::
 
 #### [Azure CLI](#tab/azure-cli)
 
-Verify Kubernetes RBAC is enabled using Azure CLI, with the `az aks show` command:
+You can verify using the Azure CLI `az aks show` command. Replace the value *myResourceGroup* with the resource group name hosting the AKS cluster resource, and replace *myAKSCluster* with the actual name of your AKS cluster.
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster
 ```
 
-If it's enabled, the output will show the value for `enableRbac` is `true`.
+If it's enabled, the output shows the value for `enableAzureRbac` is `false`.
 
 ---
 
@@ -472,3 +471,4 @@ az ad group delete --group opssre
 [rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [terraform-on-azure]: /azure/developer/terraform/overview
+[enable-azure-ad-integration-existing-cluster]: managed-aad.md#enable-aks-managed-azure-ad-integration-on-your-existing-cluster

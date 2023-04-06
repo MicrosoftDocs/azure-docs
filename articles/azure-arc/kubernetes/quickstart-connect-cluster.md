@@ -2,7 +2,7 @@
 title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
-ms.date: 11/04/2022
+ms.date: 02/03/2023
 ms.custom: template-quickstart, mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
 ---
@@ -45,6 +45,8 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
     >[!NOTE]
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
 
+* At least 850 MB free for the Arc agents that will be deployed on the cluster, and capacity to use approximately 7% of a single CPU. For a multi-node Kubernetes cluster environment,  pods can get scheduled on different nodes.
+
 * A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
 
 * Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
@@ -62,6 +64,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
     ```azurepowershell-interactive
     Install-Module -Name Az.ConnectedKubernetes
     ```
+
 * An identity (user or service principal) which can be used to [log in to Azure PowerShell](/powershell/azure/authenticate-azureps)  and connect your cluster to Azure Arc.
 
   > [!IMPORTANT]
@@ -82,6 +85,8 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
     >[!NOTE]
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
+
+* At least 850 MB free for the Arc agents that will be deployed on the cluster, and capacity to use approximately 7% of a single CPU. For a multi-node Kubernetes cluster environment,  pods can get scheduled on different nodes.
 
 * A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
 
@@ -408,7 +413,7 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 If the deletion process fails, use the following command to force deletion (adding `-y` if you want to bypass the confirmation prompt):
 
 ```azurecli
-az connectedk8s delete -g AzureArcTest1 -n AzureArcTest --force
+az connectedk8s delete -n AzureArcTest1 -g AzureArcTest --force
 ```
 
 This command can also be used if you experience issues when creating a new cluster deployment (due to previously created resources not being completely removed).

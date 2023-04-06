@@ -5,11 +5,9 @@ description: Learn which Azure role-based access control permissions are require
 services: network-watcher
 author: halkazwini
 ms.service: network-watcher
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/07/2022
 ms.author: halkazwini
-
 ---
 
 # Azure role-based access control permissions required to use Network Watcher capabilities

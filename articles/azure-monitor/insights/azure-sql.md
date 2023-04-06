@@ -60,7 +60,7 @@ The above page also provides instructions on enabling support for monitoring mul
 
 ## Use Azure SQL Analytics (preview)
 
-Navigate to your SQL Analytics deployment from the **Solutions** page of the Log Analytics workspace.
+Navigate to your SQL Analytics deployment from the **Legacy solutions** page of the Log Analytics workspace.
 
 Azure SQL Analytics provides two separate views: one for monitoring SQL Database, and the other view for monitoring SQL Managed Instance.
 

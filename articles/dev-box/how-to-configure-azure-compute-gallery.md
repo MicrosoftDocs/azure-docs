@@ -93,7 +93,7 @@ Follow these steps to manually assign each role:
 
 1. Select **+ Add** > **Add role assignment**.
 
-1. On the Role tab, select the **Owner** role, and then select **Next**.
+1. On the Role tab, select the **Contributor** role, and then select **Next**.
 
 1. On the Members tab, under **Assign access to**, select **Managed Identity**, and then select **+ Select Members**.
 

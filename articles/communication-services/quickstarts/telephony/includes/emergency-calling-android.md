@@ -12,19 +12,19 @@ ms.author: zehangzheng
 - A working [Communication Services calling Android app](../pstn-call.md).
 
 ## Important considerations
-- The capability to dial 911 and receive a call-back may be a requirement for your application. Verify the E911 requirements with your legal counsel. 
+- The capability to dial an emergency number and receive a call-back may be a requirement for your application. Verify the emergency calling requirements with your legal counsel. 
 - Microsoft uses country codes according to ISO 3166-1 alpha-2 standard 
-- If the country ISO code is not provided to the SDK, the IP address will be used to determine the country of the caller. 
-- In case IP address cannot provide reliable geolocation, for example the user is on a Virtual Private Network, it is required to set the ISO Code of the calling country using the API in the Azure Communication Services Calling SDK. 
-- If users are dialing from a US territory (for example Guam, US Virgin Islands, Northern Marianas, or American Samoa), it is required to set the ISO code to the US   
-- Supported ISO codes are US and Puerto Rico only
-- Azure Communication Services direct routing is currently in public preview and not intended for production workloads. So E911 dialing is out of scope for Azure Communication Services direct routing.
-- The 911 service is temporarily free to use for Azure Communication Services customers within reasonable use, however billing for the service will be enabled in 2022.   
-- Calls to 911 are capped at 10 concurrent calls per Azure Resource.     
+- If the country ISO code isn't provided to the SDK, the IP address will be used to determine the country of the caller. 
+- In case IP address can't provide reliable geolocation, for example, the user is on a Virtual Private Network, it's required to set the ISO Code of the calling country using the API in the Azure Communication Services Calling SDK. 
+- If users are dialing from a US territory (for example Guam, US Virgin Islands, Northern Marianas, or American Samoa), it's required to set the ISO code to the US   
+- Supported ISO codes are US, PR, CA, and GB only
+- Azure Communication Services direct routing is currently in public preview and not intended for production workloads. So emergency dialing is out of scope for Azure Communication Services direct routing.
+- The emergency calling service is temporarily free to use for Azure Communication Services customers within reasonable use, however billing for the service will be enabled in the future.   
+- Calls to an emergency number are capped at 10 concurrent calls per Azure Resource.       
 
 
 ## Setting up
-Replace the code in **app/src/main/res/layout/activity_main.xml** with following snippet. It will add a new button for testing emergency calls.
+Replace the code in **app/src/main/res/layout/activity_main.xml** with following snippet. It adds a new button for testing emergency calls.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -72,7 +72,7 @@ Replace the code in **app/src/main/res/layout/activity_main.xml** with following
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 ## Emergency test call to phone 
-Specify the ISO code of the country where the caller is located. If the ISO code is not provided, the IP address will be used to determine the callers location.  Microsoft uses the ISO 3166-1 alpha-2 standard for country ISO codes, supported ISO codes are listed on the concept page for emergency calling.  
+Specify the ISO code of the country where the caller is located. If the ISO code isn't provided, the IP address will be used to determine the callers location.  Microsoft uses the ISO 3166-1 alpha-2 standard for country ISO codes, supported ISO codes are listed on the concept page for emergency calling.  
 
 In your **MainActivity.java**, add the following code to your `onCreate` method to retrieve the emergency button you've created in `activity_main.xml`.
 
@@ -103,7 +103,7 @@ private void createAgent() {
 
 ## Start a call to 933 test call service
 
-Add the following code to your **MainActivity.java** to add functionality to your emergency call button. For US only, a temporary Caller Id will be assigned for your emergency call despite of whether alternateCallerId param is provided or not. 
+Add the following code to your **MainActivity.java** to add functionality to your emergency call button. For US only, a temporary Caller ID will be assigned for your emergency call despite of whether alternateCallerId param is provided or not. 
 
 ```java
 private void emergencyCall() {
@@ -118,7 +118,7 @@ private void emergencyCall() {
 }
 ```
 > [!IMPORTANT]
-> 933 is a test emergency call service, used to test emergency calling services without interrupting live production emergency calling handling 911 services.  911 must be dialled in actual emergency situations.
+> 933 is a test emergency call service, used to test emergency calling services without interrupting live production emergency calling handling 911 services.  911 must be dialed in actual emergency situations.
 
 ## Launch the app
 

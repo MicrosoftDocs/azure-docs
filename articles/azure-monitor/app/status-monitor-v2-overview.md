@@ -50,9 +50,9 @@ Yes. There are multiple ways to download Application Insights Agent:
 
 Each of these options is described in the [detailed instructions](status-monitor-v2-detailed-instructions.md).
 
-### Does Status Monitor v2 support ASP.NET Core applications?
+### Does Application Insights Agent support ASP.NET Core applications?
 
-  Yes. Starting from [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), ASP.NET Core applications hosted in IIS are supported.
+  Yes. Starting from [Application Insights Agent 2.0.0](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0), ASP.NET Core applications hosted in IIS are supported.
 
 ### How do I verify that the enablement succeeded?
 
@@ -73,6 +73,10 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 ## Release notes
 
 The release note updates are listed here.
+
+### 2.0.0
+
+- Updated the Application Insights .NET/.NET Core SDK to 2.21.0-redfield
 
 ### 2.0.0-beta3
 
@@ -98,6 +102,6 @@ View your telemetry:
 
 Add more telemetry:
 
-* [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
+- [Availability overview](availability-overview.md)
 * [Add web client telemetry](./javascript.md) to see exceptions from webpage code and to enable trace calls.
 * [Add the Application Insights SDK to your code](./asp-net.md) so that you can insert trace and log calls.

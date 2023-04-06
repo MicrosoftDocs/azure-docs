@@ -224,7 +224,7 @@ from azureml.core.webservice import AksWebservice, Webservice
 
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
 # cores and memory to handle this deployment configuration. Note that memory is also used by
-# things such as dependencies and AzureML components.
+# things such as dependencies and Azure Machine Learning components.
 
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
                                                        autoscale_min_replicas=1, 

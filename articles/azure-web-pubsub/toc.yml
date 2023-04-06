@@ -22,6 +22,8 @@
     - name: Connect to the instance
       expanded: true
       items:
+        - name: PubSub with client SDK
+          href: quickstart-use-client-sdk.md
         - name: PubSub from the browser
           href: quickstart-live-demo.md
         - name: PubSub from the Azure CLI

@@ -198,7 +198,30 @@ let freeTables = dynamic([
 "OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
 "UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
 "Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
-Usage | where DataType !in (freeTables) | where TimeGenerated > ago(30d) | summarize MonthlyGB=sum(Quantity)/1000
+Usage 
+| where DataType !in (freeTables) 
+| where TimeGenerated > ago(30d) 
+| summarize MonthlyGB=sum(Quantity)/1000
+```
+
+To look for data which might not have IsBillable correctly set (and which could result in incorrect billing, or more specifically under-billing), use this query on your workspace:
+
+```kusto
+let freeTables = dynamic([
+"AppAvailabilityResults","AppSystemEvents","ApplicationInsights","AzureActivity","AzureNetworkAnalyticsIPDetails_CL",
+"AzureNetworkAnalytics_CL","AzureTrafficAnalyticsInsights_CL","ComputerGroup","DefenderIoTRawEvent","Heartbeat",
+"MAApplication","MAApplicationHealth","MAApplicationHealthIssues","MAApplicationInstance","MAApplicationInstanceReadiness",
+"MAApplicationReadiness","MADeploymentPlan","MADevice","MADeviceNotEnrolled","MADeviceReadiness","MADriverInstanceReadiness",
+"MADriverReadiness","MAProposedPilotDevices","MAWindowsBuildInfo","MAWindowsCurrencyAssessment",
+"MAWindowsCurrencyAssessmentDailyCounts","MAWindowsDeploymentStatus","NTAIPDetails_CL","NTANetAnalytics_CL",
+"OfficeActivity","Operation","SecurityAlert","SecurityIncident","UCClient","UCClientReadinessStatus",
+"UCClientUpdateStatus","UCDOAggregatedStatus","UCDOStatus","UCDeviceAlert","UCServiceUpdateStatus","UCUpdateAlert",
+"Usage","WUDOAggregatedStatus","WUDOStatus","WaaSDeploymentStatus","WaaSInsiderStatus","WaaSUpdateStatus"]);
+Usage 
+| where DataType !in (freeTables) 
+| where TimeGenerated > ago(30d) 
+| where IsBillable == false 
+| summarize MonthlyPotentialUnderbilledGB=sum(Quantity)/1000 by DataType
 ```
 
 ## Querying for common data types

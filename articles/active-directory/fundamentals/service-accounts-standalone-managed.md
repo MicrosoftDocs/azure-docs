@@ -1,14 +1,14 @@
 ---
-title: Secure standalone managed service accounts | Azure Active Directory
-description: A guide to securing standalone managed service accounts.
+title: Secure standalone managed service accounts
+description: Learn when to use, how to assess, and to secure standalone managed service accounts (sMSAs)
 services: active-directory
-author: janicericketts
+author: jricketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 02/08/2023
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"
@@ -17,78 +17,75 @@ ms.collection: M365-identity-device-management
 
 # Secure standalone managed service accounts
 
-Standalone managed service accounts (sMSAs) are managed domain accounts that you use to help secure one or more services that run on a server. They can't be reused across multiple servers. sMSAs provide automatic password management, simplified service principal name (SPN) management, and the ability to delegate management to other administrators. 
+Standalone managed service accounts (sMSAs) are managed domain accounts that help secure services running on a server. They can't be reused across multiple servers. sMSAs have automatic password management, simplified service principal name (SPN) management, and delegated management to administrators. 
 
-In Active Directory, sMSAs are tied to a specific server that runs a service. You can find these accounts listed in the Active Directory Users and Computers snap-in of the Microsoft Management Console.
+In Active Directory (AD), sMSAs are tied to a server that runs a service. You can find accounts in the Active Directory Users and Computers snap-in in Microsoft Management Console.
 
-![Screenshot of the Active Directory users and computers snap-in showing the managed service accounts OU.](./media/securing-service-accounts/secure-standalone-msa-image-1.png)
+   ![Screenshot of a service name and type under Active Directory Users and Computers.](./media/securing-service-accounts/secure-standalone-msa-image-1.png)
 
-Managed service accounts were introduced with Windows Server 2008 R2 Active Directory Schema, and they require at least Windows Server 2008 R2​. 
+> [!NOTE]
+> Managed service accounts were introduced in Windows Server 2008 R2 Active Directory Schema, and they require Windows Server 2008 R2, or a later version. 
 
-## Benefits of using sMSAs
+## sMSA benefits
 
-sMSAs offer greater security than user accounts that are used as service accounts. At the same time, to help reduce administrative overhead, they:
+sMSAs have greater security than user accounts used as service accounts. They help reduce administrative overhead:
 
-* **Set strong passwords**: sMSAs use 240-byte, randomly generated complex passwords. The complexity and length of sMSA passwords minimizes the likelihood of a service getting compromised by brute force or dictionary attacks.
+* Set strong passwords - sMSAs use 240 byte, randomly generated complex passwords
+  * The complexity minimizes the likelihood of compromise by brute force or dictionary attacks
+* Cycle passwords regularly - Windows changes the sMSA password every 30 days. 
+  * Service and domain administrators don’t need to schedule password changes or manage the associated downtime
+* Simplify SPN management - SPNs are updated if the domain functional level is Windows Server 2008 R2. The SPN is updated when you:
+  * Rename the host computer account
+  * Change the host computer domain name server (DNS) name
+  * Use PowerShell to add or remove other sam-accountname or dns-hostname parameters
+  * See, [Set-ADServiceAccount](/powershell/module/activedirectory/set-adserviceaccount)
 
-* **Cycle passwords regularly**: Windows automatically changes the sMSA password every 30 days. Service and domain administrators don’t need to schedule password changes or manage the associated downtime.
+## Using sMSAs
 
-* **Simplify SPN management**: Service principal names are automatically updated if the domain functional level is Windows Server 2008 R2. For instance, the service principal name is automatically updated when you:
-   * Rename the host computer account.  
-   * Change the domain name server (DNS) name of the host computer.  
-   * Add or remove other sam-accountname or dns-hostname parameters by using [PowerShell](/powershell/module/activedirectory/set-adserviceaccount).
-
-## When to use sMSAs
-
-sMSAs can simplify management and security tasks. Use sMSAs when you have one or more services deployed to a single server and you can't use a group managed service account (gMSA). 
+Use sMSAs to simplify management and security tasks. sMSAs are useful when services are deployed to a server and you can't use a group managed service account (gMSA). 
 
 > [!NOTE] 
-> Although you can use sMSAs for more than one service, we recommend that each service have its own identity for auditing purposes. 
+> You can use sMSAs for more than one service, but it's recommended that each service has an identity for auditing. 
 
-If the creator of the software can’t tell you whether it can use an MSA, you must test your application. To do so, create a test environment and ensure that it can access all required resources. For more information, see [Create and install an sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting).
+If the software creator can’t tell you if the application uses an MSA, test the application. Create a test environment and ensure it accesses required resources. 
 
-### Assess the security posture of sMSAs
+Learn more: [Managed Service Accounts: Understanding, Implementing, Best Practices, and Troubleshooting](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting)
 
-sMSAs are inherently more secure than standard user accounts, which require ongoing password management. However, it's important to consider sMSAs’ scope of access as part of their overall security posture.
+### Assess sMSA security posture
 
-To see how to mitigate potential security issues posed by sMSAs, refer to the following table:
+Consider the sMSA scope of access as part of the security posture. To mitigate potential security issues, see the following table:
 
 | Security issue| Mitigation |
 | - | - |
-| sMSA is a member of privileged groups. | <li>Remove the sMSA from elevated privileged groups, such as Domain Admins.<li>Use the *least privileged* model, and grant the sMSA only the rights and permissions it requires to run its services.<li>If you're unsure of the required permissions, consult the service creator. |
-| sMSA has read/write access to sensitive resources. | <li>Audit access to sensitive resources.<li>Archive audit logs to a Security Information and Event Management (SIEM) program, such as Azure Log Analytics or Microsoft Sentinel, for analysis.<li>Remediate resource permissions if an undesirable level of access is detected. |
-| By default, the sMSA password rollover frequency is 30 days. | You can use group policy to tune the duration, depending on enterprise security requirements. To set the password expiration duration, use the following path:<br>*Computer Configuration\Policies\Windows Settings\Security Settings\Security Options*. For domain member, use **Maximum machine account password age**. |
-| | |
+| sMSA is a member of privileged groups | - Remove the sMSA from elevated privileged groups, such as Domain Admins</br> - Use the least-privileged model </br> - Grant the sMSA rights and permissions to run its services</br> - If you're unsure about permissions, consult the service creator|
+| sMSA has read/write access to sensitive resources | - Audit access to sensitive resources</br> - Archive audit logs to a security information and event management (SIEM) program, such as Azure Log Analytics or Microsoft Sentinel </br> - Remediate resource permissions if an undesirable access is detected |
+| By default, the sMSA password rollover frequency is 30 days | Use group policy to tune the duration, depending on enterprise security requirements. To set the password expiration duration, go to:<br>Computer Configuration>Policies>Windows Settings>Security Settings>Security Options. For domain member, use **Maximum machine account password age**. |
 
-
-
-### Challenges with sMSAs
-
-The challenges associated with sMSAs are as follows:
+### sMSA challenges
+  
+Use the following table to associate challenges with mitigations.
 
 | Challenge| Mitigation |
 | - | - |
-| sMSAs can be used on a single server only. | Use a gMSA if you need to use the account across servers. |
-| sMSAs can't be used across domains. | Use a gMSA if you need to use the account across domains. |
-| Not all applications support sMSAs. | Use a gMSA if possible. Otherwise, use a standard user account or a computer account, as recommended by the application creator. |
-| | |
-
+| sMSAs are on a single server | Use a gMSA to use the account across servers |
+| sMSAs can't be used across domains | Use a gMSA to use the account across domains |
+| Not all applications support sMSAs| Use a gMSA, if possible. Otherwise, use a standard user account or a computer account, as recommended by the creator|
 
 ## Find sMSAs
 
-On any domain controller, run DSA.msc, and then expand the managed service accounts container to view all sMSAs. 
+On a domain controller, run DSA.msc, and then expand the managed service accounts container to view all sMSAs. 
 
 To return all sMSAs and gMSAs in the Active Directory domain, run the following PowerShell command: 
 
 `Get-ADServiceAccount -Filter *`
 
-To return only sMSAs in the Active Directory domain, run the following command:
+To return sMSAs in the Active Directory domain, run the following command:
 
 `Get-ADServiceAccount -Filter * | where { $_.objectClass -eq "msDS-ManagedServiceAccount" }`
 
 ## Manage sMSAs
 
-To manage your sMSAs, you can use the following Active Directory PowerShell cmdlets:
+To manage your sMSAs, you can use the following AD PowerShell cmdlets:
 
 `Get-ADServiceAccount`
 `Install-ADServiceAccount`
@@ -100,16 +97,17 @@ To manage your sMSAs, you can use the following Active Directory PowerShell cmdl
 
 ## Move to sMSAs
 
-If an application service supports sMSAs but not gMSAs, and you're currently using a user account or computer account for the security context, [Create and install an sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) on the server. 
+If an application service supports sMSAs, but not gMSAs, and you're using a user account or computer account for the security context, see</br>
+[Managed Service Accounts: Understanding, Implementing, Best Practices, and Troubleshooting](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting).
 
-Ideally, you would move resources to Azure and use Azure Managed Identities or service principals.
+If possible, move resources to Azure and use Azure managed identities, or service principals.
 
 ## Next steps
 
-To learn more about securing service accounts, see the following articles:
+To learn more about securing service accounts, see:
 
-* [Introduction to on-premises service accounts](service-accounts-on-premises.md)  
+* [Securing on-premises service accounts](service-accounts-on-premises.md)  
 * [Secure group managed service accounts](service-accounts-group-managed.md)  
-* [Secure computer accounts](service-accounts-computer.md)  
-* [Secure user accounts](service-accounts-user-on-premises.md)  
+* [Secure on-premises computer accounts with AD](service-accounts-computer.md)  
+* [Secure user-based service accounts in AD](service-accounts-user-on-premises.md)  
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)

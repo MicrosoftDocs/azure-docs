@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/25/2023
+ms.date: 02/13/2023
 ms.author: lajanuar
 recommendations: false
 ---
@@ -92,7 +92,7 @@ The following tools are supported by Form Recognizer v2.1:
 
 ## Try invoice data extraction
 
-See how data, including customer information, vendor details, and line items, is extracted from invoices. You'll need the following resources:
+See how data, including customer information, vendor details, and line items, is extracted from invoices. You need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -146,7 +146,7 @@ See how data, including customer information, vendor details, and line items, is
 
     :::image type="content" source="media/fott-select-form-type.png" alt-text="Screenshot showing the select-form-type dropdown menu.":::
 
-1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Form Recognizer Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
 
 1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
@@ -166,13 +166,13 @@ See how data, including customer information, vendor details, and line items, is
 
 | Supported languages | Details |
 |:----------------------|:---------|
-| &bullet; English | United States (us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
-| &bullet; Spanish |Spain (es)|
-| &bullet; German | Germany (de)|
-| &bullet; French | France (fr) |
-| &bullet; Italian | Italy (it)|
-| &bullet; Portuguese | Portugal (-pt), Brazil (-br)|
-| &bullet; Dutch | Netherlands (de)|
+| &bullet; English (en) | United States (us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
+| &bullet; Spanish (es) |Spain (es)|
+| &bullet; German (de) | Germany (de)|
+| &bullet; French (fr) | France (fr) |
+| &bullet; Italian (it) | Italy (it)|
+| &bullet; Portuguese (pt) | Portugal (pt), Brazil (br)|
+| &bullet; Dutch (de) | Netherlands (de)|
 
 ## Field extraction
 
@@ -196,7 +196,7 @@ See how data, including customer information, vendor details, and line items, is
 | ShippingAddress | String | Explicit shipping address for the customer | |
 | ShippingAddressRecipient | String | Name associated with the ShippingAddress |  |
 | PaymentTerm | String | The terms of payment for the invoice | |
-| SubTotal | Number | Subtotal field identified on this invoice | Integer |
+ |Sub&#8203;Total| Number | Subtotal field identified on this invoice | Integer |
 | TotalTax | Number | Total tax field identified on this invoice | Integer |
 | InvoiceTotal | Number (USD) | Total new charges associated with this invoice | Integer |
 | AmountDue |  Number (USD) | Total Amount Due to the vendor | Integer |
@@ -207,7 +207,6 @@ See how data, including customer information, vendor details, and line items, is
 | ServiceStartDate | Date | First date for the service period (for example, a utility bill service period) | yyyy-mm-dd |
 | ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
 | PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
-| CurrencyCode | String | The Currency Code associated with an extracted amount |  |
 | PaymentOptions | Array | An array that holds Payment Option details such as `IBAN`and `SWIFT` |  |
 | TotalDiscount | Number | The total discount applied to an invoice | Integer |
 | TaxItems (en-IN only) | Array | AN array that holds added tax information such as `CGST`, `IGST`, and `SGST`. This line item is currently only available for the en-in locale  |  |
@@ -235,7 +234,7 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 The prebuilt invoice **2022-06-30** and later releases support returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key will be either customer or user (based on context).
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. For documents where the same value is described in different ways, for example, customer/user, the associated key is either customer or user (based on context).
 
 ::: moniker-end
 
@@ -247,7 +246,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 ## Fields extracted
 
-The Invoice service will extract the text, tables, and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the following output uses this [sample invoice](media/sample-invoice.jpg)).
+The Invoice service extracts the text, tables, and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the following output uses this [sample invoice](media/sample-invoice.jpg)).
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
@@ -266,7 +265,7 @@ The Invoice service will extract the text, tables, and 26 invoice fields. Follow
 | BillingAddressRecipient | string | Name associated with the BillingAddress | Microsoft Services | |
 | ShippingAddress | string | Explicit shipping address for the customer | 123 Ship Street, Redmond WA, 98052 | |
 | ShippingAddressRecipient | string | Name associated with the ShippingAddress | Microsoft Delivery | |
-| SubTotal | number | Subtotal field identified on this invoice | $100.00 | 100 |
+| Sub&#8203;Total | number | Subtotal field identified on this invoice | $100.00 | 100 |
 | TotalTax | number | Total tax field identified on this invoice | $10.00 | 10 |
 | InvoiceTotal | number | Total new charges associated with this invoice | $110.00 | 110 |
 | AmountDue |  number | Total Amount Due to the vendor | $610.00 | 610 |
@@ -298,7 +297,7 @@ The JSON output has three parts:
 
 * `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words.
 * `"pageResults"` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
-* `"documentResults"` node contains the invoice-specific values and line items that the model discovered. It's where you'll find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
+* `"documentResults"` node contains the invoice-specific values and line items that the model discovered. It's where to find all the fields from the invoice such as invoice ID, ship to, bill to, customer, total, line items and lots more.
 
 ## Migration guide
 

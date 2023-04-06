@@ -38,7 +38,7 @@ The following are the key reasons to migrate into continuous mode:
 > * If the account has a single write region.
 > * If the account isn't enabled with analytical store.
 >
-> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a user-assigned managed identity must be declared in the Key Vault access policy and must be set as the default identity on the account.
+> If the account is using [customer-managed keys](./how-to-setup-cmk.md), a managed identity (System-assigned or User-assigned) must be declared in the Key Vault access policy and must be set as the default identity on the account.
 
 ## Permissions
 

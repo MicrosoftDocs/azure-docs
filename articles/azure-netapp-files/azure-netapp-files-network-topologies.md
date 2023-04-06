@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/23/2022
+ms.date: 2/17/2022
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -55,6 +55,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *	North Central US
 *   North Europe
 *   Norway East
+*   Norway West 
 *   South Africa North
 *	South Central US
 *   South India 

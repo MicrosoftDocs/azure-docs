@@ -7,7 +7,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 02/14/2023
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
@@ -29,6 +29,9 @@ Your storage account must be contained within a virtual network. A virtual netwo
 Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Azure Active Directory (Azure AD) security, and access control lists (ACLs), are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
 
 To secure the data in your account, see these recommendations: [Network security recommendations for Blob storage](security-recommendations.md#networking).
+
+> [!IMPORTANT]
+> The NFS 3.0 protocol uses ports 111 and 2048. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you have granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports.
 
 ## Step 3: Create and configure a storage account
 

@@ -2,7 +2,7 @@
 title: User management for Microsoft Defender for IoT
 description: Learn about the different options for user and user role management for Microsoft Defender for IoT.
 ms.date: 11/13/2022
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # Microsoft Defender for IoT user management

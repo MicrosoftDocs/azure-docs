@@ -17,7 +17,7 @@ ms.custom: devplatv2, designer, event-tier1-build-2022, ignite-2022
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can create pipelines without using components, but components offer better amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
+In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can create pipelines without using components, but components offer better amount of flexibility and reuse. Azure Machine Learning Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python.md), or composed in Azure Machine Learning Studio Designer with a drag-and-drop UI. This document focuses on the Azure Machine Learning studio designer UI.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ In the example below take using CLI for example. If you want to learn more about
 
 1. From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples), navigate to the `1b_e2e_registered_components` subdirectory.
 
-1. Register the components to AzureML workspace using following commands. Learn more about [ML components](concept-component.md).
+1. Register the components to Azure Machine Learning workspace using following commands. Learn more about [ML components](concept-component.md).
 
     ```CLI
     az ml component create --file train.yml

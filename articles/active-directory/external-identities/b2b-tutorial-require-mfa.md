@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 01/07/2022
+ms.date: 02/03/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -50,7 +50,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete the scenario in this tutorial, you need:
 
-- **Access to Azure AD Premium edition**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities.
+- **Access to [Azure AD Premium edition](/security/business/identity-access/azure-active-directory-pricing)**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities.
 - **A valid external email account** that you can add to your tenant directory as a guest user and use to sign in. If you don't know how to create a guest account, see [Add a B2B guest user in the Azure portal](add-users-administrator.md).
 
 ## Create a test guest user in Azure AD

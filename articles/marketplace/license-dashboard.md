@@ -4,10 +4,10 @@ description: Learn how to access information about your licenses using the Licen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: smannepalle
-ms.author: smannepalle
+author: saurabhsharmaa
+ms.author: saurasharma
 ms.reviewer: sroy
-ms.date: 04/26/2022
+ms.date: 02/20/2023
 ---
 
 # License dashboard in commercial marketplace analytics
@@ -19,63 +19,6 @@ This article provides information about the License dashboard in the commercial 
 - Total number of licenses deployed
 - Number of licenses purchased and deployed by the customer
 - Distribution of licenses across countries and regions
-
-## Check license usage
-
-To check license usage of ISV apps in Partner Center, do the following:
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. On the Home page, select the **Insights** tile.
-
-    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
-
-1. In the left menu, select **[License](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/license)**.
-
-    [ ![Screenshot of the License dashboard in Partner Center.](./media/license-dashboard/license-dashboard-workspaces.png) ](./media/license-dashboard/license-dashboard-workspaces.png#lightbox)
-
-## Elements of the License dashboard
-
-The following sections describe how to use the License dashboard and how to read the data.
-
-### Download
-
-:::image type="content" source="./media/license-dashboard/button-download.png" alt-text="Screenshot of the Download function in the License dashboard.":::
-
-To download a snapshot of the dashboard, select **Download as PDF**. Alternatively, go to the [Downloads](https://partner.microsoft.com/dashboard/insights/commercial-marketplace/analytics/downloads) dashboard and download the report.
-
-### Share
-
-:::image type="content" source="./media/license-dashboard/button-share.png" alt-text="Screenshot showing the email window option of the Share function on the Insights screen of the License dashboard":::
-
-To email dashboard widgets data, select **Share** and provide the email information. Share report URLs using **Copy link** and **Share to Teams**, or **Copy as image** to send a snapshot of chart data.
-
-:::image type="content" source="./media/license-dashboard/email-window.png" alt-text="Screenshot of the email function on the Insights screen of the License dashboard.":::
-
-### What’s new
-
-:::image type="content" source="./media/license-dashboard/button-what-new.png" alt-text="Screenshot of the What's New function on the Insights screen of the License dashboard.":::
-
-Use this to check on changes and enhancements.
-
-### Data refresh details
-
-:::image type="content" source="./media/license-dashboard/button-data.png" alt-text="Screenshot of the Data function on the Insights screen of the License dashboard.":::
-
-View the data source and the data refresh details, such as frequency of the data refresh.
-
-### Got feedback?
-
-:::image type="content" source="./media/license-dashboard/button-feedback.png" alt-text="Screenshot of the Got Feedback function in the License dashboard.":::
-
-Submit feedback about the report/dashboard along with an optional screenshot.
-
-:::image type="content" source="./media/license-dashboard/feedback.png" alt-text="Screenshot showing the Got Feedback window for the Share function on the Insights screen of the License dashboard.":::
-
-## Month range filter
-
-:::image type="content" source="./media/license-dashboard/month-range.png" alt-text="Screenshot of the month range selections on the License dashboard in Partner Center.":::
-
-A month range selection is at the top-right corner of each page. Customize the output of the graphs by selecting a month range based on the past **six** or **12** months, or by selecting a **custom** month range with a maximum duration of 12 months. The default month range is six months.
 
 ### License page dashboard filters
 
@@ -125,7 +68,8 @@ Select the ellipsis (...) to copy the widget image, download aggregated widget d
 
 ## Data terms in License report downloads
 
-You can use the download icon in the upper-right corner of any widget to download the data.
+> [!IMPORTANT]
+> To download the data in CSV, please use the Download data option available on top of page.
 
 | Attribute name | Definition |
 | ------------ | ------------- |

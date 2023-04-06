@@ -3,12 +3,12 @@ title: Manage AWS assessments and standards
 titleSuffix: Defender for Cloud
 description: Learn how to create custom security assessments and standards for your AWS environment.
 ms.topic: how-to
-ms.date: 01/24/2023
+ms.date: 02/07/2023
 ---
 
 # Manage AWS assessments and standards
 
-Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can use the readily available standards such as AWS CIS 1.2.0, AWS Foundational Security Best Practices, and AWS PCI DSS 3.2.1, or create custom standards to meet specific internal requirements.
+Security standards contain comprehensive sets of security recommendations to help secure your cloud environments. Security teams can use the readily available standards such as AWS CIS 1.2.0, AWS CIS 1.5.0, AWS Foundational Security Best Practices, and AWS PCI DSS 3.2.1, or create custom standards to meet specific internal requirements.
 
 There are three types of resources that are needed to create and manage assessments:
 
@@ -49,7 +49,7 @@ You can either use the built-in regulatory compliance standards or create your o
 
 1. Select the relevant AWS account.
 
-1. Select **Standards** > **Add** > **Standard**.
+1. Select **Standards** > **Create** > **Standard**.
 
 1. Select **New standard**.
 

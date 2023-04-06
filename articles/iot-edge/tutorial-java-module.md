@@ -37,9 +37,9 @@ Use the following table to understand your options for developing and deploying 
 
 | Java | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Use VS Code for Java modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Use VS Code for Java modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM64** | ![Use VS Code for Java modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Use Visual Studio Code for Java modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Use Visual Studio Code for Java modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM64** | ![Use Visual Studio Code for Java modules on Linux ARM64](./media/tutorial-c-module/green-check.png) |  |
 
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing either of those tutorials, you should have the following prerequisites in place:
 
@@ -66,13 +66,13 @@ The following steps create an IoT Edge module project that's based on the Azure 
 
 Create a Java solution template that you can customize with your own code.
 
-1. In Visual Studio Code, select **View** > **Command Palette** to open the VS Code command palette.
+1. In Visual Studio Code, select **View** > **Command Palette** to open the Visual Studio Code command palette.
 
 2. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Follow the prompts in the command palette to create your solution.
 
    | Field | Value |
    | ----- | ----- |
-   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Select folder | Choose the location on your development machine for Visual Studio Code to create the solution files. |
    | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
    | Select module template | Choose **Java Module**. |
    | Provide a module name | Name your module **JavaModule**. |
@@ -81,7 +81,7 @@ Create a Java solution template that you can customize with your own code.
 
    ![Provide Docker image repository](./media/tutorial-java-module/repository.png)
 
-If it's your first time creating Java module, it might take several minutes to download the maven packages. When the solution is ready, the VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components:
+If it's your first time creating Java module, it might take several minutes to download the maven packages. When the solution is ready, the Visual Studio Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components:
 
 * The **modules** folder contains the Java code for your module and the Docker files to build your module as a container image.
 * The **\.env** file stores your container registry credentials.
@@ -97,7 +97,7 @@ The environment file stores the credentials for your container registry and shar
 
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
-1. In the VS Code explorer, open the .env file.
+1. In the Visual Studio Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
 
@@ -114,7 +114,7 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
 
 ### Update the module with custom code
 
-1. In the VS Code explorer, open **modules** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
+1. In the Visual Studio Code explorer, open **modules** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java**.
 
 2. Add the following code at the top of the file to import new referenced classes.
 
@@ -217,7 +217,7 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
 
 7. Save the App.java file.
 
-8. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
+8. In the Visual Studio Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace.
 
 9. Add the **JavaModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin:
 
@@ -237,7 +237,7 @@ Currently, Visual Studio Code can develop Java modules for Linux AMD64 and Linux
 
 In the previous section, you created an IoT Edge solution and added code to the **JavaModule** to filter out messages where the reported machine temperature is below the acceptable limit. Now, build the solution as a container image and push it to your container registry.
 
-1. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
+1. Open the Visual Studio Code integrated terminal by selecting **View** > **Terminal**.
 
 2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
@@ -247,7 +247,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-3. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
+3. In the Visual Studio Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, which is built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 

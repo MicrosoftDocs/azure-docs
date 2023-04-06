@@ -126,7 +126,7 @@ mlflow.log_metric('anothermetric',1)
 ```
 
 > [!TIP]
-> When submitting jobs using Azure ML CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
+> When submitting jobs using Azure Machine Learning CLI v2, you can set the experiment name using the property `experiment_name` in the YAML definition of the job. You don't have to configure it on your training script. See [YAML: display name, experiment name, description, and tags](reference-yaml-job-command.md#yaml-display-name-experiment-name-description-and-tags) for details.
 
 ---
 
@@ -151,7 +151,7 @@ mlflow.log_params(params)
 ```
 
 > [!NOTE] 
-> Azure ML SDK v1 logging can't log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
+> Azure Machine Learning SDK v1 logging can't log parameters. We recommend the use of MLflow for tracking experiments as it offers a superior set of features.
 
 ## Logging metrics
 
@@ -253,7 +253,7 @@ client = mlflow.tracking.MlflowClient()
 client.list_artifacts("<RUN_ID>")
 ```
 
-The method above will list all the artifacts logged in the run, but they will remain stored in the artifacts store (Azure ML storage). To download any of them, use the method `download_artifact`:
+The method above will list all the artifacts logged in the run, but they will remain stored in the artifacts store (Azure Machine Learning storage). To download any of them, use the method `download_artifact`:
 
 ```python
 file_path = client.download_artifacts("<RUN_ID>", path="feature_importance_weight.png")
@@ -273,7 +273,7 @@ Select the logged metrics to render charts on the right side. You can customize 
 
 ### View and download diagnostic logs
 
-Log files are an essential resource for debugging the Azure ML workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
+Log files are an essential resource for debugging the Azure Machine Learning workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
 
 1. Navigate to the **Jobs** tab.
 1. Select the runID for a specific run.

@@ -39,8 +39,7 @@ To enable the admin consent workflow and choose reviewers:
 1. Search for and select **Azure Active Directory**.
 1. Select **Enterprise applications**.
 1. Under **Security**, select **Consent and permissions**.
-1. Under **Manage**, select **Admin consent settings**.
-Under **Admin consent requests**,  select **Yes** for **Users can request admin consent to apps they are unable to consent to** .
+1. Under **Manage**, select **Admin consent settings**. Under **Admin consent requests**,  select **Yes** for **Users can request admin consent to apps they are unable to consent to** .
 
    ![Screenshot of configure admin consent workflow settings.](./media/configure-admin-consent-workflow/enable-admin-consent-workflow.png)
    

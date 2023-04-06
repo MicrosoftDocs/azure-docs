@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 10/06/2022
+ms.date: 02/07/2023
 ms.custom: template-concept, ignite-fall-2021
+ROBOTS: NOINDEX
 ---
 
 # Azure Percept DK and Vision device overview

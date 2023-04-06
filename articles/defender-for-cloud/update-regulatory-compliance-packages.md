@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 02/07/2023
 ms.custom: ignite-2022
 ---
 
@@ -58,6 +58,7 @@ Users that have one Defender bundle enabled can enable other standards.
 Available AWS regulatory standards:
 
 - CIS 1.2.0
+- CIS 1.5.0
 - PCI DSS 3.2.1
 - AWS Foundational Security Best Practices
 

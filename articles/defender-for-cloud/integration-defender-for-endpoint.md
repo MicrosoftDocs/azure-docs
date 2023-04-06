@@ -217,6 +217,8 @@ If you've never enabled the integration for Windows, endpoint protection enables
 
 1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the Linux machines that you want to receive Defender for Endpoint.
 
+1. In the Monitoring coverage column of the Defender for Server plan, select **Settings**.
+
 1. In the status of the Endpoint protection component, select **On** to enable the integration with Microsoft Defender for Endpoint.
 
     :::image type="content" source="media/integration-defender-for-endpoint/enable-defender-for-endpoint.png" alt-text="Screenshot of Status toggle that enables Microsoft Defender for Endpoint." lightbox="media/integration-defender-for-endpoint/enable-defender-for-endpoint.png":::
@@ -228,6 +230,8 @@ If you've never enabled the integration for Windows, endpoint protection enables
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
     Onboarding might take up to 1 hour.
+
+1. Select **Continue** and **Save** to save your settings.
 
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
@@ -339,8 +343,9 @@ To remove the Defender for Endpoint solution from your machines:
 
 1. Disable the integration:
     1. From Defender for Cloud's menu, select **Environment settings** and select the subscription with the relevant machines.
-    1. Open **Integrations** and clear the checkbox for **Allow Microsoft Defender for Endpoint to access my data**.
-    1. Select **Save**.
+    1. In the Monitoring coverage column of the Defender for Servers plan, select **Settings**.
+    1. In the status of the Endpoint protection component, select **Off** to disable the integration with Microsoft Defender for Endpoint.
+    1. Select **Continue** and **Save** to save your settings.
 
 1. Remove the MDE.Windows/MDE.Linux extension from the machine.
 

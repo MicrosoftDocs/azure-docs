@@ -23,7 +23,7 @@ While you can create an image of a VM with apps pre-installed, you would need to
 
 Application packages provide benefits over other deployment and packaging methods:
 
-- VM Applications have support for [Azure Policies](/azure/governance/policy/overview)
+- VM Applications have support for [Azure Policies](../governance/policy/overview.md)
 
 - Grouping and versioning of your packages
 
@@ -52,11 +52,13 @@ The VM application packages use multiple resource types:
 
 ## Limitations
 
-- **No more than 3 replicas per region**: When creating a VM Application version, the maximum number of replicas per region is three. 
+- **No more than 3 replicas per region**: When creating a VM Application version, the maximum number of replicas per region is three.
+
+- **Public access on storage**: Only public level access to storage accounts work, as other restriction levels fail deployments.
 
 - **Retrying failed installations**: Currently, the only way to retry a failed installation is to remove the application from the profile, then add it back.
 
-- **Only 5 applications per VM**: No more than five applications may be deployed to a VM at any point.
+- **Only 25 applications per VM**: No more than 25 applications may be deployed to a VM at any point.
 
 - **1GB application size**: The maximum file size of an application version is 1 GB. 
 

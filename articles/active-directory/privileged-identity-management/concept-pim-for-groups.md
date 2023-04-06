@@ -30,8 +30,7 @@ PIM for Groups is part of Azure AD Privileged Identity Management – alongside 
 
 With PIM for Groups you can use policies similar to ones you use in PIM for Azure AD Roles and PIM for Azure Resources: you can require approval for membership or ownership activation, enforce multi-factor authentication (MFA), require justification, limit maximum activation time, and more. Each group in PIM for Groups has two policies: one for activation of membership and another for activation of ownership in the group. Up until January 2023, PIM for Groups feature was called “Privileged Access Groups”.
 
->[!Note]
-> For groups used for elevating into Azure AD roles, we recommend that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from less-privileged administrators. For example, the Helpdesk Administrator has permission to reset an eligible user's passwords.
+[!INCLUDE [PIM for Groups note](../includes/pim-for-groups-include.md)]
 
 ## What are Azure AD role-assignable groups?
 

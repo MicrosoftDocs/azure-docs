@@ -257,7 +257,7 @@ if ($InitiativeRoleDefinitionIds.Count -gt 0) {
 
 The new managed identity must complete replication through Azure Active Directory before it can be granted the needed roles. Once replication is complete, the roles specified in the policy definition's **roleDefinitionIds** should be granted to the managed identity.
 
-Access the roles specified in the policy definition using the [az policy definition show](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show&preserve-view=true) command, then iterate over each **roleDefinitionId** to create the role assignment using the [az role assignment create](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show&preserve-view=true) command.
+Access the roles specified in the policy definition using the [az policy definition show](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-show&preserve-view=true) command, then iterate over each **roleDefinitionId** to create the role assignment using the [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create&preserve-view=true) command.
 
 ---
 

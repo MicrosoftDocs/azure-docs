@@ -2,7 +2,7 @@
 title: Configure monitoring for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website hosted on-premises or in Azure.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 02/14/2023
 ms.devlang: csharp
 ms.custom: contperf-fy21q1
 ---
@@ -379,5 +379,5 @@ For the latest updates and bug fixes, [consult the release notes](./release-note
 
 ## Next steps
 
-* Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](monitor-web-app-availability.md).
+* Add synthetic transactions to test that your website is available from all over the world with [availability monitoring](availability-overview.md).
 * [Configure sampling](sampling.md) to help reduce telemetry traffic and data storage costs.

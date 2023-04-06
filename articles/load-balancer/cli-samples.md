@@ -1,19 +1,18 @@
 ---
 title: Azure CLI Samples for Load Balancer
 titleSuffix: Azure Load Balancer
-description: Azure CLI Samples
+description: Azure CLI Samples.
 services: load-balancer
 documentationcenter: load-balancer
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: article
+ms.topic: sample
 ms.custom: seodec18, devx-track-azurecli
-ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: mbender
-
 ---
+
 # Azure CLI Samples for Load Balancer
 
 The following table includes links to bash scripts built using the Azure CLI.

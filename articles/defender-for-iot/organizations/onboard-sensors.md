@@ -2,7 +2,7 @@
 title: Onboard sensors to Defender for IoT in the Azure portal
 description: Learn how to onboard sensors to Defender for IoT in the Azure portal.
 ms.date: 06/02/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Onboard OT sensors to Defender for IoT
@@ -61,7 +61,7 @@ Onboard an OT sensor by registering it with Microsoft Defender for IoT and downl
 
         If you haven't yet upgraded to version 22.x, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
-    1. In the **Site** section, select the **Resource name** and enter the **Display name** for your site. Add any tags as needed to help you identify your sensor.
+    1. In the **Site** section, select the **Resource name** and enter an extra **Display name** to show for your site in the Azure portal. Add any tags as needed to help you identify your sensor.
 
     1. In the **Zone** field, select a zone from the menu, or select **Create Zone** to create a new one.
 

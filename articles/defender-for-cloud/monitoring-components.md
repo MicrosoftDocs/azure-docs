@@ -70,6 +70,14 @@ Learn more about [using the Azure Monitor Agent with Defender for Cloud](auto-de
 | Policy-based: | :::image type="icon" source="./media/icons/no-icon.png"::: No | :::image type="icon" source="./media/icons/yes-icon.png"::: Yes |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Government, Azure China 21Vianet |
 
+#### Supported operating systems for the Log Analytics agent
+
+Defender for Cloud depends on the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md). Ensure your machines are running one of the supported operating systems for this agent as described on the following pages:
+
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+
+Also ensure your Log Analytics agent is [properly configured to send data to Defender for Cloud](working-with-log-analytics-agent.md#manual-agent)
 
 <a name="preexisting"></a>
 
@@ -159,4 +167,4 @@ This page explained what monitoring components are and how to enable them.
 Learn more about:
 
 - [Setting up email notifications](configure-email-notifications.md) for security alerts
-- Protecting workloads with [enhanced security features](enhanced-security-features-overview.md)
+- Protecting workloads with [the Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads)

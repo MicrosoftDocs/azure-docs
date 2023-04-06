@@ -230,8 +230,17 @@ module.exports = function (context, eventHubMessages) {
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell" 
- 
-Complete PowerShell examples are pending.
+
+Here's the powershell code:
+
+```powershell
+param($eventHubMessages, $TriggerMetadata)
+
+Write-Host "PowerShell eventhub trigger function called for message array: $eventHubMessages"
+
+$eventHubMessages | ForEach-Object { Write-Host "Processed message: $_" }
+```
+
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
 

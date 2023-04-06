@@ -62,7 +62,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*. You can't change the SKU from *Standard/Premium* to *Local*.
+* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*.
 * SKU family determines the billing type. You can specify *MeteredData* for a metered data plan and *UnlimitedData* for an unlimited data plan. You can change the billing type from *MeteredData* to *UnlimitedData*, but you can't change the type from *UnlimitedData* to *MeteredData*. A *Local* circuit is always *UnlimitedData*.
 
 > [!IMPORTANT]
@@ -290,7 +290,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 
 You can do the following tasks with no downtime:
 
-* Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit. Changing the SKU from *Standard/Premium* to *Local* isn't supported.
+* Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
 * Increase the bandwidth of your ExpressRoute circuit provided there's capacity available on the port. Downgrading the bandwidth of a circuit isn't supported.
 * Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data isn't supported.
 * You can enable and disable *Allow Classic Operations*.

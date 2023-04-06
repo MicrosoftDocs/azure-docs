@@ -39,6 +39,8 @@
     href: quickstart-netherite.md
   - name: Configure storage provider - MSSQL
     href: quickstart-mssql.md
+  - name: Configure Durable Functions with Azure Active Directory
+    href: durable-functions-configure-durable-functions-with-credentials.md   
 - name: Tutorials
   items:
   - name: Function chaining
@@ -107,12 +109,24 @@
     href: durable-functions-bindings.md
   - name: HTTP API
     href: durable-functions-http-api.md
-  - name: .NET API
+  - name: .NET in-process API
     href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
+  - name: .NET isolated API
+    items:
+    - name: Durable Functions bindings for .NET isolated
+      href: /dotnet/api/microsoft.azure.functions.worker.extensions.durabletask
+    - name: Durable Task core SDK for .NET isolated
+      href: /dotnet/api/microsoft.durabletask
   - name: Node.js API
     href: /javascript/api/durable-functions/
   - name: Python API
     href: /python/api/azure-functions-durable/azure.durable_functions
+  - name: Java API
+    items:
+    - name: Durable Functions bindings for Java
+      href: /java/api/com.microsoft.durabletask.azurefunctions
+    - name: Durable Task core SDK for Java
+      href: /java/api/com.microsoft.durabletask
   - name: Azure storage provider
     href: durable-functions-azure-storage-provider.md
 - name: How-to guides

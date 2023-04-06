@@ -149,9 +149,9 @@ landingContent:
       - linkListType: reference
         links:
         - text: .NET Core library
-          url: /dotnet/api/microsoft.featuremanagement
+          url: https://www.nuget.org/packages/Microsoft.FeatureManagement/
         - text: .NET Core filter library
-          url: /dotnet/api/microsoft.featuremanagement.featurefilters
+          url: /dotnet/api/microsoft.azure.management.storsimple8000series.models.featurefilter
         - text: Java Spring Library
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
 

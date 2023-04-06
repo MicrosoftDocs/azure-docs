@@ -3,14 +3,13 @@ title: Azure Load Balancer and Availability Zones
 titleSuffix: Azure Load Balancer
 description: With this learning path, get started with Azure Standard Load Balancer and Availability Zones.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 ms.service: load-balancer
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: mbender
+ms.custom: template-concept
 ---
 
 # Load Balancer and Availability Zones

@@ -1,0 +1,57 @@
+- name: Azure Operator Nexus documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Operator Nexus?
+    href: overview.md
+- name: Concepts
+  items:
+  - name: Resource Types
+    href: concepts-resource-types.md
+  - name: Observability
+    href: concepts-observability.md
+- name: Quickstarts
+  items:
+  - name: Create Network fabric Controller and Cluster Manager
+    href: quickstart-network-fabric-controller-cluster-manager-create.md
+  - name: Before you start platform deployment
+    href: quickstarts-platform-prerequisites.md
+  - name: Platform deployment
+    href: quickstarts-platform-deployment.md
+  - name: Before you start workload deployment
+    href: quickstarts-tenant-workload-prerequisites.md
+  - name: Tenant workload deployment
+    href: quickstarts-tenant-workload-deployment.md
+- name: How-To Guides
+  items:
+  - name: BareMetal Functions
+    href: howto-baremetal-functions.md
+  - name: Cluster Manager
+    href: howto-cluster-manager.md
+  - name: isolation-domain
+    href: howto-configure-isolation-domain.md
+  - name: Network fabric
+    href: howto-configure-network-fabric.md
+  - name: Network fabric Controller
+    href: howto-configure-network-fabric-controller.md
+  - name: AKS-Hybrid
+    href: howto-hybrid-aks.md
+  - name: Monitor AKS-Hybrid Cluster
+    href: howto-monitoring-aks-h-cluster.md
+  - name: Monitor VMs for VNF
+    href: howto-monitoring-virtualized-network-functions-virtual-machines.md
+  - name: Pre-certification 
+    href: howto-precertification.md
+- name: Sample Deployment
+  items:
+  - name: VNF Deployment
+    href: template-virtualized-network-function-deployment.md
+  - name: CNF Deployment
+    href: template-cloud-native-network-function-deployment.md 
+- name: Reference
+  items:
+  - name: Instance to On-Premises WAN Connectivity
+    href: reference-customer-edge-provider-edge-connectivity.md
+  - name: List of Metrics Collected
+    href: List-of-metrics-collected.md
+  

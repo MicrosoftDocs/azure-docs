@@ -165,7 +165,7 @@ A deployment is a set of resources required for hosting the model that does the 
 To create a managed online endpoint, use the `ManagedOnlineEndpoint` class. This class allows users to configure the following key aspects of the endpoint:
 
 * `name` - Name of the endpoint. Needs to be unique at the Azure region level
-* `auth_mode` - The authentication method for the endpoint. Key-based authentication and Azure ML token-based authentication are supported. Key-based authentication doesn't expire but Azure ML token-based authentication does. Possible values are `key` or `aml_token`.
+* `auth_mode` - The authentication method for the endpoint. Key-based authentication and Azure Machine Learning token-based authentication are supported. Key-based authentication doesn't expire but Azure Machine Learning token-based authentication does. Possible values are `key` or `aml_token`.
 * `identity`- The managed identity configuration for accessing Azure resources for endpoint provisioning and inference.
     * `type`- The type of managed identity. Azure Machine Learning supports `system_assigned` or `user_assigned` identity.
     * `user_assigned_identities` - List (array) of fully qualified resource IDs of the user-assigned identities. This property is required if `identity.type` is user_assigned.

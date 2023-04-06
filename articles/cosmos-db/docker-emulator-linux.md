@@ -44,6 +44,8 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 
 - The Linux emulator supports a maximum ID property size of 254 characters.
 
+- The linux emulator supports a maximum of five JOIN statements per query.
+
 ## Run the Linux Emulator on macOS
 
 > [!NOTE]

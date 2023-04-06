@@ -114,7 +114,7 @@ In this state:
 
 * A plan to move apps that depend on Active Directory and are part of the vision for the future-state Azure AD environment is being executed. A plan to replace services that won't move (file, print, or fax services) is in place.
 
-* On-premises workloads have been replaced with cloud alternatives such as Windows Virtual Desktop, Azure Files, or Google Cloud Print. Azure SQL Managed Instance replaces SQL Server.
+* On-premises workloads have been replaced with cloud alternatives such as Windows Virtual Desktop, Azure Files, or Universal Print. Azure SQL Managed Instance replaces SQL Server.
 
 ### State 5: 100% cloud
 

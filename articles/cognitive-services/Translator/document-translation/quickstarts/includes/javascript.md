@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 12/17/2022
+ms.date: 02/10/2023
 ms.author: lajanuar
 recommendations: false
 ---
 
-
+<!-- markdownlint-disable MD051 -->
 
 ## Set up your Node.js environment
 
-For this quickstart, we'll use the Node.js JavaScript runtime environment to create and run the application.
+For this quickstart, we use the Node.js JavaScript runtime environment to create and run the application.
 
 1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
 
@@ -52,6 +52,9 @@ For this quickstart, we'll use the Node.js JavaScript runtime environment to cre
        npm install axios uuid
     ```
 
+ > [!div class="nextstepaction"]
+  > [I ran into an issue setting up my environment.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Set-up-the-environment)
+
 ## Translate all documents in a storage container
 
 1. Create the `index.js` file in the app directory.
@@ -64,7 +67,7 @@ For this quickstart, we'll use the Node.js JavaScript runtime environment to cre
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `document-translation` directory.
 
-1. Copy and paste the document translation [code sample](#code-sample) into your `index.js` file. 
+1. Copy and paste the document translation [code sample](#code-sample) into your `index.js` file.
 
     * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
 
@@ -126,15 +129,18 @@ axios(config)
 * Once you've added the code sample to your application, run your program:
 
   1. Navigate to your application directory (document-translation).
-  
+
   1. Type the following command in your terminal:
-  
+
       ```console
       node index.js
       ```
 
-* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. 
+* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
 
-* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. 
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
 
-* The translated documents will be listed in your target container.
+* The translated documents are listed in your target container.
+
+  > [!div class="nextstepaction"]
+  > [I successfully translated my document.](#next-steps)  [I ran into an issue.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Document-translation&Page=quickstart&Section=Translate-documents)

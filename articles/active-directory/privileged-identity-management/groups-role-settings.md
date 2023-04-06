@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/12/2023
+ms.date: 01/27/2023
 ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Configure PIM for Groups settings (preview)
 
-In Privileged Identity Management (PIM) for groups in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define membership/ownership assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, etc. Use the following steps to configure role settings – i.e., setup the approval workflow to specify who can approve or deny requests to elevate privilege.
+In Privileged Identity Management (PIM) for groups in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define membership or ownership assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, etc. Use the following steps to configure role settings and setup the approval workflow to specify who can approve or deny requests to elevate privilege.
 
-You need to have Global Administrator, Privileged Role Administrator, or group Owner permissions to manage settings for membership/ownership assignments of the group. Role settings are defined per role per group: all assignments for the same role (member/owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
+You need to have Global Administrator, Privileged Role Administrator, or group Owner permissions to manage settings for membership or ownership assignments of the group. Role settings are defined per role per group: all assignments for the same role (member or owner) for the same group follow same role settings. Role settings of one group are independent from role settings of another group. Role settings for one role (member) are independent from role settings for another role (owner).
 
 
 ## Update role settings
@@ -53,13 +53,27 @@ Follow these steps to open the settings for a group role.
 
 Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
-### Require multi-factor authentication (MFA) on activation
+### On activation, require multi-factor authentication
 
 You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
 User may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
 
 For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
+
+### On activation, require Azure AD Conditional Access authentication context (Public Preview)
+
+You can require users who are eligible for a role to satisfy Conditional Access policy requirements: use specific authentication method enforced through Authentication Strengths, elevate the role from Intune compliant device, comply with Terms of Use, and more. 
+
+To enforce this requirement, you need to:
+
+1.	Create Conditional Access authentication context.
+1.	Configure Conditional Access policy that would enforce requirements for this authentication context.
+1.	Configure authentication context in PIM settings for the role.
+
+:::image type="content" source="media/pim-for-groups/pim-group-21.png" alt-text="Screenshot of the Edit role settings Member page." lightbox="media/pim-for-groups/pim-group-21.png":::
+
+To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
 
 ### Require justification on activation
 
@@ -73,7 +87,7 @@ You can require that users enter a support ticket when they activate the eligibl
 
 You can require approval for activation of eligible assignment. Approver doesn’t have to be group member or owner. When using this option, you have to select at least one approver (we recommend to select at least two approvers), there are no default approvers.
 
-To learn more about approvals, see [Approve activation requests for privileged access group members and owners (preview)](groups-approval-workflow.md).
+To learn more about approvals, see [Approve activation requests for PIM for Groups members and owners (preview)](groups-approval-workflow.md).
 
 ### Assignment duration
 
@@ -99,7 +113,8 @@ And, you can choose one of these **active** assignment duration options:
 ### Require multi-factor authentication on active assignment
 
 You can require that administrator or group owner provides multi-factor authentication when they create an active (as opposed to eligible) assignment. Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
-User may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
+
+Administrator or group owner may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
 
 ### Require justification on active assignment
 

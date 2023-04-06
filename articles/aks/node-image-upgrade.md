@@ -15,6 +15,8 @@ For more information about the latest images provided by AKS, see the [AKS relea
 
 For information on upgrading the Kubernetes version for your cluster, see [Upgrade an AKS cluster][upgrade-cluster].
 
+Node image upgrades can also be performed automatically, and scheduled by using planned maintenance. For more details, see [Automatically upgrade node images][auto-upgrade-node-image].
+
 > [!NOTE]
 > The AKS cluster must use virtual machine scale sets for the nodes.
 
@@ -171,3 +173,4 @@ az aks nodepool show \
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+[auto-upgrade-node-image]: auto-upgrade-node-image.md

@@ -158,7 +158,7 @@ Some of the reasons why server state can become *Inaccessible* are:
 
 
 > [!NOTE]  
-> CLI examples below are based on 2.43.0 version of Azure Database for PostgreSQL - Flexible Server CLI libraries, which are in preview and may be subject to changes.  
+> CLI examples below are based on 2.45.0 version of Azure Database for PostgreSQL - Flexible Server CLI libraries
 
 ## Setup Customer Managed Key during Server Creation
 
@@ -255,11 +255,9 @@ Follow the steps below to change\rotate key or identity after creation of server
 
 The following are current limitations for configuring the customer-managed key in Flexible Server:
 
-- CMK encryption can only be configured during creation of a new server, not as an update to the existing Flexible Server.
+- CMK encryption can only be configured during creation of a new server, not as an update to the existing Flexible Server. You can [restore PITR backup to new server with CMK encryption](./concepts-backup-restore.md#point-in-time-recovery) instead. 
 
-- Once enabled, CMK encryption can't be removed. If customer desires to remove this feature, it can only be done via restore of the server to non-CMK server.
-
-- No support for Geo backup enabled servers
+- Once enabled, CMK encryption can't be removed. If customer desires to remove this feature, it can only be done via [restore of the server to non-CMK server](./concepts-backup-restore.md#point-in-time-recovery).
 
 - No support for Azure HSM Key Vault 
 

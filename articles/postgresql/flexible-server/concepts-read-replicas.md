@@ -160,5 +160,6 @@ Scaling vCores or between General Purpose and Memory Optimized:
 ## Next steps
 
 * Learn how to [create and manage read replicas in the Azure portal](how-to-read-replicas-portal.md).
+* Learn about [Cross-region replication with VNET](concepts-networking.md#replication-across-azure-regions-and-virtual-networks-with-private-networking).
 
 [//]: # (* Learn how to [create and manage read replicas in the Azure CLI and REST API]&#40;how-to-read-replicas-cli.md&#41;.)

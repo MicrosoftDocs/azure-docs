@@ -75,9 +75,7 @@ Azure Container Instances enables [deployment of container instances into an Azu
 
 ## Considerations
 
-There are default limits that require quota increases. Not all quota increases may be approved: [Service quotas and region availability - Azure Container Instances | Microsoft Learn](./container-instances-quotas.md)
-
-Different regions have different default limits, so you should consider the limits in your region: [Resource availability by region - Azure Container Instances | Microsoft Learn](./container-instances-region-availability.md)
+There are default limits that require quota increases. Not all quota increases may be approved: [Resource availability & quota limits for ACI - Azure Container Instances | Microsoft Learn](./container-instances-resource-and-quota-limits.md)
 
 If your container group stops working, we suggest trying to restart your container, checking your application code, or your local network configuration before opening a [support request][azure-support]. 
 

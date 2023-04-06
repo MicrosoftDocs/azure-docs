@@ -12,14 +12,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/18/2022
+ms.date: 02/23/2023
 ms.author: anfdocs
 ---
 
 # Requirements and considerations for using cross-region replication 
 
 This article describes requirements and considerations about [using the volume cross-region replication](cross-region-replication-create-peering.md) functionality of Azure NetApp Files.
-
 
 ## Requirements and considerations 
 
@@ -36,8 +35,6 @@ This article describes requirements and considerations about [using the volume c
 * You cannot mount a dual-protocol volume until you [authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume) and the initial [transfer](cross-region-replication-display-health-status.md#display-replication-status) happens.
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
 * You can't revert a source or destination volume of cross-region replication to a snapshot. The snapshot revert functionality is greyed out for volumes in a replication relationship. 
-
-
 
 ## Next steps
 * [Create volume replication](cross-region-replication-create-peering.md)

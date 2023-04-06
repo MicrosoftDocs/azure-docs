@@ -9,7 +9,6 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: allensu
-
 ---
 
 # Public IP address prefix

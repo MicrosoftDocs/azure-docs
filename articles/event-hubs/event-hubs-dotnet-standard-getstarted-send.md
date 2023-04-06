@@ -45,7 +45,7 @@ This section shows you how to create a .NET Core console application to send eve
 
 ### Add the NuGet packages to the project
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.EventHubs** and the **Azure.Identity** NuGet packages.
@@ -73,7 +73,7 @@ This section shows you how to create a .NET Core console application to send eve
 
 Add the following code to the top of the **Program.cs** file.
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 Here are the important steps from the code:
 
@@ -206,7 +206,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. Authenticate to the blob container
     
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [event-hub-storage-assign-roles](../../includes/passwordless/event-hub/event-hub-storage-assign-roles.md)]
 ## [Connection String](#tab/connection-string)
@@ -225,7 +225,7 @@ Note down the connection string and the container name. You'll use them in the r
 
 ### Add the NuGet packages to the project
 
-### [Passwordless](#tab/passwordless)
+### [Passwordless (Recommended)](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. In the **Package Manager Console** window, confirm that **EventHubsReceiver** is selected for the **Default project**. If not, use the drop-down list to select **EventHubsReceiver**.
@@ -253,7 +253,7 @@ Note down the connection string and the container name. You'll use them in the r
 
 Replace the contents of **Program.cs** with the following code:
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 Here are the important steps from the code:
 

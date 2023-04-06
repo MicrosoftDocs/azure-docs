@@ -2,7 +2,7 @@
 title: CLI command users and access for OT monitoring - Microsoft Defender for IoT
 description: Learn about the users supported for the Microsoft Defender for IoT CLI commands and how to access the CLI.
 ms.date: 01/01/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Defender for IoT CLI users and access

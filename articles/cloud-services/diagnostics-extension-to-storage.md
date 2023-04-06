@@ -5,7 +5,8 @@ author: bwren
 ms.author: bwren
 ms.service: cloud-services
 ms.topic: conceptual
-ms.date: 08/01/2016
+ms.date: 02/21/2023
+ms.custom: compute-evergreen
 ---
 
 # Store and view diagnostic data in Azure Storage

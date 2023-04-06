@@ -852,7 +852,7 @@ public HttpResponseMessage httpStartAndWait(
     try {
         String timeoutString = req.getQueryParameters().get("timeout");
         Integer timeoutInSeconds = Integer.parseInt(timeoutString);
-        OrchestrationMetadata orchestration = client.waitForInstanceStart(
+        OrchestrationMetadata orchestration = client.waitForInstanceCompletion(
                 instanceId,
                 Duration.ofSeconds(timeoutInSeconds),
                 true /* getInputsAndOutputs */);

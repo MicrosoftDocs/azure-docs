@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: quickstart
-ms.date: 10/26/2022
+ms.date: 02/08/2023
 ---
 
 # Quickstart: Create and configure a project
@@ -40,7 +40,7 @@ To create a project in your dev center:
      |----------|-----------|
      |**Subscription**     |Select the subscription in which you want to create the project.       |
      |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.   |
-     |**Dev center**|Select a dev center to associate with this project. All settings for the dev center will apply to the project.   |
+     |**Dev center**|Select a dev center to associate with this project. All settings for the dev center apply to the project.   |
      |**Name**|Enter a name for the project.  |
      |**Description** (Optional) |Enter any project-related details.  |
 
@@ -55,9 +55,9 @@ To create a project in your dev center:
     :::image type="content" source="media/quickstart-create-configure-projects/created-project.png" alt-text="Screenshot that shows the project overview pane.":::
 
 ### Assign a managed identity the owner role to the subscription
-Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you'll configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
+Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
 
-In this quickstart you'll assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
+In this quickstart you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
 
 1.	Navigate to your dev center.
 1.  On the left menu under Settings, select **Identity**.

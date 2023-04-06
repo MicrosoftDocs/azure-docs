@@ -24,7 +24,7 @@ When you enable distributed tracing for IoT Hub, you can:
 - Measure and understand message flow and latency from devices to IoT Hub and routing endpoints.
 - Start considering how you want to implement distributed tracing for the non-Azure services in your IoT solution.
 
-In this article, you use the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) with distributed tracing. Distributed tracing support is still in progress for the other SDKs.
+In this article, you use the [Azure IoT device SDK for C](https://github.com/Azure/azure-iot-sdk-c/blob/main/readme.md) with distributed tracing. Distributed tracing support is still in progress for the other SDKs.
 
 ## Prerequisites
 
