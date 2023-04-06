@@ -676,29 +676,6 @@ readEntityState<T>(
 <tr>
 <td>
 
-```typescript
-startNew(
-    orchestratorFunctionName: string,
-    instanceId?: string,
-    input?: unknown
-): Promise<string>
-```
-
-</td>
-<td>
-
-```typescript
-startNew(
-    orchestratorFunctionName: string, 
-    options?: StartNewOptions
-): Promise<string>;
-```
-
-</td>
-</tr>
-<tr>
-<td>
-
 ```TS
 rewind(
     instanceId: string,
@@ -744,6 +721,29 @@ signalEntity(
     options?: TaskHubOptions
 ): Promise<void>
 ```
+</td>
+</tr>
+<tr>
+<td>
+
+```typescript
+startNew(
+    orchestratorFunctionName: string,
+    instanceId?: string,
+    input?: unknown
+): Promise<string>
+```
+
+</td>
+<td>
+
+```typescript
+startNew(
+    orchestratorFunctionName: string, 
+    options?: StartNewOptions
+): Promise<string>;
+```
+
 </td>
 </tr>
 <tr>
