@@ -29,6 +29,12 @@ Use any of the following options to modify or filter the devices shown:
 
 For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
 
+
+> [!NOTE]
+> If your OT sensors detect multiple devices in the same zone with the same IP or MAC address, those devices are automatically merged and identified as a single, unique device. Devices that have different IP addresses, but the same MAC address, are not merged, and continue to be listed as unique devices.
+>
+> Merged devices are listed only once in the **Device inventory** page. For more information, see [Separating zones for recurring IP ranges](best-practices/plan-corporate-monitoring.md#separating-zones-for-recurring-ip-ranges).
+
 ### View full device details
 
 To view full details about a specific device, select the device row. Initial details are shown in a pane on the right, where you can also select **View full details** to open the device details page and drill down more.

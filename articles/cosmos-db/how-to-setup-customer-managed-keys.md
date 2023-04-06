@@ -715,6 +715,10 @@ The only operation possible when the encryption key has been revoked is account 
 
 ### Assign a new managed-identity to the restored database account to continue accessing or recover access to the database account
 
+User-Assigned Identity is tied to a specified Cosmos DB account, whenever we assign a User-Assigned Identity to an account, ARM forwards the request to managed service identities to make this connection. Currently we carry over user-identity information from the source database account to the target database account during the restore (for both Continuous and Periodic backup restore) of CMK + User-Assigned Identity,  
+ 
+Since the identity metadata is bound with the source database account and restore workflow doesn't re-scope identity to the target database account. This will cause the restored database accounts to be in a bad state, and become inaccessible after the source account is deleted and identity’s renew time is expired. 
+
 Steps to assign a new managed-identity:
 1. [Create a new user-assigned managed identity.](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)
 2. [Grant KeyVault key access to this identity.](#choosing-the-preferred-security-model)
