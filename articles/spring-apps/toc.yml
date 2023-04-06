@@ -229,8 +229,6 @@ items:
       href: how-to-integrate-azure-load-balancers.md
   - name: Monitor
     items:
-    - name: Distributed tracing and App Insights
-      href: how-to-distributed-tracing.md
     - name: Analyze logs and metrics
       href: diagnostic-services.md
     - name: Stream logs in real time

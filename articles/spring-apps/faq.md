@@ -115,7 +115,7 @@ Azure Spring Apps supports exporting Spring application logs and metrics to Azur
 
 ### Does Azure Spring Apps support distributed tracing?
 
-Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spring Apps](./how-to-distributed-tracing.md).
+Yes. For more information, see [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md).
 
 ::: zone pivot="programming-language-java"
 ### What resource types does Service Binding support?

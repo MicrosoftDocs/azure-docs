@@ -181,4 +181,4 @@ For a vnet injection instance of Azure Spring Apps, you need to make sure the ou
 
 ## Next steps
 
-* [Distributed tracing and App Insights](how-to-distributed-tracing.md)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md)

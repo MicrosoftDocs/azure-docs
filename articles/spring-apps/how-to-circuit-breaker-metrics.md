@@ -139,5 +139,4 @@ Use the following steps to build and deploy the sample applications.
 ## Next steps
 
 * [Application insights](./how-to-application-insights.md)
-* [Distributed tracing](./how-to-distributed-tracing.md)
 * [Circuit breaker dashboard](./tutorial-circuit-breaker.md)

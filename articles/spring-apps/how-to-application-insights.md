@@ -527,7 +527,7 @@ When data is stored in Application Insights, it contains the history of Azure Sp
 
 ## Next steps
 
-* [Use distributed tracing with Azure Spring Apps](./how-to-distributed-tracing.md)
+* [Use Application Insights Java In-Process Agent in Azure Spring Apps](./how-to-application-insights.md)
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)
 * [Application Map](../azure-monitor/app/app-map.md)
