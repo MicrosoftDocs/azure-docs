@@ -67,9 +67,11 @@ When you create an Azure Machine Learning data asset, you must specify a `path` 
 |A path on a public http(s) server   |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
 |A path on Azure Storage    |(Blob) `wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/`<br>(ADLS gen2) `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>(ADLS gen1) `adl://<accountname>.azuredatalakestore.net/<path_to_data>/` |
 
+> [!IMPORTANT]
+> When working with folder data, ensure that the correct path structure is used (ex. /<path_to_data>**/**) so the data source is accurately captured.
 
 > [!NOTE]
-> When you create a data asset from a local path, it will automatically upload to the default Azure Machine Learning cloud  datastore.
+> When you create a data asset from a local path, it will automatically upload to the default Azure Machine Learning cloud datastore.
 
 ## Create a File asset
 

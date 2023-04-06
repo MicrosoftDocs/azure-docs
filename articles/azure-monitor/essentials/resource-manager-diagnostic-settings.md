@@ -1786,6 +1786,7 @@ resource queue 'Microsoft.Storage/storageAccounts/queueServices@2021-09-01' exis
 
 resource queueSetting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = if (hasqueue) {
   name: settingName
+  scope: queue
   properties: {
     workspaceId: workspaceId
     storageAccountId: resourceId('Microsoft.Storage/storageAccounts', storageSyncName)

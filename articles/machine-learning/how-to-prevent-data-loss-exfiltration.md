@@ -42,7 +42,7 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 
 ## Why do I need to use the service endpoint policy
 
-Service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint and allow data exfiltration to only specific Azure Storage accounts. Azure Machine Learning compute instance and compute cluster requires access to Microsoft-managed storage accounts for its provisioning. The Azure Machine learning alias in service endpoint policies includes Microsoft-managed storage accounts. We use service endpoint policies with the Azure Machine Learning alias to prevent data exfiltration or control the destination storage accounts. You can learn more in [Service Endpoint policy documentation](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
+Service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint and allow data exfiltration to only specific Azure Storage accounts. Azure Machine Learning compute instance and compute cluster requires access to Microsoft-managed storage accounts for its provisioning. The Azure Machine Learning alias in service endpoint policies includes Microsoft-managed storage accounts. We use service endpoint policies with the Azure Machine Learning alias to prevent data exfiltration or control the destination storage accounts. You can learn more in [Service Endpoint policy documentation](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
 
 ## 1. Create the service endpoint policy
 
@@ -92,21 +92,26 @@ Select the configuration that you're using:
 
 # [Service tag/NSG](#tab/servicetag)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic to the following __service tags__. Replace `<region>` with the Azure region that contains your compute cluster or instance:
 
-* `BatchNodeManagement.<region>`
-* `AzureMachineLearning`
-* `Storage.<region>` - A Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
+| Service tag | Protocol | Port |
+| ----- | ----- | ----- |
+| `BatchNodeManagement.<region>` | ANY | 443 |
+| `AzureMachineLearning` | TCP | 443 |
+| `Storage.<region>` | TCP | 443 |
+
+> [!NOTE]
+> For the storage outbound, a Service Endpoint Policy will be applied in a later step to limit outbound traffic. 
 
 # [Firewall](#tab/firewall)
 
-__Allow__ outbound traffic over __TCP port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
+__Allow__ outbound traffic over __ANY port 443__ to the following FQDNs. Replace instances of `<region>` with the Azure region that contains your compute cluster or instance:
 
 * `<region>.batch.azure.com`
 * `<region>.service.batch.com`
 
 > [!WARNING]
-> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts:
+> If you enable the service endpoint on the subnet used by your firewall, you must open outbound traffic to the following hosts over __TCP port 443__:
 > * `*.blob.core.windows.net`
 > * `*.queue.core.windows.net`
 > * `*.table.core.windows.net`

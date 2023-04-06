@@ -27,7 +27,7 @@ This article lists all built-in and preinstalled components, such as clients, dr
 
 | Type | Name - Version - Platform |
 |------|---------------------------|
-| **Built-in clients/drivers/providers** | *Access Database Engine 2016 Redistributable* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.1000.81 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.1000.81 - X64<br/><br/>*Microsoft SQL Server 2012 Native Client* - 11.4.7462.6 - X64<br/><br/>*Microsoft ODBC Driver 13 for SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 for SQL Server* - 18.1.0.0 - X64<br/><br/>*Microsoft OLEDB Provider for DB2* - 6.0 - X64<br/><br/>*SharePoint Online Client Components SDK* - 15.4711.1001 - X64 |
+| **Built-in clients/drivers/providers** | *Access Database Engine 2016 Redistributable* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.2000.443 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.2000.443 - X64<br/><br/>*Microsoft SQL Server 2012 Native Client* - 11.4.7462.6 - X64<br/><br/>*Microsoft ODBC Driver 13 for SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 for SQL Server* - 18.6.5 - X64<br/><br/>*Microsoft OLEDB Provider for DB2* - 6.0 - X64<br/><br/>*SharePoint Online Client Components SDK* - 15.4711.1001 - X64 |
 
 ## Built-in and preinstalled connection managers on Azure-SSIS IR
 

@@ -6,7 +6,7 @@ ms.author: mijacobs
 ms.date: 06/12/2022
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create and deploy Azure Functions resources using Bicep
@@ -111,4 +111,3 @@ Now that you've created your function app resources in Azure, you can deploy you
 * [Visual Studio Code](functions-develop-vs-code.md#republish-project-files)
 * [Visual Studio](functions-develop-vs.md#publish-to-azure)
 * [Azure Functions Core Tools](functions-run-local.md#publish)
-

@@ -17,7 +17,7 @@ items:
     href: active-directory-how-subscriptions-associated-directory.md
   - name: Add your privacy info
     href: active-directory-properties-area.md
-  - name: Add company branding
+  - name: Add company branding (preview)
     href: how-to-customize-branding.md
 - name: Users, groups, and licenses
   expanded: false
@@ -29,15 +29,17 @@ items:
   - name: Manage users
     expanded: false
     items: 
-    - name: Update user info
-      href: active-directory-users-profile-azure-portal.md
     - name: Assign roles to users
       href: active-directory-users-assign-role-azure-portal.md
+    - name: Manage 'Stay signed in?' prompt
+      href: how-to-manage-stay-signed-in-prompt.md
+    - name: Manage user profile info
+      href: how-to-manage-user-profile-info.md
     - name: Reset a user's password
       href: active-directory-users-reset-password-azure-portal.md
     - name: Restore a deleted user
       href: active-directory-users-restore.md
-    - name: Default user permissions
+    - name: Set default user permissions
       href: users-default-permissions.md
   - name: Manage groups
     expanded: false
@@ -62,12 +64,10 @@ items:
     href: concept-fundamentals-mfa-get-started.md
   - name: Identity secure score
     href: identity-secure-score.md
-  - name: Secure remote workers
+  - name: Improve your security posture
     href: concept-secure-remote-workers.md
   - name: Integrating all your apps with Azure AD
     href: five-steps-to-full-application-integration-with-azure-ad.md
-  - name: Deployment 30, 90, and beyond
-    href: active-directory-deployment-checklist-p2.md
   - name: Security defaults
     href: concept-fundamentals-security-defaults.md
   - name: Block less secure authentications
@@ -95,6 +95,8 @@ items:
       href: whats-new-archive.md
   - name: Frequently asked questions
     href: active-directory-faq.yml
+  - name: Company branding CSS template reference guide
+    href: reference-company-branding-css-template.md
   - name: Compliance
     expanded: false
     items:
@@ -173,6 +175,8 @@ items:
       items:
       - name: Overview
         href: auth-sync-overview.md
+      - name: Passwordless authentication
+        href: auth-passwordless.md
       - name: SAML authentication
         href: auth-saml.md
       - name: Open ID Connect authentication

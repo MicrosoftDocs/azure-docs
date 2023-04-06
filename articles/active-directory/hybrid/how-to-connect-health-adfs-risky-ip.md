@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Health with the AD FS Risky IP report | Microsoft Docs
+title: Azure AD Connect Health with the AD FS Risky IP report
 description: This article describes the Azure AD Connect Health AD FS Risky IP report.
 services: active-directory
 documentationcenter: ''

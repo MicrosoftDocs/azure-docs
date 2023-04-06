@@ -2,7 +2,7 @@
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
 ms.date: 01/25/2023
-ms.topic: conceptual 
+ms.topic: conceptual
 ---
 
 # Connected Machine agent prerequisites
@@ -44,7 +44,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 * Debian 10 and 11
 * CentOS Linux 7 and 8
 * Rocky Linux 8
-* SUSE Linux Enterprise Server (SLES) 12 and 15
+* SUSE Linux Enterprise Server (SLES) 12 SP3-SP5 and 15
 * Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Amazon Linux 2
 * Oracle Linux 7 and 8
@@ -57,7 +57,7 @@ The Azure Arc service and Azure Connected Machine Agent are supported on Windows
 * Connected to a power source
 * Powered on
 
-For example, a computer running Windows 11 that's responsible for digital signage, point-of-sale solutions, and general back office management tasks is a good candidate for Azure Arc. End-user productivity machines, such as a laptop, which may go offline for long periods of time, shouldn't use Azure Arc and instead should consider [Microsoft Intune](/mem/intune) or [Microsoft Endpoint Configuration Manager](/mem/configmgr).
+For example, a computer running Windows 11 that's responsible for digital signage, point-of-sale solutions, and general back office management tasks is a good candidate for Azure Arc. End-user productivity machines, such as a laptop, which may go offline for long periods of time, shouldn't use Azure Arc and instead should consider [Microsoft Intune](/mem/intune) or [Microsoft Configuration Manager](/mem/configmgr).
 
 ### Short-lived servers and virtual desktop infrastructure
 
@@ -131,3 +131,4 @@ You can also register the resource providers in the [Azure portal](../../azure-r
 
 * Review the [networking requirements for deploying Azure Arc-enabled servers](network-requirements.md).
 * Before you deploy the Azure Arc-enabled servers agent and integrate with other Azure management and monitoring services, review the [Planning and deployment guide](plan-at-scale-deployment.md).* To resolve problems, review the [agent connection issues troubleshooting guide](troubleshoot-agent-onboard.md).
+

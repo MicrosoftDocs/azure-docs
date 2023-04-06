@@ -106,7 +106,7 @@ The way that you update the IoT Edge agent and IoT Edge hub containers depends o
 
 Check the version of the IoT Edge agent and IoT Edge hub modules currently on your device using the commands `iotedge logs edgeAgent` or `iotedge logs edgeHub`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the runtime module versions.
 
-:::image type="content" source="./media/how-to-update-iot-edge/container-version.png" alt-text="Screenshot of where to find the container version in console logs." lightbox="./media/how-to-update-iot-edge/container-version.png":::
+:::image type="content" source="media/how-to-update-iot-edge/container-version.png" alt-text="Screenshot of where to find the container version in console logs." lightbox="media/how-to-update-iot-edge/container-version.png":::
 
 ### Understand IoT Edge tags
 
@@ -139,15 +139,15 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 1. On the **Modules** tab, select **Runtime Settings**.
 
-   :::image type="content" source="./media/how-to-update-iot-edge/configure-runtime.png" alt-text="Screenshot that shows location of the Runtime Settings tab.":::
+   :::image type="content" source="media/how-to-update-iot-edge/runtime-settings.png" alt-text="Screenshot that shows location of the Runtime Settings tab.":::
 
 1. In **Runtime Settings**, update the **Image URI** value in the **Edge Agent** section with the desired version. Don't select **Apply** yet.
 
-   :::image type="content" source="./media/how-to-update-iot-edge/runtime-settings-edgeagent.png" alt-text="Screenshot that shows where to update the image U R I with your version in the Edge Agent.":::
+   :::image type="content" source="media/how-to-update-iot-edge/runtime-settings-agent.png" alt-text="Screenshot that shows where to update the image URI with your version in the Edge Agent.":::
 
 1. Select the **Edge Hub** tab and update the **Image URI** value with the same desired version.
 
-   :::image type="content" source="./media/how-to-update-iot-edge/runtime-settings-edgehub.png" alt-text="Screenshot that shows where to update the image U R I with your version in the Edge Hub.":::
+   :::image type="content" source="media/how-to-update-iot-edge/runtime-settings-hub.png" alt-text="Screenshot that shows where to update the image URI with your version in the Edge Hub.":::
 
 1. Select **Apply** to save changes.
 

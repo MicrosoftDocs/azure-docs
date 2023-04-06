@@ -1,12 +1,12 @@
 ---
 title: Configure and Access Logs - Flexible Server - Azure Database for PostgreSQL
 description: How to access database logs for Azure Database for PostgreSQL - Flexible Server
-ms.author: sunila
-author: sunilagarwal
+author: varun-dhawan
+ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 4/3/2023
 ---
 
 # Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server
@@ -28,10 +28,10 @@ To enable resource logs using the Azure portal:
 
 3. Name this setting. 
 
-4. Select your preferred endpoint (storage account, event hub, log analytics). 
+4. Select your preferred endpoint (Log Analytics workspace, Storage account, Event hub). 
 
-5. Select the log type **PostgreSQLLogs**.
-   :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Choose PostgreSQL logs":::
+5. Select the log type from the list of categories (Server Logs, Sessions data, Query Store Runtime / Wait Statistics etc.)
+   :::image type="content" source="media/howto-logging/diagnostic-setting-log-category.png" alt-text="Screenshot of choosing log categories.":::
 
 7. Save your setting.
 

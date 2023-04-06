@@ -2,10 +2,9 @@
 title: "Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server online using DMS via the Azure portal"
 titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an online migration from Azure Database for MySQL - Single Server to Flexible Server by using Azure Database Migration Service."
-author: aditivgupta
-ms.author: adig
-ms.reviewer: "maghan"
-manager: "pariks"
+author: karlaescobar
+ms.author: karlaescobar
+ms.reviewer: maghan
 ms.date: 09/17/2022
 ms.service: dms
 ms.topic: tutorial
@@ -195,6 +194,8 @@ To register the Microsoft.DataMigration resource provider, perform the following
 
 11. Select **Go to resource**.
      :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/9-1-go-to-resource.png" alt-text="Screenshot of a Select Go to resource.":::
+
+12. Identify the IP address of the DMS instance from the resource overview page and create a firewall rule for your source single server and target flexible server allow-listing the IP address of the DMS instance.
 
 ### Create a migration project
 

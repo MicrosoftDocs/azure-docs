@@ -10,7 +10,7 @@ ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Schedule a contact
+# Quickstart: Schedule a contact
 
 Schedule a contact with the selected satellite for data retrieval/delivery on Azure Orbital. At the scheduled time, the selected ground station will contact the satellite and start data retrieval/delivery using the contact profile.
 

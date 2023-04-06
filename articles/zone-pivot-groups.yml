@@ -383,6 +383,14 @@ groups:
     title: Maven command
   - id: create-option-vscode
     title: Visual Studio Code
+- id: functions-nodejs-model
+  title: Node.js Programming model
+  prompt: Choose a programming model
+  pivots:
+  - id: nodejs-model-v4
+    title: v4 (preview)
+  - id: nodejs-model-v3
+    title: v3
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -420,8 +428,6 @@ groups:
     title: ASP.NET Core
   - id: devlang-nodejs-msal
     title: Node.js - MSAL
-  - id: devlang-nodejs-passport
-    title: Node.js - Passport
   - id: devlang-java
     title: Java
   - id: devlang-python
@@ -508,6 +514,18 @@ groups:
     title: REST API
   - id: vision-studio
     title: Vision Studio
+- id: programming-languages-computer-vision-40
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-rest-api
+    title: REST API
 - id: programming-languages-ocr
   title: Programming languages
   prompt: Choose a programming language.
@@ -736,19 +754,19 @@ groups:
   pivots:
   - id: speech-studio
     title: Speech Studio
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
   prompt: Choose a tool or API
   pivots:
-  - id: speech-cli
-    title: CLI
   - id: rest-api
     title: REST
+  - id: speech-cli
+    title: CLI
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -926,12 +944,12 @@ groups:
   title: App Service platform
   prompt: Choose a hosting platform
   pivots:
-  - id: platform-sphere
-    title: Sphere
-  - id: platform-linux
-    title: Linux
   - id: platform-windows
     title: Windows
+  - id: platform-linux
+    title: Linux
+  - id: platform-sphere
+    title: Azure Sphere
 - id: app-service-platform-environment
   title: App Service platform and development tool
   prompt: Choose a hosting platform and development tool
@@ -1015,6 +1033,14 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-js-power
+  title: JS and Power Platform pivots
+  prompt: Choose a platform
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: platform-power
+    title: Power Platform
 - id: acs-js-csharp-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1072,6 +1098,42 @@ groups:
     title: Python
   - id: programming-language-swift
     title: Swift
+- id: acs-azcli-js-csharp-java-python-swift-android-power-platform
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-android
+    title: Android
+  - id: programming-language-power-platform
+    title: Power Platform
+- id: acs-azcli-js-csharp-java-python-power-platform
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-power-platform
+    title: Power Platform
 - id: acs-azcli-js-csharp-java-python-swift-android
   title: Programming languages
   prompt: Choose a programming language
@@ -1104,6 +1166,24 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: acs-azcli-js-csharp-java-python-portal-nocode
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: platform-azportal
+    title: Azure Portal
+  - id: platform-azcli
+    title: Azure CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: platform-nocode
+    title: Power Platform
 - id: acs-web-ios-android
   title: Platform
   prompt: Choose a platform
@@ -1411,6 +1491,27 @@ groups:
   - id: rest-api
     title: REST
 # Owner: mbullwin
+- id: openai-quickstart-new
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+- id: openai-chat
+  title: API Options
+  prompt: Chat API options
+  pivots:
+  - id: programming-language-chat-completions
+    title: Chat Completion
+  - id: programming-language-chat-ml
+    title: ChatML
+# Owner: mbullwin
 - id: openai-create-resource
   title: Programming languages
   prompt: Choose your preferred resource creation method
@@ -1532,7 +1633,7 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-# Owner: philmea
+# Owner: Brendanc
 - id: facility-ontology-schema
   title: Creator Facility Ontology
   prompt: Choose a Facility Ontology Version
@@ -1541,6 +1642,15 @@ groups:
     title: Facility Ontology 1.0
   - id: facility-ontology-v2
     title: Facility Ontology 2.0
+# Owner: Brendanc
+- id: drawing-package-version
+  title: Creator drawing package
+  prompt: Choose a drawing package Version
+  pivots:
+  - id: drawing-package-v1
+    title: drawing package 1.0
+  - id: drawing-package-v2
+    title: drawing package 2.0
 # Owner: veyalla
 - id: how-to-troubleshoot-monitoring-and-faq-zpg
   title: Azure Monitor for IoT Edge FAQ
@@ -1738,6 +1848,15 @@ groups:
   - id: container-apps-bicep
     title: Bicep
 # Owner: cshoe
+- id: static-web-apps-api-protocols
+  title: API protocol
+  prompt: Select an API protocol
+  pivots:
+  - id: static-web-apps-rest
+    title: REST
+  - id: static-web-apps-graphql
+    title: GraphQL
+# Owner: cshoe
 - id: container-apps-config-types
   title: Configuration method
   prompt: Select a configuration method
@@ -1782,6 +1901,15 @@ groups:
   pivots:
   - id: azure-cli
     title: Azure CLI
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-resource-manager
+    title: ARM template
+# Owner: cshoe
+- id: arm-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
   - id: azure-portal
     title: Azure portal
   - id: azure-resource-manager
@@ -1833,9 +1961,9 @@ groups:
   prompt: Choose an option
   pivots:
   - id: powershell-hrd
-    title: PowerShell
+    title: Azure AD PowerShell
   - id: graph-hrd
-    title: Graph
+    title: Microsoft Graph
 ## template with all
 - id: enterprise-apps-all
   title: Manage Enterprise apps
@@ -1940,6 +2068,15 @@ groups:
     title: Cloud build
   - id: docker-local
     title: Local build (requires Docker)
+# Owner: cebundy
+- id: container-apps-image-build-from-repo
+  title: Container GitHub and local build methods
+  prompt: Choose your source location
+  pivots:
+  - id: github-build
+    title: GitHub build
+  - id: local-build
+    title: Local build
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal
@@ -2038,6 +2175,15 @@ groups:
     title: Recovery Services vault
   - id: vaults-backup-vault
     title: Backup vault
+# Owner: robswain
+- id: ase-pro-version
+  title: Azure Stack Edge Pro 2 or Azure Stack Edge Pro
+  prompt: Choose your Azure Stack Edge Pro version
+  pivots:
+  - id: ase-pro-2
+    title: ASE Pro 2
+  - id: ase-pro-gpu
+    title: ASE Pro
 # Owner: rolyon
 - id: app-provisioning-cross-tenant-synchronization
   title: Application provisioning or cross-tenant synchronization
@@ -2047,3 +2193,20 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+- id: deploy-python-web-app-postgressql
+  title: Workflows
+  prompt: Choose your path
+  pivots:
+  - id: deploy-portal
+    title: Azure portal
+  - id: deploy-azd
+    title: Azure Developer CLI
+# Owner: daknappe (Azure Virtual Desktop)
+- id: azure-virtual-desktop-host-pool-types
+  title: Azure Virtual Desktop host pool management type
+  prompt: Choose a host pool management type
+  pivots:
+  - id: host-pool-automated
+    title: Automated host pool
+  - id: host-pool-standard
+    title: Standard host pool

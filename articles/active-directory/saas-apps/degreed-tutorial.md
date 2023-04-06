@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Degreed | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Degreed'
 description: Learn how to configure single sign-on between Azure Active Directory and Degreed.
 services: active-directory
 author: jeevansd

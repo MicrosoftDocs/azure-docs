@@ -134,7 +134,7 @@ ml_client.environments.create_or_update(env_docker_image)
 
 ### Create an environment from a Docker build context
 
-Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed to build the image.
+Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile (not larger than 1MB) and any other files needed to build the image.
 
 # [Azure CLI](#tab/cli)
 

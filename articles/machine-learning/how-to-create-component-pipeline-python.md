@@ -295,7 +295,7 @@ In the previous section, you have built a pipeline using three components to E2E
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=register-component)]
 
-Using `ml_client.components.get()`, you can get a registered component by name and version. Using `ml_client.compoennts.create_or_update()`, you can register a component previously loaded from Python function or yaml.
+Using `ml_client.components.get()`, you can get a registered component by name and version. Using `ml_client.components.create_or_update()`, you can register a component previously loaded from Python function or yaml.
 
 ## Next steps
 

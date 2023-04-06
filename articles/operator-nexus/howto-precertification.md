@@ -42,7 +42,7 @@ Microsoft will work with the partner to enable this offering in the marketplace.
 
 ### Azure Network Function Manager
 
-The Azure [Network Function Manager (ANFM)](/azure/network-function-manager/overview)
+The Azure [Network Function Manager (ANFM)](../network-function-manager/overview.md)
 provides a cloud native orchestration and managed experience for
 pre-certified network functions (from the Azure Marketplace). The ANFM
 provides consistent Azure managed applications experience for network functions.

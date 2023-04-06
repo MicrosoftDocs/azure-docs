@@ -126,7 +126,7 @@ using Microsoft.Identity.Web;
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
     .EnableTokenAcquisitionToCallDownstreamApi()
-    .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+    .AddDownstreamApi("MyApi", Configuration.GetSection("GraphBeta"))
     .AddInMemoryTokenCaches();
 // ...
 ```

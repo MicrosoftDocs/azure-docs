@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.date: 11/22/2022
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
+ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
 # Orchestration modes for Virtual Machine Scale Sets in Azure

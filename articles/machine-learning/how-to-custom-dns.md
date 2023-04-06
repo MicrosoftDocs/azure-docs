@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/06/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q3, devx-track-azurepowershell, event-tier1-build-2022
+ms.custom: contperf-fy21q3, event-tier1-build-2022
 ---
 
 # How to use your workspace with a custom DNS server
@@ -599,7 +599,7 @@ For more information on the services and DNS resolution, see [Azure Private Endp
 
 ## Troubleshooting
 
-If after running through the above steps you are unable to access the workspace from a virtual machine or jobs fail on compute resources in the Virtual Network containing the Private Endpoint to the Azure Machine learning workspace, follow the below steps to try to identify the cause.
+If after running through the above steps you are unable to access the workspace from a virtual machine or jobs fail on compute resources in the Virtual Network containing the Private Endpoint to the Azure Machine Learning workspace, follow the below steps to try to identify the cause.
 
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 

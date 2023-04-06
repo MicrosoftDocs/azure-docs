@@ -76,7 +76,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
 # Possible Paths for Data:
 # Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
-# Datastore: azureml://datastores/paths/<folder>/<file>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # Data Asset: azureml:<my_data>:<version>
 
 command: |
@@ -119,7 +119,7 @@ ml_client = MLClient.from_config()
 
 # Possible Paths for Data:
 # Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
-# Datastore: azureml://datastores/paths/<folder>/<file>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # Data Asset: azureml:<my_data>:<version>
 
 my_job_inputs = {
@@ -290,7 +290,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/CommandJob.schema.json
 
 # Possible Paths for Data:
 # Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
-# Datastore: azureml://datastores/paths/<folder>/<file>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # Data Asset: azureml:<my_data>:<version>
 
 code: src
@@ -331,7 +331,7 @@ from azure.ai.ml.constants import AssetTypes
 
 # Possible Paths for Data:
 # Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
-# Datastore: azureml://datastores/paths/<folder>/<file>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # Data Asset: azureml:<my_data>:<version>
 
 my_job_inputs = {

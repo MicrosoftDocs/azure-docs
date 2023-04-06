@@ -15,7 +15,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 This article lists common issues related to NFS Azure file shares and provides potential causes and workarounds.
 
 > [!IMPORTANT]
-> The content of this article only applies to NFS shares. To troubleshoot SMB issues in Linux, see [Troubleshoot Azure Files problems in Linux (SMB)](files-troubleshoot-linux-smb.md). NFS Azure file shares aren't supported for Windows clients.
+> The content of this article only applies to NFS shares. To troubleshoot SMB issues in Linux, see [Troubleshoot Azure Files problems in Linux (SMB)](files-troubleshoot-linux-smb.md). NFS Azure file shares aren't supported for Windows.
 
 ## Applies to
 | File share type | SMB | NFS |

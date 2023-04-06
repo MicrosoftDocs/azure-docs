@@ -17,6 +17,8 @@ ms.date: 05/25/2021
 
 Learn how to manage Azure Machine Learning resources with the VS Code extension.
 
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ![Azure Machine Learning VS Code Extension](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
 
 ## Prerequisites

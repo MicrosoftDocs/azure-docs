@@ -15,7 +15,7 @@ ms.date: 12/13/2022
 
 # How to create and manage files in your workspace
 
-Learn how to create and manage the files in your Azure Machine Learning workspace.  These files are stored in the default workspace storage. Files and folders can be shared with anyone else withe read access to the workspace, and can be used from any compute instances in the workspace.
+Learn how to create and manage the files in your Azure Machine Learning workspace.  These files are stored in the default workspace storage. Files and folders can be shared with anyone else with read access to the workspace, and can be used from any compute instances in the workspace.
 
 ## Prerequisites
 

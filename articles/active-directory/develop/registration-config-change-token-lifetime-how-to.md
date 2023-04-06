@@ -26,7 +26,7 @@ This article shows how to use Azure AD PowerShell to set an access token lifetim
 To set an access token lifetime policy, download the [Azure AD PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview).
 Run the **Connect-AzureAD -Confirm** command.
 
-Here’s an example policy that requires users to authenticate more frequently in your web app. This policy sets the lifetime of the access to the service principal of your web app. Create the policy and assign it to your service principal. You also need to get the ObjectId of your service principal.
+Here’s an example policy that requires users to authenticate less frequently in your web app. This policy sets the lifetime of the access to the service principal of your web app. Create the policy and assign it to your service principal. You also need to get the ObjectId of your service principal.
 
 ```powershell
 $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"

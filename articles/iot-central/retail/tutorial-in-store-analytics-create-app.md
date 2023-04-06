@@ -144,17 +144,17 @@ In this section, you add a device template for RuuviTag sensors to your applicat
 
 You can customize the device templates in your application in three ways: 
 
-* Customize the native built-in interfaces in your devices by changing the device capabilities. 
+* Customize the native built-in interfaces in your devices by changing the device capabilities.
 
-   For example, with a temperature sensor, you can change details such as the display name of the temperature interface, the data type, the units of measurement, and the minimum and maximum operating ranges. 
+   For example, with a temperature sensor, you can change details such as the display name of the temperature interface, the data type, the units of measurement, and the minimum and maximum operating ranges.
 
-* Customize your device templates by adding cloud properties. 
+* Customize your device templates by adding cloud properties.
 
    Cloud properties aren't part of the built-in device capabilities. Cloud properties are custom data that your Azure IoT Central application creates, stores, and associates with your devices. Examples of cloud properties could be:
    * A calculated value
    * Metadata, such as a location that you want to associate with a set of devices
 
-* Customize device templates by building custom views. 
+* Customize device templates by building custom views.
 
    Views provide a way for operators to visualize telemetry and metadata for your devices, such as device metrics and health.
 

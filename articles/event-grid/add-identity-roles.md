@@ -2,6 +2,7 @@
 title: Add managed identity to a role on Azure Event Grid destination
 description: This article describes how to add managed identity to Azure roles on destinations such as Azure Service Bus and Azure Event Hubs. 
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 03/25/2021
 ---
 

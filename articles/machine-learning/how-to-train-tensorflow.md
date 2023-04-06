@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning SDK (v2) enables you to scale out a TensorFlow training job using elastic cloud compute resources.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: training
 ms.author: balapv
 author: balapv
 ms.reviewer: mopeakande

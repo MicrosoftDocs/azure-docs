@@ -164,7 +164,7 @@ Unfortunately, this change came with an unavoidable breaking change. The breakin
 1. Navigate to the logic app that is connected to the policy.
 1. Select **Logic app designer**.
 1. Select the **three dot** > **Rename**.
-1. Rename the Defender for cloud connector as follows:
+1. Rename the Defender for Cloud connector as follows:
     
     | Original name | New name|
     |--|--|
@@ -176,13 +176,9 @@ Unfortunately, this change came with an unavoidable breaking change. The breakin
 
 ## Next steps
 
-In this article, you learned about creating Logic Apps, automating their execution in Defender for Cloud, and running them manually.
+In this article, you learned about creating Logic Apps, automating their execution in Defender for Cloud, and running them manually. For more information, see the following documentation:
 
-For related material, see: 
-
-- [The Learn module on how to use workflow automation to automate a security response](/training/modules/resolve-threats-with-azure-security-center/)
+- [Use workflow automation to automate a security response](/training/modules/resolve-threats-with-azure-security-center/)
 - [Security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md)
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
-- [About Azure Logic Apps](../logic-apps/logic-apps-overview.md)
-- [Connectors for Azure Logic Apps](../connectors/apis-list.md)
 - [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas)

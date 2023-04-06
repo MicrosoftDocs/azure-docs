@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.date: 06/17/2022
 ms.topic: how-to
-ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks (v1)

@@ -66,6 +66,8 @@ landingContent:
             url: tutorial-wellbore-ddms.md
           - text: Well delivery DDMS tutorial
             url: tutorial-well-delivery-ddms.md
+          - text: Petrel DDMS Tutorial
+            url: tutorial-petrel-ddms.md
       - linkListType: how-to-guide
         links:
           - text: How to convert SEG-Y to oVDS
@@ -108,3 +110,5 @@ landingContent:
             url: how-to-create-lockbox.md
           - text: Set up use Managed Identity
             url: how-to-use-managed-identity.md
+          - text: Enable resource sharing (CORS)
+            url: how-to-enable-cors.md

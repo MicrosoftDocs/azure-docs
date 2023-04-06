@@ -19,7 +19,7 @@ In this article, you learn how to use the Visual Studio Code Azure Functions ext
 :::image type="content" source="./media/quickstart-python-vscode/functions-vs-code-complete.png" alt-text="Screenshot of the running durable function in Azure.":::
 
 > [!NOTE]
-> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to have a more idiomatic and intuitive. To learn more, see Azure Functions Python [developer guide](/azure/azure-functions/functions-reference-python.md?pivots=python-mode-decorators).
+> The new programming model for authoring Functions in Python (V2) is currently in preview. Compared to the current model, the new experience is designed to be more idiomatic and intuitive for Python programmers. To learn more, see Azure Functions Python [developer guide](../functions-reference-python.md?pivots=python-mode-decorators).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ To complete this tutorial:
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
-* Make sure that you have version 3.7, 3.8, or 3.9 of [Python](https://www.python.org/) installed.
+* Make sure that you have version 3.7, 3.8, 3.9, or 3.10 of [Python](https://www.python.org/) installed.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -55,7 +55,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | ------ | ----- | ----------- |
     | Select a language for your function app project | Python | Create a local Python Functions project. |
     | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
-    | Python version | Python 3.7, 3.8, or 3.9 | Visual Studio Code will create a virtual environment with the version you select. |
+    | Python version | Python 3.7, 3.8, 3.9, or 3.10 | Visual Studio Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
 ::: zone-end
@@ -68,7 +68,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | ------ | ----- | ----------- |
     | Select a language | Python (Programming Model V2) | Create a local Python Functions project using the V2 programming model. |
     | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
-    | Python version | Python 3.7, 3.8, or 3.9 | Visual Studio Code will create a virtual environment with the version you select. |
+    | Python version | Python 3.7, 3.8, 3.9, or 3.10 | Visual Studio Code will create a virtual environment with the version you select. |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
 ::: zone-end
 
@@ -177,6 +177,10 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 ::: zone-end
 
 ::: zone pivot="python-mode-decorators" 
+
+> [!NOTE]
+> Using [Extension Bundles](../functions-bindings-register.md#extension-bundles) is not currently supported when trying out the Python V2 programming model with Durable Functions, so you will need to manage your extensions manually.
+> To do this, remove the `extensionBundle` section of your `host.json` as described [here](../functions-run-local.md#install-extensions) and run `func extensions install --package Microsoft.Azure.WebJobs.Extensions.DurableTask --version 2.9.1` on your terminal. This will install the Durable Functions extension for your app and will allow you to try out the new experience.
 
 To create a basic Durable Functions app using these 3 function types, replace the contents of `function_app.py` with the following Python code.
 

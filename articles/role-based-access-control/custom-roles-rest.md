@@ -12,7 +12,7 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 03/20/2023
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -34,31 +34,71 @@ You must use the following version:
 
 For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
-## List custom roles
+## List all custom role definitions
 
-To list all custom roles in a directory, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
+To list all custom role definitions in a tenant, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
 
-1. Start with the following request:
+- The following example lists all custom role definitions in a tenant:
 
+    **Request**
+    
     ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter={filter}
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?$filter=type+eq+'CustomRole'&api-version=2022-04-01
+    ```
+    
+    **Response**
+    
+    ```json
+    {
+        "value": [
+            {
+                "properties": {
+                    "roleName": "Billing Reader Plus",
+                    "type": "CustomRole",
+                    "description": "Read billing data and download invoices",
+                    "assignableScopes": [
+                        "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+                    ],
+                    "permissions": [
+                        {
+                            "actions": [
+                                "Microsoft.Authorization/*/read",
+                                "Microsoft.Billing/*/read",
+                                "Microsoft.Commerce/*/read",
+                                "Microsoft.Consumption/*/read",
+                                "Microsoft.Management/managementGroups/read",
+                                "Microsoft.CostManagement/*/read",
+                                "Microsoft.Billing/invoices/download/action",
+                                "Microsoft.CostManagement/exports/*"
+                            ],
+                            "notActions": [
+                                "Microsoft.CostManagement/exports/delete"
+                            ],
+                            "dataActions": [],
+                            "notDataActions": []
+                        }
+                    ],
+                    "createdOn": "2021-05-22T21:57:23.5764138Z",
+                    "updatedOn": "2021-05-22T21:57:23.5764138Z",
+                    "createdBy": "68f66d4c-c0eb-4009-819b-e5315d677d70",
+                    "updatedBy": "68f66d4c-c0eb-4009-819b-e5315d677d70"
+                },
+                "id": "/providers/Microsoft.Authorization/roleDefinitions/17adabda-4bf1-4f4e-8c97-1f0cab6dea1c",
+                "type": "Microsoft.Authorization/roleDefinitions",
+                "name": "17adabda-4bf1-4f4e-8c97-1f0cab6dea1c"
+            }
+        ]
+    }
     ```
 
-1. Replace *{filter}* with the role type.
+## List all custom role definitions at a scope
 
-    > [!div class="mx-tableFixed"]
-    > | Filter | Description |
-    > | --- | --- |
-    > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
-
-## List custom roles at a scope
-
-To list custom roles at a scope, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
+To list custom role definitions at a scope, use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API.
 
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter={filter}
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={filter}&api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
@@ -78,14 +118,67 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
 
+    The following example lists all custom role definitions in a subscription:
+    
+    **Request**
+    
+    ```http
+    GET https://management.azure.com/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15/providers/Microsoft.Authorization/roleDefinitions?$filter=type+eq+'CustomRole'&api-version=2022-04-01
+    ```
+    
+    **Response**
+    
+    ```json
+    {
+        "value": [
+            {
+                "properties": {
+                    "roleName": "Billing Reader Plus",
+                    "type": "CustomRole",
+                    "description": "Read billing data and download invoices",
+                    "assignableScopes": [
+                        "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+                    ],
+                    "permissions": [
+                        {
+                            "actions": [
+                                "Microsoft.Authorization/*/read",
+                                "Microsoft.Billing/*/read",
+                                "Microsoft.Commerce/*/read",
+                                "Microsoft.Consumption/*/read",
+                                "Microsoft.Management/managementGroups/read",
+                                "Microsoft.CostManagement/*/read",
+                                "Microsoft.Billing/invoices/download/action",
+                                "Microsoft.CostManagement/exports/*"
+                            ],
+                            "notActions": [
+                                "Microsoft.CostManagement/exports/delete"
+                            ],
+                            "dataActions": [],
+                            "notDataActions": []
+                        }
+                    ],
+                    "createdOn": "2021-05-22T21:57:23.5764138Z",
+                    "updatedOn": "2021-05-22T21:57:23.5764138Z",
+                    "createdBy": "68f66d4c-c0eb-4009-819b-e5315d677d70",
+                    "updatedBy": "68f66d4c-c0eb-4009-819b-e5315d677d70"
+                },
+                "id": "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15/providers/Microsoft.Authorization/roleDefinitions/17adabda-4bf1-4f4e-8c97-1f0cab6dea1c",
+                "type": "Microsoft.Authorization/roleDefinitions",
+                "name": "17adabda-4bf1-4f4e-8c97-1f0cab6dea1c"
+            }
+        ]
+    }
+    ```
+
 ## List a custom role definition by name
 
-To get information about a custom role by its display name, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API.
+To get information about a custom role definition by its display name, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API.
 
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2022-04-01&$filter={filter}
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?$filter={filter}&api-version=2022-04-01
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
@@ -105,9 +198,62 @@ To get information about a custom role by its display name, use the [Role Defini
     > | --- | --- |
     > | `$filter=roleName+eq+'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
+    The following example lists a custom role definition named Billing Reader Plus in a subscription:
+    
+    **Request**
+    
+    ```http
+    GET https://management.azure.com/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15/providers/Microsoft.Authorization/roleDefinitions?$filter=roleName+eq+'Billing Reader Plus'&api-version=2022-04-01
+    ```
+    
+    **Response**
+    
+    ```json
+    {
+        "value": [
+            {
+                "properties": {
+                    "roleName": "Billing Reader Plus",
+                    "type": "CustomRole",
+                    "description": "Read billing data and download invoices",
+                    "assignableScopes": [
+                        "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+                    ],
+                    "permissions": [
+                        {
+                            "actions": [
+                                "Microsoft.Authorization/*/read",
+                                "Microsoft.Billing/*/read",
+                                "Microsoft.Commerce/*/read",
+                                "Microsoft.Consumption/*/read",
+                                "Microsoft.Management/managementGroups/read",
+                                "Microsoft.CostManagement/*/read",
+                                "Microsoft.Billing/invoices/download/action",
+                                "Microsoft.CostManagement/exports/*"
+                            ],
+                            "notActions": [
+                                "Microsoft.CostManagement/exports/delete"
+                            ],
+                            "dataActions": [],
+                            "notDataActions": []
+                        }
+                    ],
+                    "createdOn": "2021-05-22T21:57:23.5764138Z",
+                    "updatedOn": "2021-05-22T21:57:23.5764138Z",
+                    "createdBy": "68f66d4c-c0eb-4009-819b-e5315d677d70",
+                    "updatedBy": "68f66d4c-c0eb-4009-819b-e5315d677d70"
+                },
+                "id": "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15/providers/Microsoft.Authorization/roleDefinitions/17adabda-4bf1-4f4e-8c97-1f0cab6dea1c",
+                "type": "Microsoft.Authorization/roleDefinitions",
+                "name": "17adabda-4bf1-4f4e-8c97-1f0cab6dea1c"
+            }
+        ]
+    }
+    ```
+
 ## List a custom role definition by ID
 
-To get information about a custom role by its unique identifier, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API.
+To get information about a custom role definition by its unique identifier, use the [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API.
 
 1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) REST API to get the GUID identifier for the role.
 
@@ -128,6 +274,55 @@ To get information about a custom role by its unique identifier, use the [Role D
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the role definition.
+
+    The following example lists a custom role definition with the identifier 17adabda-4bf1-4f4e-8c97-1f0cab6dea1c in a subscription:
+   
+    **Request**
+    
+    ```http
+    GET https://management.azure.com/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15/providers/Microsoft.Authorization/roleDefinitions/17adabda-4bf1-4f4e-8c97-1f0cab6dea1c?api-version=2022-04-01
+    ```
+    
+    **Response**
+    
+    ```json
+    {
+        "properties": {
+            "roleName": "Billing Reader Plus",
+            "type": "CustomRole",
+            "description": "Read billing data and download invoices",
+            "assignableScopes": [
+                "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15"
+            ],
+            "permissions": [
+                {
+                    "actions": [
+                        "Microsoft.Authorization/*/read",
+                        "Microsoft.Billing/*/read",
+                        "Microsoft.Commerce/*/read",
+                        "Microsoft.Consumption/*/read",
+                        "Microsoft.Management/managementGroups/read",
+                        "Microsoft.CostManagement/*/read",
+                        "Microsoft.Billing/invoices/download/action",
+                        "Microsoft.CostManagement/exports/*"
+                    ],
+                    "notActions": [
+                        "Microsoft.CostManagement/exports/delete"
+                    ],
+                    "dataActions": [],
+                    "notDataActions": []
+                }
+            ],
+            "createdOn": "2021-05-22T21:57:23.5764138Z",
+            "updatedOn": "2021-05-22T21:57:23.5764138Z",
+            "createdBy": "68f66d4c-c0eb-4009-819b-e5315d677d70",
+            "updatedBy": "68f66d4c-c0eb-4009-819b-e5315d677d70"
+        },
+        "id": "/subscriptions/473a4f86-11e3-48cb-9358-e13c220a2f15/providers/Microsoft.Authorization/roleDefinitions/17adabda-4bf1-4f4e-8c97-1f0cab6dea1c",
+        "type": "Microsoft.Authorization/roleDefinitions",
+        "name": "17adabda-4bf1-4f4e-8c97-1f0cab6dea1c"
+    }
+    ```
 
 ## Create a custom role
 
@@ -232,7 +427,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 To update a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/role-definitions/create-or-update) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) include this permission.
 
-1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get information about the custom role. For more information, see the earlier [List custom roles](#list-custom-roles) section.
+1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get information about the custom role. For more information, see the earlier [List all custom role definitions](#list-all-custom-role-definitions) section.
 
 1. Start with the following request:
 
@@ -324,7 +519,7 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 
 1. Remove any role assignments that use the custom role. For more information, see [Find role assignments to delete a custom role](custom-roles.md#find-role-assignments-to-delete-a-custom-role).
 
-1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get the GUID identifier of the custom role. For more information, see the earlier [List custom roles](#list-custom-roles) section.
+1. Use the [Role Definitions - List](/rest/api/authorization/role-definitions/list) or [Role Definitions - Get](/rest/api/authorization/role-definitions/get) REST API to get the GUID identifier of the custom role. For more information, see the earlier [List all custom role definitions](#list-all-custom-role-definitions) section.
 
 1. Start with the following request:
 

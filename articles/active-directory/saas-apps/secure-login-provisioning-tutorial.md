@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure SecureLogin for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure SecureLogin for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SecureLogin.
 services: active-directory
 documentationcenter: ''

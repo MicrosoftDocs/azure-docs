@@ -6,6 +6,7 @@ manager:
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: storage
+ms.custom: devx-track-arm-template
 ms.date: 06/01/2017
 ms.subservice: disks
 ---

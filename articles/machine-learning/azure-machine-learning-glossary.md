@@ -26,7 +26,7 @@ An Azure Machine Learning [component](concept-component.md) is a self-contained 
 
 ## Compute
 
-A compute is a designated compute resource where you run your job or host your endpoint. Azure Machine learning supports the following types of compute:
+A compute is a designated compute resource where you run your job or host your endpoint. Azure Machine Learning supports the following types of compute:
 
 * **Compute cluster** - a managed-compute infrastructure that allows you to easily create a cluster of CPU or GPU compute nodes in the cloud.
 * **Compute instance** - a fully configured and managed development environment in the cloud. You can use the instance as a training or inference compute for development and testing. It's similar to a virtual machine on the cloud.

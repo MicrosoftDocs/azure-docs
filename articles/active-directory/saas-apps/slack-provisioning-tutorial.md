@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: User provisioning for Slack - Azure AD'
+title: 'Tutorial: User provisioning for Slack'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Slack.
 services: active-directory
 documentationcenter: ''

@@ -4,6 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 author: timwarner-msft
 ms.date: 11/03/2022
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ms.author: timwarner
 ---
 # Get compliance data of Azure resources

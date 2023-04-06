@@ -8,8 +8,7 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: duau
-ms.custom: seodec18
-
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell
 > [!div class="op_single_selector"]

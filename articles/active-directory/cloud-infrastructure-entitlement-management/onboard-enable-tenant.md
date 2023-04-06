@@ -43,7 +43,7 @@ To enable Permissions Management in your organization:
     1. Go to [Entra services](https://entra.microsoft.com) and use your credentials to sign in to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
     1. If you aren't already authenticated, sign in as a global administrator user.
     1. If needed, activate the global administrator role in your Azure AD tenant.
-    1. In the Azure AD portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.
+    1. In the Azure portal, select **Permissions Management**, and then select the link to purchase a license or begin a trial.
 
 > [!NOTE]
 > There are two ways to enable a trial or a full product license, self-service and volume licensing. 

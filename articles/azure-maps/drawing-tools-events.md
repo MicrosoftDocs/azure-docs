@@ -1,8 +1,8 @@
 ---
 title: Drawing tool events | Microsoft Azure Maps
 description: In this article you'll learn, how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
-author: stevemunk
-ms.author: v-munksteve
+author: brendansco
+ms.author: Brendanc
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -11,7 +11,7 @@ services: azure-maps
 
 # Drawing tool events
 
-When using drawing tools on a map, it's useful to react to certain events as the user draws on the map. This table lists all of the events supported by the `DrawingManager` class.
+When using drawing tools on a map, it's useful to react to certain events as the user draws on the map. This table lists all events supported by the `DrawingManager` class.
 
 | Event | Description |
 |-------|-------------|
@@ -86,7 +86,7 @@ Learn how to use additional features of the drawing tools module:
 > [!div class="nextstepaction"]
 > [Interaction types and keyboard shortcuts](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Learn more about the Services module:
+Learn more about the services module:
 
 > [!div class="nextstepaction"]
 > [Services module](how-to-use-services-module.md)

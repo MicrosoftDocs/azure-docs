@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: contperf-fy21q1, data4ml, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5, contperf-fy21q1, data4ml, event-tier1-build-2022, ignite-2022
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
@@ -35,6 +35,11 @@ With Azure Machine Learning datasets, you can:
 * Seamlessly access data during model training without worrying about connection strings or data paths. [Learn more about how to train with datasets](how-to-train-with-datasets.md).
 
 * Share data and collaborate with other users.
+
+> [!IMPORTANT]
+> Items in this article marked as "preview" are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

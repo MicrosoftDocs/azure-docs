@@ -12,8 +12,7 @@ implementations:
 
 - **\[Preview\]: Linux machines should meet requirements for the Azure compute security baseline**
   Azure Policy guest configuration definition
-- **Vulnerabilities in security configuration on your machines should be remediated** in Azure
-  Security Center
+- **Vulnerabilities in security configuration on your machines should be remediated** in Microsoft Defender for Cloud
 
 For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
 [Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).

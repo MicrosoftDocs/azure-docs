@@ -7,7 +7,7 @@ ms.service: machine-learning
 author: manashgoswami 
 ms.author: magoswam
 ms.reviewer: ssalgado 
-ms.subservice: core
+ms.subservice: training
 ms.topic: conceptual
 ms.date: 08/30/2022
 ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022

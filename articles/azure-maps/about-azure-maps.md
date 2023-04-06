@@ -1,8 +1,8 @@
 ---
 title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 10/21/2022
 ms.topic: overview
 ms.service: azure-maps
@@ -20,13 +20,12 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
 * Time zone and Geolocation services.
-* Elevation services with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
 
 Additionally, Azure Maps services are available through the Web SDK and the Android SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions.
 
-You can sign up for a free [Azure Maps account](https://azure.microsoft.com/services/azure-maps/) and start developing.
+You can sign up for a free [Azure Maps account] and start developing.
 
 The following video explains Azure Maps in depth:
 
@@ -54,7 +53,7 @@ Azure Maps consists of the following services that can provide geographic contex
 
 ### Data service
 
-Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see the [Data service documentation](/rest/api/maps/data-v2).
+Data is imperative for maps. Use the Data service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see [Data service].
 
 ### Geolocation service
 
@@ -64,7 +63,7 @@ For more details, read the [Geolocation service documentation](/rest/api/maps/ge
 
 ### Render service
 
-[Render service V2](/rest/api/maps/render-v2) introduces a new version of the [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile) that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 (where applicable) tile sizes and numerous map types such as road, weather, contour, or map tiles created using Azure Maps Creator. For a complete list, see [TilesetID](/rest/api/maps/render-v2/get-map-tile#tilesetid) in the REST API documentation. It's recommended that you use Render service V2 instead of Render service V1. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render service V2, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API](how-to-show-attribution.md).
+[Render service V2](/rest/api/maps/render-v2) introduces a new version of the [Get Map Tile V2 API](/rest/api/maps/render-v2/get-map-tile) that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 (where applicable) tile sizes and numerous map types such as road, weather, contour, or map tiles created using Azure Maps Creator. For a complete list, see [TilesetID] in the REST API documentation. It's recommended that you use Render service V2 instead of Render service V1. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render service V2, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API](how-to-show-attribution.md).
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service V2":::
 
@@ -168,31 +167,19 @@ Maps Creator service is a suite of web services that developers can use to creat
 
 Maps Creator provides the following services:
 
-* [Dataset service][Dataset service]. Use the Dataset service to create a dataset from a converted Drawing package data. For information about Drawing package requirements, see Drawing package requirements.
+* [Dataset service]. Use the Dataset service to create a dataset from a converted drawing package data. For information about drawing package requirements, see drawing package requirements.
 
-* [Conversion service][Conversion service]. Use the Conversion service to convert a DWG design file into Drawing package data for indoor maps.
+* [Conversion service]. Use the Conversion service to convert a DWG design file into drawing package data for indoor maps.
 
-* [Tileset service][Tileset]. Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
+* [Tileset service]. Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
 
-* [Custom styling service][Custom styling] (preview). Use the [style service][style] or [visual style editor][style editor] to customize the visual elements of an indoor map.
+* [Custom styling service] (preview). Use the [style service] or [visual style editor] to customize the visual elements of an indoor map.
 
-* [Feature State service][FeatureState]. Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
+* [Feature State service]. Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
 
-* [WFS service][WFS]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API](https://docs.opengeospatial.org/is/17-069r3/17-069r3.html) standards for querying a single dataset.
+* [WFS service]. Use the WFS service to query your indoor map data. The WFS service follows the [Open Geospatial Consortium API] standards for querying a single dataset.
 
-* [Wayfinding service][wayfinding-preview] (preview). Use the [wayfinding API][wayfind] to generate a path between two points within a facility. Use the [routeset API][routeset] to create the data that the wayfinding service needs to generate paths.
-
-### Elevation service
-
-The Azure Maps Elevation service is a web service that developers can use to retrieve elevation data from anywhere on the Earth’s surface.
-
-The Elevation service allows you to retrieve elevation data in two formats:
-
-* **GeoTIFF raster format**. Use the [Render V2-Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format.
-
-* **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates.
-
-:::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
+* [Wayfinding service] (preview). Use the [wayfinding API] to generate a path between two points within a facility. Use the [routeset API] to create the data that the wayfinding service needs to generate paths.
 
 ## Programming model
 
@@ -210,14 +197,14 @@ For more information, see the [Get started with Azure Maps Power BI visual](powe
 
 ## Usage
 
-To access Azure Maps services, go to the [Azure portal](https://portal.azure.com) and create an Azure Maps account.
+To access Azure Maps services, go to the [Azure portal] and create an Azure Maps account.
 
 Azure Maps uses a key-based authentication scheme. When you create your account, two keys are generated. To authenticate for Azure Maps services, you can use either key.
 
 > [!NOTE]
 > Azure Maps shares customer-provided address/location queries with third-party TomTom for mapping functionality purposes. These queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals.
-
-Microsoft is currently in the process of adding TomTom and AccuWeather to the Online Services Subcontractor List.
+>
+> TomTom is a subprocessor that is authorized to subprocess Azure Maps customer data. For more information, see the Microsoft Online Services [Subprocessor List] located in the [Microsoft Trust Center].
 
 ## Supported regions
 
@@ -236,16 +223,24 @@ Try a sample app that showcases Azure Maps:
 
 Stay up to date on Azure Maps:
 
-[Azure Maps blog](https://azure.microsoft.com/blog/topics/azure-maps/)
+[Azure Maps blog]
 
+[Data service]: /rest/api/maps/data-v2
 [Dataset service]: creator-indoor-maps.md#datasets
 [Conversion service]: creator-indoor-maps.md#convert-a-drawing-package
-[Tileset]: creator-indoor-maps.md#tilesets
-[Custom styling]: creator-indoor-maps.md#custom-styling-preview
-[style]: /rest/api/maps/v20220901preview/style
-[style editor]: https://azure.github.io/Azure-Maps-Style-Editor
-[FeatureState]: creator-indoor-maps.md#feature-statesets
-[WFS]: creator-indoor-maps.md#web-feature-service-api
-[wayfinding-preview]: creator-indoor-maps.md#wayfinding-preview
-[wayfind]: /rest/api/maps/v20220901preview/wayfinding
-[routeset]: /rest/api/maps/v20220901preview/routeset
+[Tileset service]: creator-indoor-maps.md#tilesets
+[Custom styling service]: creator-indoor-maps.md#custom-styling-preview
+[style service]: /rest/api/maps/v20220901preview/style
+[visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
+[Feature State service]: creator-indoor-maps.md#feature-statesets
+[WFS service]: creator-indoor-maps.md#web-feature-service-api
+[Wayfinding service]: creator-indoor-maps.md#wayfinding-preview
+[wayfinding API]: /rest/api/maps/v20220901preview/wayfinding
+[routeset API]: /rest/api/maps/v20220901preview/routeset
+[Open Geospatial Consortium API]: https://docs.opengeospatial.org/is/17-069r3/17-069r3.html
+[Azure portal]: https://portal.azure.com
+[Azure Maps account]: https://azure.microsoft.com/services/azure-maps/
+[TilesetID]: /rest/api/maps/render-v2/get-map-tile#tilesetid
+[Azure Maps blog]: https://azure.microsoft.com/blog/topics/azure-maps/
+[Microsoft Trust Center]: https://www.microsoft.com/trust-center/privacy
+[Subprocessor List]: https://servicetrust.microsoft.com/DocumentPage/aead9e68-1190-4d90-ad93-36418de5c594

@@ -1,11 +1,11 @@
 ---
-title: Disconnected device update using Microsoft Connected Cache | Microsoft Docs
+title: Disconnected device update using Microsoft Connected Cache
 titleSuffix:  Device Update for Azure IoT Hub
 description: Understand support for disconnected device update using Microsoft Connected Cache
 author: andyriv
 ms.author: andyriv
 ms.date: 08/19/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

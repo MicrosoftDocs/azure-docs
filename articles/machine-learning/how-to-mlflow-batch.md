@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.date: 10/10/2022
 ms.reviewer: larryfr
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 ---
 
 # Use MLflow models in batch deployments

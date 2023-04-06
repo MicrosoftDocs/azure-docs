@@ -123,7 +123,19 @@ URL Filtering can be applied both on HTTP and HTTPS traffic. When HTTPS traffic 
 
 ## Web categories
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are also included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. 
+Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are also included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic.
+
+> [!IMPORTANT]
+> Microsoft is transitioning to an updated and new Web Content Filtering category feed in the next couple weeks. This will contain more granularity and additional subcategorizations.
+>
+>As a result, the following web categories are are no longer available:
+> - Child inappropriate, Greeting cards, and School Cheating.
+> 
+> In addition, the *Category check* and *Category change* features are temporarily disabled for the next few months. This article will be updated when these features return.
+>
+> To mitigate, we recommend configuring critical websites (FQDNs and URLs) directly in application rules through the Azure portal/Azure PowerShell/CLI as a backup. For more information, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md#configure-an-application-rule).
+>
+> Web Category logging will continue to function as expected. We don’t predict any other major changes to the classification behavior, but we encourage you to report any categorization issues or request to perform a Category Check through Microsoft Azure support.
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 

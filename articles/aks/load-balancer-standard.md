@@ -2,13 +2,12 @@
 title: Use a public load balancer
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/22/2023
 ms.author: allensu
 author: asudbring
-
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
 
@@ -27,11 +26,9 @@ This article covers integration with a public load balancer on AKS. For internal
 
 ## Before you begin
 
-Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended load balancer SKU for AKS.
-
-For more information on the *Basic* and *Standard* SKUs, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
-
-This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, you can create one [using Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [the Azure portal][aks-quickstart-portal].
+* Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended load balancer SKU for AKS. For more information on the *Basic* and *Standard* SKUs, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
+* This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, you can create one [using Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [the Azure portal][aks-quickstart-portal].
+* AKS manages the lifecycle and operations of agent nodes. Modifying the IaaS resources associated with the agent nodes isn't supported. An example of an unsupported operation is making manual changes to the load balancer resource group.
 
 > [!IMPORTANT]
 > If you'd prefer to use your own gateway, firewall, or proxy to provide outbound connection, you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md). The outbound type defines the egress method for a cluster and defaults to type `LoadBalancer`.

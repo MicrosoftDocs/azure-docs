@@ -1,8 +1,8 @@
 ---
 title: HTTP application routing add-on on Azure Kubernetes Service (AKS)
 description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS).
-ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
+ms.custom: devx-track-azurecli
 author: asudbring
 ms.topic: how-to
 ms.date: 04/23/2021
@@ -11,13 +11,14 @@ ms.author: allensu
 
 # HTTP application routing
 
+>
+> [!CAUTION]
+> The HTTP application routing add-on is in the process of being retired and is not recommended for production use. Please use the [Web Application Routing add-on](./web-app-routing.md) instead. 
+
+
 The HTTP application routing solution makes it easy to access applications that are deployed to your Azure Kubernetes Service (AKS) cluster. When the solution's enabled, it configures an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your AKS cluster. As applications are deployed, the solution also creates publicly accessible DNS names for application endpoints.
 
 When the add-on is enabled, it creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing][dns-pricing].
-
-> [!CAUTION]
-> The HTTP application routing add-on is designed to let you quickly create an ingress controller and access your applications. This add-on is not currently designed for use in a production environment and is not recommended for production use. For production-ready ingress deployments that include multiple replicas and TLS support, see [Create an HTTPS ingress controller](./ingress-tls.md).
-
 
 ## Limitations
 
@@ -294,7 +295,7 @@ For information on how to install an HTTPS-secured Ingress controller in AKS, se
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete

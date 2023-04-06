@@ -100,7 +100,7 @@ We list four typical extension deployment scenarios for reference. To deploy ext
 
    For Azure Machine Learning extension deployment on AKS cluster, make sure to specify `managedClusters` value for `--cluster-type` parameter. Run the following Azure CLI command to deploy Azure Machine Learning extension:
    ```azurecli
-   az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer allowInsecureConnections=True inferenceLoadBalancerHA=False --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
+   az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer allowInsecureConnections=True InferenceRouterHA=False --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
    ```
 
 - **Use Arc Kubernetes cluster outside of Azure for a quick proof of concept, to run training jobs only**
@@ -201,7 +201,7 @@ Upon Azure Machine Learning extension deployment completes, you can use `kubectl
 Update, list, show and delete an Azure Machine Learning extension.
 
 - For AKS cluster without Azure Arc connected, refer to  [Usage of AKS extensions](../aks/cluster-extensions.md#usage-of-cluster-extensions).
-- For Azure Arc-enabled Kubernetes, refer to [Usage of cluster extensions](../azure-arc/kubernetes/extensions.md#usage-of-cluster-extensions).
+- For Azure Arc-enabled Kubernetes, refer to [Deploy and manage Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md).
 
 
 ## Next steps
