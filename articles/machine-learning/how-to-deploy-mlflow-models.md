@@ -10,7 +10,7 @@ ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 06/06/2022
 ms.topic: how-to
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
@@ -19,7 +19,7 @@ ms.devlang: azurecli
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
-> * [v1](./v1/how-to-deploy-mlflow-models.md)
+> * [v1](./v1/how-to-deploy-mlflow-models.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](how-to-deploy-mlflow-models.md)
 
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure Machine Learning for both real-time and batch inference. Learn also about the different tools you can use to perform management of the deployment.
@@ -69,12 +69,12 @@ Azure Machine Learning offers many ways to deploy MLflow models into Online and 
 
 > [!div class="checklist"]
 > - MLflow SDK
-> - Azure ML CLI and Azure ML SDK for Python
+> - Azure Machine Learning CLI and Azure Machine Learning SDK for Python
 > - Azure Machine Learning studio
 
 Each workflow has different capabilities, particularly around which type of compute they can target. The following table shows them.
 
-| Scenario | MLflow SDK | Azure ML CLI/SDK | Azure ML studio |
+| Scenario | MLflow SDK | Azure Machine Learning CLI/SDK | Azure Machine Learning studio |
 | :- | :-: | :-: | :-: |
 | Deploy to managed online endpoints | [See example](how-to-deploy-mlflow-models-online-progressive.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tabs=studio)<sup>1</sup> |
 | Deploy to managed online endpoints (with a scoring script) |  | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) |  |
@@ -89,7 +89,7 @@ Each workflow has different capabilities, particularly around which type of comp
 
 ### Which option to use?
 
-If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the MLflow SDK. On the other hand, if you are more familiar with the [Azure ML CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure ML CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning studio](https://ml.azure.com) UI deployment.
+If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the MLflow SDK. On the other hand, if you are more familiar with the [Azure Machine Learning CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure Machine Learning CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning studio](https://ml.azure.com) UI deployment.
 
 
 ## Differences between models deployed in Azure Machine Learning and MLflow built-in server
@@ -104,13 +104,13 @@ The rest of this section mostly applies to online endpoints but you can learn mo
 
 ### Input formats
 
-| Input type | MLflow built-in server | Azure ML Online Endpoints |
+| Input type | MLflow built-in server | Azure Machine Learning Online Endpoints |
 | :- | :-: | :-: |
 | JSON-serialized pandas DataFrames in the split orientation | **&check;** | **&check;** |
 | JSON-serialized pandas DataFrames in the records orientation | Deprecated |  |
 | CSV-serialized pandas DataFrames | **&check;** | Use batch<sup>1</sup> |
 | Tensor input format as JSON-serialized lists (tensors) and dictionary of lists (named tensors) | **&check;** | **&check;** |
-| Tensor input formatted as in TF Serving’s API | **&check;** |  |
+| Tensor input formatted as in TF Serving's API | **&check;** |  |
 
 > [!NOTE]
 > - <sup>1</sup> We suggest you to explore batch inference for processing files. See [Deploy MLflow models to Batch Endpoints](how-to-mlflow-batch.md).

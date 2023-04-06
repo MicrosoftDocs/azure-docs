@@ -46,7 +46,7 @@ The following limit specifies the maximum number of characters that can be in a 
 | Feature | Value |
 |------------------------|---------------|
 | Conversation issue and resolution summarization| 40,000 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).|
-| Text Analytics for health | 30,720 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  | 
+| Text Analytics for health | 125,000 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  | 
 | All other pre-configured features (synchronous) | 5,120 as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). If you need to submit larger documents, consider using the feature asynchronously (described below). |
 | All other pre-configured features ([asynchronous](use-asynchronously.md))  | 125,000 characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). |
 
@@ -84,7 +84,7 @@ Exceeding the following document limits will generate an HTTP 400 error code.
 | Personally Identifying Information (PII) detection | 5 |
 | Document summarization | 25 |
 | Entity Linking | 5 |
-| Text Analytics for health  | 10 for the web-based API, 1000 for the container. |
+| Text Analytics for health  |25 for the web-based API, 1000 for the container. (125,000 characters in total) |
 
 ## Rate limits
 

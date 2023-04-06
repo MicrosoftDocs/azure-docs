@@ -107,7 +107,7 @@ Health status provides insights about the overall health of the service and sub-
 
 |Path|Method|Version 3.1|Version 3.0|
 |---------|---------|---------|---------|
-|`/healthstatus`|GET|[ServiceHealth_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/ServiceHealth_Get)|[GetHealthStatus](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHealthStatus)|
+|`/healthstatus`|GET|[HealthStatus_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/HealthStatus_Get)|[GetHealthStatus](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHealthStatus)|
 
 ## Models
 

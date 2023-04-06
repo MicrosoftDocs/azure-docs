@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Resource Central – SAML SSO for Meeting Room Booking System | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Resource Central – SAML SSO for Meeting Room Booking System'
 description: Learn how to configure single sign-on between Azure Active Directory and Resource Central – SAML SSO for Meeting Room Booking System.
 services: active-directory
 author: jeevansd

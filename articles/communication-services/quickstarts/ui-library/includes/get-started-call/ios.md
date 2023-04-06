@@ -48,7 +48,7 @@ In Xcode, create a new project:
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUICalling', '1.1.0'
+        pod 'AzureCommunicationUICalling', '1.2.0'
     end
     ```
 

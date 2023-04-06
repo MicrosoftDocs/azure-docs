@@ -4,6 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Use ONNX with Azure Machine Learning automated ML to make predictions on computer vision models for classification, object detection, and instance segmentation.
 author: vadthyavath
 ms.author: rvadthyavath
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -16,7 +17,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"] 
-> * [v1](v1/how-to-inference-onnx-automl-image-models-v1.md) 
+> * [v1](v1/how-to-inference-onnx-automl-image-models-v1.md?view=azureml-api-1&preserve-view=true) 
 > * [v2 (current version)](how-to-inference-onnx-automl-image-models.md) 
 
 In this article, you will learn how to use Open Neural Network Exchange (ONNX) to make predictions on computer vision models generated from automated machine learning (AutoML) in Azure Machine Learning. 
@@ -68,6 +69,7 @@ The following code returns the best child run based on the relevant primary metr
 ```python
 from azure.identity import DefaultAzureCredential
 from azure.ai.ml import MLClient
+mlflow_client = MlflowClient()
 
 credential = DefaultAzureCredential()
 ml_client = None
@@ -75,7 +77,7 @@ try:
     ml_client = MLClient.from_config(credential)
 except Exception as ex:
     print(ex)
-    # Enter details of your AML workspace
+    # Enter details of your Azure Machine Learning workspace
     subscription_id = ''   
     resource_group = ''  
     workspace_name = ''
@@ -135,7 +137,7 @@ Download the conda environment file and create an environment object to be used 
 
 conda_file = mlflow_client.download_artifacts(
     best_run.info.run_id, "outputs/conda_env_v_1_0_0.yml", local_dir
-
+)
 from azure.ai.ml.entities import Environment
 env = Environment(
     name="automl-images-env-onnx",
@@ -145,7 +147,7 @@ env = Environment(
 )
 ```
 
-Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](reference-automl-images-hyperparameters.md#model-specific-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models.md#supported-model-algorithms).
+Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](how-to-auto-train-image-models.md#configure-experiments) and for supported object detection model names refer to the [supported model architecture section](how-to-auto-train-image-models.md#supported-model-architectures).
 
 To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the AutoML training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
 
@@ -277,7 +279,7 @@ returned_job_run = mlflow_client.get_run(returned_job.name)
 
 # Download run's artifacts/outputs
 onnx_model_path = mlflow_client.download_artifacts(
-    best_run.info.run_id, 'outputs/model_'+str(batch_size)+'.onnx', local_dir
+    returned_job_run.info.run_id, 'outputs/model_'+str(batch_size)+'.onnx', local_dir
 )
 ```
 
@@ -778,7 +780,7 @@ assert batch_size == img_data.shape[0]
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
-For object detection with the Faster R-CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`. You can get the expected input height and width with the following code.
+For object detection with the Faster R-CNN architecture, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`. You can get the expected input height and width with the following code.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
@@ -841,7 +843,7 @@ assert batch_size == img_data.shape[0]
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-For object detection with the YOLO algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
+For object detection with the YOLO architecture, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
@@ -1144,7 +1146,7 @@ for image_idx, class_idx in zip(image_wise_preds[0], image_wise_preds[1]):
     print('image: {}, class_index: {}, class_name: {}'.format(image_files[image_idx], class_idx, classes[class_idx]))
 ```
 
-For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported algorithms in AutoML.
+For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported model architectures in AutoML.
 
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
@@ -1503,4 +1505,4 @@ display_detections(img, boxes.copy(), labels, scores, masks.copy(),
 
 ## Next steps
 * [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models.md)
-* [Troubleshoot AutoML experiments](how-to-troubleshoot-auto-ml.md)
+* [Troubleshoot AutoML experiments (SDK v1)](./v1/how-to-troubleshoot-auto-ml.md?view=azureml-api-1&preserve-view=true)

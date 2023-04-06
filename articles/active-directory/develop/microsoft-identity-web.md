@@ -2,7 +2,7 @@
 title: Microsoft Identity Web authentication library overview
 description: Learn about Microsoft Identity Web, an authentication and authorization library for ASP.NET Core applications that integrate with Azure Active Directory, Azure AD B2C, and Microsoft Graph and other web APIs.
 services: active-directory
-author: jmprieur
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/08/2022
-ms.author: jmprieur
-ms.reviewer: marsma
+ms.author: henrymbugua
+ms.reviewer: jmprieur
 ms.custom: devx-track-csharp, aaddev, engagement-fy23
 # Customer intent: As an application developer, I want to learn how to add authentication to ASP.NET Core web apps and authorization to protected web APIs.
 ---

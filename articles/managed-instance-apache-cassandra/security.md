@@ -6,8 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: conceptual
 ms.date: 10/29/2021
-ms.custom: references_regions, devx-track-azurecli
-
+ms.custom: references_regions
 ---
 
 # Security in Azure Managed Instance for Apache Cassandra - overview

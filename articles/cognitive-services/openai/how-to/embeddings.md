@@ -1,5 +1,5 @@
 ---
-title: 'How to generate embeddings with Azure OpenAI'
+title: 'How to generate embeddings with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Learn how to generate embeddings with Azure OpenAI
 services: cognitive-services
@@ -22,12 +22,30 @@ An embedding is a special format of data representation that can be easily utili
 
 To obtain an embedding vector for a piece of text, we make a request to the embeddings endpoint as shown in the following code snippets:
 
+# [console](#tab/console)
 ```console
 curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-12-01\
   -H 'Content-Type: application/json' \
   -H 'api-key: YOUR_API_KEY' \
   -d '{"input": "Sample Document goes here"}'
 ```
+
+# [python](#tab/python)
+```python
+import openai
+
+openai.api_type = "azure"
+openai.api_key = YOUR_API_KEY
+openai.api_base = "https://YOUR_RESOURCE_NAME.openai.azure.com"
+openai.api_version = "2022-12-01"
+
+response = openai.Embedding.create(
+    input="Your text string goes here",
+    engine="YOUR_DEPLOYMENT_NAME"
+)
+embeddings = response['data'][0]['embedding']
+```
+---
 
 ## Best Practices
 

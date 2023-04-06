@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 01/24/2023
 ---
 
 # Schedule Data Estate Insights report refresh
@@ -28,6 +28,9 @@ To update the report refresh schedule for Data Estate Insights, you'll need **[d
 
 ## How to update the refresh schedule
 
+>[!IMPORTANT]
+> Report refresh rate [does impact your billing](#does-the-refresh-schedule-affect-billing).
+
 1. In the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), go to the **Management** section.
 
     :::image type="content" source="media/how-to-schedule-data-estate-insights/locate-management.png" alt-text="Screenshot of the Microsoft Purview governance portal Management section highlighted.":::
@@ -42,7 +45,7 @@ To update the report refresh schedule for Data Estate Insights, you'll need **[d
 
 1. In the **Edit** menu, select **Recurring**.
 
-1. Then select your time zone, set your recurrence to **Month(s)** or **Weeks(s)**, select your day and time to run, specify a start time, and optionally specify an end time. For more information about the schedule options, see the [schedule options section below](#schedule-options).
+1. Then select your time zone, set your recurrence to **Month(s)**, **Weeks(s)**, or **Days(s)**, select your day and time to run, specify a start time, and optionally specify an end time. For more information about the schedule options, see the [schedule options section below](#schedule-options).
 
     :::image type="content" source="media/how-to-schedule-data-estate-insights/set-recurrance.png" alt-text="Screenshot of the Data Estate Insights edit page, with the Recurring radio button highlighted and set to Recurring." :::
 
@@ -53,7 +56,18 @@ To update the report refresh schedule for Data Estate Insights, you'll need **[d
 
 ## Does the refresh schedule affect billing?
 
-Yes. You're billed when a report is generated. For more information about billing for Data Estates Insights, see our [pricing guidelines](concept-guidelines-pricing-data-estate-insights.md).
+Yes. You're billed when Microsoft Purview Data Estate Insights checks for updates in your environment and when a report is generated.
+
+1. A check for updates to your Microsoft Purview instance is made at your scheduled report refresh time. You'll always be billed for this check at your report refresh time.
+
+1. If updates have been made, you'll be billed to generate your insights report. If no updates were made since the last report, you'll not be billed to generate a report.
+
+    >[!NOTE]
+    > An asset is considered to be **updated** if it's updated in Microsoft Purview. 
+    > An update in Microsoft Purview means a change in the following properties: asset name, description, schema, classifications, experts, owners, etc...
+    > New rows in a data asset and a re-scan will not result in an update to your insights reports if the metadata properties have not changed.
+
+For more information about billing for Data Estates Insights, see our [pricing guidelines](concept-guidelines-pricing-data-estate-insights.md).
 
 ## Schedule options
 
@@ -80,7 +94,19 @@ Select the time zone you'd like to align your refresh schedule with. If the time
 
 ### Recurrence
 
-You can select weekly or monthly refresh recurrence.
+You can select a daily, weekly, or monthly refresh recurrence.
+
+>[!IMPORTANT]
+> No matter what you set your refresh recurreance to, Data Estate Insights will run a check before refreshing to see if any updates have been made to the assets.
+> If no update has been made, the reports will not refresh.
+>
+> An asset is considered to be **updated** only if it is updated in Microsoft Purview. 
+> An update in Microsoft Purview means a change in the following properties: asset name, description, schema, classifications, experts, owners, etc...
+> New rows in a data asset and a re-scan will not result in an update to your insights reports if the metadata properties of the asset have not changed.
+
+- **Daily recurrence** - schedule daily recurrence by setting recurrence to every (1-5) days(s), and choosing the time of day you would like to refresh the report. For example, the below report will refresh every other day at 12 AM UTC.
+
+    :::image type="content" source="media/how-to-schedule-data-estate-insights/daily-recurrence.png" alt-text="Screenshot of the Edit refresh page recurrence options, showing a daily recurrence set." :::
 
 - **Weekly recurrence** - schedule weekly recurrence by setting recurrence to every (1-5) week(s), and choosing the day of the week and time of day you would like to refresh the report. For example, the below report will refresh on Monday every two weeks, at six AM.
 
@@ -90,7 +116,7 @@ You can select weekly or monthly refresh recurrence.
 
     :::image type="content" source="media/how-to-schedule-data-estate-insights/monthly-recurrence.png" alt-text="Screenshot of the Edit refresh page recurrence options, showing a monthly recurrence set." :::
 
-Set **Scan at this time** to the time of day you'd like to begin your refresh. 
+Set **Scan at this time** to the time of day you'd like to begin your refresh.
 
 >[!TIP]
 > The time you select will be the time that the report begins its refresh. Microsoft Purview will adjust compute for the amount of data being aggregated, but **schedule your recurrence a little before you will need the report** so the report has time to fully refresh and will be ready.

@@ -32,19 +32,20 @@ This section is comprised of high-level information that is key to understanding
 |--|--|--|
 | Asset Name | The name of an asset. | All |
 | UUID | This 128-bit label represents the universally unique identifier (UUID) for the | All |
+| Added to inventory | The date that an asset was added to inventory, whether automatically to the “Approved Inventory” state or in another state (e.g. “Candidate”).  | All |
 | Status | The status of the asset within the RiskIQ system. Options include Approved Inventory, Candidate, Dependencies, or Requires Investigation. | All |
-| First seen | This column displays the date that the asset was first observed by crawling | All |
-| Last seen | This column displays the date that the asset was last observed by crawling infrastructure. | All |
-| Discovered on | The date that the asset was found in a discovery run scanning for assets related to an organization’s known infrastructure. | All |
-| Last updated | This column displays the date that the asset was last updated in the system after new data was found in a scan. | All |
+| First seen (Global Security Graph) | The date that Microsoft first scanned the asset and added it to our comprehensive Global Security Graph.  | All |
+| Last seen (Global Security Graph) | The date that Microsoft most recently scanned the asset. | All |
+| Discovered on | Indicates the creation date of the Discovery Group that detected the asset.  | All |
+| Last updated | The date that the asset was last updated by a manual user actions (e.g. a state change, asset removal).  | All |
 | Country | The country of origin detected for this asset. | All |
 | State/Province | The state or province of origin detected for this asset. | All |
 | City | The city of origin detected for this asset. | All |
-| WhoIs name | | Host |
-| WhoIs email | The primary contact email in a WhoIs record. | Host |
-| WhoIS organization | The listed organization in a WhoIs record. | Host |
-| WhoIs registrar | The listed registrar in a WhoIs record. | Host |
-| WhoIs name servers | The listed name servers in a WhoIs record. | Host |
+| WhoIs name | The name associated with a Whois record. | Host |
+| WhoIs email | The primary contact email in a Whois record. | Host |
+| WhoIS organization | The listed organization in a Whois record. | Host |
+| WhoIs registrar | The listed registrar in a Whois record. | Host |
+| WhoIs name servers | The listed name servers in a Whois record. | Host |
 | Certificate issued | The date when a certificate was issued. | SSL certificate |
 | Certificate expires | The date when a certificate will expire. | SSL certificate |
 | Serial number | The serial number associated with an SSL certificate. | SSL certificate |
@@ -123,7 +124,7 @@ In the example below, we see that the seed domain is tied to this asset through 
 
 ### Discovery information
 
-This section provides information about the process used to detect the asset. It includes information about the discovery seed that connects to the asset, as well as the approval process. Options include “Approved Inventory” which indicates the relationship between the seed and discovered asset was strong enough to warrant an automatic approval by the Defender EASM system. Otherwise, the process will be listed as “Candidate”, indicating that the asset required manual approval to be incorporated into your inventory. This section also provides the date that the asset was added to your inventory, as well as the date that it was last scanned in a discovery run.
+This section provides information about the process used to detect the asset. It includes information about the discovery seed that connects to the asset, as well as the approval process. Options include “Approved Inventory” which indicates the relationship between the seed and discovered asset was strong enough to warrant an automatic approval by the Defender EASM system. Otherwise, the process will be listed as “Candidate”, indicating that the asset required manual approval to be incorporated into your inventory. This section also provides the "Last discovery run" date that indicates when the Discovery Group that initially detected the asset was last utilized for a discovery scan. 
 
 ### IP reputation
 

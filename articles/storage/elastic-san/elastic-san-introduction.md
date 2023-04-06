@@ -1,18 +1,18 @@
 ---
-title: Introduction to Azure Elastic SAN (preview)
-description: An overview of Azure Elastic SAN (preview), a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
+title: Introduction to Azure Elastic SAN Preview
+description: An overview of Azure Elastic SAN Preview, a service that enables you to create a virtual SAN to act as the storage for multiple compute options.
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 11/17/2022
+ms.date: 02/22/2023
 ms.author: rogarana
 ms.subservice: elastic-san
 ms.custom: ignite-2022
 ---
 
-# What is Azure Elastic SAN? (preview)
+# What is Azure Elastic SAN? Preview
 
-Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN (preview) is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
+Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN Preview is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
 Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service.
 
@@ -78,4 +78,6 @@ The status of items in this table may change over time.
 
 ## Next steps
 
-[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)
+For a video introduction to Azure Elastic SAN, see [Accelerate your SAN migration to the cloud](/shows/inside-azure-for-it/accelerate-your-san-migration-to-the-cloud).
+
+[Plan for deploying an Elastic SAN Preview](elastic-san-planning.md)

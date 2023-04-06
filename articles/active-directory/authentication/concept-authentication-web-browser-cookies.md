@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 12/06/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: custorod

@@ -1,12 +1,12 @@
 ---
-title: Migrate from MFA Server to Azure AD Multi-Factor Authentication - Azure Active Directory
+title: Migrate from MFA Server to Azure AD Multi-Factor Authentication
 description: Step-by-step guidance to migrate from MFA Server on-premises to Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/18/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: Gargi-Sinha

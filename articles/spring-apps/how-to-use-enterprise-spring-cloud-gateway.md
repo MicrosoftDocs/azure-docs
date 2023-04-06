@@ -3,7 +3,7 @@ title: How to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise 
 description: Shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-cloud
+ms.service: spring-apps
 ms.topic: how-to
 ms.date: 11/04/2022
 ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
@@ -253,6 +253,37 @@ az spring gateway route-config create \
     --app myapp
     --routes-file <json-file-with-routes>
 ```
+
+## Enable/disable Spring Cloud Gateway after service creation
+
+You can enable and disable Spring Cloud Gateway after service creation using the Azure portal or Azure CLI. Before disabling Spring Cloud Gateway, you're required to unassign its endpoint and remove all route configs.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable Spring Cloud Gateway using the Azure portal:
+
+1. Navigate to your service resource, and then select **Spring Cloud Gateway**.
+1. Select **Manage**.
+1. Select or unselect the **Enable Spring Cloud Gateway**, and then select **Save**.
+1. You can now view the state of Spring Cloud Gateway on the **Spring Cloud Gateway** page.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable or disable Spring Cloud Gateway:
+
+```azurecli
+az spring spring-cloud-gateway create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring spring-cloud-gateway delete \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+---
 
 ## Next steps
 

@@ -44,7 +44,7 @@ To help you determine an appropriate  daily cap for your workspace, see [Azure M
 
 
 ## Workspaces with Microsoft Defender for Cloud
-Some data security-related data types collected [Microsoft Defender for Cloud](../../security-center/index.yml) or Microsoft Sentinel are collected despite any daily cap. The data types listed below will not be capped except for workspaces in which Microsoft Defender for Cloud was installed before June 19, 2017:
+Some data security-related data types collected [Microsoft Defender for Cloud](../../security-center/index.yml) or Microsoft Sentinel are collected despite any daily cap, when the [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers-select-plan.md) solution was enabled on a workspace after June 19, 2017. The following data types will be subject to this special exception from the daily cap:
 
 - WindowsEvent
 - SecurityAlert
@@ -135,7 +135,7 @@ To create an alert when the daily cap is reached, create an [Activity log alert 
 
 
 ## View the effect of the daily cap
-The following query can be used to track the data volumes that are subject to the daily cap for a Log Analytics workspace between daily cap resets. This accounts for the security data types that aren't included in the daily cap. In this example, the workspace's reset hour is 14:00. Change this value this for your workspace.
+The following query can be used to track the data volumes that are subject to the daily cap for a Log Analytics workspace between daily cap resets. This accounts for the security data types that aren't included in the daily cap. In this example, the workspace's reset hour is 14:00. Change this value for your workspace.
 
 ```kusto
 let DailyCapResetHour=14;

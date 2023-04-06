@@ -41,6 +41,8 @@ Below is a list of error types in **compute scope** that you might encounter whe
 * [ERROR: GenericComputeError](#error-genericcomputeerror)
 * [ERROR: ComputeNotFound](#error-computenotfound)
 * [ERROR: ComputeNotAccessible](#error-computenotaccessible)
+* [ERROR: InvalidComputeInformation](#error-invalidcomputeinformation)
+* [ERROR: InvalidComputeNoKubernetesConfiguration](#error-invalidcomputenokubernetesconfiguration)
 
 
 #### ERROR: GenericComputeError
@@ -71,7 +73,7 @@ Cannot find Kubernetes compute.
 
 This error should occur when:
 * The system can't find the compute when create/update new online endpoint/deployment. 
-*  The compute of existing online endpoints/deployments have been removed. 
+* The compute of existing online endpoints/deployments have been removed. 
 
 You can check the following items to troubleshoot the issue:
 * Try to recreate the endpoint and deployment. 
@@ -87,12 +89,40 @@ The Kubernetes compute is not accessible.
 
 This error should occur when the workspace MSI (managed identity) doesn't have access to the AKS cluster. You can check if the workspace MSI has the access to the AKS, and if not, you can follow this [document](how-to-identity-based-service-authentication.md) to manage access and identity.
 
+#### ERROR: InvalidComputeInformation
+
+The error message is as follows:
+
+```bash
+The compute information is invalid.
+```
+There is a compute target validation process when deploying models to your Kubernetes cluster. This error should occur when the compute information is invalid when validating, for example the compute target is not found, or the configuration of Azure Machine Learning extension has been updated in your Kubernetes cluster. 
+
+You can check the following items to troubleshoot the issue:
+* Check whether the compute target you used is correct and existing in your workspace.
+* Try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
+
+#### ERROR: InvalidComputeNoKubernetesConfiguration
+
+The error message is as follows:
+
+```bash
+The compute kubeconfig is invalid.
+```
+
+This error should occur when the system failed to find any configuration to connect to cluster, such as:
+* For Arc-Kubernetes cluster, there is no Azure Relay configuration can be found.
+* For AKS cluster, there is no AKS configuration can be found.
+
+To rebuild the configuration of compute connection in your cluster, you can try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
+
 ### Kubernetes cluster error
 
 Below is a list of error types in **cluster scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, which you can trouble shoot by following the guideline:
 
 * [ERROR: GenericClusterError](#error-genericclustererror)
 * [ERROR: ClusterNotReachable](#error-clusternotreachable)
+* [ERROR: ClusterNotFound](#error-clusternotfound)
 
 #### ERROR: GenericClusterError
 
@@ -108,11 +138,11 @@ For AKS clusters:
 * Check if the AKS cluster is shut down. 
     * If the cluster isn't running, you need to start the cluster first.
 * Check if the AKS cluster has enabled selected network by using authorized IP ranges. 
-    * If the AKS cluster has enabled authorized IP ranges, please make sure all the **AzureML control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
+    * If the AKS cluster has enabled authorized IP ranges, please make sure all the **Azure Machine Learning control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
 
 
 For an AKS cluster or an Azure Arc enabled Kubernetes cluster:
-1. Check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
+* Check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
 
 #### ERROR: ClusterNotReachable 
 
@@ -132,20 +162,60 @@ For AKS clusters:
 For an AKS cluster or an Azure Arc enabled Kubernetes cluster:
 * Check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
 
+#### ERROR: ClusterNotFound
+
+The error message is as follows:
+
+```bash
+Cannot found Kubernetes cluster. 
+```
+
+This error should occur when the system cannot find the AKS/Arc-Kubernetes cluster.
+
+You can check the following items to troubleshoot the issue:
+* First, check the cluster resource ID in the Azure portal to verify whether Kubernetes cluster resource still exists and is running normally.
+* If the cluster exists and is running, then you can try to detach and reattach the compute to the workspace. Pay attention to more notes on [reattach](#error-genericcomputeerror).
+
+> [!TIP]
+   > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
+
 
 ## Training guide
 
+### Job retry
+
+If the training job pod running in the cluster was terminated due to the node running to node OOM (out of memory), the job will be **automatically retried** to another available node.
+
+To further debug the root cause of the job try, you can go to the workspace portal to check the job retry log.
+
+* Each retry log will be recorded in a new log folder with the format of "retry-<retry number\>"(such as: retry-001).
+
+Then you can get the retry job-node mapping information as mentioned above, to figure out which node the retry-job has been running on.
+
+:::image type="content" source="media/how-to-troubleshoot-kubernetes-compute/job-retry-log.png" alt-text="Screenshot of adding a new extension to the Azure Arc-enabled Kubernetes cluster from the Azure portal.":::
+
+You can get job-node mapping information from the
+**amlarc_cr_bootstrap.log** under system_logs folder.
+
+The host name of the node which the job pod is running on will be indicated in this log, for example:
+
+```bash
+++ echo 'Run on node: ask-agentpool-17631869-vmss0000"
+```
+
+"ask-agentpool-17631869-vmss0000" represents the **node host name** running this job in your AKS cluster. Then you can access the cluster to check about the node status for further investigation.
+
 ### UserError
 
-#### AzureML Kubernetes job failed. E45004
+#### Azure Machine Learning Kubernetes job failed. E45004
 
 If the error message is:
 
 ```bash
-AzureML Kubernetes job failed. E45004:"Training feature is not enabled, please enable it when install the extension."
+Azure Machine Learning Kubernetes job failed. E45004:"Training feature is not enabled, please enable it when install the extension."
 ```
 
-Please check whether you have `enableTraining=True` set when doing the AzureML extension installation. More details could be found at [Deploy AzureML extension on AKS or Arc Kubernetes cluster](how-to-deploy-kubernetes-extension.md)
+Please check whether you have `enableTraining=True` set when doing the Azure Machine Learning extension installation. More details could be found at [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](how-to-deploy-kubernetes-extension.md)
 
 #### Unable to mount data store workspaceblobstore. Give either an account key or SAS token
 
@@ -165,12 +235,12 @@ You can check the following items to troubleshoot the issue:
 *  Make sure the storage account has enabled the exceptions of “Allow Azure services on the trusted service list to access this storage account” and the workspace is in the resource instances list. 
 *  Make sure the workspace has a system assigned managed identity.
 
-### Encountered an error when attempting to connect to the Azure ML token service
+### Encountered an error when attempting to connect to the Azure Machine Learning token service
 
 If the error message is:
 
 ```bash
-AzureML Kubernetes job failed. 400:{"Msg":"Encountered an error when attempting to connect to the Azure ML token service","Code":400}
+Azure Machine Learning Kubernetes job failed. 400:{"Msg":"Encountered an error when attempting to connect to the Azure Machine Learning token service","Code":400}
 ```
 You can follow [Private Link troubleshooting section](#private-link-issue) to check your network settings.
 
@@ -178,19 +248,19 @@ You can follow [Private Link troubleshooting section](#private-link-issue) to ch
 
 #### Job pod get stuck in Init state
 
-If the job runs longer than you expected and if you find that your job pods are getting stuck in an Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched`,  the issue might be occurring because AzureML extension doesn't support download mode for input data. 
+If the job runs longer than you expected and if you find that your job pods are getting stuck in an Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched`,  the issue might be occurring because Azure Machine Learning extension doesn't support download mode for input data. 
 
 To resolve this issue, change to mount mode for your input data.
 
-#### AzureML Kubernetes job failed
+#### Azure Machine Learning Kubernetes job failed
 
 If the error message is:
 
 ```bash
-AzureML Kubernetes job failed. 137:PodPattern matched: {"containers":[{"name":"training-identity-sidecar","message":"Updating certificates in /etc/ssl/certs...\n1 added, 0 removed; done.\nRunning hooks in /etc/ca-certificates/update.d...\ndone.\n * Serving Flask app 'msi-endpoint-server' (lazy loading)\n * Environment: production\n   WARNING: This is a development server. Do not use it in a production deployment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:12342/ (Press CTRL+C to quit)\n","code":137}]}
+Azure Machine Learning Kubernetes job failed. 137:PodPattern matched: {"containers":[{"name":"training-identity-sidecar","message":"Updating certificates in /etc/ssl/certs...\n1 added, 0 removed; done.\nRunning hooks in /etc/ca-certificates/update.d...\ndone.\n * Serving Flask app 'msi-endpoint-server' (lazy loading)\n * Environment: production\n   WARNING: This is a development server. Do not use it in a production deployment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:12342/ (Press CTRL+C to quit)\n","code":137}]}
 ```
 
-Check your proxy setting and check whether 127.0.0.1 was added to proxy-skip-range when using `az connectedk8s connect` by following this [network configuring](how-to-access-azureml-behind-firewall.md#kubernetes-compute).
+Check your proxy setting and check whether 127.0.0.1 was added to proxy-skip-range when using `az connectedk8s connect` by following this [network configuring](how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).
 
 ## Private link issue
 

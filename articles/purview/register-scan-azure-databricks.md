@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 02/16/2023
 ms.custom: template-how-to
 ---
 
@@ -32,10 +32,10 @@ When scanning Azure Databricks source, Microsoft Purview supports:
    - Tables including the columns, foreign keys, unique constraints, and storage description
    - Views including the columns and storage description
 
-- Fetching relationship between external tables and Azure Data Lake Storage Gen2/Azure Blob assets. 
-- Fetching static lineage on assets relationships among tables and views.
+- Fetching relationship between external tables and Azure Data Lake Storage Gen2/Azure Blob assets (external locations). 
+- Fetching static lineage between tables and views based on the view definition.
 
-This connector brings metadata from Databricks metastore. Comparing to scan via [Hive Metastore connector](register-scan-hive-metastore-source.md) in case you use it to scan Azure Databricks earlier:  
+This connector brings metadata from Databricks metastore. Comparing to scan via [Hive Metastore connector](register-scan-hive-metastore-source.md) in case you use it to scan Azure Databricks earlier:
 
 - You can directly set up scan for Azure Databricks workspaces without direct HMS access. It uses Databricks personal access token for authentication and connects to a cluster to perform scan. 
 - The Databricks workspace info is captured.
@@ -49,7 +49,7 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 
 * You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported elf-hosted Integration Runtime version is 5.20.8227.2.
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md). The minimal supported self-hosted Integration Runtime version is 5.20.8227.2.
 
     * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
@@ -59,6 +59,10 @@ This connector brings metadata from Databricks metastore. Comparing to scan via 
 
    * [Generate a personal access token](/azure/databricks/dev-tools/auth#--azure-databricks-personal-access-tokens), and store it as a secret in Azure Key Vault.
    * [Create a cluster](/azure/databricks/clusters/create-cluster). Note down the cluster ID - you can find it in Azure Databricks workspace -> Compute -> your cluster -> Tags -> Automatically added tags -> `ClusterId`.
+   * Make sure the user has the following [permissions](/azure/databricks/security/access-control/cluster-acl) so as to connect to the Azure Databricks cluster:
+
+      * **Can Attach To** permission to connect to the running cluster.
+      * **Can Restart** permission to automatically trigger the cluster to start if its state is terminated when connecting.
 
 ## Register
 
@@ -169,7 +173,7 @@ From the Databricks workspace asset, you can find the associated Hive Metastore 
 
 Refer to the [supported capabilities](#supported-capabilities) section on the supported Azure Databricks scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
-Go to the Hive table/view asset -> lineage tab, you can see the asset relationship when applicable. For relationship between table and external storage assets, you'll see Hive Table asset and the storage asset are directly connected bi-directionally, as they mutually impact each other.
+Go to the Hive table/view asset -> lineage tab, you can see the asset relationship when applicable. For relationship between table and external storage assets, you'll see Hive table asset and the storage asset are directly connected bi-directionally, as they mutually impact each other. If you use mount point in create table statement, you need to provide the mount point information in [scan settings](#scan) to extract such relationship.
 
 :::image type="content" source="media/register-scan-azure-databricks/lineage.png" alt-text="Screenshot that shows Azure Databricks lineage example." border="true":::
 

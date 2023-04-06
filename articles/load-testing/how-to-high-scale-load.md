@@ -11,14 +11,11 @@ ms.topic: how-to
 
 ---
 
-# Configure Azure Load Testing Preview for high-scale load
+# Configure Azure Load Testing for high-scale load
 
-In this article, learn how to set up a load test for high-scale load with Azure Load Testing Preview. 
+In this article, learn how to set up a load test for high-scale load with Azure Load Testing. 
 
 Configure multiple test engine instances to scale out the number of virtual users for your load test and simulate a high number of requests per second. To achieve an optimal load distribution, you can monitor the test instance health metrics in the Azure Load Testing dashboard.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
@@ -37,7 +34,7 @@ For example, if application latency is 20 milliseconds (0.02 second), and you're
 To achieve a target number of requests per second, configure the total number of virtual users for your load test.
 
 > [!NOTE]
-> Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that an TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-find-download-logs.md).
+> Apache JMeter only reports requests that made it to the server and back, either successful or not. If Apache JMeter is unable to connect to your application, the actual number of requests per second will be lower than the maximum value. Possible causes might be that the server is too busy to handle the request, or that an TLS/SSL certificate is missing. To diagnose connection problems, you can check the **Errors** chart in the load testing dashboard and [download the load test log files](./how-to-troubleshoot-failing-test.md).
 
 ## Test engine instances and virtual users
 
@@ -52,9 +49,6 @@ To simulate a target number of virtual users, you can configure the parallel thr
 For example, to simulate 1,000 virtual users, set the number of threads in the Apache JMeter script to 250. Then configure the load test with four test engine instances (that is, 4 x 250 threads).
 
 The location of the Azure Load Testing resource determines the location of the test engine instances. All test engine instances within a Load Testing resource are hosted in the same Azure region.
-
-> [!IMPORTANT]
-> For preview release, Azure Load Testing supports up to 45 engine instances for a test run.
 
 ## Configure your test plan
 

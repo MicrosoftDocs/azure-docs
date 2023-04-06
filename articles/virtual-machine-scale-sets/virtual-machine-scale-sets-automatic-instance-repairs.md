@@ -23,13 +23,9 @@ The scale set should have application health monitoring for instances enabled. H
 
 **Configure endpoint to provide health status**
 
-Before enabling automatic instance repairs policy, ensure that the scale set instances have application endpoint configured to emit the application health status. When an instance returns status 200 (OK) on this application endpoint, then the instance is marked as "Healthy". In all other cases, the instance is marked "Unhealthy", including the following scenarios:
+Before enabling automatic instance repairs policy, ensure that your scale set instances have application endpoint configured to emit the application health status. To configure health status on Application Health extension, you can use either [Binary Health States](./virtual-machine-scale-sets-health-extension.md#binary-health-states) or [Rich Health States](./virtual-machine-scale-sets-health-extension.md#rich-health-states). To configure health status using Load balancer health probes, see [probe up behavior](../load-balancer/load-balancer-custom-probe-overview.md#probe-up-behavior).
 
-- When there's no application endpoint configured inside the virtual machine instances to provide application health status
-- When the application endpoint is incorrectly configured
-- When the application endpoint isn't reachable
-
-For instances marked as "Unhealthy", automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
+For instances marked as "Unhealthy" or "Unknown" (*Unknown* state is only available with [Application Health extension - Rich Health States](./virtual-machine-scale-sets-health-extension.md#unknown-state)), automatic repairs are triggered by the scale set. Ensure the application endpoint is correctly configured before enabling the automatic repairs policy in order to avoid unintended instance repairs, while the endpoint is getting configured.
 
 **API version**
 
@@ -45,7 +41,7 @@ This feature is currently not supported for service fabric scale sets.
 
 **Restriction for VMs with provisioning errors**
 
-Automatic repairs doesn't currently support scenarios where a VM instance is marked *Unhealthy* due to a provisioning failure. VMs must be successfully initialized to enable health monitoring and automatic repair capabilities.
+Automatic repairs don't currently support scenarios where a VM instance is marked *Unhealthy* due to a provisioning failure. VMs must be successfully initialized to enable health monitoring and automatic repair capabilities.
 
 ## How do automatic instance repairs work?
 

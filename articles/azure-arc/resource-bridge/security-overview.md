@@ -2,7 +2,7 @@
 title: Azure Arc resource bridge (preview) security overview 
 description: Security information about Azure resource bridge (preview).
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 03/23/2023
 ---
 
 # Azure Arc resource bridge (preview) security overview
@@ -33,5 +33,6 @@ The [activity log](../../azure-monitor/essentials/activity-log.md) is an Azure p
 
 ## Next steps
 
-- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about requirements and technical details.
+- Understand [system requirements](system-requirements.md) and [network requirements](network-requirements.md) for Azure Arc resource bridge (preview).
+- Review the [Azure Arc resource bridge (preview) overview](overview.md) to understand more about features and benefits.
 - Learn more about [Azure Arc](../overview.md).

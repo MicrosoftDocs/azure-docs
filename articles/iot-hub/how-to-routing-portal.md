@@ -13,7 +13,7 @@ ms.author: kgremban
 
 This article shows you how to create a route and endpoint in your hub in Azure IoT Hub and then delete your route and endpoint. Learn how to use the Azure portal to create routes and endpoints for Azure Event Hubs, Azure Service Bus queues and topics, Azure Storage, and Azure Cosmos DB.
 
-To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](/azure/iot-hub/iot-hub-devguide-messages-d2c). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
+To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](./iot-hub-devguide-messages-d2c.md). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=portal).
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ The procedures that are described in the article use the following resources:
 
 ### Azure portal
 
-This article uses the Azure portal to work with IoT Hub and other Azure services. To learn more about how to use the Azure portal, see [What is the Azure portal?](/azure/azure-portal/azure-portal-overview).
+This article uses the Azure portal to work with IoT Hub and other Azure services. To learn more about how to use the Azure portal, see [What is the Azure portal?](../azure-portal/azure-portal-overview.md).
 
 ### IoT hub
 
@@ -33,7 +33,7 @@ To create an IoT hub route, you need an IoT hub that you created by using Azure 
 
 Be sure to have the following hub resource to use when you create your IoT hub route:
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal).
+* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure portal](./iot-hub-create-through-portal.md).
 
 ### Endpoint service
 
@@ -41,15 +41,15 @@ To create an IoT hub route, you need at least one other Azure service to use as 
 
 Be sure to have *one* of the following resources to use when you create an endpoint your IoT hub route:
 
-* An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create).
+* An Event Hubs resource (namespace and entity). If you need to create a new Event Hubs resource, see [Quickstart: Create an event hub by using the Azure portal](../event-hubs/event-hubs-create.md).
 
-* A Service Bus queue resource (namespace and queue). If you need to create a new Service Bus queue, see [Use the Azure portal to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-portal).
+* A Service Bus queue resource (namespace and queue). If you need to create a new Service Bus queue, see [Use the Azure portal to create a Service Bus namespace and queue](../service-bus-messaging/service-bus-quickstart-portal.md).
 
-* A Service Bus topic resource (namespace and topic). If you need to create a new Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
+* A Service Bus topic resource (namespace and topic). If you need to create a new Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md).
 
-* An Azure Storage resource (account and container). If you need to create a new storage account in Azure, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). When you create a storage account, you have many options, but you need only a new container in your account for this article.
+* An Azure Storage resource (account and container). If you need to create a new storage account in Azure, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal). When you create a storage account, you have many options, but you need only a new container in your account for this article.
 
-* An Azure Cosmos DB resource (account, database, and container). If you need to create a new instance of Azure Cosmos DB, see [Create an Azure Cosmos DB account](/azure/cosmos-db/nosql/quickstart-portal#create-account). For the API option, select **Azure Cosmos DB for NoSQL**.
+* An Azure Cosmos DB resource (account, database, and container). If you need to create a new instance of Azure Cosmos DB, see [Create an Azure Cosmos DB account](../cosmos-db/nosql/quickstart-portal.md#create-account). For the API option, select **Azure Cosmos DB for NoSQL**.
 
 ## Create a route and endpoint
 
@@ -63,7 +63,7 @@ Decide which route type you want to create: an event hub, a Service Bus queue or
 
 # [Event Hubs](#tab/eventhubs)
 
-To learn how to create an Event Hubs resource, see [Quickstart: Create an event hub by using the Azure portal](/azure/event-hubs/event-hubs-create).
+To learn how to create an Event Hubs resource, see [Quickstart: Create an event hub by using the Azure portal](../event-hubs/event-hubs-create.md).
 
 1. In the Azure portal, go to your IoT hub. In the resource menu under **Hub settings**,  select **Message routing**.
 
@@ -99,7 +99,7 @@ To learn how to create an Event Hubs resource, see [Quickstart: Create an event 
 
 # [Service Bus queue](#tab/servicebusqueue)
 
-To learn how to create a Service Bus queue, see [Use the Azure portal to create a Service Bus namespace and queue](/azure/service-bus-messaging/service-bus-quickstart-portal).
+To learn how to create a Service Bus queue, see [Use the Azure portal to create a Service Bus namespace and queue](../service-bus-messaging/service-bus-quickstart-portal.md).
 
 1. In the Azure portal, go to your IoT hub. In the resource menu under **Hub settings**,  select **Message routing**.
 
@@ -133,7 +133,7 @@ To learn how to create a Service Bus queue, see [Use the Azure portal to create 
 
 # [Service Bus topic](#tab/servicebustopic)
 
-To learn how to create a Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal).
+To learn how to create a Service Bus topic, see [Use the Azure portal to create a Service Bus topic and subscriptions to the topic](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md).
 
 1. In the Azure portal, go to your IoT hub. In the resource menu under **Hub settings**,  select **Message routing**.
 
@@ -167,7 +167,7 @@ To learn how to create a Service Bus topic, see [Use the Azure portal to create 
 
 # [Azure Storage](#tab/azurestorage)
 
-To learn how to create an Azure Storage resource (with container), see [Create a storage account](/azure/iot-hub/tutorial-routing?tabs=portal#create-a-storage-account).
+To learn how to create an Azure Storage resource (with container), see [Create a storage account](./tutorial-routing.md?tabs=portal#create-a-storage-account).
 
 1. In the Azure portal, go to your IoT hub. In the resource menu under **Hub settings**,  select **Message routing**.
 
@@ -199,7 +199,7 @@ To learn how to create an Azure Storage resource (with container), see [Create a
 
 # [Azure Cosmos DB](#tab/cosmosdb)
 
-To learn how to create an Azure Cosmos DB resource, see [Create an Azure Cosmos DB account](/azure/cosmos-db/nosql/quickstart-portal#create-account).
+To learn how to create an Azure Cosmos DB resource, see [Create an Azure Cosmos DB account](../cosmos-db/nosql/quickstart-portal.md#create-account).
 
 1. In the Azure portal, go to your IoT hub. In the resource menu under **Hub settings**,  select **Message routing**.
 
@@ -219,9 +219,18 @@ To learn how to create an Azure Cosmos DB resource, see [Create an Azure Cosmos 
   
    * **Collection**: Select your Azure Cosmos DB collection.
 
-   * **Partition key name** and **Partition key template**: These values are created automatically based on your previous selections. You can leave the auto-generated values or you can change the partition template based on your business logic. For more information about partitioning, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview).
+   * **Generate a synthetic partition key for messages**: Select **Enable** if needed.
+
+     To effectively support high-scale scenarios, you can enable [synthetic partition keys](../cosmos-db/nosql/synthetic-partition-keys.md) for the Cosmos DB endpoint. You can specify the partition key property name in **Partition key name**. The partition key property name is defined at the container level and can't be changed once it has been set.  
+
+     You can configure the synthetic partition key value by specifying a template in **Partition key template** based on your estimated data volume. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record.
+
+     For more information about partitioning, see [Partitioning and horizontal scaling in Azure Cosmos DB](../cosmos-db/partitioning-overview.md).
 
    :::image type="content" source="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png" alt-text="Screenshot that shows details of the Add a Cosmos DB endpoint form." lightbox="media/how-to-routing-portal/add-cosmos-db-endpoint-form.png":::  
+
+   > [!CAUTION]
+   > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](../cosmos-db/how-to-setup-rbac.md). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
 
 1. Select **Save**.
   
@@ -277,4 +286,4 @@ To delete a custom endpoint in the Azure portal:
 
 In this how-to article, you learned how to create a route and an endpoint for Event Hubs, Service Bus queues and topics, Azure Storage, and Azure Cosmos DB.
 
-To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.
+To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.

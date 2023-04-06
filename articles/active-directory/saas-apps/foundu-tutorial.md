@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with foundU | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with foundU'
 description: Learn how to configure single sign-on between Azure Active Directory and foundU.
 services: active-directory
 author: jeevansd

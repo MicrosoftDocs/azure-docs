@@ -41,12 +41,8 @@ The following code demonstrates how to create a Python wrapper for an `sklearn` 
 # Load training and test datasets
 from sys import version_info
 import sklearn
-from sklearn import datasets
-from sklearn.model_selection import train_test_split
-
 import mlflow.pyfunc
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
+
 
 PYTHON_VERSION = "{major}.{minor}.{micro}".format(major=version_info.major,
                                                   minor=version_info.minor,
@@ -99,7 +95,7 @@ conda_env = {
 Once your environment is ready, you can pass the SKlearnWrapper, the Conda environment, and your newly created artifacts dictionary to the mlflow.pyfunc.save_model() method. Doing so saves the model to your disk.
 
 ```python
-mlflow_pyfunc_model_path = "sklearn_mlflow_pyfunc7"
+mlflow_pyfunc_model_path = "sklearn_mlflow_pyfunc_custom"
 mlflow.pyfunc.save_model(path=mlflow_pyfunc_model_path, python_model=SKLearnWrapper(), conda_env=conda_env, artifacts=artifacts)
 
 ```

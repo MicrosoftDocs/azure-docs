@@ -19,7 +19,7 @@ The **Remediation** dashboard in Permissions Management provides an overview of 
 This article provides an overview of the components of the **Remediation** dashboard.
 
 > [!NOTE]
-> To view the **Remediation** dashboard, your must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this dashboard, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
+> To view the **Remediation** dashboard, you must have **Viewer**, **Controller**, or **Approver** permissions. To make changes on this dashboard, you must have **Controller** or **Approver** permissions. If you don't have these permissions, contact your system administrator.
 
 > [!NOTE]
 > Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Permissions Management automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.

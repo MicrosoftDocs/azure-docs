@@ -69,7 +69,7 @@ While there is no support for device registration with X.509 certificates throug
 
 All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device.
 
-![Use VS Code to view all IoT Edge devices in your IoT hub](media/iot-edge-register-device-x509/view-devices.png)
+![Use Visual Studio Code to view all IoT Edge devices in your IoT hub](media/iot-edge-register-device-x509/view-devices.png)
 
 # [Azure CLI](#tab/azure-cli)
 

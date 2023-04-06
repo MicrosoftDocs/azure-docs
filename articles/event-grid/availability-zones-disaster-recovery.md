@@ -35,7 +35,7 @@ Here are a few reasons why you may want to disable the Microsoft-initiated failo
 - Microsoft-initiated failover is done on a best-effort basis. 
 - Some geo pairs may not meet your organization's data residency requirements. 
 
-In such cases, the recommended option is to [build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md). While this option requires a bit more effort, it enables faster failover, and you are in control of choosing secondary regions. If you want to implement client-side disaster recovery for Azure Event Grid topics, see [Build your own client-side disaster recovery for Azure Event Grid topics](custom-disaster-recovery-client-side.md). 
+In such cases, the recommended option is to build your own disaster recovery plan for Azure Event Grid topics and domains. While this option requires a bit more effort, it enables faster failover, and you are in control of choosing secondary regions. If you want to implement client-side disaster recovery for Azure Event Grid topics, see [Build your own client-side disaster recovery for Azure Event Grid topics](custom-disaster-recovery-client-side.md). 
 
 
 ## RTO and RPO
@@ -45,7 +45,7 @@ Disaster recovery is measured with two metrics:
 - Recovery Point Objective (RPO): the minutes or hours of data that may be lost. 
 - Recovery Time Objective (RTO): the minutes or hours the service may be down. 
 
-Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own [client-side fail over using the topic health apis](custom-disaster-recovery.md). 
+Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own client-side failover using the topic health apis. 
 
 ### Recovery point objective (RPO)
 - **Metadata RPO**: zero minutes. For applicable resources, when a resource is created/updated/deleted, the resource definition is synchronously replicated to the geo-pair. When a failover occurs, no metadata is lost.
@@ -61,4 +61,4 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 > - Geo-disaster recovery is not supported for partner namespaces and partner topics. 
 
 ## Next steps
-If you want to implement your own disaster recovery plan for Azure Event Grid topics and domains, see [Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md).
+See [Build your own client-side disaster recovery for Azure Event Grid topics](custom-disaster-recovery-client-side.md).

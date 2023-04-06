@@ -1,14 +1,14 @@
 ---
-title: How to manage Azure Backup Immutable vault operations (preview)
+title: How to manage Azure Backup Immutable vault operations
 description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: backup
-ms.date: 09/15/2022
-author: v-amallick
-ms.author: v-amallick
+ms.date: 02/17/2023
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Manage Azure Backup Immutable vault operations (preview)
+# Manage Azure Backup Immutable vault operations
 
 [Immutable vault](backup-azure-immutable-vault-concept.md) can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
 
@@ -138,4 +138,4 @@ Follow these steps:
 
 ## Next steps
 
-- Learn [about Immutable vault for Azure Backup (preview)](backup-azure-immutable-vault-concept.md).
+- Learn [about Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).

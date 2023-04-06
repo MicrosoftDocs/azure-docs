@@ -1,5 +1,5 @@
 ---
-title: Azure AD Federation Metadata | Microsoft Docs
+title: Azure AD Federation Metadata
 description: This article describes the federation metadata document that Azure Active Directory publishes for services that accept Azure Active Directory tokens.
 services: active-directory
 author: rwike77

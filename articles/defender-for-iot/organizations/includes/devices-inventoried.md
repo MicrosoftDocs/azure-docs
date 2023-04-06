@@ -3,6 +3,7 @@ title: include
 author: batamig
 ms.date: 07/06/2022
 ms.topic: include
+ms.custom: enterprise-iot
 ---
 
 <!-- docutune:disable -->

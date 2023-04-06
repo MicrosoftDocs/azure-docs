@@ -209,8 +209,8 @@ Before you can create policies, you must register the Azure Arc-enabled SQL Serv
 
 To create an access policy for Azure Arc-enabled SQL Server, follow these guides:
 
-* [DevOps policy on a single Azure Arc-enabled SQL Server instance - GA](./how-to-policies-devops-arc-sql-server.md#create-a-new-devops-policy)
-* [Data owner policy on a single Azure Arc-enabled SQL Server instance - Public Preview](./how-to-policies-data-owner-arc-sql-server.md#create-and-publish-a-data-owner-policy)
+* [Provision access to system health, performance and audit information in SQL Server 2022](./how-to-policies-devops-arc-sql-server.md#create-a-new-devops-policy)
+* [Provision read/modify access on a single SQL Server 2022](./how-to-policies-data-owner-arc-sql-server.md#create-and-publish-a-data-owner-policy)
 
 To create policies that cover all data sources inside a resource group or Azure subscription, see [Discover and govern multiple Azure sources in Microsoft Purview](register-scan-azure-multiple-sources.md#access-policy).
 

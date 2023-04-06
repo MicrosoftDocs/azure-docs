@@ -74,7 +74,7 @@ The following table provides a list of the content needed, where to retrieve the
 
 | Binary Name | Where to acquire | How to install |
 |--|--|--|
-| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo | Select _Microsoft.Azure.DeviceUpdate.Diffs_ under the Packages section on the right side of the page. From there you can install from the cmd line or select _package.nupkg_ under the Assets section on the right side of the page to download the package. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
+| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo | From the root folder, select the _Microsoft.Azure.DeviceUpdate.Diffs.[version].nupkg_ file. [Learn more about NuGet packages](https://learn.microsoft.com/nuget/).|
 | .NET (Runtime) | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux). Only the Runtime is required. |
 
 ### Dependencies
@@ -149,19 +149,20 @@ sudo ./DiffGenTool
 
 ## Import the generated delta update
 
-### Generate import manifest
-
 The basic process of importing an update to the Device Update service is unchanged  for delta updates, so if you haven't already, be sure to review this page: [How to prepare an update to be imported into Azure Device Update for IoT Hub](create-update.md)
 
+### Generate import manifest
+
 The first step to import an update into the Device Update service is always to create an import manifest if you don't already have one. For more information about import manifests, see [Importing updates into Device Update](import-concepts.md#import-manifest). For delta updates, your import manifest will need to reference two files:
+
 - The _recompressed_ target SWU image created when you ran the DiffGen tool.
 - The delta file created when you ran the DiffGen tool.
 
-The delta update feature uses a new capability called [Related Files](related-files.md), which requires an import manifest that is version 5 or later.
+The delta update feature uses a capability called [related files](related-files.md), which requires an import manifest that is version 5 or later.
 
-To create an import manifest for your delta update using the Related Files feature, you'll need to add [relatedFiles](import-schema.md#relatedfiles-object) and [downloadHandler](import-schema.md#downloadhandler-object) elements to your import manifest.
+To create an import manifest for your delta update using the related files feature, you'll need to add [relatedFiles](import-schema.md#relatedfiles-object) and [downloadHandler](import-schema.md#downloadhandler-object) objects to your import manifest.
 
-The `relatedFiles` element is used to specify information about the delta update file, including the file name, file size and sha256 hash (examples available at the link above). Importantly, you also need to specify two properties which are unique to the delta update feature:
+Use the `relatedFiles` object to specify information about the delta update file, including the file name, file size and sha256 hash. Importantly, you also need to specify two properties which are unique to the delta update feature:
 
 ```json
 "properties": {
@@ -169,24 +170,22 @@ The `relatedFiles` element is used to specify information about the delta update
       "microsoft.sourceFileHash": "[insert the source SWU image file hash]"
 }
 ```
+
 Both of the properties above are specific to your _source SWU image file_ that you used as an input to the DiffGen tool when creating your delta update. The information about the source SWU image is needed in your import manifest even though you will not actually be importing the source image. The delta components on the device use this metadata about the source image to locate the image on the device once the delta has been downloaded.
 
-The `downloadHandler` element is used to specify how the Device Update agent will orchestrate the delta update, using the Related Files feature. Unless you are customizing your own version of the Device Update agent for delta functionality, you should only use this downloadHandler:
+Use the `downloadHandler` object to specify how the Device Update agent will orchestrate the delta update, using the related files feature. Unless you are customizing your own version of the Device Update agent for delta functionality, you should only use this downloadHandler:
 
 ```json
 "downloadHandler": {
   "id": "microsoft/delta:1"
 }
 ```
-You can use the Azure Command Line Interface (CLI) to generate an import manifest for your delta update. If you haven't used the Azure CLI to create an import manifest before, refer to [these instructions](create-update.md#create-a-basic-device-update-import-manifest).
+
+You can use the Azure Command Line Interface (CLI) to generate an import manifest for your delta update. If you haven't used the Azure CLI to create an import manifest before, see [Create a basic import manifest](create-update.md#create-a-basic-device-update-import-manifest).
 
 ```azurecli
-    az iot du update init v5
---update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version>
---compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report>
---step handler=microsoft/swupdate:2 properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'>
---file path=<replace with path(s) to your update file(s), including the full file name> downloadHandler=microsoft/delta:1
---related-file path=<replace with path(s) to your delta file(s), including the full file name> properties='{"microsoft.sourceFileHashAlgorithm": "sha256", "microsoft.sourceFileHash": "<replace with the source SWU image file hash>"}' 
+az iot du update init v5
+--update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version> --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> --step handler=microsoft/swupdate:2 properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> --file path=<replace with path(s) to your update file(s), including the full file name> downloadHandler=microsoft/delta:1 --related-file path=<replace with path(s) to your delta file(s), including the full file name> properties='{"microsoft.sourceFileHashAlgorithm": "sha256", "microsoft.sourceFileHash": "<replace with the source SWU image file hash>"}' 
 ```
 
 Save your generated import manifest JSON to a file with the extension `.importmanifest.json`

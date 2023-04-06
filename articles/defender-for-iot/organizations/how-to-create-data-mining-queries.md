@@ -17,7 +17,7 @@ Data mining query data is continuously saved until a device is deleted, and is a
 
 To create data mining reports, you must be able to access the OT network sensor you want to generate data for as an **Admin** or **Security Analyst** user.
 
-For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## View an OT sensor predefined data mining report
 
@@ -51,10 +51,10 @@ Create your own custom data mining report if you have reporting needs not covere
     |---------|---------|
     | **Name** / **Description** | Enter a meaningful name for your report and an optional description. |
     | **Send to CM** | Select to send your report to the on-premises management console. |
-    | **Choose category** | Select the categories to include in your report. |
+    | **Choose category** | Select the categories to include in your report. <br><br> For example, select **Internet Domain Allowlist** under **DNS** to create a report of the allowed internet domains and their resolved IP addresses. |
     | **Order by** | Select to sort your data by category or by activity. |
     | **Filter by** | Define a filter for your report using any of the following parameters: <br><br> - **Results within the last**: Enter a number and then select **Minutes**, **Hours**, or **Days** <br> - **IP address / MAC address / Port**: Enter one or more IP addresses, MAC addresses, and ports to filter into your report. Enter a value and then select + to add it to the list.<br> - **Device group**: Select one or mode device groups to filter into your report. |
-    | **Add filter type** | Select to add any of the following filter types into your report. <br><br> - Transport (GENERIC) <br> -	Protocol (GENERIC) <br> - TAG (GENERIC) <br> - Maximum value (GENERIC) <br> - State (GENERIC) <br> - Minimum value (GENERIC) <br><br> Enter a value in the relevant field and then select + to add it to the list. |
+    | **Add filter type** | Select to add any of the following filter types into your report. <br><br> - Transport (GENERIC) <br> - Protocol (GENERIC) <br> - TAG (GENERIC) <br> - Maximum value (GENERIC) <br> - State (GENERIC) <br> - Minimum value (GENERIC) <br><br> Enter a value in the relevant field and then select + to add it to the list. |
 
 1. Select **Save**. Your data mining report is shown in the **My reports** area. For example:
 
@@ -82,9 +82,7 @@ Sign into an on-premises management console to view [out-of-the-box data mining 
 
 **To view a data mining report from an on-premises management console**:
 
-Sign into your on-premises management console and select
-
-1. **Reports** on the left.
+1. Sign into your on-premises management console and select **Reports** on the left.
 
 1. From the **Sensors** drop-down list, select the sensor for which you want to generate the report.
 
@@ -98,8 +96,8 @@ The page lists the current report data. Select :::image type="icon" source="medi
 
 - Continue creating other reports for more security data from your OT sensor. For more information, see:
 
-    - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
-    
-    - [Attack vector reporting](how-to-create-attack-vector-reports.md)
-    
-    - [Create trends and statistics dashboards](how-to-create-trends-and-statistics-reports.md)
+  - [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+
+  - [Attack vector reporting](how-to-create-attack-vector-reports.md)
+
+  - [Create trends and statistics dashboards](how-to-create-trends-and-statistics-reports.md)

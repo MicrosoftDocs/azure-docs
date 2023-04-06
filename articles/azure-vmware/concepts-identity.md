@@ -20,9 +20,9 @@ Azure VMware Solution private clouds are provisioned with a vCenter Server and N
 
 ### View the vCenter Server privileges
 
-You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter Server.
+Use the steps to view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
 
-1. Sign into the vSphere Client and go to **Menu** > **Administration**.
+1. Sign in to the vSphere Client and go to **Menu** > **Administration**.
 1. Under **Access Control**, select **Roles**.
 1. From the list of roles, select **CloudAdmin** and then select **Privileges**.
 
@@ -114,6 +114,7 @@ The following permissions are assigned to the **cloudadmin** user in Azure VMwar
 
 > [!NOTE]
 > **VMware NSX-T Data Center cloudadmin user** on Azure VMware Solution is not the same as the **cloudadmin user** mentioned in the VMware product documentation.
+> Permissions below apply to NSX-T's Policy API.  Manager API functionality may be limited.
 
 | Category        | Type                  | Operation                                                            | Permission                                                       |
 |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|

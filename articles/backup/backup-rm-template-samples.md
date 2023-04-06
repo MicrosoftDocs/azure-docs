@@ -4,9 +4,9 @@ description: Azure Resource Manager and Bicep templates for use with Recovery Se
 ms.topic: sample
 ms.date: 09/05/2022
 ms.custom: mvc
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Azure Resource Manager and Bicep templates for Azure Backup
 

@@ -18,11 +18,11 @@ This article shows you how to export your Azure IoT Hub template, add a route to
 > [!IMPORTANT]
 > When you use a Resource Manager template to deploy a resource, the template replaces any existing resource of the type you're deploying.
 >
-> When you create a new IoT hub, overwriting an existing deployed resource isn't a concern. To create a new IoT hub, you can use a [basic template](/azure/azure-resource-manager/templates/syntax#template-format) that has the required properties instead of exporting an existing template from an IoT hub that's already deployed.
+> When you create a new IoT hub, overwriting an existing deployed resource isn't a concern. To create a new IoT hub, you can use a [basic template](../azure-resource-manager/templates/syntax.md#template-format) that has the required properties instead of exporting an existing template from an IoT hub that's already deployed.
 >
 > However, if you add a route to an existing IoT hub Resource Manager template, use a template that you export from your IoT hub to ensure that all existing resources and properties remain connected after you deploy the updated template. Resources that are already deployed won't be replaced. For example, an exported Resource Manager template that you previously deployed might contain storage information for your IoT hub if you've connected it to storage.
 
-To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md). To walk through the steps to set up a route that sends messages to storage and then test on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal).
+To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md). To walk through the steps to set up a route that sends messages to storage and then test on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=portal).
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ Be sure to have *one* of the following resources to use when you create an endpo
 
 * A Service Bus topic resource. If you need to create a new Service Bus topic, see [Quickstart: Create a Service Bus namespace with topic and subscription by using a Resource Manager template](../service-bus-messaging/service-bus-resource-manager-namespace-topic.md).
 
-* An Azure Storage resource. If you need to create a new Azure Storage, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=template).
+* An Azure Storage resource. If you need to create a new Azure Storage, see [Create a storage account](../storage/common/storage-account-create.md?tabs=template).
 
 ## Create a route
 
@@ -177,7 +177,7 @@ For `name`, enter a unique name for your endpoint. Leave the `id` parameter as a
 
 # [Azure Storage](#tab/azurestorage)
 
-To learn how to create an Azure Storage resource (a namespace, topic, and subscription), see [Create a storage account](/azure/storage/common/storage-account-create?tabs=template).
+To learn how to create an Azure Storage resource (a namespace, topic, and subscription), see [Create a storage account](../storage/common/storage-account-create.md?tabs=template).
 
 In the [Azure portal](https://portal.azure.com/#home), get your primary connection string for your Azure Storage resource on the resource's **Access keys** pane.
 
@@ -325,7 +325,7 @@ New-AzResourceGroupDeployment `
 
 ### Azure Cloud Shell deployment
 
-Because [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) runs in a web browser, you can [upload](/azure/cloud-shell/using-the-shell-window#upload-and-download-files) the template file before you run the deployment command. With the file uploaded, you need only the template file name (instead of the entire file path) to use in the `template-file` parameter.
+Because [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) runs in a web browser, you can [upload](../cloud-shell/using-the-shell-window.md#upload-and-download-files) the template file before you run the deployment command. With the file uploaded, you need only the template file name (instead of the entire file path) to use in the `template-file` parameter.
 
 :::image type="content" source="media/how-to-routing-arm/upload-cloud-shell.png" alt-text="Screenshot that shows the location of the button in Azure Cloud Shell to upload a file.":::
 
@@ -365,4 +365,4 @@ To view your new route in the Azure portal, go to your IoT Hub resource. On the 
 
 In this how-to article, you learned how to create a route and endpoint for Event Hubs, Service Bus queues and topics, and Azure Storage.
 
-To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](/azure/iot-hub/tutorial-routing?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.
+To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=portal). In the tutorial, you create a storage route and test it with a device in your IoT hub.

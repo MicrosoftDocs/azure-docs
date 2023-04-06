@@ -208,10 +208,10 @@ additionalContent:
       ## CARD 2 ######################
       - title: Connect to Microsoft Graph
         summary: >
-          Programmatic access to organizational, user, and application data stored in Microsoft Graph. Call the Microsoft Graph API from your application to
+          Programmatic access to organizational, user, and application data stored in Azure Active Directory. Call Microsoft Graph from your application to
           create and manage Azure AD users and groups, get and modify your users' data like their profiles, calendars, email, and more.
         links:
-        - url: microsoft-graph-intro.md
+        - url: /graph/overview?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
           text: Microsoft Graph API documentation
       ## CARD 3 ######################
       - title: Manage and market your apps

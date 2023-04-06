@@ -2,7 +2,6 @@
 title: Best practices for running Azure Kubernetes Service (AKS) at scale 
 titleSuffix: Azure Kubernetes Service
 description: Learn the AKS cluster operator best practices and special considerations for running large clusters at 500 node scale and beyond 
-services: container-service
 ms.topic: conceptual
 ms.date: 10/04/2022
  
@@ -10,19 +9,18 @@ ms.date: 10/04/2022
 
 # Best practices for creating and running Azure Kubernetes Service (AKS) clusters at scale
 
-If your AKS clusters satisfy any of the following criteria, we recommend using the [Uptime SLA][Uptime SLA] feature for higher reliability and scalability of the Kubernetes control plane:
+If your AKS clusters satisfy any of the following criteria, we recommend using the [Standard tier that comes with the Uptime SLA feature][standard-tier] for higher reliability and scalability of the Kubernetes control plane:
 
+* Clusters running production workloads or availability-sensitive, mission-critical workloads
 * Clusters running more than 10 nodes on average
 * Clusters that need to scale beyond 1000 nodes
-* Clusters running production workloads
-* Cluster running availability-sensitive, mission-critical workloads
 
-To scale AKS clusters beyond 1000 nodes, ***with a hard limit of 5000 nodes per cluster***, you need to request a node limit quota increase by raising a support ticket in the [Azure portal][Azure portal]. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more information, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
+To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by raising a support ticket in the [Azure portal][Azure portal] up to a maximum of 5000 nodes per cluster. Increasing the node limit doesn't increase other AKS service quota limits, like the number of pods per node. For more information, see [Limits, quotas, and restrictions for AKS resources][quotas-skus-regions].
 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
 
 * An existing AKS cluster that needs the node limit increase. This cluster shouldn't be deleted as that will remove the limit increase.
-* Uptime SLA enabled on your cluster.
+* Clusters using the Standard tier.
 * Clusters using Kubernetes version 1.23 or above.
 
 > [!NOTE]
@@ -31,7 +29,7 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 ## Networking considerations and best practices
 
 * Use Managed NAT for cluster egress with at least 2 public IPs on the NAT Gateway. For more information, see [Managed NAT Gateway with AKS][Managed NAT Gateway - Azure Kubernetes Service].
-* Use Azure CNI with Dynamic IP allocation for optimum IP utilization, and scale up to 50k application pods per cluster with one routable IP per pod. For more information, see [Configure Azure CNI networking in AKS][Configure Azure CNI networking in Azure Kubernetes Service (AKS)].
+* Use Azure CNI with Dynamic IP allocation for optimum IP utilization, and scale up to 50k application pods per cluster with one routable IP per pod. For more information, see [Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS][Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)].
 * When using internal Kubernetes services behind an internal load balancer, we recommend creating an internal load balancer or internal service below 750 node scale for optimal scaling performance and load balancer elasticity.
 
 > [!NOTE]
@@ -56,10 +54,10 @@ To increase the node limit beyond 1000, you must have the following pre-requisit
 
 <!-- Links - External -->
 [Managed NAT Gateway - Azure Kubernetes Service]: nat-gateway.md
-[Configure Azure CNI networking in Azure Kubernetes Service (AKS)]: configure-azure-cni.md#dynamic-allocation-of-ips-and-enhanced-subnet-support
+[Configure Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in Azure Kubernetes Service (AKS)]: configure-azure-cni-dynamic-ip-allocation.md
 [max surge]: upgrade-cluster.md?tabs=azure-cli#customize-node-surge-upgrade
 [Azure portal]: https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
-[uptime SLA]: uptime-sla.md
+[standard-tier]: free-standard-pricing-tiers.md
 [throttling-policies]: https://azure.microsoft.com/blog/api-management-advanced-caching-and-throttling-policies/
 
 <!-- LINKS - Internal -->

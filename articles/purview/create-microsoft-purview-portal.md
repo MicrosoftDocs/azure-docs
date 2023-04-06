@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account'
 description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 12/09/2022
+ms.date: 01/13/2023
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-ui
@@ -54,7 +54,7 @@ For more information about the governance capabilities of Microsoft Purview, for
 
 1. You can choose a name for your managed resource group. Microsoft Purview will create a managed storage account in this group that it will use during its processes.
 
-1. On  the **Networking** tab you can choose to connect to all networks, or to use private endpoints. For more information and configuration options, see our [private endpoints for Microsoft Purview articles.](catalog-private-link.md)
+1. On the **Networking** tab you can choose to connect to all networks, or to use private endpoints. For more information and configuration options, see [Configure firewall settings for your Microsoft Purview account](catalog-firewall.md) and [private endpoints for Microsoft Purview articles.](catalog-private-link.md)
 
 1. On **Configuration** tab you can choose to configure Event Hubs namespaces to programmatically monitor your Microsoft Purview account using Event Hubs and Atlas Kafka.
     - [Steps to configure Event Hubs namespaces](configure-event-hubs-for-kafka.md)

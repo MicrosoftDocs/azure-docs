@@ -43,8 +43,6 @@
         href: containers/index.yml
       - name: Cognitive Services containers overview
         href: cognitive-services-container-support.md
-      - name: Container image tags and releases notes
-        href: ./containers/container-image-tags.md
       - name: General container FAQ
         href: ./containers/container-faq.yml
       - name: Use containers in disconnected environments
@@ -122,7 +120,7 @@
   - name: REST API
     href: /rest/api/cognitiveservices/accountmanagement/accounts
   - name: .NET
-    href: /dotnet/api/overview/azure/cognitiveservices/management/management-cognitiveservices
+    href: /dotnet/api/overview/azure/resourcemanager.cognitiveservices-readme
   - name: Node.js
     href: /javascript/api/@azure/arm-cognitiveservices/
   - name: Python

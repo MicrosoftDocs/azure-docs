@@ -3,8 +3,8 @@ title: Azure Monitor Network Insights
 description: An overview of Azure Monitor Network Insights, which provides a comprehensive view of health and metrics for all deployed network resources without any configuration.
 ms.topic: conceptual
 ms.service: network-watcher
-author: Sagav28
-ms.author: saggupta
+author: halkazwini
+ms.author: halkazwini
 ms.date: 09/28/2022
 ms.reviewer: shijain
 ms.custom: subject-monitoring, ignite-2022

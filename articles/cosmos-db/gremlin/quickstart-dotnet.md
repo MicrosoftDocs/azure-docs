@@ -4,7 +4,7 @@ description: Presents a .NET Framework/Core code sample you can use to connect t
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 05/02/2020

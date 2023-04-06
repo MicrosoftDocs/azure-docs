@@ -5,16 +5,43 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-author: MsGabsta
+author: GabstaMSFT
 ms.collection: windows
-ms.date: 07/20/2019 
-ms.custom: devx-track-azurepowershell
+ms.date: 02/27/2023 
 ---
 
 # Azure Virtual Machine Agent overview
 The Microsoft Azure Virtual Machine Agent (VM Agent) is a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions. VM Extensions enable post-deployment configuration of VM, such as installing and configuring software. VM extensions also enable recovery features such as resetting the administrative password of a VM. Without the Azure VM Agent, VM extensions cannot be run.
 
 This article details installation and detection of the Azure Virtual Machine Agent.
+
+## Prerequisites
+
+### **Windows OS’ Supported**
+| **Windows OS** |	**x64** |
+|:----|:----:|
+| Windows 10 |	Supported |
+| Windows 11 |	Supported |
+| Windows Server 2008 SP2 |	Supported |
+| Windows Server 2008 R2 |	Supported |
+| Windows Server 2012 |	Supported |
+| Windows Server 2012 R2 |	Supported |
+| Windows Server 2016 |	Supported |
+| Windows Server 2016 Core |	Supported |
+| Windows Server 2019 |	Supported |
+| Windows Server 2019 Core |	Supported |
+| Windows Server 2022 |	Supported |
+| Windows Server 2022 Core |	Supported |
+
+
+> [!IMPORTANT]
+> - The Windows VM Agent needs at least Windows Server 2008 SP2 (64-bit) to run, with the .NET Framework 4.0. See [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+>
+> - Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+>
+> - Ensure that DHCP is enabled inside the guest VM. This is required to get the host or fabric address from DHCP for the IaaS VM Agent and extensions to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell, and make sure the DHCP option inside the VM is enabled. [Learn more](../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) about setting up a static IP address with PowerShell.
+>
+> - Running the VM Agent in a "Nested Virtualization" VM might lead to unpredictable behavior, hence it's not supported in that Dev/Test scenario.
 
 ## Install the VM Agent
 
@@ -63,18 +90,6 @@ The Windows VM agent can be manually installed with a Windows installer package.
 $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
-
-### Prerequisites
-
-- The Windows VM Agent needs at least Windows Server 2008 SP2 (64-bit) to run, with the .NET Framework 4.0. See [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
-
-- Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
-
-- Ensure that DHCP is enabled inside the guest VM. This is required to get the host or fabric address from DHCP for the IaaS VM Agent and extensions to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell, and make sure the DHCP option inside the VM is enabled. [Learn more](../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) about setting up a static IP address with PowerShell.
-
-- Running the VM Agent in a "Nested Virtualization" VM might lead to unpredictable behavior, hence it's not supported in that Dev/Test scenario.
-
-
 
 ## Detect the VM Agent
 

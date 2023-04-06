@@ -1,6 +1,6 @@
 ---
 
-title: What are Azure Active Directory reports? | Microsoft Docs
+title: What are Azure Active Directory reports?
 description: Provides a general overview of Azure Active Directory reports.
 services: active-directory
 author: shlipsey3
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/01/2022
+ms.date: 02/03/2023
 ms.author: sarahlipsey
 ms.reviewer: sarbar  
 
@@ -70,6 +70,6 @@ In addition to the user interface, Azure AD also provides you with [programmatic
 
 ## Next steps
 
-- [Risky sign-ins report](../identity-protection/overview-identity-protection.md)
+- [Risky sign-ins report](../identity-protection/howto-identity-protection-investigate-risk.md#risky-sign-ins)
 - [Audit logs report](concept-audit-logs.md)
 - [Sign-ins logs report](concept-sign-ins.md)

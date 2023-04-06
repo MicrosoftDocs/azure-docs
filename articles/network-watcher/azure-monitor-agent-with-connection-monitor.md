@@ -1,17 +1,17 @@
 ---
-title: Monitor network connectivity by using Azure Monitor Agent
+title: Monitor network connectivity using Azure Monitor Agent
 description: This article describes how to monitor network connectivity in Connection Monitor by using Azure Monitor Agent.
 services: network-watcher
-author: v-ksreedevan
+author: halkazwini
 ms.service: network-watcher
 ms.custom: ignite-2022, engagement-fy23
 ms.topic: how-to
 ms.date: 10/27/2022
-ms.author: v-ksreedevan
+ms.author: halkazwini
 #Customer intent: I need to monitor a connection by using Azure Monitor Agent.
 ---
 
-# Monitor network connectivity by using Azure Monitor Agent with Connection Monitor
+# Monitor network connectivity using Azure Monitor Agent with connection monitor
 
 Connection Monitor supports the Azure Monitor Agent extension, which eliminates any dependency on the legacy Log Analytics agent. 
 
