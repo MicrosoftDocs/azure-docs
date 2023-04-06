@@ -49,13 +49,27 @@ Add the extension to your project by installing this [NuGet package](https://www
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
 ```
 
-<!-- awaiting bundle support
 # [C# script](#tab/csharp-script)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+Functions run as C# script, which is supported primarily for C# portal editing.  The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 3.x, or a later version.
--->
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+<!-- To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions]. -->
+
+<!-- You can install this version of the extension in your function app by registering the [extension bundle], version 3.x, or a later version. -->
+
 
 ---
 
