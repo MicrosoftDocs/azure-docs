@@ -1,8 +1,8 @@
 ---
 title: Handle map events in Android maps | Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Android SDK to handle events.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -16,25 +16,25 @@ This article shows you how to use the maps events manager.
 
 ## Interact with the map
 
-The map manages all events through its `events` property. The following table lists all of the supported map events.
+The map manages all events through its `events` property. The following table lists the supported map events.
 
 | Event                  | Event handler format | Description |
 |------------------------|----------------------|-------------|
-| `OnCameraIdle`         | `()`                 | <p>Fired after the last frame rendered before the map enters an "idle" state:<ul><li>No camera transitions are in progress.</li><li>All currently requested tiles have loaded.</li><li>All fade/transition animations have completed.</li></ul></p> |
-| `OnCameraMove`         | `()`                 | Fired repeatedly during an animated transition from one view to another, as the result of either user interaction or methods. |
-| `OnCameraMoveCanceled` | `()`                 | Fired when a movement request to the camera has been canceled. |
-| `OnCameraMoveStarted`  | `(int reason)`       | Fired just before the map begins a transition from one view to another, as the result of either user interaction or methods. The `reason` argument of the event listener returns an integer value that provides details of how the camera movement was initiated. The following list outlines the possible reasons:<ul><li>1: Gesture</li><li>2: Developer animation</li><li>3: API Animation</li></ul>   |
-| `OnClick`              | `(double lat, double lon): boolean` | Fired when the map is pressed and released at the same point on the map. This event handler returns a boolean value indicating if the event should be consumed or passed further to other event listeners. |
-| `OnFeatureClick`       | `(List<Feature>): boolean`    | Fired when the map is pressed and released at the same point on a feature. This event handler returns a boolean value indicating if the event should be consumed or passed further to other event listeners. |
-| `OnLayerAdded` | `(Layer layer)` | Fired when a layer is added to the map. |
-| `OnLayerRemoved` | `(Layer layer)` | Fired when a layer is removed from the map. |
-| `OnLoaded` | `()` | Fired immediately after all necessary resources have been downloaded and the first visually complete rendering of the map has occurred. |
-| `OnLongClick`          | `(double lat, double lon): boolean` | Fired when the map is pressed, held for a moment, and then released at the same point on the map. This event handler returns a boolean value indicating if the event should be consumed or passed further to other event listeners. |
-| `OnLongFeatureClick `  | `(List<Feature>): boolean`    | Fired when the map is pressed, held for a moment, and then released at the same point on a feature. This event handler returns a boolean value indicating if the event should be consumed or passed further to other event listeners. |
-| `OnReady`              | `(AzureMap map)`     | Fired when the map initially is loaded or when the app orientation change and the minimum required map resources are loaded and the map is ready to be programmatically interacted with. |
-| `OnSourceAdded` | `(Source source)` | Fired when a `DataSource` or `VectorTileSource` is added to the map. |
-| `OnSourceRemoved` | `(Source source)` | Fired when a `DataSource` or `VectorTileSource` is removed from the map. |
-| `OnStyleChange` | `()` | Fired when the map's style loads or changes. |
+| `OnCameraIdle`         | `()`                 | <p>Fires after the last frame rendered before the map enters an "idle" state:<ul><li>No camera transitions are in progress.</li><li>All currently requested tiles have loaded.</li><li>All fade/transition animations have completed.</li></ul></p> |
+| `OnCameraMove`         | `()`                 | Fires repeatedly during an animated transition from one view to another, as the result of either user interaction or methods. |
+| `OnCameraMoveCanceled` | `()`                 | Fires when a movement request to the camera has been canceled. |
+| `OnCameraMoveStarted`  | `(int reason)`       | Fires just before the map begins a transition from one view to another, as the result of either user interaction or methods. The `reason` argument of the event listener returns an integer value that provides details of how the camera movement was initiated. The following list outlines the possible reasons:<ul><li>1: Gesture</li><li>2: Developer animation</li><li>3: API Animation</li></ul>   |
+| `OnClick`              | `(double lat, double lon): boolean` | Fires when the map is pressed and released at the same point on the map. This event handler returns a boolean value indicating if the event should be consumed or passed further to other event listeners. |
+| `OnFeatureClick`       | `(List<Feature>): boolean`    | Fires when the map is pressed and released at the same point on a feature. This event handler returns a boolean value indicating if the event should be consumed or passed further to other event listeners. |
+| `OnLayerAdded` | `(Layer layer)` | Fires when a layer is added to the map. |
+| `OnLayerRemoved` | `(Layer layer)` | Fires when a layer is removed from the map. |
+| `OnLoaded` | `()` | Fires immediately after all necessary resources have been downloaded and the first visually complete rendering of the map has occurred. |
+| `OnLongClick`          | `(double lat, double lon): boolean` | Fires when the map is pressed, held for a moment, and then released at the same point on the map. This event handler returns a boolean value indicating if the event should be consumed or passed further to other event listeners. |
+| `OnLongFeatureClick `  | `(List<Feature>): boolean`    | Fires when the map is pressed, held for a moment, and then released at the same point on a feature. This event handler returns a boolean value indicating if the event should be consumed or passed further to other event listeners. |
+| `OnReady`              | `(AzureMap map)`     | Fires when the map initially loads, the orientation changes, the minimum required map resources load and the map is ready to be interacted with programmatically. |
+| `OnSourceAdded` | `(Source source)` | Fires when a `DataSource` or `VectorTileSource` is added to the map. |
+| `OnSourceRemoved` | `(Source source)` | Fires when a `DataSource` or `VectorTileSource` is removed from the map. |
+| `OnStyleChange` | `()` | Fires when the map's style loads or changes. |
 
 The following code shows how to add the `OnClick`, `OnFeatureClick`, and `OnCameraMove` events to the map.
 
@@ -90,7 +90,7 @@ For more information, see the [Navigating the map](how-to-use-android-map-contro
 
 ## Scope feature events to layer
 
-When adding the `OnFeatureClick` or `OnLongFeatureClick` events to the map, a layer instance or layer ID can be passed in as a second parameter. When a layer is passed in, the event will only fire if the event occurs on that layer. Events scoped to layers are supported by the symbol, bubble, line, and polygon layers.
+When the `OnFeatureClick` or `OnLongFeatureClick` events are added to the map, a layer instance or layer ID can be passed in as a second parameter. When a layer is passed in, an event fires if it occurs on that layer. Events scoped to layers are supported by the symbol, bubble, line, and polygon layers.
 
 ::: zone pivot="programming-language-java-android"
 

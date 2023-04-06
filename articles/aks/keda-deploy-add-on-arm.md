@@ -171,7 +171,7 @@ You can troubleshoot KEDA add-on problems in [this article][keda-troubleshoot].
 [az-feature-show]: /cli/azure/feature#az-feature-show
 
 <!-- LINKS - external -->
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl
+[kubectl]: https://kubernetes.io/docs/reference/kubectl/
 [keda]: https://keda.sh/
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue

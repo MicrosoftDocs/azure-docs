@@ -1,5 +1,5 @@
 ---
-title: Administrative units in Azure Active Directory | Microsoft Docs
+title: Administrative units in Azure Active Directory
 description: Use administrative units for more granular delegation of permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''

@@ -43,7 +43,7 @@ The following table contains links to code samples for each supported language a
 | Language | MQTT protocol parameter | MQTT over WebSockets protocol parameter
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt.h) | [MQTT_WebSocket_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt_websockets.h) |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over WebSockets if MQTT fails. To specify MQTT over WebSockets only, use TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
@@ -70,7 +70,7 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 |Language  |Default keep-alive interval  |Configurable  |
 |---------|---------|---------|
 |Node.js     |   180 seconds      |     No    |
-|Java     |    230 seconds     |     [Yes](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/ClientOptions.java#L64)    |
+|Java     |    230 seconds     |     [Yes](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/ClientOptions.java#L64)    |
 |C     | 240 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 seconds* |  [Yes](/dotnet/api/microsoft.azure.devices.client.transport.mqtt.mqtttransportsettings.keepaliveinseconds)   |
 |Python   | 60 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/azure/iot/device/iothub/abstract_clients.py#L343)   |
@@ -94,38 +94,6 @@ When doing so, make sure to check the following items:
 * MQTT doesn't support the *reject* operations when receiving [cloud-to-device messages](iot-hub-devguide-messaging.md). If your back-end app needs to receive a response from the device app, consider using [direct methods](iot-hub-devguide-direct-methods.md).
 
 * AMQP isn't supported in the Python SDK.
-
-## Example in C using MQTT without an Azure IoT SDK
-
-In the [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample), you'll find a couple of C/C++ demo projects showing how to send telemetry messages and receive events with an IoT hub without using the Azure IoT C SDK. 
-
-These samples use the [Eclipse Mosquitto](https://mosquitto.org) library to send messages to the MQTT broker implemented in the IoT hub.
-
-To learn how to adapt the samples to use the [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions, see [Tutorial - Use MQTT to develop an IoT Plug and Play device client](../iot-develop/tutorial-use-mqtt.md).
-
-This repository contains the following examples:
-
-**For Windows:**
-
-* `mosquitto_telemetry` contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
-
-* `mosquitto_subscribe` contains code to subscribe to events of a given IoT hub on a Windows machine.
-
-* `mosquitto_device_twin` contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
-
-**For Linux:**
-
-* `MQTTLinux` contains code and build script to run on Linux (WSL, Ubuntu, and Raspbian have been tested so far).
-
-* `LinuxConsoleVS2019` contains the same code but in a Visual Studio 2019 (VS2019) project targeting Windows Subsystem for Linux (WSL). This project allows you to debug the code running on Linux step by step from Visual Studio.
-
-**For mosquitto_pub:**
-
-This folder contains two samples commands used with the mosquitto_pub utility tool provided by [Eclipse Mosquitto](https://mosquitto.org).
-
-* [Send a message](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/mosquitto_pub#send-a-message) sends a text message to an IoT hub, acting as a device.
-
-* [Subscribe to events](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/mosquitto_pub#subscribe-to-events) subscribes to and displays events occurring in an IoT hub.
 
 ## Using the MQTT protocol directly (as a device)
 
@@ -191,6 +159,14 @@ You can connect to IoT Hub over MQTT using a module identity, similar to connect
 * The twin status topic is identical for modules and devices.
 
 For more information about using MQTT with modules, see [Publish and subscribe with IoT Edge](../iot-edge/how-to-publish-subscribe.md) and learn more about the [IoT Edge hub MQTT endpoint](https://github.com/Azure/iotedge/blob/main/doc/edgehub-api.md#edge-hub-mqtt-endpoint).
+
+## Samples using MQTT without an Azure IoT SDK
+
+The [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample), contains C/C++, Python, and CLI samples that show you how to send telemetry messages, receive cloud-to-device messages, and use device twins without using the Azure device SDKs.
+
+The C/C++ samples use the [Eclipse Mosquitto](https://mosquitto.org) library, the Python sample uses [Eclipse Paho](https://www.eclipse.org/paho/), and the CLI samples use `mosquitto_pub`.
+
+To learn more, see [Tutorial - Use MQTT to develop an IoT device client](../iot-develop/tutorial-use-mqtt.md).
 
 ## TLS/SSL configuration
 

@@ -76,8 +76,7 @@ The following snippets are all taken from the `todo.go` file.
 
     clientOptions := options.Client().ApplyURI(mongoDBConnectionString).SetDirect(true)
     
-    c, err := mongo.NewClient(clientOptions)
-    err = c.Connect(ctx)
+    c, err := mongo.Connect(ctx, clientOptions)
     if err != nil {
         log.Fatalf("unable to initialize connection %v", err)
     }

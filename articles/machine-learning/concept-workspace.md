@@ -10,29 +10,50 @@ ms.topic: conceptual
 ms.author: deeikele
 author: deeikele
 ms.reviewer: sgilley
-ms.date: 08/26/2022
+ms.date: 03/13/2023
+monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
 
 # What is an Azure Machine Learning workspace?
 
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.  The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.  
+Workspaces are places to collaborate with colleagues to create machine learning artifacts and group related work. For example, experiments, jobs, datasets, models, components, and inference endpoints. This article describes workspaces, how to manage access to them, and how to use them to organize your work.
 
-Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to an [online endpoint](concept-endpoints.md) as a REST-based HTTP endpoint.
+Ready to get started? [Create a workspace](#create-a-workspace).
 
-## Taxonomy 
+:::image type="content" source="./media/concept-workspace/workspace.png" alt-text="Screenshot of the Azure Machine Learning workspace.":::
 
-+ A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
+## Working with workspaces
 
-+ [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams, or projects.
+For machine learning teams, the workspace is a place to organize their work. To administrators, workspaces serve as containers for access management, cost management and data isolation. Below are some tips for working with workspaces:
+
++ **Use [user roles](how-to-assign-roles.md)** for permission management in the workspace between users. For example a data scientist, a machine learning engineer or an admin.
++ **Assign access to user groups**: By using Azure Active Directory user groups, you don't have to add individual users to each workspace and other resources the same group of users requires access to.
++ **Create a workspace per project**: While a workspace can be used for multiple projects, limiting it to one project per workspace allows for cost reporting accrued to a project level. It also allows you to manage configurations like datastores in the scope of each project.
++ **Share Azure resources**: Workspaces require you to create several [associated resources](#associated-resources). Share these resources between workspaces to save repetitive setup steps.
++ **Enable self-serve**: Pre-create and secure [associated resources](#associated-resources) as an IT admin, and use [user roles](how-to-assign-roles.md) to let data scientists create workspaces on their own.
++ **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
+
+## What content is stored in a workspace?
+
+Your workspace keeps a history of all training runs, with logs, metrics, output, lineage metadata, and a snapshot of your scripts. As you perform tasks in Azure Machine Learning, artifacts are generated. Their metadata and data are stored in the workspace and on its [associated resources](#associated-resources).  
+
+## Tasks performed within a workspace 
+
+The following constructs you can find and manage within the workspace boundary. 
+
 + [Compute targets](concept-compute-target.md) are used to run your experiments.
-+ When you create the workspace, [associated resources](#associated-resources) are also created for you.
-+ Jobs are training runs you use to build your models.  You can organize your jobs into Experiments.
++ Jobs are training runs you use to build your models. You can organize your jobs into Experiments.
 + [Pipelines](concept-ml-pipelines.md) are reusable workflows for training and retraining your model.
 + [Data assets](concept-data.md) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
+:::moniker range="azureml-api-2"
 + Use the registered model and a scoring script to create an [online endpoint](concept-endpoints.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
++ Use the registered model and a scoring script to [deploy the model](./v1/how-to-deploy-and-where.md)
+:::moniker-end
 
 ## Tools for workspace interaction
 
@@ -41,21 +62,15 @@ You can interact with your workspace in the following ways:
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
-+ In any Python environment with the [Azure Machine Learning SDK for Python](https://aka.ms/sdk-v2-install).
-+ On the command line using the Azure Machine Learning [CLI extension](how-to-configure-cli.md)
+:::moniker range="azureml-api-2"
++ In any Python environment with the [Azure Machine Learning SDK v2 for Python](https://aka.ms/sdk-v2-install).
++ On the command line using the Azure Machine Learning [CLI extension v2](how-to-configure-cli.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
++ In any Python environment with the [Azure Machine Learning SDK v1 for Python](/python/api/overview/azure/ml/)
++ On the command line using the Azure Machine Learning [CLI extension v1](./v1/reference-azure-machine-learning-cli.md)
+:::moniker-end
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
-
-## Machine learning with a workspace
-
-Machine learning tasks read and/or write artifacts to your workspace.
-
-+ Run an experiment to train a model - writes job run results to the workspace.
-+ Use automated ML to train a model - writes training results to the workspace.
-+ Register a model in the workspace.
-+ Deploy a model - uses the registered model to create a deployment.
-+ Create and run reusable workflows.
-+ View machine learning artifacts such as jobs, pipelines, models, deployments.
-+ Track and monitor models.
 
 ## Workspace management
 
@@ -78,7 +93,12 @@ There are multiple ways to create a workspace:
 * Use [Azure Machine Learning studio](quickstart-create-resources.md) to quickly create a workspace with default settings.
 * Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more options. 
 * Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks.
+:::moniker range="azureml-api-2"
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
+:::moniker-end
+:::moniker range="azureml-api-1"
+* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
+:::moniker-end
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]
@@ -95,7 +115,7 @@ These sub resources are the main resources that are made in the Azure Machine Le
 
 ## Associated resources
 
-When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
+When you create a new workspace, you're required to bring other Azure resources to store your data:
 
 + [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
   
@@ -103,19 +123,28 @@ When you create a new workspace, it automatically creates several Azure resource
   > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created. 
   > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
 
-  To use an existing Azure Storage account, it cannot be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
+  To use an existing Azure Storage account, it can't be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also can't have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following components:
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR): When you build custom docker containers via Azure Machine Learning. For example, in the following scenarios:
     * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
+    :::moniker range="azureml-api-2"
     * [AutoML](concept-automated-ml.md) when deploying
+    :::moniker-end
+    :::moniker range="azureml-api-1"
+    * [AutoML](./v1/concept-automated-ml-v1.md) when deploying
     * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
+    :::moniker-end
 
-    To minimize costs, ACR is **lazy-loaded** until images are needed.
+    > [!NOTE] 
+    > Workspaces can be created without Azure Container Registry as a dependency if you do not have a need to build custom docker containers. To read container images, Azure Machine Learning also works with external container registries. Azure Container Registry is automatically provisioned when you build custom docker images. Use Azure RBAC to prevent customer docker containers from being build. 
 
     > [!NOTE]
     > If your subscription setting requires adding tags to resources under it, Azure Container Registry (ACR) created by Azure Machine Learning will fail, since we cannot set tags to ACR.
 
-+ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring and diagnostics information. For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
++ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring and diagnostics information. 
+    :::moniker range="azureml-api-2"
+    For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
+    :::moniker-end
 
     > [!NOTE]
     > You can delete the Application Insights instance after cluster creation if you want. Deleting it limits the information gathered from the workspace, and may make it more difficult to troubleshoot problems. __If you delete the Application Insights instance created by the workspace, you cannot re-create it without deleting and recreating the workspace__.

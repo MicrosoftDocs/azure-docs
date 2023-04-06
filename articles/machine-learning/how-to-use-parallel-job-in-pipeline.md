@@ -9,7 +9,7 @@ ms.topic: how-to
 author: alainli
 ms.author: alainli
 ms.reviewer: lagayhar
-ms.date: 09/27/2022
+ms.date: 03/13/2023
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
@@ -47,23 +47,24 @@ You should consider using Azure Machine Learning Parallel job if:
 
 Unlike other types of jobs, a parallel job requires preparation. Follow the next sections to prepare for creating your parallel job.
 
-### Declare the inputs to be distributed and partition setting
+### Declare the inputs to be distributed and data division setting
 
-Parallel job requires only one **major input data** to be split and processed with parallel. The major input data can be either tabular data or a set of files. Different input types can have a different partition method.
+Parallel job requires only one **major input data** to be split and processed with parallel. The major input data can be either tabular data or a set of files. Different input types can have a different data division method.
 
-The following table illustrates the relation between input data and partition setting:
+The following table illustrates the relation between input data and data division method:
 
-| Data format | Azure Machine Learning input type | Azure Machine Learning input mode | Partition method |
+| Data format | Azure Machine Learning input type | Azure Machine Learning input mode | Data division method |
 |: ---------- |: ------------- |: ------------- |: --------------- |
-| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files) |
-| Tabular data | `mltable` | direct | By size (estimated physical size) |
+| File list | `mltable` or<br>`uri_folder` | ro_mount or<br>download | By size (number of files)<br>By partitions |
+| Tabular data | `mltable` | direct | By size (estimated physical size)<br>By partitions |
 
-You can declare your major input data with `input_data` attribute in parallel job YAML or Python SDK. And you can bind it with one of your defined `inputs` of your parallel job by using `${{inputs.<input name>}}`. Then to define the partition method for your major input.
+You can declare your major input data with `input_data` attribute in parallel job YAML or Python SDK. And you can bind it with one of your defined `inputs` of your parallel job by using `${{inputs.<input name>}}`. Then you need to define the data division method for your major input by filling different attribute:
 
-For example, you could set numbers to `mini_batch_size` to partition your data **by size**.
+| Data division method | Attribute name | Attribute type | Job example |
+|: ---------- |: ------------- |: ------------- |: --------------- |
+| By size | mini_batch_size | string | [Iris batch prediction](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/parallel/2a_iris_batch_prediction) |
+| By partitions | partition_keys | list of string | [Orange juice sales prediction](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/parallel/1a_oj_sales_prediction) |
 
-- When using file list input, this value defines the number of files for each mini-batch.
-- When using tabular input, this value defines the estimated physical size for each mini-batch.
 
 # [Azure CLI](#tab/cliv2)
 
@@ -81,7 +82,7 @@ Declare `job_data_path` as one of the inputs. Bind it to `input_data` attribute.
 
 ---
 
-Once you have the partition setting defined, you can configure parallel setting by using two attributes below:
+Once you have the data division setting defined, you can configure how many resources for your parallelization by filling two attributes below:
 
 | Attribute name | Type | Description | Default value |
 |:-|--|:-|--|
@@ -155,6 +156,9 @@ Sample code to set two attributes:
 
 > [!IMPORTANT]
 > If you want to parse arguments in Init() or Run(mini_batch) function, use "parse_known_args" instead of "parse_args" for avoiding exceptions. See the [iris_score](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py) example for entry script with argument parser.
+
+> [!IMPORTANT]
+> If you use `mltable` as your major input data, you need to install 'mltable' library into your environment. See the line 9 of this [conda file](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/parallel/1a_oj_sales_prediction/src/parallel_train/conda.yml) example.
 
 ### Consider automation settings
 
@@ -255,11 +259,8 @@ To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, e
 
 ## Parallel job in pipeline examples
 
-- Azure CLI + YAML:
-    - [Iris prediction using parallel](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines/iris-batch-prediction-using-parallel) (tabular input)
-    - [mnist identification using parallel](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/pipelines/mnist-batch-identification-using-parallel) (file list input)
-- SDK:
-    - [Pipeline with parallel run function](https://github.com/Azure/azureml-examples/blob/sdk-preview/sdk/jobs/pipelines/1g_pipeline_with_parallel_nodes/pipeline_with_parallel_nodes.ipynb)
+- [Azure CLI + YAML example repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/parallel)
+- [SDK example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/parallel)
 
 ## Next steps
 

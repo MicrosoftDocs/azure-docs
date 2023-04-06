@@ -469,7 +469,7 @@
     - name: Create virtual switches and virtual networks via PowerShell
       href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
     - name: Deploy via config file
-      href: azure-stack-edge-zero-touch-provisioning.md
+      href: azure-stack-edge-powershell-based-configuration.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
@@ -522,7 +522,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2301 - Current
+    - name: 2303 - Current
+      href: azure-stack-edge-gpu-2303-release-notes.md
+    - name: 2301
       href: azure-stack-edge-gpu-2301-release-notes.md
     - name: 2210
       href: azure-stack-edge-gpu-2210-release-notes.md

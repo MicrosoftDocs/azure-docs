@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zoho One China | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zoho One China'
 description: Learn how to configure single sign-on between Azure Active Directory and Zoho One China.
 services: active-directory
 author: jeevansd

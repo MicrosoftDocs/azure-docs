@@ -29,7 +29,9 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 2. You configure encryption with a customer-managed key for the NetApp account.
 3. You use the managed identity to which the Azure Key Vault admin granted permissions in step one to authenticate access to Azure Key Vault via Azure Active Directory.
 4. Azure NetApp Files wraps the account encryption key with the customer-managed key in Azure Key Vault.
-5. For read/write operations, Azure NetApp Files sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
+
+    Customer-managed keys have no performance impact on Azure NetApp Files. Its only difference from Microsoft-managed keys is how the key is managed.
+1. For read/write operations, Azure NetApp Files sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
 
 ## Considerations
 
@@ -38,6 +40,7 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 
 * Customer-managed keys can only be configured on new volumes. You can't migrate existing volumes to customer-managed key encryption. 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
+* Customer-managed keys private endpoints do not support the **Disable public access** option. You must choose one of the **Allow public access** options.
 * Switching from user-assigned identity to the system-assigned identity isn't currently supported.
 * MSI Automatic certificate renewal isn't currently supported.  
 * The MSI certificate has a lifetime of 90 days. It becomes eligible for renewal after 46 days. **After 90 days, the certificate is no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
@@ -76,6 +79,7 @@ Azure NetApp Files customer-managed keys is supported for the following regions:
 * North Europe
 * Norway East
 * Norway West
+* Qatar Central
 * South Africa North
 * South Central US
 * South India

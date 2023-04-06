@@ -59,8 +59,13 @@ This table provides a brief description of each alert type. For more information
 
 If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal).
 
+The system compiles a list of recommended alert rules based on:
+
+- The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
+- Telemetry that tells us what customers commonly alert on for this resource.
+
 > [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for:
+> Recommended alert rules is enabled for:
 > - Virtual machines
 > - AKS resources
 > - Log Analytics workspaces

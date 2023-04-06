@@ -7,8 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/11/2022
-
+ms.date: 03/27/2023
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -19,11 +18,11 @@ ms.custom: engagement-fy23
 
 # Add Azure Active Directory (Azure AD) as an identity provider for External Identities
 
-Azure Active Directory is available as an identity provider option for [B2B collaboration](what-is-b2b.md#integrate-with-identity-providers) by default. If an external guest user has an Azure AD account through work or school, they can redeem your B2B collaboration invitations or complete your sign-up user flows using their Azure AD account.
+Azure Active Directory is available as an identity provider option for B2B collaboration by default. If an external guest user has an Azure AD account through work or school, they can redeem your B2B collaboration invitations or complete your sign-up user flows using their Azure AD account.
 
 ## Guest sign-in using Azure Active Directory accounts
 
-Azure Active Directory is available in the list of External Identities identity providers by default. No further configuration is needed to allow guest users to sign in with their Azure AD account using either the [invitation flow](redemption-experience.md#invitation-redemption-flow) or a [self-service sign-up user flow](self-service-sign-up-overview.md).
+Azure Active Directory is available in the list of External Identities identity providers by default. No further configuration is needed to allow guest users to sign in with their Azure AD account using either the invitation flow or a self-service sign-up user flow.
 
 :::image type="content" source="media/azure-ad-account/azure-ad-account-identity-provider.png" alt-text="Screenshot of Azure AD account in the identity provider list." lightbox="media/azure-ad-account/azure-ad-account-identity-provider.png":::
 

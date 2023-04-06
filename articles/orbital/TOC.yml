@@ -1,10 +1,12 @@
 items:
-- name: Azure Orbital Ground Station - Documentation
+- name: Azure Orbital - Documentation
   href: index.yml
 - name: Overview
   items:
   - name: Why use Azure Orbital Ground Station?
     href: overview.md
+  - name: What is the Azure Space Partner Community?
+    href: space-partner-program-overview.md
 
 - name: Quickstart
   items:
@@ -14,6 +16,15 @@ items:
     href: contact-profile.md
   - name: Schedule a contact
     href: schedule-contact.md
+    
+- name: Concepts
+  items:
+  - name: Spacecraft
+    href: spacecraft-object.md
+  - name: Contact
+    href: concepts-contact.md
+  - name: Contact profile
+    href: concepts-contact-profile.md
     
 - name: How-to guides
   items:
@@ -38,15 +49,6 @@ items:
     href: downlink-aqua.md 
   - name: Collect and process AQUA satellite payload
     href: satellite-imagery-with-orbital-ground-station.md
-    
-- name: Concepts
-  items:
-  - name: Contact
-    href: concepts-contact.md
-  - name: Contact profile
-    href: concepts-contact-profile.md
-  - name: Spacecraft object
-    href: spacecraft-object.md
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md          
   - name: Organize spaceborne geospatial data with STAC

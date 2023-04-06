@@ -5,11 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/29/2022
+ms.date: 03/10/2022
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service manually using the Azure portal
+
+> [!NOTE]
+> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 You may prefer to manually deploy the MedTech service if you need to track every step of the developmental process. Manual deployment might be necessary if you have to customize or troubleshoot your deployment. Manual deployment will help you by providing all the details for implementing each task.
 
@@ -19,7 +22,7 @@ The explanation of the MedTech service manual deployment using the Azure portal 
 - Part 2: Configuration (see [Configure for manual deployment](deploy-new-config.md))
 - Part 3: Deployment and Post Deployment (see [Manual deployment and post-deployment](deploy-new-deploy.md))
 
-If you need a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-new-choose.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resources (FHIR&#174;) Observation.
+If you need a diagram with information on the MedTech service deployment, there's an architecture overview at [Choose a deployment method](deploy-new-choose.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a FHIR Observation.
 
 ## Part 1: Prerequisites
 
@@ -88,7 +91,7 @@ After you have deployed FHIR service, it will be ready to receive the data proce
 
 ## Continue on to Part 2: Configuration
 
-After your prerequisites are successfully completed, you can go on to Part 2: Configuration. See **Next steps** below.
+After your prerequisites are successfully completed, you can go on to Part 2: Configuration. See **Next steps**.
 
 ## Next steps
 

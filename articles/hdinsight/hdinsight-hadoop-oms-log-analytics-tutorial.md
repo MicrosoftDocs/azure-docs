@@ -302,7 +302,7 @@ Once the setup is successful, enabling necessary endpoints for data ingestion is
 
 ## Install HDInsight cluster management solutions
 
-HDInsight provides cluster-specific management solutions that you can add for Azure Monitor Logs. [Management solutions](../azure-monitor/insights/solutions.md) add functionality to Azure Monitor Logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
+HDInsight provides cluster-specific management solutions that you can add for Azure Monitor Logs. [Management solutions](/previous-versions/azure/azure-monitor/insights/solutions) add functionality to Azure Monitor Logs, providing more data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters. And provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.
 
 Available HDInsight solutions:
 
@@ -312,7 +312,7 @@ Available HDInsight solutions:
 * HDInsight Kafka Monitoring
 * HDInsight Spark Monitoring
 
-For management solution instructions, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monitoring solution. When it's done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
+For management solution instructions, see [Management solutions in Azure](/previous-versions/azure/azure-monitor/insights/solutions#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monitoring solution. When it's done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
 :::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="HDInsight monitoring solution view":::
 

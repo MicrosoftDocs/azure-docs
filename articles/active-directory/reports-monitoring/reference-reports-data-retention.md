@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory data retention | Microsoft Docs
+title: Azure Active Directory data retention
 description: Learn how long Azure Active Directory stores the various types of reporting data. 
 services: active-directory
 author: shlipsey3

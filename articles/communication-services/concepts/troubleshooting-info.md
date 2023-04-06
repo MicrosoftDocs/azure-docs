@@ -6,7 +6,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 11/30/2021
+ms.date: 03/31/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -140,12 +140,20 @@ The program brief ID can be found on the [Azure portal](https://portal.azure.com
 
 ---
 
-## Access your email message ID
-When troubleshooting send email or email message status requests, you may be asked to provide a `message ID`. This can be accessed in the response:
+## Access your email operation ID
+When troubleshooting send email or email message status requests, you may be asked to provide an `operation ID`. This can be accessed in the response:
 
 # [.NET](#tab/dotnet)
 ```csharp
-Console.WriteLine($"MessageId = {emailResult.MessageId}");
+var emailSendOperation = await emailClient.SendAsync(
+    wait: WaitUntil.Completed,
+    senderAddress: sender,
+    recipientAddress: recipient,
+    subject: subject,
+    htmlContent: htmlContent);
+
+/// Get the OperationId so that it can be used for tracking the message for troubleshooting
+Console.WriteLine($"Email operation id = {emailSendOperation.Id}");
 ```
 ---
 
@@ -323,7 +331,7 @@ The Azure Communication Services Calling SDK uses the following error codes to h
 | 480 | Remote client endpoint not registered. | Ensure that the remote endpoint is available. |
 | 481 | Failed to handle incoming call. | File a support request through the Azure portal. |
 | 487 | Call canceled, locally declined, ended due to an endpoint mismatch issue, or failed to generate media offer. | Expected behavior. |
-| 490, 491, 496, 487, 498 | Local endpoint network issues. | Check your network. |
+| 490, 491, 496, 497, 498 | Local endpoint network issues. | Check your network. |
 | 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
 

@@ -7,7 +7,7 @@ ms.author: hariramt
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 02/02/2023
-ms.custom: seo-lt-2023
+ms.custom: seo-lt-2023, devx-track-azurecli
 ---
 
 # Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server by using the Azure CLI
@@ -15,9 +15,6 @@ ms.custom: seo-lt-2023
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure Command Line Interface (CLI). In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure CLI.
-
->[!NOTE]
-> The migration tool is in public preview.
 
 In this tutorial, you learn about:
 
@@ -36,6 +33,9 @@ To complete this tutorial, you need to:
 
 * Use an existing instance of Azure Database for PostgreSQL – Single Server (the source server)
 * All extensions used on the Single Server (source) must be [allow-listed on the Flexible Server (target)](./concepts-single-to-flexible.md#allow-list-required-extensions)
+
+>[!NOTE]
+> If TIMESCALEDB, PG_PARTMAN, POSTGRES_FDW or POSTGIS_TIGER_DECODER extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
 
 > [!IMPORTANT]
 > To provide the best migration experience, performing migration using a burstable instance of Flexible server is not supported. Please use a general purpose or a memory optimized instance (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale back to a burstable instance if necessary.
