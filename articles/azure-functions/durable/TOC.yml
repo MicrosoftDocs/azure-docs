@@ -58,6 +58,8 @@
     href: durable-functions-phone-verification.md
   - name: Publish to Event Grid
     href: durable-functions-event-publishing.md
+  - name: Upgrade to Node.js model v4
+    href: durable-functions-node-model-upgrade.md
 - name: Samples
   items:
   - name: Code samples
