@@ -1,4 +1,4 @@
----
+ ---
 title: Example Azure role assignment conditions for Blob Storage
 titleSuffix: Azure Storage
 description: Example Azure role assignment conditions for Blob Storage.
@@ -1619,7 +1619,7 @@ The following image shows the condition after the settings have been entered int
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
 ```
- ( 
+( 
  ( 
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) 
  ) 
@@ -1661,15 +1661,15 @@ $condition = `
  OR `
  ( `
   ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
-   AND `
-   @Environment[isPrivateLink] BoolEquals true `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high' `
+   AND`
+   @Environment[isPrivateLink] BoolEquals true `
   ) `
   OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
   OR `
-  NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
-) `
+  NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+ ) `
 )"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
@@ -1787,13 +1787,13 @@ $condition = `
  OR `
  ( `
   ( `
-   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
-   AND `
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1' `
+   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+   AND `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/privateendpoint1' `
   ) `
   OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
-) `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+ ) `
 )"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
@@ -2045,24 +2045,24 @@ $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Stora
 $condition = `
 "( `
  ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
-  AND `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
  ) `
  OR ` 
  ( `
-  ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals $containerName `
-   AND `
+  ( `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals $containerName `
+   AND `
    @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName `
-  ) `
-  OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
-) `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
+ ) `
 )"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
@@ -2183,7 +2183,7 @@ $condition = `
   ) `
   OR `
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
-) `
+ ) `
 )"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
