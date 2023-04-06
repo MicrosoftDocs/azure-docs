@@ -41,6 +41,7 @@ You can create JavaScript functions by using one of the following tools:
 
 + [Visual Studio Code](./create-first-function-vs-code-node.md)
 + [Command line](./create-first-function-cli-node.md)
++ [Azure portal](./functions-create-function-app-portal.md)
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -116,8 +117,6 @@ Complete one of the following interactive training modules to learn more about F
 
 To learn even more, see the [full listing of interactive tutorials](/training/browse/?expanded=azure&products=azure-functions).
  
-Read the [JavaScript](./functions-reference-node.md) or [TypeScript](./functions-reference-node.md#typescript) language reference
-
 ## Next steps
 
 ::: zone pivot="programming-language-csharp"  
