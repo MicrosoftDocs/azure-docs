@@ -175,7 +175,7 @@ In this section, it creates an ASP.NET Core web application that consumes enviro
     ![Kubernetes Provider before using configMap ](./media/quickstarts/kubernetes-provider-app-launch-before.png)
 
 ## Use App Configuration Kubernetes Provider
-Now that you have an application running in AKS, you will deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and create a ConfigMap, which is consumable as environment variables by your application.
+Now that you have an application running in AKS, you'll deploy the App Configuration Kubernetes Provider to your AKS cluster running as a Kubernetes controller. The provider retrieves data from your App Configuration store and creates a ConfigMap, which is consumable as environment variables by your application.
 ### Setup the Azure App Configuration store
 1. Add following key-values to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
@@ -264,7 +264,7 @@ If the Azure App Configuration Kubernetes Provider retrieved data from your App 
 
 ![Kubernetes Provider get provider status](./media/quickstarts/kubernetes-provider-get-provider-status.png)
 
-If the phase is not `COMPLETE`, the data is not downloaded from your App Configuration store properly. Run the following command to show the logs of the Azure App Configuration Kubernetes Provider.
+If the phase is not `COMPLETE`, the data isn't downloaded from your App Configuration store properly. Run the following command to show the logs of the Azure App Configuration Kubernetes Provider.
 
 ``` bash    
 kubectl logs deployment/az-appconfig-k8s-provider -n azappconfig-system
