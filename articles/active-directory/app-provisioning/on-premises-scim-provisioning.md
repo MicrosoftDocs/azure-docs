@@ -45,7 +45,8 @@ Once the agent is installed, no further configuration is necesary on-prem, and a
  7.  Select **Test Connection**, and save the credentials. The application SCIM endpoint must be actively listening for inbound provisioning requests, otherwise the test will fail. Use the steps [here](on-premises-ecma-troubleshoot.md#troubleshoot-test-connection-issues) if you run into connectivity issues. 
  >[!NOTE]
 > If the test connection fails, you will see the request made. Please note that while the URL in the test connection error message is truncated, the actual request sent to the aplication contains the entire URL provided above. 
-8.  Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
+
+ 8.  Configure any [attribute mappings](customize-application-attributes.md) or [scoping](define-conditional-rules-for-provisioning-user-accounts.md) rules required for your application.
  9.  Add users to scope by [assigning users and groups](../../active-directory/manage-apps/add-application-portal-assign-users.md) to the application.
  10.  Test provisioning a few users [on demand](provision-on-demand.md).
  11.  Add more users into scope by assigning them to your application.
