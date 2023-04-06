@@ -43,6 +43,10 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 | ------------ | ------------------------------------------------ |
 | Chat types   | Join a Microsoft Teams meeting chat                        |
 |              | Join an Azure Communication Services chat thread |
+| Teams interoperability  | Send and receive chat messages                                               |
+|  | Send typing indicators                                            |
+|                     | Receive rich text messages              |
+|                     | Receive inline images*              |
 | Chat actions | Send a chat message                                |
 |              | Receive a chat message                             |
 | Chat events  | Show typing indicators                                |
@@ -50,6 +54,8 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 |              | Show when a participant is added or removed                        |
 |              | Show changes to the chat title                               |
 | Participants | Show a participant roster                               |
+
+*Inline image support is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Supported identities
 
