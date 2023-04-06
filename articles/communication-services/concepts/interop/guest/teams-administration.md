@@ -100,15 +100,15 @@ Teams administrators can use meeting templates to control meeting settings that 
 ||Manage what attendees see |	Specifies if meeting organizers can preview and approve content being shared on screen before other meeting participants can see it.
 
 ## Meeting roles
-[Teams meeting roles](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019) define permissions that Teams meeting participants have. Microsoft Teams provides roles: organizer, coorganizer, presenter, and attendee. The meeting organizer can assign default roles to the participants. Coorganizers and presenters share most organizer permissions, while attendees are more controlled. There can be only one meeting organizer.
+[Teams meeting roles](https://support.microsoft.com/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019) define permissions that Teams meeting participants have. Microsoft Teams provides roles: organizer, coorganizer, presenter, and attendee. The meeting organizer can assign default roles to the participants. Coorganizers and presenters share most organizer permissions, while attendees are more controlled. There can be only one meeting organizer.
 - Required role: Organizer, coorganizer, and presenter can change the roles of individual participants. Each user knows their role.
 - Licensing: standard licensing
 - Tools: Microsoft Teams and Graph API (only default roles)
 
-List of permissions per role can be found [here](https://support.microsoft.com/en-us/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019) and more details about [coorganizer](https://support.microsoft.com/en-us/office/add-co-organizers-to-a-meeting-in-teams-0de2c31c-8207-47ff-ae2a-fc1792d466e2).
+List of permissions per role can be found [here](https://support.microsoft.com/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019) and more details about [coorganizer](https://support.microsoft.com/office/add-co-organizers-to-a-meeting-in-teams-0de2c31c-8207-47ff-ae2a-fc1792d466e2).
 
 ## Meeting options
-[Meeting options](https://support.microsoft.com/en-us/office/participant-settings-for-a-teams-meeting-53261366-dbd5-45f9-aae9-a70e6354f88e) allow meeting organizer and coorganizers to customize the meeting experience before and during the meeting. Default values, editability, and visibility of individual features depend on the tenant configuration, policies, sensitivity label, and meeting template.
+[Meeting options](https://support.microsoft.com/office/participant-settings-for-a-teams-meeting-53261366-dbd5-45f9-aae9-a70e6354f88e) allow meeting organizer and coorganizers to customize the meeting experience before and during the meeting. Default values, editability, and visibility of individual features depend on the tenant configuration, policies, sensitivity label, and meeting template.
 - Required role: Organizer or coorganizer can change available meeting options. 
 - Licensing: standard licensing
 - Tools: Microsoft Teams and Graph API (only before the meeting starts)
@@ -130,13 +130,13 @@ Here's an overview of Meeting options:
 |[Allow reactions](/microsoftteams/meeting-policies-in-teams-general#meeting-reactions)|If enabled, external users can use reactions in the Teams meeting |❌|
 |[RTMP-IN](/microsoftteams/stream-teams-meetings)|If enabled, organizers can stream meetings and webinars to external endpoints by providing a Real-Time Messaging Protocol (RTMP) URL and key to the built-in Custom Streaming app in Teams. |Not applicable|
 |[Provide CART Captions](https://support.microsoft.com/office/use-cart-captions-in-a-microsoft-teams-meeting-human-generated-captions-2dd889e8-32a8-4582-98b8-6c96cf14eb47)|Communication access real-time translation (CART) is a service in which a trained CART captioner listens to the speech and instantaneously translates all speech to text. As a meeting organizer, you can set up and offer CART captioning to your audience instead of the Microsoft Teams built-in live captions that are automatically generated.|❌|
-|[Apply a watermark to everyone's video feed](https://support.microsoft.com/en-gb/office/watermark-for-teams-meetings-a9166432-f429-4a19-9a72-c9e8fdf4f589)| Watermark is applied to everyone's video feed. Instead, no video is received. |❌|
-|[Apply a watermark to shared content](https://support.microsoft.com/en-gb/office/watermark-for-teams-meetings-a9166432-f429-4a19-9a72-c9e8fdf4f589)| Watermark is applied to screen share feed. Instead, no screen-sharing video is received. | ❌|
-|[End-to-end encryption](https://support.microsoft.com/en-us/office/use-end-to-end-encryption-for-teams-meetings-a8326d15-d187-49c4-ac99-14c17dbd617c)| Enable end-to-end encryption for Teams meeting. Audio and video streams are encoded end-to-end. Azure Communication Services can't join meetings with end-to-end encryption. |❌|
-|[Who can record](https://support.microsoft.com/en-us/office/record-a-meeting-in-teams-34dfbe7f-b07d-4a27-b4c6-de62f1348c24)| Select which roles in the meeting can manage Teams recording. Azure Communication Services does not provide API for Teams recording. | ❌|
-|[Enable Q&A](https://support.microsoft.com/en-us/office/q-a-in-teams-meetings-f3c84c72-57c3-4b6d-aea5-67b11face787)| Allow Q&A in the Teams meeting |❌|
-|[Enable language interpretation](https://support.microsoft.com/en-us/office/use-language-interpretation-in-a-teams-meeting-b9fdde0f-1896-48ba-8540-efc99f5f4b2e) |Allows professional interpreters to translate what a speaker says into another language in real-time. |❌|
-|[Enable Green room](https://support.microsoft.com/en-us/office/green-room-for-teams-meetings-5b744652-789f-42da-ad56-78a68e8460d5)| Use a green room to prepare with other presenters, practice sharing materials, and more before attendees enter the meeting. |❌|
+|[Apply a watermark to everyone's video feed](https://support.microsoft.com/office/watermark-for-teams-meetings-a9166432-f429-4a19-9a72-c9e8fdf4f589)| Watermark is applied to everyone's video feed. Instead, no video is received. |❌|
+|[Apply a watermark to shared content](https://support.microsoft.com/office/watermark-for-teams-meetings-a9166432-f429-4a19-9a72-c9e8fdf4f589)| Watermark is applied to screen share feed. Instead, no screen-sharing video is received. | ❌|
+|[End-to-end encryption](https://support.microsoft.com/office/use-end-to-end-encryption-for-teams-meetings-a8326d15-d187-49c4-ac99-14c17dbd617c)| Enable end-to-end encryption for Teams meeting. Audio and video streams are encoded end-to-end. Azure Communication Services can't join meetings with end-to-end encryption. |❌|
+|[Who can record](https://support.microsoft.com/office/record-a-meeting-in-teams-34dfbe7f-b07d-4a27-b4c6-de62f1348c24)| Select which roles in the meeting can manage Teams recording. Azure Communication Services does not provide API for Teams recording. | ❌|
+|[Enable Q&A](https://support.microsoft.com/office/q-a-in-teams-meetings-f3c84c72-57c3-4b6d-aea5-67b11face787)| Allow Q&A in the Teams meeting |❌|
+|[Enable language interpretation](https://support.microsoft.com/office/use-language-interpretation-in-a-teams-meeting-b9fdde0f-1896-48ba-8540-efc99f5f4b2e) |Allows professional interpreters to translate what a speaker says into another language in real-time. |❌|
+|[Enable Green room](https://support.microsoft.com/office/green-room-for-teams-meetings-5b744652-789f-42da-ad56-78a68e8460d5)| Use a green room to prepare with other presenters, practice sharing materials, and more before attendees enter the meeting. |❌|
 
 ## Next steps
 
