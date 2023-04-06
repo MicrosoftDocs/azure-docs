@@ -13,7 +13,7 @@ ms.topic: troubleshooting
 ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 ---
 
-# Troubleshooting environment vulnerabilities and image builds
+# Troubleshooting environment issues
 
 In this article, learn how to troubleshoot common problems you may encounter with environment image builds and learn about AzureML environment vulnerabilities.
 
@@ -96,7 +96,7 @@ You use system-managed environments when you want conda to manage the Python env
 latest image may be a tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
 for your jobs or model deployments while using system-managed environments.
 
-## Scan for Vulnerabilities 
+### Scan for Vulnerabilities 
 
 You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
 
@@ -137,9 +137,9 @@ Associated to your Azure Machine Learning workspace is an Azure Container Regist
 materialized is pushed to the container registry and used if you trigger experimentation or deployment for the corresponding environment. Azure
 Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. 
 
-## **Environment definition problems**
+# Troubleshooting environment image builds
 
-Troubleshooting environment image builds using troubleshooting log error messages.
+## **Environment definition problems**
 
 ## *Environment name issues*
 ### Curated prefix not allowed
