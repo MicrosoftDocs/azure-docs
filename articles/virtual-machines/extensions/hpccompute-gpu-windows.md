@@ -25,7 +25,7 @@ The NVIDIA GPU Driver Extension can also be deployed on Linux N-series VMs. For 
 
 Confirm your virtual machine satisfies the prerequisites for using the NVIDIA GPU Driver Extension.
 
-### Operating system
+### Operating system support
 
 The NVIDIA GPU Driver Extension supports the following Windows versions:
 
@@ -38,11 +38,11 @@ The NVIDIA GPU Driver Extension supports the following Windows versions:
 | Windows Server 2016 | Core |
 | Windows Server 2012 R2 | Core |
 
-### Internet connectivity
+### Internet connection required
 
 The NVIDIA GPU Driver Extension requires that the target VM is connected to the internet and has access.
 
-## Extension schema
+## Review the extension schema
 
 The following JSON snippet shows the schema for the extension:
 
@@ -77,7 +77,7 @@ The JSON schema includes values for the following parameters.
 | `type` | NvidiaGpuDriverWindows | string |
 | `typeHandlerVersion` | 1.4 | int |
 
-## Deployment
+## Deploy the extension
 
 Azure VM extensions can be managed by using the Azure CLI, PowerShell, Azure Resource Manager (ARM) templates, and the Azure portal.
 
@@ -172,11 +172,12 @@ az vm extension set \
   }'
 ```
 
-## Troubleshoot
+<a href="troubleshoot-and-support"></a>
+## Troubleshoot issues
 
 Here are some suggestions for how to troubleshoot deployment issues.
 
-### Status and output logs
+### Check extension status
 
 Check the status of your extension deployment in the Azure portal, or by using PowerShell or the Azure CLI.
 
@@ -189,11 +190,12 @@ Get-AzVMExtension -ResourceGroupName <myResourceGroup> -VMName <myVM> -Name <myE
 ```azurecli
 az vm extension list --resource-group <myResourceGroup> --vm-name <myVM> -o table
 ```
+### Review output logs
 
 View output logs for the NVIDIA GPU Driver Extension deployment under
 `C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverWindows\`.
 
-### Error codes
+### Respond to error codes
 
 The following table lists common error codes for deployment and potential follow-up actions.
 
@@ -201,13 +203,12 @@ The following table lists common error codes for deployment and potential follow
 | :---: | --- | --- |
 | 0 | Operation successful. | No required action. |
 | 1 | Operation successful. | Reboot. |
-| 100 | Operation not supported or couldn't be completed. | Check log files to determine cause of error, such as: <br>
-- PowerShell version isn't supported. <br> - VM size isn't an N-series VM. <br> - Failure during data download. |
+| 100 | Operation not supported or couldn't be completed. | Check log files to determine cause of error, such as: <br>- PowerShell version isn't supported. <br> - VM size isn't an N-series VM. <br> - Failure during data download. |
 | 240, 840 | Operation timeout. | Retry operation. |
 | -1 | Exception occurred. | Check log files to determine cause of exception. |
-| -5x | Operation interrupted due to pending reboot. | Reboot the VM. Installation continues after reboot. Uninstall should be invoked manually. |
+| -5x | Operation interrupted due to pending reboot. | Reboot the VM. Installation continues after reboot. <br> Uninstall should be invoked manually. |
 
-### Support
+### Get support
 
 Here are some other options to help you resolve deployment issues:
 
