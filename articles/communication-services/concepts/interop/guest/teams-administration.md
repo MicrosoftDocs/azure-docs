@@ -1,7 +1,7 @@
 ---
 title: Teams controls for Teams external user
 titleSuffix: An Azure Communication Services concept document
-description: Teams administrator controls to impact Azure Communication Services support for Teams external users
+description: Teams administrator controls to impact Azure Communication Services support for Teams external users.
 author: tomaschladek
 ms.author: tchladek
 ms.date: 7/9/2022
