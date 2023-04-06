@@ -6,7 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.subservice: content-safety
 ms.topic: quickstart
 ms.date: 04/06/2023
 ms.author: pafarley

@@ -1,14 +1,14 @@
 ---
 title: What's new in Content Safety?
 titleSuffix: Azure Cognitive Services
-description: Stay up to date on recent releases and updates to Azure Computer Vision.
+description: Stay up to date on recent releases and updates to Azure Content Safety.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.subservice: content-safety
 ms.topic: overview
-ms.date: 12/27/2022
+ms.date: 04/07/2023
 ms.author: pafarley
 ---
 
