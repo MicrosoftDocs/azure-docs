@@ -240,7 +240,10 @@ If labeling is active in Azure Machine Learning, you have two choices:
 
 * Select **Switch to Language Studio** to switch your labeling activity back to Language Studio.  When you switch, all your currently labeled data is imported into Language Studio.  Your ability to label data in Azure Machine Learning is disabled, and you can label data in Language Studio. You can switch back to labeling in Azure Machine Learning at any time through Language Studio.
 
-* Select **Disconnect from Language Studio** to sever the relationship with Language Studio.  Once you disconnect, the project will lose its association with Language Studio, and will no longer have the Language Studio tab.
+    > [!NOTE] 
+    > Only users with the [correct roles](/azure/machine-learning/how-to-add-users) in Azure Machine Learning have the ability to switch labeling. 
+
+* Select **Disconnect from Language Studio** to sever the relationship with Language Studio.  Once you disconnect, the project will lose its association with Language Studio, and will no longer have the Language Studio tab. Disconnecting your project from Language Studio is a permanent, irreversible process and can't be undone. You will no longer be able to access your labels for this project in Language Studio.  The labels are available only in Azure Machine Learning from this point onward.
 
 ### Access for labelers
 
