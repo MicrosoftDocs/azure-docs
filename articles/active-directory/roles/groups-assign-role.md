@@ -18,13 +18,11 @@ ms.collection: M365-identity-device-management
 
 # Assign Azure AD roles to groups
 
-This article describes how to assign Azure AD roles to [role-assignable groups](groups-concept.md) using the Azure portal, PowerShell, or Microsoft Graph API.
-
-If you have Azure AD Premium P2, you can use Azure AD Privileged Identity Management (Azure AD PIM) to provide just-in-time access to roles, rather than granting permanent access. For information about how to assign Azure AD roles using PIM, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+To simplify role management, you can assign Azure AD roles to a group instead of individuals. This article describes how to assign Azure AD roles to [role-assignable groups](groups-concept.md) using the Azure portal, PowerShell, or Microsoft Graph API.
 
 ## Prerequisites
 
-- Azure AD Premium P1 or P2 license
+- Azure AD Premium P1 license
 - [Privileged Role Administrator](./permissions-reference.md#privileged-role-administrator)
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation?branch=main)
 - AzureAD module when using [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
@@ -35,6 +33,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 ## Azure portal
 
 Assigning an Azure AD role to a group is similar to assigning users and service principals except that only groups that are role-assignable can be used.
+
+> [!TIP]
+> These steps apply to customers that have an Azure AD Premium P1 license. If you have an Azure AD Premium P2 license in your tenant, you should instead see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Microsoft Entra admin center](https://entra.microsoft.com).
 
@@ -48,7 +49,7 @@ Assigning an Azure AD role to a group is similar to assigning users and service 
 
 1. Select **Add assignments**.
 
-    If you see something different from the following screenshot, you might have PIM enabled. For more information, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+    If you see something different from the following screenshot, you might have Azure AD Premium P2 with PIM enabled. For more information, see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
     :::image type="content" source="media/groups-assign-role/add-assignments.png" alt-text="Screenshot of Add assignments pane to assign role to users or groups." lightbox="media/groups-assign-role/add-assignments.png":::
 
