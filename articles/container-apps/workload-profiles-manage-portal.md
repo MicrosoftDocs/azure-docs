@@ -7,6 +7,7 @@ ms.service: container-apps
 ms.topic:  how-to
 ms.date: 04/04/2023
 ms.author: cshoe
+ms.custom: references_regions
 ---
 
 # Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview) in the Azure portal
@@ -26,11 +27,9 @@ The following regions support workload profiles during preview:
 
 At a high level, when you create a container app into a workload profile, you go through the following steps:
 
-- Select a workload profile
-- Create or provide a VNet
-- Create a subnet with a `Microsoft.App/environments` delegation
+- Create a new container app
 - Create a new environment
-- Create a container app associated with the workload profile in the environment
+- Select a workload profile
 
 1. Project details
 
@@ -106,7 +105,13 @@ Add a new workload profile to an existing environment.
 
 ## Edit profiles
 
-Under the *Settings* section, select **Workload profiles**. From this window, you can adjust the minimum and maximum number of instances available to a workload profile.
+Under the *Settings* section, select **Workload profiles**.
+
+From this window, you can:
+
+- Adjust the minimum and maximum number of instances available to a profile
+- Add new profiles
+- Delete existing profiles (except for the Consumption profile)
 
 ## Delete a profile
 
