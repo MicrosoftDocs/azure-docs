@@ -31,59 +31,51 @@ Deploy a network manager instance with the defined scope and access you need.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Select **+ Create a resource** and search for **Network Manager**. Then select **Create** to begin setting up Azure Virtual Network Manager.
+1. Select **+ Create a resource** and search for **Network Manager**. 1. Select **Network Manager > Create** to begin setting up Azure Virtual Network Manager.
 
 1. On the **Basics** tab, enter or select the following information:
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics.png" alt-text="Screenshot of Create a network manager Basics page.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics-thumbnail.png" alt-text="Screenshot of Create a network manager Basics page." lightbox="media/create-virtual-network-manager-portal/network-manager-basics.png":::
 
     | Setting | Value |
     | ------- | ----- |
     | Subscription | Select the subscription you want to deploy Azure Virtual Network Manager to. |
-    | Resource group | Select or create a resource group to store Azure Virtual Network Manager. This example uses the **myAVNMResourceGroup** previously created.
-    | Name | Enter a name for this Azure Virtual Network Manager instance. This example uses the name **myAVNM**. |
-    | Region | Select the region for this deployment. Azure Virtual Network Manager can manage virtual networks in any region. The region selected is for where the Virtual Network Manager instance will be deployed. |
+    | Resource group | Select **Create new** and enter **rg-learn-eastus-001**.
+    | Name | Enter **vnm-learn-eastus-001**. |
+    | Region | Enter **eastus** or a region of your choosing. Azure Virtual Network Manager can manage virtual networks in any region. The region selected is for where the Virtual Network Manager instance will be deployed. |
     | Description | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it's managing. |
-    | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage. This example uses a subscription-level scope.
-    | [Features](concept-network-manager-scope.md#features) | Select the features you want to enable for Azure Virtual Network Manager. Available features are *Connectivity* and *SecurityAdmin*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
+    | Scope and features | |
+    | [Scope](concept-network-manager-scope.md#scope) | Select **Select scopes** and choose your subscription.</br> Select **Add to selected scope > Select**. </br> *Scope* is used to define the resources which Azure Virtual Network Manager can manage. You can choose subscriptions and management groups.
+    | [Features](concept-network-manager-scope.md#features) | Select **Connectivity** and **Security Admin** from the dropdown list.  </br> *Connectivity* - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> *Security Admin* - Enables the ability to create global network security rules. |
 
 1. Select **Review + create** and then select **Create** once validation has passed.
 
 ## Create virtual networks
 
-Create five virtual networks using the portal. This example creates virtual networks named VNetA, VNetB, VNetC and VNetD in the West US location. Each virtual network has a tag of networkType used for dynamic membership. If you have existing virtual networks for your mesh configuration, you'll need to add tags listed in the table to your virtual networks and skip to the next section.
+Create three virtual networks using the portal. Each virtual network has a tag of networkType used for dynamic membership. If you have existing virtual networks for your mesh configuration, you'll need to add tags listed in the table to your virtual networks and skip to the next section.
 
-1. From the **Home** screen, select **+ Create a resource** and search for **Virtual network**. Then select **Create** to begin configuring the virtual network.
+1. From the **Home** screen, select **+ Create a resource** and search for **Virtual networks**. Then select **Create** to begin configuring the virtual network.
 
 1. On the **Basics** tab, enter or select the following information.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-mesh-vnet-basic.png" alt-text="Screenshot of create a virtual network basics page.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-basic.png" alt-text="Screenshot of create a virtual network basics page.":::
 
     | Setting | Value |
     | ------- | ----- |
     | Subscription | Select the subscription you want to deploy this virtual network into. |
-    | Resource group | Select or create a new resource group to store the virtual network. This quickstart uses a new resource group named **myAVNMResourceGroup**.
-    | Name | Enter a **VNetA** for the virtual network name. |
-    | Region | Select **West US**. |
+    | Resource group | Select **rg-learn-eastus-001**.
+    | Name | Enter a **vnet-learn-prod-eastus-001** for the virtual network name. |
+    | Region | Select **(US) East US**. |
 
-1. Select **Next: IP Addresses >** and configure the following network address spaces:
+1. Select **Next** or the **IP addresses** tab and configure the following network address spaces:
 
-     :::image type="content" source="./media/create-virtual-network-manager-portal/create-mesh-vnet-ip.png" alt-text="Screenshot of create a virtual network ip addresses page.":::
+     :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of create a virtual network ip addresses page.":::
 
     | Setting | Value |
     | -------- | ----- |
     | IPv4 address space | 10.0.0.0/16 |
     | Subnet name | default |
     | Subnet address space | 10.0.0.0/24 |
-
-1. Select the **Tags** tab and enter the following values:
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-tag.png" alt-text="Screenshot of create a virtual network tag page.":::
-
-    | Setting | Value |
-    |---- | ---- |
-    | Name | Enter **NetworkType** |
-    | Value | Enter **Prod**. |
 
 1. Select **Review + create** and then select **Create** once validation has passed to deploy the virtual network.
 
@@ -92,48 +84,41 @@ Create five virtual networks using the portal. This example creates virtual netw
     | Setting | Value |
     | ------- | ----- |
     | Subscription | Select the same subscription you selected in step 3. |
-    | Resource group | Select the **myAVNMResourceGroup**. |
-    | Name | Enter **VNetB**, **VNetC**, and **VNetD** for each of the three extra virtual networks. |
-    | Region | Region is selected for you when you select the resource group. |
-    | VNetB IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
-    | VNetC IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
-    | VNetD IP addresses | IPv4 address space: 10.3.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.3.0.0/24|
-    | VNetB NetworkType tag | Enter **Prod**. |
-    | VNetC NetworkType tag | Enter **Prod**. |
-    | VNetD NetworkType tag | Enter **Test**. |
+    | Resource group | Select the **rg-learn-eastus-001**. |
+    | Name | Enter **vnet-learn-prod-eastus-002** and **vnet-learn-test-eastus-003** for each additional virtual network. |
+    | Region | Select **(US) East US** |
+    | vnet-learn-prod-eastus-002 IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
+    | vnet-learn-test-eastus-003 IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
 
 ## Create a network group
 
 Virtual Network Manager applies configurations to groups of VNets by placing them in network groups. Create a network group as follows:
 
-1. Go to Azure Virtual Network Manager instance you created.
+1. Browse to **rg-learn-eastus-001** resource group, and select the **vnm-learn-eastus-001** virtual network manager instance.
 
-1. Select **Network Groups** under *Settings*, then select **+ Create**.
+1. Select **Network Groups** under **Settings**, then select **+ Create**.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
 
-1. On the **Create a network group** page, enter a **Name** for the network group. This example uses the name **myNetworkGroup**. Select **Add** to create the network group.
+1. On the **Create a network group** page, enter **ng-learn-prod-eastus-001** and Select **Create**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-basics.png" alt-text="Screenshot of create a network group page.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/create-network-group.png" alt-text="Screenshot of create a network group page.":::
 
-1. You see the new network group added to the *Network Groups* page.
+1. The new network group is now listed on the **Network Groups** page.
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
 
-1. Once your network group is created, you add virtual networks as members. Choose one of the options: *[Manually add membership](#manually-add-membership)* or *[Create policy to dynamically add members](#create-azure-policy-for-dynamic-membership)* with Azure Policy.
+## Define membership for connectivity configuration
 
-## Define membership for a mesh configuration
-
-Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. Choose one of the options for your mesh membership configuration:
-
+Once your network group is created, you add virtual networks as members. Choose one of the options: *[Manually add membership](#manually-add-membership)* or *[Create policy to dynamically add members](#create-azure-policy-for-dynamic-membership)* with Azure Policy. Choose one of the options for your mesh membership configuration:
 ### Manually add membership
 
 In this task, you manually add three virtual networks for your Mesh configuration to your network group using these steps:
 
-1. From the list of network groups, select **myNetworkGroup** and select **Add virtual networks** under *Manually add members* on the *myNetworkGroup* page.
+1. From the list of network groups, select **ng-learn-prod-eastus-001** and select **Add virtual networks** under *Manually add members* on the *ng-learn-prod-eastus-001* page.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network f.":::
 
-1. On the **Manually add members** page, select three virtual networks created previously (VNetA, VNetB, and VNetC). Then select **Add** to add the 3 virtual networks to the network group.
+1. On the **Manually add members** page, select three virtual networks created previously (vnet-learn-prod-eastus-001, vnet-learn-prod-eastus-001, and vnet-learn-test-eastus-003). Then select **Add** to add the 3 virtual networks to the network group.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
 
@@ -144,7 +129,7 @@ In this task, you manually add three virtual networks for your Mesh configuratio
 
 Using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add three virtual networks tagged as **Prod** to your network group using these steps:
 
-1. From the list of network groups, select **myNetworkGroup** and select **Create Azure Policy** under *Create policy to dynamically add members*.
+1. From the list of network groups, select **ng-learn-prod-eastus-001** and select **Create Azure Policy** under *Create policy to dynamically add members*.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/define-dynamic-membership.png" alt-text="Screenshot of Create Azure Policy button.":::
 
@@ -241,11 +226,11 @@ Use the **Network Manager** section for each virtual machine to verify whether c
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-status.png" alt-text="Screenshot of refresh button for updated deployment status.":::
 
-1. Go to **VNetA** virtual network and select **Network Manager** under *Settings*. You see the configuration you deployed with Azure Virtual Network Manager associated to the virtual network.
+1. Go to **vnet-learn-prod-eastus-001** virtual network and select **Network Manager** under *Settings*. You see the configuration you deployed with Azure Virtual Network Manager associated to the virtual network.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of connectivity configuration associated with VNetA virtual network.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of connectivity configuration associated with vnet-learn-prod-eastus-001 virtual network.":::
 
-1. You can also confirm the same for **VNetB**,**VNetC**, and **VNetD**.
+1. You can also confirm the same for **vnet-learn-prod-eastus-001**,**vnet-learn-test-eastus-003**, and **VNetD**.
 
 ## Clean up resources
 
@@ -283,7 +268,7 @@ If you no longer need Azure Virtual Network Manager, you need to make sure all o
     | Setting | Value |
     | ------- | ----- |
     | Delete option | Select **Force delete the resource and all dependent resources**. |
-    | Confirm deletion | Enter the name of the network group. In this example, it's **myNetworkGroup**. |
+    | Confirm deletion | Enter the name of the network group. In this example, it's **ng-learn-prod-eastus-001**. |
 
 1. Select **Delete** and Select **Yes** to confirm the network group deletion.
 
@@ -296,7 +281,7 @@ If you no longer need Azure Virtual Network Manager, you need to make sure all o
     | Setting | Value |
     | ------- | ----- |
     | Delete option | Select **Force delete the resource and all dependent resources**. |
-    | Confirm deletion | Enter the name of the network manager. In this example, it's **myAVNM**. |
+    | Confirm deletion | Enter the name of the network manager. In this example, it's **vnm-learn-eastus-001**. |
 
 1. To delete the resource group and virtual networks, locate the resource group and select the **Delete resource group**. Confirm that you want to delete by entering the name of the resource group, then select **Delete**
 
