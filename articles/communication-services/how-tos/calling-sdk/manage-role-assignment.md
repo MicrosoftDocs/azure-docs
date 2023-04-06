@@ -1,7 +1,7 @@
 ---
 title: Manager role assignments
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to track assigned Teams meeting role
+description: Use Azure Communication Services SDKs to track assigned Teams meeting role.
 author: tomaschladek
 ms.author: tchladek
 ms.service: azure-communication-services
