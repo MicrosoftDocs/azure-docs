@@ -20,7 +20,7 @@ Let's take an in-depth look at the process of migrating storage accounts from th
 
 First, it's helpful to understand the basic architecture of Azure Storage. Azure Storage offers services that store data, including Blob Storage, Azure Data Lake Storage, Azure Files, Queue Storage, and Table Storage. These services and the operations they expose comprise the *data plane* for Azure Storage. Azure Storage also exposes operations for managing an Azure Storage account and related resources, such as redundancy SKUs, account keys, and certain policies. These operations comprise the *management* or *control* plane.
 
-:::image type="content" source="media/classic-account-migration-process/storage-architecture-diagram.png" alt-text="Diagram showing the Azure Storage data and management plane architecture." lightbox="media/classic-account-migration-process/storage-architecture-diagram.png":::
+:::image type="content" source="media/classic-account-migration-process/storage-architecture-diagram.png" alt-text="Diagram showing the Azure Storage data and management plane architecture.":::
 
 During the migration process, Microsoft translates the representation of the storage account resource from the classic deployment model to the Azure Resource Manager deployment model. As a result, you need to use new tools, APIs, and SDKs to manage your storage accounts and related resources after the migration.
 
@@ -38,7 +38,7 @@ Before you start the migration:
 
 There are four steps to the migration process, as shown in the following diagram:
 
-:::image type="content" source="media/classic-account-migration-process/migration-workflow.png" alt-text="Screenshot showing the account migration workflow." lightbox="media/classic-account-migration-process/migration-workflow.png":::
+:::image type="content" source="media/classic-account-migration-process/migration-workflow.png" alt-text="Screenshot showing the account migration workflow.":::
 
 1. **Validate**. During the Validation phase, Azure checks the storage account to ensure that it can be migrated.
 1. **Prepare**. In the Prepare phase, Azure creates a new general-purpose v1 storage account and alerts you to any problems that may have occurred. The new account is created in a new resource group in the same region as your classic account.
@@ -73,7 +73,7 @@ The Prepare step is the second step in the migration process. The goal of this s
 
 If the storage account is not capable of migration, Azure stops the migration process and lists the reason why the Prepare step failed.
 
-If the storage account is capable of migration, Azure blocks management plane operations for the storage account under migration. For example, you cannot regenerate the storage account keys while the Prepare phase is underway. Azure then creates a new resource group as the classic storage account. The name of the new resource group follows the pattern `<classic-account-name>-Migrated`.
+If the storage account is capable of migration, Azure locks management plane operations for the storage account under migration. For example, you cannot regenerate the storage account keys while the Prepare phase is underway. Azure then creates a new resource group as the classic storage account. The name of the new resource group follows the pattern `<classic-account-name>-Migrated`.
 
 > [!NOTE]
 > It is not possible to select the name of the resource group that is created for a migrated storage account. After migration is complete, however, you can use the move feature of Azure Resource Manager to move your migrated storage account to a different resource group. For more information, see [Move resources to a new subscription or resource group](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
@@ -84,7 +84,7 @@ Finally, Azure migrates the storage account and its configuration to a new stora
 
 After the Prepare step is complete, both accounts exist in your subscription, so that you can review and compare the classic storage account in the pre-migration state and in Azure Resource Manager. For example, you can examine the new account via the Azure portal to ensure that the storage account's configuration is as expected.
 
-There is no set window of time before which you need to commit or abort the migration. You can take as much time as you need for the Check phase. However, management plane operations are blocked for the classic storage account until you either abort or commit.
+There is no set window of time before which you need to commit or abort the migration. You can take as much time as you need for the Check phase. However, management plane operations are locked for the classic storage account until you either abort or commit.
 
 ### Abort
 
