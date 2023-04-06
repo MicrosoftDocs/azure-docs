@@ -17,7 +17,7 @@ When initiative or policy definitions are assigned, Azure Policy determines whic
 
 Policy assignments with `audit`, `auditIfNotExists`, or `modify` effects are considered non-compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. 
 
-Policy assignments with `append`, `deny`, and `deployIfNotExists` effects are considered non-compliant for _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. _New_ and _updated_ resources aren't considered non-compliant in this case because enforcement blocks or remediates resources that would otherwise be deemed non-compliant. When updating a previously existing non-compliant resource, the compliance state will remain non-compliant until the resource deployment and Policy evaluation complete.
+Policy assignments with `append`, `deny`, and `deployIfNotExists` effects are considered non-compliant for _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. _New_ and _updated_ resources aren't considered non-compliant in this case because enforcement blocks or remediates resources that would otherwise be deemed non-compliant. When a previously existing non-compliant resource is updated, the compliance state remains non-compliant until the resource deployment and Policy evaluation complete.
 
 > [!NOTE]
 > The DeployIfNotExist and AuditIfNotExist effects require the IF statement to be TRUE and the
@@ -102,7 +102,7 @@ There are several ways to view aggregated compliance results in the portal:
 
 ### Comparing different compliance states
 
-So how is the aggregate compliance state determined if multiple resources or policies have different compliance states themselves? This is done by ranking each compliance state so that one "wins" over another in this situation. The rank order is:
+So how is the aggregate compliance state determined if multiple resources or policies have different compliance states themselves? Azure Policy ranks each compliance state so that one "wins" over another in this situation. The rank order is:
 1. Non-compliant
 1. Compliant
 1. Conflict
@@ -112,9 +112,9 @@ So how is the aggregate compliance state determined if multiple resources or pol
 > [!NOTE]
 > [Not started](#not-started) and [not registered](#not-registered) aren't considered in compliance rollup calculations.
 
-This means that if there are both non-compliant and compliant states, the rolled up aggregate would be non-compliant, and so on. Let's look at an example:
+With this ranking, if there are both non-compliant and compliant states, then the rolled up aggregate would be non-compliant, and so on. Let's look at an example:
 
-Assume an initiative contains 10 policies, and a resource is exempt from one policy but compliant to the remaining nine. Because a compliant state has a higher rank than an exempted state, the resource would register as compliant in the rolled-up summary of the initiative. So, a resource will only show as exempt for the entire initiative if it's exempt from, or has unknown compliance to, every other single applicable policy in that initiative. On the other extreme, if the resource is non-compliant to at least one applicable policy in the initiative, it will have an overall compliance state of non-compliant, regardless of the remaining applicable policies.
+Assume an initiative contains 10 policies, and a resource is exempt from one policy but compliant to the remaining nine. Because a compliant state has a higher rank than an exempted state, the resource would register as compliant in the rolled-up summary of the initiative. So, a resource only shows as exempt for the entire initiative if it's exempt from, or has unknown compliance to, every other single applicable policy in that initiative. On the other extreme, a resource that is non-compliant to at least one applicable policy in the initiative has an overall compliance state of non-compliant, regardless of the remaining applicable policies.
 
 ### Compliance percentage 
 
