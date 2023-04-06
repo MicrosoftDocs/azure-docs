@@ -13,7 +13,7 @@
 
 	<style type="text/css">
 	<![CDATA[
-		.st1 {fill:#ffffff;fill-opacity:0.78;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
+		.st1 {fill:#ffffff;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.5}
 		.st2 {fill:#ffffff;stroke:#d8d8d8;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
 		.st3 {fill:#000000;font-family:Segoe UI Semibold;font-size:1.75001em;font-weight:bold}
 		.st4 {fill:#e6e6e6;stroke:#e6e6e6;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.25}
