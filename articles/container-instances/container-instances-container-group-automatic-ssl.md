@@ -1,5 +1,5 @@
 ---
-title: Enable automatic HTTPS with Caddy in a sidecar container
+title: Enable automatic HTTPS with Caddy as a sidecar container
 description: dadf
 author: matthiasguentert
 ms.author: #Required; microsoft alias of author; optional team alias.
@@ -41,59 +41,87 @@ Caddy is a powerful, enterprise-ready, open source web server with automatic HTT
 
 The automatization of certificates is possible because Caddy supports the ACMEv2 API ([RFC 8555](https://www.rfc-editor.org/rfc/rfc8555)) that interacts with [Let's Encrypt](https://letsencrypt.org/) to issue certificates. 
 
+In this example, only the Caddy container gets exposed on ports 80/TCP and 443/TCP. The application behind the reverse proxy remains private. The network communication between Caddy and your application happens via localhost. 
+
+> [!NOTE]
+> This stands in contrast to the intra container group communication known from docker compose, where containers can be referenced by name. 
+
+The example mounts the [Caddyfile](https://caddyserver.com/docs/caddyfile), which is required to configure the reverse proxy, from a file share hosted on an Azure Storage account. 
+
+> [!NOTE]
+> For production deployments, most users will want to bake the Caddyfile into a custom docker image based on [caddy](https://hub.docker.com/_/caddy). This way, there is no need to mount files into the container. 
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.55 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
+- 
 ## Prepare the Caddyfile
 
-* Required to configure caddy
-* uses http on purpose
-* intra-group communication via localhost only (different from docker compose)
+Create a file called `Caddyfile` and paste the configuration below. This will create a simple reverse proxy configuration, pointing to your application container listening on 5000/TCP. 
 
 ```console
-your-application.westeurope.azurecontainer.io {
+my-app.westeurope.azurecontainer.io {
     reverse_proxy http://localhost:5000
 }
 ```
 
+It's important to note, that the configuration references a domain name instead of an IP address. Caddy needs to be reachable by this URL to carry out the challenge step required by the ACME protocol and to successfully retrieve a certificate from Let's Encrypt. 
+
+> [!NOTE]
+> For production deployment, users might want to use a domain name they control, e.g., `api.company.com` and create a CNAME record pointing to e.g. `my-app.westeurope.azurecontainer.io`. If so, it needs to be ensured, that the custom domain name is also used in the Caddyfile, instead of the one assigned by Azure (e.g., `*.westeurope.azurecontainer.io`). Further, the custom domain name, needs to be referenced in the ACI YAML configuration described later in this example. 
+
 ## Prepare Storage Account
 
-- Create storage account and file shares
-- Required to store state and caddy configuration
+Create a storage account
 
 ```azurecli
-# Create storage account 
 az storage account create \
-  --name <my-storage-account> \
-  --resource-group <my-rg> \
+  --name <storage-account> \
+  --resource-group <resource-group> \
   --location westeurope
+```
 
-# Store connection string 
-$env:AZURE_STORAGE_CONNECTION_STRING = $(az storage account show-connection-string --name <my-storage-account> --resource-group rg-demo --output tsv)
+Store the connection string to an environment variable 
 
-# Create file shares 
+```azurecli
+AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string --name <storage-account> --resource-group <resource-group> --output tsv)
+```
+
+Create the file shares required to store the container state and caddy configuration.
+
+```azurecli
 az storage share create \
   --name proxy-caddyfile \
-  --account-name <my-storage-account>
+  --account-name <storage-account>
 
 az storage share create \
   --name proxy-config \
-  --account-name <my-storage-account>
+  --account-name <storage-account>
   
   az storage share create \
   --name proxy-data \
-  --account-name <my-storage-account>
+  --account-name <storage-account>
 ```
 
-## Deploy container group 
+Retrieve the storage account keys and make a note for later use 
+
+```azurecli
+az storage account keys list -g <resource-group> -n <storage-account>
+```
+
+## Deploy container group
 
 ### Create YAML file
 
-Prepare the YAML file for the ACI configuration 
+Create a file called e.g., `ci-my-app.yaml` and paste the content below. Ensure to replace `<account-key>` with one of the access keys previously received and `<storage-account>` accordingly. 
+
+This YAML file defines two containers `reverse-proxy` and `my-app`. Whereas the `reverse-proxy` container mounts the three previously created file shares. Further, the configuration exposes port 80/TCP and 443/TCP of the `reverse-proxy` container. The communication between both containers happens on localhost only. 
+
+>[!NOTE]
+> It's important to note, that the `dnsNameLabel` key, defines the public DNS name, under which the container instance group will be reachable, it needs to match the FQDN defined in the `Caddyfile`
 
 ```yml 
-name: ci-adventureworks-tls-api
+name: ci-my-app
 apiVersion: "2021-10-01"
 location: westeurope
 properties:
@@ -124,7 +152,7 @@ properties:
       properties:
         image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
-        - port: 80
+        - port: 5000
           protocol: TCP
         resources:
           requests:
@@ -141,7 +169,7 @@ properties:
       - protocol: TCP
         port: 443
     type: Public        
-    dnsNameLabel: my-application
+    dnsNameLabel: my-app
 
   osType: Linux
 
@@ -149,18 +177,18 @@ properties:
     - name: proxy-caddyfile
       azureFile: 
         shareName: proxy-caddyfile
-        storageAccountName: "<my-storage-account>" 
-        storageAccountKey: "<your-key>"
+        storageAccountName: "<storage-account>" 
+        storageAccountKey: "<account-key>"
     - name: proxy-data
       azureFile: 
         shareName: proxy-data
-        storageAccountName: "<my-storage-account>"  
-        storageAccountKey: "<your-key>"
+        storageAccountName: "<storage-account>"  
+        storageAccountKey: "<account-key>"
     - name: proxy-config
       azureFile: 
         shareName: proxy-config
-        storageAccountName: "<my-storage-account>"  
-        storageAccountKey: "<your-key>"
+        storageAccountName: "<storage-account>"  
+        storageAccountKey: "<account-key>"
 ```
 
 ### Deploy the container group
@@ -174,7 +202,7 @@ az group create --name <resource-group> --location westeurope
 Deploy the container group with the [az container create](/cli/azure/container#az-container-create) command, passing the YAML file as an argument.
 
 ```azurecli
-az container create --resource-group <resource-group> --file deploy-aci.yaml
+az container create --resource-group <resource-group> --file ci-my-app.yaml
 ```
 
 ### View the deployment state 
