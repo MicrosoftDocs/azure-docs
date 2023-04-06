@@ -144,26 +144,20 @@ Install the following tools and versions for your specific operating system: Win
 
    1. On the **User** tab, go to **Features** **>** **Extensions**.
 
-   1. Confirm that **Auto Check Updates** and **Auto Update** are selected.
+   1. Confirm that **Auto Check Updates** is selected, and that **Auto Update** is set to **All Extensions**.
 
-By default, the following settings are enabled and set for the Azure Logic Apps (Standard) extension:
+1. Confirm that the **Azure Logic Apps Standard: Project Runtime** setting for the Azure Logic Apps (Standard) extension is set to version **~4**:
 
-* **Azure Logic Apps Standard: Project Runtime**, which is set to version **~3**
+   > [!NOTE]
+   > This version is required to use the [Inline Code Operations actions](../logic-apps/logic-apps-add-run-inline-code.md).
 
-  > [!NOTE]
-  > This version is required to use the [Inline Code Operations actions](../logic-apps/logic-apps-add-run-inline-code.md).
+   1. On the **File** menu, go to **Preferences** **>** **Settings**.
 
-* **Azure Logic Apps Standard: Experimental View Manager**, which enables the latest designer in Visual Studio Code. If you experience problems on the designer, such as dragging and dropping items, turn off this setting.
+   1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Standard)**.
 
-To find and confirm these settings, follow these steps:
+      For example, you can find the **Azure Logic Apps Standard: Project Runtime** setting here or use the search box to find other settings:
 
-1. On the **File** menu, go to **Preferences** **>** **Settings**.
-
-1. On the **User** tab, go to **>** **Extensions** **>** **Azure Logic Apps (Standard)**.
-
-   For example, you can find the **Azure Logic Apps Standard: Project Runtime** setting here or use the search box to find other settings:
-
-   ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Standard)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-settings.png)
+      ![Screenshot that shows Visual Studio Code settings for "Azure Logic Apps (Standard)" extension.](./media/create-single-tenant-workflows-visual-studio-code/azure-logic-apps-settings.png)
 
 <a name="connect-azure-account"></a>
 
