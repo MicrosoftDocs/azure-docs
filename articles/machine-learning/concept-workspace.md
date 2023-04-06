@@ -18,36 +18,33 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 # What is an Azure Machine Learning workspace?
 
-Workspaces are places to collaborate with colleagues and group related work. For example, experiments, jobs, datasets, components, and inference endpoints. 
+Workspaces are places to collaborate with colleagues to create machine learning artifacts and group related work. For example, experiments, jobs, datasets, models, components, and inference endpoints. This article describes workspaces, how to manage access to them, and how to use them to organize your work.
+
+Ready to get started? [Create a workspace](#create-a-workspace).
 
 :::image type="content" source="./media/concept-workspace/workspace.png" alt-text="Screenshot of the Azure Machine Learning workspace.":::
 
-We recommend creating a workspace _per project_. While a workspace can be used for multiple projects, limiting it to one project per workspace allows for cost reporting accrued to a project level. It also allows you to manage configurations like datastores in the scope of each project.
+## Working with workspaces
 
+For machine learning teams, the workspace is a place to organize their work. To administrators, workspaces serve as containers for access management, cost management and data isolation. Below are some tips for working with workspaces:
 
-## Working with a workspace
++ **Use [user roles](how-to-assign-roles.md)** for permission management in the workspace between users. For example a data scientist, a machine learning engineer or an admin.
++ **Assign access to user groups**: By using Azure Active Directory user groups, you don't have to add individual users to each workspace and other resources the same group of users requires access to.
++ **Create a workspace per project**: While a workspace can be used for multiple projects, limiting it to one project per workspace allows for cost reporting accrued to a project level. It also allows you to manage configurations like datastores in the scope of each project.
++ **Share Azure resources**: Workspaces require you to create several [associated resources](#associated-resources). Share these resources between workspaces to save repetitive setup steps.
++ **Enable self-serve**: Pre-create and secure [associated resources](#associated-resources) as an IT admin, and use [user roles](how-to-assign-roles.md) to let data scientists create workspaces on their own.
++ **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
 
-Machine learning tasks read and/or write artifacts to your workspace.
+## What content is stored in a workspace?
 
-+ Run an experiment to train a model - writes job run results to the workspace.
-+ Use automated ML to train a model - writes training results to the workspace.
-+ Register a model in the workspace.
-+ Deploy a model - uses the registered model to create a deployment.
-+ Create and run reusable workflows.
-+ View machine learning artifacts such as jobs, pipelines, models, deployments.
-+ Track and monitor models.
-:::moniker range="azureml-api-2"
-+ You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
-:::moniker-end
+Your workspace keeps a history of all training runs, with logs, metrics, output, lineage metadata, and a snapshot of your scripts. As you perform tasks in Azure Machine Learning, artifacts are generated. Their metadata and data are stored in the workspace and on its [associated resources](#associated-resources).  
 
-## Taxonomy 
+## Tasks performed within a workspace 
 
-+ A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
+The following constructs you can find and manage within the workspace boundary. 
 
-+ [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams, or projects.
 + [Compute targets](concept-compute-target.md) are used to run your experiments.
-+ When you create the workspace, [associated resources](#associated-resources) are also created for you.
-+ Jobs are training runs you use to build your models.  You can organize your jobs into Experiments.
++ Jobs are training runs you use to build your models. You can organize your jobs into Experiments.
 + [Pipelines](concept-ml-pipelines.md) are reusable workflows for training and retraining your model.
 + [Data assets](concept-data.md) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
@@ -118,7 +115,7 @@ These sub resources are the main resources that are made in the Azure Machine Le
 
 ## Associated resources
 
-When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
+When you create a new workspace, you're required to bring other Azure resources to store your data:
 
 + [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
   
@@ -128,7 +125,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
   To use an existing Azure Storage account, it can't be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also can't have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following components:
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR): When you build custom docker containers via Azure Machine Learning. For example, in the following scenarios:
     * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
     :::moniker range="azureml-api-2"
     * [AutoML](concept-automated-ml.md) when deploying
@@ -138,7 +135,8 @@ When you create a new workspace, it automatically creates several Azure resource
     * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
     :::moniker-end
 
-    To minimize costs, ACR is **lazy-loaded** until images are needed.
+    > [!NOTE] 
+    > Workspaces can be created without Azure Container Registry as a dependency if you do not have a need to build custom docker containers. To read container images, Azure Machine Learning also works with external container registries. Azure Container Registry is automatically provisioned when you build custom docker images. Use Azure RBAC to prevent customer docker containers from being build. 
 
     > [!NOTE]
     > If your subscription setting requires adding tags to resources under it, Azure Container Registry (ACR) created by Azure Machine Learning will fail, since we cannot set tags to ACR.
