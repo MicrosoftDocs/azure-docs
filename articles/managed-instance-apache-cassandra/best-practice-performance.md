@@ -11,7 +11,7 @@ keywords: azure performance cassandra
 
 # Best practices for optimal performance
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This article provides tips on how to optimise performance
+Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This article provides tips on how to optimize performance.
 
 
 ## Optimal setup and configuration
@@ -21,9 +21,9 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
 Because Azure supports *three* availability zones in most regions, and Cassandra Managed Instance maps availability zones to racks, we recommend choosing a partition key with high cardinality to avoid hot partitions. For the best level of reliability and fault tolerance, we highly recommend configuring a replication factor of 3. We also recommend specifying a multiple of the replication factor as the number of nodes, for example 3, 6, 9, etc. 
 
 
-We use a RAID 0 over the number of disks you provision. So to get the optimal IOPS you need to check for the maximum IOPS on the SKU you have chosen together with the IOPS of a P30 disk. For example, the `Standard_DS14_v2` SKU supports 51,200 uncached IOPS, whereas a single P30 disk has a base performance of 5,000 IOPS. So, 4 disks would lead to 20,000 IOPS, which is well below the limits of the machine.
+We use a RAID 0 over the number of disks you provision. So to get the optimal IOPS you need to check for the maximum IOPS on the SKU you have chosen together with the IOPS of a P30 disk. For example, the `Standard_DS14_v2` SKU supports 51,200 uncached IOPS, whereas a single P30 disk has a base performance of 5,000 IOPS. So, four disks would lead to 20,000 IOPS, which is well below the limits of the machine.
 
-We strongly recommend extensive benchmarking of your worklaod against the SKU and number of disks. Benchmarking is especially important in the case of SKUs with only 8 cores. Our research shows that 8 core CPUs only work for the least demanding workloads, and most workloads need a minimum of 16 cores to be performant.
+We strongly recommend extensive benchmarking of your worklaod against the SKU and number of disks. Benchmarking is especially important in the case of SKUs with only eight cores. Our research shows that eight core CPUs only work for the least demanding workloads, and most workloads need a minimum of 16 cores to be performant.
 
 
 ## Analytical vs. Transactional workloads
@@ -99,7 +99,7 @@ If the CPU is permanently above 80% for most nodes the database will become over
 * horizontally scale by adding more nodes (as mentioned earlier, the number of nodes should be multiple of the replication factor).
 
 
-If the CPU is only high for a small number of nodes, but low for the others, this indicates a hot partition and needs further investigation.
+If the CPU is only high for a few nodes, but low for the others, it indicates a hot partition and needs further investigation.
 
 
 > [!NOTE]
@@ -119,7 +119,7 @@ If the CPU is only high for a small number of nodes, but low for the others, thi
 
 ### Disk performance
 
-The service runs on Azure P30 managed disks, which allow for "burst IOPS". This can require careful monitoring when it comes to disk related performance bottlenecks. In this case it's important to review the IOPS metrics:
+The service runs on Azure P30 managed disks, which allow for "burst IOPS". Careful monitoring is required when it comes to disk related performance bottlenecks. In this case it's important to review the IOPS metrics:
 
    :::image type="content" source="./media/best-practice-performance/metrics-disk.png" alt-text="Azure Monitor Insights disk I/O" lightbox="./media/best-practice-performance/metrics-disk.png" border="true"::: 
 
@@ -129,9 +129,9 @@ If metrics show one or all of the following characteristics, it can indicate tha
 - Consistently higher than or equal to the maximum IOPS allowed for the SKU for writes.
 - Your SKU supports cached storage for the number for reads in that column.
 
-If you only see the IOPS elevated for a small number of nodes, you might have a hot partition and need to review your data for a potential skew.
+If you only see the IOPS elevated for a few nodes, you might have a hot partition and need to review your data for a potential skew.
 
-If your IOPS are lower than what is supported by the chosen SKU, but above or around the disk IOPS, you can take the following actions:
+If your IOPS are lower than what is supported by the chosen SKU, but higher or equal to the disk IOPS, you can take the following actions:
 
 * Add more disks to increase performance. Increasing disks requires a support case to be raised.
 * [Scale up the data center(s)](create-cluster-portal.md#scale-a-datacenter) by adding more nodes.
@@ -147,7 +147,7 @@ If your IOPS max out what your SKU supports, you can:
 
 ### Network performance
 
-In most cases network performance is sufficient, but if you are frequently streaming data (e.g. through frequent horizontal scale-up/scale down) or there are huge ingress/egress data movements, this can become a problem and you need to evaluate the network performance of your SKU. For example, the `Standard_DS14_v2` SKU supports 12,000 Mb/s, compare this to the byte-in/out in the metrics:
+In most cases network performance is sufficient. However, if you are frequently streaming data (such as frequent horizontal scale-up/scale down) or there are huge ingress/egress data movements, this can become a problem. You may need to evaluate the network performance of your SKU. For example, the `Standard_DS14_v2` SKU supports 12,000 Mb/s, compare this to the byte-in/out in the metrics:
 
 
    :::image type="content" source="./media/best-practice-performance/metrics-network.png" alt-text="Azure Monitor Insights network" lightbox="./media/best-practice-performance/metrics-network.png" border="true"::: 
@@ -156,7 +156,7 @@ In most cases network performance is sufficient, but if you are frequently strea
 If you only see the network elevated for a small number of nodes, you might have a hot partition and need to review your data distribution and/or access patterns for a potential skew.
 
 * Vertically scale up to a different SKU supporting more network I/O.
-* Horizontially scale up the cluster by adding more nodes.
+* Horizontally scale up the cluster by adding more nodes.
 
 
 
@@ -174,7 +174,7 @@ In most cases, there is sufficient disk space as default deployments are optimiz
 > [!NOTE]
 > In order to ensure available space for compaction, disk utilization should be kept to less than 70%.
 
-If you only see this behavior for a small number of nodes, you might have a hot partition and need to review your data distribution and/or access patterns for a potential skew.
+If you only see this behavior for a few nodes, you might have a hot partition and need to review your data distribution and/or access patterns for a potential skew.
 
 
 * add more disks but be mindful of IOPS limits imposed by your SKU
@@ -186,34 +186,32 @@ If you only see this behavior for a small number of nodes, you might have a hot 
 
 Our default formula assigns half the VM's memory to the JVM with an upper limit of 31 GB - which in most cases is a good balance between performance and memory. Some workloads, especially ones which have frequent cross-partition reads or range scans might be memory challenged.
 
-In most cases memory gets reclaimed very effectively by the Java garbage collector, but especially if the CPU is often above 80% there aren't enough CPU cycles for the garbage collector left. So any CPU performance problems should be addresses before memory problems.
+In most cases memory gets reclaimed effectively by the Java garbage collector, but especially if the CPU is often above 80% there aren't enough CPU cycles for the garbage collector left. So any CPU performance problems should be addresses before memory problems.
 
-If the CPU hovers below 70% and the garbage collection isn't able to reclaim memory, you might need more JVM memory, especially if you are on a SKU with very little memory. In most cases you will need to review your queries and client settings and reduce `fetch_size` along what is chosen in `limit` with your CQL query.
+If the CPU hovers below 70%, and the garbage collection isn't able to reclaim memory, you might need more JVM memory. This is especially tha case if you are on a SKU with limited memory. In most cases, you will need to review your queries and client settings and reduce `fetch_size` along with what is chosen in `limit` within your CQL query.
 
-If you indeed need more memory you can:
+If you indeed need more memory, you can:
 
-* file a ticket for us to increase the JVM memory settings for you
-* scale vertically to a SKU which has more memory available
+* File a ticket for us to increase the JVM memory settings for you
+* Scale vertically to a SKU that has more memory available
 
 
 ### Tombstones
 
-We run repairs every 7 days with reaper which will also remove rows whose TTL has expires (called "tombstone"). Some workloads will have more frequent deletes and see warning like `Read 96 live rows and 5035 tombstone cells for query SELECT ...; token <token> (see tombstone_warn_threshold)` in the cassandra logs, or even errors indicating that a query couldn't be fulfilled due to excessive tombstones.
+We run repairs every seven days with reaper which removes rows whose TTL has expired (called "tombstone"). Some workloads have more frequent deletes and see warnings like `Read 96 live rows and 5035 tombstone cells for query SELECT ...; token <token> (see tombstone_warn_threshold)` in the Cassandra logs, or even errors indicating that a query couldn't be fulfilled due to excessive tombstones.
 
-A short term mitigation if queries don't get fulfilled is to increase the `tombstone_failure_threshold` in the [cassandra config](create-cluster-portal.md#update-cassandra-configuration) from the default 100,000 to a higher value. 
+A short term mitigation if queries don't get fulfilled is to increase the `tombstone_failure_threshold` in the [Cassandra config](create-cluster-portal.md#update-cassandra-configuration) from the default 100,000 to a higher value. 
 
 
-In addition to this we recommend to review the TTL on the keyspace and potentially run repairs daily to clear out more tombstones. If the TTLs are very short, e.g. less than 2 days, and data flows in and gets deleted very fast, we recommend reviewing the compaction strategy (see https://cassandra.apache.org/doc/4.1/cassandra/operating/compaction/index.html#types-of-compaction) and favor `Leveled Compaction Strategy`.
-
-In some cases, this might require a review of the data model.
+In addition to this, we recommend to review the TTL on the keyspace and potentially run repairs daily to clear out more tombstones. If the TTLs are short, for example less than two days, and data flows in and gets deleted quickly, we recommend reviewing the [compaction strategy](https://cassandra.apache.org/doc/4.1/cassandra/operating/compaction/index.html#types-of-compaction) and favoring `Leveled Compaction Strategy`. In some cases, such actions may be an indication that a review of the data model is required.
 
 ### Batch warnings
 
-You might encounter this warning in the [CassandraLogs](monitor-clusters.md#create-setting-portal) and potentially also failures related to this:
+You might encounter this warning in the [CassandraLogs](monitor-clusters.md#create-setting-portal) and potentially related failures:
 
 `Batch for [<table>] is of size 6.740KiB, exceeding specified threshold of 5.000KiB by 1.740KiB.`
 
-In this case you should review your queries to stay below the recommended batch size. In rare cases and as a short term mitigation you can increase `batch_size_fail_threshold_in_kb` in the [cassandra config](create-cluster-portal.md#update-cassandra-configuration) from the default of 50 to a higher value.  
+In this case you should review your queries to stay below the recommended batch size. In rare cases and as a short term mitigation you can increase `batch_size_fail_threshold_in_kb` in the [Cassandra config](create-cluster-portal.md#update-cassandra-configuration) from the default of 50 to a higher value.  
 
 
 
@@ -224,7 +222,7 @@ You might encounter this warning in the [CassandraLogs](monitor-clusters.md#crea
 
 `Writing large partition <table> (105.426MiB) to sstable <file>`
 
-This indicates a problem in the data model. Here is a [stack overflow article](https://stackoverflow.com/questions/74024443/how-do-i-analyse-and-solve-writing-large-partition-warnings-in-cassandra) which goes into more detail. This can cause severe performance issues and needs to be addressed.
+This indicates a problem in the data model. Here is a [stack overflow article](https://stackoverflow.com/questions/74024443/how-do-i-analyse-and-solve-writing-large-partition-warnings-in-cassandra) that goes into more detail. This can cause severe performance issues and needs to be addressed.
 
 ## Next steps
 
