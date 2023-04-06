@@ -91,4 +91,4 @@ The following example shows how to create a service SAS for a directory:
 
 ## Resources
 
-For related code samples using .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#create-a-service-sas-for-a-blob-container).
+For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#create-a-service-sas-for-a-blob-container).

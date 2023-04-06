@@ -40,4 +40,4 @@ To use the account SAS to access service-level APIs for the Blob service, constr
 
 ## Resources
 
-For related code samples using .NET version 11.x SDKs, see [Code samples using .NET version 11.x](../blobs/blob-v11-samples-dotnet.md#create-an-account-sas).
+For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](../blobs/blob-v11-samples-dotnet.md#create-an-account-sas).

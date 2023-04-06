@@ -71,4 +71,4 @@ Leases on containers enable the same synchronization strategies that are support
 
 ## Resources
 
-For related code samples using .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#optimistic-concurrency-for-blobs).
+For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#optimistic-concurrency-for-blobs).
