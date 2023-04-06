@@ -4,7 +4,7 @@ description: Learn how to create ExpressRoute Global Reach peering to a private 
 ms.topic: tutorial
 ms.custom: "contperf-fy21q4, contperf-fy22q1, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 10/27/2022 
+ms.date: 4/6/2023 
 ---
 
 # Tutorial: Peer on-premises environments to Azure VMware Solution
