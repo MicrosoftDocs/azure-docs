@@ -303,7 +303,7 @@ To add more data to your map:
 > [Add a polygon layer]
 
 [Create a data source]: create-data-source-android-sdk.md
-[Snackbar widget]:https://developer.android.com/training/snackbar/showing.html
+[Snackbar widget]: https://developer.android.com/training/snackbar/showing.html
 [Dialogs]: https://developer.android.com/guide/topics/ui/dialogs
 [Fragment]: https://developer.android.com/guide/components/fragments
 [React to map events]: android-map-events.md
