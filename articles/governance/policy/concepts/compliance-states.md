@@ -53,7 +53,7 @@ An applicable resource has a compliance state of exempt for a policy assignment 
 
 ### Unknown (preview)
 
-This compliance state only occurs for policy assignments with `manual` effect, when the policy definition has a default compliance state of unknown and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise. 
+ Unknown is the default compliance state for definitions with `manual` effect, unless the default has been explicitly set to compliant or non-compliant. This state indicates that an [attestation](./attestation-structure.md) of compliance is warranted. This compliance state only occurs for policy assignments with `manual` effect.
 
 ### Not registered
 
@@ -73,7 +73,7 @@ This compliance state indicates that the evaluation cycle hasn't started for the
 
 Now that you have an understanding of what compliance states exist and what each one means, let's look at an example using compliant and non-compliant states. 
 
-Suppose you have a resource group - ContsoRG, with some storage accounts
+Suppose you have a resource group - ContosoRG, with some storage accounts
 (highlighted in red) that are exposed to public networks.
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagram of storage accounts exposed to public networks in the Contoso R G resource group." border="false":::
