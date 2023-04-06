@@ -108,8 +108,10 @@ To automate this process based on triggers from Microsoft Defender, see [Automat
 
 System-managed environments can have vulnerabilities from their base image. For example, vulnerabilities marked as "Ubuntu", "Debian" etc are usually from the system level of the environment, the base Docker image. If the base image is from a third-party issuer, please check if the latest version has fixes for the flagged vulnerabilities. Most common sources for the base images in AzureML are:
 
-- Microsoft Artifact Registry (MAR) aka Microsoft Container Registry (mcr.microsoft.com). Images can be listed from MAR homepage, calling _catalog API, or [/tags/list](https://mcr.microsoft.com/v2/azureml/openmpi4.1.0-ubuntu20.04/tags/list)
-- Nvidia (nvcr.io, or nvidia's Profile | Docker Hub )
+- Microsoft Artifact Registry (MAR) aka Microsoft Container Registry (mcr.microsoft.com). 
+	- Images can be listed from MAR homepage, calling _catalog API, or [/tags/list](https://mcr.microsoft.com/v2/azureml/openmpi4.1.0-ubuntu20.04/tags/list)_
+	- Source and release notes for training base images from AzureML can be found in [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers)
+- Nvidia (nvcr.io, or [nvidia's Profile](https://hub.docker.com/u/nvidia/#!))
 
 If the latest version of your base image does not resolve your vulnerabilities, base image vulnerabilities can be addressed by installing versions recommended by a vulnerability scan:
 
@@ -121,7 +123,7 @@ apt-get install -y library_name
 
 Vulnerabilities can also be from installed python packages on top of the system managed base image. These python related vulnerabilities should be resolved by updating your python dependencies. Python (Pip) vulnerabilities in the image usually come from user-defined dependencies.
 
-To search for known python vulnerabilities and solutions please see GitHub Advisory Database. To address python vulnerabilities, update the package to the version that has fixes for the flagged issue:
+To search for known python vulnerabilities and solutions please see [GitHub Advisory Database](https://github.com/advisories). To address python vulnerabilities, update the package to the version that has fixes for the flagged issue:
 
 ```
 pip install -u my_package=={good.version}
