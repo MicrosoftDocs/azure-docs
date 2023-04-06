@@ -34,7 +34,8 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     - Azure API Management
     - Azure Synapse
     - Azure Data Explorer
-    - Azure Healthcare APIs
+    - Azure IoT Central
+    - Azure Healthcare Data Services
     - Azure Digital Twins
     - Azure Arc
 1. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
