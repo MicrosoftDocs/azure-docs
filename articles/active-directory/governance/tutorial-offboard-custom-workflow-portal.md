@@ -1,5 +1,5 @@
 ---
-title: Execute employee departure tasks by using lifecycle workflows (preview)
+title: Execute employee termination tasks by using lifecycle workflows (preview)
 description: Learn how to remove users from an organization in real time on their last day of work by using lifecycle workflows (preview) in the Azure portal.
 services: active-directory
 author: owinfreyATL
@@ -14,7 +14,7 @@ ms.reviewer: krbain
 ms.custom: template-tutorial
 ---
 
-# Execute employee departure tasks by using lifecycle workflows (preview)
+# Execute employee termination tasks by using lifecycle workflows (preview)
 
 This tutorial provides a step-by-step guide on how to execute a real-time employee termination by using lifecycle workflows (preview) in the Azure portal.
 
@@ -28,13 +28,13 @@ For more information, see [Run a workflow on demand](on-demand-workflow.md).
 
 ## Prerequisites
 
-The lifecycle workflows preview requires Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
+The preview of lifecycle workflows requires Azure Active Directory (Azure AD) Premium P2. For more information, see [License requirements](what-are-lifecycle-workflows.md#license-requirements).
 
 ## Before you begin
 
-As part of the prerequisites for completing this tutorial, you need an account that has group and Teams memberships and that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, see [Prepare user accounts for lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md).
+As part of the prerequisites for completing this tutorial, you need an account that has group and Teams memberships and that can be deleted during the tutorial. For comprehensive instructions on how to complete these prerequisite steps, see [Prepare user accounts for lifecycle workflows](tutorial-prepare-azure-ad-user-accounts.md).
 
-The leaver scenario can be broken down into the following steps:
+The leaver scenario includes the following steps:
 
 1. Prerequisite: Create a user account that represents an employee leaving your organization.
 1. Prerequisite: Prepare the user account with group and Teams memberships.
@@ -46,19 +46,19 @@ The leaver scenario can be broken down into the following steps:
 
 Use the following steps to create a leaver on-demand workflow that will execute a real-time employee termination by using lifecycle workflows in the Azure portal:
 
-1. Sign in to Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the right, select **Azure Active Directory**.
 3. Select **Identity Governance**.
 4. Select **Lifecycle workflows (Preview)**.
 5. On the **Overview** tab, select **New workflow**.
 
-    :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of the Overview tab and the button for selecting a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/new-workflow.png" alt-text="Screenshot of the Overview tab and the button for creating a new workflow." lightbox="media/tutorial-lifecycle-workflows/new-workflow.png":::
 
 6. From the collection of templates, choose **Select** under **Real-time employee termination**.
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/select-template.png" alt-text="Screenshot of selecting a workflow template for real-time employee termination." lightbox="media/tutorial-lifecycle-workflows/select-template.png":::
 
-7. Configure the basic information about the workflow, and then select **Next: Review tasks**.
+7. Configure basic information about the workflow, and then select **Next: Review tasks**.
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-leaver.png" alt-text="Screenshot of the tab for basic workflow information." lightbox="media/tutorial-lifecycle-workflows/real-time-leaver.png":::
 
@@ -68,9 +68,9 @@ Use the following steps to create a leaver on-demand workflow that will execute 
 
 9. Choose the **Select users to run now** option. It allows you to select users for which the workflow will be executed immediately after creation. Regardless of the selection, you can run the workflow on demand later at any time, as needed.
 
-    :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-users.png" alt-text="Screenshot of the option for selecting users." lightbox="media/tutorial-lifecycle-workflows/real-time-users.png":::
+    :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-users.png" alt-text="Screenshot of the option for selecting users to run now." lightbox="media/tutorial-lifecycle-workflows/real-time-users.png":::
 
-10. Next, select on **+ Add users** to designate the users to be executed on this workflow.
+10. Select **Add users** to designate the users to be executed on this workflow.
 
     :::image type="content" source="media/tutorial-lifecycle-workflows/real-time-add-users.png" alt-text="Screenshot of the button for adding users." lightbox="media/tutorial-lifecycle-workflows/real-time-add-users.png":::
 
@@ -88,44 +88,46 @@ Use the following steps to create a leaver on-demand workflow that will execute 
 
 ## Run the workflow
 
-Now that the workflow is created, it will automatically run the workflow every 3 hours. Lifecycle workflows check every 3 hours for users in the associated execution condition and execute the configured tasks for those users.  However, for the tutorial, we would like to run it immediately. To run a workflow immediately, we can use the on-demand feature.
+Now that you've created the workflow, it will automatically run every three hours. Lifecycle workflows check every three hours for users in the associated execution condition and execute the configured tasks for those users.
 
->[!NOTE]
->Be aware that you currently can't run a workflow on demand if it's set to disabled. You need to set the workflow to enabled to use the on-demand feature.
+To run the workflow immediately, you can use the on-demand feature.
 
-To run a workflow on demand, for users using the Azure portal, do the following steps:
+> [!NOTE]
+> You currently can't run a workflow on demand if it's set to **Disabled**. You need to set the workflow to **Enabled** to use the on-demand feature.
 
-1. On the workflow screen, select the specific workflow you want to run.
+To run a workflow on demand for users who are using the Azure portal:
+
+1. On the workflow screen, select the specific workflow that you want to run.
 2. Select **Run on demand**.
-3. On the **select users** tab, select **add users**.
-4. Add a user.
+3. On the **Select users** tab, select **Add users**.
+4. Add users.
 5. Select **Run workflow**.
 
 ## Check tasks and workflow status
 
-At any time, you can monitor the status of the workflows and the tasks. As a reminder, there are three different data pivots, users runs, and tasks that are currently available in public preview. You can learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In the course of this tutorial, we look at the status using the user focused reports.
+At any time, you can monitor the status of workflows and tasks. Three data pivots, users runs, and tasks are currently available in public preview. You can learn more in the how-to guide [Check the status of a workflow (preview)](check-status-workflow.md). In this tutorial, you check the status by using the user-focused reports.
 
-1. To begin, select the **Workflow history (Preview)** tab to view the user summary and associated workflow tasks and statuses.  
+1. On the **Overview** page for the workflow, select **Workflow history (Preview)**.  
 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-real-time.png" alt-text="Screenshot of real time history overview." lightbox="media/tutorial-lifecycle-workflows/workflow-history-real-time.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/workflow-history-real-time.png" alt-text="Screenshot of the overview page for a workflow." lightbox="media/tutorial-lifecycle-workflows/workflow-history-real-time.png":::
 
-1. After the **Workflow history (Preview)** tab has been selected, you land on the workflow history page as shown.
+   The **Workflow history** page appears.
 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-real-time.png" alt-text="Screenshot of real time workflow history." lightbox="media/tutorial-lifecycle-workflows/user-summary-real-time.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/user-summary-real-time.png" alt-text="Screenshot of real-time workflow history." lightbox="media/tutorial-lifecycle-workflows/user-summary-real-time.png":::
 
-1. You can select **Total tasks** for the user Jane Smith to view the total number of tasks created and their statuses. In this example, there are three total tasks assigned to the user Jane Smith.  
+1. Select **Total tasks** for a user to view the total number of tasks created and their statuses.
 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-real-time.png" alt-text="Screenshot of total tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/total-tasks-real-time.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/total-tasks-real-time.png" alt-text="Screenshot of total tasks for a real-time workflow." lightbox="media/tutorial-lifecycle-workflows/total-tasks-real-time.png":::
 
-1. To add an extra layer of granularity, you can select **Failed tasks** for the user Wade Warren to view the total number of failed tasks assigned to the user Wade Warren.
+1. To add an extra layer of granularity, select **Failed tasks** for a user to view the total number of failed tasks assigned to that user.
 
-   :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-real-time.png" alt-text="Screenshot of failed tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/failed-tasks-real-time.png":::
+   :::image type="content" source="media/tutorial-lifecycle-workflows/failed-tasks-real-time.png" alt-text="Screenshot of failed tasks for a real-time workflow." lightbox="media/tutorial-lifecycle-workflows/failed-tasks-real-time.png":::
 
-1. You can select **Unprocessed tasks** for the user Wade Warren to view the total number of unprocessed or canceled tasks assigned to the user Wade Warren.
+1. Select **Unprocessed tasks** for a user to view the total number of unprocessed or canceled tasks assigned to that user.
 
-  :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png" alt-text="Screenshot of unprocessed tasks for real time workflow." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png":::
+  :::image type="content" source="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png" alt-text="Screenshot of unprocessed tasks for a real-time workflow." lightbox="media/tutorial-lifecycle-workflows/canceled-tasks-real-time.png":::
 
 ## Next steps
 
 - [Prepare user accounts for lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
-- [Complete employee departure tasks in real time on their last day of work using lifecycle workflow APIs](/graph/tutorial-lifecycle-workflows-offboard-custom-workflow)
+- [Complete tasks in real time on an employee's last day of work by using lifecycle workflow APIs](/graph/tutorial-lifecycle-workflows-offboard-custom-workflow)
