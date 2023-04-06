@@ -118,7 +118,7 @@ To learn more about how to assign and manage Azure role assignments, see these a
 
 ![Screenshot of the basic info using postman to get the token.](./media/howto-authorize-from-application/get-azure-ad-token-using-postman.png)
 
-5. Switch to the **Body**tab, and add the following keys and values.
+5. Switch to the **Body** tab, and add the following keys and values.
     1. Select **x-www-form-urlencoded**.
     2. Add `grant_type` key, and type `client_credentials` for the value.
     3. Add `client_id` key, and paste the value of **Application (client) ID** in the **Overview** tab of the application you created earlier.
