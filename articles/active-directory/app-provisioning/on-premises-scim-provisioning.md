@@ -31,8 +31,8 @@ If you have already downloaded the provisioning agent and configured it for anot
   1.  In the Azure portal, select **Azure Active Directory**.
   2.  On the left, select **Azure AD Connect**.
   3.  On the left, select **Cloud sync**.
- 
- :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
+
+ :::image type="content" source="../../../includes/media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="../../../includes/media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
 
  4. On the left, select **Agent**.
  5. Select **Download on-premises agent**, and select **Accept terms & download**.
