@@ -45,7 +45,7 @@ The v4 programming model is supported by the v3.x of the `durable-functions` npm
 
 In the v4 programming model, `function.json` files are a thing of the past! In v3, you would have to register your orchestration, entity, and activity triggers in a `function.json` file, and export your function implementation using `orchestrator()` or `entity()` APIs from the `durable-functions` package. With v3.x of `durable-functions`, APIs were added to the `app` namespace on the root of the package to allow you to register your durable orchestrations, entities, and activities directly in code! Find the below code snippets for examples.
 
-#### Migrating an orchestration
+**Migrating an orchestration**
 
 :::zone pivot="programming-language-javascript"
 # [v4 model](#tab/v4)
@@ -153,7 +153,7 @@ export default orchestrator;
 :::zone-end
 
 
-#### Migrating an entity
+**Migrating an entity**
 
 :::zone pivot="programming-language-javascript"
 
@@ -282,7 +282,7 @@ export default entity;
 ----
 :::zone-end
 
-#### Migrating an activity
+**Migrating an activity**
 
 :::zone pivot="programming-language-javascript"
 
@@ -496,3 +496,282 @@ export default durableHttpStart;
 
 ---
 :::zone-end
+
+>[!TIP]
+> Use the `input.durableClient()` method to register a durable client extra input to your client function. Use `getClient()` as normal to retrieve a `DurableClient` instance.
+
+## Update your Durable Client API calls
+
+In `v3.x` of `durable-functions`, multiple APIs on the `DurableClient` class (renamed from `DurableOrchestrationClient`) have been simplified to make calling them easier and more streamlined. For many optional arguments to APIs, you now pass one options object, instead of multiple discrete optional arguments. Below is an example of these changes:
+
+:::zone pivot="programming-language-javascript"
+
+# [v4 model](#tab/v4)
+
+```javascript
+const client = df.getClient(context)
+const status = await client.getStatus('instanceId', {
+    showHistory: false,
+    showHistoryOutput: false,
+    showInput: true
+});
+```
+
+# [v3 model](#tab/v3)
+
+```javascript
+const client = df.getClient(context);
+const status = await client.getStatus('instanceId', false, false, true);
+```
+
+---
+:::zone-end
+
+:::zone pivot="programming-language-typescript"
+
+# [v4 model](#tab/v4)
+
+```typescript
+const client: DurableClient = df.getClient(context);
+const status: DurableOrchestrationStatus = await client.getStatus('instanceId', {
+    showHistory: false,
+    showHistoryOutput: false,
+    showInput: true
+});
+```
+
+# [v3 model](#tab/v3)
+
+```typescript
+const client: DurableOrchestrationClient = df.getClient(context);
+const status: DurableOrchestrationStatus = await client.getStatus('instanceId', false, false, true);
+```
+
+---
+:::zone-end
+
+Below, find the full list of changes:
+
+<table>
+<tr>
+<th> V3 model (`v2.x` `durable-functions`) </th>
+<th> V4 model (`v3.x` `durable-functions`) </th>
+</tr>
+<tr>
+<td>
+
+```TS
+getStatus(
+    instanceId: string,
+    showHistory?: boolean,
+    showHistoryOutput?: boolean,
+    showInput?: boolean
+): Promise<DurableOrchestrationStatus>
+```
+</td>
+<td>
+
+```TS
+getStatus(
+    instanceId: string, 
+    options?: GetStatusOptions
+): Promise<DurableOrchestrationStatus>
+```
+</td>
+</tr>
+<tr>
+<td>
+
+```TS
+getStatusBy(
+    createdTimeFrom: Date | undefined,
+    createdTimeTo: Date | undefined,
+    runtimeStatus: OrchestrationRuntimeStatus[]
+): Promise<DurableOrchestrationStatus[]>
+```
+
+</td>
+<td>
+
+```TS
+getStatusBy(
+    options: OrchestrationFilter
+): Promise<DurableOrchestrationStatus[]>
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+```TS
+purgeInstanceHistoryBy(
+    createdTimeFrom: Date,
+    createdTimeTo?: Date,
+    runtimeStatus?: OrchestrationRuntimeStatus[]
+): Promise<PurgeHistoryResult>
+```
+
+</td>
+<td>
+
+```TS
+purgeInstanceHistoryBy(
+    options: OrchestrationFilter
+): Promise<PurgeHistoryResult>
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+```TS
+raiseEvent(
+    instanceId: string,
+    eventName: string,
+    eventData: unknown,
+    taskHubName?: string,
+    connectionName?: string
+): Promise<void>
+```
+
+</td>
+<td>
+
+```TS
+raiseEvent(
+    instanceId: string,
+    eventName: string,
+    eventData: unknown,
+    options?: TaskHubOptions
+): Promise<void>
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+```TS
+readEntityState<T>(
+    entityId: EntityId,
+    taskHubName?: string,
+    connectionName?: string
+): Promise<EntityStateResponse<T>>
+```
+
+</td>
+<td>
+
+```TS
+readEntityState<T>(
+    entityId: EntityId,
+    options?: TaskHubOptions
+): Promise<EntityStateResponse<T>>
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+```typescript
+startNew(
+    orchestratorFunctionName: string,
+    instanceId?: string,
+    input?: unknown
+): Promise<string>
+```
+
+</td>
+<td>
+
+```typescript
+startNew(
+    orchestratorFunctionName: string, 
+    options?: StartNewOptions
+): Promise<string>;
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+```TS
+rewind(
+    instanceId: string,
+    reason: string,
+    taskHubName?: string,
+    connectionName?: string
+): Promise<void>`
+```
+
+</td>
+<td>
+
+```TS
+rewind(
+    instanceId: string, 
+    reason: string, 
+    options?: TaskHubOptions
+): Promise<void>
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+```TS
+signalEntity(
+    entityId: EntityId,
+    operationName?: string,
+    operationContent?: unknown,
+    taskHubName?: string,
+    connectionName?: string
+): Promise<void>
+```
+</td>
+<td>
+
+```TS
+signalEntity(
+    entityId: EntityId, 
+    operationName?: string,
+    operationContent?: unknown,
+    options?: TaskHubOptions
+): Promise<void>
+```
+</td>
+</tr>
+<tr>
+<td>
+
+```TS
+waitForCompletionOrCreateCheckStatusResponse(
+    request: HttpRequest,
+    instanceId: string,
+    timeoutInMilliseconds?: number,
+    retryIntervalInMilliseconds?: number
+): Promise<HttpResponse>;
+```
+
+</td>
+<td>
+
+```TS
+waitForCompletionOrCreateCheckStatusResponse(
+    request: HttpRequest,
+    instanceId: string,
+    waitOptions?: WaitForCompletionOptions
+): Promise<HttpResponse>;
+```
+
+</td>
+</tr>
+</table>
+
+>[!TIP]
+> Make sure to update your `DurableClient` API calls from discrete optional arguments to options objects, where applicable. See the list above for all APIs affected. 
