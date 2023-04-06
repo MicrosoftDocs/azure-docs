@@ -592,7 +592,7 @@ lock_client.management_locks.delete_at_resource_level(
     "Microsoft.Web",
     "",
     "sites",
-    "examplesitetf0406",
+    "examplesite",
     "lockSite"
 )
 ```
