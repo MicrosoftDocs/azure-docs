@@ -29,10 +29,8 @@
         href: encrypt-data-at-rest.md
 - name: Concepts
   items:
-  - name: Image moderation
-    href: concepts/image-moderation.md
-  - name: Text moderation
-    href: concepts/text-moderation.md
+  - name: Content flags
+    href: concepts/content-flags.md
 - name: Reference
   items:
   - name: Content Safety REST API
