@@ -55,7 +55,7 @@ sudo apt install cifs-utils
 ```
 # [RHEL](#tab/RHEL)
 
-    Same applies for CentOS or Oracle Linux
+Same applies for CentOS or Oracle Linux
 
 On Red Hat Enterprise Linux 8+ use the `dnf` package manager:
 
