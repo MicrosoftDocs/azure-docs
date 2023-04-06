@@ -54,7 +54,7 @@ credentials:
     password: <password> # add the Snowflake database password here or leave this blank and type in CLI command line
 ```
 
-Create the Azure Machine Learning datastore in the CLI:
+Create the Azure Machine Learning connection in the CLI:
 
 ### Option 1: Use the username and password in YAML file
 
