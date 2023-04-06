@@ -46,7 +46,7 @@ The following distributions and versions include only Azure-endorsed Linux vendo
 - CentOS 8, 7, 6.5+
 - Oracle Linux 7, 6.4+
 - OpenSUSE 13.1+
-- SUSE Linux Enterprise Server 12
+- SUSE Linux Enterprise Server 12 SP5
 - Debian 9, 8, 7
 - Red Hat Enterprise Linux (RHEL) 7.9
 - Alma Linux 8
@@ -68,7 +68,7 @@ To install Python 2, run one of the following sample commands:
 - Ubuntu, Debian: `apt-get install -y python2`
 - SUSE: `zypper install -y python2`
 
-The `python2` executable file must be aliased to *python*.
+The `python2` executable file must be aliased to `python`.
 
 1. Run the following command to remove any existing aliases.
 
@@ -553,7 +553,7 @@ The Azure Monitor Metrics feature of the Azure portal uses the data in this tabl
 - `WADMetrics`
 - The `"scheduledTransferPeriod"` for the aggregated values stored in the table
 - `P10DV2S`
-- A date, in the form "YYYYMMDD", which changes every 10 days
+- A date, in the form *YYYYMMDD*, which changes every 10 days
 
 Examples include `WADMetricsPT1HP10DV2S20170410` and `WADMetricsPT1MP10DV2S20170609`.
 
@@ -585,7 +585,7 @@ When you specify `syslogEvents`, LAD always writes data to a table in Azure Stor
 The partitioning behavior for this table is the same as described for `performanceCounters`. The table name is the concatenation of these strings:
 
 - `LinuxSyslog`
-- A date, in the form "YYYYMMDD", which changes every 10 days
+- A date, in the form *YYYYMMDD*, which changes every 10 days
 
 Examples include `LinuxSyslog20170410` and `LinuxSyslog20170609`.
 
