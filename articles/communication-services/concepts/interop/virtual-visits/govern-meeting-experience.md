@@ -1,6 +1,6 @@
 ---
 title: Govern Teams meeting experience with Azure Communication Services
-description: Learn how you can design Teams meeting experience for virtual appointments applications
+description: Learn how you can design Teams meeting experience for virtual appointments applications.
 author: tchladek
 manager: chpalm
 services: azure-communication-services
@@ -59,7 +59,7 @@ Microsoft Purview allows administrators to protect information with sensitivity 
 |Host can lower the requirements if the meeting doesn't require strict requirements.	
 
 ## Next steps
-- [Overview of Virtual appointments](./overview.md)
-- [Build your own Virtual appointments](../../../tutorials/virtual-visits/sample-buidler.md)
+- [Overview of virtual appointments](./overview.md)
+- [Build your own virtual appointments](../../../tutorials/virtual-visits/sample-buidler.md)
 - [Learn about Teams controls](../guest/teams-administration.md).
 - [Plan user experience in Teams meetings](./plan-user-experience.md)
