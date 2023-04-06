@@ -54,11 +54,11 @@ This table summarizes the `host.json` values that are used for the _target execu
 | Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Storage Queue                                                  | extensions.queues.batchSize                                       |       16      |
 
-For Cosmos DB _target executions per instance_ is set in the function attribute:
+For Azure Cosmos DB _target executions per instance_ is set in the function attribute:
 
-| Extension   | Function trigger setting | Default Value | 
-| ------------| ------------------------ | ------------- |
-| Cosmos DB   | maxItemsPerInvocation    |  100          |
+| Extension         | Function trigger setting | Default Value | 
+| ----------------- | ------------------------ | ------------- |
+| Azure Cosmos DB   | maxItemsPerInvocation    |  100          |
 
 See [Details per extension](#details-per-extension) for example configurations of the supported extensions.
 

@@ -16,7 +16,7 @@ Starting with extension version 3.1.0, you can trigger on a session-enabled queu
 
 For information on setup and configuration details, see the [overview](functions-bindings-service-bus.md).
 
-Service Bus scaling decisions for the Consumption and Premium plans are done via target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
+Service Bus scaling decisions for the Consumption and Premium plans are made based on target-based scaling. For more information, see [Target-based scaling](functions-target-based-scaling.md).
 
 ::: zone pivot="programming-language-python"
 Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
