@@ -146,103 +146,117 @@ userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 extension CallObserver: MediaDiagnosticsDelegate {
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeCameraFreezeValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for CameraFreeze
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
     
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeSpeakerMutedValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for SpeakerMuted
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
 
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeCameraStartFailedValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for CameraStartFailed
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeSpeakerNotFunctioningValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for SpeakerNotFunctioning
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeCameraPermissionDeniedValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for CameraPermissionDenied
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeMicrophoneNotFunctioningValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for MicrophoneNotFunctioning
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
 
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeMicrophoneMuteUnexpectedlyValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for MicrophoneMuteUnexpectedly
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
 
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeCameraStartTimedOutValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for CameraStartTimedOut
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeSpeakerVolumeIsZeroValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for SpeakerVolumeIsZero
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeNoSpeakerDevicesEnumeratedValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for NoSpeakerDevicesEnumerated
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeNoMicrophoneDevicesEnumeratedValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for NoMicrophoneDevicesEnumerated
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeSpeakingWhileMicrophoneIsMutedValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for SpeakingWhileMicrophoneIsMuted
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeSpeakerNotFunctioningDeviceInUseValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for SpeakerNotFunctioningDeviceInUse
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
   
   func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
                         didChangeMicrophoneNotFunctioningDeviceInUseValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for MicrophoneNotFunctioningDeviceInUse
+    let newValue = args.value
+    // Handle the diagnostic event value changed...
   }
 }
 
 extension CallObserver: NetworkDiagnosticsDelegate {
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
                           didChangeNoNetworkValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for NoNetwork
+    let newValue = args.value
     // Handle the diagnostic event value changed...
   }
 
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
                           didChangeNetworkReconnectValue args: QualityDiagnosticChangedEventArgs) {
-    let value = args.value // Boolean indicating new value for NetworkReconnect
+    let newValue = args.value
     // Handle the diagnostic event value changed...
   }
 
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
                           didChangeNetworkSendQualityValue args: QualityDiagnosticChangedEventArgs) {
-    let value = args.value // Quality scale indicating new value for NetworkSendQuality
+    let newValue = args.value
     // Handle the diagnostic event value changed...
   }
 
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
                           didChangeNetworkReceiveQualityValue args: QualityDiagnosticChangedEventArgs) {
-    let value = args.value // Quality scale indicating new value for NetworkReceiveQuality
+    let newValue = args.value
     // Handle the diagnostic event value changed...
   }
 
   func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
                           didChangeNetworkRelaysNotReachableValue args: FlagDiagnosticChangedEventArgs) {
-    let value = args.value // Quality scale indicating new value for NetworkRelaysNotReachable
+    let newValue = args.value
     // Handle the diagnostic event value changed...
   }
 }
