@@ -138,7 +138,7 @@ A typical JSON response for a query to the Time zone service looks like the foll
 }
 ```
 
-For MORE INFORMATION, see the [Time zone service] documentation.
+For more information, see the [Time zone service] documentation.
 
 ### Traffic service
 
