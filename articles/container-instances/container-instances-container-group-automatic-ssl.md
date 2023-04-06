@@ -112,11 +112,11 @@ properties:
             port: 443
         resources:
           requests:
-            memoryInGB: 1
-            cpu: 1
+            memoryInGB: 1.0
+            cpu: 1.0
           limits:
-            memoryInGB: 1
-            cpu: 1
+            memoryInGB: 1.0
+            cpu: 1.0
         volumeMounts:
           - name: proxy-caddyfile
             mountPath: /etc/caddy
@@ -130,14 +130,16 @@ properties:
         ports:
         - port: 5000
           protocol: TCP
+        environmentVariables:
+        - name: PORT
+          value: 5000
         resources:
           requests:
-            memoryInGB: 1
-            cpu: 1
-          limits: 
-            memoryInGB: 1
-            cpu: 1
-
+            memoryInGB: 1.0
+            cpu: 1.0
+          limits:
+            memoryInGB: 1.0
+            cpu: 1.0
   ipAddress:
     ports:
       - protocol: TCP
@@ -146,9 +148,7 @@ properties:
         port: 443
     type: Public        
     dnsNameLabel: my-app
-
   osType: Linux
-
   volumes:
     - name: proxy-caddyfile
       azureFile: 
@@ -186,20 +186,124 @@ az container create --resource-group <resource-group> --file ci-my-app.yaml
 To view the state of the deployment, use the following [az container show](/cli/azure/container#az-container-show) command:
 
 ```azurecli
-az container show --resource-group <resource-group> --name my-app --output table
+az container show --resource-group <resource-group> --name ci-my-app --output table
 ```
 
 ### Verify TLS connection 
 
-* Navigate to ... 
-* Check cert with browser 
-* Todo insert screenshot here
+Before verifying if everything went well, give the container group some time to fully start and for Caddy to request a certificate.
 
-### Troubleshooting
+#### OpenSSL
 
-* TODO: alternatively check the caddy logs by using... 
+We can use the `s_client` sub-command of OpenSSL for that purpose. 
+
+```bash
+echo "Q" | openssl s_client -connect my-app.westeurope.azurecontainer.io:443
+```
+
+```console
+CONNECTED(00000188)
+---
+Certificate chain
+ 0 s:CN = my-app.westeurope.azurecontainer.io
+   i:C = US, O = Let's Encrypt, CN = R3
+ 1 s:C = US, O = Let's Encrypt, CN = R3
+   i:C = US, O = Internet Security Research Group, CN = ISRG Root X1
+ 2 s:C = US, O = Internet Security Research Group, CN = ISRG Root X1
+   i:O = Digital Signature Trust Co., CN = DST Root CA X3
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIEgTCCA2mgAwIBAgISAxxidSnpH4vVuCZk9UNG/pd2MA0GCSqGSIb3DQEBCwUA
+MDIxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQD
+EwJSMzAeFw0yMzA0MDYxODAzMzNaFw0yMzA3MDUxODAzMzJaMC4xLDAqBgNVBAMT
+I215LWFwcC53ZXN0ZXVyb3BlLmF6dXJlY29udGFpbmVyLmlvMFkwEwYHKoZIzj0C
+AQYIKoZIzj0DAQcDQgAEaaN/wGyFcimM+1O4WzbFgO6vIlXxXqp9vgmLZHpFrNwV
+aO8JbaB7hE+M5EAg34LDY80RyHgY+Ff4vTh2Z96rVqOCAl4wggJaMA4GA1UdDwEB
+/wQEAwIHgDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/
+BAIwADAdBgNVHQ4EFgQUoL5DP+4PWiyE79hL5o+v8uymHdAwHwYDVR0jBBgwFoAU
+FC6zF7dYVsuuUAlA5h+vnYsUwsYwVQYIKwYBBQUHAQEESTBHMCEGCCsGAQUFBzAB
+hhVodHRwOi8vcjMuby5sZW5jci5vcmcwIgYIKwYBBQUHMAKGFmh0dHA6Ly9yMy5p
+LmxlbmNyLm9yZy8wLgYDVR0RBCcwJYIjbXktYXBwLndlc3RldXJvcGUuYXp1cmVj
+b250YWluZXIuaW8wTAYDVR0gBEUwQzAIBgZngQwBAgEwNwYLKwYBBAGC3xMBAQEw
+KDAmBggrBgEFBQcCARYaaHR0cDovL2Nwcy5sZXRzZW5jcnlwdC5vcmcwggEEBgor
+BgEEAdZ5AgQCBIH1BIHyAPAAdgC3Pvsk35xNunXyOcW6WPRsXfxCz3qfNcSeHQmB
+Je20mQAAAYdX8+CQAAAEAwBHMEUCIQC9Ztqd3DXoJhOIHBW+P7ketGrKlVA6nPZl
+9CiOrn6t8gIgXHcrbBqItemndRMv+UJ3DaBfTkYOqECecOJCgLhSYNUAdgDoPtDa
+PvUGNTLnVyi8iWvJA9PL0RFr7Otp4Xd9bQa9bgAAAYdX8+CAAAAEAwBHMEUCIBJ1
+24z44vKFUOLCi1a7ymVuWErkmLb/GtysvcxILaj0AiEAr49hyKfen4BbSTwC8Fg4
+/LgZnn2F3uHI+9p+ZMO9xTAwDQYJKoZIhvcNAQELBQADggEBACqxa21eiW3JrZwk
+FHgpd6SxhUeecrYXxFNva1Y6G//q2qCmGeKK3GK+ZGPqDtcoASH5t5ghV4dIT4WU
+auVDLFVywXzR8PT6QUu3W8QxU+W7406twBf23qMIgrF8PIWhStI5mn1uCpeqlnf5
+HpRaj2f5/5n19pcCZcrRx94G9qhPYdMzuy4mZRhxXRqrpIsabqX3DC2ld8dszCvD
+pkV61iuARgm3MIQz1yL/x5Bn4nywjnhYZA4KFktC0Ti55cPRh1mkzGQAsYQDdWrq
+dVav+U9dOLQ4Sq4suaDmzDzApr+hpQSJhwgRN16+tLMyZ6INAU2JWKDxiyDTdOuH
+jz456og=
+-----END CERTIFICATE-----
+subject=CN = my-app.westeurope.azurecontainer.io
+
+issuer=C = US, O = Let's Encrypt, CN = R3
+
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: ECDSA
+Server Temp Key: X25519, 253 bits
+---
+SSL handshake has read 4208 bytes and written 401 bytes
+Verification error: unable to get local issuer certificate
+---
+New, TLSv1.3, Cipher is TLS_AES_128_GCM_SHA256
+Server public key is 256 bit
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+Early data was not sent
+Verify return code: 20 (unable to get local issuer certificate)
+---
+---
+Post-Handshake New Session Ticket arrived:
+SSL-Session:
+    Protocol  : TLSv1.3
+    Cipher    : TLS_AES_128_GCM_SHA256
+    Session-ID: 85F1A4290F99A0DD28C8CB21EF4269E7016CC5D23485080999A8548057729B24
+    Session-ID-ctx: 
+    Resumption PSK: 752D438C19A5DBDBF10781F863D5E5D9A8859230968A9EAFFF7BBA86937D004F
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 604800 (seconds)
+    TLS session ticket:
+    0000 - 2f 25 98 90 9d 46 9b 01-03 78 db bd 4d 64 b3 a6   /%...F...x..Md..
+    0010 - 52 c0 7a 8a b6 3d b8 4b-c0 d7 fc 04 e8 63 d4 bb   R.z..=.K.....c..
+    0020 - 15 b3 25 b7 be 64 3d 30-2b d7 dc 7a 1a d1 22 63   ..%..d=0+..z.."c
+    0030 - 42 30 90 65 6b b5 e1 83-a3 6c 76 c8 f6 ae e9 31   B0.ek....lv....1
+    0040 - 45 91 33 57 8e 9f 4b 6a-2e 2c 9b f9 87 5f 71 1d   E.3W..Kj.,..._q.
+    0050 - 5a 84 59 50 17 31 1f 62-2b 0e 1e e5 70 03 d9 e9   Z.YP.1.b+...p...
+    0060 - 50 1c 5d 1f a4 3c 8a 0e-f4 c5 7d ce 9e 5c 98 de   P.]..<....}..\..
+    0070 - e5                                                .
+
+    Start Time: 1680808973
+    Timeout   : 7200 (sec)
+    Verify return code: 20 (unable to get local issuer certificate)
+    Extended master secret: no
+    Max Early Data: 0
+---
+read R BLOCK
+```
+
+#### Chrome browser
+
+Navigate to https://my-app.westeurope.azurecontainer.io and verify the certificate by clicking on the padlock next to the URL. 
+
+:::image type="content" source="media/container-instances-container-group-automatic-ssl/my-app-1.png" alt-text="Certificate validation":::
+
+To see the certicicate details, click on "Connection is secure" followed by "certificate is valid".
+
+:::image type="content" source="media/container-instances-container-group-automatic-ssl/my-app-2.png" alt-text="":::
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+- [Caddy documentation](https://caddyserver.com/docs/)
+- [YAML reference](https://learn.microsoft.com/en-us/azure/container-instances/container-instances-reference-yaml)
+- [GitHub aci-helloworld](https://github.com/Azure-Samples/aci-helloworld)
