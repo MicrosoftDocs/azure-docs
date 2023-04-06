@@ -35,7 +35,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### Fixed
 
 - Improved reliability of delete requests for extensions
-- Removed "sudo" from internal install scripts to ensure compatibility with SELinux
 - More frequent reporting of VM UUID (system firmware identifier) changes
 - Improved reliability when writing changes to agent configuration files
 - JSON output for `azcmagent connect` now includes Azure portal URL for the server
