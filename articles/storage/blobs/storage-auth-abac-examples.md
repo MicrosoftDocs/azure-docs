@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/05/2023
+ms.date: 04/06/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1356,16 +1356,16 @@ This section includes examples showing how to restrict access to objects based o
 
 ### Example: Allow access to a container only from a specific private endpoint
 
-This condition requires that all read, write and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
+This condition requires that all read, write, add and delete operations for blobs in a storage container named `container1` be made through a private endpoint named `privateendpoint1`. For all other containers not named `container1`, access does not need to be through the private endpoint.
 
 There are five potential actions for read, write and delete of existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include any of the following actions.
 
-| Action | Notes |
-| ------ | ----- |
-| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete` |  |
-| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |  |
-| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` |  |
-| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` |  |
+| Action                                                                                  | Notes |
+| --------------------------------------------------------------------------------------- | ----- |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`                  |       |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`                 |       |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`            |       |
+| `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`                |       |
 | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action` | Add if role definition includes this action, such as Storage Blob Data Owner.<br/>Add if the storage accounts included in this condition have hierarchical namespace enabled or might be enabled in the future. |
 
 The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. In the portal, you can use the visual editor or code editor to build your condition and switch back and forth between them.
@@ -1488,20 +1488,21 @@ $subId = "<your subscription id>"
 $rgName = "<resource group name>"
 $storageAccountName = "<storage account name>"
 $roleDefinitionName = "Storage Blob Data Contributor"
-$userObjectID = "<user object id>"
-$containerName = "<container name>"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$containerName = "container1"
 $privateEndpointName = "privateendpoint1"
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
 "( `
-    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
-    AND `
     !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
     AND `
     !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
     AND `
     !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+    AND `
+    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
 ) `
 OR `
 ( `
@@ -1524,18 +1525,18 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ### Example: Require private link access to read blobs with high sensitivity
 
-This condition requires requests to read blobs where blob index tag **sensitivity** has a value of `high` to be over a private link (any private link). This means all attempts to read blobs with that tag and value from the public internet will not be allowed. Users can read blobs from the public internet that have **sensitivity** set to some value other than `high`, or where the index tag is not applied to the blob.
+This condition requires requests to read blobs where blob index tag **sensitivity** has a value of `high` to be over a private link (any private link). This means all attempts to read highly sensitive blobs from the public internet will not be allowed. Users can read blobs from the public internet that have **sensitivity** set to some value other than `high`, or where the index tag is not applied to the blob.
 
 A truth table for this ABAC sample condition follows:
 
-| Action      | sensitivity tag value | Private link | Access      |
-|-------------|-----------------------|--------------|-------------|
-| Read a blob | high                  | Yes          | Allowed     |
-| Read a blob | high                  | No           | Not Allowed |
-| Read a blob | NOT high              | Yes          | Allowed     |
-| Read a blob | NOT high              | No           | Allowed     |
-| Read a blob | (none)                | Yes          | Allowed     |
-| Read a blob | (none)                | No           | Allowed     |
+| Action      | Sensitivity | Private link | Access      |
+|-------------|-------------|--------------|-------------|
+| Read a blob | high        | Yes          | Allowed     |
+| Read a blob | high        | No           | Not Allowed |
+| Read a blob | NOT high    | Yes          | Allowed     |
+| Read a blob | NOT high    | No           | Allowed     |
+| Read a blob | (none)      | Yes          | Allowed     |
+| Read a blob | (none)      | No           | Allowed     |
 
 There are two potential actions for reading existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include any of the following actions.
 
@@ -1646,7 +1647,8 @@ $subId = "<your subscription id>"
 $rgName = "<resource group name>"
 $storageAccountName = "<storage account name>"
 $roleDefinitionName = "Storage Blob Data Reader"
-$userObjectID = "<user object id>"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
@@ -1698,7 +1700,7 @@ Here are the settings to add this condition using the visual condition editor in
 
 ##### Add action
 
-Select **Add action**, then select only the suboperation shown in the following table.
+Select **Add action**, then select only the **Read a blob** suboperation as shown in the following table.
 
 | Action                                    | Suboperation |
 | ----------------------------------------- | ------------ |
@@ -1769,7 +1771,8 @@ $subId = "<your subscription id>"
 $rgName = "<resource group name>"
 $storageAccountName = "<storage account name>"
 $roleDefinitionName = "Storage Blob Data Reader"
-$userObjectID = "<user object id>"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
@@ -1779,14 +1782,12 @@ $condition = `
 OR `
 ( `
     ( `
-        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
-        AND `
-        @Environment[isPrivateLink] BoolEquals true `
+       @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+       AND `
+       @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1' `
     ) `
     OR `
-    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
-    OR `
-    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
 )"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
@@ -1814,7 +1815,7 @@ The condition can be added to a role assignment using either the Azure portal or
 
 #### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
 
-Here are the settings to add this condition, Condition #1, using the Azure portal.
+Here are the settings to add this condition using the Azure portal.
 
 > [!NOTE]
 > The last expression allows blobs written without the sensitivity tag to come from the public internet or other private endpoints.
@@ -1828,7 +1829,7 @@ Select **Add action**, then select only the following suboperations under the ac
 | Write to a blob                           | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
 | Create a blob or snapshot, or append data | [Write to a blob with blob index tags](storage-auth-abac-attributes.md#write-to-a-blob-with-blob-index-tags) |
 
-The following image shows selection of only the required suboperations:
+Do not select the top-level action or any other suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-write-a-blob-with-tags-portal.png" alt-text="Screenshot of the action selector in the Azure portal showing selection of write access with blog index tags." lightbox="./media/storage-auth-abac-examples/environ-action-select-write-a-blob-with-tags-portal.png":::
 
@@ -1876,7 +1877,7 @@ To add the condition using the code editor, copy the condition code sample below
   (
    @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] ForAnyOfAnyValues:StringEqualsIgnoreCase {'high', 'low', 'medium'}
    AND
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/SampleRG/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
   )
   OR
   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'}
@@ -1895,7 +1896,9 @@ $subId = "<your subscription id>"
 $rgName = "<resource group name>"
 $storageAccountName = "<storage account name>"
 $roleDefinitionName = "Storage Blob Data Contributor"
-$userObjectID = "<user object id>"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$privateEndpointName = "privateendpoint1"
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
@@ -1909,7 +1912,7 @@ $condition = `
   ( `
    @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] ForAnyOfAnyValues:StringEqualsIgnoreCase {'high', 'low', 'medium'} `
    AND `
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/SampleRG/providers/Microsoft.Network/privateEndpoints/privateendpoint1' `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
   ) `
   OR `
   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'} `
@@ -1941,7 +1944,7 @@ The condition can be added to a role assignment using either the Azure portal or
 
 #### [Azure portal: Visual editor](#tab/azure-portal-visual-editor)
 
-Here are the settings to add this condition, Condition #1, using the Azure portal.
+Here are the settings to add this condition using the Azure portal.
 
 ##### Add action
 
@@ -2024,24 +2027,32 @@ $subId = "<your subscription id>"
 $rgName = "<resource group name>"
 $storageAccountName = "<storage account name>"
 $roleDefinitionName = "Storage Blob Data Reader"
-$userObjectID = "<user object id>"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$containerName = "container1"
+$vnetName = "virtualnetwork1"
+$subnetName = "default"
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
 "( `
-    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
-) `
-OR `
-( `
-    ( `
-        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
-        AND `
-        @Environment[isPrivateLink] BoolEquals true `
-    ) `
-    OR `
-    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
-    OR `
-    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
+  AND `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
+ ) `
+ OR ` 
+ ( `
+  ( `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals $containerName `
+   AND `
+   @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
 )"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
@@ -2054,7 +2065,7 @@ Set-AzRoleAssignment -InputObject $testRa -PassThru
 
 ### Example: Allow read access to blobs after a specific date and time
 
-This condition allows read access to blob container `container1` only after 1 PM on April 1, 2023 Universal Coordinated Time (UTC).
+This condition allows read access to blob container `container1` only after 1 PM on May 1, 2023 Universal Coordinated Time (UTC).
 
 There are two potential actions for reading existing blobs. To make this condition effective for principals that have multiple role assignments, you must add this condition to all role assignments that include any of the following actions.
 
@@ -2078,7 +2089,7 @@ Select **Add action**, then select only the **Read a blob** suboperation as show
 | ----------------------------------------- | ------------ |
 | All read operations                       | Read a blob  |
 
-Do not select the top-level **All read operations** action of any other suboperations as shown in the following image:
+Do not select the top-level **All read operations** action or any other suboperations as shown in the following image:
 
 :::image type="content" source="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png" alt-text="Screenshot of condition editor in Azure portal showing selection of just the read operation." lightbox="./media/storage-auth-abac-examples/environ-action-select-read-a-blob-portal.png":::
 
@@ -2142,24 +2153,25 @@ $subId = "<your subscription id>"
 $rgName = "<resource group name>"
 $storageAccountName = "<storage account name>"
 $roleDefinitionName = "Storage Blob Data Reader"
-$userObjectID = "<user object id>"
+$userUpn = "<user UPN>"
+$userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$containerName = "container1"
+$dateTime = "2023-04-01T13:00:00.000Z"
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
 "( `
-    !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
-) `
-OR `
-( `
-    ( `
-        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'  `
-        AND `
-        @Environment[isPrivateLink] BoolEquals true `
-    ) `
-    OR `
-    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
-    OR `
-    NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) `
+ ) `
+ OR ` 
+ ( `
+  ( `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals $containerName `
+   AND `
+   @Environment[UtcNow] DateTimeGreaterThan $dateTime `
+  ) `
+  OR `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
 )"
 
 $testRa = Get-AzRoleAssignment -Scope $scope -RoleDefinitionName $roleDefinitionName -ObjectId $userObjectID
