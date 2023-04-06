@@ -11,7 +11,7 @@ ms.date: 03/29/2023
 ms.author: ananyagarg
 ---
 
-# Confidential computing solutions powered by Edgeless Systems on Azure
+# Edgeless Systems
 
 
 ## Overview
@@ -31,7 +31,7 @@ Constellation keeps all data in a Kubernetes deployment encrypted---at rest, in 
 
 Head to the [blog here to learn more](https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-computing-at-scale-with-open-source-confidential/ba-p/3641021).
 
-## Get started with Edgeless Systems today
+## Get started with Edgeless Systems on Azure today
 
 You can learn more and get started with these [Azure Marketplace solutions, here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/edgelesssystems.edb?tab=Overview). You can also find code and the docs on their [GitHub](https://github.com/edgelesssys).
 
