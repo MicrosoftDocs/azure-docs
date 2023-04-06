@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 04/06/2023
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: common
@@ -69,8 +69,8 @@ The table below shows the current status of ABAC by storage account performance 
 |--|--|--|--|--|
 | Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource               | all except for the snapshot resource attribute for Data Lake Storage Gen2 | GA |
 | Standard | Data Lake Storage Gen2                      | resource                           | snapshot | Preview |
-| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | principal                          | all      | Preview |
-| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | request<br/>resource<br/>principal | all      | Preview |
+| Standard | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal          | all      | Preview |
+| Premium  | Blobs<br/>Data Lake Storage Gen2<br/>Queues | environment<br/>principal<br/>request<br/>resource | all      | Preview |
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
