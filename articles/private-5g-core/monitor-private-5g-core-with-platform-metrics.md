@@ -33,6 +33,7 @@ You can use the Azure portal to monitor your deployment's health and performance
     1. Enter *packet core control plane* into the filter text box.
     1. Select the **Packet Core Control Plane** resource.
         :::image type="content" source="media/packet-core-control-plane-filter.png" alt-text="Screenshot of the Azure portal showing the All resources page filtered to show Packet Core Control Plane resources only.":::
+
 1. Select the **Monitoring** tab.
 
     :::image type="content" source="media/platform-metrics-dashboard.png" alt-text="Screenshot of the Azure portal showing the Packet Core Control Plane resource's Monitoring tab.":::
