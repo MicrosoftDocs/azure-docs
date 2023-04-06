@@ -83,4 +83,8 @@ ms.date: 04/12/2023
    | Zoom out | SHIFT + double click on the map |
    | Pan around | Drag the map |
 
+## Known issues
+
+
+
 ## Next steps
