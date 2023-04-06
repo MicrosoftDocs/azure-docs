@@ -6,6 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: overview
+ms.search.form: product-data-integration
 ms.date: 08/11/2022
 ---
 
