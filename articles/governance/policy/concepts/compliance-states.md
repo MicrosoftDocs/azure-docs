@@ -11,9 +11,9 @@ ms.topic: conceptual
 
 When initiative or policy definitions are assigned, Azure Policy will determine which resources are [applicable](./policy-applicability.md) then evaluate those which have not been [excluded](./assignment-structure.md#excluded-scopes). Evaluation yields **compliance states** based on conditions in the policy rule and each resources' adherence to those requirements. 
 
-### Available compliance states
+## Available compliance states
 
-#### Non-compliant
+### Non-compliant
 
 Policy assignments with `audit`, `auditIfNotExists`, or `modify` effects are considered non-compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. 
 
@@ -32,7 +32,7 @@ When a resource is determined to be **non-compliant**, there are many possible r
 the reason a resource is **non-compliant** or to find the change responsible, see
 [Determine non-compliance](../how-to/determine-non-compliance.md).
 
-#### Compliant
+### Compliant
 
 Policy assignments with `append`, `audit`, `auditIfNotExists`, `deny`, `deployIfNotExists`, or `modify` effects are considered compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **FALSE**. 
 
@@ -40,30 +40,30 @@ Policy assignments with `manual` effects are considered compliant under two circ
 1. The policy definition has a default compliance state of compliant and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise.
 1. The resource has been attested as compliant. 
 
-#### Conflicting
+### Conflicting
 
 A policy assignment is considered conflicting when there are two or more policy assignments existing in the same scope with contradicting or conflicting rules. For example, two definitions that append the same tag with different values.
 
-#### Exempt
+### Exempt
 
 An [exemption](./exemption-structure.md) can be created on an assignment for an applicable resource or resource hierarchy, and resources within that scope are given a compliance state of exempt.
 
 > [!NOTE]
 > A key distinction between [exemption](./exemption-structure.md) and [exclusion](./assignment-structure.md#excluded-scopes) is that evaluation is bypassed for excluded scopes but still occurs for exempted scopes. Resources belonging to exempted scopes do not have a compliance state. 
 
-#### Unknown (preview)
+### Unknown (preview)
 
 This compliance state only occurs for policy assignments with `manual` effect, when the policy definition has a default compliance state of unknown and there is no active [attestation](./attestation-structure.md) for the applicable resource stating otherwise. 
 
-#### Not registered
+### Not registered
 
 This compliance state is visible in portal when the Azure Policy Resource Provider hasn't been registered, or when the account logged in doesn't have permission to read compliance data.
 
-#### Not started
+### Not started
 
 This compliance state indicates that the evaluation cycle hasn't started for the policy or resource.
 
-### Example
+## Example
 
 Now that you have an understanding of what compliance states exist and what each one means, let's look at an example. 
 
@@ -80,7 +80,7 @@ In this example, you need to be wary of security risks. Assume you assign a poli
    Diagram showing images for five storage accounts in the Contoso R G resource group. Storage accounts one and three now have green checkmarks beneath them, while storage accounts two, four, and five now have red warning signs beneath them.
 :::image-end:::
 
-### Compliance rollup
+## Compliance rollup
 
 Compliance state is determined per-resource, per-policy assignment. However, we often need a big-picture view of the state of the environment, which is where aggregate compliance comes into play.
 
@@ -94,7 +94,7 @@ There are several ways to view aggregated compliance results in the portal:
 | Policy  | All applicable resources |
 | Resource | All applicable policies |
 
-#### Comparing different compliance states
+### Comparing different compliance states
 
 So how is the aggregate compliance state determined if multiple resources or policies have different compliance states themselves? This is done by ranking each compliance state so that one "wins" over another in this situation. The rank order is:
 1. Non-compliant
@@ -110,7 +110,7 @@ This means that if there are both non-compliant and compliant states, the rolled
 
 Assume an initiative contains 10 policies, and a resource is exempt from one policy but compliant to the remaining nine. Because a compliant state has a higher rank than an exempted state, the resource would register as compliant in the rolled-up summary of the initiative. So, a resource will only show as exempt for the entire initiative if it's exempt from, or has unknown compliance to, every other single applicable policy in that initiative. On the other extreme, if the resource is non-compliant to at least one applicable policy in the initiative, it will have an overall compliance state of non-compliant, regardless of the remaining applicable policies.
 
-#### Compliance percentage 
+### Compliance percentage 
 
 The compliance percentage is determined by dividing **Compliant**, **Exempt**, and **Unknown** resources by _total resources_. _Total resources_ include **Compliant**, **Non-compliant**,
 **Exempt**, and **Conflicting** resources. The overall compliance numbers are the sum of distinct
