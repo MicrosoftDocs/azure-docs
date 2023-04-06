@@ -44,7 +44,7 @@ The workflow example is an ASP.NET Core project with:
 Clone the example workflow application. 
 
 ```sh
-git clone https://github.com/Azure-Samples/dapr-workflows-aks-sample.git
+git clone https://github.com/Azure/dapr-workflows-aks-sample.git
 ```
 
 Navigate to the sample's root directory.
@@ -187,7 +187,6 @@ Notice that the workflow status is marked as completed.
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [install-cli]: /cli/azure/install-azure-cli
 [k8s-ext]: ./dapr.md#set-up-the-azure-cli-extension-for-cluster-extensions
-[acr]: ./tutorial-kubernetes-prepare-acr.md
 [cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-service-provider
 [dapr-config]: ./dapr-settings.md
@@ -195,13 +194,11 @@ Notice that the workflow status is marked as completed.
 [kubectl]: ./tutorial-kubernetes-deploy-cluster.md#connect-to-cluster-using-kubectl
 
 <!-- Links External -->
-[dapr-workflow-sample]: https://github.com/shubham1172/dapr-workflows-aks-sample
-[dapr-program]: https://github.com/shubham1172/dapr-workflows-aks-sample/blob/main/Program.cs
-[dapr-workflow-dir]: https://github.com/shubham1172/dapr-workflows-aks-sample/tree/main/Workflows
-[dapr-activities-dir]: https://github.com/shubham1172/dapr-workflows-aks-sample/tree/main/Activities
+[dapr-workflow-sample]: https://github.com/Azure/dapr-workflows-aks-sample
+[dapr-program]: https://github.com/Azure/dapr-workflows-aks-sample/blob/main/Program.cs
+[dapr-workflow-dir]: https://github.com/Azure/dapr-workflows-aks-sample/tree/main/Workflows
+[dapr-activities-dir]: https://github.com/Azure/dapr-workflows-aks-sample/tree/main/Activities
 [dapr-workflow-alpha]: https://docs.dapr.io/operations/support/support-preview-features/#current-preview-features
-[gh-pat]: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-with-a-personal-access-token-classic
-[deployment-yaml]: https://github.com/hhunter-ms/dapr-workflows-aks-sample/blob/main/Deploy/deployment.yaml
+[deployment-yaml]: https://github.com/Azure/dapr-workflows-aks-sample/blob/main/Deploy/deployment.yaml
 [docker]: https://docs.docker.com/get-docker/
 [helm]: https://helm.sh/docs/intro/install/
-[gh-fork]: https://docs.github.com/en/get-started/quickstart/fork-a-repo
