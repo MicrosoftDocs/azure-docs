@@ -45,9 +45,9 @@ Enterprises onboarding users face significant challenges onboarding remote users
     - The link should be designed to correlate to a unique HR record identifier
 1. An Azure AD account should be pre-created for every user. The account should be used as part of the site's request validation process.
 1. Administrators frequently deal with discrepancies between users' information held in a company's IT systems, like human resource applications or identity management solutions, and the information the users provide. For example, an employee might have “James” as their first name but their profile has their name as “Jim”. For those scenarios:
-  1. At the beginning of the HR process, candidates must use their name exactly as it appears in government issued documents. Taking this approach simplifies validation logic.
-  2. Design validation logic to include attributes that are more likely to have an exact match against the HR system. Common attributes include street address, date of birth, nationality, national identification number (if applicable), in addition to first and last name.
-  3. As a fallback, plan for human review to work through ambiguous/non-conclusive results. This process might include temporarily storing the attributes presented in the VC, phone call with the user, etc.
+   1. At the beginning of the HR process, candidates must use their name exactly as it appears in government issued documents. Taking this approach simplifies validation logic.
+   1. Design validation logic to include attributes that are more likely to have an exact match against the HR system. Common attributes include street address, date of birth, nationality, national identification number (if applicable), in addition to first and last name.
+   1. As a fallback, plan for human review to work through ambiguous/non-conclusive results. This process might include temporarily storing the attributes presented in the VC, phone call with the user, etc.
 1. Multinational organizations, may need to work with different identity proofing partners based on the region of the user.
 1. Assume that the initial interaction between the user and the onboarding partner is untrusted. The onboarding portal should generate detailed logs for all requests processed that could be used for auditing purposes.
 
