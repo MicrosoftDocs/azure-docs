@@ -5,9 +5,9 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.service: azure-monitor
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to 
 ms.date: 11/09/2022
-
 # Customer intent: As a Log Analytics workspace administrator, I want to create a table with a custom schema to store logs from an Azure or non-Azure data source.
 ---
 

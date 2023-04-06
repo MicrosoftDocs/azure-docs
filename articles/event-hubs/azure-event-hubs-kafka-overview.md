@@ -1,6 +1,6 @@
 ---
-title: Introduction to Apache Kafka on Azure Event Hubs
-description: Learn what Apache Kafka on Azure Event Hubs is and how to use it to stream data from Apache Kafka applications without setting up a Kafka cluster on your own.
+title: Introduction to Apache Kafka in Event Hubs on Azure Cloud
+description: Learn what Apache Kafka in the Event Hubs service on Azure Cloud is and how to use it to stream data from Apache Kafka applications without setting up a Kafka cluster on your own.
 ms.topic: overview
 ms.date: 02/03/2023
 ---
@@ -34,7 +34,7 @@ While [Apache Kafka](https://kafka.apache.org/) is software you typically need t
 
 For more information about Event Hubs and namespaces, see [Event Hubs features](event-hubs-features.md#namespace). As a cloud service, Event Hubs uses a single stable virtual IP address as the endpoint, so clients don't need to know about the brokers or machines within a cluster. Even though Event Hubs implements the same protocol, this difference means that all Kafka traffic for all partitions is predictably routed through this one endpoint rather than requiring firewall access for all brokers of a cluster.   
 
-Scale in Event Hubs is controlled by how many [throughput units (TUs)](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units) you purchase. If you enable the [Auto-Inflate](event-hubs-auto-inflate.md) feature for a standard tier namespace, Event Hubs automatically scales up TUs when you reach the throughput limit. This feature work also works with the Apache Kafka protocol support. For a premier tier namespace, you can increase the number of processing units assigned to the namespace. 
+Scale in Event Hubs is controlled by how many [throughput units (TUs)](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units) you purchase. If you enable the [Auto-Inflate](event-hubs-auto-inflate.md) feature for a standard tier namespace, Event Hubs automatically scales up TUs when you reach the throughput limit. This feature also works with the Apache Kafka protocol support. For a premier tier namespace, you can increase the number of processing units assigned to the namespace. 
 
 ## Is Apache Kafka the right solution for your workload?
 
@@ -130,7 +130,7 @@ The most common reason Azure Event Hubs customers ask for Kafka Streams support 
 Standalone and without ksqlDB, Kafka Streams has fewer capabilities than many alternative frameworks and services, most of which have built-in streaming SQL interfaces, and all of which integrate with Azure Event Hubs today:
 
 - [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
-- [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-grid-event-hubs-integration.md)
+- [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-hubs-integration.md)
 - [Azure Databricks](/azure/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)

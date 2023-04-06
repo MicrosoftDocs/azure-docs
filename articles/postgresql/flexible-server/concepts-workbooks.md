@@ -24,28 +24,30 @@ Azure Database for PostgreSQL Flexible Server has two available templates:
 
 - **Overview**: Displays an instance summary and top-level metrics to help you visualize and understand the resource utilization on your server. This template displays the following views:
 
-    - Server Summary
-    - Database Summary
-    - Connection Metrics
-    - Performance Metrics
-    - Storage Metrics
+    * Server Summary
+    * Database Summary
+    * Connection Metrics
+    * Performance Metrics
+    * Storage Metrics
 
-- **Enhanced Metrics**: Displays a summary of Enhanced Metrics for Azure Database for PostgreSQL Flexible Server with more fine-grained database monitoring. To enable these metrics, please turn ON the server 'parameter metrics.collector_database_activity' and 'metrics.autovacuum_diagnostics'. These parameters are dynamic and don't require a server restart. For more information, see [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics). This template displays the following views:
+- **Enhanced Metrics**: Displays a summary of Enhanced Metrics for Azure Database for PostgreSQL Flexible Server with more fine-grained database monitoring. To enable these metrics, please enable the server parameters `metrics.collector_database_activity` and `metrics.autovacuum_diagnostics`. These parameters are dynamic and don't require a server restart. For more information, see [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics). This template displays the following views:
 
-    - Activity Metrics
-    - Database Metrics
-    - Autovacuum Metrics
-    - Replication Metrics
+    * Activity Metrics
+    * Database Metrics
+    * Autovacuum Metrics
+    * Replication Metrics
 
 You can also edit and customize these templates according to your requirements. For more information, see [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
 ## Access the workbook templates
 
-To view the templates in the Azure portal, go to the **Monitoring*- pane for Azure Database for PostgreSQL Flexible Server, and then select **Workbooks**.
+To view the templates in the Azure portal, go to the **Monitoring** pane for Azure Database for PostgreSQL Flexible Server, and then select **Workbooks**.
 
 :::image type="content" source="./media/concepts-workbooks/monitor-workbooks-all.png" alt-text="Screenshot showing the Overview, Enhanced Metrics templates on the Workbooks pane.":::
 
 ## Next steps
 
 - Learn about [Azure workbooks access control](../../azure-monitor/visualize/workbooks-overview.md#access-control).
-- Learn more about [Azure workbooks visualization options](../../azure-monitor/visualize/workbooks-visualizations.md).
+- Learn about [Azure workbooks visualization options](../../azure-monitor/visualize/workbooks-visualizations.md).
+- Learn about [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics) for Azure Database for PostgreSQL – Flexible Server.
+- Learn about [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL – Flexible Server.

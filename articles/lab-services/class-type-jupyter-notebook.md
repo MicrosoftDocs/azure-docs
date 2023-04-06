@@ -12,6 +12,8 @@ ms.date: 02/17/2023
 
 # Set up a lab to teach data science with Python and Jupyter Notebooks
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article outlines how to set up a [template virtual machine (VM)](./classroom-labs-concepts.md#template-virtual-machine) in Azure Lab Services with the tools for teaching students to use Jupyter Notebooks. You also learn how to lab users can connect to notebooks on their virtual machines.
 
 [Jupyter Notebooks](https://jupyter-notebook.readthedocs.io/) is an open-source project that enables you to easily combine rich text and executable Python source code on a single canvas, known as a notebook. Running a notebook results in a linear record of inputs and outputs. Those outputs can include text, tables of information, scatter plots, and more.

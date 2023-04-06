@@ -1,11 +1,11 @@
 ---
-title: Configure Microsoft Connected Cache for Device Update for Azure IoT Hub | Microsoft Docs
+title: Configure Microsoft Connected Cache for Device Update for Azure IoT Hub
 titleSuffix:  Device Update for Azure IoT Hub
 description: Overview of Microsoft Connected Cache for Device Update for Azure IoT Hub
 author: andyriv
 ms.author: andyriv
 ms.date: 08/19/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

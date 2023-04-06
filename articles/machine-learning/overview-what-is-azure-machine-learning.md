@@ -157,6 +157,11 @@ Supported via Azure Machine Learning Kubernetes and Azure Machine Learning compu
 
 The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
 
+> [!IMPORTANT]
+> Using Apache Spark via Azure Synapse Analytics Spark clusters is in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 See [Distributed training with Azure Machine Learning](concept-distributed-training.md).
 
 ### Embarrassingly parallel training

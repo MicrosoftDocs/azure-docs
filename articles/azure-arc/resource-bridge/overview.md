@@ -75,12 +75,17 @@ You can connect an SCVMM management server to Azure by deploying Azure Arc resou
 
 ### Supported regions
 
-In order to use Arc resource bridge in a region, Arc resource bridge and the private cloud product must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and Azure Stack HCI must be supported in East US. Please check with the private cloud product for their region availability - it is typically called out in their deployment instructions of Arc resource bridge. There are instances where Arc Resource Bridge may be available in a region where private cloud support is not yet available.
+In order to use Arc resource bridge in a region, Arc resource bridge and the arc-enabled feature for a private cloud must be supported in the region. For example, to use Arc resource bridge with Azure Stack HCI in East US, Arc resource bridge and the Arc VM management feature for Azure Stack HCI must be supported in East US. Please check with the private cloud product for their feature region availability - it is typically in their [deployment guide](deploy-cli.md#az-arcappliance-createconfig) for Arc resource bridge. There are instances where Arc Resource Bridge may be available in a region where the private cloud feature is not yet available. 
 
 Arc resource bridge supports the following Azure regions:
 
 * East US
+* East US2
+* West US2
+* West US3
+* South Central US
 * West Europe
+* North Europe
 * UK South
 * Canada Central
 * Australia East
@@ -105,11 +110,7 @@ The following private cloud environments and their versions are officially suppo
 
 ### Networking
 
-Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol.
-
-You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#restricted-outbound-connectivity) by your firewall or proxy server.
-
-For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
+Arc resource bridge communicates outbound securely to Azure Arc over TCP port 443. If the appliance needs to connect through a firewall or proxy server to communicate over the internet, it communicates outbound using the HTTPS protocol. You may need to allow specific URLs to [ensure outbound connectivity is not blocked](troubleshoot-resource-bridge.md#restricted-outbound-connectivity) by your firewall or proxy server. For more information, see [Azure Arc resource bridge (preview) network requirements](network-requirements.md).
 
 ## Next steps
 

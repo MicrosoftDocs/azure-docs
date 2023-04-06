@@ -3,7 +3,7 @@ title: Delete resource group and resources
 description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
 ms.topic: conceptual
 ms.date: 10/13/2022
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: seodec18
 ---
 
 # Azure Resource Manager resource group and resource deletion

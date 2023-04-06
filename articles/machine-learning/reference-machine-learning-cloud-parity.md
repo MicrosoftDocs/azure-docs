@@ -237,4 +237,4 @@ The information in the rest of this document provides information on what featur
 
 ## Next steps
 
-To learn more about the regions that Azure Machine learning is available in, see [Products by region](https://azure.microsoft.com/global-infrastructure/services/).
+To learn more about the regions that Azure Machine Learning is available in, see [Products by region](https://azure.microsoft.com/global-infrastructure/services/).

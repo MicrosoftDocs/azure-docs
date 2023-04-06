@@ -1,5 +1,5 @@
 ---
-title: Integrate RDG with Azure AD MFA NPS extension - Azure Active Directory
+title: Integrate RDG with Azure AD MFA NPS extension
 description: Integrate your Remote Desktop Gateway infrastructure with Azure AD MFA using the Network Policy Server extension for Microsoft Azure
 
 services: multi-factor-authentication

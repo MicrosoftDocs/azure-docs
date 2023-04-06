@@ -87,7 +87,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 
 |Dimension name|Description|
 | ------------------- | ----------------- |
-|Entity Name| Service Bus supports messaging entities under the namespace.|
+|Entity Name| Service Bus supports messaging entities under the namespace. With the 'Incoming Requests' metric, the Entity Name dimension will see a value of '-NamespaceOnlyMetric-' in addition to all your queues and topics. This represents request which were made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities which failed authentication or authorization.|
 
 ## Resource logs
 This section lists the types of resource logs you can collect for Azure Service Bus.

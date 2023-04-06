@@ -128,6 +128,10 @@ Your Azure AD reporting and monitoring solution depends on your legal, security,
 
 You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it's no longer needed for the organization. For more information on how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
 
+## Guided walkthrough
+
+For a guided walkthrough of many of the recommendations in this article, see the [Microsoft 365 Secure your cloud apps with Single Sign On (SSO) guided walkthrough](https://go.microsoft.com/fwlink/?linkid=2221502).
+
 ## Next steps
 
 - Get started by adding your first enterprise application with the [Quickstart: Add an enterprise application](add-application-portal.md).

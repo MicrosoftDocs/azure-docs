@@ -4,7 +4,6 @@
  ms.topic: include
  ms.date: 06/10/2022
  ms.author: cherylmc
- ms.custom: devx-track-azurepowershell
 ---
 ### How many VPN client endpoints can I have in my point-to-site configuration?
 

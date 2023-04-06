@@ -7,7 +7,8 @@ ms.service: resource-mover
 ms.topic: overview
 ms.date: 02/02/2023
 ms.author: ankitadutta
-ms.custom: mvc, engagement-fy23
+ms.custom: mvc, engagement-fy23, UpdateFrequency.5
+
 #Customer intent: As an Azure admin, I need a simple way to move Azure resources, and want to understand how Azure Resource Mover can help me do that.
 
 ---

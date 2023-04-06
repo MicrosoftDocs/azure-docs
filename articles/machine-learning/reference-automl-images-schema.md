@@ -18,7 +18,7 @@ ms.date: 09/09/2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning you are using:"]
-> * [v1](v1/reference-automl-images-schema-v1.md)
+> * [v1](v1/reference-automl-images-schema-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](reference-automl-images-schema.md)
 
 
@@ -632,7 +632,7 @@ If `model_explainability`, `visualizations`, `attributions` are set to `True` in
 
 
 > [!NOTE]
-> The images used in this article are from the Fridge Objects dataset, copyright © Microsoft Corporation and available at [computervision-recipes/01_training_introduction.ipynb](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE). 
+> The images used in this article are from the Fridge Objects dataset, copyright &copy; Microsoft Corporation and available at [computervision-recipes/01_training_introduction.ipynb](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE). 
 
 ## Next steps
 

@@ -33,7 +33,7 @@ Before you begin the prerequisites, review the [Performance best practices](#per
         `az feature register --name "ANFAvsDataStore" --namespace "Microsoft.NetApp"`
 
         `az feature show --name "ANFAvsDataStore" --namespace "Microsoft.NetApp" --query properties.state`
-    1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. For optimal performance, it's recommended to use the Ultra tier. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
+    1. Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. Select option **Azure VMware Solution Datastore** listed under the **Protocol** section.
     1. Create a volume with **Standard** [network features](../azure-netapp-files/configure-network-features.md) if available for ExpressRoute FastPath connectivity.
     1. Under the **Protocol** section, select **Azure VMware Solution Datastore** to indicate the volume is created to use as a datastore for Azure VMware Solution private cloud.
     1. If you're using [export policies](../azure-netapp-files/azure-netapp-files-configure-export-policy.md) to control, access to Azure NetApp Files volumes, enable the Azure VMware private cloud IP range, not individual host IPs. Faulty hosts in a private cloud could get replaced so if the IP isn't enabled, connectivity to datastore will be impacted.
@@ -166,16 +166,18 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
 ## Service level change for Azure NetApp Files datastore
 
-Based on the performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore by following the instructions to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md)
-This has no impact to the Datastore or private cloud as there is no downtime involved and the IP address/mount path remain unchanged. However, the volume Resource ID will be changed due to the capacity pool change. Therefore to avoid any metadata mismatch re-issue the datastore create command via Azure CLI as follows: `az vmware datastore netapp-volume create`.
+Based on the performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore by following the instructions to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md).
+Changing the service level has no impact on the datastore or private cloud. There is no downtime and the volume's IP address/mount path remain unchanged. However, the volume's resource ID will change as a result of the capacity pool change. To correct any metadata mismatch, re-run the datastore creation in Azure CLI for the existing datastore with the new Resource ID for the Azure NetApp Files volume:
+```azurecli
+az vmware datastore netapp-volume create \
+    --name <name of existing datastore> \
+    --resource-group <resource group containing AVS private cloud> \
+    --cluster <cluster name in AVS private cloud> \
+    --private-cloud <name of AVS private cloud> \
+    --volume-id /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp account>/capacityPools/<changed capacity pool>/volumes/<volume name>
+```
 >[!IMPORTANT]  
-> The input values for **cluster** name, datastore **name**, **private-cloud** (SDDC) name, and **resource-group** must be **exactly the same as the current one**, and the **volume-id** is the new Resource ID of the volume.
-
-   -**cluster**  
-   -**name**  
-   -**private-cloud**   
-   -**resource-group**   
-   -**volume-id**   
+> The parameters for datastore **name**, **resource-group**, **cluster**, and **private-cloud** (SDDC) must be **exactly the same as those on the existing datastore in the private cloud**. The **volume-id** is the updated Resource ID of the Azure NetApp Files volume after the service level change.
 
 ## Disconnect an Azure NetApp Files-based datastore from your private cloud
 

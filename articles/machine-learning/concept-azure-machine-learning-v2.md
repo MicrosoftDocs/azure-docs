@@ -18,7 +18,7 @@ ms.date: 11/04/2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-This article applies to the second version of the [Azure Machine Learning CLI & Python SDK (v2)](concept-v2.md). For version one (v1), see [How Azure Machine Learning works: Architecture and concepts (v1)](v1/concept-azure-machine-learning-architecture.md)
+This article applies to the second version of the [Azure Machine Learning CLI & Python SDK (v2)](concept-v2.md). For version one (v1), see [How Azure Machine Learning works: Architecture and concepts (v1)](v1/concept-azure-machine-learning-architecture.md?view=azureml-api-1&preserve-view=true)
 
 Azure Machine Learning includes several resources and assets to enable you to perform your machine learning tasks. These resources and assets are needed to run any job.
 
@@ -74,7 +74,7 @@ This [Jupyter notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/
 
 ## Compute
 
-A compute is a designated compute resource where you run your job or host your endpoint. Azure Machine learning supports the following types of compute:
+A compute is a designated compute resource where you run your job or host your endpoint. Azure Machine Learning supports the following types of compute:
 
 * **Compute cluster** - a managed-compute infrastructure that allows you to easily create a cluster of CPU or GPU compute nodes in the cloud.
 * **Compute instance** - a fully configured and managed development environment in the cloud. You can use the instance as a training or inference compute for development and testing. It's similar to a virtual machine on the cloud.

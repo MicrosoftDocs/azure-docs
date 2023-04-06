@@ -590,11 +590,19 @@
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/data-flow.md",
-          "redirect_url": "/azure/healthcare-apis/iot/understand-service",
+          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-message-processing-stages",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/understand-service.md",
+          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-message-processing-stages",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-device-mappings.md",
-          "redirect_url": "/azure/healthcare-apis/iot/how-to-configure-device-mappings",
+          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-mapping",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-configure-device-mappings.md",
+          "redirect_url": "/azure/healthcare-apis/iot/overview-of-device-mapping",
           "redirect_document_id": false
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-fhir-mappings.md",
@@ -661,13 +669,21 @@
           "redirect_url": "/azure/healthcare-apis/iot/device-messages-through-iot-hub",
           "redirect_document_id": false
       },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-create-mappings-copies.md",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-mapping-debugger",
+          "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-use-monitoring-tab.md",
+          "redirect_url": "/azure/healthcare-apis/iot/how-to-use-monitoring-and-health-checks-tabs",
+          "redirect_document_id": false
+      },
       {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",
           "redirect_document_id": false
       },
       {    "source_path_from_root": "/articles/healthcare-apis/events/events-export-logs-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-enable-diagnostic-settings",
-          "redirect_document_id": true
+          "redirect_document_id": false
       }
     ]
   }

@@ -27,7 +27,7 @@ Three of the **Usage** panes use the same tool to slice and dice telemetry from 
     A custom event represents one occurrence of something happening in your app. It's often a user interaction like a button selection or the completion of a task. You insert code in your app to [generate custom events](./api-custom-events-metrics.md#trackevent).
 
 > [!NOTE]
-> For information on an alternatives to using [anonymous IDs](./data-model-context.md#anonymous-user-id) and ensuring an accurate count, see the documentation for [authenticated IDs](./data-model-context.md#authenticated-user-id).
+> For information on an alternatives to using [anonymous IDs](./data-model-complete.md#anonymous-user-id) and ensuring an accurate count, see the documentation for [authenticated IDs](./data-model-complete.md#authenticated-user-id).
 
 ## Query for certain users
 

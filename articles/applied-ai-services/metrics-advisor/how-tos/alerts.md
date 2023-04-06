@@ -37,7 +37,7 @@ To create an email hook, the following parameters are available:
 | External link | Optional field, which enables a customized redirect, such as for troubleshooting notes. |
 | Customized anomaly alert title | Title template supports `${severity}`, `${alertSettingName}`, `${datafeedName}`, `${metricName}`, `${detectConfigName}`, `${timestamp}`, `${topDimension}`, `${incidentCount}`, `${anomalyCount}`
 
-After you select **OK**, an email hook will be created. You can use it in any alert settings to receive anomaly alerts. Refer to the tutorial of [enable anomaly notification in Metrics Advisor](../tutorials/enable-anomaly-notification.md#send-notifications-with-logic-apps-teams-and-smtp) for detailed steps.
+After you select **OK**, an email hook will be created. You can use it in any alert settings to receive anomaly alerts. Refer to the tutorial of [enable anomaly notification in Metrics Advisor](../tutorials/enable-anomaly-notification.md#send-notifications-with-azure-logic-apps-teams-and-smtp) for detailed steps.
 
 ### Teams hook
 
@@ -50,7 +50,7 @@ Select "Hooks" tab in left navigation bar, and select "Create hook" button at to
 | Name | Name of the Teams hook | 
 | Connector URL | The URL that just copied from "Incoming webhook" connector that created in target Teams channel. |
 
-After you select **OK**, a Teams hook will be created. You can use it in any alert settings to notify anomaly alerts to target Teams channel. Refer to the tutorial of [enable anomaly notification in Metrics Advisor](../tutorials/enable-anomaly-notification.md#send-notifications-with-logic-apps-teams-and-smtp) for detailed steps.
+After you select **OK**, a Teams hook will be created. You can use it in any alert settings to notify anomaly alerts to target Teams channel. Refer to the tutorial of [enable anomaly notification in Metrics Advisor](../tutorials/enable-anomaly-notification.md#send-notifications-with-azure-logic-apps-teams-and-smtp) for detailed steps.
 
 ### Web hook
 
@@ -114,7 +114,7 @@ When a notification is pushed through a web hook, you can  fetch incidents data 
 
 -   [/alert/anomaly/configurations/{configurationId}/alerts/{alertId}/incidents](https://westus2.dev.cognitive.microsoft.com/docs/services/MetricsAdvisor/operations/getIncidentsFromAlertByAnomalyAlertingConfiguration)
 
-By using web hook and Azure Logic Apps, it's possible to send email notification **without an SMTP server configured**. Refer to the tutorial of [enable anomaly notification in Metrics Advisor](../tutorials/enable-anomaly-notification.md#send-notifications-with-logic-apps-teams-and-smtp) for detailed steps.
+By using web hook and Azure Logic Apps, it's possible to send email notification **without an SMTP server configured**. Refer to the tutorial of [enable anomaly notification in Metrics Advisor](../tutorials/enable-anomaly-notification.md#send-notifications-with-azure-logic-apps-teams-and-smtp) for detailed steps.
 
 ### Azure DevOps
 

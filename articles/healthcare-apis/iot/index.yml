@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 02/17/2023
+  ms.date: 04/04/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,8 +25,8 @@ landingContent:
         links:
           - text: What is the MedTech service?
             url: overview.md
-          - text: Understand the device message data transformation
-            url: understand-service.md
+          - text: Overview of the MedTech service device message processing stages
+            url: overview-of-device-message-processing-stages.md
       - linkListType: quickstart
         links:
           - text: Get started with the MedTech service
@@ -51,19 +51,29 @@ landingContent:
 
   - title: Configure the MedTech service mappings
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Device mapping
+            url: overview-of-device-mapping.md
+          - text: FHIR destination mapping
+            url: how-to-configure-fhir-mappings.md 
       - linkListType: how-to-guide
         links:
-          - text: Device mappings
-            url: how-to-configure-device-mappings.md
-          - text: FHIR destination mappings
-            url: how-to-configure-fhir-mappings.md 
- 
+          - text: Mapping debugger
+            url: how-to-use-mapping-debugger.md
+          - text: CalculatedContent
+            url: how-to-use-calculatedcontent-mappings.md
+          - text: IotJsonPathContent
+            url: how-to-use-iotjsonpathcontenttemplate-mappings.md
+          - text: Custom functions
+            url: how-to-use-custom-functions.md
+          
   - title: Monitor the MedTech service
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use the monitoring tab
-            url: how-to-use-monitoring-tab.md
+          - text: Use the monitoring and health checks tabs
+            url: how-to-use-monitoring-and-health-checks-tabs.md
           - text: Configure metrics
             url: how-to-configure-metrics.md
           - text: Enable diagnostic settings

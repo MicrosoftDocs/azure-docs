@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync V2 endpoint | Microsoft Docs'
+title: 'Azure AD Connect sync V2 endpoint'
 description: This document covers updates to the Azure AD connect sync v2 endpoints API.
 services: active-directory
 author: billmath

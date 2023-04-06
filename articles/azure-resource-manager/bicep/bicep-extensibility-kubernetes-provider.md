@@ -16,7 +16,7 @@ This preview feature can be enabled by configuring the [bicepconfig.json](./bice
 ```json
 {
   "experimentalFeaturesEnabled": {
-    "extensibility": true,
+    "extensibility": true
   }
 }
 ```

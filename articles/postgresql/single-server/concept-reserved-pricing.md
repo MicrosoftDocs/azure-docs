@@ -15,6 +15,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 Azure Database for PostgreSQL now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for PostgreSQL reserved capacity, you make an upfront commitment on PostgreSQL server for a one or three year period to get a significant discount on the compute costs. To purchase Azure Database for PostgreSQL reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
 
 ## How does the instance reservation work?

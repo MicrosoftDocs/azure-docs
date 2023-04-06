@@ -144,7 +144,7 @@ Widen the rollout to larger groups of users by increasing the scope of the group
 
 ## Plan application connections and administration
 
-Use the Azure AD portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](../app-provisioning/configure-automatic-user-provisioning-portal.md).
+Use the Azure portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 
 ### Determine the type of connector to use
 

@@ -1,12 +1,12 @@
 ---
-title: Use the Azure portal to create an IoT Hub | Microsoft Docs
+title: Use the Azure portal to create an IoT Hub
 description: How to create, manage, and delete Azure IoT hubs through the Azure portal. Includes information about pricing tiers, scaling, security, and messaging configuration.
 author: kgremban
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 12/20/2022
+
 ms.author: kgremban
+ms.service: iot-hub
+ms.topic: how-to
+ms.date: 12/20/2022
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -26,7 +26,7 @@ You can change the settings of an existing IoT hub after it's created from the I
 
 **Pricing and scale**: Migrate to a different tier or set the number of IoT Hub units.
 
-**IP Filter**: Specify a range of IP addresses that will be accepted or rejected by the IoT hub.
+**IP Filter**: Specify a range of IP addresses for the IoT hub to accept or reject.
 
 **Properties**: A list of properties that you can copy and use elsewhere, such as the resource ID, resource group, location, and so on.
 
@@ -53,6 +53,28 @@ For more detailed information about the access granted by specific permissions, 
 ## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+## Disable or delete a device in an IoT hub
+
+If you want to keep a device in your IoT hub's identity registry, but want to prevent it from connecting then you can change its status to *disabled.*
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+
+1. Select **Devices** from the navigation menu.
+
+1. Select the name of the device that you want to disable to view its device details page.
+
+1. On the device details page, set the **Enable connection to IoT Hub** parameter to **Disable**.
+
+   :::image type="content" source="./media/iot-hub-create-through-portal/disable-device.png" alt-text="Screenshot that shows disabling a device connection.":::
+
+If you want to remove a device from your IoT hub's identity registry, you can delete its registration.
+
+1. From the **Devices** page of your IoT hub, select the checkbox next to the device that you want to delete.
+
+1. Select **Delete** to remove the device registration.
+
+   :::image type="content" source="./media/iot-hub-create-through-portal/delete-device.png" alt-text="Screenshot that shows deleting a device."::: 
 
 ## Delete an IoT hub
 
