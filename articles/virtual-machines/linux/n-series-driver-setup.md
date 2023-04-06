@@ -8,8 +8,9 @@ ms.subservice: sizes
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 12/16/2022
+ms.date: 12/16/2023
 ms.author: vikancha
+ms.reviewer: padmalathas, mattmcinnes
 ---
 
 # Install NVIDIA GPU drivers on N-series VMs running Linux
