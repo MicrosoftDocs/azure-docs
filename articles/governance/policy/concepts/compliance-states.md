@@ -17,7 +17,7 @@ When initiative or policy definitions are assigned, Azure Policy determines whic
 
 Policy assignments with `audit`, `auditIfNotExists`, or `modify` effects are considered non-compliant for _new_, _updated_, or _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. 
 
-Policy assignments with `append`, `deny`, and `deployIfNotExists` effects are considered non-compliant for _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. _New_ and _updated_ resources aren't considered non-compliant in this case because enforcement blocks or remediates resources that would otherwise be deemed non-compliant. When a previously existing non-compliant resource is updated, the compliance state remains non-compliant until the resource deployment and Policy evaluation complete.
+Policy assignments with `append`, `deny`, and `deployIfNotExists` effects are considered non-compliant for _existing_ resources when the conditions of the policy rule evaluate to **TRUE**. _New_ and _updated_ resources are automatically remediated or denied at request time to enforce compliance. When a previously existing non-compliant resource is updated, the compliance state remains non-compliant until the resource deployment and Policy evaluation complete.
 
 > [!NOTE]
 > The DeployIfNotExist and AuditIfNotExist effects require the IF statement to be TRUE and the
