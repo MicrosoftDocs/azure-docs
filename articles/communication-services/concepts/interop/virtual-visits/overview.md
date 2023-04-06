@@ -1,6 +1,6 @@
 ---
 title: Overview of virtual appointments with Azure Communication Services
-description: Learn concepts for virtual appointments applications
+description: Learn concepts for virtual appointments applications.
 author: tchladek
 manager: chpalm
 services: azure-communication-services
