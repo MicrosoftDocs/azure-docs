@@ -131,11 +131,12 @@ No, number matching isn't enforced because it's not a supported feature for MFA 
 
 ### What happens if a user runs an older version of Microsoft Authenticator?  
 
-If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work when number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.
+If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.
 
-### Why is my user prompted to tap on one of three numbers rather than enter the number in their Microsoft Authenticator app?
+### How can users recheck the number on mobile iOS devices after the match request appears?
 
-Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator.
+During mobile iOS broker flows, the number match request appears over the number after a two-second delay. To recheck the number, click **Show me the number again**. This action only occurs in mobile iOS broker flows. 
+
 
 ## Next steps
 
