@@ -62,9 +62,16 @@ Now that your region supports availability zones, and you have confirmed the ava
 
 Below are three important questions you'll that'll help you choose the correct availability zone deployment:
 
-#### Are some of the components of your application latency sensitive, such as gaming components, engineering simulations, and high-frequency trading (HFT)?
+#### Does your application include latency sensitive components?
 
-For latency sensitive applications, we highly recommended that you configure your workload with with zone-redundancy. Note that Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. Zone redundancy is recommended to design critical and sensitive workloads with high availability. For latency sensitive critical application components that require physical proximity and low latency for high performance, we recommend that you use zonal deployment. [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) provides zone aligned compute along with attached storage disks. 
+Azure availability zones within the same Azure region are connected by a high-performance network [with a round-trip latency of less than 2ms](https://learn.microsoft.com/azure/reliability/availability-zones-overview#availability-zones). 
+
+For critical application components that require physical proximity and low latency, such as gaming, engineering simulation, and high-frequency trading (HFT), we recommend that you configure a zonal deployment. [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) provides zone aligned compute along with attached storage disks. 
+
+However, if low latency isn't a strict requirement,  we recommend that you configure your workload with zone-redundancy.
+
+
+
 
 
 #### Does your application code have the readiness to handle a distributed model?
