@@ -44,7 +44,7 @@ az extension add --name spring
 
 To build the application, follow these steps:
 
-1. Generate the code for the sample app by using Spring Initializr with [this configuration](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client).
+1. Generate the code for the sample app by using Spring Initializr with [this configuration](https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client).
 
 1. Download the code.
 1. Add the following *HelloController.java* source file to the folder *\src\main\java\com\example\hellospring\*:
@@ -76,13 +76,13 @@ To build the application, follow these steps:
 1. Create the app in your Azure Spring Apps instance:
 
    ```azurecli
-   az spring app create -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --assign-endpoint
+   az spring app create -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --runtime-version Java_17 --assign-endpoint
    ```
 
 1. Deploy the app to Azure Spring Apps:
 
    ```azurecli
-   az spring app deploy -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+   az spring app deploy -n demo -g <resourceGroup> -s <Azure Spring Apps instance> --artifact-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 1. Modify the code for your staging deployment:
@@ -114,7 +114,7 @@ To build the application, follow these steps:
 1. Create the green deployment:
 
    ```azurecli
-   az spring app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Apps instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+   az spring app deployment create -n green --app demo -g <resourceGroup> -s <Azure Spring Apps instance> --runtime-version Java_17 --artifact-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
 
 ## View apps and deployments

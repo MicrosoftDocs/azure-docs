@@ -187,7 +187,7 @@ This article explains how to build and deploy Spring applications to Azure Sprin
 - Completion of the previous quickstarts in this series:
   - [Provision an Azure Spring Apps service instance](./quickstart-provision-service-instance.md).
   - [Set up Azure Spring Apps Config Server](./quickstart-setup-config-server.md).
-- [JDK 8 or JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
+- [JDK 17](/azure/developer/java/fundamentals/java-jdk-install)
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Optionally, [Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
 - Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
@@ -219,8 +219,8 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
 1. Create the two core Spring applications for PetClinic: API gateway and customers-service.
 
    ```azurecli
-   az spring app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
-   az spring app create --name customers-service --instance-count 1 --memory 2Gi
+   az spring app create --name api-gateway --runtime-version Java_17 --instance-count 1 --memory 2Gi --assign-endpoint
+   az spring app create --name customers-service --runtime-version Java_17 --instance-count 1 --memory 2Gi
    ```
 
 1. Deploy the JAR files built in the previous step.
@@ -265,12 +265,12 @@ Access the app gateway and customers service from browser with the **Public Url*
 To get the PetClinic app functioning with all features like Admin Server, Visits, and Veterinarians, deploy the other apps with following commands:
 
 ```azurecli
-az spring app create --name admin-server --instance-count 1 --memory 2Gi --assign-endpoint
-az spring app create --name vets-service --instance-count 1 --memory 2Gi
-az spring app create --name visits-service --instance-count 1 --memory 2Gi
-az spring app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.1.jar --jvm-options="-Xms2048m -Xmx2048m"
-az spring app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.1.jar --jvm-options="-Xms2048m -Xmx2048m"
-az spring app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring app create --name admin-server --runtime-version Java_17 --instance-count 1 --memory 2Gi --assign-endpoint
+az spring app create --name vets-service --runtime-version Java_17 --instance-count 1 --memory 2Gi
+az spring app create --name visits-service --runtime-version Java_17 --instance-count 1 --memory 2Gi
+az spring app deploy --name admin-server --runtime-version Java_17 --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.1.jar --jvm-options="-Xms1536m -Xmx1536m"
+az spring app deploy --name vets-service --runtime-version Java_17 --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.1.jar --jvm-options="-Xms1536m -Xmx1536m"
+az spring app deploy --name visits-service --runtime-version Java_17 --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.1.jar --jvm-options="-Xms1536m -Xmx1536m"
 ```
 
 #### [Maven](#tab/Maven)
