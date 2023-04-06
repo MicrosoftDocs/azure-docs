@@ -52,6 +52,7 @@ You can configure your managed identities through:
 
 **To migrate your Azure Automation account authentication type from a Run As to a managed identity authentication, follow these steps:**
 
+
 1. In the [Azure portal](https://portal.azure.com), select the recovery services vault for which you want to migrate the runbooks.
 
 1. On the homepage of your recovery services vault page, do the following:
@@ -64,7 +65,12 @@ You can configure your managed identities through:
         
         :::image type="content" source="./media/how-to-migrate-from-run-as-to-managed-identities/extension-update-settings.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
 
-1. After the successful migration of your automation account, the authentication type for the linked account details on the **Extension update settings** page is updated.
+
+> [!NOTE]
+> Ensure that the System assigned Managed Identity is turned off for the Automation account for the _"Migrate"_ button to appear. If the account is not migrated and the _"Migrate"_ button isn't appearing, turn off the Managed Identity for the Automation Account and try again.
+
+3. After the successful migration of your automation account, the authentication type for the linked account details on the **Extension update settings** page is updated.
+1. Once the _Migrate_ operation is completed, toggle the **Site Recovery to manage** button to turn it _On_ again.
 
 When you successfully migrate from a Run As to a Managed Identities account, the following changes are reflected on the Automation Run As Accounts :
 
@@ -99,8 +105,7 @@ To link an existing managed identity Automation account to your Recovery Service
     1. Select the **Select** option.
         :::image type="content" source="./media/how-to-migrate-from-run-as-to-managed-identities/select-mi.png" alt-text="Screenshot that shows select managed identity settings page.":::
 1. Select **Review + assign**.
-
-
+1. Navigate to the **Extension update settings** under the Recovery Services Vault, toggle the **Site Recovery to manage** button to turn it _On_ again.
 
 ## Next steps
 

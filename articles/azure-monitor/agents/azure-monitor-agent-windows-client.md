@@ -2,7 +2,7 @@
 title: Set up the Azure Monitor agent on Windows client devices
 description: This article describes the instructions to install the agent on Windows 10, 11 client OS devices, configure data collection, manage and troubleshoot the agent.
 ms.topic: conceptual
-ms.date: 3/30/2023
+ms.date: 4/2/2023
 ms.custom: references_region, devx-track-azurepowershell
 ms.reviewer: shseth
 ---
@@ -43,7 +43,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 
 ## Limitations
 1. The Windows client installer supports latest Windows machines only that are **Azure AD joined** or hybrid Azure AD joined. More information under [prerequisites](#prerequisites) below
-2. The Data Collection rules need can only target the Azure AD tenant scope, i.e. all DCRs associated to the tenant (via Monitored Object) will apply to all Windows client machines within that tenant with the agent installed using this client installer. **Granular targeting using DCRs is not supported** for Windows client devices yet
+2. The Data Collection rules can only target the Azure AD tenant scope, i.e. all DCRs associated to the tenant (via Monitored Object) will apply to all Windows client machines within that tenant with the agent installed using this client installer. **Granular targeting using DCRs is not supported** for Windows client devices yet
 3. No support for Windows machines connected via **Azure private links** 
 4. The agent installed using the Windows client installer is designed mainly for Windows desktops or workstations that are **always connected**. While the agent can be installed via this method on laptops, it is not optimized for battery consumption and network limitations on a laptop.
 

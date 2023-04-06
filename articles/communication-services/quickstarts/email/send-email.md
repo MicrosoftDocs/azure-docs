@@ -6,16 +6,13 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 04/15/2022
+ms.date: 03/31/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: private_preview, event-tier1-build-2022
 zone_pivot_groups: acs-azcli-js-csharp-java-python-power-platform
 ---
 
 # Quickstart: How to send an email using Azure Communication Service
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quick start, you'll learn about how to send email using our Email SDKs.
 
