@@ -6,11 +6,11 @@ ms.author: hannahhunter
 ms.reviewer: nuversky
 ms.service: azure-kubernetes-service
 ms.topic: article
-ms.date: 03/06/2023
+ms.date: 04/05/2023
 ms.custom: devx-track-azurecli
 ---
 
-# Manage workflows with the Dapr extension for Azure Kubernetes Service (AKS)
+# Deploy and run workflows with the Dapr extension for Azure Kubernetes Service (AKS)
 
 With Dapr Workflow, you can easily orchestrate messaging, state management, and failure-handling logic across various microservices. Dapr Workflow can help you create long-running, fault-tolerant, and stateful applications.  
 
@@ -55,13 +55,19 @@ cd dapr-workflows-aks-sample
 
 ### Create a Kubernetes cluster
 
-Create an AKS cluster and attach to [the ACR provided with the sample][deployment-yaml]:
+Create a resource group to hold the AKS cluster.
 
 ```sh
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys --attach-acr samples
+az group create --name myResourceGroup --location eastus
 ```
 
-Make sure `kubectl` is installed and pointed to your AKS cluster. If you use [the Azure Cloud Shell][az-cloud-shell], kubectl is already installed. 
+Create an AKS cluster.
+
+```sh
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 2 --generate-ssh-keys 
+```
+
+[Make sure `kubectl` is installed and pointed to your AKS cluster.][kubectl] If you use [the Azure Cloud Shell][az-cloud-shell], `kubectl` is already installed. 
 
 For more information, see the [Deploy an AKS cluster][cluster] tutorial.
 
@@ -77,11 +83,7 @@ Install the Dapr extension on your AKS cluster. Before you start, make sure you'
 az k8s-extension create --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup --name dapr --extension-type Microsoft.Dapr
 ```
 
-Verify Dapr has been installed by running _either_ of the following commands:
-
-```sh
-az k8s-extension show --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup --name dapr
-```
+Verify Dapr has been installed by running the following command:
 
 ```sh
 kubectl get pods -A
@@ -179,14 +181,6 @@ Notice that the workflow status is marked as completed.
 
 ## Next steps
 
-In this guide, you deployed and ran workflows on a Dapr extension for AKS. You learned how to:
-
-> [!div class="checklist"]
-> - Create an Azure Container Registry and an AKS cluster for this sample.
-> - Install the Dapr extension on your AKS cluster.
-> - Deploy the sample application to AKS. 
-> - Start and query workflow instances using HTTP API calls.
-
 [Learn how to add configuration settings to the Dapr extension on your AKS cluster][dapr-config].
 
 <!-- Links Internal -->
@@ -198,6 +192,7 @@ In this guide, you deployed and ran workflows on a Dapr extension for AKS. You l
 [k8s-sp]: ./dapr.md#register-the-kubernetesconfiguration-service-provider
 [dapr-config]: ./dapr-settings.md
 [az-cloud-shell]: ./learn/quick-kubernetes-deploy-powershell.md#azure-cloud-shell
+[kubectl]: ./tutorial-kubernetes-deploy-cluster.md#connect-to-cluster-using-kubectl
 
 <!-- Links External -->
 [dapr-workflow-sample]: https://github.com/shubham1172/dapr-workflows-aks-sample
