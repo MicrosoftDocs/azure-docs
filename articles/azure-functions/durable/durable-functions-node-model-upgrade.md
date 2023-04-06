@@ -50,7 +50,7 @@ In the v4 programming model, `function.json` files are a thing of the past! In v
 :::zone pivot="programming-language-javascript"
 # [v4 model](#tab/v4)
 
-```JS
+```javascript
 const df = require('durable-functions');
 
 const activityName = 'helloActivity';
@@ -67,7 +67,7 @@ df.app.orchestration('durableOrchestrator', function* (context) {
 
 # [v3 model](#tab/v3)
 
-```JS
+```javascript
 const df = require("durable-functions");
 
 const activityName = "hello"
