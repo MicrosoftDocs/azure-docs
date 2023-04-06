@@ -14,4 +14,4 @@ ms.custom: include file
 ---
 
 >[!IMPORTANT]
->The April 2023 Windows Update includes an update to Netlogon Secure Channel. For more information about this update, see [How do the Netlogon protocol changes in the April 2023 Windows Update affect Azure NetApp Files?](../faq-smb.md#how-do-the-netlogon-protocol-changes-in-the-april-2023-azure-update-affect-azure-netapp-files)
+>The April 2023 Windows Update includes an update to Netlogon Secure Channel. For more information about this update, see [How do the Netlogon protocol changes in the April 2023 Windows Update affect Azure NetApp Files?](../faq-smb.md#how-do-the-netlogon-protocol-changes-in-the-april-2023-windows-update-affect-azure-netapp-files)
