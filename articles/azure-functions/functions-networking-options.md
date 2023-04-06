@@ -283,6 +283,15 @@ The following APIs let you programmatically manage regional virtual network inte
 + **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integration.  
 + **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/).
 
+## Testing
+
+When testing functions in a function app with private endpoints, you must do your testing from within the same virtual network, such as on a virtual machine (VM) in that network. To use the **Code + Test** option in the portal from that VM, you need to add following [CORS origins](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#cors) to your function app:
+
+* https://functions-next.azure.com
+* https://functions-staging.azure.com
+* https://functions.azure.com
+* https://portal.azure.com
+
 ## Troubleshooting
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
