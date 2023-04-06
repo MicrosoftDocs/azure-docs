@@ -348,7 +348,7 @@ The Communication Services Call SDK accepts a full Microsoft Teams meeting link.
 
 ### Set up a Rooms call
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
 To set up a ACS Rooms call, initialize a `CallCompositeRoomLocator`, supply it to the `CallCompositeRemoteOptions` object and set `CallCompositeParticipantRole` to the `CallCompositeLocalOptions` by `setRoleHint()`.
 `CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from ACS.
