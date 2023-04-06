@@ -14,17 +14,17 @@ manager: celestedg
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: engagement-fy23, M365-identity-device-management
 
-# Customer intent: As a tenant administrator, I want to bulk-invite external users to an organization from email addresses that I've stored in a .CSV file.
+# Customer intent: As a tenant administrator, I want to bulk-invite external users to an organization from email addresses that I've stored in a .csv file.
 ---
 
 # Azure Active Directory B2B collaboration code and PowerShell samples
 
 ## PowerShell example
 
-You can bulk-invite external users to an organization from email addresses that you've stored in a .CSV file.
+You can bulk-invite external users to an organization from email addresses that you've stored in a .csv file.
 
-1. Prepare the .CSV file
-   Create a new CSV file and name it invitations.csv. In this example, the file is saved in C:\data, and contains the following information:
+1. Prepare the .csv file
+   Create a new .csv file and name it invitations.csv. In this example, the file is saved in C:\data, and contains the following information:
 
    Name                  |  InvitedUserEmailAddress
    --------------------- | --------------------------
