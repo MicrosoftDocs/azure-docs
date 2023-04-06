@@ -42,7 +42,7 @@ These three **implementation options** are columns in the table below, while eac
 | *Provider* | Managing upcoming appointments | Outlook & Teams | Outlook & Teams | Custom |
 | *Provider* | Join the appointment | Teams | Teams | ACS Calling & Chat |
 | *Consumer* | Schedule an appointment | Bookings | Bookings | ACS Rooms |
-| *Consumer*| Be reminded of a appointment | Bookings | Bookings | ACS SMS |
+| *Consumer*| Be reminded of an appointment | Bookings | Bookings | ACS SMS |
 | *Consumer*| Join the appointment | Teams or virtual appointments | ACS Calling & Chat | ACS Calling & Chat |
 
 There are other ways to customize and combine Microsoft tools to deliver a virtual appointments experience:
