@@ -376,14 +376,123 @@ In the v4 model, registering extra inputs has been moved from `function.json` fi
 # [v4 model](#tab/v4)
 
 ```javascript
+const { app } = require('@azure/functions');
+const df = require('durable-functions');
 
+app.http('durableHttpStart', {
+    route: 'orchestrators/{orchestratorName}',
+    extraInputs: [df.input.durableClient()],
+    handler: async (_request, context) => {
+        const client = df.getClient(context);
+        // Use client in function body
+    },
+});
 ```
 
 # [v3 model](#tab/v3)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context, req) {
+    const client = df.getClient(context);
+    // Use client in function body
+};
+```
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}",
+      "methods": [
+        "post",
+        "get"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ]
+}
+```
 
 ---
 :::zone-end
 
 :::zone pivot="programming-language-typescript"
 
+# [v4 model](#tab/v4)
+
+```typescript
+import { app, HttpHandler, HttpRequest, HttpResponse, InvocationContext } from '@azure/functions';
+import * as df from 'durable-functions';
+
+const durableHttpStart: HttpHandler = async (request: HttpRequest, context: InvocationContext): Promise<HttpResponse> => {
+    const client = df.getClient(context);
+    // Use client in function body
+};
+
+app.http('durableHttpStart', {
+    route: 'orchestrators/{orchestratorName}',
+    extraInputs: [df.input.durableClient()],
+    handler: durableHttpStart,
+});
+```
+
+# [v3 model](#tab/v3)
+
+```typescript
+import * as df from "durable-functions"
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+
+const durableHttpStart: AzureFunction = async function (context: Context): Promise<any> {
+    const client = df.getClient(context);
+    // Use client in function body
+};
+
+export default durableHttpStart;
+```
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}",
+      "methods": [
+        "post",
+        "get"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "../dist/durableHttpStart/index.js"
+}
+```
+
+---
 :::zone-end
