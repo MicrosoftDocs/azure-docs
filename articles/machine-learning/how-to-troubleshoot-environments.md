@@ -54,9 +54,7 @@ Multiple environments with the same definition may result in the same cached ima
 
 Running a training script remotely requires the creation of a Docker image.
 
-### Reproducibility and vulnerabilities
-
-#### *Vulnerabilities*
+## Vulnerabilities in AzureML Environments
 
 You can address vulnerabilities by upgrading to a newer version of a dependency (base image, Python package, etc.) or by migrating to a different dependency that satisfies security
 requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
@@ -68,7 +66,7 @@ There are some ways to decrease the impact of vulnerabilities:
 - Compartmentalize your environment so you can scope and fix issues in one place.
 - Understand flagged vulnerabilities and their relevance to your scenario.
 
-#### *Vulnerabilities vs Reproducibility*
+### Vulnerabilities vs Reproducibility
 
 Reproducibility is one of the foundations of software development. When you're developing production code, a repeated operation must guarantee the same
 result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
@@ -76,30 +74,68 @@ result. Mitigating vulnerabilities can disrupt reproducibility by changing depen
 Azure Machine Learning's primary focus is to guarantee reproducibility. Environments fall under three categories: curated,
 user-managed, and system-managed.
 
-**Curated environments** are pre-created environments that Azure Machine Learning manages and are available by default in every Azure Machine Learning workspace provisioned.
+### *Curated Environments*
 
-They contain collections of Python packages and settings to help you get started with various machine learning frameworks. You're meant to use them as is.
-These pre-created environments also allow for faster deployment time.
+Curated environments are pre-created environments that Azure Machine Learning manages and are available by default in every Azure Machine Learning workspace provisioned. New versions are released by AzureML to address vulnerabilities. Whether you use the latest image may be a tradeoff between reproducibility and vulnerability management. 
 
-In **user-managed environments**, you're responsible for setting up your environment and installing every package that your training script needs on the
+Curated Environments contain collections of Python packages and settings to help you get started with various machine learning frameworks. You're meant to use them as is. These pre-created environments also allow for faster deployment time.
+
+### *User-managed Environments*
+
+In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the
 compute target and for model deployment. These types of environments have two subtypes:
 
 - BYOC (bring your own container): the user provides a Docker image to Azure Machine Learning
 - Docker build context: Azure Machine Learning materializes the image from the user provided content
 
-Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability
-management becomes your responsibility.
+Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability management becomes your responsibility.
 
-You use **system-managed environments** when you want conda to manage the Python environment for you. Azure Machine Learning creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
+### *System-managed Environments* 
+
+You use system-managed environments when you want conda to manage the Python environment for you. Azure Machine Learning creates a new isolated conda environment by materializing your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
 latest image may be a tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
 for your jobs or model deployments while using system-managed environments.
 
+## Scan for Vulnerabilities 
+
+You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
+
+To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
+
+## Vulnerabilities: Common Issues 
+
+### Vulnerabilities in Base Docker Images 
+
+System-managed environments can have vulnerabilities from their base image. For example, vulnerabilities marked as "Ubuntu", "Debian" etc are usually from the system level of the environment, the base Docker image. If the base image is from a third-party issuer, please check if the latest version has fixes for the flagged vulnerabilities. Most common sources for the base images in AzureML are:
+
+- Microsoft Artifact Registry (MAR) aka Microsoft Container Registry (mcr.microsoft.com). Images can be listed from MAR homepage, calling _catalog API, or [/tags/list](https://mcr.microsoft.com/v2/azureml/openmpi4.1.0-ubuntu20.04/tags/list)
+- Nvidia (nvcr.io, or nvidia's Profile | Docker Hub )
+
+If the latest version of your base image does not resolve your vulnerabilities, base image vulnerabilities can be addressed by installing versions recommended by a vulnerability scan:
+
+```
+apt-get install -y library_name
+```
+
+### Vulnerabilities in Python Packages 
+
+Vulnerabilities can also be from installed python packages on top of the system managed base image. These python related vulnerabilities should be resolved by updating your python dependencies. Python (Pip) vulnerabilities in the image usually come from user-defined dependencies.
+
+To search for known python vulnerabilities and solutions please see GitHub Advisory Database. To address python vulnerabilities, update the package to the version that has fixes for the flagged issue:
+
+```
+pip install -u my_package=={good.version}
+```
+
+or if you're using a conda environment, update the reference in the conda dependencies file.
+
+In some cases python packages will be automatically installed during conda's setup of your environment on top of a base Docker image. Mitigation steps for those are the same as user-introduced packages. Conda installs necessary dependencies for every environment it materializes. Packages like cryptography, setuptools, wheel, etc. will be automatically installed from conda's default channels. There is a known issue with the default anaconda channel missing latest package versions, it is recommended to prioritize community-maintained conda-forge. Otherwise, please explicitely specify packages and versions, even if you do not reference them in the code you plan to execute on that environment.
+
+### Cache issues 
+
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's a cache for container images. Any image
 materialized is pushed to the container registry and used if you trigger experimentation or deployment for the corresponding environment. Azure
-Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. You
-can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md)
-to help scan images for vulnerabilities. To
-automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
+Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. 
 
 ## **Environment definition problems**
 
