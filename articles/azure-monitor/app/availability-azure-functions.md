@@ -7,7 +7,7 @@ ms.date: 04/06/2023
 
 # Review TrackAvailability() test results
 
-This article explains how to review TrackAvailability() test results in the Azure Portal and query the data using Log Analytics.
+This article explains how to review TrackAvailability() test results in the Azure portal and query the data using Log Analytics.
 ## Prerequisites
 
 > [!div class="checklist"]
