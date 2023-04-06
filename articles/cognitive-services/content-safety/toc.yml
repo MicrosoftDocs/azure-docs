@@ -5,47 +5,20 @@
   items:
   - name: What is Content Safety?
     href: overview.md
+  - name: Language support
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-safety
     expanded: true
-- name: Quickstarts
-  items:
-  - name: Using the client library or REST API
-    href: client-libraries.md
+- name: Quickstart
+  href: quickstart.md
 - name: Samples 
   items: 
   - name: Samples browser
-    href: /samples/browse/?terms=content+moderator
-  - name: .NET SDK samples
-    href: samples-dotnet.md
-  - name: Python SDK samples
-    href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples 
-  - name: Node.js SDK samples
-    href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
-  - name: REST API samples in C#
-    href: samples-rest.md
+    href: /samples/browse/?terms=content+safety
 - name: How-to guides
   items:
   - name: Moderate content
     items:
-    - name: API console
-      items:
-      - name: Images - API console
-        href: try-image-api.md
-      - name: Custom images - API console
-        href: try-image-list-api.md
-      - name: Text - API console
-        href: try-text-api.md
-      - name: Custom terms - API console
-        href: try-terms-list-api.md
-    - name: .NET SDK
-      items:
-      - name: Check video content
-        href: video-moderation-api.md
-      - name: Check images against custom lists
-        href: image-lists-quickstart-dotnet.md
-      - name: Check text against custom terms
-        href: term-lists-quickstart-dotnet.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Enterprise readiness
@@ -57,23 +30,13 @@
 - name: Concepts
   items:
   - name: Image moderation
-    href: image-moderation-api.md
+    href: concepts/image-moderation.md
   - name: Text moderation
-    href: text-moderation-api.md
+    href: concepts/text-moderation.md
 - name: Reference
   items:
-  - name: Content Moderator REST API
-    href: api-reference.md
-  - name: .NET
-    href: /dotnet/api/overview/azure/content-moderator
-  - name: Java
-    href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
-  - name: Node.js
-    href: /javascript/api/@azure/cognitiveservices-contentmoderator/
-  - name: Python
-    href: /python/api/overview/azure/content-moderator
-  - name: Go
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
+  - name: Content Safety REST API
+    href: 
 - name: Resources
   items:
   - name: Enterprise readiness
@@ -83,11 +46,7 @@
       - name: Compliance and certification
         href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
-  - name: Training modules
-    href: /training/browse/?terms=content+moderator
-  - name: Azure webinar series
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-safety/context/context
   - name: Azure Government and global Azure
     href: ../../azure-government/compare-azure-government-global-azure.md
   - name: Azure updates
