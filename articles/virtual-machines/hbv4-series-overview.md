@@ -104,7 +104,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 
 ## Hardware specifications 
 
-| Hardware specifications          | HBv3-series VMs              |
+| Hardware specifications          | HBv4-series VMs              |
 |----------------------------------|----------------------------------|
 | Cores                            | 120, 96, 64, 32, or 16 (SMT disabled)               | 
 | CPU                              | AMD EPYC 7V73X                   | 
@@ -116,7 +116,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 
 ## Software specifications 
 
-| Software specifications        | HBv3-series VMs                                            | 
+| Software specifications        | HBv4-series VMs                                            | 
 |--------------------------------|-----------------------------------------------------------|
 | Max MPI Job Size               | 36,000 cores (300 VMs in a single Virtual Machine Scale Set with singlePlacementGroup=true) |
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
@@ -127,7 +127,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+> Windows Server 2012 R2 is not supported on HBv4 and other VMs with more than 64 (virtual or physical) cores. For more details, see [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 ## Next steps
 
