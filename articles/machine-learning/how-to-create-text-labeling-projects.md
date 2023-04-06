@@ -230,6 +230,21 @@ View and change details of your project. On this tab, you can:
 * Edit instructions you give to your labels.
 * Change settings for ML-assisted labeling and kick off a labeling task.
 
+### Language Studio tab
+
+If your project was created from [Cognitive Services Language Studio](../cognitive-services/language-service/custom/azure-machine-learning-labeling.md), you'll also see a **Language Studio** tab.  
+
+* If labeling is active in Language Studio, you can't also label in Azure Machine Learning.  In that case, Language Studio is the only tab available.  Select **View in Language Studio** to go to the active labeling project in Language Studio.  From there, you can switch to labeling in Azure Machine Learning if you wish.
+
+If labeling is active in Azure Machine Learning, you have two choices:
+
+* Select **Switch to Language Studio** to switch your labeling activity back to Language Studio.  When you switch, all your currently labeled data is imported into Language Studio.  Your ability to label data in Azure Machine Learning is disabled, and you can label data in Language Studio. You can switch back to labeling in Azure Machine Learning at any time through Language Studio.
+
+    > [!NOTE] 
+    > Only users with the [correct roles](how-to-add-users.md) in Azure Machine Learning have the ability to switch labeling. 
+
+* Select **Disconnect from Language Studio** to sever the relationship with Language Studio.  Once you disconnect, the project will lose its association with Language Studio, and will no longer have the Language Studio tab. Disconnecting your project from Language Studio is a permanent, irreversible process and can't be undone. You will no longer be able to access your labels for this project in Language Studio.  The labels are available only in Azure Machine Learning from this point onward.
+
 ### Access for labelers
 
 [!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
