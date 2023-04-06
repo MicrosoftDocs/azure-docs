@@ -38,8 +38,6 @@ The Azure April 2023 update includes initial enforcement for Netlogon protocol c
 
 You should not modify the `RequireSeal` value to 2 at this time. Azure NetApp Files will support modifying the `RequireSeal` to 2 in 2023. The change will occur by default with the June 2023 Azure update.
 
-This update exposes vulnerability [CVE-2022-38023](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-38023) concerning Sealing for Netlogon Secure Channel and impacts Azure NetApp Files.
-
 For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/en-us/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
 
 ## What versions of Windows Server Active Directory are supported?
