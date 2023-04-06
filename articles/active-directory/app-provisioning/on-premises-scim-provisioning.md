@@ -24,14 +24,27 @@ The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0]
 - Administrator role for configuring the application in the cloud (application administrator, cloud application administrator, global administrator, or a custom role with permissions).
 - A computer with at least 3 GB of RAM, to host a provisioning agent. The computer should have Windows Server 2016 or a later version of Windows Server, with connectivity to the target application, and with outbound connectivity to login.microsoftonline.com, other Microsoft Online Services and Azure domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy.
 
-## Deploying Azure AD provisioning agent
-The Azure AD Provisioning agent can be deployed on the same server hosting a SCIM enabled application, or a separate server, providing it has line of sight to the application's SCIM endpoint. A single agent also supports provision to multiple applications hosted locally on the same server or separate hosts, again as long as each SCIM endpoint is reachable by the agent.  
+## Download, install, and configure the Azure AD Connect Provisioning Agent Package
 
- 1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that your SCIM application endpoint is hosted on. 
- 2. Run the provisioning agent installer, agree to the terms of service, and select **Install**.
- 3. Once installed, locate  and launch the **AAD Connect Provisioning Agent wizard**, and when prompted for an extensions select **On-premises provisioning**
- 4. For the agent to register itself with your tenant, provide credentials for an Azure AD admin with Hybrid administrator or global administrator permissions.
- 5. Select **Confirm** to confirm the installation was successful.
+If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
+
+  1.  In the Azure portal, select **Azure Active Directory**.
+  2.  On the left, select **Azure AD Connect**.
+  3.  On the left, select **Cloud sync**.
+ 
+ :::image type="content" source="media/active-directory-cloud-sync-how-to-install/new-ux-1.png" alt-text="Screenshot of new UX screen." lightbox="media/active-directory-cloud-sync-how-to-install/new-ux-1.png":::
+
+ 4. On the left, select **Agent**.
+ 5. Select **Download on-premises agent**, and select **Accept terms & download**.
+
+     >[!NOTE]
+     >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
+
+ 1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
+ 1. When the provisioning agent wizard opens, continue to the **Select Extension** tab and select **On-premises application provisioning** when prompted for the extension you want to enable.
+ 1. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
+ 1. Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
  
 ## Provisioning to SCIM-enabled application
 Once the agent is installed, no further configuration is necesary on-prem, and all provisioning configurations are then managed from the portal. Repeat the below steps for every on-premises application being provisioned via SCIM.
