@@ -38,6 +38,6 @@ To grant your client app (*ciam-client-app*) API permissions, follow these steps
  
 1. Select **Grant admin consent for \<your tenant name\>**, then select **Yes**.
 
-1. Select **Refresh**, and then verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
+1. Select **Refresh**, then verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
 
 1. From the **Configured permissions** list, select the **ToDoList.Read** and **ToDoList.ReadWrite** permissions, one at a time, and then copy the permission's full URI for later use.
