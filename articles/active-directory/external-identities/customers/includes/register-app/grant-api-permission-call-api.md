@@ -6,16 +6,25 @@ ms.topic: include
 ms.date: 03/30/2023
 ms.author: kengaderdus
 ---
-
-Since this app signs-in users, we now proceed to select delegated permissions, which is required by apps that signs users. 
-
-To grant your app (*ciam-client-app*) permissions, follow these steps:
+To grant your client app (*ciam-client-app*) API permissions, follow these steps:
 
 1. From the **App registrations** page, select the application that you created (such as *ciam-client-app*) to open its **Overview** page.
  
 1. Under **Manage**, select **API permissions**.
  
 1. Under **Configured permissions**, select **Add a permission**.
+
+1. Select **Microsoft APIs** tab.
+
+1. Under **Commonly used Microsoft APIs** section, select **Microsoft Graph**.
+
+1. Select **Delegated permissions** option.
+
+1. Under **Select permissions** section, search for and select both **openid** and **offline_access** permissions.
+
+1. Select **Add permissions** button. 
+ 
+1. Under **Configured permissions**, select **Add a permission** again.
 
 1. Select the **My APIs** tab.
  
@@ -31,4 +40,4 @@ To grant your app (*ciam-client-app*) permissions, follow these steps:
 
 1. Select **Refresh**, and then verify that **Granted for \<your tenant name\>** appears under **Status** for both scopes.
 
-1. From the **Configured permissions** list, select your scopes, one at a time, and then copy the scope full URI for later use.
+1. From the **Configured permissions** list, select the **ToDoList.Read** and **ToDoList.ReadWrite** permissions, one at a time, and then copy the permission's full URI for later use.

@@ -50,9 +50,9 @@ In this article, you’ll do the following tasks:
 
 [!INCLUDE [active-directory-b2c-add-client-secret](./includes/register-app/add-app-client-secret.md)] 
 
-## Add app permissions
+## Grant API permissions
 
-[!INCLUDE [active-directory-b2c-add-delegated-permissions](./includes/register-app/grant-api-permission-graph.md)] 
+[!INCLUDE [active-directory-b2c-grant-delegated-permissions](./includes/register-app/grant-api-permission-sign-in.md)] 
 
 ## Create a user flow 
 
@@ -65,10 +65,17 @@ In this article, you’ll do the following tasks:
 ## Clone or download sample web application
 
 
+
 ## Install project dependencies 
 
 
+
+## Configure the sample web app
+
+
+
 ## Run and test sample web app 
+
 
 
 ## Next steps
