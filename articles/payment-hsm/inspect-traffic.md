@@ -36,7 +36,7 @@ This design is inspired by the [Dedicated HSM solution architecture](../dedicate
 
 The firewall **SNATs the client IP address** before forwarding traffic to the PHSM NIC, guaranteeing that the return traffic will automatically be directed back to the Firewall. Either an Azure Firewall or a 3rd party FW NVA can be used in this design.
 
-:::image type="content" source="./media/firewall-snat-architecture-diagram.png" alt-text="Architecture diagram of the firewall with SNAT":::
+:::image type="content" source="./media/firewall-snat-architecture-diagram.png" alt-text="Architecture diagram of the firewall with SNAT" lightbox="./media/firewall-snat-architecture-diagram.png":::
 
 Route tables required:
 - On-Prem to PHSM: a Route Table containing a UDR for the Payment HSM VNet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
@@ -53,7 +53,7 @@ This design is a good option when performing SNAT on the Firewall is not approve
 
 This architecture leverages a reverse proxy, deployed in a dedicated subnet in the PHSM VNet directly or in a peered VNet. Instead of sending traffic to the PHSM devices, the destination is set to the reverse proxy IP, located in a subnet that does not have the restrictions of the PHSM delegated subnet: both NSGs and UDRs can be configured, and combined with a Firewall in the central hub.
 
-:::image type="content" source="./media/firewall-reverse-proxy-architecture-diagram.png" alt-text="Architecture diagram of the firewall with reverse proxy":::
+:::image type="content" source="./media/firewall-reverse-proxy-architecture-diagram.png" alt-text="Architecture diagram of the firewall with reverse proxy" lightbox="./media/firewall-reverse-proxy-architecture-diagram.png":::
 
 This solution requires a reverse proxy, such as:
 
