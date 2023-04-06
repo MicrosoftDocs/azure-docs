@@ -120,75 +120,75 @@ If you want to set the authenticated user context:
 
     - If you declare the tag `parentDataTag`, specify the path for identifying the parent node when traversing up the Document Object Model (DOM). It must be declared alongside the `parentid` data attribute.
      
-     If `parentDataTag` is declared, `useDefaultContentNameOrId` is set to true, and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the attributes and values from its closest parent element. First, it fetches the closest `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id`. If no such attribute exists, it fetches the closest `data-id` or `customDataPrefix-id`. If no such attribute exists, it fetches the closest `element.id` or `element.contentName`. If no such attribute exists, the value `"not_specified"` is used.
+      If `parentDataTag` is declared, `useDefaultContentNameOrId` is set to true, and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the attributes and values from its closest parent element. First, it fetches the closest `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id`. If no such attribute exists, it fetches the closest `data-id` or `customDataPrefix-id`. If no such attribute exists, it fetches the closest `element.id` or `element.contentName`. If no such attribute exists, the value `"not_specified"` is used.
      
-     For example:
+      For example:
 
-     ```javascript
-     const config = {
-                 dataTags : {
-                   useDefaultContentNameOrId : true,
-                   parentDataTag: "ele1"
-          }
-        };
+      ```javascript
+      const config = {
+                  dataTags : {
+                    useDefaultContentNameOrId : true,
+                    parentDataTag: "ele1"
+           }
+         };
   
-     Element1.setAttribute("id", "testId1");
-     Element1.setAttribute("data-id", "testdataId1");
-     Element1Parent.setAttribute("id", "parentId1");
-     pageAction.capturePageAction(Element1);
-     eventdata["parentId"] = "not_specified";
+      Element1.setAttribute("id", "testId1");
+      Element1.setAttribute("data-id", "testdataId1");
+      Element1Parent.setAttribute("id", "parentId1");
+      pageAction.capturePageAction(Element1);
+      eventdata["parentId"] = "not_specified";
 
-     Element2.setAttribute("id", "testId2");
-     Element2Parent.setAttribute("id", "parentId2");
-     Element2Parent.setAttribute("data-ele1", "testId2");
-     pageAction.capturePageAction(Element2);
-     // If useDefaultContentNameOrId is false, this value is "not_specified".
-     eventdata["parentId"] = "parentId2"; 
+      Element2.setAttribute("id", "testId2");
+      Element2Parent.setAttribute("id", "parentId2");
+      Element2Parent.setAttribute("data-ele1", "testId2");
+      pageAction.capturePageAction(Element2);
+      // If useDefaultContentNameOrId is false, this value is "not_specified".
+      eventdata["parentId"] = "parentId2"; 
 
-     Element3.setAttribute("id", "testId4");
-     Parent.appendChild(Element3);
-     GrandParent.appendChild(Parent);
-     Parent.setAttribute("id", "parentId1");
-     GrandParent.setAttribute("id", "parentId2");
-     // Help identify parentDataTag node tree.
-     GrandParent.setAttribute("data-ele1", "testId2");
-     pageAction.capturePageAction(Element3);
-     // Use the closest parent id with parentDataTag tree.
-     eventdata["parentId"] = "parentId1"; 
-     ```
+      Element3.setAttribute("id", "testId4");
+      Parent.appendChild(Element3);
+      GrandParent.appendChild(Parent);
+      Parent.setAttribute("id", "parentId1");
+      GrandParent.setAttribute("id", "parentId2");
+      // Help identify parentDataTag node tree.
+      GrandParent.setAttribute("data-ele1", "testId2");
+      pageAction.capturePageAction(Element3);
+      // Use the closest parent id with parentDataTag tree.
+      eventdata["parentId"] = "parentId1"; 
+      ```
 
-     As noted in the example, if `parentDataTag` is declared, `useDefaultContentNameOrId` is set to false, and parentid/name attributes aren't set for the clicked HTML element, the value `"not_specified"` is used.
+      As noted in the example, if `parentDataTag` is declared, `useDefaultContentNameOrId` is set to false, and parentid/name attributes aren't set for the clicked HTML element, the value `"not_specified"` is used.
      
-     To improve efficiency, the plug-in uses `parentDataTag` as a flag. When encountered, it stops itself from further processing the DOM upward.
+      To improve efficiency, the plug-in uses `parentDataTag` as a flag. When encountered, it stops itself from further processing the DOM upward.
 
-  - If `parentDataTag` isn't declared, the plug-in doesn't search for parent info when parent info isn't directly linked to the clicked HTML element. You shouldn't declare the tag `parentDataTag` if you don't need to use the plug-in with customized options.
+   - If `parentDataTag` isn't declared, the plug-in doesn't search for parent info when parent info isn't directly linked to the clicked HTML element. You shouldn't declare the tag `parentDataTag` if you don't need to use the plug-in with customized options.
   
-    For example: 
+     For example: 
   
-     ```javascript
-       const config = {
-         dataTags : {
-          useDefaultContentNameOrId : true,
-             }
-               };
+      ```javascript
+        const config = {
+          dataTags : {
+           useDefaultContentNameOrId : true,
+              }
+                };
    
-       Element1.setAttribute("id", "testId1");
-       // If customDataPrefix: "data-test-" is defined, it should be "data-test-id".
-       Element1.setAttribute("data-id", "testdataId1"); 
-       Element1.setAttribute("parentId", "testparentId1");
-       Element1Parent.setAttribute("id", "parentId1");
-       pageAction.capturePageAction(element1);
-       eventdata["parentId"] = "not_specified";
-       eventdata["name"] = "testdataId1";
+        Element1.setAttribute("id", "testId1");
+        // If customDataPrefix: "data-test-" is defined, it should be "data-test-id".
+        Element1.setAttribute("data-id", "testdataId1"); 
+        Element1.setAttribute("parentId", "testparentId1");
+        Element1Parent.setAttribute("id", "parentId1");
+        pageAction.capturePageAction(element1);
+        eventdata["parentId"] = "not_specified";
+        eventdata["name"] = "testdataId1";
 
-       Element2.setAttribute("id", "testId2");
-       Element2.setAttribute("data-parentId", "testparentId2");
-       Element2Parent.setAttribute("id", "parentId2");
-       pageAction.capturePageAction(element2);
-       eventdata["parentId"] = "testparentId2";
-       // If useDefaultContentNameOrId is false, this value is "not_specified". 
-       eventdata["name"] = "testId2"; 
-    ```
+        Element2.setAttribute("id", "testId2");
+        Element2.setAttribute("data-parentId", "testparentId2");
+        Element2Parent.setAttribute("id", "parentId2");
+        pageAction.capturePageAction(element2);
+        eventdata["parentId"] = "testparentId2";
+        // If useDefaultContentNameOrId is false, this value is "not_specified". 
+        eventdata["name"] = "testId2"; 
+     ```
     
     > [!CAUTION]
     > After `parentDataTag` is used, the SDK begins looking for parent tags across your entire application and not just the HTML element where you used it. If you're using the HEART workbook with the Click Analytics plugin, for HEART events to be logged or detected, the tag `parentDataTag` must be declared in all other parts of an end user's application.
