@@ -16,7 +16,7 @@ ms.reviewer: rahulnagraj, alamaral
 
 # Customize claims issued in the JSON web token (JWT) for enterprise applications (Preview)
 
-The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery and custom applications. When SSO is configured and a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
+The Microsoft identity platform supports [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) with most enterprise applications, including both applications preintegrated in the Azure AD app gallery and custom applications. When SSO is configured and a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
 
 These JSON Web tokens (JWT) used by OIDC & OAuth applications (preview) contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user.
 
@@ -107,12 +107,12 @@ The following table provides information about the first level of transformation
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Transformation | Select the **RegexReplace()** option from the **Transformation** options to use the regex-based claims transformation method for claims transformation. |
-| 2 | Parameter 1 | The input for the regular expression transformation. For example, user.mail that has a user email address. For example, `admin@fabrikam.com`. |
-| 3 | Treat source as multivalued | Some input user attributes can be multi-value user attributes. If the selected user attribute supports multiple values and multiple values are needed for the transformation, select **Treat source as multivalued**. the regex match uses all values, otherwise the regex match uses only the first value. |
-| 4 |  Regex pattern | A regular expression that's evaluated against the value of the user attribute selected as *Parameter 1*. For example, a regular expression to extract the user alias from the user's email address is represented as `(?'domain'^.*?)(?i)(\@fabrikam\.com)$`. |
-| 5 | Add additional parameter | Use more than one user attribute for the transformation. The values of the attributes are merged with the regex transformation output. Supports up to five additional parameters. |
-| 6 | Replacement pattern | The replacement pattern is the text template that contains placeholders for regex outcome. Wrap all group names inside the curly braces such as `{group-name}`. For example, the administration wants to use user alias with some other domain name and merge country name with it. In this case, the replacement pattern for `xyz.com` is `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. The expected outcome is `US.swmal@xyz.com`. |
+| 1 | **Transformation** | Select the **RegexReplace()** option from the **Transformation** options to use the regex-based claims transformation method for claims transformation. |
+| 2 | **Parameter 1** | The input for the regular expression transformation. For example, user.mail that has a user email address. For example, `admin@fabrikam.com`. |
+| 3 | **Treat source as multivalued** | Some input user attributes can be multi-value user attributes. If the selected user attribute supports multiple values and multiple values are needed for the transformation, select **Treat source as multivalued**. the regex match uses all values, otherwise the regex match uses only the first value. |
+| 4 |  **Regex pattern** | A regular expression that's evaluated against the value of the user attribute selected as *Parameter 1*. For example, a regular expression to extract the user alias from the user's email address is represented as `(?'domain'^.*?)(?i)(\@fabrikam\.com)$`. |
+| 5 | **Add additional parameter** | Use more than one user attribute for the transformation. The values of the attributes are merged with the regex transformation output. Supports up to five more parameters. |
+| 6 | **Replacement pattern** | The replacement pattern is the text template that contains placeholders for regex outcome. Wrap all group names inside the curly braces such as `{group-name}`. For example, the administration wants to use user alias with some other domain name and merge country name with it. In this case, the replacement pattern for `xyz.com` is `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. The expected outcome is `US.swmal@xyz.com`. |
 
 The following image shows an example of the second level of transformation:
 
@@ -122,13 +122,13 @@ The following table provides information about the second level of transformatio
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Transformation | Use regex-based claims transformations as the second level transformation as well. Use any other transformation method as the first transformation. |
-| 2 | Parameter 1 | Selecting **RegexReplace()** as a second level transformation, uses output of the first level transformation as input for the second level transformation. To apply the transformation, the second level regex expression should match the output of the first transformation. |
-| 3 | Regex pattern | **Regex pattern** is the regular expression for the second level transformation. |
-| 4 | Parameter input | User attribute inputs for the second level transformations. |
-| 5 | Parameter input | Administrators can delete the selected input parameter if they don't need it anymore. |
-| 6 | Replacement pattern | The replacement pattern is the text template that contains placeholders for the regex outcome group name, input parameter group name, and static text value. Wrap all group names inside the curly braces such as `{group-name}`. For example, the administration wants to use user alias with some other domain name and merge country name with it. In this case, the replacement pattern for `xyz.com` is `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. The expected outcome is `US.swmal@xyz.com`. |
-| 7 | Test transformation | Evaluates the RegexReplace() transformation when the value of the selected user attribute for *Parameter 1* matches with the regular expression provided in the **Regex pattern** textbox. Adds the claim to the token when they don't match. To validate the regular expression against the input parameter value, a test experience is available within the transform blade. This test experience operates on test values only. Adds the name of the parameter to the test result instead of the actual value when using more input parameters. To access the test section, select **Test transformation**. |
+| 1 | **Transformation** | Use regex-based claims transformations as the second level transformation as well. Use any other transformation method as the first transformation. |
+| 2 | **Parameter 1** | When **RegexReplace()** is the second level transformation, use the output of the first level transformation as input for the second level transformation. To apply the transformation, the second level regex expression should match the output of the first transformation. |
+| 3 | **Regex pattern** | **Regex pattern** is the regular expression for the second level transformation. |
+| 4 | **Parameter input** | User attribute inputs for the second level transformations. |
+| 5 | **Parameter input** | Administrators can delete the selected input parameter if they don't need it anymore. |
+| 6 | **Replacement pattern** | The replacement pattern is the text template that contains placeholders for the regex outcome group name, input parameter group name, and static text value. Wrap all group names inside the curly braces such as `{group-name}`. For example, the administration wants to use user alias with some other domain name and merge country name with it. In this case, the replacement pattern for `xyz.com` is `{country}.{domain}@xyz.com`, where `{country}` is the value of input parameter and `{domain}` is the group output from the regular expression evaluation. The expected outcome is `US.swmal@xyz.com`. |
+| 7 | **Test transformation** | Evaluates the RegexReplace() transformation when the value of the selected user attribute for *Parameter 1* matches with the regular expression provided in the **Regex pattern** textbox. Adds the claim to the token when they don't match. To validate the regular expression against the input parameter value, a test experience is available within the transform blade. This test experience operates on test values only. Adds the name of the parameter to the test result instead of the actual value when using more input parameters. To access the test section, select **Test transformation**. |
 
 The following image shows an example of testing the transformations:
 
@@ -138,15 +138,15 @@ The following table provides information about testing the transformations. The 
 
 | Action | Field | Description |
 | :----- | :---- | :---------- |
-| 1 | Test transformation | Select the close or (X) button to hide the test section and re-render the **Test transformation** button again on the blade. |
-| 2 | Test regex input | Accepts input for the regular expression test evaluation. When a regex-based claims transformation is configured as a second level transformation, provide a value that's the expected output of the first transformation. |
-| 3 | Run test | After providing the test regex input and configuring the **Regex pattern**, **Replacement pattern** and **Input parameters**, select **Run test** to evaluate the expression. |
-| 4 | Test transformation result | If evaluation succeeds, an output of the test transformation is rendered against the **Test transformation result** label. |
-| 5 | Remove transformation | Removes the second level transformation. |
-| 6 | Specify output if no match | Skips the transformation when configuring a regex input value against the *Parameter 1* that doesn't match the **Regular expression**. In such cases, configure the alternate user attribute, which adds it to the token for the claim. |
-| 7 | Parameter 3 | When selecting **Specify output if no match** and an alternate user attribute is needed when there's no match, select an alternate user attribute. This dropdown is available against **Parameter 3 (output if no match)**. |
-| 8 | Summary | A full summary of the format is displayed that explains the meaning of the transformation in simple text. |
-| 9 | Add | After verifying the configuration settings for the transformation, Select **Add** to save it to a claims policy. Select **Save** on the **Manage Claim** blade to save the changes. |
+| 1 | **Test transformation** | Select the close or (X) button to hide the test section and re-render the **Test transformation** button again on the blade. |
+| 2 | **Test regex input** | Accepts input for the regular expression test evaluation. When a regex-based claims transformation is configured as a second level transformation, provide a value that's the expected output of the first transformation. |
+| 3 | **Run test** | After providing the test regex input and configuring the **Regex pattern**, **Replacement pattern** and **Input parameters**, select **Run test** to evaluate the expression. |
+| 4 | **Test transformation result** | If evaluation succeeds, an output of the test transformation is rendered against the **Test transformation result** label. |
+| 5 | **Remove transformation** | Removes the second level transformation. |
+| 6 | **Specify output if no match** | Skips the transformation when configuring a regex input value against the *Parameter 1* that doesn't match the **Regular expression**. In such cases, configure the alternate user attribute, which adds it to the token for the claim. |
+| 7 | **Parameter 3** | When selecting **Specify output if no match** and an alternate user attribute is needed when there's no match, select an alternate user attribute. This dropdown is available against **Parameter 3 (output if no match)**. |
+| 8 | **Summary** | A full summary of the format is displayed that explains the meaning of the transformation in simple text. |
+| 9 | **Add** | After verifying the configuration settings for the transformation, Select **Add** to save it to a claims policy. Select **Save** on the **Manage Claim** blade to save the changes. |
 
 RegexReplace() transformation is also available for the group claims transformations.
 
@@ -180,7 +180,7 @@ To add a claim condition:
 1. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application.
 1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
-The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Azure AD evaluates Cconditions with the same source from top to bottom. The claim emits the last value that matches the expression in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
+The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Azure AD evaluates conditions with the same source from top to bottom. The claim emits the last value that matches the expression in the claim. Transformations such as `IsNotEmpty` and `Contains` act like  restrictions.
 
 For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs to another organization that also uses Azure AD. Given the following configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform evaluates the conditions.
 
