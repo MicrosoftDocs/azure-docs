@@ -203,10 +203,10 @@
     href: ./concepts/exemption-structure.md
   - name: Applicability
     displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
   - name: Compliance states
     displayName: compliance, states, evaluation
     href: ./concepts/compliance-states.md
-    href: ./concepts/policy-applicability.md
   - name: Attestation
     displayName: manual policy, compliance, attestation
     href: ./concepts/attestation-structure.md
