@@ -1,11 +1,11 @@
 ---
 title: Enable automatic HTTPS with Caddy as a sidecar container
-description: dadf
+description: This guide describes how Caddy can be used as a reverse proxy to enhance your application with automatic HTTPS
 author: matthiasguentert
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.service: container-instances
+services: container-instances
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 03/31/2023
+ms.date: 04/06/2023
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
