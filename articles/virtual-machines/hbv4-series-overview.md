@@ -9,15 +9,15 @@ ms.workload: infrastructure-services
 ms.topic: article 
 ms.date: 04/06/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
-author: mamccrea
+ms.author: padmalathas
+author: padmalathas
 ---
 
 # HBv4-series virtual machine overview 
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-An [HBv4-series](hbv4-series.md) server features 2 * 64-core EPYC 7V73X CPUs for a total of 128 physical "Zen3" cores with AMD 3D V-Cache. Simultaneous Multithreading (SMT) is disabled on HBv3. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
+An [HBv4-series](hbv4-series.md) server features 2 * 64-core EPYC 7V73X CPUs for a total of 128 physical "Zen3" cores with AMD 3D V-Cache. Simultaneous Multithreading (SMT) is disabled on HBv4. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
 
 ```bash
 Nodes per Socket (NPS) = 2
@@ -36,13 +36,13 @@ The following diagram shows the topology of the server. We reserve these 8 hyper
 
 ![Topology of the HBv4-series server](./media/hpc/architecture/hbv3/hbv3-topology-server.png)
 
-The CCD boundary is not equivalent to a NUMA boundary. On HBv4, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv3 VM sizes expose 4 NUMA domains that appear to an OS and application as shown. 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv3 VM size](hbv3-series.md).
+The CCD boundary is not equivalent to a NUMA boundary. On HBv4, a group of four consecutive (4) CCDs is configured as a NUMA domain, both at the host server level and within a guest VM. Thus, all HBv3 VM sizes expose 4 NUMA domains that appear to an OS and application as shown. 4 uniform NUMA domains, each with different number of cores depending on the specific [HBv4 VM size](hbv4-series.md).
 
 ![Topology of the HBv4-series VM](./media/hpc/architecture/hbv3/hbv3-topology-vm.png)
 
 Each HBv4 VM size is similar in physical layout, features, and performance of a different CPU from the AMD EPYC 7003-series, as follows:
 
-| HBv3-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
+| HBv4-series VM size             | NUMA domains | Cores per NUMA domain  | Similarity with AMD EPYC         |
 |---------------------------------|--------------|------------------------|----------------------------------|
 Standard_HB120rs_v3               | 4            | 30                     | Dual-socket EPYC 7773X           |
 Standard_HB120r-96s_v3            | 4            | 24                     | Dual-socket EPYC 7643            |
