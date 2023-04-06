@@ -23,7 +23,7 @@ This quickstart shows how to deploy a Spring Boot web application to Azure Sprin
 
 :::image type="content" source="./media/quickstart-deploy-web-app/todo-app.png" alt-text="Sceenshot of a sample web application in Azure Spring Apps." lightbox="./media/quickstart-deploy-web-app/todo-app.png":::
 
-This application is a typical three-layers web application:
+This application is a typical three-layers web application with the following layers:
 
 - A frontend bounded [React](https://reactjs.org/) application.
 - A backend Spring web application that uses Spring Data JPA to access a relational database.
@@ -71,29 +71,29 @@ The main resources required to run this sample are an Azure Spring Apps instance
 
 ### Provide names for each resource
 
-Set the following names for the resources. Make adjustments as needed to avoid conflicts with existing resources.
+Create variables to hold the resource names. Be sure to replace the placeholders with your own values.
 
 ```azurecli-interactive
-RESOURCE_GROUP=WebAppResourceGroup
-LOCATION=eastus
-POSTGRESQL_SERVER=webapppostgresqlserver
-POSTGRESQL_DB=WebAppPostgreSQLDB
-AZURE_SPRING_APPS_NAME=web-app-azure-spring-apps
-APP_NAME=webapp
-CONNECTION=WebAppConnection
+RESOURCE_GROUP=<resource-group-name>
+LOCATION=<location>
+POSTGRESQL_SERVER=<server-name>
+POSTGRESQL_DB=<database-name>
+AZURE_SPRING_APPS_NAME=<Azure-Spring-Apps-service-instance-name>
+APP_NAME=<web-app-name>
+CONNECTION=<connection-name>
 ```
 
 ### Create a new resource group
 
 Use the following steps to create a new resource group.
 
-1. Sign in to Azure CLI.
+1. Use the following command to sign in to Azure CLI.
 
    ```azurecli-interactive
    az login
    ```
 
-1. Set the default location.
+1. Use the following command to set the default location.
 
    ```azurecli-interactive
    az configure --defaults location=${LOCATION}
@@ -105,19 +105,19 @@ Use the following steps to create a new resource group.
    az account list --output table
    ```
 
-   Choose a subscription and set it as the default subscription with the following command:
+1. Choose a subscription and set it as the default subscription with the following command:
 
    ```azurecli-interactive
    az account set --subscription <subscription-ID>
    ```
 
-1. Create a resource group.
+1. Use the following command to create a resource group.
 
    ```azurecli-interactive
    az group create --resource-group ${RESOURCE_GROUP}
    ```
 
-1. Set the newly created resource group as the default resource group.
+1. Use the following command to set the newly created resource group as the default resource group.
 
    ```azurecli-interactive
    az configure --defaults group=${RESOURCE_GROUP}
@@ -127,13 +127,13 @@ Use the following steps to create a new resource group.
 
 Azure Spring Apps is used to host the Spring web app. Create an Azure Spring Apps instance and an application inside it.
 
-1. Create an Azure Spring Apps service instance.
+1. Use the following command to create an Azure Spring Apps service instance.
 
    ```azurecli-interactive
    az spring create --name ${AZURE_SPRING_APPS_NAME}
    ```
 
-1. Create an application in the Azure Spring Apps instance.
+1. Use the following command to create an application in the Azure Spring Apps instance.
 
    ```azurecli-interactive
    az spring app create \
@@ -167,7 +167,7 @@ Do you want to enable access for all IPs  (y/n): n
 
 After the application instance and the PostgreSQL instance are created, the application instance can't access the PostgreSQL instance directly. The following steps use Service Connector to configure the needed network settings and connection information. For more information about Service Connector, see [What is Service Connector?](../service-connector/overview.md).
 
-1. If you're using Service Connector for the first time, register the Service Connector resource provider.
+1. If you're using Service Connector for the first time, use the following command to register the Service Connector resource provider.
 
    ```azurecli-interactive
    az provider register --namespace Microsoft.ServiceLinker
@@ -194,7 +194,7 @@ After the application instance and the PostgreSQL instance are created, the appl
        --connection ${CONNECTION}
    ```
 
-   The `--system-identity` parameter is required for the passwrodless connection. For more information, see [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](how-to-bind-postgres.md).
+   The `--system-identity` parameter is required for the passwordless connection. For more information, see [Bind an Azure Database for PostgreSQL to your application in Azure Spring Apps](how-to-bind-postgres.md).
 
 1. After the connection is created, use the following command to validate the connection:
 
