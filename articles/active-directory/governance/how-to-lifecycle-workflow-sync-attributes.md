@@ -149,7 +149,7 @@ The following example will walk you through setting up a custom synchronization 
 
 > [!NOTE]
 >- **msDS-cloudExtensionAttribute1** is an example source.
->- **Starting [Azure AD Connect 2.0.3.0](../hybrid/reference-connect-version-history.md#functional-changes-10), employeeHireDate is added to the default 'Out to AAD' rule so steps 10-16 is not required.**
+>- **Starting with [Azure AD Connect 2.0.3.0](../hybrid/reference-connect-version-history.md#functional-changes-10), `employeeHireDate` is added to the default 'Out to Azure AD' rule, so steps 10-16 are not required.**
 
 For more information, see [How to customize a synchronization rule](../hybrid/how-to-connect-create-custom-sync-rule.md) and [Make a change to the default configuration.](../hybrid/how-to-connect-sync-change-the-configuration.md)
 
