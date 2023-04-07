@@ -17,7 +17,7 @@ Target-based scaling provides a fast and intuitive scaling model for customers a
 
 Target-based scaling  replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of one worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of four instances at a time, and the scaling decision is based on a simple target-based equation:
 
-![Desired instances = event source length / target executions per instance](./media/functions-target-based-scaling/targetbasedscalingformula.png)
+![Illustration of the equation: desired instances = event source length / target executions per instance.](./media/functions-target-based-scaling/target-based-scaling-formula.png)
 
 The default _target executions per instance_ values come from the SDKs used by the Azure Functions extensions. You don't need to make any changes for target-based scaling to work.
 
