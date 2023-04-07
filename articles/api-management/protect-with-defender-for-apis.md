@@ -1,6 +1,6 @@
 ---
-title: Defend API Management against DDoS attacks 
-description: Learn how to protect your API Management instance in an external virtual network against volumetric and protocol DDoS attacks by using Azure DDoS Protection.
+title: Protect APS in API Management with Defender for APIs 
+description: Learn how to use Azure Defender for APIs to identify and protect API threat in your Azure API Management instance.
 services: api-management
 author: dlepow
 
@@ -24,7 +24,7 @@ This article shows how to identify and protect against API threats exposed in yo
 
 ## Benefits
 
-Defender for APIs, a part of Microsoft [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction.md), offers full lifecycle protection, detection, and response coverage for APIs. The service empowers security practitioners to gain visibility into their business-critical APIs, understand their security posture, prioritize vulnerability fixes, and detect active runtime threats within minutes. Currently, the service supports APIs managed in Azure API Management. 
+Defender for APIs, a part of Microsoft [Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), offers full lifecycle protection, detection, and response coverage for APIs. The service empowers security practitioners to gain visibility into their business-critical APIs, understand their security posture, prioritize vulnerability fixes, and detect active runtime threats within minutes. Currently, the service supports APIs managed in Azure API Management. 
 
 Defender for APIs has the following key capabilities:
 
@@ -38,7 +38,7 @@ Defender for APIs has the following key capabilities:
 
 * **Threat response** - Integrate or export alerts into SIEM systems for investigation and threat response workflows.
 
-* **Integration with [cloud security graph](/defender-for-cloud/concept-attack-path)** - Query API inventory, insights, and recommendations for prioritized remediation and attack path analysis.
+* **Integration with [cloud security graph](/azure/defender-for-cloud/concept-attack-path)** - Query API inventory, insights, and recommendations for prioritized remediation and attack path analysis.
 
 ## Prerequisites
 
