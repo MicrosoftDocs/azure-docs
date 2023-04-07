@@ -5,16 +5,30 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 04/07/2023
 ms.author: duau
-
 ---
 
 # Move a public peering to Microsoft peering
 
 This article helps you move a public peering configuration to Microsoft peering with no downtime. ExpressRoute supports using Microsoft peering with route filters for Azure PaaS services, such as Azure storage and Azure SQL Database. You now need only one routing domain to access Microsoft PaaS and SaaS services. You can use route filters to selectively advertise the PaaS service prefixes for Azure regions you want to consume.
 
+> [!IMPORTANT]
+> Public peering for ExpressRoute is being retired on **March 31, 2024**. For more information, see [**retirement notice**](https://azure.microsoft.com/updates/retirement-notice-migrate-from-public-peering-by-march-31-2024/).
+
+
 Azure public peering has 1 NAT IP address associated to each BGP session. Microsoft peering allows you to configure your own NAT allocations, as well as use route filters for selective prefix advertisements. Public Peering is a unidirectional service using which Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain.
+
+## Peering comparison
+
+| Aspect | Public peering | Microsoft peering |
+| --- | --- | --- |
+| Number of NAT IP addresses | 1 (not scalable) | Per scale*** |
+| Call initiation direction | Unidirectional: on-premises to Microsoft | Bidirectional |
+| Prefix advertisement | Non-selectable | Advertisement of Microsoft prefixes is controlled by route filters |
+| Support | No new public peering deployments. Public peering will be retired on March 31, 2024. | Fully supported |
+
+*** BYOIP: you can scale the number of NAT IP addresses assigned depending on your call volume. To get NAT IP addresses, work with your service provider.
 
 Once public peering is enabled, you can connect to all Azure services. We do not allow you to selectively pick services for which we advertise routes to. While Microsoft peering is a bi-directional connectivity where connection can be initiated from Microsoft Azure service along with your WAN. For more information about routing domains and peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
 
