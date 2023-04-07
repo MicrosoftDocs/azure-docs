@@ -78,7 +78,7 @@ Cilium can be reconfigured after deployment by updating the Helm values with Azu
 az k8s-extension update -c <cluster> -t managedClusters -g <region> -n cilium --configuration-settings debug.enabled=true
 ```
 
-You can uninstall an Isovalent Cilium Enterprise offer using the AKS extension delete command. Uninstall flow per AKS Cluster is not added in Marketplace yet until ISV’s stop sell the whole offer.
+You can uninstall an Isovalent Cilium Enterprise offer using the AKS extension delete command. Uninstall flow per AKS Cluster is not added in Marketplace yet until ISV’s stop sell the whole offer. For more information about AKS extension delete, see [az k8s-extension delete](/cli/azure/k8s-extension#az-k8s-extension-delete).
 
 ## Next steps
 
