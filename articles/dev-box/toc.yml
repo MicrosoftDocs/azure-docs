@@ -14,8 +14,6 @@ items:
       href: quickstart-configure-dev-box-service.md
     - name: Create a dev box
       href: quickstart-create-dev-box.md
-    - name: Connect with Remote Desktop App
-      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
 - name: Tutorials
   expanded: true
   items:
@@ -26,7 +24,7 @@ items:
   items:
     - name: Key concepts
       href: concept-dev-box-concepts.md
-    - name: Components common to Dev Box and ADE
+    - name: Components common to Dev Box and Deployment Environments
       href: concept-common-components.md
 - name: How-to guides
   expanded: true
