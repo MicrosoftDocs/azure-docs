@@ -18,7 +18,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.29 - April 2023
 
-Download for [Windows]() or [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
+Download for [Windows]() or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -34,7 +34,7 @@ Download for [Windows]() or [Linux](manage-agent.md#installing-a-previous-versio
 
 ## Version 1.28 - March 2023
 
-Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
@@ -47,7 +47,7 @@ Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-58
 
 ## Version 1.27 - February 2023
 
-Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
@@ -60,7 +60,7 @@ Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb
 
 ## Version 1.26 - January 2023
 
-Download for [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
+Download for [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 > [!NOTE]
 > Version 1.26 is only available for Linux operating systems.
@@ -71,7 +71,7 @@ Download for [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
 
 ## Version 1.25 - January 2023
 
-Download for [Windows](https://download.microsoft.com/download/2/a/5/2a5b7d19-bc35-443e-80b2-63087577236e/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
+Download for [Windows](https://download.microsoft.com/download/2/a/5/2a5b7d19-bc35-443e-80b2-63087577236e/AzureConnectedMachineAgent%20(1).msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
