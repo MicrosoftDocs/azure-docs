@@ -161,8 +161,8 @@ To learn more about copying blobs using the Azure Blob Storage client library fo
 
 The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods covered in this article use the following REST API operations:
 
-- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url)
-- [Put Block From URL](/rest/api/storageservices/put-block-from-url)
+- [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
+- [Put Block From URL](/rest/api/storageservices/put-block-from-url) (REST API)
 - [Copy Blob](/rest/api/storageservices/copy-blob) (REST API)
 - [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob) (REST API)
 
