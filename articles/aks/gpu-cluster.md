@@ -395,7 +395,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow]: ../../../architecture-center-pr/docs/solution-ideas/articles/machine-learning-model-deployment-aks-content.md
+[kubeflow]: /architecture/solution-ideas/articles/machine-learning-model-deployment-aks
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
@@ -421,5 +421,5 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-show]: /cli/azure/feature#az-feature-show
-[az-extension-add]: /cli/azure/extension/az_extension_add
-[az-extension-update]: /cli/azure/extension/az_extension_update
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
