@@ -33,6 +33,8 @@ Instructions for the legacy create user process can be found in the **[Add or de
 
 1. Select **Create new user** from the menu.
 
+    ![Screenshot of the create new user menu.](media/how-to-create-delete-users/create-new-user-menu.png)
+
 ### Basics
 
 - **User principal name**: Enter a unique username and select a domain from the menu after the @. Select **Domain not listed** if you need to create a domain for the user. For more information, see [Add your custom domain name](add-custom-domain.md)
@@ -43,31 +45,81 @@ Instructions for the legacy create user process can be found in the **[Add or de
 
 - **Password**: Provide a password for the user to use during their initial sign-in. Uncheck the **Auto-generate password** option to enter a different password.
 
-- **Account enabled**: This option is checked by default. Uncheck to prevent the new user from being able to sign-in. You can change this setting after the user is created.
+- **Account enabled**: This option is checked by default. Uncheck to prevent the new user from being able to sign-in. You can change this setting after the user is created. This setting was called **Block sign in** in the legacy create user process.
+
+Either select the **Review + create** button to create the new user or **Next: Properties** to complete the next section.
+
+![Screenshot of the create new user Basics tab.](media/how-to-create-delete-users/create-new-user-basics-tab.png)
 
 ### Properties
 
 There are six categories of user properties you may be able to edit. These properties can be added or updated after the user is created. To manage these details go to **Azure AD** > **Users** and select a user to update.
 
-- **Identity:** Enter the user's first and last name.
+- **Identity:** Enter the user's first and last name. Set the User type as either Member or Guest. 
 
 - **Job information:** Add any job-related information, such as the user's job title, department, or manager.
 
-- **Contact info:** Add any relevant contact information for the user.
+- **Contact information:** Add any relevant contact information for the user.
 
 - **Parental controls:** For organizations like K-12 school districts, the user's age group may need to be provided. *Minors* are 12 and under, *Not adult* are 13-18 years old, and *Adults* are 18 and over. The combination of age group and consent provided by parent options determine the Legal age group classification. The Legal age group classification may limit the user's access and authority.
 
-- **Settings:** Decide whether the user can sign in to the Azure Active Directory tenant. You can also specify the user's global location.
+- **Settings:** Specify the user's global location.
 
-- **On-premises:** Accounts synced from Windows Server Active Directory include other values not applicable to Azure AD accounts.
+Either select the **Review + create** button to create the new user or **Next: Assignments** to complete the next section.
 
 ### Assignments
 
-You can assign the user to an administrative unit or group when their account is created. You can assign the user to up to 20 groups or roles. You can only assign the user to one administrative unit.
+You can assign the user to an administrative unit, group, or Azure AD role when their account is created. You can assign the user to up to 20 groups or roles. You can only assign the user to one administrative unit.
+
+**To assign a group to the new user**:
 
 1. Select **+ Add group**.
 1. From the menu that appears, choose up to 20 groups from the list and select the **Select** button.
+1. Select the **Review + create** button.
+
+    ![Screenshot of the add group assignment process.](media/how-to-create-delete-users/add-group-assignment.png)
 
 ### Review and create
 
-The final tab captures several key details from the user's details. Review their user principal name, display name, mail nickname, and password. Any group or role assignments are also listed along with the user type.
+The final tab captures several key details from the user creation process. Review the details and select the **Create** button if everything looks good.
+
+## Invite an external user
+
+The overall process for inviting an external guest user is similar, except for a few details on the **Basics** tab. 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role.
+
+1. Navigate to **Azure Active Directory** > **Users**.
+
+1. Select **Invite external user** from the menu. 
+
+    ![Screenshot of the invite external user menu option.](media/how-to-create-delete-users/invite-external-user-menu.png)
+
+### Basics
+
+In this section you're inviting the guest to your tenant, not creating a guest account. 
+
+- **Email**: Enter the email address for the guest user you're inviting.
+
+- **Display name**: Provide the display name.
+
+-  **Invitation message**: Select the **Send invite message** checkbox to customize a brief message to the guest. Provide a Cc recipient, if necessary.
+
+![Screenshot of the invite external user Basics tab.](media/how-to-create-delete-users/invite-external-user-basics-tab.png)
+### Guest user invitations
+
+When you an invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details.
+
+1. Go to **Azure AD** > **Users** and select the invited guest user.
+1. In the **My Feed** section, locate the **B2B collaboration** tile. 
+    - If the invitation state is **PendingAcceptance**, select the **Resend invitation** link to send another email.
+
+You can also select the **Properties** for the user and view the **Invitation state**.
+
+![Screenshot of the user details with the invitation status options highlighted.](media/how-to-create-delete-users/external-user-invitation-state.png)
+
+## Next steps
+
+* [Learn about B2B collaboration users](../external-identities/add-users-administrator.md)
+* [Review the default user permissions](users-default-permissions.md)
+* [Add a custom domain](add-custom-domain.md)
