@@ -10,8 +10,6 @@ manager: femila
 # Troubleshoot multimedia redirection for Azure Virtual Desktop
 
 >[!NOTE]
->Azure Virtual Desktop doesn't currently support multimedia redirection on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
->
 > Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
 
 This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop.
