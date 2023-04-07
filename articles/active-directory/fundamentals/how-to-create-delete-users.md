@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # How to create, invite, and delete users (preview)
 
-This article explains how to create a new user, invite a guest user, and delete a user in your Azure Active Directory (Azure AD) tenant. The **User Administrator** or **Global Administrator** role is required.
+This article explains how to create a new user, invite an external guest, and delete a user in your Azure Active Directory (Azure AD) tenant. The **User Administrator** or **Global Administrator** role is required.
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -37,11 +37,11 @@ Instructions for the legacy create user process can be found in the **[Add or de
 
 ### Basics
 
-- **User principal name**: Enter a unique username and select a domain from the menu after the @. Select **Domain not listed** if you need to create a domain for the user. For more information, see [Add your custom domain name](add-custom-domain.md)
+- **User principal name**: Enter a unique username and select a domain from the menu after the @ symbol. Select **Domain not listed** if you need to create a new domain. For more information, see [Add your custom domain name](add-custom-domain.md)
 
 - **Mail nickname**: If you need to enter an email nickname that is different from the user principal name you entered, uncheck the **Derive from user principal name** option, then enter the mail nickname.
 
-- **Display name**: Enter the users's name, such as Chris Green or Chris A. Green
+- **Display name**: Enter the user's name, such as Chris Green or Chris A. Green
 
 - **Password**: Provide a password for the user to use during their initial sign-in. Uncheck the **Auto-generate password** option to enter a different password.
 
@@ -53,7 +53,7 @@ Either select the **Review + create** button to create the new user or **Next: P
 
 ### Properties
 
-There are six categories of user properties you may be able to edit. These properties can be added or updated after the user is created. To manage these details go to **Azure AD** > **Users** and select a user to update.
+There are six categories of user properties you may be able to edit. These properties can be added or updated after the user is created. To manage these details, go to **Azure AD** > **Users** and select a user to update.
 
 - **Identity:** Enter the user's first and last name. Set the User type as either Member or Guest. 
 
@@ -69,7 +69,7 @@ Either select the **Review + create** button to create the new user or **Next: A
 
 ### Assignments
 
-You can assign the user to an administrative unit, group, or Azure AD role when their account is created. You can assign the user to up to 20 groups or roles. You can only assign the user to one administrative unit.
+You can assign the user to an administrative unit, group, or Azure AD role when the account is created. You can assign the user to up to 20 groups or roles. You can only assign the user to one administrative unit.
 
 **To assign a group to the new user**:
 
@@ -95,9 +95,9 @@ The overall process for inviting an external guest user is similar, except for a
 
     ![Screenshot of the invite external user menu option.](media/how-to-create-delete-users/invite-external-user-menu.png)
 
-### Basics
+### Basics for external users
 
-In this section you're inviting the guest to your tenant, not creating a guest account. 
+In this section, you're inviting the guest to your tenant using *their email address*. If you need to create a guest user with a domain account, use the [create new user process](#create-a-new-user) but change the **User type** to **Guest**. 
 
 - **Email**: Enter the email address for the guest user you're inviting.
 
@@ -108,13 +108,12 @@ In this section you're inviting the guest to your tenant, not creating a guest a
 ![Screenshot of the invite external user Basics tab.](media/how-to-create-delete-users/invite-external-user-basics-tab.png)
 ### Guest user invitations
 
-When you an invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details.
+When you invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details.
 
 1. Go to **Azure AD** > **Users** and select the invited guest user.
 1. In the **My Feed** section, locate the **B2B collaboration** tile. 
     - If the invitation state is **PendingAcceptance**, select the **Resend invitation** link to send another email.
-
-You can also select the **Properties** for the user and view the **Invitation state**.
+    - You can also select the **Properties** for the user and view the **Invitation state**.
 
 ![Screenshot of the user details with the invitation status options highlighted.](media/how-to-create-delete-users/external-user-invitation-state.png)
 
