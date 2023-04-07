@@ -21,16 +21,16 @@ In this guide, learn how to move chat messages into your own storage in real-tim
 
 - An Azure account with an active subscription. 
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A storage account, in this guide we will take an example of Azure Blob Storage. You can use the portal to set up an [account](../../../event-grid/blob-event-quickstart-portal). You can use any other storage option that you prefer.
-- If you would like to archive messages in near real time, enable Azure Event Grid which is a paid service (this prerequisite is only for option 2).
+- A storage account, in this guide we take an example of Azure Blob Storage. You can use the portal to set up an [account](../../../event-grid/blob-event-quickstart-portal). You can use any other storage option that you prefer.
+- If you would like to archive messages in near real time, enable Azure Event Grid, which is a paid service (this prerequisite is only for option 2).
 
 ## About Event Grid
 
-[Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. You will need to subscribe to [communication service events](../../../event-grid/event-schema-communication-services.md), and trigger an event in order to archive the messages in near real time. Typically, you send events to an endpoint that processes the event data and takes actions. 
+[Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. You need to subscribe to [communication service events](../../../event-grid/event-schema-communication-services.md), and trigger an event in order to archive the messages in near real time. Typically, you send events to an endpoint that processes the event data and takes actions. 
 
 ## Set up the environment
 
-To set up the environment that you'll use to generate and receive events, take the steps in the following sections.
+To set up the environment that you use to generate and receive events, take the steps in the following sections.
 
 ### Register an Event Grid resource provider
 
@@ -47,7 +47,7 @@ It might take a moment for the registration to finish. Select **Refresh** to upd
 
 ### Deploy the Event Grid viewer
 
-You will need to use an Event Grid viewer to view events in near-real time. The viewer provides the user with the experience of a real-time feed. Also, the payload of each event should be available for inspection.
+You need to use an Event Grid viewer to view events in near-real time. The viewer provides the user with the experience of a real-time feed. Also, the payload of each event should be available for inspection.
 
 To set up the viewer, follow the steps in [Azure Event Grid Viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
 
