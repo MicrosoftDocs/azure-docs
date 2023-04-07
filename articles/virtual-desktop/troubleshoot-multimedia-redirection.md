@@ -28,6 +28,10 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - You might run into issue where you are stuck in the loading state on every video site. This is a known issue that we're currently investigating. To temporarily mitigate this issue, sign out of Azure Virtual Desktop and restart your session.
 
+- If you aren't using the default Windows size settings for video players, such as not fitting the player to window, not maximizing the window, and so on), parts of video players may not appear correctly. If you encounter this issue, you should change the settings back to Default mode.
+
+- If your monitor or browser scale factor isn't set to 100%, you may see a gray pattern appear on the video screen.
+
 ### The MSI installer doesn't work
 
 - There's a small chance that the MSI installer won't be able to install the extension during internal testing. If you run into this issue, you'll need to install the multimedia redirection extension from the Microsoft Edge Store or Google Chrome Store.
