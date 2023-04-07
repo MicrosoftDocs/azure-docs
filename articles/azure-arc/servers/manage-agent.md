@@ -108,6 +108,79 @@ To clear a configuration property's value, run the following command:
 
 `azcmagent config clear <propertyName>`
 
+## Installing a specific version of the agent
+
+Microsoft recommends using the most recent version of the Azure Connected Machine agent for the best experience. However, if you need to run an older version of the agent for any reason, you can follow these instructions to install a specific version of the agent.
+
+### [Windows](#tab/windows)
+
+Links to the current and previous releases of the Windows agents are available below the heading of each [release note](agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](agent-release-notes-archive.md).
+
+### [Linux - apt](#tab/linux-apt)
+
+1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
+1. Search for available agent versions with `apt-cache`:
+
+   ```bash
+   sudo apt-cache madison azcmagent
+   ```
+
+1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
+
+   ```bash
+   sudo apt install azcmagent=VERSION
+   ```
+
+   For example, to install version 1.28, the install command is:
+
+   ```bash
+   sudo apt install azcmagent=1.28.02260.736
+   ```
+
+### [Linux - yum](#tab/linux-yum)
+
+1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
+1. Search for available agent versions with `yum list`:
+
+   ```bash
+   sudo yum list azcmagent --showduplicates
+   ```
+
+1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
+
+   ```bash
+   sudo yum install azcmagent-VERSION
+   ```
+
+   For example, to install version 1.28, the install command would look like:
+
+   ```bash
+   sudo yum install azcmagent-1.28.02260-755
+   ```
+
+### [Linux - zypper](#tab/linux-zypper)
+
+1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
+1. Search for available agent versions with `zypper search`:
+
+   ```bash
+   sudo zypper search -s azcmagent
+   ```
+
+1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
+
+   ```bash
+   sudo zypper install -f azcmagent-VERSION
+   ```
+
+   For example, to install version 1.28, the install command would look like:
+
+   ```bash
+   sudo zypper install -f azcmagent-1.28.02260-755
+   ```
+
+---
+
 ## Upgrade the agent
 
 The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that are not using the latest version of the machine agent and recommends that you upgrade to the latest version. It will notify you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
@@ -260,77 +333,6 @@ Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command
     ```
 
 Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file.
-
-## Installing a specific version of the agent
-
-Microsoft recommends using the most recent version of the Azure Connected Machine agent for the best experience. However, if you need to run an older version of the agent for any reason, you can follow these instructions to install a specific version of the agent.
-
-### [Windows](#tab/windows)
-
-Links to the current and previous releases of the Windows agents are available below the heading of each [release note](agent-release-notes.md). If you're looking for an agent version that's more than 6 months old, check out the [release notes archive](agent-release-notes-archive.md).
-
-### [Linux - apt](#tab/linux-apt)
-
-1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
-1. Search for available agent versions with `apt-cache`:
-
-   ```bash
-   sudo apt-cache madison azcmagent
-   ```
-
-1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
-
-   ```bash
-   sudo apt install azcmagent=VERSION
-   ```
-
-   For example, to install version 1.28, the install command is:
-
-   ```bash
-   sudo apt install azcmagent=1.28.02260.736
-   ```
-
-### [Linux - yum](#tab/linux-yum)
-
-1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
-1. Search for available agent versions with `yum list`:
-
-   ```bash
-   sudo yum list azcmagent --showduplicates
-   ```
-
-1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
-
-   ```bash
-   sudo yum install azcmagent-VERSION
-   ```
-
-   For example, to install version 1.28, the install command would look like:
-
-   ```bash
-   sudo yum install azcmagent-1.28.02260-755
-   ```
-
-### [Linux - zypper](#tab/linux-zypper)
-
-1. If you haven't already, configure your package manager with the [Linux Software Repository for Microsoft Products](/windows-server/administration/linux-package-repository-for-microsoft-software).
-1. Search for available agent versions with `zypper search`:
-
-   ```bash
-   sudo zypper search -s azcmagent
-   ```
-
-1. Find the version you want to install, replace `VERSION` in the following command with the full (4-part) version number, and run the command to install the agent:
-
-   ```bash
-   sudo zypper install -f azcmagent-VERSION
-   ```
-
-   For example, to install version 1.28, the install command would look like:
-
-   ```bash
-   sudo zypper install -f azcmagent-1.28.02260-755
-   ```
 
 ## Renaming an Azure Arc-enabled server resource
 
