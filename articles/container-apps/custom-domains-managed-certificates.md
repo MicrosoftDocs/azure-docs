@@ -162,6 +162,14 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
         | CNAME | The subdomain (for example, `www`) | The automatically generated domain of your container app |
         | TXT | `asuid.` followed by the subdomain (for example, `asuid.www`) | The domain verification code |
 
+1. Add the domain to your container app.
+
+    ```azurecli
+    az containerapp hostname add --hostname <DOMAIN_NAME> -g <RESOURCE_GROUP_NAME> -n <CONTAINER_APP_NAME>
+    ```
+
+    Replace `<DOMAIN_NAME>` with the domain name you want to add, `<RESOURCE_GROUP_NAME>` with the name of the resource group that contains your container app, and `<CONTAINER_APP_NAME>` with the name of your container app.
+
 1. Add the domain to your container app and configure the managed certificate.
 
     ```azurecli
