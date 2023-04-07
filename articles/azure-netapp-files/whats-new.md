@@ -152,7 +152,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Azure Managed Disk as an alternate storage back end
 
 * [Active Directory connection enhancement: Reset Active Directory computer account password](create-active-directory-connections.md#reset-active-directory) (Preview)
->>>>>>> 15252d24ac8fc6f9c2853c1a0deeb10d3393f104
 
 ## June 2022
 

@@ -18,6 +18,8 @@ items:
   items:
   - name: Launch your first app
     href: quickstart.md
+  - name: Launch your first web app
+    href: quickstart-deploy-web-app.md
   - name: Launch your first event-driven app
     href: quickstart-deploy-event-driven-app-standard-consumption.md
   - name: Run apps on Standard consumption plan
@@ -89,7 +91,7 @@ items:
       href: tutorial-circuit-breaker.md
     - name: Custom DNS name
       href: tutorial-custom-domain.md
-    - name: Managed identity to connect MySQL
+    - name: Managed identity to connect to databases
       href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Managed identity to connect Key Vault
       href: tutorial-managed-identities-key-vault.md
