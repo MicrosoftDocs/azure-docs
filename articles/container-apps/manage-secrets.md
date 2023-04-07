@@ -82,9 +82,9 @@ When you create a container app, secrets are defined using the `--secrets` param
 ```bash
 az containerapp create \
   --resource-group "my-resource-group" \
-  --name "queuereader" \
+  --name queuereader \
   --environment "my-environment-name" \
-  --image "demos/queuereader:v1" \
+  --image demos/queuereader:v1 \
   --secrets "queue-connection-string=<CONNECTION_STRING>"
 ```
 
@@ -175,22 +175,23 @@ Replace `<KEY-VAULT-SECRET-URI>` with the URI of your secret in Key Vault.
 
 # [Azure CLI](#tab/azure-cli)
 
-Secrets are managed using the `az containerapp secret` CLI subgroup.
+When you create a container app, secrets are defined using the `--secrets` parameter.
 
-- The `--secrets` parameter accepts a space-delimited set of name/value pairs.
+- The parameter accepts a space-delimited set of name/value pairs.
 - Each pair is delimited by an equals sign (`=`).
 - To specify a Key Vault reference, use the format `<SECRET_NAME>=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<MANAGED_IDENTITY_ID>`. For example, `queue-connection-string=keyvaultref:https://mykeyvault.vault.azure.net/secrets/queuereader,identityref:/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity`.
 
-The following command sets a secret for a container app using a Key Vault reference.
-
 ```bash
-az containerapp secret set \
+az containerapp create \
   --resource-group "my-resource-group" \
-  --name "queuereader" \
-  --secrets "queue-connection-string=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<MANAGED_IDENTITY_ID>"
+  --name queuereader \
+  --environment "my-environment-name" \
+  --image demos/queuereader:v1 \
+  --user-assigned "<USER_ASSIGNED_IDENTITY_ID>" \
+  --secrets "queue-connection-string=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<USER_ASSIGNED_IDENTITY_ID>"
 ```
 
-Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault. Replace `<MANAGED_IDENTITY_ID>` with the resource ID of a user assigned identity. For system assigned identity, use `System` instead of the resource ID. The identity must have access to the Key Vault secret.
+Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault. Replace `<USER_ASSIGNED_IDENTITY_ID>` with the resource ID of the user assigned identity. For system assigned identity, use `System` instead of the resource ID.
 
 # [PowerShell](#tab/powershell)
 
