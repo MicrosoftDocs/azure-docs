@@ -70,7 +70,7 @@ Modify `appsettings.json` to specify your search service and [query API key](sea
    }
    ```
 
-You can retrieve the [service URL and API key](search-get-started-dotnet.md#copy-a-key-and-endpoint) from the portal. The query API key is sufficient for this tutorial.
+You can retrieve the [service URL and API key](search-get-started-dotnet.md#copy-a-key-and-endpoint) from the portal. Because this code is querying an index, and not creating one, you can use a query key instead of an admin key.
 
 ## Add models
 
