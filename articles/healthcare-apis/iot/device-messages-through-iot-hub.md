@@ -137,7 +137,7 @@ When deployment is completed, the following resources and access roles are creat
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
-- Conforming and valid MedTech service [device](how-to-configure-device-mappings.md) and [FHIR destination mappings](how-to-configure-fhir-mappings.md).
+- Conforming and valid MedTech service [device](overview-of-device-mapping.md) and [FHIR destination mappings](how-to-configure-fhir-mappings.md). **Resolution type** is set to **Create**.
 
 > [!IMPORTANT]
 > In this tutorial, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
@@ -235,7 +235,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    > }
    > ```
    >
-   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure Destination properties](deploy-05-new-config.md#destination-properties).
+   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure Destination properties](deploy-05-new-config.md#des). The **Resolution type** for this tutorial set to **Create**.
 
 ## Review metrics from the test message
 
