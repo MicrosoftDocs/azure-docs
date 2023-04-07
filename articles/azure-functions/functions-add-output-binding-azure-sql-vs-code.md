@@ -23,6 +23,8 @@ Before you begin, you must complete the [quickstart: Create a JavaScript functio
 Before you begin, you must complete the [quickstart: Create a Python function in Azure using Visual Studio Code](create-first-function-vs-code-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.  
 ::: zone-end
 
+More details on the settings for [Azure SQL bindings and trigger for Azure Functions](functions-bindings-azure-sql.md) are available in the Azure Functions documentation.
+
 
 ## Create your Azure SQL Database
 
@@ -517,6 +519,8 @@ You created resources to complete these quickstarts. You may be billed for these
 You've updated your HTTP triggered function to write data to Azure SQL Database. Now you can learn more about developing Functions using Visual Studio Code:
 
 + [Develop Azure Functions using Visual Studio Code](functions-develop-vs-code.md)
+
++ [Azure SQL bindings and trigger for Azure Functions](functions-bindings-azure-sql.md)
 
 + [Azure Functions triggers and bindings](functions-triggers-bindings.md).
 ::: zone pivot="programming-language-csharp"  
