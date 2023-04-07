@@ -31,9 +31,9 @@ ms.date: 04/06/2023
 
 1. Select the Customer-Managed Key encryption option during the creation of the Azure Cosmos DB for PostgreSQL cluster and select the appropriate User-Assigned Managed Identity, Key Vault, and Key created in Steps 1, 2, and 3.
 
-## Detailed Steps:
+## Detailed Steps
 
-1. User Assigned Managed Identity
+**1. User Assigned Managed Identity:**
 
    a. Search for Managed Identities in the global search bar.
 
@@ -47,7 +47,7 @@ ms.date: 04/06/2023
 
    Learn more about [User Assigned Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
-2. Key Vault
+**2. Key Vault:**
 
    Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: Soft Delete and Purge Protection.
 
@@ -67,7 +67,7 @@ ms.date: 04/06/2023
    >
    > ![Screenshot of Key Vault's network settings](media/howto-customer-managed-keys/Key%20Vault%202.png)
 
- 3. Add an Access Policy to the Key Vault:
+ **3. Add an Access Policy to the Key Vault:**
 
     a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
     
@@ -83,7 +83,7 @@ ms.date: 04/06/2023
 
     e. Navigate to Review + create select Create.
 
- 4. Create / Import Key
+ **4. Create / Import Key:**
 
     a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
@@ -102,7 +102,7 @@ ms.date: 04/06/2023
     g. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
 
 
-5. Enable CMK encryption during the provisioning for a new cluster
+**5. Enable CMK encryption during the provisioning for a new cluster**
 
    # [Portal](#tab/portal)
 
@@ -124,7 +124,7 @@ ms.date: 04/06/2023
    > [!NOTE]
    > Data encryption can only be configured during the creation of a new cluster and can't be updated on an existing cluster. A workaround for updating the encryption configuration on an existing cluster is to restore an existing PITR backup to a new cluster and configure the data encryption during the creation of the newly restored cluster.
 
-# [ARM Template](#tab/arm)
+   # [ARM Template](#tab/arm)
   ```json
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -236,9 +236,9 @@ ms.date: 04/06/2023
         "outputs": {}
     }
 ```
-   ---
+---
 
-6. High Availability
+**6. High Availability:**
 
    When CMK encryption is enabled on the primary cluster, all standby HA replicas are automatically encrypted by the primary cluster’s CMK
 
@@ -264,6 +264,7 @@ Encryption configuration can be changed from service managed encryption to CMK e
   b. You can change/configure the Data Encryption from the Encryption(preview) Tab.
 
 # [ARM Template](#tab/arm)
+
 ```json
     {
         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",

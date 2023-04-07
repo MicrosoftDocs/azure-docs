@@ -1,6 +1,6 @@
 ---
 title: Concepts of Customer Managed Keys
-description: How to enable data encrytion with customer managed keys
+description: Concepts of customer Managed Keys
 ms.author: akashrao
 author: akashraokm
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/06/2023
 ---
 
-# Customer-managed keys in Azure Cosmos DB for PostgreSQL
+# Customer Managed Keys in Azure Cosmos DB for PostgreSQL
 
 Data stored in your Azure Cosmos DB for PostgreSQL cluster is automatically and seamlessly encrypted with keys managed by Microsoft. These keys are referred to as **service-managed keys**. Azure Cosmos DB for PostgreSQL uses [Azure Storage encryption](../../storage/common/storage-service-encryption.md) to encrypt data at-rest by default using service-managed keys.  You can optionally choose to add an extra layer of security by enabling encryption with **customer-managed keys**.
 
@@ -61,5 +61,5 @@ Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL pr
 
 ## Next Steps
 
- [!div class="nextstepaction"]
- [Enable Encryption with customer managed keys](howto-customer-managed-keys.md)
+ >[!div class="nextstepaction"]
+ >[Enable Encryption with customer managed keys](howto-customer-managed-keys.md)
