@@ -186,6 +186,34 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 > [!NOTE]
 >After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
+### ARM Templates
+The following example describes how to set automatic OS upgrades on a scale set model via ARM Templates:
+
+```json
+"properties": { 
+   "upgradePolicy": { 
+     "mode": "Automatic", 
+      "automaticOSUpgradePolicy": { 
+        "enableAutomaticOSUpgrade": true 
+      } 
+    } 
+} 
+```
+
+### Bicep
+The following example describes how to set automatic OS upgrades on a scale set model via Bicep:
+
+```json
+properties: { 
+    overprovision: overProvision 
+    upgradePolicy: { 
+      mode: 'Automatic' 
+      automaticOSUpgradePolicy: { 
+        enableAutomaticOSUpgrade: true 
+      } 
+    } 
+```
+
 ## Using Application Health Probes
 
 During an OS Upgrade, VM instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded VM instances. We recommend that the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers VM power state and extension provisioning state to determine if a VM instance is healthy after an upgrade. During the OS Upgrade of a VM instance, the OS disk on a VM instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these VMs. The application is considered healthy only when all the extensions on the instance are successfully provisioned.
