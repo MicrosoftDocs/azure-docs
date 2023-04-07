@@ -8,7 +8,7 @@ ms.date: 03/29/2023
 ms.reviewer: bwren
 ---
 
-# Azure Well-Architected Framework - Azure Monitor - Workbooks
+# Azure Well-Architected Framework - Azure Monitor - Log Analytics workspaces
 This article provides architectural best practices for Logs Analytics workspaces in Azure Monitor. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/):
 
 - [Reliability](#reliability)
@@ -17,8 +17,6 @@ This article provides architectural best practices for Logs Analytics workspaces
 - [Operational excellence](#operational-excellence)
 - [Performance efficiency](#performance-efficiency)
 
-## Prerequisites
-Understanding the Well-Architected Framework pillars can help produce a high quality, stable, and efficient cloud architecture. See [Azure Well-Architected Framework overview](/azure/architecture/framework/) to review the five pillars of architectural excellence.
 
 ## Reliability
 In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Log Analytics workspaces and to protect the data they collect.
@@ -34,6 +32,9 @@ Security is one of the most important aspects of any architecture. Azure Monitor
 
 ## Cost optimization
 Cost optimization refers to ways to reduce unnecessary expenses and improve operational efficiencies. You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. See [Azure Monitor cost and usage](../usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
+
+> [!NOTE]
+> See [Optimize costs in Azure Monitor](../best-practices-cost.md) for cost optimization recommendations across all features of Azure Monitor.
 
 [!INCLUDE [waf-workspace-cost](../includes/waf-workspace-cost.md)]
 
