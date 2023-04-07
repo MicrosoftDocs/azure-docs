@@ -3,7 +3,7 @@ title: Deploy tenant workloads
 description: Learn the steps for creating VMs for VNF workloads and for creating AKS hybrid clusters for CNF workloads.
 author: dramasamy
 ms.author: dramasamy
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 03/10/2023
 ms.custom: template-how-to-pattern

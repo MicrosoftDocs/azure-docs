@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Create an L3 isolation domain"
 description: Learn how to create an L3 isolation domain.
 author: jaredr80
 ms.author: jaredro
-ms.service: azure
+ms.service: azure-operator-nexus
 ms.topic: include
 ms.date: 01/26/2023
 ---
