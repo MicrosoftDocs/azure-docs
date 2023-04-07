@@ -9,43 +9,43 @@ ms.reviewer: bwren
 ---
 
 # Azure Well-Architected Framework - Azure Monitor - Workbooks
-
-
-
 This article provides architectural best practices for Logs Analytics workspaces in Azure Monitor. The guidance is based on the five pillars of architecture excellence described in [Azure Well-Architected Framework](/azure/architecture/framework/):
 
-- Reliability
-- Security
-- Cost optimization
-- Operational excellence
-- Performance efficiency
+- [Reliability](#reliability)
+- [Security](#security)
+- [Cost optimization](#cost-optimization)
+- [Operational excellence](#operational-excellence)
+- [Performance efficiency](#performance-efficiency)
+
+## Prerequisites
+Understanding the Well-Architected Framework pillars can help produce a high quality, stable, and efficient cloud architecture. See [Azure Well-Architected Framework overview](https://learn.microsoft.com/azure/architecture/framework/) to review the five pillars of architectural excellence.
 
 ## Reliability
-
+In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Log Analytics workspaces and to protect the data they collect.
 
 [!INCLUDE [waf-workspace-reliability](../includes/waf-workspace-reliability.md)]
 
 
 ## Security
-
+Security is one of the most important aspects of any architecture. Azure Monitor provides features to employ both the principle of least privilege and defense-in-depth. Use the following information to maximize the security of your Log Analytics workspaces and ensure that only authorized users access collected data.
 
 [!INCLUDE [waf-workspace-security](../includes/waf-workspace-security.md)]
 
 
 ## Cost optimization
-You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. Before you use this article, you should see [Azure Monitor cost and usage](../usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
+Cost optimization refers to ways to reduce unnecessary expenses and improve operational efficiencies. You can significantly reduce your cost for Azure Monitor by understanding your different configuration options and opportunities to reduce the amount of data that it collects. See [Azure Monitor cost and usage](../usage-estimated-costs.md) to understand the different ways that Azure Monitor charges and how to view your monthly bill.
 
 [!INCLUDE [waf-workspace-cost](../includes/waf-workspace-cost.md)]
 
 
 ## Operational excellence
-
+Operational excellence refers to operations processes required keep a service running reliably in production. Use the following information to minimize the operational requirements for supporting Log Analytics workspaces.
 
 [!INCLUDE [waf-workspace-operation](../includes/waf-workspace-operation.md)]
 
 
 ## Performance efficiency
-
+Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. Use the following information to ensure that your Log Analytics workspaces and log queries are configured for maximum performance.
 
 [!INCLUDE [waf-workspace-performance](../includes/waf-workspace-performance.md)]
 
