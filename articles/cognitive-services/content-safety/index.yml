@@ -41,7 +41,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Content flags
-            url: content-flags.md
+            url: concepts/content-flags.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio
@@ -54,7 +54,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Content flags
-            url: content-flags.md
+            url: concepts/content-flags.md
       - linkListType: quickstart
         links:
           - text: Using Content Safety Studio

@@ -20,12 +20,12 @@ Get started with the Content Safety REST API or Content Safety Studio to do basi
 
 ::: zone pivot="content-safety-studio"
 
-[!INCLUDE [Studio quickstart](./includes/studio-quickstart.md)]
+[!INCLUDE [Studio quickstart](./includes/quickstarts/studio-quickstart.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-rest"
 
-[!INCLUDE [REST API quickstart](./includes/rest-quickstart.md)]
+[!INCLUDE [REST API quickstart](./includes/quickstarts/rest-quickstart.md)]
 
 ::: zone-end
