@@ -84,6 +84,6 @@ You can uninstall an Isovalent Cilium Enterprise offer using the AKS extension d
 
 ## Next steps
 
-- [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)](contribute-how-to-write-howto.md)
+- [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)](azure-cni-powered-by-cilium.md)
 
 - [What is Azure Kubernetes Service?](intro-kubernetes.md)
