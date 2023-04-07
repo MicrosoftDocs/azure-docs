@@ -5,8 +5,8 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
-ms.date: 08/26/2022
+ms.topic: article
+ms.date: 03/28/2023
 ms.author: danlep
 ---
 

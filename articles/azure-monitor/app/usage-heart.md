@@ -60,7 +60,7 @@ These dimensions are measured independently, but they interact with each other a
 *Use the [Click Analytics Auto collection plugin](javascript-feature-extensions.md) via npm to emit these attributes.
 
 >[!TIP]
-> To understand how to effectively use the Click Analytics plugin, please refer to [this section](javascript-feature-extensions.md#how-to-effectively-use-the-plugin).
+> To understand how to effectively use the Click Analytics plugin, please refer to [this section](javascript-feature-extensions.md#use-the-plug-in).
  
 ### Open the workbook
 The workbook can be found in the gallery under 'public templates'. The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"** as shown in the following image:

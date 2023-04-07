@@ -116,7 +116,7 @@ As with any IT environment, you should consistently monitor activity and user ac
 
 * [Azure Monitor for containers](../azure-monitor/containers/container-insights-overview.md) monitors the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS). Azure Monitor for containers gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. 
 
-* The [Azure Container Monitoring solution](../azure-monitor/containers/containers.md) helps you view and manage other Docker and Windows container hosts in a single location. For example:
+* The [Azure Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers) helps you view and manage other Docker and Windows container hosts in a single location. For example:
 
   * View detailed audit information that shows commands used with containers. 
   * Troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.  
@@ -138,7 +138,7 @@ Monitor your resource activity, like files, network, and other resources that yo
 Maintain an accurate audit trail of administrative access to your container ecosystem, including your Kubernetes cluster, container registry, and container images. These logs might be necessary for auditing purposes and will be useful as forensic evidence after any security incident. Azure solutions include:
 
 * [Integration of Azure Kubernetes Service with Microsoft Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md) to monitor the security configuration of the cluster environment and generate security recommendations
-* [Azure Container Monitoring solution](../azure-monitor/containers/containers.md)
+* [Azure Container Monitoring solution](/previous-versions/azure/azure-monitor/containers/containers)
 * Resource logs for [Azure Container Instances](container-instances-log-analytics.md) and [Azure Container Registry](../container-registry/monitor-service.md)
 
 ## Next steps

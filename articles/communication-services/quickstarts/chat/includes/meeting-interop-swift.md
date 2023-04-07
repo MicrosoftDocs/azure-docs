@@ -139,7 +139,7 @@ do {
 Replace `<COMMUNICATION_SERVICES_RESOURCE_ENDPOINT_HERE>` with the endpoint for your Communication Services resource.
 Replace `<USER_ACCESS_TOKEN_HERE>` with an access token that has Chat scope. 
 
-Read more about user access tokens: [User Access Token](../../access-tokens.md)
+Read more about user access tokens: [User Access Token](../../identity/access-tokens.md)
 
 ### Initialize the ChatThreadClient
 

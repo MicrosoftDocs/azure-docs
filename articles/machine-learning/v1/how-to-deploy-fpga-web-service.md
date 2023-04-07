@@ -10,7 +10,7 @@ author: bozhong68
 ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q2, devx-track-python, deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, contperf-fy21q2, devx-track-python, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
@@ -50,7 +50,7 @@ Azure FPGAs are integrated with Azure Machine Learning. Azure can parallelize pr
 
 To optimize latency and throughput, your client sending data to the FPGA model should be in one of the regions above (the one you deployed the model to).
 
-The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA. PB6 VM is automatically provisioned by Azure Machine Learning during model deployment to an FPGA. It's only used with Azure ML, and it can't run arbitrary bitstreams. For example, you won't be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
+The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA. PB6 VM is automatically provisioned by Azure Machine Learning during model deployment to an FPGA. It's only used with Azure Machine Learning, and it can't run arbitrary bitstreams. For example, you won't be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
 ## Deploy models on FPGAs
 
@@ -308,7 +308,7 @@ The Docker image supports gRPC and the TensorFlow Serving "predict" API.
 You can also download a sample client for TensorFlow Serving.
 
 ```python
-# Using the grpc client in Azure ML Accelerated Models SDK package
+# Using the grpc client in Azure Machine Learning Accelerated Models SDK package
 from azureml.accel import PredictionClient
 
 address = aks_service.scoring_uri
@@ -316,7 +316,7 @@ ssl_enabled = address.startswith("https")
 address = address[address.find('/')+2:].strip('/')
 port = 443 if ssl_enabled else 80
 
-# Initialize Azure ML Accelerated Models client
+# Initialize Azure Machine Learning Accelerated Models client
 client = PredictionClient(address=address,
                           port=port,
                           use_ssl=ssl_enabled,

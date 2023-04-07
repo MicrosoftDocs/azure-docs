@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/07/2022
 ms.author: danlep
 ---
@@ -26,7 +26,7 @@ The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an 
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|callback-parameter-name|The cross-domain JavaScript function call prefixed with the fully qualified domain name where the function resides.|Yes|N/A|
+|callback-parameter-name|The cross-domain JavaScript function call prefixed with the fully qualified domain name where the function resides. Policy expressions are allowed.|Yes|N/A|
 
 ## Usage
 

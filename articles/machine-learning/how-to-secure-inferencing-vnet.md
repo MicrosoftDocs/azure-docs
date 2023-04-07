@@ -15,7 +15,7 @@ ms.date: 09/06/2022
 # Secure an Azure Machine Learning inferencing environment with virtual networks
 
 > [!div class="op_single_selector" title1="Select the Azure Machine Learning SDK or CLI version you are using:"]
-> * [SDK/CLI v1](v1/how-to-secure-inferencing-vnet.md)
+> * [SDK/CLI v1](v1/how-to-secure-inferencing-vnet.md?view=azureml-api-1&preserve-view=true)
 > * [SDK/CLI v2 (current version)](how-to-secure-inferencing-vnet.md)
 
 In this article, you learn how to secure inferencing environments (online endpoints) with a virtual network in Azure Machine Learning. There are two inference options that can be secured using a VNet:
@@ -59,7 +59,7 @@ For information on securing managed online endpoints, see the [Use network isola
 To use Azure Kubernetes Service cluster for secure inference, use the following steps:
 
 1. Create or configure a [secure Kubernetes inferencing environment](how-to-secure-kubernetes-inferencing-environment.md).
-2. Deploy [AzureML extension](how-to-deploy-kubernetes-extension.md).
+2. Deploy [Azure Machine Learning extension](how-to-deploy-kubernetes-extension.md).
 3. [Attach the Kubernetes cluster to the workspace](how-to-attach-kubernetes-anywhere.md).
 4. Model deployment with Kubernetes online endpoint can be done using CLI v2, Python SDK v2 and Studio UI.
  

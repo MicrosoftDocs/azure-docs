@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cequence Application Security Platform | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cequence Application Security Platform'
 description: Learn how to configure single sign-on between Azure Active Directory and Cequence Application Security Platform.
 services: active-directory
 author: jeevansd

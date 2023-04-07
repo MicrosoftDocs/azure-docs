@@ -48,7 +48,7 @@ In Xcode, create a new project:
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUICalling', '1.1.0'
+        pod 'AzureCommunicationUICalling', '1.2.0'
     end
     ```
 
@@ -210,6 +210,29 @@ let remoteOptions = RemoteOptions(for: .teamsMeeting(teamsLink: "<TEAMS_MEETING_
 You can get a Microsoft Teams meeting link by using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
 
 The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, under the [joinWebUrl property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta). You also can get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
+
+### Set up a Rooms call
+
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+To set up a ACS Rooms call, inside the `startCallComposite` function, initialize a `RemoteOptions` instance for the `.roomCall` locator. Replace `<ROOM_ID>` with the Room ID for your call. Initialize a `LocalOptions` instance with `roleHint`.
+
+Replace `<DISPLAY_NAME>` with your name.
+
+`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from ACS.
+
+
+For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
+
+```swift
+let remoteOptions = RemoteOptions(for: .roomCall(roomId: "<ROOM_ID>"),
+                                  credential: communicationTokenCredential,
+                                  displayName: "<DISPLAY_NAME>")
+let localOptions = LocalOptions(roleHint: participantRole)
+
+let callComposite = CallComposite()
+callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
+```
 
 ### Launch the composite
 

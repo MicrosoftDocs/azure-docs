@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Encrypt managed disks with cross-tenant customer-managed keys

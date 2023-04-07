@@ -69,8 +69,6 @@ landingContent:
             url: ./how-to/extension-for-vscode.md
           - text: Design Azure Policy as Code workflows
             url: ./concepts/policy-as-code.md
-          - text: Implement Azure Policy as Code with GitHub
-            url: ./tutorials/policy-as-code-github.md
       - linkListType: deploy
         links:
           - text: Index of policy samples

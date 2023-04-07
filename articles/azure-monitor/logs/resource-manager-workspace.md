@@ -5,8 +5,6 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 06/23/2022
-ms.custom: devx-track-azurepowershell
-
 ---
 
 # Resource Manager template samples for Log Analytics workspaces in Azure Monitor
