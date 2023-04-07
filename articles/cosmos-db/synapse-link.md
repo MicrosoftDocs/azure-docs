@@ -125,6 +125,10 @@ Azure Synapse Link isn't recommended if you're looking for traditional data ware
 
 * Currently Azure Synapse Workspaces don't support linked services using `Managed Identity`. Always use the `MasterKey` option.
 
+* Currently Multi-regions write accounts aren't recommended for production environments. 
+
+
+
 ## Security
 
 Azure Synapse Link enables you to run near real-time analytics over your mission-critical data in Azure Cosmos DB. It's vital to make sure that critical business data is stored securely across both transactional and analytical stores. Azure Synapse Link for Azure Cosmos DB is designed to help meet these security requirements through the following features:
