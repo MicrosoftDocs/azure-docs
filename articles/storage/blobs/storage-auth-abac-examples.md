@@ -10,7 +10,7 @@ ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.date: 04/06/2023
+ms.date: 04/07/2023
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -1522,7 +1522,7 @@ $testRa.Condition = $condition
 $testRa.ConditionVersion = "2.0"
 Set-AzRoleAssignment -InputObject $testRa -PassThru
 ```
-
+    
 ---
 
 ### Example: Require private link access to read blobs with high sensitivity
@@ -1642,7 +1642,7 @@ After entering your code, switch back to the visual editor to validate it.
 
 #### [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
 
 ```azurepowershell
 $subId = "<your subscription id>"
@@ -1656,19 +1656,19 @@ $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Stora
 $condition = `
 "( `
  ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
  ) `
  OR `
  ( `
   ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high' `
-   AND`
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringEquals 'high' `
+   AND `
    @Environment[isPrivateLink] BoolEquals true `
   ) `
   OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
   OR `
-  NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+  NOT Exists @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] `
  ) `
 )"
 
@@ -1787,12 +1787,12 @@ $condition = `
  OR `
  ( `
   ( `
-   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] `
+   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] `
    AND `
    @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/privateendpoint1' `
   ) `
   OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
  ) `
 )"
 
@@ -1917,7 +1917,7 @@ $condition = `
  OR `
  ( `
   ( `
-   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] ForAnyOfAnyValues:StringEqualsIgnoreCase {'high', 'low', 'medium'} `
+   @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] ForAnyOfAnyValues:StringEqualsIgnoreCase {'high', 'low', 'medium'} `
    AND `
    @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
   ) `
