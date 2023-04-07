@@ -173,15 +173,13 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 1. Configure the managed certificate and bind the domain to your container app.
 
     ```azurecli
-    az containerapp hostname bind --hostname <DOMAIN_NAME> -g <RESOURCE_GROUP_NAME> -n <CONTAINER_APP_NAME> --environment <ENVIRONMENT_NAME>
+    az containerapp hostname bind --hostname <DOMAIN_NAME> -g <RESOURCE_GROUP_NAME> -n <CONTAINER_APP_NAME> --environment <ENVIRONMENT_NAME> --validation-method <VALIDATION_METHOD>
     ```
 
     Replace `<DOMAIN_NAME>` with the domain name you want to add, `<RESOURCE_GROUP_NAME>` with the name of the resource group that contains your container app, `<CONTAINER_APP_NAME>` with the name of your container app, and `<ENVIRONMENT_NAME>` with the name of your environment.
 
-1. The command prompts you for a validation method.
-
-    - If you're configuring an *A record*, enter `HTTP`.
-    - If you're configuring a *CNAME*, enter `CNAME`.
+    - If you're configuring an *A record*, replace `<VALIDATION_METHOD>` with `HTTP`.
+    - If you're configuring a *CNAME*, replace `<VALIDATION_METHOD>` with `CNAME`.
 
     It may take several minutes to issue the certificate and add the domain to your container app.
 
