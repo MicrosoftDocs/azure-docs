@@ -215,37 +215,6 @@ To configure those you follow these steps:
 
 1. Select Save.    
 
-
-## Configure authorization policy for custom task extension with normal security token type
-
-If the security token type is **Normal** for your custom task extension, you'd set the authorization policy by following these steps:
-
-1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
-
-1. Go back to the logic app you created, and select **Authorization**.
-
-1. Create two authorization policies based on these tables:
-
-    Policy name: AzureADLifecycleWorkflowsAuthPolicy   
-    
-    |Claim  |Value  |
-    |---------|---------|
-    |Issuer     |  https://sts.windows.net/(Tenant ID)/       |
-    |Audience     | Application ID of your Logic Apps Managed Identity       |
-    |appid     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
-
-    Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App   
- 
-    |Claim  |Value  |
-    |---------|---------|
-    |Issuer     |  https://login.microsoftonline.com/(Tenant ID)/v2.0       |
-    |Audience     | Application ID of your Logic Apps Managed Identity       |
-    |azp     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
-
-1. Save the Authorization policy.
-> [!NOTE]
-> Due to a current bug in the Logic Apps UI you may have to save the authorization policy after each claim before adding another.
-
 ## Configure authorization policy for custom task extension with POP security token type
 If the security token type is **Proof of Possession (POP)** for your custom task extension, you'd set the authorization policy by following these steps:
 
@@ -255,7 +224,8 @@ If the security token type is **Proof of Possession (POP)** for your custom task
 
 1. Create two authorization policies based on these tables:
 
-    Policy name: POP-Policy   
+    Policy name: POP-Policy
+    Policy type: (Preview) AADPOP   
     
     |Claim  |Value  |
     |---------|---------|
@@ -278,6 +248,37 @@ If the security token type is **Proof of Possession (POP)** for your custom task
 > [!NOTE]
 > Due to a current bug in the Logic Apps UI you may have to save the authorization policy after each claim before adding another.
 
+
+## Configure authorization policy for custom task extension with normal security token type
+
+If the security token type is **Normal** for your custom task extension, you'd set the authorization policy by following these steps:
+
+1. For Logic Apps authorization policy, we need the managed identities **Application ID**. Since the Azure portal only shows the Object ID, we need to look up the Application ID. You can search for the managed identity by Object ID under **Enterprise Applications in the Azure AD Portal** to find the required Application ID.
+
+1. Go back to the logic app you created, and select **Authorization**.
+
+1. Create two authorization policies based on these tables:
+
+    Policy name: AzureADLifecycleWorkflowsAuthPolicy 
+    Policy type: AAD  
+    
+    |Claim  |Value  |
+    |---------|---------|
+    |Issuer     |  https://sts.windows.net/(Tenant ID)/       |
+    |Audience     | Application ID of your Logic Apps Managed Identity       |
+    |appid     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
+
+    Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App   
+ 
+    |Claim  |Value  |
+    |---------|---------|
+    |Issuer     |  https://login.microsoftonline.com/(Tenant ID)/v2.0       |
+    |Audience     | Application ID of your Logic Apps Managed Identity       |
+    |azp     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
+
+1. Save the Authorization policy.
+> [!NOTE]
+> Due to a current bug in the Logic Apps UI you may have to save the authorization policy after each claim before adding another.
 
 > [!CAUTION]
 > Please pay attention to the details as minor differences can lead to problems later.
