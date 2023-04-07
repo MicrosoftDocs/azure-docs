@@ -45,7 +45,6 @@ The following list shows websites that are known to work with MMR. MMR works wit
       - The New York Times
       - Pluralsight
       - Politico
-      - Reddit
       - Reuters
    :::column-end:::
    :::column span="":::
