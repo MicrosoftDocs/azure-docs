@@ -269,7 +269,8 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
       - Two Kerberos service principal names (SPNs) are created to represent two URLs that are used during Azure AD sign-in.
 
     The domain administrator credentials aren't stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
-    Learn more: [Seamless SSO technical deep dive](how-to-connect-sso-how-it-works#how-does-set-up-work) 
+
+    Learn more: [Seamless SSO technical deep dive.](how-to-connect-sso-how-it-works#how-does-set-up-work) 
 
 6. On the **Ready to configure** page, make sure that the **Start the synchronization process when configuration completes** check box is selected. Then, select **Configure**.
 
