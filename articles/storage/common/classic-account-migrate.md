@@ -87,6 +87,8 @@ To delete disk artifacts from the Azure portal, follow these steps:
 
     :::image type="content" source="media/classic-account-migrate/delete-disk-artifacts-portal.png" alt-text="Screenshot showing how to delete classic disk artifacts in Azure portal." lightbox="media/classic-account-migrate/delete-disk-artifacts-portal.png":::
 
+For more information about errors that may occur when deleting disk artifacts and how to address them, see [Troubleshoot errors when you delete Azure classic storage accounts, containers, or VHDs](/troubleshoot/azure/virtual-machines/storage-classic-cannot-delete-storage-account-container-vhd).
+
 ## See also
 
 - [Migrate your classic storage accounts to Azure Resource Manager by August 31, 2024](classic-account-migration-overview.md)

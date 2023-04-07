@@ -20,7 +20,7 @@ show_latex: true
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning SDK you are using:"]
 > * [v1](how-to-auto-train-forecast-v1.md)
-> * [v2 (current version)](../how-to-auto-train-forecast.md)
+> * [v2 (current version)](../how-to-auto-train-forecast.md?view=azureml-api-2&preserve-view=true)
 
 In this article, you learn how to set up AutoML training for time-series forecasting models with Azure Machine Learning automated ML in the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/).
 
@@ -72,7 +72,7 @@ automl_config = AutoMLConfig(task='forecasting',
 ```
 
 
-You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](../how-to-configure-cross-validation-data-splits.md#provide-validation-data).
+You can also bring your own validation data, learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 Learn more about how AutoML applies cross validation to [prevent over-fitting models](../concept-manage-ml-pitfalls.md#prevent-overfitting).
 
@@ -145,7 +145,7 @@ An `Error exception` is raised for any series in the dataset that does not meet 
 
 ### Featurization steps
 
-In every automated machine learning experiment, automatic scaling and normalization techniques are applied to your data by default. These techniques are types of **featurization** that help *certain* algorithms that are sensitive to features on different scales. Learn more about default featurization steps in [Featurization in AutoML](../how-to-configure-auto-features.md#automatic-featurization)
+In every automated machine learning experiment, automatic scaling and normalization techniques are applied to your data by default. These techniques are types of **featurization** that help *certain* algorithms that are sensitive to features on different scales. Learn more about default featurization steps in [Featurization in AutoML](how-to-configure-auto-features.md#automatic-featurization)
 
 However, the following steps are performed only for `forecasting` task types:
 
@@ -176,7 +176,7 @@ Supported customizations for `forecasting` tasks include:
 |**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (fill_value and median).|
 |**Drop columns** |Specifies columns to drop from being featurized.|
 
-To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](../how-to-configure-auto-features.md#customize-featurization).
+To customize featurizations with the SDK, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. Learn more about [custom featurizations](how-to-configure-auto-features.md#customize-featurization).
 
 >[!NOTE]
 > The **drop columns** functionality is deprecated as of SDK version 1.19. Drop columns from your dataset as part of data cleansing, prior to consuming it in your automated ML experiment. 
