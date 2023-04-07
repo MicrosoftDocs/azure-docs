@@ -67,7 +67,7 @@ There are two primary scenarios when deleting a certificate from portal:
 | Frontend IP | The frontend IP of the gateway gets updated to reflect the new state. | 
 
 ### Bulk update
-The bulk operation feature is helpful for large gateways having multiple SSL certificates for separate listeners. Similar to individual certificate management, this option allows you to change the type from "Uploaded" to "Key Vault" or vice-versa. This utility is also helpful in recovering a gateway when facing misconfigurations for multiple certificate objects simultaneously.
+The bulk operation feature is helpful for large gateways having multiple SSL certificates for separate listeners. Similar to individual certificate management, this option also allows you to change the type from "Uploaded" to "Key Vault" or vice-versa (if required). This utility is also helpful in recovering a gateway when facing misconfigurations for multiple certificate objects simultaneously.
 
 To use the Bulk update option,
 1. Choose the certificates to be updated using the checkboxes and select the "Bulk update" menu option.

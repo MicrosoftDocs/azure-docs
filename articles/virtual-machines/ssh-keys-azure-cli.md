@@ -5,10 +5,10 @@ author: cynthn
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
+ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 11/17/2021
 ms.author: cynthn
-
 ---
 
 # Generate and store SSH keys with the Azure CLI

@@ -4,6 +4,7 @@ description: Learn about troubleshooting Azure Windows VM extension failures
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-arm-template
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: windows
