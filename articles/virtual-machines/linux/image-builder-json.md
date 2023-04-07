@@ -1001,7 +1001,7 @@ The **versioning** property is an enum with two possible values:
 - **latest** - New monotonically increasing schema per design
 - **source** - Schema based upon the version number of the source image.
 
-The default version numbering schema is latest. The latest schema has an additional property, “major” which specifies the major version under which to generate the latest version. 
+The default version numbering schema is `latest`. The latest schema has an additional property, “major” which specifies the major version under which to generate the latest version. 
 
 > [!NOTE]
 > The existing version generation logic for `sharedImage` distribution is deprecated. Two new options are provided: monotonically increasing versions that are always the latest version in a gallery, and versions generated based on the version number of the source image. The enum specifying the version generation schema allows for expansion in the future with additional version generation schemas.
@@ -1009,88 +1009,16 @@ The default version numbering schema is latest. The latest schema has an additio
 
 
 ```json
-"DistributeVersioner": {
-    "type": "object",
-    "discriminator": "scheme",
-    "properties": {
-        "scheme": {
-            "type": "string",
-            "description": "Version numbering scheme to be used."
-        }
-    },
-    "description": "Describes how to generate new x.y.z version number for distribution.",
-    "required": [
-        "scheme"
-    ]
+"versioning": {
+    "scheme": "latest",
+    "major": 1
 }
 ```
 ---
 
-DistributeVersioner properties:
-- **type** - string
-- **description** - Version numbering scheme to be used.
-
-### DistributeVersioner: latest
-
-The major version for the generated version number.
-
-```json
-"DistributeVersionerLatest": {
-    "type": "object",
-    "x-ms-discriminator-value": "Latest",
-    "allOf": [
-        {
-            "$ref": "#/definitions/DistributeVersioner"
-        }
-    ],
-    "properties": {
-        "major": {
-            "type": "integer",
-            "format": "int32",
-            "minimum": -1,
-            "default": -1,
-            "description": "Major version for the generated version number. Determine what is \"latest\" based on versions with this value as the major version. -1 is equivalent to leaving it unset."
-        }
-    },
-    "description": "Generates version number that will be latest based on existing version numbers."
-}
-```
----
-
-DistributeVersionerLatest properties:
-- **type** - integer
-- **format** - int32 formatting for 32-bit signed integers
-- **minimum** - integer that represents the minimum value that the major parameter can take. In this case, the minimum value is -1.
-- **default** - Default value that the major parameter takes if it's not explicitly set. In this case, the default value is -1.
-- **description** - Major version for the generated version number. Determine what is \"latest\" based on versions with this value as the major version. -1 is equivalent to leaving it unset.
-
-DistributeVersionerSource properties:
-- **type** - object
-- **description** - Version numbering scheme to be used.
-
-### DistributeVersioner: source
-
-The version number based on version number of source image.
-
-```json
-"DistributeVersionerSource": {
-    "type": "object",
-    "x-ms-discriminator-value": "Source",
-    "allOf": [
-        {
-            "$ref": "#/definitions/DistributeVersioner"
-        }
-    ],
-    "description": "Generates version number based on version number of source image"
-}
-```
----
-
-DistributeVersionerSource properties:
-- **type** - integer
-- **x-ms-discriminator-value** - Specified value of the discriminator property for this object. Used to differentiate between objects that inherit from the same parent object.
-- **allOf** - object inherits from another object. In this case, the `DistributeVersionerSource` object inherits from the `DistributeVersioner` object.
-- **description** - Generates version number based on version number of source image.
+versioning properties:
+- **scheme** - Generate new version number for distribution. `Latest` or `source` are two possible values.
+- **major** - Specifies the major version under which to generate the latest version. Only applicable when the `scheme` is set to `latest`.
 
 
 ## Properties: source
