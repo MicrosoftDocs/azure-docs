@@ -255,7 +255,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
     - If you select the **Password hash synchronization** option button, make sure to select the **Do not convert user accounts** check box. The option is deprecated. If SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**. 
 
-      Learn more: [Enable seamless SSO using PowerShell](how-to-connect-staged-rollout#pre-work-for-seamless-sso.md). 
+      Learn more: [Enable seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
 
       ![Check enable single sign-on on User sign-in page](media/deploy-cloud-user-authentication/user-sign-in.png)
 
@@ -270,7 +270,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
     The domain administrator credentials aren't stored in Azure AD Connect or Azure AD and get discarded when the process successfully finishes. They are  used to turn ON this feature.
 
-    Learn more: [Seamless SSO technical deep dive.](how-to-connect-sso-how-it-works#how-does-set-up-work) 
+    Learn more: [Seamless SSO technical deep dive.](how-to-connect-sso-how-it-work.md#how-does-set-up-work) 
 
 6. On the **Ready to configure** page, make sure that the **Start the synchronization process when configuration completes** check box is selected. Then, select **Configure**.
 
