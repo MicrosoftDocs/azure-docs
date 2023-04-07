@@ -28,9 +28,11 @@ At a high level, when you create a container app into a workload profile, you go
 
 - Select a workload profile
 - Create or provide a VNet
-- Create a subnet with a `Microsoft.App/environments` delegation
+- Create a subnet with a `Microsoft.App/environments` delegation (optional)
 - Create a new environment
 - Create a container app associated with the workload profile in the environment
+
+If you have an existing VNet, you can use it with the new environment you create. However, if you plan on using [user defined routes](user-defined-routes.md), then you need to create a new VNet.
 
 Use the following commands to create an environment with a workload profile.
 
