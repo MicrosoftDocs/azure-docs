@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect Health with AD FS risky IP report workbook | Microsoft Docs
+title: Azure AD Connect Health with AD FS risky IP report workbook
 description: Describes the Azure AD Connect Health AD FS risky IP report with Azure Monitor Workbooks.
 services: active-directory
 documentationcenter: ''

@@ -40,7 +40,7 @@ The Recurrence trigger is part of the built-in Schedule connector and runs nativ
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md). If you're new to logic apps, learn [how to create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md).
 
 <a name="add-recurrence-trigger"></a>
 

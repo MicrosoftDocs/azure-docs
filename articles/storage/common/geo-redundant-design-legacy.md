@@ -17,6 +17,9 @@ ms.custom: devx-track-csharp
 
 # Use geo-redundancy to design highly available applications (.NET v11 SDK)
 
+> [!NOTE]
+> The samples in this article use the deprecated Azure Storage .NET v11 library. For the latest v12 code and guidance, see [Use geo-redundancy to design highly available applications](geo-redundant-design.md).
+
 A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available and durable platform for hosting data and applications. Developers of cloud-based applications must consider carefully how to leverage this platform to maximize those advantages for their users. Azure Storage offers geo-redundant storage to ensure high availability even in the event of a regional outage. Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and then asynchronously replicated to a secondary region that is hundreds of miles away.
 
 Azure Storage offers two options for geo-redundant replication. The only difference between these two options is how data is replicated in the primary region:

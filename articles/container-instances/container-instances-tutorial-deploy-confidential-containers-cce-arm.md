@@ -184,7 +184,7 @@ With the ARM template that you've crafted and the Azure CLI confcom extension, y
 
    ![Screenshot of Build your own template in the editor button on deployment screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-build-template.png)
 
-1. Select **Load file** and upload **template.json**, which you've modified by generating adding a CCE policy. 
+1. Select **Load file** and upload **template.json**, which you've modified by adding the CCE policy you generated in the previous steps. 
 
    ![Screenshot of Load file button on template screen, PNG.](./media/container-instances-confidential-containers-tutorials/confidential-containers-cce-load-file.png)
 

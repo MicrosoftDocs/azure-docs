@@ -10,7 +10,7 @@ ms.author: jsuri
 
 # Create and use private endpoints (v2 experience) for Azure Backup
 
-Azure Backup allows you to securely perform the backup and restore operations of your data from the Recovery Services vaults using [private endpoints](/azure/private-link/private-endpoint-overview). Private endpoints use one or more private IP addresses from your Azure Virtual Network (VNet), effectively bringing the service into your VNet.
+Azure Backup allows you to securely perform the backup and restore operations of your data from the Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure Virtual Network (VNet), effectively bringing the service into your VNet.
 
 Azure Backup now provides an enhanced experience in creation and use of private endpoints compared to the [classic experience](private-endpoints-overview.md) (v1).
 

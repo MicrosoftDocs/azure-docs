@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 02/22/2023
+ ms.date: 03/16/2023
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -21,4 +21,4 @@
 | Max burst throughput per disk | 150 MB/s | 150 MB/s | 150 MB/s | 150 MB/s | 150 MB/s | 150 MB/s | 150 MB/s | 150 MB/s | 250 MB/s |
 | Max burst duration | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min |
 
-\* Only applies to disks with performance plus enabled.
+\* Only applies to disks with performance plus (preview) enabled.

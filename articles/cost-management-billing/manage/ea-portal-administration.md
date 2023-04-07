@@ -50,7 +50,7 @@ Make sure that you have the user's email address and preferred authentication me
 
 #### If you're not an enterprise administrator
 
-If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email.
+If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email. After the account is registered, it's activated in about 5 to 10 minutes.
 
 #### If your enterprise administrator can't help you
 

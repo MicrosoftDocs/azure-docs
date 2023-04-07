@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory SLA performance | Microsoft Docs
+title: Azure Active Directory SLA performance
 description: Learn about the Azure AD SLA performance
 services: active-directory
 author: shlipsey3

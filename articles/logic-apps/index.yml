@@ -57,9 +57,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create Consumption logic app - Azure portal
-            url: quickstart-create-first-logic-app-workflow.md
-          - text: Create Consumption logic app - Visual Studio
+          - text: Create Consumption logic app workflow - Azure portal
+            url: quickstart-create-example-consumption-workflow.md
+          - text: Create Consumption logic app workflow - Visual Studio
             url: quickstart-create-logic-apps-with-visual-studio.md
       - linkListType: get-started
         links:

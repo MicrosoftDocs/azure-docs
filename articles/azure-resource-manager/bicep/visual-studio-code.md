@@ -124,7 +124,7 @@ From Visual Studio Code, you can easily open the template reference for the reso
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
 
-## Paste as Bicep (Preview)
+## Paste as Bicep
 
 You can paste a JSON snippet from an ARM template to Bicep file. Visual Studio Code automatically decompiles the JSON to Bicep. This feature is only available with the Bicep extension version 0.14.0 or newer.
 

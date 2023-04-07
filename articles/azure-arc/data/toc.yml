@@ -126,8 +126,6 @@ items:
           href: troubleshoot-guide.md
         - name: Get logs
           href: troubleshooting-get-logs.md
-        - name: Troubleshoot deployments
-          href: troubleshoot-managed-instance.md
 - name: Azure Arc-enabled SQL Managed Instance
   items:
     - name: Overview
@@ -234,6 +232,8 @@ items:
               href: managed-instance-disaster-recovery.md
             - name: Reprovision replica
               href: reprovision-replica.md
+        - name: Troubleshoot
+          href: troubleshoot-managed-instance.md
 - name: Azure Arc-enabled PostgreSQL (preview) 
   items:
     - name: Overview

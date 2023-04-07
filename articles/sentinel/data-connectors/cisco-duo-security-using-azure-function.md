@@ -1,6 +1,6 @@
 ---
-title: "Cisco Duo Security (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Cisco Duo Security (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Cisco Duo Security (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Cisco Duo Security (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Cisco Duo Security (using Azure Function) connector for Microsoft Sentinel
+# Cisco Duo Security (using Azure Functions) connector for Microsoft Sentinel
 
 The Cisco Duo Security data connector provides the capability to ingest [authentication logs](https://duo.com/docs/adminapi#authentication-logs), [administrator logs](https://duo.com/docs/adminapi#administrator-logs), [telephony logs](https://duo.com/docs/adminapi#telephony-logs), [offline enrollment logs](https://duo.com/docs/adminapi#offline-enrollment-logs) and [Trust Monitor events](https://duo.com/docs/adminapi#trust-monitor) into Microsoft Sentinel using the Cisco Duo Admin API. Refer to [API documentation](https://duo.com/docs/adminapi) for more information.
 
@@ -16,7 +16,7 @@ The Cisco Duo Security data connector provides the capability to ingest [authent
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-CiscoDuoSecurity-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-CiscoDuoSecurity-functionapp |
 | **Log Analytics table(s)** | CiscoDuo_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -34,7 +34,7 @@ CiscoDuo_CL
 
 ## Prerequisites
 
-To integrate with Cisco Duo Security (using Azure Function) make sure you have: 
+To integrate with Cisco Duo Security (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Cisco Duo API credentials**: Cisco Duo API credentials with permission *Grant read log* is required for Cisco Duo API. See the [documentation](https://duo.com/docs/adminapi#first-steps) to learn more about creating Cisco Duo API credentials.

@@ -3,7 +3,7 @@ title: "Azure Operator Nexus: Monitoring of AKS-Hybrid cluster"
 description: How-to guide for setting up monitoring of AKS-Hybrid cluster on Operator Nexus.
 author: mukesh-dua #Required; your GitHub user alias, with correct capitalization.
 ms.author: mukeshdua #Required; microsoft alias of author; optional team alias.
-ms.service: azure  #Required
+ms.service: azure-operator-nexus  #Required
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 01/26/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
@@ -144,7 +144,7 @@ export LAW_RESOURCE_ID=$(az monitor log-analytics workspace show -g "${RESOURCE_
 ./dcr.sh
 ```
 
-View/manage the DCR from the Azure portal or [CLI](/azure/monitor/data-collection/rule).
+View/manage the DCR from the Azure portal or [CLI](/cli/azure/monitor/data-collection/rule).
 By default, the Linux Syslog log level is set to "INFO". You can change the log level as needed.
 
 > [!NOTE]

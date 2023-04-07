@@ -30,6 +30,8 @@
       href: how-to-set-up-sensors-partner.md
     - name: Use tissue sampling APIs
       href: how-to-use-nutrient-apis.md
+    - name: Set up Private Links
+      href: how-to-set-up-private-links.md
 - name: References
   items:
   - name: REST API

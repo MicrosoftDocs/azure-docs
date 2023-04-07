@@ -39,37 +39,33 @@ The new workspace appears in the list on the **Workspaces** page. Select the wor
 
 ## Assign users to workspace - portal
 
-After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned a workspace-specific RBAC role at the service level and at the workspace level, or granted equivalent permissions using custom roles.
+After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions using custom roles. 
 
-At minimum, assign an *owner* of the workspace. Optionally, assign permissions to other workspace collaborators.
+> [!NOTE]
+> For easier management, set up Azure AD groups to assign workspace permissions to multiple users.
+> 
 
 * For a list of built-in workspace roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 * For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md?tabs=current).
 
 
-### Assign a service-level role
+### Assign a service-scoped role
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
 
 1. In the left menu, select **Access control (IAM)** > **+ Add**.
 
-1. Assign the owner the following role:
+1. Assign one of the following service-scoped roles to each member of the workspace:
+
+    * **API Management Service Workspace API Developer**
     * **API Management Service Workspace API Product Manager**
 
-1. Assign one of the following roles to other members of the workspace:
-    * **API Management Workspace API Developer**
-    * **API Management Service Workspace API Product Manager**
-
-### Assign a workspace-level role
+### Assign a workspace-scoped role
 
 1. In the menu for your API Management instance, select **Workspaces (preview)**  > the name of the workspace that you created.
 1. In the **Workspace** window, select **Access control (IAM)**> **+ Add**.
     
-1. Assign the owner the following role:
-
-    * **API Management Workspace Owner** 
-
-1. Optionally, assign one of the following workspace-level roles to other workspace members to manage workspace APIs and other resources. The owner of the workspace can also assign workspace-level roles.
+1. Assign one of the following workspace-scoped roles to the workspace members to manage workspace APIs and other resources. 
 
     * **API Management Workspace Reader**
     * **API Management Workspace Contributor**

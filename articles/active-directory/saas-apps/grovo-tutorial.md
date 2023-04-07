@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Grovo | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Grovo'
 description: Learn how to configure single sign-on between Azure Active Directory and Grovo.
 services: active-directory
 author: jeevansd

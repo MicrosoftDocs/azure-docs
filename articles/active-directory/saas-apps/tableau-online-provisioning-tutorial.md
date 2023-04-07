@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Tableau Cloud for automatic user provisioning with Azure Active Directory'
 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tableau Cloud.
 
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: b4038c18-2bfd-47cb-8e74-3873dc85a796
 ms.service: active-directory
 ms.subservice: saas-app-tutorial

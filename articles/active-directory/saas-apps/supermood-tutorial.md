@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Supermood | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Supermood'
 description: Learn how to configure single sign-on between Azure Active Directory and Supermood.
 services: active-directory
 author: jeevansd

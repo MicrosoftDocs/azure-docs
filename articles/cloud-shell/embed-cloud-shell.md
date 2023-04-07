@@ -1,15 +1,8 @@
 ---
-author: sdwheeler
 description: Learn to embed Azure Cloud Shell.
-manager: mkluck
-ms.author: sewhee
 ms.contributor: jahelmic
 ms.date: 11/14/2022
-ms.service: cloud-shell
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.workload: infrastructure-services
-services: cloud-shell
 tags: azure-resource-manager
 title: Embed Azure Cloud Shell
 ---
