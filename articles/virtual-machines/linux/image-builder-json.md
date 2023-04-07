@@ -3,8 +3,8 @@ title: Create an Azure Image Builder Bicep file or ARM JSON template
 description: Learn how to create a Bicep file or ARM JSON template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer:erd
-ms.date: 04/05/2023
+ms.reviewer: erd
+ms.date: 04/07/2023
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -677,7 +677,7 @@ If there's an error trying to download the file, or put it in a specified direct
 
 ### Windows update customizer
 
-The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
+The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://github.com/rgl/packer-plugin-windows-update) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
 
 # [JSON](#tab/json)
 
