@@ -65,7 +65,7 @@ namespace AzureSQLSamples
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "gettodoitem")]
             HttpRequest req,
             [Sql(commandText: "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
-                commandText: System.Data.CommandType.Text,
+                commandType: System.Data.CommandType.Text,
                 parameters: "@Id={Query.id}",
                 connectionStringSetting: "SqlConnectionString")]
             IEnumerable<ToDoItem> toDoItem)
