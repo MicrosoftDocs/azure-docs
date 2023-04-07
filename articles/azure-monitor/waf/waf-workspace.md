@@ -18,7 +18,7 @@ This article provides architectural best practices for Logs Analytics workspaces
 - [Performance efficiency](#performance-efficiency)
 
 ## Prerequisites
-Understanding the Well-Architected Framework pillars can help produce a high quality, stable, and efficient cloud architecture. See [Azure Well-Architected Framework overview](https://learn.microsoft.com/azure/architecture/framework/) to review the five pillars of architectural excellence.
+Understanding the Well-Architected Framework pillars can help produce a high quality, stable, and efficient cloud architecture. See [Azure Well-Architected Framework overview](/azure/architecture/framework/) to review the five pillars of architectural excellence.
 
 ## Reliability
 In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Log Analytics workspaces and to protect the data they collect.
