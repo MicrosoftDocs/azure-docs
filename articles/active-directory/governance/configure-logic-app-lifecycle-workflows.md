@@ -248,13 +248,6 @@ If the security token type is **Proof of Possession (POP)** for your custom task
 > [!NOTE]
 > Due to a current bug in the Logic Apps UI you may have to save the authorization policy after each claim before adding another.
 
-> [!CAUTION]
-> Please pay attention to the details as minor differences can lead to problems later.
--	For Issuer, ensure you did include the slash after your Tenant ID
--	For Audience, ensure you're using the Application ID and not the Object ID of your Managed Identity
--	For appid, ensure the custom claim is “appid” in all lowercase. The appid value represents Lifecycle Workflows and is always the same.
-
-
 ## Configure authorization policy for custom task extension with normal security token type
 
 If the security token type is **Normal** for your custom task extension, you'd set the authorization policy by following these steps:
