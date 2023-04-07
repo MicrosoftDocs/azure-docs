@@ -1,6 +1,6 @@
 ---
 title: Create users - Azure Cosmos DB for PostgreSQL
-description: How to enable data encrytion with customer managed keys
+description: How to enable data encryption with customer managed keys
 ms.author: akashrao
 author: akashraokm
 ms.service: cosmos-db
@@ -9,45 +9,57 @@ ms.topic: how-to
 ms.date: 04/06/2023
 ---
 
-# Setting Up Data Encrytion with Customer Managed Keys
+# Enable data encryption with customer-managed keys in Azure Cosmos DB for PostgreSQL
+
+## Prerequisites
+
+- An existing Azure Cosmos DB for PostgreSQL account.
+  - If you have an Azure subscription, [create a new account](../nosql/how-to-create-account.md?tabs=azure-portal).
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+  - Alternatively, you can [try Azure Cosmos DB free](../try-free.md) before you commit.
+
+  ## Enable data encryption with customer-managed keys
 
  [!IMPORTANT] 
  Create all the following resources in the same region where your Azure Cosmos DB for PostgreSQL cluster will be deployed.
 
 1. Create a User-Assigned Managed Identity. Currently, Azure Cosmos DB for PostgreSQL only supports user-assigned managed identities.
+
 1.	Create an Azure Key Vault and add an access policy to the created User-Assigned Managed Identity with the following key permissions: Get, Unwrap Key, and Wrap Key.
+
 1.	Generate a Key in the Key Vault (supported key types: RSA 2048, 3071, 4096).
+
 1.	Select the Customer-Managed Key encryption option during the creation of the Azure Cosmos DB for PostgreSQL cluster and select the appropriate User-Assigned Managed Identity, Key Vault, and Key created in Steps 1, 2, and 3.
 
 ## Detailed Steps:
 
 
 ### 1. User Assigned Managed Identity 
-   a.Search for Managed Identities in the   global search as shown below:
+   a. Search for Managed Identities in the global search bar.
        
    ![UAI2](media/howto-customer-managed-keys/User%20Assigned%20Managed%20Identity.png)
         
        
-   b.Create a new User assigned managed Identity in the same region where your Azure Cosmos DB for PostgreSQL cluster will be provisioned.
+   b. Create a new User assigned managed Identity in the same region where your Azure Cosmos DB for PostgreSQL cluster will be provisioned.
        
    ![UAI2](media/howto-customer-managed-keys/UAI%202.png)
 
 
-Learn more about [User Assigned Managed Identity](azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+Learn more about [User Assigned Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
 ### 2. Key Vault
 
 Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: Soft Delete and Purge Protection.
 
- a.If you create a new Azure Key Vault instance, enable these properties during creation:
+ a. If you create a new Azure Key Vault instance, enable these properties during creation:
 
   ![KV1](media/howto-customer-managed-keys/Key%20Vault%201.png)
  
- b.If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles:
+ b. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles:
 *	How to use soft-delete with PowerShell
 * How to use soft-delete with Azure CLI
                          
- c.The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
+ c. The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
 
 [!IMPORTANT] 
 Your Azure Key Vault instance must be accessible through public network access.
@@ -57,36 +69,39 @@ Your Azure Key Vault instance must be accessible through public network access.
 
 
 ### 3. Add an Access Policy to the Key Vault:
-    a.From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
+
+    a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
 
   ![access](media/howto-customer-managed-keys/Access%20Policy%201.png)
  
-    b.Select + Create.
+    b. Select + Create.
 
-    c.In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
+    c. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
 
    ![access3](media/howto-customer-managed-keys/Access%20Policy%202.png)
  
 
-    d.In the Principal Tab select the User Assigned Managed Identity you had created in prerequisite step 1.
+    d. In the Principal Tab select the User Assigned Managed Identity you had created in prerequisite step 1.
 
-    e.Navigate to Review + create select Create.
+    e. Navigate to Review + create select Create.
 
 ### 4. Create / Import Key
 
-   a.From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Keys from the left menu and then select +Generate/Import. 
+   a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. 
+   
+   b. Select Keys from the left menu and then select +Generate/Import. 
 
    ![Keyimport](media/howto-customer-managed-keys/Key%201.png)
 
-   c.The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
+   c. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
 
-   d.The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
+   d. The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
 
-   e.The key must be in the Enabled state.
+   e. The key must be in the Enabled state.
 
-   f.If you're importing an existing key into the key vault, make sure to provide it in the supported file formats (.pfx, .byok, .backup).
+   f. If you're importing an existing key into the key vault, make sure to provide it in the supported file formats (.pfx, .byok, .backup).
 
-   g.If you are manually rotating the key, the old key version should not be deleted for at least 24 hours.
+   g. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
 
 
 
@@ -99,17 +114,17 @@ Your Azure Key Vault instance must be accessible through public network access.
 
   ![Provisioning](media/howto-customer-managed-keys/Provisioing%201.png)
  
- b.Select Customer Managed Key under Data encryption key option. 
+ b. Select Customer Managed Key under Data encryption key option. 
 
   ![Provisioning](media/howto-customer-managed-keys/Provisioing%202.png)
 
- c.Select the User Assigned Managed Identity you had created in the previous section.
+ c. Select the User Assigned Managed Identity created in the previous section.
   
- d.Select the Key Vault created in the previous Step which has the access policy to the user managed identity selected in the previous step. 
+ d. Select the Key Vault created in the previous step, which has the access policy to the user managed identity selected in the previous step. 
 
- e.Select the Key created in the previous Step which will be used for the CMK encryption and select Review+create.
+ e. Select the Key created in the previous step, and then select Review+create.
 
- f.Verify that CMK is encryption is enabled by Navigating to the Data Encryption(preview) blade of the Cosmos DB for PostgreSQL cluster in the azure portal.
+ f. Verify that CMK is encryption is enabled by Navigating to the Data Encryption(preview) blade of the Cosmos DB for PostgreSQL cluster in the azure portal.
 
  ![ProvisioningTab](media/howto-customer-managed-keys/Dataencryptiontabnote.png)
 
@@ -232,20 +247,18 @@ Your Azure Key Vault instance must be accessible through public network access.
 ---
 
 ### 6. High Availability 
-  When CMK encryption is enabled on the primary cluster all standby HA replicas are automatically encrypted by the primary cluster’s CMK. 
-
- 
-
+  
+  When CMK encryption is enabled on the primary cluster, all standby HA replicas are automatically encrypted by the primary cluster’s CMK
 
 ### Restrictions
-a.	CMK encryption cannot be enabled on Read replicas.
+
+a.	CMK encryption cannot be enabled on cross region read replicas.
 
 b.	CMK encryption can only be enabled during the creation of a new Azure Cosmos DB for PostgreSQL cluster.
 
 c.	CMK encryption is available in the following regions Switzerland North and North Europe. 
 
 d.	CMK encryption is not supported with Private access (including VNET).
-
 
 ### Changing Encryption Configuration by performing a PITR.
 
@@ -258,7 +271,6 @@ Encryption configuration can be changed from service managed encryption to CMK e
   ![PITR](media/howto-customer-managed-keys/PITR.png)
  
  b.You can change/configure the Data Encryption from the Encryption(preview) Tab.
-
 
 # [ARM Template](#tab/arm)
 ```json
@@ -338,11 +350,11 @@ Encryption configuration can be changed from service managed encryption to CMK e
 
 To monitor the database state, and to enable alerting for the loss of transparent data encryption protector access, configure the following Azure features:
 
-* [Azure Resource Health](/azure/service-health/resource-health-overview): An inaccessible database that has lost access to the customer key shows as "Inaccessible" after the first connection to the database has been denied.
+* [Azure Resource Health](../../service-health/resource-health-overview.md): An inaccessible database that has lost access to the customer key shows as "Inaccessible" after the first connection to the database has been denied.
 
-* [Activity log](azure/service-health/alerts-activity-log-service-notifications-portal): When access to the customer key in the customer-managed Key Vault fails, entries are added to the activity log. You can reinstate access as soon as possible, if you create alerts for these events.
+* [Activity log](../../service-health/alerts-activity-log-service-notifications-portal.md): When access to the customer key in the customer-managed Key Vault fails, entries are added to the activity log. You can reinstate access as soon as possible, if you create alerts for these events.
 
-* [Action groups](/azure/azure-monitor/alerts/action-groups): Define these groups to send you notifications and alerts based on your preference.
+* [Action groups](../../azure-monitor/alerts/action-groups.md): Define these groups to send you notifications and alerts based on your preference.
 
 
 
