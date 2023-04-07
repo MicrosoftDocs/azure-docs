@@ -15,7 +15,7 @@ ms.date: 04/04/2023
 # Index data from SharePoint document libraries
 
 > [!IMPORTANT]
-> SharePoint indexer support is in long-term public preview and available under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview features aren't recommended for production workloads.
+> SharePoint indexer support is in public preview. It's offered "as-is", under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview features aren't recommended for production workloads and aren't guaranteed to become generally available.
 >
 >To use this preview, [request access](https://aka.ms/azure-cognitive-search/indexer-preview), and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
