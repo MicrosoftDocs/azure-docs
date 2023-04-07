@@ -72,6 +72,27 @@ The container needs the billing argument values to run. These values allow the c
 
 For more information about these options, see [Configure containers](speech-container-configuration.md).
 
+
+### Container requirements and recommendations
+
+The following table describes the minimum and recommended allocation of resources for each Speech container:
+
+| Container | Minimum | Recommended |Speech Model|
+|-----------|---------|-------------| -------- |
+| Speech-to-text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
+| Custom speech-to-text | 4 core, 4-GB memory | 8 core, 8-GB memory |+4 to 8 GB memory|
+| Speech language identification | 1 core, 1-GB memory | 1 core, 1-GB memory |n/a|
+| Neural text-to-speech | 6 core, 12-GB memory | 8 core, 16-GB memory |n/a|
+
+Each core must be at least 2.6 gigahertz (GHz) or faster.
+
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+
+> [!NOTE]
+> The minimum and recommended allocations are based on Docker limits, *not* the host machine resources.
+> For example, speech-to-text containers memory map portions of a large language model. We recommend that the entire file should fit in memory. You need to add an additional 4 to 8 GB to load the speech modesl (see above table).
+> Also, the first run of either container might take longer because models are being paged into memory.
+
 ## Host computer requirements and recommendations
 
 The host is an x64-based computer that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
@@ -81,11 +102,49 @@ The host is an x64-based computer that runs the Docker container. It can be a co
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 
-### Run multiple containers on the same host
 
-If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
+### Advanced Vector Extension support
 
-You can have this container and a different Cognitive Services container running on the HOST together. You also can have multiple containers of the same Cognitive Services container running.
+The *host* is the computer that runs the Docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
+
+```console
+grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
+```
+> [!WARNING]
+> The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
+
+
+## Run the container
+
+> [!IMPORTANT]
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start. For more information, see [Billing](speech-container-configuration.md#billing-configuration-setting).
+> The ApiKey value is the **Key** from the Azure Speech Resource keys page.
+
+The following examples use the configuration settings to illustrate how to write and use `docker run` commands. Once running, the container continues to run until you [stop the container](#stop-the-container).
+
+- **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements.
+- **Argument order**: Do not change the order of the arguments unless you are familiar with Docker containers.
+
+Replace {_argument_name_} with your own values:
+
+| Placeholder | Value | Format or example |
+| ----------- | ----- | ----------------- |
+| **{API_KEY}** | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page. | See [gather required parameters](speech-container-howto.md#gather-required-parameters) for explicit examples. |
+
+
+> [!TIP]
+> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. 
+
+The following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
+
+```
+docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
+
+IMAGE ID         REPOSITORY                TAG
+<image-id>       <repository-path/name>    <tag-name>
+```
+
 
 ## Validate that a container is running
 
@@ -104,12 +163,46 @@ There are several ways to validate that the container is running. Locate the *Ex
 To shut down the container, in the command-line environment where the container is running, select <kbd>Ctrl+C</kbd>.
 
 
+### Run multiple containers on the same host
+
+If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
+
+You can have this container and a different Cognitive Services container running on the HOST together. You also can have multiple containers of the same Cognitive Services container running.
+
+## Use the Speech service
+
+> [!NOTE]
+> Use a unique port number if you're running multiple containers.
+
+| Containers | SDK Host URL | Protocol |
+|--|--|--|
+| [Speech-to-text](speech-container-stt.md)<br/><br/>[Custom speech-to-text](speech-container-cstt.md) | `ws://localhost:5000` | WS |
+| [Neural text-to-speech](speech-container-ntts.md)<br/><br/>[Speech language identification](speech-container-lid.md) | `http://localhost:5000` | HTTP |
+
+For more information on using WSS and HTTPS protocols, see [Container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
+
 ## Troubleshooting
 
 When you start or run the container, you might experience issues. Use an output [mount](speech-container-configuration.md#mount-settings) and enable logging. Doing so allows the container to generate log files that are helpful when you troubleshoot issues.
 
 > [!TIP]
 > For more troubleshooting information and guidance, see [Cognitive Services containers frequently asked questions (FAQ)](../container-faq.yml).
+
+
+### Logging settings
+
+Speech containers come with ASP.NET Core logging support. Here's an example of the `neural-text-to-speech container` started with defaut logging to the console:
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+For more information about logging, see [Configure Speech containers](speech-container-configuration.md#logging-settings).
 
 ## Microsoft diagnostics container
 
