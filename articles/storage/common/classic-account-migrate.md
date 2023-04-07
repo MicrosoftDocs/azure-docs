@@ -37,17 +37,6 @@ To list classic storage accounts in your subscription with PowerShell, run the f
 Get-AzResource -ResourceType Microsoft.ClassicStorage/storageAccounts
 ```
 
-# [Azure CLI](#tab/azure-cli)
-
-To list classic storage accounts in your subscription with Azure CLI, run the following command:
-
-```azurecli
-$ az resource list \
-  --resource-type Microsoft.ClassicStorage/storageAccounts \
-  --query "[].{resource_type:type, name:name}" \
-  --output table 
-```
-
 ---
 
 ## Migrate a classic storage account
@@ -141,10 +130,6 @@ Finally, when you are satisfied with the prepared configuration, move forward wi
 ```azurepowershell
 Move-AzureStorageAccount -Commit -StorageAccountName $accountName
 ```
-
-# [Azure CLI](#tab/azure-cli)
-
-N/A
 
 ---
 
