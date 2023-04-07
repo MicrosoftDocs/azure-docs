@@ -168,7 +168,7 @@ Azure DDoS Network Protection is enabled at the virtual network where the resour
 
 5. In the pull-down box in DDoS protection plan, select **myDDoSProtectionPlan**.
 
-    :::image type="content" source="./media/tutorial-protect-application-gateway/enable-ddos-vnet.png" alt-text="Screenshot of ddos network protection.":::
+    :::image type="content" source="./media/tutorial-protect-application-gateway/enable-ddos-vnet.png" alt-text="Screenshot of D D o S network protection.":::
 
 6. Select **Save**.
 
