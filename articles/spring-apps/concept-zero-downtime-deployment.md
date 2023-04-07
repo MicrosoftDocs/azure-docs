@@ -40,7 +40,7 @@ When deploy a new version to an existing deployment, or restart a deployment, Az
 Note, for single replica deployment, you will see downtime during deployment update. To ensure application avaiablity, it's highly suggested to deploy at leat 2 replicas for your production workload.   
 
 
-Also, When scale in your application instances, Azure Spring Apps underlyingly use k8s's [preStop](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefuly shutdown the pods. In the hook, the following operations will be performed for a shuting application container:
+Also, When scale in your application instances, Azure Spring Apps underlyingly use k8s's [preStop](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefuly shutdown the pods. In the hook, the following operations will be performed for a shuting down application container:
 1. Override the instance's eureka registry status to **OUT_OF_SERVICE**, if eureka client is enabled
 2. Wait some seconds to continue serve traffic (from nginx if any) before k8s kill the application container 
 
