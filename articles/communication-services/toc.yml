@@ -562,6 +562,8 @@ items:
       href: concepts/chat/concepts.md
     - name: SDK features
       href: concepts/chat/sdk-features.md
+    - name: Archiving Chats
+      href: how-tos/chat-sdk/archiving-chat-threads.md
     - name: Events
       items:
       - name: Overview
