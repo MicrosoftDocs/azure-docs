@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 04/04/2023
+ms.date: 04/07/2023
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
 
@@ -32,9 +32,9 @@ To open the Cloud Shell, select **Open Cloudshell** from the upper right corner 
 
 ## Custom script extension overview
 
-The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post-deployment configuration, software installation, or any other configuration or management task. Scripts can be downloaded from Azure storage or GitHub, or they can be provided to the Azure portal at extension run time.
+The Custom Script Extension downloads and executes scripts on Azure VMs. This extension is useful for post-deployment configuration, software installation, or any other configuration or management task. You can download scripts from Azure storage or GitHub, or you can provide scripts to the Azure portal at extension run time.
 
-The Custom Script extension integrates with Azure Resource Manager templates and can also be run by using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
+The Custom Script extension integrates with Azure Resource Manager templates and can be run by using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
 
 You can use the Custom Script Extension with both Linux and Windows VMs.
 
