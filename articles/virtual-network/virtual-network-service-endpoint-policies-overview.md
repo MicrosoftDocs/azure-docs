@@ -72,7 +72,7 @@ Let's take a quick look at the Service Endpoint Policy object.
 
 -	You can apply multiple policies to a subnet. When multiple policies are associated to the subnet, virtual network traffic to resources specified across any of these policies are allowed. Access to all other service resources, not specified in any of the policies, are denied.
 
-    > [!NOTE]
+  > [!NOTE]
   > Service endpoint policies are **allow policies**, so apart from the specified resources, all other resources are restricted. Please ensure that all service resource dependencies for your applications are identified and listed in the policy.
 
 - Only storage accounts using the Azure Resource Model can be specified in the endpoint policy. Classic Azure Storage accounts don't support Azure Service Endpoint Policies.
