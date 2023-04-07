@@ -13,43 +13,14 @@ ms.custom: template-how-to-pattern
 
 There are multiple channels available to give you help and support in Microsoft Dev Box. The support channel you choose depends on your role and your access to existing Dev Box resources. 
 
-## IT Admin or Dev infrastructure admin (dev center admin)
+In the following table, select your role to see how to get help for urgent issues. For non-urgent issues, select an option.
 
-### Urgent issues
+|Urgent issues                                                                        |Non-urgent |
+|-------------------------------------------------------------------------------------|-----------|
+|[Administrator </br>(IT admin, Dev infra admin)](get-help/get-help-project-admin.md) |[Learn about the Microsoft Developer Community](get-help/get-support-non-urgent.md)|
+|[Dev team lead </br>(Project Admin)](get-help/get-help-it-admin.md)                  |[Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox) |
+|[Developer </br>(Dev Box User)](get-help/get-help-developer.md)                      |[Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report) |
 
-- **Internal troubleshooting** </br>
-Always use your internal troubleshooting processes before contacting support. As a dev infrastructure admin, you have access to all Dev Box resources through the Azure portal.
-- **Contact support** </br>
-If you can't resolve the issue, open a support request to contact Azure support: [Contact Microsoft Azure Support - Microsoft Support](https://support.microsoft.com/topic/contact-microsoft-azure-support-2315e669-8b1f-493b-5fb1-d88a8736ffe4).
-
-### Non-urgent issues
-
-[!INCLUDE [get-support-non-urgent](includes/get-support-non-urgent.md)]
-
-## Developer Team Lead (DevCenter Project Admin) 
-
-### Urgent issues
-
-- **Internal troubleshooting** </br>
-Always use your internal troubleshooting processes before escalating an issue.
-As a DevCenter Project Admin, you can:
-    - View the network connections attached to the dev center.
-    - View the dev box definitions attached to the dev center.
-    - Create, view, update, and delete dev box pools in the project. 
-- **Contact your dev infrastructure admin** </br>
-If you can't resolve the issue, escalate it to your dev infrastructure admin.
-
-### Non-urgent issues
-
-[!INCLUDE [get-support-non-urgent](includes/get-support-non-urgent.md)]
-
-## Developer (Dev Box User) 
-
-- **Internal troubleshooting** </br>
-Always use your internal troubleshooting processes before escalating an issue.
-As a developer, you can troubleshoot your dev boxes through the developer portal. You can create a dev box, start, stop, and delete your dev boxes. 
-- **Contact your dev team lead** </br>
-If you can't resolve the issue, escalate it to your dev team lead (DevCenter Project Admin).
 
 ## Next steps
 
