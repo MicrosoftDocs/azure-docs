@@ -76,5 +76,9 @@ Useful queries and information on how to understand your consumption bill can be
 
 ## Next steps
 
+To learn more, see the following articles:
+
++ [Improve the performance and reliability of Azure Functions](./performance-reliability.md)
++ [Azure Functions reliable event processing](./functions-reliable-event-processing.md)
 + [Azure Functions hosting options](functions-scale.md)
 

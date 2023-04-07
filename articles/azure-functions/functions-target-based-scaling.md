@@ -94,15 +94,15 @@ The Service Bus extension support three execution models, determined by the `IsB
 
 | Execution Model                            | IsBatched | IsSessionsEnabled | Setting Used for _target executions per instance_ |
 | ------------------------------------------ | --------- | ----------------- | ------------------------------------------------- |
-| Single Dispatch Processing                 | false     | false             | maxConcurrentCalls                                |
-| Single Dispatch Processing (Session Based) | false     | true              | maxConcurrentSessions                             |
-| Batch Processing                           | true      | false             | maxMessageBatchSize or maxMessageCount            |
+| Single dispatch processing                 | false     | false             | maxConcurrentCalls                                |
+| Single dispatch processing (session-based) | false     | true              | maxConcurrentSessions                             |
+| Batch processing                           | true      | false             | maxMessageBatchSize or maxMessageCount            |
 
 > [!NOTE]
 > **Scale efficiency:** For the Service Bus extension, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights scaling reverts to incremental scale because the queue or topic length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 
 
-#### Single Dispatch Processing
+#### Single dispatch processing
 
 In this model, each invocation of your function processes a single message. The `maxConcurrentCalls` setting governs _target executions per instance_. The specific setting depends on the version of the Service Bus extension.
 
@@ -139,7 +139,7 @@ Modify the `host.json` setting `maxConcurrentCalls` in `messageHandlerOptions`, 
 ```
 ---
 
-#### Single Dispatch Processing (Session Based)
+#### Single dispatch processing (session-based)
 
 In this model, each invocation of your function processes a single message. However, depending on the number of active sessions for your Service Bus topic or queue, each instance leases one or more sessions. The specific setting depends on the version of the Service Bus extension.
 
@@ -176,7 +176,7 @@ Modify the `host.json` setting `maxConcurrentSessions` in `sessionHandlerOptions
 ```
 ---
 
-#### Batch Processing
+#### Batch processing
 
 In this model, each invocation of your function processes a batch of messages. The specific setting depends on the version of the Service Bus extension.
 
@@ -360,3 +360,10 @@ Examples for the Python v2 programming model and the JavaScript v4 programming m
 
 > [!NOTE]
 > Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
+
+## Next steps
+
+To learn more, see the following articles:
+
++ [Improve the performance and reliability of Azure Functions](./performance-reliability.md)
++ [Azure Functions reliable event processing](./functions-reliable-event-processing.md)
