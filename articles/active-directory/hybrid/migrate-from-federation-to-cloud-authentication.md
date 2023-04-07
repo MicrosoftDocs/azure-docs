@@ -251,7 +251,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
 4. On the **User sign-in** page:
 
-    - If you select **Pass-through authentication** option button, if SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**.
+    - If you select **Pass-through authentication** option button, and if SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**.
 
     - If you select the **Password hash synchronization** option button, make sure to select the **Do not convert user accounts** check box. The option is deprecated. If SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**. 
 
