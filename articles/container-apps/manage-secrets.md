@@ -28,11 +28,11 @@ Before you delete a secret, deploy a new revision that no longer references the 
 
 ## Defining secrets
 
-Secrets are defined as a set of name/value pairs. The value of each secret can be specified directly or as a reference to a secret stored in Azure Key Vault.
+Secrets are defined as a set of name/value pairs. The value of each secret is specified directly or as a reference to a secret stored in Azure Key Vault.
 
 ### Store secret value in Container Apps
 
-When you define a secret, you can specify its value directly.
+When you define secrets through the portal, or via different command line options.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -117,7 +117,7 @@ Here, a connection string to a queue storage account is declared. The value for 
 
 ### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault (preview)
 
-When you define a secret, you can specify a reference to a secret stored in Azure Key Vault. Container Apps automatically retrieves the secret value from Key Vault and makes it available in your container app's secret.
+When you define a secret, you create a reference to a secret stored in Azure Key Vault. Container Apps automatically retrieves the secret value from Key Vault and makes it available as a secret in your container app.
 
 To reference a secret from Key Vault, you must first enable managed identity in your container app and grant the identity access to the Key Vault secrets.
 
