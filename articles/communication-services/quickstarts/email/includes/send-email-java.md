@@ -107,7 +107,7 @@ public class App
 
 There are a few different options available for authenticating an email client:
 
-#### [Connection String](#tab/windows)
+#### [Connection String](#tab/connection-string)
 
 To authenticate a client, you instantiate an `EmailClient` with your connection string. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
@@ -122,7 +122,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### [Azure Active Directory](#tab/windows)
+#### [Azure Active Directory](#tab/aad)
 
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
@@ -137,7 +137,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### [AzureKeyCredential](#tab/windows)
+#### [AzureKeyCredential](#tab/azurekeycredential)
 
 Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 
@@ -227,7 +227,7 @@ Make these replacements in the code:
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
 
-If you see that your application is hanging, it could be due to email sending being throttled. You can [handle throttling through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
+If you see that your application is hanging, it could be due to email sending being throttled. You can [handle throttling through logging or by implementing a custom policy](../send-email-advanced/throw-exception-when-tier-limit-reached.md).
 
 ### Sample code
 

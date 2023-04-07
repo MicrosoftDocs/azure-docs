@@ -90,7 +90,7 @@ The `--save` option lists the library as a dependency in your **package.json** f
 
 There are a few different options available for authenticating an email client:
 
-#### [Connection String](#tab/windows)
+#### [Connection String](#tab/connection-string)
 
 Import the **EmailClient** from the client library and instantiate it with your connection string.
 
@@ -112,7 +112,7 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const emailClient = new EmailClient(connectionString);
 ```
 
-#### [Azure Active Directory](#tab/windows)
+#### [Azure Active Directory](#tab/aad)
 
 You can also authenticate with Azure Active Directory using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). To use the [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#defaultazurecredential) provider in the following snippet, or other credential providers provided with the Azure SDK, install the [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package:
 
@@ -133,7 +133,7 @@ let credential = new DefaultAzureCredential();
 const emailClient = new EmailClient(endpoint, credential);
 ```
 
-#### [AzureKeyCredential](#tab/windows)
+#### [AzureKeyCredential](#tab/azurekeycredential)
 
 Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
@@ -223,7 +223,7 @@ use the node command to run the code you added to the send-email.js file.
 node ./send-email.js
 ```
 
-If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
+If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](../send-email-advanced/throw-exception-when-tier-limit-reached.md).
 
 ### Sample code
 
