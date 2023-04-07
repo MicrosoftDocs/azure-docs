@@ -97,7 +97,7 @@ landingContent:
             url: concepts-private-access.md
           - text: Row-level security
             url: concepts-row-level-security.md
-          - text: Customer Managed Keys
+          - text: Customer managed keys
             url : concepts-customer-managed-keys.md
       - linkListType: how-to-guide
         links:
@@ -107,6 +107,6 @@ landingContent:
             url: howto-private-access.md
           - text: Configure SSL
             url: howto-ssl-connection-security.md
-          - text: Customer Managed Keys
+          - text: Enable encryption with customer managed keys
             url: howto-customer-managed-keys.md
 
