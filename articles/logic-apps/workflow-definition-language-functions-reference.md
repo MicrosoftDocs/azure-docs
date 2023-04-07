@@ -20,10 +20,6 @@ For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview
 > Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
 > these functions work for both flows and logic app workflows. For more information about functions 
 > and expressions in Power Automate, review [Use expressions in conditions](/power-automate/use-expressions-in-conditions).
-> 
-> In Consumption and Standard logic apps, all function expressions use the [.NET XPath library](/dotnet/api/system.xml.xpath). 
-> XPath expressions are compatible with the underlying .NET library and support only the expression 
-> that the underlying .NET library supports.
 
 For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
@@ -5346,6 +5342,11 @@ And returns this result XML:
 ### xpath
 
 Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. An XPath expression, or just "XPath", helps you navigate an XML document structure so that you can select nodes or compute values in the XML content.
+
+> [!NOTE]
+> 
+> In Consumption and Standard logic apps, all function expressions use the [.NET XPath library](/dotnet/api/system.xml.xpath). 
+> XPath expressions are compatible with the underlying .NET library and support only the expression that the underlying .NET library supports.
 
 ```
 xpath('<xml>', '<xpath>')
