@@ -63,7 +63,7 @@ Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.micr
 
 ## Backup and restore
 
-Snapshot backups are enabled by default and taken every 4 hours with [Medusa](https://github.com/thelastpickle/cassandra-medusa). Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for backups. To restore from a backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+Snapshot backups are enabled by default and taken every 24 hours. Backups are stored in an internal Azure Blob Storage account and are retained for up to 2 days (48 hours). There's no cost for the initial 2 backups. Additional backups will be charged, see [pricing](https://azure.microsoft.com/pricing/details/managed-instance-apache-cassandra/). To change the backup interval or retention period, or to restore from an existing backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
 > [!WARNING]
 > Backups can be restored to the same VNet/subnet as your existing cluster, but they cannot be restored to the *same cluster*. Backups can only be restored to **new clusters**. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our [quickstart for multi-region deployments](create-multi-region-cluster.md).

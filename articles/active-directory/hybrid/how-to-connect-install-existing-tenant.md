@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: When you already have Azure AD | Microsoft Docs'
+title: 'Azure AD Connect: When you already have Azure AD'
 description: This topic describes how to use Connect when you have an existing Azure AD tenant.
 author: billmath
 ms.service: active-directory

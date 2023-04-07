@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 03/01/2023
+ms.date: 04/04/2023
 ms.custom: ignite-2022
 ---
 
@@ -33,7 +33,7 @@ The table below shows the supported capabilities for each data source. Select th
 || [Azure Databricks](register-scan-azure-databricks.md) | [Yes](register-scan-azure-databricks.md#register) | No | [Yes](register-scan-azure-databricks.md#lineage) | No | No |
 ||    [Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)| [Yes](register-scan-azure-synapse-analytics.md#register) | [Yes](register-scan-azure-synapse-analytics.md#scan)| No* | No | No |
 ||    [Azure Files](register-scan-azure-files-storage-source.md)|[Yes](register-scan-azure-files-storage-source.md#register) | [Yes](register-scan-azure-files-storage-source.md#scan) | Limited* |  No | No |
-||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register-the-data-source) |[Yes](register-scan-azure-sql-database.md#scope-and-run-the-scan)| [Yes (Preview)](register-scan-azure-sql-database.md#extract-lineage-preview) | [Yes](register-scan-azure-sql-database.md#set-up-access-policies) (Preview) | No |
+||    [Azure SQL Database](register-scan-azure-sql-database.md)| [Yes](register-scan-azure-sql-database.md#register-the-data-source) |[Yes](register-scan-azure-sql-database.md#scope-and-run-the-scan)| [Yes (Preview)](register-scan-azure-sql-database.md#extract-lineage-preview) | [Yes](register-scan-azure-sql-database.md#set-up-access-policies) | No |
 ||    [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)|  [Yes](register-scan-azure-sql-managed-instance.md#scan) | [Yes](register-scan-azure-sql-managed-instance.md#scan) | No* | No | No |
 ||    [Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)| [Yes](register-scan-synapse-workspace.md#register) | [Yes](register-scan-synapse-workspace.md#scan)| [Yes - Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)| No| No |
 |Database| [Amazon RDS](register-scan-amazon-rds.md) | [Yes](register-scan-amazon-rds.md#register-an-amazon-rds-data-source) | [Yes](register-scan-amazon-rds.md#scan-an-amazon-rds-database) | No | No | No |
@@ -119,7 +119,7 @@ The following file types are supported for scanning, for schema extraction, and 
 >    * We do not support data type detection. The data type will be listed as "string" for all columns.
 >    * We only support comma(‘,’), semicolon(‘;’), vertical bar(‘|’) and tab(‘\t’) as delimiters.
 >    * Delimited files with less than three rows cannot be determined to be CSV files if they are using a custom delimiter. For example: files with ~ delimiter and less than three rows will not be able to be determined to be CSV files.
->    * If the field doesn't have quotes on the ends, or the field is a single quote char or there are quotes within the field, the row will be judged as error row. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
+>    * If a field contains double quotes, the double quotes can only appear at the beginning and end of the field and must be matched. Double quotes that appear in the middle of the field or appear at the beginning and end but are not matched will be recognized as bad data and there will be no schema get parsed from the file. Rows that have different number of columns than the header row will be judged as error rows. (numbers of error rows / numbers of rows sampled ) must be less than 0.1.
  > * For Parquet files, if you are using a self-hosted integration runtime, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. Check our [Java Runtime Environment section at the bottom of the page](manage-integration-runtimes.md#java-runtime-environment-installation) for an installation guide.
 
 ## Schema extraction

@@ -1,5 +1,5 @@
 ---
-title: Set up SAML/WS-Fed IdP federation with an AD FS for B2B - Azure AD
+title: Set up SAML/WS-Fed IdP federation with an AD FS for B2B
 description: Learn how to set up AD FS as an identity provider (IdP) for SAML/WS-Fed IdP federation so guests can sign in to your Azure AD apps
 
 services: active-directory

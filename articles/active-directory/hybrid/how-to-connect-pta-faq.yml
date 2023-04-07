@@ -74,7 +74,7 @@ sections:
 
           To manually upgrade a connector:
 
-          - Download the latest version of the Agent. (You find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history | Microsoft Docs.
+          - Download the latest version of the Agent. (You find it under Azure AD connect Pass-through Authentication on the Azure portal. You can also find the link at Azure AD Pass-through Authentication: Version release history.
           - The installer restarts the Microsoft Azure AD Connect Authentication Agent services. In some cases, a server reboot is required if the installer can't replace all files. Therefore we recommend closing all applications that is, Event Viewer before you start the upgrade.
           - Run the installer. The upgrade process is quick and doesn't require providing any credentials and the Agent won't be re-registered.
 
@@ -91,7 +91,7 @@ sections:
           The password expiry doesn't trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user is able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
 
           For more details please check the documentation below:
-          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md)
+          [Microsoft identity platform access tokens - Microsoft identity platform](../develop/access-tokens.md)
 
      
       - question: |

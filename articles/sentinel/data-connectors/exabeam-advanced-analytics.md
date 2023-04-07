@@ -19,7 +19,7 @@ The [Exabeam Advanced Analytics](https://www.exabeam.com/ueba/advanced-analytics
 | **Kusto function alias** | ExabeamEvent |
 | **Kusto function url** | https://aka.ms/sentinel-Exabeam-parser |
 | **Log Analytics table(s)** | Syslog (Exabeam)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples

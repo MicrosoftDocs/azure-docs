@@ -1,15 +1,8 @@
 ---
-author: sdwheeler
 description: Overview of features in Azure Cloud Shell
-manager: mkluck
-ms.author: sewhee
 ms.contributor: jahelmic
 ms.date: 03/03/2023
-ms.service: cloud-shell
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.workload: infrastructure-services
-services: Azure
 tags: azure-resource-manager
 title: Azure Cloud Shell features
 ---
@@ -197,7 +190,7 @@ You can verify the version of the language using the command listed in the table
 [17]: https://github.com/Azure/CloudShell/issues
 [18]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
 [19]: https://helm.sh/docs/
-[20]: https://kubernetes.io/docs/user-guide/kubectl-overview/
+[20]: https://kubernetes.io/docs/reference/kubectl/
 [21]: https://pnp.github.io/office365-cli/
 [22]: https://puppet.com/docs/bolt/latest/bolt.html
 [23]: https://www.ansible.com/microsoft-azure

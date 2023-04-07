@@ -14,7 +14,7 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
 ## Manage alert rules in the Azure portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor**, then **Alerts**.
-1. From the top command bar, select **Alert rules**. The page shows all your alert rules across on all subscriptions.
+1. From the top command bar, select **Alert rules**. The page shows all your alert rules on all subscriptions.
 
     :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-page.png" alt-text="Screenshot of alerts rules page.":::
 
@@ -33,8 +33,13 @@ Manage your alert rules in the Azure portal, or using the CLI or PowerShell.
     > [!NOTE]
     > If you filter on a `target resource type` scope, the alerts rules list doesn’t include resource health alert rules. To see the resource health alert rules, remove the `Target resource type` filter, or filter the rules based on the `Resource group` or `Subscription`.
 
-1. Select the alert rule that you want to edit. You can select multiple alert rules and enable or disable them. Multi-selecting rules can be useful when you want to perform maintenance on specific resources.
-1. Edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, or the **Signal type** of an existing alert rule.
+1. Select an alert rule or use the checkboxes on the left to select multiple alert rules. 
+1. If you select multiple alert rules, you can enable or disable the selected rules. Selecting multiple rules can be useful when you want to perform maintenance on specific resources. 
+1. If you select a single alert rule, you can edit, disable, duplicate, or delete the rule in the alert rule pane.
+
+    :::image type="content" source="media/alerts-managing-alert-instances/alerts-rules-pane.png" alt-text="Screenshot of alerts rules pane.":::
+
+1. To edit an alert rule, select **Edit**, and then edit any of the fields in the following sections. You can't edit the **Alert Rule Name**, or the **Signal type** of an existing alert rule.
     - **Scope**. You can edit the scope for all alert rules **other than**:
         - Log alert rules
         - Metric alert rules that monitor a custom metric
@@ -68,6 +73,7 @@ To enable recommended alert rules:
 1. On the **Alerts** page, select **Enable recommended alert rules**. The **Enable recommended alert rules** pane opens with a list of recommended alert rules based on your type of resource.  
 1. In the **Alert me if** section, select all of the rules you want to enable. The rules are populated with the default values for the rule condition, such as the percentage of CPU usage that you want to trigger an alert. You can change the default values if you would like.
 1. In the **Notify me by** section, select the way you want to be notified if an alert is fired.
+1. Select **Use an existing action group**, and enter the details of the existing action group if you want to use an action group that already exists.
 1. Select **Enable**.
 
     :::image type="content" source="media/alerts-managing-alert-instances/alerts-enable-recommended-alert-rule-pane.png" alt-text="Screenshot of recommended alert rules pane."::: 

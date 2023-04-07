@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Beyond Identity Admin Console | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Beyond Identity Admin Console'
 description: Learn how to configure single sign-on between Azure Active Directory and Beyond Identity Admin Console.
 services: active-directory
 author: jeevansd

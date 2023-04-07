@@ -704,8 +704,7 @@ The Mediatek MT3620AN must be included in your design. Additional guidance for b
 |Description|The purpose of this policy is to ensure that there's a mechanism for collecting and distributing reports of vulnerabilities in the product.|
 |Validation Type|Prevalidated, no additional validation is required|
 |Validation|Azure Sphere vulnerabilities are collected by Microsoft through MSRC and are published to customers through the Tech Community Blog, Azure Sphere “What’s New” page, and through Mitre’s CVE database.|
-|Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](https://learn.microsoft.com/azure-sphere/product-overview/whats-new)</li><li>
-[Azure Sphere CVEs](https://learn.microsoft.com/azure-sphere/deployment/azure-sphere-cves)|</li></ul>
+|Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](https://learn.microsoft.com/azure-sphere/product-overview/whats-new)</li><li>[Azure Sphere CVEs](https://learn.microsoft.com/azure-sphere/deployment/azure-sphere-cves)|</li></ul>
 
 ---
 </br>

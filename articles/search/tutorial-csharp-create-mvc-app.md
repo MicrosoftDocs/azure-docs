@@ -20,7 +20,7 @@ In this tutorial, create a basic ASP.NET Core (Model-View-Controller) app that r
 > + Filter results
 > + Sort results
 
-This tutorial puts the focus on server-side operations called through the Search APIs. Although it's common to sort and filter in client-side script, knowing how to invoke these operations on the server gives you more options when designing the search experience.
+This tutorial puts the focus on server-side operations called through the [Search APIs](/dotnet/api/overview/azure/search.documents-readme). Although it's common to sort and filter in client-side script, knowing how to invoke these operations on the server gives you more options when designing the search experience.
 
 Sample code for this tutorial can be found in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/main/create-mvc-app) repository on GitHub. 
 
@@ -479,7 +479,9 @@ Use the Azure portal to add a scoring profile to the existing hotels-sample-inde
 
 ## Next steps
 
-If you want to explore client-side operations that respond to user actions, consider adding a React template to your solution:
+In this tutorial, you created an ASP.NET Core (MVC) project that connected to a search service and called Search APIs for server-side filtering and sorting.
+
+If you want to explore client-side code that respond to user actions, consider adding a React template to your solution:
 
 > [!div class="nextstepaction"]
 > [C# Tutorial: Add search to a website with .NET](tutorial-csharp-overview.md)

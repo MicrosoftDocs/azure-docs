@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sigstr | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sigstr'
 description: Learn how to configure single sign-on between Azure Active Directory and Sigstr.
 services: active-directory
 author: jeevansd

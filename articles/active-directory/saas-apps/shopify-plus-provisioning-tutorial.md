@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Configure Shopify Plus for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Shopify Plus for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Shopify Plus.
 services: active-directory
 documentationcenter: ''
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 
 ms.assetid: e2fa3ac8-a30f-4dcd-8073-ed7c65909feb
 ms.service: active-directory

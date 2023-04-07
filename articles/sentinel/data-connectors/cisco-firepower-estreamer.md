@@ -17,7 +17,7 @@ eStreamer is a Client Server API designed for the Cisco Firepower NGFW Solution.
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (CiscoFirepowerEstreamerCEF)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Workspace transform DCR](../../azure-monitor/logs/tutorial-workspace-transformations-portal.md) |
 | **Supported by** | [Cisco](https://www.cisco.com/c/en_in/support/index.html) |
 
 ## Query samples

@@ -52,27 +52,27 @@ Example `/22` CIDR network address block:  `10.10.0.0/22`
 
 The subnets:
 
-| Network usage                 | Subnet | Example          |
-| ----------------------------- | ------ | ---------------- |
-| Private cloud management      | `/26`  | `10.10.0.0/26`   |
-| HCX Mgmt Migrations           | `/26`  | `10.10.0.64/26`  |
-| Global Reach Reserved         | `/26`  | `10.10.0.128/26` |
-| NSX-T Data Center DNS Service | `/32`  | `10.10.0.192/32` |
-| Reserved                      | `/32`  | `10.10.0.193/32` |
-| Reserved                      | `/32`  | `10.10.0.194/32` |
-| Reserved                      | `/32`  | `10.10.0.195/32` |
-| Reserved                      | `/30`  | `10.10.0.196/30` |
-| Reserved                      | `/29`  | `10.10.0.200/29` |
-| Reserved                      | `/28`  | `10.10.0.208/28` |
-| ExpressRoute peering          | `/27`  | `10.10.0.224/27` |
-| ESXi Management               | `/25`  | `10.10.1.0/25`   |
-| vMotion Network               | `/25`  | `10.10.1.128/25` |
-| Replication Network           | `/25`  | `10.10.2.0/25`   |
-| vSAN                          | `/25`  | `10.10.2.128/25` |
-| HCX Uplink                    | `/26`  | `10.10.3.0/26`   |
-| Reserved                      | `/26`  | `10.10.3.64/26`  |
-| Reserved                      | `/26`  | `10.10.3.128/26` |
-| Reserved                      | `/26`  | `10.10.3.192/26` |
+| Network usage                 | Description                                          | Subnet | Example          |
+| ----------------------------- | ---------------------------------------------------- | ------ | ---------------- |
+| Private cloud management      | Management Network (i.e. vCenter, NSX-T)             | `/26`  | `10.10.0.0/26`   |
+| HCX Mgmt Migrations           | Local connectivity for HCX appliances (downlinks)    | `/26`  | `10.10.0.64/26`  |
+| Global Reach Reserved         | Outbound interface for ExpressRoute                  | `/26`  | `10.10.0.128/26` |
+| NSX-T Data Center DNS Service | Built-in NSX-T DNS Service                           | `/32`  | `10.10.0.192/32` |
+| Reserved                      | Reserved                                             | `/32`  | `10.10.0.193/32` |
+| Reserved                      | Reserved                                             | `/32`  | `10.10.0.194/32` |
+| Reserved                      | Reserved                                             | `/32`  | `10.10.0.195/32` |
+| Reserved                      | Reserved                                             | `/30`  | `10.10.0.196/30` |
+| Reserved                      | Reserved                                             | `/29`  | `10.10.0.200/29` |
+| Reserved                      | Reserved                                             | `/28`  | `10.10.0.208/28` |
+| ExpressRoute peering          | ExpressRoute Peering                                 | `/27`  | `10.10.0.224/27` |
+| ESXi Management               | ESXi management VMkernel interfaces                  | `/25`  | `10.10.1.0/25`   |
+| vMotion Network               | vMotion VMkernel interfaces                          | `/25`  | `10.10.1.128/25` |
+| Replication Network           | vSphere Replication interfaces                       | `/25`  | `10.10.2.0/25`   |
+| vSAN                          | vSAN VMkernel interfaces and node communication      | `/25`  | `10.10.2.128/25` |
+| HCX Uplink                    | Uplinks for HCX IX and NE appliances to remote peers | `/26`  | `10.10.3.0/26`   |
+| Reserved                      | Reserved                                             | `/26`  | `10.10.3.64/26`  |
+| Reserved                      | Reserved                                             | `/26`  | `10.10.3.128/26` |
+| Reserved                      | Reserved                                             | `/26`  | `10.10.3.192/26` |
 
 
 
@@ -86,17 +86,20 @@ The subnets:
 | Private Cloud management network | On-premises Active Directory  | TCP  | 389/636 | These ports are open to allow communications for Azure VMware Solutions vCenter Server to communicate to any on-premises Active Directory/LDAP server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter. Port 636 is recommended for security purposes. |  
 | Private Cloud management network | On-premises Active Directory Global Catalog  | TCP  | 3268/3269 | These ports are open to allow communications for Azure VMware Solutions vCenter Server to communicate to any on-premises Active Directory/LDAP global catalog server(s).  These port(s) are optional - for configuring on-premises AD as an identity source on the Private Cloud vCenter Server. Port 3269 is recommended for security purposes. |  
 | On-premises network  | Private Cloud vCenter Server  | TCP (HTTPS)  | 443 | This port allows you to access vCenter Server from an on-premises network. The default port that the vCenter Server system uses to listen for connections from the vSphere Client. To enable the vCenter Server system to receive data from the vSphere Client, open port 443 in the firewall. The vCenter Server system also uses port 443 to monitor data transfer from SDK clients. |  
-| On-premises network  | HCX Manager  | TCP (HTTPS) | 9443 | Hybrid Cloud Manager Virtual Appliance Management Interface for Hybrid Cloud Manager system configuration. |
-| Admin Network  | Hybrid Cloud Manager | SSH | 22 | Administrator SSH access to Hybrid Cloud Manager. |
+| On-premises network  | HCX Cloud Manager  | TCP (HTTPS) | 9443 | HCX Cloud Manager virtual appliance management interface for HCX system configuration. |
+| On-premises Admin Network  | HCX Cloud Manager | SSH | 22 | Administrator SSH access to HCX Cloud Manager virtual appliance. |
 | HCX Manager | Interconnect (HCX-IX) | TCP (HTTPS) | 8123 | HCX Bulk Migration Control |
 | HCX Manager | Interconnect (HCX-IX), Network Extension (HCX-NE) | HTTP  TCP (HTTPS) | 9443 | Send management instructions to the local HCX Interconnect using the REST API. |
 | Interconnect (HCX-IX)| L2C | TCP (HTTPS) | 443 | Send management instructions from Interconnect to L2C when L2C uses the same path as the Interconnect. |
-| HCX Manager, Interconnect (HCX-IX) | ESXi Hosts | TCP | 80,902 | Management and OVF deployment. |
-| HCX NE, Interconnect (HCX-IX) at Source| HCX NE, Interconnect (HCX-IX) at Destination)| UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
-| Interconnect (HCX-IX) local | Interconnect (HCX-IX) (remote)  | UDP | 500 | Required for IPSEC<br> Internet key exchange (ISAKMP) for the bidirectional tunnel. |
-| On-premises vCenter Server network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter Server to Private Cloud vCenter Server   |     
+| HCX Manager, Interconnect (HCX-IX) | ESXi Hosts | TCP | 80,443,902 | Management and OVF deployment. |
+| Interconnect (HCX-IX), Network Extension (HCX-NE) at Source| Interconnect (HCX-IX), Network Extension (HCX-NE) at Destination| UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Network Address Translation-Traversal (NAT-T) is also supported. |
+| On-premises Interconnect (HCX-IX) | Cloud Interconnect (HCX-IX) | UDP | 500 | Required for IPSEC<br> Internet key exchange (ISAKMP) for the bidirectional tunnel. |
+| On-premises vCenter Server network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter Server to Private Cloud vCenter Server   |
+| HCX Connector | connect.hcx.vmware.com<br> hybridity.depot.vmware.com | TCP | 443 | `connect` is needed to validate license key.<br> `hybridity` is needed for updates. |
 
-[For a full list of HCX port requirements](https://ports.esp.vmware.com/home/VMware-HCX)
+There can be more items to consider when it comes to firewall rules, this is intended to give common rules for common scenarios. Note that when source and destination say "on-premises," this is only important if you have a firewall that inspects flows within your datacenter. If you do not have a firewall that inspects between on-premises components, you can ignore those rules as they would not be needed.
+
+[Full list of HCX port requirements](https://ports.esp.vmware.com/home/VMware-HCX)
 
 ## DHCP and DNS resolution considerations
 

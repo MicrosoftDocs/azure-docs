@@ -28,8 +28,8 @@ The `set-status` policy sets the HTTP status code to the specified value.
 
 | Attribute       | Description                                                | Required | Default |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| code  | Integer. The HTTP status code to return.                            | Yes      | N/A     |
-| reason | String. A description of the reason for returning the status code. | Yes      | N/A     |
+| code  | Integer. The HTTP status code to return. Policy expressions are allowed.                            | Yes      | N/A     |
+| reason | String. A description of the reason for returning the status code. Policy expressions are allowed. | Yes      | N/A     |
 
 
 ## Usage

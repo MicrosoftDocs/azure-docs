@@ -60,9 +60,19 @@ landingContent:
             url: find-ids.md
       - linkListType: how-to-guide
         links:
+          - text: How to use a script to automate lab functionality
+            url: full-api-script.md
           - text: How to create a lab
             url: create-lab-education-hub.md
           - text: How to add a student to a lab
             url: add-student-api.md
           - text: How to delete a lab
             url: delete-lab-education-hub-apis.md
+  
+  # Card
+  - title: Azure for Classroom
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to set-up a custom tenant for Azure Classroom
+            url: custom-tenant-set-up-classroom.md

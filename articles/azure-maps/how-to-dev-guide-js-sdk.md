@@ -392,7 +392,7 @@ main().catch(console.error);
 [Node.js Release Working Group]: https://github.com/nodejs/release#release-schedule
 [Node.js]: https://nodejs.org/en/download/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 
 [authentication]: azure-maps-authentication.md
 [Azure Identity library]: /javascript/api/overview/azure/identity-readme
