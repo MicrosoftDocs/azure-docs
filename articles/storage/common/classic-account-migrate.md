@@ -55,19 +55,19 @@ The process of migrating a classic storage account involves four steps:
 
 For more information about the migration process, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md)
 
-You can migrate a classic storage account to the Azure Resource Manager deployment model with the Azure portal, PowerShell, or Azure CLI.
+You can migrate a classic storage account to the Azure Resource Manager deployment model with the Azure portal or PowerShell.
 
 # [Portal](#tab/azure-portal)
 
 To migrate a classic storage account to the Azure Resource Manager deployment model with the Azure portal:
 
 1. Navigate to your classic storage account in the Azure portal.
-1. In the **Settings** section, click **Migrate to ARM**.
-1. Click on **Validate** to determine migration feasibility.
+1. In the **Settings** section, select **Migrate to ARM**.
+1. Select **Validate** to determine migration feasibility.
 
    :::image type="content" source="./media/classic-account-migrate/validate-storage-account.png" alt-text="Screenshot showing how to migrate your classic storage account to Azure Resource Manager." lightbox="./media/classic-account-migrate/validate-storage-account.png":::
 
-1. After a successful validation, click on **Prepare** button to simulate the migration.
+1. After a successful validation, select **Prepare** button to simulate the migration.
 
   > [!IMPORTANT]
   > There may be a delay of a few minutes after validation is complete before the Prepare button is enabled.
