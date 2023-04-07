@@ -210,13 +210,15 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    After you select **Send**, it might take up to five minutes for the FHIR resources to be available in the FHIR service.
 
    > [!IMPORTANT]
-   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before sending it to the MedTech service device event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent mappings](how-to-use-iot-jsonpath-content-mappings.md).
+   > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before sending it to the MedTech service device event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent mappings](how-to-use-iot-jsonpath-content-mappings.md). 
+   >
+   > You do not want to send this example device message to your IoT hub as the enrichment will be duplicated by the IoT hub and cause an error with your MedTech service. This is only an example of how your device messages are enrichment by the IoT hub. 
    >
    > Example:
    >
    > :::image type="content" source="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png":::
    >
-   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure Destination properties](deploy-05-new-config.md#des). The **Resolution type** for this tutorial set to **Create**.
+   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. The **Resolution type** for this tutorial set to **Create**. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure Destination properties](deploy-new-config.md#destination-properties). 
 
 ## Review metrics from the test message
 
