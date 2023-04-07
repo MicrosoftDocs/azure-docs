@@ -36,7 +36,7 @@ The Conversion service is unable to create a map feature from an invalid entity 
 
 * The following image shows an open PolyLine. Assume that the layer only supports closed geometry.
 
-    ![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
+    ![Example of an open PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
 
 #### *How to fix geometryWarning*
 
@@ -52,7 +52,7 @@ An **unexpectedGeometryInLayer** warning occurs when the drawing contains geomet
 
 The following image shows an open PolyLine. Assume that the layer only supports closed geometry.
 
-![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
+![Example of an open PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
 
 #### *How to fix unexpectedGeometryInLayer*
 
@@ -90,9 +90,9 @@ The **automaticRepairPerformed** warning occurs when the Conversion service auto
 
     ![Example of a snapped PolyLine](./media/drawing-conversion-error-codes/automatic-repair-2.png)
 
-* The following image shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple nonclosed PolyLines. To avoid discarding the nonclosed PolyLines, the service combined them into a single closed PolyLine.
+* The following image shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple open PolyLines. To avoid discarding the open PolyLines, the service combined them into a single closed PolyLine.
 
-    ![Example of non-closed Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automatic-repair-3.png)
+    ![Example of open Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automatic-repair-3.png)
 
 #### *How to fix automaticRepairPerformed*
 
