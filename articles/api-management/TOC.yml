@@ -289,6 +289,8 @@
             - name: Mitigate OWASP API threats
               href: mitigate-owasp-api-threats.md
               displayName: OWASP top 10, vulnerability, vulnerabilities
+            - name: Protect APIs with Defender for APIs
+              href: protect-with-defender-for-apis.md
           - name: Manage API authorizations
             items:
             - name: Authorizations overview
