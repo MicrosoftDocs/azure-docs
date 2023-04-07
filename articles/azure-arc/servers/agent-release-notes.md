@@ -18,6 +18,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.29 - April 2023
 
+Download for [Windows]() or [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
+
 ### New features
 
 - The agent now compares the time on the local system and Azure service when checking network connectivity and creating the resource in Azure. If the clocks are offset by more than 120 seconds (2 minutes), a non-blocking error will be printed to the console. You may encounter TLS connection errors if the time of your computer does not match the time in Azure.
@@ -32,6 +34,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.28 - March 2023
 
+Download for [Windows](https://download.microsoft.com/download/5/9/7/59789af8-5833-4c91-8dc5-91c46ad4b54f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
+
 ### Fixed
 
 - Improved reliability of delete requests for extensions
@@ -42,6 +46,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Removed weekly restarts for the extension and guest configuration services
 
 ## Version 1.27 - February 2023
+
+Download for [Windows](https://download.microsoft.com/download/8/4/5/845d5e04-bb09-4ed2-9ca8-bb51184cddc9/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
 
 ### Fixed
 
@@ -54,6 +60,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## Version 1.26 - January 2023
 
+Download for [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
+
 > [!NOTE]
 > Version 1.26 is only available for Linux operating systems.
 
@@ -62,6 +70,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Microsoft Defender for Endpoint extension (MDE.Linux) on Linux to improve installation reliability
 
 ## Version 1.25 - January 2023
+
+Download for [Windows](https://download.microsoft.com/download/2/a/5/2a5b7d19-bc35-443e-80b2-63087577236e/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-previous-version-of-the-agent)
 
 ### New features
 
