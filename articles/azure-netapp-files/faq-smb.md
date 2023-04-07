@@ -40,7 +40,7 @@ You should not modify the `RequireSeal` value to 2 at this time. Azure NetApp Fi
 
 The enforcement of setting `RequireSeal` value to 2 will occur by default with the June 2023 Azure update.
 
-For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/en-us/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
+For more information, see [KB5021130: How to manage the Netlogon protocol changes related to CVE-2022-38023](https://support.microsoft.com/topic/kb5021130-how-to-manage-the-netlogon-protocol-changes-related-to-cve-2022-38023-46ea3067-3989-4d40-963c-680fd9e8ee25#timing5021130).
 
 ## What versions of Windows Server Active Directory are supported?
 
