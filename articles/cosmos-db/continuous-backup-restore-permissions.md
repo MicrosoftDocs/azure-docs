@@ -83,23 +83,19 @@ Following permissions are required to perform the different activities pertainin
 Roles with permission can be assigned to different scopes to achieve granular control on who can perform the restore operation within a subscription or a given account.
 
 ### Assign capability to restore from any restorable account in a subscription
-- Assign a user write action on the specific resource group. This action is required to create a new account in the resource group.
-- Assign the `CosmosRestoreOperator` built in role to the specific restorable database account that needs to be restored. In the following command, the scope for the `RestorableDatabaseAccount` is extracted from the `ID` property of result of execution of `az cosmosdb restorable-database-account list`(if using CLI) or `Get-AzCosmosDBRestorableDatabaseAccount`(if using the PowerShell)
 
-Assign the `CosmosRestoreOperator` built-in role at subscription level
+- Assign the `CosmosRestoreOperator` built in role to the specific subscription level 
 
 ```azurecli-interactive
 az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope /subscriptions/<subscriptionId>
 ```
 
-### Assign capability to restore from a specific account
+### Assign capability to restore from a specific account  
 - Assign a user write action on the specific resource group. This action is required to create a new account in the resource group.
 - Assign the `CosmosRestoreOperator` built in role to the specific restorable database account that needs to be restored. In the following command, the scope for the `RestorableDatabaseAccount` is extracted from the `ID` property of result of execution of `az cosmosdb restorable-database-account list`(if using CLI) or `Get-AzCosmosDBRestorableDatabaseAccount`(if using the PowerShell)
 
-Assign the `CosmosRestoreOperator` built-in role at subscription level
-
 ```azurecli-interactive
-az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope /subscriptions/<subscriptionId>
+az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope  <RestorableDatabaseAccount>
 ```
 
 ### Assign capability to restore from any source account in a resource group.
