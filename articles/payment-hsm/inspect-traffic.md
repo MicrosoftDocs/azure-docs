@@ -21,14 +21,14 @@ When Payment HSM is deployed, it comes with a host network interface and a manag
 
 In all of the above scenarios, Payment HSM is a VNet-injected service in a delegated subnet: `hsmSubnet` and `managementHsmSubnet` must be delegated to `Microsoft.HardwareSecurityModules/dedicatedHSMs` service.
 
-Payment HSM comes with some policy [restrictions](solution-design.md#constraints) on these subnets: **Network Security Groups (NSGs) and User-Defined Routes (UDRs) are currently not supported**.
-
 > [!IMPORTANT]
-> The `FastPathEnabled` **feature** must be [registered and approved](register-payment-hsm-resource-providers.md?tabs=azure-cli#register-the-resource-providers-and-features) on all subscriptions that need access to Payment HSM.  For more information, see [FastPathEnabled](fastpathenabled.md).
+> The `FastPathEnabled` feature must be [registered and approved](register-payment-hsm-resource-providers.md?tabs=azure-cli#register-the-resource-providers-and-features) on all subscriptions that need access to Payment HSM. You must also enable the `fastpathenabled` tag on the VNet hosting the Payment HSM delegated subnet and on every peered VNet requiring [connectivity to the Payment HSM devices](peer-vnets.md?tabs=azure-cli).
+> 
+> For the `fastpathenabled` VNet tag to be valid, the `FastPathEnabled` feature must be enabled on the subscription where that VNet is deployed. Both steps must be completed to enable resources to connect to the Payment HSM devices. For more information, see [FastPathEnabled](fastpathenabled.md).
 
-PHSM is not compatible with vWAN topologies or cross region VNet peering, as listed in the [topology supported](solution-design.md#supported-topologies).
+PHSM is not compatible with vWAN topologies or cross region VNet peering, as listed in the [topology supported](solution-design.md#supported-topologies). Payment HSM comes with some policy [restrictions](solution-design.md#constraints) on these subnets: **Network Security Groups (NSGs) and User-Defined Routes (UDRs) are currently not supported**.
 
-This article present two ways to inspect traffic destined to a Payment HSM: a firewall with source network address translation (SNAT), and a firewall with reverse proxy
+It is possible to bypass the current UDR restriction and inspect traffic destined to a Payment HSM. This article presents two ways: a firewall with source network address translation (SNAT), and a firewall with reverse proxy.
 
 ## Firewall with source network address translation (SNAT)
 
