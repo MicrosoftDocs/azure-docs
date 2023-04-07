@@ -29,7 +29,7 @@ Similarly, you can host multiple subdomains of the same parent domain on the sam
 When you use multi-site listeners to ensure that the client traffic is routed to the accurate backend, it's important that the request routing rules are present in the correct order.
 For example, if you have 2 listeners with associated host names of `*.contoso.com` and `shop.contoso.com`, the listener with the `shop.contoso.com` host name must be processed before the listener with `*.contoso.com`. If the listener with `*.contoso.com` is processed first, then no client traffic is received by the more specific `shop.contoso.com` listener.
 
-The ordering of rules can be established by providing a **Priority** field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. If incoming client traffic matches with multiple listeners, the request routing rule with highest priority is to serve the request. Each request routing rule must have a unique priority value.
+The ordering of rules can be established by providing a **Priority** field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. If incoming client traffic matches with multiple listeners, the request routing rule with highest priority is used to serve the request. Each request routing rule must have a unique priority value.
 
 The priority field only impacts the order of evaluation of a request routing rule, this wont change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
