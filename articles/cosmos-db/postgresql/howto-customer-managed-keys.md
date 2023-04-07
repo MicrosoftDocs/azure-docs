@@ -83,21 +83,21 @@ ms.date: 04/06/2023
 
 **4. Create / Import Key:**
 
-    a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
+   a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
-    b. Select Keys from the left menu and then select +Generate/Import.
+   b. Select Keys from the left menu and then select +Generate/Import.
 
    ![Screenshot of Key generation page](media/howto-customer-managed-keys/Key%201.png)
 
-    c. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
+   c. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
 
-    d. The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
+   d. The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
 
-    e. The key must be in the Enabled state.
+   e. The key must be in the Enabled state.
 
-    f. If you're importing an existing key into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
+   f. If you're importing an existing key into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
-    g. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
+   g. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
 
 **5. Enable CMK encryption during the provisioning for a new cluster**
 
