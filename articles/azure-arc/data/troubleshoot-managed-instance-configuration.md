@@ -21,58 +21,60 @@ For Arc SQL Managed Instance, the supported configuration files that you can ove
 
 ## Steps to provide override configuration files
 
-### 1. Prepare the content of the configuration file
+1. Prepare the content of the configuration file
 
-Prepare the content of the file that you would like to provide an override for.
+   Prepare the content of the file that you would like to provide an override for.
 
-### 2. Create a `ConfigMap`
+1. Create a `ConfigMap`
 
-Create a `ConfigMap` spec to store the content of the configuration file. The key in the `ConfigMap` dictionary should be the name of the file, and the value should be the content.
-You can provide file overrides for multiple configuration files in one `ConfigMap`.
-The `ConfigMap` must be in the same namespace as the SQL Managed Instance.
+   Create a `ConfigMap` spec to store the content of the configuration file. The key in the `ConfigMap` dictionary should be the name of the file, and the value should be the content.
 
-The following spec shows an example of how to provide an override for mssql.conf file:
+   You can provide file overrides for multiple configuration files in one `ConfigMap`.
 
-```json
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: sqlmifo-cm
-  namespace: test
-data:
-  mssql.conf: "[language]\r\nlcid = 1033\r\n\r\n[licensing]\r\npid = GeneralPurpose\r\n\r\n[network]\r\nforceencryption = 0\r\ntlscert = /var/run/secrets/managed/certificates/mssql/mssql-certificate.pem\r\ntlsciphers = ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384\r\ntlskey = /var/run/secrets/managed/certificates/mssql/mssql-privatekey.pem\r\ntlsprotocols = 1.2\r\n\r\n[sqlagent]\r\nenabled = False\r\n\r\n[telemetry]\r\ncustomerfeedback = false\r\n\r\n"
-```
+   The `ConfigMap` must be in the same namespace as the SQL Managed Instance.
 
-Apply the `ConfigMap` in Kubernetes using `kubectl apply -f <filename>`.
+   The following spec shows an example of how to provide an override for mssql.conf file:
 
-### 3. Provide the name of the ConfigMap in SQL Managed Instance spec
+   ```json
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: sqlmifo-cm
+     namespace: test
+   data:
+     mssql.conf: "[language]\r\nlcid = 1033\r\n\r\n[licensing]\r\npid = GeneralPurpose\r\n\r\n[network]\r\nforceencryption = 0\r\ntlscert = /var/run/secrets/managed/certificates/mssql/mssql-certificate.pem\r\ntlsciphers = ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384\r\ntlskey = /var/run/secrets/managed/certificates/mssql/mssql-privatekey.pem\r\ntlsprotocols = 1.2\r\n\r\n[sqlagent]\r\nenabled = False\r\n\r\n[telemetry]\r\ncustomerfeedback = false\r\n\r\n"
+   ```
 
-In SQL Managed Instance spec, provide the name of the ConfigMap in the field `spec.fileOverrideConfigMap`.
-The SQL Managed Instance `apiVersion` must be at least v12 (released in April 2023).
+   Apply the `ConfigMap` in Kubernetes using `kubectl apply -f <filename>`.
 
-The following SQL Managed Instance spec shows an example of how to provide the name of the ConfigMap.
+1. Provide the name of the ConfigMap in SQL Managed Instance spec
 
-```json
-apiVersion: sql.arcdata.microsoft.com/v12
-kind: SqlManagedInstance
-metadata:
-  name: sqlmifo
-  namespace: test
-spec:
-  fileOverrideConfigMap: sqlmifo-cm
-  ...
-```
+   In SQL Managed Instance spec, provide the name of the ConfigMap in the field `spec.fileOverrideConfigMap`.
 
-Apply the SQL Managed Instance spec in Kubernetes. This action leads to the delivery of the provided configuration files to Arc SQL Managed Instance container.
+   The SQL Managed Instance `apiVersion` must be at least v12 (released in April 2023).
 
-### 4. Check that the files are downloaded in the arc-sqlmi container.
+   The following SQL Managed Instance spec shows an example of how to provide the name of the ConfigMap.
 
-The locations of supported files in the container are:
+   ```json
+   apiVersion: sql.arcdata.microsoft.com/v12
+   kind: SqlManagedInstance
+   metadata:
+     name: sqlmifo
+     namespace: test
+   spec:
+     fileOverrideConfigMap: sqlmifo-cm
+     ...
+   ```
 
-- `mssql.conf`: `/var/run/config/mssql/mssql.conf`
-- `mssql.json`: `/var/run/config/mssql/mssql.json`
-- `krb5.conf`: `/etc/krb5.conf`
+   Apply the SQL Managed Instance spec in Kubernetes. This action leads to the delivery of the provided configuration files to Arc SQL Managed Instance container.
 
+1. Check that the files are downloaded in the `arc-sqlmi` container.
+
+   The locations of supported files in the container are:
+
+   - `mssql.conf`: `/var/run/config/mssql/mssql.conf`
+   - `mssql.json`: `/var/run/config/mssql/mssql.json`
+   - `krb5.conf`: `/etc/krb5.conf`
 
 ## Next steps
 
