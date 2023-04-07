@@ -56,7 +56,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Link the IoT hub and your Device Provisioning Service instance
 
-In this section, you add a configuration to the Device Provisioning Service instance. This configuration sets the IoT hub for which devices are provisioned by the instance.
+In this section, you add a configuration to the Device Provisioning Service instance. This configuration sets the IoT hub for which the instance provisions IoT devices.
 
 1. In the **Settings** menu, select **Linked IoT hubs**.
 
