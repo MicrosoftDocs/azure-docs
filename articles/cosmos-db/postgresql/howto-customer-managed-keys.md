@@ -87,6 +87,7 @@ ms.date: 04/06/2023
     a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
     b. Select Keys from the left menu and then select +Generate/Import.
+
    ![Screenshot of Key generation page](media/howto-customer-managed-keys/Key%201.png)
 
     c. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
