@@ -12,10 +12,10 @@ This article describes how to enable and use the Heart Workbook on Azure Monitor
 ## Overview
 HEART is an acronym that stands for happiness, engagement, adoption, retention, and task success. It helps product teams deliver better software by focusing on five dimensions of customer experience:
 
-- **Happiness**: Measure of user attitude  
+- **Happiness**: Measure of user attitude
 - **Engagement**: Level of active user involvement
 - **Adoption**: Target audience penetration
-- **Retention**: Rate at which users return  
+- **Retention**: Rate at which users return
 - **Task success**: Productivity empowerment
 
 These dimensions are measured independently, but they interact with each other.
@@ -58,7 +58,7 @@ These dimensions are measured independently, but they interact with each other.
 > To understand how to effectively use the Click Analytics plug-in, see [Feature extensions for the Application Insights JavaScript SDK (Click Analytics)](javascript-feature-extensions.md#use-the-plug-in).
 
 ### Open the workbook
-You can find the workbook in the gallery under **Public Templates**. The workbook appears in the section  **Product Analytics using the Click Analytics Plugin**.
+You can find the workbook in the gallery under **Public Templates**. The workbook appears in the section **Product Analytics using the Click Analytics Plugin**.
 
 :::image type="content" source="media/usage-overview/workbook-gallery.png" alt-text="Screenshot that shows the location of the HEART workbooks in Azure Application Insights.":::
 
@@ -92,7 +92,7 @@ The tabs are:
 - **Feature metrics**: Enables understanding of HEART metrics at feature granularity.
 
 > [!WARNING]
-> The HEART workbook is currently built on logs and effectively are [log-based metrics](pre-aggregated-metrics-log-metrics.md). The accuracy of these metrics are  negatively affected by sampling and filtering.
+> The HEART workbook is currently built on logs and effectively are [log-based metrics](pre-aggregated-metrics-log-metrics.md). The accuracy of these metrics are negatively affected by sampling and filtering.
 
 ## How HEART dimensions are defined and measured
 
@@ -115,7 +115,7 @@ Engagement is a measure of user activity. Specifically, user actions are intenti
 Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, which makes it an important metric to track. But for a product like a paycheck portal, measurement might make more sense at a monthly or weekly level.
 
 >[!IMPORTANT]
->A user who performs an intentional action, such as clicking a button or typing an input, is counted as an active user. For this reason, engagement metrics require the [Click Analytics plug-in for Application Insights](javascript-feature-extensions.md) implemented in the application.
+>A user who performs an intentional action, such as clicking a button or typing an input, is counted as an active user. For this reason, engagement metrics require the [Click Analytics plug-in for Application Insights](javascript-feature-extensions.md) to be implemented in the application.
 
 ### Adoption
 
@@ -135,7 +135,7 @@ A retained user is a user who was active in a specified reporting period and its
 | Retention      | Proportion of active users from the previous period who are also active this period | What percent of users are staying engaged with the product? |
 
 >[!IMPORTANT]
->Because active users must have at least one telemetry event with an action type, retention metrics require the [Click Analytics plug-in for Application Insights](javascript-feature-extensions.md) implemented in the application.
+>Because active users must have at least one telemetry event with an action type, retention metrics require the [Click Analytics plug-in for Application Insights](javascript-feature-extensions.md) to be implemented in the application.
 
 ### Task success
 
@@ -153,22 +153,22 @@ A successful task meets three requirements:
 A task is considered unsuccessful if any of the preceding requirements isn't met.
 
 >[!IMPORTANT]
->Task success metrics require the [Click Analytics plug-in for Application Insights](javascript-feature-extensions.md) implemented in the application.
+>Task success metrics require the [Click Analytics plug-in for Application Insights](javascript-feature-extensions.md) to be implemented in the application.
 
 Set up a custom task by using the following parameters.
 
 | Parameter         | Description                                                                                                                                                                                                                         |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| First step           | The feature that starts the task. Using the cart/purchase example, **Adding items to a cart** is the first step.                                                                                                          |
+| First step           | The feature that starts the task. In the cart/purchase example, **Adding items to a cart** is the first step.                                                                                                          |
 | Expected task duration | The time window to consider a completed task a success. Any tasks completed outside of this constraint are considered a failure. Not all tasks necessarily have a time constraint. For such tasks, select **No Time Expectation**. |
-| Last step        | The feature that completes the task. Using the cart/purchase example, **Purchasing items from the cart** is the last step.                                                                                               |
+| Last step        | The feature that completes the task. In the cart/purchase example, **Purchasing items from the cart** is the last step.                                                                                               |
 
 ## Frequently asked questions
 
-### How do I view the data at different grains? (Daily, monthly, weekly)?
-You can select the **Date Grain** filter to change the grain.
+### How do I view the data at different grains (daily, monthly, or weekly)?
+You can select the **Date Grain** filter to change the grain. The filter is available across all the dimension tabs.
 
-:::image type="content" source="media/usage-overview/date-grain-monthly.png" alt-text="Screenshot that shows the filter to change date grain to daily, monthly, or weekly in the workbook. The date grain filter is available across all the dimension tabs.":::
+:::image type="content" source="media/usage-overview/date-grain-monthly.png" alt-text="Screenshot that shows the filter to change date grain to daily, monthly, or weekly in the workbook.":::
 
 ### How do I access insights from my application that aren't available on the HEART workbooks?
 
@@ -180,17 +180,17 @@ To learn more about Logs in Azure Monitor, see [Azure Monitor Logs overview](../
 
 ### Can I edit visuals in the workbook?
 
-Yes. When you select the public template of the workbook, go to the upper-left corner, select **Edit**, and make your changes.
+Yes. When you select the public template of the workbook, select **Edit** and make your changes.
 
 :::image type="content" source="media/usage-overview/workbook-edit-faq.png" alt-text="Screenshot that shows the Edit button in the upper-left corner of the workbook template.":::
 
-After you make your changes, select **Done Editing** and then select the **Save** icon.
+After you make your changes, select **Done Editing**, and then select the **Save** icon.
 
 :::image type="content" source="media/usage-overview/workbook-save-faq.png" alt-text="Screenshot that shows the Save icon at the top of the workbook template that becomes available after you make edits.":::
 
 To view your saved workbook, under **Monitoring**, go to the **Workbooks** section and then select the **Workbooks** tab. A copy of your customized workbook appears there. You can make any further changes you want in this copy.
 
-:::image type="content" source="media/usage-overview/workbook-view-faq.png" alt-text="Screenshot that shows the Workbooks button next to the Public Templates tab, where the edited copy of the workbook is located.":::
+:::image type="content" source="media/usage-overview/workbook-view-faq.png" alt-text="Screenshot that shows the Workbooks tab next to the Public Templates tab, where the edited copy of the workbook is located.":::
 
 For more on editing workbook templates, see [Azure Workbooks templates](../visualize/workbooks-templates.md).
 
