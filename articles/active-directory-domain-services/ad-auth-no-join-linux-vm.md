@@ -64,7 +64,7 @@ Review the information that you provided, and if everything is correct, click Fi
 On your Linux VM, install the following packages: *sssd sssd-tools sssd-ldap openldap-client*:
 
 ```bash
-sudo yum install -y sssd sssd-tools sssd-ldap openldap-clients
+sudo dnf install -y sssd sssd-tools sssd-ldap openldap-clients
 ```
 
 After the installation check if LDAP search works. In order to check it try an LDAP search following the example below:
@@ -185,13 +185,13 @@ Save the file with *ESC + wq!* command.
 Set the permission to sssd.conf to 600 with the following command:
 
 ```bash
-chmod 600 /etc/sssd/sssd.conf
+sudo chmod 600 /etc/sssd/sssd.conf
 ```
 
 After that create an obfuscated password for the Bind DN account. You must insert the Domain password for ReadOnlyUser:
 
 ```bash
-sss_obfuscate --domain default
+sudo sss_obfuscate --domain default
 ```
 
 The password will be placed automatically in the configuration file.
@@ -213,7 +213,7 @@ sudo authconfig --enablesssd --enablesssdauth --enablemkhomedir --updateall
 At this point restart the service:
 
 ```bash
-systemctl restart sssd
+sudo systemctl restart sssd
 ```
 
 ## Test the configuration
