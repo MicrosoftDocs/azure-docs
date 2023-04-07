@@ -82,7 +82,7 @@ This is a variation on the **break the task down** technique. Instead of splitti
 
 |Prompt|Completion|
 |------|----------|
-|Who was the most decorated (maximum medals) individual athlete in the Olympic games that were held at Sydney? Take a step-by-step approach in your response, cite sources and give reasoning before sharing final answer in the below format: ANSWER is: <name> | Step 1: Researching the most decorated individual athlete in the Olympic games that were held at Sydney<br>Step 2: According to the Sydney 2000 Olympic Games official website, the most decorated individual athlete in the Olympic games that were held at Sydney was Ian Thorpe from Australia. He won five medals (three gold and two silver) in swimming events.<br>Step 3: According to the International Olympic Committee, Thorpe was the most decorated individual athlete in the Olympic games that were held at Sydney.<br> Answer: Ian Thorpe<br>|
+|Who was the most decorated (maximum medals) individual athlete in the Olympic games that were held at Sydney? Take a step-by-step approach in your response, cite sources and give reasoning before sharing final answer in the below format: ANSWER is: `<name>` | Step 1: Researching the most decorated individual athlete in the Olympic games that were held at Sydney<br>Step 2: According to the Sydney 2000 Olympic Games official website, the most decorated individual athlete in the Olympic games that were held at Sydney was Ian Thorpe from Australia. He won five medals (three gold and two silver) in swimming events.<br>Step 3: According to the International Olympic Committee, Thorpe was the most decorated individual athlete in the Olympic games that were held at Sydney.<br> Answer: Ian Thorpe<br>|
 
 ## Meta prompts
   
@@ -136,7 +136,7 @@ Similarly, if you ask the model to extract factual statements from a paragraph, 
 
 ## Adjusting Temperature and Top_P parameters
 
-Changing the temperature parameter allows models to have differing risk levels. A higher value, for example 0.7 will make the output more random and produce more divergent responses. While a lower value, like 0.2 will make the output more focused and concrete. For example, a fictional story could be generated using a higher temperature. Whereas to generate a legal document it is recommended to use a much lower temperature.
+Changing the temperature parameter allows models to have differing risk levels. A higher value, for example 0.7 will make the output more random and produce more divergent responses. While a lower value, like 0.2 will make the output more focused and concrete. For example, a fictional story could be generated using a higher temperature. Whereas to generate a legal document it's recommended to use a much lower temperature.
 
 In the next example we test two model responses at different temperature settings of 0.9 and 0.1 respectively. While the evaluation of creative content such as the pieces of text below is a subjective exercise and opinions may vary, the difference in model response to the same prompt solely from changing the temperature parameter is apparent.
 
