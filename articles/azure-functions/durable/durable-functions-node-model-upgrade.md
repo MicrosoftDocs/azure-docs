@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-functions-nodejs
 >[!NOTE]
 > Version 4 of the Node.js programming model is currently in public preview.
 
-This article provides a guide to upgrade your existing Durable Functions app to newly released version 4 of the Node.js programming model for Azure Functions from the existing version 3. If you're instead interested in creating a brand new v4 app, follow the Visual Studio Code quickstarts for [JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4) and [TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4). This article uses "TIP" sections to highlight the most important concrete actions you should take to upgrade your app. Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md). You can also learn more about the new v4 programming model through the [Node.js developer reference](../functions-reference-node.md?pivots=nodejs-model-v4).
+This article provides a guide to upgrade your existing Durable Functions app to newly released version 4 of the Node.js programming model for Azure Functions from the existing version 3. If you're instead interested in creating a brand new v4 app, follow the Visual Studio Code quickstarts for [JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4) and [TypeScript](./quickstart-typescript-vscode.md?pivots=nodejs-model-v4). This article uses "TIP" sections to highlight the most important concrete actions you should take to upgrade your app. Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md). You can also learn more about the new v4 programming model through the [Node.js developer reference](../functions-reference-node.md?pivots=nodejs-model-v4).
 
 >[!TIP]
 > Before following this guide, make sure you follow the general [version 4 upgrade guide](../functions-node-upgrade-v4.md).
@@ -554,13 +554,13 @@ Below, find the full list of changes:
 
 <table>
 <tr>
-<th> V3 model (`v2.x` `durable-functions`) </th>
-<th> V4 model (`v3.x` `durable-functions`) </th>
+<th> V3 model (durable-functions v2.x) </th>
+<th> V4 model (durable-functions v3.x) </th>
 </tr>
 <tr>
 <td>
 
-```TS
+```typescript
 getStatus(
     instanceId: string,
     showHistory?: boolean,
@@ -571,7 +571,7 @@ getStatus(
 </td>
 <td>
 
-```TS
+```typescript
 getStatus(
     instanceId: string, 
     options?: GetStatusOptions
@@ -582,7 +582,7 @@ getStatus(
 <tr>
 <td>
 
-```TS
+```typescript
 getStatusBy(
     createdTimeFrom: Date | undefined,
     createdTimeTo: Date | undefined,
@@ -593,7 +593,7 @@ getStatusBy(
 </td>
 <td>
 
-```TS
+```typescript
 getStatusBy(
     options: OrchestrationFilter
 ): Promise<DurableOrchestrationStatus[]>
@@ -604,7 +604,7 @@ getStatusBy(
 <tr>
 <td>
 
-```TS
+```typescript
 purgeInstanceHistoryBy(
     createdTimeFrom: Date,
     createdTimeTo?: Date,
@@ -615,7 +615,7 @@ purgeInstanceHistoryBy(
 </td>
 <td>
 
-```TS
+```typescript
 purgeInstanceHistoryBy(
     options: OrchestrationFilter
 ): Promise<PurgeHistoryResult>
@@ -626,7 +626,7 @@ purgeInstanceHistoryBy(
 <tr>
 <td>
 
-```TS
+```typescript
 raiseEvent(
     instanceId: string,
     eventName: string,
@@ -639,7 +639,7 @@ raiseEvent(
 </td>
 <td>
 
-```TS
+```typescript
 raiseEvent(
     instanceId: string,
     eventName: string,
@@ -653,7 +653,7 @@ raiseEvent(
 <tr>
 <td>
 
-```TS
+```typescript
 readEntityState<T>(
     entityId: EntityId,
     taskHubName?: string,
@@ -664,7 +664,7 @@ readEntityState<T>(
 </td>
 <td>
 
-```TS
+```typescript
 readEntityState<T>(
     entityId: EntityId,
     options?: TaskHubOptions
@@ -676,7 +676,7 @@ readEntityState<T>(
 <tr>
 <td>
 
-```TS
+```typescript
 rewind(
     instanceId: string,
     reason: string,
@@ -688,7 +688,7 @@ rewind(
 </td>
 <td>
 
-```TS
+```typescript
 rewind(
     instanceId: string, 
     reason: string, 
@@ -701,7 +701,7 @@ rewind(
 <tr>
 <td>
 
-```TS
+```typescript
 signalEntity(
     entityId: EntityId,
     operationName?: string,
@@ -713,7 +713,7 @@ signalEntity(
 </td>
 <td>
 
-```TS
+```typescript
 signalEntity(
     entityId: EntityId, 
     operationName?: string,
@@ -749,7 +749,7 @@ startNew(
 <tr>
 <td>
 
-```TS
+```typescript
 waitForCompletionOrCreateCheckStatusResponse(
     request: HttpRequest,
     instanceId: string,
@@ -761,7 +761,7 @@ waitForCompletionOrCreateCheckStatusResponse(
 </td>
 <td>
 
-```TS
+```typescript
 waitForCompletionOrCreateCheckStatusResponse(
     request: HttpRequest,
     instanceId: string,
@@ -775,3 +775,8 @@ waitForCompletionOrCreateCheckStatusResponse(
 
 >[!TIP]
 > Make sure to update your `DurableClient` API calls from discrete optional arguments to options objects, where applicable. See the list above for all APIs affected. 
+
+
+## Update calls to callHttp API
+
+If your orchestrator used the `
