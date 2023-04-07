@@ -1,16 +1,16 @@
 ---
 title: include file
-description: Send email.net sdk include file
-author: bashan-git
-manager: sundraman
+description: Advanced send email .NET SDK include file
+author: natekimball-msft
+manager: koagbakp
 services: azure-communication-services
-ms.author: bashan
-ms.date: 03/31/2023
+ms.author: natekimball
+ms.date: 04/07/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
-Get started with Azure Communication Services by using the Communication Services C# Email client library to send Email messages.
+Get started with Azure Communication Services by using the Communication Services .NET Email client library to send Email messages.
 
 > [!TIP]
 > Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced) sample code on GitHub.
@@ -152,86 +152,3 @@ var endpoint = new Uri("<your-endpoint-uri>");
 
 var emailClient = new EmailClient(endpoint, key);
 ```
-
-## Basic email sending 
-
-### Construct your email message
-
-To send an email message, you need to:
-- Define the email subject and body.
-- Define your Sender Address. Construct your email message with your Sender information you get your MailFrom address from your verified domain. 
-- Define the Recipient Address.
-- Call the SendAsync method. Add this code to the end of `Main` method in **Program.cs**:
-
-Replace with your domain details and modify the content, recipient details as required
-```csharp
-
-//Replace with your domain and modify the content, recipient details as required
-
-var subject = "Welcome to Azure Communication Service Email APIs.";
-var htmlContent = "<html><body><h1>Quick send email test</h1><br/><h4>This email message is sent from Azure Communication Service Email.</h4><p>This mail was send using .NET SDK!!</p></body></html>";
-var sender = "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net";
-var recipient = "emailalias@contoso.com";
-
-```
-### Send and get the email send status
-
-To send an email message, you need to:
-- Call SendSync method that sends the email request as an asynchronous operation. Call with Azure.WaitUntil.Completed if your method should wait to return until the long-running operation has completed on the service. Call with Azure.WaitUntil.Started if your method should return after starting the operation. 
-- SendAsync method returns EmailSendOperation that returns "Succeeded" EmailSendStatus if email is out for delivery and throws an exception otherwise. Add this code to the end of `Main` method in **Program.cs**:
-
-```csharp
-try
-{
-    Console.WriteLine("Sending email...");
-    EmailSendOperation emailSendOperation = await emailClient.SendAsync(
-        Azure.WaitUntil.Completed,
-        sender,
-        recipient,
-        subject,
-        htmlContent);
-    EmailSendResult statusMonitor = emailSendOperation.Value;
-    
-    Console.WriteLine($"Email Sent. Status = {emailSendOperation.Value.Status}");
-
-    /// Get the OperationId so that it can be used for tracking the message for troubleshooting
-    string operationId = emailSendOperation.Id;
-    Console.WriteLine($"Email operation id = {operationId}");
-}
-catch (RequestFailedException ex)
-{
-    /// OperationID is contained in the exception message and can be used for troubleshooting purposes
-    Console.WriteLine($"Email send operation failed with error code: {ex.ErrorCode}, message: {ex.Message}");
-}
-```
-
-### Getting email delivery status
-
-EmailSendOperation only returns email operation status. To get the actual email delivery status, you can subscribe to "EmailDeliveryReportReceived" event that is generated when the email delivery is completed. The event returns the following delivery state:
-
-- Delivered. 
-- Failed. 
-- Quarantined.
-
-See [Handle Email Events](../handle-email-events.md) for details.
-
-You can also now subscribe to Email Operational logs that provide information related to delivery metrics for messages sent from the Email service.
-
-- Email Send Mail operational logs - provides detailed information related to the Email service send mail requests.
-- Email Status Update operational logs - provides message and recipient level delivery status updates related to the Email service send mail requests.
-
-See how to [Get started with log analytics in Azure Communication Service](../../../concepts/logging-and-diagnostics.md)
-
-### Run the code
-
-Run the application from your application directory with the `dotnet run` command.
-
-```console
-dotnet run
-```
-
-If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
-
-### Sample code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmail)

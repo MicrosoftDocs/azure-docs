@@ -1,14 +1,13 @@
 ---
 title: include file
-description: include file
+description: Advanced send email Java SDK include file
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
-ms.date: 03/24/2023
+ms.date: 04/07/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
 ---
 
 Get started with Azure Communication Services by using the Communication Services Java Email SDK to send Email messages.
@@ -151,84 +150,3 @@ EmailClient emailClient = new EmailClientBuilder()
 ```
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
-
-## Basic email sending 
-
-To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller, which can be used to check on the status of the operation and retrieve the result once it's finished.
-
-```java
-EmailMessage message = new EmailMessage()
-    .setSenderAddress("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>")
-    .setToRecipients("<emailalias@emaildomain.com>")
-    .setSubject("Welcome to Azure Communication Services Email")
-    .setBodyPlainText("This email message is sent from Azure Communication Services Email using the Java SDK.");
-
-try
-{
-    SyncPoller<EmailSendResult, EmailSendResult> poller = emailClient.beginSend(message, null);
-
-    PollResponse<EmailSendResult> pollResponse = null;
-
-    Duration timeElapsed = Duration.ofSeconds(0);
-
-    while (pollResponse == null
-            || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED
-            || pollResponse.getStatus() == LongRunningOperationStatus.IN_PROGRESS)
-    {
-        pollResponse = poller.poll();
-        System.out.println("Email send poller status: " + pollResponse.getStatus());
-
-        Thread.sleep(POLLER_WAIT_TIME.toMillis());
-        timeElapsed = timeElapsed.plus(POLLER_WAIT_TIME);
-
-        if (timeElapsed.compareTo(POLLER_WAIT_TIME.multipliedBy(18)) >= 0)
-        {
-            throw new RuntimeException("Polling timed out.");
-        }
-    }
-
-    if (poller.getFinalResult().getStatus() == EmailSendStatus.SUCCEEDED)
-    {
-        System.out.printf("Successfully sent the email (operation id: %s)", poller.getFinalResult().getId());
-    }
-    else
-    {
-        throw new RuntimeException(poller.getFinalResult().getError().getMessage());
-    }
-}
-catch (Exception exception)
-{
-    System.out.println(exception.getMessage());
-}
-```
-
-Make these replacements in the code:
-
-- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
-- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-
-### Run the code
-
-1. Navigate to the directory that contains the **pom.xml** file and compile the project by using the `mvn` command.
-
-   ```console
-   mvn compile
-   ```
-
-1. Build the package.
-
-   ```console
-   mvn package
-   ```
-
-1. Run the following `mvn` command to execute the app.
-
-   ```console
-   mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
-   ```
-
-If you see that your application is hanging, it could be due to email sending being throttled. You can [handle throttling through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
-
-### Sample code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)

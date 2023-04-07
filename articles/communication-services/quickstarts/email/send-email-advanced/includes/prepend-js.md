@@ -1,14 +1,13 @@
 ---
 title: include file
-description: Send email.js sdk include file
+description: Advanced send email JavaScript SDK include file
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
-ms.date: 03/24/2023
+ms.date: 04/07/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
 ---
 
 Get started with Azure Communication Services by using the Communication Services JS Email client library to send Email messages.
@@ -149,82 +148,3 @@ const emailClient = new EmailClient(endpoint, key);
 ```
 
 For simplicity, this quickstart uses connection strings, but in production environments, we recommend using [service principals](../../../quickstarts/identity/service-principal.md).
-
-## Basic email sending 
-
-### Send an email message
-
-To send an email message, call the `beginSend` function from the EmailClient. This method returns a poller that checks on the status of the operation and retrieves the result once it's finished.
-
-```javascript
-
-async function main() {
-  const POLLER_WAIT_TIME = 10
-  try {
-    const message = {
-      senderAddress: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
-      content: {
-        subject: "Welcome to Azure Communication Services Email",
-        plainText: "This email message is sent from Azure Communication Services Email using the JavaScript SDK.",
-      },
-      recipients: {
-        to: [
-          {
-            address: "<emailalias@emaildomain.com>",
-            displayName: "Customer Name",
-          },
-        ],
-      },
-    };
-
-    const poller = await emailClient.beginSend(message);
-
-    if (!poller.getOperationState().isStarted) {
-      throw "Poller was not started."
-    }
-
-    let timeElapsed = 0;
-    while(!poller.isDone()) {
-      poller.poll();
-      console.log("Email send polling in progress");
-
-      await new Promise(resolve => setTimeout(resolve, POLLER_WAIT_TIME * 1000));
-      timeElapsed += 10;
-
-      if(timeElapsed > 18 * POLLER_WAIT_TIME) {
-        throw "Polling timed out.";
-      }
-    }
-
-    if(poller.getResult().status === KnownEmailSendStatus.Succeeded) {
-      console.log(`Successfully sent the email (operation id: ${poller.getResult().id})`);
-    }
-    else {
-      throw poller.getResult().error;
-    }
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-main();
-```
-
-Make these replacements in the code:
-
-- Replace `<emailalias@emaildomain.com>` with the email address you would like to send a message to.
-- Replace `<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>` with the MailFrom address of your verified domain.
-
-### Run the code
-
-use the node command to run the code you added to the send-email.js file.
-
-```console
-node ./send-email.js
-```
-
-If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
-
-### Sample code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-email)
