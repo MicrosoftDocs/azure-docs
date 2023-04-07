@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 04/04/2023
+ms.date: 04/07/2023
 ms.author: jasteppe
 ---
 
@@ -15,12 +15,12 @@ ms.author: jasteppe
 > [!NOTE]
 > [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
-For enhanced workflows and ease of use, you can use the MedTech service to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template creates an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up.
+For enhanced workflows and ease of use, you can use the MedTech service to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template deploys an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up and process.
 
-:::image type="content" source="media\device-messages-through-iot-hub\data-flow-diagram.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\data-flow-diagram.png":::
+:::image type="content" source="media\device-messages-through-iot-hub\data-flow-diagram.png" border="false" alt-text="Diagram of the IoT device message flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\data-flow-diagram.png":::
 
 > [!TIP]
-> To learn how the MedTech service transforms and persists device message data into the FHIR service as FHIR Observation resources, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md). 
+> To learn how the MedTech service transforms and persists device message data into the FHIR service as FHIR Observations, see [Overview of the MedTech service device message processing stages](overview-of-device-message-processing-stages.md). 
 
 
 In this tutorial, you learn how to:
@@ -69,7 +69,7 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    - **Resource group**: An existing resource group, or you can create a new resource group.
 
-   - **Region**: The Azure region of the resource group that's used for the deployment. **Region** auto-fills by using the resource group region.
+   - **Region**: The Azure region of the resource group that's used for the deployment. **Region** autofills by using the resource group region.
 
    - **Basename**: A value that's appended to the name of the Azure resources and services that are deployed. The examples in this tutorial use the basename  *azuredocsdemo*. You can choose your own basename value.
 
@@ -143,7 +143,7 @@ When deployment is completed, the following resources and access roles are creat
 > [!IMPORTANT]
 > In this tutorial, the ARM template configures the MedTech service to operate in **Create** mode. A Patient resource and a Device resource are created for each device that sends data to your FHIR service.
 >
-> To learn more about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-new-config.md#destination-properties).
+> To learn about the MedTech service resolution types **Create** and **Lookup**, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Create a device and send a test message
 
@@ -215,7 +215,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 ## Review metrics from the test message
 
-Now that you've successfully sent a test message to your IoT hub, review your MedTech service metrics. You review metrics to verify that your MedTech service received, grouped, transformed, and persisted the test message to your FHIR service. To learn more, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
+Now that you have successfully sent a test message to your IoT hub, review your MedTech service metrics. You review metrics to verify that your MedTech service received, grouped, transformed, and persisted the test message to your FHIR service. To learn more, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
 
 For your MedTech service metrics, you can see that your MedTech service completed the following steps for the test message:
 
