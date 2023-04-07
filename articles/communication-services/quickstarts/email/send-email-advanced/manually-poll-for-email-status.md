@@ -21,6 +21,9 @@ In this quick start, you'll learn about how to manually poll for email status wh
 [!INCLUDE [polling-net](./includes/polling-net.md)]
 ::: zone-end
 
+> [!IMPORTANT]
+> The success result returned by polling for the status of the send operation only validates the fact that the email has successfully been sent out for delivery. To get additional information about the status of the delivery on the recipient end, you will need to reference [how to handle email events](../handle-email-events.md).
+
 ## Troubleshooting
 
 To troubleshoot issues related to email delivery, you can [get status of the email delivery](../handle-email-events.md) to capture delivery details.
