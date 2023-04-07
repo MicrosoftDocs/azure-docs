@@ -19,7 +19,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Native Dynatrace Service ?
+          - text: What is Azure Native Dynatrace Service?
             url: dynatrace-overview.md
       - linkListType: how-to-guide
         links:

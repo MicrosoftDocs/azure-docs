@@ -39,7 +39,11 @@ landingContent:
             url: ./pricing.md
           - text: Understanding pricing through examples
             url: ./pricing-concepts.md
-          - text: ADF Blog
+          - text: Manage data factory costs with FinOps
+            url: ./apply-finops.md
+          - text: Manage your environment with DataOps
+            url: apply-dataops.md            
+          - text: Azure Data Factory Blog
             url: ./blog.md
           - text: Request a feature
             url: /answers/topics/azure-data-factory.html

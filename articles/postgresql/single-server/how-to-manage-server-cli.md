@@ -13,6 +13,8 @@ ms.date: 06/24/2022
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 This article shows you how to manage your Single servers deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Prerequisites
@@ -37,7 +39,7 @@ If you have not already created a server, refer to this [quickstart](quickstart-
 
 ## Scale compute and storage
 
-You can scale up your pricing tier, compute, and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/mysql/server)
+You can scale up your pricing tier, compute, and storage easily using the following command. You can see all the server operation you can perform [az postgres server overview](/cli/azure/postgres/server)
 
 ```azurecli-interactive
 az postgres server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144

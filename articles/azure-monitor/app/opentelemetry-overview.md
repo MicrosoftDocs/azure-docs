@@ -81,7 +81,7 @@ Traces | Logs
 
 The following websites consist of language-by-language guidance to enable and configure Microsoft's OpenTelemetry-based offerings. The available functionality and limitations of each offering are explained so that you can determine whether OpenTelemetry is right for your project.
 
-- [.NET](opentelemetry-enable.md)
+- [.NET](opentelemetry-enable.md?tabs=net)
 - [Java](opentelemetry-enable.md?tabs=java)
-- [JavaScript](opentelemetry-enable.md)
-- [Python](opentelemetry-enable.md)
+- [JavaScript](opentelemetry-enable.md?tabs=nodejs)
+- [Python](opentelemetry-enable.md?tabs=python)

@@ -6,7 +6,8 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: tutorial
-ms.date: 08/11/2022 
+ms.date: 03/23/2023
+ms.custom: engagement-fy23
 ---
 
 # Tutorial: Call Grafana APIs programmatically
@@ -21,9 +22,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
-* An Azure Active Directory (Azure AD) application with a service principal. [Create an Azure AD application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Azure AD tenant as your Managed Grafana instance.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
+- An Azure Active Directory (Azure AD) application with a service principal. [Create an Azure AD application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Azure AD tenant as your Azure Managed Grafana instance.
 
 ## Sign in to Azure
 
@@ -72,7 +73,7 @@ You now need to gather some information, which you'll use to get a Grafana API a
     > [!NOTE]
     > You can only access a secret's value immediately after creating it. Copy the value before leaving the page to use it in the next step of this tutorial.
 
-1. Find your Grafana endpoint URL:
+1. Find the Grafana endpoint URL:
 
    1. In the Azure portal, enter *Azure Managed Grafana* in the **Search resources, services, and docs (G+ /)** bar.
    1. Select **Azure Managed Grafana** and open your Managed Grafana workspace.

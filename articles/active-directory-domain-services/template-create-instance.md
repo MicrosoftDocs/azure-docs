@@ -11,8 +11,6 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 01/29/2023
 ms.author: justinha 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template
 

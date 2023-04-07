@@ -1,5 +1,5 @@
 ---
-title: 'User Privacy and Azure AD Seamless Single Sign-On | Microsoft Docs'
+title: 'User Privacy and Azure AD Seamless Single Sign-On'
 description: This article deals with Azure Active Directory (Azure AD) Seamless SSO and GDPR compliance.
 services: active-directory
 keywords: what is Azure AD Connect, GDPR, required components for Azure AD, SSO, Single Sign-on

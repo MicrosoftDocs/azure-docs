@@ -2,10 +2,8 @@
 title: Manage an Azure Automation Run As account
 description: This article tells how to manage your Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
-ms.subservice:
 ms.date: 08/02/2021
 ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Manage an Azure Automation Run As account

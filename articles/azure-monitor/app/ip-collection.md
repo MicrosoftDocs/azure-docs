@@ -2,8 +2,8 @@
 title: Application Insights IP address collection | Microsoft Docs
 description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
-ms.date: 11/15/2022
-ms.custom: devx-track-js, devx-track-azurepowershell
+ms.date: 04/06/2023
+ms.custom: devx-track-js
 ms.reviewer: saars
 ---
 
@@ -126,13 +126,19 @@ Content-Length: 54
 }
 ```
 
+### Powershell
+
+The Powershell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
+
+```powershell
+Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking $false
+```
+
+For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](https://learn.microsoft.com/powershell/module/az.applicationinsights/update-azapplicationinsights)
+
 ## Telemetry initializer
 
-If you need a more flexible alternative than `DisableIpMasking`, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part of the IP address to a custom field.
-
-# [.NET](#tab/net)
-
-### ASP.NET or ASP.NET Core
+If you need a more flexible alternative than `DisableIpMasking`, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part of the IP address to a custom field. The code for this class is the same across .NET versions.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -160,11 +166,32 @@ namespace MyWebApp
 > [!NOTE]
 > If you can't access `ISupportProperties`, make sure you're running the latest stable release of the Application Insights SDK. `ISupportProperties` is intended for high cardinality values. `GlobalProperties` is more appropriate for low cardinality values like region name and environment name.
 
-### Enable the telemetry initializer for ASP.NET
+
+# [.NET 6.0+](#tab/framework)
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+builder.services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
+```
+
+# [.NET 5.0](#tab/dotnet5)
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
+}
+```
+
+# [ASP.NET Framework](#tab/dotnet6)
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
-
 
 namespace MyWebApp
 {
@@ -180,18 +207,7 @@ namespace MyWebApp
 
 ```
 
-### Enable the telemetry initializer for ASP.NET Core
-
-You can create your telemetry initializer the same way for ASP.NET Core as for ASP.NET. To enable the initializer, use the following example for reference:
-
-```csharp
- using Microsoft.ApplicationInsights.Extensibility;
- using CustomInitializer.Telemetry;
- public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
-}
-```
+---
 
 # [Node.js](#tab/nodejs)
 

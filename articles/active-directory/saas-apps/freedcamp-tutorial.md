@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Freedcamp | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Freedcamp'
 description: Learn how to configure single sign-on between Azure Active Directory and Freedcamp.
 services: active-directory
 author: jeevansd

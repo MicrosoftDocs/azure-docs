@@ -1,5 +1,5 @@
 ---
-title: User management permissions for Azure AD custom roles (preview) - Azure Active Directory
+title: User management permissions for Azure AD custom roles (preview)
 description: User management permissions for Azure AD custom roles in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon

@@ -3,10 +3,9 @@ title: Deploy an Azure container offer from Azure Marketplace
 description: Learn how to deploy Azure container offers from Azure Marketplace on an Azure Kubernetes Service (AKS) cluster.
 author: nickomang
 ms.author: nickoman
-ms.service: azure-kubernetes-service
 ms.topic: how-to
 ms.date: 09/30/2022
-ms.custom: devx-track-azurecli, ignite-fall-2022, references_regions
+ms.custom: ignite-fall-2022, references_regions
 ---
 
 # Deploy a container offer from Azure Marketplace (preview)
@@ -22,12 +21,25 @@ Included among these solutions are Kubernetes application-based container offers
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-> [!NOTE]
-> This feature is currently supported only in the following regions:
->
-> - West Central US
-> - West Europe
-> - East US
+## Limitations
+
+This feature is currently supported only in the following regions:
+
+- East US
+- West US
+- Central US
+- West Central US
+- South Central US
+- East US 2
+- West US 2
+- West Europe
+- North Europe
+- Canada Central
+- Southeast Asia
+- Australia East
+- Central India
+
+Kubernetes application-based container offers cannot be deployed on AKS for Azure Stack HCI or AKS Edge Essentials.
 
 ## Register resource providers
 
@@ -42,14 +54,16 @@ az provider register --namespace Microsoft.KubernetesConfiguration --wait
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Marketplace** on the top search bar. In the results, under **Services**, select **Marketplace**.
 
-1. You can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, use the **Product Type** filter for **Azure Containers**. 
+1. You can search for an offer or publisher directly by name, or you can browse all offers. To find Kubernetes application offers, on the left side under **Categories** select **Containers**.
 
-   :::image type="content" source="./media/deploy-marketplace/browse-marketplace-inline.png" alt-text="Screenshot of Azure Marketplace offers in the Azure portal, with the filter for product type set to Azure containers." lightbox="./media/deploy-marketplace/browse-marketplace-full.png":::
+   :::image type="content" source="./media/deploy-marketplace/containers-inline.png" alt-text="Screenshot of Azure Marketplace offers in the Azure portal, with the container category on the left side highlighted." lightbox="./media/deploy-marketplace/containers.png":::
 
    > [!IMPORTANT]
-   > The **Azure Containers** category includes both Kubernetes applications and standalone container images. This walkthrough is specific to Kubernetes applications. If you find that the steps to deploy an offer differ in some way, you're most likely trying to deploy a container image-based offer instead of a Kubernetes application-based offer.
-   >
-   > To ensure that you're searching for Kubernetes applications, include the term **KubernetesApps** in your search.
+   > The **Containers** category includes both Kubernetes applications and standalone container images. This walkthrough is specific to Kubernetes applications. If you find that the steps to deploy an offer differ in some way, you're most likely trying to deploy a container image-based offer instead of a Kubernetes application-based offer.
+
+1. You will see several Kubernetes application offers displayed on the page. To view all of the Kubernetes application offers, select **See more**.
+
+   :::image type="content" source="./media/deploy-marketplace/see-more-inline.png" alt-text="Screenshot of Azure Marketplace K8s offers in the Azure portal" lightbox="./media/deploy-marketplace/see-more.png":::
 
 1. After you decide on an application, select the offer.
 
@@ -99,6 +113,10 @@ You can delete a purchased plan for an Azure container offer by deleting the ext
 az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
+## Troubleshooting
+
+If you experience issues, see the [troubleshooting checklist for failed deployments of a Kubernetes offer][marketplace-troubleshoot].
+
 ## Next steps
 
 - Learn more about [exploring and analyzing costs][billing].
@@ -107,3 +125,4 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 [azure-marketplace]: /marketplace/azure-marketplace-overview
 [cluster-extensions]: ./cluster-extensions.md
 [billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
+[marketplace-troubleshoot]: /troubleshoot/azure/azure-kubernetes/troubleshoot-failed-kubernetes-deployment-offer

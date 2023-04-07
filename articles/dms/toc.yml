@@ -2,6 +2,7 @@
   href: index.yml
 
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Database Migration Service?
     href: dms-overview.md
@@ -66,6 +67,7 @@
   expanded: true
   items:
   - name: Migrate SQL Server
+    expanded: true
     items:
     - name: to Azure SQL Database (offline) in Azure Data Studio
       href: tutorial-sql-server-azure-sql-database-offline-ads.md

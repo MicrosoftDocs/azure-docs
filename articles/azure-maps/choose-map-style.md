@@ -1,8 +1,8 @@
 ---
 title: Change the style of the Azure Maps Web Map Control
 description: "Learn how to change a map's style and options. See how to add a style picker control to a map in Azure Maps so that users can switch between different styles."
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -11,11 +11,11 @@ ms.custom: devx-track-js
 
 # Change the style of the map
 
-The map control supports several different map [style options](/javascript/api/azure-maps-control/atlas.styleoptions) and [base map styles](supported-map-styles.md). All styles can be set when the map control is being initialized. Or, you can set styles by using the map control's `setStyle` function. This article shows you how to use these style options to customize the map's appearance. Also, you'll learn how to implement the style picker control in your map. The style picker control allows the user to toggle between different base styles.
+The map control supports several different map [style options] and [base map styles]. All styles can be set when the map control is being initialized. Or, you can set styles by using the map control's `setStyle` function. This article shows you how to use these style options to customize the map's appearance and how to implement the style picker control in your map. The style picker control allows the user to toggle between different base styles.
 
 ## Set map style options
 
-Style options can be set during web control initialization. Or, you can update style options by calling the map control's `setStyle` function. To see all of the available style options, see [style options](/javascript/api/azure-maps-control/atlas.styleoptions).
+Style options can be set during web control initialization. Or, you can update style options by calling the map control's `setStyle` function. To see all available style options, see [style options].
 
 ```javascript
 //Set the style options when creating the map.
@@ -49,11 +49,11 @@ The following tool shows how the different style options change how the map is r
 
 ## Set a base map style
 
-You can also initialize the map control with one of the [base map styles](supported-map-styles.md) that are available in the Web SDK. You can then use the `setStyle` function to update the base style with a different map style.
+You can also initialize the map control with one of the [base map styles] that are available in the Web SDK. You can then use the `setStyle` function to update the base style with a different map style.
 
 ### Set a base map style on initialization
 
-Base styles of the map control can be set during initialization. In the following code, the `style` option of the map control is set to the [`grayscale_dark` base map style](supported-map-styles.md#grayscale_dark).  
+Base styles of the map control can be set during initialization. In the following code, the `style` option of the map control is set to the [`grayscale_dark` base map style].  
 
 ```javascript
 var map = new atlas.Map('map', {
@@ -70,13 +70,13 @@ var map = new atlas.Map('map', {
 
 ### Update the base map style
 
-The base map style can be updated by using the `setStyle` function and setting the `style` option to either change to a different base map style or add additional style options.
+The base map style can be updated by using the `setStyle` function and setting the `style` option to either change to a different base map style or add more style options.
 
 ```javascript
 map.setStyle({ style: 'satellite' });
 ```
 
-In the following code, after a map instance is loaded, the map style is updated from `grayscale_dark` to `satellite` using the [setStyle](/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) function.
+In the following code, after a map instance is loaded, the map style is updated from `grayscale_dark` to `satellite` using the [setStyle] function.
 
 <br/>
 
@@ -87,20 +87,20 @@ In the following code, after a map instance is loaded, the map style is updated 
 
 The style picker control provides an easy to use button with flyout panel that can be used by the end user to switch between base styles.
 
-The style picker has two different layout options: `icon` and `list`. Also, the style picker allows you to choose two different style picker control `style` options: `light` and `dark`. In this example, the style picker uses the `icon` layout and displays a select list of base map styles in the form of icons. The style control picker includes the following base set of styles: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`. For more information on style picker control options, see [Style Control Options](/javascript/api/azure-maps-control/atlas.stylecontroloptions).
+The style picker has two different layout options: `icon` and `list`. Also, the style picker allows you to choose two different style picker control `style` options: `light` and `dark`. In this example, the style picker uses the `icon` layout and displays a select list of base map styles in the form of icons. The style control picker includes the following base set of styles: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`. For more information on style picker control options, see [Style Control Options].
 
-The image below shows the style picker control displayed in `icon` layout.
+The following image shows the style picker control displayed in `icon` layout.
 
 :::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Style picker icon layout":::
 
-The image below shows the style picker control displayed in `list` layout.
+The following image shows the style picker control displayed in `list` layout.
 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Style picker list layout":::
 
 > [!IMPORTANT]
 > By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using Gen 1 (S1) or Gen 2 pricing tier and want to show all available styles, set the `mapStyles` option of the style picker to `"all"`.
 
-The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list which base styles we want to be displayed by the style picker control.
+The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list the base styles to display in the style picker control.
 
 <br/>
 
@@ -112,24 +112,37 @@ The following code shows you how to override the default `mapStyles` base style 
 To learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](/javascript/api/azure-maps-control/atlas.map)
+> [Map]
 
 > [!div class="nextstepaction"]
-> [StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions)
+> [StyleOptions]
 
 > [!div class="nextstepaction"]
-> [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol)
+> [StyleControl]
 
 > [!div class="nextstepaction"]
-> [StyleControlOptions](/javascript/api/azure-maps-control/atlas.stylecontroloptions)
+> [StyleControlOptions]
 
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Add map controls](map-add-controls.md)
+> [Add map controls]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](map-add-pin.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](map-add-bubble-layer.md)
+> [Add a bubble layer]
+
+[style options]: /javascript/api/azure-maps-control/atlas.styleoptions
+[base map styles]: supported-map-styles.md
+[`grayscale_dark` base map style]: supported-map-styles.md#grayscale_dark
+[setStyle]: /javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-
+[Style Control Options]: /javascript/api/azure-maps-control/atlas.stylecontroloptions
+[Map]: /javascript/api/azure-maps-control/atlas.map
+[StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
+[StyleControl]: /javascript/api/azure-maps-control/atlas.control.stylecontrol
+[StyleControlOptions]: /javascript/api/azure-maps-control/atlas.stylecontroloptions
+[Add map controls]: map-add-controls.md
+[Add a symbol layer]: map-add-pin.md
+[Add a bubble layer]: map-add-bubble-layer.md

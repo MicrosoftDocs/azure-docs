@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 02/15/2022
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Use an Azure Resource Manager template to create an integration runtime

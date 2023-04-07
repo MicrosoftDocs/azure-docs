@@ -595,6 +595,11 @@
             "source_path_from_root": "/articles/data-factory/solution-template-copy-new-files-lastmodifieddate.md",
             "redirect_url": "/azure/data-factory/solution-template-copy-new-files-last-modified-date",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/connector-azure-synapse-analytics-artifacts.md",
+            "redirect_url": "/azure/data-factory/compute-linked-services",
+            "redirect_document_id": true
           }
     ]
 }

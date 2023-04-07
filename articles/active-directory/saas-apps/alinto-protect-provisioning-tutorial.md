@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Configure Alinto Protect for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configure Alinto Protect for automatic user provisioning with Azure Active Directory'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Alinto Protect.
 services: active-directory
 author: twimmers
 writer: twimmers
-manager: beatrizd
+manager: jeedes
 ms.assetid: cc47804c-2d00-402f-8aa5-b6155a81d78d
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -78,10 +78,10 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, input your Alinto Protect Tenant URL and Secret Token. Click **Test Connection** to ensure Azure AD can connect to Alinto Protect. If the connection fails, ensure your Alinto Protect account has Admin permissions and try again.
+1. In the **Admin Credentials** section, input your Alinto Protect Tenant URL as `https://cloud.cleanmail.eu/api/v3/scim2` and corresponding Secret Token obtained from Step 2. Click **Test Connection** to ensure Azure AD can connect to Alinto Protect. If the connection fails, ensure your Alinto Protect account has Admin permissions and try again.
 
 	![Token](common/provisioning-testconnection-tenanturltoken.png)
-
+	
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)

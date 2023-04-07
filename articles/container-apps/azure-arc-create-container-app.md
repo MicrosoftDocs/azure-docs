@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 11/29/2022
+ms.date: 3/20/2023
 ms.author: cshoe
 ---
 
@@ -35,7 +35,7 @@ Next, add the required Azure CLI extensions.
 ```azurecli-interactive
 az extension add --upgrade --yes --name customlocation
 az extension remove --name containerapp
-az extension add -s https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-4615-a574-a1b7c8e22f40/containerapp-0.0.1-py2.py3-none-any.whl --yes
+az extension add -s https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
 ```
 
 ## Create a resource group

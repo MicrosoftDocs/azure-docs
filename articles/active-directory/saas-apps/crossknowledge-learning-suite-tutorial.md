@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CrossKnowledge Learning Suite | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CrossKnowledge Learning Suite'
 description: Learn how to configure single sign-on between Azure Active Directory and CrossKnowledge Learning Suite.
 services: active-directory
 author: jeevansd
@@ -148,8 +148,6 @@ When you click the CrossKnowledge Learning Suite tile in the Access Panel, you s
 - [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try CrossKnowledge Learning Suite with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 

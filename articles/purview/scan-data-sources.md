@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/25/2023
+ms.date: 02/23/2023
 ---
 
 # Scan data sources in Microsoft Purview
@@ -66,6 +66,8 @@ In the steps below we'll be using [Azure Blob Storage](register-scan-azure-blob-
    :::image type="content" source="media/scan-data-sources/register-blob-scan-rule-set.png" alt-text="Screenshot of the select a scan rule set page with the default set selected.":::
 
 1. Choose your scan trigger. You can set up a schedule (monthly or weekly) or run the scan once.
+   >[!NOTE]
+   > **Start recurrence at** must be at least 1 minute lesser than the **schedule scan time**, otherwise, the scan will be triggered in next recurrence. 
 
    :::image type="content" source="media/scan-data-sources/register-blob-scan-trigger.png" alt-text="Screenshot of the set a scan trigger page showing a recurring monthly schedule.":::
 
