@@ -13,12 +13,12 @@ ms.collection: M365-identity-device-management
 ---
 # How to use number matching in multifactor authentication (MFA) push notifications  - Authentication methods policy
 
-This topic covers how number matching in Microsoft Authenticator push notifications improve user sign-in security. 
+This topic covers how number matching in Microsoft Authenticator push notifications improves user sign-in security. 
 Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator. 
 
 Beginning May 8, 2023, number matching is enabled for all Microsoft Authenticator push notifications. 
-As relevant services deploy, users worldwide who are enabled for Microsoft Authenticator push notifications will see number matching required to approve the sign-in. 
-Users can be enabled for Microsoft Authenticator push notifications either in the Authentication methods policy or the legacy multifactor authentication policy if the legacy MFA policy has enabled **Notifications through mobile app**.
+As relevant services deploy, users worldwide who are enabled for Microsoft Authenticator push notifications will begin to see number matching in their approval requests. 
+Users can be enabled for Microsoft Authenticator push notifications either in the Authentication methods policy or the legacy multifactor authentication policy if **Notifications through mobile app** is enabled.
 
 ## Number matching
 
@@ -100,10 +100,6 @@ In addition:
 
 If your organization uses Remote Desktop Gateway and the user is registered for a TOTP code along with Authenticator push notifications, the user can't meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in fails. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE to fall back to **Approve**/**Deny** push notifications with Authenticator.
 
-### Apple Watch supported for Microsoft Authenticator
-
-In the Microsoft Authenticator release in January 2023 for iOS, there is no companion app for watchOS due to it being incompatible with Authenticator security features. You can't install or use Microsoft Authenticator on Apple Watch. We therefore recommend that you [delete Microsoft Authenticator from your Apple Watch](https://support.apple.com/HT212064), and sign in with Authenticator on another device.
-
 ## FAQs
 
 ### Can I opt out of number matching?
@@ -139,6 +135,9 @@ If a user is running an older version of Microsoft Authenticator that doesn't su
 
 During mobile iOS broker flows, the number match request appears over the number after a two-second delay. To recheck the number, click **Show me the number again**. This action only occurs in mobile iOS broker flows. 
 
+### Is Apple Watch supported for Microsoft Authenticator?
+
+In the Microsoft Authenticator release in January 2023 for iOS, there is no companion app for watchOS due to it being incompatible with Authenticator security features. You can't install or use Microsoft Authenticator on Apple Watch. We therefore recommend that you [delete Microsoft Authenticator from your Apple Watch](https://support.apple.com/HT212064), and sign in with Authenticator on another device.
 
 ## Next steps
 
