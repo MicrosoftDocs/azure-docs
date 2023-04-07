@@ -19,7 +19,7 @@ In this guide, learn how to move chat messages into your own storage in real-tim
 
 ## Prerequisites 
 
-- An Azure account with an active subscription. Create an account for free.
+- An Azure account with an active subscription. 
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A storage account, in this guide we will take an example of Azure Blob Storage. You can use the portal to set up an [account](../../../event-grid/blob-event-quickstart-portal). You can use any other storage option that you prefer.
 - If you would like to archive messages in near real time, enable Azure Event Grid which is a paid service (this prerequisite is only for option 2).
