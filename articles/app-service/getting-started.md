@@ -80,4 +80,4 @@ zone_pivot_groups: app-service-getting-started-stacks
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about App Servce](./overview.md)
+> [Learn about App Service](./overview.md)
