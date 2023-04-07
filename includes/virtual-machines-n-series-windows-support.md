@@ -33,9 +33,15 @@ The GRID drivers redistributed by Azure don't work on non-NV series VMs like NCv
 
 The NC-Series with Nvidia K80 GPUs don't support GRID/graphics applications.  
 
-The Nvidia extension always installs the latest driver. The following links to previous versions are provided to support dependencies on older driver versions.
+The Nvidia extension always installs the latest driver. 
+
+For Windows 11 22H2/21H2, Windows 10 22H2, Server 2019/2022:
 
 - [GRID 15.1 (528.24)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+
+The following links to previous versions are provided to support dependencies on older driver versions.
+
+For Windows 11, Windows 10  and Server 2019/20
 - [GRID 14.1 (512.78)](https://download.microsoft.com/download/7/3/6/7361d1b9-08c8-4571-87aa-18cf671e71a0/512.78_grid_win10_win11_server2016_server2019_server2022_64bit_azure_swl.exe) (.exe) 
 
 For Windows Server 2016 1607, 1709:

@@ -6,8 +6,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/configure-token-lifetimes.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "source_path_from_root": "/articles/active-directory/develop/registration-config-change-token-lifetime-how-to.md",
+      "redirect_url": "/azure/active-directory/develop/configure-token-lifetimes",
       "redirect_document_id": false
     },
     {
@@ -58,6 +58,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/trello-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/atlassian-cloud-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/easy-metrics-auth0-connector-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/easy-metrics-connector-tutorial",
       "redirect_document_id": false
     },
     {
@@ -136,6 +141,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/tripactions-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/navan-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -168,6 +178,11 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/workload-identity-federation-create-trust-github.md",
       "redirect_url": "/azure/active-directory/develop/workload-identity-federation-create-trust",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/workload-identities/workload-identity-federation-create-trust-gcp.md",
+      "redirect_url": "/azure/active-directory/workload-identities/workload-identity-federation",
       "redirect_document_id": false
     },
     {

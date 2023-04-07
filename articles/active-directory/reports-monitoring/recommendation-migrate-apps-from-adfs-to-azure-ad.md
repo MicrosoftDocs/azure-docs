@@ -37,7 +37,7 @@ Using Azure AD gives you granular per-application access controls to secure acce
 
 ### Guided walkthrough
 
-For a guided walkthrough of many of the recommendations in this article, see the migration guide [Migrate from AD FS to Microsoft Azure Active Directory for identity management](https://setup.microsoft.com/azure/migrate-ad-fs-to-microsoft-azure-ad).
+For a guided walkthrough of many of the recommendations in this article, see the migration guide [Migrate from AD FS to Microsoft Azure Active Directory for identity management](https://go.microsoft.com/fwlink/?linkid=2225005) when signed in to the Microsoft 365 Admin Center.  To review best practices without signing in and activating automated setup features, go to the [M365 Setup portal](https://go.microsoft.com/fwlink/?linkid=2229256).
 
 ## Next steps
 

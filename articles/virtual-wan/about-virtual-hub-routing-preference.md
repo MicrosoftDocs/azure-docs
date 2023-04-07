@@ -51,6 +51,7 @@ This section explains the route selection algorithm in a virtual hub along with 
 **Things to note:**
 
 * When there are multiple virtual hubs in a Virtual WAN scenario, a virtual hub selects the best routes using the route selection algorithm described above, and then advertises them to the other virtual hubs in the virtual WAN.
+* For a given set of destination route-prefixes, if the ExpressRoute routes are preferred and the ExpressRoute connection subsequently goes down, then routes from S2S VPN or SD-WAN NVA connections will be preferred for traffic destined to the same route-prefixes. When the ExpressRoute connection is restored, traffic destined for these route-prefixes will continue to prefer the S2S VPN or SD-WAN NVA connections. 
 
 ## Routing scenarios
 
