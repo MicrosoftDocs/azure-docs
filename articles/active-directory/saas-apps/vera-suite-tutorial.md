@@ -68,13 +68,6 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 	b. In the **Reply URL** textbox, type the URL:
 	`https://logon.mykpa.com/identity/Saml2/Acs`
 
-	c. In the **Sign on URL** textbox, type one of the following URLs:
-	
-	| **Sign on URL** |
-	|-------------|
-	| `https://www.verasuite.com` |
-	| `https://logon.mykpa.com` |
-
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
     ![Screenshot shows the Certificate download link.](common/copy-metadataurl.png "Certificate")
