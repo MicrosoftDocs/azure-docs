@@ -248,7 +248,7 @@ Once your logs are uploaded, you should be able to query them using the log quer
 2. Select Logs in the left panel.
 3. Select Get Started (or select the links on the Getting Started page to learn more about Log Analytics if you are new to it).
 4. Follow the tutorial to learn more about Log Analytics if this is your first time using Log Analytics.
-5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL'.
+5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL' or 'postgresInstances_postgresql_logs_CL'.
 6. Select the 'eye' icon next to the table name.
 7. Select the 'View in query editor' button.
 8. You'll now have a query in the query editor that will show the most recent 10 events in the log.
