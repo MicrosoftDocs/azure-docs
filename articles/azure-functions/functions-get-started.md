@@ -41,7 +41,7 @@ You can create JavaScript functions by using one of the following tools:
 
 + [Visual Studio Code](./create-first-function-vs-code-node.md)
 + [Command line](./create-first-function-cli-node.md)
-+ [Azure portal](./functions-create-function-app-portal#create-a-function-app)
++ [Azure portal](./functions-create-function-app-portal.md#create-a-function-app)
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -49,7 +49,7 @@ You can create PowerShell functions by using one of the following tools:
 
 + [Visual Studio Code](./create-first-function-vs-code-powershell.md)
 + [Command line](./create-first-function-cli-powershell.md)
-+ [Azure portal](./functions-create-function-app-portal#create-a-function-app)
++ [Azure portal](./functions-create-function-app-portal.md#create-a-function-app)
 
 ::: zone-end
 ::: zone pivot="programming-language-python"  
@@ -57,7 +57,7 @@ You can create Python functions by using one of the following tools:
 
 + [Visual Studio Code](./create-first-function-vs-code-python.md)
 + [Command line](./create-first-function-cli-python.md)
-+ [Azure portal](./functions-create-function-app-portal#create-a-function-app) 
++ [Azure portal](./functions-create-function-app-portal.md#create-a-function-app) 
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
