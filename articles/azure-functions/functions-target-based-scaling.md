@@ -61,7 +61,7 @@ For Azure Cosmos DB _target executions per instance_ is set in the function attr
 | ----------------- | ------------------------ | ------------- |
 | Azure Cosmos DB   | maxItemsPerInvocation    |  100          |
 
-To learn more, see the [example configurations for the supported extensions](#details-per-extension).
+To learn more, see the [example configurations for the supported extensions](#supported-extensions).
 
 ## Premium plan with runtime scale monitoring enabled
 
@@ -236,7 +236,7 @@ Modify the `host.json` setting `maxEventBatchSize` to set _target executions per
 }
 ```
 
-When defined in `host.json`, `targetUnprocessedEventThreshold` is used as _target executions per instance_ instead of `maxBatchSize` or `maxEventBatchSize`, as in the following example:
+When defined in `host.json`, `targetUnprocessedEventThreshold` is used as _target executions per instance_ instead of `maxEventBatchSize`, as in the following example:
 
 ```json
 {
@@ -265,7 +265,7 @@ For **v3.x+** of the Event Hubs extension, modify the `host.json` setting `maxBa
 }
 ```
 
-When defined in `host.json`, `targetUnprocessedEventThreshold` is used as _target executions per instance_ instead of `maxBatchSize` or `maxEventBatchSize`, as in the following example:
+When defined in `host.json`, `targetUnprocessedEventThreshold` is used as _target executions per instance_ instead of `maxBatchSize`, as in the following example:
 
 ```json
 {
