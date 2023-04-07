@@ -8,8 +8,6 @@ items:
     href: overview.md
   - name: Content Safety Studio
     href: overview-content-safety-studio.md
-  - name: Language support
-    href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-safety
     expanded: true
@@ -21,8 +19,6 @@ items:
     href: /samples/browse/?terms=content+safety
 - name: How-to guides
   items:
-  - name: Moderate content
-    href: tbd
   - name: Use a custom blocklist
     href: how-to/use-custom-blocklist.md
   - name: Export or delete account data

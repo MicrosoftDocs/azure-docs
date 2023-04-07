@@ -17,7 +17,7 @@ keywords:
 
 
 
-## QuickStart - Text analysis with custom blocklist
+# Text analysis with custom blocklist
 
 ### Disclaimer
 
@@ -29,12 +29,11 @@ You can create custom lists of terms to use with the Text API. The following ste
 
 The below fields must be included in the url:
 
-| Name              | Description                                                  | Type        |
-| :---------------- | :----------------------------------------------------------- | ----------- |
-| **BlocklistName** | (Required) Text blocklist Name. Only support following characters: 0-9 A-Z a-z - . _ ~                                                                                                     Example: url = "<Endpoint>/contentmoderator/text/lists/{blocklistName}?api-version=2022-12-30-preview" | String      |
-| **blockItems**    | (Required) This is the blocklistName to be checked.                                                                                                          Example: url = "<Endpoint>/contentmoderator/text/lists/{blocklistName}/items/{blockItems}?api-version=2022-12-30-preview" | BCP 47 code |
-| **API Version**   | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: <Endpoint>/contentmoderator/text:analyze?api-version=2022-12-30-preview | String      |
-
+| Name         | Description | Type     |
+| :---------------- | :-------------- | ----------- |
+| **BlocklistName** | (Required) Text blocklist Name. Only support following characters: `0-9 A-Z a-z - . _ ~        `      Example: `url = "<Endpoint>/contentmoderator/text/lists/{blocklistName}?api-version=2022-12-30-preview"` | String      |
+| **blockItems**    | (Required) This is the blocklistName to be checked.     Example: `url = "<Endpoint>/contentmoderator/text/lists/{blocklistName}/items/{blockItems}?api-version=2022-12-30-preview"` | BCP 47 code |
+| **API Version**   | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: `<Endpoint>/contentmoderator/text:analyze?api-version=2022-12-30-preview` | String      |
 
 
 ### Create or modify a terms list

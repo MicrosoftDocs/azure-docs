@@ -1,8 +1,18 @@
 
+---
+title: "Quickstart: Optical character recognition client library for .NET"
+description: In this quickstart, get started with the Optical character recognition client library for .NET.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: computer-vision
+ms.topic: include
+ms.date: 03/02/2022
+ms.author: pafarley
+ms.custom: devx-track-csharp, ignite-2022
+---
 
-
-
-# QuickStart
 
 ## QuickStart - Text analysis
 
@@ -15,14 +25,14 @@ The sample data and code may contain offensive content. User discretion is advis
 Before you can begin to test the Azure Content Safety or integrate it into your applications, you need to create an Azure Content Safety resource and get the subscription keys to access the resource.
 
 1. Sign in to the [Azure Portal](https://portal.azure.com/).
-2. [Create Azure Content Safety Resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator). Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, [supported region](#region--location) and [supported pricing tier](#sku--pricing-tier). Then select **Create**.
+2. [Create Azure Content Safety Resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator). Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region and supported pricing tier. Then select **Create**.
 3. The resource will take a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys will be used to call APIs.
 
 ### Call Text API with a sample request
 
 The following is a sample request with Python. 
 
-1. Install [Python](https://pypi.org/) or [Anaconda](https://www.anaconda.com/products/indivNameual#Downloads). Anaconda is a package containing many Python packages and allows for an easy start into the world of Python.
+1. Install [Python](https://pypi.org/) or [Anaconda](https://www.anaconda.com/products/distribution#Downloads). Anaconda is a package containing many Python packages and allows for an easy start into the world of Python.
 1. Find your Resource Endpoint URL in your Azure Portal in the **Resource Overview** page under the **Endpoint** field. 
 1. Substitute the `<Endpoint>` term with your Resource Endpoint URL.
 1. Paste your subscription key into the `Ocp-Apim-Subscription-Key` field.
@@ -122,7 +132,7 @@ See the following sample request body:
 >
 > Do the following steps if you want to run the Python sample in a Jupyter Notebook.
 >
-> 1. Install the [Jupyter Notebook](https://jupyter.org/install). Jupyter Notebook can also easily be installed using [Anaconda](https://www.anaconda.com/products/indivNameual#Downloads). 
+> 1. Install the [Jupyter Notebook](https://jupyter.org/install). Jupyter Notebook can also easily be installed using [Anaconda](https://www.anaconda.com/products/distribution#Downloads). 
 >
 > 2. Download the [Sample Python Notebook](https://github.com/Azure/Project-Carnegie-public-Preview/blob/main/Sample%20Code%20for%20Text%20and%20Image%20API%20with%20Multi-severity.ipynb). Note: this needs a github sign in to access. Please also note that you need to use "download ZIP" option from GitHub doc repo instead of "save as" or you will get a load error from Jupyter.
 >
@@ -158,11 +168,10 @@ You should see the Text moderation results displayed as JSON data in the console
 
 The JSON fields in the output are defined in the following table:
 
-| Name           | Description                                                  | Type   |
-| :------------- | :----------------------------------------------------------- | ------ |
+| Name     | Description   | Type   |
+| :------------- | :--------------- | ------ |
 | **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text is run through a text moderation model, it could be classified as sexual content as well as violence. | String |
-| **Risk Level** | Severity of the consequences.                                | Number |
-
+| **Risk Level** | Severity of the consequences.   | Number |
 
 > **NOTE: Why risk level is not continuous**
 >
@@ -182,7 +191,7 @@ Now that you have an Azure Content Safety resource and you have a subscription k
 
 Here is a sample request with Python:
 
-1. Install the [Python](https://pypi.org/) or [Anaconda](https://www.anaconda.com/products/indivNameual#Downloads). Anaconda is a nice package containing a lot of Python packages already and allows for an easy start into the world of Python.
+1. Install the [Python](https://pypi.org/) or [Anaconda](https://www.anaconda.com/products/distribution#Downloads). Anaconda is a nice package containing a lot of Python packages already and allows for an easy start into the world of Python.
 
 1. Substitute the `<Endpoint>` with your resource endpoint URL.
 
@@ -261,7 +270,7 @@ The JSON fields that can be included in the request body are defined in this tab
 
 > **NOTE: Sample Python Jupyter Notebook**
 >
-> 1. Install the [Jupyter Notebook](https://jupyter.org/install). Jupyter Notebook can also easily be installed using [Anaconda](https://www.anaconda.com/products/indivNameual#Downloads). 
+> 1. Install the [Jupyter Notebook](https://jupyter.org/install). Jupyter Notebook can also easily be installed using [Anaconda](https://www.anaconda.com/products/distribution#Downloads). 
 >
 > 2. Download [Sample Python Notebook](https://github.com/Azure/Project-Carnegie-public-Preview/blob/main/Sample%20Code%20for%20Text%20and%20Image%20API%20with%20Multi-severity.ipynb). Note: this needs github sign in to access. Please also note that you need to use "download ZIP" option from GitHub doc repo instead of "save as" or you will get a load error from Jupyter.
 >

@@ -71,7 +71,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Content Safety API
-            url: tbd
+            url: aka.ms/content-safety-api
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
