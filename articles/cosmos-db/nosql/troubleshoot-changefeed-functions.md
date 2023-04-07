@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.custom: ignite-2022
-ms.date: 01/03/2023
+ms.date: 04/07/2023
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -42,17 +42,17 @@ The error text itself tells you which Azure Cosmos DB database and container the
 
 To resolve this issue:
 
-1. Verify the `ConnectionStringSetting` attribute and that it references a setting that exists in your Azure function app. 
+1. Verify the `Connection` attribute and that it references a setting that exists in your Azure function app.
 
    The value on this attribute shouldn't be the connection string itself, but the name of the configuration setting.
 
-1. Verify that the `databaseName` and `collectionName` values exist in your Azure Cosmos DB account. 
+1. Verify that the `databaseName` and `containerName` values exist in your Azure Cosmos DB account.
 
    If you're using automatic value replacement (using `%settingName%` patterns), make sure that the name of the setting exists in your Azure function app.
 
-1. If you don't specify a `LeaseCollectionName/leaseCollectionName` value, the default is `leases`. Verify that such a container exists. 
+1. If you don't specify a `LeaseContainerName/leaseContainerName` value, the default is `leases`. Verify that such a container exists. 
 
-   Optionally, you can set the `CreateLeaseCollectionIfNotExists` attribute in your trigger to `true` to automatically create it.
+   Optionally, you can set the `CreateLeaseContainerIfNotExists` attribute in your trigger to `true` to automatically create it.
 
 1. Verify your [Azure Cosmos DB account's firewall configuration](../how-to-configure-firewall.md) to ensure that it's not blocking the Azure function.
 
@@ -108,6 +108,8 @@ This scenario can have multiple causes. Consider trying any or all of the follow
 
 * The speed at which your trigger receives new changes is dictated by the speed at which you're processing them. Verify the function's [execution time, or duration](../../azure-functions/analyze-telemetry-data.md). If your function is slow, that will increase the time it takes for the trigger to get new changes. If you see a recent increase in duration, a recent code change might be affecting it. If the speed at which you're receiving operations on your Azure Cosmos DB container is faster than the speed of your trigger, it will keep lagging behind. You might want to investigate the function's code to determine the most time-consuming operation and how to optimize it.
 
+* You can use [Debug logs](how-to-configure-cosmos-db-trigger.md#enabling-trigger-specific-logs) to check the Diagnostics and verify if there are networking delays.
+
 ### Some changes are repeated in my trigger
 
 The concept of a *change* is an operation on a document. The most common scenarios where events for the same document are received are:
@@ -121,6 +123,8 @@ The concept of a *change* is an operation on a document. The most common scenari
 ### Some changes are missing in your trigger
 
 You might find that some of the changes that occurred in your Azure Cosmos DB container aren't being picked up by the Azure function. Or some changes are missing at the destination when you're copying them. If so, try the solutions in this section.
+
+* Make sure you have [logs](how-to-configure-cosmos-db-trigger.md#enabling-trigger-specific-logs) enabled. Verify no errors are happening during processing.
 
 * When your Azure function receives the changes, it often processes them and could, optionally, send the result to another destination. When you're investigating missing changes, make sure that you measure which changes are being received at the ingestion point (that is, when the Azure function starts), not at the destination.
 
