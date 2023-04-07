@@ -20,12 +20,12 @@ The Key Vault VM extension provides automatic refresh of certificates stored in 
 
 The Key Vault VM extension supports these Linux distributions:
 
-- Ubuntu-1804
-- Suse-15 
+- Ubuntu 18.04
+- SUSE   15 
 - [CBL-Mariner](https://github.com/microsoft/CBL-Mariner)
 
 > [!NOTE]
-> To get extended security features, prepare to upgrade Ubuntu-1604 and Debian-9 systems as these versions are reaching their end of designated support period.
+> To get extended security features, prepare to upgrade Ubuntu 16.04 and Debian 9 systems as these versions are reaching their end of designated support period.
 > 
 
 > [!NOTE]
