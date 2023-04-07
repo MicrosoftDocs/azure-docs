@@ -63,9 +63,8 @@ ms.date: 04/06/2023
    c. The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
 
    > [!IMPORTANT]
-   > Your Azure Key Vault instance must be accessible through public network access.
-   >
-   > ![Screenshot of Key Vault's network settings](media/howto-customer-managed-keys/Key%20Vault%202.png)
+   > Your Azure Key Vault instance must be allow public access from all the networks.
+   
 
 **3. Add an Access Policy to the Key Vault:**
 
