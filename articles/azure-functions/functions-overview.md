@@ -11,6 +11,14 @@ ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022
 
 Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running.
 
+## Serverless compute
+
+## Dynamic scaling
+
+## Rich integrations 
+
+## Scenarios
+
 You focus on the code that matters most to you, in the most productive language for you, and Azure Functions handles the rest.<br /><br />
 
 We often build systems to react to a series of critical events. Whether you're building a web API, responding to database changes, processing  IoT data streams, or even managing message queues - every application needs a way to run some code as these events occur.
