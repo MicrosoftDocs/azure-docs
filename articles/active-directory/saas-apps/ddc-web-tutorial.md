@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with DDC Web
 
-In this article, you learn how to integrate DDC Web with Azure Active Directory (Azure AD). Engage and mobilize you advocates and PAC eligible class with ease using the flexible DDC Web platform with personalized content, simple activation, and PAC fundraising tools. When you integrate DDC Web with Azure AD, you can:
+In this article, you learn how to integrate DDC Web with Azure Active Directory (Azure AD). Engage and mobilize your advocates and PAC eligible class with ease using the flexible DDC Web platform with personalized content, simple activation, and PAC fundraising tools. When you integrate DDC Web with Azure AD, you can:
 
 * Control in Azure AD who has access to DDC Web.
 * Enable your users to be automatically signed-in to DDC Web with their Azure AD accounts.
