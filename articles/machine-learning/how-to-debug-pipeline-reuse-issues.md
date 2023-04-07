@@ -14,11 +14,11 @@ ms.date: 3/27/2023
 
 # How to debug pipeline reuse issues?
 
-In this article, we explain what is reuse in Azure Machine Learning pipeline, how does reuse work, and provide step by step guidance to debugging reuse issues. 
+In this article, we explain what is reuse in Azure Machine Learning pipeline, how does reuse work, and provide step by step guidance to debug reuse issues. 
 
 ## What is reuse in Azure Machine Learning pipeline?
 
-Building models with Azure Machine Learning pipeline is an iterative process. Data scientist usually starts with a base pipeline, then try different machine learning algorithms or do hyperparameters tuning to improve the model metrics. During the process, many pipeline jobs are submitted. And those pipeline jobs only have small change compare to previous job. Reuse is the pipeline capability to automatically calculate which component's output is unchanged and reuse the output from previous job when it meets the criteria.  It tremendously saves the time and cost in pipeline development. 
+Building models with Azure Machine Learning pipeline is an iterative process. As a data scientist, you can start with a basic pipeline and then experiment with different machine learning algorithms or do hyperparamter tuning to improve your model. During this process, you'll submit many pipeline jobs that may only have small changes compared to the previous job. With the reuse feature, the pipeline can automatically use the output from a previous job if it meets certain criteria, without running the component again. This can save you time and money while developing your pipeline.
 
 
 :::image type="content" source="./media/how-to-debug-pipeline-reuse/reuse-demo.png" alt-text="Screenshot showing the idea of reuse.":::
@@ -37,8 +37,6 @@ If a component meets the reuse criteria, pipeline service skips execution for it
 :::image type="content" source="./media/how-to-debug-pipeline-reuse/recycle-icon.png" alt-text="Screenshot showing the recycle-icon.":::
 
 
->[!Note]
-> If a component meets reuse criteria, pipeline service will assume the output of the orinal component exists within 30 days. The pipeline service will not check whether the original output has been deleted if the original output is created less than 30 days. If the original output is deleted, the reused piepline job will fail. For such cases, please rerun the component to generate the output again. You can rerun a component by braking any of the reuse cateria, for example set `ForceRerun=True` for the pipeline or add a line of comment in component source code.   
 
 
 ## How to debug pipeline reuse issues?  
@@ -52,7 +50,7 @@ If the pipeline setting `ForceRerun` is set to `True`, all child jobs of the pip
 >[!Note]
 > All child jobs of the force rerun pipeline cannot be reused by other jobs. So make sure you check the *ForceRerun* value both for the job you expect to reuse and the original job you wish to reuse from. 
 
-Below screenshot shows how to check the `ForceRerun` setting in pipeline UI. Go to pipeline overview.
+Below screenshot shows how to check the `ForceRerun` setting in pipeline UI. Go to pipeline job overview.
 
 :::image type="content" source="./media/how-to-debug-pipeline-reuse/force-rerun.png" alt-text="Screenshot of pipeline overview tab.":::
 
