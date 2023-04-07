@@ -170,7 +170,7 @@ Container Apps supports apex domains and subdomains. Each domain type requires a
 
     Replace `<DOMAIN_NAME>` with the domain name you want to add, `<RESOURCE_GROUP_NAME>` with the name of the resource group that contains your container app, and `<CONTAINER_APP_NAME>` with the name of your container app.
 
-1. Add the domain to your container app and configure the managed certificate.
+1. Configure the managed certificate and bind the domain to your container app.
 
     ```azurecli
     az containerapp hostname bind --hostname <DOMAIN_NAME> -g <RESOURCE_GROUP_NAME> -n <CONTAINER_APP_NAME> --environment <ENVIRONMENT_NAME>
