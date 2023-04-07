@@ -3,7 +3,7 @@ title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 04/06/2023
+ms.date: 04/07/2023
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
 
@@ -18,7 +18,7 @@ This article helps you provision nodes with schedulable GPUs on new and existing
 
 ## Before you begin
 
-* This article assumes you have an existing AKS cluster. If you need to create one, you can do so using [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
+* This article assumes you have an existing AKS cluster. If you don't have a cluster, create one using the [Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or the [Azure portal][aks-quickstart-portal].
 * You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Get the credentials for your cluster
@@ -347,7 +347,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 
 ## Use Container Insights to monitor GPU usage
 
-The following metrics are available for [Container Insights with AKS][aks-container-insights] to monitor GPU usage.
+[Container Insights with AKS][aks-container-insights] monitors the following GPU usage metrics:
 
 | Metric name | Metric dimension (tags) | Description |
 |-------------|-------------------------|-------------|
@@ -361,30 +361,26 @@ The following metrics are available for [Container Insights with AKS][aks-contai
 
 ## Clean up resources
 
-To remove the associated Kubernetes objects created in this article, use the [kubectl delete job][kubectl delete] command as follows:
+* Remove the associated Kubernetes objects you created in this article using the [`kubectl delete job`][kubectl delete] command.
 
-```console
-kubectl delete jobs samples-tf-mnist-demo
-```
+    ```console
+    kubectl delete jobs samples-tf-mnist-demo
+    ```
 
 ## Next steps
 
-To run Apache Spark jobs, see [Run Apache Spark jobs on AKS][aks-spark].
-
-For more information about running machine learning (ML) workloads on Kubernetes, see [Kubeflow Labs][kubeflow-labs].
-
-For more information on features of the Kubernetes scheduler, see [Best practices for advanced scheduler features in AKS][advanced-scheduler-aks].
-
-For information on using Azure Kubernetes Service with Azure Machine Learning, see the following articles:
-
-* [Configure a Kubernetes cluster for ML model training or deployment][azureml-aks].
-* [Deploy a model with an online endpoint][azureml-deploy].
-* [High-performance serving with Triton Inference Server][azureml-triton].
+* To run Apache Spark jobs, see [Run Apache Spark jobs on AKS][aks-spark].
+* For more information on features of the Kubernetes scheduler, see [Best practices for advanced scheduler features in AKS][advanced-scheduler-aks].
+* For more information on Azure Kubernetes Service and Azure Machine Learning, see:
+  * [Configure a Kubernetes cluster for ML model training or deployment][azureml-aks].
+  * [Deploy a model with an online endpoint][azureml-deploy].
+  * [High-performance serving with Triton Inference Server][azureml-triton].
+  * [Deploy machine learning models to AKS with Kubeflow][kubeflow].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow-labs]: https://github.com/Azure/kubeflow-labs
+[kubeflow]: ../../../architecture-center-pr/docs/solution-ideas/articles/machine-learning-model-deployment-aks-content.md
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
@@ -394,8 +390,6 @@ For information on using Azure Kubernetes Service with Azure Machine Learning, s
 [nvidia-github]: https://github.com/NVIDIA/k8s-device-plugin
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az_group_create
-[az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az_aks_nodepool_add
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
