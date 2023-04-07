@@ -105,7 +105,7 @@ When using multiple sessions, generally, you should aggregate them with Multipat
 
 To create iSCSI connections from a Linux client, install the iSCSI initiator package. The exact command may vary depending on your distribution, and you should consult their documentation if necessary.
 
-As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils -y`.
+As an example, with Ubuntu you'd use `sudo apt -y install open-iscsi`, with SUSE Linux Enterprise Server (SLES) you'd use `zypper install open-iscsi` and with Red Hat Enterprise Linux (RHEL) you'd use `sudo yum install iscsi-initiator-utils -y`.
 
 #### Multipath I/O - for multi-session connectivity
 
