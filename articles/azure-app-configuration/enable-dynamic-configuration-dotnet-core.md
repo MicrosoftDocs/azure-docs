@@ -150,7 +150,7 @@ Logs are output upon configuration refresh and contain detailed information on k
     |---|---|
     | Verbose | Logs include the key and label of key-values your application monitors for changes from your App Configuration store. The information also includes whether the key-value has changed compared with what your application has already loaded. Enable logs at this level to troubleshoot your application if a configuration change didn't happen as expected. |
     | Informational | Logs include the keys of configuration settings updated during a configuration refresh. Values of configuration settings are omitted from the log to avoid leaking sensitive data. You can monitor logs at this level to ensure your application picks up expected configuration changes. |
-    | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider library will continue to use the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
+    | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider will continue using the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
 - The logging category is `Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh`, which appears before each log.
 - Here are some example logs at each event level: 
     ```console
@@ -164,7 +164,7 @@ Logs are output upon configuration refresh and contain detailed information on k
     A refresh operation failed.
     Service request failed.
     ```
-- You can enable logging at the `Verbose` event level by specifying the `EventLevel.Verbose` parameter, as done in the following example. This applies to all other event levels as well. This example also enables logs for only the `Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh` category.
+- You can enable logging at the `Verbose` event level by specifying the `EventLevel.Verbose` parameter, as done in the following example. These instructions apply to all other event levels as well. This example also enables logs for only the `Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh` category.
     ```csharp
     using var listener = new AzureEventSourceListener((eventData, text) =>
     {
