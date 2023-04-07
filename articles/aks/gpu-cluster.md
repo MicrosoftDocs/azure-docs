@@ -81,7 +81,7 @@ AKS provides a fully configured AKS image containing the [NVIDIA device plugin f
 
 Now that you updated your cluster to use the AKS GPU image, you can add a node pool for GPU nodes to your cluster.
 
-* Add a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command. The following example command adds a node pool named *gpunp* to the *myAKSCluster* in the *myResourceGroup* resource group, sets the VM size for the node in the node pool to *Standard_NC6*, enables the cluster autoscaler, configures the cluster autoscaler to maintain a minimum of one node and a maximum of three nodes in the node pool, and specifies a specialized AKS GPU image and a *sku=gpu:NoSchedule* taint on the new node pool:
+* Add a node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
     az aks nodepool add \
@@ -97,16 +97,23 @@ Now that you updated your cluster to use the AKS GPU image, you can add a node p
         --max-count 3
     ```
 
+  The previous example command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
+
+  * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6*.
+  * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
+  * `--aks-custom-headers`: Specifies a specialized AKS GPU image, *UseGPUDedicatedVHD=true*. If your GPU sku requires generation 2 VMs, use *--aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true* instead.
+  * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
+  * `--min-count`: Configures the cluster autoscaler to maintain a minimum of one node in the node pool.
+  * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
+
     > [!NOTE]
-    >
-    > * A taint and VM size can only be set for node pools during node pool creation, but the autoscaler settings can be updated at any time.
-    > * If your GPU sku requires generation 2 VMs, instead use *--aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true*.
+    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
 
 ### Manually install the NVIDIA device plugin
 
 You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on each node to provide the required drivers for the GPUs.
 
-1. Add a node pool to your cluster using the  [`az aks nodepool add`][az-aks-nodepool-add] command. The following example command adds a node pool named *gpunp* to the *myAKSCluster* in the *myResourceGroup* resource group, sets the VM size for the nodes in the node pool to *Standard_NC6*, enables the cluster autoscaler, configures the cluster autoscaler to maintain a minimum of one node and a maximum of three nodes in the node pool, and specifies a *sku=gpu:NoSchedule* taint for the node pool.
+1. Add a node pool to your cluster using the  [`az aks nodepool add`][az-aks-nodepool-add] command.
 
     ```azurecli-interactive
     az aks nodepool add \
@@ -121,8 +128,16 @@ You can deploy a DaemonSet for the NVIDIA device plugin, which runs a pod on eac
         --max-count 3
     ```
 
+    The previous example command adds a node pool named *gpunp* to *myAKSCluster* in *myResourceGroup* and uses parameters to configure the following node pool settings:
+
+    * `--node-vm-size`: Sets the VM size for the node in the node pool to *Standard_NC6*.
+    * `--node-taints`: Specifies a *sku=gpu:NoSchedule* taint on the node pool.
+    * `--enable-cluster-autoscaler`: Enables the cluster autoscaler.
+    * `--min-count`: Configures the cluster autoscaler to maintain a minimum of one node in the node pool.
+    * `--max-count`: Configures the cluster autoscaler to maintain a maximum of three nodes in the node pool.
+
     > [!NOTE]
-    > A taint and VM size can only be set for node pools during node pool creation, but the autoscaler settings can be updated at any time.
+    > Taints and VM sizes can only be set for node pools during node pool creation, but you can update autoscaler settings at any time.
 
 2. Create a namespace using the [`kubectl create namespace`][kubectl-create] command.
 
@@ -351,7 +366,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
 
 | Metric name | Metric dimension (tags) | Description |
 |-------------|-------------------------|-------------|
-| containerGpuDutyCycle | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName`, `gpuId`, `gpuModel`, `gpuVendor`	| Percentage of time over the past sample period (60 seconds) during which GPU was busy/actively processing for a container. Duty cycle is a number between 1 and 100. |
+| containerGpuDutyCycle | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName`, `gpuId`, `gpuModel`, `gpuVendor`| Percentage of time over the past sample period (60 seconds) during which GPU was busy/actively processing for a container. Duty cycle is a number between 1 and 100. |
 | containerGpuLimits | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName` | Each container can specify limits as one or more GPUs. It is not possible to request or limit a fraction of a GPU. |
 | containerGpuRequests | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName` | Each container can request one or more GPUs. It is not possible to request or limit a fraction of a GPU. |
 | containerGpumemoryTotalBytes | `container.azm.ms/clusterId`, `container.azm.ms/clusterName`, `containerName`, `gpuId`, `gpuModel`, `gpuVendor` | Amount of GPU Memory in bytes available to use for a specific container. |
