@@ -41,7 +41,7 @@ Fortunately, several tools exist to make benchmarking Redis easier. Two of the m
 
 - The Enterprise tier generally has the best performance, as Redis Enterprise allows the core Redis process to utilize multiple vCPUs. Tiers based on open source Redis, such as Standard and Premium, are only able to utilize one vCPU for the Redis process per shard.
 
-- Benchmarking the Enterprise Flash tier can be difficult because some keys are stored on DRAM whiles some are stored on NVMe flash disk. The keys on DRAM benchmark almost as fast as an Enterprise tier instance, but the keys on NVMe flash disk are slower. Since the Enterprise Flash tier intelligently places the most-used keys into DRAM, ensure that your benchmark configuration matches the actual usage you expect. Consider using the `-r` parameter to randomize which keys are accessed. 
+- Benchmarking the Enterprise Flash tier can be difficult because some keys are stored on DRAM whiles some are stored on a NVMe flash disk. The keys on DRAM benchmark almost as fast as an Enterprise tier instance, but the keys on the NVMe flash disk are slower. Since the Enterprise Flash tier intelligently places the most-used keys into DRAM, ensure that your benchmark configuration matches the actual usage you expect. Consider using the `-r` parameter to randomize which keys are accessed. 
 
 - Using TLS/SSL decreases throughput performance, which can be seen clearly in the example benchmarking data in the following tables. 
 
