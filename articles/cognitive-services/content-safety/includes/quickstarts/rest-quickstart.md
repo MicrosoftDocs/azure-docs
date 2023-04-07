@@ -24,16 +24,16 @@ The sample data and code may contain offensive content. User discretion is advis
 
 Before you can begin to test the Azure Content Safety or integrate it into your applications, you need to create an Azure Content Safety resource and get the subscription keys to access the resource.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. [Create Azure Content Safety Resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator). Enter a unique name for your resource, select the subscription you entered on the application form, select a resource group, supported region and supported pricing tier. Then select **Create**.
-3. The resource will take a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys will be used to call APIs.
+3. The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 
 ### Call Text API with a sample request
 
-The following is a sample request with Python. 
+The following section walks through a sample request with Python. 
 
 1. Install [Python](https://pypi.org/) or [Anaconda](https://www.anaconda.com/products/distribution#Downloads). Anaconda is a package containing many Python packages and allows for an easy start into the world of Python.
-1. Find your Resource Endpoint URL in your Azure Portal in the **Resource Overview** page under the **Endpoint** field. 
+1. Find your Resource Endpoint URL in your Azure portal in the **Resource Overview** page under the **Endpoint** field. 
 1. Substitute the `<Endpoint>` term with your Resource Endpoint URL.
 1. Paste your subscription key into the `Ocp-Apim-Subscription-Key` field.
 1. Change the body of the request to whatever string of text you'd like to analyze.
@@ -103,10 +103,10 @@ The JSON fields that can be included in the request body are defined in this tab
 
 | Name                  | Description                                                  | Type    |
 | :-------------------- | :----------------------------------------------------------- | ------- |
-| **Text**              | (Required) This is the raw text to be checked. Other non-ascii characters can be included. | String  |
-| **Categories**        | (Optional) This is assumed to be an array of category names. See the **Concepts** section for a list of available category names. If no categories are specified, all four categories are used. We will use multiple categories to get scores in a single request. | String  |
-| **BlocklistNames**    | Text blocklist Name. Only support following characters: 0-9 A-Z a-z - . _ ~. You could attach multiple lists name here. | Array   |
-| **BreakByBlocklists** | If set this field to `true`, once a blocklist is matched, the analysis will return immediately without model output. Default is `false`. | Boolean |
+| **Text**              | (Required) This is the raw text to be checked. Other non-ASCII characters can be included. | String  |
+| **Categories**        | (Optional) This is assumed to be an array of category names. See the **Concepts** section for a list of available category names. If no categories are specified, all four categories are used. We use multiple categories to get scores in a single request. | String  |
+| **BlocklistNames**    | Text blocklist Name. Only support following characters: `0-9 A-Z a-z - . _ ~`. You could attach multiple lists name here. | Array   |
+| **BreakByBlocklists** | If set this field to `true`, once a blocklist is matched, the analysis returns immediately without model output. Default is `false`. | Boolean |
 
 See the following sample request body:
 
@@ -170,7 +170,7 @@ The JSON fields in the output are defined in the following table:
 
 | Name     | Description   | Type   |
 | :------------- | :--------------- | ------ |
-| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text is run through a text moderation model, it could be classified as sexual content as well as violence. | String |
+| **Category**   | Each output class that the API predicts. Classification can be multi-labeled. For example, when a text is run through a text moderation model, it could be classified as sexual content and violence. | String |
 | **Risk Level** | Severity of the consequences.   | Number |
 
 > **NOTE: Why risk level is not continuous**
@@ -191,18 +191,18 @@ Now that you have an Azure Content Safety resource and you have a subscription k
 
 Here is a sample request with Python:
 
-1. Install the [Python](https://pypi.org/) or [Anaconda](https://www.anaconda.com/products/distribution#Downloads). Anaconda is a nice package containing a lot of Python packages already and allows for an easy start into the world of Python.
+1. Install the [Python](https://pypi.org/) or [Anaconda](https://www.anaconda.com/products/distribution#Downloads). Anaconda is a nice package containing many Python packages already and allows for an easy start into the world of Python.
 
 1. Substitute the `<Endpoint>` with your resource endpoint URL.
 
 1. Upload your image by one of two methods:**by  Base64 or by Blob url**. We only support JPEG, PNG, GIF, BMP image formats.
-   - First method (Recommend): encoding your image to base64. You could leverage [this website](https://codebeautify.org/image-to-base64-converter)  to do encoding quickly. Put the path to your base 64 image in the _content_ parameter below.
+   - First method (Recommend): encoding your image to base64. You could use [this website](https://codebeautify.org/image-to-base64-converter)  to do encoding quickly. Put the path to your base 64 image in the _content_ parameter below.
    - Second method: [Upload image to Blob Storage Account](https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html). Put your Blob URL into the _url_ parameter below. Currently we only support system assigned Managed Identity to access blob storage, so you must enable system assigned Managed identity for the Azure Content Safety instance and assign the role of "Storage Blob Data Contributor/Owner/Reader" to the identity:
      - Enable managed identity for Azure Content Safety instance. 
 
        ![enable-cm-mi-1](https://user-images.githubusercontent.com/36343326/213126427-2c789737-f8ec-416b-9e96-d96bf25de58e.png)
 
-     - Assign the role of "Storage Blob Data Contributor/Owner/Reader" to the Managed Nameentity. Any roles highlighted below should work.
+     - Assign the role of "Storage Blob Data Contributor/Owner/Reader" to the Managed identity. Any roles highlighted below should work.
 
        ![assign-role-2](https://user-images.githubusercontent.com/36343326/213126492-938bd351-7e53-45a7-97df-b9d8be94ad80.png)
 
@@ -261,7 +261,7 @@ The JSON fields that can be included in the request body are defined in this tab
 | :------------- | :----------------------------------------------------------- | ------ |
 | **Content**    | (Optional) Upload your image by converting it to base64. You can either choose "Content"or "Url". | Base64 |
 | **Url**        | (Optional) Upload your image by uploading it into blob storage. You can either choose "Content"or "Url". |        |
-| **Categories** | (Optional) This is assumed to be multiple category names. See the **Concepts** part for a list of available category names. If no categories are specified, defaults are used, we will use multiple categories in a single request. | String |
+| **Categories** | (Optional) This is assumed to be multiple category names. See the **Concepts** part for a list of available category names. If no categories are specified, defaults are used, we use multiple categories in a single request. | String |
 
 
 > **NOTE: Image size requirements**
