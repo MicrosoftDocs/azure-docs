@@ -11,7 +11,6 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 04/02/2023
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
 keywords: content safety, azure content safety, online content safety, content filtering software, content moderation service, content moderation
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Safety is the right solution for my moderation needs.
@@ -27,9 +26,9 @@ You may want to build content filtering software into your app to comply with re
 
 This documentation contains the following article types:  
 
-* [**Quickstarts**](client-libraries.md) are getting-started instructions to guide you through making requests to the service.  
-* [**How-to guides**](try-text-api.md) contain instructions for using the service in more specific or customized ways.  
-* [**Concepts**](text-moderation-api.md) provide in-depth explanations of the service functionality and features.  
+* [**Quickstarts**](./quickstart.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](./how-to/use-custom-blocklist.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](concepts/content-flags.md) provide in-depth explanations of the service functionality and features.  
 
 ## Product Types
 
@@ -111,4 +110,4 @@ If you get stuck, [email us](acm-team@microsoft.com) or use the feedback widget 
 
 ## Next steps
 
-To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library or REST API quickstart](client-libraries.md) to implement the basic scenarios in code.
+TBD

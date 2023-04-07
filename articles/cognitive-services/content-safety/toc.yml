@@ -21,14 +21,10 @@ items:
   items:
   - name: Use a custom blocklist
     href: how-to/use-custom-blocklist.md
-  - name: Export or delete account data
-    href: ./export-delete-data.md
   - name: Enterprise readiness
     items:
       - name: Set up Virtual Networks
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
-      - name: Use customer-managed keys
-        href: encrypt-data-at-rest.md
 - name: Concepts
   items:
   - name: Content flags
@@ -36,7 +32,7 @@ items:
 - name: Reference
   items:
   - name: Content Safety REST API
-    href: tbd
+    href: https://aka.ms/content-safety-api
 - name: Resources
   items:
   - name: Enterprise readiness

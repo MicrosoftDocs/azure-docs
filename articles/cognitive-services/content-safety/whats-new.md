@@ -18,9 +18,8 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## April 2023
 
-### 
 
 
-## Cognitive Service updates
+## Cognitive Services updates
 
 [Azure update announcements for Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)

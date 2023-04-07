@@ -15,7 +15,7 @@
   items:
   - name: Cognitive Services                # Original doc set name
     tocHref: /legal/cognitive-services/content-safety    # Destination doc set route
-    topicHref: /azure/content-safety/index    # Original doc set route
+    topicHref: /azure/cognitive-services/index    # Original doc set route
     items:
     - name: Content Safety                 # Original doc set name
       tocHref: /legal/cognitive-services/content-safety    # Destination doc set route

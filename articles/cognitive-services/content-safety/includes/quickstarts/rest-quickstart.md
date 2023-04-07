@@ -95,7 +95,7 @@ The below fields must be included in the url:
 
 | Name            | Description                                                  | Type   |
 | :-------------- | :----------------------------------------------------------- | ------ |
-| **API Version** | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: <Endpoint>/contentmoderator/text:analyze?api-version=2022-12-30-preview | String |
+| **API Version** | (Required) This is the API version to be checked. Current version is: api-version=2022-12-30-preview. Example: `<Endpoint>/contentmoderator/text:analyze?api-version=2022-12-30-preview` | String |
 
 
 
