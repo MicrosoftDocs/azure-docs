@@ -166,7 +166,7 @@ When you install a client certificate, you need the password that was created wh
         Physical Address................:
         DHCP Enabled....................: No
         Autoconfiguration Enabled.......: Yes
-        IPv4 Address....................: 192.168.130.2(Preferred)
+        IPv4 Address....................: 172.16.201.11 (Preferred)
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
