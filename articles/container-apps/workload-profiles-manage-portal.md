@@ -33,29 +33,29 @@ At a high level, when you create a container app into a workload profile, you go
 
 1. Project details
 
-  | Property | Value |
-  | --- | --- |
-  | Subscription | Select your subscription |
-  | Resource group | Select or create a resource group |
-  | Container app name | Enter your container app name |
+    | Property | Value |
+    | --- | --- |
+    | Subscription | Select your subscription |
+    | Resource group | Select or create a resource group |
+    | Container app name | Enter your container app name |
 
 1. Container Apps Environment
 
-  | Property | Value |
-  | --- | --- |
-  | Region | Container Apps Environment |
-  | Select your region | Select **Create New** |
+    | Property | Value |
+    | --- | --- |
+    | Region | Container Apps Environment |
+    | Select your region | Select **Create New** |
 
 1. Environment details
 
-  | Property | Value |
-  | --- | --- |
-  | Environment name | Plan |
-  | Enter an environment name | Select **(Preview) Consumption and Dedicated workload profiles** |
-
-  Select the **Workload profiles** tab.
-
-  :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Create an Azure Container Apps Consumption + Dedicated plan environment.":::
+    | Property | Value |
+    | --- | --- |
+    | Environment name | Plan |
+    | Enter an environment name | Select **(Preview) Consumption and Dedicated workload profiles** |
+  
+    Select the **Workload profiles** tab.
+  
+    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Create an Azure Container Apps Consumption + Dedicated plan environment.":::
 
 1. Select the **Add workload profile** button.
 
@@ -65,9 +65,9 @@ At a high level, when you create a container app into a workload profile, you go
 
 1. In the *Select a workload profile size* window, select a profile from the list.
 
-  General purpose profiles offer a balanced mix cores vs memory for most applications.
-
-  Memory optimized profiles offer specialized hardware with increased memory or compute capabilities.
+    General purpose profiles offer a balanced mix cores vs memory for most applications.
+  
+    Memory optimized profiles offer specialized hardware with increased memory or compute capabilities.
 
 1. Select the **Select** button.
 
@@ -97,15 +97,15 @@ Add a new workload profile to an existing environment.
 
 1. In the *Select a workload profile size* window, select a profile from the list.
 
-  General purpose profiles offer a balanced mix cores vs memory for most applications.
-
-  Memory optimized profiles offer specialized hardware with increased memory or compute capabilities.
+    General purpose profiles offer a balanced mix cores vs memory for most applications.
+  
+    Memory optimized profiles offer specialized hardware with increased memory or compute capabilities.
 
 1. Select the **Select** button.
 
 1. For the *Autoscaling instance count range*, select the minimum and maximum number of instances you want available to this workload profile.
 
-  :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profile-slider.png" alt-text="Select the minimum and maximum instances for a workload profile.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profile-slider.png" alt-text="Select the minimum and maximum instances for a workload profile.":::
 
 1. Select **Add**.
 
