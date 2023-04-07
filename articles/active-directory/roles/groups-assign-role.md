@@ -23,7 +23,7 @@ To simplify role management, you can assign Azure AD roles to a group instead of
 ## Prerequisites
 
 - Azure AD Premium P1 license
-- [Privileged Role Administrator](./permissions-reference.md#privileged-role-administrator)
+- [Privileged Role Administrator](./permissions-reference.md#privileged-role-administrator) role
 - Microsoft.Graph module when using [Microsoft Graph PowerShell](/powershell/microsoftgraph/installation?branch=main)
 - AzureAD module when using [Azure AD PowerShell](/powershell/azure/active-directory/overview?branch=main)
 - Admin consent when using Graph explorer for Microsoft Graph API
