@@ -282,7 +282,7 @@ waagent --version
 The output is similar to the following example:
 
 ```bash
-WALinuxAgent-2.2.45 running on ubuntu 18.04
+WALinuxAgent-2.2.45 running on <Linux Distro>
 Python: 3.6.9
 Goal state agent: 2.7.1.0
 ```
