@@ -14,7 +14,7 @@ You can collect and consume this data in various ways to monitor your Batch acco
 
 ## Batch metrics
 
-[Metrics](../azure-monitor/essentials/data-platform-metrics.md) are Azure data (also called performance counters) that your Azure resources emit and the Azure Monitor service consumes that data. Examples of metrics in a Batch account are Pool Create Events, Low-Priority Node Count, and Task Complete Events. These metrics can help identify trends and can be used for data analysis.
+[Metrics](../azure-monitor/essentials/data-platform-metrics.md) are Azure data (also called performance counters) that your Azure resources emit, and the Azure Monitor service consumes that data. Examples of metrics in a Batch account are Pool Create Events, Low-Priority Node Count, and Task Complete Events. These metrics can help identify trends and can be used for data analysis.
 
 See the [list of supported Batch metrics](../azure-monitor/essentials/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -22,7 +22,7 @@ Metrics are:
 
 - Enabled by default in each Batch account without extra configuration.
 - Generated every 1 minute.
-- Not persisted automatically, they but have a 30-day rolling history. You can persist activity metrics as part of diagnostic logging.
+- Not persisted automatically, but they have a 30-day rolling history. You can persist activity metrics as part of diagnostic logging.
 
 ## View Batch metrics
 
@@ -33,7 +33,7 @@ To view other metrics for a Batch account:
 1. In the Azure portal, search and select **Batch accounts**, and then select the name of your Batch account.
 1. Under **Monitoring** in the left side navigation menu, select **Metrics**.
 1. Select **Add metric** and then choose a metric from the dropdown list.
-1. Select an **Aggregation** option for the metric. For count-based metrics (like "Dedicated Core Count" or "Low-Priority Node Count"), use the **Avg** aggregation. For event-based metrics (like "Pool Resize Complete Events"), use the **Count**" aggregation. Avoid using the **Sum** aggregation, which adds up the values of all data points received over the period of the chart.
+1. Select an **Aggregation** option for the metric. For count-based metrics (like "Dedicated Core Count" or "Low-Priority Node Count"), use the **Avg** aggregation. For event-based metrics (like "Pool Resize Complete Events"), use the **Count** aggregation. Avoid using the **Sum** aggregation, which adds up the values of all data points received over the period of the chart.
 1. To add other metrics, repeat steps 3 and 4.
 
     :::image type="content" source="./media/batch-diagnostics/add-metric.png" alt-text="Screenshot of the metrics page of a batch account in the Azure portal. Metrics is highlighted in the left side navigation menu. The Metric and Aggregation options for a metric are highlighted as well."::: 
@@ -46,11 +46,11 @@ You can also retrieve metrics programmatically with the Azure Monitor APIs. For 
 
 ## Batch metric alerts
 
-You can configure near real-time metric alerts that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is "Activated" (when the threshold is crossed and the alert condition is met). The alert also generates an alert when it is "Resolved" (when the threshold is crossed again and the condition is no longer met).
+You can configure near real-time metric alerts that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is *Activated* (when the threshold is crossed and the alert condition is met). The alert also generates an alert when it is *Resolved* (when the threshold is crossed again and the condition is no longer met).
 
 Because metric delivery can be subject to inconsistencies such as out-of-order delivery, data loss, or duplication, you should avoid alerts that trigger on a single data point. Instead, use thresholds to account for any inconsistencies such as out-of-order delivery, data loss, and duplication over a period of time.
 
-For example, you might want to configure a metric alert when your low priority core count falls to a certain level. You could then use this alert to adjust the composition of your pools. For best results, set a period of 10 or more minutes where the alert will be triggered if the average low priority core count falls lower than the threshold value for the entire period. This time period all for metrics to aggregate so that you get more accurate results.
+For example, you might want to configure a metric alert when your low priority core count falls to a certain level. You could then use this alert to adjust the composition of your pools. For best results, set a period of 10 or more minutes where the alert will be triggered if the average low priority core count falls lower than the threshold value for the entire period. This time period allows for metrics to aggregate so that you get more accurate results.
 
 To configure a metric alert in the Azure portal:
 
@@ -73,7 +73,7 @@ You can also configure a near real-time alert by using the [Azure Monitor REST A
 [Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md) contain information emitted by Azure resources that describe the operation of each resource. For Batch, you can collect the following logs:
 
 - **ServiceLog**: [events emitted by the Batch service](#service-log-events) during the lifetime of an individual resource such as a pool or task.
-- **AllMetrics**: Metrics at the Batch account level.
+- **AllMetrics**: metrics at the Batch account level.
 
 You must explicitly enable diagnostic settings for each Batch account you want to monitor.
 
