@@ -7,7 +7,15 @@ ms.service: container-apps
 ms.topic:  how-to
 ms.date: 03/28/2023
 ms.author: cshoe
+zone_pivot_groups: container-apps-vnet-types
 ---
+
+<!-- 
+::: zone pivot="aca-vnet-system"
+::: zone-end
+::: zone pivot="aca-vnet-custom"
+::: zone-end
+ -->
 
 # Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview)
 
@@ -24,17 +32,21 @@ The following regions support workload profiles during preview:
 
 ## Create a container app in a profile
 
-At a high level, when you create a container app into a workload profile, you go through the following steps:
+::: zone pivot="aca-vnet-system"
 
-- Select a workload profile
-- Create or provide a VNet
-- Create a subnet with a `Microsoft.App/environments` delegation (optional)
-- Create a new environment
-- Create a container app associated with the workload profile in the environment
+System-generated VNet manages the complexity of running a virtual network for you, which means you don't have direct control over the VNet configuration. Without direction access to the configuration, you can't use [user defined routes](user-defined-routes.md). If you want to use user defined routes, you need to create a container apps environment with a custom VNet.
 
-If you have an existing VNet, you can use it with the new environment you create. However, if you plan on using [user defined routes](user-defined-routes.md), then you need to create a new VNet.
+::: zone-end
+
+::: zone pivot="aca-vnet-custom"
+
+When you create an environment with a custom VNet, you have full control over the VNet configuration. This amount of control gives you the option to implement [user defined routes](user-defined-routes.md) if necessary in your container app environment.
+
+::: zone-end
 
 Use the following commands to create an environment with a workload profile.
+
+::: zone pivot="aca-vnet-custom"
 
 1. Create a VNet
 
@@ -60,6 +72,8 @@ Use the following commands to create an environment with a workload profile.
 
      Copy the ID value and paste into the next command.
 
+     The `Microsoft.App/environments` delegation is required to give the Container Apps runtime the needed control over your VNet to run workload profiles in the Container Apps environment.
+
      You can specify as small as a `/27` CIDR (32 IPs-8 reserved) for the subnet. Some things to consider if you're going to specify a `/27` CIDR:
 
       - There are 11 IP addresses reserved for Container Apps infrastructure. Therefore, a `/27` CIDR has a maximum of 21 IP available addresses.
@@ -69,6 +83,8 @@ Use the following commands to create an environment with a workload profile.
         | Consumption | Consumption + Dedicated |
         |---|---|  
         | Every replica requires one IP. Users can't have apps with more than 21 replicas across all apps. Zero downtime deployment requires double the IPs since the old revision is running until the new revision is successfully deployed. | Every instance (VM node) requires a single IP.  You can have up to 21 instances across all workload profiles, and hundreds or more replicas running on these workload profiles. |
+
+::: zone-end
 
 1. Create *Consumption + Dedicated* environment with workload profile support
 
@@ -88,6 +104,20 @@ Use the following commands to create an environment with a workload profile.
 
     # [Internal environment](#tab/internal-env)
 
+    ::: zone pivot="aca-vnet-system"
+
+    ```bash
+    az containerapp env create \
+      --enable-workload-profiles \
+      --resource-group "<RESOURCE_GROUP>" \
+      --name "<NAME>" \
+      --location "<LOCATION>"
+    ```
+
+    ::: zone-end
+
+    ::: zone pivot="aca-vnet-custom"
+
     ```bash
     az containerapp env create \
       --enable-workload-profiles \
@@ -97,6 +127,8 @@ Use the following commands to create an environment with a workload profile.
       --infrastructure-subnet-resource-id "<SUBNET_ID>"
       --internal--only
     ```
+
+    ::: zone-end
 
     ---
 
@@ -125,7 +157,7 @@ Use the following commands to create an environment with a workload profile.
         --workload-profile-name "Consumption"
       ```
 
-    This command deploys the application to the built in Consumption workload profile. If you want to create an app in a dedicated workload profile, you first need to [add the profile to the environment](#add-profiles).
+    This command deploys the application to the built-in Consumption workload profile. If you want to create an app in a dedicated workload profile, you first need to [add the profile to the environment](#add-profiles).
 
     This command creates the new application in the environment using a specific workload profile.
 
