@@ -1768,7 +1768,7 @@ After entering your code, switch back to the visual editor to validate it.
 
 #### [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
 
 ```azurepowershell
 $subId = "<your subscription id>"
@@ -1782,17 +1782,17 @@ $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Stora
 $condition = `
 "( `
  ( `
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) `
  ) `
  OR `
  ( `
   ( `
    @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] `
    AND `
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/privateendpoint1' `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/$privateendpointName' `
   ) `
   OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
  ) `
 )"
 
@@ -2034,7 +2034,7 @@ Here's how to add this condition for the Storage Blob Data Contributor role usin
 $subId = "<your subscription id>"
 $rgName = "<resource group name>"
 $storageAccountName = "<storage account name>"
-$roleDefinitionName = "Storage Blob Data Reader"
+$roleDefinitionName = "Storage Blob Data Contributor"
 $userUpn = "<user UPN>"
 $userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
 $containerName = "container1"
@@ -2052,16 +2052,16 @@ $condition = `
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) `
   AND `
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) `
- ) `
- OR ` 
- ( `
-  ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals $containerName `
-   AND `
+ ) `
+ OR ` 
+ ( `
+  ( `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals $containerName `
+   AND `
    @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName `
   ) `
   OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
  ) `
 )"
 
@@ -2156,7 +2156,7 @@ After entering your code, switch back to the visual editor to validate it.
 
 #### [PowerShell](#tab/azure-powershell)
 
-Here's how to add this condition for the Storage Blob Data Contributor role using Azure PowerShell.
+Here's how to add this condition for the Storage Blob Data Reader role using Azure PowerShell.
 
 ```azurepowershell
 $subId = "<your subscription id>"
