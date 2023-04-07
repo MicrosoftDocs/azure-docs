@@ -235,7 +235,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    > }
    > ```
    >
-   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-05-new-config.md#destination-properties).
+   > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure Destination properties](deploy-05-new-config.md#destination-properties).
 
 ## Review metrics from the test message
 
