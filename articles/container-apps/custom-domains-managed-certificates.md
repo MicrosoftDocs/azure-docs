@@ -91,7 +91,7 @@ For successful issuance and subsequent automatic renewal of managed certificates
 Container Apps supports apex domains and subdomains. Each domain type requires a different DNS record type and validation method.
 
 | Domain type | Record type | Validation method | Notes |
-|--|--|--|
+|--|--|--|--|
 | Apex domain | A record | HTTP | An apex domain is a domain at the root level of your domain. For example, if your DNS zone is `contoso.com`, then `contoso.com` is the apex domain. |
 | Subdomain | CNAME | CNAME | A subdomain is a domain that is part of another domain. For example, if your DNS zone is `contoso.com`, then `www.contoso.com` is an example of a subdomain that can be configured in the zone. |
 
