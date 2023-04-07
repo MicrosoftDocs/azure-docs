@@ -142,6 +142,10 @@ Finally, when you are satisfied with the prepared configuration, move forward wi
 Move-AzureStorageAccount -Commit -StorageAccountName $accountName
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+TBD
+
 ---
 
 ### Locate and delete disk artifacts in a classic account
