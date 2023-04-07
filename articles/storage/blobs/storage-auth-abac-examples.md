@@ -1922,7 +1922,7 @@ $condition = `
    @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
   ) `
   OR `
-  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'} `
+  @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&`$keys`$&] ForAnyOfAnyValues:StringNotEqualsIgnoreCase {'sensitivity'} `
  ) `
 )"
 
@@ -2056,12 +2056,12 @@ $condition = `
  OR ` 
  ( `
   ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals $containerName `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
    AND `
-   @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName `
+   @Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Network/virtualNetworks/$vnetName/subnets/$subnetName' `
   ) `
   OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName' `
  ) `
 )"
 
@@ -2177,12 +2177,12 @@ $condition = `
  OR ` 
  ( `
   ( `
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals $containerName `
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals '$containerName' `
    AND `
-   @Environment[UtcNow] DateTimeGreaterThan $dateTime `
+   @Environment[UtcNow] DateTimeGreaterThan '$dateTime' `
   ) `
   OR `
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals $containerName `
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringNotEquals '$containerName' `
  ) `
 )"
 
