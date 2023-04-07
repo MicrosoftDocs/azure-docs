@@ -30,15 +30,15 @@ This article shows how to use the [JobPreparationTask](/dotnet/api/microsoft.azu
 
 ## Use cases for job preparation and release tasks
 
-Job preparation and job release tasks are a good fit for the following situations:
+Job preparation and job release tasks are a good fit for the following scenarios:
 
 - **Download common task data**. Batch jobs often require a common set of data as input for a job's tasks. You can use a job preparation task to download this data to each node before the execution of the job's other tasks.
 
   For example, in daily risk analysis calculations, market data is job-specific yet common to all tasks in the job. You can use a job preparation task to download this market data, which is often several gigabytes in size, to each compute node so that any task that runs on the node can use it.
 
-- **Job and task output deletion**. In a shared pool environment, where a pool's compute nodes aren't decommissioned between jobs, you might need to delete job data between runs. For example, you might need to conserve disk space on the nodes, or satisfy your organization's security policies. You can use a job release task to delete data that a job preparation task downloaded or that task execution generated.
+- **Delete job and task output**. In a shared pool environment, where a pool's compute nodes aren't decommissioned between jobs, you might need to delete job data between runs. For example, you might need to conserve disk space on the nodes, or satisfy your organization's security policies. You can use a job release task to delete data that a job preparation task downloaded or that task execution generated.
 
-- **Log retention**. You might want to keep a copy of log files that your tasks generate, or crash dump files that failed applications generate. You can use a job release task to compress and upload this data to an [Azure Storage account](accounts.md#azure-storage-accounts).
+- **Retain logs**. You might want to keep a copy of log files that your tasks generate, or crash dump files that failed applications generate. You can use a job release task to compress and upload this data to an [Azure Storage account](accounts.md#azure-storage-accounts).
 
 ## Job preparation task
 
@@ -160,13 +160,13 @@ Sample complete, hit ENTER to exit...
 ```
 
 > [!NOTE]
-> Because the variable creation and start time of nodes in a new pool means some nodes are ready for tasks before others, you might see different output. Specifically, because the tasks complete quickly, one of the pool's nodes might run all of the job's tasks. If this occurs, the job preparation and release tasks don't exist for the node that ran no tasks.
+> The varying creation and start times of nodes in a new pool means some nodes are ready for tasks before others, so you might see different output. Specifically, because the tasks complete quickly, one of the pool's nodes might run all of the job's tasks. If this occurs, the job preparation and release tasks don't exist for the node that ran no tasks.
 
 ## View job preparation and release tasks in the Azure portal
 
-You can use the [Azure portal](https://portal.azure.com) to view Batch job properties and tasks, including job preparation tasks and release tasks. Navigate to the job page after your tasks have completed, but before deleting your job and pool.
+You can use the [Azure portal](https://portal.azure.com) to view Batch job properties and tasks, including job preparation and release tasks. Navigate to the job page after your tasks have completed, but before deleting your job and pool.
 
-The following screenshot shows the **JobPrepReleaseSampleJob** page after you run the sample application. Because the job has preparation tasks, you can select **Preparation tasks** in the left navigation on the job page to see their properties. You can also download the shared text file that the job tasks modify by selecting **Tasks** in the left navigation.
+The following screenshot shows the **JobPrepReleaseSampleJob** page after the sample application runs. This job had preparation tasks, so you can select **Preparation tasks** in the left navigation on the job page to see their properties. You can also download the shared text file that the job tasks modify by selecting **Tasks** in the left navigation.
 
 :::image type="content" source="media/batch-job-prep-release/portal-jobprep-01.png" alt-text="Screenshot showing job preparation task properties in the Azure portal.":::
 
