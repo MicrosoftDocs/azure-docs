@@ -123,7 +123,7 @@ In Functions, each type of binding requires a `direction`, `type`, and a unique 
 
 Open the *HttpExample.cs* project file and add the following `ToDoItem` class, which defines the object that is written to the database:
 
-    :::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
 
 In a C# class library project, the bindings are defined as binding attributes on the function method. The *function.json* file required by Functions is then auto-generated based on these attributes.
 
@@ -504,7 +504,7 @@ def test_function(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> fu
 
 1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
 
-1. Again [check the data written to your Azure SQL Database](#verify-that-information-hase-been-written-to-the-database) to verify that the output binding again generates a new JSON document.
+1. Again [check the data written to your Azure SQL Database](#verify-that-information-has-been-written-to-the-database) to verify that the output binding again generates a new JSON document.
 
 ## Clean up resources
 
