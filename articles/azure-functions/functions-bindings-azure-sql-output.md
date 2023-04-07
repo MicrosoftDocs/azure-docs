@@ -162,7 +162,6 @@ This section contains the following examples:
 
 * [HTTP trigger, write one record](#http-trigger-write-one-record-c-oop)
 * [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-c-oop)
-* [HTTP trigger, write records using IAsyncCollector](#http-trigger-write-records-using-iasynccollector-c-oop)
 
 The examples refer to a `ToDoItem` class and a corresponding database table:
 
@@ -170,12 +169,22 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
+To return [multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings) in our samples, we will create a custom return type:
+
+```cs
+public static class OutputType
+{
+    [SqlOutput("dbo.ToDo", connectionStringSetting: "SqlConnectionString")]
+    public ToDoItem ToDoItem { get; set; }
+    public HttpResponseData HttpResponse { get; set; }
+}
+```
 
 <a id="http-trigger-write-one-record-c-oop"></a>
 
 ### HTTP trigger, write one record
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, using data provided in an HTTP POST request as a JSON body.
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a record to a database, using data provided in an HTTP POST request as a JSON body.  The return object is the `OutputType` class we created to handle both an HTTP response and the SQL output binding.
 
 ```cs
 using System;
@@ -195,11 +204,13 @@ namespace AzureSQL.ToDo
         // create a new ToDoItem from body object
         // uses output binding to insert new item into ToDo table
         [FunctionName("PostToDo")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "PostFunction")] HttpRequest req,
-            ILogger log,
-            [SqlOutput(commandText: "dbo.ToDo", connectionStringSetting: "SqlConnectionString")] IAsyncCollector<ToDoItem> toDoItems)
+        public static async Task<OutputType> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "PostFunction")] HttpRequestData req,
+                FunctionContext executionContext)
         {
+            var logger = executionContext.GetLogger("HttpExample");
+            logger.LogInformation("C# HTTP trigger function processed a request.");
+
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             ToDoItem toDoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
 
@@ -215,12 +226,20 @@ namespace AzureSQL.ToDo
                 toDoItem.completed = false;
             }
 
-            await toDoItems.AddAsync(toDoItem);
-            await toDoItems.FlushAsync();
-            List<ToDoItem> toDoItemList = new List<ToDoItem> { toDoItem };
-
-            return new OkObjectResult(toDoItemList);
+            return new OutputType()
+            {
+                ToDoItem = toDoItem,
+                HttpResponse = req.CreateResponse(System.Net.HttpStatusCode.Created)
+            }
         }
+    }
+
+    public static class OutputType
+    {
+        [SqlOutput("dbo.ToDo", connectionStringSetting: "SqlConnectionString")]
+        public ToDoItem ToDoItem { get; set; }
+
+        public HttpResponseData HttpResponse { get; set; }
     }
 }
 ```
@@ -239,6 +258,7 @@ CREATE TABLE dbo.RequestLog (
 )
 ```
 
+To use an additional output binding, we add a class for `RequestLog` and  modify our `OutputType` class:
 
 ```cs
 using System;
@@ -258,11 +278,9 @@ namespace AzureSQL.ToDo
         // create a new ToDoItem from body object
         // uses output binding to insert new item into ToDo table
         [FunctionName("PostToDo")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "PostFunction")] HttpRequest req,
-            ILogger log,
-            [SqlOutput(commandText: "dbo.ToDo", connectionStringSetting: "SqlConnectionString")] IAsyncCollector<ToDoItem> toDoItems,
-            [SqlOutput(commandText: "dbo.RequestLog", connectionStringSetting: "SqlConnectionString")] IAsyncCollector<RequestLog> requestLogs)
+        public static async Task<OutputType> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "PostFunction")] HttpRequestData req,
+                FunctionContext executionContext)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             ToDoItem toDoItem = JsonConvert.DeserializeObject<ToDoItem>(requestBody);
@@ -279,17 +297,16 @@ namespace AzureSQL.ToDo
                 toDoItem.completed = false;
             }
 
-            await toDoItems.AddAsync(toDoItem);
-            await toDoItems.FlushAsync();
-            List<ToDoItem> toDoItemList = new List<ToDoItem> { toDoItem };
-
             requestLog = new RequestLog();
             requestLog.RequestTimeStamp = DateTime.Now;
             requestLog.ItemCount = 1;
-            await requestLogs.AddAsync(requestLog);
-            await requestLogs.FlushAsync();
 
-            return new OkObjectResult(toDoItemList);
+            return new OutputType()
+            {
+                ToDoItem = toDoItem,
+                RequestLog = requestLog,
+                HttpResponse = req.CreateResponse(System.Net.HttpStatusCode.Created)
+            }
         }
     }
 
@@ -297,49 +314,22 @@ namespace AzureSQL.ToDo
         public DateTime RequestTimeStamp { get; set; }
         public int ItemCount { get; set; }
     }
-}
-```
-
-<a id="http-trigger-write-records-using-iasynccollector-c-oop"></a>
-
-### HTTP trigger, write records using IAsyncCollector
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of records to a database, using data provided in an HTTP POST body JSON array.
-
-```cs
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Extensions.Sql;
-using Microsoft.Azure.Functions.Worker.Http;
-using Newtonsoft.Json;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace AzureSQLSamples
-{
-    public static class WriteRecordsAsync
+    
+    public static class OutputType
     {
-        [FunctionName("WriteRecordsAsync")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "addtodo-asynccollector")]
-            HttpRequest req,
-            [SqlOutput(commandText: "dbo.ToDo", connectionStringSetting: "SqlConnectionString")] IAsyncCollector<ToDoItem> newItems)
-        {
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var incomingItems = JsonConvert.DeserializeObject<ToDoItem[]>(requestBody);
-            foreach (ToDoItem newItem in incomingItems)
-            {
-                await newItems.AddAsync(newItem);
-            }
-            // Rows are upserted here
-            await newItems.FlushAsync();
+        [SqlOutput("dbo.ToDo", connectionStringSetting: "SqlConnectionString")]
+        public ToDoItem ToDoItem { get; set; }
 
-            return new CreatedResult($"/api/addtodo-asynccollector", "done");
-        }
+        [SqlOutput("dbo.RequestLog", connectionStringSetting: "SqlConnectionString")]
+        public RequestLog RequestLog { get; set; }
+
+        public HttpResponseData HttpResponse { get; set; }
     }
+
 }
 ```
+
+
 
 
 # [C# Script](#tab/csharp-script)
