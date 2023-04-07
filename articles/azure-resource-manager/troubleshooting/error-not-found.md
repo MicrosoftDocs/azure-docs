@@ -2,7 +2,7 @@
 title: Resource not found errors
 description: Describes how to resolve errors when a resource can't be found. The error might occur when you deploy a Bicep file or Azure Resource Manager template, or when doing management tasks.
 ms.topic: troubleshooting
-ms.date: 09/12/2022
+ms.date: 01/03/2023
 ms.custom: devx-track-azurepowershell
 ---
 

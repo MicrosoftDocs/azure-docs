@@ -4,7 +4,7 @@ description: Set up and run an example data pipeline that is triggered by new da
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/25/2019
+ms.date: 12/23/2022
 ---
 
 # Operationalize a data analytics pipeline

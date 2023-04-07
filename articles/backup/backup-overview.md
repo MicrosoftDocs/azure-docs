@@ -4,6 +4,8 @@ description: Provides an overview of the Azure Backup service, and how it contri
 ms.topic: overview
 ms.date: 03/11/2022
 ms.custom: mvc
+author: jyothisuri
+ms.author: jsuri
 ---
 # What is the Azure Backup service?
 

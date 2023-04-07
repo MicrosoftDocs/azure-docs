@@ -29,7 +29,7 @@ Event Hubs represents the "front door" for an event pipeline, often called an *e
 The following sections describe key features of the Azure Event Hubs service:
 
 ## Fully managed PaaS
-Event Hubs is a fully managed Platform-as-a-Service (PaaS) with little configuration or management overhead, so you focus on your business solutions. [Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) gives you the PaaS Kafka experience without having to manage, configure, or run your clusters.
+Event Hubs is a fully managed Platform-as-a-Service (PaaS) with little configuration or management overhead, so you focus on your business solutions. [Event Hubs for Apache Kafka ecosystems](azure-event-hubs-kafka-overview.md) gives you the PaaS Kafka experience without having to manage, configure, or run your clusters.
 
 ## Support for real-time and batch processing
 Ingest, buffer, store, and process your stream in real time to get actionable insights. Event Hubs uses a [partitioned consumer model](event-hubs-scalability.md#partitions), enabling multiple applications to process the stream concurrently and letting you control the speed of processing. Azure Event Hubs also integrates with [Azure Functions](../azure-functions/index.yml) for a serverless architecture.
@@ -45,7 +45,7 @@ With Event Hubs, you can start with data streams in megabytes, and grow to gigab
 With a broad ecosystem based on the industry-standard AMQP 1.0 protocol and available in various languages [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/), [JavaScript](https://github.com/Azure/azure-sdk-for-js/), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration. The ecosystem also provides you with seamless integration with Azure services like Azure Stream Analytics and Azure Functions and thus enables you to build serverless architectures.
 
 ## Event Hubs for Apache Kafka
-[Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) furthermore enables [Apache Kafka (1.0 and later)](https://kafka.apache.org/) clients and applications to talk to Event Hubs. You don't need to set up, configure, and manage your own Kafka and Zookeeper clusters or use some Kafka-as-a-Service offering not native to Azure.
+[Event Hubs for Apache Kafka ecosystems](azure-event-hubs-kafka-overview.md) furthermore enables [Apache Kafka (1.0 and later)](https://kafka.apache.org/) clients and applications to talk to Event Hubs. You don't need to set up, configure, and manage your own Kafka and Zookeeper clusters or use some Kafka-as-a-Service offering not native to Azure.
 
 ## Event Hubs premium and dedicated 
 Event Hubs **premium** caters to high-end streaming needs that require superior performance, better isolation with predictable latency and minimal interference in a managed multitenant PaaS environment. On top of all the features of the standard offering, the premium tier offers several extra features such as [dynamic partition scale up](dynamically-add-partitions.md), extended retention, and [customer-managed-keys](configure-customer-managed-key.md). For more information, see [Event Hubs Premium](event-hubs-premium-overview.md).

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 11/07/2022
+ms.date: 02/13/2023
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
-ms.custom: contperf-fy20q4, azuread-video-2020
+ms.custom: zt-include
 ---
 # What is Conditional Access?
 
@@ -96,6 +96,8 @@ Other products and features that may interact with Conditional Access policies r
 When licenses required for Conditional Access expire, policies aren't automatically disabled or deleted so customers can migrate away from Conditional Access policies without a sudden change in their security posture. Remaining policies can be viewed and deleted, but no longer updated. 
 
 [Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) help protect against identity-related attacks and are available for all customers.  
+
+[!INCLUDE [active-directory-zero-trust](../../../includes/active-directory-zero-trust.md)]
 
 ## Next steps
 

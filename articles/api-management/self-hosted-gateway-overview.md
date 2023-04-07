@@ -19,6 +19,8 @@ This article explains how the self-hosted gateway feature of Azure API Managemen
 
 For an overview of the features across the various gateway offerings, see [API gateway in API Management](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways).
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 ## Hybrid and multi-cloud API management
 
 The self-hosted gateway feature expands API Management support for hybrid and multi-cloud environments and enables organizations to efficiently and securely manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
@@ -95,17 +97,18 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 
 | Description | Required for v1 | Required for v2 | Notes |
 |:------------|:---------------------|:---------------------|:------|
-| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | |
+| Hostname of the configuration endpoint | `<apim-service-name>.management.azure-api.net` | `<apim-service-name>.configuration.azure-api.net` | Connectivity to v2 endpoint requires DNS resolution of the default hostname.<br/><br/>Currently, API Management doesn't enable configuring a custom domain name for the v2 endpoint<sup>1</sup>. |
 | Public IP address of the API Management instance | ✔️ | ✔️ | IP addresses of primary location is sufficient. |
-| Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | Optional<sup>1</sup> | IP addresses must correspond to primary location of API Management instance. |
-| Hostname of Azure Blob Storage account | ✔️ | Optional<sup>1</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
-| Hostname of Azure Table Storage account | ✔️ | Optional<sup>1</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
-| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>2</sup> | Optional<sup>2</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
-| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>2</sup> | Optional<sup>2</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
-| Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>2</sup> | Optional<sup>2</sup> | This requirement depends on the external cache that is being used |
+| Public IP addresses of Azure Storage [service tag](../virtual-network/service-tags-overview.md) | ✔️ | Optional<sup>2</sup> | IP addresses must correspond to primary location of API Management instance. |
+| Hostname of Azure Blob Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<blob-storage-account-name>.blob.core.windows.net`) |
+| Hostname of Azure Table Storage account | ✔️ | Optional<sup>2</sup> | Account associated with instance (`<table-storage-account-name>.table.core.windows.net`) |
+| Endpoints for [Azure Application Insights integration](api-management-howto-app-insights.md) | Optional<sup>3</sup> | Optional<sup>3</sup> | Minimal required endpoints are:<ul><li>`rt.services.visualstudio.com:443`</li><li>`dc.services.visualstudio.com:443`</li><li>`{region}.livediagnostics.monitor.azure.com:443`</li></ul>Learn more in [Azure Monitor docs](../azure-monitor/app/ip-addresses.md#outgoing-ports) |
+| Endpoints for [Event Hubs integration](api-management-howto-log-event-hubs.md) | Optional<sup>3</sup> | Optional<sup>3</sup> | Learn more in [Azure Event Hubs docs](../event-hubs/network-security.md) |
+| Endpoints for [external cache integration](api-management-howto-cache-external.md) | Optional<sup>3</sup> | Optional<sup>3</sup> | This requirement depends on the external cache that is being used |
 
-<sup>1</sup> Only required in v2 when API inspector or quotas are used in policies.<br/>
-<sup>2</sup> Only required when feature is used and requires public IP address, port and hostname information.<br/>
+<sup>1</sup>For an API Management instance in an internal virtual network, enable private connectivity to the v2 configuration endpoint from the location of the self-hosted gateway, for example, using a private DNS in a peered network.<br/> 
+<sup>2</sup>Only required in v2 when API inspector or quotas are used in policies.<br/>
+<sup>3</sup> Only required when feature is used and requires public IP address, port, and hostname information.<br/>
 
 > [!IMPORTANT]
 > * DNS hostnames must be resolvable to IP addresses and the corresponding IP addresses must be reachable.

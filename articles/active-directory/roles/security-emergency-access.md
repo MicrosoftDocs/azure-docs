@@ -91,7 +91,7 @@ Some organizations use AD Domain Services and AD FS or similar identity provider
 
 Organizations need to ensure that the credentials for emergency access accounts are kept secure and known only to individuals who are authorized to use them. Some customers use a smartcard for Windows Server AD, a [FIDO2 security key](../authentication/howto-authentication-passwordless-security-key.md) for Azure AD and others use passwords. A password for an emergency access account is usually separated into two or three parts, written on separate pieces of paper, and stored in secure, fireproof safes that are in secure, separate locations.
 
-If using passwords, make sure the accounts have strong passwords that do not expire the password. Ideally, the passwords should be at least 16 characters long and randomly generated.
+If using passwords, make sure the accounts have strong passwords that do not expire. Ideally, the passwords should be at least 16 characters long and randomly generated.
 
 ## Monitor sign-in and audit logs
 
@@ -175,7 +175,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 1. Enter the action group name and a short name.
 1. Verify the subscription and resource group.
 1. Under action type, select **Email/SMS/Push/Voice**.
-1. Enter an action name such as **Notify global admin**.
+1. Enter an action name such as **Notify Global Administrator**.
 1. Select the **Action Type** as **Email/SMS/Push/Voice**.
 1. Select **Edit details** to select the notification methods you want to configure and enter the required contact information, and then select **Ok** to save the details.
 1. Add any additional actions you want to trigger.

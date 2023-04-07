@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/01/2022
+ms.date: 01/17/2023
 ms.author: victorh
 ---
 
@@ -87,7 +87,7 @@ Azure Firewall Manager has the following known issues:
 |Branch to branch traffic with private traffic filtering enabled|Branch to branch traffic isn't supported when private traffic filtering is enabled. |Investigating.<br><br>Don't secure private traffic if branch to branch connectivity is critical.|
 |All Secured Virtual Hubs sharing the same virtual WAN must be in the same resource group.|This behavior is aligned with Virtual WAN Hubs today.|Create multiple Virtual WANs to allow Secured Virtual Hubs to be created in different resource groups.|
 |Bulk IP address addition fails|The secure hub firewall goes into a failed state if you add multiple public IP addresses.|Add smaller public IP address increments. For example, add 10 at a time.|
-|DDoS Protection Standard not supported with secured virtual hubs|DDoS Protection Standard is not integrated with vWANs.|Investigating|
+|DDoS Protection not supported with secured virtual hubs|DDoS Protection is not integrated with vWANs.|Investigating|
 |Activity logs not fully supported|Firewall policy does not currently support Activity logs.|Investigating|
 |Description of rules not fully supported|Firewall policy does not display the description of rules in an ARM export.|Investigating|
 |Azure Firewall Manager overwrites static and custom routes causing downtime in virtual WAN hub.|You should not use Azure Firewall Manager to manage your settings in deployments configured with custom or static routes. Updates from Firewall Manager can potentially overwrite static or custom route settings.|If you use static or custom routes, use the Virtual WAN page to manage security settings and avoid configuration via Azure Firewall Manager.<br><br>For more information, see [Scenario: Azure Firewall - custom](../virtual-wan/scenario-route-between-vnets-firewall.md).|

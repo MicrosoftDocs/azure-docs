@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 
 > [!VIDEO https://www.youtube.com/embed/8hOKCHgSNsg]
 
-Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
+Get the sample Android application for this [quickstart](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling) in the open source Azure Communication Services [UI Library for Android](https://github.com/Azure/communication-ui-library-android).
 
 ## Prerequisites
 

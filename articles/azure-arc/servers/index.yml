@@ -19,6 +19,9 @@ landingContent:
             url: overview.md
           - text: Azure Connected Machine agent overview
             url: agent-overview.md
+          - text: VMware FAQ
+            url: vmware-faq.md
+
       - linkListType: architecture
         links:
           - text: Manage configurations for hybrid servers 
@@ -70,7 +73,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.connectedmachine/
           - text: .NET
-            url: /dotnet/api/overview/azure/hybridcompute/management
+            url: /dotnet/api/overview/azure/hybridcompute/management/management-hybridcompute
           - text: REST
             url: /rest/api/hybridcompute/
           - text: Java

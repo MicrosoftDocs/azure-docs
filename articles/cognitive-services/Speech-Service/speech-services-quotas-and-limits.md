@@ -55,7 +55,7 @@ You can use online transcription with the [Speech SDK](speech-sdk.md) or the [sp
 | Max acoustic dataset file size for data import | 2 GB | 2 GB |
 | Max language dataset file size for data import | 200 MB | 1.5 GB |
 | Max pronunciation dataset file size for data import | 1 KB | 1 MB |
-| Max text size when you're using the `text` parameter in the [CreateModel](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) API request | 200 KB | 500 KB |
+| Max text size when you're using the `text` parameter in the [Models_Create](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_Create/) API request | 200 KB | 500 KB |
 
 <sup>1</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-online-transcription-concurrent-request-limit).<br/>
@@ -90,9 +90,6 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 | Upload of long audios or audios without script | N/A | Yes |
 | Max number of simultaneous model trainings | N/A | 3 |
 | Max number of custom endpoints | N/A | 50 |
-| Concurrent request limit for Custom Neural Voice |  |  |
-| Default value | N/A | 10 |
-| Adjustable | N/A | Yes<sup>5</sup> |
 
 #### Audio Content Creation tool
 
@@ -206,19 +203,37 @@ You aren't able to see the existing value of the concurrent request limit parame
 
 >[!NOTE]
 >[Speech containers](speech-container-howto.md) don't require increases of the concurrent request limit, because containers are constrained only by the CPUs of the hardware they are hosted on.
-
+ 
 #### Prepare the required information
 
-To create an increase request, you provide your deployment region and the custom endpoint ID. To get it, perform the following actions:
+To create an increase request, you need to provide your information. 
+
+- For the prebuilt voice:
+  - Speech resource ID
+  - Region
+- For the custom voice:
+  - Deployment region
+  - Custom endpoint ID
+
+How to get information for the prebuilt voice:
+
+1. Go to the [Azure portal](https://portal.azure.com/).
+1. Select the Speech service resource for which you would like to increase the concurrency request limit.
+1. From the **Resource Management** group, select **Properties**.
+1. Copy and save the values of the following fields:
+   - **Resource ID**
+   - **Location** (your endpoint region)
+
+How to get information for the custom voice:
 
 1. Go to the [Speech Studio](https://aka.ms/speechstudio/customvoice) portal.
 1. Sign in if necessary, and go to **Custom Voice**.
-1. Select your project, and go to **Deployment**.
+1. Select your project, and go to **Deploy model**.
 1. Select the required endpoint.
 1. Copy and save the values of the following fields:
    - **Service Region** (your endpoint region)
    - **Endpoint ID**
-
+   
 #### Create and submit a support request
 
 Initiate the increase of the limit for concurrent requests for your resource, or if necessary check the current limit, by submitting a support request. Here's how:
@@ -232,11 +247,11 @@ Initiate the increase of the limit for concurrent requests for your resource, or
 1. In **Problem subtype**, select either:
    - **Quota or concurrent requests increase** for an increase request.
    - **Quota or usage validation** to check the existing limit.
-1. Select **Next: Solutions**. Proceed further with the request creation.
-1. On the **Details** tab, in the **Description** field, enter the following:
+1. On the **Recommended solution** tab, select **Next**. 
+1. On the **Additional details** tab, fill in all the required items. And in the **Details** field, enter the following:
    - A note that the request is about the text-to-speech quota.
-   - Choose either the base or custom model.
-   - The Azure resource information you [collected previously](#have-the-required-information-ready).
+   - Choose either the prebuilt voice or custom voice.
+   - The Azure resource information you [collected previously](#prepare-the-required-information).
    - Any other required information.
 1. On the **Review + create** tab, select **Create**.
 1. Note the support request number in Azure portal notifications. You'll be contacted shortly about your request.

@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -68,7 +68,7 @@ az network application-gateway create -n myApplicationGateway -l eastus -g myRes
 ```
 
 > [!NOTE]
-> application gateway ingress controller (AGIC) add-on **only** supports application gateway v2 SKUs (Standard and WAF), and **not** the application gateway v1 SKUs. 
+> The application gateway ingress controller (AGIC) add-on **only** supports application gateway v2 SKUs (Standard and WAF), and **not** the application gateway v1 SKUs. 
 
 ## Enable the AGIC add-on in existing AKS cluster through Azure CLI 
 

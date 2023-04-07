@@ -1,5 +1,6 @@
 ---
-title: List blobs with .NET - Azure Storage
+title: List blobs with .NET
+titleSuffix: Azure Storage
 description: Learn how to list blobs in your storage account using the Azure Storage client library for .NET. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
 author: pauljewellmsft
@@ -14,7 +15,9 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# List blobs using the Azure Storage client library for .NET
+# List blobs with .NET
+
+This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
@@ -140,8 +143,19 @@ private static void ListBlobVersions(BlobContainerClient blobContainerClient,
 }
 ```
 
-## Next steps
+## Resources
 
-- [List Blobs](/rest/api/storageservices/list-blobs)
+To learn more about how to list blobs using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for listing blobs use the following REST API operation:
+
+- [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
+
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 - [Blob versioning](versioning-overview.md)

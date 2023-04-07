@@ -47,9 +47,20 @@ Possible errors:
  - {"level":"fatal","msg":"sshproxy: error copying information from the connection: read tcp 192.168.1.180:60887-\u003e40.122.115.96:443: wsarecv: An existing connection was forcibly closed by the remote host.","time":"2022-02-24T13:50:40-05:00"}
 
 Resolution:
- - Ensure that the SSHD service is running on the Arc-enabled server
- - Ensure that port 22 (or other non-default port) is listed in allowed incoming connections. Run ```azcmagent config list``` on the Arc-enabled server in an elevated session
+ - Ensure that the SSHD service is running on the Arc-enabled server.
+ - Ensure that port 22 (or other non-default port) is listed in allowed incoming connections. Run `azcmagent config list` on the Arc-enabled server in an elevated session. The ssh port (22) isn't set by default, so you must add it. This setting is used by other services, like admin center, so just add port 22 without deleting previously added ports.
 
+   ```powershell
+   # Set 22 port:
+   azcmagent config list
+   azcmagent config get incomingconnections.port
+   azcmagent config set incomingconnections.port 22
+   azcmagent config
+   
+   # Add multiple ports:
+   azcmagent config set incomingconnections.port 22,3516
+   ```
+   
 ## Azure permissions issues
 
 ### Incorrect role assignments

@@ -2,7 +2,7 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 01/10/2023
 ---
 
 # Create private registry for Bicep modules
@@ -45,7 +45,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 1. To publish modules to a registry, you must have permission to **push** an image. To deploy a module from a registry, you must have permission to **pull** the image. For more information about the roles that grant adequate access, see [Azure Container Registry roles and permissions](../../container-registry/container-registry-roles.md).
 
-1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#credentials-for-publishingrestoring-modules).
+1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the **bicepconfig.json** file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#configure-profiles-and-credentials).
 
 > [!IMPORTANT]
 > The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](../../container-registry/container-registry-private-link.md).

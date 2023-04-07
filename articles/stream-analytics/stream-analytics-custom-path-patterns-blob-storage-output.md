@@ -1,8 +1,8 @@
 ---
 title: Azure Stream Analytics custom blob output partitioning
 description: This article describes the custom DateTime path patterns and the custom field or attributes features for blob storage output from Azure Stream Analytics jobs.
-author: enkrumah
-ms.author: ebnkruma
+author: an-emma
+ms.author: an-emma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2021

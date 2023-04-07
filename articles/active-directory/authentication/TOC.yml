@@ -84,6 +84,8 @@
     href: concept-registration-mfa-sspr-combined.md
   - name: Resilient access controls
     href: concept-resilient-controls.md
+  - name: Web browser cookies
+    href: concept-authentication-web-browser-cookies.md
 - name: How-to guides
   items:
   - name: Manage authentication methods
@@ -118,18 +120,6 @@
           href: how-to-mfa-microsoft-managed.md
       - name: Windows Hello for Business
         href: /windows/security/identity-protection/hello-for-business/hello-identity-verification
-      - name: Use a Temporary Access Pass
-        href: howto-authentication-temporary-access-pass.md
-      - name: Use SMS-based authentication
-        items:  
-        - name: Manage
-          href: howto-authentication-sms-signin.md
-        - name: Supported apps for SMS-based authentication
-          href: how-to-authentication-sms-supported-apps.md
-        - name: Two-way SMS unsupported
-          href: how-to-authentication-two-way-sms-unsupported.md
-      - name: Use email address sign-in
-        href: howto-authentication-use-email-signin.md
       - name: Certificate-based authentication
         items:
         - name: Azure AD CBA
@@ -142,7 +132,7 @@
             href: how-to-certificate-based-authentication.md
           - name: Windows smart card logon
             href: concept-certificate-based-authentication-smartcard.md
-          - name: iOS devices
+          - name: Apple devices
             href: concept-certificate-based-authentication-mobile-ios.md
           - name: Android devices
             href: concept-certificate-based-authentication-mobile-android.md
@@ -160,6 +150,18 @@
             href: active-directory-certificate-based-authentication-android.md
           - name: Use on iOS Devices
             href: active-directory-certificate-based-authentication-ios.md
+      - name: Use a Temporary Access Pass
+        href: howto-authentication-temporary-access-pass.md
+      - name: Use SMS-based authentication
+        items:  
+        - name: Manage
+          href: howto-authentication-sms-signin.md
+        - name: Supported apps for SMS-based authentication
+          href: how-to-authentication-sms-supported-apps.md
+        - name: Two-way SMS unsupported
+          href: how-to-authentication-two-way-sms-unsupported.md
+      - name: Use email address sign-in
+        href: howto-authentication-use-email-signin.md
   - name: Self-service password reset
     items:
     - name: Deployment guide
@@ -310,8 +312,12 @@
     href: /samples/browse/?products=azure
   - name: Azure PowerShell cmdlets
     href: /powershell/azure/
-  - name: Microsoft Graph REST API beta
+  - name: Authentication methods APIs - Microsoft Graph
     href: /graph/api/resources/authenticationmethods-overview
+  - name: Authentication strengths APIs - Microsoft Graph (preview)
+    href: /graph/api/resources/authenticationstrengths-overview
+  - name: Authentication methods policy - Microsoft Graph
+    href: /graph/api/resources/authenticationmethodspolicies-overview
   - name: Service limits and restrictions
     href: ../enterprise-users/directory-service-limits-restrictions.md
   - name: FIDO2 compatibility

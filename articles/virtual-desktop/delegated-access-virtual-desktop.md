@@ -49,7 +49,7 @@ New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop 
 
 ## Next steps
 
-For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/windows-virtual-desktop/overview).
+For a more complete list of PowerShell cmdlets each role can use, see the [PowerShell reference](/powershell/module/az.desktopvirtualization/?view=azps-7.5.0).
 
 For a complete list of roles supported in Azure RBAC, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 

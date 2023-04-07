@@ -13,7 +13,7 @@ metadata:
   ms.author: pafarley
   manager: nitinme
   ms.custom: custom-portals-hub, event-tier1-build-2022
-  ms.date: 01/05/2022
+  ms.date: 12/13/2022
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
@@ -106,7 +106,7 @@ conceptualContent:
       links:
         - url: ./openai/overview.md
           itemType: overview
-          text:  Azure OpenAI (Preview)
+          text:  Azure OpenAI
         - url: ./openai/concepts/models.md
           itemType: concept
           text: Azure OpenAI Models
@@ -148,7 +148,7 @@ conceptualContent:
       links:
         - url: ./speech-service/captioning-concepts.md
           itemType: get-started
-          text: Captionining
+          text: Captioning
         - url: ./speech-service/call-center-overview.md
           itemType: get-started
           text: Call Center Transcription
@@ -174,7 +174,7 @@ additionalContent:
         - title: SDKs & REST APIs
           links:
             - text: C#
-              url: /dotnet/api/overview/azure/cognitiveservices/client
+              url: /dotnet/api/overview/azure/cognitive-services
             - text: Go
               url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
             - text: Java

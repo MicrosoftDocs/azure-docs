@@ -1,7 +1,6 @@
 ---
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: quickstart
 ms.date: 11/01/2022
 ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
@@ -31,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ### [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 * This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

@@ -16,8 +16,8 @@ This article helps you monitor Virtual WAN site-to-site VPN BGP information usin
 
 The following steps walk you through one way to navigate to your site and open the BGP dashboard.
 
-1. Go to the **Azure portal -> your virtual WAN**.
-1. On your virtual WAN, in the left pane, under Connectivity, click **VPN sites**. On the VPN sites page, you can see the sites that are connected to your virtual WAN.
+1. Go to the **Azure portal -> your Virtual WAN**.
+1. On your Virtual WAN, in the left pane, under Connectivity, click **VPN sites**. On the VPN sites page, you can see the sites that are connected to your Virtual WAN.
 1. Click the site that you want to view.
 1. On the page for the site, click **BGP Dashboard**.
 
@@ -36,10 +36,10 @@ The following steps walk you through one way to navigate to your site and open t
    |Value | Description|
    |---|---|
    |Peer address| The BGP address of the remote connection. |
-   |Local address | The BGP address of the virtual wan hub.  |
-   | Gateway instance| The instance of the virtual wan hub. |
+   |Local address | The BGP address of the Virtual WAN hub.  |
+   | Gateway instance| The instance of the Virtual WAN hub. |
    |ASN| The Autonomous System Number. |
-   |Status | The status the peer is currently in.<br>Available statuses are: Connecting, Connected  |
+   |Status | The status the peer is currently in.<br>Available statuses: Connecting, Connected  |
    |Connected duration |The length of time the peer has been connected. HH:MM:SS |
    |Routes received |The number of routes received by the remote site. |
    |Messages sent |The number of messages sent to the remote site.  |
@@ -63,7 +63,7 @@ The **Advertised Routes** page contains the routes that are being advertised to 
    |---|---|
    | Network  |The address prefix that is being advertised. |
    | Link Name  |  The name of the link.  |
-   | Local address  |  A BGP address of the virtual wan hub.|
+   | Local address  |  A BGP address of the Virtual WAN hub.|
    | Next hop  | The next hop address for the prefix.  |
    |AS Path | The BGP AS path attribute. |
 
@@ -85,7 +85,7 @@ The **Learned Routes** page shows the routes that are learned.
    |---|---|
    | Network | The address prefix that is being advertised. |
    | Link Name |The name of the link.   |
-   |Local address  |A BGP address of the virtual wan hub.  |
+   |Local address  |A BGP address of the Virtual WAN hub.  |
    |Source Peer  |The address the routes is being learned from.  |
    | AS Path | The BGP AS path attribute. |
 

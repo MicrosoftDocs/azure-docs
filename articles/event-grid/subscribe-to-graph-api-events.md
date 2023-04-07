@@ -8,6 +8,9 @@ ms.date: 09/01/2022
 # Subscribe to events published by Microsoft Graph API
 This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the resources for which events are available through Graph API. For every resource, events for create, update and delete state changes are supported. 
 
+> [!IMPORTANT]
+> Microsoft Graph API's ability to send events to Azure Event Grid is currently in **private preview**. 
+
 |Microsoft event source |Resource(s) | Available event types | 
 |:--- | :--- | :----|
 |Azure Active Directory| [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Azure AD event types](azure-active-directory-events.md) |
@@ -49,7 +52,7 @@ Besides the ability to subscribe to Microsoft Graph API events via Event Grid, y
 ## Enable Graph API events to flow to your partner topic
 
 > [!IMPORTANT]
-> Microsoft Graph API's (MGA) ability to send events to Event Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Node.js](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java](https://github.com/microsoftgraph/java-spring-webhooks-sample), and[.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample) Webhook samples to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask-graph-and-grid@microsoft.com?subject=Please allow my application ID">mailto:ask-graph-and-grid@service.microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
+> In the following steps, you will follow instructions from [Node.js](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java](https://github.com/microsoftgraph/java-spring-webhooks-sample), and[.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample) Webhook samples to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask-graph-and-grid@microsoft.com?subject=Please allow my application ID">mailto:ask-graph-and-grid@service.microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
 
 You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request should look like the following sample:
 

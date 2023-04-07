@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 01/26/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -145,7 +145,7 @@ Enable *seamless SSO* by doing the following:
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command opens a pane where you can enter your tenant's Hybrid Identity Administratoristrator credentials.
+4. Run PowerShell as an administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command opens a pane where you can enter your tenant's Hybrid Identity Administrator credentials.
 
 5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command displays a list of Active Directory forests (see the "Domains" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
 
@@ -171,6 +171,7 @@ You can roll out these options:
 - **Pass-through authentication** + **Seamless SSO**
 - **Not supported** - **Password hash sync** + **Pass-through authentication** + **Seamless SSO**
 - **Certificate-based authentication settings**
+- **Azure multifactor authentication**
 
 To configure Staged Rollout, follow these steps:
 

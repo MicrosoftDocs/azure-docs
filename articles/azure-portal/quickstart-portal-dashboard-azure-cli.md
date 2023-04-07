@@ -12,7 +12,7 @@ A dashboard in the Azure portal is a focused and organized view of your cloud re
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
 Select a subscription by using the [az account set](/cli/azure/account#az-account-set) command:

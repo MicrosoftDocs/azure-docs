@@ -21,11 +21,38 @@ Microsoft Energy Data Services is updated on an ongoing basis. To stay up to dat
 - Deprecated functionality
 - Plans for changes
 
+<hr width = 100%>
+
+## February 2023
+### Product Billing Update
+
+Microsoft Energy Data Services will begin billing February 15, 2023. Prices will be based on a fixed per-hour consumption rate at a 50 percent discount during preview. 
+- No upfront costs or termination fees—pay only for what you use.
+- No charges for storage, data transfers or compute overage during preview.
+
+
+## January 2023
+
+### Managed Identity Support 
+
+You can use a managed identity to authenticate to any [service that supports Azure AD (Active Directory) authentication](../active-directory/managed-identities-azure-resources/services-azure-active-directory-support.md) with Microsoft Energy Data Services. For example, you can write a script in Azure Function to ingest data in Microsoft Energy Data Services. Now, you can use managed identity to connect to Microsoft Energy Data Services using system or user assigned managed identity from other Azure services. [Learn more.]( ../energy-data-services/how-to-use-managed-identity.md)
+
+### Availability zone support
+
+Availability Zones are physically separate locations within an Azure region made up of one or more datacenters equipped with independent power, cooling, and networking. Availability Zones provide in-region High Availability and protection against local disasters. Microsoft Energy Data Services Preview supports zone-redundant instance by default and there's no setup required by the Customer. [Learn more.](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all)
 
 <hr width=100%>
 
+## December 2022
 
-## October 20, 2022
+### Lockbox
+
+Most operations, support, and troubleshooting performed by Microsoft personnel do not require access to customer data. In those rare circumstances where such access is required, Customer Lockbox for Microsoft Energy Data Services provides you an interface to review and approve or reject data access requests. Microsoft Energy Data Services now supports Lockbox. [Learn more](../security/fundamentals/customer-lockbox-overview.md).
+
+
+<hr width=100%>
+
+## October 2022
 
 ### Support for Private Links
 
@@ -38,12 +65,11 @@ Microsoft Energy Data Services Preview supports customer managed encryption keys
 <hr width=100%>
 
 
-## Microsoft Energy Data Services Preview Release
+## September 2022
 
+### Key Announcement: Preview Release
 
-### Key Announcement
-
-Microsoft Energy Data Services is now available in public preview. 
+Microsoft Energy Data Services is now available in public preview. Information on latest releases, bug fixes, & deprecated functionality for Microsoft Energy Data Services Preview will be updated monthly. Keep tracking this page. 
 
 Microsoft Energy Data Services is developed in alignment with the emerging requirements of the OSDU™ Technical Standard, Version 1.0. and is currently aligned with Mercury Release(R3), [Milestone-12](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M12-Release-Notes).
 

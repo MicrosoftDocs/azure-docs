@@ -12,7 +12,7 @@ Prerequisites for this tutorial are:
 
     [!INCLUDE [azure-subscription-permissions](../../common-includes/azure-subscription-permissions.md)]
 - [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
-  * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+  * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
   * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   * [Python 3](https://www.python.org/downloads/) (3.6.9 or later), [Pip 3](https://pip.pypa.io/en/stable/installing/) and optionally [venv](https://docs.python.org/3/library/venv.html). 
 

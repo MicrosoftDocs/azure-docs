@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Use MQTT to create an Azure IoT Plug and Play device client | Microsoft Docs
+title: Tutorial - Use MQTT to create an IoT Plug and Play device client | Microsoft Docs
 description: Tutorial - Use the MQTT protocol directly to create an IoT Plug and Play device client without using the Azure IoT Device SDKs
 author: ryanwinter
 ms.author: rywinter
-ms.date: 05/13/2020
+ms.date: 11/17/2022
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
@@ -96,11 +96,11 @@ Verify the code is working correctly, by starting Azure IoT explorer, start list
 
 Run the application (Ctrl+F5), after couple of seconds you see output that looks like:
 
-:::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
+:::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Screenshot showing the output from the MQTT sample application in a console window.":::
 
-In Azure IoT explorer, you can see that the device isn't an IoT Plug and Play device:
+In Azure IoT explorer, you can see that the device isn't an IoT Plug and Play device because there's no model ID:
 
-:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non-IoT Plug and Play device in Azure IoT explorer":::
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Screenshot showing the device twin of a non-IoT Plug and Play device in Azure IoT explorer.":::
 
 ### Make the device an IoT Plug and Play device
 
@@ -121,13 +121,13 @@ Rebuild and run the sample.
 
 The device twin now includes the model ID:
 
-:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="View the model ID in Azure IoT explorer":::
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Screenshot showing the device twin of an IoT Plug and Play device in Azure IoT explorer.":::
 
 You can now navigate the IoT Plug and Play component:
 
-:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="View components in Azure IoT explorer":::
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Screenshot showing the component view of an IoT Plug and Play device in Azure IoT explorer.":::
 
-You can now modify your device code to implement the telemetry, properties, and commands defined in your model. To see an example implementation of the thermostat device using the Mosquitto library, see [Using MQTT PnP with Azure IoTHub without the IoT SDK on Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) on GitHub.
+You can now modify your device code to implement the telemetry, properties, and commands defined in your model. For an example implementation using the Mosquitto library, see [Using MQTT with Azure IoT Hub without an SDK](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/mosquitto) on GitHub.
 
 > [!NOTE]
 >The client uses the `IoTHubRootCA_Baltimore.pem` root certificate file to verify the identity of the IoT hub it connects to.

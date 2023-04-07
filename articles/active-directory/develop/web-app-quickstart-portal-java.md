@@ -22,7 +22,7 @@ ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-jav
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> > [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > # Quickstart: Add sign-in with Microsoft to a Java web app
 >
 > In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.

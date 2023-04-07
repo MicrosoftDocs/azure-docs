@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -30,7 +30,7 @@ Admins can use the MFA Server Migration Utility to target single users or groups
 - The MFA Server Migration Utility requires a new build of the MFA Server solution to be installed on your Primary MFA Server. The build makes updates to the MFA Server data file, and includes the new MFA Server Migration Utility. You don’t have to update the WebSDK or User portal. Installing the update _doesn't_ start the migration automatically.
 - The MFA Server Migration Utility copies the data from the database file onto the user objects in Azure AD. During migration, users can be targeted for Azure AD MFA for testing purposes using [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md). Staged migration lets you test without making any changes to your domain federation settings. Once migrations are complete, you must finalize your migration by making changes to your domain federation settings.
 - AD FS running Windows Server 2016 or higher is required to provide MFA authentication on any AD FS relying parties, not including Azure AD and Office 365. 
-- Review your AD FS claims rules and make sure none requires MFA to be performed on-premises as part of the authentication process.
+- Review your AD FS access control policies and make sure none requires MFA to be performed on-premises as part of the authentication process.
 - Staged rollout can target a maximum of 500,000 users (10 groups containing a maximum of 50,000 users each).
 
 ## Migration guide
@@ -183,6 +183,9 @@ Once complete, navigate to the Multi-factor Authentication Server folder, and op
 :::image type="content" border="true" source="./media/how-to-mfa-server-migration-utility/utility.png" alt-text="Screenshot of MFA Server Migration Utility.":::
 
 You've successfully installed the Migration Utility.
+
+>[!NOTE]
+> To ensure no changes in behavior during migration, if your MFA Server is associated with an MFA Provider with no tenant reference, you'll need to update the default MFA settings (e.g. custom greetings) for the tenant you're migrating to match the settings in your MFA Provider. We recommend doing this before migrating any users.
 
 ### Migrate user data
 Migrating user data doesn't remove or alter any data in the Multi-Factor Authentication Server database. Likewise, this process won't change where a user performs MFA. This process is a one-way copy of data from the on-premises server to the corresponding user object in Azure AD.

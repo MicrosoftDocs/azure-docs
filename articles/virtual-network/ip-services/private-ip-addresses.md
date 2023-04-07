@@ -3,12 +3,10 @@ title: Private IP addresses in Azure
 titlesuffix: Azure Virtual Network
 description: Learn about private IP addresses in Azure.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu

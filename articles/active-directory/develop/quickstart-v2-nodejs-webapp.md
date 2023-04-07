@@ -2,7 +2,7 @@
 title: "Quickstart: Add user sign-in to a Node.js web app"
 description: In this quickstart, you learn how to implement authentication in a Node.js web application using OpenID Connect.
 services: active-directory
-author: jmprieur
+author: OwenRichards1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,7 +10,8 @@ ms.topic: portal
 ms.workload: identity
 ms.date: 11/22/2021
 ROBOTS: NOINDEX
-ms.author: jmprieur
+ms.author: owenrichards
+ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", devx-track-js, mode-api
 #Customer intent: As an application developer, I want to know how to set up OpenID Connect authentication in a web application built using Node.js with Express.
 ---

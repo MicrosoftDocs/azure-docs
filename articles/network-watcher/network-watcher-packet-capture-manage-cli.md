@@ -1,16 +1,15 @@
 ---
-title: Manage packet captures with Azure Network Watcher - Azure CLI | Microsoft Docs
-description: This page explains how to manage the packet capture feature of Network Watcher using the Azure CLI
+title: Manage packet captures in VMs with Azure Network Watcher - Azure CLI
+description: Learn how to manage packet captures in virtual machines with the packet capture feature of Network Watcher using the Azure CLI.
 services: network-watcher
-documentationcenter: na
-author: damendo
+author: halkazwini
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: damendo
+ms.workload: infrastructure-services
+ms.date: 12/09/2021
+ms.author: halkazwini
+ms.custom: engagement-fy23
 ---
 
 # Manage packet captures with Azure Network Watcher using the Azure CLI

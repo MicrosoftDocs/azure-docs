@@ -1,5 +1,6 @@
 ---
-title: Delete and restore a blob container with .NET - Azure Storage 
+title: Delete and restore a blob container with .NET
+titleSuffix: Azure Storage 
 description: Learn how to delete and restore a blob container in your Azure Storage account using the .NET client library.
 services: storage
 author: pauljewellmsft
@@ -14,9 +15,12 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-# Delete and restore a container in Azure Storage with .NET
+# Delete and restore a blob container with .NET
 
-This article shows how to delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled container soft delete, you can restore deleted containers.
+This article shows how to delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
+
+> [!NOTE]
+> The examples in this article assume that you've created a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md) article.
 
 ## Delete a container
 
@@ -73,9 +77,20 @@ public static async Task RestoreContainer(BlobServiceClient client, string conta
 }
 ```
 
-## See also
+## Resources
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
+To learn more about deleting a container using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for deleting or restoring a container use the following REST API operations:
+
+- [Delete Container](/rest/api/storageservices/delete-container) (REST API)
+- [Restore Container](/rest/api/storageservices/restore-container) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
+
 - [Soft delete for containers](soft-delete-container-overview.md)
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)
-- [Restore Container](/en-us/rest/api/storageservices/restore-container)

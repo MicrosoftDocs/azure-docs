@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Microsoft Purview scanning best practices
 
-Microsoft Purview supports automated scanning of on-premises, multicloud, and software as a service (SaaS) data sources.
+[Microsoft Purview governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions) support automated scanning of on-premises, multicloud, and software as a service (SaaS) data sources.
 
 Running a *scan* invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of the scan and curation process includes technical metadata. This metadata can include data asset names such as table names or file names, file size, columns, and data lineage. Schema details are also captured for structured data sources. A relational database management system is an example of this type of source.
 

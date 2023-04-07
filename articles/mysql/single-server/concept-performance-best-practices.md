@@ -4,12 +4,12 @@ description: This article describes some recommendations to monitor and tune per
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.date: 07/22/2022
 ---
 
-# Best practices for optimal performance of your Azure Database for MySQL server
+# Best practices for optimal performance of Azure Database for MySQL servers
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 

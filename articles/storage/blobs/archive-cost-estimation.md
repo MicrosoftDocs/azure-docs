@@ -3,12 +3,12 @@ title: Estimate the cost of archiving data (Azure Blob Storage)
 titleSuffix: Azure Storage
 description: Learn how to calculate the cost of storing and maintaining data in the archive storage tier.
 author: normesta
+
 ms.author: normesta
 ms.date: 11/09/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-
 ---
 
 # Estimate the cost of archiving data
@@ -29,7 +29,7 @@ The following sections show you how to calculate each component.
 
 This article uses fictitious prices in all calculations. You can find these sample prices in the [Sample prices](#sample-prices) section at the end of this article. These prices are meant only as examples, and shouldn't be used to calculate your costs.
 
-For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
+For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 
 #### The cost to write
 
@@ -359,7 +359,7 @@ The following table compares the cost of archive storage with the cost of cold s
 </table>
 
 > [!TIP]
-> To view live formula of these costs, open the **Cool vs Archive** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
+> To view live formula of these costs, open the **Choose Tiers** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can modify the values in that worksheet to estimate your costs. 
 
 The following chart shows the impact on monthly spending given various read percentages. This chart assumes a monthly ingest of 1,000,000 files totaling 10,240 GB in size.
 
@@ -388,7 +388,7 @@ This article uses the following fictitious prices.
 | Price of data retrieval (per GB)                      | $0.02    | $0.01     |
 | Price of high priority data retrieval (per GB)        | $0.10    | N/A       |
 
-For official prices, see [Azure Blob Storage pricing](/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](/pricing/details/storage/data-lake/). 
+For official prices, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/). 
 
 For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 

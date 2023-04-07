@@ -43,7 +43,7 @@ The following steps are how requests are processed by the front-end:
 
 The following diagram illustrates this flow:
 
-:::image type="content" source="./media/how-to-attach-arc-kubernetes/request-handling-architecture.png" alt-text="Diagram illustrating the flow of requests between components.":::
+:::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/request-handling-architecture.png" alt-text="Diagram illustrating the flow of requests between components.":::
 
 As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propagate the response back to the original user.
 
@@ -98,14 +98,19 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
+### Performance of azureml-fe
+
+The `azureml-fe` can reach 5K requests per second (QPS) with good latency, having an overhead not exceeding 3ms on average and 15ms at 99% percentile.
+
+
 >[!Note]
 >
->`azureml-fe` can reach to 5K requests per second (QPS) with good latency, with no more than 3ms overhead in average, and 15ms at 99% percentile.
+>If you have RPS requirements higher than 10K, consider the following options:
 >
->If you have RPS requirements higher than 10K, consider following options:
->
->* Increase resource requests/limits for `azureml-fe` pods, by default it has 2 vCPU and 1.2G memory resource limit.
->* Increase number of instances for `azureml-fe`, by default AzureML creates 3 `azureml-fe` instances per cluster.
+>* Increase resource requests/limits for `azureml-fe` pods; by default it has 2 vCPU and 1.2G memory resource limit.
+>* Increase the number of instances for `azureml-fe`. By default, AzureML creates 3 or 1 `azureml-fe` instances per cluster.
+>   * This instance count depends on your configuration of `inferenceRouterHA` of the [AzureML entension](how-to-deploy-kubernetes-extension.md#review-azureml-extension-configuration-settings).
+>   * The increased instance count cannot be persisted, since it will be overwritten with your configured value once the extension is upgraded.
 >* Reach out to Microsoft experts for help.
 
 ## Understand connectivity requirements for AKS inferencing cluster
@@ -118,11 +123,11 @@ For Kubenet networking, the network is created and configured properly for Azure
 
 The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 
-![Diagram of the connectivity requirements for inferencing with Azure Kubernetes Services.](./media/how-to-attach-arc-kubernetes/azureml-kubernetes-network.png)
+![Diagram of the connectivity requirements for inferencing with Azure Kubernetes Services.](./media/how-to-attach-kubernetes-to-workspace/azureml-kubernetes-network.png)
 
 For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-For accessing Azure ML services behind a firewall, see [How to access azureml behind firewall](./how-to-access-azureml-behind-firewall.md#kubernetes-compute).
+For accessing Azure ML services behind a firewall, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
 ### Overall DNS resolution requirements
 

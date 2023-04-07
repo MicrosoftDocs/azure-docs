@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Elastic SAN?
     href: elastic-san-introduction.md
+  - name: Compare core storage services
+    href: ../common/storage-introduction.md?toc=/azure/storage/elastic-san/toc.json&bc=/azure/storage/elastic-san/breadcrumb/toc.json
     expanded: true
 - name: Concepts
   items:

@@ -72,7 +72,7 @@ There are several open-source tools to help you manage your IoT hub.
 
 * A Windows application called [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer).
 
-* A cross-platform Visual Studio Code extension called [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* A cross-platform Visual Studio Code extension called [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 * A cross-platform Python CLI called [the IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 

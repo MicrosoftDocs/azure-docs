@@ -4,7 +4,7 @@ description: Create an Azure Lab Services lab plan with advanced networking.  Cr
 ms.service: lab-services
 ms.topic: tutorial 
 ms.date: 07/27/2022
-ms.custom: template-tutorial 
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Set up lab to lab communication with advanced networking
@@ -72,7 +72,7 @@ The following steps show how to use the Azure portal to create a virtual network
     1. Select **Next: IP Addresses**.
 
     :::image type="content" source="media/tutorial-create-lab-with-advanced-networking/create-virtual-network-basics-page.png" alt-text="Screenshot of Basics tab of Create virtual network page in the Azure portal.":::
-1. One the **IP Addresses** tab, create a subnet that will be used by the labs.
+1. On the **IP Addresses** tab, create a subnet that will be used by the labs.
     1. Select **+ Add subnet**
     1. For **Subnet name**, enter **labservices-subnet**.
     1. For **Subnet address range**, enter range in CIDR notation. For example, 10.0.1.0/24 will have enough IP addresses for 251 lab VMs.  (Five IP addresses are reserved by Azure for every subnet.)  To create a subnet with more available IP addresses for VMs, use a different CIDR prefix length. For example, 10.0.0.0/20 would have room for over 4000 IP addresses for lab VMs.  For more information about adding subnets, see [Add a subnet](../virtual-network/virtual-network-manage-subnet.md).
@@ -307,6 +307,10 @@ If you're not going to continue to use this application, delete the virtual netw
 1. In the [Azure portal](https://portal.azure.com), select the resource group you want to delete.
 1. Select **Delete resource group**.
 1. To confirm the deletion, type the name of the resource group
+
+## Troubleshooting
+
+[!INCLUDE [Troubleshoot not authorized error](./includes/lab-services-troubleshoot-not-authorized.md)]
 
 ## Next steps
 

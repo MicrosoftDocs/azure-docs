@@ -96,7 +96,7 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
    SUBSCRIPTION='subscription-id'
    RESOURCE_GROUP='my-resource-group'
    LOCATION='eastus'
-   SPRING_CLOUD_NAME='spring-cloud-name'
+   AZURE_SPRING_APPS_INSTANCE_NAME='Azure-Spring-Apps-Instance-name'
    VIRTUAL_NETWORK_NAME='azure-spring-apps-vnet'
    ```
 
@@ -149,9 +149,13 @@ Select the virtual network **azure-spring-apps-vnet** you previously created.
 
     ![Screenshot that shows the Access control screen.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Assign the *Owner* role to the **Azure Spring Cloud Resource Provider**. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page).
+1. Assign the *Owner* role to the Azure Spring Apps Resource Provider. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-    ![Screenshot that shows owner assignment to resource provider.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
+   > [!NOTE]
+   > If you don't find the "Azure Spring Apps Resource Provider", search for "Azure Spring Cloud Resource Provider".
+
+   :::image type="content" source="./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page, with the Add Role Assignment pane open and search results displaying the Azure Spring Apps Resource Provider." lightbox="./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png":::
+
 
     You can also do this step by running the following Azure CLI command:
 
@@ -229,7 +233,7 @@ Create your Azure Spring Apps instance by specifying the virtual network and sub
    ```azurecli
    az spring create  \
        --resource-group "$RESOURCE_GROUP" \
-       --name "$SPRING_CLOUD_NAME" \
+       --name "$AZURE_SPRING_APPS_INSTANCE_NAME" \
        --vnet $VIRTUAL_NETWORK_NAME \
        --service-runtime-subnet service-runtime-subnet \
        --app-subnet apps-subnet \

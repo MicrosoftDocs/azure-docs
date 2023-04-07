@@ -30,10 +30,10 @@ The Request Service REST API issuance request supports the following HTTP method
 
 The Request Service REST API issuance request requires the following HTTP headers:
 
-| Method |Value  |
+| Name |Value  |
 |---------|---------|
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
-|`Content-Type`| `Application/json`|
+|`Content-Type`| `application/json`|
 
 Construct an HTTP POST request to the Request Service REST API. 
 
@@ -46,18 +46,18 @@ The following HTTP request demonstrates a request to the Request Service REST AP
 ```http
 POST https://verifiedid.did.msidentity.com/v1.0/verifiableCredentials/createIssuanceRequest
 Content-Type: application/json
-Authorization: Bearer  <token>
+Authorization: Bearer <token>
 
 {
-    "includeQRCode": true, 
-    "callback": {  
-        "url": "https://wwww.contoso.com/vc/callback",  
-        "state": "Aaaabbbb11112222", 
-        "headers": { 
-            "api-key": "an-api-key-can-go-here" 
-        }  
-    }, 
-    ... 
+    "includeQRCode": true,
+    "callback": {
+        "url": "https://wwww.contoso.com/vc/callback",
+        "state": "Aaaabbbb11112222",
+        "headers": {
+            "api-key": "an-api-key-can-go-here"
+        }
+    },
+    ...
 }
 ```  
 
@@ -182,7 +182,7 @@ When your app receives the response, the app needs to present the QR code to the
 
 ## Error response
 
-If there is an error with the request, an [error responses](error-codes.md) will be returned and should be handled appropriately by the app. 
+If there is an error with the request, an [error response](error-codes.md) will be returned and should be handled appropriately by the app. 
 
 ## Callback events
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 02/08/2023
 ---
 # How to model relational SQL data for import and indexing in Azure Cognitive Search
 
@@ -103,7 +103,7 @@ This rowset is now ready for import into Azure Cognitive Search.
 > [!NOTE]
 > This approach assumes that embedded JSON is under the [maximum column size limits of SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server). 
 
- ## Use a complex collection for the "many" side of a one-to-many relationship
+## Use a complex collection for the "many" side of a one-to-many relationship
 
 On the Azure Cognitive Search side, create an index schema that models the one-to-many relationship using nested JSON. The result set you created in the previous section generally corresponds to the index schema provided below (we cut some fields for brevity).
 

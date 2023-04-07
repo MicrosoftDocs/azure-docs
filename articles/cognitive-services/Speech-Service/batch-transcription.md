@@ -38,5 +38,5 @@ Batch transcription jobs are scheduled on a best-effort basis. You can't estimat
 ## Next steps
 
 - [Locate audio files for batch transcription](batch-transcription-audio-data.md)
-- [Review quotas and limits](speech-services-quotas-and-limits.md#batch-transcription)
+- [Create a batch transcription](batch-transcription-create.md)
 - [Get batch transcription results](batch-transcription-get.md)

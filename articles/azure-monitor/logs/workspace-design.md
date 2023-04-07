@@ -105,7 +105,7 @@ When you grant a user [access to a workspace](manage-access.md#azure-rbac), the 
 - **If you want users to be able to access data for their resources:** Keep the default access control mode of **Use resource or workspace permissions**.
 - **If you want to explicitly assign permissions for all users:** Change the access control mode to **Require workspace permissions**.
 
-[Table-level RBAC](manage-access.md#set-table-level-read-access-preview): With table-level RBAC, you can grant or deny access to specific tables in the workspace. In this way, you can implement granular permissions required for specific situations in your environment.
+[Table-level RBAC](manage-access.md#set-table-level-read-access): With table-level RBAC, you can grant or deny access to specific tables in the workspace. In this way, you can implement granular permissions required for specific situations in your environment.
 
 For example, you might grant access to only specific tables collected by Microsoft Sentinel to an internal auditing team. Or you might deny access to security-related tables to resource owners who need operational data related to their resources.
 

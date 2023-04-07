@@ -1,7 +1,7 @@
 ---
 author: tomkerkhove
 
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.topic: include
 ms.date: 05/24/2022
 ms.author: tomkerkhove

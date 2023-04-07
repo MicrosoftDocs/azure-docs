@@ -42,6 +42,22 @@ landingContent:
           url: tutorial-azure-ml-in-a-day.md
 
   # Card
+  - title: Work with data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Create datastore
+          url: how-to-datastore.md
+        - text: Access data in a notebook
+          url: how-to-access-data-interactive.md
+        - text: Use Apache Spark in Azure ML
+          url: interactive-data-wrangling-with-apache-spark-azure-ml.md
+        - text: Create data assets
+          url: how-to-create-data-assets.md
+        - text: Work with tables
+          url: how-to-mltable.md
+
+  # Card
   - title: Train models
     linkLists:
       - linkListType: how-to-guide
@@ -63,8 +79,8 @@ landingContent:
         links:
         - text: Streamline model deployment with endpoints 
           url: concept-endpoints.md
-        - text: Real-time scoring with a managed online endpoint
-          url: how-to-deploy-managed-online-endpoints.md
+        - text: Real-time scoring with online endpoints
+          url: how-to-deploy-online-endpoints.md
         - text: Batch scoring with batch endpoints 
           url: batch-inference/how-to-use-batch-endpoint.md
 

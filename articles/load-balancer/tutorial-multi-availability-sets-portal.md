@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.date: 05/09/2022
 ms.custom: template-tutorial
 ---
+
 # Tutorial: Create a load balancer with more than one availability set in the backend pool using the Azure portal
 
 As part of a high availability deployment, virtual machines are often grouped into multiple availability sets. 

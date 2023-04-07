@@ -100,6 +100,9 @@ The actual metadata requests allowed by the `Microsoft.DocumentDB/databaseAccoun
 
 Azure Cosmos DB exposes two built-in role definitions:
 
+> [!IMPORTANT]
+> The term **role definitions** here refer to Azure Cosmos DB specific role definitions. These are distinct from Azure role-based access control role definitions.
+
 | ID | Name | Included actions |
 |---|---|---|
 | 00000000-0000-0000-0000-000000000001 | Cosmos DB Built-in Data Reader | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` |
@@ -182,10 +185,9 @@ AssignableScopes : {/subscriptions/<mySubscriptionId>/resourceGroups/<myResource
 
 ### Using the Azure CLI
 
-Create a role named *MyReadOnlyRole* that only contains read actions:
+Create a role named *MyReadOnlyRole* that only contains read actions in a file named **role-definition-ro.json**:
 
 ```json
-// role-definition-ro.json
 {
     "RoleName": "MyReadOnlyRole",
     "Type": "CustomRole",
@@ -207,10 +209,9 @@ accountName='<myCosmosAccount>'
 az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition-ro.json
 ```
 
-Create a role named *MyReadWriteRole* that contains all actions:
+Create a role named *MyReadWriteRole* that contains all actions in a file named **role-definition-rw.json**:
 
 ```json
-// role-definition-rw.json
 {
     "RoleName": "MyReadWriteRole",
     "Type": "CustomRole",

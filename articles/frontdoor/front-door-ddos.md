@@ -1,11 +1,10 @@
 ---
 title: DDoS protection on Azure Front Door
-description: This page provides information about how Azure Front Door helps to protect against DDoS attacks
+description: This page provides information about how Azure Front Door helps to protect against DDoS attacks.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/31/2022
 ms.author: duau
@@ -41,9 +40,9 @@ Front Door is a large scaled, globally distributed service. We have many custome
 * Rate limiting can be applied to prevent IP addresses from calling your service too frequently.
 * You can create [custom WAF rules](../web-application-firewall/afds/waf-front-door-custom-rules.md) to automatically block and rate limit HTTP or HTTPS attacks that have known signatures.
 
-## For further protection
+## Protect VNet origins
 
-If you require further protection, then you can enable [Azure DDoS Protection Standard](../ddos-protection/ddos-protection-overview.md) on the VNet where your back-ends are deployed. DDoS Protection Standard customers receive extra benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
+Enable [Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md) on the origin VNet to protect your public IPs against DDoS attacks. DDoS Protection customers receive extra benefits including cost protection, SLA guarantee, and access to experts from the DDoS Rapid Response Team for immediate help during an attack.
 
 ## Next steps
 

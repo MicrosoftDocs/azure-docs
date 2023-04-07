@@ -1,5 +1,6 @@
 ---
-title: 'Configure an endpoint with Front Door manager - Azure Front Door'
+title: Configure an endpoint with Front Door manager
+titleSuffix: Azure Front Door
 description: This article shows you how to configure an endpoint for an existing Azure Front Door profile with Front Door manager.
 services: frontdoor
 author: duongau

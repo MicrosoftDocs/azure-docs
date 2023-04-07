@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/11/2022
+ms.date: 12/15/2022
 ---
 
 # Copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics
@@ -783,8 +783,8 @@ The below table lists the properties supported by Azure SQL Managed Instance sou
 | Batch size | Specify a batch size to chunk large data into reads. | No | Integer | batchSize |
 | Isolation Level | Choose one of the following isolation levels:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
 | Enable incremental extract | Use this option to tell ADF to only process rows that have changed since the last time that the pipeline executed. | No | - |- |
-| Incremental date column | When using the incremental extract feature, you must choose the date/time column that you wish to use as the watermark in your source table. | No | - |- |
-| Enable native change data capture(Preview) | Use this option to tell ADF to only process delta data captured by [SQL change data capture technology](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) since the last time that the pipeline executed. With this option, the delta data including row insert, update and deletion will be loaded automatically without any incremental date column required. You need to [enable change data capture](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) on Azure SQL MI before using this option in ADF. For more information about this option in ADF, see [native change data capture](#native-change-data-capture). | No | - |- |
+| Incremental column | When using the incremental extract feature, you must choose the date/time or numeric column that you wish to use as the watermark in your source table. | No | - |- |
+| Enable native change data capture(Preview) | Use this option to tell ADF to only process delta data captured by [SQL change data capture technology](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) since the last time that the pipeline executed. With this option, the delta data including row insert, update and deletion will be loaded automatically without any incremental column required. You need to [enable change data capture](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) on Azure SQL MI before using this option in ADF. For more information about this option in ADF, see [native change data capture](#native-change-data-capture). | No | - |- |
 | Start reading from beginning | Setting this option with incremental extract will instruct ADF to read all rows on first execution of a pipeline with incremental extract turned on. | No | - |- |
 
 

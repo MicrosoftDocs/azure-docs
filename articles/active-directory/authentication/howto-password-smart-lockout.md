@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 01/29/2023
 
 ms.author: justinha
 author: justinha
@@ -34,7 +34,7 @@ Smart lockout is always on, for all Azure AD customers, with these default setti
 
 Using smart lockout doesn't guarantee that a genuine user is never locked out. When smart lockout locks a user account, we try our best to not lock out the genuine user. The lockout service attempts to ensure that bad actors can't gain access to a genuine user account. The following considerations apply:
 
-* Each Azure AD data center tracks lockout independently. A user has (*threshold_limit * datacenter_count*) number of attempts, if the user hits each data center.
+* Lockout state across Azure AD data centers are synchronized. The total number of failed sign-in attempts allowed before an account is locked out will also match the configured lockout threshold though there still may be some slight variance before a lockout. Once an account is locked out, they will be locked out everywhere across all Azure AD data centers.
 * Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Unfamiliar and familiar locations both have separate lockout counters.
 
 Smart lockout can be integrated with hybrid deployments that use password hash sync or pass-through authentication to protect on-premises Active Directory Domain Services (AD DS) accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises AD DS.
@@ -77,7 +77,7 @@ To check or modify the smart lockout values for your organization, complete the 
     The default is 60 seconds (one minute).
 
 > [!NOTE]
-> If the first sign-in after a lockout also fails, the account locks out again. If an account locks repeatedly, the lockout duration increases.
+> If the first sign-in after a lockout period has expired also fails, the account locks out again. If an account locks repeatedly, the lockout duration increases.
 
 ![Customize the Azure AD smart lockout policy in the Azure portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 

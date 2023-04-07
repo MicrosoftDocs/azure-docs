@@ -1,7 +1,7 @@
 ---
 title: Securing Azure Functions
 description: Learn about how to make your function code running in Azure more secure from common attacks.
-ms.date: 4/13/2020
+ms.date: 12/13/2022
 ms.topic: conceptual
 
 #Customer intent: As a developer, I want to understand the security features and principles of Azure Functions so that I can make my cloud-based function code as secure as possible.
@@ -230,6 +230,10 @@ Restricting network access to your function app lets you control who can access 
 ### Set access restrictions
 
 Access restrictions allow you to define lists of allow/deny rules to control traffic to your app. Rules are evaluated in priority order. If there are no rules defined, then your app will accept traffic from any address. To learn more, see [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md?toc=/azure/azure-functions/toc.json).
+
+### Secure the storage account
+
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. For more information, see [Restrict your storage account to a virtual network](./functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 ### Private site access
 

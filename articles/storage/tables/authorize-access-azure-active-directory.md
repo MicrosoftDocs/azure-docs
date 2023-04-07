@@ -7,7 +7,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 02/09/2023
 ms.author: jammart
 ms.subservice: common
 ---
@@ -24,11 +24,11 @@ Authorization with Azure AD is available for all general-purpose in all public r
 
 When a security principal (a user, group, or application) attempts to access a table resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Table service and used by the service to authorize access to the specified resource.
 
-The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access tables. To learn how to authorize requests made by a managed identity, see [Authorize access to table data with managed identities for Azure resources](authorize-managed-identity.md).
+The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access tables.
 
 The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for table data. The roles that are assigned to a security principal determine the permissions that that principal will have. To learn more about assigning Azure roles for table access, see [Assign an Azure role for access to table data](assign-azure-role-data-access.md).
 
-Native applications and web applications that make requests to the Azure Table service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](../common/storage-auth-aad-app.md).
+[!INCLUDE [storage-auth-language-table](../../../includes/storage-auth-language-table.md)]
 
 ## Assign Azure roles for access rights
 

@@ -48,6 +48,10 @@
     href: analysis-services-datasource.md
   - name: Network connectivity FAQ
     href: analysis-services-network-faq.yml
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/azure-analysis-services-security-baseline?toc=/azure/analysis-services/TOC.json
 - name: How-to
   items:
   - name: Server

@@ -274,7 +274,7 @@ You can optionally delete the configuration server by using PowerShell.
 
     ```
     $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
-    Set-AzRecoveryServicesVaultContext -ARSVault $vault
+    Set-AzRecoveryServicesAsrVaultContext -Vault $vault
     ```
 4. Retrieve the configuration server.
 

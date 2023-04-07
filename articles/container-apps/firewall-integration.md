@@ -22,11 +22,14 @@ Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs o
 
 The following tables describe how to configure a collection of NSG allow rules.
 
+>[!NOTE]
+> The subnet associated with a Container App Environment requires a CIDR prefix of `/23` or larger.
+
 ### Inbound
 
 | Protocol | Port | ServiceTag | Description |
 |--|--|--|--|
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 | Any | \* | AzureLoadBalancer | Allow the Azure infrastructure load balancer to communicate with your environment. |
 
 ### Outbound with ServiceTags
@@ -45,7 +48,7 @@ The following tables describe how to configure a collection of NSG allow rules.
 | UDP | `123` | \* | NTP server. |
 | TCP | `5671` | \* | Container Apps control plane. |
 | TCP | `5672` | \* | Container Apps control plane. |
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/23`. |
+| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
 
 #### Considerations
 

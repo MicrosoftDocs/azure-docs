@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for App Service - the benefits and features
 description: Learn about the capabilities of Microsoft Defender for App Service and how to enable it on your subscription
-ms.date: 11/09/2021
+ms.date: 01/10/2023
 ms.topic: overview
 ms.author: benmansheim
 author: bmansheim
@@ -66,7 +66,7 @@ Defender for Cloud monitors for many threats to your App Service resources. The 
 
 ### Dangling DNS detection
 
-Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. When you remove a website and don't remove its custom domain from your DNS registrar, the DNS entry is pointing at a non-existent resource and your subdomain is vulnerable to a takeover. Defender for Cloud doesn't scan your DNS registrar for *existing* dangling DNS entries; it alerts you when an App Service website is decommissioned and its custom domain (DNS entry) isn't deleted.
+Defender for App Service also identifies any DNS entries remaining in your DNS registrar when an App Service website is decommissioned - these are known as dangling DNS entries. When you remove a website and don't remove its custom domain from your DNS registrar, the DNS entry is pointing to a non-existent resource, and your subdomain is vulnerable to a takeover. Defender for Cloud doesn't scan your DNS registrar for *existing* dangling DNS entries; it alerts you when an App Service website is decommissioned and its custom domain (DNS entry) isn't deleted.
 
 Subdomain takeovers are a common, high-severity threat for organizations. When a threat actor detects a dangling DNS entry, they create their own site at the destination address. The traffic intended for the organization’s domain is then directed to the threat actor's site, and they can use that traffic for a wide range of malicious activity.
 
@@ -83,7 +83,7 @@ For a full list of the App Service alerts, see the [Reference table of alerts](a
 
 ## Next steps
 
-In this article, you learned about Microsoft Defender for App Service. 
+In this article, you learned about Microsoft Defender for App Service.
 
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)

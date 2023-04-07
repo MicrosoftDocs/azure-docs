@@ -61,8 +61,8 @@ The [size](sizes.md) of the virtual machine that you use is determined by the wo
 
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) based on the virtual machine’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
-## Virtual machine limits
-Your subscription has default [quota limits](../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many virtual machines for your project. The current limit on a per subscription basis is 20 virtual machines per region. Limits can be raised by [filing a support ticket requesting an increase](../azure-portal/supportability/regional-quota-requests.md)
+## Virtual machine total core limits
+Your subscription has default [quota limits](../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many virtual machines for your project. The current limit on a per subscription basis is 20 virtual machine total cores per region. Limits can be raised by [filing a support ticket requesting an increase](../azure-portal/supportability/regional-quota-requests.md)
 
 ## Managed Disks
 

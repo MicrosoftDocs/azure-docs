@@ -2,7 +2,7 @@
 title: Application types for the Microsoft identity platform
 description: The types of apps and scenarios supported by the Microsoft identity platform.
 services: active-directory
-author: rwike77
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/09/2022
-ms.author: ryanwi
+ms.author: cwerner
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
 ---

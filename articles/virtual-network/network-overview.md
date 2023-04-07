@@ -7,7 +7,6 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 08/17/2021
 ms.author: allensu
-
 ---
 
 # Virtual networks and virtual machines in Azure

@@ -78,7 +78,7 @@ The first step toward loading data is to login as LoaderRC20.
 
 3. Select **Connect**.
 
-4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as MedRCLogin.
+4. When your connection is ready, you will see two server connections in Object Explorer. One connection as ServerAdmin and one connection as LoaderRC20.
 
     ![Connection is successful](./media/load-data-from-azure-blob-storage-using-polybase/connected-as-new-login.png)
 

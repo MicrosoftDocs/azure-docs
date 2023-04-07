@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 01/23/2023
 
 ---
 # Configure data persistence for a Premium Azure Cache for Redis instance
@@ -132,6 +132,7 @@ The following list contains answers to commonly asked questions about Azure Cach
 - [What is a rewrite and how does it affect my cache?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
 - [What should I expect when scaling a cache with AOF enabled?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
 - [How is my AOF data organized in storage?](#how-is-my-aof-data-organized-in-storage)
+- [Can I have AOF persistence enabled if I have more than one replica?](#can-i-have-aof-persistence-enabled-if-i-have-more-than-one-replica)
 
 ### Can I enable persistence on a previously created cache?
 
@@ -227,8 +228,14 @@ After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the b
 
 Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process.
 
+
+### Can I have AOF persistence enabled if I have more than one replica?
+
+No, you can't use Append-only File (AOF) persistence with multiple replicas (more than one replica).
+
 ## Next steps
 
 Learn more about Azure Cache for Redis features.
 
 - [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
+- [Add replicas to Azure Cache for Redis](cache-how-to-multi-replicas.md)

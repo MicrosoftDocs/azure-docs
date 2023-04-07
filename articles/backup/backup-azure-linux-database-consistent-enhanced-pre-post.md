@@ -4,6 +4,8 @@ description: Learn how Azure Backup allows you to take database consistent snaps
 ms.topic: conceptual
 ms.date: 09/16/2021 
 ms.custom: devx-track-azurepowershell
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Enhanced pre-post scripts for database consistent snapshot
@@ -31,7 +33,7 @@ The new _enhanced_ pre-post script framework has the following key benefits:
 
 The following the list of databases are covered under the enhanced framework:
 
-- [Oracle (Generally Available)](../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md) - [Link to support matrix](backup-support-matrix-iaas.md#support-matrix-for-managed-pre-post-scripts-for-linux-databases)
+- [Oracle (Generally Available)](../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md) - [Link to support matrix](backup-support-matrix-iaas.md#support-matrix-for-managed-pre-and-post-scripts-for-linux-databases)
 - MySQL (Preview)
 
 ## Prerequisites

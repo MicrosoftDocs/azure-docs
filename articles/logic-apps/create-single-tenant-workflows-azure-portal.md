@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 02/06/2023
 ms.custom: ignite-fall-2021
 
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
@@ -103,7 +103,7 @@ For optimal designer responsiveness and performance, review and follow these gui
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
+   | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <br><br>This example uses the name `Fabrikam-Service-Plan`.  <br><br>**Note**: Only the Windows-based App Service plan is supported. Don't use a Linux-based App Service plan. |
    | **SKU and size** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) to use for your logic app. Your selection affects the pricing, compute, memory, and storage that your logic app and workflows use. <p><p>To change the default pricing tier, select **Change size**. You can then select other pricing tiers, based on the workload that you need. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
 
 1. Now continue making the following selections:

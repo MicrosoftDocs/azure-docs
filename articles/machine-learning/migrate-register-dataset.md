@@ -6,7 +6,7 @@ ms.service: machine-learning
 ms.subservice: studio-classic
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: how-to
-
+ms.reviewer: larryfr
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/28/2022

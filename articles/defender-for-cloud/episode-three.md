@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers
 description: Learn how about Microsoft Defender for Containers.
 ms.topic: reference
-ms.date: 05/29/2022
+ms.date: 01/24/2023
 ---
 
 # Microsoft Defender for Containers

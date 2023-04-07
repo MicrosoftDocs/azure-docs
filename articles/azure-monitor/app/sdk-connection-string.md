@@ -81,7 +81,7 @@ A connection string consists of a list of settings represented as key-value pair
 - applicationinsights.azure.cn
 - applicationinsights.us
 
-For more information, see [Regions that require endpoint modification](./custom-endpoints.md#regions-that-require-endpoint-modification).
+For more information, see [Regions that require endpoint modification](./create-new-resource.md#regions-that-require-endpoint-modification).
 
 ##### Valid prefixes
 
@@ -287,6 +287,6 @@ Get started at development time with:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-in-process-agent.md)
+* [Java](./opentelemetry-enable.md?tabs=java)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)

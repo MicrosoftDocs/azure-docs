@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.author: xunwan
 author: xunwan
 ms.reviewer: larryfr
-ms.date: 05/24/2022
+ms.date: 01/20/2023
+ms.custom: engagement-fy23
 
 # Customer intent: As an administrator, I need to administrate data access and set up authentication method for data scientists.
 ---
@@ -44,6 +45,7 @@ In general, data access from studio involves the following checks:
     - Storage: Does the storage allow public access, or does it restrict access through a service endpoint or a private endpoint?
 * What operation is being performed?
     - Create, read, update, and delete (CRUD) operations on a data store/dataset are handled by Azure Machine Learning.
+    - Archive operation on data assets in the Studio requires the following RBAC operation: Microsoft.MachineLearningServices/workspaces/datasets/registered/delete
     - Data Access calls (such as preview or schema) go to the underlying storage and need extra permissions.
 * Where is this operation being run; compute resources in your Azure subscription or resources hosted in a Microsoft subscription?
     - All calls to dataset and datastore services (except the "Generate Profile" option) use resources hosted in a __Microsoft subscription__ to run the operations.

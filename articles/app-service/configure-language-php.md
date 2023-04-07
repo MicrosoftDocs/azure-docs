@@ -60,10 +60,10 @@ az webapp list-runtimes --os linux | grep PHP
 
 ::: zone pivot="platform-windows"  
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.0:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.4:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 8.0
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
 ```
 
 ::: zone-end

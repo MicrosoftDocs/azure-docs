@@ -5,8 +5,8 @@ ms.topic: troubleshooting
 ms.date: 05/05/2022
 ms.service: backup
 ms.reviewer: geg
-author: v-amallick
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension

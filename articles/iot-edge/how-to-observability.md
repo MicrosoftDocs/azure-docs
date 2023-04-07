@@ -11,7 +11,7 @@ services: iot-edge
 
 # How to implement IoT Edge observability using monitoring and troubleshooting
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 In this article, you'll learn the concepts and techniques of implementing both observability dimensions *measuring and monitoring* and *troubleshooting*. You'll learn about the following topics:
 * Define what indicators of the service performance to monitor 
@@ -158,7 +158,7 @@ IoT Edge modules `Temperature Sensor` and `Filter` export the logs and tracing d
 
 The Azure .NET Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](../azure-monitor/app/opentelemetry-enable.md). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
 
-The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/java-in-process-agent.md) to produce and export tracing data and correlated logs to the Application Insights instance.
+The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/opentelemetry-enable.md?tabs=java) to produce and export tracing data and correlated logs to the Application Insights instance.
 
 By default, IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the [logging level](/aspnet/core/fundamentals/logging) is set to `Information`. The amount of produced tracing data is regulated by a [ratio based sampler](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35). The sampler is configured with a desired [probability](https://github.com/open-telemetry/opentelemetry-dotnet/blob/bdcf942825915666dfe87618282d72f061f7567e/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35) of a given activity to be included in a trace. By default, the probability is set to 0. With that in place, the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
 

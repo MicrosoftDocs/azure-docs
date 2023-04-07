@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 01/09/2023
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurecli
@@ -69,19 +69,15 @@ Edit the */etc/fstab* file to remove references to the disk.
 > [!NOTE]
 > Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
-Open the */etc/fstab* file in a text editor as follows:
-
-```bash
-sudo vi /etc/fstab
-```
-
-In this example, the following line needs to be deleted from the */etc/fstab* file:
+Open the **/etc/fstab** file in a text editor and remove the line containing the UUID of your disk. Using the example values in this article, the line would look like the following:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
-Use `umount` to unmount the disk. The following example unmounts the */dev/sdc1* partition from the */datadrive* mount point:
+Save and close the file when you're done.
+
+Next, use `umount` to unmount the disk. The following example unmounts the */dev/sdc1* partition from the */datadrive* mount point:
 
 ```bash
 sudo umount /dev/sdc1 /datadrive

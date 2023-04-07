@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 02/13/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -27,9 +27,93 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
-## October 2022
+## February 2023
+
+* Form Recognizer v3.0 container support
+
+  * The v3.0 [**Read**](concept-read.md) and [**Layout**](concept-layout.md) containers are now available for use!
+
+  * For more information on containers, _see_ [Install and run containers](containers/form-recognizer-container-install-run.md)
 
 ---
+
+## January 2023
+
+> [!TIP]
+> All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument).
+
+* **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales-v30)—additional language support**:
+
+   The **prebuilt receipt model** now has added support for the following languages:
+
+  * English - United Arab Emirates (en-ae)
+  * Dutch - Netherlands (nl-nl)
+  * French - Canada (fr-ca)
+  * German - (de-de)
+  * Italian - (it-it)
+  * Japanese - Japan (ja-jp)
+  * Portuguese - Brazil (pt-br)
+
+* **[Prebuilt invoice model](concept-invoice.md)—additional language support and field extractions**
+
+  The **prebuilt invoice model** now has added support for the following languages:
+
+  * English - Australia (en-AU), Canada (en-CA), Great Britain (en-GB), India (en-IN)
+  * Portuguese - Brazil (pt-BR)
+
+  The **prebuilt invoice model** now has added support for the following field extractions:
+
+  * Currency code
+  * Payment options
+  * Total discount
+  * Tax items (en-IN only)
+
+* **[Prebuilt ID document model](concept-id-document.md#document-types)—additional document types support**
+
+  The **prebuilt ID document model** now has added support for the following document types:
+
+  * Passport, driver's license, and residence permit ID expansion
+  * US military ID cards and documents
+  * India ID cards and documents
+  * Australia ID cards and documents
+  * Canada ID cards and documents
+  * United Kingdom ID cards and documents
+
+## December 2022
+
+* [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
+
+  The December Form Recognizer Studio release includes the latest updates to Form Recognizer Studio. There are significant improvements to user experience, primarily with custom model labeling support.
+
+  * **Page range**. The Studio now supports analyzing specified pages from a document.
+
+  * **Custom model labeling**:
+
+    * **Run Layout API automatically**. You can opt to run the Layout API for all documents automatically in your blob storage during the setup process for custom model.
+
+    * **Search**. The Studio now includes search functionality to locate words within a document. This improvement allows for easier navigation while labeling.
+
+    * **Navigation**.  You can select labels to target labeled words within a document.
+
+    * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
+
+    * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns, table rows, and second-level subtypes for types such as dates and numbers.
+
+* Building custom neural models is now supported in the US Gov Virginia region.
+
+* Preview API versions ```2022-01-30-preview``` and ```2021-09-30-preview``` will be retired January 31 2023. Update to the ```2022-08-31``` API version to avoid any service disruptions.
+
+---
+
+## November 2022
+
+* **Announcing the latest stable release of Azure Form Recognizer libraries**
+  * This release includes important changes and updates for .NET, Java, JavaScript, and Python SDKs. For more information, _see_ [**Azure SDK DevBlog**](https://devblogs.microsoft.com/azure-sdk/announcing-new-stable-release-of-azure-form-recognizer-libraries/).
+  * The most significant enhancements are the introduction of two new clients, the **`DocumentAnalysisClient`** and the **`DocumentModelAdministrationClient`**.
+
+---
+
+## October 2022
 
 * **Form Recognizer versioned content**
   * Form Recognizer documentation has been updated to present a versioned experience. Now, you can choose to view content targeting the v3.0 GA experience or the v2.1 GA experience. The v3.0 experience is the default.
@@ -143,7 +227,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * Form Recognizer SDK version 4.0.0 GA release
     * **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
     * For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
-    * Update your applications using your programming language's **migration guide** (see above).
+    * Update your applications using your programming language's **migration guide**.
 
 ---
 
@@ -212,7 +296,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
   * [**prebuilt-read**](concept-read.md). Read OCR model is now also available in Form Recognizer with paragraphs and language detection as the two new features. Form Recognizer Read targets advanced document scenarios aligned with the broader document intelligence capabilities in Form Recognizer.
   * [**prebuilt-layout**](concept-layout.md). The Layout model extracts paragraphs and whether the extracted text is a paragraph, title, section heading, footnote, page header, page footer, or page number.
-  * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields will now resolve to the existing fields TotalTax and Line/Tax respectively.
+  * [**prebuilt-invoice**](concept-invoice.md). The TotalVAT and Line/VAT fields now resolve to the existing fields TotalTax and Line/Tax respectively.
   * [**prebuilt-idDocument**](concept-id-document.md). Data extraction support for US state ID, social security, and green cards. Support for passport visa information.
   * [**prebuilt-receipt**](concept-receipt.md). Expanded locale support for French (fr-FR), Spanish (es-ES), Portuguese (pt-PT), Italian (it-IT) and German (de-DE).
   * [**prebuilt-businessCard**](concept-business-card.md). Address parsing support to extract subfields for address components like address, city, state, country, and zip code.
@@ -273,7 +357,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 ---
 * [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) June release is the latest update to the Form Recognizer Studio. There are considerable user experience and accessibility improvements addressed in this update:
 
-  * **Code sample for Javascript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
+  * **Code sample for JavaScript and C#**. The Studio code tab now adds JavaScript and C# code samples in addition to the existing Python one.
   * **New document upload UI**. Studio now supports uploading a document with drag & drop into the new upload user interface.
   * **New feature for custom projects**. Custom projects now support creating storage account and blobs when configuring the project. In addition, custom project now supports uploading training files directly within the Studio and copying the existing custom model.
 
@@ -580,7 +664,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * ** **Bitmap Image file (.bmp) support for custom forms and training methods in the [FormContentType](/java/api/com.azure.ai.formrecognizer.models.formcontenttype?view=azure-java-preview&preserve-view=true#fields) fields**:
 
   * `image/bmp`
-  
+
   * **New property `Pages`  supported by the following classes**:
 
    **[RecognizeBusinessCardsOptions](/java/api/com.azure.ai.formrecognizer.models.recognizebusinesscardsoptions?view=azure-java-preview&preserve-view=true)**</br>
@@ -693,17 +777,17 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
    [Learn more about the invoice model](./concept-invoice.md)
 
-* **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
+* **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model extracts line items as part of the JSON output in the documentResults section.
 
     :::image type="content" source="./media/table-labeling.png" alt-text="Screenshot of the table labeling feature." lightbox="./media/table-labeling.png":::
 
-    In addition to labeling tables, you can now label empty values and regions. If some documents in your training set don't have values for certain fields, you can label them so that your model will know to extract values properly from analyzed documents.
+    In addition to labeling tables, you can now label empty values and regions. If some documents in your training set don't have values for certain fields, you can label them so that your model knows to extract values properly from analyzed documents.
 
 * **Support for 66 new languages** - The Layout API and Custom Models for Form Recognizer now support 73 languages.
 
   [Learn more about Form Recognizer's language support](language-support.md)
 
-* **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and top-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer will classify text lines as handwritten style or not and give a confidence score.
+* **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and top-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer classifies text lines as handwritten style or not and give a confidence score.
 
 * **Prebuilt receipt model quality improvements** This update includes many quality improvements for the prebuilt Receipt model, especially around line item extraction.
 
@@ -729,7 +813,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
   * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
   * **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
   * **Quality improvements** - Extraction improvements including single digit extraction improvements.
-  * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
+  * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data is extracted without writing any code.
 
   * [**Try the Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net)
 
@@ -793,7 +877,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## April 2020
 
-* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use the links below to get started with your language of choice:
+* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use these links to get started with your language of choice:
 * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
 * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
 * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
@@ -856,7 +940,7 @@ See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to l
 
 ## January 2020
 
-This release introduces the Form Recognizer 2.0. In the sections below, you'll find more information about new features, enhancements, and changes.
+This release introduces the Form Recognizer 2.0. In the next sections, you'll find more information about new features, enhancements, and changes.
 
 * New features
 

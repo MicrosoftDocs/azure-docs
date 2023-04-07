@@ -1,47 +1,91 @@
 ---
-title: Configure Azure AD role settings in PIM - Azure AD | Microsoft Docs
+title: Configure Azure AD role settings in PIM - Azure Active Directory
 description: Learn how to configure Azure AD role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: amsliu
 manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/12/2021
+ms.date: 01/27/2023
 ms.author: amsliu
-ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 # Configure Azure AD role settings in Privileged Identity Management
 
-A privileged role administrator can customize Privileged Identity Management (PIM) in their Azure Active Directory (Azure AD) organization, including changing the experience for a user who is activating an eligible role assignment. For information on the PIM events that trigger notifications and which administrators receive them, see [Email notifications in Privileged Identity Management](pim-email-notifications.md#notifications-for-azure-ad-roles)
+In Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, role settings define role assignment properties: MFA and approval requirements for activation, assignment maximum duration, notification settings, and more. Use the following steps to configure role settings and setup the approval workflow to specify who can approve or deny requests to elevate privilege.
+
+You need to have Global Administrator or Privileged Role Administrator role to manage PIM role settings for Azure AD Role. Role settings are defined per role: all assignments for the same role follow the same role settings. Role settings of one role are independent from role settings of another role.
+
+PIM role settings are also known as “PIM Policies”.
+
 
 ## Open role settings
 
 Follow these steps to open the settings for an Azure AD role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) role.
+1. [Sign in to Azure AD](https://aad.portal.azure.com/) 
 
-1. Open **Azure AD Privileged Identity Management** &gt; **Azure AD roles** &gt; **Role settings**.
-
-    ![Role settings page listing Azure AD roles](./media/pim-how-to-change-default-settings/role-settings.png)
+1. Select **Azure AD Privileged Identity Management -> Azure AD Roles -> Roles**. On this page you can see list of Azure AD roles available in the tenant, including built-in and custom roles.
+    :::image type="content" source="media/pim-how-to-change-default-settings/role-settings.png" alt-text="Screenshot of the list of Azure AD roles available in the tenant, including built-in and custom roles." lightbox="media/pim-how-to-change-default-settings/role-settings.png":::
 
 1. Select the role whose settings you want to configure.
 
-    ![Role setting details page listing several assignment and activation settings](./media/pim-how-to-change-default-settings/role-settings-page.png)
+1. Select **Role settings**. On the Role settings page you can view current PIM role settings for the selected role.
 
-1. Select **Edit** to open the Role settings page.
+    :::image type="content" source="media/pim-how-to-change-default-settings/role-settings-edit.png" alt-text="Screenshot of the role settings page with options to update assignment and activation settings." lightbox="media/pim-how-to-change-default-settings/role-settings-edit.png":::
 
-    ![Edit role settings page with options to update assignment and activation settings](./media/pim-how-to-change-default-settings/role-settings-edit.png)
+1.	Select Edit to update role settings.
 
-    On the Role setting pane for each role, there are several settings you can configure.
+1.	Once finished, select Update.
 
-## Assignment duration
+## Role settings 
+
+### Activation maximum duration
+
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
+
+### On activation, require multi-factor authentication 
+
+You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
+
+User may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
+
+For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
+
+### On activation, require Azure AD Conditional Access authentication context (Public Preview)
+
+You can require users who are eligible for a role to satisfy Conditional Access policy requirements: use specific authentication method enforced through Authentication Strengths, elevate the role from Intune compliant device, comply with Terms of Use, and more. 
+
+To enforce this requirement, you need to:
+
+1.	Create Conditional Access authentication context.
+1.	Configure Conditional Access policy that would enforce requirements for this authentication context.
+1.	Configure authentication context in PIM settings for the role.
+
+:::image type="content" source="media/pim-how-to-change-default-settings/role-settings-page.png" alt-text="Screenshot of the Edit role setting Attribute Definition Administrator page." lightbox="media/pim-how-to-change-default-settings/role-settings-page.png":::
+
+To learn more about Conditional Access authentication context, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context).
+
+### Require justification on activation
+
+You can require users to enter a business justification when they activate the eligible assignment.
+
+### Require ticket information on activation
+
+You can require users to enter a support ticket number when they activate the eligible assignment. This is information-only field and correlation with information in any ticketing system is not enforced.
+
+### Require approval to activate
+
+You can require approval for activation of eligible assignment. Approver doesn’t have to have any roles. When using this option, you have to select at least one approver (we recommend to select at least two approvers), there are no default approvers.
+
+To learn more about approvals, see [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md).
+
+### Assignment duration
 
 You can choose from two assignment duration options for each assignment type (eligible and active) when you configure settings for a role. These options become the default maximum duration when a user is assigned to the role in Privileged Identity Management.
 
@@ -49,64 +93,39 @@ You can choose one of these **eligible** assignment duration options:
 
 | Setting | Description |
 | --- | --- |
-| Allow permanent eligible assignment | Global admins and Privileged role admins can assign permanent eligible assignment. |
-| Expire eligible assignment after | Global admins and Privileged role admins can require that all eligible assignments have a specified start and end date. |
+| Allow permanent eligible assignment | Resource administrators can assign permanent eligible assignment. |
+| Expire eligible assignment after | Resource administrators can require that all eligible assignments have a specified start and end date. |
 
 And, you can choose one of these **active** assignment duration options:
 
 | Setting | Description |
 | --- | --- |
-| Allow permanent active assignment | Global admins and Privileged role admins can assign permanent active assignment. |
-| Expire active assignment after | Global admins and Privileged role admins can require that all active assignments have a specified start and end date. |
+| Allow permanent active assignment | Resource administrators can assign permanent active assignment. |
+| Expire active assignment after | Resource administrators can require that all active assignments have a specified start and end date. |
 
 > [!NOTE]
 > All assignments that have a specified end date can be renewed by Global admins and Privileged role admins. Also, users can initiate self-service requests to [extend or renew role assignments](pim-resource-roles-renew-extend.md).
 
-## Require multifactor authentication
+### Require multi-factor authentication on active assignment
 
-Privileged Identity Management provides enforcement of Azure AD Multi-Factor Authentication on activation and on active assignment.
+You can require that administrator provides multi-factor authentication when they create an active (as opposed to eligible) assignment. Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
-### On activation
+Administrator may not be prompted for multi-factor authentication if they authenticated with strong credential or provided multi-factor authentication earlier in this session.
 
-You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multifactor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
+### Require justification on active assignment
 
-To require multifactor authentication to activate the role assignment, select the **On activation, require Azure MFA** option in the Activation tab of **Edit role setting**.
+You can require that users enter a business justification when they create an active (as opposed to eligible) assignment.
 
-### On active assignment
+In the **Notifications** tab on the role settings page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
 
-This option requires admins must complete a multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
-
-To require multifactor authentication when creating an active role assignment, select the **Require Azure Multi-Factor Authentication on active assignment** option in the Assignment tab of **Edit role setting**.
-
-For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
-
-## Activation maximum duration
-
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
-
-## Require justification
-
-You can require that users enter a business justification when they activate. To require justification, check the **Require justification on active assignment** box or the **Require justification on activation** box.
-
-## Require ticket information on activation
-
-If your organization uses a ticketing system to track help desk items or change requests for your environment, you can select the **Require ticket information on activation** box to require the elevation request to contain the name of the ticketing system (optional, if your organization uses multiple systems) and the ticket number that prompted the need for role activation.
-
-## Require approval to activate
-
-If setting multiple approvers, approval completes as soon as one of them approves or denies. You can't force approval from a second or subsequent approver. To require approval to activate a role, follow these steps.
-
-1. Check the **Require approval to activate** check box.
-
-1. Select **Select approvers**.
-
-    ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
-
-1. Select at least one user and then click **Select**. Select at least one approver. If no specific approvers are selected, Privileged Role Administrators and Global Administrators become the default approvers.
-   > [!Note]
-   > An approver does not have to have an Azure AD administrative role themselves. They can be a regular user, such as an IT executive.
-
-1. Select **Update** to save your changes.
+-	**Turning off an email**</br>
+You can turn off specific emails by clearing the default recipient check box and deleting any other recipients.
+-	**Limit emails to specified email addresses**</br>
+You can turn off emails sent to default recipients by clearing the default recipient check box. You can then add other email addresses as recipients. If you want to add more than one email address, separate them using a semicolon (;).
+-	**Send emails to both default recipients and more recipients**</br>
+You can send emails to both default recipient and another recipient by selecting the default recipient checkbox and adding email addresses for other recipients.
+-	**Critical emails only**</br>
+For each type of email, you can select the check box to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the specified recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while emails requiring admins to approve an extension request will be triggered.
 
 ## Manage role settings through Microsoft Graph
 
@@ -151,7 +170,7 @@ You can retrieve the collection of rules that are applied to all Azure AD roles 
 GET https://graph.microsoft.com/v1.0/policies/roleManagementPolicyAssignments?$filter=scopeId eq '/' and scopeType eq 'DirectoryRole' and roleDefinitionId eq '62e90394-69f5-4237-9190-012177145e10'&$expand=policy($expand=rules)
 ```
 
-For more information about managing role settings through PIM, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim).
+For more information about managing role settings through PIM, see [Role settings and PIM](/graph/api/resources/privilegedidentitymanagementv3-overview#role-settings-and-pim). For examples of updating rules, see [Use PIM APIs in Microsoft Graph to update Azure AD rules](/graph/how-to-pim-update-rules).
 
 ## Next steps
 

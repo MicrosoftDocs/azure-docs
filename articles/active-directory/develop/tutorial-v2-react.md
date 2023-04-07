@@ -2,14 +2,15 @@
 title: "Tutorial: Create a React single-page app that uses auth code flow"
 description: In this tutorial, you create a React SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
-author: j-mantu
+author: Dickson-Mwendia
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/05/2022
-ms.author: jamesmantu
+ms.date: 01/24/2023
+ms.author: dmwendia
+ms.reviewer: jamesmantu
 ms.custom: aaddev, devx-track-js
 ---
 
@@ -66,7 +67,7 @@ Once you have [Node.js](https://nodejs.org/en/download/) installed, open up a te
 ```console
 npx create-react-app msal-react-tutorial # Create a new React app
 cd msal-react-tutorial # Change to the app directory
-npm install @azure/msal-browser @azure/msal-react # Install the MSAL packages
+npm install @azure/msal-browser @azure/msal-react @azure/msal-common  # Install the MSAL packages
 npm install react-bootstrap bootstrap # Install Bootstrap for styling
 ```
 

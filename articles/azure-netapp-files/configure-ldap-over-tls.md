@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 01/25/2023
 ms.author: anfdocs
 ---
 # Configure ADDS LDAP over TLS for Azure NetApp Files
@@ -21,7 +21,8 @@ You can use LDAP over TLS to secure communication between an Azure NetApp Files 
 
 ## Considerations
 
-* LDAP over TLS must not be enabled if you are using Azure Active Directory Domain Services (AADDS). AADDS uses LDAPS (port 636) to secure LDAP traffic instead of LDAP over TLS (port 389).  
+* DNS PTR records must exist for each AD DS domain controller assigned to the **AD Site Name** specified in the Azure NetApp Files Active Directory connection.  
+* PTR records must exist for all domain controllers in the site for ADDS LDAP over TLS to function properly.
 
 ## Generate and export root CA certificate 
 

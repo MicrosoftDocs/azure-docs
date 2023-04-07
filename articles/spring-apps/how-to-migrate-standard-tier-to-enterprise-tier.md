@@ -87,7 +87,7 @@ It takes about 5 minutes to finish the resource provisioning.
 
    ```azurecli
    az provider register --namespace Microsoft.SaaS
-   az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
+   az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan asa-ent-hr-mtr
    ```
 
 1. Enter a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can  only contain lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
@@ -302,7 +302,7 @@ To build locally, use the following steps:
 
 ## Use Application Insight
 
-Azure Enterprise tier uses the build service feature [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent.
+Azure Spring Apps Enterprise tier uses buildpack bindings to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-intergration-and-ca-certificates.md).
 
 | Standard Tier                                                      | Enterprise Tier                                                                    |
 |--------------------------------------------------------------------|------------------------------------------------------------------------------------|

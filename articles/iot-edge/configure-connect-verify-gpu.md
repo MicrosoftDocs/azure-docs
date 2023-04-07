@@ -4,13 +4,15 @@ description: Configure your environment to connect and verify your GPU to proces
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 7/22/2022
+ms.date: 9/22/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ---
 
 # Tutorial: Configure, connect, and verify an IoT Edge module for a GPU
+
+[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
 
 This tutorial shows you how to build a GPU-enabled virtual machine (VM). From the VM, you'll see how to run an IoT Edge device that allocates work from one of its modules to your GPU. 
 
@@ -166,7 +168,7 @@ If you have an existing module on your IoT Edge device, adding a configuration u
    You should see the parameters you specified for `DeviceRequests` in the JSON printout in the console.
 
 > [!NOTE]
-> To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go](https://github.com/moby/moby/blob/master/api/types/container/host_config.go)
+> To understand the `DeviceRequests` parameter better, view the source code: [moby/host_config.go](https://github.com/moby/moby/blob/master/api/types/container/hostconfig.go)
 
 ### Enable a GPU in a prefabricated NVIDIA module
 

@@ -27,7 +27,7 @@ In this article, you learn how to use Azure IoT Tools for Visual Studio Code to 
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-tools`
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-toolkit`
 
 ## Sign in to access your IoT hub
 

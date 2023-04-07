@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Run an SSIS package with the Stored Procedure activity
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run an SSIS package in an Azure Data Factory pipeline pr Synapse Pipelines by using a Stored Procedure activity. 
 

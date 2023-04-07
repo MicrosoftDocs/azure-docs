@@ -42,7 +42,7 @@ To analyze an image for various visual features, do the following steps:
     1. Replace the value of `<subscriptionKey>` with your key.
     1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Optionally, change the image URL in the request body (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) to the URL of a different image to be analyzed.
+    1. Optionally, change the image URL in the request body (`https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG`) to the URL of a different image to be analyzed.
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
@@ -55,7 +55,7 @@ To analyze an image for various visual features, do the following steps:
     #### [Version 4.0](#tab/4-0)
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Description,Tags,Read&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/computervision/imageanalysis:analyze?features=Tags,Read&model-version=latest&language=en&api-version=2022-10-12-preview" -d "{'url':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Salto_del_Angel-Canaima-Venezuela08.JPG/800px-Salto_del_Angel-Canaima-Venezuela08.JPG'}"
     ```
     ---
 

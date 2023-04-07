@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/10/2022
+ms.date: 01/29/2023
 
 ms.author: justinha
-author: vimrang
+author: justinha
 manager: amycolannino
 ms.reviewer: vimrang
 
@@ -73,7 +73,11 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 |&#x2705; | &#x2705; | &#x2705; |&#x2705; |
 
 >[!NOTE] 
->Azure AD CBA supports both certificates on-device as well as external storage like security keys on Windows.
+>Azure AD CBA supports both certificates on-device as well as external storage like security keys on Windows. 
+
+## Windows Out of the box experience (OOBE)
+
+Windows OOBE should allow the user to login using an external smart card reader and authenticate against Azure AD CBA. Windows OOBE by default should have the necessary smart card drivers or the smart card drivers previously added to the Windows image before OOBE setup.
 
 ## Restrictions and caveats  
 

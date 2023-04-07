@@ -4,7 +4,7 @@ description: The following document describes how the UserPrincipalName attribut
 author: billmath
 ms.subservice: hybrid
 ms.author: billmath
-ms.date: 06/26/2018
+ms.date: 01/26/2023
 ms.topic: conceptual
 ms.workload: identity
 ms.service: active-directory

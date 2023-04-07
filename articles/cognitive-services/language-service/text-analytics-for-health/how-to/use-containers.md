@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 09/05/2022
+ms.date: 01/18/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
 ms.devlang: azurecli
@@ -45,6 +45,10 @@ The following table describes the minimum and recommended specifications for the
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
+
+The Text Analytics for health container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `healthcare`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`
+
+To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/textanalytics/healthcare/tags).
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from the Microsoft public container registry. You can find the featured tags on the  [dockerhub page](https://hub.docker.com/_/microsoft-azure-cognitive-services-textanalytics-healthcare)  
 

@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: container-service
+ms.service: azure-kubernetes-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep

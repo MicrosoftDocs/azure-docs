@@ -214,7 +214,7 @@ System.Diagnostics.Tracing has an [Autoflush feature](/dotnet/api/system.diagnos
 
 ### How do I do this for Java?
 
-In Java codeless instrumentation, which is recommended, the logs are collected out of the box. Use [Java 3.0 agent](./java-in-process-agent.md).
+In Java codeless instrumentation, which is recommended, the logs are collected out of the box. Use [Java 3.0 agent](./opentelemetry-enable.md?tabs=java).
 
 The Application Insights Java agent collects logs from Log4j, Logback, and java.util.logging out of the box.
 

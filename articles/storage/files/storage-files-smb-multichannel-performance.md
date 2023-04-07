@@ -131,11 +131,11 @@ The following tips may help you optimize your performance:
 - The initial test is usually a warm-up, discard its results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, higher performance can be achieved by spreading load over multiple clients.
 
-### The relationship between IOPS, throughput, and IO sizes
+### The relationship between IOPS, throughput, and I/O sizes
 
 **Throughput = IO size * IOPS**
 
-Higher IO sizes drive higher throughput and will have higher latencies, resulting in a lower number of net IOPS. Smaller IO sizes will drive higher IOPS but results in lower net throughput and latencies.
+Higher I/O sizes drive higher throughput and will have higher latencies, resulting in a lower number of net IOPS. Smaller I/O sizes will drive higher IOPS but will result in lower net throughput and latencies. To learn more, see [Understand Azure Files performance](understand-performance.md).
 
 ## Next steps
 - [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel)

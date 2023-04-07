@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse, ignite-2022
-ms.date: 09/09/2021
+ms.date: 01/28/2023
 ---
 
 # Copy data from or to MongoDB Atlas using Azure Data Factory or Synapse Analytics
@@ -33,7 +33,7 @@ Specifically, this MongoDB Atlas connector supports **versions up to 4.2**.
 
 ## Prerequisites
 
-If you use Azure Integration Runtime for copy, make sure you add the effective region's [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the MongoDB Atlas IP Access List.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Getting started
 

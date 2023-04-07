@@ -8,8 +8,9 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 12/12/2022
 ms.author: mbaldwin
+
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 
 ---

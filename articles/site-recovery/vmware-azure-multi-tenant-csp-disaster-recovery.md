@@ -6,8 +6,8 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.custom: subject-rbac-steps
+ms.date: 04/03/2022
+ms.custom: subject-rbac-steps, engagement-fy23
 ---
 
 # Set up VMware disaster recovery in a multi-tenancy environment with the Cloud Solution Provider (CSP) program

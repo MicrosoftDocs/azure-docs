@@ -200,7 +200,9 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |[prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
 
-### Document type - `idDocument.driverLicense` fields extracted
+### Document types
+
+#### `idDocument.driverLicense` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -223,7 +225,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`Restrictions`|`string`|Restrictions|B|
 |`VehicleClassifications`|`string`|Vehicle classification|D|
 
-### Document type - `idDocument.passport` fields extracted
+#### `idDocument.passport` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -254,7 +256,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`MachineReadableZone.DateOfExpiration`|`date`|Date of expiration|2019-05-05|
 |`MachineReadableZone.Sex`|`string`|Sex|F|
 
-### Document type - `idDocument.nationalIdentityCard` fields extracted
+#### `idDocument.nationalIdentityCard` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -274,7 +276,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`Weight`|`string`|Weight|185LB|
 |`Sex`|`string`|Sex|M|
 
-### Document type - `idDocument.residencePermit` fields extracted
+#### `idDocument.residencePermit` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -289,7 +291,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`PlaceOfBirth`|`string`|Place of birth|Germany|
 |`Category`|`string`|Permit category|DV2|
 
-### Document type - `idDocument.usSocialSecurityCard` fields extracted
+#### `idDocument.usSocialSecurityCard` fields extracted
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -298,7 +300,7 @@ Below are the fields extracted per document type. The Azure Form Recognizer ID m
 |`LastName`|`string`|Surname|TALBOT|
 |`DateOfIssue`|`date`|Date of issue|08/12/2012|
 
-### Document type - `idDocument` field extracted
+#### `idDocument` field extracted
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|

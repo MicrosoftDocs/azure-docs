@@ -11,7 +11,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
@@ -97,7 +97,7 @@ When you're deleting a service instance, be aware of the following:
 
 [//]: # (Start of RBAC section)
 ## Manage access with Azure RBAC
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than Hybrid Identity Administratoristrators. Azure RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the Hybrid Identity Administrators within your directory.
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than Hybrid Identity Administrators. Azure RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the Hybrid Identity Administrators within your directory.
 
 ### Roles
 Azure AD Connect Health supports the following built-in roles:

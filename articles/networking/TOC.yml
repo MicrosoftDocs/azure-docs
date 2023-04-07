@@ -70,6 +70,8 @@
       href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Connect on-premises - dedicated
       href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: NVA accelerated connections
+      href: nva-accelerated-connections.md
 - name: Quickstart
   items:
   - name: Create your first virtual network
@@ -116,6 +118,10 @@
       href: check-usage-against-limits.md
     - name: View network topology
       href: ../network-watcher/view-network-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Security
+    items:
+    - name: Create a Zero Trust network for web applications
+      href: create-zero-trust-network-web-apps.md
   - name: Sample scripts
     items:
     - name: Azure CLI

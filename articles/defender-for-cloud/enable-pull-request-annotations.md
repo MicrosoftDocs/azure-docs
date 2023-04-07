@@ -3,7 +3,7 @@ title: Enable pull request annotations in GitHub or in Azure DevOps
 description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
 ms.custom: ignite-2022
-ms.date: 11/07/2022
+ms.date: 01/24/2023
 ---
 
 # Enable pull request annotations in GitHub and Azure DevOps
@@ -119,7 +119,7 @@ Before you can enable pull request annotations, your main branch must have enabl
 
     :::image type="content" source="media/tutorial-enable-pr-annotations/validation-policy.png" alt-text="Screenshot that shows the build validation.":::
 
-Once you have completed these steps you can select the build pipeline you created previously and customize its settings to suit your needs.  
+Once you've completed these steps, you can select the build pipeline you created previously and customize its settings to suit your needs.  
 
 ### Enable pull request annotations
 
@@ -129,11 +129,11 @@ Once you have completed these steps you can select the build pipeline you create
 
 1. Navigate to **Defender for Cloud** > **DevOps Security**.
 
-1. Select all relevant repositories to enable pull request annotations on.
+1. Select all relevant repositories to enable the pull request annotations on.
 
 1. Select **Configure**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you where to select configure on the screen.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/select-configure.png" alt-text="Screenshot that shows you where to select the configure button on the screen.":::
 
 1. Toggle Pull request annotations to **On**.
 
@@ -179,7 +179,7 @@ Once you've configured the scanner, you'll be able to view all issues that were 
     - **Won't fix** - The finding is noted but won't be fixed.
     - **Closed** - The discussion in this annotation is closed.
 
-Defender for DevOps will re-activate an annotation if the security issue is not fixed in a new iteration.
+Defender for DevOps will reactivate an annotation if the security issue isn't fixed in a new iteration.
 
 ## Learn more
 

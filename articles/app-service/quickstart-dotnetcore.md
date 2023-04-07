@@ -33,6 +33,8 @@ target cross-platform with .NET 6.0.
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
 
+Alternatively, you can deploy an ASP.NET web app as part of a [Windows or Linux container in App Service](quickstart-custom-container.md).
+
 ## Prerequisites
 
 :::zone target="docs" pivot="development-environment-vs"
@@ -993,6 +995,9 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 > [Tutorial: ASP.NET Core app with SQL database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
+> [App Template: ASP.NET Core app with SQL database and App Insights deployed using CI/CD GitHub Actions](https://github.com/Azure-Samples/app-templates-dotnet-azuresql-appservice)
+
+> [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
 
 ### [.NET Framework 4.8](#tab/netframework48)
@@ -1001,9 +1006,12 @@ Advance to the next article to learn how to create a .NET Framework app and conn
 
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET app with SQL database](app-service-web-tutorial-dotnet-sqldatabase.md)
-
+> 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Framework app](configure-language-dotnet-framework.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 ---
 

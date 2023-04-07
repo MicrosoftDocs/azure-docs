@@ -8,6 +8,7 @@ ms.service: machine-learning
 ms.subservice: automl 
 ms.topic: how-to
 ms.custom: template-how-to, sdkv2, event-tier1-build-2022, ignite-2022
+ms.reviewer: ssalgado
 ms.date: 05/26/2022
 ---
 
@@ -165,7 +166,18 @@ If you have your labeled training data present in a container in Azure Blob stor
 
 Once you have your labeled data in JSONL format, you can use it to create `MLTable` as shown below. MLtable packages your data into a consumable object for training.
 
-:::code language="yaml" source="~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
+```yaml
+paths:
+  - file: ./train_annotations.jsonl
+transformations:
+  - read_json_lines:
+        encoding: utf8
+        invalid_lines: error
+        include_path_column: false
+  - convert_column_types:
+      - columns: image_url
+        column_type: stream_info
+```
 
 You can then pass in the `MLTable` as a [data input for your AutoML training job](./how-to-auto-train-image-models.md#consume-data).
 

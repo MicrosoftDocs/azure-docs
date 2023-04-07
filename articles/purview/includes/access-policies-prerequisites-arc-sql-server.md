@@ -4,12 +4,10 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 10/11/2022
+ms.date: 02/02/2023
 ms.custom: references_regions
 ---
-
-
-- Get [SQL Server version 2022 RC 1 or later](https://www.microsoft.com/sql-server/sql-server-2022) running on Windows and install it.
+- Get [SQL Server version 2022 or later](https://www.microsoft.com/sql-server/sql-server-2022) running on Windows and install it.
 - Complete the process to onboard that [SQL Server instance with Azure Arc](/sql/sql-server/azure-arc/connect).
 - Enable [Azure Active Directory authentication in SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup, follow [this article](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 
@@ -38,33 +36,29 @@ Policy enforcement is available in only the following regions for Microsoft Purv
 - Japan East
 - Australia East
 
-#### Security considerations for SQL Server on Azure Arc-enabled servers
+#### Security considerations for Azure Arc-enabled SQL Server
 
 - The server admin can turn off the Microsoft Purview policy enforcement.
 - Azure Arc admin and server admin permissions provide the ability to change the Azure Resource Manager path of the server. Because mappings in Microsoft Purview use Resource Manager paths, this can lead to wrong policy enforcements. 
 - A SQL Server admin (database admin) can gain the power of a server admin and can tamper with the cached policies from Microsoft Purview.
 - The recommended configuration is to create a separate app registration for each SQL server instance. This configuration prevents the second SQL Server instance from reading the policies meant for the first SQL Server instance, in case a rogue admin in the second SQL Server instance tampers with the Resource Manager path.
 
-#### SQL Server configuration on Azure Arc
+#### Verify the pre-requisites
 
-This section describes the steps to configure SQL Server on Azure Arc to use Microsoft Purview.
+1. Sign in to the Azure portal through [this link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/overview)
 
-1. Sign in to the Azure portal through [this link](https://portal.azure.com/#view/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/~/sqlServers), which lists SQL Server instances on Azure Arc.
+1. Navigate to **SQL servers** on the left pane. You will see a list of SQL Server instances on Azure Arc.
 
 1. Select the SQL Server instance that you want to configure.
 
 1. Go to **Azure Active Directory** on the left pane.
 
-1. Verify that Azure Active Directory authentication is configured with an admin login, a SQL Server service certificate, and a SQL Server app registration.
+1. Ensure that Azure Active Directory authentication is configured with an admin login. If not, refer to the access policy prerequisites section in this guide.
 
-1. Scroll down to set **External Policy Based Authorization** to **Enabled**.
+1. Ensure that a certificate has been provided to for SQL Server to authenticate to Azure. If not, refer to the access policy prerequisites section in this guide.
 
-1. For **Microsoft Purview Endpoint**, enter an endpoint in the format *https://\<purview-account-name\>.purview.azure.com*. You can see the names of Microsoft Purview accounts in your tenant through [this link](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Purview%2FAccounts). 
+1. Ensure that an app registration has been entered to create a trust relationship between SQL Server and Azure AD. If not, refer to the access policy prerequisites section in this guide.
 
-   Optionally, you can confirm the endpoint by going to the Microsoft Purview account. Go to the **Properties** section on the left menu and scroll down until you see **Scan endpoint**. The full endpoint path is the one listed without "/Scan" at the end.
+1. If you made any changes, select the **Save** button to save the configuration and wait until the operation completes successfully. This may take a few minutes. The message *"Saved successfully"* will be displayed at the top of the page in green background. You may need to scroll up to see it.
 
-1. Make a note of the **App registration ID** value. You'll need it when you register and enable this data source for **Data use management** in Microsoft Purview.
-
-   ![Screenshot that shows selections for configuring a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview.png)
-   
-1. Select the **Save** button to save the configuration.
+   ![Screenshot that shows pre-requisites to configure a Microsoft Purview endpoint in the Azure Active Directory section.](../media/how-to-policies-data-owner-sql/setup-sql-on-arc-for-purview1.png)

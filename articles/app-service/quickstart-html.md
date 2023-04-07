@@ -20,7 +20,7 @@ ms.custom: mvc, cli-validate, seodec18, mode-other
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Download the sample
 
@@ -141,4 +141,4 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

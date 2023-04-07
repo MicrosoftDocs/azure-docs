@@ -12,7 +12,7 @@ services: iot-edge
 
 # Troubleshoot IoT Edge devices from the Azure portal
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 IoT Edge provides a streamlined way of monitoring and troubleshooting modules in the Azure portal. The troubleshooting page is a wrapper for the IoT Edge agent's direct methods so that you can easily retrieve logs from deployed modules and remotely restart them.
 

@@ -141,7 +141,7 @@
       href: understand/mpa-overview.md
     - name: Get started in the Azure EA portal
       href: manage/ea-portal-get-started.md
-    - name: Get started in the Azure portal for direct EA
+    - name: Get started with EA billing in the Azure portal
       href: manage/ea-direct-portal-get-started.md
     - name: Direct EA billing invoice documents
       href: manage/direct-ea-billing-invoice-documents.md
@@ -327,7 +327,7 @@
         href: manage/understand-ea-roles.md
       - name: Azure EA portal administration
         href: manage/ea-portal-administration.md
-      - name: Azure direct EA administration
+      - name: EA billing administration
         href: manage/direct-ea-administration.md
       - name: Azure EA portal administration for partners
         href: manage/ea-partner-portal-administration.md
@@ -337,12 +337,12 @@
         href: manage/ea-portal-agreements.md
       - name: Enterprise enrollment invoices
         href: manage/ea-portal-enrollment-invoices.md
-      - name: View and download direct EA usage details
+      - name: View and download EA usage details
         href: manage/direct-ea-azure-usage-charges-invoices.md
       - name: Azure EA pricing
         href: manage/ea-pricing-overview.md
       - name: Azure Enterprise REST APIs
-        href: manage/ea-portal-rest-apis.md
+        href: manage/enterprise-rest-apis.md
       - name: Azure EA VM reserved instances
         href: manage/ea-portal-vm-reservations.md
       - name: Azure Marketplace
@@ -497,12 +497,16 @@
       href: manage/billing-troubleshoot-azure-payment-issues.md
     - name: Declined card
       href: manage/troubleshoot-declined-card.md
+    - name: Troubleshoot threshold billing
+      href: manage/troubleshoot-threshold-billing.md
     - name: Azure account sign-up issues
       href: manage/troubleshoot-azure-sign-up.md
     - name: Subscription sign-in issues
       href: manage/troubleshoot-sign-in-issue.md
     - name: Can't create multiple subscriptions
       href: manage/create-multiple-subscriptions-error.md
+    - name: Not available due to conflict error
+      href: manage/troubleshoot-not-available-conflict.md
     - name: Enterprise cost view disabled
       href: manage/enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Troubleshoot Azure EA portal access
@@ -517,8 +521,6 @@
     href: /cli/azure/billing
   - name: Cost Management REST API
     href: /rest/api/cost-management
-  - name: Azure Consumption REST API
-    href: /rest/api/consumption
   - name: Consumption REST API ARM budget template
     href: /azure/templates/microsoft.consumption/budgets
   - name: Cost Management REST API Samples
@@ -531,10 +533,6 @@
     href: /rest/api/cost-management/retail-prices/azure-retail-prices
   - name: Azure Billing REST API
     href: /rest/api/billing
-  - name: Azure Consumption API overview
-    href: manage/consumption-api-overview.md
-  - name: Azure Consumption REST API
-    href: /rest/api/consumption
   - name: Enterprise reporting REST API overview
     href: manage/enterprise-api.md
   - name: Enterprise reporting REST APIs

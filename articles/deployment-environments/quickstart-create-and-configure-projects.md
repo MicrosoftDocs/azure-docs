@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2022
 ms.topic: quickstart
-ms.date: 10/26/2022
+ms.date: 02/08/2023
 ---
 
 # Quickstart: Create and configure a project
@@ -15,14 +15,6 @@ ms.date: 10/26/2022
 This quickstart shows you how to create a project in Azure Deployment Environments Preview. Then, you associate the project with the dev center you created in [Quickstart: Create and configure a dev center](./quickstart-create-and-configure-devcenter.md).
 
 An enterprise development infrastructure team typically creates projects and provides project access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) by using [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy applications.
-
-In this quickstart, you learn how to:
-
-> [!div class="checklist"]
->
-> - Create a project
-> - Configure a project
-> - Provide project access to the development team
 
 > [!IMPORTANT]
 > Azure Deployment Environments currently is in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -48,11 +40,9 @@ To create a project in your dev center:
      |----------|-----------|
      |**Subscription**     |Select the subscription in which you want to create the project.       |
      |**Resource group**|Either use an existing resource group or select **Create new** and enter a name for the resource group.   |
-     |**Dev center**|Select a dev center to associate with this project. All settings for the dev center will apply to the project.   |
+     |**Dev center**|Select a dev center to associate with this project. All settings for the dev center apply to the project.   |
      |**Name**|Enter a name for the project.  |
      |**Description** (Optional) |Enter any project-related details.  |
-
-1. Select the **Tags** tab and enter a **Name**:**Value** pair.
 
 1. On the **Review + Create** tab, wait for deployment validation, and then select **Create**.
 
@@ -64,6 +54,22 @@ To create a project in your dev center:
 
     :::image type="content" source="media/quickstart-create-configure-projects/created-project.png" alt-text="Screenshot that shows the project overview pane.":::
 
+### Assign a managed identity the owner role to the subscription
+Before you can create environment types, you must give the managed identity that represents your dev center access to the subscriptions where you configure the [project environment types](concept-environments-key-concepts.md#project-environment-types). 
+
+In this quickstart you assign the Owner role to the system-assigned managed identity that you configured previously: [Attach a system-assigned managed identity](quickstart-create-and-configure-devcenter.md#attach-a-system-assigned-managed-identity).
+
+1.	Navigate to your dev center.
+1.  On the left menu under Settings, select **Identity**.
+1.	Under System assigned > Permissions, select **Azure role assignments**.
+
+    :::image type="content" source="media/quickstart-create-configure-projects/system-assigned-managed-identity.png" alt-text="Screenshot that shows a system-assigned managed identity with Role assignments highlighted.":::
+
+1. In Azure role assignments, select **Add role assignment (Preview)**, and then enter or select the following information:
+    - In **Scope**, select **Subscription**.
+    - In **Subscription**, select the subscription in which to use the managed identity.
+    - In **Role**, select **Owner**.
+    - Select **Save**.
 ## Configure a project
 
 To configure a project, add a [project environment type](how-to-configure-project-environment-types.md):

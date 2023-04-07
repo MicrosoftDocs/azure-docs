@@ -24,8 +24,81 @@ This page is updated monthly, so revisit it regularly.  For older months' update
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
+## January 2023
+
+### Data flow
+
+- Flowlets now support schema drift [Learn more](connector-office-365.md?tabs=data-factory)
+- SQL CDC incremental extract now supports numeric columns [Learn more](connector-sql-server.md?tabs=data-factory#native-change-data-capture)
+
+### Data movement
+
+New top-level CDC resource - native CDC configuration in 3 simple steps [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/announcing-the-public-preview-of-a-new-top-level-cdc-resource-in/ba-p/3720519)
+
+### Orchestration
+
+Orchestyrate Synapse notebooks and Synapse spark job definitions natively [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/orchestrate-and-operationalize-synapse-notebooks-and-spark-job/ba-p/3724379)
+
+### Region expansion
+
+- Continued region expansion - China North 3 now supported [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+- Continued region expansion - Switzerland West now supported [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+
+### SQL Server Integration Services (SSIS)
+
+Express virtual network injection for SSIS now generally available [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
+
+### Developer productivity
+
+- Added support for favoriting resources on home page
+- Save column width for pipeline monitoring
+- Monitor filter updates for faster searches
+- Directly launch Pipeline Template Gallery through Azure portal [Learn more]()
+
+## December 2022
+
+### Data flow
+
+SQL change data capture (CDC) incremental extract - supports numeric columns in mapping dataflow [Learn more](connector-azure-sql-database.md?tabs=data-factory#source-transformation)
+
+### Data movement
+
+Express virtual network injection for SSIS in Azure Data Factory is generally available [Learn more](https://techcommunity.microsoft.com/t5/sql-server-integration-services/general-availability-of-express-virtual-network-injection-for/ba-p/3699993)
+
+### Region expansion
+
+Continued region expansion - Azure Data Factory is now available in China North 3 [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=data-factory)
+
+## November 2022
+
+ 
+### Data flow
+
+- Incremental only is available in SAP CDC - get changes only from SAP system without initial full load  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
+- Source partitions in initial full data load of SAP CDC to improve performance  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
+- A new pipeline template - Load multiple objects with big amounts from SAP via SAP CDC [Learn more](solution-template-replicate-multiple-objects-sap-cdc.md?tabs=data-factory)
+
+### Data Movement
+- Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
+
+### User Interface
+3 Pipeline designer enhancements added to ADF Studio preview experience 
+- Dynamic content flyout - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
+- Error message relocation to status column - make it easier for you to view errors when you see a Failed pipeline run [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#error-message-relocation-to-status-column)
+- Container view - in Author Tab, Pipeline can change output view from list to container [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#container-view)
+
+
+### Continuous integration and continuous deployment
+
+In auto publish config, disable publish button is available to void overwriting the last automated publish deployment [Learn more](source-control.md?tabs=data-factory#editing-repo-settings)
+
+
 ## October 2022
 
+### Video summary
+
+> [!VIDEO https://www.youtube.com/embed?v=Ou90M59VQCA&list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv&index=7]
+ 
 ### Data flow
 
 - Export up to 1000 rows from data flow preview [Learn more](concepts-data-flow-debug-mode.md?tabs=data-factory#data-preview)

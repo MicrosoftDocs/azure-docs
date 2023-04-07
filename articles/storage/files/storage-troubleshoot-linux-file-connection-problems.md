@@ -1,10 +1,10 @@
 ---
-title: Troubleshoot Azure Files problems in Linux (SMB) | Microsoft Docs
+title: Troubleshoot Azure Files problems in Linux (SMB)
 description: Troubleshooting Azure Files problems in Linux. See common issues related to SMB Azure file shares when you connect from Linux clients, and see possible resolutions.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/12/2022
+ms.date: 01/10/2023
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -30,11 +30,11 @@ In addition to the troubleshooting steps in this article, you can use [AzFileDia
 
 Common causes for this problem are:
 
-- You're using an Linux distribution with an outdated SMB client. See [Use Azure Files with Linux](storage-how-to-use-files-linux.md) for more information on common Linux distributions available in Azure that have compatible clients.
-- SMB utilities (cifs-utils) are not installed on the client.
-- The minimum SMB version, 2.1, is not available on the client.
-- SMB 3.x encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
-- You're trying to connect to an Azure file share from an Azure VM, and the VM is not in the same region as the storage account.
+- You're using a Linux distribution with an outdated SMB client. See [Use Azure Files with Linux](storage-how-to-use-files-linux.md) for more information on common Linux distributions available in Azure that have compatible clients.
+- SMB utilities (cifs-utils) aren't installed on the client.
+- The minimum SMB version, 2.1, isn't available on the client.
+- SMB 3.x encryption isn't supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
+- You're trying to connect to an Azure file share from an Azure VM, and the VM isn't in the same region as the storage account.
 - If the [Secure transfer required](../common/storage-require-secure-transfer.md) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.x with encryption.
 
 ### Solution
@@ -67,6 +67,44 @@ If virtual network (VNET) and firewall rules are configured on the storage accou
 ### Solution for cause 2
 
 Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
+
+<a id="mounterror22"></a>
+## "Mount error(22): Invalid argument" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the `snapshot` option for the `mount` command isn't passed in a recognized format, the `mount` command can fail with this error. To confirm, check kernel log messages (dmesg), and dmesg will show a log entry such as **cifs: Bad value for 'snapshot'**.
+
+### Solution
+
+Make sure you're passing the `snapshot` option for the `mount` command in the correct format. Refer to the mount.cifs manual page (e.g. `man mount.cifs`). A common error is passing the GMT timestamp in the wrong format, such as using hyphens or colons in place of periods. For more information, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
+
+<a id="badsnapshottoken"></a>
+## "Bad snapshot token" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the snapshot `mount` option is passed starting with @GMT, but the format is still wrong (such as using hyphens and colons instead of periods), the `mount` command can fail with this error.
+
+### Solution
+
+Make sure you're passing the GMT timestamp in the correct format, which is **@GMT-year.month.day-hour.minutes.seconds**. For more information, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
+
+<a id="mounterror2"></a>
+## "Mount error(2): No such file or directory" when trying to mount an Azure file share snapshot
+
+### Cause
+
+If the snapshot that you're attempting to mount doesn't exist, the `mount` command can fail with this error. To confirm, check kernel log messages (dmesg), and dmesg will show a log entry such as:
+
+```bash
+[Mon Dec 12 10:34:09 2022] CIFS: Attempting to mount \\snapshottestlinux.file.core.windows.net\snapshot-test-share1
+[Mon Dec 12 10:34:09 2022] CIFS: VFS: cifs_mount failed w/return code = -2
+```
+
+### Solution
+
+Make sure the snapshot you're attempting to mount exists. For more information on how to list the available snapshots for a given Azure file share, see [Mount a file share snapshot](storage-how-to-use-files-linux.md#mount-a-file-share-snapshot).
 
 <a id="permissiondenied"></a>
 ## "[permission denied] Disk quota exceeded" when you try to open a file
@@ -281,15 +319,6 @@ However, these changes might not be ported yet to all the Linux distributions. I
 You can work around this problem by specifying a hard mount. A hard mount forces the client to wait until a connection is established or until it's explicitly interrupted. You can use it to prevent errors because of network time-outs. However, this workaround might cause indefinite waits. Be prepared to stop connections as necessary.
 
 If you can't upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
-
-## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.x
-
-### Cause
-This error is logged because Azure Files [doesn't currently support SMB multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
-
-### Solution
-This error can be ignored.
-
 
 ### Unable to access folders or files which name has a space or a dot at the end
 

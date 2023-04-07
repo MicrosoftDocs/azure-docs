@@ -18,7 +18,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
+- [Python](https://www.python.org/downloads/) 3.7+.
 - An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../create-email-communication-resource.md).
 - An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../connect-email-communication-resource.md).
 
@@ -63,7 +63,7 @@ pip install azure-communication-email
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services SMS SDK for Python.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Email SDK for Python.
 
 | Name | Description |
 | ---- |-------------|

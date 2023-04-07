@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 01/17/2023
 ms.author: mbaldwin
 ms.devlang: python
 ms.custom: mvc, devx-track-python, devx-track-azurecli
@@ -133,15 +133,15 @@ On the virtual machine, create a Python file called **sample.py**. Edit the file
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
-keyVaultName = "<your-unique-keyvault-name>"
-KVUri = f"https://{keyVaultName}.vault.azure.net"
-secretName = "mySecret"
+key_vault_name = "<your-unique-keyvault-name>"
+key_vault_uri = f"https://{key_vault_name}.vault.azure.net"
+secret_name = "mySecret"
 
 credential = DefaultAzureCredential()
-client = SecretClient(vault_url=KVUri, credential=credential)
-retrieved_secret = client.get_secret(secretName)
+client = SecretClient(vault_url=key_vault_uri, credential=credential)
+retrieved_secret = client.get_secret(secret_name)
 
-print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_secret.value}'")
+print(f"The value of secret '{secret_name}' in '{key_vault_name}' is: '{retrieved_secret.value}'")
 ```
 
 ## Run the sample Python app
@@ -156,7 +156,7 @@ The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 
 ## Clean up resources
 
-When they are no longer needed, delete the virtual machine and your key vault.  You can do this quickly by simply deleting the resource group to which they belong:
+When they're no longer needed, delete the virtual machine and your key vault. You can be done quickly by deleting the resource group to which they belong:
 
 ```azurecli
 az group delete -g myResourceGroup

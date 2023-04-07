@@ -1,17 +1,16 @@
 ---
 title: Azure Load Balancer components
-description: Overview of Azure Load Balancer components
+description: Overview of Azure Load Balancer components.
 services: load-balancer
-documentationcenter: na
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/27/2021
 ms.author: mbender
-
+ms.custom: template-concept
 ---
+
 # Azure Load Balancer components
 
 Azure Load Balancer includes a few key components. These components can be configured in your subscription through the Azure portal, Azure CLI, Azure PowerShell, Resource Manager Templates or appropriate alternatives.

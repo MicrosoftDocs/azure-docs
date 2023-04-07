@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 10/20/2022
+ms.date: 02/15/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -18,9 +18,9 @@ In Azure Active Directory (Azure AD), the term *app provisioning* refers to auto
 	
 ![Diagram that shows provisioning scenarios.](../governance/media/what-is-provisioning/provisioning.png)
 
-Azure AD application provisioning refers to automatically creating user identities and roles in the applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into SaaS applications like [Dropbox](../../active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md), and more.
+Azure AD application provisioning refers to automatically creating user identities and roles in the applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Common scenarios include provisioning an Azure AD user into SaaS applications like [Dropbox](../../active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../../active-directory/saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../../active-directory/saas-apps/servicenow-provisioning-tutorial.md), and many more.
 
-Azure AD also supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://aka.ms/scimoverview), or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](./on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](./on-premises-ldap-connector-configure.md) user store or a [SQL](./tutorial-ecma-sql-connector.md) database, Azure AD can support those as well. 
+Azure AD also supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. Your application must support [SCIM](https://aka.ms/scimoverview). Or, you must build a SCIM gateway to connect to your legacy application. If so, you can use the Azure AD Provisioning agent to [directly connect](./on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](./on-premises-ldap-connector-configure.md) user store or a [SQL](./tutorial-ecma-sql-connector.md) database, Azure AD can support these applications as well. 
 
 App provisioning lets you:
 
@@ -35,7 +35,7 @@ App provisioning lets you:
 
 ## What is SCIM?
 
-To help automate provisioning and deprovisioning, apps expose proprietary user and group APIs. But anyone who's tried to manage users in more than one app will tell you that every app tries to perform the same actions, such as creating or updating users, adding users to groups, or deprovisioning users. Yet, all these actions are implemented slightly differently by using different endpoint paths, different methods to specify user information, and a different schema to represent each element of information.
+To help automate provisioning and deprovisioning, apps expose proprietary user and group APIs. User management in more than one app is a challenge because every app tries to perform the same actions. For example, creating or updating users, adding users to groups, or deprovisioning users. Yet, all these actions are implemented slightly differently by using different endpoint paths, different methods to specify user information, and a different schema to represent each element of information.
 
 To address these challenges, the System for Cross-domain Identity Management (SCIM) specification provides a common user schema to help users move into, out of, and around apps. SCIM is becoming the de facto standard for provisioning and, when used with federation standards like Security Assertions Markup Language (SAML) or OpenID Connect (OIDC), provides administrators an end-to-end standards-based solution for access management.
 
@@ -52,7 +52,7 @@ The provisioning mode supported by an application is also visible on the **Provi
 
 ## Benefits of automatic provisioning
 
-As the number of applications used in modern organizations continues to grow, IT admins are tasked with access management at scale. Standards such as SAML or OIDC allow admins to quickly set up single sign-on (SSO), but access also requires users to be provisioned into the app. To many admins, provisioning means manually creating every user account or uploading CSV files each week. These processes are time-consuming, expensive, and error prone. Solutions such as SAML just-in-time (JIT) have been adopted to automate provisioning. Enterprises also need a solution to deprovision users when they leave the organization or no longer require access to certain apps based on role change.
+The number of applications used in modern organizations continues to grow. IT admins are tasked with access management at scale. Admins use standards such as SAML or OIDC for single sign-on (SSO), but access also requires users to be provisioned into the app. To many admins, provisioning means manually creating every user account or uploading CSV files each week. These processes are time-consuming, expensive, and error prone. Solutions such as SAML just-in-time (JIT) have been adopted to automate provisioning. Enterprises also need a solution to deprovision users when they leave the organization or no longer require access to certain apps based on role change.
 
 Some common motivations for using automatic provisioning include:
 

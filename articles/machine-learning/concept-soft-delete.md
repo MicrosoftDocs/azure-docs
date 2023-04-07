@@ -95,7 +95,7 @@ Azure Machine Learning recovers Azure RBAC role assignments for the workspace id
 
 Recovery of a workspace may not always be possible. Azure Machine Learning stores workspace metadata on [other Azure resources associated with the workspace](concept-workspace.md#associated-resources). In the event these dependent Azure resources were deleted, it may prevent the workspace from being recovered or correctly restored. Dependencies of the Azure Machine Learning workspace must be recovered first, before recovering a deleted workspace. Azure Container Registry isn't a hard requirement required for recovery.
 
-Enable [data protection capabilities on Azure Storage](/azure/storage/blobs/soft-delete-blob-overview) to improve chances of successful recovery.
+Enable [data protection capabilities on Azure Storage](../storage/blobs/soft-delete-blob-overview.md) to improve chances of successful recovery.
 
 ## Permanently delete a soft-deleted workspace
 
@@ -105,7 +105,7 @@ When you select *Permanently delete* on a soft-deleted workspace, it triggers ha
 
 During the time of preview, workspace soft delete is enabled on an opt-in basis per Azure subscription. When soft delete is enabled for a subscription, it's enabled for all Azure Machine Learning workspaces in that subscription.
 
-To enable workspace soft delete on your Azure subscription, [register the preview feature](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal#register-preview-feature) in the Azure portal. Select `Workspace soft delete` under the `Microsoft.MachineLearningServices` resource provider. It may take 15 minutes for the UX to appear in the Azure portal after registering your subscription.
+To enable workspace soft delete on your Azure subscription, [register the preview feature](../azure-resource-manager/management/preview-features.md?tabs=azure-portal#register-preview-feature) in the Azure portal. Select `Workspace soft delete` under the `Microsoft.MachineLearningServices` resource provider. It may take 15 minutes for the UX to appear in the Azure portal after registering your subscription.
 
 Before disabling workspace soft delete on an Azure subscription, purge or recover soft-deleted workspaces. After you disable soft delete on a subscription, workspaces that remain in soft deleted state are automatically purged when the retention period elapses.
 

@@ -25,7 +25,7 @@
     - name: TLS support
       href: tls-support.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
+      href: /security/benchmark/azure/baselines/azure-resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md

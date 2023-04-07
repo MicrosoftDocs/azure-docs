@@ -96,7 +96,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 
 |Key  |Value  |
 |---------|---------|
-|`b2c_tenant`| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso`).|
+|`b2c_tenant`| The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso`).|
 |`CLIENT_ID`| The web API application ID from [step 2.1](#step-21-register-the-app).|
 |`CLIENT_SECRET`| The client secret value you created in [step 2.2](#step-22-create-a-web-app-client-secret). To help increase security, consider storing it instead in an environment variable, as recommended in the comments. |
 |`*_user_flow`|The user flows or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
@@ -216,7 +216,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 
 |Key  |Value  |
 |---------|---------|
-|`ENDPOINT`| The URI of your web API (for example, `https://localhost:44332/hello`).|
+|`ENDPOINT`| The URI of your web API (for example, `https://localhost:5000/getAToken`).|
 |`SCOPE`| The web API [scopes](#step-62-configure-scopes) that you created.|
 | | |
 
@@ -238,7 +238,7 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
 ### More code here
 
 # This is the API resource endpoint
-ENDPOINT = 'https://localhost:44332' 
+ENDPOINT = 'https://localhost:5000' 
 
 
 SCOPE = ["https://contoso.onmicrosoft.com/api/demo.read", "https://contoso.onmicrosoft.com/api/demo.write"] 

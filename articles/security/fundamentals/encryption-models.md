@@ -11,7 +11,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2022
+ms.date: 01/20/2023
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -140,15 +140,16 @@ The Azure services that support each encryption model:
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 | **AI and Machine Learning**      |                    |                    |                    |
 | Azure Cognitive Search           | Yes                | Yes                | -                  |
-| Azure Cognitive Services         | Yes                | Yes                | -                  |
+| Azure Cognitive Services         | Yes                | Yes, including Managed HSM | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
-| Content Moderator                | Yes                | Yes                | -                  |
-| Face                             | Yes                | Yes                | -                  |
-| Language Understanding           | Yes                | Yes                | -                  |
-| Personalizer                     | Yes                | Yes                | -                  |
-| QnA Maker                        | Yes                | Yes                | -                  |
-| Speech Services                  | Yes                | Yes                | -                  |
-| Translator Text                  | Yes                | Yes                | -                  |
+| Content Moderator                | Yes                | Yes, including Managed HSM | -                  |
+| Face                             | Yes                | Yes, including Managed HSM | -                  |
+| Language Understanding           | Yes                | Yes, including Managed HSM | -                  |
+| Azure OpenAI                     | Yes                | Yes, including Managed HSM | -                  |
+| Personalizer                     | Yes                | Yes, including Managed HSM | -                  |
+| QnA Maker                        | Yes                | Yes, including Managed HSM | -                  |
+| Speech Services                  | Yes                | Yes, including Managed HSM | -                  |
+| Translator Text                  | Yes                | Yes, including Managed HSM | -                  |
 | Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | Yes\*\*, including Managed HSM | -                  |
@@ -157,8 +158,8 @@ The Azure services that support each encryption model:
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Azure HDInsight                  | Yes                | All                | -                  |
-| Azure Monitor Application Insights | Yes                | Yes                | -                  |
-| Azure Monitor Log Analytics      | Yes                | Yes                | -                  |
+| Azure Monitor Application Insights | Yes              | Yes                | -                  |
+| Azure Monitor Log Analytics      | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Explorer              | Yes                | Yes                | -                  |
 | Azure Data Factory               | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
@@ -174,6 +175,7 @@ The Azure services that support each encryption model:
 | Automation                       | Yes                | Yes                | -                  |
 | Azure Functions                  | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Azure portal                     | Yes                | Yes\*\*, including Managed HSM | -                  |
+| Azure VMware Solution            | Yes                | Yes, including Managed HSM | -                  |
 | Logic Apps                       | Yes                | Yes                | -                  |
 | Azure-managed applications       | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Service Bus                      | Yes                | Yes                | -                  |
@@ -188,7 +190,7 @@ The Azure services that support each encryption model:
 | Azure Synapse Analytics          | Yes                | Yes, RSA 3072-bit, including Managed HSM | -                  |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
-| Azure Cosmos DB                  | Yes  ([learn more](../../cosmos-db/database-security.md?tabs=sql-api))              | Yes ([learn more](../../cosmos-db/how-to-setup-cmk.md))                | -                  |
+| Azure Cosmos DB                  | Yes  ([learn more](../../cosmos-db/database-security.md?tabs=sql-api))              | Yes, including Managed HSM ([learn more](../../cosmos-db/how-to-setup-cmk.md) and [learn more](../../cosmos-db/how-to-setup-customer-managed-keys-mhsm.md))                | -                  |
 | Azure Databricks                 | Yes                | Yes                | -                  |
 | Azure Database Migration Service | Yes                | N/A\*              | -                  |
 | **Identity**                     |                    |                    |                    |
@@ -209,7 +211,7 @@ The Azure services that support each encryption model:
 | Media Services                   | Yes                | Yes                | Yes                |
 | **Security**                     |                    |                    |                    |
 | Microsoft Defender for IoT    | Yes                | Yes                | -                  |
-| Microsoft Sentinel                   | Yes                | Yes                | -                  |
+| Microsoft Sentinel               | Yes                | Yes, including Managed HSM | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes, including Managed HSM | Yes                |
 | Premium Blob Storage             | Yes                | Yes, including Managed HSM | Yes                |

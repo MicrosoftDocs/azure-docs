@@ -142,7 +142,7 @@ You'll run the first job to deploy an application on your device in the namespac
     kubectl apply -f <Path to the deployment .yaml> -n <Name of the namespace> 
     ```  
 
-    This job creates two containers and runs an n-body simulation on both the containers. The number of simulation iterations are specified in the `.yaml`. For more information, see [N-body simulation](https://physics.princeton.edu//~fpretori/Nbody/intro.htm).
+    This job creates two containers and runs an n-body simulation on both the containers. The number of simulation iterations are specified in the `.yaml`.
     
     Here is an example output:
 

@@ -5,8 +5,9 @@ author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: quickstart
-ms.date: 10/04/2022
+ms.date: 02/07/2023
 ms.custom: template-quickstart, mode-other
+ROBOTS: NOINDEX
 ---
 
 # Unbox and assemble the Azure Percept DK device

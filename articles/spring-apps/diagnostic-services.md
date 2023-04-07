@@ -22,7 +22,7 @@ This article shows you how to analyze diagnostics data in Azure Spring Apps.
 
 Using the diagnostics functionality of Azure Spring Apps, you can analyze logs and metrics with any of the following services:
 
-* Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
+* Use Azure Log Analytics. There is a delay when exporting logs to Log Analytics.
 * Save logs to a storage account for auditing or manual inspection. You can specify the retention time (in days).
 * Stream logs to your event hub for ingestion by a third-party service or custom analytics solution.
 

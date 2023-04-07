@@ -157,7 +157,7 @@ If you would like to create a new login and user to be able to scan your SQL ser
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/select-generate-import.png" alt-text="Select Generate/Import from the top menu.":::
 
-1. For upload options, select **Manual** and enter the **Name** and **Value** as the *password* from your SQL server login. Ensure **Enabled** is set to **Yes**. If you set an activation and expiration date, ensure that today's date is between the two, or you won't be able to use the credential.
+1. For upload options, select **Manual** and enter a **Name** for your secret. The **Value** will be the *password* from your SQL server login. Ensure **Enabled** is set to **Yes**. If you set an activation and expiration date, ensure that today's date is between the two, or you won't be able to use the credential.
 
    :::image type="content" source="media/tutorial-register-scan-on-premises-sql-server/create-credential-secret.png" alt-text="Add values to key vault credential.":::
 

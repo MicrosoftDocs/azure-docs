@@ -28,7 +28,7 @@ The Open-source component versions associated with HDInsight 4.0 are listed in t
 | Apache Phoenix         | 5             |
 | Apache Spark           | 2.4.4         |
 | Apache Livy            | 0.5           |
-| Apache Kafka           | 2.1.1, 2.4.1  |
+| Apache Kafka           | 2.1.1         |
 | Apache Ambari          | 2.7.0         |
 | Apache Zeppelin        | 0.8.0         |
 
@@ -38,9 +38,7 @@ This table lists certain HDInsight 4.0 cluster types that have retired or will b
 |---------------------------------|-------------------|------------------------------|-----------------|
 | HDInsight 4.0 Spark             | 2.3               | June 30, 2020                | June 30, 2020   |
 | HDInsight 4.0 Kafka             | 1.1               | Dec 31, 2020                 | Dec 31, 2020    |
-| HDInsight 4.0 Kafka             | 2.1.0 *           | Sep 30, 2022                 | Oct 1, 2022     |
-
-* Customers can't create new Kafka 2.1.0 clusters but existing 2.1.0 clusters won't be impacted and will get basic support until September 30, 2022.
+| HDInsight 4.0 Kafka             | 2.1.0             | Sep 30, 2022                 | Oct 1, 2022     |
 
 ## Next steps
 

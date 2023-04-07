@@ -4,8 +4,8 @@ description: This article describes how to restart/stop/start operations in Azur
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to
-author: Bashar-MSFT
-ms.author: bahusse
+author: code-sidd 
+ms.author: sisawant
 ms.date: 03/30/2021
 ---
 

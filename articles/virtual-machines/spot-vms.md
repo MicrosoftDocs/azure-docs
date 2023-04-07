@@ -76,7 +76,7 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 
 ### Portal
 
-You can see historical pricing and eviction rates per size in a region in the portal. Select **View pricing history and compare prices in nearby regions** to see a table or graph of pricing for a specific size.  The pricing and eviction rates in the following images are only examples. 
+You can see historical pricing and eviction rates per size in a region in the portal while you are creating the VM. After selecting the checkbox to **Run with Azure Spot discount**, a link will appear under the size selection of the VM titled **View pricing history and compare prices in nearby regions**. By selecting that link you will be able to see a table or graph of spot pricing for the specified VM size.   The pricing and eviction rates in the following images are only examples. 
 
 **Chart**:
 

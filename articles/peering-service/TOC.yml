@@ -10,8 +10,6 @@
     href: location-partners.md
   - name: Connection
     href: connection.md
-  - name: Connection telemetry
-    href: connection-telemetry.md
   - name: Security
     items:
       - name: Security baseline
@@ -26,7 +24,9 @@
         href: powershell.md
       - name: Azure CLI
         href: cli.md
-  - name: Accessing Peering Service connection telemetry
+  - name: Access connection telemetry
+    href: connection-telemetry.md
+  - name: Measure connection telemetry
     href: measure-connection-telemetry.md
 - name: References
   items:

@@ -2,7 +2,6 @@
 title: Configure anonymous public read access for containers and blobs
 titleSuffix: Azure Storage
 description: Learn how to allow or disallow anonymous access to blob data for the storage account. Set the container public access setting to make containers and blobs available for anonymous access.
-services: storage
 author: tamram
 
 ms.service: storage
@@ -11,8 +10,8 @@ ms.date: 11/09/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
-ms.devlang: azurecli
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ---
 
 # Configure anonymous public read access for containers and blobs
@@ -139,8 +138,8 @@ az storage account show \
 To allow or disallow public access for a storage account with a template, create a template with the **AllowBlobPublicAccess** property set to **true** or **false**. The following steps describe how to create a template in the Azure portal.
 
 1. In the Azure portal, choose **Create a resource**.
-1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
-1. Choose **Template deployment (deploy using custom templates) (preview)**, choose **Create**, and then choose **Build your own template in the editor**.
+1. In **Search services and marketplace**, type **template deployment**, and then press **ENTER**.
+1. Choose **Template deployment (deploy using custom templates)**, choose **Create**, and then choose **Build your own template in the editor**.
 1. In the template editor, paste in the following JSON to create a new account and set the **AllowBlobPublicAccess** property to **true** or **false**. Remember to replace the placeholders in angle brackets with your own values.
 
     ```json

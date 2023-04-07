@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 01/27/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ The following reference document describes these attributes used by Exchange and
 ## What are msExchUserHoldPolicies and cloudMsExchUserHoldPolicies?
 There are two types of [holds](/Exchange/policy-and-compliance/holds/holds) available for an Exchange Server: Litigation Hold and In-Place Hold. When Litigation Hold is enabled, all mailbox all items are placed on hold.  An In-Place Hold is used to preserve only those items that meet the criteria of a search query that you defined by using the In-Place eDiscovery tool.
 
-The MsExchUserHoldPolcies and cloudMsExchUserHoldPolicies attributes allow on-premises AD and Azure AD to determine which users are under a hold depending on whether they are using on-premises Exchange or Exchange on-line.
+The MsExchUserHoldPolcies and cloudMsExchUserHoldPolicies attributes allow on-premises AD and Azure AD to determine which users are under a hold depending on whether they're using on-premises Exchange or Exchange on-line.
 
 ## msExchUserHoldPolicies synchronization flow
 By default MsExchUserHoldPolcies are synchronized by Azure AD Connect directly to the msExchUserHoldPolicies attribute in the metaverse and then to the msExchUserHoldPolicies attribute in Azure AD
@@ -41,7 +41,7 @@ Outbound to Azure AD:
 |Azure Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|Out to AAD – UserExchangeOnline|
 
 ## cloudMsExchUserHoldPolicies synchronization flow
-By default cloudMsExchUserHoldPolicies are synchronized by Azure AD Connect directly to the cloudMsExchUserHoldPolicies attribute in the metaverse. Then, if msExchUserHoldPolicies is not null in the metaverse, the attribute in flowed out to Active Directory.
+By default cloudMsExchUserHoldPolicies are synchronized by Azure AD Connect directly to the cloudMsExchUserHoldPolicies attribute in the metaverse. Then, if msExchUserHoldPolicies isn't null in the metaverse, the attribute in flowed out to Active Directory.
 
 The following tables describe the flow:
 
@@ -58,9 +58,9 @@ Outbound to on-premises Active Directory:
 |Azure Active Directory|cloudMsExchUserHoldPolicies|IF(NOT NULL)|msExchUserHoldPolicies|Out to AD – UserExchangeOnline|
 
 ## Information on the attribute behavior
-The msExchangeUserHoldPolicies are a single authority attribute.  A single authority attribute can be set on an object (in this case, user object) in the on-premises directory or in the cloud directory.  The Start of Authority rules dictate, that if the attribute is synchronized from on-premises, then Azure AD will not be allowed to update this attribute.
+The msExchangeUserHoldPolicies are a single authority attribute.  A single authority attribute can be set on an object (in this case, user object) in the on-premises directory or in the cloud directory.  The Start of Authority rules dictate, that if the attribute is synchronized from on-premises, then Azure AD won't be allowed to update this attribute.
 
-To allow users to set a hold policy on a user object in the cloud, the cloudMSExchangeUserHoldPolicies attribute is used. This attribute is used because Azure AD cannot set msExchangeUserHoldPolicies directly based on the rules explained above.  This attribute will then synchronize back to the on-premises directory if, the msExchangeUserHoldPolicies is not null and replace the current value of msExchangeUserHoldPolicies.
+To allow users to set a hold policy on a user object in the cloud, the cloudMSExchangeUserHoldPolicies attribute is used. This attribute is used because Azure AD can't set msExchangeUserHoldPolicies directly based on the rules explained above.  This attribute will then synchronize back to the on-premises directory if, the msExchangeUserHoldPolicies isn't null and replace the current value of msExchangeUserHoldPolicies.
 
 Under certain circumstances, for instance, if both were changed on-premises and in Azure at the same time, this could cause some issues.  
 

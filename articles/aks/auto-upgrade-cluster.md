@@ -14,12 +14,17 @@ Part of the AKS cluster lifecycle involves performing periodic upgrades to the l
 
 > [!NOTE]
 > Any upgrade operation, whether performed manually or automatically, will upgrade the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker][release-tracker].
+>
+> Auto-upgrade will first upgrade the control plane, and then proceed to upgrade agent pools one by one.
 
 ## Why use auto-upgrade
 
 Auto-upgrade provides a set once and forget mechanism that yields tangible time and operational cost benefits. By enabling auto-upgrade, you can ensure your clusters are up to date and don't miss the latest AKS features or patches from AKS and upstream Kubernetes.
 
 AKS follows a strict versioning window with regard to supportability. With properly selected auto-upgrade channels, you can avoid clusters falling into an unsupported version. For more on the AKS support window, see [Supported Kubernetes versions][supported-kubernetes-versions].
+
+
+Even if using node image auto upgrade (which won't change the Kubernetes version), it still requires MC to be in a supported version
 
 ## Using auto-upgrade
 
@@ -38,6 +43,9 @@ The following upgrade channels are available:
 > [!NOTE]
 > Cluster auto-upgrade only updates to GA versions of Kubernetes and will not update to preview versions.
 
+> [!NOTE]
+> Auto-upgrade requires the cluster's Kubernetes version to be within the [AKS support window][supported-kubernetes-versions], even if using the `node-image` channel.
+
 Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more information, see [Upgrade an AKS cluster][upgrade-aks-cluster].
 
 To set the auto-upgrade channel when creating a cluster, use the *auto-upgrade-channel* parameter, similar to the following example.
@@ -52,6 +60,14 @@ To set the auto-upgrade channel on existing cluster, update the *auto-upgrade-ch
 az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrade-channel stable
 ```
 
+## Auto-upgrade in the Azure portal
+
+If you're using the Azure portal, you can find auto-upgrade settings under the *Settings* > *Cluster configuration* blade by selecting *Upgrade version*. By default, the `Patch` channel is selected.
+
+:::image type="content" source="./media/auto-upgrade-cluster/portal-upgrade.png" alt-text="The screenshot of the upgrade blade for an AKS cluster in the Azure portal. The automatic upgrade field shows 'patch' selected, and several APIs deprecated between the selected Kubernetes version and the cluster's current version are described.":::
+
+The Azure portal also highlights all the deprecated APIs between your current version and newer, available versions you intend to migrate to. For more information, see [the Kubernetes API Removal and Deprecation process][k8s-deprecation].
+
 ## Using auto-upgrade with Planned Maintenance
 
 If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start during your specified maintenance window. 
@@ -60,6 +76,10 @@ If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start 
 > To ensure proper functionality, use a maintenance window of four hours or more.
 
 For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
+
+## Auto upgrade limitations
+
+If you’re using Auto-Upgrade you cannot anymore upgrade the control plane first, and then upgrade the individual node pools. Auto-Upgrade will always upgrade the control plane and the node pools together. In Auto-Upgrade there is no concept of upgrading the control plane only, and trying to run the command `az aks upgrade --control-plane-only` will raise the error: `NotAllAgentPoolOrchestratorVersionSpecifiedAndUnchanged: Using managed cluster api, all Agent pools' OrchestratorVersion must be all specified or all unspecified. If all specified, they must be stay unchanged or the same with control plane.`
 
 ## Best practices for auto-upgrade
 
@@ -80,3 +100,4 @@ The following best practices will help maximize your success when using auto-upg
 <!-- EXTERNAL LINKS -->
 [pdb-best-practices]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
 [release-tracker]: release-tracker.md
+[k8s-deprecation]: https://kubernetes.io/blog/2022/11/18/upcoming-changes-in-kubernetes-1-26/#:~:text=A%20deprecated%20API%20is%20one%20that%20has%20been,point%20you%20must%20migrate%20to%20using%20the%20replacement

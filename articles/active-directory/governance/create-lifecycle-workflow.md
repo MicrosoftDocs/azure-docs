@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to 
-ms.date: 02/15/2022
+ms.date: 01/26/2023
 ms.subservice: compliance
 ms.custom: template-how-to 
 ---
@@ -21,7 +21,9 @@ Workflows can be created and customized for common scenarios using templates, or
 
 ## Prerequisites
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
 
 ## Create a Lifecycle workflow using a template in the Azure portal
 

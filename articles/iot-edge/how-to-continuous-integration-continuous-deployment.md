@@ -12,7 +12,7 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge devices
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use Azure Pipelines to build, test, and deploy Azure IoT Edge modules using YAML. Alternatively, you can [use the classic editor](how-to-continuous-integration-continuous-deployment-classic.md).
 
@@ -137,9 +137,9 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
 Continue to the next section to build the release pipeline.
 
-[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](../../includes/iot-edge-create-release-pipeline-for-continuous-deployment.md)]
+[!INCLUDE [iot-edge-create-release-pipeline-for-continuous-deployment](includes/iot-edge-create-release-pipeline-for-continuous-deployment.md)]
 
-[!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](../../includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
+[!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
 
 ## Next steps
 

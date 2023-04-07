@@ -4,7 +4,7 @@ description: Learn how to upload a VHD to an Azure managed disk and copy a manag
 services: "virtual-machines,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 07/21/2022
+ms.date: 01/03/2023
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
@@ -19,22 +19,12 @@ This article explains how to either upload a VHD from your local machine to an A
 If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
 
-## Secure uploads with Azure AD (preview)
+## Secure uploads with Azure AD
 
-If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is currently in preview. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
+If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level, to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
 
 ### Prerequisites
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
-- Use the following command to enable the preview on your subscription:
-    ```azurecli
-    az feature register --name AllowAADAuthForDataAccess --namespace Microsoft.Compute
-    ```
-
-    It may take some time for the feature registration to complete, you can confirm if it has with the following command:
-    
-    ```azurecli
-    az feature show --name AllowAADAuthForDataAccess --namespace Microsoft.Compute --output table
-    ```
 
 ### Restrictions
 [!INCLUDE [disks-azure-ad-upload-download-restrictions](../../../includes/disks-azure-ad-upload-download-restrictions.md)]

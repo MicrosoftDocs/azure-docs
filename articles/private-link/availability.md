@@ -46,8 +46,8 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure-managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
-| Azure Batch (batchAccount) | All public regions<br/> All Government regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
-| Azure Batch (nodeManagement) | [Selected regions](../batch/simplified-compute-node-communication.md#supported-regions) | Supported for [simplified compute node communication](../batch/simplified-compute-node-communication.md) | Preview <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
+| Azure Batch (batchAccount) | All public regions<br/> All Government regions<br/>All China regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
+| Azure Batch (nodeManagement) | [Selected regions](../batch/simplified-compute-node-communication.md#supported-regions) | Supported for [simplified compute node communication](../batch/simplified-compute-node-communication.md) | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Functions | All public regions | | GA </br> [Learn how to create a private endpoint for Azure Functions.](../azure-functions/functions-create-vnet.md) |
 
 ### Containers
@@ -74,7 +74,7 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn how to create a private endpoint for Azure Event Grid.](../event-grid/network-security.md) |
 |Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Select for tiers](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Learn how to create a private endpoint for Azure Service Bus.](../service-bus-messaging/private-link-service.md)  |
-| Azure API Management | All public regions<br/> All Government regions  |  | Preview   <br/> [Connect privately to API Management using a private endpoint.](../event-grid/network-security.md) |
+| Azure API Management | All public regions  |  | Preview   <br/> [Connect privately to API Management using a private endpoint.](../api-management/private-endpoint.md) |
 | Azure Logic Apps | All public regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Logic Apps.](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md) |
 
 ### Internet of Things (IoT)
@@ -113,7 +113,7 @@ The following tables list the Private Link services and the regions where they'r
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure SignalR | All Public Regions<br/> All China regions<br/> All Government Regions      | Supported on Standard Tier or above | GA   <br/> [Learn how to create a private endpoint for Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
-|Azure App Service | All public regions<br/> China North 2 & East 2    | Supported with PremiumV2, PremiumV3, or Function Premium plan  | GA   <br/> [Learn how to create a private endpoint for Azure App Service.](../app-service/networking/private-endpoint.md)   |
+|Azure App Service | All public regions<br/> China North 2 & East 2    | Supported with Basic, Standard, Premium v2, Premium v3, Isolated v2 App Service Plans and Function Apps Premium plan  | GA   <br/> [Learn how to create a private endpoint for Azure App Service.](../app-service/networking/private-endpoint.md)   |
 |Azure Search | All public regions <br/> All Government regions | Supported with service in Private Mode | GA   <br/> [Learn how to create a private endpoint for Azure Search.](../search/service-create-private-endpoint.md)    |
 |Azure Relay | All public regions      |  | Preview <br/> [Learn how to create a private endpoint for Azure Relay.](../azure-relay/private-link-service.md)  |
 |Azure Static Web Apps | All public regions      |  | Preview <br/> [Configure private endpoint in Azure Static Web Apps](../static-web-apps/private-endpoint.md)  |

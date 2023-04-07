@@ -9,10 +9,6 @@ ms.author: msangapu
 
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
-> [!NOTE]
-> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
->
-
 This quickstart shows you how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com/) to Azure App Service. 
 
 To complete this quickstart, you need:
@@ -85,6 +81,9 @@ Remove-AzResourceGroup myResourceGroup
 Congratulations, you've successfully completed this quickstart.
 
 The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 
 > [!div class="nextstepaction"]
 > [Configure custom container](../../configure-custom-container.md)

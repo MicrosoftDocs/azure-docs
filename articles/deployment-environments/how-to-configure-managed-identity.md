@@ -1,7 +1,7 @@
 ---
 title: Configure a managed identity
 titleSuffix: Azure Deployment Environments
-description: Learn how to configure a managed identity that will be used to deploy environments in your Azure Deployment Environments Preview dev center.
+description: Learn how to configure a managed identity to deploy environments in your Azure Deployment Environments Preview dev center.
 ms.service: deployment-environments
 ms.custom: ignite-2022
 author: RoseHJM
@@ -34,6 +34,8 @@ In Azure Deployment Environments, you can choose between two types of managed id
 
 - **System-assigned identity**: A system-assigned identity is tied either to your dev center or to the project environment type. A system-assigned identity is deleted when the attached resource is deleted. A dev center or a project environment type can have only one system-assigned identity.
 - **User-assigned identity**: A user-assigned identity is a standalone Azure resource that you can assign to your dev center or to a project environment type. For Azure Deployment Environments Preview, a dev center or a project environment type can have only one user-assigned identity.
+ 
+As a security best practice, if you choose to use user-assigned identities, use different identities for your project and your dev center. Project identities should have more limited access to resources compared to a dev center.
 
 > [!NOTE]
 > In Azure Deployment Environments Preview, if you add both a system-assigned identity and a user-assigned identity, only the user-assigned identity is used.
@@ -66,7 +68,7 @@ In Azure Deployment Environments, you can choose between two types of managed id
 
 ## Assign a subscription role assignment to the managed identity
 
-The identity that's attached to the dev center should be assigned the Owner role for all the deployment subscriptions and the Reader role for all subscriptions that contain the relevant project. When a user creates or deploys an environment, the service grants appropriate access to the deployment identity that's attached to a project environment type. The deployment identity uses the access to perform deployments on behalf of the user. You can use the managed identity to empower developers to create environments without granting them access to the subscription.
+The identity that's attached to the dev center should be assigned the Owner role for all the deployment subscriptions and the Reader role for all subscriptions that contain the relevant project. When a user creates or deploys an environment, the service grants appropriate access to the deployment identity that's attached to the project environment type. The deployment identity uses the access to perform deployments on behalf of the user. You can use the managed identity to empower developers to create environments without granting them access to the subscription.
 
 ### Add a role assignment to a system-assigned managed identity
 

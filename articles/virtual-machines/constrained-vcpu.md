@@ -5,7 +5,7 @@ author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/09/2018
+ms.date: 12/20/2022
 ms.author: mimckitt
 ---
 
@@ -22,7 +22,7 @@ The available vCPU count can be  reduced to one half or one quarter of the origi
 
 For example, the Standard_E32s_v5 VM size comes with 32 vCPUs, 256 GiB RAM, 32 disks, and 80,000 IOPs or 2 GB/s of I/O bandwidth. The pre-defined Standard_E32-16s_v5 and Standard_E32-8s_v5 VM sizes comes with 16 and 8 active vCPUs respectively, while maintaining the memory, storage, and I/O bandwidth specifications of the Standard_E32s_v5.
 
-The licensing fees charged for SQL Server are based on the avaialble vCPU count. Third party products should count the available vCPU which represents the max to be used and licensed. This results in a 50% to 75% increase in the ratio of the VM specs to available (billable) vCPUs. At this time, the VM pricing, which includes OS licensing, remains the same as the original size. For more information, see [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+The licensing fees charged for SQL Server are based on the avaialble vCPU count. Third party products should count the available vCPU which represents the max to be used and licensed. This results in a 50% to 75% increase in the ratio of the VM specs to available (billable) vCPUs. At this time, the VM pricing, remains the same as the original size. For more information, see [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
 | Name                    | vCPU | Specs              |

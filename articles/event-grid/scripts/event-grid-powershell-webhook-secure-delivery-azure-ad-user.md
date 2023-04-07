@@ -46,8 +46,11 @@ try {
     }
 
     # Creates Azure Event Grid Azure AD Application if not exists
-
-    $eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7" # You don't need to modify this id
+    # You don't need to modify this id
+    # But Azure Event Grid Azure AD Application Id is different for different clouds
+   
+    $eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7" # Azure Public Cloud
+    # $eventGridAppId = "54316b56-3481-47f9-8f30-0300f5542a7b" # Azure Government Cloud
     $eventGridRoleName = "AzureEventGridSecureWebhookSubscriber" # You don't need to modify this role name
     $eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
     if ($eventGridSP -match "Microsoft.EventGrid")

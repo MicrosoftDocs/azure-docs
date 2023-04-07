@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 01/20/2023
 
 ms.author: mimart
 author: msmimart
@@ -95,6 +95,10 @@ Setting up SAML/WS-Fed IdP federation doesn’t change the authentication method
 **Is there a way to send a signed request to the SAML identity provider?**
 
 Currently, the Azure AD SAML/WS-Fed federation feature doesn't support sending a signed authentication token to the SAML identity provider.
+
+**What permissions are required to configure a SAML/Ws-Fed identity provider?**
+
+You need to be an [External Identity Provider Administrator](../roles/permissions-reference.md#external-identity-provider-administrator) or a [Global Administrator](../roles/permissions-reference.md#global-administrator) in your Azure AD tenant to configure a SAML/Ws-Fed identity provider.
 
 ## Step 1: Determine if the partner needs to update their DNS text records
 
@@ -187,9 +191,10 @@ Next, you'll configure federation with the IdP configured in step 1 in Azure AD.
 
 ### To configure federation in the Azure AD portal
 
-1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
-2. Select **External Identities** > **All identity providers**.
-3. Select **New SAML/WS-Fed IdP**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as an External Identity Provider Administrator or a Global Administrator. 
+2. In the left pane, select **Azure Active Directory**.
+3. Select **External Identities** > **All identity providers**.
+4. Select **New SAML/WS-Fed IdP**.
 
     ![Screenshot showing button for adding a new SAML or WS-Fed IdP.](media/direct-federation/new-saml-wsfed-idp.png)
 
@@ -238,11 +243,12 @@ On the **All identity providers** page, you can view the list of SAML/WS-Fed ide
 
 ![Screenshot showing an identity provider in the SAML WS-Fed list](media/direct-federation/new-saml-wsfed-idp-list-multi.png)
 
-1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**.
-1. Select **External Identities**.
-1. Select **All identity providers**.
-1. Under **SAML/WS-Fed identity providers**, scroll to an identity provider in the list or use the search box.
-1. To update the certificate or modify configuration details:
+1. Sign in to the [Azure portal](https://portal.azure.com) as an External Identity Provider Administrator or a Global Administrator.
+2. In the left pane, select **Azure Active Directory**.
+3. Select **External Identities**.
+4. Select **All identity providers**.
+5. Under **SAML/WS-Fed identity providers**, scroll to an identity provider in the list or use the search box.
+6. To update the certificate or modify configuration details:
    - In the **Configuration** column for the identity provider, select the **Edit** link.
    - On the configuration page, modify any of the following details:
      - **Display name** - Display name for the partner's organization.

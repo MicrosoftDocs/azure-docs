@@ -27,9 +27,8 @@ ms.date: 09/30/2022
 
   > [!IMPORTANT]
   >
+  > - The Azure SQL Migration extension for Azure Data Studio doesn't take database backups, or neither initiate any database backups on your behalf. Instead, the service uses existing database backup files for the migration.
   > - If your database backup files are in an SMB network share, [create an Azure storage account](../articles/storage/common/storage-account-create.md) that Database Migration Service can use to upload database backup files to and to migrate databases. Make sure you create the Azure storage account in the same region where you create your instance of Database Migration Service.
-  > - Database Migration Service doesn't initiate any backups. Instead, the service uses existing backups for the migration. You might already have these backups as part of your disaster recovery plan.
-  > - Make sure you [create backups by using the WITH CHECKSUM option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017).
   > - You can write each backup to either a separate backup file or to multiple backup files. Appending multiple backups such as full and transaction logs into a single backup media isn't supported.
   > - You can provide compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 

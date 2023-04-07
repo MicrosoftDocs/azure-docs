@@ -36,7 +36,7 @@ Prometheus queries are created using PromQL and can be authored in either Azure 
 |:---|:---|
 | Data retention | 18 months<br>This limit can't be increased.  
 | Query time range | 32 days between the start time and end time of your PromQL query<br>This limit can't be increased. |
-| Query data limits | 240 GB data returned per Azure Monitor workspace over a 30-second window |
+| Query data limits | Over a 30 second window:<br>0.5GB data returned per Azure Monitor workspace for client traffic <br>1 GB data returned per Azure Monitor workspace for recording rules traffic|
 | Query time series per metric | 150K time series |
 | Query samples returned | 50M samples per query |
 | Minimum query step size<br>with time range >= 48 hours | 60 seconds |

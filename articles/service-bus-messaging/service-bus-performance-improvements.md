@@ -323,7 +323,7 @@ There are some challenges with having a greedy approach, that is, keeping the pr
 
 ## Multiple queues or topics
 
-If a single queue or topic can't handle the expected, use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
+If a single queue or topic can't handle the expected number of messages, use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
 
 More queues or topics mean that you have more entities to manage at deployment time. From a scalability perspective, there really isn't too much of a difference that you would notice as Service Bus already spreads the load across multiple logs internally, so if you use six queues or topics or two queues or topics won't make a material difference.
 

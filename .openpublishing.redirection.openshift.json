@@ -1,0 +1,59 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/openshift/cluster-administration-cluster-admin-role.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/cluster-administration-security-context-constraints.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path_from_root": "/articles/openshift/howto-aad-app-configuration.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-create-private-cluster-3x.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-create-tenant.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-deploy-prometheus.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-manage-projects.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-run-privileged-containers.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-setup-environment.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/migration.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/supported-resources.md",
+      "redirect_url": "/azure/openshift/intro-openshift",
+      "redirect_document_id": false
+    }
+	  ]
+}

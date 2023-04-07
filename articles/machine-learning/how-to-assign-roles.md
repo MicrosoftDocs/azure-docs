@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: Blackmist
-ms.author: johwu
-author: johnwu0604
+ms.reviewer: larryfr
+ms.author: meyetman
+author: meyetman
 ms.date: 08/01/2022
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022
 ---
@@ -69,10 +69,10 @@ You can use Azure AD security groups to manage access to workspaces. This approa
  * Using Azure AD groups helps you to avoid reaching the [subscription limit](../role-based-access-control/troubleshooting.md#limits) on role assignments. 
 
 To use Azure AD security groups:
- 1. [Create a security group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
- 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner isn't required to be group member, or have direct RBAC role on the workspace.
+ 1. [Create a security group](../active-directory/fundamentals/active-directory-groups-view-azure-portal.md).
+ 2. [Add a group owner](../active-directory/fundamentals/how-to-manage-groups.md#add-or-remove-members-and-owners). This user has permissions to add or remove group members. Note that the group owner isn't required to be group member, or have direct RBAC role on the workspace.
  3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader or Contributor. 
- 4. [Add group members](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md). The members consequently gain access to the workspace.
+ 4. [Add group members](../active-directory/fundamentals/how-to-manage-groups.md#add-or-remove-members-and-owners). The members consequently gain access to the workspace.
 
 ## Create custom role
 
@@ -109,10 +109,11 @@ To create a custom role, first construct a role definition JSON file that specif
 
 This custom role can do everything in the workspace except for the following actions:
 
-- It can't create or update a compute resource.
-- It can't delete a compute resource.
-- It can't add, delete, or alter role assignments.
 - It can't delete the workspace.
+- It can't create or update the workspace.
+- It can't create or update compute resources.
+- It can't delete compute resources.
+- It can't add, delete, or alter role assignments.
 
 To deploy this custom role, use the following Azure CLI command:
 
@@ -190,7 +191,7 @@ The following table is a summary of Azure Machine Learning activities and the pe
 
 1: If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
 
-2: When attaching an AKS cluster, you also need to the [Azure Kubernetes Service Cluster Admin Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
+2: When attaching an AKS cluster, you also need to have the [Azure Kubernetes Service Cluster Admin Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role) on the cluster.
 
 ### Differences between actions for V1 and V2 APIs
 
@@ -200,7 +201,7 @@ There are certain differences between actions for V1 APIs and V2 APIs.
 | ----- | ----- | ----- |
 | Dataset | Microsoft.MachineLearningServices/workspaces/datasets | Microsoft.MachineLearningServices/workspaces/datasets/versions |
 | Experiment runs and jobs | Microsoft.MachineLearningServices/workspaces/experiments | Microsoft.MachineLearningServices/workspaces/jobs |
-| Models | Microsoft.MachineLearningServices/workspaces/models | Microsoft.MachineLearningServices/workspaces/models/verstions |
+| Models | Microsoft.MachineLearningServices/workspaces/models | Microsoft.MachineLearningServices/workspaces/models/versions |
 | Snapshots and code | Microsoft.MachineLearningServices/workspaces/snapshots | Microsoft.MachineLearningServices/workspaces/codes/versions |
 | Modules and components | Microsoft.MachineLearningServices/workspaces/modules | Microsoft.MachineLearningServices/workspaces/components |
 

@@ -1,10 +1,9 @@
 ---
 title: Deploy Azure dedicated hosts
 description: Deploy VMs and scale sets to dedicated hosts.
-author: brittanyrowe
-ms.author: brittanyrowe
-ms.service: virtual-machines
-ms.subservice: dedicated-hosts
+author: vamckMS
+ms.author: vakavuru
+ms.service: azure-dedicated-host
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/28/2021
@@ -179,6 +178,7 @@ If you set a fault domain count for your host group, you'll need to specify the 
 1. Select *myDedicatedHostsRG* as the **Resource group**.
 1. In **Instance details**, type *myHost* for the **Name** and select *East US* for the location.
 1. In **Hardware profile**, select *Standard Es3 family - Type 1* for the **Size family**, select *myHostGroup* for the **Host group** and then select *1* for the **Fault domain**. Leave the defaults for the rest of the fields.
+1. Leave the **Automatically replace host on failure** setting *Enabled* to automatically service heal the host in case of any host level failure.
 1. When you're done, select **Review + create** and wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host.
 
@@ -192,6 +192,7 @@ az vm host create \
    --name myHost \
    --sku DSv3-Type1 \
    --platform-fault-domain 1 \
+   --auto-replace true \
    -g myDHResourceGroup
 ```
 
@@ -206,7 +207,7 @@ $dHost = New-AzHost `
    -Location $location -Name myHost `
    -ResourceGroupName $rgName `
    -Sku DSv3-Type1 `
-   -AutoReplaceOnFailure 1 `
+   -AutoReplaceOnFailure True `
    -PlatformFaultDomain 1
 ```
 
@@ -617,21 +618,20 @@ Tags                   : {}
 
 ---
 
-## Restart a host (Preview)
+## Restart a host
 
 You can restart the entire host, meaning that the host's not **completely** powered off. Because the host will be restarted, the underlying VMs will also be restarted. The host will remain on the same underlying physical hardware as it restarts and both the host ID and asset ID will remain the same after the restart. The host SKU will also remain the same after the restart.
 
-Note: Host restart is in preview.
 
 ### [Portal](#tab/portal)
 1. Search for and select the host.
-1. In the top menu bar, select the **Restart** button. Note, this feature is in Preview.
+1. In the top menu bar, select the **Restart** button. 
 1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
 1. Once the restart has completed, the Host Status will return to **Host available**.
 
 ### [CLI](#tab/cli)
 
-Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart) (Preview).
+Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart).
 
 ```azurecli-interactive
 az vm host restart --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
@@ -645,7 +645,7 @@ az vm host get-instance-view --resource-group myResourceGroup --host-group myHos
 
 ### [PowerShell](#tab/powershell)
 
-Restart the host using the [Restart-AzHost](/powershell/module/az.compute/restart-azhost) (Preview) command.
+Restart the host using the [Restart-AzHost](/powershell/module/az.compute/restart-azhost) command.
 
 ```azurepowershell-interactive
 Restart-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost

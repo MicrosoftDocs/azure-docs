@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 In this tutorial, you use the Azure CLI to create an app registration in Azure Active Directory:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Setup
 
@@ -161,7 +161,7 @@ The IoT Edge deployment manifest defines four custom modules:
 - [opcpublisher](https://github.com/Azure/Industrial-IoT/blob/main/docs/modules/publisher.md) - forwards OPC-UA data from an OPC-UA server to the **miabgateway**.
 - [miabgateway](https://github.com/iot-for-all/iotc-miab-gateway) - gateway to send OPC-UA data to your IoT Central app and handle commands sent from your IoT Central app.
 
-You can see the deployment manifest in the tool configuration file. The manifest is part of the device template that the tool adds to your IoT Central application.
+You can see the deployment manifest in the tool configuration file. The tool assigns the deployment manifest to the IoT Edge device it registers in your IoT Central application.
 
 To learn more about how to use the REST API to deploy and configure the IoT Edge runtime, see [Run Azure IoT Edge on Ubuntu Virtual Machines](../../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
 

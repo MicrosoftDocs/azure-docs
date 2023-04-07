@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 1/10/2023
 ms.custom: template-concept, ignite-fall-2021
 ---
 
@@ -79,9 +79,9 @@ This section will guide you through how to create a hub-and-spoke configuration 
 
     :::image type="content" source="./media/how-to-create-hub-and-spoke/configuration-list.png" alt-text="Screenshot of the configurations list.":::
 
-1. Select **Connectivity** from the drop-down menu.
+1. Select **Connectivity configuration** from the drop-down menu to begin creating a connectivity configuration.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-menu.png" alt-text="Screenshot of configuration drop-down menu.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-dropdown.png" alt-text="Screenshot of configuration drop-down menu.":::
 
 1. On the *Add a connectivity configuration* page, enter, or select the following information:
 

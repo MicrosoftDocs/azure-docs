@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 01/19/2023
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management

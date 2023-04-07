@@ -308,7 +308,7 @@ The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to coll
 <a name="java-correlation"></a>
 ## Telemetry correlation in Java
 
-[Java agent](./java-in-process-agent.md) supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers that were described earlier for service-to-service calls via HTTP, if the [Java SDK agent](java-2x-agent.md) is configured.
+[Java agent](./opentelemetry-enable.md?tabs=java) supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers that were described earlier for service-to-service calls via HTTP, if the [Java SDK agent](deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps) is configured.
 
 > [!NOTE]
 > Application Insights Java agent autocollects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK, only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies like Kafka, RabbitMQ, and Azure Service Bus isn't supported in the SDK.
@@ -356,7 +356,7 @@ You can also set the cloud role name via environment variable or system property
 - Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
 - For advanced correlation scenarios in ASP.NET Core and ASP.NET, see [Track custom operations](custom-operations-tracking.md).
 - Learn more about [setting cloud_RoleName](./app-map.md#set-or-override-cloud-role-name) for other SDKs.
-- Onboard all components of your microservice on Application Insights. Check out the [supported platforms](./platforms.md).
+- Onboard all components of your microservice on Application Insights. Check out the [supported platforms](./app-insights-overview.md#supported-languages).
 - See the [data model](./data-model.md) for Application Insights types.
 - Learn how to [extend and filter telemetry](./api-filtering-sampling.md).
 - Review the [Application Insights config reference](configuration-with-applicationinsights-config.md).

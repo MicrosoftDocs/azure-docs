@@ -4,9 +4,9 @@ description: Provides a summary of support settings and limitations of Azure Dat
 ms.topic: conceptual
 ms.date: 01/24/2022
 ms.custom: references_regions
-author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Azure Database for PostgreSQL server support matrix

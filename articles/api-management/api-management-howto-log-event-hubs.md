@@ -85,7 +85,7 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
   * [Logger entity reference](/rest/api/apimanagement/current-ga/logger)
-  * [log-to-eventhub policy reference](./api-management-advanced-policies.md#log-to-eventhub)
+  * [log-to-eventhub policy reference](log-to-eventhub-policy.md)
   * [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md)  
 * Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)
 

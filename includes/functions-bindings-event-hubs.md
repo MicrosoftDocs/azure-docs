@@ -122,7 +122,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
     "extensions": {
         "eventHubs": {
             "maxEventBatchSize" : 10,
-            "batchCheckpointFrequency" : 5,
+            "batchCheckpointFrequency" : 1,
             "prefetchCount" : 300,
             "transportType" : "amqpWebSockets",
             "webProxy" : "https://proxyserver:8080",
@@ -147,7 +147,7 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 |---------|---------|---------|
 | maxEventBatchSize| 10| The maximum number of events that will be included in a batch for a single invocation. Must be at least 1.|
 | batchCheckpointFrequency| 1| The number of batches to process before creating  a checkpoint for the event hub.|
-| prefetchCount| 300| The number of events that will be eagerly requested from Event Hubs and held in  a local cache to allow reads to avoid waiting on a network operation|
+| prefetchCount| 300| The number of events that will be eagerly requested from Event Hubs and held in a local cache to allow reads to avoid waiting on a network operation|
 | transportType| amqpTcp | The protocol and transport that is used for communicating with Event Hubs. Available options: `amqpTcp`, `amqpWebSockets`|
 | webProxy| | The proxy to use for communicating with Event Hubs over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
 | customEndpointAddress | | The address to use when establishing a connection to Event Hubs, allowing network requests to be routed through an application gateway or other path needed for the host environment. The fully qualified namespace for the event hub is still needed when a custom endpoint address is used and must be specified explicitly or via the connection string.|
@@ -159,6 +159,8 @@ The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) fil
 | clientRetryOptions/maximumDelay | 00:00:01 | The maximum delay to allow between retry attempts. |
 | clientRetryOptions/maximumRetries | 3 | The maximum number of retry attempts before considering the associated operation to have failed.|
 
+The `clientRetryOptions` are used to retry operations between the Functions host and Event Hubs (such as fetching events and sending events).  Please refer to guidance on [Azure Functions error handling and retries](../articles/azure-functions/functions-bindings-error-pages.md#retries) for information on applying retry policies to individual functions.
+
 For a reference of host.json in Azure Functions 2.x and beyond, see [host.json reference for Azure Functions](../articles/azure-functions/functions-host-json.md).
 
 # [Extension v3.x+](#tab/extensionv3)
@@ -168,7 +170,7 @@ For a reference of host.json in Azure Functions 2.x and beyond, see [host.json r
     "version": "2.0",
     "extensions": {
         "eventHubs": {
-            "batchCheckpointFrequency": 5,
+            "batchCheckpointFrequency": 1,
             "eventProcessorOptions": {
                 "maxBatchSize": 256,
                 "prefetchCount": 512

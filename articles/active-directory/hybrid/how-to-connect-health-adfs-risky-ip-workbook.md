@@ -11,7 +11,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 01/26/2023
 ms.author: billmath
 ms.custom: 
 ms.collection: 
@@ -37,7 +37,7 @@ Additionally, it is possible for a single IP address to attempt multiple logins 
 2.	A Log Analytics Workspace with the “ADFSSignInLogs” stream enabled.
 3.	Permissions to use the Azure AD Monitor Workbooks. To use Workbooks, you need:
 - An Azure Active Directory tenant with a premium (P1 or P2) license.
-- Access to a Log Analytics Workspace and the following roles in Azure AD (if accessing Log Analytics through Azure AD portal): Security administrator, Security reader, Report reader, Global administrator
+- Access to a Log Analytics Workspace and the following roles in Azure AD (if accessing Log Analytics through Azure AD portal): Security administrator, Security reader, Reports reader, Global administrator
 
 
 ## What is in the report?

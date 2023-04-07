@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 02/02/2023
 ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -145,6 +145,20 @@ Access to an SMB volume is managed through permissions.
 You can set permissions for a file or folder by using the **Security** tab of the object's properties in the Windows SMB client.
  
 ![Set file and folder permissions](../media/azure-netapp-files/set-file-folder-permissions.png) 
+
+### Modify SMB share permissions
+
+You can modify SMB share permissions using Microsoft Management Console (MMC).
+
+>[!IMPORTANT]
+>Modifying SMB share permissions poses a risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
+
+1. To open Computer Management MMC on any Windows server, in the Control Panel, select **Administrative Tools > Computer Management**.
+1. Select **Action > Connect to another computer**.
+1. In the **Select Computer** dialog box, enter the name of the Azure NetApp Files FQDN or IP address or select **Browse** to locate the storage system.
+1. Select **OK** to connect the MMC to the remote server.
+1. When the MMC connects to the remote server, in the navigation pane, select **Shared Folders > Shares**.
+1. In the display pane that lists the shares, double-click a share to display its properties. In the **Properties** dialog box, modify the properties as needed.
 
 ## Next steps  
 

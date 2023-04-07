@@ -31,9 +31,9 @@ In this tutorial you'll learn how to:
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
-- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+- You must have [installed the Defender for IoT micro agent](quickstart-standalone-agent-binary-installation.md)
 
 - You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md)
 

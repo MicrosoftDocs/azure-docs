@@ -34,7 +34,7 @@ No. Moving the Fluid Relay resource from one region to another isn’t supported
 
 ## Is Azure Fluid Relay certified by industry certifications?
 
-We adhere to the security and privacy policies and practices that other Azure services follow to help achieve those industry and regional certifications. Once Azure Fluid Relay is in General Availability, we'll be pursuing those certifications. We'll be updating our certification posture as we achieve the different certifications. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
+We adhere to the security and privacy policies and practices that other Azure services follow. In addition, we have achieved industry and regional certifications. You can see Azure Fluid Relay included in the Azure Service Organization Controls (SOC) reports in the Service Trust Portal [SOC page](https://servicetrust.microsoft.com/viewpage/SOC) and in the International Organization for Standardization (ISO) International Electrotechnical Commission (IEC) reports in the [ISOIEC page](https://servicetrust.microsoft.com/viewpage/ISOIEC). For the latest information about additional certifications we pursue, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center). 
 
 ## What network protocols does Fluid Relay use?
 

@@ -22,7 +22,7 @@ Here are some frequently asked questions for Microsoft Purview Data Sharing.
 * **Recipient** - A recipient is a user or service principal to which the share is sent. 
 
 ##	Can I use the API or SDK for storage in-place sharing?
-Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider/) for programmatic experience to share data.
+Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overview/azure/purview) for programmatic experience to share data.
 
 ##	What are the roles and permissions required to share data or receive shares?
 
@@ -38,7 +38,7 @@ Yes, you can use [REST API](/rest/api/purview/) or [.NET SDK](/dotnet/api/overvi
 
 ##	How can I share data from containers?
 
-To share data from a container, select all files and folders within a container. 
+When adding assets, you can select the container(s) that you would like to share. 
 
 ##	Can I share data in-place with storage account in a different Azure region?
 
@@ -56,7 +56,7 @@ You can access shared data from storage clients, Azure Synapse Analytics Spark a
 
 ## Does the recipient of the share need to be a user's email address or can I share data with an application?
 
-Through the UI, you can only share data with recipient's Azure sign in email. 
+Through the UI, you can share data with recipient's Azure sign in email or using service principal's object ID and tenant ID. 
 
 Through API and SDK, you also send invitation to object ID of a user principal or service principal. Also, you can optionally specify a tenant ID for which you want the share to be received into.  
 

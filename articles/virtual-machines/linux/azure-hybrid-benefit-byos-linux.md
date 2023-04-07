@@ -31,7 +31,7 @@ Azure Hybrid Benefit converts BYOS billing to pay-as-you-go, so that you pay onl
 
 Azure Hybrid Benefit BYOS to PAYG capability is available to all RHEL and SLES virtual machines that come from a custom image. It's also available to all RHEL and SLES BYOS virtual machines that come from an Azure Marketplace image. 
 
-Azure dedicated host instances and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you already use Azure Hybrid Benefit with Linux virtual machines. Azure Hybrid Benefit BYOS to PAYG capability does not support virtual machine scale sets and reserved instances (RIs).
+Azure dedicated host instances and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you already use Azure Hybrid Benefit with Linux virtual machines. Azure Hybrid Benefit BYOS to PAYG capability does not support virtual machine scale sets.
 
 ## Get started
 

@@ -41,8 +41,8 @@ The Azure Maps iOS SDK provides three ways of setting the language and regional 
 
     ```swift
     MapControl(options: [
-        StyleOptions.language("fr-FR"),
-        StyleOptions.view("Auto")
+        StyleOption.language("fr-FR"),
+        StyleOption.view("Auto")
     ])
     ```
 
@@ -50,9 +50,9 @@ The Azure Maps iOS SDK provides three ways of setting the language and regional 
 
     ```swift
     mapControl.getMapAsync { map in
-        map.setStyle([
-            StyleOptions.language("fr-FR"),
-            StyleOptions.view("Auto")
+        map.setStyleOptions([
+            StyleOption.language("fr-FR"),
+            StyleOption.view("Auto")
         ])
     }
     ```
