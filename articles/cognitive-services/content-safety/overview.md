@@ -18,7 +18,7 @@ keywords: content safety, azure content safety, online content safety, content f
 
 # What is Azure Content Safety? (preview)
 
-The Azure Content Safety Public Preview service is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. This services offers state-of-the-art text, image and multi-modal models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content.
+The Azure Content Safety Public Preview service is a Cognitive Service that detects material that is potentially offensive, risky, or otherwise undesirable. This service offers state-of-the-art text, image and multi-modal models that detect problematic content. Azure Content Safety helps make applications and services safer from harmful user-generated and AI-generated content.
 
 Azure Content Safety can be accessed through RESTful APIs.
 
@@ -61,9 +61,9 @@ The following are a few scenarios in which a software developer or team would re
 
 ### Language availability
 
-Currently, this API supports 8 languages, English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese. New languages are coming soon.
+Currently, this API supports eight languages, English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese. New languages are coming soon.
 
-You do not need to specify language code for text analysis. we will automatically detect you r input text languages.
+You don't need to specify language code for text analysis. we'll automatically detect you r input text languages.
 
 
 
@@ -75,7 +75,7 @@ Currently, the public preview features are  available in the **F0 and S0** prici
 
 ### Region / Location
 
-To use the preview APIs, please create/re-use your Azure Content Safety resource in the supported regions. Currently, the public preview features are only available in the following Azure regions: 
+To use the preview APIs, create/re-use your Azure Content Safety resource in the supported regions. Currently, the public preview features are only available in the following Azure regions: 
 
 - East US and West Europe
 
@@ -96,8 +96,8 @@ The service is designed for real-time scenarios, while various factors could aff
 
 | API            | Latency for reference |
 | :------------- | :-------------------- |
-| Text analysis  | 100~300ms             |
-| Image analysis | 100~300ms             |
+| Text analysis  | 100ms~300ms             |
+| Image analysis | 100ms~300ms             |
 
 
 ## Data privacy and security
