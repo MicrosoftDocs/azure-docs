@@ -64,7 +64,6 @@ ms.date: 04/06/2023
 
    > [!IMPORTANT]
    > Your Azure Key Vault instance must be allow public access from all the networks.
-   
 
 **3. Add an Access Policy to the Key Vault:**
 
