@@ -209,11 +209,11 @@ To view your metrics, navigate to the [Azure portal](https://portal.azure.com). 
 
 You can view CPU utilization on the Overview page or if you want more detailed metrics you can click on metrics from the left navigation panel
 
-Choose sql server as the metric namespace:
+Choose sql server or postgres as the metric namespace.
 
-Select the metric you want to visualize (you can also select multiple):
+Select the metric you want to visualize (you can also select multiple).
 
-Change the frequency to last 30 minutes:
+Change the frequency to last 30 minutes.
 
 > [!NOTE]
 > You can only upload metrics only for the last 30 minutes. Azure Monitor rejects metrics older than 30 minutes.
