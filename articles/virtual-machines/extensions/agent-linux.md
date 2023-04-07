@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM Agent overview 
-description: Learn how to install and configure Azure Linux Agent (waagent) to manage your virtual machine's interaction with the Azure Fabric controller.
+title: Azure Linux Agent overview 
+description: Learn how to install and configure the Azure Linux Agent (waagent) to manage your virtual machine's interaction with the Azure fabric controller.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -11,10 +11,9 @@ ms.collection: linux
 ms.date: 03/28/2023
 
 ---
-# Understanding and using the Azure Linux Agent
+# Azure Linux Agent overview
 
-The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning, and virtual machine (VM) interaction with the Azure Fabric controller. In addition to the Linux agent providing provisioning functionality, Azure also provides the option of using `cloud-init` for some Linux operating systems.
-
+The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning, along with virtual machine (VM) interaction with the Azure fabric controller. In addition to the Linux agent providing provisioning functionality, Azure provides the option of using `cloud-init` for some Linux operating systems.
 
 The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 
@@ -25,8 +24,8 @@ The Linux agent provides the following functionality for Linux and FreeBSD Azure
 - Deploys SSH public keys and key pairs
 - Sets the host name
 - Publishes the host name to the platform DNS
-- Reports SSH host key fingerprint to the platform
-- Manages resource disk
+- Reports SSH host key fingerprints to the platform
+- Manages the resource disk
 - Formats and mounts the resource disk
 - Configures swap space
 
@@ -37,29 +36,30 @@ The Linux agent provides the following functionality for Linux and FreeBSD Azure
 
 ### Kernel
 
-- Configures virtual NUMA (disable for kernel <`2.6.37`)
+- Configures virtual NUMA (disable for kernel `2.6.37`)
 - Consumes Hyper-V entropy for */dev/random*
 - Configures SCSI timeouts for the root device, which can be remote
 
 ### Diagnostics
 
-- Console redirection to the serial port
+- Provides console redirection to the serial port
 
 ### System Center Virtual Machine Manager deployments
 
-- Detects and bootstraps the Virtual Machine Manager agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
+- Detects and bootstraps the Virtual Machine Manager agent for Linux when it's running in a System Center Virtual Machine Manager 2012 R2 environment
 
 ### VM Extension
 
-- Injects component authored by Microsoft and partners into Linux VMs to enable software and configuration automation
-- VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+- Injects components authored by Microsoft and partners into Linux VMs to enable software and configuration automation
+
+You can find a VM Extension reference implementation on [GitHub](https://github.com/Azure/azure-linux-extensions).
 
 ## Communication
 
-The information flow from the platform to the agent occurs by using two channels:
+The information flow from the platform to the agent occurs through two channels:
 
 - A boot-time attached DVD for VM deployments. This DVD includes an Open Virtualization Format (OVF)-compliant configuration file that includes all provisioning information other than the SSH key pairs.
-- A TCP endpoint exposing a REST API used to obtain deployment and topology configuration.
+- A TCP endpoint that exposes a REST API that's used to get deployment and topology configuration.
 
 ## Requirements
 
@@ -74,8 +74,8 @@ The following systems have been tested and are known to work with the Azure Linu
 | CentOS | 7.x+,  8.x+ | 7.x+ |
 | Debian | 10+ | 11.x+ |
 | Flatcar Linux | 3374.2.x+ | 3374.2.x+ |
-| openSUSE | 12.3+ | **Not Supported** |
-| Oracle Linux | 6.4+, 7.x+, 8.x+ | **Not Supported** |
+| openSUSE | 12.3+ | *Not supported* |
+| Oracle Linux | 6.4+, 7.x+, 8.x+ | *Not supported* |
 | Red Hat Enterprise Linux | 6.7+, 7.x+,  8.x+ | 8.6+, 9.0+ |
 | Rocky Linux | 9.x+ | 9.x+ |
 | SLES | 12.x+, 15.x+ | 15.x SP4+ |
@@ -84,11 +84,11 @@ The following systems have been tested and are known to work with the Azure Linu
 > [!IMPORTANT]
 > RHEL/Oracle Linux 6.10 is the only RHEL/OL 6 version with ELS support available. [The extended maintenance ends on June 30, 2024](https://access.redhat.com/support/policy/updates/errata).
 
-Other Supported Systems:
+Other supported systems:
 
 - FreeBSD 10+ (Azure Linux Agent v2.0.10+)
 
-The Linux agent depends on some system packages in order to function properly:
+The Linux agent depends on some system packages to function properly:
 
 - Python 2.6+
 - OpenSSL 1.0+
@@ -97,45 +97,46 @@ The Linux agent depends on some system packages in order to function properly:
 - Password tools: chpasswd, sudo
 - Text processing tools: sed, grep
 - Network tools: ip-route
-- Kernel support for mounting UDF file systems.
+- Kernel support for mounting UDF file systems
 
-Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+Ensure that your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Installation
 
-The preferred method of installing and upgrading the Azure Linux Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories.
+The preferred method of installing and upgrading the Azure Linux Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux Agent package into their images and repositories.
 
-For advanced installation options, such as installing from source or to custom locations or prefixes, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent).
+For advanced installation options, such as installing from a source or to custom locations or prefixes, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent).
 
 ## Command-line options
 
 ### Flags
 
-- `verbose`: Increase verbosity of specified command
-- `force`: Skip interactive confirmation for some commands
+- `verbose`: Increases verbosity of the specified command.
+- `force`: Skips interactive confirmation for some commands.
 
 ### Commands
 
-- `help`: Lists the supported commands and flags
-- `deprovision`: Attempt to clean the system and make it suitable for reprovisioning. The operation deletes:
-  - All SSH host keys, if `Provisioning.RegenerateSshHostKeyPair` is `y` in the configuration file
-  - Nameserver configuration in */etc/resolv.conf*
-  - Root password from */etc/shadow*, if `Provisioning.DeleteRootPassword` is `y` in the configuration file
-  - Cached DHCP client leases
-  - Resets host name to `localhost.localdomain`
+- `help`: Lists the supported commands and flags.
+- `deprovision`: Attempts to clean the system and make it suitable for reprovisioning. The operation deletes:
+  - All SSH host keys, if `Provisioning.RegenerateSshHostKeyPair` is `y` in the configuration file.
+  - `Nameserver` configuration in */etc/resolv.conf*.
+  - The root password from */etc/shadow*, if `Provisioning.DeleteRootPassword` is `y` in the configuration file.
+  - Cached DHCP client leases.
+  
+  The client resets the host name to `localhost.localdomain`.
 
   > [!WARNING]
   > Deprovisioning doesn't guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 
-- `deprovision+user`: Performs everything in `deprovision` (previous) and also deletes the last provisioned user account, obtained from */var/lib/waagent*, and associated data. Use this parameter when you deprovision an image that was previously provisioned on Azure so that it can be captured and reused.
+- `deprovision+user`: Performs everything in `deprovision` (previous) and deletes the last provisioned user account (obtained from */var/lib/waagent*) and associated data. Use this parameter when you deprovision an image that was previously provisioned on Azure so that it can be captured and reused.
 - `version`: Displays the version of waagent.
 - `serialconsole`: Configures GRUB to mark ttyS0, the first serial port, as the boot console. This option ensures that kernel boot logs are sent to the serial port and made available for debugging.
-- `daemon`: Run waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent *init* script.
-- `start`: Run waagent as a background process.
+- `daemon`: Runs waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent *init* script.
+- `start`: Runs waagent as a background process.
 
 ## Configuration
 
-The */etc/waagent.conf* configuration file controls the actions of waagent. This example is a sample configuration file:
+The */etc/waagent.conf* configuration file controls the actions of waagent. Here's an example of a configuration file:
 
 ```config
 Provisioning.Enabled=y
@@ -195,7 +196,7 @@ Default: y
 
 If `y`, the agent deletes all SSH host key pairs from */etc/ssh/* during the provisioning process, including ECDSA, DSA, and RSA. The agent generates a single fresh key pair.
 
-Configure the encryption type for the fresh key pair by using the `Provisioning.SshHostKeyPairType` entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted, for example, upon a reboot.
+Configure the encryption type for the fresh key pair by using the `Provisioning.SshHostKeyPairType` entry. Some distributions re-create SSH key pairs for any missing encryption types when the SSH daemon is restarted--for example, after a reboot.
 
 ### Provisioning.SshHostKeyPairType
 
