@@ -25,7 +25,7 @@ The database account's resource model is updated with a few extra properties to 
 A new property in the account level backup policy named ``Type`` under the ``backuppolicy`` parameter enables continuous backup and point-in-time restore. This mode is referred to as **continuous backup**. You can set this mode when creating the account or while [migrating an account from periodic to continuous mode](migrate-continuous-backup.md). After continuous mode is enabled, all the containers and databases created within this account will have point-in-time restore and continuous backup enabled by default. The continuous backup tier can be set to ``Continuous7Days`` or ``Continuous30Days``. By default, if no tier is provided, ``Continuous30Days`` is applied on the account.
 
 > [!NOTE]
-> Currently the point-in-time restore feature is available for Azure Cosmos DB for MongoDB and API for NoSQL accounts. After you create an account with continuous mode you can't switch it to a periodic mode. The ``Continuous7Days`` tier is in preview.
+> Currently the point-in-time restore feature is available for Azure Cosmos DB for NoSQL, API for MongoDB, Table and Gremlin accounts. After you create an account with continuous mode you can't switch it to a periodic mode. The ``Continuous7Days`` tier is in preview.
 
 ### CreateMode
 
