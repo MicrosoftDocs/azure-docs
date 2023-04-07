@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 04/10/2023
 ---
 
 # What are protected actions in Azure AD? (preview)

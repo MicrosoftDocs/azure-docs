@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 04/10/2022
 ---
 
 # Add, test, or remove protected actions in Azure AD (preview)
