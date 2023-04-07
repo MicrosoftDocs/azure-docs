@@ -4,18 +4,18 @@ description: Explains target-based scaling behaviors of Consumption plan and Pre
 ms.date: 04/04/2023
 ms.topic: conceptual
 ms.service: azure-functions
-
 ---
+
 # Target-based scaling
 
 Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for the following extensions:
 
-- Service Bus Queues and Topics
+- Service Bus queues and topics
 - Storage Queues
 - Event Hubs
-- Cosmos DB
+- Azure Cosmos DB
 
-Target-based scaling  replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of 1 worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of 4 instances at a time, and the scaling decision is based on a simple target-based equation:
+Target-based scaling  replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of one worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of four instances at a time, and the scaling decision is based on a simple target-based equation:
 
 ![Desired instances = event source length / target executions per instance](./media/functions-target-based-scaling/targetbasedscalingformula.png)
 
@@ -29,7 +29,8 @@ The default _target executions per instance_ values come from the SDKs used by t
 Target-based scaling is supported for the [Consumption](consumption-plan.md) and [Premium](functions-premium-plan.md) plans. Your function app runtime must be 4.3.0 or higher.
 
 ## Opting out
-Target-based scaling is on by default for apps on the Consumption plan or Premium plans without runtime scale monitoring. If you wish to disable target-based scaling and revert to incremental scaling, add the following app setting to your function app:
+
+Target-based scaling is enabled by default for function apps on the Consumption plan or Premium plans without runtime scale monitoring. If you wish to disable target-based scaling and revert to incremental scaling, add the following app setting to your function app:
 
 |          App Setting          | Value |
 | ----------------------------- | ----- |
@@ -60,9 +61,10 @@ For Azure Cosmos DB _target executions per instance_ is set in the function attr
 | ----------------- | ------------------------ | ------------- |
 | Azure Cosmos DB   | maxItemsPerInvocation    |  100          |
 
-See [Details per extension](#details-per-extension) for example configurations of the supported extensions.
+To learn more, see the [example configurations for the supported extensions](#details-per-extension).
 
 ## Premium plan with runtime scale monitoring enabled
+
 In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#premium-plan-with-virtual-network-triggers), the extensions handle target-based scaling. Hence, in addition to the function app runtime version requirement, your extension packages must meet the following minimum versions:
 
 | Extension Name | Minimum Version Needed | 
@@ -70,7 +72,7 @@ In [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#pre
 | Storage Queue  |         5.1.0          |
 | Event Hubs     |         5.2.0          |
 | Service Bus    |         5.9.0          |
-| Cosmos DB      |         4.1.0          |
+| Azure Cosmos DB      |         4.1.0          |
 
 Additionally, target-based scaling is currently an **opt-in** feature with runtime scale monitoring. In order to use target-based scaling with the Premium plan when runtime scale monitoring is enabled, add the following app setting to your function app:
 
@@ -79,9 +81,13 @@ Additionally, target-based scaling is currently an **opt-in** feature with runti
 |`TARGET_BASED_SCALING_ENABLED` |   1   |
 
 ## Dynamic concurrency support
-Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus or Storage queues you also have the option of enabling [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
 
-## Details per extension
+Target-based scaling introduces faster scaling, and uses defaults for _target executions per instance_. When using Service Bus or Storage queues, you can also enable [dynamic concurrency](functions-concurrency.md#dynamic-concurrency). In this configuration, the _target executions per instance_ value is determined automatically by the dynamic concurrency feature. It starts with limited concurrency and identifies the best setting over time.
+
+## Supported extensions
+
+The way in which you configure target-based scaling in your host.json file depends on the specific extension type. This section provides the configuration details for the extensions that currently support target-based scaling.
+
 ### Service Bus queues and topics
 
 The Service Bus extension support three execution models, determined by the `IsBatched` and `IsSessionsEnabled` attributes of your Service Bus trigger. The default value for `IsBatched` and `IsSessionsEnabled` is `false`.
@@ -93,13 +99,17 @@ The Service Bus extension support three execution models, determined by the `IsB
 | Batch Processing                           | true      | false             | maxMessageBatchSize or maxMessageCount            |
 
 > [!NOTE]
-> **Scale efficiency:** For the Service Bus extension, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights scaling will revert to incremental scale because the queue or topic length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+> **Scale efficiency:** For the Service Bus extension, use _Manage_ rights on resources for the most efficient scaling. With _Listen_ rights scaling reverts to incremental scale because the queue or topic length can't be used to inform scaling decisions. To learn more about setting rights in Service Bus access policies, see [Shared Access Authorization Policy](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
 
 
 #### Single Dispatch Processing
-In this model, each invocation of your function processes a single message. The `maxConcurrentCalls` setting governs _target executions per instance_.
 
-For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxConcurrentCalls`:
+In this model, each invocation of your function processes a single message. The `maxConcurrentCalls` setting governs _target executions per instance_. The specific setting depends on the version of the Service Bus extension.
+
+# [v5.x+](#tab/v5)
+
+Modify the `host.json` setting `maxConcurrentCalls`, as in the following example:
+
 ```json
 {
     "version": "2.0",
@@ -111,7 +121,10 @@ For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxC
 }
 ```
 
-For Functions host **v2.x+**, modify the `host.json` setting `maxConcurrentCalls` in `messageHandlerOptions`:
+# [v2.x+](#tab/v2)
+
+Modify the `host.json` setting `maxConcurrentCalls` in `messageHandlerOptions`, as in the following example:
+
 ```json
 {
     "version": "2.0",
@@ -124,10 +137,16 @@ For Functions host **v2.x+**, modify the `host.json` setting `maxConcurrentCalls
     }
 }
 ```
-#### Single Dispatch Processing (Session Based)
-In this model, each invocation of your function processes a single message. However, depending on the number of active sessions for your Service Bus topic or queue, each instance leases one or more sessions.
+---
 
-For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxConcurrentSessions` to set _target executions per instance_:
+#### Single Dispatch Processing (Session Based)
+
+In this model, each invocation of your function processes a single message. However, depending on the number of active sessions for your Service Bus topic or queue, each instance leases one or more sessions. The specific setting depends on the version of the Service Bus extension.
+
+# [v5.x+](#tab/v5)
+
+Modify the `host.json` setting `maxConcurrentSessions` to set _target executions per instance_, as in the following example:
+
 ```json
 {
     "version": "2.0",
@@ -138,7 +157,11 @@ For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxC
     }
 }
 ```
-For Functions host **v2.x+**, modify the `host.json` setting `maxConcurrentSessions` in `sessionHandlerOptions`  to set _target executions per instance_:
+
+# [v2.x+](#tab/v2)
+
+Modify the `host.json` setting `maxConcurrentSessions` in `sessionHandlerOptions`  to set _target executions per instance_, as in the following example:
+
 ```json
 {
     "version": "2.0",
@@ -151,10 +174,15 @@ For Functions host **v2.x+**, modify the `host.json` setting `maxConcurrentSessi
     }
 }
 ```
-#### Batch Processing
-In this model, each invocation of your function processes a batch of messages.
+---
 
-For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxMessageBatchSize`  to set _target executions per instance_:
+#### Batch Processing
+
+In this model, each invocation of your function processes a batch of messages. The specific setting depends on the version of the Service Bus extension.
+
+# [v5.x+](#tab/v5)
+
+Modify the `host.json` setting `maxMessageBatchSize`  to set _target executions per instance_, as in the following example:
 ```json
 {
     "version": "2.0",
@@ -165,7 +193,11 @@ For **v5.x+** of the Service Bus extension, modify the `host.json` setting `maxM
     }
 }
 ```
-For Functions host **v2.x+**, modify the `host.json` setting `maxMessageCount` in `batchOptions`  to set _target executions per instance_:
+
+# [v2.x+](#tab/v2)
+
+Modify the `host.json` setting `maxMessageCount` in `batchOptions`  to set _target executions per instance_, as in the following example:
+
 ```json
 {
     "version": "2.0",
@@ -178,14 +210,21 @@ For Functions host **v2.x+**, modify the `host.json` setting `maxMessageCount` i
     }
 }
 ```
+---
 
 ### Event Hubs
-For Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the hub. By default, the `host.json` attributes used for _target executions per instance_ are `maxEventBatchSize` and `maxBatchSize`. However, if you wish to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides  to set _target executions per instance_ without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
+
+For Azure Event Hubs, Azure Functions scales based on the number of unprocessed events distributed across all the partitions in the event hub. By default, the `host.json` attributes used for _target executions per instance_ are `maxEventBatchSize` and `maxBatchSize`. However, if you choose to fine-tune target-based scaling, you can define a separate parameter `targetUnprocessedEventThreshold` that overrides to set _target executions per instance_ without changing the batch settings. If `targetUnprocessedEventThreshold` is set, the total unprocessed event count is divided by this value to determine the number of instances, which is then be rounded up to a worker instance count that creates a balanced partition distribution.
 
 > [!NOTE]
-> Since Event Hubs is a partitioned workload, the target instance count for Event Hubs is capped by the number of partitions in your Event Hub. 
+> Since Event Hubs is a partitioned workload, the target instance count for Event Hubs is capped by the number of partitions in your event hub. 
 
-For **v5.x+** of the Event Hubs extension, modify the `host.json` setting `maxEventBatchSize` to set _target executions per instance_:
+The specific setting depends on the version of the Event Hubs extension.
+
+# [v5.x+](#tab/v5)
+
+Modify the `host.json` setting `maxEventBatchSize` to set _target executions per instance_, as in the following example:
+
 ```json
 {
     "version": "2.0",
@@ -196,6 +235,21 @@ For **v5.x+** of the Event Hubs extension, modify the `host.json` setting `maxEv
     }
 }
 ```
+
+When defined in `host.json`, `targetUnprocessedEventThreshold` is used as _target executions per instance_ instead of `maxBatchSize` or `maxEventBatchSize`, as in the following example:
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "eventHubs": {
+            "targetUnprocessedEventThreshold": 23
+        }
+    }
+}
+```
+
+# [v3.x+](#tab/v2)
 
 For **v3.x+** of the Event Hubs extension, modify the `host.json` setting `maxBatchSize` under `eventProcessorOptions` to set _target executions per instance_:
 ```json
@@ -211,7 +265,8 @@ For **v3.x+** of the Event Hubs extension, modify the `host.json` setting `maxBa
 }
 ```
 
-If defined, `targetUnprocessedEventThreshold` in `host.json` will be used as _target executions per instance_ instead of `maxBatchSize` or `maxEventBatchSize`:
+When defined in `host.json`, `targetUnprocessedEventThreshold` is used as _target executions per instance_ instead of `maxBatchSize` or `maxEventBatchSize`, as in the following example:
+
 ```json
 {
     "version": "2.0",
@@ -222,9 +277,11 @@ If defined, `targetUnprocessedEventThreshold` in `host.json` will be used as _ta
     }
 }
 ```
+---
 
 ### Storage Queues
-For **v2.x**+ of the Storage extension, modify the `host.json` setting `batchSize` to set _target executions per instance_:
+
+For **v2.x+** of the Storage extension, modify the `host.json` setting `batchSize` to set _target executions per instance_:
 ```json
 {
     "version": "2.0",
@@ -236,9 +293,14 @@ For **v2.x**+ of the Storage extension, modify the `host.json` setting `batchSiz
 }
 ```
 
-### Cosmos DB
+### Azure Cosmos DB
 
-Cosmos DB uses a function-level attribute, `MaxItemsPerInvocation`. Modify this in `function.json` , or directly in the trigger definition, to set _target executions per instance_:
+Azure Cosmos DB uses a function-level attribute, `MaxItemsPerInvocation`. The way you set this function-level attribute depends on your function language.
+
+# [C#](#tab/csharp)
+
+For a compiled C# function, set `MaxItemsPerInvocation` in your trigger definition, as shown in the following examples for an in-process C# function:
+
 ```C#
 namespace CosmosDBSamplesV2
 {
@@ -264,7 +326,15 @@ namespace CosmosDBSamplesV2
 }
 
 ```
-Sample `bindings` section of a `function.json` with `MaxItemsPerInvocation` defined:
+
+# [Java](#tab/java) 
+
+Java example pending.
+
+# [JavaScript/PowerShell/Python](#tab/node+powershell+python)
+
+For Functions languages that use `function.json`, the `MaxItemsPerInvocation` parameter is defined in the specific binding, as in this Azure Cosmos DB trigger example:
+
 ```json
 {
   "bindings": [
@@ -283,5 +353,10 @@ Sample `bindings` section of a `function.json` with `MaxItemsPerInvocation` defi
   ]
 }
 ```
+
+Examples for the Python v2 programming model and the JavaScript v4 programming model aren't yet available.
+
+---
+
 > [!NOTE]
-> Since Cosmos DB is a partitioned workload, the target instance count for Cosmos DB is capped by the number of physical partitions in your Cosmos DB. For further documentation on Cosmos DB scaling, please see notes on [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
+> Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
