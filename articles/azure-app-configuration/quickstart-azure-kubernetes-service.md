@@ -74,7 +74,7 @@ In this section, it creates an ASP.NET Core web application that consumes enviro
     dotnet publish -c Release -o published
     ```
 
-1. Create a file named *Dockerfile* in the directory containing your .csproj file, open it in a text editor, and enter the following content. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
+1. Create a file named *Dockerfile* at the root of your project directory, open it in a text editor, and enter the following content. A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
 
     ```dockerfile
     FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
@@ -201,7 +201,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
 ### Install App Configuration Kubernetes Provider to AKS cluster
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
    
-    ```bash
+    ```console
     az aks get-credentials --name <your-aks-instance-name> --resource-group <your-aks-resource-group>
     ```
 
@@ -238,7 +238,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     > - The provider keeps the data of configMap as a mirror of key-values from Azure App Configuration. Any changes to the configMap through other approaches will be reverted.
     > - Deleting provider will delete the corresponding configMap along with it. If the configMap is deleted solely, the provider will recreate it.
 
-1. Update the *deployment.yaml* in *AKS-AppConfiguration-Demo* directory to use the configMap `configmap-created-by-appconfig-provider` as environment variable.
+1. Update the *deployment.yaml* file in *AKS-AppConfiguration-Demo* directory to use the configMap `configmap-created-by-appconfig-provider` as environment variable.
    
     Replace the whole `env` section 
     ```yaml
@@ -255,13 +255,13 @@ Now that you have an application running in AKS, you'll deploy the App Configura
         name: configmap-created-by-appconfig-provider
     ```
 
-1. Run the following command to deploy the `AzureAppConfigurationProvider` resource.
+2. Run the following command to deploy the *appConfigurationProvider.yaml* and *deployment.yaml*.
    
     ```console
     kubectl apply -f ./AKS-AppConfiguration-Demo -n appconfig-demo
     ```
 
-1. Refresh the browser. The page shows updated content.
+3. Refresh the browser. The page shows updated content.
 
     ![Kubernetes Provider after using configMap](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
@@ -313,7 +313,7 @@ kubectl delete -f ./AKS-AppConfiguration-Demo -n appconfig-demo
 kubectl delete namespace appconfig-demo
 ```
 
-Follow the steps below to uninstall the Azure App Configuration Kubernetes Provider from your AKS cluster.
+Uninstall the Azure App Configuration Kubernetes Provider from your AKS cluster.
 
 ```console
 helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-system
