@@ -106,7 +106,7 @@ As with all of the Cognitive Services, developers using the Content Moderator se
 
 ## Contact us
 
-If you get stuck, [email us](acm-team@microsoft.com) or use the feedback widget on the upper right of any page.
+If you get stuck, [email us](mailto:acm-team@microsoft.com) or use the feedback widget on the upper right of any page.
 
 ## Next steps
 
