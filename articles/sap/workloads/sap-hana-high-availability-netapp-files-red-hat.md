@@ -65,7 +65,7 @@ Read the following SAP Notes and papers first:
 - SAP Note [405827](https://launchpad.support.sap.com/#/notes/405827) lists out recommended file system for HANA environment.
 - SAP Note [2002167](https://launchpad.support.sap.com/#/notes/2002167) has recommended OS settings for Red Hat Enterprise Linux.
 - SAP Note [2009879](https://launchpad.support.sap.com/#/notes/2009879) has SAP HANA Guidelines for Red Hat Enterprise Linux.
-- SAP Note [3108302](https://launchpad.support.sap.com/#/notes/3108302) has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x
+- SAP Note [3108302](https://launchpad.support.sap.com/#/notes/3108302) has SAP HANA Guidelines for Red Hat Enterprise Linux 9.x.
 - SAP Note [2178632](https://launchpad.support.sap.com/#/notes/2178632) has detailed information about all monitoring metrics reported for SAP in Azure.
 - SAP Note [2191498](https://launchpad.support.sap.com/#/notes/2191498) has the required SAP Host Agent version for Linux in Azure.
 - SAP Note [2243692](https://launchpad.support.sap.com/#/notes/2243692) has information about SAP licensing on Linux in Azure.
