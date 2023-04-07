@@ -1777,6 +1777,7 @@ $storageAccountName = "<storage account name>"
 $roleDefinitionName = "Storage Blob Data Reader"
 $userUpn = "<user UPN>"
 $userObjectID = (Get-AzADUser -UserPrincipalName $userUpn).Id
+$privateEndpointName = "privateendpoint1"
 $scope = "/subscriptions/$subId/resourceGroups/$rgName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
 $condition = `
@@ -1789,7 +1790,7 @@ $condition = `
   ( `
    @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] `
    AND `
-   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/$privateendpointName' `
+   @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Network/privateEndpoints/$privateEndpointName' `
   ) `
   OR `
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<`$key_case_sensitive`$>] StringNotEquals 'high' `
