@@ -53,7 +53,7 @@ The following table describes what's supported for each network features configu
 
 - [What is Azure Payment HSM?](overview.md)
 - [Azure Payment HSM deployment scenarios](deployment-scenarios.md)
-- [Azure Payment HSM traffic inspection](traffic-inspection.md)
+- [Azure Payment HSM traffic inspection](inspect-traffic.md)
 - [Get started with Azure Payment HSM](getting-started.md)
 - [Create a payment HSM](create-payment-hsm.md)
 - [Frequently asked questions](faq.yml)
