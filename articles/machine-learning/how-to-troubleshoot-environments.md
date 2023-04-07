@@ -106,7 +106,7 @@ To automate this process based on triggers from Microsoft Defender, see [Automat
 
 ### Vulnerabilities in Base Docker Images 
 
-System-managed environments can have vulnerabilities from their base image. For example, vulnerabilities marked as "Ubuntu", "Debian" etc are usually from the system level of the environment, the base Docker image. If the base image is from a third-party issuer, please check if the latest version has fixes for the flagged vulnerabilities. Most common sources for the base images in AzureML are:
+System and user managed environments can have vulnerabilities from their base image. For example, vulnerabilities marked as "Ubuntu", "Debian" etc are usually from the system level of the environment, the base Docker image. If the base image is from a third-party issuer, please check if the latest version has fixes for the flagged vulnerabilities. Most common sources for the base images in AzureML are:
 
 - Microsoft Artifact Registry (MAR) aka Microsoft Container Registry (mcr.microsoft.com). 
 	- Images can be listed from MAR homepage, calling _catalog API, or [/tags/list](https://mcr.microsoft.com/v2/azureml/openmpi4.1.0-ubuntu20.04/tags/list)_
