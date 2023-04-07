@@ -80,4 +80,4 @@ zone_pivot_groups: app-service-getting-started-stacks
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about the anatomy of an Azure Functions application]()
+> [Learn about App Servce](./overview.md)
