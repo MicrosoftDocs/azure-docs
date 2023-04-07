@@ -1,11 +1,11 @@
 ---
-title: Create users - Azure Cosmos DB for PostgreSQL
+title: Concepts of Customer Managed Keys
 description: How to enable data encrytion with customer managed keys
 ms.author: akashrao
 author: akashraokm
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.topic: concepts
+ms.topic: conceptual
 ms.date: 04/06/2023
 ---
 
@@ -34,7 +34,7 @@ Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL is
 
 The DEKs, encrypted with the KEKs, are stored separately. Only an entity with access to the KEK can decrypt these DEKs. For more information, see [Security in encryption at rest](../../security/fundamentals/encryption-atrest.md).
 
-## How data encryption with a customer-managed key works 
+## How data encryption with a customer-managed key works
 
 For a cluster to use customer-managed keys stored in Key Vault for encryption of the DEK, a Key Vault administrator gives the following access rights to the server:
 
