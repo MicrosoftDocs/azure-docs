@@ -22,7 +22,7 @@ The Conversion service succeeds if there are any conversion warnings. However, i
 
 #### *Description for geometryWarning*
 
-A **geometryWarning** occurs when the drawing contains an invalid entity. An invalid entity is an entity that doesn't conform to geometric constraints. Examples of an invalid entity are a self-intersecting polygon or a nonclosed PolyLine in a layer that only supports closed geometry.
+A **geometryWarning** occurs when the drawing contains an invalid entity. An invalid entity is an entity that doesn't conform to geometric constraints. Examples of an invalid entity are a self-intersecting polygon or an open PolyLine in a layer that only supports closed geometry.
 
 The Conversion service is unable to create a map feature from an invalid entity and instead ignores it.
 
@@ -34,7 +34,7 @@ The Conversion service is unable to create a map feature from an invalid entity 
 
      ![Example of a self-intersecting polygon, example two.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
-* The following image shows a nonclosed PolyLine. Assume that the layer only supports closed geometry.
+* The following image shows an open PolyLine. Assume that the layer only supports closed geometry.
 
     ![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
 
@@ -50,7 +50,7 @@ An **unexpectedGeometryInLayer** warning occurs when the drawing contains geomet
 
 #### *Example for unexpectedGeometryInLayer*
 
-The following image shows a nonclosed PolyLine. Assume that the layer only supports closed geometry.
+The following image shows an open PolyLine. Assume that the layer only supports closed geometry.
 
 ![Example of a non-closed PolyLine](./media/drawing-conversion-error-codes/geometry-warning-3.png)
 
