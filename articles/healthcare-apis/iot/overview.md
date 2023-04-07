@@ -19,7 +19,7 @@ This article provides an introductory overview of the MedTech service. The MedTe
 
 The MedTech service is important because data can be difficult to access or lost when it comes from diverse or incompatible devices, systems, or formats. If this information isn't easy to access, it may have a negative effect on gaining key insights and capturing trends. The ability to transform many types of device data into a unified FHIR format enables the MedTech service to successfully link device data with other datasets to support the end user. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects.
 
-The following video presents an overview of MedTech service:
+The following video presents an overview of the MedTech service:
 
 > [!VIDEO https://youtube.com/embed/_nMirYYU0pg]
 
