@@ -12,7 +12,7 @@ services: azure-maps
 
 # Drawing conversion errors and warnings
 
-The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) lets you convert uploaded drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service returns errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
+The Azure Maps [Conversion service] lets you convert uploaded drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements]. If one or more requirements aren't met, then the Conversion service returns errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
 The Conversion service succeeds if there are any conversion warnings. However, it's recommended that you review and resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
 
@@ -72,7 +72,7 @@ The following image shows an unsupported entity type as a multi-line text object
 
 #### *How to fix unsupportedFeatureRepresentation*
 
-Ensure that your DWG files contain only the supported entity types. Supported types are listed under the [Drawing files requirements](drawing-requirements.md#drawing-package-requirements) section in the drawing package requirements article.
+Ensure that your DWG files contain only the supported entity types. Supported types are listed under the [Drawing files requirements] section in the drawing package requirements article.
 
 ### **automaticRepairPerformed**
 
@@ -355,7 +355,7 @@ To fix a **dwgError**, inspect your _manifest.json_ file confirm that:
 
 An **invalidJsonFormat** error occurs when the _manifest.json_ file can't be read.
 
-The _manifest.json_file can't be read because of JSON formatting or syntax errors. To learn more about how JSON format and syntax, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://tools.ietf.org/html/rfc7159)
+The _manifest.json_file can't be read because of JSON formatting or syntax errors. To learn more about how JSON format and syntax, see [The JavaScript Object Notation (JSON) Data Interchange Format].
 
 #### *How to fix invalidJsonFormat*
 
@@ -369,7 +369,7 @@ A **missingRequiredField** error occurs when the _manifest.json_ file is missing
 
 #### *How to fix missingRequiredField*
 
-To fix a **missingRequiredField** error, verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the Drawing package requirements](drawing-requirements.md#manifest-file-requirements)  
+To fix a **missingRequiredField** error, verify that the manifest contains all required properties. For a full list of required manifest object, see the [manifest section in the Drawing package requirements].
 
 ### **missingManifest**
 
@@ -447,8 +447,8 @@ In the following JSON snippet, the latitude is above the upper limit.
 
 To fix an **invalidGeoreference** error, verify that the georeferenced values are within range.
 
->[!IMPORTANT]
->In GeoJSON, the coordinates order is longitude and latitude. If you don't use the correct order, you may accidentally refer a latitude or longitude value that is out of range.
+> [!IMPORTANT]
+> In GeoJSON, the coordinates order is longitude and latitude. If you don't use the correct order, you may accidentally refer a latitude or longitude value that is out of range.
 
 ## Wall errors
 
@@ -493,15 +493,24 @@ The following image shows a vertical penetration area that overlaps more than on
 
 #### How to fix verticalPenetrationError
 
-To fix a **verticalPenetrationError** error, read about how to use a vertical penetration feature in the [Drawing package requirements](drawing-requirements.md) article.
+To fix a **verticalPenetrationError** error, read about how to use a vertical penetration feature in the [Drawing package requirements] article.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to use Azure Maps Drawing error visualizer](drawing-error-visualizer.md)
+> [How to use Azure Maps Drawing error visualizer]
 
 > [!div class="nextstepaction"]
-> [Drawing Package Guide](drawing-package-guide.md)
+> [Drawing Package Guide]
 
 > [!div class="nextstepaction"]
-> [Creator for indoor mapping](creator-indoor-maps.md)
+> [Creator for indoor mapping]
+
+[Conversion service]: /rest/api/maps/v2/conversion
+[Drawing package requirements]: drawing-requirements.md
+[Drawing files requirements]: drawing-requirements.md#drawing-package-requirements
+[The JavaScript Object Notation (JSON) Data Interchange Format]: https://tools.ietf.org/html/rfc7159
+[manifest section in the Drawing package requirements]: drawing-requirements.md#manifest-file-requirements
+[How to use Azure Maps Drawing error visualizer]: drawing-error-visualizer.md
+[Drawing Package Guide]: drawing-package-guide.md
+[Creator for indoor mapping]: creator-indoor-maps.md
