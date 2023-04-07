@@ -14,9 +14,9 @@ ms.custom: mvc, mode-ui
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal
 
-In this quickstart, you'll learn how to set up the IoT Hub Device Provisioning Service in the Azure portal. The IoT Hub Device Provisioning Service enables zero-touch, just-in-time device provisioning to any IoT hub. The Device Provisioning Service enables customers to provision millions of IoT devices in a secure and scalable manner, without requiring human intervention. Azure IoT Hub Device Provisioning Service supports IoT devices with TPM, symmetric key, and X.509 certificate authentications. For more information, please refer to [IoT Hub Device Provisioning Service overview](about-iot-dps.md).
+In this quickstart, you learn how to set up the IoT Hub Device Provisioning Service in the Azure portal. The IoT Hub Device Provisioning Service enables zero-touch, just-in-time device provisioning to any IoT hub. The Device Provisioning Service enables customers to provision millions of IoT devices in a secure and scalable manner, without requiring human intervention. Azure IoT Hub Device Provisioning Service supports IoT devices with TPM, symmetric key, and X.509 certificate authentications. For more information, please refer to [IoT Hub Device Provisioning Service overview](about-iot-dps.md).
 
-To provision your devices, you will:
+To provision your devices, you first perform the following steps:
 
 > [!div class="checklist"]
 > * Use the Azure portal to create an IoT hub
@@ -56,7 +56,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Link the IoT hub and your Device Provisioning Service instance
 
-In this section, you'll add a configuration to the Device Provisioning Service instance. This configuration sets the IoT hub for which devices will be provisioned.
+In this section, you add a configuration to the Device Provisioning Service instance. This configuration sets the IoT hub for which devices are provisioned by the instance.
 
 1. In the **Settings** menu, select **Linked IoT hubs**.
 
