@@ -258,7 +258,7 @@ Once your logs are uploaded, you should be able to query them using the log quer
 
 If you want to upload metrics and logs on a scheduled basis, you can create a script and run it on a timer every few minutes. Below is an example of automating the uploads using a Linux shell script.
 
-In your favorite text/code editor, add the following script to the file and save as a script executable file - such as .sh for Linux/Mac, or .cmd, .bat, or .ps1 for Windows.
+In your favorite text/code editor, add the following script to the file and save as a script executable file - such as `.sh` (Linux/Mac), `.cmd`, `.bat`, or `.ps1` (Windows).
 
 ```azurecli
 az arcdata dc export --type logs --path logs.json --force --k8s-namespace arc
