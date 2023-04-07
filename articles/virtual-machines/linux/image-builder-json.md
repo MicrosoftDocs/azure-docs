@@ -995,7 +995,7 @@ az resource show \
 > [!NOTE]
 > Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you'll lose the VHD.
 
-## Properties: versioning
+## Properties: versioning.
 
 The **versioning** property is an enum with two possible values:
 - **latest** - New monotonically increasing schema per design
