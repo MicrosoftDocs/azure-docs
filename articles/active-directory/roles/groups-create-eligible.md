@@ -67,6 +67,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 Use the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup?branch=main) command to create a role-assignable group.
 
 ```powershell
+Connect-MgGraph -Scopes "Group.ReadWrite.All"
 $group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group has Helpdesk Administrator built-in role assigned to it in Azure AD." -MailEnabled:$false -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true
 ```
 
