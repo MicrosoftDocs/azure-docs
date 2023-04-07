@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: cliv2
 author: cloga
 ms.author: lochen
-ms.date: 02/28/2023
+ms.date: 04/06/2023
 ms.reviewer: lagayhar
 ---
 
@@ -22,6 +22,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 
 [!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 ## YAML syntax
 
 | Key | Type | Description | Allowed values | Default value |
@@ -35,9 +36,9 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `tags` | object | Dictionary of tags for the component. | | |
 | `jobs` | object | **Required.** Dictionary of the set of individual jobs to run as steps within the pipeline. These jobs are considered child jobs of the parent pipeline job. <br><br> The key is the name of the step within the context of the pipeline job. This name is different from the unique job name of the child job. The value is the job specification, which can follow the [command job schema](reference-yaml-job-command.md#yaml-syntax) or [sweep job schema](reference-yaml-job-sweep.md#yaml-syntax). Currently only command jobs and sweep jobs can be run in a pipeline.  | | |
 | `inputs` | object | Dictionary of inputs to the pipeline job. The key is a name for the input within the context of the job and the value is the input value. <br><br> These pipeline inputs can be referenced by the inputs of an individual step job in the pipeline using the `${{ parent.inputs.<input_name> }}` expression. For more information on how to bind the inputs of a pipeline step to the inputs of the top-level pipeline job, see the [Expression syntax for binding inputs and outputs between steps in a pipeline job](reference-yaml-core-syntax.md#binding-inputs-and-outputs-between-steps-in-a-pipeline-job). | | |
-| `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
+| `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [component input data specification](#component-inputs). | | |
 | `outputs` | object | Dictionary of output configurations of the pipeline job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> These pipeline outputs can be referenced by the outputs of an individual step job in the pipeline using the `${{ parents.outputs.<output_name> }}` expression. For more information on how to bind the inputs of a pipeline step to the inputs of the top-level pipeline job, see the [Expression syntax for binding inputs and outputs between steps in a pipeline job](reference-yaml-core-syntax.md#binding-inputs-and-outputs-between-steps-in-a-pipeline-job). | |
-| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure Machine Learning will system-generate an output location for the output based on the following template path: `{settings.datastore}/azureml/{job-name}/{output-name}/`. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
+| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure Machine Learning will system-generate an output location for the output based on the following template path: `{settings.datastore}/azureml/{job-name}/{output-name}/`. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [component output specification](#component-outputs). | |
 
 ### Component input
 
