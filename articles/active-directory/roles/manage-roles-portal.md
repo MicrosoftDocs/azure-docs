@@ -38,13 +38,13 @@ Follow these steps to assign Azure AD roles using the Azure portal. Your experie
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Roles and administrators page in Azure Active Directory.](./media/common/roles-and-administrators.png)
 
 1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
 1. Select the role name to open the role. Don't add a check mark next to the role.
 
-    ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
+    ![Screenshot that shows selecting a role.](./media/common/role-select-mouse.png)
 
 1. Select **Add assignments** and then select the users you want to assign to this role.
 
@@ -64,13 +64,13 @@ Follow these steps to assign roles using the [Roles and administrators](https://
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory when PIM enabled.](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Roles and administrators page in Azure Active Directory when PIM enabled.](./media/common/roles-and-administrators.png)
 
 1. Find the role you need. You can use the search box or **Add filters** to filter the roles.
 
 1. Select the role name to open the role and see its eligible, active, and expired role assignments. Don't add a check mark next to the role.
 
-    ![Screenshot that shows selecting a role.](./media/manage-roles-portal/role-select-mouse.png)
+    ![Screenshot that shows selecting a role.](./media/common/role-select-mouse.png)
 
 1. Select **Add assignments**.
 

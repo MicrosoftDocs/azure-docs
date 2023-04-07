@@ -41,11 +41,11 @@ Assigning an Azure AD role to a group is similar to assigning users and service 
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    :::image type="content" source="media/manage-roles-portal/roles-and-administrators.png" alt-text="Screenshot of Roles and administrators page in Azure Active Directory." lightbox="media/manage-roles-portal/roles-and-administrators.png":::
+    :::image type="content" source="media/common/roles-and-administrators.png" alt-text="Screenshot of Roles and administrators page in Azure Active Directory." lightbox="media/common/roles-and-administrators.png":::
 
 1. Select the role name to open the role. Don't add a check mark next to the role.
 
-    :::image type="content" source="media/manage-roles-portal/role-select-mouse.png" alt-text="Screenshot that shows selecting a role." lightbox="media/manage-roles-portal/role-select-mouse.png":::
+    :::image type="content" source="media/common/role-select-mouse.png" alt-text="Screenshot that shows selecting a role." lightbox="media/common/role-select-mouse.png":::
 
 1. Select **Add assignments**.
 

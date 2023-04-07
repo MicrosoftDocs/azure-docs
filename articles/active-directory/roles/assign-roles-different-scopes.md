@@ -36,7 +36,7 @@ This section describes how to assign roles at the tenant scope.
 
 1. Select **Azure Active Directory** > **Roles and administrators** to see the list of all available roles.
 
-    ![Roles and administrators page in Azure Active Directory.](./media/manage-roles-portal/roles-and-administrators.png)
+    ![Roles and administrators page in Azure Active Directory.](./media/common/roles-and-administrators.png)
 
 1. Select a role to see its assignments. To help you find the role you need, use **Add filters** to filter the roles.
 
