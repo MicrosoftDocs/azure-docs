@@ -645,9 +645,6 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
-      - name: VM optimization
-        displayName: Image builder, images, building, optimization
-        href: ./image-builder-prefetch.md
       - name: What's new in Azure VM Image Builder
         displayName: Image builder, images, building, api, features, updates, change log
         href: image-builder-api-update-release-notes.md
