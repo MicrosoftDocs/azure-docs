@@ -34,7 +34,7 @@ The following regions support workload profiles during preview:
 
 ::: zone pivot="aca-vnet-system"
 
-System-generated VNet manages the complexity of running a virtual network for you, which means you don't have direct control over the VNet configuration. Without direction access to the configuration, you can't use [user defined routes](user-defined-routes.md). If you want to use user defined routes, you need to create a container apps environment with a custom VNet.
+A system-generated VNet manages the complexity of running a virtual network for you, which means you don't have direct control over the VNet configuration. Without direction access to the configuration, you can't use [user defined routes](user-defined-routes.md). If you want to use user defined routes, you need to create a container apps environment with a [custom VNet](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom).
 
 ::: zone-end
 
