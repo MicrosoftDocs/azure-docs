@@ -779,4 +779,69 @@ waitForCompletionOrCreateCheckStatusResponse(
 
 ## Update calls to callHttp API
 
-If your orchestrator used the `
+In v3.x of `durable-functions`, the `callHttp()` API for `DurableOrchestrationContext` was updated. The following changes were made:
+
+- Accept one options object for all arguments, instead of multiple optional arguments, to be more similar to frameworks such as [Express](https://expressjs.com/).
+- Rename `uri` argument to `url`
+- Rename `content` argument to `body`
+- Deprecate `asynchronousPatternEnabled` flag in favor of `enablePolling`.
+
+If your orchestrations used the `callHttp` API, make sure to update these API calls to conform to the above changes. Find an example below:
+
+:::zone pivot="programming-language-javascript"
+
+# [v4 model](#tab/v4)
+
+```javascript
+const restartResponse = yield context.df.callHttp({
+    method: "POST",
+    url: `https://example.com`,
+    body: "body",
+    enablePolling: false
+});
+```
+
+# [v3 model](#tab/v3)
+
+```javascript
+const response = yield context.df.callHttp(
+    "POST",
+    `https://example.com`,
+    "body", // request content
+    undefined, // no request headers
+    undefined, // no token source
+    false // disable polling
+);
+```
+
+---
+:::zone-end
+
+:::zone pivot="programming-language-typescript"
+
+# [v4 model](#tab/v4)
+
+```typescript
+const restartResponse = yield context.df.callHttp({
+    method: "POST",
+    url: `https://example.com`,
+    body: "body",
+    enablePolling: false
+});
+```
+
+# [v3 model](#tab/v3)
+
+```javascript
+const response = yield context.df.callHttp(
+    "POST",
+    `https://example.com`,
+    "body", // request content
+    undefined, // no request headers
+    undefined, // no token source
+    false // disable polling
+);
+```
+
+---
+:::zone-end
