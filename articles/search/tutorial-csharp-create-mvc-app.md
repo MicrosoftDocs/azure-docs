@@ -65,10 +65,12 @@ Modify `appsettings.json` to specify your search service and [query API key](sea
 
    ```json
    {
-      "SearchServiceName": "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net",
+      "SearchServiceUri": "https://<YOUR-SEARCH-SERVICE-URL>,
       "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-QUERY-API-KEY>"
    }
    ```
+
+You can retrieve the [service URL and API key](search-get-started-dotnet.md#copy-a-key-and-endpoint) from the portal. The query API key is sufficient for this tutorial.
 
 ## Add models
 
