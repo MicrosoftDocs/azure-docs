@@ -12,17 +12,17 @@ keywords: ChatGPT
 ---
 
 > [!NOTE]
-> All of the examples in this section of the guide were tested against the `text-davinci-003` model in English. If you are reading a localized version of this article in another language, these responses represent a localized translation of the English results. To learn more about the potential limitations depending on what language you are using to prompt a model, please consult our [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#limitations).  
+> All of the examples in this section of the guide were tested against the `text-davinci-003` model in English. If you are reading a localized version of this article in another language, these responses represent a localized translation of the English results. To learn more about potential limitations depending on what language you are using to prompt a model, please consult our [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#limitations).  
 
 ## Start with clear instructions
 
-The sequence in which information is fed in the prompt, matters (GPT style models are built in a certain way and that’s the reason behind this). Our research suggests that telling the model the task you want it to do at the beginning of the prompt, before sharing additional contextual information or examples, can help produce higher-quality outputs.
+The sequence in which information is fed into the prompt matters. Our research suggests that telling the model the task you want it to do at the beginning of the prompt, before sharing additional contextual information or examples, can help produce higher-quality outputs.
 
 |Prompt|Completion|
 |------|----------|
 |Your task is to verify if the statement "Several sources mention a chance of another large eruption" is supported by a specific quote from the following set of snippets.<br>---<br>SNIPPETS<br>[1] 14 percent chance of megaquake hitting Seattle, experts say SEATTLE - There's a 14 percent chance of a magnitude 9 Cascadia earthquake hitting Seattle in the next 50 years, the U.S. Geological Survey estimates. "Unfortunately, we are unable to...<br><br>[2] Earthquake experts lay out latest outlook for Seattle's 'Really Big One’<br>“We say that there's approximately a 14% chance of another approximately magnitude-9 earthquake occurring in the next 50 years,” said a geophysicist at the University of Washington...<br>|Yes, the statement is directly implied by the snippets.|
 
-In this next example, we give the exact statement we want to check (“Several sources mention a chance of another eruption”) before we give the snippet context. This allows the token representations extracted from the snippets to be tailored to the statement we are checking. And the resulting model response is accurate:
+In this next example, we give the exact statement we want to check (“Several sources mention a chance of another eruption”) before we give the snippet context. This allows the token representations extracted from the snippets to be tailored to the statement we are checking. Now the resulting model response is accurate:
 
 |Prompt|Completion|
 |------|----------|
@@ -30,13 +30,13 @@ In this next example, we give the exact statement we want to check (“Several s
 
 ## Repeat the instructions at the end
 
-Models can be susceptible to “recency bias,” which means that information at the end of the prompt might have more significant influence over the output than information at the beginning of the prompt. Therefore, it is worth experimenting with repeating the instructions at the end of the prompt and evaluating the impact for your use case.
+Models can be susceptible to **recency bias**, which means that information at the end of the prompt might have more significant influence over the output than information at the beginning of the prompt. Therefore, it's worth experimenting with repeating the instructions at the end of the prompt and evaluating the impact for your use case.
 
-We saw in the earlier example how repeating the instruction at the beginning as well as the end of the prompt leads to a higher likelihood of getting an accurate model response.
+We saw in the earlier example how repeating the instruction at the beginning and the end of the prompt leads to a higher likelihood of getting an accurate model response.
 
 ## Prime the output
 
-This refers to including a few words or phrases at the end of the prompt to obtain a model response that follows the desired form. For example, using a cue such as `“Here’s a bulleted list of key points:\n- ”` can help make sure the outputted is formatted as a list of bullet points.
+This refers to including a few words or phrases at the end of the prompt to obtain a model response that follows the desired form. For example, using a cue such as `“Here’s a bulleted list of key points:\n- ”` can help make sure the output is formatted as a list of bullet points.
 
 |Prompt|Completion|
 |------|----------|
@@ -48,17 +48,17 @@ In the above prompt, the text **"One possible search query is:"** primes the mod
 
 Using clear syntax for your prompt—including punctuation, headings, and section markers—helps communicate intent and often makes outputs easier to parse. 
 
-In the example below, separators (“---” in this case) have been added between different sources of information or steps. This allows the use of “---” as a stopping condition for generation. In addition, section headings or special variables are presented in uppercase to differentiate them.
+In the example below, separators (`---` in this case) have been added between different sources of information or steps. This allows the use of `---` as a stopping condition for generation. In addition, section headings or special variables are presented in uppercase to differentiate them.
 
 |Prompt|Completion|
 |------|----------|
-|You will read a paragraph, and then issue queries to a search engine in order to fact-check it. Also explain the queries.<br>---<br>PARAGRAPH<br>John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this?<br>---<br>QUERIES | . "John Smith Microsoft" - To check if John Smith is indeed employed at Microsoft.<br>2. "John Smith Lucy Smith" - To check if John Smith is married to Lucy Smith.<br>3. "John Smith children" - To check if John Smith has five children.|
+|You will read a paragraph, and then issue queries to a search engine in order to fact-check it. Also explain the queries.<br>---<br>PARAGRAPH<br>John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this?<br>---<br>QUERIES |1. "John Smith Microsoft" - To check if John Smith is indeed employed at Microsoft.<br>2. "John Smith Lucy Smith" - To check if John Smith is married to Lucy Smith.<br>3. "John Smith children" - To check if John Smith has five children.|
 
 If you’re not sure what syntax to use, consider using markdown or XML,  since large language models have been trained on a lot of web content in XML or markdown.
 
 ## Break the task down
 
-Models often perform better if the task is broken down into smaller steps. For example, in the search query generation prompt referenced earlier, the prompt can be restructured so that the model is first instructed to extract relevant facts, and then instructed to generate search queries that can be used to verify those facts.
+Models often perform better if the task is broken down into smaller steps. For example, in the search query prompt referenced earlier, the prompt can be restructured so that the model is first instructed to extract relevant facts, and then instructed to generate search queries that can be used to verify those facts.
 
 |Prompt|Completion|
 |------|----------|
@@ -78,7 +78,7 @@ One simple way to use an affordance is to stop generation once the affordance ca
 
 ## Chain of thought prompting
 
-This is a variation on the **break the task down** technique. Instead of splitting a task into smaller steps, in this approach the model response is instructed to proceed step-by-step and present all the steps involved. Doing so reduces the possibility of inaccuracy of outcomes and makes assessing the model response easier.
+This is a variation on the **break the task down** technique. Instead of splitting a task into smaller steps, in this approach, the model response is instructed to proceed step-by-step and present all the steps involved. Doing so reduces the possibility of inaccuracy of outcomes and makes assessing the model response easier.
 
 |Prompt|Completion|
 |------|----------|
@@ -86,7 +86,7 @@ This is a variation on the **break the task down** technique. Instead of splitti
 
 ## Meta prompts
   
-If you find that the model response is not as desired, it can often be helpful to add a **meta prompt** that directly corrects the behavior. This is a directive prepended to the instruction portion of the prompt. Consider this example, where the computer seems to be overly aggressive (the LLM wrote the green sections):
+If you find that the model response is not as desired, it can often be helpful to add a **meta prompt** that directly corrects the behavior. This is a directive prepended to the instruction portion of the prompt. Consider this example, where the computer seems to be overly aggressive:
 
 |Example Details|Prompt and Completion|
 |------|----------|
@@ -108,11 +108,11 @@ In the following example we use an instruction combined with few-shot learning t
 
 Choose your few-shot examples carefully and ensure they cover a variety of circumstances relevant to your scenario, including edge cases.
 
-Also, as shared earlier, the large lanugage models can exhibit a form of recency bias. This means that the order in which "few-shot" examples are provided to the model, matters. If you don't want this to matter, consider sampling multiple completions from prompts based on randomized orderings of the examples or list items.
+Also, as shared earlier, the large language models can exhibit a form of recency bias. This means that the order in which "few-shot" examples are provided to the model, matters. If you don't want this to matter, consider sampling multiple completions from prompts based on randomized orderings of the examples or list items.
 
 ## Use quotes to generate a single sentence
 
-If the desired model response is only a single simple sentence or string, we can end the completion guidance with a quote symbol `“`, and set `“` as a stop sequence.
+If the desired model response is only a single simple sentence or string, we can end the completion guidance with a quote symbol `"`, and set `"` as a stop sequence.
 
 |Prompt|Completion|
 |------|----------|
@@ -120,11 +120,11 @@ If the desired model response is only a single simple sentence or string, we can
 
 ## Specifying output structure
 
-Using your prompt to specify the structure of the output can have a significant impact on the nature and quality of the results. Sometimes meta prompts such as “only write true facts” or “do not fabricate information” might not be adequate mitigations. Instead, asking for the model response to also include citations necessarily could result in reducing the prevalence of made-up responses.
+Using your prompt to specify the structure of the output can have a significant impact on the nature and quality of the results. Sometimes meta prompts such as “only write true facts” or “do not fabricate information” might not be adequate mitigations. Instead, asking for the model response to also include citations can help result in a reduction of the prevalence of incorrect responses.
 
-For example, if you force the LLM to cite the source material when it makes statements, those statements are much more likely to be grounded . Asking for citations makes it so that LLM must make two errors every time it fabricates a response: the first error is the fabricated response, and the second is the bad citation. Note that the closer the citation is to the text it supports, the shorter the distance ahead LLM needs to anticipate the citation, which suggests that inline citations are better mitigations for hallucinations than citations at the end of the content.
+For example, if you force the LLM to cite the source material when it makes statements, those statements are much more likely to be grounded. Asking for citations makes it so that the model must make two errors every time it fabricates a response: the first error is the fabricated response, and the second is the bad citation. Note that the closer the citation is to the text it supports, the shorter the distance ahead the LLM needs to anticipate the citation, which suggests that inline citations are better mitigations for false content generation than citations at the end of the content.
 
-Similarly, if you ask the LLM to extract factual statements from a paragraph, it may extract compound statements such as ‘X is doing Y AND Z’ (which may be harder to verify), which can be avoided by specifying an output structure such as (entity1, relationship, entity2).
+Similarly, if you ask the model to extract factual statements from a paragraph, it may extract compound statements such as ‘X is doing Y AND Z’ (which may be harder to verify), which can be avoided by specifying an output structure such as (entity1, relationship, entity2).
 
 |Example details| Prompt | Completion|
 |---------------|-------|------------|
@@ -136,16 +136,16 @@ Similarly, if you ask the LLM to extract factual statements from a paragraph, it
 
 ## Adjusting Temperature and Top_P parameters
 
-Changing the temperature parameter allows models to have differing risk levels. A higher value, for example 0.7 will make the output more random and produce more divergent responses, while a lower value, like 0.2 will make the output more focused and concrete. For example, a fictional story could be generated using a higher temperature. Whereas, to generate a legal document it is recommended to use a much lower temperature.
+Changing the temperature parameter allows models to have differing risk levels. A higher value, for example 0.7 will make the output more random and produce more divergent responses. While a lower value, like 0.2 will make the output more focused and concrete. For example, a fictional story could be generated using a higher temperature. Whereas to generate a legal document it is recommended to use a much lower temperature.
 
-In the next example we test two model responses at different temperature setting of 0.9 and 0.1 respectively, while retaining the same prompt and task. While the evaluation of creative content such as the pieces of text below is a subjective exercise and hence opinion may vary, the difference in model response to the same prompt solely owing to change in Temperature parameter is quite apparent.
+In the next example we test two model responses at different temperature settings of 0.9 and 0.1 respectively. While the evaluation of creative content such as the pieces of text below is a subjective exercise and opinions may vary, the difference in model response to the same prompt solely from changing the temperature parameter is apparent.
 
 |Instruction Type| Prompt | Completion|
 |----------------|--------|-----------|
 | Model response for temperature setting 0.1:| Write a product launch email for new AI-powered headphones that are priced at $79.99 and available at Best Buy, Target and Amazon.com. The target audience is tech-savvy music lovers and the tone is friendly and exciting.<br>1. What should be the subject line of the email?<br>2. What should be the body of the email?|Subject Line: Introducing the AI-Powered Headphones You've Been Waiting For!<br><br>Dear Tech-Savvy Music Lovers,<br><br>-We are thrilled to announce the launch of our new AI-powered headphones! These headphones are designed to provide you with the ultimate listening experience, with features like noise cancellation, adjustable sound settings, and more.<br><br>Our AI-powered headphones are now available at Best Buy, Target, and Amazon.com for just $79.99. With this unbeatable price, you can enjoy the highest quality sound without breaking the bank.<br><br>Our AI-powered headphones are perfect for anyone who loves music. Whether you're a professional musician or just a casual listener, you'll appreciate the superior sound quality and convenience of these headphones.<br><br>We know you'll love our AI-powered headphones, so don't wait - get yours today!<br><br>Sincerely,<br>[Your Company Name]|  
 |Model response for temperature setting 0.9:| Write a product launch email for new AI-powered headphones that are priced at $79.99 and available at Best Buy, Target and Amazon.com. The target audience is tech-savvy music lovers and the tone is friendly and exciting.<br><br>1. What should be the subject line of the email?<br>2. What should be the body of the email?| Subject Line: Upgrade your Music Listening Experience with AI-powered Headphones<br><br>Greetings Tech-savvy Music Lovers!<br><br>We have some exciting news to share with you – the newest AI-powered headphones are here! Our newest headphones feature advanced AI technology to give you the best sound that you’ve ever heard. They come with a crystal-clear sound, deep bass response and are designed to make your music listening experience enjoyable, no matter what type of music you listen to.<br>What’s more, they are now available at Best Buy, Target and Amazon.com for just $79.99, so you can enjoy the highest sound quality without breaking the bank.<br>But that’s not all! Our headphones are also packed with several other amazing features such as noise-cancellation technology and a hands-free microphone for calls, making them truly unbeatable.<br>So why wait? Upgrade your music listening experience and enjoy the best sound your ears have ever heard. Our AI-powered headphones are now available at Best Buy, Target and Amazon.com, so get yours today!<br>We hope you will enjoy these headphones as much as we do.<br>Happy Listening!<br>The AI-powered Headphones Team|
 
-Top_probability is another parameter and is similar to Temperature in that it also controls the randomness of the model response, but it does so in a different way. Experiment with different model responses by varying temperature and Top_P, but not both at once.
+Top_probability is another parameter and is similar to temperature in that it also controls the randomness of the model response, but it does so in a different way. Experiment with different model responses by varying temperature and Top_P, but not both at once.
 
 
 

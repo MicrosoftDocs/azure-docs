@@ -15,13 +15,13 @@ keywords: ChatGPT
 This guide does not go in-depth into the mechanics behind the message structure for Chat Completions. If you aren't familiar with interacting with the ChatGPT and GPT-4 models programmatically we recommend reading our [how-to guide on the Chat Completion API first](../how-to/chatgpt.md).  
 
 > [!NOTE]
-> All of the examples in this section of the guide were tested against a base GPT-4 model in English. If you are reading a localized version of this article in another language, these responses represent a localized translation of the English results. To learn more about the potential limitations depending on what language you are using to prompt a model, please consult our [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#limitations).  
+> All of the examples in this section of the guide were tested against a base GPT-4 model in English. If you are reading a localized version of this article in another language, these responses represent a localized translation of the English results. To learn more about potential limitations depending on what language you are using to prompt a model, please consult our [Responsible AI transparency note](/legal/cognitive-services/openai/transparency-note?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext#limitations).  
 
 ## System message
 
-The system message is included at the beginning of the prompt and is used to prime the model with context, instructions, or other information relevant to the use case. You can use the system message to describe the assistant’s personality, define what the model should and shouldn’t answer, and define the format of model responses.
+The system message is included at the beginning of the prompt and is used to prime the model with context, instructions, or other information relevant to your use case. You can use the system message to describe the assistant’s personality, define what the model should and shouldn’t answer, and define the format of model responses.
 
-Below example shows a sample system message and the resulting model response:
+The example below, shows a sample system message and the resulting model response:
 
 | System message |User     | Assistant  |
 |----------------|---------|------------|
@@ -39,19 +39,19 @@ Some other examples of system messages are:
    "phone_number": ""}”
 ```
 
-An important detail to understand is that even if you instruct a model in the system message to answer **I don't know** when unsure of an answer this does not guarantee that request will be honored. A well designed system message can increase the likelihood of a certain outcome, but it is still possible that an incorrect response could be generated that contradicts the intent of the instruction in the system message.
+An important detail to understand is that even if you instruct a model in the system message to answer **I don't know** when unsure of an answer this does not guarantee that the request will be honored. A well designed system message can increase the likelihood of a certain outcome, but it is still possible that an incorrect response could be generated that contradicts the intent of the instruction in the system message.
 
 ## Few-shot learning
 
-A common way to adapt language models to new tasks is to use few-shot learning, which is a specific type of in-context learning. In few-shot learning, a set of training examples is provided as part of the prompt to provide additional context to the model.  
+A common way to adapt language models to new tasks is to use few-shot learning. In few-shot learning, a set of training examples is provided as part of the prompt to give additional context to the model.  
 
-When using the Chat Completions API, a series of messages between the User and Assistant (written in the new prompt format), can serve as examples for few-shot learning. These examples can be used to prime the model to respond in a certain way or emulate particular behaviors or seed answers to common questions.
+When using the Chat Completions API, a series of messages between the User and Assistant (written in the [new prompt format](/azure/cognitive-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions#few-shot-learning-with-chat-completion)), can serve as examples for few-shot learning. These examples can be used to prime the model to respond in a certain way, emulate particular behaviors, and seed answers to common questions.
 
 | System message |Few-shot examples |
 |----------------|------------------|
-| Assistant is an intelligent chatbot designed to help users answer their tax related questions.<br> Instructions <br> - Only answer questions related to taxes. <br> - If you're unsure of an answer, you can say "I don't know" or "I'm not sure" and recommend users go to the IRS website for more information.| **User** - "When do I need to file my taxes by?"<br>**Assistant** - "In 2023, you will need to file your taxes by April 18th. The date falls after the usual April 15th deadline because April 15th falls on a Saturday in 2023. For more details, see https://www.irs.gov/filing/individuals/when-to-file." <br>**User** - "How can I check the status of my tax refund?"<br>**Assistant** - "You can check the status of your tax refund by visiting https://www.irs.gov/refunds" |
+| Assistant is an intelligent chatbot designed to help users answer their tax related questions.<br> Instructions <br> - Only answer questions related to taxes. <br> - If you're unsure of an answer, you can say "I don't know" or "I'm not sure" and recommend users go to the IRS website for more information.| **User** - "When do I need to file my taxes by?"<br>**Assistant** - "In 2023, you will need to file your taxes by April 18th. The date falls after the usual April 15th deadline because April 15th falls on a Saturday in 2023. For more details, see https://www.irs.gov/filing/individuals/when-to-file " <br>**User** - "How can I check the status of my tax refund?"<br>**Assistant** - "You can check the status of your tax refund by visiting https://www.irs.gov/refunds " |
 
-The table above describes the basic prompt structure, but for a detailed explanation of the exact prompt format you will need to refer to the [Chat Completion guide](../how-to/chatgpt.md).
+The table above describes the basic prompt structure, but for a detailed explanation of the exact prompt format you will need to refer to the [Chat Completion guide](../how-to/chatgpt.md). 
 
 ## Non chat scenarios
 
@@ -65,7 +65,7 @@ While the Chat Completion API is optimized to work with multi-turn conversations
 
 The sequence in which information appears in the prompt matters. This is because GPT style models are built in a certain way that defines how they process the input. Our research suggests that telling the model the task you want it to do at the beginning of the prompt, before sharing additional contextual information or examples, can help produce higher-quality outputs.
 
-Although following this technique is still generally recommended, in contrast to previous model versions (GPT3 and prior), our testing showed that the model response with ChatGPT and GPT-4 models was the same regardless of whether the technique is utilized. In the case of the below example, we see that adding the statement “Several sources … eruption” at the beginning or the end of the prompt did not cause any change in the final model response.
+Although following this technique is still generally recommended, in contrast to previous model versions (GPT-3 and prior), our testing showed that the model response with ChatGPT and GPT-4 models was the same regardless of whether the technique is utilized. In the case of the below example, we see that adding the statement “Several sources … eruption” at the beginning or the end of the prompt did not cause any change in the final model response.
 
 | System message |User     | Assistant  |
 |----------------|---------|------------|
@@ -73,21 +73,31 @@ Although following this technique is still generally recommended, in contrast to
 
 ## Repeat instructions at the end
 
-Models can be susceptible to “recency bias,” which means that information at the end of the prompt might have more significant influence over the output than information at the beginning of the prompt. Therefore, it is worth experimenting with repeating the instructions at the end of the prompt and evaluating the impact for your use case.
+Models can be susceptible to **recency bias**, which in this context means that information at the end of the prompt might have more significant influence over the output than information at the beginning of the prompt. Therefore, it is worth experimenting with repeating the instructions at the end of the prompt and evaluating the impact on the generated response.
 
 ## Prime the output
 
-This refers to including a few words or phrases at the end of the prompt to obtain a model response that follows the desired form. For example, using a cue such as `“Here’s a bulleted list of key points:\n- ”` can help make sure the outputted is formatted as a list of bullet points.
+This refers to including a few words or phrases at the end of the prompt to obtain a model response that follows the desired form. For example, using a cue such as `“Here’s a bulleted list of key points:\n- ”` can help make sure the output is formatted as a list of bullet points.
 
 | System message |User     | Assistant  |
 |----------------|---------|------------|
 | You are an AI assistant that helps people find information. Answer in as few words as possible.| John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this? ## One possible search query is:| "John Smith married Lucy Smith five kids software engineer Microsoft" |
 
-In the above prompt, the text "One possible search query is:" primes the model to produce exactly one output. Without this cue the model produces several search queries as output.
+In the above prompt, the text *One possible search query is:* primes the model to produce a single output. Without this cue the model produces several search queries as output.
+
+## Add clear syntax
+
+Using clear syntax for your prompt—including punctuation, headings, and section markers—helps communicate intent and often makes outputs easier to parse.
+
+In the example below, separators (`---` in this case) have been added between different sources of information or steps. This allows the use of `---` as a stopping condition for generation. In addition, section headings or special variables are presented in uppercase to differentiate them.
+
+| System message |User     | Assistant  |
+|----------------|---------|------------|
+| You are an AI assistant that helps people find information.| You will read a paragraph, and then issue queries to a search engine in order to fact-check it. Also explain the queries.<br>---<br>PARAGRAPH<br>John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this?<br>---<br>QUERIES|1. "John Smith Microsoft" - To check if John Smith is indeed employed at Microsoft.<br>2. "John Smith Lucy Smith" - To check if John Smith is married to Lucy Smith.<br>3. "John Smith children" - To check if John Smith has five children.|
 
 ## Break the task down
 
-Large language models (LLMs) often perform better if the task is broken down into smaller steps. For example, in the search query generation prompt referenced earlier, the prompt can be restructured so that the model is first instructed to extract relevant facts, and then instructed to generate search queries that can be used to verify those facts.
+Large language models (LLMs) often perform better if the task is broken down into smaller steps. For example, in the search query prompt referenced earlier, the prompt can be restructured so that the model is first instructed to extract relevant facts, and then instructed to generate search queries that can be used to verify those facts.
 
 | System message |User     | Assistant  |
 |----------------|---------|------------|
@@ -103,17 +113,27 @@ One simple way to use an affordance is to stop generation once the affordance ca
 
 | System message |User     | Assistant  |
 |----------------|---------|------------|
-| You are an AI assistant that helps people find information. | You will read a paragraph, extract factual claims, and then use search engine results to fact-check them<br>---<br>PARAGRAPH<br>John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this?<br>---<br>FACTUAL CLAIMS<br>- John Smith is married to Lucy Smith<br>- John and Lucy have five kids<br>- John works as a software engineer at Microsoft<br>---<br>Here are various search queries issued to research the claims above:<br>SEARCH QUERIES<br>- John Smith married to Lucy Smith<br>- John Smith number of children<br>- John Smith software engineer Microsoft<br>---<br>Here are snippets of the search results:<br>SNIPPETS:<br>[1] … John Smith’s wedding was on September 25, 2012 …<br>[2] … John Smith was accompanied by his wife Lucy to a ball<br>[3]John was accompanied to the soccer game by his two daughters and three sons<br>[4] … After spending 10 years at Microsoft, Smith founded his own startup, Tailspin Toys<br>5] John M is the town smith, and he married Fiona. They have a daughter named Lucy<br>---<br>Given the snippets, fact check each of the factual claims above:| - John Smith is married to Lucy Smith: Confirmed. Snippet [1] and [2] both mention John Smith's wife as Lucy.<br>- John and Lucy have five kids: Confirmed. Snippet [3] mentions that John was accompanied by his two daughters and three sons.<br>- John works as a software engineer at Microsoft: Partially confirmed. Snippet [4] mentions that John spent 10 years at Microsoft, but it does not explicitly state that he currently works there. Further research may be needed to confirm his current employment status.|
+| You are an AI assistant that helps people find information. | You will read a paragraph, extract factual claims, and then use search engine results to fact-check them<br>---<br>PARAGRAPH<br>John Smith is married to Lucy Smith. They have five kids, and he works as a software engineer at Microsoft. What search queries should I do to fact-check this?<br>---<br>FACTUAL CLAIMS<br>- John Smith is married to Lucy Smith<br>- John and Lucy have five kids<br>- John works as a software engineer at Microsoft<br>---<br>Here are various search queries issued to research the claims above:<br>SEARCH QUERIES<br>- John Smith married to Lucy Smith<br>- John Smith number of children<br>- John Smith software engineer Microsoft<br>---<br>Here are snippets of the search results:<br>SNIPPETS:<br>[1] … John Smith’s wedding was on September 25, 2012 …<br>[2] … John Smith was accompanied by his wife Lucy to a ball<br>[3]John was accompanied to the soccer game by his two daughters and three sons<br>[4] … After spending 10 years at Microsoft, Smith founded his own startup, Tailspin Toys<br>5] John M is the town smith, and he married Fiona. They have a daughter named Lucy<br>---<br>Given the snippets, fact check each of the factual claims above:| - John Smith is married to Lucy Smith: Confirmed. Snippet [1] and [2] both mention John Smith's wife as Lucy.<br><br>- John and Lucy have five kids: Confirmed. Snippet [3] mentions that John was accompanied by his two daughters and three sons.<br><br>- John works as a software engineer at Microsoft: Partially confirmed. Snippet [4] mentions that John spent 10 years at Microsoft, but it does not explicitly state that he currently works there. Further research may be needed to confirm his current employment status.|
+
+## Chain of thought prompting
+
+This is a variation on the **break the task down** technique. Instead of splitting a task into smaller steps, in this approach the model response is instructed to proceed step-by-step and present all the steps involved. Doing so reduces the possibility of inaccuracy of outcomes and makes assessing the model response easier.
+
+| System message |User     | Assistant  |
+|----------------|---------|------------|
+|You are an AI assistant that helps people find information.|Who was the most decorated (maximum medals) individual athlete in the Olympic games that were held at Sydney? Take a step-by-step approach in your response, cite sources and give reasoning before sharing final answer in the below format: ANSWER is: `<name>`|Step 1: Determine the year of the Sydney Olympic games.
+The Sydney Olympic games were held in the year 2000.<br><br>Step 2: Find a list of individual athletes who won multiple medals in the 2000 Sydney Olympics.<br><br>According to the official website of the Olympic Games, there were several individual athletes who won multiple medals in the 2000 Sydney Olympics. Some of the notable names include:<br>•	Ian Thorpe (Australia) - 3 gold, 2 silver, 0 bronze<br>•	Pieter van den Hoogenband (Netherlands) - 2 gold, 0 silver, 2 bronze<br>•	Lenny Krayzelburg (USA) - 3 gold, 0 silver, 0 bronze<br>•	Inge de Bruijn (Netherlands) - 3 gold, 1 silver, 0 bronze<br><br>Step 3: Determine the athlete with the most medals.
+After reviewing the list of individual athletes who won multiple medals in the 2000 Sydney Olympics, we can see that the athlete with the most medals is Ian Thorpe from Australia, who won a total of 5 medals (3 gold and 2 silver).<br><br>Therefore, the ANSWER is: Ian Thorpe.|
 
 ## Specifying the output structure
 
 Using your prompt to specify the structure of the output can have a significant impact on the nature and quality of the results. Sometimes system message inputs as “only write true facts” or “do not fabricate information” might not be adequate mitigations. Instead, asking for the model response to also include citations can help result in a reduction of the prevalence of incorrect responses.
 
-If you instruct the model to cite the source material when it makes statements, those statements are much more likely to be grounded. Asking for citations makes it so that the model must make two errors every time it generates a response: the first error is the fabricated response, and the second is the bad citation. Note that the closer the citation is to the text it supports, the shorter the distance ahead model needs to anticipate the citation, which suggests that inline citations are better mitigations for false content generation than citations at the end of the content.
+If you instruct the model to cite the source material when it makes statements, those statements are much more likely to be grounded. Asking for citations makes it so that the model must make two errors every time it generates a response: the first error is the fabricated response, and the second is the bad citation. Note that the closer the citation is to the text it supports, the shorter the distance ahead the model needs to anticipate the citation, which suggests that inline citations are better mitigations for false content generation than citations at the end of the content.
 
 Similarly, if you ask the model to extract factual statements from a paragraph, it may extract compound statements such as ‘X is doing Y AND Z’ (which may be harder to verify). This can be avoided by specifying an output structure such as (entity1, relationship, entity2).
 
-Examples below show the use of citations and directing the model response to fit a defined structure.
+The examples below show the use of citations and directing the model response to fit a defined structure.
 
 | System message | User     | Assistant  |
 |----------------|---------|-------------|
@@ -125,7 +145,7 @@ Examples below show the use of citations and directing the model response to fit
 
 ## Temperature and Top_p parameters
 
-Changing the temperature parameter changes the output of the model. The temperature parameter can be set between 0 and 2. A higher value, for example 0.7 will make the output more random and produce more divergent responses, while a lower value, like. 0.2, will make the output more focused and concrete. A fictional story could be generated using a higher temperature. Whereas, to generate a legal document it is recommended to use a much lower temperature.
+Changing the temperature parameter changes the output of the model. The temperature parameter can be set between 0 and 2. A higher value, for example 0.7 will make the output more random and produce more divergent responses, while a lower value, like. 0.2, will make the output more focused and concrete. A fictional story could be generated using a higher temperature. Whereas to generate a legal document it is recommended to use a much lower temperature.
 Top_probability is another parameter and is similar to Temperature in that it also controls the randomness of the model response, but it does so in a different way. The general recommendation is to alter one of these two parameters at a time, not both.
 
 ## Provide grounding context
@@ -135,7 +155,9 @@ Here is an example where the system is provided a [recent blog describing the la
 
 | System message | User     | Assistant  |
 |----------------|---------|-------------|
-| You are an AI assistant that helps people find information. You will provide answers exclusively from below text and respond in 100 words or less:<br>`“At Microsoft, we are constantly discovering new ways to unleash creativity, unlock productivity, and uplevel skills so that more people can benefit from using AI. This is allowing our customers to …<br><br>… thereby reducing the likelihood that the model will generate a harmful response.”1`<br><br>Answer in 100 words or less. Use bullet lists wherever possible.| Who are some of the early customers of the Azure OpenAI service GPT-4 models?| Here are some of the early customers of the Azure OpenAI service GPT-4 models:<br>- Epic Healthcare: They plan to use GPT-4 to help physicians and nurses spend less time on data entry and investigation. <br>- Coursera: They are using Azure OpenAI Service with GPT-4 to create a new AI-powered learning experience on their platform.<br>- Coca-Cola: They are using Azure OpenAI to build a knowledge hub and plan to leverage GPT-4's multimodal capabilities for marketing, advertising, public relations, and customer relations.<br>- Other companies of all sizes are using Azure AI to improve customer experiences, summarize long-form content, help write software, and reduce risk by predicting the right tax data.|
+| You are an AI assistant that helps people find information. You will provide answers exclusively from below text and respond in 100 words or less:<br>"At Microsoft, we are constantly discovering new ways to unleash creativity, unlock productivity, and uplevel skills so that more people can benefit from using AI. This is allowing our customers to …<br><br>… thereby reducing the likelihood that the model will generate a harmful response.”<sup>1<sup><br><br>Answer in 100 words or less. Use bullet lists wherever possible.| Who are some of the early customers of the Azure OpenAI service GPT-4 models?| Here are some of the early customers of the Azure OpenAI service GPT-4 models:<br>- Epic Healthcare: They plan to use GPT-4 to help physicians and nurses spend less time on data entry and investigation. <br>- Coursera: They are using Azure OpenAI Service with GPT-4 to create a new AI-powered learning experience on their platform.<br>- Coca-Cola: They are using Azure OpenAI to build a knowledge hub and plan to leverage GPT-4's multimodal capabilities for marketing, advertising, public relations, and customer relations.<br>- Other companies of all sizes are using Azure AI to improve customer experiences, summarize long-form content, help write software, and reduce risk by predicting the right tax data.|
+
+<sup>1<sup> Text from [Azure OpenAI GPT-4 launch blog](https://azure.microsoft.com/blog/introducing-gpt4-in-azure-openai-service/).
 
 ## Next steps
 
