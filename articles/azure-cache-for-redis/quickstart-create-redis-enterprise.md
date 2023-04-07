@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 04/12/2022
+ms.date: 04/07/2023
 
 ---
 # Quickstart: Create a Redis Enterprise cache
@@ -88,11 +88,5 @@ The Enterprise Cluster mode is a simpler configuration that exposes a single end
 
 In this quickstart, you learned how to create an Enterprise tier instance of Azure Cache for Redis.
 
-> [!div class="nextstepaction"]
-> [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
-## Recommended content
-
-[Best practices for the Enterprise tiers - Azure Cache for Redis | Microsoft Learn](https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-best-practices-enterprise-tiers)
-
-> Learn on the best practices for the Enterprise and Enterprise Flash tiers of Azure Cache for Redis
+- [Create an ASP.NET web app that uses an Azure Cache for Redis](cache-web-app-aspnet-core-howto.md)
+- [Best practices for the Enterprise tiers](cache-best-practices-enterprise-tiers.md)
