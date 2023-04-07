@@ -236,7 +236,7 @@ items:
           items:
             - name: General
               href: troubleshoot-managed-instance.md
-            - name: configuration
+            - name: Configuration
               href: troubleshoot-managed-instance-configuration.md
 - name: Azure Arc-enabled PostgreSQL (preview) 
   items:
