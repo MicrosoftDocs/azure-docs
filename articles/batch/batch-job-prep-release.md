@@ -103,7 +103,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 
 ## Code sample on GitHub
 
-To see job preparation and release tasks in action, build the [JobPrepRelease](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease) sample project from GitHub. This console application takes the following actions:
+To see job preparation and release tasks in action, build and run the [JobPrepRelease](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease) sample project from GitHub. This console application takes the following actions:
 
 1. Creates a pool with two nodes.
 1. Creates a job with job preparation, release, and standard tasks.
@@ -164,11 +164,15 @@ Sample complete, hit ENTER to exit...
 
 ## View job preparation and release tasks in the Azure portal
 
-You can use the [Azure portal](https://portal.azure.com) to view Batch job properties and tasks, including job preparation and release tasks. Navigate to the job page after your tasks have completed, but before deleting your job and pool.
+You can use the [Azure portal](https://portal.azure.com) to view Batch job properties and tasks, including job preparation and release tasks. From your Batch account page, select **Jobs** from the left navigation and then select a job. If you run the sample application, navigate to the job page after the tasks complete, but before you delete the job and pool.
 
-The following screenshot shows the **JobPrepReleaseSampleJob** page after the sample application runs. This job had preparation tasks, so you can select **Preparation tasks** in the left navigation on the job page to see their properties. You can also download the shared text file that the job tasks modify by selecting **Tasks** in the left navigation.
+You can monitor job progress and status by expanding **Approximate task count** on the job **Overview** or **Tasks** page.
 
-:::image type="content" source="media/batch-job-prep-release/portal-jobprep-01.png" alt-text="Screenshot showing job preparation task properties in the Azure portal.":::
+:::image type="content" source="media/batch-job-prep-release/monitor-tasks.png" alt-text="Screenshot showing job task progress in the Azure portal.":::
+
+The following screenshot shows the **JobPrepReleaseSampleJob** page after the sample application runs. This job had preparation and release tasks, so you can select **Preparation tasks** or **Release tasks** in the left navigation to see their properties.
+
+:::image type="content" source="media/batch-job-prep-release/portal-jobprep-01.png" alt-text="Screenshot showing job release task properties in the Azure portal.":::
 
 ## Next steps
 
