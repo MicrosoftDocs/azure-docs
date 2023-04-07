@@ -2,7 +2,7 @@
 title: Resource quota errors
 description: Describes how to resolve resource quota errors when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 01/03/2023
+ms.date: 04/05/2023
 ---
 
 # Resolve errors for resource quotas

@@ -123,4 +123,3 @@ ContentType: application/json
 
 - [Add Azure Active Directory B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)
 - [Properties of an Azure AD B2B guest user](user-properties.md)
-- [B2B for Azure AD integrated apps](configure-saas-apps.md)

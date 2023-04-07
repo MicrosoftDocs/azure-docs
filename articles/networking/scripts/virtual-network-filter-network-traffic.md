@@ -26,7 +26,7 @@ This script sample creates a virtual network with front-end and back-end subnets
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurecli
-az group delete --name MyResourceGroup --yes
+az group delete --name $resourceGroup --yes
 ```
 
 ## Script explanation

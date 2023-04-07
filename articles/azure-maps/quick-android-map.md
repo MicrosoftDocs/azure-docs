@@ -2,8 +2,8 @@
 title: 'Quickstart: Create an Android app with Azure Maps'
 titleSuffix:  Microsoft Azure Maps
 description: 'Quickstart: Learn how to create an Android app using the Azure Maps Android SDK.'
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: azure-maps
@@ -45,7 +45,7 @@ Create a new Azure Maps account using the following steps:
     * The *Pricing tier* for this account. Select *Gen2*.
     * Read the *Terms*, and check the checkbox to confirm that you have read and agree to the License and Privacy Statement.
     * Select the **Review + create** button.
-    * Once you have ensured that everything is correct in the **Review + create** page, select the **Create** button.
+    * Once you've ensured that everything is correct in the **Review + create** page, select the **Create** button.
 
     :::image type="content" source="./media/shared/create-account.png" alt-text="A screenshot that shows the Create Maps account pane in the Azure portal.":::
 
@@ -81,7 +81,7 @@ Complete the following steps to create a new project with an empty activity in A
     * **Package name**. Use the default **com.example.azuremapsapp**.
     * **Save location**. Use the default or select a new location to save your project files. Avoid using spaces in the path or filename due to potential problems with the NDK tools.
     * **Language**. Select Kotlin or Java.
-    * **Minimum SDK**. Select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. It is the earliest version supported by the Azure Maps Android SDK.
+    * **Minimum SDK**. Select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. It's the earliest version supported by the Azure Maps Android SDK.
 1. Select **Finish** to create your new project.
 
 See the [Android Studio documentation](https://developer.android.com/studio/intro/) for more help with installing Android Studio and creating a new project.
@@ -93,7 +93,7 @@ Android Studio lets you set up a virtual Android device on your computer. Doing 
 To set up an Android Virtual Device (AVD):
 
 1. Select **AVD  Manager** in the **Tools** menu.
-1. The **Android Virtual Device Manager** will appear. Select **Create Virtual Device**.
+1. The **Android Virtual Device Manager** appears. Select **Create Virtual Device**.
 1. In the **Phones** category, select **Nexus 5X**, and then select **Next**.
 
 You can learn more about setting up an AVD in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
@@ -122,7 +122,7 @@ The next step in building your application is to install the Azure Maps Android 
 
 3. Open the project's **gradle.properties** file, verify that `android.useAndroidX` and `android.enableJetifier` are both set to `true`.
    
-   If the **gradle.properties** file does not include `android.useAndroidX` and `android.enableJetifier`, add the next two lines to the end of the file:
+   If the **gradle.properties** file doesn't include `android.useAndroidX` and `android.enableJetifier`, add the next two lines to the end of the file:
    
    ```gradle
    android.useAndroidX=true
@@ -178,7 +178,7 @@ The next step in building your application is to install the Azure Maps Android 
     > [!TIP]
     > By setting the authentication information globally in the `AzureMaps` class using the `setSubscriptionKey` or `setAadProperties` methods, you won't need to add your authentication information in every view.
 
-    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For your app to correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control, then call the respective map control method.
+    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. To correctly call the map control's lifecycle methods, override the following lifecycle methods in the Activity that contains the map control, then call the respective map control method.
 
     * `onCreate(Bundle)`
     * `onDestroy()`
@@ -286,7 +286,7 @@ The next step in building your application is to install the Azure Maps Android 
     > [!TIP]
     > By setting the authentication information globally in the `AzureMaps` class using the `setSubscriptionKey` or `setAadProperties` methods, you won't need to add your authentication information in every view.
 
-    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. For your app to correctly call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control. And, you must call the respective map control method.
+    The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle. These lifecycle methods must be called directly from the containing Activity. To correctly call the map control's lifecycle methods, override the following lifecycle methods in the Activity that contains the map control. And, you must call the respective map control method.
 
     * `onCreate(Bundle)`
     * `onDestroy()`
@@ -387,7 +387,7 @@ The next step in building your application is to install the Azure Maps Android 
 
     :::image type="content" source="media/quick-android-map/run-app.png" alt-text="A screenshot showing the run button in Android Studio.":::
 
-Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
+Android Studio takes a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
 :::image type="content" source="media/quick-android-map/quickstart-android-map.png" alt-text="A screenshot showing Azure Maps in an Android application.":::
 

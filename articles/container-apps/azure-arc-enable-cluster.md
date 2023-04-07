@@ -6,7 +6,7 @@ author: cebundy
 ms.service: container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 3/20/2023
+ms.date: 3/24/2023
 ms.author: v-bcatherine
 ---
 ---
@@ -428,6 +428,10 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) is an Azure l
     ```
 
     ---
+
+    > [!NOTE]
+    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](../azure-arc/kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with an Azure Active Directory user with restricted permissions on the cluster resource.
+    >
 
 1. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, rerun the command after a minute.
 

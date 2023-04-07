@@ -18,7 +18,7 @@ Areas in Azure Monitor where you'll use queries include:
 - [Log alert rules](../alerts/alerts-overview.md): Proactively identify issues from data in your workspace. Each alert rule is based on a log query that's automatically run at regular intervals. The results are inspected to determine if an alert should be created.
 - [Workbooks](../visualize/workbooks-overview.md): Include the results of log queries by using different visualizations in interactive visual reports in the Azure portal.
 - [Azure dashboards](../visualize/tutorial-logs-dashboards.md): Pin the results of any query into an Azure dashboard, which allows you to visualize log and metric data together and optionally share with other Azure users.
-- [Azure Logic Apps](../logs/logicapp-flow-connector.md): Use the results of a log query in an automated workflow by using Logic Apps.
+- [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md): Use the results of a log query in an automated workflow by using a logic app workflow.
 - [PowerShell](/powershell/module/az.operationalinsights/invoke-azoperationalinsightsquery): Use the results of a log query in a PowerShell script from a command line or an Azure Automation runbook that uses `Invoke-AzOperationalInsightsQuery`.
 - [Azure Monitor Logs API](/rest/api/loganalytics/): Retrieve log data from the workspace from any REST API client. The API request includes a query that's run against Azure Monitor to determine the data to retrieve.
 - **Azure Monitor Query client libraries**: Retrieve log data from the workspace via an idiomatic client library for the following ecosystems:

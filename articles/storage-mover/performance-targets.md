@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: storage-mover
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 03/27/2023
 ---
 
 <!-- 
@@ -22,7 +22,7 @@ REVIEW Engineering: not reviewed
 
 # Azure Storage Mover scale and performance targets
 
-The performance of a storage migration service is a key aspect for any migration. Azure Storage Mover is a new service, in public preview. In this article, we share performance test results - your experience will vary.
+The performance of a storage migration service is a key aspect for any migration. In this article, we share performance test results, though because Azure Storage Mover is a new service, your experience may vary.
 
 ## Scale targets
 
@@ -34,7 +34,7 @@ Azure Storage Mover is a hybrid cloud service. Hybrid services have a cloud serv
 
 Only the agent is a relevant part of the service for performance testing. To omit privacy and performance concerns, data travels directly from the Storage Mover agent to the target storage in Azure. Only control and telemetry messages are sent to the cloud service.
 
-:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="A diagram illustrating a migration's path by showing two arrows. The first arrow for data traveling to a storage account from the source/agent and a second arrow for only the management/control info to the storage mover resource/service." lightbox="media/across-articles/data-vs-management-path-large.png":::
+:::image type="content" source="media/across-articles/data-vs-management-path.png" alt-text="A diagram illustrating a migration's path by showing two arrows. The first arrow represents data traveling to a storage account from the source or agent and a second arrow represents only the management or control info to the storage mover resource or service." lightbox="media/across-articles/data-vs-management-path-large.png":::
 
 The following table describes the characteristics of the test environment that produced the performance test results shared later in this article.
 
@@ -47,7 +47,7 @@ The following table describes the characteristics of the test environment that p
 
 ## Performance baselines
 
-These test results are created under ideal conditions. They're meant as a baseline of the components the Storage Mover service and agent can directly influence. Differences in source devices, disks, and network connections aren't considered in this test. Real-world performance will vary. 
+These test results are created under ideal conditions. They're meant as a baseline of the components the Storage Mover service and agent can directly influence. Differences in source devices, disks, and network connections aren't considered in this test. Real-world performance varies.
 
 Different agent resource configurations are tested:
 
@@ -87,8 +87,8 @@ Fundamentally, network quality and the ability to process files, folders and the
 
 Across the two core areas of network and compute, several aspects have an impact:
 
-- **Migration scenario** <br />Copy into an empty target is faster as compared to a target with content. This is because the migration engine must evaluate not only the source but also the target to make copy decisions.
-- **Namespace item count** <br />Migrating 1 GiB of small files will take more time than migrating 1 GiB of larger files.
+- **Migration scenario** <br />Copying into an empty target is faster as compared to a target with content. This behavior is due the migration engine evaluating not only the source, but also the target to make copy decisions.
+- **Namespace item count** <br />Migrating 1 GiB of small files takes more time than migrating 1 GiB of larger files.
 - **Namespace shape** <br />A wide folder hierarchy lends itself to more parallel processing than a narrow or deep directory structure. The file to folder ratio also plays a roll.
 - **Namespace churn**  <br />How many files, folders, and metadata have changed between two copy runs from the same source to the same target. 
 - **Network**
@@ -102,7 +102,7 @@ In this strategy, you copy from source to target several times. During these cop
 
 During the first copy from source to target, the target is likely empty and all the source content must travel to the target. As a result, the first copy is likely most constrained by the available network resources. 
 
-Towards the end of a migration, when you've copied the source to the target several times already, only a few files, folders, and metadata has changed since the last copy. In this last copy iteration, comparing each file in source and target to see if it needs to be updated, requires more compute resources and fewer network resources. Copy runs in this late stage of a migration are often more compute-constrained. Proper [resourcing of the Storage Mover agent](agent-deploy.md#recommended-compute-and-memory-resources) becomes more and more important.
+Towards the end of a migration, when you've copied the source to the target several times already, only a few files, folders, and metadata has changed since the last copy. In this last copy iteration, comparing each file in source and target to see if it needs to be updated, requires more compute resources and fewer network resources. Copy runs in this late stage of a migration are often more compute-constrained. Proper [resourcing of the Storage Mover agent](agent-deploy.md#recommended-compute-and-memory-resources) becomes increasingly important.
 
 ## Next steps
 

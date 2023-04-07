@@ -3,7 +3,7 @@ title: "Qualys VM KnowledgeBase (using Azure Function) connector for Microsoft S
 description: "Learn how to install the connector Qualys VM KnowledgeBase (using Azure Function) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/23/2023
+ms.date: 03/25/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -12,7 +12,7 @@ ms.author: cwatson
 
 The [Qualys Vulnerability Management (VM)](https://www.qualys.com/apps/vulnerability-management/) KnowledgeBase (KB) connector provides the capability to ingest the latest vulnerability data from the Qualys KB into Azure Sentinel. 
 
- This data can used to correlate and enrich vulnerability detections found by the [Qualys Vulnerability Management (VM)](/azure/sentinel/connect-qualys-vm) data connector.
+ This data can used to correlate and enrich vulnerability detections found by the [Qualys Vulnerability Management (VM)](https://docs.microsoft.com/azure/sentinel/connect-qualys-vm) data connector.
 
 ## Connector attributes
 
@@ -20,8 +20,6 @@ The [Qualys Vulnerability Management (VM)](https://www.qualys.com/apps/vulnerabi
 | --- | --- |
 | **Application settings** | apiUsername<br/>apiPassword<br/>workspaceID<br/>workspaceKey<br/>uri<br/>filterParameters<br/>logAnalyticsUri (optional) |
 | **Azure function app code** | https://aka.ms/sentinel-qualyskb-functioncode |
-| **Kusto function alias** | QualysKB |
-| **Kusto function url** | https://aka.ms/sentinel-qualyskb-parser |
 | **Log Analytics table(s)** | QualysKB_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
@@ -57,8 +55,7 @@ To integrate with Qualys VM KnowledgeBase (using Azure Function) make sure you h
 ## Vendor installation instructions
 
 
-> [!NOTE]
-   >  This connector uses Azure Functions to connect to Qualys KB connector to pull logs into Azure Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+**NOTE:** This data connector depends on a parser based on a Kusto Function to work as expected which is deployed as part of the solution. To view the function code in Log Analytics, open Log Analytics/Microsoft Sentinel Logs blade, click Functions and search for the alias QualysVM Knowledgebase and load the function code or click [here](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/CrowdStrike%20Falcon%20Endpoint%20Protection/Parsers/CrowdstrikeFalconEventStream.txt), on the second line of the query, enter the hostname(s) of your QualysVM Knowledgebase device(s) and any other unique identifiers for the logstream. The function usually takes 10-15 minutes to activate after solution installation/update.
 
 
 >This data connector depends on a parser based on a Kusto Function to work as expected. [Follow the steps](https://aka.ms/sentinel-qualyskb-parser) to use the Kusto function alias, **QualysKB**

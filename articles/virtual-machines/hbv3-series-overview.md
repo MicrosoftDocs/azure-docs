@@ -19,7 +19,7 @@ author: mamccrea
 
 An [HBv3-series](hbv3-series.md) server features 2 * 64-core EPYC 7V73X CPUs for a total of 128 physical "Zen3" cores with AMD 3D V-Cache. Simultaneous Multithreading (SMT) is disabled on HBv3. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 96 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
 
-```bash
+```output
 Nodes per Socket (NPS) = 2
 L3 as NUMA = Disabled
 NUMA domains within VM OS = 4
@@ -122,7 +122,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
 | Additional Frameworks          | UCX, libfabric, PGAS                  |
 | Azure Storage Support          | Standard and Premium Disks (maximum 32 disks)              |
-| OS Support for SRIOV RDMA      | CentOS/RHEL 7.6+, Ubuntu 18.04+, SLES 12 SP4+, WinServer 2016+           |
+| OS Support for SRIOV RDMA      | CentOS/RHEL 7.9+, Ubuntu 18.04+, SLES 12 SP5+, WinServer 2016+           |
 | Recommended OS for Performance | CentOS 8.1, Windows Server 2019+
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](sizes-hpc.md#cluster-configuration-options)                      | 
 

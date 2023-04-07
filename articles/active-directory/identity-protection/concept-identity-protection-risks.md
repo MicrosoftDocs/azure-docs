@@ -68,6 +68,7 @@ Premium detections are visible only to Azure AD Premium P2 customers. Customers 
 | Activity from anonymous IP address | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). This detection identifies that users were active from an IP address that has been identified as an anonymous proxy IP address. |
 | Suspicious inbox forwarding | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). This detection looks for suspicious email forwarding rules, for example, if a user created an inbox rule that forwards a copy of all emails to an external address. |
 | Mass Access to Sensitive Files | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate-anomaly-alerts#unusual-file-access-by-user). This detection looks at your environment and triggers alerts when users access multiple files from Microsoft SharePoint or Microsoft OneDrive. An alert is triggered only if the number of accessed files is uncommon for the user and the files might contain sensitive information|
+| Verified threat actor IP | Real-time | This risk detection type indicates sign-in activity that is consistent with known IP addresses associated with nation state actors or cyber crime groups, based on Microsoft Threat Intelligence Center (MSTIC).|
 
 #### Nonpremium sign-in risk detections
 
