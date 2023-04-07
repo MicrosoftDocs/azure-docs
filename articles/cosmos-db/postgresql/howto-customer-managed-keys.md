@@ -36,12 +36,10 @@ ms.date: 04/06/2023
 **1. User Assigned Managed Identity:**
 
    a. Search for Managed Identities in the global search bar.
-
       ![Searching for Managed Identities in Azure portal](media/howto-customer-managed-keys/User%20Assigned%20Managed%20Identity.png)
 
 
    b. Create a new User assigned managed Identity in the same region as your Azure Cosmos DB for PostgreSQL cluster.
-
       ![Screenshot of User assigned managed Identity page in Azure portal](media/howto-customer-managed-keys/UAI%202.png)
 
 
@@ -52,8 +50,7 @@ ms.date: 04/06/2023
    Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: Soft Delete and Purge Protection.
 
    a. If you create a new Azure Key Vault instance, enable these properties during creation:
-
-      ![Screenshot of Key Vault's properties](media/howto-customer-managed-keys/Key%20Vault%201.png)
+     ![Screenshot of Key Vault's properties](media/howto-customer-managed-keys/Key%20Vault%201.png)
 
    b. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles:
 
@@ -70,14 +67,12 @@ ms.date: 04/06/2023
  **3. Add an Access Policy to the Key Vault:**
 
     a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
-    
-       ![Screenshot of Key Vault's access configuration](media/howto-customer-managed-keys/Access%20Policy%201.png)
+   ![Screenshot of Key Vault's access configuration](media/howto-customer-managed-keys/Access%20Policy%201.png)
 
     b. Select + Create.
 
     c. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
-    
-       ![Screenshot of Key Vault's permissions settings](media/howto-customer-managed-keys/Access%20Policy%202.png)
+   ![Screenshot of Key Vault's permissions settings](media/howto-customer-managed-keys/Access%20Policy%202.png)
 
     d. In the Principal Tab, select the User Assigned Managed Identity you had created in prerequisite step.
 
@@ -88,8 +83,7 @@ ms.date: 04/06/2023
     a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
     b. Select Keys from the left menu and then select +Generate/Import.
-    
-       ![Screenshot of Key generation page](media/howto-customer-managed-keys/Key%201.png)
+   ![Screenshot of Key generation page](media/howto-customer-managed-keys/Key%201.png)
 
     c. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
 
