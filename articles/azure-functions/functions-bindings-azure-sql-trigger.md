@@ -171,6 +171,22 @@ Optionally, your functions can scale automatically based on the number of change
 
 [!INCLUDE [functions-runtime-scaling](../../includes/functions-runtime-scaling.md)]
 
+## Retry support
+
+Further information on the SQL trigger [retry support](https://github.com/Azure/azure-functions-sql-extension/blob/release/trigger/docs/BindingsOverview.md#retry-support-for-trigger-bindings) and [leases tables](https://github.com/Azure/azure-functions-sql-extension/blob/release/trigger/docs/TriggerBinding.md#internal-state-tables) are available in the GitHub repository.
+
+### Startup retries
+If an exception occurs during startup then the host runtime will automatically attempt to restart the trigger listener with an exponential backoff strategy. These retries will continue until either the listener is successfully started or the startup is cancelled.
+
+### Broken connection retries
+If the function successfully starts but then an error causes the connection to break (such as the server going offline) then the function will continue to try and reopen the connection until the function is either stopped or the connection succeeds. If the connection is successfully re-established then it will pick up processing changes where it left off.
+
+Note that these retries are outside the built in idle connection retry logic that SqlClient has which can be configured with the `ConnectRetryCount` and `ConnectRetryInterval` [connection string options](). The built-in idle connection retries will be attempted first and if those fail to reconnect then the trigger binding will attempt to re-establish the connection itself.
+
+### Function exception retries
+If an exception occurs in the user function when processing changes then the batch of rows currently being processed will be retried again in 60 seconds. Other changes will be processed as normal during this time, but the rows in the batch that caused the exception will be ignored until the timeout period has elapsed.
+
+If the function execution fails 5 times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch are not deterministic, rows in a failed batch may end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows may end up in a different batch that doesn't fail in future invocations.
 
 ## Next steps
 
