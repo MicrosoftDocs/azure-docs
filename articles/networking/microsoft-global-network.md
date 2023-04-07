@@ -16,7 +16,7 @@ Every day, customers around the world connect and pass trillions of requests to 
 
 The [Microsoft global network](https://azure.microsoft.com/global-infrastructure/global-network/) (WAN) is a central part of delivering a great cloud experience. The global network connects our Microsoft [data centers](https://azure.microsoft.com/global-infrastructure/) across 61 Azure regions with a large mesh of edge-nodes strategically placed around the world. The Microsoft global network offers both the availability, capacity, and the flexibility to meet any demand.
 
-![Microsoft global network](./media/microsoft-global-network/microsoft-global-wan.png)
+:::image type="content" source="(./media/microsoft-global-network/microsoft-global-wan.png)" alt-text="Diagram of Microsoft global network.":::
  
 ## Get the premium cloud network
  
@@ -46,7 +46,7 @@ Microsoft Azure offers the richest portfolio of services and capabilities, allow
 
 * [**ExpressRoute Global Reach**](../expressroute/expressroute-global-reach.md) is designed to complement your service provider's WAN implementation and connect your on-premises sites across the world. If you run a global operation, you can use ExpressRoute Global Reach with your preferred and local service providers to connect all your global sites using the Microsoft global network. You can expand your cloud-based WAN to include a significant number of branch-sites using Azure Virtual WAN. This service enables you to connect your branches to Microsoft's global network seamlessly, using SDWAN and VPN devices (Customer Premises Equipment or CPE) with built-in ease of use and automated connectivity and configuration management. 
  
-* [**Global VNet peering**](../virtual-network/virtual-network-peering-overview.md) enables customers to connect two or more Azure virtual networks across regions seamlessly. Once peered, the virtual networks appear as one. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network - through private IP addresses only. 
+* [**Global virtual network peering**](../virtual-network/virtual-network-peering-overview.md) enables customers to connect two or more Azure virtual networks across regions seamlessly. Once peered, the virtual networks appear as one. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network - through private IP addresses only. 
 
 ## Well managed using software-defined innovation
 
@@ -64,7 +64,7 @@ We adhere to a robust set of operational principles:
 
 - Use unified and software-defined Networking technology to control all hardware elements in the network.  To eliminate duplication and reduce failures. 
  
-These principles apply to all layers of the network: from the host Network Interface, switching platform, network functions in the data center such as Load Balancers, all the way up to the WAN with our traffic engineering platform and our optical networks.  
+These principles apply to all layers of the network: from the host network interface, switching platform, network functions in the data center such as load balancers, all the way up to the WAN with our traffic engineering platform and our optical networks.  
  
 The exponential growth of Azure and its network has reached a point where we eventually realized that human intuition could no longer be relied on to manage the global network operations. To fulfill the need to validate long, medium, and short-term changes on the network, we developed a platform to mirror and emulate our production network synthetically. The ability to create mirrored environments and run millions of simulations, allows us to test software and hardware changes and their effect, before committing them to our production platform and network. 
 
