@@ -25,14 +25,33 @@ ms.date: 04/05/2022
 To add or remove protected actions, you must have:
 
 - Azure AD Premium P1 or P2 license
-- [Conditional Access Administrator](permissions-reference.md#conditional-access-administrator) or [Security Administrator](permissions-reference.md#security-administrator)
-- One or more [Conditional Access authentication context configured](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context)
+- [Conditional Access Administrator](permissions-reference.md#conditional-access-administrator) or [Security Administrator](permissions-reference.md#security-administrator) role
+
+## Configure Conditional Access policy
+
+Protected actions use a Conditional Access authentication context, so you must configure an authentication context and add it to a Conditional Access policy. If you already have a policy with an authentication context, you can skip to the next section.
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com).
+
+1. Select **Azure Active Directory** > **Protect & secure** > **Conditional Access** > **Authentication context** > **Authentication context**.
+
+1. Select **New authentication context** to open the **Add authentication context** pane.
+
+1. Enter a name and description and then select **Save**.
+
+    :::image type="content" source="media/protected-actions-add/authentication-context-add.png" alt-text="Screenshot of New policy page to create a new policy with an authentication context." lightbox="media/protected-actions-add/authentication-context-add.png":::
+
+1. Select **Policies** > **New policy** to create a new policy.
+
+1. Create a new policy and select your authentication context.
+
+    For more information, see [Conditional Access: Cloud apps, actions, and authentication context](../conditional-access/concept-conditional-access-cloud-apps.md).
+
+    :::image type="content" source="media/protected-actions-add/policy-authentication-context.png" alt-text="Screenshot of Add protected actions page in Roles and administrators." lightbox="media/protected-actions-add/policy-authentication-context.png":::
 
 ## Add protected actions
 
-To add protection actions, assign a Conditional Access policy to one or more permissions, using a Conditional Access authentication context.
-
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+To add protection actions, assign a Conditional Access policy to one or more permissions using a Conditional Access authentication context.
 
 1. Select **Azure Active Directory** > **Roles & admins** > **Protected actions (Preview)**.
 
@@ -43,8 +62,6 @@ To add protection actions, assign a Conditional Access policy to one or more per
     If **Add protected actions** is disabled, make sure you're assigned the Conditional Access Administrator or Security Administrator role. For more information, see [Troubleshoot protected actions](#troubleshoot-protected-actions).
 
 1. Select a configured Conditional Access authentication context. 
-
-    If no values are available, [configure a Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context) for your tenant.
 
 1. Select **Select permissions** and select the permissions to protect with Conditional Access.
 
