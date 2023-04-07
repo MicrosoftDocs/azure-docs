@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 03/14/2023
 tags: connectors
 ## As a developer, I want to access my SQL database from my logic app workflow.
 ---
@@ -21,7 +21,10 @@ For example, your workflow can run actions that get, insert, and delete data or 
 If you're new to Azure Logic Apps, review the following get started documentation:
 
 * [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
-* [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* [Create an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md)
+
+* [Create an example Standard logic app workflow in single-tenant Azure Logic Apps](../logic-apps/create-single-tenant-workflows-azure-portal.md)
 
 ## Supported SQL editions
 
@@ -39,7 +42,7 @@ The SQL Server connector has different versions, based on [logic app type and ho
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Standard** label, and the ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label, and built-in connector, which appears in the designer under the **Built-in** label and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version doesn't have triggers. You can use the SQL managed connector trigger or a different trigger. <br><br>- The built-in version can connect directly to an SQL database and access Azure virtual networks. You don't need an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the designer under the **Azure** label, and built-in connector, which appears in the designer under the **Built-in** label and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version can connect directly to an SQL database and access Azure virtual networks. You don't need an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql/) <br>- [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ### Limitations
 
@@ -108,7 +111,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
-1. Find and select the [SQL Server trigger](/connectors/sql) that you want to use.
+1. Find and select the [SQL Server trigger](/connectors/sql/#trigger) that you want to use.
 
    1. On the designer, under the search box, select **Standard**.
 
@@ -122,11 +125,11 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Provide the [information for your connection](#create-connection). When you're done, select **Create**.
 
-1. After the trigger information box appears, specify the interval and frequency for how often the trigger checks the table.
+1. Provide the information required by [your selected trigger](/connectors/sql/#triggers).
 
-1. To add other properties available for this trigger, open the **Add new parameter** list and select those properties.
+1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
 
-   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or [another action](../connectors/apis-list.md) that performs the next task that you want in your logic app workflow.
+   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or another action that performs the next task that you want in your logic app workflow.
 
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server managed connector reference](/connectors/sql/).
 
@@ -134,33 +137,47 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Standard](#tab/standard)
 
-In Standard logic app workflows, only the SQL Server managed connector has triggers. The SQL Server built-in connector doesn't have any triggers.
-
 1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
-1. Find and select the [SQL Server trigger](/connectors/sql) that you want to use.
+1. Find and select the SQL Server trigger that you want to use.
 
    1. On the designer, select **Choose an operation**.
 
-   1. Under the **Choose an operation** search box, select **Azure**.
+   1. Under the **Choose an operation** search box, select either of the following options:
+
+      * **Built-in** to view the [SQL Server built-in connector triggers](/azure/logic-apps/connectors/built-in/reference/sql/#triggers)
+
+      * **Azure** to view the [SQL Server managed connector triggers](/connectors/sql/#triggers)
 
    1. In the search box, enter **sql server**.
 
    1. From the triggers list, select the SQL trigger that you want.
 
-      This example continues with the trigger named **When an item is created**.
+      * [Built-in connector triggers](/azure/logic-apps/connectors/built-in/reference/sql/#triggers)
 
-      ![Screenshot showing Azure portal, Standard logic app workflow designer, search box with "sql server", and "When an item is created" trigger selected.](./media/connectors-create-api-sqlazure/select-sql-server-trigger-standard.png)
+        This example selects the built-in trigger named **When a row is inserted**.
 
-1. Provide the [information for your connection](#create-connection). When you're done, select **Create**.  
+        ![Screenshot showing Standard workflow designer and the selected built-in trigger named When a row is inserted.](./media/connectors-create-api-sqlazure/select-trigger-built-in-standard.png)
 
-1. After the trigger information box appears, specify the interval and frequency for how often the trigger checks the table.
+      * [Managed connector triggers](/connectors/sql/#triggers)
 
-1. To add other properties available for this trigger, open the **Add new parameter** list and select those properties.
+        This example selects the built-in trigger named **When a row is created**.
 
-   This trigger returns only one row from the selected table, and nothing else. To perform other tasks, continue by adding either a [SQL Server connector action](#add-sql-action) or [another action](../connectors/apis-list.md) that performs the next task that you want in your logic app workflow.
+        ![Screenshot showing Standard workflow designer and the selected managed trigger named When a row is created.](./media/connectors-create-api-sqlazure/select-trigger-managed-standard.png)
 
-   For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server managed connector reference](/connectors/sql/).
+1. Provide the [information for your connection](#create-connection). When you're done, select **Create**.
+
+1. Provide the information required by your selected [built-in trigger](/azure/logic-apps/connectors/built-in/reference/sql/#triggers) or [managed trigger](/connectors/sql/#triggers).
+
+   The following example continues with the built-in trigger named **When a row is inserted**. From the **Table name** list, select the table that you want to use.
+
+   ![Screenshot showing Standard workflow designer and the built-in action named When a row is inserted.](./media/connectors-create-api-sqlazure/when-row-inserted-standard.png)
+
+1. If any other properties are available for this trigger, open the **Add new parameter** list, and select those properties relevant to your scenario.
+
+   In this example, the **When a row is inserted** built-in trigger returns the row that you inserted in the selected table, and nothing else. To perform other tasks, continue by adding either another SQL Server action or another action that performs the next task that you want in your logic app workflow.
+
+   For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [SQL Server built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sql/#actions) or the [SQL Server managed connector reference](/connectors/sql/#actions).
 
 1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
@@ -184,7 +201,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Find and select the [SQL Server action](/connectors/sql) that you want to use.
+1. Find and select the [SQL Server action](/connectors/sql/#actions) that you want to use.
 
    This example continues with the action named **Get row**.
 
@@ -226,25 +243,21 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    1. Under the **Choose an operation** search box, select either of the following options:
 
-      * **Built-in** when you want to use SQL Server [built-in actions](/azure/logic-apps/connectors/built-in/reference/sql/) such as **Execute query**
+      * **Built-in** to view the [SQL Server built-in connector actions](/azure/logic-apps/connectors/built-in/reference/sql/#actions)
 
-        ![Screenshot showing the Azure portal, workflow designer for Standard logic app, and designer search box with "Built-in" selected underneath.](./media/connectors-create-api-sqlazure/select-built-in-category-standard.png)
-
-      * **Azure** when you want to use [SQL Server managed connector actions](/connectors/sql) such as **Get row**
-
-        ![Screenshot showing the Azure portal, workflow designer for Standard logic app, and designer search box with "Azure" selected underneath.](./media/connectors-create-api-sqlazure/select-azure-category-standard.png)
+     * **Azure** to view the [SQL Server managed connector actions](/connectors/sql/#actions)
 
    1. In the search box, enter **sql server**.
 
-   1. From the actions list, select the SQL Server action that you want.
+   1. From the actions list, select the SQL Server action that you want to use.
 
-      * [Built-in actions](/azure/logic-apps/connectors/built-in/reference/sql/)
+      * [Built-in connector actions](/azure/logic-apps/connectors/built-in/reference/sql/#actions)
 
         This example selects the built-in action named **Execute query**.
 
         ![Screenshot showing the designer search box with "sql server" and "Built-in" selected underneath with the "Execute query" action selected in the "Actions" list.](./media/connectors-create-api-sqlazure/select-sql-execute-query-action-standard.png)
 
-      * [Managed actions](/connectors/sql/#actions)
+      * [Managed connector actions](/connectors/sql/#actions)
 
         This example selects the action named **Get row**, which gets a single record.
 
@@ -289,9 +302,9 @@ In the connection information box, complete the following steps:
 
    | Authentication | Description |
    |----------------|-------------|
-   | **Connection String** | - Supported only in Standard workflows with the SQL Server built-in connector. <br><br>- Requires the connection string to your SQL server and database. |
-   | **Logic Apps Managed Identity** | - Supported with the SQL Server managed connector and ISE-versioned connector. In Standard workflows, this authentication type is available for the SQL Server built-in connector, but the option is named **Managed identity** instead. <br><br>- Requires the following items: <br><br>--- A valid managed identity that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. <br><br>--- **SQL DB Contributor** role access to the SQL Server resource <br><br>--- **Contributor** access to the resource group that includes the SQL Server resource. <br><br>For more information, see the following documentation: <br><br>- [Managed identity authentication for SQL Server connector](/connectors/sql/#managed-identity-authentication) <br>- [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles) |
+   | **Connection string** | - Supported only in Standard workflows with the SQL Server built-in connector. <br><br>- Requires the connection string to your SQL server and database. |
    | **Active Directory OAuth** | - Supported only in Standard workflows with the SQL Server built-in connector. For more information, see the following documentation: <br><br>- [Authentication for SQL Server connector](/connectors/sql/#authentication) <br>- [Enable Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) <br>- [Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication) |
+   | **Logic Apps Managed Identity** | - Supported with the SQL Server managed connector and ISE-versioned connector. In Standard workflows, this authentication type is available for the SQL Server built-in connector, but the option is named **Managed identity** instead. <br><br>- Requires the following items: <br><br>--- A valid managed identity that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. <br><br>--- **SQL DB Contributor** role access to the SQL Server resource <br><br>--- **Contributor** access to the resource group that includes the SQL Server resource. <br><br>For more information, see the following documentation: <br><br>- [Managed identity authentication for SQL Server connector](/connectors/sql/#managed-identity-authentication) <br>- [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles) |
    | **Service principal (Azure AD application)** | - Supported with the SQL Server managed connector. <br><br>- Requires an Azure AD application and service principal. For more information, see [Create an Azure AD application and service principal that can access resources using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). |
    | [**Azure AD Integrated**](/azure/azure-sql/database/authentication-aad-overview) | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires a valid managed identity in Azure Active Directory (Azure AD) that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. For more information, see these topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](/azure/azure-sql/database/authentication-aad-overview) |
    | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) |
@@ -347,7 +360,7 @@ In the connection information box, complete the following steps:
 
 1. For connections to your on-premises SQL server that require the on-premises data gateway, make sure that you've [completed these prerequisites](#multi-tenant-or-ise).
 
-   Otherwise, your data gateway resource won't appear in the **Connection Gateway** list when you create your connection.
+   Otherwise, your data gateway resource doesn't appear in the **Connection Gateway** list when you create your connection.
 
 1. For **Authentication Type**, select the authentication that's required and enabled on your SQL Server:
 

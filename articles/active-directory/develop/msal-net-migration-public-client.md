@@ -192,7 +192,7 @@ result = await context.AcquireTokenAsync(resource, clientId,
    // to a URL to consent: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read
 
    // AADSTS50079: The user is required to use multi-factor authentication.
-   // There is no mitigation - if MFA is configured for your tenant and AAD decides to enforce it,
+   // There is no mitigation - if MFA is configured for your tenant and Azure AD decides to enforce it,
    // you need to fallback to an interactive flows such as AcquireTokenInteractive or AcquireTokenByDeviceCode
    }
    catch (MsalServiceException ex)
@@ -210,7 +210,7 @@ result = await context.AcquireTokenAsync(resource, clientId,
    catch (MsalClientException ex)
    {
       // Error Code: unknown_user Message: Could not identify logged in user
-      // Explanation: the library was unable to query the current Windows logged-in user or this user is not AD or AAD
+      // Explanation: the library was unable to query the current Windows logged-in user or this user is not AD or Azure AD
       // joined (work-place joined users are not supported).
 
       // Mitigation 1: on UWP, check that the application has the following capabilities: Enterprise Authentication,
@@ -222,7 +222,7 @@ result = await context.AcquireTokenAsync(resource, clientId,
       // Error Code: integrated_windows_auth_not_supported_managed_user
       // Explanation: This method relies on a protocol exposed by Active Directory (AD). If a user was created in Azure
       // Active Directory without AD backing ("managed" user), this method will fail. Users created in AD and backed by
-      // AAD ("federated" users) can benefit from this non-interactive method of authentication.
+      // Azure AD ("federated" users) can benefit from this non-interactive method of authentication.
       // Mitigation: Use interactive authentication
    }
  }
@@ -394,7 +394,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     }
     catch (MsalUiRequiredException ex)
     {
-        // No token found in the cache or AAD insists that a form interactive auth is required (e.g. the tenant admin turned on MFA)
+        // No token found in the cache or Azure AD insists that a form interactive auth is required (e.g. the tenant admin turned on MFA)
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);

@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 11/21/2022
 author: palma21
 ms.author: jpalma
-ms.custom: devx-track-azurepowershell, event-tier1-build-2022
+ms.custom: event-tier1-build-2022
 ---
 
 # Supported Kubernetes versions in Azure Kubernetes Service (AKS)
@@ -34,14 +34,32 @@ Each number in the version indicates general compatibility with the previous ver
 
 Aim to run the latest patch release of the minor version you're running. For example, if your production cluster is on **`1.17.7`**, **`1.17.8`** is the latest available patch version available for the *1.17* series. You should upgrade to **`1.17.8`** as soon as possible to ensure your cluster is fully patched and supported.
 
+## AKS Kubernetes release calendar
+
+View the upcoming version releases on the AKS Kubernetes release calendar. To see real-time updates of region release status and version release notes, visit the [AKS release status webpage][aks-release]. To learn more about the release status webpage, see [AKS release tracker][aks-tracker].
+
+> [!NOTE]
+> AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#faq).
+
+For the past release history, see [Kubernetes history](https://en.wikipedia.org/wiki/Kubernetes#History).
+
+|  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
+|--------------|-------------------|--------------|---------|-------------|
+| 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | Dec 2022 |
+| 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | Apr 2023 |
+| 1.24 | Apr-22-22 | May 2022 | Jul 2022 | Jul 2023
+| 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
+| 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024
+| 1.27 | Apr 2023 | May 2023 | Jun 2023 | Jun 2024
+
 ## Alias minor version
 
 > [!NOTE]
-> Alias minor version requires Azure CLI version 2.37 or above. Use `az upgrade` to install the latest version of the CLI.
+> Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220201 or above. Use `az upgrade` to install the latest version of the CLI.
 
 With AKS, you can create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch.
+When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch. If you wish to upgrade your patch version in the same minor version, please use [auto-upgrade](https://learn.microsoft.com/azure/aks/auto-upgrade-cluster#using-cluster-auto-upgrade).
 
 To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
 
@@ -57,7 +75,7 @@ To see what patch you're on, run the `az aks show --resource-group myResourceGro
 
 ## Kubernetes version support policy
 
-AKS defines a generally available version as a version enabled in all SLO or SLA measurements and available in all regions. AKS supports three GA minor versions of Kubernetes:
+AKS defines a GA version as a version enabled in all SLO or SLA measurements and available in all regions. AKS supports three GA minor versions of Kubernetes:
 
 * The latest GA minor version released in AKS (which we'll refer to as N).
 * Two previous minor versions.
@@ -182,25 +200,6 @@ Get-AzAksVersion -Location eastus
 ```
 
 ---
-
-## AKS Kubernetes release calendar
-
-> [!NOTE]
-> AKS follows 12 months of support for a GA Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#faq).
-
-For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
-
-|  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
-|--------------|-------------------|--------------|---------|-------------|
-| 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | Dec 2022 |
-| 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | Apr 2023 |
-| 1.24 | Apr-22-22 | May 2022 | Jul 2022 | Jul 2023
-| 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Dec 2023
-| 1.26 | Dec 2022 | Feb 2023 | Mar 2023 | Mar 2024
-| 1.27 | Apr 2023 | May 2023 | Jun 2023 | Jun 2024
-
-> [!NOTE]
-> To see real-time updates of region release status and version release notes, visit the [AKS release status webpage][aks-release]. To learn more about the release status webpage, see [AKS release tracker][aks-tracker].
 
 ## FAQ
 

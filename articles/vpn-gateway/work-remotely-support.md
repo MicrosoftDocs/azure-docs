@@ -5,7 +5,7 @@ description: Learn how you can use VPN Gateway point-to-site connections in orde
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 02/13/2023
 ms.author: cherylmc
 
 ---

@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
-ms.topic: reference
+ms.topic: article
 ms.date: 12/08/2022
 ms.author: danlep
 ---
@@ -23,7 +23,7 @@ The `set-method` policy allows you to change the HTTP request method for a reque
 <set-method>HTTP method</set-method>
 ```
 
-The value of the element specifies the HTTP method, such as `POST`, `GET`, and so on.
+The value of the element specifies the HTTP method, such as `POST`, `GET`, and so on. Policy expressions are allowed.
 
 ## Usage
 

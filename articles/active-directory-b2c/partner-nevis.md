@@ -29,7 +29,7 @@ To get started, you'll need:
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
 >[!NOTE]
->To integrate Nevis into your sign-up policy flow, configure the Azure AD B2C environment to use custom policies. </br>See, [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](/azure/active-directory-b2c/tutorial-create-user-flows).
+>To integrate Nevis into your sign-up policy flow, configure the Azure AD B2C environment to use custom policies. </br>See, [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md).
 
 ## Scenario description
 

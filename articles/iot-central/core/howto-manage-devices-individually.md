@@ -1,9 +1,10 @@
 ---
-title: Manage devices individually in your Azure IoT Central application | Microsoft Docs
+title: Manage devices individually in your application
+titleSuffix: Azure IoT Central
 description: Learn how to manage devices individually in your Azure IoT Central application. Monitor, manage, create, delete, and update devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/02/2022
+ms.date: 02/13/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -34,7 +35,7 @@ To view an individual device:
 
 1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template:
 
-    :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot showing the device list." lightbox="media/howto-manage-devices-individually/device-list.png":::
+    :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot that shows the list of Thermostat devices." lightbox="media/howto-manage-devices-individually/device-list.png":::
 
     Choose an individual device to see the device details page for that device.
 
@@ -61,7 +62,7 @@ When a device connects to your IoT Central application, its device status change
 
 1. An operator can block a device. When a device is blocked, it can't send data to your IoT Central application. Blocked devices have a status of **Blocked**. An operator must reset the device before it can resume sending data. When an operator unblocks a device the status returns to its previous value, **Registered** or **Provisioned**.
 
-1. If the device status is **Waiting for Approval**, it means the **Auto approve** option is disabled. An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials will have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button.
+1. If the device status is **Waiting for Approval**, it means the **Auto approve** option is disabled. An operator must explicitly approve a device before it starts sending data. Devices not registered manually on the **Devices** page, but connected with valid credentials have the device status **Waiting for Approval**. Operators can approve these devices from the **Devices** page using the **Approve** button.
 
 1. If the device status is **Unassigned**, it means the device connecting to IoT Central isn't assigned to a device template. This situation typically happens in the following scenarios:
 

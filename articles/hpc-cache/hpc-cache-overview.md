@@ -4,8 +4,8 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 02/03/2022
-ms.author: rohogue
+ms.date: 02/28/2023
+ms.author: kianaharris
 ---
 
 # What is Azure HPC Cache?
@@ -34,6 +34,8 @@ Azure HPC Cache can be added to a wide variety of workflows across many industri
 
 In media and entertainment, Azure HPC Cache can speed up data access for time-critical rendering projects. VFX rendering workflows often require last-minute processing by large numbers of compute nodes. Data for these workflows are typically located in an on-premises NAS environment. Azure HPC Cache can cache that file data in the cloud to reduce latency and enhance flexibility for on-demand rendering.
 
+Learn more about [High-performance computing for rendering.](https://azure.microsoft.com/solutions/high-performance-computing/rendering/)
+
 ### Life sciences
 
 Many life sciences workflows can benefit from scale-out file caching.
@@ -41,6 +43,8 @@ Many life sciences workflows can benefit from scale-out file caching.
 A research institute that wants to port its genomic analysis workflows into Azure can easily shift them by using Azure HPC Cache. Because the cache provides POSIX file access, no client-side changes are needed to run their existing client workflow in the cloud.
 
 Azure HPC Cache also can be leveraged to improve efficiency in tasks like secondary analysis, pharmacological simulation, or AI-driven image analysis.
+
+Learn more about [High-performance computing for health and life sciences.](https://azure.microsoft.com/solutions/high-performance-computing/health-and-life-sciences/)
 
 ### Silicon design verification
 
@@ -52,11 +56,13 @@ Azure HPC Cache also can be set up to cache output files being written by the co
 
 HPC Cache allows chip designers to scale EDA verification jobs to tens of thousands of cores with ease, and pay minimal attention to storage performance.
 
-Learn more about [High-performance computing for silicon](https://azure.microsoft.com/solutions/high-performance-computing/silicon/)
+Learn more about [High-performance computing for silicon.](https://azure.microsoft.com/solutions/high-performance-computing/silicon/)
 
 ### Financial services analytics
 
 An Azure HPC Cache deployment can help speed up quantitative analysis calculations, risk analysis workloads, and Monte Carlo simulations to give financial services companies better insight to make strategic decisions.
+
+Learn more about [High-performance computing for financial services.](https://azure.microsoft.com/solutions/high-performance-computing/financial-services/)
 
 ## Region availability
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/10/2022
+ms.date: 03/14/2023
 ms.author: ryanwi
 ms.reviewer: ludwignick
 ms.custom: aaddev
@@ -215,6 +215,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS700011 | UnauthorizedClientAppNotFoundInOrgIdTenant - Application with identifier {appIdentifier} was not found in the directory. A client application requested a token from your tenant, but the client app doesn't exist in your tenant, so the call failed. |
 | AADSTS70002 | InvalidClient - Error validating the credentials. The specified client_secret does not match the expected value for this client. Correct the client_secret and try again. For more info, see [Use the authorization code to request an access token](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). |
 | AADSTS700025 | InvalidClientPublicClientWithCredential - Client is public so neither 'client_assertion' nor 'client_secret' should be presented. |
+| AADSTS700027| Client assertion failed signature validation. Developer error - the app is attempting to sign in without the necessary or correct authentication parameters.|
 | AADSTS70003 | UnsupportedGrantType - The app returned an unsupported grant type. |
 | AADSTS700030 | Invalid certificate - subject name in certificate isn't authorized. SubjectNames/SubjectAlternativeNames (up to 10) in token certificate are: {certificateSubjects}. |
 | AADSTS70004 | InvalidRedirectUri - The app returned an invalid redirect URI. The redirect address specified by the client does not match any configured addresses or any addresses on the OIDC approve list. |
@@ -238,6 +239,7 @@ The `error` field has several possible values - review the protocol documentatio
 | AADSTS75008 | RequestDeniedError - The request from the app was denied since the SAML request had an unexpected destination. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims - The authentication method by which the user authenticated with the service doesn't match requested authentication method. To learn more, see the troubleshooting article for error [AADSTS75011](/troubleshoot/azure/active-directory/error-code-aadsts75011-auth-method-mismatch). |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 Authentication Request has invalid NameIdPolicy. |
+| AADSTS76026 | RequestIssueTimeExpired - IssueTime in an SAML2 Authentication Request is expired. |
 | AADSTS80001 | OnPremiseStoreIsNotAvailable - The Authentication Agent is unable to connect to Active Directory. Make sure that agent servers are members of the same AD forest as the users whose passwords need to be validated and they are able to connect to Active Directory. |
 | AADSTS80002 | OnPremisePasswordValidatorRequestTimedout - Password validation request timed out. Make sure that Active Directory is available and responding to requests from the agents. |
 | AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException - An unknown error occurred while processing the response from the Authentication Agent. Retry the request. If it continues to fail, [open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) to get more details on the error. |

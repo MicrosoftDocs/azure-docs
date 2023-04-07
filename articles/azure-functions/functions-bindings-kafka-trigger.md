@@ -30,7 +30,7 @@ An [isolated worker process class library](dotnet-isolated-process-guide.md) com
 
 The attributes you use depend on the specific event provider.
 
-# [Confluent](#tab/confluent/in-process)
+# [Confluent (in-process)](#tab/confluent/in-process)
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
@@ -62,7 +62,7 @@ In the following function, an instance of `UserRecord` is available in the `Kafk
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
 
-# [Event Hubs](#tab/event-hubs/in-process)
+# [Event Hubs (in-process)](#tab/event-hubs/in-process)
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
@@ -94,7 +94,7 @@ In the following function, an instance of `UserRecord` is available in the `Kafk
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
 
-# [Confluent](#tab/confluent/isolated-process)
+# [Confluent (isolated process)](#tab/confluent/isolated-process)
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
@@ -110,7 +110,7 @@ The following function logs the message and headers for the Kafka Event:
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
 
-# [Event Hubs](#tab/event-hubs/isolated-process)
+# [Event Hubs (isolated process)](#tab/event-hubs/isolated-process)
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 

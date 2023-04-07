@@ -89,12 +89,6 @@ Once you've authenticated against the Active Directory, you then retrieve a toke
 
 - Azure Database for PostgreSQL Flexible Server matches access tokens to the database role using the user’s unique Azure Active Directory user ID, as opposed to using the username. If an Azure AD user is deleted and a new user is created with the same name, Azure Database for PostgreSQL Flexible Server considers that a different user. Therefore, if a user is deleted from Azure AD and a new user is added with the same name the new user won't be able to connect with the existing role.
 
-## Limitations
-
-- PG bouncer is currently not supported, and we are planning to release this very soon..
-
-- GA versions of Terraform/CLI/API will be released soon. You can use preview API 2022-12-01 version until then.
-
 
 ## Next steps
 

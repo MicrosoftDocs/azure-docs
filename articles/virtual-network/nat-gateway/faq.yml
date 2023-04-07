@@ -112,7 +112,7 @@ sections:
       
       - question: How does NAT gateway work in a hub and spoke network architecture?
         answer: |
-           Traffic from the spoke VNets can be routed to the centralized hub VNet through an NVA or Azure Firewall. NAT Gateway can then provide outbound connectivity for all spoke virtual networks from the centralized hub network. To set up NAT gateway in a hub and spoke architecture with NVAs, see [use NAT gateway in a hub and spoke network](/azure/virtual-network/nat-gateway/tutorial-hub-spoke-route-nat). To use NAT gateway with Azure Firewall in a hub and spoke setup, see [integrate NAT gateway with Azure Firewall](/azure/virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall). 
+           Traffic from the spoke VNets can be routed to the centralized hub VNet through an NVA or Azure Firewall. NAT Gateway can then provide outbound connectivity for all spoke virtual networks from the centralized hub network. To set up NAT gateway in a hub and spoke architecture with NVAs, see [use NAT gateway in a hub and spoke network](./tutorial-hub-spoke-route-nat.md). To use NAT gateway with Azure Firewall in a hub and spoke setup, see [integrate NAT gateway with Azure Firewall](./tutorial-hub-spoke-nat-firewall.md). 
       
       - question: How can I obtain logs for my NAT gateway resource?  
         answer: |

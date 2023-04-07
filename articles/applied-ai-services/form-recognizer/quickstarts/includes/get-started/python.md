@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: includes
-ms.date: 10/07/2022
+ms.date: 02/14/2023
 ms.author: lajanuar
 recommendations: false
 ---
 
 [Reference documentation](/python/api/azure-ai-formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-In this quickstart, you'll use the following APIs to extract structured data from forms and documents:
+In this quickstart, you use the following APIs to extract structured data from forms and documents:
 
 * [Layout](#try-it-layout-model)
 
@@ -33,7 +33,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You paste your key and endpoint into the code later in the quickstart:
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -82,7 +82,7 @@ key = "YOUR_FORM_RECOGNIZER_KEY"
 * [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). See the Cognitive Services [security](../../../../../cognitive-services/security-features.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ## **Try it**: Layout model
 
@@ -193,7 +193,7 @@ This sample demonstrates how to analyze data from certain types of common docume
 
 ### Choose a prebuilt model
 
-You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
 
 * [**Invoice**](../../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
 * [**Receipt**](../../../concept-receipt.md): extracts text and key information from receipts.

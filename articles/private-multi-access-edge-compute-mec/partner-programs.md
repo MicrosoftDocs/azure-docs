@@ -29,15 +29,17 @@ Our system integrator partners include:
 |[TCS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tataconsultancyservicesltd-azure.tcs_cpoa-saas?exp=ubp8&tab=Overview) ||||[Compal](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/compal1668421272498.compal_private_5g?exp=ubp8&tab=Overview) |
 |[Tech Mahindra - AR Based Remote Assistance](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.remote-assist-ar?exp=ubp8&tab=Overview)||||[HCL Technologies](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/hcl-technologies.hcl_5g_pmac?exp=ubp8&tab=Overview) |
 |[Tech Mahindra - LineSight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.linesight?exp=ubp8&tab=Overview)||||[Inventec](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/inventeccorp1645697962291.5g_e2e?exp=ubp8&tab=Overview) |
-|||||[NTT](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttgermanyagcokg1596708630215.ntt_ex_germany_p5g_001?exp=ubp8) |
-|||||[Pegatron](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pegatron1671697317455.pegatron_5g?exp=ubp8&tab=Overview) |
-|||||[Tech Mahindra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.private_5g_network?exp=ubp8&tab=Overview) |
-||||||
+|[Pegatron](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pegatron1671697317455.pegatron_5g?exp=ubp8&tab=Overview)||||[NTT](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttgermanyagcokg1596708630215.ntt_ex_germany_p5g_001?exp=ubp8) |
+|[Accenture](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/accenture1628868945076.acn-soln-area-15-5g-cloud-box-quality-inspection?exp=ubp8)||||[Tech Mahindra](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.private_5g_network?exp=ubp8&tab=Overview) |
+||||| [Accenture](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/accenture1628868945076.acn-soln-area-6-5g-edge?exp=ubp8) |
+||||| Avanade |
 
 Our operator partners include:
-- BT Group
+- [BT Group](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/britishtelecommunicationsplc1603355038257.0005_5g_private_network_bt_global-mpn1687281-preview?tab=Overview&flightCodes=bbaba195c14644e4aa5b4c7b6627ac7b)
 - Deutsche Telekom
+- Elisa
 - Etisalat
+- Tampnet
 - TIM Brasil
 
 ### Technology Partners
@@ -52,26 +54,24 @@ Networking ISV partners include software vendors that provide network functions 
 | | [Nuage Networks by Nokia](https://aka.ms/nokianuage)|
 | | [VMware SD-WAN by Velocloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vmware-inc.vmware_sdwan_edge_zones?exp=ubp8&tab=Overview) |
 | | [Versa Networks](https://aka.ms/versa) |
-|||
 
 ### SIM & RAN
 SIM partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. The following partners have completed interop tests with Azure private MEC. Please contact the partner or your Microsoft representative for more details:
 
 |SIM |RAN (hardware)|
 |---------|---------|
-| BICS | Askey |
+| BICS | Airspan |
 | Idemia | ASOCS |
 | JCI | Commscope |
 | Transatel | Compal |
 | | Ericsson |
 | | Foxconn |
 | | Fujitsu |
-| | HTC |
 | | Inventec |
 | | Nokia |
 | | Parallel Wireless |
 | | Pegatron |
-|||
+
 
 
 ### Application ISVs
@@ -83,8 +83,8 @@ Our application ISV partners include:
 - [Cognitiwe](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cognitiweaio1670399502095.cognitiwe_hse_v1?exp=ubp8&tab=Overview)
 - [iLink Systems](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ilinksystems.samplemidasvm?exp=ubp8&tab=Overview)
 - [Ipsotek](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atosinternationalsas.ipsotek_vi_suite_bundles?exp=ubp8&tab=Overview)
-- [Neal Analytics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/neal_analytics.bonsai?exp=ubp8&tab=Overview)
 - [Red Viking](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redviking1587070336894.rv_argonaut_on_mec?exp=ubp8&tab=Overview)
+- [Sensing Feeling](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sensingfeelinglimited1671143541932.001?exp=ubp8)
 - [Weavix](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pksolutionsllc1654260389042.smart_radio_36_ms?exp=ubp8&tab=Overview)
 
 ## Next steps

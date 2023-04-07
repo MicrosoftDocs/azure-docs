@@ -206,8 +206,8 @@ To create and run a new scan, follow these steps:
 1. Select **Continue**.
 
 1. Select a **scan rule set** for classification. You can choose between the system default, existing custom rule sets, or [create a new rule set](create-a-scan-rule-set.md) inline. Check the [Classification](apply-classifications.md) article to learn more.
-> [!NOTE] 
-> If you are using Self-hosted runtime then you will need to upgrade to version 5.26.404.1 or higher to use Snowflake classification. You can find the latest version of Microsoft Integration runtime [here](https://www.microsoft.com/download/details.aspx?id=39717).
+    > [!NOTE] 
+    > If you are using Self-hosted runtime then you will need to upgrade to version 5.26.404.1 or higher to use Snowflake classification. You can find the latest version of Microsoft Integration runtime [here](https://www.microsoft.com/download/details.aspx?id=39717).
 
 1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 

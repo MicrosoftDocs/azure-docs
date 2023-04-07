@@ -228,11 +228,11 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
    ```azurecli
    az spring app deploy \
        --name api-gateway \
-       --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.5.1.jar \
+       --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-3.0.1.jar \
        --jvm-options="-Xms2048m -Xmx2048m"
    az spring app deploy \
        --name customers-service \
-       --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.5.1.jar \
+       --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-3.0.1.jar \
        --jvm-options="-Xms2048m -Xmx2048m"
    ```
 
@@ -268,9 +268,9 @@ To get the PetClinic app functioning with all features like Admin Server, Visits
 az spring app create --name admin-server --instance-count 1 --memory 2Gi --assign-endpoint
 az spring app create --name vets-service --instance-count 1 --memory 2Gi
 az spring app create --name visits-service --instance-count 1 --memory 2Gi
-az spring app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
-az spring app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
-az spring app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.1.jar --jvm-options="-Xms2048m -Xmx2048m"
 ```
 
 #### [Maven](#tab/Maven)
@@ -378,7 +378,7 @@ To deploy to Azure, you must sign in with your Azure account with Azure Toolkit 
    :::image type="content" source="media/quickstart-deploy-apps/deploy-to-azure-1-pet-clinic.png" alt-text="Screenshot of the IntelliJ project explorer showing how to deploy the PetClinic sample project." lightbox="media/quickstart-deploy-apps/deploy-to-azure-1-pet-clinic.png":::
 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
-1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-2.5.1*.
+1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-3.0.1*.
 1. In the **Subscription** textbox, verify your subscription.
 1. In the **Spring Cloud** textbox, select the instance of Azure Spring Apps that you created in [Provision Azure Spring Apps instance](./quickstart-provision-service-instance.md).
 1. Set **Public Endpoint** to *Enable*.

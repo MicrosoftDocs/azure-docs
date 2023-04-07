@@ -2,9 +2,8 @@
 title: Best practices for cluster security
 titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for how to manage cluster security and upgrades in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 03/02/2023
 
 ---
 
