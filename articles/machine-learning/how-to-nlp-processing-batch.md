@@ -25,7 +25,7 @@ The model we are going to work with was built using the popular library transfor
 
 * It can work with sequences up to 1024 tokens.
 * It is trained for summarization of text in English.
-* We are going to use TensorFlow as a backend.
+* We are going to use Torch as a backend.
 
 The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/batch/deploy-models/huggingface-text-summarization` if you are using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization` if you are using our SDK for Python.
 
