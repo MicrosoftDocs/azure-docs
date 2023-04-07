@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting job run error codes
+title: Troubleshooting Azure Storage Mover job run error codes
 description: Learn how to understand and remediate errors raised by the Azure Storage Mover Agent.
 author: stevenmatthew
 ms.author: shaas
@@ -25,7 +25,7 @@ Current doc score: 100 (552, 0)
 !########################################################
 -->
 
-# Troubleshooting job run error codes
+# Troubleshooting Storage Mover job run error codes
 
 An Azure Storage Mover agent uses string status codes for statuses that are conveyed to the end user. All status codes have the prefix *AZSM* followed by four decimal digits. The first decimal digit indicates the high-level scope of the status. Each status code should belong to one of the following scopes:
 
