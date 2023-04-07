@@ -270,11 +270,11 @@ Now that the cloud environment is prepared, the application is ready to deploy.
 
 ## Clean up resources
 
-- To avoid unnecessary costs, use the following command to delete the resource group.
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When you no longer need the resources, delete them by deleting the resource group. Use the following command to delete the resource group:
 
-   ```azurecli
-   az group delete --name ${RESOURCE_GROUP}
-   ```
+```azurecli
+az group delete --name ${RESOURCE_GROUP}
+```
 
 ## Next steps
 
