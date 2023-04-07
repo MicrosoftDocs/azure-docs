@@ -35,7 +35,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 Assigning an Azure AD role to a group is similar to assigning users and service principals except that only groups that are role-assignable can be used.
 
 > [!TIP]
-> These steps apply to customers that have an Azure AD Premium P1 license. If you have an Azure AD Premium P2 license in your tenant, you should instead see [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
+> These steps apply to customers that have an Azure AD Premium P1 license. If you have an Azure AD Premium P2 license in your tenant, you should instead follow steps in [Assign Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-add-role-to-user.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Microsoft Entra admin center](https://entra.microsoft.com).
 
@@ -68,6 +68,7 @@ Assigning an Azure AD role to a group is similar to assigning users and service 
 Use the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup?branch=main) command to create a role-assignable group.
 
 ```powershell
+Connect-MgGraph -Scopes "Group.ReadWrite.All","RoleManagement.ReadWrite.Directory"
 $group = New-MgGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group has Helpdesk Administrator built-in role assigned to it in Azure AD." -MailEnabled:$false -SecurityEnabled -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole:$true
 ```
 
@@ -84,7 +85,7 @@ $roleDefinition = Get-MgRoleManagementDirectoryRoleDefinition -Filter "displayNa
 Use the [New-MgRoleManagementDirectoryRoleAssignment](/powershell/module/microsoft.graph.devicemanagement.enrolment/new-mgrolemanagementdirectoryroleassignment?branch=main) command to assign the role.
 
 ```powershell
-$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
+$roleAssignment = New-MgRoleManagementDirectoryRoleAssignment -DirectoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id
 ```
 
 # [Azure AD PowerShell](#tab/aad-powershell)
