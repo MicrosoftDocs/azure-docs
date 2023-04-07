@@ -118,7 +118,7 @@ Azure Payment HSM supports the following SKUs:
 |---|---|
 | 3DS | 3D Secure |
 | ATM | Automated Teller Machine |
-| EMV | Europay Mastercard Visa |
+| EMV | Euro Mastercard Visa |
 | FIPS | Federal Information Processing Standards |
 | HCE | Host Card Emulation |
 | HSM | Hardware Security Module |
