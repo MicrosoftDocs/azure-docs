@@ -212,7 +212,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    > [!IMPORTANT]
    > To avoid device spoofing in device-to-cloud (D2C) messages, Azure IoT Hub enriches all device messages with additional properties before sending it to the MedTech service device event hub. For example: **Properties**: `iothub-creation-time-utc` and **SystemProperties**: `iothub-connection-device-id`. For more information, see [Anti-spoofing properties](../../iot-hub/iot-hub-devguide-messages-construct.md#anti-spoofing-properties) and [How to use IotJsonPathContent mappings](how-to-use-iot-jsonpath-content-mappings.md). 
    >
-   > You do not want to send this example device message to your IoT hub as the enrichment will be duplicated by the IoT hub and cause an error with your MedTech service. This is only an example of how your device messages are enrichment by the IoT hub. 
+   > You do not want to send this example device message to your IoT hub as the enrichments will be duplicated by the IoT hub and cause an error with your MedTech service. This is only an example of how your device messages are enriched by the IoT hub. 
    >
    > Example:
    >
