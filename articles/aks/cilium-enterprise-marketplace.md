@@ -23,11 +23,13 @@ Isovalent Cilium Enterprise is a network security platform for modern cloud-nati
 > Isovalent Cilium Enterprise is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Designed for platform teams and leveraging the power of eBPF, Isovalent Cilium Enterprise:
+Designed for platform teams and using the power of eBPF, Isovalent Cilium Enterprise:
 
-* Combines network and runtime behavior with Kubernetes identity to provide a single source of data for cloud native forensics, audit, compliance monitoring, and threat detection integrated into your SIEM/Log aggregation platform of choice.
+* Combines network and runtime behavior with Kubernetes identity to provide a single source of data for cloud native forensics, audit, compliance monitoring, and threat detection. Isovalent Cilium Enterprise is integrated into your SIEM/Log aggregation platform of choice.
 
-* Scales effortlessly for any deployment size. With capabilities such as traffic management, load balancing, and infrastructure monitoring. Isovalent Cilium Enterprise is tested, fully back-ported, and covered by 24 x 7 support.
+* Scales effortlessly for any deployment size. With capabilities such as traffic management, load balancing, and infrastructure monitoring.
+
+* Fully back-ported and tested. Available with 24x7 support.
 
 * Enables self-service for monitoring, troubleshooting, and security workflows in Kubernetes. Teams can access current and historical views of flow data, metrics, and visualizations for their specific namespaces.
 
@@ -40,7 +42,7 @@ Designed for platform teams and leveraging the power of eBPF, Isovalent Cilium E
 
 - An existing Azure Kubernetes Service (AKS) cluster running Azure CNI powered by Cilium. If you don't have an existing AKS cluster, you can create one from the Azure portal. For more information, see [Configure Azure CNI Powered by Cilium in Azure Kubernetes Service (AKS) (Preview)](azure-cni-powered-by-cilium.md).
 
-## Deploy Cilium Enterprise on Azure Marketplace
+## Deploy Isovalent Cilium Enterprise on Azure Marketplace
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -65,12 +67,12 @@ Designed for platform teams and leveraging the power of eBPF, Isovalent Cilium E
 
 1. Select **Create**.
 
-Azure will begin deploying Isovalent Cilium Enterprise to your selected subscription and resource group. This process may take some time and must be completed. 
+Azure deploys Isovalent Cilium Enterprise to your selected subscription and resource group. This process may take some time and must be completed. 
 
 > [!IMPORTANT]
 > Note that Marketplace applications are deployed as AKS extensions onto AKS clusters. If you are upgrading the existing AKS cluster, AKS replaces the Cilium OSS images with Isovalent Cilium Enterprise images seamlessly without any downtime. 
 
-When the deployment is complete, you can access the Isovalent Cilium Enterprise by navigating to the resource group that contains the **Cilium Enterprise** resource in the Azure Portal.
+When the deployment is complete, you can access the Isovalent Cilium Enterprise by navigating to the resource group that contains the **Cilium Enterprise** resource in the Azure portal.
 
 Cilium can be reconfigured after deployment by updating the Helm values with Azure CLI:
 
@@ -78,7 +80,7 @@ Cilium can be reconfigured after deployment by updating the Helm values with Azu
 az k8s-extension update -c <cluster> -t managedClusters -g <region> -n cilium --configuration-settings debug.enabled=true
 ```
 
-You can uninstall an Isovalent Cilium Enterprise offer using the AKS extension delete command. Uninstall flow per AKS Cluster is not added in Marketplace yet until ISV’s stop sell the whole offer. For more information about AKS extension delete, see [az k8s-extension delete](/cli/azure/k8s-extension#az-k8s-extension-delete).
+You can uninstall an Isovalent Cilium Enterprise offer using the AKS extension delete command. Uninstall flow per AKS Cluster isn't added in Marketplace yet until ISV’s stop sell the whole offer. For more information about AKS extension delete, see [az k8s-extension delete](/cli/azure/k8s-extension#az-k8s-extension-delete).
 
 ## Next steps
 
