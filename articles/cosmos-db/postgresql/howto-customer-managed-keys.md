@@ -104,7 +104,7 @@ ms.date: 04/06/2023
 
 5. Enable CMK encryption during the provisioning for a new cluster
 
-   # [Portal](#tab/Portal)
+   # [Portal](#tab/portal)
 
    a. During the provisioning of a new Cosmos DB for PostgreSQL cluster, after providing the necessary information under Basics and Networking Tab, Navigate to the Encryption (Preview) Tab.
       ![Screenshot of Encrytion configuration page](media/howto-customer-managed-keys/Provisioing%201.png)
@@ -256,7 +256,7 @@ ms.date: 04/06/2023
 
 Encryption configuration can be changed from service managed encryption to CMK encryption or vice versa while performing a Point in restore operation to a new cluster.
 
-# [Portal](#tab/Portal)
+# [Portal](#tab/portal)
 
   a. Navigate to the Data Encryption blade, and select Initiate restore operation. Alternatively, you can perform PITR by selecting the Restore option in the overview blade.
     ![Screenshot of PITR](media/howto-customer-managed-keys/PITR.png)
