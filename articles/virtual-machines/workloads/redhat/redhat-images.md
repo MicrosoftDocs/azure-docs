@@ -173,11 +173,11 @@ RHEL 8.0      |N/A                            | No EUS is available from Red Hat
 The latest RHEL for SAP images are connected to the Update Services for SAP Solutions subscriptions (E4S). For more information about E4S, see [Update Services for SAP Solutions](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions).
 
 > [!NOTE]
-> Customers looking to update OS connected to E4S repositories to the latest version can enforce the latest available EUS minor-release in the `/etc/yum/vars/releasever` file without switching to non-EUS.
+> If you intend to update OS connected to E4S repositories to the latest version, you can enforce the latest available EUS minor-release in the `/etc/yum/vars/releasever` file without switching to non-EUS.
 >
 > For information on RedHat EUS availability, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
 >
-> For steps on how to enforce a minor version refer to [How to set a specific release version on RHUI](https://access.redhat.com/solutions/4251981). Steps outlined in this article also apply to RHEL8.* versions.
+> For steps on how to enforce a minor version, see [How to set a specific release version on RHUI](https://access.redhat.com/solutions/4251981). Steps outlined in that article also apply to RHEL8.* versions.
 
 #### RHEL images with E4S
 
