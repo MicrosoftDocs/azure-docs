@@ -45,7 +45,7 @@ ms.date: 04/06/2023
       ![Screenshot of User assigned managed Identity page in Azure portal](media/howto-customer-managed-keys/UAI%202.png)
 
 
-   Learn more about [User Assigned Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+   Learn more about [User Assigned Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
 2. Key Vault
 
