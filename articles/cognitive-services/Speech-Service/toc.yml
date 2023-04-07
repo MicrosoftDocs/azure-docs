@@ -387,16 +387,26 @@ items:
       href: embedded-speech.md
     - name: Power automate batch transcription
       href: power-automate-batch-transcription.md
-    - name: Speech containers
+    - name: Containers
       items:
-        - name: Cognitive Services containers documentation
-          href: ../containers/index.yml?context=/azure/cognitive-services/speech-service/context/context
-        - name: Install and run Speech containers
-          displayName: 'containers,install container,run container'
-          href: speech-container-howto.md
-        - name: Configure speech containers
-          displayName: 'containers,configure containers,container config,configuration'
-          href: speech-container-configuration.md
+        - name: Speech containers overview
+          href: speech-container-overview.md
+        - name: Containers
+          items:
+          - name: Install and run Speech containers
+            displayName: 'containers,install container,run container'
+            href: speech-container-howto.md
+          - name: Configure speech containers
+            displayName: 'containers,configure containers,container config,configuration'
+            href: speech-container-configuration.md
+          - name: Speech-to-text containers
+            href: speech-container-stt.md
+          - name: Custom speech-to-text containers
+            href: speech-container-cstt.md
+          - name: Text-to-speech containers
+            href: speech-container-ntts.md
+          - name: Language identification containers
+            href: speech-container-lid.md
         - name: Batch processing with speech containers
           href: speech-container-batch-processing.md
         - name: Speech containers with Kubernetes and Helm
