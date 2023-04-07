@@ -108,5 +108,5 @@ landingContent:
           - text: Configure SSL
             url: howto-ssl-connection-security.md
           - text: Customer Managed Keys
-            url : howto-customer-managed-keys.md
+            url: howto-customer-managed-keys.md
 

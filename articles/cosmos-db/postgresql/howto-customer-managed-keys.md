@@ -8,8 +8,9 @@ ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 04/06/2023
 ---
-
 # Enable data encryption with customer-managed keys in Azure Cosmos DB for PostgreSQL
+
+[!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 ## Prerequisites
 
@@ -122,7 +123,7 @@ ms.date: 04/06/2023
    > Data encryption can only be configured during the creation of a new cluster and can't be updated on an existing cluster. A workaround for updating the encryption configuration on an existing cluster is to restore an existing PITR backup to a new cluster and configure the data encryption during the creation of the newly restored cluster.
 
    # [ARM Template](#tab/arm)
-  ```json
+ ```json
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -232,7 +233,7 @@ ms.date: 04/06/2023
         ],
         "outputs": {}
     }
-```
+ ```
 ---
 
 **6. High Availability:**
@@ -262,7 +263,7 @@ Encryption configuration can be changed from service managed encryption to CMK e
 
 # [ARM Template](#tab/arm)
 
-```json
+ ```json
     {
         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -331,7 +332,7 @@ Encryption configuration can be changed from service managed encryption to CMK e
             }
         ]
     }
-```
+ ```
 ---
 
 ### Monitor the customer-managed key in Key Vault

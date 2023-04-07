@@ -25,7 +25,7 @@ Updates that change cluster internals, such as installing a [new minor PostgreSQ
 ### April  2023
 
 * Public preview: Data Encryption at rest using [Customer Managed Keys](./concepts-customer-managed-keys.md) is now supported for all available regions.
-   * See [this guide](./howto-customer-managed-keys.md) to enable data encryption with customer managed keys. 
+   * See [this guide](./howto-customer-managed-keys.md) for the steps to enable data encryption using customer managed keys. 
 
 ### March 2023
 
