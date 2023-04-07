@@ -87,10 +87,10 @@ With the exception of HTTP and timer triggers, bindings are implemented as exten
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
 ```
-<!-- # [Isolated process](#tab/isolated-process)
+# [Isolated process](#tab/isolated-process)
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
-``` -->
+```
 ---
 ::: zone-end
 
@@ -100,8 +100,15 @@ Your project has been configured to use [extension bundles](functions-bindings-r
 
 Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
 
-:::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
-
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[4.*, 5.0.0)"
+    }
+}
+```
 ::: zone-end
 
 Now, you can add the Azure SQL output binding to your project.
@@ -125,27 +132,30 @@ Open the *HttpExample.cs* project file and add the following parameter to the `R
 
 The `toDoItems` parameter is an `IAsyncCollector<ToDoItem>` type, which represents a collection of ToDo items that are written to your Azure SQL Database when the function completes. Specific attributes indicate the names of the database table (`dbo.ToDo`) and the connection string for your Azure SQL Database (`SqlConnectionString`).
 
-<!-- # [Isolated process](#tab/isolated-process)
+# [Isolated process](#tab/isolated-process)
 
-Open the *HttpExample.cs* project file and add the following function attribute to the `Run` method definition:
+Open the *HttpExample.cs* project file and add the following output type class, which defines the combined objects that will be output from our function for both the HTTP response and the SQL output:
 
 ```cs
-[SqlOutput(commandText: "dbo.ToDo", connectionStringSetting: "SqlConnectionString")] IAsyncCollector<ToDoItem> toDoItems
+public static class OutputType
+{
+    [SqlOutput("dbo.ToDo", connectionStringSetting: "SqlConnectionString")]
+    public ToDoItem ToDoItem { get; set; }
+    public HttpResponseData HttpResponse { get; set; }
+}
 ```
-
-The `toDoItems` parameter is an `IAsyncCollector<ToDoItem>` type, which represents a collection of ToDo items that are written to your Azure SQL Database when the function completes. Specific attributes indicate the names of the database table (`dbo.ToDo`) and the connection string for your Azure SQL Database (`SqlConnectionString`).
 
 Add a using statement to the `Microsoft.Azure.Functions.Worker.Extensions.Sql` library to the top of the file:
 
 ```cs
 using Microsoft.Azure.Functions.Worker.Extensions.Sql;
-``` -->
+```
 
 ---
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript,programming-language-python"
+::: zone pivot="programming-language-javascript"
 
 Binding attributes are defined directly in the function.json file. Depending on the binding type, additional properties may be required. The [Azure SQL output configuration](./functions-bindings-azure-sql-output.md#configuration) describes the fields required for an Azure SQL output binding.
 
@@ -174,6 +184,55 @@ Add the following to the `bindings` array in your function.json.
     "connectionStringSetting": "SqlConnectionString"
 }
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+The way that you define the new binding depends on your Python programming model.
+
+# [v1](#tab/v1)
+
+Binding attributes are defined directly in the function.json file. Depending on the binding type, additional properties may be required. The [Azure SQL output configuration](./functions-bindings-azure-sql-output.md#configuration) describes the fields required for an Azure SQL output binding.
+
+<!--The extension makes it easy to add bindings to the function.json file. 
+
+To create a binding, right-click (Ctrl+click on macOS) the `function.json` file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
+
+| Prompt | Value | Description |
+| -------- | ----- | ----------- |
+| **Select binding direction** | `out` | The binding is an output binding. |
+| **Select binding with direction "out"** | `Azure SQL` | The binding is an Azure SQL binding. |
+| **The name used to identify this binding in your code** | `toDoItems` | Name that identifies the binding parameter referenced in your code. |
+| **The Azure SQL table where data will be written** | `dbo.ToDo` | The name of the Azure SQL table. |
+| **Select setting from "local.setting.json"** | `SqlConnectionString` | The name of an application setting that contains the connection string for the Azure SQL database. |
+
+A binding is added to the `bindings` array in your function.json, which should look like the following after removing any `undefined` values present. -->
+
+Add the following to the `bindings` array in your function.json.
+
+```json
+{
+    "type": "sql",
+    "direction": "out",
+    "name": "toDoItems",
+    "commandText": "dbo.ToDo",
+    "connectionStringSetting": "SqlConnectionString"
+}
+```
+
+# [v2](#tab/v2)
+
+Binding attributes are defined directly in the *function_app.py* file. You use the `generic_output_binding` decorator to add an [Azure SQL output binding](./functions-reference-python.md#outputs):
+
+```python
+@app.generic_output_binding(arg_name="toDoItems", type="sql", CommandText="dbo.ToDo", ConnectionStringSetting="SqlConnectionString"
+    data_type=DataType.STRING)
+```
+
+In this code, `arg_name` identifies the binding parameter referenced in your code, `type` denotes the output binding is a SQL output binding, `CommandText` is the table that the binding writes to, and `ConnectionStringSetting` is the name of an application setting that contains the Azure SQL connection string. The connection string is in the SqlConnectionString setting in the *local.settings.json* file.
+
+---
 
 ::: zone-end
 
@@ -239,14 +298,13 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-<!-- # [Isolated process](#tab/isolated-process)
+# [Isolated process](#tab/isolated-process)
 
 Replace the existing Run method with the following code:
 
 ```cs
 [Function("HttpExample")]
-public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
-    [SqlOutput(commandText: "dbo.ToDo", connectionStringSetting: "SqlConnectionString")] IAsyncCollector<ToDoItem> toDoItems
+public static OutputType Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req,
     FunctionContext executionContext)
 {
     var logger = executionContext.GetLogger("HttpExample");
@@ -258,19 +316,20 @@ public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anon
     response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
     response.WriteString(message);
 
-    // Return a response to both HTTP trigger and Azure Cosmos DB output binding.
-    return new MultiResponse()
+    // Return a response to both HTTP trigger and Azure SQL output binding.
+    return new OutputType()
     {
-         Document = new MyDocument
+         ToDoItem = new ToDoItem
         {
             id = System.Guid.NewGuid().ToString(),
-            message = message
+            title = message,
+            completed = false,
+            url = ""
         },
         HttpResponse = response
     };
 }
-
-``` -->
+```
 
 ---
 
@@ -333,13 +392,14 @@ module.exports = async function (context, req) {
 
 ::: zone pivot="programming-language-python"
 
+# [v1](#tab/v1)
 
 Update *HttpExample\\\_\_init\_\_.py* to match the following code. Add an `import uuid` to the top of the file and add the `toDoItems` parameter to the function definition with `toDoItems.set()` under the `if name:` statement:
 
 ```python
 import azure.functions as func
-import uuid
 import logging
+import uuid
 
 def main(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> func.HttpResponse:
 
@@ -361,6 +421,46 @@ def main(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> func.HttpRe
             status_code=400
         )
 ```
+
+
+# [v2](#tab/v2)
+
+Update *HttpExample\\function_app.py* to match the following code. Add the `toDoItems` parameter to the function definition and `toDoItems.set()` under the `if name:` statement:
+
+```python
+import azure.functions as func
+import logging
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="HttpTrigger1")
+@app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
+@app.generic_output_binding(arg_name="toDoItems", type="sql", CommandText="dbo.ToDo", ConnectionStringSetting="SqlConnectionString"
+    data_type=DataType.STRING)
+def test_function(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> func.HttpResponse:
+     logging.info('Python HTTP trigger function processed a request.')
+     name = req.params.get('name')
+     if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+     if name:
+        toDoItems.set(func.SqlRow({"id": uuid.uuid4(), "title": name, "completed": false, url: ""}))
+        return func.HttpResponse(f"Hello {name}!")
+     else:
+        return func.HttpResponse(
+                    "Please pass a name on the query string or in the request body",
+                    status_code=400
+                )
+```
+
+
+---
 
 ::: zone-end
 
