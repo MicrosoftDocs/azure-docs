@@ -41,7 +41,7 @@ dmesg | grep SCSI
 
 The output is similar to the following example:
 
-```bash
+```output
 [    0.294784] SCSI subsystem initialized
 [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
 [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
@@ -89,10 +89,7 @@ sudo umount /dev/sdc1 /datadrive
 This example detaches the *myDataDisk* disk from VM named *myVM* in *myResourceGroup*.
 
 ```azurecli
-az vm disk detach \
-    -g myResourceGroup \
-	--vm-name myVm \
-	-n myDataDisk
+az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
 ```
 
 The disk stays in storage but is no longer attached to a virtual machine.
