@@ -17,11 +17,8 @@ This topic covers how number matching in Microsoft Authenticator push notificati
 Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator. 
 
 Beginning May 8, 2023, number matching is enabled for all Microsoft Authenticator push notifications. 
-If number matching wasn't already enabled beforehand, users may see number match in approval requests as relevant services deploy.
-
-## Prerequisites
-
-If your organization is using Active Directory Federation Services (AD FS) adapter or NPS extensions, upgrade to the latest versions for a consistent experience. 
+As relevant services deploy, users worldwide who are enabled for Microsoft Authenticator push notifications will see number matching required to approve the sign-in. 
+Users can be enabled for Microsoft Authenticator push notifications either in the Authentication methods policy or the legacy multifactor authentication policy if the legacy MFA policy has enabled **Notifications through mobile app**.
 
 ## Number matching
 
@@ -120,6 +117,11 @@ Relevant services will begin deploying these changes after May 8, 2023 and users
 If the user has a different default authentication method, there's no change to their default sign-in. If the default method is Microsoft Authenticator, they get number matching.
 
 Regardless of their default method, any user who is prompted to sign-in with Authenticator push notifications sees number matching. If prompted for another method, they won't see any change. 
+
+### What happens for users who aren't specified in the Authentication methods policy but they are enabled for Notifications through mobile app in the legacy MFA tenant-wide policy?
+Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match if the legacy MFA policy has enabled **Notifications through mobile app**. Users will see number matching regardless of whether they are enabled for Microsoft Authenticator in the Authentication methods policy.
+
+:::image type="content" border="true" source="./media/how-to-mfa-number-match/notifications-through-mobile-app.png" alt-text="Screenshot of Notifications through mobile app setting.":::
 
 ### Why does the portal still show the control to enable number matching?
 
