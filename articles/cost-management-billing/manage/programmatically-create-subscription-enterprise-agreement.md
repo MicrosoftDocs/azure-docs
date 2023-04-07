@@ -290,7 +290,7 @@ You get the subscriptionId as part of the response from the command.
 
 ## Create subscriptions in a different enrollment
 
-Using the subscription [Alias](https://learn.microsoft.com/rest/api/subscription/2021-10-01/alias/create) REST API, you can use the `subscriptionTenantId` parameter in the request body. Your SPN must get the token from the home tenant to create the subscription. After your create the SPN, you get the token from `subscriptionTenantId` and accept the transfer using the [Accept Ownership](https://learn.microsoft.com/rest/api/subscription/2021-10-01/subscription/accept-ownership) API.
+Using the subscription [Alias](/rest/api/subscription/2021-10-01/alias/create) REST API, you can use the `subscriptionTenantId` parameter in the request body. Your SPN must get the token from the home tenant to create the subscription. After your create the SPN, you get the token from `subscriptionTenantId` and accept the transfer using the [Accept Ownership](/rest/api/subscription/2021-10-01/subscription/accept-ownership) API.
 
 For more information about creating EA subscriptions in another tenant, see [Create subscription in other tenant and view transfer requests](direct-ea-administration.md#create-subscription-in-other-tenant-and-view-transfer-requests).
 
