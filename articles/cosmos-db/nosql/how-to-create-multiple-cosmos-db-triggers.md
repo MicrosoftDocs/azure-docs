@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 4/07/2023
+ms.date: 04/07/2023
 ms.author: maquaran
 ms.devlang: csharp
 ms.custom: devx-track-csharp
