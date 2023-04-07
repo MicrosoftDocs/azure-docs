@@ -9,7 +9,7 @@ ms.custom: UpdateFrequency5, event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 02/13/2022
+ms.date: 04/10/2023
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -18,6 +18,22 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## 2023-04-10
+
+### Azure Machine Learning SDK for Python v1.50.0
+  + **azureml-contrib-automl-dnn-forecasting**
+    + Added support for forecasting at given quantiles for TCN models.
+  + **azureml-core**
+    + Enabling Datacache service Singularity support.
+  + **azureml-responsibleai**
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.26.0
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.25.0
+  + **azureml-train-automl-runtime**
+    + Fix MLTable handling for model test scenario
+  + **azureml-training-tabular**
+    + Added quantiles as parameter in the forecast_quantile method.
 
 
 ## 2023-03-01
