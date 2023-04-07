@@ -198,7 +198,7 @@
         - name: Manage private access
           href: howto-private-access.md
           displayName: network, private link
-        - name: Configure SSL
+        - name: Configure TLS/SSL
           href: howto-ssl-connection-security.md
           displayName: ssl, tls
     - name: Troubleshoot
