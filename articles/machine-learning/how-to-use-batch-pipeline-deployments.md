@@ -36,7 +36,7 @@ git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/batch
 ```
 
-### Follow along in Jupyter Notebooks
+### Follow along in Jupyter notebooks
 
 <!-- update notebook name and link -->
 You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [NAME.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mnist-batch.ipynb).
@@ -54,7 +54,7 @@ Update this...
 
 ---
 
-## Connect to the Azure Machine Learning Workspace
+## Connect to the Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
 
@@ -132,7 +132,7 @@ hello_batch = load_component(source="hello-component/hello.yml")
 
 ---
 
-## Create a Batch Endpoint
+## Create a batch endpoint
 
 Batch endpoints receive pointers to data and run jobs asynchronously to process the data on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 

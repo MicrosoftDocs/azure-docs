@@ -39,7 +39,7 @@ git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/batch
 ```
 
-### Follow along in Jupyter Notebooks
+### Follow along in Jupyter notebooks
 
 <!-- update notebook name and link -->
 You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [NAME.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mnist-batch.ipynb).
@@ -57,7 +57,7 @@ Update this...
 
 ---
 
-## Connect to the Azure Machine Learning Workspace
+## Connect to the Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
 
@@ -118,9 +118,9 @@ ml_client = MLClient(
 
 In this section, we'll begin by creating an environment that includes necessary libraries to train the model. We'll then create a compute cluster on which the batch deployment will run, and finally, we'll register the input data as a data asset.
 
-### Create the environment
-
 # [Azure CLI](#tab/azure-cli)
+
+### Create the environment
 
 The components in this example will use an environment with the `XGBoost` and `scikit-learn` libraries. Create the environment by running this code:
 
@@ -128,7 +128,31 @@ The components in this example will use an environment with the `XGBoost` and `s
 az ml environment create -f ../../environment/xgboost-sklearn-py38.yml
 ```
 
+### Create a compute cluster
+
+Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. This means that multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
+
+```azurecli
+az ml compute create -n batch-cluster --type amlcompute --min-instances 0 --max-instances 5
+```
+
+### Register the input data as a data asset
+
+In this example, the training routine will consume data from a data asset. We're going to register the training dataset in the `heart.csv` file as a data asset in your workspace.
+
+```azurecli
+az ml data create --name heart-classifier-train --type uri_folder --path data/train
+```
+
+Once created, we'll get a reference to the data asset's ID:
+
+```azurecli
+DATASET_ID=$(az ml data show --name heart-classifier-train --version 1 | jq -r ".id")
+```
+
 # [Python](#tab/python)
+
+### Create the environment
 
 The components in this example will use an environment with the `XGBoost` and `scikit-learn` libraries. Create the environment by running this code:
 
@@ -145,41 +169,36 @@ environment = Environment(
 ml_client.environments.create_or_update(environment)
 ```
 
----
-
 ### Create a compute cluster
 
 Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. This means that multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
 
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az ml compute create -n batch-cluster --type amlcompute --min-instances 0 --max-instances 5
+```python
+compute_name = "batch-cluster"
+if not any(filter(lambda m: m.name == compute_name, ml_client.compute.list())):
+    print(f"Compute {compute_name} is not created. Creating...")
+    compute_cluster = AmlCompute(
+        name=compute_name, description="amlcompute", min_instances=0, max_instances=5
+    )
+    ml_client.begin_create_or_update(compute_cluster)
 ```
 
-# [Python](#tab/python)
+Compute may take time to be created. Let's wait for it:
 
-Update...
+```python
+from time import sleep
 
----
+print(f"Waiting for compute {compute_name}", end="")
+while ml_client.compute.get(name=compute_name).provisioning_state == "Creating":
+    sleep(1)
+    print(".", end="")
+
+print(" [DONE]")
+```
 
 ### Register the input data as a data asset
 
 In this example, the training routine will consume data from a data asset. We're going to register the training dataset in the `heart.csv` file as a data asset in your workspace.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az ml data create --name heart-classifier-train --type uri_folder --path data/train
-```
-
-Once created, we'll get a reference to the data asset's ID:
-
-```azurecli
-DATASET_ID=$(az ml data show --name heart-classifier-train --version 1 | jq -r ".id")
-```
-
-# [Python](#tab/python)
 
 ```python
 data_path = "data/train"
@@ -226,12 +245,9 @@ The pipeline we want to operationalize has two components (steps):
     - `data`: a folder containing the input data to transform and score
     - `transformations`: (optional) the path to the transformations that will be applied, if available. If this value isn't provided, then the transformations will be learned from the input data. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
     - `categorical_encoding`: the encoding strategy for the categorical features (`ordinal` or `onehot`).
-1.`train_job`: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model.
+1. `train_job`: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model.
 
 The pipeline is configured in the following `pipeline.yml` file:
-
-> [!NOTE]
-> In the `pipeline.yml` file, the `transformations` input is missing; therefore, the script will learn the parameters from the input data.
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineComponent.schema.json
@@ -285,6 +301,9 @@ jobs:
         type: uri_folder
         path: ${{parent.outputs.evaluation_results}}
 ```
+
+> [!NOTE]
+> In the `pipeline.yml` file, the `transformations` input is missing; therefore, the script will learn the parameters from the input data.
 
 A visualization of the pipeline is as follows:
 
@@ -523,6 +542,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
 A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `BatchDeployment` class.
 
 # [Azure CLI](#tab/azure-cli)
+
 ### Configure the deployment
 
 The `deployment-ordinal.yml` file contains the deployment's configuration.
@@ -553,33 +573,6 @@ az ml batch-deployment create --endpoint $ENDPOINT_NAME -f deployment-ordinal.ym
 > Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
 
 # [Python](#tab/python)
-
-### Create a compute cluster
-
-Batch endpoints and deployments run on compute clusters. They can run on any Azure Machine Learning compute cluster that already exists in the workspace. This means that multiple batch deployments can share the same compute infrastructure. In this example, we'll work on an Azure Machine Learning compute cluster called `batch-cluster`. Let's verify that the compute exists on the workspace or create it otherwise.
-
-```python
-compute_name = "batch-cluster"
-if not any(filter(lambda m: m.name == compute_name, ml_client.compute.list())):
-    print(f"Compute {compute_name} is not created. Creating...")
-    compute_cluster = AmlCompute(
-        name=compute_name, description="amlcompute", min_instances=0, max_instances=5
-    )
-    ml_client.begin_create_or_update(compute_cluster)
-```
-
-Compute may take time to be created. Let's wait for it:
-
-```python
-from time import sleep
-
-print(f"Waiting for compute {compute_name}", end="")
-while ml_client.compute.get(name=compute_name).provisioning_state == "Creating":
-    sleep(1)
-    print(".", end="")
-
-print(" [DONE]")
-```
 
 ### Configure the deployment
 
@@ -620,7 +613,7 @@ ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
 
 ## Test the deployment
 
-Once the deployment is created, it's ready to receive jobs.
+Once the deployment is created, it's ready to receive jobs. In this section, we'll create the input data, create a job to invoke the deployment, and access the job output.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -643,7 +636,8 @@ inputs:
 Invoke the default deployment:
 
 ```azurecli
-JOB_NAME = $(az ml batch-endpoint invoke -n $ENDPOINT_NAME --f inputs.yml | jq -r ".name")```
+JOB_NAME = $(az ml batch-endpoint invoke -n $ENDPOINT_NAME --f inputs.yml | jq -r ".name")
+```
 
 You can monitor the progress of the show and stream the logs using:
 
@@ -752,6 +746,109 @@ Download the outputs of the training step:
 ml_client.jobs.download(name=train_job.name, download_path=".", output_name="model")
 ml_client.jobs.download(name=train_job.name, download_path=".", output_name="evaluation_results")
 ```
+
+---
+
+## Create a new deployment in the endpoint
+
+Endpoints can host multiple deployments at once, while keeping only one deployment as the default. This allows you to iterate over your different models, deploy the different models to your endpoint and test them, and finally, switch the default deployment to the model deployment that works best for you.
+
+Let's change the way preprocessing is done in the pipeline to see if we get a model that performs better.
+
+# [Azure CLI](#tab/azure-cli)
+
+### Change a parameter in the pipeline's preprocessing component
+
+The preprocessing component has a parameter called `categorical_encoding` which can have values `ordinal` or `onehot`. These values correspond to two different ways of encoding categorical features. 
+
+- `ordinal`: Encodes the feature values with numeric values (ordinal) from `[1:n]`, where `n` is the number of categories in the feature. Ordinal encoding implies that there is a natural rank order among the feature categories.
+- `onehot`: Doesn't imply an ordinal relationship but introduces a dimensionality problem if the number of categories is large. 
+ 
+By default, we used `ordinal` previously. Let's now change the categorical encoding to use `onehot` and see how the model performs.
+
+The pipeline component has the following modification (`categorical_encoding: onehot`):
+
+```yml
+jobs:
+  preprocess_job:
+    type: command
+    compute: azureml:batch-cluster
+    component: ./../../components/prepare/prepare.yml
+    inputs:
+      data: ${{parent.inputs.input_data}}
+      categorical_encoding: onehot
+    outputs:
+      prepared_data:
+      transformations_output: ${{parent.outputs.prepare_transformations}}
+```
+
+> [!TIP]
+> As an alternative, we could have exposed the `categorial_encoding` as an input in the pipeline job itself, rather than changing it in the specific step. Such an alternative is completely valid but will expose the existence of such input parameter to your clients. In this scenario, we want to hide it and hence control it inside of the deployment by taking advantage of having multiple deployments under the same endpoint.
+
+### Configure the deployment
+
+The `deployment-onehot.yml` file contains the modified deployment's configuration.
+
+```yml
+$schema: http://azureml/sdk-2-0/BatchDeployment.json
+name: uci-classifier-train-onehot
+description: A sample deployment that trains an XGBoost model for the UCI dataset using One hot encoding for variables.
+endpoint_name: uci-classifier-train
+compute: azureml:batch-cluster
+type: component
+job_definition:
+    type: pipeline
+    component: ./pipeline-onehot.yml
+    settings:
+        continue_on_step_failure: false
+```
+
+### Create the deployment
+
+Run the following code to create a new batch deployment under the batch endpoint. Don't set the `--set-default` flag to default, as we want to test out the deployment first.
+
+```azurecli
+az ml batch-deployment create --endpoint $ENDPOINT_NAME -f deployment-onehot.yml
+```
+
+### Test a non-default deployment
+
+Once the deployment is created, it is ready to receive jobs. The input data asset definition is contained in the `inputs.yml` file:
+
+```yaml
+inputs:
+  input_data:
+    type: uri_folder
+    path: azureml:heart-classifier-train@latest
+```
+
+### Invoke the deployment
+
+Invoke the deployment as follows, specifying the `-d uci-classifier-train-onehot` parameter to trigger the specific deployment `uci-classifier-train-onehot`:
+
+```azurecli
+JOB_NAME = $(az ml batch-endpoint invoke -n $ENDPOINT_NAME -d uci-classifier-train-onehot --f inputs.yml | jq -r ".name")
+```
+
+### Configure the new deployment as the default one
+
+Once we're satisfied with the performance of the new deployment, we can set this new one as the default:
+
+```azurecli
+az ml batch-endpoint update -n $ENDPOINT_NAME --set defaults.deployment_name=uci-classifier-train-onehot
+```
+
+### Delete the old deployment
+
+Once you're done, you can delete the old deployment if you don't need it anymore:
+
+```azurecli
+az ml batch-deployment delete --name uci-classifier-train-xgb --endpoint-name $ENDPOINT_NAME --yes
+```
+
+# [Python](#tab/python)
+
+Update...
 
 ---
 
