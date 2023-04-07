@@ -1,4 +1,17 @@
-
+---
+title: "Content flags"
+titleSuffix: Azure Cognitive Services
+description: Learn about the different content moderation flags and severity levels that the Content Safety service returns.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: content-safety
+ms.topic: conceptual
+ms.date: 04/06/2023
+ms.author: pafarley
+keywords: 
+---
 
 
 

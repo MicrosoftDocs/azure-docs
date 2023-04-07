@@ -1,3 +1,17 @@
+---
+title: "Use custom blocklists"
+titleSuffix: Azure Cognitive Services
+description: Learn how to customize text moderation in Content Safety by using your own list of blocked terms.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: content-safety
+ms.topic: how-to
+ms.date: 04/06/2023
+ms.author: pafarley
+keywords: 
+---
 
 
 
