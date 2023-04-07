@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 04/06/2023
 ms.author: cshoe
 ms.custom: event-tier1-build-2022, ignite-2022, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -192,6 +192,9 @@ az containerapp create \
 ```
 
 Here, a connection string to a queue storage account is declared in the `--secrets` parameter. Replace `<KEY_VAULT_SECRET_URI>` with the URI of your secret in Key Vault. Replace `<USER_ASSIGNED_IDENTITY_ID>` with the resource ID of the user assigned identity. For system assigned identity, use `System` instead of the resource ID.
+
+> [!NOTE]
+> The user assigned identity must have access to read the secret in Key Vault.
 
 # [PowerShell](#tab/powershell)
 
