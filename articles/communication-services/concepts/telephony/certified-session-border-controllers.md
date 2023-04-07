@@ -26,7 +26,6 @@ Microsoft works with each vendor to:
 [!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
 
 Media bypass is not yet supported by Azure Communication Services. 
-Early media is not supported by a web-based client.
 The table that follows list devices certified for Azure Communication Services direct routing.
 
 If you have any questions about the SBC certification program for Communication Services direct routing, contact acsdrcertification@microsoft.com.
