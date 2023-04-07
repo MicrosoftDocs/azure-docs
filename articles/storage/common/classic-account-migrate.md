@@ -97,11 +97,11 @@ To migrate a classic storage account to the Azure Resource Manager deployment mo
 To migrate a classic storage account to the Azure Resource Manager deployment model with PowerShell, you'll need to use the Azure PowerShell Service Management module. To learn how to install this module, see [Install and configure the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps#checking-the-version-of-azure-powershell). The key steps are included here for convenience.
 
 > [!NOTE]
-> The cmdlets in the Azure Service Management module are for managing legacy Azure resources that use Service Management APIs, including classic storage accounts. This module includes the commands needed to migrate a classic storage account to Azure Resource Manager
+> The cmdlets in the Azure Service Management module are for managing legacy Azure resources that use Service Management APIs, including classic storage accounts. This module includes the commands needed to migrate a classic storage account to Azure Resource Manager.
 >
-> To manage Azure Resource Manager resources, we recommend that you use the Az PowerShell module. The Az module replaces the AzureRM module.
+> To manage Azure Resource Manager resources, we recommend that you use the Az PowerShell module. The Az module replaces the deprecated AzureRM module. For more information about moving from the AzureRM module to the Az module, see [Migrate Azure PowerShell scripts from AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
 
-First, install PowerShellGet if you do not already have it installed. For more information on how to install PowerShellGet, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget#installing-the-latest-version-of-powershellget).
+First, install PowerShellGet if you do not already have it installed. For more information on how to install PowerShellGet, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget#installing-the-latest-version-of-powershellget). After you install PowerShellGet, close and reopen the PowerShell console.
 
 Next, install the Azure Service Management module. If you also have the AzureRM module installed, you'll need to include the `-AllowClobber` parameter, as described in [Step 2: Install Azure PowerShell](/powershell/azure/servicemanagement/install-azure-ps#step-2-install-azure-powershell). After the installation is complete, import the Azure Service Management module.
 
@@ -144,7 +144,7 @@ Move-AzureStorageAccount -Commit -StorageAccountName $accountName
 
 # [Azure CLI](#tab/azure-cli)
 
-TBD
+N/A
 
 ---
 
