@@ -214,26 +214,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    >
    > Example:
    >
-   > ```json
-   > {
-   >   "Body": {
-   >     "HeartRate": 78,
-   >     "RespiratoryRate": 12,
-   >     "HeartRateVariability": 30,
-   >     "BodyTemperature": 98.6,
-   >     "BloodPressure": {
-   >       "Systolic": 120,
-   >       "Diastolic": 80
-   >     }
-   >   },
-   >   "Properties": {
-   >     "iothub-creation-time-utc": "2023-03-13T22:46:01.8750000"
-   >   },
-   >   "SystemProperties": {
-   >     "iothub-connection-device-id": "iot-001"
-   >   }
-   > }
-   > ```
+   > :::image type="content" source="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png" alt-text="Screenshot of an Azure IoT Hub enriched device message." lightbox="media\device-messages-through-iot-hub\iot-hub-enriched-device-message.png":::
    >
    > `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. This example assumes your MedTech service is in a **Create** mode. For more information on the **Destination properties**: **Create** and **Lookup**, see [Configure Destination properties](deploy-05-new-config.md#des). The **Resolution type** for this tutorial set to **Create**.
 
