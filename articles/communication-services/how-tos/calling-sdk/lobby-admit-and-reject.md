@@ -14,7 +14,7 @@ ms.custom: template-how-to
 [!INCLUDE [Install SDK](../calling-sdk/includes/install-sdk/install-sdk-web.md)]
 Lobby admit and reject are the apis on `Call` or `TeamsCall`. It allows user to admit and reject participants from Teams meeting lobby.
 
-# Manage participants in Teams meeting Lobby
+# Manage Teams meeting Lobby
 
 In this article, you will learn how to admit and reject participants from Microsoft Teams meetings lobby by using Azure Communication Service calling SDKs.
 
@@ -26,7 +26,7 @@ In this article, you will learn how to admit and reject participants from Micros
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 User ends up in the lobby depending on Microsoft Teams configuration. The controls are described here:
-[Learn more about Teams configuration ](https://learn.microsoft.com/en-us/azure/communication-services/concepts/interop/guest/teams-administration)
+[Learn more about Teams configuration ](../../concepts/interop/guest/teams-administration.md)
 
 Microsoft 365 or Azure Communication Services users can admit or reject users from lobby, if they are connected to Teams meeting and have Organizer, Co-organizer, or Presenter meeting role.
 [Learn more about meeting roles](https://support.microsoft.com/office/roles-in-a-teams-meeting-c16fa7d0-1666-4dde-8686-0a0bfe16e019)
@@ -41,15 +41,58 @@ The first thing is to get the `Call` or `TeamsCall` object of admitter: [Learn h
 
 To know who is in the lobby, you could check the state of a remote participant. The `remoteParticipant` with `InLobby` state indicates that remote participant is in lobby.
 To get the `remoteParticipants` collection:
+
 ```js
-call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
+let remoteParticipants = call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 ```
+
 To get the state of a remote participant:
+
 ```js
 const state = remoteParticipant.state;
 ```
 
+You could check remote participant state in subscription method:
+
+```js
+const subscribeToRemoteParticipant = (remoteParticipant: RemoteParticipant) => {
+    try {
+        // Inspect the initial remoteParticipant.state value.
+        console.log(`Remote participant state: ${remoteParticipant.state}`);
+        if(remoteParticipant.state === 'InLobby'){
+            console.log(`${remoteParticipant._displayName} is in the lobby`);
+        }
+        // Subscribe to remoteParticipant's 'stateChanged' event for value changes.
+        remoteParticipant.on('stateChanged', () => {
+            console.log(`Remote participant state changed: ${remoteParticipant.state}`);
+            if(remoteParticipant.state === 'InLobby'){
+                console.log(`${remoteParticipant._displayName} is in the lobby`);
+            }
+            else if(remoteParticipant.state === 'Connected'){
+                console.log(`${remoteParticipant._displayName} is in the meeting`);
+            }
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+call.on('remoteParticipantsUpdated', args => {
+    args.added.forEach(p => {
+        subscribeToRemoteParticipant(p);
+    });                                             
+    args.removed.forEach(p => {
+        console.log(`${p._displayName} leave the meeting`);
+    });
+});
+
+call.remoteParticipants.forEach(p => {
+    subscribeToRemoteParticipant(p);
+});
+```
+
 Before admit or reject `remoteParticipant` with `InLobby` state, you could get the identifier for a remote participant:
+
 ```js
 const identifier = remoteParticipant.identifier;
 ```
@@ -66,6 +109,7 @@ The `identifier` can be one of the following `CommunicationIdentifier` types:
 To admit, reject or admit all users from the lobby, you can use the `admit`, `rejectParticipant` and `admitAll` asynchronous APIs:
 
 You can admit specific user to the Teams meeting from lobby by calling the method `admit` on the object `TeamsCall` or `Call`. The method accepts identifiers `MicrosoftTeamsUserIdentifier`, `CommunicationUserIdentifier`, `PhoneNumberIdentifier` or `UnknownIdentifier` as input.
+
 ```js
 await call.admit(identifier);
 ```
