@@ -1,10 +1,10 @@
 ---
 title: Hosting multiple sites on Azure Application Gateway
-description: This article provides an overview of the Azure Application Gateway multi-site support.
+description: This article provides an overview of the Azure Application Gateway multi-site support. Examples are provided of rule priority and the order of evaluation for rules appliied to incoming requests. Conditions and limitations for using wildcard rules are described.
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 10/03/2022
+ms.date: 04/07/2023
 ms.author: greglin
 ms.topic: conceptual
 ---
@@ -26,20 +26,18 @@ Similarly, you can host multiple subdomains of the same parent domain on the sam
 
 ## Request Routing rules evaluation order
 
-When you use multi-site listeners to ensure that the client traffic is routed to the accurate backend, it's important to have the request routing rules be present in the correct order.
-For example, if you have 2 listeners with associated Host name as `*.contoso.com` and `shop.contoso.com` respectively, the listener with the `shop.contoso.com` Host name would have to be processed before the listener with `*.contoso.com`. If the listener with `*.contoso.com` is processed first, then no client traffic would be received by the more specific `shop.contoso.com` listener.
+When you use multi-site listeners to ensure that the client traffic is routed to the accurate backend, it's important that the request routing rules are present in the correct order.
+For example, if you have 2 listeners with associated host names of `*.contoso.com` and `shop.contoso.com`, the listener with the `shop.contoso.com` host name must be processed before the listener with `*.contoso.com`. If the listener with `*.contoso.com` is processed first, then no client traffic would be received by the more specific `shop.contoso.com` listener.
 
-This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request. Each request routing rule needs to have a unique priority value.
+The ordering of rules can be established by providing a **Priority** field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. If incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used to serve the request. Each request routing rule must have a unique priority value.
 
 The priority field only impacts the order of evaluation of a request routing rule, this wont change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
->[!NOTE]
->If you wish to use rule priority, you will have to specify rule priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
-Starting with API version 2021-08-01 rule priority field would be a mandatory field as part of the request routing rules.
-From this API version, rule priority field values would be auto-populated for existing request routing rules based on current ordering of evaluation as part of the first PUT call. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.
+> [!NOTE]
+> To use rule priority, you must specify rule priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created must have a rule priority field value as part of its configuration. 
 
 > [!IMPORTANT]
-> Rule priority field values for existing request routing rules based on current order would be automatically populated if any configuration updates are applied using API version 2021-08-01 and above, portal, Azure PowerShell and Azure CLI. Any future updates to request routing rules would need to have the rule priority field provided as part of the configuration.  
+>  Starting with API version 2021-08-01, the rule priority field is a mandatory field in the request routing rules. Rule priority field values for existing request routing rules, based on current ordering of evaluation as part of the first PUT call, are automatically populated if any configuration updates are applied using API version 2021-08-01 and above, portal, Azure PowerShell and Azure CLI. Future updates to request routing rules must have the rule priority field provided as part of the configuration.
 
 ## Wildcard host names in listener
 
