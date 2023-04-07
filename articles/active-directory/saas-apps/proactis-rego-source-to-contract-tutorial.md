@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Proactis Rego Source-to-Contract
 
-In this article, you learn how to integrate Proactis Rego Source-to-Contract with Azure Active Directory (Azure AD). Proactis Rego is a powerful Source-to-Contract software platform designed for mid-market organisations. It’s easy to use and integrate, giving you control over your spend and supply-chain risks. When you integrate Proactis Rego Source-to-Contract with Azure AD, you can:
+In this article, you learn how to integrate Proactis Rego Source-to-Contract with Azure Active Directory (Azure AD). Proactis Rego is a powerful Source-to-Contract software platform designed for mid-market organizations. It’s easy to use and integrate, giving you control over your spend and supply-chain risks. When you integrate Proactis Rego Source-to-Contract with Azure AD, you can:
 
 * Control in Azure AD who has access to Proactis Rego Source-to-Contract.
 * Enable your users to be automatically signed-in to Proactis Rego Source-to-Contract with their Azure AD accounts.

@@ -62,10 +62,10 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     a. In the **Identifier** textbox, type a value using the following pattern:
     `urn:hashicorp:HCP-SSO-<HCP_ORG_ID>-samlp`
 
-    b. In the **Reply URL** textbox, type a URL using the following pattern::
+    b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://auth.hashicorp.com/login/callback?connection=HCP-SSO-<ORG_ID>-samlp`
 
-    c. In the **Sign on URL** textbox, type a URL using the following pattern::
+    c. In the **Sign on URL** textbox, type a URL using the following pattern:
     `https://portal.cloud.hashicorp.com/sign-in?conn-id=HCP-SSO-<HCP_ORG_ID>-samlp`
 
     > [!NOTE]
