@@ -16,7 +16,7 @@ ms.topic: reference
 >
 > On June 02, 2023, Microsoft will retire the Custom Translator v1.0 model platform. Existing v1.0 models must migrate to the v2.0 platform for continued processing and support.
 
-Following measured and consistent high-quality results using models trained on the Custom Translator v2.0 platform, the v1.0 platform will be retired. Custom Translator v2.0 delivers significant improvements in many domains compared to both standard and Custom v1.0 platform translations. Migrate your v1.0 models to the v2.0 platform by June 02, 2023.
+Following measured and consistent high-quality results using models trained on the Custom Translator v2.0 platform, the v1.0 platform is retiring. Custom Translator v2.0 delivers significant improvements in many domains compared to both standard and Custom v1.0 platform translations. Migrate your v1.0 models to the v2.0 platform by June 02, 2023.
 
 ## Custom Translator v1.0 upgrade timeline
 
@@ -27,6 +27,12 @@ Following measured and consistent high-quality results using models trained on t
 * **June 08, 2023** → Remaining v1.0 published models migrate automatically and are published by the Custom Translator team.
 
 ## Upgrade to v2.0
+
+> [!IMPORTANT]
+>
+> * Starting **May 01, 2023** the upgrade wizard and workspace banner will be displayed in the Custom Translator portal indicating that you have v1.0 models to upgrade.
+> * The banner contains a **Select** button that takes you to the upgrade wizard where a list of all your v1.0 models available for upgrade are displayed.
+> * Select any or all of your v1.0 models then select **Train** to start v2.0 model upgrade training.
 
 * **Check to see if you have published v1.0 models**. After signing in to the Custom Translator portal, you'll see a message indicating that you have v1.0 models to upgrade. You can also check to see if a current workspace has v1.0 models by selecting **Workspace settings** and scrolling to the bottom of the page.
 
