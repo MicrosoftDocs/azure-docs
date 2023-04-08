@@ -1,5 +1,5 @@
 ---
- title: "Tutorial: Use a Microsoft Translator V3 connector with Power Automate"
+title: "Tutorial: Use a Microsoft Translator V3 connector with Power Automate"
 titleSuffix: Azure Cognitive Services
 description: The Microsoft V3 connector enable your applications to translate text
 author: laujan
@@ -16,6 +16,8 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD029 -->
 
 # Tutorial: Configure a Microsoft Translator V3 connector
+
+Text and document translation are cloud-based REST API features of the Azure Translator service. The text translation API enables quick and accurate source-to-target text translations in real time. The document translation API enables multiple and complex document translations while preserving original document structure and data format.
 
 This tutorial, details how to configure a Translator V3 connector that supports both text and document translation. The V3 connector creates a connection between your Translator instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
 
@@ -149,9 +151,13 @@ Now that completed the prerequisites and initial setup, let's get started using 
 
 1. A **choose an operation** pop-up window appears. Enter Translator V3 in the **Search connectors and actions** search bar and select the **Microsoft Translator V3** icon.
 
-   :::image type="content" source="media/connectors/choose-an-operation.png" alt-text="Screenshot showing the selection of Translator V3 as the next flow step,":::
+   :::image type="content" source="media/connectors/choose-operation.png" alt-text="Screenshot showing the selection of Translator V3 as the next flow step.":::
 
 Now, we're ready to select an action.
+
+## Text translation
+
+In this section, select a tab to create a flow for text translation or text transliteration.
 
 #### [Translate text](#tab/translate)
 
@@ -167,8 +173,11 @@ Now, we're ready to select an action.
 
       :::image type="content" source="media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
 
-1. Next, the **Translate text** step window appears. 
-1. Select the **Source Language** or keep the default **Auto-detect** option.
+> [!NOTE]
+> After you've setup your connection, you won't be required to reenter your credentials for subsequent flows.
+
+1. Next, the **Translate text** action window appears.
+1. Select a **Source Language** from the dropdown menu or keep the default **Auto-detect** option.
 1. Select a **Target Language** from the dropdown window.
 1. Enter the **Body Text**.
 1. Select **Save**.
@@ -189,7 +198,7 @@ Now, we're ready to select an action.
 
       :::image type="content" source="media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
 
-1. Next the **Transliterate** step window appears.
+1. Next the **Transliterate** action window appears.
 1. **Language**. Select the language of the text that is to be converted.
 1. **Source script**. Select the name of the input text script.
 1. **Target script**. Select the name of transliterated text script.
@@ -199,16 +208,17 @@ Now, we're ready to select an action.
 
 ---
 
-1. Time to check our flow and retrieve the results.
+Time to check our flow and view the translated text.
 
-   * You should see a green bar at the top of the page indicating that **Your flow is ready to go.**.
-   * Select Test from the upper-right corner of the page.
+1. You should see a green bar at the top of the page indicating that **Your flow is ready to go.**.
+1. Select Test from the upper-right corner of the page.
       :::image type="content" source="media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
-   * Select **Manually** from the **Test Flow** side window and select **Test**
 
-      :::image type="content" source="media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manually test flow button.":::
+1. Select **Manually** from the **Test Flow** side window and select **Test**
 
-   * The **Run flow** side window appears next. Select **Continue** and then Select **Run flow**.
+   :::image type="content" source="media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manually test flow button.":::
+
+1. The **Run flow** side window appears next. Select **Continue** and then Select **Run flow**.
 
       :::image type="content" source="media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
 
@@ -218,12 +228,135 @@ Now, we're ready to select an action.
 
 #### [Translate text](#tab/translate)
 
-3. Select the **Translate text** step to view the complete results:
+3. Select the **Translate text** step to view the translated text (output):
 
    :::image type="content" source="media/connectors/translated-text-output.png" alt-text="Screenshot of translated text output.":::
 
 #### [Transliterate text](#tab/transliterate)
 
-3. Select the **Transliterate** step to view the complete results:
+3. Select the **Transliterate** step to view the translated text (output):
 
    :::image type="content" source="media/connectors/transliterated-text-output.png" alt-text="Screenshot of transliterated text output.":::
+
+> [!TIP]
+>
+> * Check on the status of your flow by selecting **My flows** tab on the navigation sidebar.
+> * Edit or update your connection by selecting **Connections** under the **Data** tab on the navigation sidebar.
+
+---
+
+## Document translation
+
+In this section, you'll learn to translate documents and get the status of the operation. Select a tab to translate documents located in your Azure blob storage or Microsoft SharePoint account.
+
+#### [Azure blob storage](#tab/blob-storage)
+
+1. Select the **Start document translation** action.
+1. Enter your Translator resource credentials:
+
+   * **Connection name**. Enter a name for your connection.
+   * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys. The Translator V3 connector requires managed identity for authentication. Managed identity isn't supported the global region. **Make certain that your Translator resource is assigned to a geographical region such as West US**.
+
+    :::image type="content" source="media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
+
+   * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
+
+      :::image type="content" source="media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
+
+> [!NOTE]
+> After you've setup your connection, you won't be required to reenter your credentials for subsequent flows.
+
+1. Next, the **Start document translation** action window appears.
+1. **Storage type of the input documents**. Select **File** or **Folder**.
+1. Select a **Source Language** from the dropdown menu or keep the default **Auto-detect** option.
+1. **Location of the source documents**. Enter the URL for your document(s) in the source document container.
+1. **Location of the translated documents**. Enter the URL for your target document container.
+
+   To find your source and target URLs:
+
+   1. Navigate to your storage account in the Azure Portal.
+   1. In the left sidebar, under  **Data storage** , select **Containers**.
+
+      |c. Source| c. Target|
+      |------|-------|
+      |Select the checkbox next to the source container|Select the checkbox next to the target container.|
+      | From the main window area, select a file or document for translation.| Select the ellipses located at the right, then choose **Properties**.|
+      | The source URL is located at the top of the Properties list. Select the **Copy to Clipboard** icon.|The target URL is located at the top of the Properties list. Select the **Copy to Clipboard** icon.|
+      | Navigate to your Power automate flow and paste the source URL in the **Location of the source documents** field.|Navigate to your Power automate flow and paste the target URL in the **Location of the translated documents** field.|
+
+1. Choose a **Target Language** from the dropdown menu.
+
+   :::image type="content" source="media/connectors/start-document-translation-window.png" alt-text="Screenshot of the Start document translation dialog window.":::
+
+1. Select **New step**.
+
+1. Enter Translator V3 in the search box and choose **Microsoft Translator V3**.
+1. Select **Get documents status** (not Get document status).
+
+   :::image type="content" source="media/connectors/get-documents-status-step.png" alt-text="Screenshot of the get documents status step.":::
+
+1. Next, you are going to enter an expression to retrieve the operation ID value.
+
+1. Select the operation ID field. A **Dynamic content** / **Expression** dropdown window appears.
+
+1. Select the **Expression** tab and enter the following expression into the function field.:
+
+   ```powerappsfl
+
+     body('Start_document_translation').operationID
+
+   ```
+
+      :::image type="content" source="media/connectors/create-function-expression.png" alt-text="Screenshot showing function creation window.":::
+
+1. Select **OK**. The function will appear in the **Operation ID** window. Select **Save**.
+
+   :::image type="content" source="media/connectors/operation-id-function.png" alt-text="Screenshot showing the operation ID field with an expression function value.":::
+
+---
+
+Time to check our flow and document translation results. A green bar appears at the top of the page indicating that **Your flow is ready to go.**. Let's test it:
+
+1. Select Test from the upper-right corner of the page.
+
+      :::image type="content" source="media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
+
+1. Select **Manually** from the **Test Flow** side window and select **Save & Test**
+
+      :::image type="content" source="media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manually test flow button.":::
+
+1. The **Run flow** side window appears next. Select **Continue**, select **Run flow**. and then select **Done**.
+
+      :::image type="content" source="media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
+
+1. The "Your flow ran successfully" message appears and there will be a green checkmark next to each successful step.
+
+   :::image type="content" source="media/connectors/successful-document-translation-flow.png" alt-text="Screenshot of successful document translation flow.":::
+
+#### [Microsoft SharePoint](#tab/sharepoint)
+
+ 1. Select the **SharePoint** action then select **Get file content**.
+ 
+   :::image type="content" source="media/connectors/get-file-content.png" alt-text="Screenshot of the SharePoint Get file content action.":::
+
+1. Select the **Start document translation** action.
+1. Enter your Translator resource credentials:
+
+   * **Connection name**. Enter a name for your connection.
+   * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys. The Translator V3 connector requires managed identity for authentication. Managed identity isn't supported the global region. **Make certain that your Translator resource is assigned to a geographical region such as West US**.
+
+    :::image type="content" source="media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
+
+   * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
+
+      :::image type="content" source="media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
+
+> [!NOTE]
+> After you've setup your connection, you won't be required to reenter your credentials for subsequent flows.
+
+1. 
+1. Navigate to [office.com](https://www.office.com/)
+1. Enter **SharePoint** in the upper search bar and sign in.
+1. 
+
+---
