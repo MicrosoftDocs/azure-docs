@@ -317,21 +317,26 @@ To enable and configure Microsoft Defender for Storage at the subscription level
 ```bicep
 param accountName string
 
-resource accountName_current 'Microsoft.Storage/storageAccounts/providers/DefenderForStorageSettings@2022-12-01-preview' = {
-  name: '${accountName}/Microsoft.Security/current'
-  properties: {
-    isEnabled: true
-    malwareScanning: {
-      onUpload: {
-        isEnabled: true
-        capGBPerMonth: 5000
-      }
-    }
-    sensitiveDataDiscovery: {
-      isEnabled: true
-    }
-    overrideSubscriptionLevelSettings: true
-  }
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
+  name: accountName
+}
+
+resource defenderForStorageSettings 'Microsoft.Security/DefenderForStorageSettings@2022-12-01-preview' = {
+  name: 'current'
+  scope: storageAccount
+  properties: {
+    isEnabled: true
+    malwareScanning: {
+      onUpload: {
+        isEnabled: true
+        capGBPerMonth: 5000
+      }
+    }
+    sensitiveDataDiscovery: {
+      isEnabled: true
+    }
+    overrideSubscriptionLevelSettings: true
+  }
 }
 ```
 
