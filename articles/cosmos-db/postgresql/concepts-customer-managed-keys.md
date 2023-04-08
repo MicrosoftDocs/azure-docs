@@ -16,7 +16,7 @@ Data stored in your Azure Cosmos DB for PostgreSQL cluster is automatically and 
 
 
 
-## Service Managed Keys
+## Service managed Keys
 
 The Azure Cosmos DB for PostgreSQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. All Data including backups and temporary files created while running queries are encrypted on disk. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on and cannot be disabled.
 
@@ -64,4 +64,4 @@ Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL pr
 ## Next Steps
 
 >[!div class="nextstepaction"]
->[Enable Encryption with customer managed keys](howto-customer-managed-keys.md)
+>[Enable encryption with customer managed keys](howto-customer-managed-keys.md)
