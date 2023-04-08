@@ -18,7 +18,8 @@ keywords: on-premises, Docker, container
 
 By using containers, you can run _some_ of the Azure Cognitive Services Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article, you'll learn how to download, install, and run a Speech container.
 
-With Speech containers, you can build a speech application architecture that's optimized for both robust cloud capabilities and edge locality. Several containers are available, which use the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech services.
+> [!NOTE]
+> You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
 
 ## Available Speech containers
 
@@ -49,7 +50,7 @@ To use the latest version of the container, you can use the `latest` tag. You ca
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
-```Docker
+```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest
 ```
 
@@ -86,7 +87,7 @@ This command:
 
 If you want to run this container with the speech-to-text container, you can use this [docker image](https://hub.docker.com/r/antsu/on-prem-client). After both containers have been started, use this `docker run` command to execute `speech-to-text-with-languagedetection-client`:
 
-```Docker
+```bash
 docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-text-with-languagedetection-client ./audio/LanguageDetection_en-us.wav --host localhost --lport 5003 --sport 5000
 ```
 

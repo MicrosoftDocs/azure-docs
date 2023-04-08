@@ -23,7 +23,7 @@ By using containers, you can use a subset of the Speech service features in your
 
 ## Request approval to run the container
 
-To use the Speech containers, you must submit a request form and wait for approval. Fill out and submit a [request form](https://aka.ms/csgate) to request access to the container. 
+To use the Speech containers, you must submit a request form and wait for approval. Fill out and submit a request form to request access to the container. 
 * For connected containers, you must submit [this request form](https://aka.ms/csgate) and wait for approval.
 * For disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 

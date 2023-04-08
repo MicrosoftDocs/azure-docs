@@ -102,6 +102,9 @@ The host is an x64-based computer that runs the Docker container. It can be a co
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 
+> [!NOTE]
+> Containers support compressed audio input to the Speech SDK by using GStreamer.
+> To install GStreamer in a container, follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
 
 ### Advanced Vector Extension support
 
@@ -193,7 +196,7 @@ When you start or run the container, you might experience issues. Use an output 
 
 Speech containers come with ASP.NET Core logging support. Here's an example of the `neural-text-to-speech container` started with defaut logging to the console:
 
-```Docker
+```bash
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
 mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech \
 Eula=accept \

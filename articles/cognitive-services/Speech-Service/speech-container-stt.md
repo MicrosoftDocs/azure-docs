@@ -16,40 +16,25 @@ keywords: on-premises, Docker, container
 
 # Speech-to-text containers with Docker
 
-By using containers, you can run _some_ of the Azure Cognitive Services Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article, you'll learn how to download, install, and run a Speech container.
+The Speech-to-text container transcribes real-time speech or batch audio recordings with intermediate results. In this article, you'll learn how to download, install, and run a Speech-to-text container.
 
-With Speech containers, you can build a speech application architecture that's optimized for both robust cloud capabilities and edge locality. Several containers are available, which use the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech services.
+> [!NOTE]
+> You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
 
-## Available Speech containers
+For more information about prerequisites, validating that a container is running, running multiple containers on the same host, and running disconnected containers, see [Install and run Speech containers with Docker](speech-container-howto.md).
 
+## Container images
 
-Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.
+The Speech-to-text container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. 
 
-Latest: 3.12.0. For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).
+:::image type="content" source="./media/containers/mcr-tags-speech-to-text.png" alt-text="A screenshot of the search connectors and triggers dialog." lightbox="./media/containers/mcr-tags-speech-to-text.png":::
 
-You need the [prerequisites](speech-container-howto.md#prerequisites).
+The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text`. Either append a specific version or append `:latest` to get the most recent version.
 
-## Speech container images
-
-The Speech-to-text container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text`. You can find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags).
-
-| Container | Repository |
+| Version | Path |
 |-----------|------------|
-| Speech-to-text | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest` |
-
-
-### Get the container image with docker pull
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
-
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
-```
-
-> [!IMPORTANT]
-> The `latest` tag pulls the `en-US` locale. For additional locales, see [Speech-to-text locales](#speech-to-text-locales).
-
-#### Speech-to-text locales
+| Latest | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest`<br/><br/>The `latest` tag is tied to the `en-US` locale. |
+| 3.12.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:3.12.0-amd64-mr-in` |
 
 All tags, except for `latest`, are in the following format and are case sensitive:
 
@@ -57,30 +42,50 @@ All tags, except for `latest`, are in the following format and are case sensitiv
 <major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
-The following tag is an example of the format:
+The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list) for your convenience. The body includes the container path and list of tags. The tags aren't sorted by version, but `"latest"` is always included at the end of the list as shown in this snippet:
 
+```json
+{
+  "name": "azure-cognitive-services/speechservices/speech-to-text",
+  "tags": [
+    "2.10.0-amd64-ar-ae",
+    "2.10.0-amd64-ar-bh",
+    "2.10.0-amd64-ar-eg",
+    "2.10.0-amd64-ar-iq",
+    "2.10.0-amd64-ar-jo",
+    <--redacted for brevity-->
+    "latest"
+  ]
+}
 ```
-2.6.0-amd64-en-us
+
+## Get the container image with docker pull
+
+You need the [prerequisites](speech-container-howto.md#prerequisites).
+
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
 ```
 
-For all the supported locales of the speech-to-text container, see [Speech-to-text image tags](../containers/container-image-tags.md#speech-to-text).
-
-## Use the container
-
-After the container is on the [host computer](#host-computer-requirements-and-recommendations), use the following process to work with the container.
-
-1. [Run the container](#run-the-container-with-docker-run) with the required billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
-1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
+> [!IMPORTANT]
+> The `latest` tag pulls the latest image for the `en-US` locale. For additional versions and locales, see [Speech-to-text container images](#container-images).
 
 ## Run the container with docker run
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. For more information on how to get the `{Endpoint_URI}` and `{API_Key}` values, see [Gather required parameters](#gather-required-parameters). More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. 
 
-> [!NOTE]
-> For general container requirements, see [Container requirements and recommendations](#container-requirements-and-recommendations).
+The following table represents the various `docker run` parameters and their corresponding descriptions:
 
+| Parameter | Description |
+|---------|---------|
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
+| `{API_KEY}` | The API key is required. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
 
-To run the standard speech-to-text container, execute the following `docker run` command:
+When you run the speech-to-text container, configure the port, memory, and CPU according to the speech-to-text container [requirements and recommendations](speech-container-howto.md#container-requirements-and-recommendations).
+
+Here's an example `docker run` command with placeholder values. You must specify the `ENDPOINT_URI` and `API_KEY` values:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
@@ -91,16 +96,12 @@ ApiKey={API_KEY}
 ```
 
 This command:
-
-* Runs a *speech-to-text* container from the container image.
+* Runs a `speech-to-text` container from the container image.
 * Allocates 4 CPU cores and 8 GB of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-> [!NOTE]
-> Containers support compressed audio input to the Speech SDK by using GStreamer.
-> To install GStreamer in a container, 
-> follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
+More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
 
 #### Diarization on the speech-to-text output
 

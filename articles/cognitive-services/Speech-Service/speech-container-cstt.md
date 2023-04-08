@@ -16,36 +16,58 @@ keywords: on-premises, Docker, container
 
 # Custom speech-to-text containers with Docker
 
-By using containers, you can run _some_ of the Azure Cognitive Services Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article, you'll learn how to download, install, and run a Speech container.
+The Custom speech-to-text container transcribes real-time speech or batch audio recordings with intermediate results. You can use a custom model that you created in the [Custom Speech portal](https://speech.microsoft.com/customspeech). In this article, you'll learn how to download, install, and run a Custom speech-to-text container.
 
-With Speech containers, you can build a speech application architecture that's optimized for both robust cloud capabilities and edge locality. Several containers are available, which use the same [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) as the cloud-based Azure Speech services.
+> [!NOTE]
+> You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
 
-## Available Speech containers
+For more information about prerequisites, validating that a container is running, running multiple containers on the same host, and running disconnected containers, see [Install and run Speech containers with Docker](speech-container-howto.md).
 
+## Container images
 
-Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results.
+The Custom speech-to-text container image for all supported versions and locales can be found on the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. 
 
-The latest supported version  is 3.12.0. For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).
+:::image type="content" source="./media/containers/mcr-tags-custom-speech-to-text.png" alt-text="A screenshot of the search connectors and triggers dialog." lightbox="./media/containers/mcr-tags-custom-speech-to-text.png":::
 
-You need the [prerequisites](speech-container-howto.md#prerequisites).
+The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text`. Either append a specific version or append `:latest` to get the most recent version.
 
-## Speech container images
-
-The Custom Speech-to-text container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. The fully qualified container image name is `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text`. 
-
-To use the latest version of the container, you can use the `latest` tag. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags).
-
-| Container | Repository |
+| Version | Path |
 |-----------|------------|
-| Custom speech-to-text | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
+| Latest | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
+| 3.12.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:3.12.0-amd64` |
 
+All tags, except for `latest`, are in the following format and are case sensitive:
+
+```
+<major>.<minor>.<patch>-<platform>
+```
+
+> [!NOTE]
+> The `locale` and `voice` for custom speech-to-text containers is determined by the custom model ingested by the container.
+
+The tags are also available [in JSON format](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-speech-to-text/tags/list) for your convenience. The body includes the container path and list of tags. The tags aren't sorted by version, but `"latest"` is always included at the end of the list as shown in this snippet:
+
+```json
+{
+  "name": "azure-cognitive-services/speechservices/custom-speech-to-text",
+  "tags": [
+    "2.10.0-amd64",
+    "2.11.0-amd64",
+    "2.12.0-amd64",
+    "2.12.1-amd64",
+    <--redacted for brevity-->
+    "latest"
+  ]
+}
+```
 
 ### Get the container image with docker pull
 
+You need the [prerequisites](speech-container-howto.md#prerequisites).
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry:
 
-```Docker
+```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest
 ```
 
@@ -53,20 +75,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-spe
 > The `locale` and `voice` for custom Speech containers is determined by the custom model ingested by the container.
 
 
-## Use the container
-
-After the container is on the [host computer](speech-container-howto.md#host-computer-requirements-and-recommendations), use the following process to work with the container.
-
-1. [Run the container](#run-the-container-with-docker-run) with the required billing settings. More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
-1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
-
-## Run the container with docker run
-
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. For more information on how to get the `{Endpoint_URI}` and `{API_Key}` values, see [Gather required parameters](speech-container-howto.md#gather-required-parameters). More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
-
-> [!NOTE]
-> For general container requirements, see [Container requirements and recommendations](speech-container-howto.md#container-requirements-and-recommendations).
-
+## Get the custom model ID
 
 The custom speech-to-text container relies on a Custom Speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 
@@ -78,16 +87,22 @@ Obtain the **Model ID** to use as the argument to the `ModelId` parameter of the
 
 ![Screenshot that shows Custom Speech model details.](media/custom-speech/custom-speech-model-details.png)
 
+## Run the container with docker run
+
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. 
+
 The following table represents the various `docker run` parameters and their corresponding descriptions:
 
 | Parameter | Description |
 |---------|---------|
-| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which Docker uses to persist the custom model. An example is *C:\CustomSpeech* where the C drive is located on the host machine. |
-| `{MODEL_ID}` | The custom speech model ID. For more information, see [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md). |
-| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [Gather required parameters](#gather-required-parameters). |
-| `{API_KEY}` | The API key is required. For more information, see [Gather required parameters](#gather-required-parameters). |
+| `{VOLUME_MOUNT}` | The host computer [volume mount](https://docs.docker.com/storage/volumes/), which Docker uses to persist the custom model. An example is `c:\CustomSpeech` where the `c:\` drive is located on the host machine. |
+| `{MODEL_ID}` | The custom speech model ID. For more information, see [Get the custom model ID](#get-the-custom-model-id). |
+| `{ENDPOINT_URI}` | The endpoint is required for metering and billing. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
+| `{API_KEY}` | The API key is required. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). |
 
-To run the custom speech-to-text container, execute the following `docker run` command:
+When you run the custom speech-to-text container, configure the port, memory, and CPU according to the custom speech-to-text container [requirements and recommendations](speech-container-howto.md#container-requirements-and-recommendations).
+
+Here's an example `docker run` command with placeholder values. You must specify the `VOLUME_MOUNT`, `MODEL_ID`, `ENDPOINT_URI`, and `API_KEY` values:
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 4 \
@@ -109,9 +124,9 @@ This command:
 * If the custom model was previously downloaded, the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-#### Base model download on the custom speech-to-text container
+### Base model download on the custom speech-to-text container
 
-Starting in v2.6.0 of the custom-speech-to-text container, you can get the available base model information by using option `BaseModelLocale={LOCALE}`. This option gives you a list of available base models on that locale under your billing account. For example:
+You can get the available base model information by using option `BaseModelLocale={LOCALE}`. This option gives you a list of available base models on that locale under your billing account. For example:
 
 ```bash
 docker run --rm -it \
@@ -145,8 +160,12 @@ Checking available base model for en-us
 2020/10/30 21:54:21 [Fatal] Please run this tool again and assign --modelId '<one above base model id>'. If no model id listed above, it means currently there is no available base model for en-us
 ```
 
-#### Display model download on the custom speech-to-text container
-Starting in v3.1.0 of the custom-speech-to-text container, you can get the available display models information and choose to download those models into your speech-to-text container to get highly improved final display output. 
+### Display model download on the custom speech-to-text container
+
+You can get the available display models information and choose to download those models into your speech-to-text container to get highly improved final display output. 
+
+> [!NOTE] 
+> Display model download is available with custom-speech-to-text container version 3.1.0 and later.
 
 You can query or download any or all of these display model types: Rescoring (`Rescore`), Punctuation (`Punct`), resegmentation (`Resegment`), and wfstitn (`Wfstitn`). Otherwise, you can use the `FullDisplay` option (with or without the other types) to query or download all types of display models. 
 
@@ -190,10 +209,10 @@ ApiKey={API_KEY}
 
 #### Custom pronunciation on the custom speech-to-text container
 
-Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
+You can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container. Otherwise, the container won't start. For more information, see [Billing](#billing).
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container. Otherwise, the container won't start. For more information, see [billing arguments](speech-container-howto.md#billing-arguments).
 
 
 ## Use the container
