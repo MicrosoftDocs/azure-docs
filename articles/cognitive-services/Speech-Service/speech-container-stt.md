@@ -101,7 +101,7 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
+For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](speech-container-howto.md#run-the-container).
 
 #### Diarization on the speech-to-text output
 
@@ -194,7 +194,7 @@ If you have multiple phrases to add, call `.addPhrase()` for each phrase to add 
 
 ### Host authentication
 
-[!INCLUDE [Speech container authentication](includes/container-speech-config.md)]
+[!INCLUDE [Speech container authentication](includes/containers-speech-config.md)]
 
 
 

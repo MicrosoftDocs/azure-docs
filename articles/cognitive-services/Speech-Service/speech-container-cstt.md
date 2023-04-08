@@ -124,6 +124,8 @@ This command:
 * If the custom model was previously downloaded, the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](speech-container-howto.md#run-the-container).
+
 ### Base model download on the custom speech-to-text container
 
 You can get the available base model information by using option `BaseModelLocale={LOCALE}`. This option gives you a list of available base models on that locale under your billing account. For example:
@@ -219,7 +221,7 @@ You can get custom pronunciation results in the output. All you need to do is ha
 
 ### Host authentication
 
-[!INCLUDE [Speech container authentication](includes/container-speech-config.md)]
+[!INCLUDE [Speech container authentication](includes/containers-speech-config.md)]
 
 
 

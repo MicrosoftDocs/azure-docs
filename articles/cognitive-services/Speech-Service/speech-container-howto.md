@@ -98,7 +98,6 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 > [!WARNING]
 > The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
-
 ## Run the container
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Once running, the container continues to run until you [stop the container](#stop-the-container).

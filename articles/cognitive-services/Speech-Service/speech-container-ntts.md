@@ -105,19 +105,16 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-More [examples](speech-container-configuration.md#example-docker-run-commands) of the `docker run` command are also available.
-
+For more information about `docker run` with Speech containers, see [Install and run Speech containers with Docker](speech-container-howto.md#run-the-container).
 
 ## Use the container
-
 
 > [!IMPORTANT]
 > When you construct a neural text-to-speech HTTP POST, the [SSML](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container [locale and voice](language-support.md?tabs=tts). For example, the `latest` tag would have a voice name of `en-US-AriaNeural`.
 
-
 ### Host authentication
 
-[!INCLUDE [Speech container authentication](includes/container-speech-config.md)]
+[!INCLUDE [Speech container authentication](includes/containers-speech-config.md)]
 
 
 
