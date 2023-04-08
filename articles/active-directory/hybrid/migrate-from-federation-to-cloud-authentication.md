@@ -257,8 +257,7 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
       ![Check enable single sign-on on User sign-in page](media/deploy-cloud-user-authentication/user-sign-in.png)
 
-      Learn more: [Enable seamless SSO by using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
-
+   Learn more: [Enable seamless SSO by using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
 5. On the **Enable single sign-on** page, enter the credentials of a Domain Administrator account, and then select **Next**.
 
     ![Enable single sign-on page](media/deploy-cloud-user-authentication/enable-single-sign-on.png)
