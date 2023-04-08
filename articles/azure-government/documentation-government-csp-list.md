@@ -580,6 +580,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[R3, LLC](https://www.r3-it.com/)|
 |[Red River](https://www.redriver.com)|
+|[RSMUS, LLC](https://rsmus.com)|
 |[SAIC](https://www.saic.com)|
 |[SentinelBlue LLC](https://www.sentinelblue.com/)|
 |[Smartronix](https://www.smartronix.com)|
