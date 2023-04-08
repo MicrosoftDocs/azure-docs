@@ -167,7 +167,7 @@ The pattern is a combination of two: conditional and + error handling. The pipel
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/conditional-complex-1.png" alt-text="Screenshot showcasing pipeline proceeds to next step if any of the activities pass, or else runs error handling code.":::
 
-## Common Patterns
+## Common patterns
 
 ### Try-Catch-Proceed 
 The pattern is equivalent to try catch block in coding. An activity might fail in a pipeline. When it fails, customer needs to run an error handling job to deal with it. However, the single activity failure shouldn't block next activities in the pipeline. For instance, I attempt to run a copy job, moving files into storage. However it might fail half way through. And in that case, I want to delete the partially copied, unreliable files from the storage account (my error handling step). But I'm OK to proceed with other activities afterwards.
@@ -183,7 +183,7 @@ To set up the pattern:
 
 Error Handling job runs only when First Activity fails. Next Activity will run regardless if First Activity succeeds or not.
 
-### Generic Error Handling
+### Generic error handling
 Commonly, we have multiple activities running sequentially in the pipeline. If any fails, I need to run an error handling job to clear the state, and/or log the error. For instance, I have sequential copy activities in the pipeline. If any of these fails, I need to run a script job to log the pipeline failure.
 
 To set up the pattern:
