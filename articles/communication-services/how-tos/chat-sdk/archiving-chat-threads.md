@@ -49,7 +49,7 @@ It might take a moment for the registration to finish. Select **Refresh** to upd
 
 You need to use an Event Grid viewer to view events in near-real time. The viewer provides the user with the experience of a real-time feed. Also, the payload of each event should be available for inspection.
 
-To set up the viewer, follow the steps in [Azure Event Grid Viewer](../../samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
+To set up the viewer, follow the steps in [Azure Event Grid Viewer](../../../samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
 
 There are two methods for archiving chat threads. You can choose to archive messages when the thread is inactive or in near real time.
 
@@ -81,9 +81,7 @@ Note: you would have to pay for [events](https://azure.microsoft.com/pricing/det
 
 ## Next Steps
 
-
-* For an introduction to Azure Event Grid, see [What is Event Grid?](./overview.md)
-* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid?](./concepts.md)
+* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid?](../../../event-grid/concepts.md)
 * Service [Limits](../../quickstarts/chat/service-limits)
 * [Troubleshooting](../../quickstarts/chat/troubleshooting-info)
 * Help and support [options](../../quickstarts/chat/support)
