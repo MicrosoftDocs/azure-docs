@@ -20,12 +20,28 @@ By using containers, you can use a subset of the Speech service features in your
 > [!NOTE]
 > Connected and disconnected container pricing and commitment tiers vary. For more information, see [Speech Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
+## Available Speech containers
+
+The following table lists the Speech containers available in the Microsoft Container Registry (MCR). The table also lists the features supported by each container and the latest version of the container. 
+
+> [!NOTE]
+> You must [request and get approval](#request-approval-to-run-the-container) to use a Speech container. 
+
+| Container | Features | Supported versions and locales |
+|--|--|--|
+| [Speech-to-text](speech-container-stt.md) | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | Latest: 3.12.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).|
+| [Custom speech-to-text](speech-container-cstt.md) | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | Latest: 3.12.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list). |
+| [Speech language identification](speech-container-lid.md)<sup>1, 2</sup> | Detects the language spoken in audio files. | Latest: 1.11.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list). |
+| [Neural text-to-speech](speech-container-ntts.md) | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | Latest: 2.11.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list). |
+
+<sup>1</sup> The container is available in public preview. Containers in preview are still under development and don't meet Microsoft's stability and support requirements.
+<sup>2</sup> Only available as a connected container. A disconnected container isn't generally available.
 
 ## Request approval to run the container
 
-To use the Speech containers, you must submit a request form and wait for approval. Fill out and submit a request form to request access to the container. 
+To use the Speech containers, you must submit a request form and wait for approval. Fill out and submit a request form to request access to a connected or disconnected container. 
 * For connected containers, you must submit [this request form](https://aka.ms/csgate) and wait for approval.
-* For disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
+* For disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. When you are approved for a disconnected container, you are also permitted to use the corresponding connected container. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. 
 
@@ -45,9 +61,7 @@ While you're waiting for approval, you can [setup the prerequisites](speech-cont
 
 The Speech containers send billing information to Azure by using a Speech resource on your Azure account. 
 
-Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service at all times. 
-
-
+Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service at all times. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). 
 
 
 

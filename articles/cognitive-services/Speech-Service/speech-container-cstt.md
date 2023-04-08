@@ -39,7 +39,7 @@ The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-
 All tags, except for `latest`, are in the following format and are case sensitive:
 
 ```
-<major>.<minor>.<patch>-<platform>
+<major>.<minor>.<patch>-<platform>-<prerelease>
 ```
 
 > [!NOTE]
@@ -211,8 +211,7 @@ ApiKey={API_KEY}
 
 You can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
-> [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container. Otherwise, the container won't start. For more information, see [billing arguments](speech-container-howto.md#billing-arguments).
+
 
 
 ## Use the container

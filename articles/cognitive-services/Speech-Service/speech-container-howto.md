@@ -20,22 +20,6 @@ By using containers, you can use a subset of the Speech service features in your
 > [!NOTE]
 > Connected and disconnected container pricing and commitment tiers vary. For more information, see [Speech Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## Available Speech containers
-
-The following table lists the Speech containers available in the Microsoft Container Registry (MCR). The table also lists the features supported by each container and the latest version of the container. 
-
-> [!NOTE]
-> You must [request and get approval](speech-container-overview.md#request-approval-to-run-the-container) to use a Speech container. 
-
-| Container | Features | Supported versions and locales |
-|--|--|--|
-| [Speech-to-text](speech-container-stt.md) | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | Latest: 3.12.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/speech-to-text/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).|
-| [Custom speech-to-text](speech-container-cstt.md) | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | Latest: 3.12.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/custom-speech-to-text/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list). |
-| [Speech language identification](speech-container-lid.md)<sup>1, 2</sup> | Detects the language spoken in audio files. | Latest: 1.11.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/language-detection/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list). |
-| [Neural text-to-speech](speech-container-ntts.md) | Converts text to natural-sounding speech by using deep neural network technology, which allows for more natural synthesized speech. | Latest: 2.11.0<br/><br/>For all supported versions and locales, see the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azure-cognitive-services/speechservices/neural-text-to-speech/tags) and [JSON tags](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list). |
-
-<sup>1</sup> The container is available in public preview. Containers in preview are still under development and don't meet Microsoft's stability and support requirements.
-<sup>2</sup> Only available as a connected container. A disconnected container isn't generally available.
 
 ## Prerequisites
 
@@ -50,8 +34,6 @@ You must meet the following prerequisites before you use Speech service containe
 ### Billing arguments
 
 Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service at all times. 
-
-
 
 Three primary parameters for all Cognitive Services containers are required. The Microsoft Software License Terms must be present with a value of **accept**. An Endpoint URI and API key are also needed.
 
@@ -119,39 +101,30 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ## Run the container
 
-> [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start. For more information, see [Billing](speech-container-configuration.md#billing-configuration-setting).
-> The ApiKey value is the **Key** from the Azure Speech Resource keys page.
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Once running, the container continues to run until you [stop the container](#stop-the-container).
 
-The following examples use the configuration settings to illustrate how to write and use `docker run` commands. Once running, the container continues to run until you [stop the container](#stop-the-container).
+Take note the following best practices with the `docker run` command:
 
 - **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements.
 - **Argument order**: Do not change the order of the arguments unless you are familiar with Docker containers.
 
-Replace {_argument_name_} with your own values:
+You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. The following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
 
-| Placeholder | Value | Format or example |
-| ----------- | ----- | ----------------- |
-| **{API_KEY}** | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page. | See [gather required parameters](speech-container-howto.md#gather-required-parameters) for explicit examples. |
-
-
-> [!TIP]
-> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. 
-
-The following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
-
-```
+```bash
 docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
+```
 
+Here's an example result:
+```
 IMAGE ID         REPOSITORY                TAG
 <image-id>       <repository-path/name>    <tag-name>
 ```
 
-
 ## Validate that a container is running
 
-There are several ways to validate that the container is running. Locate the *External IP* address and exposed port of the container in question, and open your favorite web browser. Use the various request URLs that follow to validate the container is running. The example request URLs listed here are `http://localhost:5000`, but your specific container might vary. Make sure to rely on your container's *External IP* address and exposed port.
+There are several ways to validate that the container is running. Locate the *External IP* address and exposed port of the container in question, and open your favorite web browser. Use the various request URLs that follow to validate the container is running. 
+
+The example request URLs listed here are `http://localhost:5000`, but your specific container might vary. Make sure to rely on your container's *External IP* address and exposed port.
 
 | Request URL | Purpose |
 |--|--|
@@ -160,13 +133,11 @@ There are several ways to validate that the container is running. Locate the *Ex
 | `http://localhost:5000/status` | Also requested with GET, this URL verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes [liveness and readiness probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/). |
 | `http://localhost:5000/swagger` | The container provides a full set of documentation for the endpoints and a **Try it out** feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required. |
 
-
 ## Stop the container
 
 To shut down the container, in the command-line environment where the container is running, select <kbd>Ctrl+C</kbd>.
 
-
-### Run multiple containers on the same host
+## Run multiple containers on the same host
 
 If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
 
@@ -228,7 +199,7 @@ ApiKey={API_KEY}
 
 The container will test for network connectivity to the billing endpoint.
 
-## Run the container disconnected from the internet
+## Run disconnected containers
 
 Tu run disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 

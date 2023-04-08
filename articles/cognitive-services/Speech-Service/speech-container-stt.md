@@ -33,7 +33,7 @@ The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-
 
 | Version | Path |
 |-----------|------------|
-| Latest | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest`<br/><br/>The `latest` tag is tied to the `en-US` locale. |
+| Latest | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest`<br/><br/>The `latest` tag pulls the latest image for the `en-US` locale. |
 | 3.12.0 | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:3.12.0-amd64-mr-in` |
 
 All tags, except for `latest`, are in the following format and are case sensitive:
@@ -70,7 +70,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-
 ```
 
 > [!IMPORTANT]
-> The `latest` tag pulls the latest image for the `en-US` locale. For additional versions and locales, see [Speech-to-text container images](#container-images).
+> The `latest` tag pulls the latest image for the `en-US` locale. For additional versions and locales, see [speech-to-text container images](#container-images).
 
 ## Run the container with docker run
 
@@ -187,8 +187,6 @@ To configure a phrase list, you need to add your own phrases when you make the c
 
 If you have multiple phrases to add, call `.addPhrase()` for each phrase to add it to the phrase list.
 
-> [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container. Otherwise, the container won't start. For more information, see [Billing](#billing).
 
 
 ## Use the container
