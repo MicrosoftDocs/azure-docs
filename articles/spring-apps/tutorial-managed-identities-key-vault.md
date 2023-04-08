@@ -87,6 +87,7 @@ az spring app create \
     --name "springapp" \
     --service <your-Azure-Spring-Apps-instance-name> \
     --assign-endpoint true \
+    --runtime-version Java_17 \
     --system-assigned
 export SERVICE_IDENTITY=$(az spring app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
 ```
@@ -110,6 +111,7 @@ az spring app create \
     --name "springapp" \
     --service <your-Azure-Spring-Apps-instance-name> \
     --assign-endpoint true \
+    --runtime-version Java_17 \
     --user-assigned $USER_IDENTITY_RESOURCE_ID
 az spring app show \
     --resource-group <your-resource-group-name> \
@@ -142,7 +144,7 @@ This app will have access to get secrets from Azure Key Vault. Use the Azure Key
 1. Use the following command to generate a sample project from `start.spring.io` with Azure Key Vault Spring Starter.
 
    ```azurecli
-   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=2.7.2 -d javaVersion=1.8 | tar -xzvf -
+   curl https://start.spring.io/starter.tgz -d dependencies=web,azure-keyvault -d baseDir=springapp -d bootVersion=2.7.9 -d javaVersion=17 -d type=maven-project | tar -xzvf -
    ```
 
 1. Specify your Key Vault in your app.
@@ -202,7 +204,7 @@ spring.cloud.azure.keyvault.secret.property-sources[0].credential.client-id={Cli
            return connectionString;
        }
 
-       public void run(String... varl) throws Exception {
+       public void run(String... args) throws Exception {
            System.out.println(String.format("\nConnection String stored in Azure Key Vault:\n%s\n",connectionString));
        }
    }
