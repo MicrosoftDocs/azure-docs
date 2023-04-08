@@ -38,7 +38,7 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
    | **Subscription** | Select the subscription you plan to use for the deployment. All resources in an Azure subscription are billed together.|
    | **Resource group** | Select the resource group for your private cloud. An Azure resource group is a logical container into which Azure resources are deployed and managed. Alternatively, you can create a new resource group for your private cloud. |
    | **Resource name** | Provide the name of your Azure VMware Solution private cloud. |
-   | **Location** | Select a location, such as **east us**. It's the *region* you defined during the planning phase. |
+   | **Location** | Select a location, such as **(US) East US 2**. It's the *region* you defined during the planning phase. |
    | **Size of host** | Select the **AV36**, **AV36P** or **AV52** SKU. |
    | **Host Location** | Select **All hosts in one availability zone** for a standard private cloud or **Hosts in two availability zones** for stretched clusters. |
    | **Number of hosts** | Number of hosts allocated for the private cloud cluster. The default value is 3, which you can increase or decrease after deployment. If these nodes are not listed as available, please contact support to [request a quota increase](../request-host-quota-azure-vmware-solution.md?WT.mc_id=Portal-VMCP). You can also click the link labeled **If you need more hosts, request a quota increase** in the Azure portal. |
