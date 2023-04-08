@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 04/08/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -145,99 +145,24 @@ Storage account and the virtual networks granted access may be in different subs
 
 ### Available virtual network regions
 
-By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md). If you want to use a service endpoint to grant access to virtual networks in other regions, you must register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. This capability is currently in public preview. 
+Service endpoints for Azure Storage work between virtual networks and service instances in any region.
 
-Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
+Configuring service endpoints between virtual networks and service instances in a [paired region](../../best-practices-availability-paired-regions.md) can be an important part of your disaster recovery plan. Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
-### Enabling access to virtual networks in other regions (preview)
+#### About global service endpoints for Azure Storage
 
-> 
-> [!IMPORTANT]
-> This capability is currently in PREVIEW.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Global service endpoints for Azure became generally available in April of 2023. With global service endpoints, subnets_will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
-To enable access from a virtual network that is located in another region over service endpoints, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
-
-> [!NOTE]
-> For updating the existing service endpoints to access a storage account in another region, perform an [update subnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update&preserve-view=true) operation on the subnet after registering the subscription with the `AllowGlobalTagsForStorage` feature. Similarly, to go back to the old configuration, perform an [update subnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update&preserve-view=true) operation after deregistering the subscription with the `AllowGlobalTagsForStorage` feature. 
-
-
-#### [Portal](#tab/azure-portal)
-
-During the preview you must use either PowerShell or the Azure CLI to enable this feature.
-
-#### [PowerShell](#tab/azure-powershell)
-
-1. Open a Windows PowerShell command window.
-
-1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-2. If your identity is associated with more than one subscription, then set your active subscription to the subscription of the virtual network.
-
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Register the `AllowGlobalTagsForStorage` feature by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-   ```powershell
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGlobalTagsForStorage
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
-4. To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-   ```powershell
-   Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGlobalTagsForStorage
-   ```
-
-#### [Azure CLI](#tab/azure-cli)
-
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the virtual network.
-
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-3. Register the `AllowGlobalTagsForStorage` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
-
-   ```azurecli
-   az feature register --namespace Microsoft.Network --name AllowGlobalTagsForStorage
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
-4. To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
-
-   ```azurecli
-   az feature show --namespace Microsoft.Network --name AllowGlobalTagsForStorage
-   ```
-
----
+To use global service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as global ones (**Microsoft.Storage.Global**).
 
 ### Managing virtual network rules
 
 You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2. 
 
 > [!NOTE]
-> If you registered the `AllowGlobalTagsForStorage` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
+> If you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants.
 
 #### [Portal](#tab/azure-portal)
 
@@ -253,8 +178,6 @@ You can manage virtual network rules for storage accounts through the Azure port
     > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
     > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , PowerShell, CLI or REST APIs.
-    > 
-    > Even if you registered the `AllowGlobalTagsForStorageOnly` feature, subnets in regions other than the region of the storage account or its paired region aren't shown for selection. If you want to enable access to your storage account from a virtual network/subnet in a different region, use the instructions in the PowerShell or Azure CLI tabs.
 
 5. To remove a virtual network or subnet rule, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
