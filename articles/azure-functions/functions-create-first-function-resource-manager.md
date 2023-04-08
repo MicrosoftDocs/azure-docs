@@ -40,6 +40,9 @@ The following four Azure resources are created by this template:
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create a function app.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): create an Application Insights instance for monitoring.
 
+
+[!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
 ## Deploy the template
 
 The following scripts are designed for and tested in [Azure Cloud Shell](../cloud-shell/overview.md). Choose **Try It** to open a Cloud Shell instance right in your browser. 

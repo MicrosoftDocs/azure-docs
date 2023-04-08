@@ -4,7 +4,7 @@ description: Describes how to enable debug logging to troubleshoot Azure resourc
 tags: top-support-issue
 ms.custom: devx-track-arm-template, devx-track-bicep
 ms.topic: troubleshooting
-ms.date: 01/03/2023
+ms.date: 04/05/2023
 ---
 
 # Enable debug logging

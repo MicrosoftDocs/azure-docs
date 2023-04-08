@@ -4,7 +4,7 @@ description: Describes how to create a template to troubleshoot Azure resource d
 tags: top-support-issue
 ms.custom: devx-track-bicep, devx-track-arm-template
 ms.topic: troubleshooting
-ms.date: 01/03/2023
+ms.date: 04/05/2023
 ---
 
 # Create a troubleshooting template
