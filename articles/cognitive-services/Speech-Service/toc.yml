@@ -391,14 +391,14 @@ items:
       items:
         - name: Speech containers overview
           href: speech-container-overview.md
-        - name: Containers
+        - name: How to use Speech containers
+          displayName: 'containers,install container,run container'
+          href: speech-container-howto.md
+        - name: Configure speech containers
+          displayName: 'containers,configure containers,container config,configuration'
+          href: speech-container-configuration.md
+        - name: Install and run Speech containers
           items:
-          - name: Install and run Speech containers
-            displayName: 'containers,install container,run container'
-            href: speech-container-howto.md
-          - name: Configure speech containers
-            displayName: 'containers,configure containers,container config,configuration'
-            href: speech-container-configuration.md
           - name: Speech-to-text containers
             href: speech-container-stt.md
           - name: Custom speech-to-text containers
