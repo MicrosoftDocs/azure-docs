@@ -1,6 +1,6 @@
 ---
 title: Application Insights telemetry data model
-description: This article describes the Application Insights telemetry data model including Request, Dependency, Exception, Trace, Event, Metric, PageView, and Context.
+description: This article describes the Application Insights telemetry data model including request, dependency, exception, trace, event, metric, PageView, and context.
 services: application-insights
 documentationcenter: .net
 manager: carmonm
@@ -12,13 +12,13 @@ ms.reviewer: mmcc
 ---
 # Application Insights telemetry data model
 
-[Application Insights](./app-insights-overview.md) sends telemetry from your web application to the Azure portal so that you can analyze the performance and usage of your application. The telemetry model is standardized, so it's possible to create platform and language-independent monitoring.
+[Application Insights](./app-insights-overview.md) sends telemetry from your web application to the Azure portal so that you can analyze the performance and usage of your application. The telemetry model is standardized, so it's possible to create platform- and language-independent monitoring.
 
 Data collected by Application Insights models this typical application execution pattern.
 
 ![Diagram that shows an Application Insights telemetry data model.](./media/data-model-complete/application-insights-data-model.png)
 
-The following types of telemetry are used to monitor the execution of your app. Three types are automatically collected by the Application Insights SDK from the web application framework:
+The following types of telemetry are used to monitor the execution of your app. The Application Insights SDK from the web application framework automatically collects these three types:
 
 * [Request](#request): Generated to log a request received by your app. For example, the Application Insights web SDK automatically generates a Request telemetry item for each HTTP request that your web app receives.
 
@@ -48,7 +48,7 @@ To report data model or schema problems and suggestions, use our [GitHub reposit
 
 A request telemetry item in [Application Insights](./app-insights-overview.md) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by a unique `id` and `url` that contain all the execution parameters.
 
-You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions can be grouped further by `resultCode`. Start time for the request telemetry is defined on the envelope level.
+You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. You can further group success and failure executions by using `resultCode`. Start time for the request telemetry is defined on the envelope level.
 
 Request telemetry supports the standard extensibility model by using custom `properties` and `measurements`.
 
@@ -56,29 +56,29 @@ Request telemetry supports the standard extensibility model by using custom `pro
 
 ### Name
 
-The name of the request represents the code path taken to process the request. A low cardinality value allows for better grouping of requests. For HTTP requests, it represents the HTTP method and URL path template like `GET /values/{id}` without the actual `id` value.
+This field is the name of the request and it represents the code path taken to process the request. A low cardinality value allows for better grouping of requests. For HTTP requests, it represents the HTTP method and URL path template like `GET /values/{id}` without the actual `id` value.
 
 The Application Insights web SDK sends a request name "as is" about letter case. Grouping on the UI is case sensitive, so `GET /Home/Index` is counted separately from `GET /home/INDEX` even though often they result in the same controller and action execution. The reason for that is that URLs in general are [case sensitive](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). You might want to see if all `404` errors happened for URLs typed in uppercase. You can read more about request name collection by the ASP.NET web SDK in the [blog post](https://apmtips.com/posts/2015-02-23-request-name-and-url/).
 
-**Maximum length**: 1,024 characters
+**Maximum length:** 1,024 characters
 
 ### ID
 
 ID is the identifier of a request call instance. It's used for correlation between the request and other telemetry items. The ID should be globally unique. For more information, see [Telemetry correlation in Application Insights](./correlation.md).
 
-**Maximum length**: 128 characters
+**Maximum length:** 128 characters
 
 ### URL
 
 URL is the request URL with all query string parameters.
 
-**Maximum length**: 2,048 characters
+**Maximum length:** 2,048 characters
 
 ### Source
 
 Source is the source of the request. Examples are the instrumentation key of the caller or the IP address of the caller. For more information, see [Telemetry correlation in Application Insights](./correlation.md).
 
-**Maximum length**: 1,024 characters
+**Maximum length:** 1,024 characters
 
 ### Duration
 
@@ -88,17 +88,17 @@ The request duration is formatted as `DD.HH:MM:SS.MMMMMM`. It must be positive a
 
 The response code is the result of a request execution. It's the HTTP status code for HTTP requests. It might be an `HRESULT` value or an exception type for other request types.
 
-**Maximum length**: 1,024 characters
+**Maximum length:** 1,024 characters
 
 ### Success
 
-Success indicates whether a call was successful or unsuccessful. This field is required. When a request isn't set explicitly to `false`, it's considered to be successful. Set this value to `false` if the operation was interrupted by an exception or a returned error result code.
+Success indicates whether a call was successful or unsuccessful. This field is required. When a request isn't set explicitly to `false`, it's considered to be successful. If an exception or returned error result code interrupted the operation, set this value to `false`.
 
 For web applications, Application Insights defines a request as successful when the response code is less than `400` or equal to `401`. However, there are cases when this default mapping doesn't match the semantics of the application.
 
 Response code `404` might indicate "no records," which can be part of regular flow. It also might indicate a broken link. For broken links, you can implement more advanced logic. You can mark broken links as failures only when those links are located on the same site by analyzing the URL referrer. Or you can mark them as failures when they're accessed from the company's mobile application. Similarly, `301` and `302` indicate failure when they're accessed from the client that doesn't support redirect.
 
-Partially accepted content `206` might indicate a failure of an overall request. For instance, an Application Insights endpoint might receive a batch of telemetry items as a single request. It returns `206` when some items in the batch weren't processed successfully. An increasing rate of `206` indicates a problem that needs to be investigated. Similar logic applies to `207` Multi-Status where the success might be the worst of separate response codes.
+Partially accepted content `206` might indicate a failure of an overall request. For instance, an Application Insights endpoint might receive a batch of telemetry items as a single request. It returns `206` when some items in the batch weren't processed successfully. An increasing rate of `206` indicates a problem that needs to be investigated. Similar logic applies to `207` Multi-Status, where the success might be the worst of separate response codes.
 
 You can read more about the request result code and status code in the [blog post](https://apmtips.com/posts/2016-12-03-request-success-and-response-code/).
 
@@ -112,39 +112,39 @@ You can read more about the request result code and status code in the [blog pos
 
 ## Dependency
 
-Dependency Telemetry (in [Application Insights](./app-insights-overview.md)) represents an interaction of the monitored component with a remote component such as SQL or an HTTP endpoint.
+Dependency telemetry (in [Application Insights](./app-insights-overview.md)) represents an interaction of the monitored component with a remote component such as SQL or an HTTP endpoint.
 
 ### Name
 
-Name of the command initiated with this dependency call. Low cardinality value. Examples are stored procedure name and URL path template.
+This field is the name of the command initiated with this dependency call. It has a low cardinality value. Examples are stored procedure name and URL path template.
 
 ### ID
 
-Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. For more information, see [correlation](./correlation.md) page.
+ID is the identifier of a dependency call instance. It's used for correlation with the request telemetry item that corresponds to this dependency call. For more information, see [Telemetry correlation in Application Insights](./correlation.md).
 
 ### Data
 
-Command initiated by this dependency call. Examples are SQL statement and HTTP URL with all query parameters.
+This field is the command initiated by this dependency call. Examples are SQL statement and HTTP URL with all query parameters.
 
 ### Type
 
-Dependency type name. Low cardinality value for logical grouping of dependencies and interpretation of other fields like commandName and resultCode. Examples are SQL, Azure table, and HTTP.
+This field is the dependency type name. It has a low cardinality value for logical grouping of dependencies and interpretation of other fields like `commandName` and `resultCode`. Examples are SQL, Azure table, and HTTP.
 
 ### Target
 
-Target site of a dependency call. Examples are server name, host address. For more information, see [correlation](./correlation.md) page.
+This field is the target site of a dependency call. Examples are server name and host address. For more information, see [Telemetry correlation in Application Insights](./correlation.md).
 
 ### Duration
 
-Request duration in format: `DD.HH:MM:SS.MMMMMM`. Must be less than `1000` days.
+The request duration is in the format `DD.HH:MM:SS.MMMMMM`. It must be less than `1000` days.
 
 ### Result code
 
-Result code of a dependency call. Examples are SQL error code and HTTP status code.
+This field is the result code of a dependency call. Examples are SQL error code and HTTP status code.
 
 ### Success
 
-Indication of successful or unsuccessful call.
+This field is the indication of a successful or unsuccessful call.
 
 ### Custom properties
 
@@ -156,17 +156,17 @@ Indication of successful or unsuccessful call.
 
 ## Exception
 
-In [Application Insights](./app-insights-overview.md), an instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
+In [Application Insights](./app-insights-overview.md), an instance of exception represents a handled or unhandled exception that occurred during execution of the monitored application.
 
-### Problem Id
+### Problem ID
 
-Identifier of where the exception was thrown in code. Used for exceptions grouping. Typically a combination of exception type and a function from the call stack.
+The problem ID identifies where the exception was thrown in code. It's used for exceptions grouping. Typically, it's a combination of an exception type and a function from the call stack.
 
-Max length: 1024 characters
+**Maximum length:** 1,024 characters
 
 ### Severity level
 
-Trace severity level. Value can be `Verbose`, `Information`, `Warning`, `Error`, `Critical`.
+This field is the trace severity level. The value can be `Verbose`, `Information`, `Warning`, `Error`, or `Critical`.
 
 ### Exception details
 
@@ -188,13 +188,13 @@ Trace telemetry in [Application Insights](./app-insights-overview.md) represents
 
 Trace message.
 
-**Maximum length**: 32,768 characters
+**Maximum length:** 32,768 characters
 
 ### Severity level
 
 Trace severity level.
 
-**Values**: `Verbose`, `Information`, `Warning`, `Error`, and `Critical`
+**Values:** `Verbose`, `Information`, `Warning`, `Error`, and `Critical`
 
 ### Custom properties
 
@@ -202,13 +202,13 @@ Trace severity level.
 
 ## Event
 
-You can create event telemetry items (in [Application Insights](./app-insights-overview.md)) to represent an event that occurred in your application. Typically, it's a user interaction such as a button click or order checkout. It can also be an application lifecycle event like initialization or a configuration update.
+You can create event telemetry items (in [Application Insights](./app-insights-overview.md)) to represent an event that occurred in your application. Typically, it's a user interaction such as a button click or an order checkout. It can also be an application lifecycle event like initialization or a configuration update.
 
-Semantically, events may or may not be correlated to requests. However, if used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be subject to separate, less aggressive [sampling](./api-filtering-sampling.md).
+Semantically, events might or might not be correlated to requests. If used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be subject to separate, less aggressive [sampling](./api-filtering-sampling.md).
 
 ### Name
 
-Event name: To allow proper grouping and useful metrics, restrict your application so that it generates a few separate event names. For example, don't use a separate name for each generated instance of an event.
+**Event name:** To allow proper grouping and useful metrics, restrict your application so that it generates a few separate event names. For example, don't use a separate name for each generated instance of an event.
 
 **Maximum length:** 512 characters
 
@@ -222,88 +222,89 @@ Event name: To allow proper grouping and useful metrics, restrict your applicati
 
 ## Metric
 
-There are two types of metric telemetry supported by [Application Insights](./app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
+[Application Insights](./app-insights-overview.md) supports two types of metric telemetry: single measurement and preaggregated metric. Single measurement is just a name and value. Preaggregated metric specifies the minimum and maximum value of the metric in the aggregation interval and the standard deviation of it.
 
-Pre-aggregated metric telemetry assumes that aggregation period was one minute.
+Preaggregated metric telemetry assumes that the aggregation period was one minute.
 
-There are several well-known metric names supported by Application Insights. These metrics placed into performanceCounters table.
+Application Insights supports several well-known metric names. These metrics are placed into the `performanceCounters` table.
 
-Metric representing system and process counters:
+The following table shows the metrics that represent system and process counters.
 
-| **.NET name**             | **Platform agnostic name** | **Description**
-| ------------------------- | -------------------------- | ---------------- 
-| `\Processor(_Total)\% Processor Time` | Work in progress... | total machine CPU
-| `\Memory\Available Bytes`                 | Work in progress... | Shows the amount of physical memory, in bytes, available to processes running on the computer. It is calculated by summing the amount of space on the zeroed, free, and standby memory lists. Free memory is ready for use; zeroed memory consists of pages of memory filled with zeros to prevent later processes from seeing data used by a previous process; standby memory is memory that has been removed from a process's working set (its physical memory) en route to disk but is still available to be recalled. See [Memory Object](/previous-versions/ms804008(v=msdn.10))
-| `\Process(??APP_WIN32_PROC??)\% Processor Time` | Work in progress... | CPU of the process hosting the application
-| `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Work in progress... | memory used by the process hosting the application
-| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Work in progress... | rate of I/O operations runs by process hosting the application
-| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec`             | Work in progress... | rate of requests processed by application 
-| `\.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec`    | Work in progress... | rate of exceptions thrown by application
-| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Work in progress... | average requests execution time
-| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Work in progress... | number of requests waiting for the processing in a queue
+| .NET name            | Platform-agnostic name | Description
+| ------------------------- | -------------------------- | ----------------
+| `\Processor(_Total)\% Processor Time` | Work in progress... | Total machine CPU.
+| `\Memory\Available Bytes`                 | Work in progress... | Shows the amount of physical memory, in bytes, available to processes running on the computer. It's calculated by summing the amount of space on the zeroed, free, and standby memory lists. Free memory is ready for use. Zeroed memory consists of pages of memory filled with zeros to prevent later processes from seeing data used by a previous process. Standby memory is memory that's been removed from a process's working set (its physical memory) en route to disk but is still available to be recalled. See [Memory Object](/previous-versions/ms804008(v=msdn.10)).
+| `\Process(??APP_WIN32_PROC??)\% Processor Time` | Work in progress... | CPU of the process hosting the application.
+| `\Process(??APP_WIN32_PROC??)\Private Bytes`      | Work in progress... | Memory used by the process hosting the application.
+| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | Work in progress... | Rate of I/O operations run by the process hosting the application.
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec`             | Work in progress... | Rate of requests processed by an application.
+| `\.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec`    | Work in progress... | Rate of exceptions thrown by an application.
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Work in progress... | Average request execution time.
+| `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Work in progress... | Number of requests waiting for the processing in a queue.
 
-See [Metrics - Get](/rest/api/application-insights/metrics/get) for more information on the Metrics REST API.
+For more information on the Metrics REST API, see [Metrics - Get](/rest/api/application-insights/metrics/get).
 
 ### Name
 
-Name of the metric you'd like to see in Application Insights portal and UI. 
+This field is the name of the metric you want to see in the Application Insights portal and UI.
 
 ### Value
 
-Single value for measurement. Sum of individual measurements for the aggregation.
+This field is the single value for measurement. It's the sum of individual measurements for the aggregation.
 
 ### Count
 
-Metric weight of the aggregated metric. Should not be set for a measurement.
+This field is the metric weight of the aggregated metric. It shouldn't be set for a measurement.
 
 ### Min
 
-Minimum value of the aggregated metric. Should not be set for a measurement.
+This field is the minimum value of the aggregated metric. It shouldn't be set for a measurement.
 
 ### Max
 
-Maximum value of the aggregated metric. Should not be set for a measurement.
+This field is the maximum value of the aggregated metric. It shouldn't be set for a measurement.
 
 ### Standard deviation
 
-Standard deviation of the aggregated metric. Should not be set for a measurement.
+This field is the standard deviation of the aggregated metric. It shouldn't be set for a measurement.
 
 ### Custom properties
 
-Metric with the custom property `CustomPerfCounter` set to `true` indicate that the metric represents the Windows performance counter. These metrics placed in performanceCounters table. Not in customMetrics. Also the name of this metric is parsed to extract category, counter, and instance names.
+The metric with the custom property `CustomPerfCounter` set to `true` indicates that the metric represents the Windows performance counter. These metrics are placed in the `performanceCounters` table, not in `customMetrics`. Also, the name of this metric is parsed to extract category, counter, and instance names.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 
 ## PageView
 
-PageView telemetry (in [Application Insights](./app-insights-overview.md)) is logged when an application user opens a new page of a monitored application. The `Page` in this context is a logical unit that is defined by the developer to be an application tab or a screen and isn't necessarily correlated to a browser webpage load or refresh action. This distinction can be further understood in the context of single-page applications (SPA) where the switch between pages isn't tied to browser page actions. [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) is the time it takes for the application to present the page to the user.
+PageView telemetry (in [Application Insights](./app-insights-overview.md)) is logged when an application user opens a new page of a monitored application. The `Page` in this context is a logical unit that's defined by the developer to be an application tab or a screen and isn't necessarily correlated to a browser webpage load or a refresh action. This distinction can be further understood in the context of single-page applications (SPAs), where the switch between pages isn't tied to browser page actions. The [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) is the time it takes for the application to present the page to the user.
 
 > [!NOTE]
-> * By default, Application Insights SDKs log single PageView events on each browser webpage load action, with [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) populated by [browser timing](#measuring-browsertiming-in-application-insights). Developers can extend additional tracking of PageView events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
-> * The default logs retention is 30 days and needs to be adjusted if you want to view page view statistics over a longer period of time.
+> * By default, Application Insights SDKs log single `PageView` events on each browser webpage load action, with [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) populated by [browser timing](#measure-browsertiming-in-application-insights). Developers can extend additional tracking of `PageView` events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
+> * The default logs retention is 30 days. If you want to view `PageView` statistics over a longer period of time, you must adjust the setting.
 
-### Measuring browserTiming in Application Insights
+### Measure browserTiming in Application Insights
 
 Modern browsers expose measurements for page load actions with the [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance_API). Application Insights simplifies these measurements by consolidating related timings into [standard browser metrics](../essentials/metrics-supported.md#microsoftinsightscomponents) as defined by these processing time definitions:
 
-* Client <--> DNS: Client reaches out to DNS to resolve website hostname, DNS responds with IP address.
-* Client <--> Web Server: Client creates TCP then TLS handshakes with web server.
-* Client <--> Web Server: Client sends request payload, waits for server to execute request, and receives first response packet.
-* Client <--Web Server: Client receives the rest of the response payload bytes from the web server.
-* Client: Client now has full response payload and has to render contents into browser and load the DOM.
- 
+* **Client <--> DNS**: Client reaches out to DNS to resolve website hostname, and DNS responds with the IP address.
+* **Client <--> Web Server**: Client creates TCP and then TLS handshakes with the web server.
+* **Client <--> Web Server**: Client sends request payload, waits for the server to execute the request, and receives the first response packet.
+* **Client <--Web Server**: Client receives the rest of the response payload bytes from the web server.
+* **Client**: Client now has full response payload and has to render contents into the browser and load the DOM.
+
 * `browserTimings/networkDuration` = #1 + #2
 * `browserTimings/sendDuration` = #3
 * `browserTimings/receiveDuration` = #4
 * `browserTimings/processingDuration` = #5
 * `browsertimings/totalDuration` = #1 + #2 + #3 + #4 + #5
 * `pageViews/duration`
-   * The PageView duration is from the browser’s performance timing interface, [`PerformanceNavigationTiming.duration`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/duration).
-    * If `PerformanceNavigationTiming` is available that duration is used.
-    * If it’s not, then the *deprecated* [`PerformanceTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming) interface is used and the delta between [`NavigationStart`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/navigationStart) and [`LoadEventEnd`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/loadEventEnd) is calculated.
-    * The developer specifies a duration value when logging custom PageView events using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
+   * The `PageView` duration is from the browser's performance timing interface, [`PerformanceNavigationTiming.duration`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/duration).
+   * If `PerformanceNavigationTiming` is available, that duration is used.
+     
+     If it's not, the *deprecated* [`PerformanceTiming`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming) interface is used and the delta between [`NavigationStart`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/navigationStart) and [`LoadEventEnd`](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceTiming/loadEventEnd) is calculated.
+   * The developer specifies a duration value when logging custom `PageView` events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
 
-:::image type="content" source="./media/javascript/page-view-load-time.png" alt-text="Screenshot of the Metrics page in Application Insights showing graphic displays of metrics data for a web application." lightbox="./media/javascript/page-view-load-time.png" border="false":::
+:::image type="content" source="./media/javascript/page-view-load-time.png" alt-text="Screenshot that shows the Metrics page in Application Insights showing graphic displays of metrics data for a web application." lightbox="./media/javascript/page-view-load-time.png" border="false":::
 
 ## Context
 
@@ -329,7 +330,7 @@ Originally, this field was used to indicate the type of the device the user of t
 
 ### Operation ID
 
-This field is the unique identifier of the root operation. This identifier allows grouping telemetry across multiple components. For more information, see [Telemetry correlation](./correlation.md). The operation ID is created by either a request or a page view. All other telemetry sets this field to the value for the containing request or page view.
+This field is the unique identifier of the root operation. This identifier allows grouping telemetry across multiple components. For more information, see [Telemetry correlation](./correlation.md). Either a request or a page view creates the operation ID. All other telemetry sets this field to the value for the containing request or page view.
 
 **Maximum length:** 128
 
@@ -341,7 +342,7 @@ This field is the unique identifier of the telemetry item's immediate parent. Fo
 
 ### Operation name
 
-This field is the name (group) of the operation. The operation name is created by either a request or a page view. All other telemetry items set this field to the value for the containing request or page view. The operation name is used for finding all the telemetry items for a group of operations (for example, `GET Home/Index`). This context property is used to answer questions like What are the typical exceptions thrown on this page?
+This field is the name (group) of the operation. Either a request or a page view creates the operation name. All other telemetry items set this field to the value for the containing request or page view. The operation name is used for finding all the telemetry items for a group of operations (for example, `GET Home/Index`). This context property is used to answer questions like What are the typical exceptions thrown on this page?
 
 **Maximum length:** 1,024
 
@@ -361,12 +362,12 @@ Session ID is the instance of the user's interaction with the app. Information i
 
 The anonymous user ID (User.Id) represents the user of the application. When telemetry is sent from a service, the user context is about the user who initiated the operation in the service.
 
-[Sampling](./sampling.md) is one of the techniques to minimize the amount of collected telemetry. A sampling algorithm attempts to either sample in or out all the correlated telemetry. An anonymous user ID is used for sampling score generation, so an anonymous user ID should be a random enough value.
+[Sampling](./sampling.md) is one of the techniques to minimize the amount of collected telemetry. A sampling algorithm attempts to either sample in or out all the correlated telemetry. An anonymous user ID is used for sampling score generation, so an anonymous user ID should be a random-enough value.
 
 > [!NOTE]
 > The count of anonymous user IDs isn't the same as the number of unique application users. The count of anonymous user IDs is typically higher because each time the user opens your app on a different device or browser, or cleans up browser cookies, a new unique anonymous user ID is allocated. This calculation might result in counting the same physical users multiple times.
 
-User IDs can be cross referenced with session IDs to provide unique telemetry dimensions and establish user activity over a session duration.
+User IDs can be cross-referenced with session IDs to provide unique telemetry dimensions and establish user activity over a session duration.
 
 Using an anonymous user ID to store a username is a misuse of the field. Use an authenticated user ID.
 
@@ -378,13 +379,13 @@ An authenticated user ID is the opposite of an anonymous user ID. This field rep
 
 Use the Application Insights SDK to initialize the authenticated user ID with a value that identifies the user persistently across browsers and devices. In this way, all telemetry items are attributed to that unique ID. This ID enables querying for all telemetry collected for a specific user (subject to [sampling configurations](./sampling.md) and [telemetry filtering](./api-filtering-sampling.md)).
 
-User IDs can be cross referenced with session IDs to provide unique telemetry dimensions and establish user activity over a session duration.
+User IDs can be cross-referenced with session IDs to provide unique telemetry dimensions and establish user activity over a session duration.
 
 **Maximum length:** 1,024
 
 ### Account ID
 
-The account ID, in multi-tenant applications, is the tenant account ID or name that the user is acting with. It's used for more user segmentation when a user ID and an authenticated user ID aren't sufficient. Examples might be a subscription ID for the Azure portal or the blog name for a blogging platform.
+The account ID, in multitenant applications, is the tenant account ID or name that the user is acting with. It's used for more user segmentation when a user ID and an authenticated user ID aren't sufficient. Examples might be a subscription ID for the Azure portal or the blog name for a blogging platform.
 
 **Maximum length:** 1,024
 
@@ -402,7 +403,7 @@ This field is the name of the instance where the application is running. For exa
 
 ### Internal: SDK version
 
-For more information, see this [SDK version article](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md).
+For more information, see [SDK version](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md).
 
 **Maximum length:** 64
 
@@ -414,7 +415,7 @@ This field represents the node name used for billing purposes. Use it to overrid
 
 ## Next steps
 
-Learn how to use [Application Insights API for custom events and metrics](./api-custom-events-metrics.md), including:
+Learn how to use the [Application Insights API for custom events and metrics](./api-custom-events-metrics.md), including:
 - [Custom request telemetry](./api-custom-events-metrics.md#trackrequest)
 - [Custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
 - [Custom trace telemetry](./api-custom-events-metrics.md#tracktrace)
@@ -425,13 +426,13 @@ Set up dependency tracking for:
 - [.NET](./asp-net-dependencies.md)
 - [Java](./opentelemetry-enable.md?tabs=java)
 
-Learn more:
+To learn more:
 
 - Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
 - Check out standard context properties collection [configuration](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet).
 - Explore [.NET trace logs in Application Insights](./asp-net-trace-logs.md).
 - Explore [Java trace logs in Application Insights](./opentelemetry-enable.md?tabs=java#logs).
-- Learn about [Azure Functions' built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
+- Learn about the [Azure Functions built-in integration with Application Insights](../../azure-functions/functions-monitoring.md?toc=/azure/azure-monitor/toc.json) to monitor functions executions.
 - Learn how to [configure an ASP.NET Core](./asp-net.md) application with Application Insights.
 - Learn how to [diagnose exceptions in your web apps with Application Insights](./asp-net-exceptions.md).
 - Learn how to [extend and filter telemetry](./api-filtering-sampling.md).

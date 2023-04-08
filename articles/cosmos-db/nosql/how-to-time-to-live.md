@@ -233,7 +233,7 @@ Use the following steps to enable time to live on an item:
 ### [.NET SDK v3](#tab/dotnet-sdk-v3)
 
 ```csharp
-public record SalesOrder(string id, string customerId, int? ttl);
+public record SalesOrder(string id, string customerId, int ttl);
 ```
 
 ```csharp

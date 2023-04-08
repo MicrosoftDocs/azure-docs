@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/29/2022
 ms.author: mattmcinnes
 ms.subservice: cloud-init
+ms.custom: devx-track-azurecli
 ---
 # Use cloud-init to add a user to a Linux VM in Azure
 

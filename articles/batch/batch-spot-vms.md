@@ -2,7 +2,7 @@
 title: Run workloads on cost-effective Spot VMs
 description: Learn how to provision Spot VMs to reduce the cost of Azure Batch workloads.
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 04/06/2023
 ms.custom: seodec18
 ---
 
@@ -25,6 +25,10 @@ Batch offers two types of low-cost pre-emptible VMs:
 
 The type of node you get depends on your Batch account's pool allocation mode, which is settable during account creation. Batch accounts that use the **user subscription** pool allocation mode always get Spot VMs. Batch accounts that use the **Batch managed** pool allocation mode always get low-priority VMs.
 
+> [!WARNING]
+> Support for low-priority VMs will be retired after **30 September 2025**. Please
+> [migrate to using Spot VMs in Batch](low-priority-vms-retirement-migration-guide.md) before then.
+
 Azure Spot VMs and Batch low-priority VMs are similar but have a few differences in behavior.
 
 | | Spot VMs | Low-priority VMs |
@@ -42,7 +46,7 @@ Azure Spot VMs and Batch low-priority VMs are similar but have a few differences
 
 Azure Batch provides several capabilities that make it easy to consume and benefit from Spot VMs:
 
-- Batch pools can contain both dedicated VMs and Spot VMs. The number of each type of VM can be specified when a pool is created, or changed at any time for an existing pool, using the explicit resize operation or using auto-scale. Job and task submission can remain unchanged, regardless of the VM types in the pool. You can also configure a pool to completely use Spot VMs to run jobs as cheaply as possible, but spin up dedicated VMs if the capacity drops below a minimum threshold, to keep jobs running.
+- Batch pools can contain both dedicated VMs and Spot VMs. The number of each type of VM can be specified when a pool is created, or changed at any time for an existing pool, using the explicit resize operation or using autoscale. Job and task submission can remain unchanged, regardless of the VM types in the pool. You can also configure a pool to completely use Spot VMs to run jobs as cheaply as possible, but spin up dedicated VMs if the capacity drops below a minimum threshold, to keep jobs running.
 - Batch pools automatically seek the target number of Spot VMs. If VMs are preempted or unavailable, Batch attempts to replace the lost capacity and return to the target.
 - When tasks are interrupted, Batch detects and automatically requeues tasks to run again.
 - Spot VMs have a separate vCPU quota that differs from the one for dedicated VMs. The quota for Spot VMs is higher than the quota for dedicated VMs, because Spot VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).
@@ -162,7 +166,7 @@ To view these metrics in the Azure portal
 - Spot VMs in Batch don't support setting a max price and don't support price-based evictions. They can only be evicted for capacity reasons.
 - Spot VMs are only available for Virtual Machine Configuration pools and not for Cloud Service Configuration pools, which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 - Spot VMs aren't available for some clouds, VM sizes, and subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations).
-- Currently, [Ephemeral OS disks](create-pool-ephemeral-os-disk.md) are not supported with Spot VMs due to the service managed
+- Currently, [Ephemeral OS disks](create-pool-ephemeral-os-disk.md) aren't supported with Spot VMs due to the service managed
 eviction policy of Stop-Deallocate.
 
 ## Next steps

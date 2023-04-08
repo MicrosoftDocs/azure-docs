@@ -550,3 +550,4 @@ The following image shows the error that occurs if you try to create a storage a
 
 - [Overview: Remediating anonymous public read access for blob data](anonymous-read-access-overview.md)
 - [Remediate anonymous public read access to blob data (classic deployments)](anonymous-read-access-prevent-classic.md)
+- [Security recommendations for Blob storage](security-recommendations.md)
