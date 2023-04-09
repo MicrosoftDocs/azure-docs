@@ -3,6 +3,7 @@ title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.author: jgao
 ms.date: 12/09/2022
 ---
