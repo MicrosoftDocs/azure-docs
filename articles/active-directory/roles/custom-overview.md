@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Overview of role-based access control in Azure Active Directory
 
-This article describes how to understand Azure Active Directory (Azure AD) role-based access control. Azure AD roles allow you to grant granular permissions to your admins, abiding by the principle of least privilege. Azure AD built-in and custom roles operate on concepts similar to those you will find in [the role-based access control system for Azure resources](../../role-based-access-control/overview.md) (Azure roles). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is:
+This article describes how to understand Azure Active Directory (Azure AD) role-based access control. Azure AD roles allow you to grant granular permissions to your admins, abiding by the principle of least privilege. Azure AD built-in and custom roles operate on concepts similar to those you find in [the role-based access control system for Azure resources](../../role-based-access-control/overview.md) (Azure roles). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is:
 
 - Azure AD roles control access to Azure AD resources such as users, groups, and applications using the Microsoft Graph API
 - Azure roles control access to Azure resources such as virtual machines or storage using Azure Resource Management
@@ -27,7 +27,7 @@ Both systems contain similarly used role definitions and role assignments. Howev
 
 ## Understand Azure AD role-based access control
 
-Azure AD supports 2 types of roles definitions:
+Azure AD supports two types of roles definitions:
 
 * [Built-in roles](./permissions-reference.md)
 * [Custom roles](./custom-create.md)
@@ -101,7 +101,7 @@ Azure AD provides multiple options for assigning roles:
 
 ## License requirements
 
-Using built-in roles in Azure AD is free, while custom roles requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+Using built-in roles in Azure AD is free, while custom roles require an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 

@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Assign Azure AD roles at different scopes
 
-In Azure Active Directory (Azure AD), you typically assign Azure AD roles so that they apply to the entire tenant. However, you can also assign Azure AD roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also call the scope. This article describes how to assign Azure AD roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Azure AD](custom-overview.md#scope).
+In Azure Active Directory (Azure AD), you typically assign Azure AD roles so that they apply to the entire tenant. However, you can also assign Azure AD roles for different resources, such as administrative units or application registrations. For example, you could assign the Helpdesk Administrator role so that it just applies to a particular administrative unit and not the entire tenant. The resources that a role assignment applies to is also called the scope. This article describes how to assign Azure AD roles at tenant, administrative unit, and application registration scopes. For more information about scope, see [Overview of RBAC in Azure AD](custom-overview.md#scope).
 
 ## Prerequisites
 
