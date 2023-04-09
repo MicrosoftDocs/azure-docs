@@ -53,7 +53,7 @@ In Defender for Cloud you can use sample alerts to evaluate your Defender for Cl
 
 ## Next steps
 
-[Manage](defender-for-apis-manage) your Defender for APIs deployment.
+[Manage](defender-for-apis-manage.md) your Defender for APIs deployment.
 
 
 
