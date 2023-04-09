@@ -54,8 +54,6 @@
       href: groups-create-eligible.md
     - name: Assign roles to groups
       href: groups-assign-role.md
-    - name: Make a group eligible for a role in PIM
-      href: groups-pim-eligible.md
     - name: Assign roles with scope using PowerShell
       href: custom-assign-powershell.md
     - name: Assign roles using Microsoft Graph
