@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/08/2023
+ms.date: 04/09/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -151,11 +151,11 @@ Configuring service endpoints between virtual networks and service instances in 
 
 When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
-#### About global service endpoints for Azure Storage
+#### Azure Storage global service endpoints
 
-Global service endpoints for Azure became generally available in April of 2023. With global service endpoints, subnets_will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+Global service endpoints for Azure became generally available in April of 2023. With global service endpoints, subnets will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
 
-To use global service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as global ones (**Microsoft.Storage.Global**).
+To use global service endpoints, it might be necessary to delete existing **Microsoft.Storage** endpoints and recreate them as global (**Microsoft.Storage.Global**).
 
 ### Managing virtual network rules
 
