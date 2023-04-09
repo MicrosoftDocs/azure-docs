@@ -2,7 +2,7 @@
 title: Manage Defender for APIs
 description: Manage your Defender for APIs deployment
 author: elazark
-ms.author: elazark
+ms.author: ekrieger
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023

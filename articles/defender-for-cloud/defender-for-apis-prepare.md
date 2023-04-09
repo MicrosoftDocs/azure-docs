@@ -2,7 +2,7 @@
 title: Support and prerequisites for Defender for APIs deployment
 description: Learn about the requirements for Defender for APIs deployment
 author: elazark
-ms.author: elazark
+ms.author: ekrieger
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023

@@ -2,7 +2,7 @@
 title: Deploy Defender for APIs 
 description: Learn about deploying the Defender for APIs plan in Defender for Cloud
 author: elazark
-ms.author: elazark
+ms.author: ekrieger
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
@@ -15,7 +15,7 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 
 - Review [Defender for APIs support, permissions, and requirements](defender-for-apis-introduction.md) before you begin deployment.
 - Make sure that Defender for Cloud is enabled in your Azure subscription. You enable Defender for APIs at the subscription level.
-- Ensure that APIs you want to secure are published in [Azure API management](/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) if you need to set up Azure API management.
+- Ensure that APIs you want to secure are published in [Azure API management](/azure/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) if you need to set up Azure API management.
 
 ## Enable the plan
 
