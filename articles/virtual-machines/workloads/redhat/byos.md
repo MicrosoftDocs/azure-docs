@@ -101,8 +101,9 @@ The following instructions walk you through the initial deployment process for a
 
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
-
-    # Example:
+    ```
+    Example:
+    ```azurecli
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest --validate
     ```
 
@@ -110,8 +111,9 @@ The following instructions walk you through the initial deployment process for a
 
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn>
-
-    # Example:
+    ```
+    Example:
+    ```azurecli
     az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
