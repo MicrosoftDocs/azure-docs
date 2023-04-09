@@ -3,7 +3,7 @@ title: Automate Application Insights with PowerShell | Microsoft Docs
 description: Automate creating and managing resources, alerts, and availability tests in PowerShell by using an Azure Resource Manager template.
 ms.topic: conceptual
 ms.date: 03/22/2023
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.reviewer: vitalyg
 ---
 

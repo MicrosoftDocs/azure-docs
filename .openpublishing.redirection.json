@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/route-server/routing-preference.md",
+            "redirect_url": "/azure/route-server/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/storage/queues/storage-ruby-how-to-use-queue-storage.md",
             "redirect_url": "/previous-versions/azure/storage/queues/storage-ruby-how-to-use-queue-storage",
             "redirect_document_id": false
@@ -22522,7 +22527,11 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-defender-threat-intelligence.md",
             "redirect_url": "/azure/sentinel/understand-threat-intelligence",
             "redirect_document_id": false
-        }
-       
+        },
+        {
+            "source_path_from_root": "/articles/principles-for-ai-generated-content.md",
+            "redirect_url": "https://aka.ms/ai-content-principles",
+            "redirect_document_id": false
+        } 
     ]
 }

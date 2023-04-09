@@ -3,9 +3,9 @@ title: Bicep functions - lambda
 description: Describes the lambda functions to use in a Bicep file.
 author: mumian
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.author: jgao
 ms.date: 03/15/2023
-
 ---
 # Lambda functions for Bicep
 
