@@ -19,7 +19,7 @@ This article provides information on Extended Lifecycle Support for the Red Hat 
 * Red Hat Enterprise Linux 6  
 
 ## Red Hat Enterprise Linux 6 Lifecycle
-Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, it is strongly recommended upgrading to Red Hat Enterprise Linux 7 or 8. If customers must stay on Red Hat Enterprise Linux 6, it's recommended to add the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
+Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maintenance phase. The maintenance phase is followed by the Extended Life Phase. As Red Hat Enterprise Linux 6 transitions out of the Full/Maintenance Phases, it is strongly recommended upgrading to Red Hat Enterprise Linux 7, 8 or 9. If customers must stay on Red Hat Enterprise Linux 6, it's recommended to add the Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On.
 
 ## Steps to add Extended Lifecycle Support on Marketplace Pay-As-You-Go VMs
 1. Fill the [ELS form available here](https://aka.ms/els-form) with your contact details and subscription information of VMs you want to add ELS support for. The add on pricing  details are available in the form as well.
@@ -33,7 +33,7 @@ Starting on 30 November 2020, Red Hat Enterprise Linux 6 will reach end of maint
 
 #### I'm running Red Hat Enterprise Linux 6 and can’t migrate to a later version at this time. What options do I have?
 * Continue to run Red Hat Enterprise Linux 6 and purchase the Extended Life Cycle Support (ELS) Add-On repositories to continue to receive limited software maintenance and technical support (See process to upgrade and pricing details below).
-* Migrate to Red Hat Enterprise Linux 7 or 8 as soon as you can.
+* Migrate to Red Hat Enterprise Linux 7, 8 or 9 as soon as you can.
 
 #### What is the additional charge for using Red Hat Enterprise Linux Extended Life Cycle Support (ELS) Add-On?
 The costs related to Extended Lifecycle support can be found with the [ELS form](https://aka.ms/els-form)
