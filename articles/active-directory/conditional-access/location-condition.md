@@ -1,5 +1,5 @@
 ---
-title: Using networks and countries in Azure Active Directory
+title: Using networks and countries/regions in Azure Active Directory
 description: Use GPS locations and public IPv4 and IPv6 networks in Conditional Access policy to make access decisions.
 
 services: active-directory
@@ -170,7 +170,7 @@ The IP address used in policy evaluation is the public IPv4 or IPv6 address of t
 
 A policy that uses the location condition to block access is considered restrictive, and should be done with care after thorough testing. Some instances of using the location condition to block authentication may include:
 
-- Blocking countries where your organization never does business.
+- Blocking countries/regions where your organization never does business.
 - Blocking specific IP ranges like:
    - Known malicious IPs before a firewall policy can be changed.
    - For highly sensitive or privileged actions and cloud applications.
