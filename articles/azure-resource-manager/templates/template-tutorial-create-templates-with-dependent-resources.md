@@ -4,6 +4,7 @@ description: Learn how to create an Azure Resource Manager template (ARM templat
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
+ms.custom: devx-track-arm-template
 ms.author: jgao
 ---
 

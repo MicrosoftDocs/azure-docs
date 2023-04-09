@@ -7,9 +7,8 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 04/05/2023
 ms.author: banders
-ms.custom: contperf-fy21q2
 ---
 
 # Account Administrator tasks in the Azure portal
