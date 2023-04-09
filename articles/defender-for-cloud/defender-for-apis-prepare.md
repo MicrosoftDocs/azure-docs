@@ -26,12 +26,19 @@ Defender for APIs is currently in public preview in the Azure commercial cloud, 
 
 Up-to-date cloud support for Defender for Cloud plans and features is tracked in the [cloud support matrix](support-matrix-cloud-environment.md).
 
+Note that some machine learning-based detection and security insights are Azure API Management services with multi-region deployments aren't supported in secondary regions. This doesn't affect data residency requirements.
+
 ## API support
 
-**Feature** | **Supported** | **Details**
---- | --- | ---
+**Feature** | **Supported** 
+--- | --- 
 API gateways | Azure API Management
 API types | REST API
+
+## Plan support
+
+To explore API security risks using Cloud Security Explorer, the Defender Cloud Security Posture Management (CSPM) plan must be enabled. [Learn more](concept-cloud-security-posture-management.md).
+
 
 ## Permissions
 
@@ -39,10 +46,10 @@ Deployment permissions for Defender for APIs are as follows.
 
 **Permission** | **Details**
 --- | ---
-Azure account | Needs permissions to sign into the Azure portal
-Contributor role | On the Azure subscriptions, resource groups, or APIM service that you want to secure. If you don't have the Contributor role, you need to enable these roles:<br/><br/> Security Admin role for full access in Defender for Cloud.<br/>Security Reader role to view inventory and recommendations in Defender for Cloud.
+Azure account | You need an Azure account to sign into the Azure portal.
+Contributor role | To deploy Defender for APIs, you need the Contributor role on  the Azure subscriptions, resource groups, or APIM service that you want to secure. If you don't have the Contributor role, you need to enable these roles:<br/><br/> Security Admin role for full access in Defender for Cloud.<br/>Security Reader role to view inventory and recommendations in Defender for Cloud.
 
 ## Next steps
 
-
+[Deploy](defender-for-apis-deploy.md) Defender for APIs.
 

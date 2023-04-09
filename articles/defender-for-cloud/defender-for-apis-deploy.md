@@ -57,5 +57,5 @@ After onboarding the API resources, you can track their status under the **Azure
 
 ## Next steps
 
-
+[Review](defender-for-api-posture.md) API threats and security posture.
 

@@ -13,7 +13,8 @@ This article describes how to review the security posture for APIs protected by 
 
 ## Before you start
 
-[Onboard your API resources](defender-for-apis-deploy.md) to Defender for APIs.
+- [Onboard your API resources](defender-for-apis-deploy.md) to Defender for APIs.
+- To explore security risks using Cloud Security Explorer, the Defender Cloud Security Posture Management (CSPM) plan must be enabled. [Learn more](concept-cloud-security-posture-management.md).
 
 ## View recommendations and runtime alerts
 
@@ -51,6 +52,8 @@ In Defender for Cloud you can use sample alerts to evaluate your Defender for Cl
 
 
 ## Next steps
+
+[Manage](defender-for-apis-manage) your Defender for APIs deployment.
 
 
 

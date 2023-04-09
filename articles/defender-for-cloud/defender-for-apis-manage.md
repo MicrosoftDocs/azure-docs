@@ -25,5 +25,6 @@ Defender for APIs is currently in preview.
 
 ## Next steps
 
+[Learn about](defender-for-apis-introduction.md) Defender for APIs.
 
 
