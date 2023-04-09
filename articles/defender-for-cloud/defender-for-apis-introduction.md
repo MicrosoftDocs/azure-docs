@@ -3,7 +3,7 @@ title: Microsoft Defender for APIs overview
 description: Learn about the benefits and features of Microsoft Defender for APIs
 ms.date: 04/05/2023
 author: elazark
-ms.author: ekrieger
+ms.author: elkrieger
 ms.topic: overview
 ---
 

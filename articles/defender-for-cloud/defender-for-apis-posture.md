@@ -2,7 +2,7 @@
 title: Analyze your API security posture
 description: Learn how to analyze your API security posture with Defender for APIs
 author: elazark
-ms.author: ekrieger
+ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023

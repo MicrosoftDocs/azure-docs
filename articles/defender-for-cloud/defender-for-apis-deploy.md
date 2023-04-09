@@ -2,7 +2,7 @@
 title: Deploy Defender for APIs 
 description: Learn about deploying the Defender for APIs plan in Defender for Cloud
 author: elazark
-ms.author: ekrieger
+ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
