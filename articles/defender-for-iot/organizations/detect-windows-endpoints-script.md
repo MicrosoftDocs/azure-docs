@@ -43,6 +43,17 @@ The script described in this article is supported for the following Windows oper
 - Windows 10
 - Windows Server 2003/2008/2012/2016/2019
 
+## Download the script
+
+Offline WMI
+To preform offline WMI complete the following steps:
+1. Download the script, extract it and run 'run.bat' as administrator directly on the Windows endpoint
+2. Import the received output file to the sensor - cx_snapshot_[machinename]_[current date time].
+3. In Data mining's Devices applications report, you can view the device applications.
+4. Based on this information, the Windows device CVE list will be displayed in Azure if the sensor is cloud-connected
+
+:::image type="content" source="media/detect-windows-endpoints-script/download-wmi-script.png" alt-text="Screenshot of where to download WMI script." lightbox="media/detect-windows-endpoint-script/download-wmi-script.png":::
+
 ## Run the script
 
 This procedure describes how to obtain, deploy, and run the script on the Windows workstation and servers that you want to monitor in Defender for IoT.

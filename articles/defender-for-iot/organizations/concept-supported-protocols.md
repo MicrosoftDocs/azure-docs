@@ -17,7 +17,6 @@ OT network sensors can detect the following protocols when identifying assets an
 |Brand / Vendor |Protocols  |
 |---------|---------|
 |**ABB**     |   ABB 800xA DCS (IEC61850 MMS including ABB extension)<br> CNCP<br> RNRP<br> ABB IAC<br> ABB Totalflow      |
-|**Samsung** | Samsung TV |
 |**ASHRAE**     |    BACnet<br> BACnet BACapp<br> BACnet BVLC     |
 |**Beckhoff**     |   AMS (ADS)<br> Twincat       |
 |**Cisco**     |   CAPWAP Control<br> CAPWAP Data<br> CDP<br>  LWAPP      |
@@ -31,6 +30,7 @@ OT network sensors can detect the following protocols when identifying assets an
 |**IEC**     |    Codesys V3<br>IEC 60870-5-7 (IEC 62351-3 + IEC 62351-5)<br> IEC 60870-5-101 (encapsulated serial)<br> IEC 60870-5-103 (encapsulated serial)<br> IEC 60870-5-104<br> IEC 60870-5-104 ASDU_APCI<br> IEC 60870 ICCP TASE.2<br>  IEC 61850 GOOSE<br> IEC 61850 MMS<br> IEC 61850 SMV (SAMPLED-VALUES)<br> LonTalk (LonWorks)    |
 |**IEEE**     |     LLC<br> STP<br> VLAN    |
 |**IETF**     |  ARP<br> DHCP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> TCP<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
+| **InterSite** | add items here |
 |**ISO**     |  CLNP (ISO 8473)<br> COTP (ISO 8073)<br> ISO Industrial Protocol<br>  MQTT (IEC 20922)       |
 |**Medical**     |ASTM<br> HL7         |
 |**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
@@ -39,6 +39,7 @@ OT network sensors can detect the following protocols when identifying assets an
 |**OPC**     |  UA       |
 |**Oracle**     |   TDS<br> TNS      |
 |**Rockwell Automation**     |   ENIP<br> EtherNet/IP CIP (including Rockwell extension)<br> EtherNet/IP CIP FW version 27 and above      |
+|**Samsung** | Samsung TV |
 |**Schneider Electric**     | Modbus/TCP<br> Modbus TCP–Schneider Unity Extensions<br> OASYS (Schneider Electric Telvant)<br> Schneider TSAA        |
 |**Schneider Electric / Invensys**     |   Foxboro Evo<br> Foxboro I/A<br> Trident<br> TriGP<br> TriStation      |
 |**Schneider Electric / Modicon**     |   Modbus RTU      |

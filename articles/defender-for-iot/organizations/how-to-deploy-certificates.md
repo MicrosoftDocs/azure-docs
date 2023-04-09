@@ -71,11 +71,11 @@ Verify that your SSL/TLS certificate [meets the required parameters](#verify-cer
     > We recommend using self-signed certificates in test environments only.
     > The owner of the certificate cannot be validated and the security of your system cannot be maintained.
 
-    Select **Confirm** to acknowledge the warning.
+    Select **Confirm**  to acknowledge the warning.
 
     ---
 
-1. In the **Validation for on-premises management console certificates** area, select **Required** if SSL/TLS certificate validation is required. Otherwise, select **None**.
+1. In the **Validation of on-premises management console certificate** area, select **Mandatory** if SSL/TLS certificate validation is required. Otherwise, select **None**.
 
 1. Select **Save** to save your certificate settings.
 
