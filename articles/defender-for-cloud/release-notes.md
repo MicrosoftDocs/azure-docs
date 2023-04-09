@@ -38,7 +38,6 @@ These recommendations are based on the following policies:
 - [(Preview) Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost. - Microsoft Azure](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fca88aadc-6e2b-416c-9de2-5a0f01d1693f)
 
 Learn more about [ADE and EncryptionAtHost and how to enable one of them](../virtual-machines/disk-encryption-overview.md).
-- [Agentless Container Posture](#agentless-container-posture)
 
 ### Changes in the recommendation "Machines should be configured securely"
 
@@ -50,9 +49,9 @@ No action is required on the customer side, and there's no expected impact on th
 
 ### Agentless Container Posture
 
-Agentless Container Posture allows security teams to get ahead of containerized application risks and prioritize misconfigurations and exposures in their Kubernetes deployments and cloud context. With an agentless approach, security teams can now seamlessly gain wide visibility into their Kubernetes and containers registries across SDLC and runtime, removing friction and footprint from the workloads.
+Agentless Container Posture allows security teams to identify security risks in containers and Kubernetes realms. An agentless approach allows security teams to have visibility into their Kubernetes and containers registries across SDLC and runtime, removing friction and footprint from the workloads.
 
-Out-of-the-box container vulnerability assessments, combined with attack path analysis, empowers security teams to prioritize and zoom into container vulnerabilities that matter most. Customers can also use the cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
+Agentless Container Posture offer out-of-the-box container vulnerability assessments that, combined with attack path analysis, enable security teams to prioritize and zoom into specific container vulnerabilities. You can also use cloud security explorer to uncover risks and hunt for container posture insights, such as discovery of applications running vulnerable images or exposed to the internet.
 
 Learn more at [Agentless Container Posture (Preview)](concept-agentless-containers.md).
 
