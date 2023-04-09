@@ -236,7 +236,7 @@ Azure NetApp Files was designed to meet the core requirements of running high-pe
 - Scalable performance tiers that reflect the real-world range of IOPS demands
 - Low latency
 - High availability, high durability and manageability at scale, typically demanded by mission critical enterprise workloads (like SAP and Oracle)
-- Fast and efficient backup and recovery, to achieve the most aggressive RTO and RPO SLA’s
+- Fast and efficient backup and recovery, to achieve the most aggressive RTO and RPO SLAs
 
 These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems running within Azure data center environment – as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. See [Azure NetApp Files documentation](../../../azure-netapp-files/index.yml) for more information on how to deploy and access Azure NetApp Files NFS volumes. See [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) for best practice recommendations for operating an Oracle database on Azure NetApp Files.
 
@@ -273,7 +273,7 @@ Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Mar
 
 - **Clustering is supported on Enterprise Edition only.** You are licensed to use WebLogic clustering only when using the Enterprise Edition of Oracle WebLogic Server. Do not use clustering with Oracle WebLogic Server Standard Edition.
 - **UDP multicast is not supported.** Azure supports UDP unicasting, but not multicasting or broadcasting. Oracle WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size is kept static, or kept with no more than 10 managed servers.
-- **Oracle WebLogic Server expects public and private ports to be the same for T3 access (for example, when using Enterprise JavaBeans).** Consider a multi-tier scenario where a service layer (EJB) application is running on a Oracle WebLogic Server cluster consisting of two or more VMs, in a virtual network named *SLWLS*. The client tier is in a different subnet in the same virtual network, running a simple Java program trying to call EJB in the service layer. Because it is necessary to load balance the service layer, a public load-balanced endpoint needs to be created for the virtual machines in the Oracle WebLogic Server cluster. If the private port that you specify is different from the public port (for example, 7006:7008), an error such as the following occurs:
+- **Oracle WebLogic Server expects public and private ports to be the same for T3 access (for example, when using Enterprise JavaBeans).** Consider a multi-tier scenario where a service layer (EJB) application is running on an Oracle WebLogic Server cluster consisting of two or more VMs, in a virtual network named *SLWLS*. The client tier is in a different subnet in the same virtual network, running a simple Java program trying to call EJB in the service layer. Because it is necessary to load balance the service layer, a public load-balanced endpoint needs to be created for the virtual machines in the Oracle WebLogic Server cluster. If the private port that you specify is different from the public port (for example, 7006:7008), an error such as the following occurs:
 
 ```output
    [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
