@@ -14,6 +14,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD051 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD029 -->
+<!-- markdownlint-disable MD036 -->
 
 # Tutorial: Configure a Microsoft Translator V3 connector
 
@@ -335,9 +336,48 @@ Time to check our flow and document translation results. A green bar appears at 
 
 #### [Microsoft SharePoint](#tab/sharepoint)
 
- 1. Select the **SharePoint** action then select **Get file content**.
- 
+ 1. Enter **SharePoint**, then select the **Get file content** content. Power Automate will sign you into your SharePoint account.
+
    :::image type="content" source="media/connectors/get-file-content.png" alt-text="Screenshot of the SharePoint Get file content action.":::
+
+1. On the  **Get file content** step window complete the following fields:
+    * **Site Address**. Select the SharePoint URL where your file is located.
+    * **File Identifier**. Select the folder icon and choose the document(s) for translation.
+
+1. Select **New step** and enter **Azure Blob Storage** in the search box.
+
+1. Select the **Create blob (V2)** action and complete the authentication fields.
+
+    :::image type="content" source="media/connectors/blob-storage-auth.png" alt-text="Screenshot of Azure Blob Storage authentication window.":::
+
+   * **Authentication type**. Choose **Access Key**.
+   * **Azure Storage account name or blob endpoint**. Retrieve **blob endpoint** from the Azure portal.
+   * **Azure Storage Account Access Key**.
+
+    You can find your storage **Access keys** and **Endpoint** URL from the Azure portal:
+
+      * Navigate to your storage account in the Azure portal
+
+      **Azure keys**
+
+      * From the left sidebar, select **Access keys** under **Security + networking**.
+      * Select the **Show** button for one of your keys, then select the copy icon.
+      * Return to your Power Automate flow and paste the key in the **Azure Storage account name or blob endpoint** field.
+
+         :::image type="content" source="media/connectors/storage-access-keys.png" alt-text="Screenshot of storage account access keys in the Azure portal.":::
+
+      **Endpoint**
+
+      * From the left sidebar, select **Endpoints** under **Settings**.
+      * Your storage blob endpoint is under Blob service. Select the copy icon for the **Primary endpoint**.
+
+         :::image type="content" source="media/connectors/blob-storage-endpoint.png" alt-text="Screenshot of the blob storage endpoint in the Azure portal,":::
+
+      * Return to your Power Automate flow and paste the key in the **Azure Storage account name or blob endpoint** field.
+
+1. After you have completed the **Azure Blob Storage** fields, select **Create**
+
+      :::image type="content" source="media/connectors/complete-storage-auth.png" alt-text="Screenshot of the authenticate blob storage window.":::
 
 1. Select the **Start document translation** action.
 1. Enter your Translator resource credentials:
@@ -354,9 +394,9 @@ Time to check our flow and document translation results. A green bar appears at 
 > [!NOTE]
 > After you've setup your connection, you won't be required to reenter your credentials for subsequent flows.
 
-1. 
+1.
 1. Navigate to [office.com](https://www.office.com/)
 1. Enter **SharePoint** in the upper search bar and sign in.
-1. 
+1.
 
 ---
