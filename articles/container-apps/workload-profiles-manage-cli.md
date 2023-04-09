@@ -93,7 +93,7 @@ Use the following commands to create an environment with a workload profile.
       --name "<NAME>" \
       --location "<LOCATION>" \
       --infrastructure-subnet-resource-id "<SUBNET_ID>"
-      --internal--only
+      --internal-only
     ```
 
     ---
