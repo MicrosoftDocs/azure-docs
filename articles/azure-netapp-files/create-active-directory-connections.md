@@ -285,7 +285,7 @@ This feature is currently in preview. You need to register the feature before us
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 
-## <a name="multi-ad"></a> Create multiple Active Directory configurations in a region scoped to each Netapp account only (preview)
+## <a name="multi-ad"></a> Create multiple Active Directory configurations in a region scoped to each NetApp account only (preview)
 
 The multiple Active Directory feature enables each NetApp account within a subscription to have its own Active Directory (AD) connection. All NetApp accounts can use their own AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md)
 
