@@ -20,7 +20,7 @@ ms.author: kegorman
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [WebLogic Server Azure Applications](oracle-weblogic.md), [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace and the capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [WebLogic Server Azure Applications](oracle-weblogic.md), [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace, and the capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## Oracle databases on Azure infrastructure
 
@@ -60,7 +60,7 @@ For high availability in region, configure any of the following technologies on 
 
 You can also set up these configurations across multiple Azure regions for added availability and disaster recovery.
 
-Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure. You can also use Site Recovery for your physical servers with Oracle DataGuard or Oracle consistent backup measures that meet the Recovery Point Objective and Recovery Time Objective (RPO/RTO). Site Recovery has a [block change limit](../../../site-recovery/azure-to-azure-support-matrix.md) for the storage used by Oracle database.
+Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure. You can also use Site Recovery for your physical servers with Oracle Data Guard or Oracle consistent backup measures that meet the Recovery Point Objective and Recovery Time Objective (RPO/RTO). Site Recovery has a [block change limit](../../../site-recovery/azure-to-azure-support-matrix.md) for the storage used by Oracle database.
 
 ## Backup Oracle workloads
 
