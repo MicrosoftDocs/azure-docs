@@ -6,10 +6,10 @@ author: bashan-git
 manager: sphenry
 services: azure-communication-services
 ms.author: bashan
-ms.date: 03/31/2023
+ms.date: 04/10/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-azcli-js-csharp-java-python-power-platform
+zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 ---
 
 # Quickstart: How to send an email using Azure Communication Service
@@ -36,7 +36,7 @@ In this quick start, you'll learn about how to send email using our Email SDKs.
 [!INCLUDE [Send Email with Python SDK](./includes/send-email-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-azure-logic-apps"
+::: zone pivot="programming-language-logic-apps"
 [!INCLUDE [Azure Logic Apps](./includes/send-email-logic-app.md)]
 ::: zone-end
 
