@@ -314,7 +314,7 @@ Add this code to the end of the `Main` method:
 String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 
 // Create a BlobServiceClient object using a connection string
-BlobServiceClient client = new BlobServiceClientBuilder()
+BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
     .connectionString(connectStr)
     .buildClient();
 
