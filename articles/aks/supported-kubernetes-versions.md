@@ -136,7 +136,7 @@ For one GA minor version after the Kubernetes support policy, AKS provides platf
 During platform support, customers running N-3 versions will only receive support from Microsoft for AKS platform related issues. Any issues related to the upstream Kubernetes community will not be supported. 
 
 This table outlines suppport guidelines for Community Support compared to platform support.
-|  | Community Support (N-2) | Platform Support (N-3) | 
+| Support category | Community Support (N-2) | Platform Support (N-3) | 
 |---|---|---|
 | Kubernetes components (including Add-ons) | Supported | Not supported|
 | Component updates | Supported | Not supported|

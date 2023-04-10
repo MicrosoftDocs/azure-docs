@@ -343,6 +343,8 @@ The extension **does not** require any additional outbound access to any URLs, I
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
+[auto-upgrade-cluster]: auto-upgrade-cluster.md
+[planned-maintenance]: planned-maintenance.md
 [aks-cluster-autoscale]: ./cluster-autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
@@ -359,6 +361,7 @@ The extension **does not** require any additional outbound access to any URLs, I
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
 [private-clusters]: ./private-clusters.md
+[supported-kubernetes-versions]: supported-kubernetes-versions.md
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
