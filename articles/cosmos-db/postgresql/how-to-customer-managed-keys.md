@@ -1,5 +1,5 @@
 ---
-title: How to enable encryption with customer managed keys
+title: How to enable encryption with customer managed keys in Azure Cosmos DB for PostgreSQL.
 description: How to enable data encryption with customer managed keys.
 ms.author: akashrao
 author: akashraokm
@@ -34,11 +34,11 @@ ms.date: 04/06/2023
 
 ## Detailed steps
 
-### 1. User Assigned Managed Identity:
+1. ### User Assigned Managed Identity
 
    1. Search for Managed Identities in the global search bar.
 
-      ![Searching for Managed Identities in Azure portal.](media/how-to-customer-managed-keys/user-assigned-managed-identity.png)
+      ![Screenshot of Managed Identities in Azure portal.](media/how-to-customer-managed-keys/user-assigned-managed-identity.png)
 
 
    1. Create a new User assigned managed Identity in the same region as your Azure Cosmos DB for PostgreSQL cluster.
@@ -48,7 +48,7 @@ ms.date: 04/06/2023
 
    Learn more about [User Assigned Managed Identity.](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
-### 2. Key Vault:
+1. ### Key Vault
 
    Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: Soft Delete and Purge Protection.
 
@@ -58,7 +58,7 @@ ms.date: 04/06/2023
  
    1. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles.
 
-      * How to use [soft-delete with PowerShell.](../../key-vault/ general/key-vault-recovery.md)
+      * How to use [soft-delete with PowerShell.](../../key-vault/general/key-vault-recovery.md)
       * How to use [soft-delete with Azure CLI.](../../key-vault/general/key-vault-recovery.md)
 
    1. The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
@@ -66,7 +66,7 @@ ms.date: 04/06/2023
    > [!IMPORTANT]
    > Your Azure Key Vault instance must be allow public access from all the networks.
 
-### 3. Add an Access Policy to the Key Vault:
+1. ### Add an Access Policy to the Key Vault
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
 
@@ -82,7 +82,7 @@ ms.date: 04/06/2023
 
    1. Navigate to Review + create select Create.
 
-### 4. Create / Import Key:
+1. ### Create / Import Key
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
@@ -100,12 +100,12 @@ ms.date: 04/06/2023
 
    1. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
 
-### 5. Enable CMK encryption during the provisioning for a new cluster
+1. ### Enable CMK encryption during the provisioning for a new cluster
 
    # [Portal](#tab/portal)
 
    1. During the provisioning of a new Cosmos DB for PostgreSQL cluster, after providing the necessary information under Basics and Networking Tab, Navigate to the Encryption (Preview) Tab.
-      ![Screenshot of Encrytion configuration page.](media/how-to-customer-managed-keys/provisioning%20-encryption-tab.png)
+      ![Screenshot of Encrytion configuration page.](media/how-to-customer-managed-keys/encryption-tab.png)
 
    1. Select Customer Managed Key under Data encryption key option.
 
@@ -235,21 +235,19 @@ ms.date: 04/06/2023
  ```
 ---
 
-### High Availability:
+### High availability
 
    When CMK encryption is enabled on the primary cluster, all standby HA replicas are automatically encrypted by the primary cluster’s CMK
 
 ### Restrictions
 
-1. CMK encryption can't be enabled on cross region read replicas.
+* CMK encryption can't be enabled on cross region read replicas.
 
-1. CMK encryption can only be enabled during the creation of a new Azure Cosmos DB for PostgreSQL cluster.
+* CMK encryption can only be enabled during the creation of a new Azure Cosmos DB for PostgreSQL cluster.
 
-1. CMK encryption is available in the following regions Switzerland North and North Europe.
+* CMK encryption isn't supported with Private access (including VNET).
 
-1. CMK encryption isn't supported with Private access (including VNET).
-
-### Changing Encryption Configuration by performing a PITR.
+### Changing encryption configuration by performing a PITR
 
 Encryption configuration can be changed from service managed encryption to CMK encryption or vice versa while performing a Point in restore operation to a new cluster.
 
