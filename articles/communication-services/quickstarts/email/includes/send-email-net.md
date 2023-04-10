@@ -5,7 +5,7 @@ author: bashan-git
 manager: sundraman
 services: azure-communication-services
 ms.author: bashan
-ms.date: 03/24/2023
+ms.date: 03/31/2023
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -77,7 +77,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Email client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Email --prerelease
+dotnet add package Azure.Communication.Email
 ```
 
 ## Creating the email client with authentication
@@ -397,7 +397,7 @@ You can download the sample app demonstrating this action from [GitHub](https://
 
 ### Throw an exception when email sending tier limit is reached
 
-The Email API has throttling with limitations on the number of email messages that you can send. Email sending has limits applied per minute and per hour as mentioned in [API Throttling and Timeouts](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, additional email sends with `SendAsync` calls will receive an error response of “429: Too Many Requests”. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/dotnet/azure/sdk/logging) to capture these response codes.
+The Email API has throttling with limitations on the number of email messages that you can send. Email sending has limits applied per minute and per hour as mentioned in [API Throttling and Timeouts](../../../concepts/service-limits.md). When you have reached these limits, additional email sends with `SendAsync` calls will receive an error response of “429: Too Many Requests”. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](/dotnet/azure/sdk/logging) to capture these response codes.
 
 Alternatively, you can manually define a custom policy as shown below.
 

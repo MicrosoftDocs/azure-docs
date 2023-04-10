@@ -25,7 +25,7 @@ Emails tasks allow for the customization of the following aspects:
 - Email language
 
 > [!NOTE]
-> To avoid additional security disclaimers, you should opt in to using customized domain and organizational branding.
+> When customizing the subject or message body, we recommend that you also enable the custom sender domain and organizational branding, otherwise an additional security disclaimer will be added to your email.
 
 For more information on these customizable parameters, see: [Common email task parameters](lifecycle-workflow-tasks.md#common-email-task-parameters).
 

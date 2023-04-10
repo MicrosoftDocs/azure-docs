@@ -82,7 +82,7 @@ namespace AzureSQL.ToDo
     {
         [FunctionName("ToDoTrigger")]
         public static void Run(
-            [SqlTrigger("[dbo].[ToDo]", ConnectionStringSetting = "SqlConnectionString")]
+            [SqlTrigger("[dbo].[ToDo]", "SqlConnectionString")]
             IReadOnlyList<SqlChange<ToDoItem>> changes,
             ILogger logger)
         {

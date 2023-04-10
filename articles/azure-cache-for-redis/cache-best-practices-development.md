@@ -62,7 +62,7 @@ Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, 
 
 ## Choose an appropriate tier
 
-Use Standard or Premium tier for production systems.  Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
+Use Standard, Premium, Enterprise, or Enterprise Flash tiers for production systems.  Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
 
 - they share a CPU core
 - use little memory
@@ -88,6 +88,10 @@ The public IP address assigned to your cache can change as a result of a scale o
 ## Choose an appropriate Redis version
 
 The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
+
+## Specific guidance for the Enterprise tiers
+
+Because the _Enterprise_ and _Enterprise Flash_ tiers are built on Redis Enterprise rather than open-source Redis, there are some differences in development best practices. See [Best Practices for the Enterprise and Enterprise Flash tiers](cache-best-practices-enterprise-tiers.md) for more information.
 
 ## Use TLS encryption
 
@@ -149,7 +153,7 @@ If your application validates certificate in code, you need to modify it to reco
 
 For more information, see [Client libraries](cache-best-practices-client-libraries.md#client-libraries).
 
-## Next steps
+## Next steps  
 
 - [Performance testing](cache-best-practices-performance.md)
 - [Failover and patching for Azure Cache for Redis](cache-failover.md)
