@@ -37,7 +37,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 ## Limitations
 
-- Update Rollup 1 for Azure Backup Server v3 must be installed.
+- Update Rollup 2 for Azure Backup Server v3 must be installed.
 - You can't backup user snapshots before the first Azure Backup Server backup. After Azure Backup Server finishes the first backup, then you can back up user snapshots.
 - Azure Backup Server can't protect VMware vSphere VMs with pass-through disks and physical raw device mappings (pRDMs).
 - Azure Backup Server can't detect or protect VMware vSphere vApps.
@@ -316,9 +316,9 @@ If you downloaded the software package to a different server, copy the files to 
 
 1. After the installation step finishes, select **Close**.
 
-### Install Update Rollup 1
+### Install Update Rollup 2
 
-Installing the Update Rollup 1 for Azure Backup Server v3 is mandatory before you can protect the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/en-us/help/4534062/).
+Installing the Update Rollup 2 for Azure Backup Server v3 is mandatory before you can protect the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/help/5004579/).
 
 ## Add storage to Azure Backup Server
 

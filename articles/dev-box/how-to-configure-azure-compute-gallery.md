@@ -27,7 +27,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 ## Prerequisites
 
-- A dev center. If you don't have one available, follow the steps in [Create a dev center](./quickstart-configure-dev-box-service.md#create-a-dev-center).
+- A dev center. If you don't have one available, follow the steps in [1. Create a dev center](quickstart-configure-dev-box-service.md#1-create-a-dev-center).
 - A compute gallery. For you to use a gallery to configure dev box definitions, it must have at least [one image definition and one image version](../virtual-machines/image-version.md):
   - The image version must meet the [Windows 365 image requirements](/windows-365/enterprise/device-images#image-requirements):
     - Generation 2.
