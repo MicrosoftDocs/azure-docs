@@ -92,8 +92,8 @@ Use the following commands to create an environment with a workload profile.
       --resource-group "<RESOURCE_GROUP>" \
       --name "<NAME>" \
       --location "<LOCATION>" \
-      --infrastructure-subnet-resource-id "<SUBNET_ID>"
-      --internal--only
+      --infrastructure-subnet-resource-id "<SUBNET_ID>" \
+      --internal-only
     ```
 
     ---
