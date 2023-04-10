@@ -34,9 +34,9 @@ Optimization for the following images is supported:
   
 
 
-|   |   |
+| Features  | Details   |
 |---|---|
-|OS Type| Windows/Linux |
+|OS Type| Linux |
 | Partition | MBR/GPT |
 | Hyper-V | Gen1/Gen2 |
 | OS State | Generalized |
@@ -46,10 +46,9 @@ Optimization for the following images is supported:
 The following types of images aren't supported: 
 
 * Images with size greater than 2 TB 
-
-* ARM64 Images 
-
-* Specialized Images 
+* ARM64 mages 
+* Specialized mages
+* Windows images
 
  
 
