@@ -44,6 +44,25 @@ To set up the Azure Spring Apps service instance by using the Resource Manager t
 
 This problem occurs if your virtual network is configured with custom DNS settings. In this case, the private DNS zone used by Azure Spring Apps is ineffective. Add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
 
+## I cannot access my app's endpoint or test endpoint in virtual network
+
+1. If your virtual network is configured with custom DNS settings and has already add Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server. You should create a new private DNS zone private.azuremicroservices.io, link the private DNS zone to the virtual network and then add the following two DNS records.
+
+|*.private.azuremicroservices.io -> the IP of you application|
+|------|
+|*.test.private.azuremicroservices.io -> the IP of you application|
+
+2. If your virtual network is configured with custom DNS settings and do not add Azure DNS IP 168.63.129.16 as the upstream DNS server, please add Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server and following the option 1.
+
+3. If your virutal network is not configured with custom DNS settings, you should create a new private DNS zone private.azuremicroservices.io, link the private DNS zone to the virtual network and then add the following two DNS records.
+
+|*.private.azuremicroservices.io -> the IP of you application|
+|------|
+|*.test.private.azuremicroservices.io -> the IP of you application|
+
+Related doc [Access your application in a private network](./access-app-virtual-network.md)
+
+
 ## Other issues
 
 [Troubleshoot common Azure Spring Apps issues](./troubleshoot.md)
