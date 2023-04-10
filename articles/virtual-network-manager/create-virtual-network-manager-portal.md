@@ -225,25 +225,20 @@ To have your configurations applied to your environment, you need to commit the 
 
 ## Verify configuration deployment
 
-Use the **Network Manager** section for each virtual machine to verify whether configuration was deployed in these steps:
+Use the **Network Manager** section for each virtual network to verify whether configuration was deployed in these steps:
 
-1. Select **Refresh** on the **Deployments** page to see the updated status of the configuration that you committed.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/deployment-status.png" alt-text="Screenshot of refresh button for updated deployment status.":::
-
-1. Go to **vnet-learn-prod-eastus-001** virtual network and select **Network Manager** under *Settings*. You see the configuration you deployed with Azure Virtual Network Manager associated to the virtual network.
+1. Go to **vnet-learn-prod-eastus-001** virtual network and select **Network Manager** under **Settings**. Verify that **cc-learn-prod-eastus-001** is listed under **Connectivity Configurations** tab.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of connectivity configuration associated with vnet-learn-prod-eastus-001 virtual network.":::
 
-1. You can also confirm the same for **vnet-learn-prod-eastus-001**,**vnet-learn-test-eastus-003**, and **VNetD**.
+1. Repeat the previous step on **vnet-learn-prod-eastus-002**. 
 
 ## Clean up resources
 
-If you no longer need Azure Virtual Network Manager, you need to make sure all of following is true before you can delete the resource:
+If you no longer need Azure Virtual Network Manager, the following steps will remove all configurations, network groups, and Virtual Network Manager.
 
-* There are no configurations deployed to any region.
-* All configurations have been deleted.
-* All network groups have been deleted.
+> [!NOTE]
+> Before you can remove Azure Virtual Network Manager, you must remove all deployments, configurations, and network groups.
 
 1. To remove all configurations from a region, start in the virtual network manager and select **Deploy configurations**. Select the following settings:
 
@@ -253,22 +248,26 @@ If you no longer need Azure Virtual Network Manager, you need to make sure all o
     | ------- | ----- |
     | Configurations | Select **Include connectivity configurations in your goal state**. |
     | Connectivity configurations | Select the ****None - Remove existing connectivity configurations**** configuration. |
-    | Regions | Select **West US** as the deployed region. |
+    | Target regions | Select **East US** as the deployed region. |
 
 1. Select **Next** and select **Deploy** to complete the deployment removal.
 
-1. To delete a configuration, select **Configurations** under **Settings** from the left pane of Azure Virtual Network Manager. Select the checkbox next to the configuration you want to remove and then select **Delete** at the top of the resource page. Select **Yes** to confirm the configuration deletion.
+1. To delete a configuration, select **Configurations** under **Settings** from the left pane of Azure Virtual Network Manager. Select the checkbox next to the configuration you want to remove and then select **Delete** at the top of the resource page. 
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/delete-configuration.png" alt-text="Screenshot of delete button for a connectivity configuration.":::
+1. On the **Delete a configuration** page, select the following options:
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/configuration-delete-options.png" alt-text="Screenshot of configuration to be deleted option selection.":::
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Delete option | Select **Force delete the resource and all dependent resources**. |
+    | Confirm deletion | Enter the name of the configuration. In this example, it's **cc-learn-prod-eastus-001**. |
 
 1. To delete a network group, select **Network Groups** under **Settings** from the left pane of Azure Virtual Network Manager. Select the checkbox next to the network group you want to remove and then select **Delete** at the top of the resource page.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/delete-network-group.png" alt-text="Screenshot of delete a network group button.":::
-
-
 1. On the **Delete a network group** page, select the following options:
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/ng-delete-options.png" alt-text="Screenshot of Network group to be deleted option selection.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-delete-options.png" alt-text="Screenshot of Network group to be deleted option selection.":::
 
     | Setting | Value |
     | ------- | ----- |
