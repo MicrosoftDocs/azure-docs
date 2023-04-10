@@ -49,8 +49,14 @@ Istio based service mesh add-on for AKS has the following limitations:
 * The add-on doesn't work on AKS clusters that have Istio installed on them already outside the add-on installation.
 * Istio doesn't support Windows Server containers.
 
+## Next steps
+
+* [Deploy Istio based service mesh add-on][istio-deploy-addon]
+
 [istio-overview]: https://istio.io/latest/
 [managed-prometheus-overview]: ../azure-monitor/essentials/prometheus-metrics-overview.md
 [managed-grafana-overview]: ../managed-grafana/overview.md
 [azure-cni-cilium]: azure-cni-powered-by-cilium.md
 [open-service-mesh-about]: open-service-mesh-about.md
+
+[istio-deploy-addon]: istio-deploy-addon.md

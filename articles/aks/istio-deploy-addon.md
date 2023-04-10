@@ -63,29 +63,27 @@ A conceptual overview of Istio and the service mesh add-on is available [here][i
 **Install add-on at the time of cluster creation:**
 To install the Istio add-on when creating the cluster, use `--enable-asm` or `--enable-azure-service-mesh` parameters.
 
-The following example creates a *myResourceGroup* resource group. Then it creates a *myAKSCluster* cluster with three nodes and the Istio add-on.
+```azurecli-interactive
+az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
 
-    ```azurecli-interactive
-    az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
-
-    az aks create \
-    --resource-group ${RESOURCE_GROUP} \
-    --name ${CLUSTER} \
-    --enable-asm
-    ```
+az aks create \
+--resource-group ${RESOURCE_GROUP} \
+--name ${CLUSTER} \
+--enable-asm
+```
 
 **Install add-on for existing cluster:**
 
 The following example enables Istio add-on for an existing AKS cluster:
 
-    ```azurecli-interactive
-    az aks mesh enable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
-    ```
+```azurecli-interactive
+az aks mesh enable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
+```
 
-    > [!IMPORTANT]
-    > You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. [Uninstall OSM add-on on your cluster][uninstall-osm-addon] before enabling the Istio add-on.
-    > You can't enable the Istio add-on on an existing cluster if Istio was already installed outside the add-on installation. [Uninstall non-add-on Istio][uninstall-istio-oss] before enabling the Istio add-on.
-    > Istio add-on can only be enabled on AKS clusters of version >= 1.23
+> [!IMPORTANT]
+> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. [Uninstall OSM add-on on your cluster][uninstall-osm-addon] before enabling the Istio add-on.
+> You can't enable the Istio add-on on an existing cluster if Istio was already installed outside the add-on installation. [Uninstall non-add-on Istio][uninstall-istio-oss] before enabling the Istio add-on.
+> Istio add-on can only be enabled on AKS clusters of version >= 1.23
 
 
 ## Verify add-on was installed successfully
@@ -125,9 +123,9 @@ The following example enables Istio add-on for an existing AKS cluster:
 
 To automatically install sidecar to any new pods, annotate your namespaces:
 
-    ```bash
-    kubectl label namespace default istio.io/rev=asm-1-17
-    ```
+```bash
+kubectl label namespace default istio.io/rev=asm-1-17
+```
 
 ## Deploy sample application
 
@@ -191,6 +189,10 @@ To automatically install sidecar to any new pods, annotate your namespaces:
 
     Expect to see each pod ready with two containers, one of which is the envoy sidecar injected by Istio.
 
+## Next steps
+
+* [Deploy external or internal ingresses for Istio service mesh add-on][istio-deploy-ingress]
+
 [istio-about]: istio-about.md
 
 [azure-cli-install]: /cli/azure/install-azure-cli
@@ -200,3 +202,5 @@ To automatically install sidecar to any new pods, annotate your namespaces:
 
 [uninstall-osm-addon]: open-service-mesh-uninstall-add-on.md
 [uninstall-istio-oss]: https://istio.io/latest/docs/setup/install/istioctl/#uninstall-istio
+
+[istio-deploy-ingress]: istio-deploy-ingress.md
