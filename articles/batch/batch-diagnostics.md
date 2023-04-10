@@ -46,7 +46,7 @@ You can also retrieve metrics programmatically with the Azure Monitor APIs. For 
 
 ## Batch metric alerts
 
-You can configure near real-time metric alerts that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is *Activated* (when the threshold is crossed and the alert condition is met). The alert also generates an alert when it is *Resolved* (when the threshold is crossed again and the condition is no longer met).
+You can configure near real-time metric alerts that trigger when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is *Activated* (when the threshold is crossed and the alert condition is met). The alert also generates an alert when it's *Resolved* (when the threshold is crossed again and the condition is no longer met).
 
 Because metric delivery can be subject to inconsistencies such as out-of-order delivery, data loss, or duplication, you should avoid alerts that trigger on a single data point. Instead, use thresholds to account for any inconsistencies such as out-of-order delivery, data loss, and duplication over a period of time.
 
