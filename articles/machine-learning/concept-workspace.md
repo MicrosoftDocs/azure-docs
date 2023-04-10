@@ -115,11 +115,11 @@ Once your workspace is set up, you can interact with it in the following ways:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
 :::moniker range="azureml-api-2"
-+ In any Python environment with the [Azure Machine Learning SDK v2 for Python](https://aka.ms/sdk-v2-install).
++ In any Python environment with the [Azure Machine Learning SDK](https://aka.ms/sdk-v2-install).
 + On the command line using the Azure Machine Learning [CLI extension v2](how-to-configure-cli.md)
 :::moniker-end
 :::moniker range="azureml-api-1"
-+ In any Python environment with the [Azure Machine Learning SDK v1 for Python](/python/api/overview/azure/ml/)
++ In any Python environment with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/)
 + On the command line using the Azure Machine Learning [CLI extension v1](./v1/reference-azure-machine-learning-cli.md)
 :::moniker-end
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
