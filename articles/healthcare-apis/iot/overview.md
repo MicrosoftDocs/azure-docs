@@ -81,13 +81,13 @@ The MedTech service can be customized and configured by using [device](how-to-co
 
 Useful options could include:
 
-- Linking devices and consumers together for enhanced insights, trend captures, interoperability between systems, and proactive and remote monitoring.
+- Link devices and consumers together for enhanced insights, trend captures, interoperability between systems, and proactive and remote monitoring.
 
-- FHIR Observations that can be created or updated according to existing or new mappings.
+- Update or create FHIR Observations according to existing or new mapping template types.
 
-- Being able to choose data terms that work best for your organization and provide consistency in device data ingestion.
+- Choose data terms that work best for your organization and provide consistency in device data ingestion.
 
-- Facilitating customization, editing, testing, and troubleshooting MedTech service device and FHIR destination mappings with the [Mapping debugger](how-to-use-mapping-debugger.md) tool.
+- Customize, edit, test, and troubleshoot MedTech service device and FHIR destination mappings with the [Mapping debugger](how-to-use-mapping-debugger.md) tool.
 
 ### Scalable
 
