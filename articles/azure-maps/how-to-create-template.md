@@ -84,6 +84,6 @@ To learn more about Azure Maps and Azure Resource Manager, see the following art
 
 [free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [Azure Quickstart Templates]: https://azure.microsoft.com/resources/templates/maps-create
-Create an Azure Maps [demo application]: quick-demo-map-app.md
-Learn more about [ARM templates]: ../azure-resource-manager/templates/overview.md
+[demo application]: quick-demo-map-app.md
+[ARM templates]: ../azure-resource-manager/templates/overview.md
 [Deploy templates]: ../azure-resource-manager/templates/deploy-powershell.md
