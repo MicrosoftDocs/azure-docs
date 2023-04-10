@@ -549,7 +549,7 @@ This is a list of reasons you might run into this error when creating/updating t
 
 ### ERROR: TokenRefreshFailed
 
-This is because extension cannot get principal credential from Azure because the Kubernetes cluster identity is not set properly, please re-install the [Azure Machine learning extension](../machine-learning/how-to-deploy-kubernetes-extension.md) and try again. 
+This is because extension cannot get principal credential from Azure because the Kubernetes cluster identity is not set properly, please re-install the [Azure Machine Learning extension](../machine-learning/how-to-deploy-kubernetes-extension.md) and try again. 
 
 
 ### ERROR: GetAADTokenFailed
@@ -561,20 +561,20 @@ This is because the Kubernetes cluster request AAD token failed or timeout, plea
 
 If your workspace is a private workspace which disabled public network access, the Kubernetes cluster should only communicate with that private workspace through the private link. 
 
-* You can check the if workspace access allows public access, no matter an AKS cluster itself is public or private, it cannot access the private workspace. 
+* You can check if the workspace access allows public access, no matter if an AKS cluster itself is public or private, it cannot access the private workspace. 
 * More information you can refer to [Secure Azure Kubernetes Service inferencing environment](../machine-learning/how-to-secure-kubernetes-inferencing-environment.md#what-is-a-secure-aks-inferencing-environment)
 
 ### ERROR: ACRAuthenticationChallengeFailed
 
 This is because the Kubernetes cluster cannot reach ACR service of the workspace to do authentication challenge. Please check your network, especially the ACR public network access, then try again. 
 
-You can follow the troubleshooting steps in [GetAADTokenFailed](#error-getaadtokenfailed) to check the the network.
+You can follow the troubleshooting steps in [GetAADTokenFailed](#error-getaadtokenfailed) to check the network.
 
 ### ERROR: ACRTokenExchangeFailed
 
 This is because the Kubernetes cluster exchange ACR token failed because AAD token is unauthorized yet, since the role assignment takes some time, so you can wait a moment then try again.
 
-This failed may also due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
+This failure may also be due to too many requests to the ACR service at that time, it should be a transient error, you can try again later.
 
 ### ERROR: ImagePullLoopBackOff
 
