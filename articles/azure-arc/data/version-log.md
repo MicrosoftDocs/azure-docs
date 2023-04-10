@@ -37,6 +37,7 @@ This article identifies the component versions with each release of Azure Arc-en
 |`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
+|`redis.arcdata.microsoft.com`| v1beta1|
 |Azure Resource Manager (ARM) API version|2023-01-15-preview|
 |`arcdata` Azure CLI extension version|1.4.13 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.18.0|
