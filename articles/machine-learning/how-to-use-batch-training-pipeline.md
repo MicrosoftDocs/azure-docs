@@ -11,7 +11,7 @@ ms.author: fasantia
 ms.date: 03/29/2023
 reviewer: msakande
 ms.reviewer: mopeakande
-ms.custom: 
+ms.custom: how-to, devplatv2, event-tier1-build-2023
 ---
 
 # How to deploy a training pipeline with batch endpoints
@@ -330,7 +330,7 @@ jobs:
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png" alt-text="Pipeline showing the preprocessing and training components" lightbox="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png":::
+:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png" alt-text="Pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png":::
 
 ### Test the pipeline
 
@@ -408,7 +408,7 @@ def uci_heart_classifier_trainer(input_data: Input(type=AssetTypes.URI_FOLDER)):
 
 A visualization of the pipeline is as follows:
 
-:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png" alt-text="Pipeline showing the preprocessing and training components" lightbox="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png":::
+:::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png" alt-text="Pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-with-transform-and-training-components.png":::
 
 ### Test the pipeline
 
