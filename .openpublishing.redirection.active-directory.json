@@ -61,6 +61,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/easy-metrics-auth0-connector-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/easy-metrics-connector-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/iauditor-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/safety-culture-tutorial",
       "redirect_document_id": false
@@ -135,7 +140,7 @@
       "redirect_url": "/azure/active-directory/saas-apps/f5-big-ip-headers-easy-button",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path_from_root": "/articles/active-directory/saas-apps/tripactions-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/navan-tutorial",
       "redirect_document_id": false

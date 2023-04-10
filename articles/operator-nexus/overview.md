@@ -5,7 +5,7 @@ author: scottsteinbrueck
 ms.author: ssteinbrueck
 ms.date: 02/26/2023
 ms.topic: overview
-ms.service: azure
+ms.service: azure-operator-nexus
 ---
 
 # What is Azure Operator Nexus?
