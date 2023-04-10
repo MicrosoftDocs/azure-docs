@@ -50,7 +50,8 @@ Call Recording supports multiple media outputs and content types to address your
 | unmixed | wav | 16 kHz | 256 kbps | 1.92 MB/min* per channel | single file, up to 5 wav channels | unmixed audio, one participant per channel, up to five channels |
 
 > [*NOTE]
-> Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 48 hours.** After 48 hours, recordings will no longer be available.
+> Mp3 and Mp4 formats use lossy compression that results in variable bitrate; therefore, data rate values in the tables above reflect the theoretical maximum. WAV format bitrate is fixed, so the data rate provided above is a high-confidence estimate.
+
 
 ## Get full control over your recordings with our Call Recording APIs
 Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId`, check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
@@ -70,9 +71,9 @@ A `recordingId` is returned when recording is started, which is then used for fo
 
 Call Recording use [Azure Event Grid](../../../event-grid/event-schema-communication-services.md) to provide you with notifications related to media and metadata.
 
-
 > [!NOTE]
-> Mp3 and Mp4 formats use lossy compression that results in variable bitrate; therefore, data rate values in the tables above reflect the theoretical maximum. WAV format bitrate is fixed, so the data rate provided above is a high-confidence estimate.
+> Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 48 hours.** After 48 hours, recordings will no longer be available.
+
 
 An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file. 
 
