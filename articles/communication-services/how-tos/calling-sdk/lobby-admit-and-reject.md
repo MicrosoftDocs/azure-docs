@@ -11,10 +11,10 @@ ms.date: 03/14/2023
 ms.custom: template-how-to
 
 ---
-[!INCLUDE [Install SDK](../calling-sdk/includes/install-sdk/install-sdk-web.md)]
-Lobby admit and reject are the apis on `Call` or `TeamsCall`. It allows user to admit and reject participants from Teams meeting lobby.
 
 # Manage Teams meeting Lobby
+
+Lobby admit and reject are the apis on `Call` or `TeamsCall`. It allows user to admit and reject participants from Teams meeting lobby.
 
 In this article, you will learn how to admit and reject participants from Microsoft Teams meetings lobby by using Azure Communication Service calling SDKs.
 
@@ -131,4 +131,3 @@ await call.admitAll();
 - [Learn how to manage Teams calls](../cte-calling-sdk/manage-calls.md)
 - [Learn how to join Teams meeting](./teams-interoperability.md)
 - [Learn how to manage video](./manage-video.md)
-- [Learn how to transfer calls](./transfer-calls.md)
