@@ -231,6 +231,9 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: Migration tools
         href: agents/azure-monitor-agent-migration-tools.md
+    - name: Performance
+      displayName: Performance
+      href: /azure/azure-monitor/agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
       href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -762,7 +765,7 @@ items:
           href: app/availability-standard-tests.md
         - name: Private testing
           href: app/availability-private-test.md
-        - name: Availability + Azure Functions
+        - name: TrackAvailability()
           href: app/availability-azure-functions.md
           displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
         - name: Availability alerts
