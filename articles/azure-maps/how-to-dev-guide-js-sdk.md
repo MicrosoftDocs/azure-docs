@@ -20,7 +20,7 @@ The Azure Maps JavaScript/TypeScript REST SDK (JavaScript SDK) supports searchin
 ## Prerequisites
 
 - [Azure Maps account].
-- [Subscription key] or other form of [authentication].
+- [Subscription key] or other form of [Authentication with Azure Maps].
 - [Node.js].
 
 > [!TIP]
@@ -69,7 +69,7 @@ mapsDemo
 
 ## Create and authenticate a MapsSearchClient
 
-You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps][authentication].
+You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
 
 > [!TIP]
 > The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search client library][JS-SDK] to learn more about the search methods available.
@@ -377,42 +377,30 @@ main().catch(console.error);
 
 - The [Azure Maps Search client library for JavaScript/TypeScript][JS-SDK].
 
-[JS-SDK]: /javascript/api/@azure-rest/maps-search
-
+[Authentication with Azure Maps]: azure-maps-authentication.md
+[Azure Core Authentication Package]: /javascript/api/@azure/core-auth/
+[Azure Identity library]: /javascript/api/overview/azure/identity-readme
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [DefaultAzureCredential]: https://github.com/Azure/azure-sdk-for-js/tree/@azure/maps-search_1.0.0-beta.1/sdk/identity/identity#defaultazurecredential
-
-[searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress
-
+[dotenv]: https://github.com/motdotla/dotenv#readme
 [FuzzySearchRequest]: /javascript/api/@azure-rest/maps-search/fuzzysearch
- 
 [FuzzySearchResult]: /javascript/api/@azure-rest/maps-search/searchfuzzysearch200response
-
-
-[Search service]: /rest/api/maps/search
+[Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[js geolocation package]: https://www.npmjs.com/package/@azure-rest/maps-geolocation
+[js geolocation readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-geolocation-rest/README.md
+[js geolocation sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-geolocation-rest/samples/v1-beta
+[js render package]: https://www.npmjs.com/package/@azure-rest/maps-render
+[js render readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-render-rest/README.md
+[js render sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-render-rest/samples/v1-beta
+[js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
+[js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
+[js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
+[JS-SDK]: /javascript/api/@azure-rest/maps-search
 [Node.js Release Working Group]: https://github.com/nodejs/release#release-schedule
 [Node.js]: https://nodejs.org/en/download/
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-
-[authentication]: azure-maps-authentication.md
-[Azure Identity library]: /javascript/api/overview/azure/identity-readme
-[Azure Core Authentication Package]: /javascript/api/@azure/core-auth/
-
-[Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
-[dotenv]: https://github.com/motdotla/dotenv#readme
-
 [search package]: https://www.npmjs.com/package/@azure-rest/maps-search
 [search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
 [search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v1-beta
-
-[js route readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-route-rest/README.md
-[js route package]: https://www.npmjs.com/package/@azure-rest/maps-route
-[js route sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-route-rest/samples/v1-beta
-
-[js render readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-render-rest/README.md
-[js render package]: https://www.npmjs.com/package/@azure-rest/maps-render
-[js render sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-render-rest/samples/v1-beta
-
-[js geolocation readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-geolocation-rest/README.md
-[js geolocation package]: https://www.npmjs.com/package/@azure-rest/maps-geolocation
-[js geolocation sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-geolocation-rest/samples/v1-beta
+[Search service]: /rest/api/maps/search
+[searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

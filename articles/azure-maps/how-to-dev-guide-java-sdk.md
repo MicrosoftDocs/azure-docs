@@ -392,33 +392,32 @@ public class Demo{
 }
 ```
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [authentication]: azure-maps-authentication.md
-
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[defaultazurecredential]: /azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
+[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
 [Java Standard Versions]: https://www.oracle.com/java/technologies/downloads/
 [Java Version 8]: /azure/developer/java/fundamentals/?view=azure-java-stable
 [maven]: /azure/developer/java/sdk/get-started-maven
-[Identity library]: /java/api/overview/azure/identity-readme?source=recommendations&view=azure-java-stable
-[defaultazurecredential]: /azure/developer/java/sdk/identity-azure-hosted-auth#default-azure-credential
-[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 
 <!--  Java SDK Developers Guide  --->
-[java search package]: https://repo1.maven.org/maven2/com/azure/azure-maps-search
-[java search readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-search/README.md
-[java search sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-search/src/samples/java/com/azure/maps/search/samples
-[java routing package]: https://repo1.maven.org/maven2/com/azure/azure-maps-route
-[java routing readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-route/README.md
-[java routing sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-route/src/samples/java/com/azure/maps/route/samples
-[java rendering package]: https://repo1.maven.org/maven2/com/azure/azure-maps-render
-[java rendering readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-render/README.md
-[java rendering sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-render/src/samples/java/com/azure/maps/render/samples
-[java geolocation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-geolocation
-[java geolocation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-geolocation/README.md
-[java geolocation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-geolocation/src/samples/java/com/azure/maps/geolocation/samples
-[java timezone package]: https://repo1.maven.org/maven2/com/azure/azure-maps-timezone
-[java timezone readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-timezone/README.md
-[java timezone sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-timezone/src/samples/java/com/azure/maps/timezone/samples
 [java elevation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-elevation
 [java elevation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-elevation/README.md
 [java elevation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-elevation/src/samples/java/com/azure/maps/elevation/samples
+[java geolocation readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-geolocation/README.md
+[java geolocation sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-geolocation/src/samples/java/com/azure/maps/geolocation/samples
+[java geolocation package]: https://repo1.maven.org/maven2/com/azure/azure-maps-geolocation
+[java rendering package]: https://repo1.maven.org/maven2/com/azure/azure-maps-render
+[java rendering readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-render/README.md
+[java rendering sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-render/src/samples/java/com/azure/maps/render/samples
+[java routing package]: https://repo1.maven.org/maven2/com/azure/azure-maps-route
+[java routing readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-route/README.md
+[java routing sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-route/src/samples/java/com/azure/maps/route/samples
+[java search package]: https://repo1.maven.org/maven2/com/azure/azure-maps-search
+[java search readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-search/README.md
+[java search sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-search/src/samples/java/com/azure/maps/search/samples
+[java timezone readme]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/maps/azure-maps-timezone/README.md
+[java timezone sample]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/maps/azure-maps-timezone/src/samples/java/com/azure/maps/timezone/samples
+[java timezone package]: https://repo1.maven.org/maven2/com/azure/azure-maps-timezone

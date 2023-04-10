@@ -12,16 +12,16 @@ services: azure-maps
 
 # C# REST SDK Developers Guide
 
-The Azure Maps C# SDK supports functionality available in the [Azure Maps Rest API][Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporates the power of Azure Maps.
+The Azure Maps C# SDK supports functionality available in the Azure Maps [Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporates the power of Azure Maps.
 
 > [!NOTE]
-> Azure Maps C# SDK supports any .NET version that is compatible with [.NET standard 2.0][.NET standard]. For an interactive table, see [.NET Standard versions][.NET Standard versions].
+> Azure Maps C# SDK supports any .NET version that is compatible with [.NET standard] version 2.0 or higher. For an interactive table, see [.NET Standard versions].
 
 ## Prerequisites
 
-- [Azure Maps account][Azure Maps account].
-- [Subscription key][Subscription key] or other form of [authentication][authentication].
-- [.NET standard][.NET standard] version 2.0 or higher.
+- [Azure Maps account].
+- [Subscription key] or other form of [Authentication with Azure Maps].
+- [.NET standard] version 2.0 or higher.
 
 > [!TIP]
 > You can create an Azure Maps account programmatically, Here's an example using the Azure CLI:
@@ -61,7 +61,7 @@ dotnet add package Azure.Maps.Geolocation --prerelease
 
 ## Create and authenticate a MapsSearchClient
 
-The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD).  For more information on authentication, see [Authentication with Azure Maps][authentication].
+The client object used to access the Azure Maps Search APIs require either an `AzureKeyCredential` object to authenticate when using an Azure Maps subscription key or a `TokenCredential` object with the Azure Maps client ID when authenticating using Azure Active Directory (Azure AD).  For more information on authentication, see [Authentication with Azure Maps].
 
 ### Using an Azure AD credential
 
@@ -71,7 +71,7 @@ You can authenticate with Azure AD using the [Azure Identity library][Identity l
 dotnet add package Azure.Identity 
 ```
 
-You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
+You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
 
@@ -167,7 +167,7 @@ foreach (var result in searchResult.Results)
 } 
 ```
 
-The above code snippet demonstrates how to create a `MapsSearchClient` object using your Azure credentials, then uses its [FuzzySearch][FuzzySearch] method, passing in the point of interest (POI) name "_Starbucks_" and coordinates _GeoPosition(-122.31, 47.61)_. The SDK packages and sends the results to the Azure Maps REST endpoints. When the search results are returned, they're written out to the screen using `Console.WriteLine`.
+The above code snippet demonstrates how to create a `MapsSearchClient` object using your Azure credentials, then uses its [FuzzySearch] method, passing in the point of interest (POI) name "_Starbucks_" and coordinates _GeoPosition(-122.31, 47.61)_. The SDK packages and sends the results to the Azure Maps REST endpoints. When the search results are returned, they're written out to the screen using `Console.WriteLine`.
 
 The following libraries are used:
 
@@ -361,31 +361,28 @@ void printReverseBatchAddresses(ReverseSearchAddressBatchResult batchResult)
 
 ## Additional information
 
-The [Azure.Maps Namespace][Azure.Maps Namespace] in the .NET documentation.
+The [Azure.Maps Namespace] in the .NET documentation.
 
-[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-
-[authentication]: azure-maps-authentication.md
-[Host daemon]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
-[.NET standard]: /dotnet/standard/net-standard?tabs=net-standard-2-0
-[Rest API]: /rest/api/maps/
 [.NET Standard versions]: https://dotnet.microsoft.com/platform/dotnet-standard#versions
-[search package]: https://www.nuget.org/packages/Azure.Maps.Search
-[search readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Search/README.md
-[search sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Search/samples
-[routing package]: https://www.nuget.org/packages/Azure.Maps.Routing
-[routing readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Routing/README.md
-[routing sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Routing/samples
+[.NET standard]: /dotnet/standard/net-standard?tabs=net-standard-2-0
+[Authentication with Azure Maps]: azure-maps-authentication.md
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure.Maps Namespace]: /dotnet/api/azure.maps
+[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet#defaultazurecredential
+[FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
+[geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Geolocation/README.md
+[geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
+[geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
+[Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
+[Identity library .NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
 [rendering package]: https://www.nuget.org/packages/Azure.Maps.Rendering
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples
-[geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
-[geolocation readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Geolocation/README.md
-[geolocation sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Geolocation/samples
-[FuzzySearch]: /dotnet/api/azure.maps.search.mapssearchclient.fuzzysearch
-[Azure.Maps Namespace]: /dotnet/api/azure.maps
-[search-api]: /dotnet/api/azure.maps.search
-[Identity library .NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
-[defaultazurecredential.NET]: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet#defaultazurecredential
-[NuGet]: https://www.nuget.org/
+[Rest API]: /rest/api/maps/
+[routing package]: https://www.nuget.org/packages/Azure.Maps.Routing
+[routing readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Routing/README.md
+[routing sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Routing/samples
+[search package]: https://www.nuget.org/packages/Azure.Maps.Search
+[search readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Search/README.md
+[search sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Search/samples
+[Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

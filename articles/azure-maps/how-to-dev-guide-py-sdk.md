@@ -17,7 +17,7 @@ The Azure Maps Python SDK can be integrated with Python applications and librari
 ## Prerequisites
 
 - [Azure Maps account].
-- [Subscription key] or other form of [authentication].
+- [Subscription key] or other form of [Authentication with Azure Maps].
 - Python on 3.7 or later. It's recommended to use the [latest release]. For more information, see [Azure SDK for Python version support policy].
 
 > [!TIP]
@@ -60,7 +60,7 @@ Azure Maps Python SDK supports Python version 3.7 or later. For more information
 
 ## Create and authenticate a MapsSearchClient
 
-You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps][authentication].
+You need a `credential` object for authentication when creating the `MapsSearchClient` object used to access the Azure Maps search APIs. You can use either an Azure Active Directory (Azure AD) credential or an Azure subscription key to authenticate. For more information on authentication, see [Authentication with Azure Maps].
 
 > [!TIP]
 > The`MapsSearchClient` is the primary interface for developers using the Azure Maps search library. See [Azure Maps Search package client library] to learn more about the search methods available.
@@ -351,7 +351,7 @@ The [Azure Maps Search package client library] in the *Azure SDK for Python Prev
 <!--------------------------------------------------------------------------------------------------------------->
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[authentication]: azure-maps-authentication.md
+[Authentication with Azure Maps]: azure-maps-authentication.md
 
 [Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview
 [latest release]: https://www.python.org/downloads/
