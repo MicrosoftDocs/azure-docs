@@ -76,7 +76,7 @@ Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to 
 
 1. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
 
-   [ ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png ](media/how-to-customer-managed-keys/access-policy-permissions.png#lightbox)
+   [ ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png) ](media/how-to-customer-managed-keys/access-policy-permissions.png#lightbox)
 
 1. In the Principal Tab, select the User Assigned Managed Identity you had created in prerequisite step.
 
