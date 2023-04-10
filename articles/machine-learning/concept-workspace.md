@@ -71,15 +71,7 @@ When you create a new workspace, you're required to bring other Azure resources 
   > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
   > If you bring an existing general-purpose v1 storage account, you may [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). Stores created docker containers, when you build custom environments via Azure Machine Learning. For example, in the following scenarios:
-    * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
-    :::moniker range="azureml-api-2"
-    * [AutoML](concept-automated-ml.md) when deploying models
-    :::moniker-end
-    :::moniker range="azureml-api-1"
-    * [AutoML](./v1/concept-automated-ml-v1.md) when deploying model
-    :::moniker-end
-    * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). Stores created docker containers, when you build custom environments via Azure Machine Learning. Scenarios that trigger creation of custom environments include AutoML whden deploying models and data profiling.
 
     > [!NOTE] 
     > Workspaces can be created without Azure Container Registry as a dependency if you do not have a need to build custom docker containers. To read container images, Azure Machine Learning also works with external container registries. Azure Container Registry is automatically provisioned when you build custom docker images. Use Azure RBAC to prevent customer docker containers from being build. 
