@@ -24,8 +24,8 @@ Before you can use custom Text Analytics for health, you'll need to create an Az
 > [!IMPORTANT]
 > To quickly get started, we recommend creating a new Azure Language resource using the steps provided in this article. Using the steps in this article will let you create the Language resource and storage account at the same time, which is easier than doing it later.
 >
-> If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [guidance to using a pre-existing resource](../../how-to/create-project.md#using-a-pre-existing-language-resource) for information.
-
+<!-- If you have a pre-existing resource that you'd like to use, you will need to connect it to storage account. See [guidance to using a pre-existing resource](../../how-to/create-project.md#using-a-pre-existing-language-resource) for information.
+-->
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
 > [!div class="nextstepaction"]
@@ -49,7 +49,7 @@ Once your resource and storage account are configured, create a new custom Text 
 
 ## Train your model
 
-Typically after you create a project, you go ahead and start [labeling the documents](../../how-to/tag-data.md) you have in the container connected to your project. For this quickstart, you have imported a sample tagged dataset and initialized your project with the sample JSON labels file so there is no need to add additional labels.
+Typically after you create a project, you go ahead and start labeling the documents you have in the container connected to your project. For this quickstart, you have imported a sample tagged dataset and initialized your project with the sample JSON labels file so there is no need to add additional labels.
 
 [!INCLUDE [Train a model using Language Studio](../language-studio/train-model.md)]
 
@@ -58,7 +58,7 @@ Typically after you create a project, you go ahead and start [labeling the docum
 
 ## Deploy your model
 
-Generally after training a model you would review its [evaluation details](../../how-to/view-model-evaluation.md) and [make improvements](../../how-to/view-model-evaluation.md) if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 [!INCLUDE [Deploy a model using Language Studio](../language-studio/deploy-model.md)]
 

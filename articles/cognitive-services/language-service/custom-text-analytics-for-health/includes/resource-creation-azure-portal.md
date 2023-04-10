@@ -24,9 +24,9 @@ ms.author: aahi
     |---------|---------|
     | Subscription | Your Azure subscription. |
     | Resource group | A resource group that will contain your resource. You can use an existing one, or create a new one. |
-    |Region | The [region](../reference/service-limits.md#regional-availability) for your Language resource. For example, "West US 2". |
+    |Region | The region for your Language resource. For example, "West US 2". |
     | Name | A name for your resource. |
-    |Pricing tier     | The [pricing tier](../reference/service-limits.md#language-resource-limits) for your Language resource. You can use the Free (F0) tier to try the service.       |
+    |Pricing tier     | The pricing tier for your Language resource. You can use the Free (F0) tier to try the service.       |
 
     > [!NOTE]
     > If you get a message saying "*your login account is not an owner of the selected storage account's resource group*", your account needs to have an owner role assigned on the resource group before you can create a Language resource. Contact your Azure subscription owner for assistance.
