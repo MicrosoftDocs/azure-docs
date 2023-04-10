@@ -19,12 +19,12 @@ Branches are remote locations or networks that require internet connectivity. Fo
 ## Current challenges of branch security 
 
 1. **Bandwidth requirements have grown** – The number of devices requiring Internet access has increased exponentially. Traditional networks are difficult to scale. With the advent of Software as a Service (SaaS) applications like Microsoft 365, there are ever-growing demands of low latency and jitter-less communication that traditional technologies like Wide Area Network (WAN) and Multi-Protocol Label Switching (MPLS) struggle with. 
-1. **IT teams are expensive** – Typically, firewalls are placed on physical devices on-premise which requires an IT team for setup and maintenance. Maintaining an IT team at every branch location is expensive. 
+1. **IT teams are expensive** – Typically, firewalls are placed on physical devices on-premises which requires an IT team for setup and maintenance. Maintaining an IT team at every branch location is expensive. 
 1. **Evolving threats** – Malicious actors are finding new avenues to attack the devices at the edge of networks. These edge devices are often the most vulnerable point of attack.
 1. **No holistic solution for network and security** – Software Defined Wide Area Network (SD-WAN) is definitely a step up from legacy WAN, but these SD-WAN appliances aren't designed to meet all security requirements. As a result, enterprises have to manage a patchwork of network and security offerings from multiple vendors.  
 
 ## How does Global Secure Access branch connectivity work? 
-To connect a branch office to Global Secure Access, you set up an Internet Protocol Security (IPSec) tunnel between your on-premise equipment and the Microsoft service endpoint. Traffic that you specify is routed through the IPSec tunnel to the Microsoft cloud. You apply security policies in the Microsoft Entra admin portal.
+To connect a branch office to Global Secure Access, you set up an Internet Protocol Security (IPSec) tunnel between your on-premises equipment and the Microsoft service endpoint. Traffic that you specify is routed through the IPSec tunnel to the Microsoft cloud. You apply security policies in the Microsoft Entra admin portal.
 
 > [!NOTE]
 > Global Secure Access branch connectivity provides a secure solution between a branch office and the
@@ -36,7 +36,7 @@ Maintaining security of a corporate network is increasingly difficult in a world
 
 Some common scenarios where branch connectivity should be considered? 
 
-### I don’t want to install clients on thousands of devices on-prem. 
+### I don’t want to install clients on thousands of devices on-premises. 
 Generally, SASE is enforced by installing a client on a device. The client creates a tunnel to the nearest Global Secure Access endpoint and routes all Internet traffic through it. SASE solutions inspect the traffic and enforce security policies. If your users aren't mobile and based in a physical branch office location, then branch connectivity removes the pain of installing a client on every device. You can connect the entire branch location by creating an IPSec tunnel between the core router of the branch office and the Global Secure Access endpoint.
 
 ### I can't install clients on all the devices my organization owns.
