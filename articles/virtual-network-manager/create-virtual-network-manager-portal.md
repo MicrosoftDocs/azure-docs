@@ -151,7 +151,9 @@ Using [Azure Policy](concept-azure-policy-integration.md), you define a conditio
 1. On the *Network Group* page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
-    
+
+---
+
 ## Create a configuration
 
 Now that the Network Group is created, and has the correct VNets, create a mesh network topology configuration. Replace <subscription_id> with your subscription and follow these steps:
