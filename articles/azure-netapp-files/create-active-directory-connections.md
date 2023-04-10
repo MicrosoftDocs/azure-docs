@@ -294,9 +294,7 @@ The multiple Active Directory feature enables each NetApp account within a subsc
 
 ### Considerations
 
-* A single account can contain a maximum of 10 AD connections.
 * The scope of each AD configuration is limited to its parent NetApp account. 
-* Once you have registered the feature, you can confirm the configuration on the **Account overview** page with the **AD Type** field.
 
 ### Register the feature
 
@@ -344,6 +342,14 @@ Alternately, navigate to the **Volumes** menu. Identify the volume for which you
 :::image type="content" source="../media/azure-netapp-files/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-list.png":::
 2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
 :::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
+
+## Account type
+
+You can use the NetApp account overview to confirm the AD type. There are three values for AD type:
+
+* **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD  configuration is not shared with other other NetApp accounts in the subscription.
+* **SharedAD**: Account supports only one AD configuration per subscription and region, but is shared across all NetApp accounts in the subscription and region.
+* **MultiAD**: Account supports one AD configuration in each NetApp account in the subscription.
 
 ## Next steps  
 
