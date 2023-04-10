@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart details using the Azure CLI to create an IoT hub and an IoT Hub Device Provisioning Service, and to link the two services together. 
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart details using the Azure CLI to create an IoT hub and an IoT Hub Device Provisioning Service instance, and to link the two services together. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,11 +47,11 @@ The following example creates an IoT hub named *my-sample-hub* in the *westus* l
 az iot hub create --name my-sample-hub --resource-group my-sample-resource-group --location westus
 ```
 
-## Create a Device Provisioning Service
+## Create a Device Provisioning Service instance
 
-Create a Device Provisioning Service with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command.
+Create a Device Provisioning Service instance with the [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create) command.
 
-The following example creates a provisioning service named *my-sample-dps* in the *westus* location. You'll also choose a globally unique name for your own provisioning service. Make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service: it should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
+The following example creates a Device Provisioning Service instance named *my-sample-dps* in the *westus* location. You'll also choose a globally unique name for your own instance. Make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service: it should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
 ```azurecli-interactive
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
