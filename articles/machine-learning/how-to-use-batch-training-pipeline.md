@@ -789,7 +789,7 @@ The preprocessing component has a parameter called `categorical_encoding` which 
  
 By default, we used `ordinal` previously. Let's now change the categorical encoding to use `onehot` and see how the model performs.
 
-The pipeline component has the following modification (`categorical_encoding: onehot`):
+The pipeline component has the following modification: `categorical_encoding: onehot`.
 
 ```yml
 jobs:
@@ -806,7 +806,7 @@ jobs:
 ```
 
 > [!TIP]
-> As an alternative, we could have exposed the `categorial_encoding` as an input in the pipeline job itself, rather than changing it in the specific step. Such an alternative is completely valid but will expose the existence of such input parameter to your clients. In this scenario, we want to hide it and hence control it inside of the deployment by taking advantage of having multiple deployments under the same endpoint.
+> As an alternative, we could have exposed the `categorial_encoding` as an input in the pipeline job itself, rather than changing it in the specific step. Such an alternative is completely valid but will expose the existence of the parameter as an input to your clients. In this case, we want to hide and control the parameter inside of the deployment by taking advantage of having multiple deployments under the same endpoint.
 
 ### Configure the deployment
 

@@ -27,7 +27,7 @@ You'll learn to:
 > * Create a batch endpoint with a deployment to host the component
 > * Test the deployment
 
-## About this example
+<!-- ## About this example
 
 The example in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, change directories to `cli/endpoints/batch` if you're using the Azure CLI or `sdk/endpoints/batch` if you're using the Python SDK.
 
@@ -39,7 +39,7 @@ cd azureml-examples/cli/endpoints/batch
 ### Follow along in Jupyter notebooks
 
 <!-- update notebook name and link -->
-You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [NAME.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mnist-batch.ipynb).
+You can follow along with this example in the following notebook. In the cloned repository, open the notebook: [NAME.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mnist-batch.ipynb). -->
 
 ## Prerequisites
 
@@ -50,63 +50,97 @@ You can follow along with this example in the following notebook. In the cloned 
 
 # [Python](#tab/python)
 
-Update this...
+[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
 
 ---
 
-## Connect to the Azure Machine Learning workspace
-
-The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
+## Prepare your system
 
 # [Azure CLI](#tab/azure-cli)
 
-Enter your subscription ID, resource group name, workspace name, and location in the following code:
+### Connect to the Azure Machine Learning workspace
+
+The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
+
+If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription ID, resource group name, workspace name, and location multiple times, run this code:
 
 ```azurecli
 az account set --subscription <subscription>
 az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
 ```
 
+### Clone the examples repository
+
+The example in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, go to the repository's `cli/endpoints/batch` directory:
+
+```azurecli
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples/cli/endpoints/batch
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository. This reduces the time to complete the operation.
+
+<!-- update links and paths -->
+The commands in this tutorial are in the file `UPDATE _NAME.sh` in the `cli` directory, and the YAML configuration files are in the `cli/endpoints/batch/` subdirectory.
+
 # [Python](#tab/python)
 
-### Import the required libraries
+### Clone the examples repository
 
-```python
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.entities import (
-    BatchEndpoint,
-    BatchDeployment,
-    AmlCompute,
-    CodeConfiguration,
-    Environment,
-)
-from azure.ai.ml.dsl import pipeline
-from azure.ai.ml.entities._deployment.job_definition import JobDefinition
-from azure.ai.ml import load_component
-from azure.ai.ml.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
+The example in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, first clone the repo. Then, go to the repository's `sdk/endpoints/batch` directory:
+
+```azurecli
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples/sdk/endpoints/batch
 ```
 
-### Configure workspace details and get a handle to the workspace
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository. This reduces the time to complete the operation.
 
-To connect to a workspace, we need identifier parameters that include a subscription, resource group, and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential) for this tutorial.
-<!-- Check the [configuration notebook](../../jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace. -->
+<!-- update notebook name and link -->
+You can follow along with this example in the notebook: [NAME.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/batch/mnist-batch.ipynb). It contains the same content as this article, although the order of the codes is slightly different.
 
-To configure your workspace details, enter your subscription ID, resource group name, and workspace name in the following code:
+### Connect to the Azure Machine Learning workspace
 
-```python
-subscription_id = "<subscription>"
-resource_group = "<resource-group>"
-workspace = "<workspace>"
-```
+1. Import the required libraries:
 
-Get a handle to the workspace:
+    ```python
+    from azure.ai.ml import MLClient, Input
+    from azure.ai.ml.entities import (
+        BatchEndpoint,
+        BatchDeployment,
+        AmlCompute,
+        CodeConfiguration,
+        Environment,
+    )
+    from azure.ai.ml.dsl import pipeline
+    from azure.ai.ml.entities._deployment.job_definition import JobDefinition
+    from azure.ai.ml import load_component
+    from azure.ai.ml.constants import AssetTypes
+    from azure.identity import DefaultAzureCredential
+    ```
 
-```python
-ml_client = MLClient(
-    DefaultAzureCredential(), subscription_id, resource_group, workspace
-)
-```
+1. Configure workspace details and get a handle to the workspace:
+
+    To connect to a workspace, we need identifier parameters that include a subscription, resource group, and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential) for this tutorial.
+    <!-- Check the [configuration notebook](../../jobs/configuration.ipynb) for more details on how to configure credentials and connect to a workspace. -->
+    
+    To configure your workspace details, enter your subscription ID, resource group name, and workspace name in the following code:
+    
+    ```python
+    subscription_id = "<subscription>"
+    resource_group = "<resource-group>"
+    workspace = "<workspace>"
+    ```
+    
+    Get a handle to the workspace:
+    
+    ```python
+    ml_client = MLClient(
+        DefaultAzureCredential(), subscription_id, resource_group, workspace
+    )
+    ```
 
 ---
 
