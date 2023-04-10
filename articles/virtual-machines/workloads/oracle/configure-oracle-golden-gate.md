@@ -244,9 +244,9 @@ Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more d
 Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
-$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=cdb1; export ORACLE_SID
-$ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
+ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+ORACLE_SID=cdb1; export ORACLE_SID
+LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
 Optionally, you can add ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future sign-ins:
@@ -263,7 +263,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ### Start Oracle listener
 
 ```bash
-$ lsnrctl start
+lsnrctl start
 ```
 
 ### Create the database on myVM2 (replicate)
