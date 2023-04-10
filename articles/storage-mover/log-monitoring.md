@@ -8,11 +8,26 @@ ms.topic: how-to
 ms.date: 03/20/2023
 ---
 
+<!-- 
+!########################################################
+STATUS: DRAFT
+
+CONTENT: 
+
+REVIEW Stephen/Fabian: Reviewed
+REVIEW Engineering: not reviewed
+EDIT PASS: started
+
+Initial doc score: 97 (1212 words and 2 issues)
+
+!########################################################
+-->
+
 # How to enable Azure Storage Mover copy and job logs
 
 When you use a migration tool to move your critical data from on-premises sources to Azure destination targets, you want to be able to monitor operations for potential issues. The data relating to the operations performed during your migration can be stored as either logs entries or metrics. When configured, Azure Storage Mover can provide **Copy logs** and **Job run logs**. These logs are especially useful because they allow you to trace the migration result of job runs and of individual files.
 
-Both the copy and job run logs can be sent to an Azure Analytics Workspace. Analytics workspaces are storage units where Azure services store the log data they generate. Log Analytics is integrated into the Storage Mover portal experience. This integration allows you to see the relevant logs for your copy jobs within the same surface you use to manage them. Perhaps more importantly, the integration also allows you to create and run log queries from multiple logs and interactively analyze their results.
+Both the copy and job run logs can be sent to an Azure Analytics Workspace. Analytics workspaces are storage units where Azure services store the log data they generate. Log Analytics is integrated into the Storage Mover portal experience. This integration allows you to see the relevant logs for your copy jobs within the same surface you use to manage them. More importantly, the integration also allows you to create and run log queries from multiple logs and interactively analyze their results.
 
 > [!IMPORTANT]
 > Before you can access your migration's log data, you need to ensure that you've created an Azure Analytics Workspace and configured your Storage Mover instance to use it. Any logs generated prior to this configuration will be lost. You may be able to retrieve limited log information directly from the agent.
@@ -61,7 +76,7 @@ Your log data is integrated into Storage Mover's Azure portal user interface (UI
 
 :::image type="content" source="media/log-monitoring/logs-splash-sml.png" lightbox="media/log-monitoring/logs-splash-lrg.png" alt-text="This image illustrates the selections required to open the Logs pane and close the splash screen." :::
 
-After the **Welcome** window is closed within the main content pane, the **New Query** window is displayed. In the schema and filter pane, ensure that the **Tables** object is selected and that the **StorageMoverCopyLogsFailed** and **StorageMoverJobRunLogs** tables are visible. Using Kusto Query Language (KQL) queries, you can begin extracting log data from the tables displayed within the schema and filter pane. Enter your query into the query editing field and select **Run** as shown in the following screen capture. A simple query example is also provided which will retrieve details on any failed copy operations from the previous 60 days.
+After the **Welcome** window is closed within the main content pane, the **New Query** window is displayed. In the schema and filter pane, ensure that the **Tables** object is selected and that the **StorageMoverCopyLogsFailed** and **StorageMoverJobRunLogs** tables are visible. Using Kusto Query Language (KQL) queries, you can begin extracting log data from the tables displayed within the schema and filter pane. Enter your query into the query editing field and select **Run** as shown in the following screen capture. A simple query example is also provided used to retrieve details on any failed copy operations from the previous 60 days.
 
 :::image type="content" source="media/log-monitoring/logs-query-sml.png" lightbox="media/log-monitoring/logs-query-lrg.png" alt-text="This image identifies the panes within the Log Analytics schema and filter page." :::
 
