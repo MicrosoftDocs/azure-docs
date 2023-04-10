@@ -29,7 +29,7 @@ To connect a branch office to Global Secure Access, you set up an Internet Proto
 > [!NOTE]
 > Global Secure Access branch connectivity provides a secure solution between a branch office and the
 > Global Secure Access service. It does not provide a secure connection between one branch and another.
-> To learn more about secure branch to branch connectivity, see the [Azure Virtual WAN documentation](../virtual-wan/index.md).
+> To learn more about secure branch to branch connectivity, see the [Azure Virtual WAN documentation](../virtual-wan/index.yml).
  
 ## Why branch connectivity may be important for you? 
 Maintaining security of a corporate network is increasingly difficult in a world of remote work and distributed teams. Secure Access Service Edge (SASE) promises a world of security where customers can access their corporate resources from anywhere in the world without needing to back haul their traffic to headquarters. Global Secure Access is the Microsoft solution for SASE.
