@@ -19,7 +19,7 @@ Branches are remote locations or networks that require internet connectivity. Fo
 ## Current challenges of branch security 
 
 1. **Bandwidth requirements have grown** – The number of devices requiring Internet access has increased exponentially. Traditional networks are difficult to scale. With the advent of Software as a Service (SaaS) applications like Microsoft 365, there are ever-growing demands of low latency and jitter-less communication that traditional technologies like Wide Area Network (WAN) and Multi-Protocol Label Switching (MPLS) struggle with. 
-1. **IT teams are expensive** – Typically, firewalls are placed on physical devices on-premises which requires an IT team for setup and maintenance. Maintaining an IT team at every branch location is expensive. 
+1. **IT teams are expensive** – Typically, firewalls are placed on physical devices on-premises, which requires an IT team for setup and maintenance. Maintaining an IT team at every branch location is expensive. 
 1. **Evolving threats** – Malicious actors are finding new avenues to attack the devices at the edge of networks. These edge devices are often the most vulnerable point of attack.
 1. **No holistic solution for network and security** – Software Defined Wide Area Network (SD-WAN) is definitely a step up from legacy WAN, but these SD-WAN appliances aren't designed to meet all security requirements. As a result, enterprises have to manage a patchwork of network and security offerings from multiple vendors.  
 
