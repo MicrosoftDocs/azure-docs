@@ -77,7 +77,8 @@ Next, run the following command in the CLI:
 # [Python SDK](#tab/Python-SDK)
 ```python
 
-from azure.ai.ml.entities import FileSystem,Database, DataImport
+from azure.ai.ml.entities import DataImport
+from azure.ai.ml.data_transfer import Database
 from azure.ai.ml import MLClient
 
 # Supported connections include:
@@ -137,7 +138,8 @@ Next, execute this command in the CLI:
 # [Python SDK](#tab/Python-SDK)
 ```python
 
-from azure.ai.ml.entities import FileSystem,Database, DataImport
+from azure.ai.ml.entities import DataImport
+from azure.ai.ml.data_transfer import FileSystem
 from azure.ai.ml import MLClient
 
 # Supported connections include:
@@ -174,7 +176,7 @@ The next example returns the status of the submitted data import activity. The c
 # [Python SDK](#tab/Python-SDK)
 
 ```python
-from azure.ai.ml.entities import FileSystem,Database, DataImport
+from azure.ai.ml.entities import DataImport
 from azure.ai.ml import MLClient
 
 ml_client = MLClient.from_config()
