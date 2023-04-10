@@ -28,7 +28,7 @@ Ready to get started? [Create a workspace](#create-a-workspace).
 
 For machine learning teams, the workspace is a place to organize their work. Below are some of the tasks you can start from a workspace:
 
-+ [Create jobs](how-to-train-model.md) - Jobs are training runs you use to build your models. You can group your jobs into [experiments](how-to-log-view-metrics.md) to compare metrics between jobs.
++ [Create jobs](how-to-train-model.md) - Jobs are training runs you use to build your models. You can group jobs into [experiments](how-to-log-view-metrics.md) to compare metrics.
 + [Author pipelines](concept-ml-pipelines.md) - Pipelines are reusable workflows for training and retraining your model.
 + [Register data assets](concept-data.md) - Data assets aid in management of the data you use for model training and pipeline creation.
 + [Register models](how-to-log-mlflow-models.md) - Once you have a model you want to deploy, you create a registered model.
