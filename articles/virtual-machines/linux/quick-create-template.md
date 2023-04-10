@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use a Resource Manager template to create an Ubuntu Linux VM'
-description: Learn how to use and deploy a Resource Manager template to create an Ubuntu Linux virtual machine in Azure.
+description: Learn how to use an Azure Resource Manager template to create and deploy an Ubuntu Linux virtual machine.
 author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
@@ -11,7 +11,7 @@ ms.author: cynthn
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Create an Ubuntu Linux virtual machine using an ARM template
+# Quickstart: Create an Ubuntu Linux virtual machine by using an ARM template
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -19,7 +19,7 @@ This quickstart shows you how to use an Azure Resource Manager template (ARM tem
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
+If your environment meets the prerequisites and you're familiar with ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-linux%2fazuredeploy.json)
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
+For more information on this template, see [Deploy a simple Ubuntu Linux VM 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
 
@@ -55,7 +55,7 @@ Several resources are defined in the template:
     - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and select **OK**.
     - **Region**: select a region. For example, **Central US**.
     - **Admin username**: provide a username, such as *azureuser*.
-    - **Authentication type**: You can choose between using an SSH key or a password.
+    - **Authentication type**: You can choose between an SSH key or a password.
     - **Admin Password Or Key** depending on what you choose for authentication type:
         - If you choose **password**, the password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
         - If you choose **sshPublicKey**, paste in the contents of your public key.
@@ -84,7 +84,7 @@ When no longer needed, delete the resource group, which deletes the VM and all o
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine using an ARM template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine by using an ARM template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
