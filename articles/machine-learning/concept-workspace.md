@@ -56,18 +56,9 @@ For machine learning team leads and administrators, workspaces serve as containe
 + **Enable self-serve**: Pre-create and secure [associated resources](#associated-resources) as an IT admin, and use [user roles](how-to-assign-roles.md) to let data scientists create workspaces on their own.
 + **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
 
-## What content and resources are stored in a workspace?
+## How is my content stored in a workspace?
 
 Your workspace keeps a history of all training runs, with logs, metrics, output, lineage metadata, and a snapshot of your scripts. As you perform tasks in Azure Machine Learning, artifacts are generated. Their metadata and data are stored in the workspace and on its [associated resources](#associated-resources).
-
-### Sub resources
-
-When you create compute clusters and compute instances in Azure Machine Learning, sub resources are created.
-
-* VMs: provide computing power for your Azure Machine Learning workspace and are an integral part in deploying and training models.
-* Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
-* Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
-* Bandwidth: encapsulates all outbound data transfers across regions.
 
 ## Associated resources
 
@@ -155,6 +146,15 @@ You can also perform the following workspace management tasks:
 
 > [!WARNING]
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
+
+## Sub resources
+
+When you create compute clusters and compute instances in Azure Machine Learning, sub resources are created.
+
+* VMs: provide computing power for compute instances and compute clusters, which you use to run jobs.
+* Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
+* Virtual Network: these help Azure resources communicate with one another, the internet, and other on-premises networks.
+* Bandwidth: encapsulates all outbound data transfers across regions.
 
 ## Next steps
 
