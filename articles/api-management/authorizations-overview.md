@@ -4,7 +4,7 @@ description: Learn about API authorizations in Azure API Management, a feature t
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 03/20/2023
+ms.date: 04/10/2023
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -137,6 +137,7 @@ You configure one or more *access policies* for each authorization. The access p
 |---------|---------|-----|----|
 |Service principal     |   Identity whose tokens can be used to authenticate and grant access to specific Azure resources, when an organization is using Azure Active Directory (Azure AD). By using a service principal, organizations avoid creating fictitious users to manage authentication when they need to access a resource. A service principal is an Azure AD identity that represents a registered Azure AD application. | Permits more tightly scoped access to authorization. Isn't tied to specific API Management instance. Relies on Azure AD for permission enforcement. | Getting the [authorization context](get-authorization-context-policy.md) requires an Azure AD token.     |
 |Managed identity     |  Service principal of a special type that represents an Azure AD identity for an Azure service. Managed identities are tied to, and can only be used with, an Azure resource. Managed identities eliminate the need for you to manually create and manage service principals directly.<br/><br/>When a system-assigned managed identity is enabled, a service principal representing that managed identity is created in your tenant automatically and tied to your resource's lifecycle.|No credentials are needed.|Identity is tied to specific Azure infrastructure. Anyone with Contributor access to API Management instance can access any authorization granting managed identity permissions.    |
+| Managed identity `<Your API Management instance name>` | This option corresponds to a managed identity tied to your API Management instance.  |  Quick selection of system-assigned managed identity for the corresponding API management instance.  | Identity is tied to your API Management instance. Anyone with Contributor access to API Management instance can access any authorization granting managed identity permissions.     |
 
 ## Security considerations
 
