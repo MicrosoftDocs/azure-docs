@@ -34,61 +34,61 @@ ms.date: 04/06/2023
 
 ## Detailed steps
 
-1. ### User Assigned Managed Identity:
+### 1. User Assigned Managed Identity:
 
    1. Search for Managed Identities in the global search bar.
 
-   ![Searching for Managed Identities in Azure portal.](media/how-to-customer-managed-keys/user-assigned-managed-identity.png)
+      ![Searching for Managed Identities in Azure portal.](media/how-to-customer-managed-keys/user-assigned-managed-identity.png)
 
 
    1. Create a new User assigned managed Identity in the same region as your Azure Cosmos DB for PostgreSQL cluster.
 
-   ![Screenshot of User assigned managed Identity page in Azure portal.](media/how-to-customer-managed-keys/user-assigned-managed-identity-provisioning.png)
+      ![Screenshot of User assigned managed Identity page in Azure portal.](media/how-to-customer-managed-keys/user-assigned-managed-identity-provisioning.png)
 
 
    Learn more about [User Assigned Managed Identity.](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
-1. ### Key Vault:
+### 2. Key Vault:
 
    Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: Soft Delete and Purge Protection.
 
    1. If you create a new Azure Key Vault instance, enable these properties during creation:
 
-   ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png)
-
+      ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png)
+ 
    1. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles.
 
-   * How to use [soft-delete with PowerShell.](../../key-vault/general/key-vault-recovery.md)
-   * How to use [soft-delete with Azure CLI.](../../key-vault/general/key-vault-recovery.md)
+      * How to use [soft-delete with PowerShell.](../../key-vault/ general/key-vault-recovery.md)
+      * How to use [soft-delete with Azure CLI.](../../key-vault/general/key-vault-recovery.md)
 
    1. The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
 
    > [!IMPORTANT]
    > Your Azure Key Vault instance must be allow public access from all the networks.
 
-1. ### Add an Access Policy to the Key Vault:
+### 3. Add an Access Policy to the Key Vault:
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
 
-   ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png)
+      ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png)
 
    1. Select + Create.
 
    1. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
 
-   ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png)
+      ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png)
 
    1. In the Principal Tab, select the User Assigned Managed Identity you had created in prerequisite step.
 
    1. Navigate to Review + create select Create.
 
-1. ### Create / Import Key:
+### 4. Create / Import Key:
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
    1. Select Keys from the left menu and then select +Generate/Import.
 
-   ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png)
+       ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png)
 
    1. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
 
@@ -100,7 +100,7 @@ ms.date: 04/06/2023
 
    1. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
 
-1. ### Enable CMK encryption during the provisioning for a new cluster
+### 5. Enable CMK encryption during the provisioning for a new cluster
 
    # [Portal](#tab/portal)
 
