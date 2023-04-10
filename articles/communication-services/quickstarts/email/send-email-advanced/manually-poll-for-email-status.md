@@ -9,17 +9,14 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: Manually poll for email status when sending email
 
 In this quick start, you'll learn about how to manually poll for email status while sending email using our Email SDKs.
 
-::: zone pivot="programming-language-csharp"
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]
 [!INCLUDE [polling-net](./includes/polling-net.md)]
-::: zone-end
 
 > [!IMPORTANT]
 > The success result returned by polling for the status of the send operation only validates the fact that the email has successfully been sent out for delivery. To get additional information about the status of the delivery on the recipient end, you will need to reference [how to handle email events](../handle-email-events.md).

@@ -9,17 +9,14 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-csharp-java
 ---
 
 # Quickstart: Use the email object model to send the email payload
 
 In this quick start, you'll learn about how to use the email object model to send the email payload using our Email SDKs.
 
-::: zone pivot="programming-language-csharp"
 [!INCLUDE [prepend-net](./includes/prepend-net.md)]
 [!INCLUDE [email-object-model-net](./includes/email-object-model-net.md)]
-::: zone-end
 
 ## Troubleshooting
 
