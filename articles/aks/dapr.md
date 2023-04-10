@@ -90,7 +90,7 @@ Global Azure cloud is supported with Arc support on the following regions:
 | `switzerlandnorth` | :heavy_check_mark: | :heavy_check_mark: |
 | `uaenorth` | :heavy_check_mark: | :x: |
 | `uksouth` | :heavy_check_mark: | :heavy_check_mark: |
-| `ukwest` | :heavy_check_mark: | :heavy_check_mark: |
+| `ukwest` | :heavy_check_mark: | :x: |
 | `westcentralus` | :heavy_check_mark: | :heavy_check_mark: |
 | `westeurope` | :heavy_check_mark: | :heavy_check_mark: |
 | `westus` | :heavy_check_mark: | :heavy_check_mark: |
