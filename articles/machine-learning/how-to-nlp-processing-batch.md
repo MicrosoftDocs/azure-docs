@@ -17,7 +17,7 @@ ms.custom: devplatv2
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can be used for processing tabular data, but also any other file type like text. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
+Batch Endpoints can be used for processing tabular data that contain text. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
 
 ## About this sample
 
@@ -27,12 +27,25 @@ The model we are going to work with was built using the popular library transfor
 * It is trained for summarization of text in English.
 * We are going to use Torch as a backend.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli/endpoints/batch/deploy-models/huggingface-text-summarization` if you are using the Azure CLI or `sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization` if you are using our SDK for Python.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the [`cli/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/cli/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using the Azure CLI or [`sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using our SDK for Python.
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
 cd azureml-examples/cli/endpoints/batch/deploy-models/huggingface-text-summarization
 ```
+
+# [Python](#tab/python)
+
+In a Jupyter notebook:
+
+```python
+!git clone https://github.com/Azure/azureml-examples --depth 1
+!cd azureml-examples/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization
+```
+
+---
 
 ### Follow along in Jupyter Notebooks
 
@@ -80,7 +93,13 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 
 ### Registering the model
 
-Due to the size of the model, it hasn't been included in this repository. Instead, you can generate a local copy with the following code. A local copy of the model will be placed at `model`. We will use it during the course of this tutorial.
+Due to the size of the model, it hasn't been included in this repository. Instead, you can download a copy from the HuggingFace model's hub. You need the packages `transformers` and `torch` installed in the environment you are using.
+
+```python
+%pip install transformers torch
+```
+
+Use the following code to download the model to a folder `model`:
 
 ```python
 from transformers import pipeline
