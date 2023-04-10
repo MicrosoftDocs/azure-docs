@@ -110,7 +110,9 @@ Virtual Network Manager applies configurations to groups of VNets by placing the
 ## Define membership for connectivity configuration
 
 Once your network group is created, you add virtual networks as members. Choose one of the options: *[Manually add membership](#manually-add-membership)* or *[Create policy to dynamically add members](#create-azure-policy-for-dynamic-membership)* with Azure Policy. Choose one of the options for your mesh membership configuration:
-### Manually add membership (#tab/Manual add)
+# [Manual membership](#tab/manualmembership)
+
+### Manually add membership
 
 In this task, you manually add two virtual networks for your Mesh configuration to your network group using these steps:
 
@@ -125,7 +127,8 @@ In this task, you manually add two virtual networks for your Mesh configuration 
 1. On the **Network Group** page under **Settings**, select **Group Members** to view the membership of the group you manually selected.
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of group membership under Group Membership.":::
 
-### Create Azure Policy for dynamic membership (#tab/Azure Policy)
+# [Azure Policy](#tab/azurepolicy)
+### Create Azure Policy for dynamic membership
 
 Using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the name of the virtual network includes **prod** using these steps:
 
