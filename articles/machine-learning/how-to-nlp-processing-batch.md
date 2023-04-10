@@ -29,7 +29,7 @@ The model we are going to work with was built using the popular library transfor
 
 The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the [`cli/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/cli/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using the Azure CLI or [`sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization`](https://github.com/azure/azureml-examples/tree/main/sdk/python/endpoints/batch/deploy-models/huggingface-text-summarization) if you are using our SDK for Python.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -59,7 +59,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 First, let's connect to Azure Machine Learning workspace where we're going to work on.
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription <subscription>
@@ -134,7 +134,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
 1. Decide on the name of the endpoint. The name of the endpoint will end-up in the URI associated with your endpoint. Because of that, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/cli)
     
     In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
     
@@ -152,7 +152,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
 1. Configure your batch endpoint
 
-    # [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/cli)
 
     The following YAML file defines a batch endpoint:
     
@@ -236,7 +236,7 @@ Let's create the deployment that will host the model:
    
 1. Each deployment runs on compute clusters. They support both [Azure Machine Learning Compute clusters (AmlCompute)](./how-to-create-attach-compute-cluster.md) or [Kubernetes clusters](./how-to-attach-kubernetes-anywhere.md). In this example, our model can benefit from GPU acceleration, which is why we will use a GPU cluster.
 
-   # [Azure CLI](#tab/azure-cli)
+   # [Azure CLI](#tab/cli)
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_compute" :::
 
