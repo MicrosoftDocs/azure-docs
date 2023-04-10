@@ -23,7 +23,7 @@ After creating a Data Manager for Agriculture service resource, navigate to diag
 2. Select the categories that you want to start collecting logs for.
 3. Choose the destination for collection from storage account, event hub or a log analytics workspace.
 
-:::image type="content" source="./media/create-diagnostics-setting.png" alt-text="Screenshot showing steps to create diagnostics setting in Azure portal.":::
+:::image type="content" source="./media/how-to-set-up-audit-logs/create-diagnostics-settings.png" alt-text="Screenshot showing steps to create diagnostics setting in Azure portal.":::
 
 Now you can navigate to the destination you specified in the diagnostic setting to access logs. You can access your logging information 10 minutes (at most) after the Data Manager for Agriculture operation. In most cases, it's quicker.
 
@@ -46,7 +46,7 @@ Each log follows the schema listed in the table. The table contains the field na
 | **correlationId** |An optional GUID that can be used to correlate logs. |
 | **identity** |Identity from the token that was presented in the REST API request. This is usually an object ID and an application ID or either of the two.|
 |**location**|The region of the resource emitting the event such as "East US" |
-| **properties** |For each `operationName` this contains: `requestUri` (URI of the API request), `farmerId`(farmerId associated with the request, wherever applicable),`dataPlaneResourceId` (ID that uniquely identifies the data-plane resource in the request) and `requestBody` (contains the request body for the API call associated with the `operationName` for all categories other than ApplicationAuditLogs). </br> Other than the common one's mentioned before `jobProcessesLogs` category has: </br> 1. This list fields across operationNames: </br> `jobRunType` (can be oneTime or periodic), </br> `jobId` (ID of the job), </br> `initiatedBy` (indicates whether a job was triggered by a user or by the service) </br> 2. This list of fields only for farmOperation related jobs: </br> `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), </br> `farmOperationEntityType`(Type of the entity that failed to be created),</br> `errorCode`(code for job failure),</br> `errorMessage`(description of failure),</br> `internalErrorCode`(failure code provide by the provider),</br> `internalErrorMessage`(description of the failure provided by the provider),</br> `providerId`(ID of the provider).
+| **properties** |For each `operationName` this contains: `requestUri` (URI of the API request), `farmerId`(farmerId associated with the request, wherever applicable),`dataPlaneResourceId` (ID that uniquely identifies the data-plane resource in the request) and `requestBody` (contains the request body for the API call associated with the `operationName` for all categories other than ApplicationAuditLogs). </br> Other than the common one's mentioned before `jobProcessesLogs` category has: </br> 1. This list fields across operationNames: </br> `jobRunType` (can be oneTime or periodic), `jobId` (ID of the job),  `initiatedBy` (indicates whether a job was triggered by a user or by the service). </br> 2. This list of fields only for farmOperation related jobs: </br> `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(type of the entity that failed to be created), `errorCode`(code for job failure), `errorMessage`(description of failure), `internalErrorCode`(failure code provide by the provider), `internalErrorMessage`(description of the failure provided by the provider), `providerId`(ID of the provider).
 
 
 The `categories` field for Data Manager for Agriculture can have values that are listed in the following table:
@@ -245,7 +245,7 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 |AgriFoodInsightLogs|InsightLogs| Logs for get and get all operations for insights.
 |AgriFoodModelInferenceLogs|ModelInferenceLogs| Logs for create and get operations for biomass model job.
 |AgriFoodJobProcessedLogs|JobProcessedLogs| Logs for indicating success or failure and reason of failure for jobs. In addition to logs for resource cascade delete jobs, data-ingestion jobs. It also contains logs for farm operations and event handling jobs.
-|AgriFoodApplicationAuditLogs|ApplicationAuditLogs| Logs for privileged actions such as data-plane resource create, update, delete and subscription management operations. Complete list is in the operation name table below.
+|AgriFoodApplicationAuditLogs|ApplicationAuditLogs| Logs for privileged actions such as data-plane resource create, update, delete and subscription management operations.
 
 
 ### List of columns in log analytics tables
@@ -286,3 +286,7 @@ Each of these tables can be queried by creating a log analytics workspace. Refer
 |**Usage trends for top 100 farmers based on the operations performed**|Retrieves a list of top 100 farmers based on the number of hits received across categories. This query can be edited to track trend of usage for a particular farmer.|
 
 All the queries listed above can be used as base queries to form custom queries in a log analytics workspace. This list of queries can also be accessed in the `Logs` tab in your Azure Data Manager for Agriculture resource on Azure portal.
+
+## Next steps
+
+Learn how to [setup private links](./how-to-set-up-private-links.md).
