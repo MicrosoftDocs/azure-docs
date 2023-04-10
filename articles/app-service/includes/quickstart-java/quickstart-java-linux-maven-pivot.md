@@ -52,7 +52,7 @@ Change directory to the completed project and build from the top level. Then `cd
 
 ```azurecli-interactive
 cd app-service-java-quickstart
-git checkout 20230308
+git checkout 20230308 **Note: If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.**
 mvn clean install
 cd booty-duke-app-service
 ```
@@ -88,7 +88,7 @@ Change directory to the completed project and build from the top level. Then `cd
 
 ```azurecli-interactive
 cd app-service-java-quickstart
-git checkout 20230308
+git checkout 20230308 **Note: If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.**
 cd petstore-ee7
 mvn clean install
 ```
