@@ -22,7 +22,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Add domains & certificates** |<li>[Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<li>[Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | <li>[.NET with Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)<li>[.NET Core with Azure SQL DB](./tutorial-dotnetcore-sqldb-app.md)|
 | **Custom containers** |<li>[Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=dotnet&pivots=container-linux-vscode)<li>[Windows - Visual Studio](./quickstart-custom-container.md?tabs=dotnet&pivots=container-windows-vs)|
-| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)|
+| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<li>[Virtual Network](./configure-vnet-integration-enable.md)|
 ::: zone-end
 ::: zone pivot="stack-python"
 [Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with Python.
@@ -35,7 +35,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Add domains & certificates** |<li>[Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<li>[Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | <li>[Postgres - CLI](./tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=deploy-azd)<li>[Postgres - Azure portal](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=deploy-portal)|
 | **Custom containers** |<li>[Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
-| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)|
+| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<li>[Virtual Network](./configure-vnet-integration-enable.md)|
 ::: zone-end
 ::: zone pivot="stack-nodejs"
 [Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with Node.js.
@@ -48,7 +48,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Add domains & certificates** |<li>[Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<li>[Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | <li>[MongoDB](./tutorial-nodejs-mongodb-app.md)|
 | **Custom containers** |<li>[Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=node&pivots=container-linux-vscode)|
-| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)|
+| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<li>[Virtual Network](./configure-vnet-integration-enable.md)|
 ::: zone-end
 ::: zone pivot="stack-java"
 [Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with Java.
@@ -61,7 +61,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Add domains & certificates** |<li>[Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<li>[Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | <li>[Java Spring with CosmosDB](./tutorial-java-spring-cosmosdb.md)|
 | **Custom containers** |<li>[Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
-| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)|
+| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<li>[Virtual Network](./configure-vnet-integration-enable.md)|
 ::: zone-end
 ::: zone pivot="stack-php"
 [Azure App Service](./overview.md) is a fully managed platform as a service (PaaS) for hosting web applications. Use the following resources to get started with PHP.
@@ -73,8 +73,8 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Monitor your app**| <li>[Troubleshoot with Azure Monitor](./tutorial-troubleshoot-monitor.md)<li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |<li>[Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<li>[Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | <li>[MySQL with PHP](./tutorial-php-mysql-app.md)|
-| **Custom containers** |<li>[Multi-container](/quickstart-multi-container.md)|
-| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)|
+| **Custom containers** |<li>[Multi-container](./quickstart-multi-container.md)|
+| **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<li>[Virtual Network](./configure-vnet-integration-enable.md)|
 ::: zone-end
 
 ## Next steps
