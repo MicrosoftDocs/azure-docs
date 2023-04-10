@@ -37,15 +37,15 @@ When you perform a blue-green switch, Azure Spring Apps does the following opera
 
 For deployment with replica number >= 2, you can achieve zero down time using the rolling update strategy from Azure Spring Apps. 
 
-When you deploy a new version to an existing deployment, or restart a deployment, Azure Spring Apps underlying uses k8s's [rolling update strategy](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/) to do the update. Rolling updates allow deployments' update to take place with zero downtime by incrementally updating instances with new ones. Your application will continously serve production traffic when doing rolling update if deployment replica >= 2. 
+When you deploy a new version to an existing deployment, or restart a deployment, Azure Spring Apps underlying uses K8S's [rolling update strategy](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/) to do the update. Rolling updates allow deployments' update to take place with zero downtime by incrementally updating instances with new ones. Your application will continously serve production traffic when doing rolling update if deployment replica >= 2. 
 
 > [!WARNING]
 > For single replica deployment, you may see downtime during deployment update. To ensure application availability, it's highly suggested to deploy at least two replicas for your production workload.   
 
 
-Also, When scale in your application instances, Azure Spring Apps underlyingly use k8s's [preStop](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefully shutdown the pods. In the hook, the following operations are performed for a shutting down application container:
+Also, When scale in your application instances, Azure Spring Apps underlyingly use K8S's [preStop](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefully shutdown the pods. In the hook, the following operations are performed for a shutting down application container:
 1. Override the instance's eureka registry status to **OUT_OF_SERVICE**, if eureka client is enabled
-2. Wait some seconds to continue serve traffic (from nginx or other apps if any) before k8s kills the application container 
+2. Wait some seconds to continue serve traffic (from nginx or other apps if any) before K8S kills the application container 
 
 
 ## Next steps
