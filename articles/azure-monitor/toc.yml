@@ -1252,6 +1252,8 @@ items:
           items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
+          - name: Application Insights API access with AAD
+            href: logs/api/app-insights-aad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 
           - name: Request format
