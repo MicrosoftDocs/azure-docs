@@ -66,7 +66,7 @@ The following Azure solutions can help enable employees to access your globally 
 
 - **Azure virtual network peering**: You can connect virtual networks together by using virtual network peering. Virtual network peering is useful if your resources are in more than one Azure region or if you need to connect multiple virtual networks to support remote workers. For more information, see [Virtual network peering][VNet-peer].
 
-- **Azure VPN-based solution**:For remote employees connected to Azure, you can provide them with access to your on-premises networks by establishing a S2S VPN connection. This connection is between your on-premises networks and Azure VPN Gateway. For more information, see [Create a site-to-site connection][S2S].
+- **Azure VPN-based solution**: For remote employees connected to Azure, you can provide them with access to your on-premises networks by establishing a S2S VPN connection. This connection is between your on-premises networks and Azure VPN Gateway. For more information, see [Create a site-to-site connection][S2S].
 
 - **Azure ExpressRoute**: By using ExpressRoute private peering, you can enable private connectivity between your Azure deployments and on-premises infrastructure or your infrastructure in a colocation facility. ExpressRoute, via Microsoft peering, also permits accessing public endpoints at Microsoft from your on-premises network.
 
