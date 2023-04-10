@@ -67,7 +67,7 @@ When you create a new workspace, you're required to bring other Azure resources 
 + [Azure Storage account](https://azure.microsoft.com/services/storage/). Stores machine learning artifacts such as job logs. By default, this storage account is used when you upload data to the workspace. Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
   
   > [!IMPORTANT]
-  > To use an existing Azure Storage account, it can't be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also can't have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace as additional storage by [creating a datastore](how-to-datastore.md).
+  > To use an existing Azure Storage account, it can't be of type BlobStorage, a premium account (Premium_LRS and Premium_GRS) and cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). You can use premium storage or hierarchical namespace as additional storage by [creating a datastore](how-to-datastore.md).
   > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
   > If you bring an existing general-purpose v1 storage account, you may [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created.
   
