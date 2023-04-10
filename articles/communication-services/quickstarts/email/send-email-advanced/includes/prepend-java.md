@@ -106,7 +106,7 @@ public class App
 
 There are a few different options available for authenticating an email client:
 
-#### [Connection String](#tab/windows)
+#### [Connection String](#tab/connection-string)
 
 To authenticate a client, you instantiate an `EmailClient` with your connection string. Learn how to [manage your resource's connection string](../../../create-communication-resource.md#store-your-connection-string). You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
@@ -121,7 +121,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### [Azure Active Directory](#tab/windows)
+#### [Azure Active Directory](#tab/aad)
 
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
@@ -136,7 +136,7 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### [AzureKeyCredential](#tab/windows)
+#### [AzureKeyCredential](#tab/azurekeycredential)
 
 Email clients can also be created and authenticated using the endpoint and Azure Key Credential acquired from an Azure Communication Resource in the [Azure portal](https://portal.azure.com/).
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Advanced email sending scenarios using Azure Communication Service
+title: Quickstart - Throw an exception when email sending tier limit is reached using Azure Communication Service
 titleSuffix: An Azure Communication Services Quickstart
 description: Learn how to throw an exception when sending tier limit is reached using Azure Communication Services.
 author: natekimball-msft
@@ -42,7 +42,7 @@ To troubleshoot issues related to email delivery, you can [get status of the ema
 
 ## Clean up Azure Communication Service resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
@@ -52,5 +52,4 @@ You may also want to:
 
  - Learn how to [send email to multiple recipients](./send-email-to-multiple-recipients.md)
  - Learn more about [sending email with attachments](./send-email-with-attachments.md)
- - Familiarize yourself with [email client library](../../concepts/email/sdk-features.md)
- - Learn more about access tokens check [Create and Manage Azure Communication Services users and access tokens](../chat/logic-app.md).
+ - Familiarize yourself with [email client library](../../../concepts/email/sdk-features.md)

@@ -9,7 +9,7 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-csharp
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: Manually poll for email status when sending email
@@ -30,7 +30,7 @@ To troubleshoot issues related to email delivery, you can [get status of the ema
 
 ## Clean up Azure Communication Service resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
@@ -40,5 +40,4 @@ You may also want to:
 
  - Learn how to [send email to multiple recipients](./send-email-to-multiple-recipients.md)
  - Learn more about [sending email with attachments](./send-email-with-attachments.md)
- - Familiarize yourself with [email client library](../../concepts/email/sdk-features.md)
- - Learn more about access tokens check [Create and Manage Azure Communication Services users and access tokens](../chat/logic-app.md).
+ - Familiarize yourself with [email client library](../../../concepts/email/sdk-features.md)

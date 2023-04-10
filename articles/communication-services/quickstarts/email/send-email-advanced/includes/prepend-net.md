@@ -114,7 +114,7 @@ namespace SendEmail
 
 There are a few different options available for authenticating an email client:
 
-#### [Connection String](#tab/windows)
+#### [Connection String](#tab/connection-string)
 
  Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The following code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../../create-communication-resource.md#store-your-connection-string).
 
@@ -125,7 +125,7 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 EmailClient emailClient = new EmailClient(connectionString);
 ```
 
-#### [Azure Active Directory](#tab/windows)
+#### [Azure Active Directory](#tab/aad)
 
 To authenticate using [Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity), install the `Azure.Identity` library package for .NET by using the `dotnet add package` command.
 
@@ -142,7 +142,7 @@ string resourceEndpoint = "<ACS_RESOURCE_ENDPOINT>";
 EmailClient emailClient = new EmailClient(new Uri(resourceEndpoint), new DefaultAzureCredential());
 ```
 
-#### [AzureKeyCredential](#tab/windows)
+#### [AzureKeyCredential](#tab/azurekeycredential)
 
 Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 

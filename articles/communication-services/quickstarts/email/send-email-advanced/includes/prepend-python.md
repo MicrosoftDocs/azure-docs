@@ -158,7 +158,7 @@ pip install azure-communication-email
 
 There are a few different options available for authenticating an email client:
 
-#### [Connection String](#tab/windows)
+#### [Connection String](#tab/connection-string)
 
 Instantiate an **EmailClient** with your connection string. Learn how to [manage your resource's connection string](../../../create-communication-resource.md#store-your-connection-string).
 
@@ -167,7 +167,7 @@ Instantiate an **EmailClient** with your connection string. Learn how to [manage
 email_client = EmailClient.from_connection_string(<connection_string>)
 ```
 
-#### [Azure Active Directory](#tab/windows)
+#### [Azure Active Directory](#tab/aad)
 
 You can also use Active Directory authentication using [DefaultAzureCredential](../../../../concepts/authentication.md).
 
@@ -180,7 +180,7 @@ endpoint = "https://<resource-name>.communication.azure.com"
 email_client = EmailClient(endpoint, DefaultAzureCredential())
 ```
 
-#### [AzureKeyCredential](#tab/windows)
+#### [AzureKeyCredential](#tab/azurekeycredential)
 
 Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Advanced email sending scenarios using Azure Communication Service
+title: Quickstart - Use the email object model to send the email payload using Azure Communication Service
 titleSuffix: An Azure Communication Services Quickstart
 description: Learn how to use the email object model to send the email payload using Azure Communication Services.
 author: natekimball-msft
@@ -9,7 +9,7 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python
+zone_pivot_groups: acs-csharp-java
 ---
 
 # Quickstart: Use the email object model to send the email payload
