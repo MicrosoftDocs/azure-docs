@@ -42,7 +42,7 @@ This article applies to API version 2022-11-01-preview.
     "items_count": [number],
     "tags": [object with string properties],
     "retention_period": [number, timespan in seconds],
-    "expires": [number, timespan in seconds]
+    "expires": [datetime ISO 8601]
 }
 ```
 
