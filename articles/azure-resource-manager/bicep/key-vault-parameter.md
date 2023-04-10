@@ -4,7 +4,7 @@ description: Shows how to pass a secret from a key vault as a parameter during B
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.date: 06/18/2021
 ---
 
