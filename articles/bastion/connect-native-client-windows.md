@@ -38,6 +38,7 @@ After you deploy this feature, there are two different sets of connection instru
 
 * Signing in using an SSH private key stored in Azure Key Vault isn’t supported with this feature. Before signing in to your Linux VM using an SSH key pair, download your private key to a file on your local machine.
 * This feature isn't supported on Cloud Shell.
+* Native client does not currently support Kerberos authentication protocol.
 
 ## <a name="prereq"></a>Prerequisites
 
