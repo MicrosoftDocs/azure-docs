@@ -16,7 +16,7 @@ ms.custom: devx-track-python, devguide-python
 
 # Create and manage container leases with Python
 
-This article shows how to create and manage container leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+This article shows how to create and manage container leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can use the Python client library to acquire, renew, release and break container leases.
 
 A lease establishes and manages a lock on a container for delete operations. The lock duration can be 15 to 60 seconds, or can be infinite. A lease on a container provides exclusive delete access to the container. A container lease only controls the ability to delete the container using the [Delete Container](/rest/api/storageservices/delete-container) REST API operation. To delete a container with an active lease, a client must include the active lease ID with the delete request. All other container operations will succeed on a leased container without the lease ID. If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 
