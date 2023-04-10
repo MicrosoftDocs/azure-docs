@@ -9,7 +9,7 @@ ms.author: shasb
 
 # Deploy Istio based service mesh add-on for Azure Kubernetes Service (preview)
 
-This article shows you how to install the Istio based service mesh add-on for Azure Kubernetes Service (AKS) cluster and verify that it's installed and running. The article also shows you how to install external and internal Istio ingresses on your cluster.
+This article shows you how to install the Istio based service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 
 A conceptual overview of Istio and the service mesh add-on is available [here][istio-about].
 
@@ -20,7 +20,7 @@ A conceptual overview of Istio and the service mesh add-on is available [here][i
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI][azure-cli-install] and the CLI extension `aks-preview` of version >= 0.5.135 are installed.
 
-    * If `aks-preview` is not already installed, run the following command:
+    * If `aks-preview` isn't already installed, run the following command:
 
         ```azurecli
         az extension add --name aks-preview
@@ -102,7 +102,7 @@ The following example enables Istio add-on for an existing AKS cluster:
     Istio
     ```
 
-1. Get the credentials for your AKS cluster by using the [az aks get-credentials] command:
+1. Get the credentials for your AKS cluster by using the [az aks get-credentials][az-aks-get-credentials] command:
 
     ```azurecli-interactive
     az aks get-credentials --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
@@ -123,7 +123,7 @@ The following example enables Istio add-on for an existing AKS cluster:
 
 ## Enable sidecar injection
 
-To automatically install sidecar to any new pods, annotate your namespaces as shown below:
+To automatically install sidecar to any new pods, annotate your namespaces:
 
     ```bash
     kubectl label namespace default istio.io/rev=asm-1-17
@@ -189,7 +189,7 @@ To automatically install sidecar to any new pods, annotate your namespaces as sh
     reviews-v3-7dbcdcbc56-m8dph       2/2     Running   0          2m41s
     ```
 
-    Expect to see each pod ready with 2 containers (one of which is the envoy sidecar injected by Istio).
+    Expect to see each pod ready with two containers, one of which is the envoy sidecar injected by Istio.
 
 [istio-about]: istio-about.md
 
@@ -201,4 +201,4 @@ To automatically install sidecar to any new pods, annotate your namespaces as sh
 [uninstall-osm-addon]: open-service-mesh-uninstall-add-on.md
 [uninstall-istio-oss]: https://istio.io/latest/docs/setup/install/istioctl/#uninstall-istio
 
-[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
