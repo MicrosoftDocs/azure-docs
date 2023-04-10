@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 7/14/2022
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli 
+ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 

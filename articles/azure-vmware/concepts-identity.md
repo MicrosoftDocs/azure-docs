@@ -3,13 +3,13 @@ title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 4/6/2023
+ms.date: 4/7/2023
 ms.custom: "references_regions, engagement-fy23"
 ---
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and the CloudAdmin role (with restricted permissions) is used for NSX-T Manager.
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter Server to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and the CloudAdmin role (with restricted permissions) is used for NSX-T Manager.
 
 ## vCenter Server access and identity
 
