@@ -50,7 +50,7 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 - `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Channel`: name of the pubsub channel that the trigger should listen to.
 
-#### Sample
+#### Sample(#tab/C#)
 The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
 ```c#
@@ -62,7 +62,55 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
+#### Sample(#tab/Java)
+The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
+```c#
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+#### Sample(#tab/JavaScript)
+The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
+
+```c#
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+#### Sample(#tab/Python)
+The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
+
+```c#
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+#### Sample(#tab/Powershell)
+The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
+
+```c#
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+---
 ### `RedisListsTrigger`
 
 The `RedisListsTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
@@ -146,3 +194,7 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Tutorial: Get started with Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md)
