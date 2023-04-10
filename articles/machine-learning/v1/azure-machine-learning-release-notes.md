@@ -29,7 +29,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Enabling Datacache service Singularity support.
   + **azureml-responsibleai**
     + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.26.0
-    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.25.0
   + **azureml-train-automl-runtime**
     + Fix MLTable handling for model test scenario
   + **azureml-training-tabular**
