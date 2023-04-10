@@ -94,10 +94,9 @@ az nf fabric create \
 --managed-network-config '{"infrastructureVpnConfiguration":{"peeringOption":"OptionB","optionBProperties":{"importRouteTargets":["65048:10039"],"exportRouteTargets":["65048:10039"]}}, "workloadVpnConfiguration":{"peeringOption": "OptionB", "optionBProperties": {"importRouteTargets": ["65048:10050"], "exportRouteTargets": ["65048:10050"]}}}'
 
 ```
-**Note**:
-
-* if it's a four racks set up then the rack count would be 4 
-* if it's an eight rack set up then the rack count would be 8
+> [!Note]
+> * if it's a four racks set up then the rack count would be 4 
+> * if it's an eight rack set up then the rack count would be 8
 
 Expected output:
 
@@ -577,8 +576,8 @@ Expected output:
   "version": null
 }
 ```
-**Note**:
-The above snapshot only serves as an example. You should update all the devices that are part of both AggRack and computeRacks. 
+> [!Note]
+. The above snapshot only serves as an example. You should update all the devices that are part of both AggRack and computeRacks. 
 
 For example, AggRack consists of
 * CE01
