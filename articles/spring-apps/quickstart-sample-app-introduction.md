@@ -22,7 +22,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 ::: zone pivot="programming-language-csharp"
 
-This series of quickstarts uses a sample app composed of two Spring apps to show how to deploy a .NET Core Steeltoe app to the Azure Spring Apps service. You'll use Azure Spring Apps capabilities such as service discovery, config server, logs, metrics, and distributed tracing.
+This series of quickstarts uses a sample app composed of two Spring apps to show how to deploy a .NET Core Steeltoe app to the Azure Spring Apps service. You use Azure Spring Apps capabilities such as service discovery, config server, logs, metrics, and distributed tracing.
 
 ## Functional services
 
@@ -72,7 +72,7 @@ The instructions in the following quickstarts refer to the source code as needed
 
 ::: zone pivot="programming-language-java"
 
-In this quickstart, we use the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Apps service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You'll see how to deploy services to Azure with Azure Spring Apps capabilities such as service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
+In this quickstart, we use the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) to show you how to deploy apps to the Azure Spring Apps service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You see how to deploy services to Azure with Azure Spring Apps capabilities such as service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support.
 
 To follow the Azure Spring Apps deployment examples, you only need the location of the source code, which is provided as needed.
 
@@ -88,7 +88,7 @@ The following diagram shows the architecture of the PetClinic application.
 PetClinic is decomposed into 4 core Spring apps. All of them are independently deployable applications organized by business domains.
 
 * **Customers service**: Contains general user input logic and validation including pets and owners information (Name, Address, City, Telephone).
-* **Visits service**: Stores and shows visits information for each pets' comments.
+* **Visits service**: Stores and shows visits information for each pet's comments.
 * **Vets service**: Stores and shows Veterinarians' information, including names and specialties.
 * **API Gateway**: The API Gateway is a single entry point into the system, used to handle requests and route them to an appropriate service or to invoke multiple services, and aggregate the results.  The three core services expose an external API to client. In real-world systems, the number of functions can grow quickly with system complexity. Hundreds of services might be involved in rendering one complex webpage.
 

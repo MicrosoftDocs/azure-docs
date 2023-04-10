@@ -25,7 +25,7 @@ By default, Azure Spring Apps provides temporary storage for each application in
 > [!WARNING]
 > If you restart an application instance, the associated temporary storage is permanently deleted.
 
-Persistent storage is a file-share container managed by Azure and allocated per application. Data stored in persistent storage is shared by all instances of an application. An Azure Spring Apps instance can have a maximum of 10 applications with persistent storage enabled. Each application is allocated 50 GB of persistent storage. The default mount path for persistent storage is */persistent*.
+Persistent storage is a file-share container managed by Azure and allocated per application. All instances of an application share data stored in persistent storage. An Azure Spring Apps instance can have a maximum of 10 applications with persistent storage enabled. Each application is allocated 50 GB of persistent storage. The default mount path for persistent storage is */persistent*.
 
 ## Enable or disable built-in persistent storage
 
