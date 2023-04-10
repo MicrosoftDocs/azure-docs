@@ -187,8 +187,6 @@
       items:
         - name: Maintaining and upgrading an AKS cluster
           href: upgrade.md
-        - name: Stop cluster upgrades on API breaking changes (preview)
-          href: stop-api-upgrade.md
         - name: Abort long running operations
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
@@ -595,8 +593,6 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-        - name: Deployment Center Launcher
-          href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
         - name: Configure automated deployments (preview)

@@ -7,6 +7,7 @@ ms.topic: sample
 ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
+ms.custom: devx-track-arm-template
 ---
 
 # Resource Manager template samples for experiments in Azure Chaos Studio
@@ -56,11 +57,6 @@ In this sample, we create a chaos experiment with a single target resource and a
         "type": "SystemAssigned"
       },
       "properties": {
-        "identity": {
-          "properties": {
-            "type": "SystemAssigned"
-          }
-        },
         "selectors": [
           {
             "id": "Selector1",

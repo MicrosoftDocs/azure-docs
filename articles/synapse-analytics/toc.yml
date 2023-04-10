@@ -123,6 +123,8 @@ items:
           href: ./security/synapse-workspace-ip-firewall.md
         - name: Connectivity settings
           href: ./security/connectivity-settings.md
+        - name: Gateway IP addresses
+          href: ./security/gateway-ip-addresses.md
         - name: Synapse workspace Managed virtual network
           href: ./security/synapse-workspace-managed-vnet.md
           displayName: vnet

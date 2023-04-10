@@ -17,6 +17,10 @@ By using Azure Private Link, you can connect to an Azure Data Manager for Agricu
 
 This article describes how to create a private endpoint and approval process for Azure Data Manager for Agriculture Preview.
 
+## Prerequisites
+
+[Create a virtual network](../virtual-network/quick-create-portal.md) in the same subscription as the Azure Data Manager for Agriculture Preview instance. This virtual network will allow automatic approval of the Private Link endpoint.
+
 ## How to set up a private endpoint
 Private Endpoints can be created using the Azure portal, PowerShell, or the Azure CLI:
 

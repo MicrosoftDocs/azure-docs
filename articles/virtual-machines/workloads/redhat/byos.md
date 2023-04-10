@@ -4,6 +4,7 @@ description: Learn about bring-your-own-subscription images for Red Hat Enterpri
 author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
+ms.custom: devx-track-azurecli
 ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
