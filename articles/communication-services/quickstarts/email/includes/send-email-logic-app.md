@@ -60,7 +60,7 @@ To add a new step to your workflow by using the Azure Communication Services Ema
  
 1. When you're done, select **Create**.
 
-1. In the **From** field, use the email domain configured in the [prerequisites](#prerequisites). Enter the values for the **To**, **Subject**, and **Body** fields as follows:
+1. In the **From** field, use the email address that you configured in the [prerequisites](#prerequisites). Enter the values for the **To**, **Subject**, and **Body** fields, for example:
  
    :::image type="content" source="../media/logic-app/azure-communications-services-connector-send-email-input.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action input.":::
 
@@ -79,4 +79,4 @@ You should get an email at the specified address. Also, you can use the **Get em
 
 ## Clean up workflow resources
 
-To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
+To clean up your logic app workflow and related resources, review [how to clean up Consumption logic app resources](../../../../logic-apps/quickstart-create-example-consumption-workflow.md#clean-up-resources) or [how to clean up Standard logic app resources](../../../../logic-apps/create-single-tenant-workflows-azure-portal.md#delete-logic-apps).
