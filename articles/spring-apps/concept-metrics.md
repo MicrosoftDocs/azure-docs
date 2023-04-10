@@ -70,6 +70,7 @@ You can use two kinds of filters (properties):
 
 * App: filter by app name
 * Instance: filter by app instance
+* Deployment: filter by deployment name
 
 :::image type="content" source="media/concept-metrics/add-filter.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Metrics page with a chart selected and the Add filter controls highlighted." lightbox="media/concept-metrics/add-filter.png":::
 
