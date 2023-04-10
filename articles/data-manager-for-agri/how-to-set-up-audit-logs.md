@@ -28,7 +28,7 @@ After creating a Data Manager for Agriculture service resource, navigate to diag
 Now you can navigate to the destination you specified in the diagnostic setting to access logs. You can access your logging information 10 minutes (at most) after the Data Manager for Agriculture operation. In most cases, it's quicker.
 
 >!Note
-Currently, collecting logs in a Log Analytics workspace is not enabled. This feature will be made available in a future release.
+Currently, collecting logs in the log analytics workspace is not enabled. This feature will be made available in a future release.
 
 
 ## Interpret your logs
@@ -224,7 +224,7 @@ The following table lists the **operationName** values and corresponding REST AP
  |Microsoft.AgFoodPlatform/deletionJobs/seasonalFieldsCascadeDeletionJobs/processed  
   
 ### ApplicationAuditLogs
-Note: The operation names corresponding to write operations in other categories are present in this category. These common logs don't contain the request body. These common logs can be correlated using the correlationId field. Some of the control plane operations that aren't part of the rest of the categories are listed below.
+The operation names corresponding to write operations in other categories are present in this category. These common logs don't contain the request body. These common logs can be correlated using the correlationId field. Some of the control plane operations that aren't part of the rest of the categories are listed below.
 
 |operationName|
 | --- |
@@ -235,28 +235,28 @@ Note: The operation names corresponding to write operations in other categories 
 |Update Subscription|
 |Data Plane Authentication|
 
-## Query resource logs in a Log Analytics workspace
+## Query resource logs in a log analytics workspace
 All the `categories` of resource logs are mapped as a table in log analytics. To access logs for each category, you need to create a diagnostic setting to send data to a log analytics workspace. In this workspace, you can query any of the tables listed to obtain the relevant logs.
 
-### List of tables in Log analytics and their mapping to categories in resource logs
+### List of tables in log analytics and their mapping to categories in resource logs
 | Table name in log analytics| Categories in resource logs |Description
 | --- | --- | --- |
 |AgriFoodFarmManagementLogs|FarmManagementLogs| Logs for CRUD operations for Farmer, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
-|AgriFoodFarmOperationsLogs|FarmOperationsLogs|Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData
-|AgriFoodSatelliteLogs|SatelliteLogs| Logs for create and get operations for Satellite data ingestion job
-|AgriFoodWeatherLogs|WeatherLogs|Logs for create, delete and get operations for weather data ingestion job
+|AgriFoodFarmOperationsLogs|FarmOperationsLogs| Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData.
+|AgriFoodSatelliteLogs|SatelliteLogs| Logs for create and get operations for satellite data ingestion job.
+|AgriFoodWeatherLogs|WeatherLogs|Logs for create, delete and get operations for weather data ingestion job.
 |AgriFoodProviderAuthLogs|ProviderAuthLogs| Logs for create, update, delete, cascade delete, get and get all for oauth providers. It also has logs for get, get all, cascade delete for oauth tokens.
 |AgriFoodInsightLogs|InsightLogs| Logs for get and get all operations for insights.
 |AgriFoodModelInferenceLogs|ModelInferenceLogs| Logs for create and get operations for biomass model job.
-|AgriFoodJobProcessedLogs|JobProcessedLogs|Logs for indicating success or failure and reason of failure for jobs. In addition to logs for resource cascade delete jobs, data-ingestion jobs, it also contains logs for farm operations and event handling jobs as well.
+|AgriFoodJobProcessedLogs|JobProcessedLogs| Logs for indicating success or failure and reason of failure for jobs. In addition to logs for resource cascade delete jobs, data-ingestion jobs. It also contains logs for farm operations and event handling jobs.
 |AgriFoodApplicationAuditLogs|ApplicationAuditLogs| Logs for privileged actions such as data-plane resource create, update, delete and subscription management operations. Complete list is in the operation name table below.
 
 
-### List of columns in Log analytics tables
+### List of columns in log analytics tables
 | Field name | Description |
 | --- | --- |
 |**Time** |Date and time in UTC. |
-|**ResourceId** |Azure Resource Manager resource ID for Data Manager for Agriculture logs. |
+|**ResourceId** |Azure Resource Manager resource ID for Data Manager for Agriculture logs.|
 |**OperationName** |Name of the operation, as documented in the earlier table. |
 |**OperationVersion** |REST API version requested by the client. |
 |**Category** |Category details in the  Data Manager for Agriculture logs, this can be any value as listed in the category table. |
@@ -265,18 +265,18 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 |**ResultDescription** |More description about the result, when available. |
 |**DurationMs** |Time it took to service the REST API request, in milliseconds.|
 |**CallerIpAddress** |IP address of the client that made the request. |
-|**Level**|The severity level of the event (informational, warning, error, or critical).
+|**Level**|The severity level of the event (informational, warning, error, or critical).|
 |**CorrelationId** |An optional GUID that can be used to correlate logs. |
-|**ApplicationId**| Application ID indicating identity of the caller.
-|**ObjectId**| Object ID indicating identity of the caller.
-|**ClientTenantId**| ID of the tenant of the caller.
+|**ApplicationId**| Application ID indicating identity of the caller.|
+|**ObjectId**| Object ID indicating identity of the caller.|
+|**ClientTenantId**| ID of the tenant of the caller.|
 |**SubscriptionId**| ID of the subscription used by the caller.
 |**Location**|The region of the resource emitting the event such as "East US" |
-|**JobRunType**| Available only in `AgriFoodJobProcessesLogs` table, indicates type of the job run. Value can be either of periodic or one time.
-|**JobId**| Available in`AgriFoodJobProcessesLogs`, `AgriFoodSatelliteLogs`, `AgriFoodWeatherLogs`, and `AgriFoodModelInferenceLogs`, indicates ID of the job.
-|**InitiatedBy**| Available only in `AgriFoodJobProcessesLogs` table. Indicates whether a job was initiated by a user or by the service.
-|**FarmerId**| ID of the farmer associated with the operation.
-|**Properties** | Available only in`AgriFoodJobProcessesLogs` table, it contains: `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(Type of the entity that failed  to be created, can be ApplicationData, PeriodicJob, etc.), `errorCode`(Code for failure of the job at Data Manager for Agriculture end),`errorMessage`(Description of failure at the Data Manager for Agriculture end),`internalErrorCode`(Code of failure of the job provide by the provider),`internalErrorMessage`(Description of the failure provided by the provider),`providerId`(ID of the provider such as JOHN-DEERE).
+|**JobRunType**| Available only in `AgriFoodJobProcessesLogs` table, indicates type of the job run. Value can be either of periodic or one time. |
+|**JobId**| Available in`AgriFoodJobProcessesLogs`, `AgriFoodSatelliteLogs`, `AgriFoodWeatherLogs`, and `AgriFoodModelInferenceLogs`, indicates ID of the job. |
+|**InitiatedBy**| Available only in `AgriFoodJobProcessesLogs` table. Indicates whether a job was initiated by a user or by the service. |
+|**FarmerId**| ID of the farmer associated with the operation. |
+|**Properties** | Available only in`AgriFoodJobProcessesLogs` table, it contains: `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(Type of the entity that failed  to be created, can be ApplicationData, PeriodicJob, etc.), `errorCode`(Code for failure of the job at Data Manager for Agriculture end),`errorMessage`(Description of failure at the Data Manager for Agriculture end),`internalErrorCode`(Code of failure of the job provide by the provider),`internalErrorMessage`(Description of the failure provided by the provider),`providerId`(ID of the provider such as JOHN-DEERE). |
 
 Each of these tables can be queried by creating a log analytics workspace. Reference for query language is [here](https://learn.microsoft.com/azure/data-explorer/kql-quick-reference).
 
