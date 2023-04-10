@@ -67,7 +67,7 @@ This article demonstrates the use of Azure Files as a media to back up and resto
 6. Start the Oracle listener if it is not already running:
     
    ```bash
-   $ lsnrctl start
+   lsnrctl start
    ```
 
     The output should look similar to the following example:
@@ -326,7 +326,7 @@ In this section, we will be using Oracle Recovery Manager (RMAN) to take a full 
 1. Configure RMAN to back up to the Azure Files mount point:
 
     ```bash
-    $ rman target /
+    rman target /
     RMAN> configure snapshot controlfile name to '/mnt/orabkup/snapcf_ev.f';
     RMAN> configure channel 1 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s';
     RMAN> configure channel 2 device type disk format '/mnt/orabkup/%d/Full_%d_%U_%T_%s'; 
