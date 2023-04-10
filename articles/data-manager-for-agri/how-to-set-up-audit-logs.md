@@ -37,7 +37,7 @@ Each log follows the schema listed in the table. The table contains the field na
 | **operationName** |Name of the operation, as documented. |
 | **operationVersion** |REST API version requested by the client. |
 | **category** |Type of result. |
-| **resultType** |Result of the REST API request. |
+| **resultType** |Result of the REST API request (success or failure). |
 | **resultSignature** |HTTP status. |
 | **resultDescription** |Extra description about the result, when available. |
 | **durationMs** |Time it took to service the REST API request, in milliseconds.|
@@ -46,7 +46,7 @@ Each log follows the schema listed in the table. The table contains the field na
 | **correlationId** |An optional GUID that can be used to correlate logs. |
 | **identity** |Identity from the token that was presented in the REST API request. This is usually an object ID and an application ID or either of the two.|
 |**location**|The region of the resource emitting the event such as "East US" |
-| **properties** |For each `operationName` this contains: `requestUri` (URI of the API request), `farmerId`(farmerId associated with the request, wherever applicable),`dataPlaneResourceId` (ID that uniquely identifies the data-plane resource in the request) and `requestBody` (contains the request body for the API call associated with the `operationName` for all categories other than ApplicationAuditLogs). </br> Other than the common one's mentioned before `jobProcessesLogs` category has: </br> 1. This list fields across operationNames: </br> `jobRunType` (can be oneTime or periodic), `jobId` (ID of the job),  `initiatedBy` (indicates whether a job was triggered by a user or by the service). </br> 2. This list of fields only for farmOperation related jobs: </br> `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(type of the entity that failed to be created), `errorCode`(code for job failure), `errorMessage`(description of failure), `internalErrorCode`(failure code provide by the provider), `internalErrorMessage`(description of the failure provided by the provider), `providerId`(ID of the provider).
+| **properties** |For each `operationName` this contains: `requestUri` (URI of the API request), `farmerId`(farmerId associated with the request, wherever applicable),`dataPlaneResourceId` (ID that uniquely identifies the data-plane resource in the request) and `requestBody` (contains the request body for the API call associated with the `operationName` for all categories other than ApplicationAuditLogs). </br> Other than the common one's mentioned before `jobProcessesLogs` category has: </br> 1. This list fields across operationNames: </br> `jobRunType` (can be oneTime or periodic), `jobId` (ID of the job),  `initiatedBy` (indicates whether a job was triggered by a user or by the service). </br> 2. This list of fields for failed farmOperation related jobs: </br> `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(type of the entity that failed to be created), `errorCode`(code for job failure), `errorMessage`(description of failure), `internalErrorCode`(failure code provide by the provider), `internalErrorMessage`(description of the failure provided by the provider), `providerId`(ID of the provider).
 
 
 The `categories` field for Data Manager for Agriculture can have values that are listed in the following table:
@@ -256,7 +256,7 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 |**OperationName** |Name of the operation, as documented in the earlier table. |
 |**OperationVersion** |REST API version requested by the client. |
 |**Category** |Category details in the  Data Manager for Agriculture logs, this can be any value as listed in the category table. |
-|**ResultType** |Result of the REST API request. |
+|**ResultType** |Result of the REST API request (success or failure). |
 |**ResultSignature** |HTTP status. |
 |**ResultDescription** |More description about the result, when available. |
 |**DurationMs** |Time it took to service the REST API request, in milliseconds.|
@@ -279,11 +279,11 @@ Each of these tables can be queried by creating a log analytics workspace. Refer
 ### List of sample queries in the log analytics workspace
 | Query name | Description |
 | --- | --- |
-|**Status of farm management operations for a farmer** |Fetches a count of successes and failures of operations within the `FarmManagementLogs` category for each farmer. 
-|**Job execution statistics for a farmer**| Provides a count of successes and failures of for all operations in the `JobProcessedLogs` category for each farmer.
+|**Status of farm management operations for a party** |Fetches a count of successes and failures of operations within the `FarmManagementLogs` category for each party. 
+|**Job execution statistics for a party**| Provides a count of successes and failures of for all operations in the `JobProcessedLogs` category for each party.
 |**Failed Authorization**|Identifies a list of users who failed to access your resource and the reason for this failure.
-|**Status of all operations for a farmer**|Aggregates failures and successes across categories for a farmer. Provide
-|**Usage trends for top 100 farmers based on the operations performed**|Retrieves a list of top 100 farmers based on the number of hits received across categories. This query can be edited to track trend of usage for a particular farmer.|
+|**Status of all operations for a party**|Aggregates failures and successes across categories for a party.
+|**Usage trends for top 100 parties based on the operations performed**|Retrieves a list of top 100 parties based on the number of hits received across categories. This query can be edited to track trend of usage for a particular party.|
 
 All the queries listed above can be used as base queries to form custom queries in a log analytics workspace. This list of queries can also be accessed in the `Logs` tab in your Azure Data Manager for Agriculture resource on Azure portal.
 
