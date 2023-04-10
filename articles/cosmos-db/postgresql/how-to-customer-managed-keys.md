@@ -1,6 +1,6 @@
 ---
 title: How to enable encryption with customer managed keys
-description: How to enable data encryption with customer managed keys
+description: How to enable data encryption with customer managed keys.
 ms.author: akashrao
 author: akashraokm
 ms.service: cosmos-db
@@ -32,92 +32,91 @@ ms.date: 04/06/2023
 
 1. Select the Customer-Managed Key encryption option during the creation of the Azure Cosmos DB for PostgreSQL cluster and select the appropriate User-Assigned Managed Identity, Key Vault, and Key created in Steps 1, 2, and 3.
 
-## Detailed Steps
+## Detailed steps
 
-**1. User Assigned Managed Identity:**
+### 1. User Assigned Managed Identity:
 
-   a. Search for Managed Identities in the global search bar.
+   1. Search for Managed Identities in the global search bar.
 
-   ![Searching for Managed Identities in Azure portal](media/howto-customer-managed-keys/User%20Assigned%20Managed%20Identity.png)
-
-
-   b. Create a new User assigned managed Identity in the same region as your Azure Cosmos DB for PostgreSQL cluster.
-
-   ![Screenshot of User assigned managed Identity page in Azure portal](media/howto-customer-managed-keys/UAI%202.png)
+   ![Searching for Managed Identities in Azure portal.](media/how-to-customer-managed-keys/user-assigned-managed-identity.png)
 
 
-   Learn more about [User Assigned Managed Identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+   1. Create a new User assigned managed Identity in the same region as your Azure Cosmos DB for PostgreSQL cluster.
 
-**2. Key Vault:**
+   ![Screenshot of User assigned managed Identity page in Azure portal.](media/how-to-customer-managed-keys/user-assigned-managed-identity-provisioning.png)
+
+
+   Learn more about [User Assigned Managed Identity.](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+
+### 1. Key Vault:
 
    Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: Soft Delete and Purge Protection.
 
-   a. If you create a new Azure Key Vault instance, enable these properties during creation:
+   1. If you create a new Azure Key Vault instance, enable these properties during creation:
 
-   ![Screenshot of Key Vault's properties](media/howto-customer-managed-keys/Key%20Vault%201.png)
+   ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png)
 
-   b. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles.
+   1. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles.
 
-   * How to use [soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md)
-   * How to use [soft-delete with Azure CLI](../../key-vault/general/key-vault-recovery.md)
+   * How to use [soft-delete with PowerShell.](../../key-vault/general/key-vault-recovery.md)
+   * How to use [soft-delete with Azure CLI.](../../key-vault/general/key-vault-recovery.md)
 
-   c. The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
+   1. The key Vault must be set with 90 days for 'Days to retain deleted vaults'. If the existing key Vault has been configured with a lower number, you'll need to create a new key vault as it can't be modified after creation.
 
    > [!IMPORTANT]
    > Your Azure Key Vault instance must be allow public access from all the networks.
 
-**3. Add an Access Policy to the Key Vault:**
+### 1. Add an Access Policy to the Key Vault:
 
-   a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
+   1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
 
-   ![Screenshot of Key Vault's access configuration](media/howto-customer-managed-keys/Access%20Policy%201.png)
+   ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png)
 
-   b. Select + Create.
+   1. Select + Create.
 
-   c. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
+   1. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
 
-   ![Screenshot of Key Vault's permissions settings](media/howto-customer-managed-keys/Access%20Policy%202.png)
+   ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png)
 
-   d. In the Principal Tab, select the User Assigned Managed Identity you had created in prerequisite step.
+   1. In the Principal Tab, select the User Assigned Managed Identity you had created in prerequisite step.
 
-   e. Navigate to Review + create select Create.
+   1. Navigate to Review + create select Create.
 
-**4. Create / Import Key:**
+### 1. Create / Import Key:
 
-   a. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
+   1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
-   b. Select Keys from the left menu and then select +Generate/Import.
+   1. Select Keys from the left menu and then select +Generate/Import.
 
-   ![Screenshot of Key generation page](media/howto-customer-managed-keys/Key%201.png)
+   ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png)
 
-   c. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
+   1. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
 
-   d. The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
+   1. The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
 
-   e. The key must be in the Enabled state.
+   1. The key must be in the Enabled state.
 
-   f. If you're importing an existing key into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
+   1. If you're importing an existing key into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
-   g. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
+   1. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
 
-**5. Enable CMK encryption during the provisioning for a new cluster**
+### 1. Enable CMK encryption during the provisioning for a new cluster
 
    # [Portal](#tab/portal)
 
-   a. During the provisioning of a new Cosmos DB for PostgreSQL cluster, after providing the necessary information under Basics and Networking Tab, Navigate to the Encryption (Preview) Tab.
-      ![Screenshot of Encrytion configuration page](media/howto-customer-managed-keys/Provisioing%201.png)
+   1. During the provisioning of a new Cosmos DB for PostgreSQL cluster, after providing the necessary information under Basics and Networking Tab, Navigate to the Encryption (Preview) Tab.
+      ![Screenshot of Encrytion configuration page.](media/how-to-customer-managed-keys/provisioning%20-encryption-tab.png)
 
-   b. Select Customer Managed Key under Data encryption key option.
+   1. Select Customer Managed Key under Data encryption key option.
 
-   c. Select the User Assigned Managed Identity created in the previous section.
-      ![Screenshot of User Assigned Managed Identity selection page ](media/howto-customer-managed-keys/Provisioing%202.png)
+   1. Select the User Assigned Managed Identity created in the previous section.
+     
+   1. Select the Key Vault created in the previous step, which has the access policy to the user managed identity selected in the previous step.
 
-   d. Select the Key Vault created in the previous step, which has the access policy to the user managed identity selected in the previous step.
+   1. Select the Key created in the previous step, and then select Review+create.
 
-   e. Select the Key created in the previous step, and then select Review+create.
-
-   f. Verify that CMK is encryption is enabled by Navigating to the Data Encryption(preview) blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
-      ![Sreenshot of data encryption tab](media/howto-customer-managed-keys/Dataencryptiontabnote.png)
+   1. Verify that CMK is encryption is enabled by Navigating to the Data Encryption(preview) blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
+      ![Sreenshot of data encryption tab.](media/how-to-customer-managed-keys/data-encryption-tab-note.png)
 
    > [!NOTE]
    > Data encryption can only be configured during the creation of a new cluster and can't be updated on an existing cluster. A workaround for updating the encryption configuration on an existing cluster is to restore an existing PITR backup to a new cluster and configure the data encryption during the creation of the newly restored cluster.
@@ -236,7 +235,7 @@ ms.date: 04/06/2023
  ```
 ---
 
-**6. High Availability:**
+### 1. High Availability:
 
    When CMK encryption is enabled on the primary cluster, all standby HA replicas are automatically encrypted by the primary cluster’s CMK
 
@@ -256,10 +255,10 @@ Encryption configuration can be changed from service managed encryption to CMK e
 
 # [Portal](#tab/portal)
 
-  a. Navigate to the Data Encryption blade, and select Initiate restore operation. Alternatively, you can perform PITR by selecting the Restore option in the overview blade.
-    ![Screenshot of PITR](media/howto-customer-managed-keys/PITR.png)
+  1. Navigate to the Data Encryption blade, and select Initiate restore operation. Alternatively, you can perform PITR by selecting the Restore option in the overview blade.
+    ![Screenshot of PITR.](media/how-to-customer-managed-keys/point-in-time-restore.png)
 
-  b. You can change/configure the Data Encryption from the Encryption(preview) Tab.
+  1. You can change/configure the Data Encryption from the Encryption(preview) Tab.
 
 # [ARM Template](#tab/arm)
 

@@ -8,7 +8,7 @@ ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 04/06/2023
 ---
-# Customer Managed Keys in Azure Cosmos DB for PostgreSQL
+# Customer-managed Keys in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -16,11 +16,11 @@ Data stored in your Azure Cosmos DB for PostgreSQL cluster is automatically and 
 
 
 
-## Service managed Keys
+## Service-managed Keys
 
 The Azure Cosmos DB for PostgreSQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. All Data including backups and temporary files created while running queries are encrypted on disk. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system-managed. Storage encryption is always on and cannot be disabled.
 
-## Customer Managed Keys
+## Customer-managed Keys
 
 Many organizations require full control of access to data using a customer-managed key. Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL enables you to bring your own key for protecting data at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you're responsible for, and in full control of, a key's lifecycle, usage permissions, and auditing of operations.
 
@@ -34,7 +34,7 @@ Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL is
 > [!NOTE]
 > Azure Key Vault is a cloud-based key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (**HSM**s). A key vault doesn't allow direct access to a stored key but provides encryption and decryption services to authorized entities. A key vault can generate the key, import it, or have it transferred from an on-premises HSM device.
 
-The DEKs, encrypted with the KEKs, are stored separately. Only an entity with access to the KEK can decrypt these DEKs. For more information, see [Security in encryption at rest](../../security/fundamentals/encryption-atrest.md).
+The DEKs, encrypted with the KEKs, are stored separately. Only an entity with access to the KEK can decrypt these DEKs. For more information, see [Security in encryption at rest.](../../security/fundamentals/encryption-atrest.md).
 
 ## How data encryption with a customer-managed key works
 
@@ -49,7 +49,7 @@ For a cluster to use customer-managed keys stored in Key Vault for encryption of
 The key vault administrator can also enable logging of Key Vault audit events, so they can be audited later.
 When the Azure Cosmos DB for PostgreSQL cluster is configured to use the customer-managed key stored in the key vault, the cluster sends the DEK to the key vault for encryptions. Key Vault returns the encrypted DEK, which is stored in the user database. Similarly, when needed, the server sends the protected DEK to the key vault for decryption. Auditors can use  [Azure Monitor](../../azure-monitor/index.yml) to review Key Vault audit event logs, if logging is enabled.
 
-![Architecture of Data Enrcryption with Customer Managed Keys](media/concepts-customer-managed-keys/Architecture.png)
+![Architecture of Data Enrcryption with Customer Managed Keys.](media/concepts-customer-managed-keys/architecture.png)
 
 ## Benefits
 
@@ -61,7 +61,7 @@ Data encryption with customer-managed keys for Azure Cosmos DB for PostgreSQL pr
 - Ability to implement separation of duties between security officers, database administrators, and system administrators.
 - Enabling encryption doesn't have any extra performance effect with or without customer-managed keys. Azure Cosmos DB for PostgreSQL relies on Azure Storage for data encryption in both customer-managed and service-managed key scenarios.
 
-## Next Steps
+## Next-steps
 
 >[!div class="nextstepaction"]
->[Enable encryption with customer managed keys](howto-customer-managed-keys.md)
+>[Enable encryption with customer managed keys](how-to-customer-managed-keys.md)
