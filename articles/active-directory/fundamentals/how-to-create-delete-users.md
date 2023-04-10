@@ -25,6 +25,20 @@ Instructions for the legacy create user process can be found in the **[Add or de
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
+## Before you begin
+
+Before you create or invite a new user, take some time to review the types of users, their authentication methods, and their access within the Azure AD tenant. For example, do you need to create an internal guest, an internal user, or an external guest? Does your new user need guest or member privileges?
+
+- **Internal member**: These users are most likely full-time employees in your organization.
+- **Internal guest**: These users have an account in your tenant, but have guest-level privileges. It's possible they were created within your tenant prior to the availability of B2B collaboration.
+- **External member**: These users authenticate using an external account, but has member access to your tenant. These types of users are common in [multi-tenant organizations](../multi-tenant-organizations/overview.md#what-is-a-multi-tenant-organization).
+- **External guest**: These users are true guests of your tenant who authenticate using an external method and who have guest-level privileges. 
+
+Want to explore the differences between internal and external guests and members a bit further? Check out the [B2B collaboration properties](../external-identities/user-properties.md) article.
+
+Reviewing the default user permissions may also help you determine the type of user you need to create. See the [Set default user permissions](users-default-permissions.md) article for more information.
+
+
 ## Create a new user
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role.
