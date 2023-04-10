@@ -52,12 +52,12 @@ Change directory to the completed project and build from the top level. Then `cd
 
 ```azurecli-interactive
 cd app-service-java-quickstart
-git checkout 20230308 **Note: If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.**
+git checkout 20230308
 mvn clean install
 cd booty-duke-app-service
 ```
 
-
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.
 
 # [Tomcat](#tab/tomcat)
 
@@ -88,10 +88,12 @@ Change directory to the completed project and build from the top level. Then `cd
 
 ```azurecli-interactive
 cd app-service-java-quickstart
-git checkout 20230308 **Note: If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.**
+git checkout 20230308
 cd petstore-ee7
 mvn clean install
 ```
+
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because you will not be making any commits, detached HEAD state is appropriate.
 
 ---
 
