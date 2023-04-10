@@ -43,7 +43,7 @@ Besides grouping your machine learning results, workspaces also host resource co
 
 + [Compute targets](concept-compute-target.md) are used to run your experiments.
 + [Datastores](how-to-datastore.md) define how you and others can connect to data sources when using data assets.
-+ [Security](tutorial-create-secure-workspace.md). Networking, identity and access control, and encryption settings.
++ [Security settings](tutorial-create-secure-workspace.md) - Networking, identity and access control, and encryption settings.
 
 ## Organizing workspaces
 
