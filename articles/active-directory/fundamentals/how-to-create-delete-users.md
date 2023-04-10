@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 04/10/2023
 ms.author: sarahlipsey
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
@@ -31,13 +31,14 @@ Before you create or invite a new user, take some time to review the types of us
 
 - **Internal member**: These users are most likely full-time employees in your organization.
 - **Internal guest**: These users have an account in your tenant, but have guest-level privileges. It's possible they were created within your tenant prior to the availability of B2B collaboration.
-- **External member**: These users authenticate using an external account, but has member access to your tenant. These types of users are common in [multi-tenant organizations](../multi-tenant-organizations/overview.md#what-is-a-multi-tenant-organization).
+- **External member**: These users authenticate using an external account, but have member access to your tenant. These types of users are common in [multi-tenant organizations](../multi-tenant-organizations/overview.md#what-is-a-multi-tenant-organization).
 - **External guest**: These users are true guests of your tenant who authenticate using an external method and who have guest-level privileges. 
 
-Want to explore the differences between internal and external guests and members a bit further? Check out the [B2B collaboration properties](../external-identities/user-properties.md) article.
+For more information abut the differences between internal and external guests and members, see [B2B collaboration properties](../external-identities/user-properties.md).
 
-Reviewing the default user permissions may also help you determine the type of user you need to create. See the [Set default user permissions](users-default-permissions.md) article for more information.
+Authentication methods vary based on the type of user you create. Internal guests and members have credentials in your Azure AD tenant that can be managed by administrators. These users can also reset their own password. External members authenticate to their home Azure AD tenant and your Azure AD tenant authenticates the user through a federated sign-in with the external member's Azure AD tenant. If external members forget their password, the administrator in their Azure AD tenant can reset their password. External guests set up their own password using the link they receive in email when their account is created.
 
+Reviewing the default user permissions may also help you determine the type of user you need to create. For more information, see [Set default user permissions](users-default-permissions.md)
 
 ## Create a new user
 
@@ -50,6 +51,8 @@ Reviewing the default user permissions may also help you determine the type of u
     ![Screenshot of the create new user menu.](media/how-to-create-delete-users/create-new-user-menu.png)
 
 ### Basics
+
+The **Basics** tab contains the core fields required to create a new user. 
 
 - **User principal name**: Enter a unique username and select a domain from the menu after the @ symbol. Select **Domain not listed** if you need to create a new domain. For more information, see [Add your custom domain name](add-custom-domain.md)
 
@@ -67,7 +70,7 @@ Either select the **Review + create** button to create the new user or **Next: P
 
 ### Properties
 
-There are six categories of user properties you may be able to edit. These properties can be added or updated after the user is created. To manage these details, go to **Azure AD** > **Users** and select a user to update.
+There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Azure AD** > **Users** and select a user to update.
 
 - **Identity:** Enter the user's first and last name. Set the User type as either Member or Guest. 
 
@@ -83,7 +86,7 @@ Either select the **Review + create** button to create the new user or **Next: A
 
 ### Assignments
 
-You can assign the user to an administrative unit, group, or Azure AD role when the account is created. You can assign the user to up to 20 groups or roles. You can only assign the user to one administrative unit.
+You can assign the user to an administrative unit, group, or Azure AD role when the account is created. You can assign the user to up to 20 groups or roles. You can only assign the user to one administrative unit. Assignments can be added after the user is created. 
 
 **To assign a group to the new user**:
 
