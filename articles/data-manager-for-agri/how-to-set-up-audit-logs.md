@@ -46,14 +46,14 @@ Each log follows the schema listed in the table. The table contains the field na
 | **correlationId** |An optional GUID that can be used to correlate logs. |
 | **identity** |Identity from the token that was presented in the REST API request. This is usually an object ID and an application ID or either of the two.|
 |**location**|The region of the resource emitting the event such as "East US" |
-| **properties** |For each `operationName` this contains: `requestUri` (URI of the API request), `farmerId`(farmerId associated with the request, wherever applicable),`dataPlaneResourceId` (ID that uniquely identifies the data-plane resource in the request) and `requestBody` (contains the request body for the API call associated with the `operationName` for all categories other than ApplicationAuditLogs). </br> Other than the common one's mentioned before `jobProcessesLogs` category has: </br> 1. This list fields across operationNames: </br> `jobRunType` (can be oneTime or periodic), `jobId` (ID of the job),  `initiatedBy` (indicates whether a job was triggered by a user or by the service). </br> 2. This list of fields for failed farmOperation related jobs: </br> `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(type of the entity that failed to be created), `errorCode`(code for job failure), `errorMessage`(description of failure), `internalErrorCode`(failure code provide by the provider), `internalErrorMessage`(description of the failure provided by the provider), `providerId`(ID of the provider).
+| **properties** |For each `operationName` this contains: `requestUri` (URI of the API request), `partyId`(partyId associated with the request, wherever applicable),`dataPlaneResourceId` (ID that uniquely identifies the data-plane resource in the request) and `requestBody` (contains the request body for the API call associated with the `operationName` for all categories other than ApplicationAuditLogs). </br> Other than the common one's mentioned before `jobProcessesLogs` category has: </br> 1. This list is of fields across operationNames: </br> `jobRunType` (can be oneTime or periodic), `jobId` (ID of the job),  `initiatedBy` (indicates whether a job was triggered by a user or by the service). </br> 2. This list is of fields for failed farmOperation related jobs: </br> `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(type of the entity that failed to be created), `errorCode`(code for job failure), `errorMessage`(description of failure), `internalErrorCode`(failure code provide by the provider), `internalErrorMessage`(description of the failure provided by the provider), `providerId`(ID of the provider).
 
 
 The `categories` field for Data Manager for Agriculture can have values that are listed in the following table:
 ### Categories table
 | category| Description |
 | --- | --- |
-|FarmManagementLogs| Logs for CRUD operations for Farmer, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
+|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
 |FarmOperationsLogs|Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData
 |SatelliteLogs| Logs for create and get operations for Satellite data ingestion job
 |WeatherLogs|Logs for create, delete and get operations for weather data ingestion job
@@ -237,7 +237,7 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 ### List of tables in log analytics and their mapping to categories in resource logs
 | Table name in log analytics| Categories in resource logs |Description
 | --- | --- | --- |
-|AgriFoodFarmManagementLogs|FarmManagementLogs| Logs for CRUD operations for Farmer, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
+|AgriFoodFarmManagementLogs|FarmManagementLogs| Logs for CRUD operations for party, Farm, Field, Boundary, Seasonal Field, Crop, CropVariety, Season, Attachment, prescription maps, prescriptions, management zones, zones, plant tissue analysis and nutrient analyses.
 |AgriFoodFarmOperationsLogs|FarmOperationsLogs| Logs for CRUD operations for FarmOperations data ingestion job, ApplicationData, PlantingData, HarvestingData, TillageData.
 |AgriFoodSatelliteLogs|SatelliteLogs| Logs for create and get operations for satellite data ingestion job.
 |AgriFoodWeatherLogs|WeatherLogs|Logs for create, delete and get operations for weather data ingestion job.
@@ -271,7 +271,7 @@ All the `categories` of resource logs are mapped as a table in log analytics. To
 |**JobRunType**| Available only in `AgriFoodJobProcessesLogs` table, indicates type of the job run. Value can be either of periodic or one time. |
 |**JobId**| Available in`AgriFoodJobProcessesLogs`, `AgriFoodSatelliteLogs`, `AgriFoodWeatherLogs`, and `AgriFoodModelInferenceLogs`, indicates ID of the job. |
 |**InitiatedBy**| Available only in `AgriFoodJobProcessesLogs` table. Indicates whether a job was initiated by a user or by the service. |
-|**FarmerId**| ID of the farmer associated with the operation. |
+|**partyId**| ID of the party associated with the operation. |
 |**Properties** | Available only in`AgriFoodJobProcessesLogs` table, it contains: `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(Type of the entity that failed  to be created, can be ApplicationData, PeriodicJob, etc.), `errorCode`(Code for failure of the job at Data Manager for Agriculture end),`errorMessage`(Description of failure at the Data Manager for Agriculture end),`internalErrorCode`(Code of failure of the job provide by the provider),`internalErrorMessage`(Description of the failure provided by the provider),`providerId`(ID of the provider such as JOHN-DEERE). |
 
 Each of these tables can be queried by creating a log analytics workspace. Reference for query language is [here](https://learn.microsoft.com/azure/data-explorer/kql-quick-reference).
