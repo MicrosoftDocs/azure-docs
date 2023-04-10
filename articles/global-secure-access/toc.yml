@@ -26,12 +26,14 @@ items:
   - name: Configure tenant for Global Secure Access
     href: sample-configure-tenant.md
 - name: Concepts
-  expanded: false
+  expanded: true
   items:
   - name: Understand Secure Access Service Edge (SASE)
     href: concept-understand-sase.md
   - name: Understand Security Service Edge (SSE)
     href: concept-understand-sse.md
+  - name: Understand branch connectivity
+    href: concept-understand-branch-connectivity.md
 - name: How-to guides
   expanded: true
   items:
