@@ -1,17 +1,17 @@
 # Getting started with Functions
 
-The following tutorial shows how to implement basic triggers with Azure Cache for Redis and Azure Functions. Note that some of the steps will change as the product develops. This tutorial uses VS Code to write and deploy the Azure Function. It’s also possible to do the same thing using Visual Studio. In the future, you will be able to do this in the Azure portal as well.
+The following tutorial shows how to implement basic triggers with Azure Cache for Redis and Azure Functions. This tutorial uses VS Code to write and deploy the Azure Function in C#. 
 
 ## Requirements
 
 - Azure subscription
-- Visual Studio Code
+- [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Instructions
 
 ### 1. Set up an Azure Cache for Redis Instance
 
-Create a new **Azure Cache for Redis** instance using the Azure portal or your preferred CLI tool. Any tier and SKU should work. We’ll use a _Standard C1_ instance, which is a good starting tier and SKU. 
+Create a new **Azure Cache for Redis** instance using the Azure portal or your preferred CLI tool. We’ll use a _Standard C1_ instance, which is a good starting point. Use the [quickstart guide](quickstart-create-redis.md) to get started.
 
 ![Image](Media/CreateCache.png)
 
@@ -26,7 +26,8 @@ If you haven’t installed the functions extension for VS Code, do so by searchi
  
 Next, go to the **Azure** tab, and sign-in to your existing Azure account, or create a new one:
  
-Create a new local folder on your computer to hold the project that we’ll be building. I’ve named mine “AzureRedisFunctionDemo”
+Create a new local folder on your computer to hold the project that we’ll be building. I’ve named mine “AzureRedisFunctionDemo”.
+
 In the Azure tab, create a new functions app by clicking on the lightning icon in the top right of the **Workspace** box in the lower left of the screen.
 
 ![Image](Media/CreateFunctionProject.png)
