@@ -42,8 +42,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Determine what data to [map between Azure AD and Kno2fy](../app-provisioning/customize-application-attributes.md).
 
 ## Step 2. Configure Kno2fy to support provisioning with Azure AD
-1. Provisioning with Azure AD is intended for use with Single Sign on using Azure AD as the Idenity Provider.  Enable Single Sign on for the Kno2fy Application in Azure AD and add the Azure AD Identity Provider by adding the appropriate issuer value in the Kno2 settings for your organization(s).
-1. A Kno2 team member will assist in aquiring a provisioning token and the URL for use with the service.  Save these values for use in Step 5.
+1. Provisioning with Azure AD is intended for use with Single Sign on using Azure AD as the Identity Provider.  Enable Single Sign on for the Kno2fy Application in Azure AD and add the Azure AD Identity Provider by adding the appropriate issuer value in the Kno2 settings for your organization(s).
+1. A Kno2 team member will assist in acquiring a provisioning token and the URL for use with the service.  Save these values for use in Step 5.
 
 ## Step 3. Add Kno2fy from the Azure AD application gallery
 
