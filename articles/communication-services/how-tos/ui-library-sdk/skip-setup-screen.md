@@ -13,7 +13,7 @@ zone_pivot_groups: acs-plat-ios-android
 #Customer intent: As a developer, I want to skip setup screen of the library in my application
 ---
 
-# Skip Setup Screen
+# Skip setup screen
 
 The feature enables the option to join a call without passing through the setup screen. It empowers developers to build their communication application using UI Library in a way that users can join a call directly without any user interaction. The feature also provides capability to configure camera and microphone default state. We're providing APIs to turn the camera and microphone on or off so that developers have the capability to configure the default state of the camera and microphone before joining a call.
 
