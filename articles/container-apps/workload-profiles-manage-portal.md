@@ -27,7 +27,6 @@ The following regions support workload profiles during preview:
 
 At a high level, when you create a container app into a workload profile, you go through the following steps:
 
-- Create a new container app
 - Create a new environment
 - Select a workload profile
 
@@ -43,17 +42,17 @@ At a high level, when you create a container app into a workload profile, you go
 
     | Property | Value |
     | --- | --- |
-    | Region | Container Apps Environment |
-    | Select your region | Select **Create New** |
+    | Region | Select your region. |
+    | Container Apps Environment | Select **Create New**. |
 
 1. Environment details
 
     | Property | Value |
     | --- | --- |
-    | Environment name | Plan |
-    | Enter an environment name | Select **(Preview) Consumption and Dedicated workload profiles** |
+    | Environment name | Enter an environment name. |
+    | Plan | Select **(Preview) Consumption and Dedicated workload profiles** |
   
-    Select the **Workload profiles** tab.
+    Select the new **Workload profiles** tab at the top of this section.
   
     :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Create an Azure Container Apps Consumption + Dedicated plan environment.":::
 
