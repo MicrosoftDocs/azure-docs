@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌️ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 
@@ -30,30 +30,30 @@ The sample app is composed of two Spring apps:
 
 * The `planet-weather-provider` service returns weather text in response to an HTTP request that specifies the planet name. For example, it may return "very warm" for planet Mercury. It gets the weather data from the Config server. The Config server gets the weather data from a YAML file in a Git repository, for example:
 
-   ```yaml
-   MercuryWeather: very warm
-   VenusWeather: quite unpleasant
-   MarsWeather: very cool
-   SaturnWeather: a little bit sandy
-   ```
+  ```yaml
+  MercuryWeather: very warm
+  VenusWeather: quite unpleasant
+  MarsWeather: very cool
+  SaturnWeather: a little bit sandy
+  ```
 
 * The `solar-system-weather` service returns data for four planets in response to an HTTP request. It gets the data by making four HTTP requests to `planet-weather-provider`. It uses the Eureka server discovery service to call `planet-weather-provider`. It returns JSON, for example:
 
-   ```json
-   [{
-       "Key": "Mercury",
-       "Value": "very warm"
-   }, {
-       "Key": "Venus",
-       "Value": "quite unpleasant"
-   }, {
-       "Key": "Mars",
-       "Value": "very cool"
-   }, {
-       "Key": "Saturn",
-       "Value": "a little bit sandy"
-   }]
-   ```
+  ```json
+  [{
+      "Key": "Mercury",
+      "Value": "very warm"
+  }, {
+      "Key": "Venus",
+      "Value": "quite unpleasant"
+  }, {
+      "Key": "Mars",
+      "Value": "very cool"
+  }, {
+      "Key": "Saturn",
+      "Value": "a little bit sandy"
+  }]
+  ```
 
 The following diagram illustrates the sample app architecture:
 

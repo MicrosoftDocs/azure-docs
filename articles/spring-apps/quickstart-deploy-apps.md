@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-spring-apps
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 
@@ -99,7 +99,11 @@ Use the following steps to deploy the PlanetWeatherProvider project.
    Make sure that the command prompt is in the project folder before running the following command.
 
    ```azurecli
-   az spring app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
+   az spring app deploy \
+       --name planet-weather-provider \
+       --runtime-version NetCore_31 \
+       --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll \
+       --artifact-path ./publish-deploy-planet.zip
    ```
 
    The `--main-entry` option specifies the relative path from the *.zip* file's root folder to the *.dll* file that contains the application's entry point. After the service uploads the *.zip* file, it extracts all the files and folders, and then tries to execute the entry point in the specified *.dll* file.
@@ -135,7 +139,11 @@ Use the following steps to deploy the SolarSystemWeather project.
 1. Deploy the project to Azure.
 
    ```azurecli
-   az spring app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
+   az spring app deploy \
+       --name solar-system-weather \
+       --runtime-version NetCore_31 \
+       --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll \
+       --artifact-path ./publish-deploy-solar.zip
    ```
 
    This command may take several minutes to run.
@@ -147,7 +155,7 @@ Before testing the application, get a public endpoint for an HTTP GET request to
 1. Run the following command to assign the endpoint.
 
    ```azurecli
-   az spring app update -n solar-system-weather --assign-endpoint true
+   az spring app update --name solar-system-weather --assign-endpoint true
    ```
 
 1. Run the following command to get the URL of the endpoint.
@@ -155,7 +163,7 @@ Before testing the application, get a public endpoint for an HTTP GET request to
    Windows:
 
    ```azurecli
-   az spring app show -n solar-system-weather -o table
+   az spring app show --name solar-system-weather --output table
    ```
 
    Linux:
@@ -198,7 +206,7 @@ This article explains how to build and deploy Spring applications to Azure Sprin
 
 Use the following commands to clone the sample repository, navigate to the sample folder, and then build the project.
 
-```azurecli
+```bash
 git clone https://github.com/azure-samples/spring-petclinic-microservices
 cd spring-petclinic-microservices
 mvn clean package -DskipTests -Denv=cloud
@@ -219,8 +227,17 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
 1. Create the two core Spring applications for PetClinic: API gateway and customers-service.
 
    ```azurecli
-   az spring app create --name api-gateway --runtime-version Java_17 --instance-count 1 --memory 2Gi --assign-endpoint
-   az spring app create --name customers-service --runtime-version Java_17 --instance-count 1 --memory 2Gi
+   az spring app create \
+       --name api-gateway \
+       --runtime-version Java_17 \
+       --instance-count 1 \
+       --memory 2Gi \
+       --assign-endpoint
+   az spring app create \
+       --name customers-service \
+       --runtime-version Java_17 \
+       --instance-count 1 \
+       --memory 2Gi
    ```
 
 1. Deploy the JAR files built in the previous step.
@@ -265,12 +282,37 @@ Access the app gateway and customers service from browser with the **Public Url*
 To get the PetClinic app functioning with all features like Admin Server, Visits, and Veterinarians, deploy the other apps with following commands:
 
 ```azurecli
-az spring app create --name admin-server --runtime-version Java_17 --instance-count 1 --memory 2Gi --assign-endpoint
-az spring app create --name vets-service --runtime-version Java_17 --instance-count 1 --memory 2Gi
-az spring app create --name visits-service --runtime-version Java_17 --instance-count 1 --memory 2Gi
-az spring app deploy --name admin-server --runtime-version Java_17 --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.1.jar --jvm-options="-Xms1536m -Xmx1536m"
-az spring app deploy --name vets-service --runtime-version Java_17 --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.1.jar --jvm-options="-Xms1536m -Xmx1536m"
-az spring app deploy --name visits-service --runtime-version Java_17 --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.1.jar --jvm-options="-Xms1536m -Xmx1536m"
+az spring app create \
+    --name admin-server \
+    --runtime-version Java_17 \
+    --instance-count 1 \
+    --memory 2Gi \
+    --assign-endpoint
+az spring app create \
+    --name vets-service \
+    --runtime-version Java_17 \
+    --instance-count 1 \
+    --memory 2Gi
+az spring app create \
+    --name visits-service \
+    --runtime-version Java_17 \
+    --instance-count 1 \
+    --memory 2Gi
+az spring app deploy \
+    --name admin-server \
+    --runtime-version Java_17 \
+    --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-3.0.1.jar \
+    --jvm-options="-Xms1536m -Xmx1536m"
+az spring app deploy \
+    --name vets-service \
+    --runtime-version Java_17 \
+    --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-3.0.1.jar \
+    --jvm-options="-Xms1536m -Xmx1536m"
+az spring app deploy \
+    --name visits-service \
+    --runtime-version Java_17 \
+    --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-3.0.1.jar \
+    --jvm-options="-Xms1536m -Xmx1536m"
 ```
 
 #### [Maven](#tab/Maven)
@@ -279,7 +321,7 @@ az spring app deploy --name visits-service --runtime-version Java_17 --jar-path 
 
 Use the following commands to clone the sample repository, navigate to the sample folder, and then build the project.
 
-```azurecli
+```bash
 git clone https://github.com/azure-samples/spring-petclinic-microservices
 cd spring-petclinic-microservices
 mvn clean package -DskipTests -Denv=cloud
@@ -293,7 +335,7 @@ The following steps show you how to generate configurations and deploy to Azure 
 
 1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-   ```azurecli
+   ```bash
    mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
    ```
 
@@ -323,12 +365,12 @@ The following steps show you how to generate configurations and deploy to Azure 
 
      - api-gateway
      - customers-service
-   
+
    Remove any prefix if needed, and save the file.
 
 1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command.
 
-   ```azurecli
+   ```bash
    mvn azure-spring-apps:deploy
    ```
 
