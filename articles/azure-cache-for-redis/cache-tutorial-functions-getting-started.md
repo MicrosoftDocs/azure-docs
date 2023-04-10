@@ -49,38 +49,19 @@ You’ll need to install two NuGet packages:
 1. [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), which is the primary .NET client for Redis. 
 1. Microsoft.Azure.WebJobs.Extensions.Redis, which is the extension that allows Redis keyspace notifications to be used as triggers in Azure Functions. 
 
-Install StackExchange.Redis by going to the **Terminal** tab in VS Code and entering the following command:
+Install these packages by going to the **Terminal** tab in VS Code and entering the following commands:
 
 ```
 dotnet add package StackExchange.Redis
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis
+dotnet restore
 ```
-
-Next, we need to install the Microsoft.Azure.WebJobs.Extensions.Redis package. When this feature is released publically, this will be very simple. But we have to jump through some additional hoops right now. 
-
-   1. Create a `NuGet.Config` file in the project folder (`AzureRedisFunctionDemo` in step 2 above):
-      ```
-      <?xml version="1.0" encoding="utf-8"?>
-      <configuration>
-        <packageSources>
-          <add key="local-packages" value="./local-packages" />
-        </packageSources>
-      </configuration>
-      ```
-   1. Add the following line to the `<PropertyGroup>` section of the csproj.
-      ```
-      <RestoreSources>$(RestoreSources);./local-packages;https://api.nuget.org/v3/index.json</RestoreSources>
-      ```
-   1. Create a folder `local-packages` within the project folder, and download the latest NuGet package from [GitHub Releases](https://github.com/Azure/azure-functions-redis-extension/releases) to this `local-packages` folder.
-   1. Install the package:
-      ```
-      dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
-      dotnet restore
-      ``` 
 
 ### 4. Configure Cache
 
-Go to your newly created Azure Cache for Redis instance. Two steps need to be taken here. 
-First, we need to enable **keyspace notifications** on the cache to trigger on keys and commands. Go to your cache in the Azure portal and select the **Advanced settings** blade. Scroll down to the field labled _notify-keyspace-events_ and enter “KEA”. Then select Save at the top of the window. “KEA” is a configuration string that enables keyspace notifications for all keys and events. More information on keyspace configuration strings can be found [here](https://redis.io/docs/manual/keyspace-notifications/). 
+Go to your newly created Azure Cache for Redis instance. Two steps are needed here. 
+
+First,  enable **keyspace notifications** on the cache to trigger on keys and commands. Go to your cache in the Azure portal and select the **Advanced settings** blade. Scroll down to the field labled _notify-keyspace-events_ and enter “KEA”. Then select Save at the top of the window. “KEA” is a configuration string that enables keyspace notifications for all keys and events. More information on keyspace configuration strings can be found [here](https://redis.io/docs/manual/keyspace-notifications/). 
 
 ![Image](Media/KeyspaceNotifications.png)
 
@@ -153,3 +134,8 @@ The app will build and start deploying. You can track progress in the **Output W
 Once deployment is complete, open your Function App in the Azure Portal and select the **Log Stream** blade. Wait for log analytics to connect, and then use the Redis console to activate any of the triggers. You should see the triggers being logged here. 
 
 ![Image](Media/LogStream.png)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Build a write-behind cache using Azure Functions](cache-tutorial-write-behind.md)
