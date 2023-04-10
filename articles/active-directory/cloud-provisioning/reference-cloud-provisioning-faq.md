@@ -20,7 +20,7 @@ Read about frequently asked questions for Azure Active Directory (Azure AD) Conn
 
 **Q: How often does cloud provisioning run?**
 
-Cloud provisioning is scheduled to run every 2 mins. Every 2 mins, any user, group and password hash changes will be provisioned to Azure AD.
+Cloud provisioning is currently scheduled to run every 15 mins. Every 15 mins, any user, group or password hash change will be provisioned to Azure AD.
 
 **Q: Seeing password hash sync failures on the first run. Why?**
 
