@@ -53,7 +53,7 @@ To set up an Azure failover group between two Azure Arc-enabled SQL managed inst
 
 The following image shows a properly configured distributed availability group:
 
-![A properly configured distributed availability group](.\media\business-continuity\distributed-availability-group.png)
+![Diagram showing a properly configured distributed availability group](.\media\business-continuity\distributed-availability-group.png)
 
 ## Synchronization modes
 
@@ -82,7 +82,7 @@ The above command:
 1. Creates the required custom resources on both primary and secondary sites
 1. Copies the mirroring certificates and configures the failover group between the instances 
 
-## Configure Azure failover group - Indirect mode
+## Configure Azure failover group - indirect mode
 
 Follow the steps below if Azure Arc data services are deployed in `indirectly` connected mode. 
 
@@ -94,10 +94,8 @@ Follow the steps below if Azure Arc data services are deployed in `indirectly` c
 
 2. Switch context to the secondary cluster by running ```kubectl config use-context <secondarycluster>``` and provision the managed instance in the secondary site that will be the disaster recovery instance. At this point, the system databases are not part of the contained availability group.
 
-> [!NOTE]
-> - It is important to specify `--license-type DisasterRecovery` **during** the Azure Arc-enabled SQL MI creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
-
-
+    > [!NOTE]
+    > It is important to specify `--license-type DisasterRecovery` **during** the Azure Arc-enabled SQL MI creation. This will allow the DR instance to be seeded from the primary instance in the primary data center. Updating this property post deployment will not have the same effect.
 
    ```azurecli
    az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 --license-type DisasterRecovery --k8s-namespace <namespace> --use-k8s
