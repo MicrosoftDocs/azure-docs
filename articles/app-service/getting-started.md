@@ -33,7 +33,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | **Deploy your app** | <li>[Configure Python](configure-language-python.md)<li>[GitHub actions](./deploy-github-actions.md) |
 | **Monitor your app**| <li>[Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<li>[Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |<li>[Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<li>[Add SSL certificate](./configure-ssl-certificate.md)|
-| **Connect to a database** | <li>[Postgres - CLI](./tutorial-python-postgresql-app?tabs=flask%2Cwindows&pivots=deploy-azd)<li>[Postgres - Azure portal](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=deploy-portal)|
+| **Connect to a database** | <li>[Postgres - CLI](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=deploy-azd)<li>[Postgres - Azure portal](./tutorial-python-postgresql-app.md?tabs=flask%2Cwindows&pivots=deploy-portal)|
 | **Custom containers** |<li>[Linux - Visual Studio Code](./quickstart-custom-container.md?tabs=python&pivots=container-linux-vscode)|
 | **Review best practices** | <li>[Scale your app]()<li>[Deployment](./deploy-best-practices.md)<li>[Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<li>[Virtual Network](./configure-vnet-integration-enable.md)|
 ::: zone-end
