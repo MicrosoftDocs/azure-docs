@@ -28,15 +28,15 @@ The Key Vault VM extension supports the following versions of Windows:
 
 The Key Vault VM extension is also supported on a custom local VM. The VM should be uploaded and converted into a specialized image for use in Azure by using Windows Server 2019 core install.
 
-> [!NOTE]
-> The Key Vault VM extension downloads all certificates to the Windows certificate store or to the location specified in the `certificateStoreLocation` property in the VM extension settings. 
-
-### Supported certificate content types
+### Supported certificates
 
 The Key Vault VM extension supports the following certificate content types:
 
 - PKCS #12
 - PEM
+
+> [!NOTE]
+> The Key Vault VM extension downloads all certificates to the Windows certificate store or to the location specified in the `certificateStoreLocation` property in the VM extension settings. 
 
 ## Updates in Version 3.0
 
@@ -61,7 +61,7 @@ Review the following prerequisites for using the Key Vault VM extension for Wind
 
 -  Virtual Machine Scale Sets should have the following `identity` configuration:
 
-   ``` 
+   ```json
    "identity": {
       "type": "UserAssigned",
       "userAssignedIdentities": {
@@ -72,7 +72,7 @@ Review the following prerequisites for using the Key Vault VM extension for Wind
   
 - The Key Vault VM extension should have the following `authenticationSettings` configuration:
 
-   ```
+   ```json
    "authenticationSettings": {
       "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
       "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
@@ -89,7 +89,7 @@ The following JSON shows the schema for the Key Vault VM extension. Before you c
 
 - The extension doesn't require protected settings. All settings are considered public information. 
 
-- Observed certificates URLs should be of the form "https://myVaultName.vault.azure.net/secrets/myCertName".
+- Observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
 
    This form is preferred because the `/secrets` path returns the full certificate, including the private key, but the `/certificates` path doesn't. For more information about certificates, see [Azure Key Vault keys, secrets and certificates overview](/azure/key-vault/general/about-keys-secrets-certificates).
 
@@ -181,7 +181,7 @@ The following JSON shows the schema for the Key Vault VM extension. Before you c
 
 ## Property values
 
-The JSON schema includes values for the following properties.
+The JSON schema includes the following properties.
 
 ### [Version-3.0](#tab/version3)  
 
@@ -216,7 +216,7 @@ The JSON schema includes values for the following properties.
 | `linkOnRenewal` | true | boolean |
 | `certificateStoreLocation`  | LocalMachine or CurrentUser (case sensitive) | string |
 | `requireInitialSync` | false | boolean |
-| `observedCertificates`  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
+| `observedCertificates`  | ["https://myvault.vault.azure.net/secrets/mycertificate", <br> "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
 | `msiEndpoint` | "http://169.254.169.254/metadata/identity/oauth2/token" | string |
 | `msiClientId` | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
@@ -378,39 +378,35 @@ The following JSON snippets provide example settings for deploying the Key Vault
 }
 ```
 
-#### Version 3.0 deployment
-
-Use PowerShell to deploy the version 3.0 Key Vault VM extension to an existing VM or Virtual Machine Scale Sets instance. 
-
-- Deploy the extension on a VM:
+#### Deploy on a VM
     
-   ```powershell
-   # Build settings
-   $settings = (get-content -raw ".\settings.json")
-   $extName =  "KeyVaultForWindows"
-   $extPublisher = "Microsoft.Azure.KeyVault"
-   $extType = "KeyVaultForWindows"
-       
-   # Start the deployment
-   Set-AzVmExtension -TypeHandlerVersion "3.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
-   ```
+```powershell
+# Build settings
+$settings = (get-content -raw ".\settings.json")
+$extName =  "KeyVaultForWindows"
+$extPublisher = "Microsoft.Azure.KeyVault"
+$extType = "KeyVaultForWindows"
+ 
+# Start the deployment
+Set-AzVmExtension -TypeHandlerVersion "3.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+```
 
-- Deploy the extension on a Virtual Machine Scale Sets instance:
+#### Deploy on a Virtual Machine Scale Sets instance
 
-   ```powershell
-   # Build settings
-   $settings = ".\settings.json"
-   $extName = "KeyVaultForWindows"
-   $extPublisher = "Microsoft.Azure.KeyVault"
-   $extType = "KeyVaultForWindows"
-        
-   # Add extension to Virtual Machine Scale Sets
-   $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "3.0" -Setting $settings
+```powershell
+# Build settings
+$settings = ".\settings.json"
+$extName = "KeyVaultForWindows"
+$extPublisher = "Microsoft.Azure.KeyVault"
+$extType = "KeyVaultForWindows"
+  
+# Add extension to Virtual Machine Scale Sets
+$vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "3.0" -Setting $settings
 
-   # Start the deployment
-   Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
-   ```
+# Start the deployment
+Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
+```
 
 ### [Version-1.0](#tab/version1)  
 
@@ -419,55 +415,55 @@ Use PowerShell to deploy the version 1.0 Key Vault VM extension to an existing V
 > [!WARNING]
 > PowerShell clients often prefix a quote mark `"` with a backslash `\` in the settings JSON file. The extraneous characters cause the akvvm_service to fail with the error, "[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object."
 >
-> You can see the supplied backslash `\` and quote `"` characters in the Azure portal. Check the contents of the settings JSON file under **Settings** > **Extensions**. To avoid the error, initialize the `$settings` property as a PowerShell `HashTable` as follows:
+> You can see the supplied backslash `\` and quote `"` characters in the Azure portal. Check the contents of the settings JSON file under **Settings** > **Extensions + Applications**. To avoid the error, initialize the `$settings` property as a PowerShell `HashTable` as follows:
 > 
 > ```powershell
 > $settings = @{"secretsManagementSettings" = @{"pollingIntervalInS"="<pollingInterval>"; "certificateStoreName"="<certStoreName>";"certificateStoreLocation"="<certStoreLoc>";"observedCertificates"=@("<observedCert1>", "<observedCert2>")};"authenticationSettings"=@{"msiEndpoint"="<msiEndpoint>";"msiClientId"="<msiClientId>"} }
 > ```
 
-- Deploy the extension on a VM:
+#### Deploy on a VM
 
-   ```powershell
-   # Build settings
-   $settings = '{"secretsManagementSettings": 
-   { "pollingIntervalInS": "' + <pollingInterval> + 
-   '", "certificateStoreName": "' + <certStoreName> + 
-   '", "certificateStoreLocation": "' + <certStoreLoc> + 
-   '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] }, 
-   "authenticationSettings":
-   { "msiEndpoint": "' + <msiEndpoint> +
-   '", "msiClientId" :"' + <msiClientId> + '"}}' 
-   $extName =  "KeyVaultForWindows"
-   $extPublisher = "Microsoft.Azure.KeyVault"
-   $extType = "KeyVaultForWindows"
-       
-   # Start the deployment
-   Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType  -SettingString $settings
-   ```
+```powershell
+# Build settings
+$settings = '{"secretsManagementSettings": 
+{ "pollingIntervalInS": "' + <pollingInterval> + 
+'", "certificateStoreName": "' + <certStoreName> + 
+'", "certificateStoreLocation": "' + <certStoreLoc> + 
+'", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] }, 
+"authenticationSettings":
+{ "msiEndpoint": "' + <msiEndpoint> +
+'", "msiClientId" :"' + <msiClientId> + '"}}' 
+$extName =  "KeyVaultForWindows"
+$extPublisher = "Microsoft.Azure.KeyVault"
+$extType = "KeyVaultForWindows"
+ 
+# Start the deployment
+Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType  -SettingString $settings
+```
 
-- Deploy the extension on a Virtual Machine Scale Sets instance:
+#### Deploy on a Virtual Machine Scale Sets instance
 
-   ```powershell
-   # Build settings
-   $settings = '{"secretsManagementSettings": 
-   { "pollingIntervalInS": "' + <pollingInterval> + 
-   '", "certificateStoreName": "' + <certStoreName> + 
-   '", "certificateStoreLocation": "' + <certStoreLoc> + 
-   '", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }, 
-   "authenticationSettings":
-   { "msiEndpoint": "' + <msiEndpoint> +
-   '", "msiClientId" :"' + <msiClientId> + '"}}' 
-   $extName = "KeyVaultForWindows"
-   $extPublisher = "Microsoft.Azure.KeyVault"
-   $extType = "KeyVaultForWindows"
-        
-   # Add extension to Virtual Machine Scale Sets
-   $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "1.0" -Setting $settings
+```powershell
+# Build settings
+$settings = '{"secretsManagementSettings": 
+{ "pollingIntervalInS": "' + <pollingInterval> + 
+'", "certificateStoreName": "' + <certStoreName> + 
+'", "certificateStoreLocation": "' + <certStoreLoc> + 
+'", "observedCertificates": ["' + <observedCert1> + '","' + <observedCert2> + '"] } }, 
+"authenticationSettings":
+{ "msiEndpoint": "' + <msiEndpoint> +
+'", "msiClientId" :"' + <msiClientId> + '"}}' 
+$extName = "KeyVaultForWindows"
+$extPublisher = "Microsoft.Azure.KeyVault"
+$extType = "KeyVaultForWindows"
+  
+# Add extension to Virtual Machine Scale Sets
+$vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "1.0" -Setting $settings
 
-   # Start the deployment
-   Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
-   ```
+# Start the deployment
+Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
+```
 
 --- 
 
@@ -511,60 +507,54 @@ The following JSON snippets provide example settings for deploying the Key Vault
         }      
      }
 ```
-
-#### Version 3.0 deployment
-
-Use the Azure CLI to deploy the version 3.0 Key Vault VM extension to an existing VM or Virtual Machine Scale Sets instance.
  
-- Deploy the extension on a VM:
+#### Deploy on a VM
     
-   ```azurecli
-   # Start the deployment
-   az vm extension set --name "KeyVaultForWindows" `
-    --publisher Microsoft.Azure.KeyVault `
-    --resource-group "<resourcegroup>" `
-    --vm-name "<vmName>" `
-    --settings "@settings.json"
-   ```
+```azurecli
+# Start the deployment
+az vm extension set --name "KeyVaultForWindows" `
+ --publisher Microsoft.Azure.KeyVault `
+ --resource-group "<resourcegroup>" `
+ --vm-name "<vmName>" `
+ --settings "@settings.json"
+```
 
-- Deploy the extension on a Virtual Machine Scale Sets instance:
+#### Deploy on a Virtual Machine Scale Sets instance
 
-   ```
-   # Start the deployment
-   az vmss extension set --name "KeyVaultForWindows" `
-    --publisher Microsoft.Azure.KeyVault `
-    --resource-group "<resourcegroup>" `
-    --vmss-name "<vmssName>" `
-    --settings "@settings.json"
-   ```
+```
+# Start the deployment
+az vmss extension set --name "KeyVaultForWindows" `
+ --publisher Microsoft.Azure.KeyVault `
+ --resource-group "<resourcegroup>" `
+ --vmss-name "<vmssName>" `
+ --settings "@settings.json"
+```
   
 ### [Version-1.0](#tab/version1) 
 
 Use the Azure CLI to deploy the version 1.0 Key Vault VM extension to an existing VM or Virtual Machine Scale Sets instance.
 
-- Deploy the extension on a VM:
+#### Deploy on a VM
     
-   ```azurecli
-   # Start the deployment
-   az vm extension set --name "KeyVaultForWindows" `
-    --publisher Microsoft.Azure.KeyVault `
-    --resource-group "<resourcegroup>" `
-    --vm-name "<vmName>" `
-    --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\",    \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] },
-         \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
-    ```
+```azurecli
+# Start the deployment
+az vm extension set --name "KeyVaultForWindows" `
+   --publisher Microsoft.Azure.KeyVault `
+   --resource-group "<resourcegroup>" `
+   --vm-name "<vmName>" `
+   --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\",    \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }, \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
+```
 
-- Deploy the extension on a Virtual Machine Scale Sets instance:
+#### Deploy on a Virtual Machine Scale Sets instance
 
-   ```azurecli
-   # Start the deployment
-   az vmss extension set --name "KeyVaultForWindows" `
-    --publisher Microsoft.Azure.KeyVault `
-    --resource-group "<resourcegroup>" `
-    --vmss-name "<vmName>" `
-    --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] },
-         \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
-   ```
+```azurecli
+# Start the deployment
+az vmss extension set --name "KeyVaultForWindows" `
+ --publisher Microsoft.Azure.KeyVault `
+ --resource-group "<resourcegroup>" `
+ --vmss-name "<vmName>" `
+ --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }, \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
+```
 
 ---
 
@@ -606,7 +596,7 @@ To see the deployment state of extensions for a given VM, run the following comm
 
 ### Review logs and configuration
 
-The Key Vault VM extension logs exist only locally on the VM. Checking the log details can be helpful for troubleshooting.
+The Key Vault VM extension logs exist only locally on the VM. Review the log details to help with troubleshooting.
 
 | Log file | Description |
 | --- | --- |
