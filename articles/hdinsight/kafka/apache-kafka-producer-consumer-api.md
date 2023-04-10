@@ -148,9 +148,9 @@ If you would like to skip this step, prebuilt jars can be downloaded from the `P
 
     ```bash
     sudo apt -y install jq
-    export clusterName='<clustername>'
-    export password='<password>'
-    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
+    export CLUSTER_NAME='<clustername>'
+    export PASSWORD='<password>'
+    export KAFKABROKERS=$(curl -sS -u admin:$PASSWORD -G https://$CLUSTER_NAME.azurehdinsight.net/api/v1/clusters/$CLUSTER_NAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
     > [!Note]  
