@@ -22,6 +22,14 @@ Cluster auto-upgrade provides a set once and forget mechanism that yields tangib
 
 AKS follows a strict versioning window with regard to supportability. With properly selected auto-upgrade channels, you can avoid clusters falling into an unsupported version. For more on the AKS support window, see [Alias minor versions][supported-kubernetes-versions].
 
+## Customer versus AKS-initiated auto-upgrades
+
+Customers can specify cluster auto-upgrade specifics in the guidance below. These upgrades will occur based on the cadence that the customer specifies and are recommended for customers to remain on supported kubernetes versions.
+
+AKS will also initiate auto-upgrades for unsupported clusters. All clusters with kubernetes versions N-3 and below will be automatically upgraded to remain in an AKS support [policy][supported-kubernetes-versions].
+
+AKS will automatically upgrade N-3 clusters to N-2 before they become N-4. For example, kubernetes v1.25 will be upgraded to v1.26 during the v1.29 release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
+
 ## Cluster auto-upgrade limitations
 
 If you’re using cluster auto-upgrade, you can no longer upgrade the control plane first and then upgrade the individual node pools. Cluster auto-upgrade will always upgrade the control plane and the node pools together. There is no ability of upgrading the control plane only, and trying to run the command `az aks upgrade --control-plane-only` will raise the error: `NotAllAgentPoolOrchestratorVersionSpecifiedAndUnchanged: Using managed cluster api, all Agent pools' OrchestratorVersion must be all specified or all unspecified. If all specified, they must be stay unchanged or the same with control plane.`

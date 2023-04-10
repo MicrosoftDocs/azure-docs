@@ -177,6 +177,16 @@ Most clusters are deleted upon user request; in some cases, especially where cus
 
 No, you're unable to restore your cluster after deleting it. When you delete your cluster, the associated resource group and all its resources will also be deleted. If you want to keep any of your resources, move them to another resource group before deleting your cluster. If you have the **Owner** or **User Access Administrator** built-in role, you can lock Azure resources to protect them from accidental deletions and modifications. For more information, see [Lock your resources to protect your infrastructure][lock-azure-resources].
 
+## What is platform support, and what does it include?
+
+Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support does not include cluster or node pool creation, hotfixes, bug fixes, security patches, retired components, Kubernetes components, etc. See [platform support policy][supported-kubernetes-versions] for additional restrictions.
+
+## Will AKS automatically upgrade my unsupported clusters?
+
+AKS will initiate auto-upgrades for unsupported clusters. All clusters with kubernetes versions N-3 and below will be automatically upgraded to remain in an AKS support [policy][supported-kubernetes-versions].
+
+AKS will automatically upgrade N-3 clusters to N-2 before they become N-4. For example, kubernetes v1.25 will be upgraded to v1.26 during the v1.29 release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
+
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 
 You can, but we don't recommend it. Upgrades should be performed when the state of the cluster is known and healthy.

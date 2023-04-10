@@ -83,7 +83,7 @@ AKS defines a GA version as a version enabled in all SLO or SLA measurements and
 
 AKS may also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
-AKS provides platform support only for two GA minor versions of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3 to N-4". See platform support policy.
+AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". See platform support policy.
 
 > [!NOTE]
 > AKS uses safe deployment practices which involve gradual region deployment. This means it may take up to 10 business days for a new release or a new version to be available in all regions.
@@ -131,33 +131,35 @@ New Supported Version List
 ```
 
 ## Platform Support Policy
-For the two minor versions after the Kubernetes support policy, AKS provides platform support. The platform support window of Kubernetes versions on AKS is known as "N-3 to N-4".
+For one GA minor version after the Kubernetes support policy, AKS provides platform support. The platform support window of Kubernetes versions on AKS is known as "N-3".
 
-During platform support, customers running N-3 or N-4 versions will only receive support from Microsoft for AKS platform related issues. Any issues related to the upstream Kubernetes community will not be supported. AKS will not create or apply security updates to any Kubernetes version after it enters the Platform Support period.
+During platform support, customers running N-3 versions will only receive support from Microsoft for AKS platform related issues. Any issues related to the upstream Kubernetes community will not be supported. 
 
-|  | Community Support (N-2) | Platform Support (N-3, N-4) | 
+This table outlines suppport guidelines for Community Support compared to platform support.
+|  | Community Support (N-2) | Platform Support (N-3) | 
 |---|---|---|
-| Software Updates and fixes | Supported | Not supported|
-| Software Hotfixes | Supported | Not supported| 
-| Backporting features |Supported | Not supported| 
+| Kubernetes components (including Add-ons) | Supported | Not supported|
+| Component updates | Supported | Not supported|
+| Component hotfixes | Supported | Not supported|
+| Applying bug fixes | Supported | Not supported|
+| Applying security patches | Supported | Not supported|
+| Kubernetes API support | Supported | Not supported|
+| Platform (Azure) availability | Supported | Supported|
+| Infrastructure SLA| Supported | Supported|
+| Platform (AKS) SLA| Supported | Not supported|
+|Control Plane SLA| Supported | Supported|
+| Cluster or node pool creation| Supported | Not supported|
+| Node pool scaling| Supported | Supported|
+| VM availability| Supported | Supported|
+| Storage, Networking related issues| Supported | Supported with the exception of bug fixes and retired components |
+| Upgrades from N-3 to a supported version| Supported | Supported|
+| Start/stop | Supported | Supported|
+| Rotate certificates | Supported | Supported|
+| Node pool snapshot| Supported | Not supported|
+| Node image upgrade| Supported | Not supported|
 
-The below table outlines expected support responses depending on your support policy. 
-| Support Topics | Community Support (N-2) | Platform Support (N-3, N-4) | 
-|---|---|---|
-| Create, Upgrade, Scale and Delete Operations | Fully Supported | Only Scaling and Delete operations are supported |
-| Pod creation an scheduling | Fully Supported | Fully Supported |
-| Node/node pool availability and performance | Fully Supported | Fully Supported |
-| Storage | Fully Supported | Fully Supported |
-| Connectivity | Fully Supported | Fully Supported |
-| Identity and Security Management | Fully Supported | Fully Supported |
-| DNS, Subnet, and IP Config | Fully Supported | Fully Supported |
-| Application and Development | Fully Supported | Fully Supported |
-| Load Balancer and Ingress controller | Fully Supported | Fully Supported |
-| Monitoring and Logging | Fully Supported | Fully Supported |
-| Extentions, Policies and Add-Ons | Fully Supported | Fully Supported |
-| Quota Requests | Fully Supported | Fully Supported |
-| Planned Maintenance (AKS) | Fully Supported | Fully Supported |
-| Deprecation and Retirement | Fully Supported | Not Supported |
+ > [!NOTE]
+  > The above table is subject to change and outlines common support scenarios. Any scenarios including kubernetes components, fixes, or retirements will not be supported for N-3.
 
 ### Supported `kubectl` versions
 
