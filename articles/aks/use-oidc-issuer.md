@@ -50,7 +50,7 @@ To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace 
 az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
 ```
 
-### Rotate the OIDC key
+## Rotate the OIDC key
 
 To rotate the OIDC key, run the [az aks oidc-issuer][az-aks-oidc-issuer] command. Replace the default values for the cluster name and the resource group name.
 
@@ -61,16 +61,18 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 > [!IMPORTANT]
 > Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
 
-### Check the OIDC keys in OIDC document
+## Check the OIDC keys in discovery document
 
-#### Get the OIDC Issuer URL
+### Get the OIDC Issuer URL
 To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli-interactive
 az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
 ```
-#### Get the `jwks_uri`
-To get the `jwks_uri`, copy `<OIDC issuer Url>.well-known/openid-configuration` in the browser.
+
+### Get the JWK Set document
+
+To get the JWK Set document, retrieve URL https://<OIDC issuer URL>.well-known/openid-configuration
 
 The output should resemble the following:
 
@@ -89,9 +91,11 @@ The output should resemble the following:
   ]
 }
 ```
+  
 
-#### Get the OIDC document
-To get the OIDC document, copy `jwks_uri` in the browser.
+### Get the discovery document
+  
+To get the discovery document, retrieve JWK Set document.
 
 The output of one key should resemble the following:
 
@@ -134,7 +138,7 @@ The output of two keys should resemble the following:
 }
 ```
 
-With one key in the OIDC document, you only have one primary key. With two keys in the OIDC document, you have one primary and one backup key. With three keys in the OIDC document, you have one primary, one backup key and one key is in rotation
+During key rotation, there would be one additional key present in the discovery document.
 
 ## Next steps
 
