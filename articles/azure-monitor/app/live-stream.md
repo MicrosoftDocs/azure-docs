@@ -109,6 +109,65 @@ while (true)
 }
 ```
 
+# [.NET 5.0](#tab/dotnet5)
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using System;
+using System.Threading.Tasks;
+
+namespace LiveStream50
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a TelemetryConfiguration instance.
+            TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+            config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+            QuickPulseTelemetryProcessor quickPulseProcessor = null;
+            config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+                .Use((next) =>
+                {
+                    quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+                    return quickPulseProcessor;
+                })
+                .Build();
+
+            var quickPulseModule = new QuickPulseTelemetryModule();
+
+            // Secure the control channel.
+            // This is optional, but recommended.
+            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+            quickPulseModule.Initialize(config);
+            quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+            // Create a TelemetryClient instance. It is important
+            // to use the same TelemetryConfiguration here as the one
+            // used to set up Live Metrics.
+            TelemetryClient client = new TelemetryClient(config);
+
+            // This sample runs indefinitely. Replace with actual application logic.
+            while (true)
+            {
+                // Send dependency and request telemetry.
+                // These will be shown in Live Metrics.
+                // CPU/Memory Performance counter is also shown
+                // automatically without any additional steps.
+                client.TrackDependency("My dependency", "target", "http://sample",
+                    DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+                client.TrackRequest("My Request", DateTimeOffset.Now,
+                    TimeSpan.FromMilliseconds(230), "200", true);
+                Task.Delay(1000).Wait();
+            }
+        }
+    }
+}
+
+```
+
 # [.NET Framework](#tab/dotnet-framework)
 
 ```csharp
@@ -251,19 +310,24 @@ It's possible to try custom filters without having to set up an authenticated ch
 
 You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps.
 
-#### ASP.NET
+# [.NET 6.0+](#tab/dotnet6)
 
-In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
+Modify `ConfigureServices` of your *Program.cs* file as shown.
 
-```xml
-<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
-      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add>
+Add the following namespace:
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
-#### ASP.NET Core
+Then modify the `ConfigureServices` method:
 
-For [ASP.NET Core](./asp-net-core.md) applications, follow these instructions.
+```csharp
+// Existing code which includes services.AddApplicationInsightsTelemetry() to enable Application Insights.
+builder.Services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+```
+
+# [.NET 5.0](#tab/dotnet5)
 
 Modify `ConfigureServices` of your *Startup.cs* file as shown.
 
@@ -275,15 +339,6 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 Then modify the `ConfigureServices` method:
 
-# [.NET 6.0+](#tab/dotnet6)
-
-```csharp
-// Existing code which includes services.AddApplicationInsightsTelemetry() to enable Application Insights.
-builder.Services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
-```
-
-# [.NET 5.0](#tab/dotnet5)
-
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -291,6 +346,17 @@ public void ConfigureServices(IServiceCollection services)
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 }
 ```
+
+# [.NET 5.0](#tab/dotnet-framework)
+
+In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
+</Add>
+```
+
 
 ---
 
