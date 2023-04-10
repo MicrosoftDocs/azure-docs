@@ -108,10 +108,10 @@ There are multiple ways to create a workspace. To get started use one of the fol
 To automate creation of workspaces using your preferred security settings:
 * [Azure Resource Manager / Bicep templates](how-to-create-workspace-template.md) provide a declarative syntax to deploy Azure resources. An alternative option is to use [Terraform](how-to-manage-workspace-terraform.md). Also see [How to create a secure workspace by using template](tutorial-create-secure-workspace-template.md).
 :::moniker range="azureml-api-2"
-* Use the [Azure Machine Learning CLI](how-to-configure-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment).
-:::moniker range="azureml-api-2"
+* Use the [Azure Machine Learning CLI](how-to-configure-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment.md).
+:::moniker-end
 :::moniker range="azureml-api-1"
-* Use the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment).
+* Use the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment.md).
 :::moniker-end
 * Use [REST APIs](how-to-manage-rest.md) directly in scripting environment, for platform integration or in MLOps workfows.
 
