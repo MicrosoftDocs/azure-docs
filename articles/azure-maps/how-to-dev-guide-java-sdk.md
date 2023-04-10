@@ -33,7 +33,7 @@ The Azure Maps Java SDK can be integrated with Java applications and libraries t
 
 ## Create a Maven project
 
-The following PowerShell code snippet demonstrates how to use PowerShell to create a maven project. First we'll run maven command to create maven project:
+The following PowerShell code snippet demonstrates how to use PowerShell to create a maven project. First, run the maven command to create a maven project:
 
 ```powershell
 mvn archetype:generate "-DgroupId=groupId" "-DartifactId=DemoProject" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.4" "-DinteractiveMode=false" 
@@ -42,15 +42,15 @@ mvn archetype:generate "-DgroupId=groupId" "-DartifactId=DemoProject" "-Darchety
 | Parameter   | Description                                                  |
 |-------------|--------------------------------------------------------------|
 | `-DGroupId` | Group ID uniquely identifies your project across all projects|
-| `-DartifactId` | Project name. It will be created as a new folder.         |
+| `-DartifactId` | Project name. It's created as a new folder.         |
 | `-DarchetypeArtifactId` | project type. `maven-archetype-quickstart` results in a sample project. |
 | `-DinteractiveMode` | Setting to `false` results in a blank Java project with default options. |
 
 ### Install the packages
 
-To use the Azure Maps Java SDK, you will need to install all required packages. Each service in Azure Maps is available in its own package. Services include Search, Render, Traffic, Weather, etc. You only need to install the packages for the service or services you will be using in your project.
+To use the Azure Maps Java SDK, you need to install all required packages. Each service in Azure Maps is available in its own package. The Azure Maps services include Search, Render, Traffic, Weather, etc. You only need to install the packages for the service or services used in your project.
 
-After creating the maven project, there should be a `pom.xml` file with basic information such as group ID, name, artifact ID. This is where you will add a dependency for each of the Azure Maps services, as shown below:
+Once the maven project is created, there should be a `pom.xml` file with basic information such as group ID, name, artifact ID. Next, add a dependency for each of the Azure Maps services, as the following example demonstrates:
 
 ```xml
 <dependency> 
@@ -117,7 +117,7 @@ The client object used to access the Azure Maps Search APIs require either an `A
 
 ### Using an Azure AD credential
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library]. To use the [DefaultAzureCredential] provider, you'll need to add the mvn dependency in the `pom.xml` file:
+You can authenticate with Azure AD using the [Azure Identity library][Identity library]. To use the [DefaultAzureCredential] provider, you need to add the mvn dependency in the `pom.xml` file:
 
 ```xml
 <dependency>
@@ -126,7 +126,7 @@ You can authenticate with Azure AD using the [Azure Identity library][Identity l
 </dependency>
 ```
 
-You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
+You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource's client ID as environment variables:
 
@@ -166,7 +166,7 @@ public class Demo {
 ```
 
 > [!IMPORTANT]
-> The other environment variables created above, while not used in the code sample here, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
+> The other environment variables created in the previous code snippet, while not used in the code sample, are required by are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
 
 ### Using a subscription key credential
 
@@ -345,7 +345,7 @@ In this sample, the `client.SearchAddress` method returns results ordered by con
 
 ## Batch reverse search
 
-Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically as demonstrated in the batch reverse search method:
+Azure Maps Search also provides some batch query methods. These methods return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically as demonstrated in the batch reverse search method:
 
 ```java
 import java.util.ArrayList;

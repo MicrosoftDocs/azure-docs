@@ -12,7 +12,7 @@ services: azure-maps
 
 # C# REST SDK Developers Guide
 
-The Azure Maps C# SDK supports functionality available in the [Azure Maps Rest API][Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporate the power of Azure Maps.
+The Azure Maps C# SDK supports functionality available in the [Azure Maps Rest API][Rest API], like searching for an address, routing between different coordinates, and getting the geo-location of a specific IP address. This article introduces the C# REST SDK with examples to help you get started building location-aware applications in C# that incorporates the power of Azure Maps.
 
 > [!NOTE]
 > Azure Maps C# SDK supports any .NET version that is compatible with [.NET standard 2.0][.NET standard]. For an interactive table, see [.NET Standard versions][.NET Standard versions].
@@ -65,13 +65,13 @@ The client object used to access the Azure Maps Search APIs require either an `A
 
 ### Using an Azure AD credential
 
-You can authenticate with Azure AD using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you'll need to install the Azure Identity client library for .NET:
+You can authenticate with Azure AD using the [Azure Identity library][Identity library .NET]. To use the [DefaultAzureCredential][defaultazurecredential.NET] provider, you need to install the Azure Identity client library for .NET:
 
 ```powershell
 dotnet add package Azure.Identity 
 ```
 
-You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
+You need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
 
@@ -105,7 +105,7 @@ var client = new MapsSearchClient(credential, clientId);
 ```
 
 > [!IMPORTANT]
-> The other environment variables created above, while not used in the code sample here, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
+> The other environment variables created in the previous code snippet, while not used in the code sample, are required by `DefaultAzureCredential()`. If you do not set these environment variables correctly, using the same naming conventions, you will get run-time errors. For example, if your `AZURE_CLIENT_ID` is missing or invalid you will get an `InvalidAuthenticationTokenTenant` error.
 
 ### Using a subscription key credential
 
@@ -167,7 +167,7 @@ foreach (var result in searchResult.Results)
 } 
 ```
 
-The above code snippet demonstrates how to create a `MapsSearchClient` object using your Azure credentials, then uses its [FuzzySearch][FuzzySearch] method, passing in the point of interest (POI) name "_Starbucks_" and coordinates _GeoPosition(-122.31, 47.61)_. This all gets wrapped up by the SDK and sent to the Azure Maps REST endpoints. When the search results are returned, they're written out to the screen using `Console.WriteLine`.
+The above code snippet demonstrates how to create a `MapsSearchClient` object using your Azure credentials, then uses its [FuzzySearch][FuzzySearch] method, passing in the point of interest (POI) name "_Starbucks_" and coordinates _GeoPosition(-122.31, 47.61)_. The SDK packages and sends the results to the Azure Maps REST endpoints. When the search results are returned, they're written out to the screen using `Console.WriteLine`.
 
 The following libraries are used:
 
@@ -236,11 +236,11 @@ if (searchResult.Results.Count > 0)
 }
 ```
 
-Results returned by the `SearchAddress` method are ordered by confidence score and because `searchResult.Results.First()` is used, only the coordinates of the first result will be returned.
+The `SearchAddress` method returns results ordered by confidence score and since `searchResult.Results.First()` is used, only the coordinates of the first result is returned.
 
 ## Batch reverse search
 
-Azure Maps Search also provides some batch query methods. These methods will return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The example below demonstrates how to call the batched reverse search methods:
+Azure Maps Search also provides some batch query methods. These methods return Long Running Operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The following example demonstrates how to call the batched reverse search methods:
 
 ```csharp
 var queries = new List<ReverseSearchAddressQuery>() 
@@ -257,7 +257,7 @@ var queries = new List<ReverseSearchAddressQuery>()
 };
 ```
 
-In the above example, two queries are passed to the batched reverse search request. To get the LRO results, you have few options. The first option is to pass `WaitUntil.Completed` to the method. The request will wait until all requests are finished and return the results:
+In the above example, two queries are passed to the batched reverse search request. To get the LRO results, you have few options. The first option is to pass `WaitUntil.Completed` to the method. The request waits until all requests are finished and return the results:
 
 ```csharp
 // Wait until the LRO return batch results 
@@ -267,7 +267,7 @@ Response<ReverseSearchAddressBatchOperation> waitUntilCompletedResults = client.
 printReverseBatchAddresses(waitUntilCompletedResults.Value); 
 ```
 
-Another option is to pass `WaitUntil.Started`. The request will return immediately, and you'll need to manually poll the results:
+Another option is to pass `WaitUntil.Started`. The request returns immediately, and you need to manually poll the results:
 
 ```csharp
 // Manual polling the batch results 
@@ -291,7 +291,7 @@ Response<ReverseSearchAddressBatchOperation> manualPollingResult = manualPolling
 printReverseBatchAddresses(manualPollingResult.Value);
 ```
 
-The third method requires the operation ID to get the results, which will be cached on the server side for 14 days:
+The third method requires the operation ID to get the results, which is cached on the server side for 14 days:
 
 ```csharp
   ReverseSearchAddressBatchOperation longRunningOperation = client.ReverseSearchAddressBatch(WaitUntil.Started, queries);
