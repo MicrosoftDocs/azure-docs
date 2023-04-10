@@ -137,7 +137,7 @@ After enabling managed identity, assign the role `Cognitive Services User` to yo
 
   1. Go to the [Azure portal](https://portal.azure.com/) and navigate to your Azure OpenAI resource.
   2. Click on the Access Control (IAM) tab on the left. 
-  3. Click on Add -> Add role assignment. 
+  3. Click on Add > Add role assignment. 
   4. Select "Job function roles" and click Next.
   5. Select `Cognitive Services User` from the list of roles and click Next.
   6. Select Assign access to "Managed identity" and click on "Select members". 
