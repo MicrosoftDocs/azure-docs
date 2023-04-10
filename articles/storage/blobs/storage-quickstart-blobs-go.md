@@ -83,7 +83,7 @@ You can authorize access to data in your storage account using the following ste
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     ```
 
-Azure CLI authentication isn't recommended for applications running in Azure. When deployed to Azure, you can use the same code to authorize requests to Azure Storage from an application running in Azure. However, you need to enable managed identity on your app in Azure and configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/developer/go/azure-sdk-authentication-managed-identity) tutorial.
+Azure CLI authentication isn't recommended for applications running in Azure. When deployed to Azure, you can use the same code to authorize requests to Azure Storage from an application running in Azure. However, you need to enable managed identity on your app in Azure and configure your storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/azure/developer/go/azure-sdk-authentication-managed-identity) tutorial.
 
 To learn more about different authentication methods, check out [Azure authentication with the Azure SDK for Go](/azure/developer/go/azure-sdk-authentication).
 

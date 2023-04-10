@@ -3,12 +3,16 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/20/2023
+ms.date: 04/05/2023
+ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ---
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
+
+> [!IMPORTANT]
+>  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 October 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 This article describes the benefits of Extension-based User Hybrid Runbook Worker and how to migrate existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers. 
 
@@ -48,13 +52,13 @@ The purpose of the Extension-based approach is to simplify the installation and 
  
 ### Supported operating systems
 
-| Windows | Linux (x64)|
+| Windows (x64)  | Linux (x64) |
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro| &#9679; Debian GNU/Linux 10 and 11 <br> &#9679; Ubuntu 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro| &#9679; Debian GNU/Linux 8,9,10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, and 8 </br> *Hybrid Worker extension would follow support timelines of the OS vendor. |
 
 ### Other Requirements
 
-| Windows | Linux (x64)|
+| Windows (x64)  | Linux (x64) |
 |---|---|
 | Windows PowerShell 5.1 (download WMF 5.1). PowerShell Core isn't supported.| Linux Hardening must not be enabled.  |
 | .NET Framework 4.6.2 or later. |            |
@@ -809,31 +813,41 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 
 #### [Windows Hybrid Worker](#tab/win-hrw)
 
-1. In the Azure portal, go to your Automation account.
+1. Open PowerShell session in Administrator mode and run the following command:
 
-1. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**.
+   ```powershell-interactive
+    Remove-Item -Path "HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker\<AutomationAccountID>\<HybridWorkerGroupName>" -Force -Verbose
+   ```
+1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
+1. Under **Hybrid worker group**, select **Hybrid Workers**.
+1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
+1. Select **Delete** to remove the agent-based Windows Hybrid Worker.
 
-1. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
-
-```powershell-interactive
-Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
-```
-> [!NOTE]
-> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
-> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
+   > [!NOTE]
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+   > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 #### [Linux Hybrid Worker](#tab/lin-hrw)
 
-You can use the command `ls /var/opt/microsoft/omsagent` on the Hybrid Runbook Worker to get the workspace ID. A folder is created that is named with the workspace ID.
+Run the following commands on agent-based Linux Hybrid Worker:
 
-```bash
-sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
-```
+1. ```python
+      sudo bash
+   ```
 
-> [!NOTE]
-> - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. </br>
-> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
-> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
+1. ```python
+      rm -r /home/nxautomation
+   ```
+1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
+1. Under **Hybrid worker group**, select **Hybrid Workers**.
+1. Select the checkbox next to the machine(s) you want to delete from the hybrid worker group.
+1. Select **Delete** to remove the agent-based Linux Hybrid Worker.
+
+
+   > [!NOTE]
+   > - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. </br>
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+   > - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
 
 ---
 

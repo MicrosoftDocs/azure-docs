@@ -1,5 +1,5 @@
 ---
-title: Four steps to a strong identity foundation - Azure AD
+title: Four steps to a strong identity foundation
 description: This article describes four steps hybrid identity customers can take to build a strong identity foundation.
 services: active-directory
 author: martincoetzer

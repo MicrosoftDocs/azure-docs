@@ -26,6 +26,8 @@
       - name: Create an instance - ARM template
         displayName: Resource Manager
         href: quickstart-arm-template.md
+      - name: Create an instance - Terraform
+        href: quickstart-terraform.md
 - name: Tutorials
   items:
       - name: 1 - Import your first API
@@ -70,6 +72,8 @@
         href: self-hosted-gateway-overview.md
       - name: High availability
         href: high-availability.md
+      - name: Workspaces
+        href: workspaces-overview.md
         displayName: reliability, resilience, resiliency  
       - name: Networking
         href: virtual-network-concepts.md
@@ -128,6 +132,10 @@
               href: api-management-howto-disaster-recovery-backup-restore.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
+            - name: Create a workspace
+              href: how-to-create-workspace.md
+            - name: Use a workspace
+              href: api-management-in-workspace.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
             - name: Send events to Event Grid
@@ -232,9 +240,6 @@
                   href: backends.md
                 - name: Automate API deployments
                   href: /azure/architecture/example-scenario/devops/automated-api-deployments-apiops?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-                - name: Test and monitor APIs in Postman
-                  href: export-api-postman.md
-                  displayName: collection
           - name: Cache
             items:
                 - name: Add caching to improve performance
@@ -350,8 +355,19 @@
                   href: developer-portal-alternative-processes-self-host.md
                 - name: Test self-hosted portal
                   href: developer-portal-testing.md
-            - name: Export APIs to the Power Platform
-              href: export-api-power-platform.md  
+      - name: Export APIs
+        items:
+        - name: Test and monitor APIs in Postman
+          href: export-api-postman.md
+          displayName: collection
+        - name: Export APIs to the Power Platform
+          items:
+            - name: Export API as custom connector
+              href: export-api-power-platform.md
+              displayName: Power Platform
+            - name: Enable CORS for custom connector
+              href: enable-cors-power-platform.md
+              displayName: Power Platform
       - name: Monitor APIs
         items:
         - name: Get API analytics
@@ -438,6 +454,8 @@
               href: invoke-dapr-binding-policy.md
             - name: ip-filter
               href: ip-filter-policy.md
+            - name: jsonp
+              href: jsonp-policy.md
             - name: json-to-xml
               href: json-to-xml-policy.md
             - name: limit-concurrency

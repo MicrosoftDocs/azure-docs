@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 01/23/2023
+ms.date: 03/10/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,17 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
+
+## Version 1.28 - March 2023
+
+### Fixed
+
+- Improved reliability of delete requests for extensions
+- More frequent reporting of VM UUID (system firmware identifier) changes
+- Improved reliability when writing changes to agent configuration files
+- JSON output for `azcmagent connect` now includes Azure portal URL for the server
+- Linux installation script now installs the `gnupg` package if it's missing on Debian operating systems
+- Removed weekly restarts for the extension and guest configuration services
 
 ## Version 1.27 - February 2023
 
@@ -67,24 +78,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - Agent will now detect drift between the proxy settings of the command line tool and background services
 - Fixed a bug with proxy bypass feature that caused the agent to incorrectly use the proxy server for bypassed URLs
 - Improved error handling when extensions don't download successfully, fail validation, or have corrupt state files
-
-## Version 1.23 - October 2022
-
-### New features
-
-- The minimum PowerShell version required on Windows Server has been reduced to PowerShell 4.0
-- The Windows agent installer is now compatible with systems that enforce a Microsoft publisher-based Windows Defender Application Control policy.
-- Added support for Rocky Linux 8 and Debian 11.
-
-### Fixed
-
-- Tag values are correctly preserved when connecting a server and specifying multiple tags (fixes known issue from version 1.22).
-- An issue preventing some users who tried authenticating with an identity from a different tenant than the tenant where the server is (will be) registered has been fixed.
-- The `azcamgent check` command no longer validates CNAME records to reduce warnings that did not impact agent functionality.
-- The agent will now try to obtain an access token for up to 5 minutes when authenticating with an Azure Active Directory service principal.
-- Cloud presence checks now only run once at the time the `himds` service starts on the server to reduce local network traffic. If you live migrate your virtual machine to a different cloud provider, it will not reflect the new cloud provider until the service or computer has rebooted.
-- Improved logging during the installation process.
-- The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
 
 ## Next steps
 

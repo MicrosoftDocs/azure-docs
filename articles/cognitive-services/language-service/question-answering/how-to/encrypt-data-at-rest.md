@@ -6,7 +6,7 @@ author: erindormier
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2022
 ms.author: egeaney
 ms.custom: language-service-question-answering, ignite-fall-2021

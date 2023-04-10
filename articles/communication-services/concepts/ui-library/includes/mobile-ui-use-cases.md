@@ -101,7 +101,7 @@ The `ChatComposite` was designed to fit into different layouts and views in your
 
 ## Supported identities
 
-To initialize a composite and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
+To initialize a composite, and authenticate to the service, a user must have an Azure Communication Services identity. For more information, see [Authenticate to Azure Communication Services](../../authentication.md) and [Quickstart: Create and manage access tokens](../../../quickstarts/identity/access-tokens.md).
 
 ## Recommended architecture
 
@@ -129,7 +129,7 @@ Call and chat client libraries must have the context for the call they join. Lik
 
 When troubleshooting happens for voice or video calls, you may be asked to provide a **CallID**; this ID is used to identify Communication Services calls.
 
-This CallID can be retrieved via the action bar on the bottom of the call screen; you'll see an ellipsis button; once the user performs the tap action an option of ***"Share diagnostics info"***; the user will have the capability to share **the diagnostics info** that will be required to track  any issues by the support team.
+This CallID can be retrieved via the action bar on the bottom of the call screen; you see an ellipsis button; once the user performs the tap action an option of ***"Share diagnostics info"***; the user can share **the diagnostics info** that's required to track any issues by the support team.
 
 For programmatic access to **CallID**, see ["How to get debug information programmatically"](../../../how-tos/ui-library-sdk/troubleshooting.md).
 

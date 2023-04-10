@@ -1,9 +1,9 @@
 ---
 title: How to deploy tenant workloads prerequisites
 description: Learn the prerequisites for creating VMs for VNF workloads and for creating AKS-Hybrid clusters for CNF workloads
-author: jwheeler60 #Required; your GitHub user alias, with correct capitalization.
-ms.author: johnwheeler #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+author: dramasamy #Required; your GitHub user alias, with correct capitalization.
+ms.author: dramasamy #Required; microsoft alias of author; optional team alias.
+ms.service: azure-operator-nexus #Required; service per approved list. slug assigned by ACOM.
 ms.topic: quickstart #Required; leave this attribute/value as-is.
 ms.date: 01/25/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
@@ -49,11 +49,25 @@ You need:
 - your Azure account and the subscription ID of Operator Nexus cluster deployment
 - the `custom location` resource ID of your Operator Nexus cluster
 
+## AKS-Hybrid availability zone
+`--zones` option in `az hybridaks create` or `az hybridaks nodepool add` can be used to distribute the AKS-Hybrid clusters across different zones for better fault tolerance and performance. When creating an AKS-Hybrid cluster, you can use the `--zones` option to schedule the cluster onto specific racks or distribute it evenly across multiple racks, improving resource utilization and fault tolerance.
+
+If you do not specify a zone when creating an AKS-Hybrid cluster through the `--zones` option, the Operator Nexus platform automatically implements a default anti-affinity rule. This anti-affinity rule aims to prevent scheduling the cluster VM on a node that already has a VM from the same cluster, but it's a best-effort approach and can't guarantee it.
+
+To obtain the list of available zones in the given Operator Nexus instance, you can use the following command.
+
+```azurecli
+    az networkcloud cluster show \
+      --resource-group <Operator Nexus on-prem cluster Resource Group> \
+      --name <Operator Nexus on-prem cluster name> \
+      --query computeRackDefinitions[*].availabilityZone
+```
+
 ### Review Azure container registry
 
-[Azure Container Registry](/azure/container-registry/container-registry-intro) is a managed registry service to store and manage your container images and related artifacts.
-The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli), [Push/Pull a Helm chart](/azure/container-registry/container-registry-helm-repos), etc., security and monitoring.
-For more details, also see [Azure Container Registry](/azure/container-registry/).
+[Azure Container Registry](../container-registry/container-registry-intro.md) is a managed registry service to store and manage your container images and related artifacts.
+The document provides details on how to create and maintain the Azure Container Registry operations such as [Push/Pull an image](../container-registry/container-registry-get-started-docker-cli.md?tabs=azure-cli), [Push/Pull a Helm chart](../container-registry/container-registry-helm-repos.md), etc., security and monitoring.
+For more details, also see [Azure Container Registry](../container-registry/index.yml).
 
 ## Install CLI extensions
 

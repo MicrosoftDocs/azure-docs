@@ -1,0 +1,31 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Active Directory
+    tocHref: /azure/active-directory/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/develop/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/managed-identities-azure-resources/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/identity-protection/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/conditional-access/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/privileged-identity-management/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/manage-apps/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /azure/active-directory/reports-monitoring/
+    topicHref: /azure/active-directory/index
+  - name: Active Directory
+    tocHref: /graph/api/resources/
+    topicHref: /azure/active-directory/index

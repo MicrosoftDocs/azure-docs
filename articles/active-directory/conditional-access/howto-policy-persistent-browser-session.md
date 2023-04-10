@@ -1,5 +1,5 @@
 ---
-title: Require reauthentication with Conditional Access - Azure Active Directory
+title: Require reauthentication with Conditional Access
 description: Create a custom Conditional Access policy requiring reauthentication
 
 services: active-directory

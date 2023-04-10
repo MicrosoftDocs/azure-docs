@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Scheduler | Microsoft Docs'
+title: 'Azure AD Connect sync: Scheduler'
 description: This topic describes the built-in scheduler feature in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''

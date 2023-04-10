@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/14/2022
+ms.date: 03/15/2023
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
@@ -69,7 +69,7 @@ You need the following resources:
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio 
+#### Form Recognizer Studio
 
 > [!NOTE]
 > Form Recognizer studio and the general document model are available with the v3.0 API.

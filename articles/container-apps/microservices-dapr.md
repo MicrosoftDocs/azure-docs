@@ -330,7 +330,9 @@ $ServiceArgs = @{
     DaprAppId = 'nodeapp'
     DaprAppPort = 3000
     IdentityType = 'UserAssigned'
-    IdentityUserAssignedIdentity = $IdentityId
+    IdentityUserAssignedIdentity = @{
+        $IdentityId = @{}
+    }
 }
 New-AzContainerApp @ServiceArgs
 ```

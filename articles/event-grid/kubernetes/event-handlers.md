@@ -13,9 +13,9 @@ An event handler is any system that exposes an endpoint and is the destination f
 
 The way to configure Event Grid to send events to a destination is through the creation of an event subscription. It can be done through [Azure CLI](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create), [management SDK](../sdk-overview.md#management-sdks), or using direct HTTPs calls using the [2020-10-15-preview API](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update) version.
 
-In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-prem or anywhere that Event Grid can reach. 
+In general, Event Grid on Kubernetes can send events to any destination via **Webhooks**. Webhooks are HTTP(s) endpoints exposed by a service or workload to which Event Grid has access. The webhook can be a workload hosted in the same cluster, in the same network space, on the cloud, on-premises or anywhere that Event Grid can reach. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [preview-feature-note.md](../includes/preview-feature-note.md)]
 
 Through Webhooks, Event Grid supports the following destinations **hosted on a Kubernetes cluster**:
 
@@ -38,10 +38,10 @@ Event Grid on Kubernetes offers a good level of feature parity with Azure Event 
 
 1. Use [REST api version 2020-10-15-preview](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions).
 2. [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp%2Cconsole) isn't supported. You can use a WebHook destination type to deliver events to Azure Functions.
-3. There's no [dead letter location](../manage-event-delivery.md#set-dead-letter-location) support. That means that you cannot use ``properties.deadLetterDestination`` in your event subscription payload.
+3. There's no [dead letter location](../manage-event-delivery.md#set-dead-letter-location) support. That means that you can't use ``properties.deadLetterDestination`` in your event subscription payload.
 4. Azure Relay's Hybrid Connections as a destination isn't supported yet.
 5. Only CloudEvents schema is supported. The supported schema value is "[CloudEventSchemaV1_0](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update#eventdeliveryschema)". Cloud Events schema is extensible and based on open standards.  
-6. Labels ([properties.labels](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update#request-body)) aren't applicable to Event Grid on Kubernetes. Hence, they are not available.
+6. Labels ([properties.labels](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update#request-body)) aren't applicable to Event Grid on Kubernetes. Hence, they aren't available.
 7. [Delivery with resource identity](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update#deliverywithresourceidentity) isn't supported. So, all properties for [Event Subscription Identity](/rest/api/eventgrid/controlplane-version2021-10-15-preview/event-subscriptions/create-or-update#eventsubscriptionidentity) aren't supported.
 8. [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) isn't supported yet.
 
@@ -74,7 +74,7 @@ To publish to a WebHook endpoint, set the `endpointType` to `WebHook` and provid
 
 To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `WebHook` and provide:
 
-* **endpointUrl**: Azure event grid topic URL in the cloud with the API version parameter set to **2018-01-01** and `aeg-sas-key` set to the URL encoded SAS key. 
+* **endpointUrl**: Azure Event Grid topic URL in the cloud with the API version parameter set to **2018-01-01** and `aeg-sas-key` set to the URL encoded SAS key. 
 
    ```json
     {
@@ -91,7 +91,7 @@ To publish to an Azure Event Grid cloud endpoint, set the `endpointType` to `Web
 
 ## Event Hubs
 
-To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
+To publish to an Event Hubs, set the `endpointType` to `eventHub` and provide:
 
 * **resourceId**: resource ID for the specific event hub.
 

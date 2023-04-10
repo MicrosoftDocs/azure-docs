@@ -14,7 +14,7 @@ ms.date: 02/16/2023
 
 [!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
+[!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/Azure-database-for-mysql-flexible-server-abstract.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -541,7 +541,6 @@ Remove-AzResourceGroup -Name exampleRG
 ```
 
 ---
-
 
 ## Next steps
 
