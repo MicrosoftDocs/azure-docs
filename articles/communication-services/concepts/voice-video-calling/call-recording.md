@@ -37,18 +37,20 @@ Call Recording supports multiple media outputs and content types to address your
 
 ### Video
 
-| Channel Type | Content Format | Resolution | Sampling Rate | Output | Description |
-| :----------- | :------------- | :----------- | :---- | :--------------------------- | :------------ |
-| mixed | mp4 | 1920x1080, 16 FPS (frames per second) | 16 kHz | single file, single channel | mixed video in a default 3x3 (most active speakers) tile arrangement with display name support |
+| Channel Type | Content Format | Resolution | Sampling Rate | Bit rate | Data rate | Output | Description |
+| :----------- | :------------- | :----------- | :---- | :----------- | :------------ | :--------------------------- | :------------ |
+| mixed | mp4 | 1920x1080, 16 FPS (frames per second) | 16 kHz | 1 mbps | 7.5 MB/min* | single file, single channel | mixed video in a default 3x3 (most active speakers) tile arrangement with display name support |
 
 ### Audio
 
-| Channel Type | Content Format | Sampling Rate | Output | Description |
-| :----------- | :------------- | :----------- | :---- | :---------------- | 
-| mixed | mp3 & wav | 16 kHz | single file, single channel | mixed audio of all participants |
-| unmixed | wav | 16 kHz | single file, up to 5 wav channels | unmixed audio, one participant per channel, up to five channels |
+| Channel Type | Content Format | Sampling Rate | Bit rate | Data rate | Output | Description |
+| :----------- | :------------- | :----------- |  :--------- | :--------- | :--------- | :---------------- | 
+| mixed | mp3 | 16 kHz | 48 kbps | 0.36 MB/min* | single file, single channel | mixed audio of all participants |
+| mixed | wav | 16 kHz | 256 kbps | 1.92 MB/min | single file, single channel | mixed audio of all participants |
+| unmixed | wav | 16 kHz | 256 kbps | 1.92 MB/min* per channel | single file, up to 5 wav channels | unmixed audio, one participant per channel, up to five channels |
 
-
+> [*NOTE]
+> Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 48 hours.** After 48 hours, recordings will no longer be available.
 
 ## Get full control over your recordings with our Call Recording APIs
 Call Recording APIs can be used to manage recording via internal business logic triggers, such as an application creating a group call and recording the conversation. Also, recordings can be triggered by a user action that tells the server application to start recording. Call Recording APIs use exclusively the `serverCallId` to initiate recording. To learn how to get the `serverCallId`, check our [Call Recording Quickstart](../../quickstarts/voice-video-calling/get-started-call-recording.md).
@@ -70,9 +72,9 @@ Call Recording use [Azure Event Grid](../../../event-grid/event-schema-communica
 
 
 > [!NOTE]
-> Azure Communication Services provides short term media storage for recordings. **Recordings will be available to download for 48 hours.** After 48 hours, recordings will no longer be available.
+> Mp3 and Mp4 formats use lossy compression that results in variable bitrate; therefore, data rate values in the tables above reflect the theoretical maximum. WAV format bitrate is fixed, so the data rate provided above is a high-confidence estimate.
 
-An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file.
+An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` is published when a recording is ready for retrieval, typically a few minutes after the recording process has completed (for example, meeting ended, recording stopped). Recording event notifications include `contentLocation` and `metadataLocation`, which are used to retrieve both recorded media and a recording metadata file. 
 
 ### Notification Schema Reference
 
