@@ -1,7 +1,7 @@
 ---
 title: Guide to the standalone Durable Functions PowerShell SDK
 description: Learn about the standalone Durable Functions PowerShell SDK, and how to upgrade to it
-author: dajusto
+author: davidmrdavid
 ms.topic: conceptual
 ms.date: 04/10/2023
 ms.reviewer: azfuncdf
@@ -75,6 +75,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 1. Choose your subscription and function app when prompted
 2. For the name, type `ExternalDurablePowerShellSDK` and press <kbd>Enter</kbd>. 
 3. For the value, type `"true"` and press <kbd>Enter</kbd>.
+---
 
 ### Install and import the SDK
 
