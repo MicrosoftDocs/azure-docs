@@ -655,7 +655,7 @@ This command creates an External network using Azure CLI.
 |Parameter|Description|Example|Required|
 |---|---|---|---|
 |peeringOption |Peering using either optionA or optionb. Possible values OptionA and OptionB |OptionB| True|
-|optionBProperties | OptionB properties confguration.To specify use exportRouteTargets or importRouteTargets|"exportRouteTargets": ["1234:1234"]}}||
+|optionBProperties | OptionB properties configuration. To specify use exportRouteTargets or importRouteTargets|"exportRouteTargets": ["1234:1234"]}}||
 |optionAProperties | Configuration of OptionA properties. Please refer to OptionA example in section below |||
 |external|This is an optional Parameter to input MPLS Option 10 (B) connectivity to external networks via PE devices. Using this Option, a user can Input Import and Export Route Targets as shown in the example| || 
 
