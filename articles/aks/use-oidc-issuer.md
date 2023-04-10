@@ -97,24 +97,7 @@ The output should resemble the following:
   
 To get the discovery document, retrieve JWK Set document.
 
-The output of one key should resemble the following:
-
-```output
-{
-  "keys": [
-    {
-      "use": "sig",
-      "kty": "RSA",
-      "kid": "xxx",
-      "alg": "xxx",
-      "n": "xxx",
-      "e": "AQAB"
-    }
-  ]
-}
-```
-
-The output of two keys should resemble the following:
+The output should resemble the following:
 ```output
 {
   "keys": [
