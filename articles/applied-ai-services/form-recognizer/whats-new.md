@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 03/15/2023
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
