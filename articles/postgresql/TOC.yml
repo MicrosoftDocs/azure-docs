@@ -534,6 +534,8 @@
           href: flexible-server/concepts-query-store-best-practices.md
         - name: Intelligent tuning
           href: flexible-server/concepts-intelligent-tuning.md
+        - name: Query Performance Insight
+          href: flexible-server/concepts-query-performance-insight.md
     - name: Replication
       items:
         - name: Read replicas

@@ -59,7 +59,7 @@ When the **Application Insights** feature is enabled, you can:
 
    :::image type="content" source="media/how-to-application-insights/insights-process-agent-failures.png" alt-text="Screenshot of Azure portal Application Insights with Failures page showing." lightbox="media/how-to-application-insights/insights-process-agent-failures.png":::
 
-* In the navigation pane, select **Metrics** and then select the namespace. You see both Spring Boot metrics and custom metrics, if any.
+* In the navigation pane, select **Metrics** and select the namespace to see both Spring Boot metrics and custom metrics, if any.
 
    :::image type="content" source="media/how-to-application-insights/insights-process-agent-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Metrics page showing." lightbox="media/how-to-application-insights/insights-process-agent-metrics.png":::
 
@@ -77,7 +77,7 @@ When the **Application Insights** feature is enabled, you can:
 
 ## Manage Application Insights using the Azure portal
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 Enable the Java In-Process Agent by using the following procedure.
 
@@ -95,7 +95,7 @@ Enable the Java In-Process Agent by using the following procedure.
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 You can use the Portal to check or update the current settings in Application Insights.
 
@@ -149,7 +149,7 @@ You can manage Application Insights using Azure CLI commands. In the following c
 
 To configure Application Insights when creating an Azure Spring Apps instance, use the following command. For the `app-insights` argument, you can specify an Application Insights name or resource ID.
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 ```azurecli
 az spring create \
@@ -161,7 +161,7 @@ az spring create \
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 ```azurecli
 az spring create \
@@ -176,7 +176,7 @@ az spring create \
 
 You can also use an Application Insights connection string (preferred) or instrumentation key, as shown in the following example.
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 ```azurecli
 az spring create \
@@ -188,7 +188,7 @@ az spring create \
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 ```azurecli
 az spring create \
@@ -205,7 +205,7 @@ az spring create \
 
 To disable Application Insights when creating an Azure Spring Apps instance, use the following command:
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 ```azurecli
 az spring create \
@@ -216,7 +216,7 @@ az spring create \
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 ```azurecli
 az spring create \
@@ -228,7 +228,7 @@ az spring create \
 
 ::: zone-end
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 ### Check Application Insights settings
 
@@ -275,7 +275,7 @@ az spring app-insights update \
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 ### Manage Application Insights buildpack bindings
 
@@ -342,7 +342,7 @@ az spring build-service builder buildpack-binding delete \
 
 ## Automation
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 The following sections describe how to automate your deployment using Bicep, Azure Resource Manager templates (ARM templates) or Terraform.
 
@@ -457,7 +457,7 @@ resource "azurerm_spring_cloud_service" "example" {
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 Automation in Enterprise tier is pending support. Documentation is added as soon as it's available.
 
@@ -465,26 +465,26 @@ Automation in Enterprise tier is pending support. Documentation is added as soon
 
 ## Java agent update/upgrade
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 The Java agent is updated/upgraded regularly with the JDK, which may affect the following scenarios.
 
 > [!NOTE]
 > The JDK version is updated/upgraded quarterly per year.
 
-* Existing applications that use the Java agent before updating/upgrading won't be affected.
+* Existing applications that use the Java agent before updating/upgrading aren't affected.
 * Applications created after updating/upgrading use the new version of the Java agent.
 * Existing applications that didn't previously use the Java agent require restart or redeployment to use the new version of the Java agent.
 
 ::: zone-end
 
-::: zone pivot="sc-enterprise-tier"
+::: zone pivot="sc-enterprise"
 
 The Java agent is updated/upgraded when the buildpack is updated.
 
 ::: zone-end
 
-::: zone pivot="sc-standard-tier"
+::: zone pivot="sc-standard"
 
 ## Java agent configuration hot-loading
 
