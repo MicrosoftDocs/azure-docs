@@ -1,5 +1,5 @@
 ---
-title: Understand branch connectivity
+title: Understand branch connectivity with Global Secure Access
 description: Learn about branch connectivity in Global Secure Access.
 author: kenwith
 ms.author: kenwith
@@ -18,10 +18,13 @@ Branches are remote locations or networks that require internet connectivity. Fo
 
 ## Current challenges of branch security 
 
-1. **Bandwidth requirements have grown** – The number of devices requiring Internet access has increased exponentially. Traditional networks are difficult to scale. With the advent of Software as a Service (SaaS) applications like Microsoft 365, there are ever-growing demands of low latency and jitter-less communication that traditional technologies like Wide Area Network (WAN) and Multi-Protocol Label Switching (MPLS) struggle with. 
-1. **IT teams are expensive** – Typically, firewalls are placed on physical devices on-premises, which requires an IT team for setup and maintenance. Maintaining an IT team at every branch location is expensive. 
-1. **Evolving threats** – Malicious actors are finding new avenues to attack the devices at the edge of networks. These edge devices are often the most vulnerable point of attack.
-1. **No holistic solution for network and security** – Software Defined Wide Area Network (SD-WAN) is definitely a step up from legacy WAN, but these SD-WAN appliances aren't designed to meet all security requirements. As a result, enterprises have to manage a patchwork of network and security offerings from multiple vendors.  
+**Bandwidth requirements have grown** – The number of devices requiring Internet access has increased exponentially. Traditional networks are difficult to scale. With the advent of Software as a Service (SaaS) applications like Microsoft 365, there are ever-growing demands of low latency and jitter-less communication that traditional technologies like Wide Area Network (WAN) and Multi-Protocol Label Switching (MPLS) struggle with. 
+
+**IT teams are expensive** – Typically, firewalls are placed on physical devices on-premises, which requires an IT team for setup and maintenance. Maintaining an IT team at every branch location is expensive. 
+
+**Evolving threats** – Malicious actors are finding new avenues to attack the devices at the edge of networks. These edge devices are often the most vulnerable point of attack.
+
+**No holistic solution for network and security** – Software Defined Wide Area Network (SD-WAN) is definitely a step up from legacy WAN, but these SD-WAN appliances aren't designed to meet all security requirements. As a result, enterprises have to manage a patchwork of network and security offerings from multiple vendors.  
 
 ## How does Global Secure Access branch connectivity work? 
 To connect a branch office to Global Secure Access, you set up an Internet Protocol Security (IPSec) tunnel between your on-premises equipment and the Microsoft service endpoint. Traffic that you specify is routed through the IPSec tunnel to the Microsoft cloud. You apply security policies in the Microsoft Entra admin portal.
