@@ -102,7 +102,7 @@ The following example enables Istio add-on for an existing AKS cluster:
     Istio
     ```
 
-1. Get the credentials for your AKS cluster by using the [az aks get-credentials][az-aks-get-credentials] command:
+1. Get the credentials for your AKS cluster:
 
     ```azurecli-interactive
     az aks get-credentials --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
@@ -200,5 +200,3 @@ To automatically install sidecar to any new pods, annotate your namespaces:
 
 [uninstall-osm-addon]: open-service-mesh-uninstall-add-on.md
 [uninstall-istio-oss]: https://istio.io/latest/docs/setup/install/istioctl/#uninstall-istio
-
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
