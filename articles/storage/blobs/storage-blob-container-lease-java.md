@@ -16,7 +16,7 @@ ms.custom: devx-track-java, devguide-java
 
 # Create and manage container leases with Java
 
-This article shows how to create and manage container leases using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can use the client library to acquire, renew, release, and break blob leases.
+This article shows how to create and manage container leases using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). You can use the client library to acquire, renew, release, and break container leases.
 
 ## About container leases
 
