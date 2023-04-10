@@ -17,7 +17,7 @@ ms.author: b-ahibbard
 ---
 # Configure application volume groups for the SAP HANA REST API
 
-Application volume group (AVG) enables you to deploy all volumes for a single HANA host in one atomic step. The Azure portal and the Azure Resource Manager template have implemented pre-checks and recommendations for deployment in areas including throughputs and volume naming conventions. As a REST API user, those checks and recommendations are not available.
+Application volume groups (AVG) enable you to deploy all volumes for a single HANA host in one atomic step. The Azure portal and the Azure Resource Manager template have implemented pre-checks and recommendations for deployment in areas including throughputs and volume naming conventions. As a REST API user, those checks and recommendations are not available.
 
 Without these checks, it's important to understand the requirements for running HANA on Azure NetApp Files and the basic architecture and workflows application volume groups on which are built.
 
