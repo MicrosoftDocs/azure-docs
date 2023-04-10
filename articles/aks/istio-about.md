@@ -2,13 +2,15 @@
 title: Istio based service mesh add-on for Azure Kubernetes Service (preview)
 description: Istio based service mesh add-on for Azure Kubernetes Service.
 ms.topic: article
-ms.date: 04/06/2023
+ms.date: 04/09/2023
 ms.author: shasb
 ---
 
 # Istio based service mesh add-on for Azure Kubernetes Service (preview)
 
 [Istio][istio-overview] addresses the challenges developers and operators face with a distributed or microservices architecture. The Istio based service mesh add-on provides an officially supported and tested integration for Azure Kubernetes Service (AKS).
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## What is a Service Mesh?
 
@@ -30,13 +32,13 @@ Istio is an open source service mesh that layers transparently onto existing dis
 
 ## How is the add-on different from open source Istio?
 
-This service mesh add-on uses and builds on top of open-source Istio. The add-on flavor provides the following extra benefits - 
+This service mesh add-on uses and builds on top of open-source Istio. The add-on flavor provides the following extra benefits:
 
-* Istio versions are tested and verified to be compatible with supported versions of Azure Kubernetes Service
-* Scaling of Istio control plane configured and handled by Microsoft
-* Verified external and internal ingress set-up
-* Verified to work with [Azure Monitor managed service for Prometheus][managed-prometheus-overview] and [Azure Managed Grafana][managed-grafana-overview]
-* Official Azure support provided for the add-on
+* Istio versions are tested and verified to be compatible with supported versions of Azure Kubernetes Service.
+* Scaling of Istio control plane configured and handled by Microsoft.
+* Verified external and internal ingress set-up.
+* Verified to work with [Azure Monitor managed service for Prometheus][managed-prometheus-overview] and [Azure Managed Grafana][managed-grafana-overview].
+* Official Azure support provided for the add-on.
 
 ## Limitations
 
@@ -44,6 +46,7 @@ Istio based service mesh add-on for AKS has the following limitations:
 
 * The add-on currently doesn't work on AKS clusters using [Azure CNI Powered by Cilium][azure-cni-cilium].
 * The add-on doesn't work on AKS clusters that are using [Open Service Mesh addon for AKS][open-service-mesh-about].
+* The add-on doesn't work on AKS clusters that have Istio installed on them already outside the add-on installation.
 * Istio doesn't support Windows Server containers.
 
 [istio-overview]: https://istio.io/latest/
