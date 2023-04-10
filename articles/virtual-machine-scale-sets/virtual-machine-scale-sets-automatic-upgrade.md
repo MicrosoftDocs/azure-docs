@@ -193,11 +193,34 @@ The following example describes how to set automatic OS upgrades on a scale set 
 "properties": { 
    "upgradePolicy": { 
      "mode": "Automatic", 
+     "RollingUpgradePolicy": {
+         "BatchInstancePercent": 20,
+         "MaxUnhealthyInstancePercent": 25,
+         "MaxUnhealthyUpgradedInstancePercent": 25,
+         "PauseTimeBetweenBatches": "PT0S"
       "automaticOSUpgradePolicy": { 
-        "enableAutomaticOSUpgrade": true 
+        "enableAutomaticOSUpgrade": true,
+         "useRollingUpgradePolicy": true,
+         "disableAutomaticRollback": false 
       } 
     } 
-} 
+"imagePublisher": {
+   "type": "string",
+   "defaultValue": "MicrosoftWindowsServer"
+ },
+ "imageOffer": {
+   "type": "string",
+   "defaultValue": "WindowsServer"
+ },
+ "imageSku": {
+   "type": "string",
+   "defaultValue": "2022-datacenter"
+ },
+ "imageOSVersion": {
+   "type": "string",
+   "defaultValue": "latest"
+ } 
+}
 ```
 
 ### Bicep
