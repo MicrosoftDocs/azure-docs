@@ -22,7 +22,7 @@ In this quickstart, you incorporate Azure App Configuration Kubernetes Provider 
 
 * An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 * An Azure Container Registry. [Create a registry](/azure/aks/tutorial-kubernetes-prepare-acr#create-an-azure-container-registry).
-* An Azure Kubernetes Service (AKS) cluster that integrates with the Azure Container Registry you created. [Create an AKS cluster](/azure/aks/tutorial-kubernetes-deploy-cluster#create-a-kubernetes-cluster).
+* An Azure Kubernetes Service (AKS) cluster that is granted permission to pull images from your Azure Container Registry. [Create an AKS cluster](/azure/aks/tutorial-kubernetes-deploy-cluster#create-a-kubernetes-cluster).
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Azure CLI](/cli/azure/install-azure-cli)
 * [helm](https://helm.sh/docs/intro/install/)
@@ -33,12 +33,11 @@ In this quickstart, you incorporate Azure App Configuration Kubernetes Provider 
 >
 
 ## Create an application running in AKS
-
-In this section, it creates an ASP.NET Core web application that consumes environment variables as configuration and run it in Azure Kubernetes Service. This section has nothing to do with Azure App Configuration or Azure App Configuration Kubernetes Provider, it just for demonstrating the end-to-end usage scenario of Azure App Configuration Kubernetes Provider later. If you already have an application that is consuming environment variables in Kubernetes, you can just skip this section and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider). 
+In this section, you will create a simple ASP.NET Core web application running in Azure Kubernetes Service (AKS). The application reads configuration from the environment variables defined in a Kubernetes deployment. In the next section, you will enable it to consume configuration from Azure App Configuration without changing the application code. If you already have an AKS application that reads configuration from environment variables, you can skip this section and go to [Use App Configuration Kubernetes Provider](#use-app-configuration-kubernetes-provider).
 
 ### Create an application
 
-1. Use the .NET Core command-line interface (CLI) and run the following command to create a new ASP.NET Core web app project in a new MyWebApp directory:
+1. Use the .NET Core command-line interface (CLI) and run the following command to create a new ASP.NET Core web app project in a new *MyWebApp* directory:
    
     ```dotnetcli
     dotnet new webapp --output MyWebApp --framework net6.0
@@ -57,18 +56,18 @@ In this section, it creates an ASP.NET Core web application that consumes enviro
 
     <style>
         h1 {
-            color: @Configuration.GetSection("Settings")["FontColor"];
+            color: @Configuration["Settings:FontColor"];
         }
     </style>
 
     <div class="text-center">
-        <h1 class="display-4">@Configuration.GetSection("Settings")["Message"]</h1>
+        <h1 class="display-4">@Configuration["Settings:Message"]</h1>
     </div>
     ```
 
 ### Containerize the application 
 
-1. Run the [dotnet publish](/dotnet/core/tools/dotnet-publish) command to build the app in release mode and create the assets in the published folder.
+1. Run the [dotnet publish](/dotnet/core/tools/dotnet-publish) command to build the app in release mode and create the assets in the *published* folder.
    
     ```dotnetcli
     dotnet publish -c Release -o published
@@ -116,9 +115,9 @@ In this section, it creates an ASP.NET Core web application that consumes enviro
 
 ### Deploy the application
 
-1.  Create an *AKS-AppConfiguration-Demo* directory in the root directory of your project.
+1.  Create an *Deployment* directory in the root directory of your project.
 
-1. Add a *deployment.yaml* file to the *AKS-AppConfiguration-Demo* directory with the following content to create a deployment. Replace the value of `template.spec.containers.image` with the image you created in the previous step.
+1. Add a *deployment.yaml* file to the *Deployment* directory with the following content to create a deployment. Replace the value of `template.spec.containers.image` with the image you created in the previous step.
 
     ```yaml
     apiVersion: apps/v1
@@ -149,7 +148,7 @@ In this section, it creates an ASP.NET Core web application that consumes enviro
               value: "Black"
     ```
 
-1. Add a *service.yaml* file to the *AKS-AppConfiguration-Demo* directory with the following content to create a LoadBalancer service. 
+1. Add a *service.yaml* file to the *Deployment* directory with the following content to create a LoadBalancer service. 
  
     ```yaml
     apiVersion: v1
@@ -168,7 +167,7 @@ In this section, it creates an ASP.NET Core web application that consumes enviro
 
     ```console
     kubectl create namespace appconfig-demo
-    kubectl apply -f ./AKS-AppConfiguration-Demo -n appconfig-demo
+    kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
 1. Run the following command and get the External IP address exposed by the LoadBalancer service.
@@ -215,7 +214,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
          --create-namespace
     ```
 
-1. Add an *appConfigurationProvider.yaml* file to the *AKS-AppConfiguration-Demo* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines how to retrieve key-values from an Azure App Configuration store and create a configMap.
+1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
 
     Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store.
    
@@ -231,16 +230,16 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     ```
     
     > [!NOTE]
-    > `AzureAppConfigurationProvider` is a declarative API, it defines the desired state of the configMap that retrieves the key-values from the App Configuration store with following behavior:
+    > `AzureAppConfigurationProvider` is a declarative API, it defines the desired state of the ConfigMap that retrieves the key-values from the App Configuration store with following behavior:
     >
-    > - The provider creates a configMap according to the definition of an `AzureAppConfigurationProvider`.
-    > - The provider doesn't update a configMap that is not created by the provider.
-    > - The provider keeps the data of configMap as a mirror of key-values from Azure App Configuration. Any changes to the configMap through other approaches will be reverted.
-    > - Deleting provider will delete the corresponding configMap along with it. If the configMap is deleted solely, the provider will recreate it.
+    > - The ConfigMap will be recreated if it's deleted by any other means.
+    > - The ConfigMap will be overwritten based on the data in your App Configuration store at the moment if it's modified by any other means.
+    > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
+    > - The provider doesn't update a preexisting ConfigMap that is not created by the provider.
 
-1. Update the *deployment.yaml* file in *AKS-AppConfiguration-Demo* directory to use the configMap `configmap-created-by-appconfig-provider` as environment variable.
+2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` for environment variable.
    
-    Replace the whole `env` section 
+    Replace the `env` section 
     ```yaml
     env:
     - name: Settings__Message
@@ -255,13 +254,13 @@ Now that you have an application running in AKS, you'll deploy the App Configura
         name: configmap-created-by-appconfig-provider
     ```
 
-2. Run the following command to deploy the *appConfigurationProvider.yaml* and *deployment.yaml*.
+3. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
    
     ```console
-    kubectl apply -f ./AKS-AppConfiguration-Demo -n appconfig-demo
+    kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
-3. Refresh the browser. The page shows updated content.
+4. Refresh the browser. The page shows updated content.
 
     ![Kubernetes Provider after using configMap](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
@@ -304,20 +303,20 @@ Use the logs for further troubleshooting. For example, if you see requests to yo
 
 ## Clean up resources
 
-[!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
-
 Remove the resources that have been deployed to AKS.
 
 ```console
-kubectl delete -f ./AKS-AppConfiguration-Demo -n appconfig-demo
+kubectl delete -f ./Deployment -n appconfig-demo
 kubectl delete namespace appconfig-demo
 ```
 
-Uninstall the Azure App Configuration Kubernetes Provider from your AKS cluster.
+Uninstall the App Configuration Kubernetes Provider from your AKS cluster if you want to keep the AKS cluster.
 
 ```console
 helm uninstall azureappconfiguration.kubernetesprovider --namespace azappconfig-system
 ```
+
+[!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Summary
 
