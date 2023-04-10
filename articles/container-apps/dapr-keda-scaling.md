@@ -10,9 +10,9 @@ ms.date: 04/07/2023
 
 # Scale Dapr components with KEDA scalers for Azure Container Apps
 
-When scale rules are omitted on a Container App resource, the Container App is created with a default scale rule that scales all replicas down to zero when there is no incoming traffic over a duration of five minutes.
+When scale rules are omitted on an Azure Container Apps resource, the container app is created with a default scale rule. If the resource receives no incoming traffic over a duration of five minutes, that default rule scales all replicas down to zero.
 
-This behavior is potentially problematic and unexpected for customers who are leveraging Dapr components, specifically pub/sub subscriptions and input bindings. This is due to how the mechanism for subscriptions and input bindings work. Unlike normal http flows, subscriptions and input bindings follow a "pull" message/event exchange model. In this case the Dapr sidecar from the subscriber service "pulls" messages rather than waiting for the message broker/event deliverer to initiate a connection. As a result, since the "puller" logic is in the Dapr sidecar, when it scales down to zero, the "puller" is stopped and there's no mechanism for it to know when to resume or scale back up from zero.
+This behavior can be problematic and unexpected when leveraging Dapr components, specifically pub/sub subscriptions and input bindings. This is due to how the mechanism for subscriptions and input bindings work. Unlike normal http flows, subscriptions and input bindings follow a "pull" message/event exchange model. In this case the Dapr sidecar from the subscriber service "pulls" messages rather than waiting for the message broker/event deliverer to initiate a connection. As a result, since the "puller" logic is in the Dapr sidecar, when it scales down to zero, the "puller" is stopped and there's no mechanism for it to know when to resume or scale back up from zero.
 
 KEDA scalers is one possible solution for scaling an application and its sidecar when it has scaled to 0 and incoming events and messages are inbound. With KEDA, there is a process that's outside of the application, which is never scaled down to zero that can wawtch for new messages/incoming events. It can then scale the receiving application as needed based on the number of incoming messages/events.
 
