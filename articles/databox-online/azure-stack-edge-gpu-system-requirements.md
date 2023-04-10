@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 04/10/2023
 ms.author: alkohli
 ms.custom: "contperf-fy21q4"
 ---
