@@ -37,7 +37,7 @@ To export a resource group into a reusable template, complete the following step
 
 ![Screenshot that shows selections for exporting a resource group into a template.](./media/export-templates/template-export.png)
 
-The Azure Resource Manager automation script produces a Resource Manager template, a parameters file, and several sample deployment scripts, such as PowerShell and Azure CLI. At this point, you can download the exported template by using the download button, add the template to the template library, or redeploy the template by using the **Deploy** button.
+The Azure Resource Manager automation script produces a Resource Manager template, a parameters file, and several sample deployment scripts, such as PowerShell and Azure CLI scripts. At this point, you can download the exported template by using the download button, add the template to the template library, or redeploy the template by using the **Deploy** button.
 
 ## Configure protected settings
 

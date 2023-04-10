@@ -36,7 +36,7 @@ The Linux agent provides the following functionality for Linux and FreeBSD Azure
 
 ### Kernel
 
-- Configures virtual NUMA (disabled for kernel `2.6.37`)
+- Configures virtual NUMA (disabled for kernel 2.6.37)
 - Consumes Hyper-V entropy for */dev/random*
 - Configures SCSI timeouts for the root device, which can be remote
 
@@ -128,7 +128,7 @@ For advanced installation options, such as installing from a source or to custom
   > [!WARNING]
   > Deprovisioning doesn't guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 
-- `deprovision+user`: Performs everything in `deprovision` (previous) and deletes the last provisioned user account (obtained from */var/lib/waagent*) and associated data. Use this parameter when you deprovision an image that was previously provisioned on Azure so that it can be captured and reused.
+- `deprovision+user`: Performs everything in `deprovision` and deletes the last provisioned user account (obtained from */var/lib/waagent*) and associated data. Use this parameter when you deprovision an image that was previously provisioned on Azure so that it can be captured and reused.
 - `version`: Displays the version of waagent.
 - `serialconsole`: Configures GRUB to mark ttyS0, the first serial port, as the boot console. This option ensures that kernel boot logs are sent to the serial port and made available for debugging.
 - `daemon`: Runs waagent as a daemon to manage interaction with the platform. This argument is specified to waagent in the waagent *init* script.
@@ -214,7 +214,7 @@ Type: Boolean
 Default: y
 ```
 
-If the value is `y`, waagent monitors the Linux VM for a host name change, as returned by the `hostname` command, and automatically updates the networking configuration in the image to reflect the change. To push the name change to the DNS servers, networking restarts on the VM. This restart results in brief loss of internet connectivity.
+If the value is `y`, waagent monitors the Linux VM for a host name change, as returned by the `hostname` command. Waagent then automatically updates the networking configuration in the image to reflect the change. To push the name change to the DNS servers, networking restarts on the VM. This restart results in brief loss of internet connectivity.
 
 ### Provisioning.DecodeCustomData
 
