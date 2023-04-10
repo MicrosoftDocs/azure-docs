@@ -2,13 +2,13 @@
 title: Prerequisites for scheduled patching in update management center (preview).
 description: The article describes the new prerequisites to configure scheduled patching in Update management center (preview).
 ms.service: update-management-center
-ms.date: 04/10/2023
+ms.date: 04/11/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
 ---
 
-# Change in requirements for Schedule patching
+# Configure patching using the new prerequisite 
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Azure VMs.
 
@@ -27,12 +27,12 @@ To enable schedule patching on your VMs now, follow these steps:
 
 **Patch orchestration = Azure-orchestrated with user managed schedules (Preview)**.
 
-Select the patch orchestration option as **Azure-orchestrated with user managed schedules(Preview)**.
+- Select the patch orchestration option as **Azure-orchestrated with user managed schedules(Preview)**.
 
 The new patch orchestration option enables the following VM properties on your behalf after receiving your consent:
 
-- Patch mode = Azure-orchestrated
-- BypassPlatformSafetyChecksOnUserSchedule = TRUE
+  - Patch mode = Azure-orchestrated
+  - BypassPlatformSafetyChecksOnUserSchedule = TRUE
 
 
 # [REST API](#tab/new-prereq-rest-api)
