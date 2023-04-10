@@ -24,7 +24,7 @@ This article shows you how to use PowerShell to create a Site-to-Site VPN gatewa
 
 A Site-to-Site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
-![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
+:::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Site-to-site VPN Gateway cross-premises connection diagram.":::
 
 ## <a name="before"></a>Before you begin
 
@@ -47,19 +47,19 @@ The examples in this article use the following values. You can use these values 
 
 VnetName                = VNet1
 ResourceGroup           = TestRG1
-Location                = East US 
-AddressSpace            = 10.1.0.0/16 
-SubnetName              = Frontend 
-Subnet                  = 10.1.0.0/24 
+Location                = East US 
+AddressSpace            = 10.1.0.0/16 
+SubnetName              = Frontend 
+Subnet                  = 10.1.0.0/24 
 GatewaySubnet           = 10.1.255.0/27
 LocalNetworkGatewayName = Site1
-LNG Public IP           = <On-premises VPN device IP address> 
-Local Address Prefixes  = 10.101.0.0/24, 10.101.1.0/24
+LNG Public IP           = <On-premises VPN device IP address> 
+Local Address Prefixes  = 10.0.0.0/24, 20.0.0.0/24
 Gateway Name            = VNet1GW
 PublicIP                = VNet1GWPIP
-Gateway IP Config       = gwipconfig1 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+Gateway IP Config       = gwipconfig1 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite1
 
 ```
@@ -137,14 +137,14 @@ To add a local network gateway with a single address prefix:
 
   ```azurepowershell-interactive
   New-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.101.0.0/24'
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
   ```
 
 To add a local network gateway with multiple address prefixes:
 
   ```azurepowershell-interactive
   New-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('20.0.0.0/24','10.0.0.0/24')
   ```
 
 To modify IP address prefixes for your local network gateway:
