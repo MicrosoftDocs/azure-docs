@@ -242,8 +242,16 @@ Logs are output upon configuration refresh and contain detailed information on k
     | Debug | Logs include the key and label of key-values your application monitors for changes from your App Configuration store. The information also includes whether the key-value has changed compared with what your application has already loaded. Enable logs at this level to troubleshoot your application if a configuration change didn't happen as expected. |
     | Information | Logs include the keys of configuration settings updated during a configuration refresh. Values of configuration settings are omitted from the log to avoid leaking sensitive data. You can monitor logs at this level to ensure your application picks up expected configuration changes. |
     | Warning | Logs include failures and exceptions that occurred during configuration refresh. Occasional occurrences can be ignored because the configuration provider will continue using the cached data and attempt to refresh the configuration next time. You can monitor logs at this level for repetitive warnings that may indicate potential issues. For example, you rotated the connection string but forgot to update your application. |
-- The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log.
-- Here are some example logs at each log level:
+
+    You can enable logging at the `Debug` log level by adding the following example to your `appsettings.json` file. This example applies to all other log levels as well.
+    ```json
+    "Logging": {
+        "LogLevel": {
+            "Microsoft.Extensions.Configuration.AzureAppConfiguration": "Debug"
+        }
+    }
+    ```
+- The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log. Here are some example logs at each log level:
     ```console
     dbug: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
         Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://examplestore.azconfig.io'
@@ -255,16 +263,9 @@ Logs are output upon configuration refresh and contain detailed information on k
         A refresh operation failed.
     Service request failed.
     ```
-- You can enable logging at the `Debug` log level by adding the following example to your `appsettings.json` file. This example applies to all other log levels as well.
-    ```json
-    "Logging": {
-        "LogLevel": {
-            "Microsoft.Extensions.Configuration.AzureAppConfiguration": "Debug"
-        }
-    }
-    ```
 
-Using `ILogger` is the preferred method and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring-v600-and-later). For more information on how to utilize these logs, follow the instructions for [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
+
+Using `ILogger` is the preferred method in ASP.NET applications and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring-v600-and-later). For more information, see [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).
 
 ## Clean up resources
 
