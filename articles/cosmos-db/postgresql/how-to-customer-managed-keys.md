@@ -34,7 +34,7 @@ ms.date: 04/06/2023
 
 ## Detailed steps
 
-### 1. User Assigned Managed Identity:
+1. ### User Assigned Managed Identity:
 
    1. Search for Managed Identities in the global search bar.
 
@@ -48,7 +48,7 @@ ms.date: 04/06/2023
 
    Learn more about [User Assigned Managed Identity.](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
-### 1. Key Vault:
+1. ### Key Vault:
 
    Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: Soft Delete and Purge Protection.
 
@@ -66,7 +66,7 @@ ms.date: 04/06/2023
    > [!IMPORTANT]
    > Your Azure Key Vault instance must be allow public access from all the networks.
 
-### 1. Add an Access Policy to the Key Vault:
+1. ### Add an Access Policy to the Key Vault:
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
 
@@ -82,7 +82,7 @@ ms.date: 04/06/2023
 
    1. Navigate to Review + create select Create.
 
-### 1. Create / Import Key:
+1. ### Create / Import Key:
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
@@ -100,7 +100,7 @@ ms.date: 04/06/2023
 
    1. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
 
-### 1. Enable CMK encryption during the provisioning for a new cluster
+1. ### Enable CMK encryption during the provisioning for a new cluster
 
    # [Portal](#tab/portal)
 
@@ -235,7 +235,7 @@ ms.date: 04/06/2023
  ```
 ---
 
-### 1. High Availability:
+### High Availability:
 
    When CMK encryption is enabled on the primary cluster, all standby HA replicas are automatically encrypted by the primary cluster’s CMK
 

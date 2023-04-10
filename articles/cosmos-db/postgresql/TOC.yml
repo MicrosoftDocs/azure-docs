@@ -202,7 +202,7 @@
           href: howto-private-access.md
           displayName: network, private link
         - name: Customer managed keys
-          href: howto-customer-managed-keys.md
+          href: how-to-customer-managed-keys.md
           displayName: customer-managed, keys, cmk
         - name: Configure SSL
           href: howto-ssl-connection-security.md
