@@ -73,7 +73,7 @@ This option is suited if the chat volume is low as conversations are happening i
 
 Follow these steps for archiving messages:
 
-- Subscribe to Event Grid events which come with Azure Event grid through web hooks. Azure Communications Chat service supports the following [events](../../../../concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event).
+- Subscribe to Event Grid events which come with Azure Event grid through web hooks. Azure Communications Chat service supports the following [events](../../concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event).
 - Validate the [events](../../event-grid/view-events-request-bin#configure-your-azure-communication-services-resource-to-send-events-to-your-endpoint) by configuring your resource to receive these events
 - Test your Event Grid handler [locally](../../how-tos/event-grid/local-testing-event-grid) to ensure that you are receiving events that you need for archiving.
 
@@ -81,10 +81,10 @@ Note: you would have to pay for [events](https://azure.microsoft.com/pricing/det
 
 ## Next Steps
 
-* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid?](../../../event-grid/concepts.md)
-* Service [Limits](../../quickstarts/chat/service-limits)
-* [Troubleshooting](../../quickstarts/chat/troubleshooting-info)
-* Help and support [options](../../quickstarts/chat/support)
+* For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid](../../../event-grid/concepts.md)
+* Service [Limits](../../concepts/service-limits)
+* [Troubleshooting](../../concepts/troubleshooting-info)
+* Help and support [options](../../support)
 
 
 
