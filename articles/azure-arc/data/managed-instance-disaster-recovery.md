@@ -263,5 +263,6 @@ Optionally, the `--partner-sync-mode` can be configured back to `sync` mode if d
 
 At this point, if you plan to continue running the production workload off of the secondary site, the `--license-type` needs to be updated to either `BasePrice` or `LicenseIncluded` to initiate billing for the vCores consumed.
 
+## Next steps
 
-
+[Overview: Azure Arc-enabled SQL Managed Instance business continuity](managed-instance-business-continuity-overview.md)
