@@ -67,19 +67,19 @@ When you create a new workspace, you're required to bring other Azure resources 
 + [Azure Storage account](https://azure.microsoft.com/services/storage/). Stores machine learning artifacts such as job logs. By default, this storage account is used when you upload data to the workspace. Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
   
   > [!IMPORTANT]
-  > By default, the storage account is a general-purpose v1 account. You can [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created. 
   > To use an existing Azure Storage account, it can't be of type BlobStorage or a premium account (Premium_LRS and Premium_GRS). It also can't have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage nor hierarchical namespaces are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace as additional storage by [creating a datastore](how-to-datastore.md).
   > Do not enable hierarchical namespace on the storage account after upgrading to general-purpose v2.
+  > If you bring an existing general-purpose v1 storage account, you may [upgrade this to general-purpose v2](../storage/common/storage-account-upgrade.md) after the workspace has been created.
   
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). Stores created docker containers, when you build custom environments via Azure Machine Learning. For example, in the following scenarios:
     * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
     :::moniker range="azureml-api-2"
-    * [AutoML](concept-automated-ml.md) when deploying
+    * [AutoML](concept-automated-ml.md) when deploying models
     :::moniker-end
     :::moniker range="azureml-api-1"
-    * [AutoML](./v1/concept-automated-ml-v1.md) when deploying
-    * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
+    * [AutoML](./v1/concept-automated-ml-v1.md) when deploying model
     :::moniker-end
+    * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
 
     > [!NOTE] 
     > Workspaces can be created without Azure Container Registry as a dependency if you do not have a need to build custom docker containers. To read container images, Azure Machine Learning also works with external container registries. Azure Container Registry is automatically provisioned when you build custom docker images. Use Azure RBAC to prevent customer docker containers from being build. 
