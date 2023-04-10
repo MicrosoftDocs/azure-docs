@@ -25,8 +25,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ### Azure Machine Learning SDK for Python v1.50.0
   + **azureml-contrib-automl-dnn-forecasting**
     + Added support for forecasting at given quantiles for TCN models.
-  + **azureml-core**
-    + Enabling Datacache service Singularity support.
   + **azureml-responsibleai**
     + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.26.0
   + **azureml-train-automl-runtime**
