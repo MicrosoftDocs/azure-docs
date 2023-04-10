@@ -2,7 +2,7 @@
 title: Enable Premium SSD v2 Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Premium SSD v2 Disks in an Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 3/22/2023
+ms.date: 4/10/2023
 
 ---
 
@@ -14,7 +14,9 @@ This article describes how to configure a new or existing AKS cluster to use Azu
 
 ## Before you begin
 
-This feature can only be set at cluster creation or node pool creation time.
+Before creating or upgrading an AKS cluster that is able to use Azure Premium SSD v2 disks, you need to [create a Premium SSD v2 disk][create-premium-v2-disk] in an availability zone following their deployment steps. Then create an AKS cluster in the same region and availability zone that supports Premium Storage and attach the disks following the steps below.
+
+For an existing AKS cluster, you can enable Premium SSD v2 disks on existing clusters that supports them by adding a new node pool to your cluster, and then attach the disks following the steps below.
 
 > [!IMPORTANT]
 > Azure Premium SSD v2 disks require node pools deployed in regions that support these disks. For a list of supported regions, see [Premium SSD v2 disk supported regions][premium-v2-regions].
@@ -22,24 +24,6 @@ This feature can only be set at cluster creation or node pool creation time.
 ### Limitations
 
 - Azure Premium SSD v2 disks have certain limitations that you need to be aware of. For a complete list, see [Premium SSD v2 limitations][premium-v2-limitations].
-
-## Create a new cluster
-
-Before creating an AKS cluster that is able to use Azure Premium SSD v2 disks, you need to [create a Premium SSD v2 disk][create-premium-v2-disk] in an availability zone following their deployment steps. Then create an AKS cluster in the same region and availability zone that supports Premium Storage and attach the disk to it using the following command.  
-
-```azurecli-interactive
-az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 
-```
-
-If you want to create clusters without ultra disk support, you can do so by omitting the `--enable-ultra-ssd` parameter.
-
-## Enable on an existing cluster
-
-You can enable ultra disks on existing clusters by adding a new node pool to your cluster that support Premium SSD v2 disks.
-
-```azurecli
-az aks nodepool add --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
-```
 
 ## Use Premium SSD v2 disks dynamically with a storage class
 
@@ -186,7 +170,7 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 ## Next steps
 
 - For more about Premium SSD v2 disks, see [Using Azure Premium SSD v2 disks](../virtual-machines/disks-deploy-premium-v2.md).
-- For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service (AKS)][operator-best-practices-storage]
+- For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -199,3 +183,4 @@ For more information on using Azure tags, see [Use Azure tags in Azure Kubernete
 [create-premium-v2-disk]: ../virtual-machines/disks-deploy-premium-v2.md#use-a-premium-ssd-v2
 [azure-disk-volume]: azure-disk-csi.md
 [use-tags]: use-tags.md
+[operator-best-practices-storage]: operator-best-practices-storage.md
