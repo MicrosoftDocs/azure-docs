@@ -237,7 +237,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
     > - The provider doesn't update a preexisting ConfigMap that is not created by the provider.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` for environment variable.
+1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` for environment variable.
    
     Replace the `env` section 
     ```yaml
@@ -254,13 +254,13 @@ Now that you have an application running in AKS, you'll deploy the App Configura
         name: configmap-created-by-appconfig-provider
     ```
 
-3. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
+1. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
    
     ```console
     kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
-4. Refresh the browser. The page shows updated content.
+1. Refresh the browser. The page shows updated content.
 
     ![Kubernetes Provider after using configMap](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
