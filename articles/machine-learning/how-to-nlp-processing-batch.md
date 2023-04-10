@@ -118,7 +118,7 @@ MODEL_NAME='bart-text-summarization'
 az ml model create --name $MODEL_NAME --path "model"
 ```
 
-# [Python](#tab/sdk)
+# [Python](#tab/python)
 
 ```python
 model_name = 'bart-text-summarization'
@@ -175,7 +175,7 @@ We are going to create a batch endpoint named `text-summarization-batch` where t
 
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_batch_endpoint" :::
 
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
 
    ```python
    ml_client.batch_endpoints.begin_create_or_update(endpoint)
@@ -218,7 +218,7 @@ Let's create the deployment that will host the model:
    
    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deployment.yml" range="7-10" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    Let's get a reference to the environment:
    
@@ -272,7 +272,7 @@ Let's create the deployment that will host the model:
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="create_batch_deployment_set_default" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    To create a new deployment with the indicated environment and scoring script use the following code:
    
@@ -317,7 +317,7 @@ Let's create the deployment that will host the model:
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    endpoint.defaults.deployment_name = deployment.name
@@ -340,7 +340,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    > [!NOTE]
    > The utility `jq` may not be installed on every installation. You can get instructions in [this link](https://stedolan.github.io/jq/download/).
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    input = Input(type=AssetTypes.URI_FOLDER, path="data")
@@ -360,7 +360,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    
    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/huggingface-text-summarization/deploy-and-run.sh" ID="show_job_in_studio" :::
    
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
    
    ```python
    ml_client.jobs.get(job.name)
@@ -376,7 +376,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    az ml job download --name $JOB_NAME --output-name score --download-path .
    ```
 
-   # [Python](#tab/sdk)
+   # [Python](#tab/python)
 
    ```python
    ml_client.jobs.download(name=job.name, output_name='score', download_path='./')
