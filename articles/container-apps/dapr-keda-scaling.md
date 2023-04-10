@@ -10,9 +10,9 @@ ms.date: 04/10/2023
 
 # Scale Dapr components with KEDA scalers for Azure Container Apps
 
-When scale rules are omitted on an Azure Container Apps resource, the container app is created with a default scale rule. If the resource receives no incoming traffic over a duration of five minutes, that default rule scales all replicas down to zero. This behavior can be problematic and unexpected when leveraging Dapr components, specifically pub/sub subscriptions and input bindings. 
+When scale rules are omitted on an Azure Container Apps resource, the container app is created with a default scale rule. If the resource receives no incoming traffic over a duration of five minutes, that default rule scales all replicas down to zero. This behavior can be problematic and unexpected when applying Dapr components, specifically pub/sub subscriptions and input bindings. 
 
-Using KEDA scalers, you can scale your application and its Dapr sidecar when it has scaled to zero with inbound events and messages. However, configuring _both_ a Dapr component and a corresponding KEDA scaler is not intuitive.
+Using KEDA scalers, you can scale your application and its Dapr sidecar when it has scaled to zero with inbound events and messages. However, configuring _both_ a Dapr component and a corresponding KEDA scaler isn't intuitive.
 
 todo: solution - if it's redundant or complex, then why?
 
@@ -24,15 +24,15 @@ In this scenario:
 
 Let’s look at the Bicep for:
 - The `checkout` and `order-processor` container apps
-- The Dapr Azure Serivce Bus component
+- The Dapr Azure Service Bus component
 
 todo: need actual steps - so far it's more of a scenario concept, user isn't walking through any steps.
 
 ### Publisher container app
 
-The `checkout` publisher is a headless services that you want to run indefinitely and never scale down to zero. 
+The `checkout` publisher is a headless service that you want to run indefinitely and never scale down to zero. 
 
-Set the `minReplicas` to "1", which ensures the container app does not follow the default behavior. 
+Set the `minReplicas` to "1", which ensures the container app doesn't follow the default behavior. 
 
 ```bicep
 resource checkout 'Microsoft.App/containerApps@2022-03-01' = {
@@ -123,7 +123,7 @@ resource daprComponent 'daprComponents' = {
 
 ### Subscriber container app
 
-In the `order-processor` subscriber, you'll add a custom scale rule on the resource for the type `azure-servicebus`. With this scale rule, KEDA can scale up the container app and its Dapr sidecar, allowing incoming messages to be processed again while order-processor is scaled to zero.
+In the `order-processor` subscriber, add a custom scale rule on the resource for the type `azure-servicebus`. With this scale rule, KEDA can scale up the container app and its Dapr sidecar, allowing incoming messages to be processed again while order-processor is scaled to zero.
 
 ```bicep
 resource orders 'Microsoft.App/containerApps@2022-03-01' = {
