@@ -44,8 +44,6 @@ To renew a lease, use one of the following methods on a [BlobLeaseClient](/dotne
 - [Renew](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.renew)
 - [RenewAsync](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.renewasync)
 
-You can specify the lease ID by setting the [IfMatch](/dotnet/api/azure.matchconditions.ifmatch) property of a [RequestConditions](/dotnet/api/azure.requestconditions) instance.
-
 The following example renews a lease for a blob:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseBlob.cs" id="Snippet_RenewBlobLease":::

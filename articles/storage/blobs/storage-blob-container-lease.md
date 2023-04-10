@@ -22,7 +22,7 @@ This article shows how to create and manage container leases using the [Azure St
 
 [!INCLUDE [storage-dev-guide-about-container-lease](../../../includes/storage-dev-guides/storage-dev-guide-about-container-lease.md)]
 
-To learn more about container leases using the client library, see [Create and manage blob leases with .NET](storage-blob-lease.md).
+To learn more about blob leases using the client library, see [Create and manage blob leases with .NET](storage-blob-lease.md).
 
 ## Acquire a lease
 
@@ -43,8 +43,6 @@ To renew a lease, use one of the following methods on a [BlobLeaseClient](/dotne
 
 - [Renew](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.renew)
 - [RenewAsync](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.renewasync)
-
-You can specify the lease ID by setting the [IfMatch](/dotnet/api/azure.matchconditions.ifmatch) property of a [RequestConditions](/dotnet/api/azure.requestconditions) instance.
 
 The following example renews a container lease:
 
@@ -76,7 +74,24 @@ The following example breaks a lease on a container:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseContainer.cs" id="Snippet_BreakContainerLease":::
 
-## See also
+[!INCLUDE [storage-dev-guide-container-lease](../../../includes/storage-dev-guides/storage-dev-guide-container-lease.md)]
 
-- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
+## Resources
+
+To learn more about managing container leases using the Azure Blob Storage client library for .NET, see the following resources.
+
+### REST API operations
+
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for managing container leases use the following REST API operation:
+
+- [Lease Container](/rest/api/storageservices/lease-container)
+
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseContainer.cs)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
+
+### See also
+
 - [Managing Concurrency in Blob storage](concurrency-manage.md)
