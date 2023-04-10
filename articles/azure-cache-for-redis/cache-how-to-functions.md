@@ -14,33 +14,36 @@ There are three triggers supported in Azure Cache for Redis:
 
 |Tier     | Basic | Standard & Premium  | Enterprise, Enterprise Flash  |
 |---------|---------|---------|---------|
-|Pub/Sub  | Yes  | Yes        |  Yes  |
-|Lists | Yes        | Yes        |  Yes  |
-|Streams | Yes        | Yes        |  Yes  |
+|Pub/Sub  | Yes  | Yes  |  Yes  |
+|Lists | Yes  | Yes   |  Yes  |
+|Streams | Yes  | Yes  |  Yes  |
 
 > [!IMPORTANT]
 > The Pub/Sub trigger is not supported with consumption functions.
 >
 
-> [!NOTE]
-> Basic tier functions do not support triggering on keyspace or keyevent notifications through the pub/sub trigger.
->
 
 ## How to get started
 See [Azure Cache for Redis trigger for Azure Functions overview (preview)]() for information on how to install the Functions extension.
 See [Get started with Functions triggers in Azure Cache for Redis]() for a step-by-step tutorial on how to get started.
+
+## Prerequisites and limitations
+
+- The `RedisPubSubTrigger` is not capable of listening to [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) on clustered caches.
+- Basic tier functions do not support triggering on keyspace or keyevent notifications through the `RedisPubSubTrigger`.
+- The `RedisPubSubTrigger` is not supported with consumption functions.
 
 ## Trigger usage
 
 ### `RedisPubSubTrigger`
 The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSCRIBE`](https://redis.io/commands/psubscribe/), and surfaces messages received on those channels to the function.
 
-> **Warning**
-> This trigger is not fully supported on a [Consumption plan](https://learn.microsoft.com/azure/azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages.
-> For consumption plans, there is a chance your function may miss certain messages published to the channel. Functions with this trigger shuld also not be scaled out.
+> [!WARNING]
+> This trigger is not supported on a [consumption plan](../azure-functions/consumption-plan) because Redis PubSub requires clients to always be actively listening to receive all messages.For consumption plans, there is a chance your function may miss certain messages published to the channel. 
+>
 
-> **Note**
-> In general, functions with this the `RedisPubSubTrigger` should not be scaled out to multiple instances.
+> [!NOTE]
+> Functions with the `RedisPubSubTrigger` should not be scaled out to multiple instances.
 > Each instance will listen and process each pubsub message, resulting in duplicate processing.
 
 #### Inputs
@@ -49,6 +52,7 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 
 #### Sample
 The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
+
 ```c#
 [FunctionName(nameof(PubSubTrigger))]
 public static void PubSubTrigger(
@@ -60,9 +64,10 @@ public static void PubSubTrigger(
 ```
 
 ### `RedisListsTrigger`
+
 The `RedisListsTrigger` pops elements from a list and surfaces those elements to the function. The trigger polls Redis at a configurable fixed interval, and uses [`LPOP`](https://redis.io/commands/lpop/)/[`RPOP`](https://redis.io/commands/rpop/)/[`LMPOP`](https://redis.io/commands/lmpop/) to pop elements from the lists.
 
-Inputs:
+#### Inputs
 - `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Keys`: Keys to read from, space-delimited.
   - Multiple keys only supported on Redis 7.0+ using [`LMPOP`](https://redis.io/commands/lmpop/).
@@ -90,11 +95,13 @@ public static void ListsTrigger(
 ```
 
 ### `RedisStreamsTrigger`
+
 The `RedisStreamsTrigger` pops elements from a stream and surfaces those elements to the function.
 The trigger polls Redis at a configurable fixed interval, and uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/) to read elements from the stream.
 Each function creates a new random GUID to use as its consumer name within the group to ensure that scaled out instances of the function will not read the same messages from the stream.
 
-Inputs:
+#### Inputs
+
 - `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Keys`: Keys to read from, space-delimited.
   - Uses [`XREADGROUP`](https://redis.io/commands/xreadgroup/).
@@ -110,6 +117,7 @@ Inputs:
   - Default: false
 
 #### Sample
+
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
 [FunctionName(nameof(StreamsTrigger))]
@@ -121,8 +129,10 @@ public static void StreamsTrigger(
 }
 ```
 
-### Return Value
+## Return Values
+
 All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) object that has two fields:
+
 ```c#
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
 {
