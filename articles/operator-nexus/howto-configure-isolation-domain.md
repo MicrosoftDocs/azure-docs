@@ -423,7 +423,7 @@ Once the isolation-domain is created successfully, the next step is to create an
 |ipv6ListenRangePrefixes| BGP IPv6 listen range, maximum range allowed in /127| 3FFE:FFFF:0:CD30::/126| |
 |ipv4ListenRangePrefixes| BGP IPv4 listen range, maximum range allowed in /28| 10.1.0.0/26 | |
 |ipv4NeighborAddress| IPv4 neighbor address|10.0.0.11| |
-|ipv6NeighborAddress| IPv6 neigbhour address|10:101:1::11| |
+|ipv6NeighborAddress| IPv6 neighbhor address|10:101:1::11| |
 
 This command creates an internal network with BGP configuration and specified peering address.
 
