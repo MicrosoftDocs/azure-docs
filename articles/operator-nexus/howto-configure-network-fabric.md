@@ -577,7 +577,7 @@ Expected output:
 }
 ```
 > [!Note]
-. The above snapshot only serves as an example. You should update all the devices that are part of both AggRack and computeRacks. 
+> The above snapshot only serves as an example. You should update all the devices that are part of both AggRack and computeRacks. 
 
 For example, AggRack consists of
 * CE01
