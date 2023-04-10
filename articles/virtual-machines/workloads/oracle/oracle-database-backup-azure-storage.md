@@ -168,7 +168,7 @@ To back up to Azure Files, complete these steps:
 
 1. [Set up Azure Files](#set-up-azure-files).
 1. [Mount the Azure file share to your VM](#mount-the-azure-storage-file-share-to-your-vm).
-1. [Back up the database](#backup-the-database).
+1. [Back up the database](#back-up-the-database).
 1. [Restore and recover the database](#restore-and-recover-the-database).
 
 ### Set up Azure Files
