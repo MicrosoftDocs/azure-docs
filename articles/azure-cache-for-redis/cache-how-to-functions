@@ -1,0 +1,21 @@
+
+# Serverless Event-based Architectures with Azure Cache for Redis and Azure Functions (Preview)
+
+This article describes how to use Azure Cache for Redis with [Azure Functions](../azure-functions/functions-overview.md) to create optimized serverless and event-driven architectures.
+Azure Cache for Redis can be used as a [trigger](../azure-functions/functions-triggers-bindings.md) for Azure Functions, allowing Redis to initiate a serverless workflow.
+This functionality can be highly useful in data architectures like a [write-behind cache](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-caching/#types-of-caching), or any [event-based architectures](../architecture/guide/architecture-styles/event-driven.md).
+
+
+## Scope of Availability for Functions Triggers
+
+|Tier     | Basic | Standard & Premium  | Enterprise, Enterprise Flash  |
+|---------|---------|---------|---------|
+|Pub/Sub | Yes        | Yes        |  Yes  |
+|Lists | Yes        | Yes        |  Yes  |
+|Streams | Yes        | Yes        |  Yes  |
+
+>[!IMPORTANT]
+>The Pub/Sub trigger is not supported with consumption functions.
+>
+
+
