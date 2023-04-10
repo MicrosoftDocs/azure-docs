@@ -52,7 +52,7 @@ Save the following code as a file named *storageAccount.json*. This template def
         "accountName": {
             "type": "string",
             "metadata": {
-                 "description": "Name of the Azure storage account"
+                 "description": "Name of the Azure Storage Account"
              }
          }
     },
@@ -183,31 +183,31 @@ Save the following code as a file named *deployment.json*. This final template a
         "StorageContainerUri": {
            "type": "string",
            "metadata": {
-                "description": "URI of the Blob Storage container containing the ARM templates"
+                "description": "URI of the Blob Storage Container containing the Azure Resource Manager templates"
             }
         },
         "StorageContainerSasToken": {
            "type": "string",
            "metadata": {
-                "description": "The SAS token of the container containing the ARM templates"
+                "description": "The SAS token of the container containing the Azure Resource Manager templates"
             }
         },
         "applicationStorageAccountName": {
             "type": "string",
             "metadata": {
-                 "description": "Name of the Storage account"
+                 "description": "Name of the Azure Storage Account"
             }
          },
         "batchAccountName": {
             "type": "string",
             "metadata": {
-                 "description": "Name of the Batch account"
+                 "description": "Name of the Azure Batch Account"
             }
          },
          "batchAccountPoolName": {
              "type": "string",
              "metadata": {
-                  "description": "Name of the Batch account pool"
+                  "description": "Name of the Azure Batch Account Pool"
               }
           }
     },
@@ -220,7 +220,7 @@ Save the following code as a file named *deployment.json*. This final template a
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                  "uri": "[concat(parameters('StorageContainerUri'), '/storageAccount.json', parameters('StorageContainerSasToken'))]",
+                  "uri": "[concat(parameters('StorageContainerUri'), 'arm-templates/storageAccount.json', parameters('StorageContainerSasToken'))]",
                   "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -238,7 +238,7 @@ Save the following code as a file named *deployment.json*. This final template a
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                  "uri": "[concat(parameters('StorageContainerUri'), '/batchAccount.json', parameters('StorageContainerSasToken'))]",
+                  "uri": "[concat(parameters('StorageContainerUri'), 'arm-templates/batchAccount.json', parameters('StorageContainerSasToken'))]",
                   "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -257,7 +257,7 @@ Save the following code as a file named *deployment.json*. This final template a
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                  "uri": "[concat(parameters('StorageContainerUri'), '/batchAccountPool.json', parameters('StorageContainerSasToken'))]",
+                  "uri": "[concat(parameters('StorageContainerUri'), 'arm-templates/batchAccountPool.json', parameters('StorageContainerSasToken'))]",
                   "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -399,6 +399,8 @@ The following example demonstrates how to deploy an infrastructure with template
    |**location**|Location for the Azure resources to be deployed|
    |**resourceGroupName**|Name of the resource group where your resources are deployed|
    |**storageAccountName**|Name of the storage account that holds the linked ARM templates|
+   |**StorageContainerSasToken**|*$(\<Reference name from Azure File Copy Output Variables>.StorageContainerSasToken)*.
+   |**StorageContainerUri**|*$(\<Reference name from Azure File Copy Output Variables>.StorageContainerUri)*.
 
    ![Screenshot showing variables set for the Azure Pipelines release.](media/batch-ci-cd/variables.png)
 
@@ -450,25 +452,29 @@ For each new task that the following steps specify:
 1. Upload the artifacts from source control into the storage account. As part of this Azure Pipelines task, the Storage account container URI and SAS token are output to a variable in Azure Pipelines, so they can be reused throughout this agent phase.
 
    Select the **Azure File Copy** task, and set the following properties:
+   - **Display name:** *AzureBlob File Copy*
    - **Source:** *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/*
    - **Azure Subscription:** Select the appropriate Azure subscription.
    - **Destination Type**: *Azure Blob*
    - **RM Storage Account**: *$(storageAccountName)*
    - **Container Name**: *templates*
+   - **Reference name** under **Output Variables**: *ffmpeg*
 
    >[!NOTE]
    >If this step fails, make sure your Azure DevOps organization has **Storage Blob Contributor** role in the storage account created.
 
-1. Deploy the orchestrator ARM template to create the Batch account and pool. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are either held in the variables section of the release definition, or in this case were set from the AzureBlob File Copy task.
+1. Deploy the orchestrator ARM template to create the Batch account and pool. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are held in the variables section of the release definition and were set from the AzureBlob File Copy task.
 
    Select the **ARM Template deployment: Resource Group scope** task, and set the following properties:
    - **Display name:** *Deploy Azure Batch*
+   - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
    - **Subscription:** Select the appropriate Azure subscription.
-   - **Action**: Create or update resource group
+   - **Action**: Select **Create or update resource group**.
    - **Resource group**: *$(resourceGroupName)*
    - **Location**: *$(location)*
-   - **Template**: *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/deployment.json*
-   - **Override template parameters**: `-StorageContainerUri $(StorageContainerUri) -StorageContainerSasToken $(StorageContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)`
+   - **Template location**: Select **URL of the file**.
+   - **Template link:** *$(StorageContainerUri)arm-templates/deployment.json$(StorageContainerSasToken)*
+   - **Override template parameters**: `-StorageContainerUri $(StorageContainerUri) -StorageContainerSasToken $(StorageContainerSasToken) -applicationStorageAccountName $(applicationStorageAccountName) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName)`
 
    A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policy set, it can download secrets from Key Vault and be used as a variable in your pipeline. The name of the secret is set with the associated value. For example, you could reference a secret of **sshPassword** with *$(sshPassword)* in the release definition.
 
@@ -476,17 +482,19 @@ For each new task that the following steps specify:
 
    Select the **Azure CLI** task, and set the following properties:
    - **Display name:** *Create application in Azure Batch account*
-   - **Azure Resource Manager connection:** Select the appropriate Azure subscription
+   - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
+   - **Script Type**: Select **PowerShell Core**.
    - **Script Location**: Select **Inline script**.
-   - **Inline Script**: `az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)`
+   - **Inline Script**: `az batch application create --application-name $(batchAccountApplicationName) --name $(batchAccountName) --resource-group $(resourceGroupName)`
 
 1. Call Azure CLI to upload associated packages to the application, in this case the ffmpeg files.
 
    Select the **Azure CLI** task, and set the following properties:
    - **Display name:** *Upload package to Azure Batch account*
-   - **Azure Subscription:** Select the appropriate Azure subscription
+   - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
+   - **Script Type**: Select **PowerShell Core**.
    - **Script Location**: Select **Inline script**.
-   - **Inline Script**: `az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip`
+   - **Inline Script**: `az batch application package create --application-name $(batchAccountApplicationName)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.<AzureBuildArtifactSourceAlias>.BuildId).zip`
 
    > [!NOTE]
    > The version number of the application package is set to a variable. The variable allows overwriting previous versions of the package and lets you manually control the package version pushed to Azure Batch.
@@ -497,7 +505,7 @@ For each new task that the following steps specify:
 
 1. Select **Create release** at the top of the page.
 
-1. To view live release status, select the link in the message that says the release has been created.
+1. To view live release status, select the link at the top of the page that says the release has been created.
 
 1. To view the log output from the agent, hover over the stage and then select the **Logs** button.
 
