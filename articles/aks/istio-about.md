@@ -14,7 +14,7 @@ ms.author: shasb
 
 Modern applications are typically architected as distributed collections of microservices, with each collection of microservices performing some discrete business function. A service mesh is a dedicated infrastructure layer that you can add to your applications. It allows you to transparently add capabilities like observability, traffic management, and security, without adding them to your own code. The term **service mesh** describes both the type of software you use to implement this pattern, and the security or network domain that is created when you use that software.
 
-As the deployment of distributed services, such as in a Kubernetes-based system, grows in size and complexity, it can become harder to understand and manage. Its requirements can include discovery, load balancing, failure recovery, metrics, and monitoring. A service mesh also often addresses more complex operational requirements, like A/B testing, canary deployments, rate limiting, access control, encryption, and end-to-end authentication.
+As the deployment of distributed services, such as in a Kubernetes-based system, grows in size and complexity, it can become harder to understand and manage. Its requirements can include discovery, load balancing, failure recovery, metrics, and monitoring. A service mesh also often addresses more complex operational requirements like A/B testing, canary deployments, rate limiting, access control, encryption, and end-to-end authentication.
 
 Service-to-service communication is what makes a distributed application possible. Routing this communication, both within and across application clusters, becomes increasingly complex as the number of services grow. Istio helps reduce this complexity while easing the strain on development teams.
 
@@ -28,9 +28,9 @@ Istio is an open source service mesh that layers transparently onto existing dis
 * A pluggable policy layer and configuration API supporting access controls, rate limits and quotas
 * Automatic metrics, logs, and traces for all traffic within a cluster, including cluster ingress and egress
 
-## How is the addon different from open source Istio?
+## How is the add-on different from open source Istio?
 
-This service mesh add-on uses and builds on top of open-source Istio. The add-on flavor provides the following additional benefits - 
+This service mesh add-on uses and builds on top of open-source Istio. The add-on flavor provides the following extra benefits - 
 
 * Istio versions are tested and verified to be compatible with supported versions of Azure Kubernetes Service
 * Scaling of Istio control plane configured and handled by Microsoft
