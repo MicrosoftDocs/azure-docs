@@ -79,7 +79,7 @@ When you create a new workspace, you're required to bring other Azure resources 
     > [!NOTE]
     > If your subscription setting requires adding tags to resources under it, Azure Container Registry (ACR) created by Azure Machine Learning will fail, since we cannot set tags to ACR.
 
-+ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring and diagnostics information. 
++ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Helps you monitor and collect diagnostic information from your inference endpoints. 
     :::moniker range="azureml-api-2"
     For more information, see [Monitor online endpoints](how-to-monitor-online-endpoints.md).
     :::moniker-end
