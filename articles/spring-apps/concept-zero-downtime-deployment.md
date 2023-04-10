@@ -45,7 +45,7 @@ When you deploy a new version to an existing deployment, or restart a deployment
 
 Also, When scale in your application instances, Azure Spring Apps underlyingly use k8s's [preStop](https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/) to gracefully shutdown the pods. In the hook, the following operations are performed for a shutting down application container:
 1. Override the instance's eureka registry status to **OUT_OF_SERVICE**, if eureka client is enabled
-2. Wait some seconds to continue serve traffic (from nginx if any) before k8s kill the application container 
+2. Wait some seconds to continue serve traffic (from nginx or other apps if any) before k8s kills the application container 
 
 
 ## Next steps
