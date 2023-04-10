@@ -110,7 +110,9 @@ Microsoft is updating Azure services to use TLS server certificates from a diffe
 
 #### Does this change affect me?
 
-We expect that most Azure Cache for Redis customers aren't affected by the change. Your application might be affected if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration. Azure Cache for Redis doesn't support [OCSP](/openspecs/windows_protocols/ms-ocsp/5792b4c4-c6ba-439a-9c2a-52867d12fb66) either.
+We expect that most Azure Cache for Redis customers aren't affected by the change. Your application might be affected if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration. 
+
+Azure Cache for Redis doesn't support [OCSP stapling](https://docs.redis.com/latest/rs/security/certificates/ocsp-stapling/).
 
 The following table provides information about the certificates that are being rolled. Depending on which certificate your application uses, you might need to update it to prevent loss of connectivity to your Azure Cache for Redis instance.
 
