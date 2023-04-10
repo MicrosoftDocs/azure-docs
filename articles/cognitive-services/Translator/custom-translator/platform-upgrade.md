@@ -32,7 +32,7 @@ Following measured and consistent high-quality results using models trained on t
 >
 > * Starting **May 01, 2023** the upgrade wizard and workspace banner will be displayed in the Custom Translator portal indicating that you have v1.0 models to upgrade.
 > * The banner contains a **Select** button that takes you to the upgrade wizard where a list of all your v1.0 models available for upgrade are displayed.
-> * Select any or all of your v1.0 models then select **Train** to start new platform model upgrade training.
+> * Select any or all of your v1.0 models then select **Train** to start new platform model training.
 
 * **Check to see if you have published v1.0 models**. After signing in to the Custom Translator portal, you'll see a message indicating that you have v1.0 models to upgrade. You can also check to see if a current workspace has v1.0 models by selecting **Workspace settings** and scrolling to the bottom of the page.
 
