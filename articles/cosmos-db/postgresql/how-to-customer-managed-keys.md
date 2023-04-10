@@ -48,13 +48,13 @@ ms.date: 04/06/2023
 
    Learn more about [User Assigned Managed Identity.](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
-1. ### Key Vault
+### Key Vault
 
    Using customer-managed keys with Azure Cosmos DB for PostgreSQL requires you to set two properties on the Azure Key Vault instance that you plan to use to host your encryption keys: Soft Delete and Purge Protection.
 
    1. If you create a new Azure Key Vault instance, enable these properties during creation:
 
-      ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png)
+     [ ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png)](media/how-to-customer-managed-keys/key-vault-soft-delete.png#lightbox)
  
    1. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles.
 
@@ -66,29 +66,29 @@ ms.date: 04/06/2023
    > [!IMPORTANT]
    > Your Azure Key Vault instance must be allow public access from all the networks.
 
-1. ### Add an Access Policy to the Key Vault
+### Add an Access Policy to the Key Vault
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
 
-      ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png)
+     [ ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png)](media/how-to-customer-managed-keys/access-policy.png#lightbox)
 
    1. Select + Create.
 
    1. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
 
-      ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png)
+     [ ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png)] (media/how-to-customer-managed-keys/access-policy-permissions.png#lightbox)
 
    1. In the Principal Tab, select the User Assigned Managed Identity you had created in prerequisite step.
 
    1. Navigate to Review + create select Create.
 
-1. ### Create / Import Key
+### Create / Import Key
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys.
 
    1. Select Keys from the left menu and then select +Generate/Import.
 
-       ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png)
+     [  ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png)](media/how-to-customer-managed-keys/create-key.png#lightbox)
 
    1. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
 
@@ -105,7 +105,7 @@ ms.date: 04/06/2023
    # [Portal](#tab/portal)
 
    1. During the provisioning of a new Cosmos DB for PostgreSQL cluster, after providing the necessary information under Basics and Networking Tab, Navigate to the Encryption (Preview) Tab.
-      ![Screenshot of Encrytion configuration page.](media/how-to-customer-managed-keys/encryption-tab.png)
+     [ ![Screenshot of Encrytion configuration page.](media/how-to-customer-managed-keys/encryption-tab.png)](media/how-to-customer-managed-keys/encryption-tab.png#lightbox)
 
    1. Select Customer Managed Key under Data encryption key option.
 
@@ -254,7 +254,7 @@ Encryption configuration can be changed from service managed encryption to CMK e
 # [Portal](#tab/portal)
 
   1. Navigate to the Data Encryption blade, and select Initiate restore operation. Alternatively, you can perform PITR by selecting the Restore option in the overview blade.
-    ![Screenshot of PITR.](media/how-to-customer-managed-keys/point-in-time-restore.png)
+   [ ![Screenshot of PITR.](media/how-to-customer-managed-keys/point-in-time-restore.png)](media/how-to-customer-managed-keys/point-in-time-restore.png#lightbox)
 
   1. You can change/configure the Data Encryption from the Encryption(preview) Tab.
 
