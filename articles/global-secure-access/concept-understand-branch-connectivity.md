@@ -11,44 +11,39 @@ ms.custom:
 ---
 
 # Understand branch connectivity
-
-
-Global Secure Access supports two types of connectivity options -  
-Install an agent (or client) that runs on corporate devices and connects to our service edge 
-A Customer Premises Equipment (CPE) connects the branch office to our service edge 
+Global Secure Access supports two connectivity options. The first is to install a client on each device. The second is to configure equipment, such as a router, in a branch office. Equipment in a branch office is also referred to as Customer Premises Equipment (CPE).
 
 ## What is a branch office? 
-Branches are remote locations or networks that require internet connectivity. For example, banks have a headquarter but they also have branch offices that are closer to their customers. These branch offices need access to corporate data and services. As a result, they need a secure way to talk to the data center, headquarters, or their remote workers. Hence, the security of branch becomes very crucial for organizations like yours. 
+Branches are remote locations or networks that require internet connectivity. For example, many organizations have a headquarters and also have branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. Hence, the security of branch offices is crucial for organizations.
 
 ## Current challenges of branch security 
 
-1. **Bandwidth requirements have grown** – The number of devices requiring internet has increased exponentially. Traditional networks are difficult to scale up. With the advent of SaaS applications like M365, there is an ever-growing demand of low latency and jitter-less communication that traditional technology like WAN and MPLS struggle with. 
+1. **Bandwidth requirements have grown** – The number of devices requiring Internet access has increased exponentially. Traditional networks are difficult to scale. With the advent of Software as a Service (SaaS) applications like Microsoft 365, there are ever-growing demands of low latency and jitter-less communication that traditional technologies like Wide Area Network (WAN) and Multi-Protocol Label Switching (MPLS) struggle with. 
 1. **IT teams are expensive** – Typically, firewalls are placed on physical devices on-premise which requires an IT team for setup and maintenance. Maintaining an IT team at every branch location is very expensive. 
-1. **Evolving threats** – Malicious actors are finding new avenues to attack the devices at edge which are most vulnerable. 
-1. **No holistic solution for network and security** – SD-WAN is definitely a step up from legacy WAN, but these SD-WAN appliances are not designed to meet all security requirements. As a result, enterprises have to manage a patchwork of network and security offerings from multiple vendors.  
+1. **Evolving threats** – Malicious actors are finding new avenues to attack the devices at the edge of networks. These edge devices are often the most vulnerable point of attack.
+1. **No holistic solution for network and security** – Software Defined Wide Area Network (SD-WAN) is definitely a step up from legacy WAN, but these SD-WAN appliances are not designed to meet all security requirements. As a result, enterprises have to manage a patchwork of network and security offerings from multiple vendors.  
 
-## How does Global Secure Access branch connectivity works? 
-
-It's simple. Set up an IPSec tunnel between your on-premise equipment and our service endpoint. This will route the traffic you specified to flow over the IPSec tunnel over to us where we can apply the security policies defined by your organization before sending it to the destination to fetch the resource. 
+## How does Global Secure Access branch connectivity work? 
+To connect a branch office to Global Secure Access you set up an Internet Protocol Security (IPSec) tunnel between your on-premise equipment and the Microsoft service endpoint. Traffic that you specific is routed through the IPSec tunnel to the Microsoft cloud. You apply security policies in the Microsoft Entra admin portal.
 
 > [!NOTE]
-> Global Secure Access branch connectivity provide secure solution between a branch office to
-> Global Secure Access service. It does not yet provide a secure connectivity between one branch 
-> to another. We recommend using Azure virtual WAN for this. 
+> Global Secure Access branch connectivity provides a secure solution between a branch office and the
+> Global Secure Access service. It does not provide a secure connection between one branch and another.
+> To learn more about secure branch to branch connectivity, see the [Azure Virtual WAN documentation](../virtual-wan/index.md).
  
 ## Why branch connectivity may be important for you? 
-SASE (Secure Access Service Edge) promises a world of security where customers can access their corporate resources from anywhere in the world without the need backhaul their traffic to the HQ. So, it begs a question – why is branch security important? The answer is simple - corpnet exists today and will continue to exist for quite some time.  
+Maintaining security of a corporate network is increasingly difficult in a world of remote work and distributed teams. Secure Access Service Edge (SASE) promises a world of security where customers can access their corporate resources from anywhere in the world without needing to back haul their traffic to a headquarters. Global Secure Access is the Microsoft solution for SASE.
 
-Below are some common scenarios for which you may want to prefer branch connectivity over an agent-based solution: 
+Some common scenarios where branch connectivity should be considered? 
 
-### I don’t want to install agents on thousands of devices on-prem. 
-Generally, SASE is enforced by installing an agent on a device. Read about this here- <insert link to Global Secure Access client doc>. This agent creates a tunnel to nearest deployed service and routes all traffic to internet through it. Thus, SASE vendors like Microsoft inspect the traffic and enforce security policies. But what if the you do not want to go through the pain of installing the agents on thousands of devices on-prem? That’s where branch connectivity makes life simpler for the organizations. Simply create an IPSec tunnel between the core router of the branch office and our service deployed at the edge. We will acquire the traffic you specify and apply security policies over it. 
+### I don’t want to install clients on thousands of devices on-prem. 
+Generally, SASE is enforced by installing a client on a device. The client creates a tunnel to the nearest Global Secure Access endpoint and routes all Internet traffic through it. SASE solutions inspect the traffic and enforce security policies. If your users are not mobile and based in a physical branch office location then branch connectivity removes the pain of installing a client on every device. You can connect the entire branch location by creating an IPSec tunnel between the core router of the branch office and the Global Secure Access endpoint.
 
-### I cannot install agents on all the devices my organization owns 
-Sometime, agents cannot be installed on all devices on-prem. We have agents for Windows, Android, iOS and Mac. But what about Linux, mainframes, cameras, printers and other types of devices that are on-prem and sending the traffic to internet? This traffic still needs to be monitored and secured. 
+### I cannot install clients on all the devices my organization owns.
+Sometimes, clients cannot be installed on all devices. Global Secure Access provides clients for Windows, Android, iOS and Mac. But what about Linux, mainframes, cameras, printers and other types of devices that are on premises and sending traffic to the Internet? This traffic still needs to be monitored and secured. When you connect a branch location you can set policies for all traffic from that location regardless of the device where it originated.
 
-### I have guests coming on my network who do not have the agents installed.  
-The guests coming to your network may not have agent installed on their mobile phones or laptops. But they may still use your wi-fi. How to ensure that those devices adhere to your network security policies? Branch connectivity solves this. No additional agents need to be installed on guests’ devices. All outgoing traffic from the branch is going through security evaluation by default.  
+### I have guests on my network who do not have the client installed.  
+The guest devices on your network may not have the client installed. To ensure that those devices adhere to your network security policies you need their traffic routed through the Global Secure Access endpoint. Branch connectivity solves this problem. No additional clients need to be installed on guest devices. All outgoing traffic from the branch is going through security evaluation by default.  
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
