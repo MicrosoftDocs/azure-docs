@@ -253,6 +253,12 @@ items:
       href: custom-translator/platform-upgrade.md
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
+- name: Microsoft Translator V3 connector 
+  items:
+  - name: Automate text translation
+    href: connector/text-translator-flow.md
+  - name: "Tutorial: Automate document translation"
+    href: connector/document-translation-flow.md
 - name: Resources
   items:
   - name: Modifications to Translator Service
