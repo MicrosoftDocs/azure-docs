@@ -3,7 +3,7 @@ title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS).
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 04/07/2023
+ms.date: 04/10/2023
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
 
@@ -390,12 +390,12 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
   * [Configure a Kubernetes cluster for ML model training or deployment][azureml-aks].
   * [Deploy a model with an online endpoint][azureml-deploy].
   * [High-performance serving with Triton Inference Server][azureml-triton].
-  * [Deploy machine learning models to AKS with Kubeflow][kubeflow].
+  * [Labs for Kubernetes and Kubeflow][kubeflow].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow]: /architecture/solution-ideas/articles/machine-learning-model-deployment-aks
+[kubeflow]: https://github.com/Azure/kubeflow-labs
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
