@@ -50,7 +50,7 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 - `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Channel`: name of the pubsub channel that the trigger should listen to.
 
-#### [Sample](#tab/C#)
+#### [C#](#tab/Csharp)
 The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
 ```c#
@@ -62,7 +62,7 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/Java)
+#### [Java](#tab/Java)
 The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
 ```c#
@@ -74,7 +74,7 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/JavaScript)
+#### [JavaScript](#tab/JavaScript)
 The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
 ```c#
@@ -86,7 +86,7 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/Python)
+#### [Python](#tab/Python)
 The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
 ```c#
@@ -98,7 +98,7 @@ public static void PubSubTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/Powershell)
+#### [PowerShell](#tab/Powershell)
 The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
 ```c#
@@ -131,7 +131,7 @@ The `RedisListsTrigger` pops elements from a list and surfaces those elements to
 - (optional) `ListPopFromBeginning`: determines whether to pop elements from the beginning using [`LPOP`](https://redis.io/commands/lpop/) or to pop elements from the end using [`RPOP`](https://redis.io/commands/rpop/).
   - Default: true
 
-#### [Sample](#tab/C#)
+#### [C#](#tab/Csharp)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
 [FunctionName(nameof(ListsTrigger))]
@@ -143,7 +143,7 @@ public static void ListsTrigger(
 }
 ```
 
-#### [Sample](#tab/Java)
+#### [Java](#tab/Java)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
 [FunctionName(nameof(ListsTrigger))]
@@ -155,7 +155,7 @@ public static void ListsTrigger(
 }
 ```
 
-#### [Sample](#tab/JavaScript)
+#### [JavaScript](#tab/JavaScript)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
 [FunctionName(nameof(ListsTrigger))]
@@ -166,7 +166,7 @@ public static void ListsTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/Python)
+#### [Python](#tab/Python)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
 [FunctionName(nameof(ListsTrigger))]
@@ -177,7 +177,7 @@ public static void ListsTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/Powershell)
+#### [PowerShell](#tab/Powershell)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
 [FunctionName(nameof(ListsTrigger))]
@@ -212,7 +212,7 @@ Each function creates a new random GUID to use as its consumer name within the g
 - (optional) `DeleteAfterProcess`: If the listener will delete the stream entries after the function runs.
   - Default: false
 
-#### [Sample](#tab/C#)
+#### [C#](#tab/Csharp)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
@@ -225,7 +225,7 @@ public static void StreamsTrigger(
 }
 ```
 
-#### [Sample](#tab/Java)
+#### [Java](#tab/Java)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
@@ -237,7 +237,7 @@ public static void StreamsTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/JavaScript)
+#### [JavaScript](#tab/JavaScript)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
@@ -249,7 +249,7 @@ public static void StreamsTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/Python)
+#### [Python](#tab/Python)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
@@ -261,7 +261,7 @@ public static void StreamsTrigger(
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
-#### [Sample](#tab/Powershell)
+#### [PowerShell](#tab/Powershell)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
 ```c#
