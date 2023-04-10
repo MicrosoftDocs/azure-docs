@@ -8,9 +8,7 @@ ms.reviewer: abinetabate
 
 # Deploy the Azure Monitor Application Insights agent for on-premises servers
 
-The Application Insights agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
-It replaces Status Monitor.
-Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
+The Application Insights agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor). It replaces Status Monitor. Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
 
 For a complete list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
@@ -31,7 +29,7 @@ The Application Insights agent is located in the [PowerShell Gallery](https://ww
 
 ### [Getting started](#tab/getting-started)
 
-This tab contains the quickstart commands that are expected to work for most environments. The instructions depend on PowerShell Gallery to distribute updates. These commands support the PowerShell `-Proxy` parameter.
+This tab contains the quickstart commands that are expected to work for most environments. The instructions depend on the PowerShell Gallery to distribute updates. These commands support the PowerShell `-Proxy` parameter.
 
 For an explanation of these commands, customization instructions, and information about troubleshooting, see the [detailed instructions](?tabs=detailed-instructions#instructions).
 
@@ -39,14 +37,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Download and install via PowerShell Gallery
 
-Use PowerShell Gallery for download and installation.
+Use the PowerShell Gallery for download and installation.
 
 #### Installation prerequisites
 
 To enable monitoring, you must have a connection string. A connection string is displayed on the **Overview** pane of your Application Insights resource. For more information, see [Connection strings](./sdk-connection-string.md?tabs=net#find-your-connection-string).
 
 > [!NOTE]
-> As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.
+> As of April 2020, the PowerShell Gallery has deprecated TLS 1.1 and 1.0.
 >
 > For more prerequisites that you might need, see [PowerShell Gallery TLS support](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
 >
@@ -71,9 +69,7 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ```    
 
 > [!NOTE]
-> The `AllowPrerelease` switch in the `Install-Module` cmdlet allows installation of the beta release.
->
-> For more information, see [Install-Module](/powershell/module/powershellget/install-module#parameters).
+> The `AllowPrerelease` switch in the `Install-Module` cmdlet allows installation of the beta release. For more information, see [Install-Module](/powershell/module/powershellget/install-module#parameters).
 >
 
 #### Enable monitoring
@@ -88,7 +84,7 @@ Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=00000
 You can also download and install manually.
 
 #### Download the module
-Manually download the latest version of the module from [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+Manually download the latest version of the module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
 #### Unzip and install the Application Insights agent
 
@@ -109,8 +105,7 @@ Enable-ApplicationInsightsMonitoring -ConnectionString 'InstrumentationKey=00000
 ### [Detailed instructions](#tab/detailed-instructions)
 
 This tab describes how to onboard to the PowerShell Gallery and download the `ApplicationMonitor` module.
-Included are the most common parameters that you need to get started.
-We've also provided manual download instructions if you don't have internet access.
+Included are the most common parameters that you need to get started. We've also provided manual download instructions if you don't have internet access.
 
 ### Get an instrumentation key
 
@@ -164,7 +159,7 @@ These instructions were written and tested on a computer running Windows 10 and 
 
 ### Prerequisites for PowerShell Gallery
 
-The following steps prepare your server to download modules from PowerShell Gallery.
+The following steps prepare your server to download modules from the PowerShell Gallery.
 
 > [!NOTE]
 > PowerShell Gallery is supported on Windows 10, Windows Server 2016, and PowerShell 6+.
@@ -173,11 +168,11 @@ The following steps prepare your server to download modules from PowerShell Gall
 1. Run PowerShell as Admin with an elevated execution policy.
 1. Install the NuGet package provider:
     - **Description:** You need this provider to interact with NuGet-based repositories like PowerShell Gallery.
-    - **Reference:** [Install-PackageProvider](/powershell/module/packagemanagement/install-packageprovider).
-    - **Command:** `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
+    - **Reference:** [Install-PackageProvider](/powershell/module/packagemanagement/install-packageprovider)
+    - **Command:** `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`
     - **Optional parameters:**
-        - `-Proxy`: Specifies a proxy server for the request.
-        - `-Force`: Bypasses the confirmation prompt.
+        - `-Proxy`: Specifies a proxy server for the request
+        - `-Force`: Bypasses the confirmation prompt
     
     You receive this prompt if NuGet isn't set up:
 
@@ -193,10 +188,10 @@ The following steps prepare your server to download modules from PowerShell Gall
 
 1. Configure PowerShell Gallery as a trusted repository.
     - **Description:** By default, PowerShell Gallery is an untrusted repository.
-    - **Reference:** [Set-PSRepository](/powershell/module/powershellget/set-psrepository).
-    - **Command:** `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
+    - **Reference:** [Set-PSRepository](/powershell/module/powershellget/set-psrepository)
+    - **Command:** `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`
     - **Optional parameter:**
-        - `-Proxy`: Specifies a proxy server for the request.
+        - `-Proxy`: Specifies a proxy server for the request
 
     You receive this prompt if PowerShell Gallery isn't trusted:
 
@@ -212,12 +207,12 @@ The following steps prepare your server to download modules from PowerShell Gall
     You can confirm this change and audit all PSRepositories by running the `Get-PSRepository` command.
 
 1. Install the newest version of PowerShellGet.
-    - **Description:** This module contains the tooling used to get other modules from PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version is installed, run the `Get-Command -Module PowerShellGet` command.
-    - **Reference:** [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
-    - **Command:** `Install-Module -Name PowerShellGet`.
+    - **Description:** This module contains the tooling used to get other modules from the PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version is installed, run the `Get-Command -Module PowerShellGet` command.
+    - **Reference:** [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget)
+    - **Command:** `Install-Module -Name PowerShellGet`
     - **Optional parameters:**
-        - `-Proxy`: Specifies a proxy server for the request.
-        - `-Force`: Bypasses the "already installed" warning and installs the latest version.
+        - `-Proxy`: Specifies a proxy server for the request
+        - `-Force`: Bypasses the "already installed" warning and installs the latest version
 
     If you're not using the newest version of PowerShellGet, you receive this error:
 
@@ -234,18 +229,18 @@ The following steps prepare your server to download modules from PowerShell Gall
 
 ### Download and install the module via PowerShell Gallery
 
-These steps will download the Az.ApplicationMonitor module from PowerShell Gallery.
+Use these steps to download the `Az.ApplicationMonitor` module from the PowerShell Gallery.
 
 1. Ensure that all prerequisites for PowerShell Gallery are met.
 1. Run PowerShell as Admin with an elevated execution policy.
 1. Install the `Az.ApplicationMonitor` module.
-    - **Reference:** [Install-Module](/powershell/module/powershellget/install-module).
-    - **Command:** `Install-Module -Name Az.ApplicationMonitor`.
+    - **Reference:** [Install-Module](/powershell/module/powershellget/install-module)
+    - **Command:** `Install-Module -Name Az.ApplicationMonitor`
     - **Optional parameters:**
-        - `-Proxy`: Specifies a proxy server for the request.
-        - `-AllowPrerelease`: Allows installation of alpha and beta releases.
-        - `-AcceptLicense`: Bypasses the "Accept License" prompt.
-        - `-Force`: Bypasses the "Untrusted Repository" warning.
+        - `-Proxy`: Specifies a proxy server for the request
+        - `-AllowPrerelease`: Allows installation of alpha and beta releases
+        - `-AcceptLicense`: Bypasses the "Accept License" prompt
+        - `-Force`: Bypasses the "Untrusted Repository" warning
 
 ### Download and install the module manually (offline option)
 
@@ -253,16 +248,16 @@ If you can't connect to the PowerShell module, you can manually download and ins
 
 #### Manually download the latest nupkg file
 
-1. Go to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor). Select the latest version of the file in the **Version History** table.
+1. Go to [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor). Select the latest version of the file in the **Version History** table.
 1. Under **Installation Options**, select **Manual Download**.
 
 #### Option 1: Install into a PowerShell modules directory
-Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions. For more information, see [Installing a PowerShell module](/powershell/scripting/developer/module/installing-a-powershell-module).
+Install the manually downloaded PowerShell module into a PowerShell directory so that it's discoverable by PowerShell sessions. For more information, see [Installing a PowerShell module](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 ##### Unzip nupkg as a zip file by using Expand-Archive (v1.0.1.0)
 
 - **Description:** The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip nupkg files. Rename the file with the .zip extension.
-- **Reference:** [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive).
+- **Reference:** [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive)
 - **Command:**
 
     ```console
@@ -276,7 +271,7 @@ Install the manually downloaded PowerShell module into a PowerShell directory so
 ##### Unzip nupkg by using Expand-Archive (v1.1.0.0)
 
 - **Description:** Use a current version of Expand-Archive to unzip nupkg files without changing the extension.
-- **Reference:** [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive) and [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- **Reference:** [Expand-Archive](/powershell/module/microsoft.powershell.archive/expand-archive) and [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0)
 - **Command:**
 
     ```console
@@ -327,16 +322,15 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 - [Set-ApplicationInsightsMonitoringConfig](?tabs=api-reference#set-applicationinsightsmonitoringconfig)
 - [Start-ApplicationInsightsMonitoringTrace](?tabs=api-reference#start-applicationinsightsmonitoringtrace)
 
-> [!NOTE]
-> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
-> - This cmdlet requires that you review and accept our license and privacy statement.
+To get started:
+- You need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
+- This cmdlet requires that you review and accept the license and privacy statement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-> [!IMPORTANT]
-> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](?tabs=detailed-instructions#run-powershell-as-admin-with-an-elevated-execution-policy).
-> - This cmdlet requires that you review and accept our license and privacy statement.
-> - The instrumentation engine adds more overhead and is off by default.
+This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](?tabs=detailed-instructions#run-powershell-as-admin-with-an-elevated-execution-policy).
+- This cmdlet requires that you review and accept the license and privacy statement.
+- The instrumentation engine adds more overhead and is off by default.
 
 ### Enable-InstrumentationEngine
 
@@ -444,7 +438,7 @@ The instrumentation engine adds overhead and is off by default.
 When you have a cluster of web servers, you might be using a [shared configuration](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211). The `HttpModule` can't be injected into this shared configuration. This script fails with the message that extra installation steps are required.
 
 Use this switch to ignore this check and continue installing prerequisites.
-For more information, see [Known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration).
+For more information, see [Known conflict with IIS shared configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration).
 
 ##### -Verbose
 **Common parameter:** Use this switch to display detailed logs.
@@ -489,8 +483,7 @@ Successfully enabled Application Insights Agent
 
 ### Disable-InstrumentationEngine
 
-Disables the instrumentation engine by removing some registry keys.
-Restart IIS for the changes to take effect.
+Disables the instrumentation engine by removing some registry keys. Restart IIS for the changes to take effect.
 
 #### Examples
 
@@ -517,8 +510,7 @@ Configuring registry for instrumentation engine...
 
 ### Disable-ApplicationInsightsMonitoring
 
-Disables monitoring on the target computer.
-This cmdlet removes edits to the IIS applicationHost.config and removes registry keys.
+Disables monitoring on the target computer. This cmdlet removes edits to the IIS applicationHost.config and removes registry keys.
 
 #### Examples
 
@@ -584,15 +576,14 @@ Filters:
 
 ### Get-ApplicationInsightsMonitoringStatus
 
-This cmdlet provides troubleshooting information about theApplication Insights agent.
-Use this cmdlet to investigate the monitoring status and version of the PowerShell module, and to inspect the running process.
+This cmdlet provides troubleshooting information about the Application Insights agent. Use this cmdlet to investigate the monitoring status and version of the PowerShell module, and to inspect the running process.
 This cmdlet reports version information and information about key files required for monitoring.
 
 #### Examples
 
 ##### Example: Application status
 
-Run the command `Get-ApplicationInsightsMonitoringStatus` to display the monitoring status of web sites.
+Run the command `Get-ApplicationInsightsMonitoringStatus` to display the monitoring status of websites.
 
 ```powershell
 
@@ -629,10 +620,10 @@ AppAlreadyInstrumented : true
 
 In this example;
 - **Machine Identifier** is an anonymous ID used to uniquely identify your server. If you create a support request, we need this ID to find logs for your server.
-- **Default Web Site** is Stopped in IIS.
-- **DemoWebApp111** has been started in IIS, but hasn't received any requests. This report shows that there's no running process (ProcessId: not found).
-- **DemoWebApp222** is running and is being monitored (Instrumented: true). Based on the user configuration, Instrumentation Key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 was matched for this site.
-- **DemoWebApp333** has been manually instrumented by using the Application Insights SDK. The Application Insights agent detected the SDK and won't monitor this site.
+- **Default Web Site** is `Stopped` in IIS.
+- **DemoWebApp111** was started in IIS but hasn't received any requests. This report shows that there's no running process (`ProcessId: not found`).
+- **DemoWebApp222** is running and is being monitored (`Instrumented: true`). Based on the user configuration, the instrumentation key `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123` was matched for this site.
+- **DemoWebApp333** was manually instrumented by using the Application Insights SDK. The Application Insights agent detected the SDK and won't monitor this site.
 
 ##### Example: PowerShell module information
 
@@ -695,7 +686,6 @@ You can inspect the process on the instrumented computer to see if all DLLs are 
 
 Run the command `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
-
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus -InspectProcess
 
@@ -731,18 +721,16 @@ listdlls64.exe -accepteula w3wp
 
 ##### (No parameters)
 
-By default, this cmdlet reports the monitoring status of web applications.
-Use this option to review if your application was successfully instrumented.
-You can also review which instrumentation key was matched to your site.
+By default, this cmdlet reports the monitoring status of web applications. Use this option to review if your application was successfully instrumented. You can also review which instrumentation key was matched to your site.
 
 ##### -PowerShellModule
+
 **Optional:** Use this switch to report the version numbers and paths of DLLs required for monitoring.
 Use this option if you need to identify the version of any DLL, including the Application Insights SDK.
 
 ##### -InspectProcess
 
-**Optional:** Use this switch to report whether IIS is running.
-It also downloads external tools to determine if the necessary DLLs are loaded into the IIS runtime.
+**Optional:** Use this switch to report whether IIS is running. It also downloads external tools to determine if the necessary DLLs are loaded into the IIS runtime.
 
 If this process fails, you can run these commands manually:
 - iisreset.exe /status
@@ -755,8 +743,7 @@ If this process fails, you can run these commands manually:
 
 ### Set-ApplicationInsightsMonitoringConfig
 
-Sets the config file without doing a full reinstallation.
-Restart IIS for your changes to take effect.
+Sets the config file without doing a full reinstallation. Restart IIS for your changes to take effect.
 
 > [!IMPORTANT]
 > This cmdlet requires a PowerShell session with Admin permissions.
@@ -793,8 +780,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 **Required:** Use this parameter to supply a single instrumentation key for use by all apps on the target computer.
 
 ##### -InstrumentationKeyMap
-**Required:** Use this parameter to supply multiple instrumentation keys and a mapping of the instrumentation keys used by each app.
-You can create a single installation script for several computers by setting `MachineFilter`.
+**Required:** Use this parameter to supply multiple instrumentation keys and a mapping of the instrumentation keys used by each app. You can create a single installation script for several computers by setting `MachineFilter`.
 
 > [!IMPORTANT]
 > Apps match against rules in the order in which the rules are provided. Specify the most specific rules first and the most generic rules last.
@@ -846,12 +832,11 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 ### Start-ApplicationInsightsMonitoringTrace
 
-Collects [ETW Events](/windows/desktop/etw/event-tracing-portal) from the codeless attach runtime. 
-This cmdlet is an alternative to running [PerfView](https://github.com/microsoft/perfview).
+Collects [ETW Events](/windows/desktop/etw/event-tracing-portal) from the codeless attach runtime. This cmdlet is an alternative to running [PerfView](https://github.com/microsoft/perfview).
 
-Collected events are printed to the console in real-time and saved to an ETL file. The output ETL file can be opened by [PerfView](https://github.com/microsoft/perfview) for further investigation.
+Collected events are printed to the console in real time and saved to an ETL file. The output ETL file can be opened by [PerfView](https://github.com/microsoft/perfview) for further investigation.
 
-This cmdlet runs until it reaches the timeout duration (default is 5 minutes) or is stopped manually (`Ctrl + C`).
+This cmdlet runs until it reaches the timeout duration (default is 5 minutes) or is stopped manually (**Ctrl+C**).
 
 #### Examples
 
@@ -866,15 +851,15 @@ To collect these events:
 1. Execute this cmdlet.
 1. In a cmd console with Admin privileges, execute `iisreset /start` to start IIS.
 1. Try to browse to your app.
-1. After your app finishes loading, you can manually stop it (`Ctrl + C`) or wait for the timeout.
+1. After your app finishes loading, you can manually stop it (**Ctrl+C**) or wait for the timeout.
 
 ##### What events to collect
 
 You have three options when you collect events:
 - Use the switch `-CollectSdkEvents` to collect events emitted from the Application Insights SDK.
-- Use the switch `-CollectRedfieldEvents` to collect events emitted by Application Insights agent and the Redfield Runtime. These logs are helpful when you diagnose IIS and application startup.
+- Use the switch `-CollectRedfieldEvents` to collect events emitted by the Application Insights agent and the Redfield runtime. These logs are helpful when you diagnose IIS and application startup.
 - Use both switches to collect both event types.
-- By default, if no switch is specified both event types are collected.
+- By default, if no switch is specified, both event types are collected.
 
 #### Parameters
 
@@ -882,9 +867,7 @@ You have three options when you collect events:
 **Optional:** Use this parameter to set how long this script should collect events. The default is 5 minutes.
 
 ##### -LogDirectory
-**Optional:** Use this switch to set the output directory of the ETL file.
-By default, this file is created in the PowerShell Modules directory.
-The full path displays during script execution.
+**Optional:** Use this switch to set the output directory of the ETL file. By default, this file is created in the PowerShell modules directory. The full path displays during script execution.
 
 ##### -CollectSdkEvents
 **Optional:** Use this switch to collect Application Insights SDK events.
@@ -898,6 +881,7 @@ The full path displays during script execution.
 #### Output
 
 ##### Example of application startup logs
+
 ```powershell
 PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -CollectRedfieldEvents
 Starting...
@@ -932,7 +916,7 @@ The release note updates are listed here.
 
 ### 2.0.0
 
-- Updated the Application Insights .NET/.NET Core SDK to 2.21.0-redfield
+Updated the Application Insights .NET/.NET Core SDK to 2.21.0-redfield
 
 ### 2.0.0-beta3
 
@@ -945,7 +929,7 @@ Updated the Application Insights .NET/.NET Core SDK to 2.18.1-redfield
 
 ### 2.0.0-beta1
 
-Added the ASP.NET Core auto-instrumentation feature
+Added the ASP.NET Core autoinstrumentation feature
 
 ---
 
@@ -953,16 +937,16 @@ Added the ASP.NET Core auto-instrumentation feature
 
 This section provides answers to common questions.
 
-### Does Application Insights Agent support proxy installations?
+### Does the Application Insights agent support proxy installations?
 
-Yes. There are multiple ways to download Application Insights Agent:
+Yes. There are multiple ways to download the Application Insights agent:
 
 - If your computer has internet access, you can onboard to the PowerShell Gallery by using `-Proxy` parameters.
 - You can also manually download the module and either install it on your computer or use it directly.
 
 Each of these options is described in the [detailed instructions](?tabs=detailed-instructions#instructions).
 
-### Does Application Insights Agent support ASP.NET Core applications?
+### Does the Application Insights agent support ASP.NET Core applications?
 
   Yes. Starting from [Application Insights Agent 2.0.0](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0), ASP.NET Core applications hosted in IIS are supported.
 
@@ -991,7 +975,7 @@ View your telemetry:
 - [Create dashboards](./overview-dashboard.md).
 
 Add more telemetry:
-- [Availability overview](availability-overview.md)
+- See the [Availability overview](availability-overview.md).
 - [Add web client telemetry](./javascript.md) to see exceptions from webpage code and to enable trace calls.
 - [Add the Application Insights SDK to your code](./asp-net.md) so that you can insert trace and log calls.
 
