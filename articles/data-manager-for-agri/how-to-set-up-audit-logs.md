@@ -76,8 +76,8 @@ The `operationName` field values are in *Microsoft.AgFoodPlatform/resource-name/
 * `/failures` suffix corresponds to failure of a farm operation job (a PUT method call) and contains description about the reason of failure.
 
 The nomenclature for Jobs is as following:
-* For data-ingestion jobs:  *Microsoft.AgFoodPlatform/ingestionJobs/<resource-name>DataingestionJobs/write*
-* For deletion jobs: *Microsoft.AgFoodPlatform/deletionJobs/<resource-name>cascadeDeleteJobs/write*
+* For data-ingestion jobs:  *Microsoft.AgFoodPlatform/ingestionJobs/<'resource-name'>DataingestionJobs/write*
+* For deletion jobs: *Microsoft.AgFoodPlatform/deletionJobs/<'resource-name'>cascadeDeleteJobs/write*
 
 The following table lists the **operationName** values and corresponding REST API commands for a category as a tab:
 
@@ -236,7 +236,7 @@ Note: The operation names corresponding to write operations in other categories 
 |Data Plane Authentication|
 
 ## Query resource logs in a Log Analytics workspace
-All the [`categories` of resource logs](readme.md) are mapped as a table in log analytics. To access logs for each category, you need to [create a diagnostic setting](create-diagnostic-settings.md) to send data to a log analytics workspace. In this workspace, you can query any of the tables listed below to obtain the relevant logs.
+All the `categories` of resource logs are mapped as a table in log analytics. To access logs for each category, you need to create a diagnostic setting to send data to a log analytics workspace. In this workspace, you can query any of the tables listed to obtain the relevant logs.
 
 ### List of tables in Log analytics and their mapping to categories in resource logs
 | Table name in log analytics| Categories in resource logs |Description
@@ -276,9 +276,9 @@ All the [`categories` of resource logs](readme.md) are mapped as a table in log 
 |**JobId**| Available in`AgriFoodJobProcessesLogs`, `AgriFoodSatelliteLogs`, `AgriFoodWeatherLogs`, and `AgriFoodModelInferenceLogs`, indicates ID of the job.
 |**InitiatedBy**| Available only in `AgriFoodJobProcessesLogs` table. Indicates whether a job was initiated by a user or by the service.
 |**FarmerId**| ID of the farmer associated with the operation.
-|**Properties** | Available only in`AgriFoodJobProcessesLogs` table, it contains: `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(Type of the entity that failed  to be created, can be ApplicationData, PeriodicJob, etc.),`errorCode`(Code for failure of the job at Data Manager for Agriculture end),`errorMessage`(Description of failure at the Data Manager for Agriculture end),`internalErrorCode`(Code of failure of the job provide by the provider),`internalErrorMessage`(Description of the failure provided by the provider),`providerId`(ID of the provider such as JOHN-DEERE).
+|**Properties** | Available only in`AgriFoodJobProcessesLogs` table, it contains: `farmOperationEntityId` (ID of the entity that failed to be created by the farmOperation job), `farmOperationEntityType`(Type of the entity that failed  to be created, can be ApplicationData, PeriodicJob, etc.), `errorCode`(Code for failure of the job at Data Manager for Agriculture end),`errorMessage`(Description of failure at the Data Manager for Agriculture end),`internalErrorCode`(Code of failure of the job provide by the provider),`internalErrorMessage`(Description of the failure provided by the provider),`providerId`(ID of the provider such as JOHN-DEERE).
 
-Each of these tables can be queried by creating a log analytics workspace. Reference for query language is [here](https://docs.microsoft.com/en-us/azure/data-explorer/kql-quick-reference).
+Each of these tables can be queried by creating a log analytics workspace. Reference for query language is [here](https://learn.microsoft.com/azure/data-explorer/kql-quick-reference).
 
 ### List of sample queries in the log analytics workspace
 | Query name | Description |
