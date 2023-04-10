@@ -100,25 +100,24 @@ When you create a new workspace, you're required to bring other Azure resources 
 
 ## Create a workspace
 
-There are multiple ways to create a workspace:  
+There are multiple ways to create a workspace. To get started use one of the following options:
 
-* Use [Azure Machine Learning studio](quickstart-create-resources.md) to quickly create a workspace with default settings.
-* Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more options. 
-* Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks.
+* The [Azure Machine Learning studio](quickstart-create-resources.md) lets you quickly create a workspace with default settings.
+* Use [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more security options. 
+* Use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace) if you work in Visual Studio code.
+
+To automate the creation of workspaces including security configuration, consider using infrastructure template options or to use the Azure CLI and SDK:
+* [Azure Resource Manager/Bicep templates](how-to-create-workspace-template.md) provide a declarative syntax to deploy Azure resources.
 :::moniker range="azureml-api-2"
-* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
-:::moniker-end
+* Use the [Azure Machine Learning CLI](how-to-configure-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment).
+:::moniker range="azureml-api-2"
 :::moniker range="azureml-api-1"
-* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
+* Use the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment).
 :::moniker-end
-* If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
-> [!NOTE]
-> The workspace name is case-insensitive.
+## Tools for workspace interaction and management
 
-## Tools for workspace interaction
-
-You can interact with your workspace in the following ways:
+Once your workspace is set up, you can interact with it in the following ways:
 
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
@@ -133,9 +132,7 @@ You can interact with your workspace in the following ways:
 :::moniker-end
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
-## Workspace management
-
-You can also perform the following workspace management tasks:
+The following workspace management tasks are available in each interface.
 
 | Workspace management task           | Portal      | Studio      | Python SDK  | Azure CLI   | VS Code     |
 |-------------------------------------|-------------|-------------|-------------|-------------|-------------|
