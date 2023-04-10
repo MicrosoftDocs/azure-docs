@@ -6,7 +6,7 @@ author: tfitzmac
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-arm-template
 ---
 # Guidance on deploying web apps by using Azure Resource Manager templates
 
