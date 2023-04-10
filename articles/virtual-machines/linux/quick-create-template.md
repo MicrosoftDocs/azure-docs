@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-For more information on this template, see [Deploy a simple Ubuntu Linux VM 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
+For more information on this template, see [Deploy a Ubuntu Linux VM 18.04-LTS](https://azure.microsoft.com/resources/templates/vm-simple-linux/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
 
@@ -84,7 +84,7 @@ When no longer needed, delete the resource group, which deletes the VM and all o
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine by using an ARM template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a virtual machine by using an ARM template. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
