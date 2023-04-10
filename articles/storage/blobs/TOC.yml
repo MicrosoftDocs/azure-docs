@@ -1203,8 +1203,6 @@ items:
         href: data-lake-storage-namespace.md
     - name: Security
       items:
-      - name: Security recommendations
-        href: security-recommendations.md
       - name: Access control model
         href: data-lake-storage-access-control-model.md
       - name: Access control lists
