@@ -14,7 +14,7 @@ ms.author: aahi
 
 2. Under the **Extract information** section of Language Studio, select **Custom Text Analytics for health**.
 
-    :::image type="content" source="../../media/select-custom-TA4H.png" alt-text="A screenshot showing the location of custom TA4H in the Language Studio landing page." lightbox="../../media/select-custom-TA4H.png":::
+    <!--:::image type="content" source="../../media/select-custom-TA4H.png" alt-text="A screenshot showing the location of custom TA4H in the Language Studio landing page." lightbox="../../media/select-custom-TA4H.png":::-->
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you label data, train, evaluate, improve, and deploy your models. 
 
@@ -36,6 +36,6 @@ ms.author: aahi
 
 6. Select the container where you have uploaded your dataset.
 
-7. If you have already labeled data make sure it follows the [supported format](../../concepts/data-formats.md) and click on **Yes, my files are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu. Click **Next**. If you are using the dataset from the QuickStart, there is no need to review the formatting of the JSON labels file. 
+7. If you have already labeled data make sure it follows the supported format and click on **Yes, my files are already labeled and I have formatted JSON labels file** and select the labels file from the drop-down menu. Click **Next**. If you are using the dataset from the QuickStart, there is no need to review the formatting of the JSON labels file. 
 
 8. Review the data you entered and select **Create Project**.

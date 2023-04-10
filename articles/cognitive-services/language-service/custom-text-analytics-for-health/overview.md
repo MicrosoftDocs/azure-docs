@@ -22,9 +22,10 @@ Custom Text Analytics for health enables users to build custom AI models to extr
 This documentation contains the following article types:
 
 * [Quickstarts](quickstart.md) are getting-started instructions to guide you through creating making requests to the service.
+<!--
 * [Concepts](concepts/evaluation-metrics.md) provide explanations of the service functionality and features.
 * [How-to guides](how-to/tag-data.md) contain instructions for using the service in more specific or customized ways.
-
+-->
 ## Example usage scenarios
 
 Similarly to Text Analytics for health, custom Text Analytics for health can be used in multiple [scenarios](../text-analytics-for-health/overview.md#example-use-cases) across a variety of healthcare industries. However, the main usage of this feature is to provide a layer of customization on top of Text Analytics for health to extend its existing entity map.
@@ -36,7 +37,7 @@ Using custom Text Analytics for health typically involves several different step
 
 :::image type="content" source="media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
 
-1. **Define your schema**: Know your data and define the new [entities](reference/glossary.md#entity) you want extracted on top of the existing Text Analytics for health [entity map](../text-analytics-for-health/concepts/health-entity-categories.md). Avoid ambiguity.
+1. **Define your schema**: Know your data and define the new entities you want extracted on top of the existing Text Analytics for health entity map. Avoid ambiguity.
 
 2. **Label your data**: Labeling data is a key factor in determining model performance. Label precisely, consistently and completely.
     1. **Label precisely**: Label each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your labels.
@@ -57,8 +58,8 @@ As you use custom Text Analytics for health, see the following reference documen
 
 |APIs| Reference documentation|
 |---------|---------|---------|
-|REST APIs (Authoring)   | [REST API documentation](https://learn.microsoft.com/rest/api/language/2022-10-01-preview/text-analysis-authoring)        |
-|REST APIs (Runtime)    | [REST API documentation](https://learn.microsoft.com/rest/api/language/2022-10-01-preview/text-analysis-runtime/submit-job?tabs=HTTP)        |
+|REST APIs (Authoring)   | [REST API documentation](/rest/api/language/2022-10-01-preview/text-analysis-authoring)        |
+|REST APIs (Runtime)    | [REST API documentation](/rest/api/language/2022-10-01-preview/text-analysis-runtime/submit-job)        |
 
 
 ## Responsible AI 
@@ -73,5 +74,6 @@ An AI system includes not only the technology, but also the people who will use 
 * Use the [quickstart article](quickstart.md) to start using custom Text Analytics for health.  
 
 * As you go through the project development lifecycle, review the [glossary](reference/glossary.md) to learn more about the terms used throughout the documentation for this feature. 
-
+<!--
 * Remember to view the [service limits](reference/service-limits.md) for information such as [regional availability](reference/service-limits.md#regional-availability).
+-->
