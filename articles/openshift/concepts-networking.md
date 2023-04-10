@@ -14,12 +14,7 @@ keywords: aro cluster, aro, networking, azure, openshift, red hat, architecture,
 
 This guide covers an overview of Azure Red Hat OpenShift networking on OpenShift 4 clusters, along with a diagram and a list of important endpoints. For more information on core OpenShift networking concepts, see the [Azure Red Hat OpenShift 4 networking documentation](https://docs.openshift.com/container-platform/4.11/networking/understanding-networking.html).
 
-
 [![Diagram of Azure Red Hat OpenShift 4.5 networking.](./media/concepts-networking/aro-4-5-networking-diagram.png)](./media/concepts-networking/aro-4-5-networking-diagram.png#lightbox)
-
-<!-->
-[![Diagram of Azure Red Hat OpenShift 4 networking.](./media/concepts-networking/aro4-networking-diagram.png)](./media/concepts-networking/aro4-networking-diagram.png#lightbox)
--->
 
 When you deploy Azure Red Hat OpenShift on OpenShift 4, your entire cluster is contained within a virtual network. Within this virtual network, your control plane nodes and worker nodes each live in their own subnet. Each subnet uses an internal load balancer and a public load balancer.
 
@@ -102,22 +97,11 @@ With a publicly visible API server, you can't create network security groups and
 
 Azure Red Hat OpenShift uses CoreDNS. Domain forwarding can be configured. You can’t bring your own DNS to your virtual networks. For more information, see the documentation on [using DNS forwarding](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html#nw-dns-forward_dns-operator).
 
-
-<!-->
-## What's new starting with OpenShift 4.5
+## Upgrading from versions before OpenShift 4.5
 
 With the support of OpenShift 4.5, Azure Red Hat OpenShift introduced a few significant architectural changes. These changes only apply to newly created clusters running OpenShift 4.5 and later. Existing clusters that have been upgraded to OpenShift 4.5 or later won't have their networking architecture changed by the upgrade process. Users will need to re-create their clusters to use this new architecture.
 
-[![Diagram of Azure Red Hat OpenShift 4.5 networking.](./media/concepts-networking/aro-4-5-networking-diagram.png)](./media/concepts-networking/aro-4-5-networking-diagram.png#lightbox)
-
-As included in the diagram above, you'll notice a few changes:
-
-* Previously, Azure Red Hat OpenShift used two public LoadBalancers: one for the API server and one for the worker node pool. With this architecture update, the two public LoadBalancers have been consolidated under a single LoadBalancer. 
-* To reduce complexity, the dedicated outbound IP address resources have been removed.
-* The ARO control plane now shares the same network security group as the ARO worker nodes.
-
-For more information on OpenShift 4.5 and later, check out the [OpenShift 4.5 release notes](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).
--->
+For more information on the changes introduced in OpenShift 4.5, check out the [OpenShift 4.5 release notes](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).
 
 ## Next steps
 For more information on outbound traffic and what Azure Red Hat OpenShift supports for egress, see the [support policies](support-policies-v4.md) documentation.
