@@ -189,6 +189,21 @@ kubectl label namespace default istio.io/rev=asm-1-17
 
     Expect to see each pod ready with two containers, one of which is the envoy sidecar injected by Istio.
 
+
+## Delete resources
+
+If you don't intend to enable Istio ingress on your cluster and want to disable the Istio add-on, run the following command:
+
+```azurecli-interactive
+az aks mesh disable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
+```
+
+If you want to clean up all the resources created from this document, run the following command:
+
+```azurecli-interactive
+az group delete --name ${RESOURCE_GROUP} --yes --no-wait
+```
+
 ## Next steps
 
 * [Deploy external or internal ingresses for Istio service mesh add-on][istio-deploy-ingress]

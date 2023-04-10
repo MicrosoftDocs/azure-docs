@@ -214,4 +214,18 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
     <title>Simple Bookstore App</title>
     ```
 
+## Delete resources
+
+If you want to clean up the Istio service mesh and the ingresses while leaving behind the cluster, run the following command:
+
+```azurecli-interactive
+az aks mesh disable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
+```
+
+If you want to clean up all the resources created from the Istio how-to guidance documents, run the following command:
+
+```azurecli-interactive
+az group delete --name ${RESOURCE_GROUP} --yes --no-wait
+```
+
 [istio-deploy-addon]: istio-deploy-addon.md
