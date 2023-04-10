@@ -2226,6 +2226,16 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+# Owner: rolyon
+- id: multi-tenant-organizations-powershell-graph
+  title: Microsoft Graph PowerShell or Microsoft Graph
+  prompt: Choose an option
+  pivots:
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+# Owner:
 - id: deploy-python-web-app-postgressql
   title: Workflows
   prompt: Choose your path
