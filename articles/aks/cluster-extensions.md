@@ -87,7 +87,7 @@ For supported Kubernetes versions, refer to the corresponding documentation for 
 Create a new extension instance with `k8s-extension create`, passing in values for the mandatory parameters. The below command creates an Azure Machine Learning extension instance on your AKS cluster:
 
 ```azurecli
-az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True
+az k8s-extension create --name azureml --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters --configuration-settings enableInference=True allowInsecureConnections=True inferenceRouterServiceType=LoadBalancer
 ```
 
 > [!NOTE]
@@ -142,7 +142,7 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 Update an existing extension instance with `k8s-extension update`, passing in values for the mandatory parameters. The below command updates the auto-upgrade setting for an Azure Machine Learning extension instance:
 
 ```azurecli
-az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
+az k8s-extension update --name azureml --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
 **Required parameters**
