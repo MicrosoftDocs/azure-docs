@@ -134,7 +134,7 @@ In some cases, you may want to invoke a shared error handling or logging step, i
 ```json
 @or(equals(activity('ActivityFailed').Status, 'Failed'), equals(activity('ActivitySucceeded').Status, 'Failed'))
 ```
-* Note: you need concatenated or if you have more than two dependency activities, for instance, 
+* Note: you need concatenated or if you've more than two dependency activities, for instance, 
 ```json
 @or(or(equals(activity('ActivityFailed').Status, 'Failed'), equals(activity('ActivitySucceeded1').Status, 'Failed')),equals(activity('ActivitySucceeded1').Status, 'Failed'))
 ```
@@ -183,6 +183,10 @@ To set up the pattern:
 
 Error Handling job runs only when First Activity fails. Next Activity will run regardless if First Activity succeeds or not.
 
+You can add multiple activities for error handling.
+
+:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-2-try-catch-multiple.png" alt-text="Screenshot showcasing pipeline with try catch block with multiple activities.":::
+
 ### Generic Error Handling
 Commonly, we have multiple activities running sequentially in the pipeline. If any fails, I need to run an error handling job to clear the state, and/or log the error. For instance, I have sequential copy activities in the pipeline. If any of these fails, I need to run a script job to log the pipeline failure.
 
@@ -192,9 +196,15 @@ To set up the pattern:
 * Add generic error handling step to the end of the pipeline
 * Connect both UponFailure and UponSkip paths from the last activity to the error handling activity
 
-:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-2-generic-no-branching.png" alt-text="Screenshot showcasing pipeline with generic error handling in a pipeline with no branching.":::
+:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-3-generic-no-branching.png" alt-text="Screenshot showcasing pipeline with generic error handling in a pipeline with no branching.":::
 
 The last step, Generic Error Handling, will only run if any of the previous activities fails. It will not run if they all succeed.
+
+You can add multiple activities for error handling.
+
+:::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-4-generic-no-branching-multiple.png" alt-text="Screenshot showcasing pipeline with generic error handling in a pipeline with no branching and multiple activities.":::
+
+
 
 ## Next steps
 
