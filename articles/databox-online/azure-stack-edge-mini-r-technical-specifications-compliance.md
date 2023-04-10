@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 04/10/2023
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -25,8 +25,8 @@ The Azure Stack Edge Mini R device has the following specifications for compute 
 | CPU: raw                | 16 total cores, 32 total vCPUs  |
 | CPU: usable             | 24 vCPUs                        |
 | Memory type             | 16 GB 2400 MT/s SODIMM          |
-| Memory: raw             | 48 GB RAM (3 x 16 GB)           |
-| Memory: usable          | 32 GB RAM                       |
+| Memory: raw             | 48 GiB RAM (3 x 16 GB)           |
+| Memory: usable          | 32 GiB RAM                       |
 
 
 ## Compute acceleration
