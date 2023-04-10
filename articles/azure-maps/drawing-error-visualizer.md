@@ -50,8 +50,8 @@ This tutorial uses the [Postman] application, but you may choose a different API
 
 The downloaded zipped package from the `diagnosticPackageLocation` link contains the following two files.
 
-1. _VisualizationTool.zip_: Contains the source code, media, and web page for the Drawing Error Visualizer.
-1. _ConversionWarningsAndErrors.json_: Contains a formatted list of warnings, errors, and other details that are used by the Drawing Error Visualizer.
+* _VisualizationTool.zip_: Contains the source code, media, and web page for the Drawing Error Visualizer.
+* _ConversionWarningsAndErrors.json_: Contains a formatted list of warnings, errors, and other details that are used by the Drawing Error Visualizer.
 
 Unzip the _VisualizationTool.zip_ folder. It contains the following items:
 
