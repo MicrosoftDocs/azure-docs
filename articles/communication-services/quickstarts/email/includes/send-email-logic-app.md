@@ -5,7 +5,7 @@ author: sanchezjuan
 manager: chpalm
 services: azure-communication-services
 ms.author: sanchezjuan
-ms.date: 03/03/2023
+ms.date: 04/10/2023
 ms.topic: include
 ms.service: azure-communication-services
 ms.custom: mode-other
