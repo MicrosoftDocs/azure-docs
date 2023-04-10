@@ -29,7 +29,7 @@ This quickstart explains how to build and deploy Spring applications to Azure Sp
 
 ## Download the sample app
 
-Use the following steps to download the sample app. If you have been using the Azure Cloud Shell, switch to a local command prompt.
+Use the following steps to download the sample app. If you've been using the Azure Cloud Shell, switch to a local command prompt.
 
 1. Create a new folder and clone the sample app repository.
 
@@ -55,13 +55,13 @@ Use the following steps to download the sample app. If you have been using the A
 
 Use the following steps to deploy the PlanetWeatherProvider project.
 
-1. Create an app for the PlanetWeatherProvider project in your Azure Spring Apps instance.
+1. Create an app for the `PlanetWeatherProvider` project in your Azure Spring Apps instance.
 
    ```azurecli
    az spring app create --name planet-weather-provider --runtime-version NetCore_31
    ```
 
-   To enable automatic service registration, you have given the app the same name as the value of `spring.application.name` in the project's *appsettings.json* file:
+   To enable automatic service registration, you've given the app the same name as the value of `spring.application.name` in the project's *appsettings.json* file:
 
    ```json
    "spring": {
@@ -333,13 +333,13 @@ Compiling the project takes 5-10 minutes. When the project is compiled, you shou
 
 The following steps show you how to generate configurations and deploy to Azure Spring Apps.
 
-1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you have already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+1. Generate configurations by running the following command in the root folder of Pet Clinic containing the parent POM. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
    ```bash
    mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.10.0:config
    ```
 
-   You'll be asked to select:
+   You're asked to select:
 
    - **Modules:** Select `api-gateway` and `customers-service`.
    - **Subscription:** The subscription you used to create an Azure Spring Apps instance.

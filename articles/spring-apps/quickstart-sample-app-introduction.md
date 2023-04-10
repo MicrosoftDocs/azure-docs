@@ -85,7 +85,7 @@ The following diagram shows the architecture of the PetClinic application.
 
 ## Functional services to be deployed
 
-PetClinic is decomposed into 4 core Spring apps. All of them are independently deployable applications organized by business domains.
+PetClinic is decomposed into four core Spring apps. All of them are independently deployable applications organized by business domains.
 
 * **Customers service**: Contains general user input logic and validation including pets and owners information (Name, Address, City, Telephone).
 * **Visits service**: Stores and shows visits information for each pet's comments.

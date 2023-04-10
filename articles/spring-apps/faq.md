@@ -57,7 +57,7 @@ Azure Spring Apps is a regional service. All customer data in Azure Spring Apps 
 
 Azure Spring Apps has the following known limitations:
 
-* `spring.application.name` will be overridden by the application name that's used to create each application.
+* `spring.application.name` is overridden by the application name that's used to create each application.
 * `server.port` defaults to port 1025. If any other value is applied, it's overridden, so don't specify a server port in your code.
 * The Azure portal, Azure Resource Manager templates, and Terraform don't support uploading application packages. You can upload application packages by deploying the application using the Azure CLI, Azure DevOps, Maven Plugin for Azure Spring Apps, Azure Toolkit for IntelliJ, and the Visual Studio Code extension for Azure Spring Apps.
 
@@ -236,22 +236,20 @@ For more information, see [Migrate Spring applications to Azure Spring Apps](/az
 
 ### How long is .NET Core 3.1 supported?
 
-Until Dec 3, 2022. See [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+Until December 3, 2022. See [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 ::: zone-end
 
 ## Troubleshooting
 
 ### What are the impacts of service registry rarely unavailable?
 
-In some rarely happened scenario, you may see some errors like the following one from your application logs:
+In some rare scenarios, you may see errors like the following from your application logs:
 
 ```output
 RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
 ```
 
-This issue is introduced by the Spring framework at a low rate due to network instability or other network issues.
-
-There should be no impacts to the user experience. The Eureka client has both heartbeat and retry policy to take care of this problem. You could consider it as one transient error and skip it safely.
+The Spring framework raises this issue at a low rate due to network instability or other network issues. There should be no impacts to the user experience. The Eureka client has both heartbeat and retry policy to take care of this problem. You can consider it a transient error and skip it safely.
 
 ## Next steps
 

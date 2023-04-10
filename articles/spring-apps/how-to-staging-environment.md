@@ -172,7 +172,7 @@ If you visit your public-facing app gateway at this point, you should see the ol
 
 ## Set the green deployment as the production environment
 
-1. After you have verified your change in your staging environment, you can push it to production. On the **Apps** > **Deployments** page, select the application currently in **Production**.
+1. After you've verified your change in your staging environment, you can push it to production. On the **Apps** > **Deployments** page, select the application currently in **Production**.
 
 1. Select the ellipsis after **Registration status** of the green deployment, and then select **Set as production**.
 
@@ -183,7 +183,7 @@ If you visit your public-facing app gateway at this point, you should see the ol
    :::image type="content" source="media/how-to-staging-environment/new-production-deployment.png" lightbox="media/how-to-staging-environment/new-production-deployment.png" alt-text="Screenshot that shows the URL of the app now in production.":::
 
 >[!NOTE]
-> After you have set the green deployment as the production environment, the previous deployment becomes the staging deployment.
+> After you've set the green deployment as the production environment, the previous deployment becomes the staging deployment.
 
 ## Modify the staging deployment
 
