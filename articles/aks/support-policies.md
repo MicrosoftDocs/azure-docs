@@ -74,7 +74,7 @@ Microsoft doesn't provide technical support for the following examples:
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Network customizations other than the ones listed in the [AKS documentation](./index.yml).
 * Custom or 3rd-party CNI plugins used in [BYOCNI](use-byo-cni.md) mode.
-* Stand-by and proactive scenarios. Microsoft Support provides reactive support with the focus on solving active issues in a timely and professional manner. However, standby support or proactive support, such as accompanying customers during operations (like upgrading, scaling, etc) or performing prechecks to ensure the success of upcoming operations, are not covered. [Eligible customers](https://www.microsoft.com/unifiedsupport) could contact their accounts team to get nominated for Azure Event Management service. It’s a paid service delivered by CSS engineers that includes a proactive solution risk assessment and coverage during the event.
+* Stand-by and proactive scenarios. Microsoft Support provides reactive support with the focus on solving active issues in a timely and professional manner. However, standby support or proactive support, such as accompanying customers during operations (like upgrading, scaling, etc) or performing prechecks to ensure the success of upcoming operations, are not covered. [Eligible customers](https://www.microsoft.com/unifiedsupport) could contact their accounts team to get nominated for Azure Event Management service. It’s a paid service delivered by Microsoft support engineers that includes a proactive solution risk assessment and coverage during the event.
 
 
 ## AKS support coverage for agent nodes
