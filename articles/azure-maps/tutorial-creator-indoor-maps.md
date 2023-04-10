@@ -27,10 +27,10 @@ This tutorial describes how to create indoor maps for use in Microsoft Azure Map
 
 ## Prerequisites
 
-1. An [Azure Maps account]
-2. A [subscription key]
-3. A [Creator resource]
-4. Download the [Sample drawing package]
+* An [Azure Maps account]
+* A [subscription key]
+* A [Creator resource]
+* Download the [Sample drawing package]
 
 This tutorial uses the [Postman] application, but you can use a different API development environment.
 
@@ -371,7 +371,7 @@ For more information, see [Map configuration] in the indoor maps concepts articl
 > [Use the Azure Maps Indoor Maps module with custom styles](how-to-use-indoor-module.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Creator resource]: how-to-manage-creator.md
 [Sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip
 [Postman]: https://www.postman.com

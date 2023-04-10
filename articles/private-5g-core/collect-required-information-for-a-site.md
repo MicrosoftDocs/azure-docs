@@ -20,6 +20,7 @@ You can use this information to create a site in an existing private mobile netw
 
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - If you want to give Azure role-based access control (Azure RBAC) to storage accounts, you must have the relevant permissions on your account.
+- Make a note of the resource group that contains your private mobile network that was collected in [Collect the required information to deploy a private mobile network](collect-required-information-for-private-mobile-network.md). We recommend that the mobile network site resource you create in this procedure belongs to the same resource group.
 
 ## Collect mobile network site resource values
 

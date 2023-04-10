@@ -8,7 +8,7 @@ metadata:
   description: "Learn how to manage and help secure identities for digital workloads, such as apps and services."
   manager: celested
   ms.author: ryanwi
-  ms.date: 03/02/2023
+  ms.date: 03/22/2023
   ms.service: active-directory
   ms.subservice: workload-identities
   ms.topic: landing-page
@@ -27,13 +27,17 @@ landingContent:
           - text: Frequently asked questions about license plans
             url: workload-identities-faqs.md
   # Card
-  - title: Secure risky workload identities
+  - title: Check app health status and mitigate risk
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
-          - text: Secure workload identities
-            url: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
-  # Card
+        - text: Remove unused applications
+          url: ../reports-monitoring/recommendation-remove-unused-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+        - text: Remove unused credentials from apps
+          url: ../reports-monitoring/recommendation-remove-unused-credential-from-apps.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+        - text: Renew expiring application credentials
+          url: ../reports-monitoring/recommendation-renew-expiring-application-credential.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+# Card
   - title: Connect workloads without managing secrets
     linkLists:
       - linkListType: overview
@@ -51,6 +55,20 @@ landingContent:
           - text: Configure a managed identity to trust an external identity provider
             url: workload-identity-federation-create-trust-user-assigned-managed-identity.md
   # Card
+  - title: Enforce best practice for how apps use auth methods
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Application authentication methods API
+            url: /graph/api/resources/applicationauthenticationmethodpolicy?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+  # Card
+  - title: Secure risky workload identities
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Secure workload identities
+            url: ../identity-protection/concept-workload-identity-risk.md?toc=/azure/active-directory/workload-identities/toc.json&bc=/azure/active-directory/workload-identities/breadcrumb/toc.json
+    # Card
   - title: Apply Conditional Access policies to service principals
     linkLists:
       - linkListType: how-to-guide

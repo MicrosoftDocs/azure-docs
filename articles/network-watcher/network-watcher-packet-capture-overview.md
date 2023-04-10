@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/22/2023
 ms.author: halkazwini
-ms.custom: template-concept, engagement-fy23 
+ms.custom: template-concept, engagement-fy23
 ---
 
 # Packet capture overview
@@ -20,8 +20,8 @@ Packet capture is an extension that is remotely started through Network Watcher.
 
 > [!IMPORTANT]
 > Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`.
-- To install the extension on a Windows virtual machine, see [Network Watcher Agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md).
-- To install the extension on a Linux virtual machine, see [Network Watcher Agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
+> - To install the extension on a Windows virtual machine, see [Network Watcher Agent VM extension for Windows](../virtual-machines/extensions/network-watcher-windows.md).
+> - To install the extension on a Linux virtual machine, see [Network Watcher Agent VM extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 To control the size of captured data and only capture required information, use the following options:
 
@@ -31,7 +31,7 @@ To control the size of captured data and only capture required information, use 
 |---|---|
 |**Maximum bytes per packet (bytes)** | The number of bytes from each packet. All bytes are captured if left blank. Enter 34 if you only need to capture IPv4 header.|
 |**Maximum bytes per session (bytes)** | Total number of bytes that are captured, once the value is reached the session ends.|
-|**Time limit (seconds)** | Packet capture session time limit. The default value is 18000 seconds or 5 hours.|
+|**Time limit (seconds)** | Packet capture session time limit, once the value is reached the session ends. The default value is 18000 seconds (5 hours).|
 
 #### Filtering (optional)
 
@@ -46,11 +46,12 @@ To control the size of captured data and only capture required information, use 
 
 ## Considerations
 
-There's a limit of 10,000 parallel packet capture sessions per region per subscription. This limit applies only to the sessions and doesn't apply to the saved packet capture files either locally on the VM or in a storage account. See the [Network Watcher service limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) for a full list of limits. 
+There's a limit of 10,000 parallel packet capture sessions per region per subscription. This limit applies only to the sessions and doesn't apply to the saved packet capture files either locally on the VM or in a storage account. See the [Network Watcher service limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-network-watcher-limits) for a full list of limits. 
 
 ## Next steps
 
 - To learn how to manage packet captures using the Azure portal, see [Manage packet captures in virtual machines using the Azure portal](network-watcher-packet-capture-manage-portal.md) and [Manage packet captures in Virtual Machine Scale Sets using the Azure portal](network-watcher-packet-capture-manage-portal-vmss.md).
 - To learn how to manage packet captures using Azure PowerShell, see [Manage packet captures in virtual machines using PowerShell](network-watcher-packet-capture-manage-powershell.md) and [Manage packet captures in Virtual Machine Scale Sets using PowerShell](network-watcher-packet-capture-manage-powershell-vmss.md).
 - To learn how to create proactive packet captures based on virtual machine alerts, see [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
+
 

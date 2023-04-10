@@ -60,7 +60,7 @@ If the toggle button is turned on, the new assets under a certain parent will be
 :::image type="content" source="media/concept-scans-and-ingestion/scope-your-scan-toggle-on.png" alt-text="Screenshot that shows the scope your scan page with toggle button turned on.":::
 
 > [!NOTE]
-> * The availability of the toggle button will depend on the data source type. Currently it’s available in public preview for sources including Azure Blob Storage, Azure Data Lake Storage Gen 1, Azure Data Lake Storage Gen 2, Azure Files and Azure Dedicated SQL pool (formerly SQL DW).
+> * The availability of the toggle button will depend on the data source type. Currently it's available in public preview for sources including Azure Blob Storage, Azure Data Lake Storage Gen 1, Azure Data Lake Storage Gen 2, Azure Files and Azure Dedicated SQL pool (formerly SQL DW).
 > * For any scans created or scheduled before the toggle button is introduced, the toggle state is set as on and can’t be changed. For any scans created or scheduled after the toggle button is introduced, the toggle state can’t be changed after the scan is saved. You need to create a new scan to change the toggle state.
 > * When the toggle button is turned off, for sources of storage type like Azure Data Lake Storage Gen 2 it may take up to 4 hours before the [browse by source type](how-to-browse-catalog.md#browse-by-source-type) experience becomes fully available after your scan job is completed.
 

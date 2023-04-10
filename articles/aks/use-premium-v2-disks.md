@@ -2,7 +2,7 @@
 title: Enable Premium SSD v2 Disk support on Azure Kubernetes Service (AKS)
 description: Learn how to enable and configure Premium SSD v2 Disks in an Azure Kubernetes Service (AKS) cluster
 ms.topic: article
-ms.date: 4/10/2023
+ms.date: 04/10/2023
 
 ---
 

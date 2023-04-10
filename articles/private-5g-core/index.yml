@@ -57,6 +57,10 @@ landingContent:
         links:
           - text: Deploy a private mobile network and site - ARM template
             url: deploy-private-mobile-network-with-site-arm-template.md
+          - text: Deploy a private mobile network and site - command line
+            url: deploy-private-mobile-network-with-site-command-line.md
+          - text: Deploy a private mobile network and site - PowerShell
+            url: deploy-private-mobile-network-with-site-powershell.md
   # Card
   - title: Manage sites
     linkLists:

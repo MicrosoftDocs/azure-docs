@@ -138,6 +138,8 @@ Each account requires a unique work, school, or Microsoft account. For more info
 
 There can be only one account owner per account. However, there can be multiple accounts in an EA enrollment. Each account has a unique account owner.
 
+For different Azure AD accounts, it can take more than 30 minutes for permission settings to take effect.
+
 ### Service administrator
 
 The service administrator role has permissions to manage services in the Azure portal and assign users to the coadministrator role.

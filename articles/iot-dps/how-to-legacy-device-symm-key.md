@@ -5,7 +5,7 @@ description: This tutorial shows how to use symmetric keys to provision devices 
 author: kgremban
 
 ms.author: kgremban
-ms.date: 10/14/2022
+ms.date: 03/09/2023
 ms.topic: tutorial
 ms.service: iot-dps
 zone_pivot_groups: iot-dps-set1
@@ -193,27 +193,11 @@ In this section, you'll prepare a development environment that's used to build t
 
 ## Create a symmetric key enrollment group
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your Device Provisioning Service instance.
+[!INCLUDE [iot-dps-enrollment-group-key.md](../../includes/iot-dps-enrollment-group-key.md)]
 
-1. Select the **Manage enrollments** tab and then select **+ Add enrollment group** at the top of the page.
+When you create the enrollment group, DPS generates a **primary key** and **secondary key**, then adds them to the enrollment entry. Your symmetric key enrollment group appears  under the **Group name** column in the **Enrollment Groups** tab.
 
-1. On **Add Enrollment Group**, enter the following information:
-
-   * **Group name**: Enter **mylegacydevices**. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
-
-   * **Attestation Type**: Select **Symmetric Key**.
-
-   * **Auto Generate Keys**: Check this box.
-
-   * **Select how you want to assign devices to hubs**: Select **Static configuration** so you can assign to a specific hub.
-
-   * **Select the IoT hubs this group can be assigned to**: Select one of the IoT hubs from the drop-down list.
-
-     :::image type="content" source="./media/how-to-legacy-device-symm-key/add-symmetric-key-enrollment-group.png" alt-text="Screenshot that shows adding a symmetric key enrollment group to DPS.":::
-
-1. Select **Save**. When you save the enrollment, IoT Hub generates a **Primary Key** and **Secondary Key**, then adds them to the enrollment entry. Your symmetric key enrollment group appears as **mylegacydevices** under the *Group Name* column in the *Enrollment Groups* tab.
-
-1. Open the enrollment and copy the value of the **Primary Key**. This key is your master group key.
+Open the enrollment and copy the value of the **Primary Key**. This key is your master group key.
 
 ## Choose a unique registration ID for the device
 
@@ -763,35 +747,32 @@ To update and run the provisioning sample with your device information:
 
 In this tutorial, you used the *Static configuration* allocation policy to assign devices that register through the enrollment group to the same IoT hub. However, for allocations where a device might be provisioned to one of several IoT hubs, you can examine the enrollment group's registration records to see which IoT hub the device was provisioned to:
 
-1. In Azure portal, go to your DPS instance.
+1. In the Azure portal, go to your DPS instance.
 
 1. In the **Settings** menu, select **Manage enrollments**.
 
-1. Select **Enrollment Groups**.
+1. Select **Enrollment groups**.
 
-1. Select the enrollment group you used for this tutorial, *mylegacydevices*.
+1. Select the enrollment group you created for this tutorial.
 
-1. On the **Enrollment Group Details** page, select the **Registration Records** tab.
+1. On the **Enrollment Group Details** page, select **Registration status**.
 
-1. Find the device ID for your device **Device Id** column and note down the IoT hub in the **Assigned IoT Hub** column. The device ID is the same as the registration ID, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*. (For devices that register through an enrollment group, the device ID registered to IoT Hub is always the same as the registration ID.)
+1. Find the device ID for your device **Device Id** column and note down the IoT hub in the **Assigned IoT hub** column.
 
-    :::image type="content" source="./media/how-to-legacy-device-symm-key/enrollment-group-registration-records.png" alt-text="Screenshot that shows the enrollment group registration records on Azure portal.":::
-
-     You can select the record to see more details like the initial twin assigned to the device.
+   You can select the device record to see more details like the initial twin assigned to the device.
 
 To verify the device on your IoT hub:
 
-1. In Azure portal, go to the IoT hub that your device was assigned to.
+1. In the Azure portal, go to the IoT hub that your device was assigned to.
 
 1. In the **Device management** menu, select **Devices**.
 
-1. If your device was provisioned successfully, its device ID, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
+1. If your device was provisioned successfully, its device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
 
     :::image type="content" source="./media/how-to-legacy-device-symm-key/hub-registration.png" alt-text="Device is registered with the IoT hub":::
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment group, a device can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
->
 
 ## Provision more devices (optional)
 
@@ -809,44 +790,37 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ### Delete your enrollment group
 
-1. Close the device client sample output window on your machine.
+Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
-
-1. Select your DPS instance.
+1. In the Azure portal, go to your DPS instance.
 
 1. In the **Settings** menu, select **Manage enrollments**.
 
-1. Select the **Enrollment Groups** tab.
+1. Select the **Enrollment groups** tab.
 
-1. Select the enrollment group you used for this tutorial, *mylegacydevices*.
+1. Select the name of the enrollment group you used for this tutorial to open its details page.
 
-1. On the **Enrollment Group Details** page, select the **Registration Records** tab. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete Registrations** at the top of the page to delete the registration records.
+1. On the **Enrollment details** page, select **Registration status**. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete ** at the top of the page to delete the registration records.
 
-    > [!IMPORTANT]
-    > Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
+1. Go back to the **Manage enrollments** page.
 
-1. Go back to the **Manage Enrollments** page and make sure the **Enrollment Groups** tab is selected.
-
-1. Select the check box next to the *GROUP NAME* of the enrollment group you used for this tutorial, *mylegacydevices*.
+1. Select the check box next to the name of the enrollment group you used for this tutorial.
 
 1. At the top of the page, select  **Delete**.
 
 ### Delete device registration(s) from IoT Hub
 
-1. From the left-hand menu in the Azure portal, select **All resources**.
+1. In the Azure portal, go to the IoT hub that your device was assigned to.
 
-2. Select your IoT hub.
+1. Select **Devices** from the **Device management** section of the navigation menu.
 
-3. In the **Explorers** menu, select **IoT devices**.
+1. Select the check box next to the device Id of the device(s) you registered in this tutorial.
 
-4. Select the check box next to the *DEVICE ID* of the device(s) you registered in this tutorial. For example, *sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6*.
-
-5. At the top of the page, select  **Delete**.
+1. At the top of the page, select  **Delete**.
 
 ## Next steps
 
-In this tutorial, you provisioned multiple devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
+In this tutorial, you provisioned multiple devices to a single IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
 > [!div class="nextstepaction"]
 > [Use custom allocation policies](tutorial-custom-allocation-policies.md)
