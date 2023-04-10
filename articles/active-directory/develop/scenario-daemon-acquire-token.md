@@ -103,11 +103,6 @@ AcquireTokenResult tokenResult = await acquirer.GetTokenForUserAsync(new[] { htt
 string accessToken = tokenResult.AccessToken;
 ```
 
-### AcquireTokenForClient uses the application token cache
-
-In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
-Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient` because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
-
 # [Java](#tab/java)
 
 This code is extracted from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/msal4j-sdk/src/samples/confidential-client/).
