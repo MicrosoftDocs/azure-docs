@@ -19,7 +19,7 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
 
 ## Enable external ingress gateway
 
-1. Run the following command to enable externally accessible Istio ingress on your AKS cluster:
+1. Enable externally accessible Istio ingress on your AKS cluster:
 
     ```azurecli-interactive
     az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type external
@@ -97,7 +97,7 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
     export GATEWAY_URL_EXTERNAL=$INGRESS_HOST_EXTERNAL:$INGRESS_PORT_EXTERNAL
     ```
 
-1. Run the following command to retrieve the external address of the sample application:
+1. Retrieve the external address of the sample application:
 
     ```bash
     echo "http://$GATEWAY_URL_EXTERNAL/productpage"
@@ -112,7 +112,7 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
 
 ## Enable internal ingress gateway
 
-1. Run the following command to enable Istio ingress only accessible from the virtual network of your AKS cluster:
+1. Enable Istio ingress only accessible from the virtual network of your AKS cluster:
 
     ```azurecli-interactive
     az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type internal
@@ -190,7 +190,7 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
     export GATEWAY_URL_INTERNAL=$INGRESS_HOST_INTERNAL:$INGRESS_PORT_INTERNAL
     ```
 
-1. Run the following command to retrieve the address of the sample application:
+1. Retrieve the address of the sample application:
 
     ```bash
     echo "http://$GATEWAY_URL_INTERNAL/productpage"
