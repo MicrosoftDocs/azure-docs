@@ -2,7 +2,7 @@
 title: Prerequisites for scheduled patching in update management center (preview).
 description: The article describes the new prerequisites to configure scheduled patching in Update management center (preview).
 ms.service: update-management-center
-ms.date: 03/30/2023
+ms.date: 04/10/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -10,26 +10,24 @@ ms.author: sudhirsneha
 
 # Change in requirements for Schedule patching
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs.
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Azure VMs.
 
-This article provides an overview of a new prerequisite for schedule patching in update management center (preview). 
+This article is an overview on how to configure Schedule patching and Automatic guest VM patching on Azure VMs using the new prerequisite. The steps to configure both the patching options on Arc VMs continue to remain the same.
+ 
+Currently, you can enable [Automatic guest VM patching](../virtual-machines/automatic-vm-guest-patching.md) (Autopatch) by setting the patch mode to **Azure-orchestrated** or **AutomaticByPlatform**. To have additional control over your patch installation, you can use schedule patching to define your own custom maintenance window. You can enable schedule patching by setting the patch mode to **Azure orchestrated**, or **AutomaticByPlatform** and attaching a schedule to the Azure VM.
 
-Currently, for Azure VMs, to define the schedule patching, you must set the patch orchestration mode as **Azure-orchestrated** if you're configuring from Azure portal, and **AutomaticByPlatform** if you're using the REST API. In Portal and REST API, you should have a schedule associated with the VM for the schedule patching to run. If the schedule isn't associated, then the machine may get autopatched. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
+In certain cases, when you remove the schedule from a VM, there is a possibility that the VM may get accidentally autopatched and subsequently rebooted. To avoid accidental or unintentional patching, the new prerequisite, **ByPassPlatformSafetyChecksOnUserSchedule**, a VM property allows you to accurately determine the VMs that must be schedule patched or autopatched.
 
-To avoid accidental or unintentional patching when a VM is disassociated from a schedule, a new property is introduced as a prerequisite to enable schedule patching on Azure VMs.  
 
-## New prerequisite
-
-The new VM property - *BypassPlatformSafetyChecksOnUserSchedule* is introduced, allowing a complete control over your patching requirements. It implies that you can have a more reliable way to select the VMs that must be autopatched and schedule patched, removing the risk of accidental autopatching.
-
-Here, when the patch mode is set to **Azure-orchestrated**, **BypassPlatformSafetyChecksOnUserSchedule = True**, and no schedule is associated, your VM won't get autopatched.
+## Enable schedule patching on Azure VMs
 
 To enable schedule patching on your VMs now, follow these steps:
   
-
 # [Azure portal](#tab/new-prereq-portal)
 
 **Patch orchestration = Azure-orchestrated with user managed schedules (Preview)**.
+
+Select the patch orchestration option as **Azure-orchestrated with user managed schedules(Preview)**.
 
 The new patch orchestration option enables the following VM properties on your behalf after receiving your consent:
 
@@ -44,27 +42,33 @@ The new patch orchestration option enables the following VM properties on your b
 
 --- 
 
-The above settings will do the following:
+## Enable automatic guest VM patching on Azure VMs
 
-- **Patch Orchestration** set to **Azure-orchestrated** enables Auto patching on the VM. [Learn more](../virtual-machines/automatic-vm-guest-patching.md).
-- Setting the **BypassPlatformSafetyChecksOnUserSchedule** to **True** ensures that even if the schedule is removed from the VM, your VM won't be autopatched.
+To enable automatic guest VM patching on your Azure VMs now, follow these steps:
 
-> [!NOTE]
-> - This prerequisite is applicable only for Azure VMs. 
-> - For Azure Arc-enabled VMs, there are no prerequisites to enable scheduled patching. The process to configure the schedules on Azure Arc-enabled servers continues to remain the same.
-> - For other programmatic methods such as REST API/PowerShell/CLI, we recommend that you enable both the properties using the REST API calls/REST commands/cmdlets.
+# [Azure portal](#tab/auto-portal)
+
+- Patch mode = Azure-orchestrated
+
+# [REST API](#tab/auto-rest-api)
+
+- Patch mode = AutomaticByPlatform
+- BypassPlatformSafetyChecksOnUserSchedule = FALSE
+
+---
 
 > [!IMPORTANT]
-> For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration option to *Azure orchestrated with user managed schedules (preview)* before April 30, 2023. If you fail to update the patch orchestration option before April 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.
+> For a seamless scheduled patching experience, you must ensure that the new VM property is enabled on all your Azure VMs (existing or new) that have schedules attached to them **before April 30, 2023**. Failing to update will give an error that the prerequisites aren't met.
 
-## Enable the prerequisite to schedule patch for Azure VMs
+## Enable patch orchestration for existing VMs
 
-Currently, you can enable the prerequisite to schedule patch from Azure portal and by using REST API.
+You can update the patch orchestration option for existing VMs that either already have schedules associated or are to be newly associated with a schedule:  
 
 # [Azure portal](#tab/prereq-portal)
 
-To update the patch mode,  follow these steps:
+To update the patch mode, follow these steps:
 
+1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Go to **Update management center (Preview)**, select **Update Settings**. 
 1. In **Change update settings**, select **+Add machine**.
 1. In **Select resources**, select your VMs and then select **Add**.
@@ -73,22 +77,70 @@ To update the patch mode,  follow these steps:
 
 # [REST API](#tab/prereq-rest-api)
 
-To specify the PUT request, you can use the following Azure REST API call with valid parameters and values. 
+```
+PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2020-12-01`
+```
 
-```rest
-PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atscalepatching/providers/Microsoft.Compute/virtualMachines/win-atscalepatching-1/providers/Microsoft.Maintenance/configurationAssignments/TestAzureInGuestAdv?api-version=2021-09-01-preview
-
+```json
 {
+  "location": "<location>",
   "properties": {
-    "maintenanceConfigurationId": "/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourcegroups/atscalepatching/providers/Microsoft.Maintenance/maintenanceConfigurations/TestAzureInGuestIntermediate2"
-  },
-  "location": "eastus2euap"
-}'
+    "osProfile": {
+      "windowsConfiguration": {
+        "provisionVMAgent": true,
+        "enableAutomaticUpdates": true,
+        "patchSettings": {
+          "patchMode": "AutomaticByPlatform"
+        }
+      }
+    }
+  }
+}
 ```
 ---
 
 > [!NOTE]
 > Currently, you can only enable the new prerequisite for schedule patching via Azure portal and REST API. It cannot be enabled via Azure CLI and PowerShell.
+
+## Enable patch orchestration for new VMs
+
+You can select the patch orchestration option for new VMs that would be associated with the schedules:
+
+# [Azure portal](#tab/patchorch-portal)
+
+To update the patch mode, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Go to **Virtual machine**, and select **+Create** to open *Create a virtual machine* page.
+1. In **Basics** tab, complete all the mandatory fields.
+1. In **Management** tab, under **Guest OS updates**, for **Patch orchestration options**, select *Azure-orchestrated with user managed schedules(Preview)*.
+1. After you complete the entries in **Monitoring**, **Advanced** and **Tags** tabs.
+1. Select **Review + Create** and select **Create** to create a new VM with the appropriate patch orchestration option.
+
+# [REST API](#tab/patchorch-rest-api)
+
+```
+PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVirtualMachine?api-version=2020-12-01`
+```
+
+```json
+{
+  "location": "<location>",
+  "properties": {
+    "osProfile": {
+      "windowsConfiguration": {
+        "provisionVMAgent": true,
+        "enableAutomaticUpdates": true,
+        "patchSettings": {
+          "patchMode": "AutomaticByPlatform"
+        }
+      }
+    }
+  }
+}
+```
+---
+
 
 ## User scenarios
 
