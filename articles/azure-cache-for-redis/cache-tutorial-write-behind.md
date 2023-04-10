@@ -141,5 +141,33 @@ dotnet add package System.Data.SqlClient
 
 ### 3. Build and run the project
 
+Go to the **Run and debug tab** in VS Code and run the project. Navigate back to your Azure Cache for Redis instance in the Azure portal and select the **Console** button to enter the Redis Console. Try using some set commands:
+
+Back in VS Code, you should see the triggers being registered: 
+
+To validate that the triggers are working, go to the SQL DB instance in the Azure portal and go back to the **Query editor** blade. Create a **New Query** with the following SQL to view the top 100 items in the inventory table:
+
+```sql
+SELECT TOP (100) * FROM [dbo].[inventory]
+```
+
+You should see the items written to your Azure Cache for Redis instance show up here!
+
+### 4. Deploy to your Azure Functions App
+
+The only thing left is to deploy the code to the actual Azure Function app. As before, go to the Azure tab in VS Code, find your subscription, expand it, find the Function App section, and expand that. Right click on your Azure Function app and select **Deploy to Function App…**
+
+Once the deployment has finished, go back to your Azure Cache for Redis instance and use SET commands to write additional values. You should see these show up in your Azure SQL DB as well.
+
+If you’d like to confirm that your Azure Function app is working properly, go to the app in the portal and select the **Log stream** blade. You should see the triggers executing there, and the corresponding updates being made to your SQL database. 
+
+If you ever would like to clear the SQL DB table without deleting it, you can use the following SQL query:
+
+```sql
+TRUNCATE TABLE [dbo].[inventory]
+```
+
+## Summary
+In the past two tutorials, you have learned how to use Azure Cache for Redis to trigger Azure Function apps, and how to use that functionality to use Azure Cache for Redis as a write-behind cache with Azure SQL Database. Using Azure Cache for Redis with Azure Functions is a powerful combination that can solve a variety of integration and performance problems. 
 
 
