@@ -180,34 +180,34 @@ Save the following code as a file named *deployment.json*. This final template a
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "templateContainerUri": {
+        "StorageContainerUri": {
            "type": "string",
            "metadata": {
-                "description": "URI of the Blob Storage Container containing the Azure Resource Manager templates"
+                "description": "URI of the Blob Storage container containing the ARM templates"
             }
         },
-        "templateContainerSasToken": {
+        "StorageContainerSasToken": {
            "type": "string",
            "metadata": {
-                "description": "The SAS token of the container containing the Azure Resource Manager templates"
+                "description": "The SAS token of the container containing the ARM templates"
             }
         },
         "applicationStorageAccountName": {
             "type": "string",
             "metadata": {
-                 "description": "Name of the Azure Storage Account"
+                 "description": "Name of the Storage account"
             }
          },
         "batchAccountName": {
             "type": "string",
             "metadata": {
-                 "description": "Name of the Azure Batch Account"
+                 "description": "Name of the Batch account"
             }
          },
          "batchAccountPoolName": {
              "type": "string",
              "metadata": {
-                  "description": "Name of the Azure Batch Account Pool"
+                  "description": "Name of the Batch account pool"
               }
           }
     },
@@ -220,7 +220,7 @@ Save the following code as a file named *deployment.json*. This final template a
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                  "uri": "[concat(parameters('templateContainerUri'), '/storageAccount.json', parameters('templateContainerSasToken'))]",
+                  "uri": "[concat(parameters('StorageContainerUri'), '/storageAccount.json', parameters('StorageContainerSasToken'))]",
                   "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -238,7 +238,7 @@ Save the following code as a file named *deployment.json*. This final template a
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                  "uri": "[concat(parameters('templateContainerUri'), '/batchAccount.json', parameters('templateContainerSasToken'))]",
+                  "uri": "[concat(parameters('StorageContainerUri'), '/batchAccount.json', parameters('StorageContainerSasToken'))]",
                   "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -257,7 +257,7 @@ Save the following code as a file named *deployment.json*. This final template a
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                  "uri": "[concat(parameters('templateContainerUri'), '/batchAccountPool.json', parameters('templateContainerSasToken'))]",
+                  "uri": "[concat(parameters('StorageContainerUri'), '/batchAccountPool.json', parameters('StorageContainerSasToken'))]",
                   "contentVersion": "1.0.0.0"
                 },
                 "parameters": {
@@ -447,7 +447,7 @@ For each new task that the following steps specify:
    - **Template**: *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json*
    - **Override template parameters**: `-accountName $(storageAccountName)`
 
-1. Upload the artifacts from source control into the storage account. As part of this Azure Pipelines task, the storage account container URI and SAS Token can be output to a variable in Azure Pipelines, so they can be reused throughout this agent phase.
+1. Upload the artifacts from source control into the storage account. As part of this Azure Pipelines task, the Storage account container URI and SAS token are output to a variable in Azure Pipelines, so they can be reused throughout this agent phase.
 
    Select the **Azure File Copy** task, and set the following properties:
    - **Source:** *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/*
@@ -456,7 +456,10 @@ For each new task that the following steps specify:
    - **RM Storage Account**: *$(storageAccountName)*
    - **Container Name**: *templates*
 
-1. Deploy the orchestrator ARM template to create the Batch account and pool. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are either held in the variables section of the release definition, or were set from another Azure Pipelines task, for example the AzureBlob File Copy task.
+   >[!NOTE]
+   >If this step fails, make sure your Azure DevOps organization has **Storage Blob Contributor** role in the storage account created.
+
+1. Deploy the orchestrator ARM template to create the Batch account and pool. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are either held in the variables section of the release definition, or in this case were set from the AzureBlob File Copy task.
 
    Select the **ARM Template deployment: Resource Group scope** task, and set the following properties:
    - **Display name:** *Deploy Azure Batch*
@@ -465,7 +468,7 @@ For each new task that the following steps specify:
    - **Resource group**: *$(resourceGroupName)*
    - **Location**: *$(location)*
    - **Template**: *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/deployment.json*
-   - **Override template parameters**: `-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)`
+   - **Override template parameters**: `-StorageContainerUri $(StorageContainerUri) -StorageContainerSasToken $(StorageContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)`
 
    A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policy set, it can download secrets from Key Vault and be used as a variable in your pipeline. The name of the secret is set with the associated value. For example, you could reference a secret of **sshPassword** with *$(sshPassword)* in the release definition.
 
