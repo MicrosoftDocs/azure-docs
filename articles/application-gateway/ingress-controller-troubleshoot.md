@@ -134,7 +134,7 @@ The following conditions must be in place for AGIC to function as expected:
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get pods -o wide --show-labels`
      If you have a Pod with an `apsnetapp`, your output may look like this:
      ```bash
-     delyan@Azure:~$ kubectl get pods -o wide --show-labels
+    kubectl get pods -o wide --show-labels
 
      NAME                   READY   STATUS    RESTARTS   AGE   IP          NODE                       NOMINATED NODE   READINESS GATES   LABELS
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
@@ -143,7 +143,7 @@ The following conditions must be in place for AGIC to function as expected:
   2. One or more **services**, referencing the pods above via matching `selector` labels.
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get services -o wide`
      ```bash
-     delyan@Azure:~$ kubectl get services -o wide --show-labels
+     $ kubectl get services -o wide --show-labels
 
      NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE   SELECTOR        LABELS
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
@@ -152,7 +152,7 @@ The following conditions must be in place for AGIC to function as expected:
   3. **Ingress**, annotated with `kubernetes.io/ingress.class: azure/application-gateway`, referencing the service above
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get ingress -o wide --show-labels`
      ```bash
-     delyan@Azure:~$ kubectl get ingress -o wide --show-labels
+     $ kubectl get ingress -o wide --show-labels
 
      NAME        HOSTS   ADDRESS   PORTS   AGE   LABELS
      aspnetapp   *                 80      17h   <none>
@@ -160,7 +160,7 @@ The following conditions must be in place for AGIC to function as expected:
 
   4. View annotations of the ingress above: `kubectl get ingress aspnetapp -o yaml` (substitute `aspnetapp` with the name of your ingress)
      ```bash
-     delyan@Azure:~$ kubectl get ingress aspnetapp -o yaml
+     kubectl get ingress aspnetapp -o yaml
 
      apiVersion: extensions/v1beta1
      kind: Ingress
