@@ -106,7 +106,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | `redirect_uri` |  Required   | The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the portal, except that it must be URL-encoded, and it can have additional path segments. |
 |    `state`     | Recommended | A value that's included in the request that's also returned in the token response. It can be a string of any content that you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
-At this point, Azure AD enforces that only a tenant administrator can sign into complete the request. The administrator will be asked to approve all the direct application permissions that you have requested for your app in the app registration portal.
+At this point, Azure AD enforces that only a tenant administrator can sign in to complete the request. The administrator will be asked to approve all the direct application permissions that you have requested for your app in the app registration portal.
 
 ##### Successful response
 
@@ -149,7 +149,7 @@ After you've acquired the necessary authorization for your application, proceed 
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
@@ -175,7 +175,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
@@ -200,7 +200,7 @@ The parameters for the certificate-based request differ in only one way from the
 
 ```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
-Host: login.microsoftonline.com
+Host: login.microsoftonline.com:443
 Content-Type: application/x-www-form-urlencoded
 
 scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
@@ -267,14 +267,14 @@ An error response (400 Bad Request) looks like this:
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
 
 ```HTTP
-GET /v1.0/me/messages
-Host: https://graph.microsoft.com
+GET /v1.0/users HTTP/1.1
+Host: graph.microsoft.com:443
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 Try the following command in your terminal, ensuring to replace the token with your own.
 
 ```bash
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/users'
 ```
 
 ## Code samples and other documentation

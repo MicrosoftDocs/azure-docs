@@ -709,6 +709,11 @@
             "source_path_from_root": "/articles/synapse-analytics/spark/apache-spark-manage-scala-packages.md",
             "redirect_url": "/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/synapse-analytics/cognitive-services-with-synapseml-overview.md",
+            "redirect_url": "/azure/synapse-analytics/machine-learning/overview-cognitive-services",
+            "redirect_document_id": false
           }
     ]
 }

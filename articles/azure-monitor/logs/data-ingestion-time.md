@@ -69,7 +69,7 @@ Some solutions don't collect their data from an agent and might use a collection
 - Microsoft 365 solution polls activity logs by using the Management Activity API, which currently doesn't provide any near real time latency guarantees.
 - Windows Analytics solutions (Update Compliance, for example) data is collected by the solution at a daily frequency.
 
-To determine a solution's collection frequency, see the [documentation for each solution](../insights/solutions.md).
+To determine a solution's collection frequency, see the [documentation for each solution](/previous-versions/azure/azure-monitor/insights/solutions).
 
 ### Pipeline-process time
 
@@ -106,7 +106,7 @@ Ingestion time might vary for different resources under different circumstances.
 
 | Step | Property or function | Comments |
 |:---|:---|:---|
-| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the Time Generated value is older than 3 days, the row will be dropped. |
+| Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the Time Generated value is older than two days, the row will be dropped. |
 | Record received by the data collection endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field isn't optimized for mass processing and shouldn't be used to filter large datasets. |
 | Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | We recommend using `ingestion_time()` if there's a need to filter only records that were ingested in a certain time window. In such cases, we recommend also adding a `TimeGenerated` filter with a larger range. |
 

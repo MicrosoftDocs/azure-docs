@@ -5,6 +5,7 @@ description: Learn about how to create a custom IPv4 address prefix using Azure 
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/31/2022
 ms.author: allensu
@@ -64,7 +65,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
     * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft, where it will be verified to determine its authenticity and correctness as part of the provisioning process.
 
 > [!NOTE]
-> It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
+> It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.  Also note that Microsoft will not stop advertising the range after the specified date, but it is recommended to independently create a follow-up ROA if the original expiration date has passed.
 
 ### Certificate readiness
 

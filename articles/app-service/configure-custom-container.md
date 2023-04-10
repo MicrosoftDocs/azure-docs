@@ -26,6 +26,9 @@ This guide provides key concepts and instructions for containerization of Linux 
 
 ::: zone pivot="container-windows"
 
+> [!NOTE]
+> Service Principal is no longer supported for Windows container image pull authentication. The recommended way is to use Managed Identity for both Windows and Linux containers
+
 ## Supported parent images
 
 For your custom Windows image, you must choose the right [parent image (base image)](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:

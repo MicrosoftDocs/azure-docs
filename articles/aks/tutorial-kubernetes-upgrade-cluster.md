@@ -1,7 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial - Upgrade a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to upgrade an existing AKS cluster to the latest available Kubernetes version.
-services: container-service
 ms.topic: tutorial
 ms.date: 11/15/2022
 ms.custom: mvc, devx-track-azurepowershell, event-tier1-build-2022

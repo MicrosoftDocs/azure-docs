@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Clever | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Clever'
 description: Learn how to configure single sign-on between Azure Active Directory and Clever.
 services: active-directory
 author: jeevansd

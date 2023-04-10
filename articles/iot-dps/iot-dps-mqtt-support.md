@@ -1,12 +1,13 @@
 ---
-title: Understand Azure IoT Device Provisioning Service MQTT support | Microsoft Docs
+title: Understand DPS MQTT support
+titleSuffix: Azure IoT Device Provisioning Service
 description: Developer guide - support for devices connecting to the Azure IoT Device Provisioning Service (DPS) device-facing endpoint using the MQTT protocol.
 author: rajeevmv
-ms.service: iot-dps
-services: iot-dps
-ms.topic: conceptual
-ms.date: 02/25/2022
+
 ms.author: ravokkar
+ms.service: iot-dps
+ms.topic: how-to
+ms.date: 02/25/2022
 ms.custom:  [amqp, mqtt]
 ---
 

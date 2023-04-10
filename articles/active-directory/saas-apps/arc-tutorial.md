@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Arc Publishing - SSO | Microsoft Docs"
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with Arc Publishing - SSO"
 description: Learn how to configure single sign-on between Azure Active Directory and Arc Publishing - SSO.
 services: active-directory
 author: jeevansd

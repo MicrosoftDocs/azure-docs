@@ -138,7 +138,7 @@ Use any of the following deployment checklists during the setup or for troublesh
       - `*.analysis.windows.net` 
    
    3. Network connectivity from Self-hosted runtime to Microsoft services is enabled.
-   4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+   4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed. Restart the machine after you newly install the JDK for it to take effect.
 
 1. In Azure Active Directory tenant, create a security group.
 
@@ -171,7 +171,7 @@ Use any of the following deployment checklists during the setup or for troublesh
 
 1. Validate Self-hosted runtime settings:
    1. Latest version of [Self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
-   2. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+   2. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed. Restart the machine after you newly install the JDK for it to take effect.
 
 1. Validate App registration settings to make sure:
    1. App registration exists in your Azure Active Directory tenant.

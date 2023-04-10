@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 12/21/2022
+  ms.date: 03/21/2023
   author: jyothisuri
   ms.author: jsuri
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
@@ -183,6 +183,25 @@ sections:
 
           >[!Note]
           >You can also limit the backup throughput performance. [Learn more](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
+      
+      - question: |
+          Can I change the backup performance by editing the "parallel_backup_using_backint" property in SAP HANA "global.ini" file?
+        answer: |
+          Currently, Azure Backup for SAP HANA accepts *1* as the value of the *parallel_backup_using_backint* property. However, Azure Backup splits that single stream in multiple streams for better performance.
+
+
+      - question: |
+          Does HSR support database instances backup using snapshots?
+
+        answer: |
+          Currently, only Backint-based backups are supported for HSR. Snapshots aren't yet.
+
+      - question: |
+          Do I need to run the instance re-detection only on the server marked "Ready", or also on the one marked "Not Ready"?
+
+        answer: |
+          You need to run the instance re-detection on the server that is marked "Not Ready" to update its status.
+
 
   - name: Restore
     questions:
@@ -215,6 +234,11 @@ sections:
           Can I download only a subset of files during restore as files?
         answer: |
           Yes, you can download files partially as documented [here](sap-hana-db-restore.md#partial-restore-as-files).
+
+      - question: |
+          Do I have to disable the HSR on SAP HANA native environment during "SYSTEMDB + Tenant DB" restore for HSR setup?
+        answer: |
+          Yes, you need to disable the HANA System Replication (HSR) on target system, and then perform restore. You can't restore an HSR-enabled system, as per SAP.
           
   - name: Policy
     questions:

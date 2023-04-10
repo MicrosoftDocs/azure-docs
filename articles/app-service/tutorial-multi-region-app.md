@@ -4,6 +4,7 @@ description: Learn how to build a multi-region app on Azure App Service that can
 keywords: azure app service, web app, multiregion, multi-region, multiple regions
 author: seligj95
 ms.topic: tutorial
+ms.custom: devx-track-azurecli, devx-track-bicep
 ms.date: 2/8/2023
 ms.author: jordanselig
 ---
@@ -155,7 +156,7 @@ az afd origin create --resource-group myresourcegroup --host-name <web-app-east-
 |http-port    |80         |The port used for HTTP requests to the origin.        |
 |https-port    |443         |The port used for HTTPS requests to the origin.         |
 
-Repeat this step to add your second origin. Pay attention to the `--priority` parameter. For this origin, it's set to "2". This priority setting tells Azure Front Door to direct all traffic to the primary origin unless the primary goes down. Be sure to replace both instances of the placeholder for `<web-app-west-us>` with the name of that web app.
+Repeat this step to add your second origin. Pay attention to the `--priority` parameter. For this origin, it's set to "2". This priority setting tells Azure Front Door to direct all traffic to the primary origin unless the primary goes down. If you set the priority for this origin to "1", Azure Front Door will treat both origins as active and direct traffic to both regions. Be sure to replace both instances of the placeholder for `<web-app-west-us>` with the name of that web app.
 
 ```azurecli-interactive
 az afd origin create --resource-group myresourcegroup --host-name <web-app-west-us>.azurewebsites.net --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name secondaryapp --origin-host-header <web-app-west-us>.azurewebsites.net --priority 2 --weight 1000 --enabled-state Enabled --http-port 80 --https-port 443
@@ -276,7 +277,7 @@ This section contains frequently asked questions that can help you further secur
 
 ### What is the recommended method for managing and deploying application infrastructure and Azure resources?
 
-For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Since you're deploying resources in different regions, you'll need to independently manage those resources across the regions. To ensure the resources are identical across each region, infrastructure as code (IaC) such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview) should be used with deployment pipelines such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) or [GitHub Actions](https://docs.github.com/actions). This way, if configured appropriately, any change to resources would trigger updates across all regions you're deployed to. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
+For this tutorial, you used the Azure CLI to deploy your infrastructure resources. Consider configuring a continuous deployment mechanism to manage your application infrastructure. Since you're deploying resources in different regions, you'll need to independently manage those resources across the regions. To ensure the resources are identical across each region, infrastructure as code (IaC) such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview) should be used with deployment pipelines such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) or [GitHub Actions](https://docs.github.com/actions). This way, if configured appropriately, any change to resources would trigger updates across all regions you're deployed to. For more information, see [Continuous deployment to Azure App Service](deploy-continuous-deployment.md).
 
 ### How can I use staging slots to practice safe deployment to production?
 

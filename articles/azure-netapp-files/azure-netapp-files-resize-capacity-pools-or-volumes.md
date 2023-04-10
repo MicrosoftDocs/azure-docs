@@ -1,5 +1,5 @@
 ---
-title: Resize the capacity pool or a volume for Azure NetApp Files  | Microsoft Docs
+title: Resize the capacity pool or a volume for Azure NetApp Files | Microsoft Docs
 description: Learn how to change the size of a capacity pool or a volume. Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 services: azure-netapp-files
 documentationcenter: ''
@@ -11,8 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 02/21/2023
 ms.author: anfdocs
 ---
 # Resize a capacity pool or a volume
@@ -23,10 +24,13 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 ## Considerations
 
 * Volume quotas are indexed against `maxfiles` limits. Once a volume has surpassed a `maxfiles` limit, you cannot reduce the volume size below the quota that corresponds to that `maxfiles` limit. For more information and specific limits, see [`maxfiles` limits](azure-netapp-files-resource-limits.md#maxfiles-limits-).
+* Capacity pools with Basic network features have a minimum size of 4 TiB. For capacity pools with Standard network features, the minimum size is 2 TiB. For more information, see [Resource limits](azure-netapp-files-resource-limits.md)
 
 ## Resize the capacity pool using the Azure portal 
 
-You can change the capacity pool size in 1-TiB increments or decrements. However, the capacity pool size cannot be smaller than the sum of the capacity of the volumes hosted in the pool, with a minimum of 4TiB. Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
+You can change the capacity pool size in 1-TiB increments or decrements. However, the capacity pool size cannot be smaller than the sum of the capacity of the volumes hosted in the pool. 
+
+Resizing the capacity pool changes the purchased Azure NetApp Files capacity.
 
 1. From the NetApp Account view, go to **Capacity pools**, and select the capacity pool that you want to resize.
 2. Right-click the capacity pool name or select the "…" icon at the end of the capacity pool row to display the context menu. Select **Resize**. 

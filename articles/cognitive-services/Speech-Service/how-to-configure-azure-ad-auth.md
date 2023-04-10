@@ -12,7 +12,7 @@ ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ms.devlang: cpp, csharp, java, python
-
+ms.custom: devx-track-azurepowershell
 ---
 # Azure Active Directory Authentication with the Speech SDK
 

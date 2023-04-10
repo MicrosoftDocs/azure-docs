@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Create custom VM images with Azure PowerShell 
-description: In this tutorial, you learn how to use Azure PowerShell to create a Windows custom virtual machine image stored in an Azure Azure Compute Gallery.
+description: In this tutorial, you learn how to use Azure PowerShell to create a Windows custom virtual machine image stored in an Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 05/01/2020
+ms.date: 02/24/2023
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
 
@@ -52,7 +52,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Get the VM
 
-You can see a list of VMs that are available in a resource group using [Get-AzVM](/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets an VM named *sourceVM* from the "myResourceGroup" resource group and assigns it to the variable *$sourceVM*. 
+You can see a list of VMs that are available in a resource group using [Get-AzVM](/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets a VM named *sourceVM* from the *myResourceGroup* resource group and assigns it to the variable *$sourceVM*.
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -218,7 +218,7 @@ In this tutorial, you created a specialized VM image. You learned how to:
 > * Create a VM from an image 
 > * Share a gallery
 
-Advance to the next tutorial to learn about how to create highly available virtual machines.
+Advance to the next tutorial to learn about Virtual Machine Scale Sets.
 
 > [!div class="nextstepaction"]
-> [Create highly available VMs](tutorial-availability-sets.md)
+> [Create a virtual machine scale set](tutorial-create-vmss.md)

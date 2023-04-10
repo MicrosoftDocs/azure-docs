@@ -7,8 +7,6 @@ ms.date: 12/12/2022
 ms.author: yelevin
 ---
 
----
-
 # Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data
 
 Use the Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
@@ -18,6 +16,7 @@ This connector is available in two versions: the legacy connector for CloudTrail
 - [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) - [VPC Flow Logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html)
 - [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html) - [Findings](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html)
 - [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) - [Management](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html) and [data](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) events
+- [AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) - [CloudWatch logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
 
 > [!IMPORTANT]
 >
@@ -25,7 +24,18 @@ This connector is available in two versions: the legacy connector for CloudTrail
 
 # [S3 connector (new)](#tab/s3)
 
-This document explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
+This article explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
+
+## Prerequisites
+
+Make sure that the logs from your selected AWS service use the format accepted by Microsoft Sentinel:
+
+- **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
+- **Amazon GuardDuty**: json-line and GZIP formats.
+- **AWS CloudTrail**: .json file in a GZIP format.
+- **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
+
+## Connect the S3 connector
 
 - In your AWS environment:
 
@@ -123,7 +133,7 @@ Microsoft recommends using the automatic setup script to deploy this connector. 
 
 ### Prerequisites
 
-- You must have an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, or CloudTrail.
+- You must have an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
 
     - Create an [S3 storage bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in AWS.
 
@@ -207,6 +217,8 @@ The manual setup consists of the following steps:
 - AWS CloudTrail trails are stored in S3 buckets by default.
     - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
     - [Create a trail spanning multiple accounts across an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html).
+
+- [Export your CloudWatch log data to an S3 bucket](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
 
 #### Create a Simple Queue Service (SQS) in AWS
 
