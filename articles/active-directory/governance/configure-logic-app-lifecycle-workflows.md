@@ -225,6 +225,7 @@ If the security token type is **Proof of Possession (POP)** for your custom task
 1. Create two authorization policies based on these tables:
 
     Policy name: POP-Policy
+    
     Policy type: (Preview) AADPOP   
     
     |Claim  |Value  |
@@ -236,7 +237,9 @@ If the security token type is **Proof of Possession (POP)** for your custom task
     |u     |  management.Azure.com   |
     |p     |  /subscriptions/(subscriptionId)/resourceGroups/(resourceGroupName)/providers/Microsoft.Logic/workflows/(logicAppName)   |
 
-    Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App   
+    Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App 
+
+    Policy type: AAD   
  
     |Claim  |Value  |
     |---------|---------|
@@ -259,6 +262,7 @@ If the security token type is **Normal** for your custom task extension, you'd s
 1. Create two authorization policies based on these tables:
 
     Policy name: AzureADLifecycleWorkflowsAuthPolicy 
+
     Policy type: AAD  
     
     |Claim  |Value  |
@@ -267,7 +271,9 @@ If the security token type is **Normal** for your custom task extension, you'd s
     |Audience     | Application ID of your Logic Apps Managed Identity       |
     |appid     |  ce79fdc4-cd1d-4ea5-8139-e74d7dbe0bb7   |
 
-    Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App   
+    Policy name: AzureADLifecycleWorkflowsAuthPolicyV2App 
+
+    Policy type: AAD   
  
     |Claim  |Value  |
     |---------|---------|
