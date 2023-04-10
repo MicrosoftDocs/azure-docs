@@ -2,6 +2,7 @@
 title:  Deploy Azure Video Indexer by using Bicep
 description: Learn how to create an Azure Video Indexer account by using a Bicep file.
 ms.topic: tutorial
+ms.custom: devx-track-bicep
 ms.date: 06/06/2022
 ms.author: jgao
 ---
