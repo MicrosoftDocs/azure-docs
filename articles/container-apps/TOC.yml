@@ -161,6 +161,10 @@
       href: storage-mounts.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
+    - name: Dapr
+      items:
+      - name: Scale Dapr components with KEDA
+        href: dapr-keda-scaling.md
 - name: Tutorials
   expanded: true
   items: 
