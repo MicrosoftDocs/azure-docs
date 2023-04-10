@@ -1,26 +1,26 @@
 ---
-title: Use number matching in multifactor authentication (MFA) notifications
+title: How number matching works in multifactor authentication (MFA) push notifications for Microsoft Authenticator
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 04/10/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
 
-# Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
+# Customer intent: As an identity administrator, I want to explain how number matching in MFA push notifications from Authenticator in Azure AD works in different use cases.
 ---
-# How to use number matching in multifactor authentication (MFA) push notifications  - Authentication methods policy
+# How number matching works in multifactor authentication (MFA) push notifications for Authenticator - Authentication methods policy
 
 This topic covers how number matching in Microsoft Authenticator push notifications improves user sign-in security. 
-Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator. 
+Number matching is a key security upgrade to traditional second factor notifications in Authenticator. 
 
-Beginning May 8, 2023, number matching is enabled for all Microsoft Authenticator push notifications. 
-As relevant services deploy, users worldwide who are enabled for Microsoft Authenticator push notifications will begin to see number matching in their approval requests. 
-Users can be enabled for Microsoft Authenticator push notifications either in the Authentication methods policy or the legacy multifactor authentication policy if **Notifications through mobile app** is enabled.
+Beginning May 8, 2023, number matching is enabled for all Authenticator push notifications. 
+As relevant services deploy, users worldwide who are enabled for Authenticator push notifications will begin to see number matching in their approval requests. 
+Users can be enabled for Authenticator push notifications either in the Authentication methods policy or the legacy multifactor authentication policy if **Notifications through mobile app** is enabled.
 
-## Number matching
+## Number matching scenarios
 
 Number matching is available for the following scenarios. When enabled, all scenarios support number matching.
 
@@ -40,7 +40,7 @@ When a user responds to an MFA push notification using Authenticator, they'll be
 
 ### SSPR
 
-Self-service password reset (SSPR) with Authenticator requires number matching when using Microsoft Authenticator. During self-service password reset, the sign-in page shows a number that the user needs to type into the Authenticator notification. For more information about how to set up SSPR, see [Tutorial: Enable users to unlock their account or reset passwords](howto-sspr-deployment.md).
+Self-service password reset (SSPR) with Authenticator requires number matching when using Authenticator. During self-service password reset, the sign-in page shows a number that the user needs to type into the Authenticator notification. For more information about how to set up SSPR, see [Tutorial: Enable users to unlock their account or reset passwords](howto-sspr-deployment.md).
 
 ### Combined registration
 
@@ -106,16 +106,16 @@ If your organization uses Remote Desktop Gateway and the user is registered for 
 
 No, users can't opt out of number matching in Authenticator push notifications. 
 
-Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Microsoft Authenticator push notifications in advance. 
+Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all users, we highly recommend you enable number match for Authenticator push notifications in advance. 
 
-### Does number matching only apply if Microsoft Authenticator is set as the default authentication method?
+### Does number matching only apply if Authenticator is set as the default authentication method?
 
-If the user has a different default authentication method, there's no change to their default sign-in. If the default method is Microsoft Authenticator, they get number matching.
+If the user has a different default authentication method, there's no change to their default sign-in. If the default method is Authenticator, they get number matching.
 
 Regardless of their default method, any user who is prompted to sign-in with Authenticator push notifications sees number matching. If prompted for another method, they won't see any change. 
 
 ### What happens for users who aren't specified in the Authentication methods policy but they are enabled for Notifications through mobile app in the legacy MFA tenant-wide policy?
-Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match if the legacy MFA policy has enabled **Notifications through mobile app**. Users will see number matching regardless of whether they are enabled for Microsoft Authenticator in the Authentication methods policy.
+Users who are enabled for MFA push notifications in the legacy MFA policy will also see number match if the legacy MFA policy has enabled **Notifications through mobile app**. Users will see number matching regardless of whether they are enabled for Authenticator in the Authentication methods policy.
 
 :::image type="content" border="true" source="./media/how-to-mfa-number-match/notifications-through-mobile-app.png" alt-text="Screenshot of Notifications through mobile app setting.":::
 
@@ -127,17 +127,17 @@ You might need to refresh the browser to update the portal after number matching
 
 No, number matching isn't enforced because it's not a supported feature for MFA Server, which is [deprecated](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/microsoft-entra-change-announcements-september-2022-train/ba-p/2967454).
 
-### What happens if a user runs an older version of Microsoft Authenticator?  
+### What happens if a user runs an older version of Authenticator?  
 
-If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.
+If a user is running an older version of Authenticator that doesn't support number matching, authentication won't work. Users need to upgrade to the latest version of Authenticator to use it for sign-in.
 
 ### How can users recheck the number on mobile iOS devices after the match request appears?
 
 During mobile iOS broker flows, the number match request appears over the number after a two-second delay. To recheck the number, click **Show me the number again**. This action only occurs in mobile iOS broker flows. 
 
-### Is Apple Watch supported for Microsoft Authenticator?
+### Is Apple Watch supported for Authenticator?
 
-In the Microsoft Authenticator release in January 2023 for iOS, there is no companion app for watchOS due to it being incompatible with Authenticator security features. You can't install or use Microsoft Authenticator on Apple Watch. We therefore recommend that you [delete Microsoft Authenticator from your Apple Watch](https://support.apple.com/HT212064), and sign in with Authenticator on another device.
+In the Authenticator release in January 2023 for iOS, there is no companion app for watchOS due to it being incompatible with Authenticator security features. You can't install or use Authenticator on Apple Watch. We therefore recommend that you [delete Authenticator from your Apple Watch](https://support.apple.com/HT212064), and sign in with Authenticator on another device.
 
 ## Next steps
 
