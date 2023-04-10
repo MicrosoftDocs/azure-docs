@@ -39,7 +39,7 @@ Using application volume groups requires understanding the rules and restriction
 * For data, log and shared volumes, SAP HANA certification requires NFSv4.1 protocol.
 * Log-backup and file-backup volumes, if created optionally with the volume group of the first HANA host, may use NFSv4.1 or NFSv3 protocol.
 * Each volume must have at least one export policy defined. To install SAP, root access must be enabled.
-* Kerberos nor LDAP enablement are not supported.
+* Kerberos and LDAP enablement are not supported.
 * You should follow the naming convention outlined in the following table.
 
 The following list describes all the possible volume types for application volume groups for SAP HANA.
@@ -104,7 +104,7 @@ The following table describes the request body parameters and group level proper
 | `applicationType` | Application type | Must be "SAP-HANA" |
 | `applicationIdentifier` | Application specific identifier string, following application naming rules | The SAP System ID, which should follow aforementioned naming rules, for example `SH9` | 
 | `deploymentSpecId` | Deployment specification identifier defining the rules to deploy the specific application volume group type | Must be: “20542149-bfca-5618-1879-9863dc6767f1” |
-| `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes)</li><li>**Required**: _data_, _log_ and _shared_. **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-Host (two volumes)
+| `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes) <br></br> **Required**: _data_, _log_ and _shared_. <br></br> **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-host (two volumes) <br></br>
 Required: _data_ and _log_.</li><ul> |
 
 This table describes the request body parameters and volume properties for creating a volume in a SAP HANA application volume group.   
@@ -170,7 +170,7 @@ To create the five volumes (data, log, shared, data-backup, log-backup) for a si
 >[!NOTE]
 >You need to replace the placeholders and adapt the parameters to meet your requirements.
 
-#### Example single-host SAP HANA application volume group creation Request
+#### Example single-host SAP HANA application volume group creation request
 
 This example pertains to data, log, shared, data-backup, and log-backup volumes demonstrating best practices for naming, sizing, and throughputs. This example will serve as the primary volume if you're configuring an HSR pair. 
 
@@ -901,7 +901,7 @@ This example encompasses the creation of data, log, shared, data-backup, and log
 }
 ```
 
-### Example 4: Deploy volumes for a secondary HANA system using HANA system replication
+### Example 4: Deploy volumes for a disaster recovery HANA system using cross-region replication
 
 Cross-region replication is one way to set up a disaster recovery configuration for HANA, where the volumes of the HANA database in the DR-region are replicated on the storage side using cross-region replication in contrast to HSR, which replicates at the application level where it requires to have the HANA VMs deployed and running. Refer to the documentation (link) to understand which volumes require CRR replication. Refer to [Add volumes for an SAP HANA system as a DR system using cross-region replication](application-volume-group-disaster-recovery.md) to understand for which volumes in cross-region replication relations are required (data, shared, log-backup), not allowed (log), or optional (data-backup). 
 
@@ -909,7 +909,7 @@ In this example, the following placeholders are specified and should be replaced
 1.	`<CapacityPoolResourceId3>`: DR capacity pool resource ID, for example:
 `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/DR_SH9_HSR_Pool`
 2.	`<ProximityPlacementGroupResourceId3>`: DR proximity placement group, for example:`/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/DR_SH9_PPG`
-3.	`<SrcVolumeId_data>`, `<SrcVolumeId_shared>`, `<SrcVolumeId_data-backup>`, `<SrcVolumeId_log-backup>`: cross-region replication source volume IDs for the data, log, shared, and log-backup cross-region replication destination volumes.
+3.	`<SrcVolumeId_data>`, `<SrcVolumeId_shared>`, `<SrcVolumeId_data-backup>`, `<SrcVolumeId_log-backup>`: cross-region replication source volume IDs for the data, shared, and log-backup cross-region replication destination volumes.
 
 ```json
 {
