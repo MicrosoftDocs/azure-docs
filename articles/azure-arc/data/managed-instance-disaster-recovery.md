@@ -63,7 +63,7 @@ If primary and secondary sites are within a few miles of each other, use `sync` 
 
 ## Configure Azure failover group - direct mode
 
-Follow the steps below if the Azure Arc Arc data services  are deployed in `directly` connected mode. 
+Follow the steps below if the Azure Arc data services  are deployed in `directly` connected mode. 
 
 Once the prerequisites are met, run the below command to set up Azure failover group between the two Azure Arc-enabled SQL managed instances:
 
@@ -77,7 +77,10 @@ Example:
 az sql instance-failover-group-arc create --name sql-fog --mi sql1 --partner-mi sql2 --resource-group rg-name --partner-resource-group rg-name
 ```
 
-The above command creates the required custom resources on both primary and secondary sites, and copy the mirroring certificates and configures the failover group between the instances. 
+The above command:
+
+1. Creates the required custom resources on both primary and secondary sites
+1. Copies the mirroring certificates and configures the failover group between the instances 
 
 ## Configure Azure failover group - Indirect mode
 
@@ -179,7 +182,7 @@ kubectl describe fog <failover group cr name> -n <namespace>
 
 ## Failover group operations
 
-Once the failover groups is set up between the managed instances, different failover operations can be performed depending on the circumstances. 
+Once the failover group is set up between the managed instances, different failover operations can be performed depending on the circumstances. 
 
 Possible failover scenarios are:
 
