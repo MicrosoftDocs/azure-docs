@@ -17,7 +17,7 @@ zone_pivot_groups: postgres-server-options
 
 ::: zone pivot="postgres-single-server"
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an Azure Database for a Postgres database. You can also try the PostgresSQL Flexible Server by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an Azure Database for a Postgres database. You can also try the PostgreSQL Flexible Server by selecting the option above. Flexible Server provides a simpler deployment mechanism and lower ongoing costs.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 

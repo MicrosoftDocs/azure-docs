@@ -75,12 +75,13 @@ You can use Lifecycle workflows to address any of the following conditions.
 
 ### How many licenses must you have?
 
-To utilize the Lifecycle Workflows feature, you must have at least one Azure AD Premium P2 license in your tenant. With one license, you're able to:
-
-- Create, manage, and delete workflows for any, or all, users in your tenant up to the total limit of 50 workflows.
+To preview the Lifecycle Workflows feature, you must have an Azure AD Premium P2 license in your tenant. During this preview, you're able to:
+ 
+- Create, manage, and delete workflows up to the total limit of 50 workflows.
 - Trigger on-demand and scheduled workflow execution.
 - Manage and configure existing tasks to create workflows that are specific to your needs.
 - Create up to 100 custom task extensions to be used in your workflows.
+ 
 
 
 ## Next steps

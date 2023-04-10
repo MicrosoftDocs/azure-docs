@@ -5,7 +5,7 @@ author: FuzziWumpus
 ms.date: 03/22/2022
 ms.topic: quickstart
 ms.author: mkluck
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 tags: azure-resource-manager, bicep
 ---
 

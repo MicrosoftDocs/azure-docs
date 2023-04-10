@@ -9,8 +9,9 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 03/10/2023
 ms.author: danlep
-ms.custom: 
+ms.custom:
 ---
+
 # Workspaces in Azure API Management
 
 In API Management, *workspaces* allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). 
@@ -31,11 +32,9 @@ An organization that manages APIs using Azure API Management may have multiple d
 
 The following is a sample workflow for creating and using a workspace.
 
-1. A central API platform team that manages the API Management instance creates a workspace and assigns its owners and workspace members.
+1. A central API platform team that manages the API Management instance creates a workspace and assigns permissions to workspace collaborators using RBAC roles - for example, permissions to create or read resources in the workspace.
 
 1. A central API platform team uses DevOps tools to create a DevOps pipeline for APIs in that workspace. 
-
-1. Workspace owners assign permissions to workspace members using RBAC roles - for example, permissions to create or read resources in the workspace.
 
 1. Workspace members develop, publish, productize, and maintain APIs in the workspace. 
 
@@ -83,7 +82,11 @@ The following resources can be managed in the workspaces preview.
 
 Azure RBAC is used to configure workspace collaborators' permissions to read and edit entities in the workspace. For a list of roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
 
-Workspace members must be assigned both a service-level role and a workspace-level role, or granted equivalent permissions using custom roles. The service-level role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
+Workspace members must be assigned both a service-scoped role and a workspace-scoped role, or granted equivalent permissions using custom roles. The service-scoped role enables referencing service-level resources from workspace-level resources. For example, publish an API from a workspace with a service-level product, assign a service-level tag to an API, or organize a user into a workspace-level group to control API and product visibility.  
+
+> [!NOTE]
+> For easier management, set up Azure AD groups to assign workspace permissions to multiple users.
+> 
 
 ## Workspaces and other API Management features
 
@@ -135,6 +138,10 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 * Using the authorizations feature 
 
 * Specifying API authorization server information (for example, for the developer portal)
+   
+Workspace APIs can't be published to self-hosted gateways.
+
+All resources in an API Management service need to have unique names, even if they are located in different workspaces.
 
 ## Next steps
 

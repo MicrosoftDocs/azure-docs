@@ -31,6 +31,8 @@
       href: tutorial-wellbore-ddms.md
     - name: Use Well Delivery DDMS APIs
       href: tutorial-well-delivery-ddms.md
+    - name: Use Petrel DDMS APIs
+      href: tutorial-petrel-ddms.md
 - name: Concepts
   items:
     - name: CSV parser ingestion

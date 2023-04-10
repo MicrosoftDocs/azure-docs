@@ -2,7 +2,7 @@
 title: Upload and index videos with Azure Video Indexer
 description: Learn two methods for uploading and indexing videos by using Azure Video Indexer.
 ms.topic: article
-ms.date: 11/15/2021
+ms.date: 03/20/2023
 ms.custom: ignite-fall-2021
 ---
 
@@ -41,6 +41,10 @@ After Azure Video Indexer is done analyzing, you get an email with a link to you
 ## Upload and index a video by using the API
 
 You can use the [Upload Video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API to upload and index your videos based on a URL. The code sample that follows includes the commented-out code that shows how to upload the byte array.
+
+You can also view the following video.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RW10CsK]
 
 > [!NOTE]
 > Before you proceed, make sure to review [API recommendations](video-indexer-use-apis.md#recommendations).

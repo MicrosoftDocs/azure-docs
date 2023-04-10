@@ -19,7 +19,30 @@ This article shows you how to simplify the migration by using the Azure portal. 
 
 Here's a video that tells you more about it.
 
-> [!VIDEO https://learn-video.azurefd.net/vod/player?show=inside-azure-for-it&ep=migrate-azure-data-lake-storage-adls-from-gen1-to-gen2-by-using-the-azure-portal]
+:::row:::
+   :::column span="2":::
+      > [!VIDEO https://learn-video.azurefd.net/vod/player?show=inside-azure-for-it&ep=migrate-azure-data-lake-storage-adls-from-gen1-to-gen2-by-using-the-azure-portal] 
+   :::column-end:::
+   :::column span="":::
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Chapters**:
+     ___
+
+     - 00.37 - Introduction
+      
+     - 01:16 - Preparing for migration
+      
+     - 07:15 - Copy migration
+      
+     - 17:40 - Copy vs complete migration
+      
+     - 19:43 - Complete migration
+      
+     - 33:15 - Post migration
+<br>
+   :::column-end:::
+:::row-end:::
+
+
 
 Before you start, be sure to read the general guidance on how to migrate from Gen1 to Gen2 in [Azure Data Lake Storage migration guidelines and patterns](data-lake-storage-migrate-gen1-to-gen2.md).
 

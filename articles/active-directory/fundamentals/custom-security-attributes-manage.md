@@ -4,6 +4,7 @@ description: Learn how to manage access to custom security attributes in Azure A
 services: active-directory
 author: rolyon
 ms.author: rolyon
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity

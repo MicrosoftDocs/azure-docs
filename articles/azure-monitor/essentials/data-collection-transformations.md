@@ -2,6 +2,8 @@
 title: Data collection transformations
 description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 06/29/2022
 ms.reviwer: nikeist
 
@@ -140,7 +142,7 @@ The following example is a DCR for Azure Monitor Agent that sends data to the `S
                   "streams": [ 
                     "Microsoft-Syslog" 
                   ], 
-                  "transformKql": "source | where message contains 'error'", 
+                  "transformKql": "source | where message has 'error'", 
                   "destinations": [ 
                     "centralWorkspace" 
                   ] 
@@ -212,7 +214,7 @@ The following example is a DCR for data from the Logs Ingestion API that sends d
                         "destinations": [ 
                             "clv2ws1" 
                         ], 
-                        "transformKql": "source | where (AdditionalContext contains 'malicious traffic!' | project TimeGenerated = Time, Computer, Subject = AdditionalContext", 
+                        "transformKql": "source | where (AdditionalContext has 'malicious traffic!' | project TimeGenerated = Time, Computer, Subject = AdditionalContext", 
                         "outputStream": "Microsoft-SecurityEvent" 
                     } 
                 ] 

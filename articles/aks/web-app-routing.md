@@ -396,7 +396,7 @@ spec:
 
 ### Create the ingress
 
-The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this activates the add-on. To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
+The Web Application Routing add-on creates an Ingress class on the cluster called `webapprouting.kubernetes.azure.com `. When you create an ingress object with this class, this activates the add-on. The `kubernetes.azure.com/use-osm-mtls: "true"` annotation on the Ingress object creates an Open Service Mesh (OSM) [IngressBackend](https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/#ingressbackend-api) to configure a backend service to accept ingress traffic from trusted sources. OSM issues a certificate that Nginx will use as the client certificate to proxy HTTPS connections to TLS backends. The client certificate and CA certificate are stored in a Kubernetes secret that Nginx will use to authenticate service mesh backends. For more information, see [Open Service Mesh: Ingress with Kubernetes Nginx Ingress Controller](https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx/). To obtain the certificate URI to use in the Ingress from Azure Key Vault, run the following command.
 
 ```azurecli-interactive
 az keyvault certificate show --vault-name <KeyVaultName> -n <KeyVaultCertificateName> --query "id" --output tsv
@@ -439,34 +439,6 @@ spec:
   - hosts:
     - <Hostname>
     secretName: keyvault-aks-helloworld
-```
-
-### Create the ingress backend 
-
-Open Service Mesh (OSM) uses its [IngressBackend API](https://release-v1-2.docs.openservicemesh.io/docs/guides/traffic_management/ingress/#ingressbackend-api) to configure a backend service to accept ingress traffic from trusted sources. To proxy connections to HTTPS backends, you configure the Ingress and IngressBackend configurations to use https as the backend protocol. OSM issues a certificate that Nginx will use as the client certificate to proxy HTTPS connections to TLS backends. The client certificate and CA certificate are stored in a Kubernetes secret that Nginx will use to authenticate service mesh backends. For more information, see [Open Service Mesh: Ingress with Kubernetes Nginx Ingress Controller](https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx/).
-
-Create a file named **ingressbackend.yaml** and copy in the following YAML.
-
-```yaml
-apiVersion: policy.openservicemesh.io/v1alpha1
-kind: IngressBackend
-metadata:
-  name: aks-helloworld
-  namespace: hello-web-app-routing
-spec:
-  backends:
-  - name: aks-helloworld
-    port:
-      number: 80
-      protocol: https
-    tls:
-      skipClientCertValidation: false
-  sources:
-  - kind: Service
-    name: nginx
-    namespace: app-routing-system
-  - kind: AuthenticatedPrincipal
-    name: ingress-nginx.ingress.cluster.local
 ```
 
 ### Create the resources on the cluster

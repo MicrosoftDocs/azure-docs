@@ -1,8 +1,8 @@
 ---
 title: Manage your OT device inventory from an on-premises management console
-description: Learn how to view and manage OT devices (assets) from the Device inventory page on an on-premises management console.
+description: Learn how to view and manage OT devices (assets) from the Device Inventory page on an on-premises management console.
 ms.topic: how-to
-ms.date: 07/12/2022
+ms.date: 01/26/2023
 
 ---
 
@@ -15,6 +15,22 @@ For more information, see [What is a Defender for IoT committed device?](archite
 > [!TIP]
 > Alternately, view your device inventory from a [the Azure portal](how-to-manage-device-inventory-for-organizations.md), or from an [OT sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md).
 >
+
+## Prerequisites
+
+Before performing the procedures in this article, make sure that you have:
+
+- An on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md). To view devices by zone, make sure that you've [configured sites and zones](ot-deploy/sites-and-zones-on-premises.md) on on the on-premises management console.
+
+- One or more OT sensors [installed](ot-deploy/install-software-ot-sensor.md), [activated, configured](ot-deploy/activate-deploy-sensor.md), and [connected to your on-premises management console](ot-deploy/connect-sensors-to-management.md). To view devices per zone, make sure that each sensor is assigned to a specific zone.
+
+- Access to the on-premises management console with one of the following [user roles](roles-on-premises.md):
+
+    - **To view devices the on-premises management console**, sign in as an *Admin*, *Security Analyst*, or *Viewer* user.
+
+    - **To export or import data**, sign in as an *Admin* or *Security Analyst* user.
+
+    - **To use the CLI**, access the CLI via SSH/Telnet as a [privileged user](references-work-with-defender-for-iot-cli-commands.md).
 
 ## View the device inventory
 
@@ -34,6 +50,21 @@ Use any of the following options to modify or filter the devices shown:
 | **Load a saved filter** | Saved filters are listed on the left, in the **Groups** pane. <br><br>1. Select the **Options** :::image type="icon" source="media/how-to-work-with-asset-inventory-information/options-menu.png"border="false"::: button in the toolbar to display the **Groups** pane. <br>2. In the **Device Inventory Filters** list, select the saved filter you want to load.  |
 
 For more information, see [Device inventory column data](device-inventory.md#device-inventory-column-data).
+
+### View device inventory by zone
+
+To view alerts from connected OT sensors for a specific zone, use the **Site Management** page on an on-premises management console.
+
+1. Sign into your on-premises management console and select **Site Management**. 
+
+1. Locate the site and zone you want to view, using the filtering options at the top as needed:
+
+    - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
+    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
+    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+    - **Region**: Select to view all OT sensors, or only those from a [specific region](best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
+
+1. Select **View device inventory** for a specific OT sensor to jump to the device inventory for that OT sensor.
 
 ## Export the device inventory to CSV
 

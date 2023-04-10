@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up a data history connection for historizing Azure Digital Twins updates into Azure Data Explorer.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/08/2023
+ms.date: 03/28/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -378,7 +378,7 @@ The results should show the outflow numbers changing over time.
 
 ## Next steps 
 
-To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation_with_data_history/ContosoDairyDataHistoryQueries.kql) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
+To keep exploring the dairy scenario, you can view [more sample queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/adt-adx-queries/Dairy_operation_with_data_history) that show how you can monitor the performance of the dairy operation based on machine type, factory, maintenance technician, and various combinations of these parameters.
 
 To build Grafana dashboards that visualize the performance of the dairy operation, read [Creating dashboards with Azure Digital Twins, Azure Data Explorer, and Grafana](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries/Dairy_operation_with_data_history/Visualize_with_Grafana).
 
