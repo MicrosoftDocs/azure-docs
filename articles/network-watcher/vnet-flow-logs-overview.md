@@ -100,7 +100,7 @@ VNet flow logs have the following properties:
 				- `Packets received`: Total number of packets sent from destination to source since the last update. 
 				- `Bytes received`: Total number of packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload. 
 
-`Flow encryption` has the following possible values:
+`Flow encryption` has the following possible encryption statuses:
 
 | Encryption Status | Description |
 | ----------------- | ----------- |
