@@ -146,7 +146,7 @@ The Azure VM Agent for Windows is automatically upgraded on images deployed from
 
 ## Windows Guest Agent automatic log collection
 
-The Windows Guest Agent has a feature to automatically collect some logs. This feature is controlled by the *CollectGuestLogs.exe* process. It exists for both platform as a service (PaaS) cloud services and infrastructure as a service (IaaS) VMs. Its goal is to quickly and automatically collect diagnostics logs from a VM, so they can be used for offline analysis.
+The Windows Guest Agent has a feature to automatically collect some logs. The *CollectGuestLogs.exe* process controls this feature. It exists for both platform as a service (PaaS) cloud services and infrastructure as a service (IaaS) VMs. Its goal is to quickly and automatically collect diagnostics logs from a VM, so they can be used for offline analysis.
 
 The collected logs are event logs, OS logs, Azure logs, and some registry keys. The agent produces a ZIP file that's transferred to the VM's host. Engineering teams and support professionals can then use this ZIP file to investigate issues on the request of the customer who owns the VM.
 
@@ -154,7 +154,7 @@ The collected logs are event logs, OS logs, Azure logs, and some registry keys. 
 
 The Azure VM Agent installs the certificates referenced in the `OSProfile` value of a VM or a virtual machine scale set. If you manually remove these certificates from the Microsoft Management Console (MMC) Certificates snap-in inside the guest VM, the guest agent will add them back. To permanently remove a certificate, you have to remove it from `OSProfile`, and then remove it from within the guest operating system.
 
-For a virtual machine, use [Remove-AzVMSecret](powershell/module/az.compute/remove-azvmsecret) to remove certificates from `OSProfile`.
+For a virtual machine, use [Remove-AzVMSecret](/powershell/module/az.compute/remove-azvmsecret) to remove certificates from `OSProfile`.
 
 For more information on certificates for virtual machine scale sets, see [Azure Virtual Machine Scale Sets - How do I remove deprecated certificates?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-remove-deprecated-certificates-).
 
