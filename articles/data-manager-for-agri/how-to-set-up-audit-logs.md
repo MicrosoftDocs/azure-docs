@@ -27,10 +27,6 @@ After creating a Data Manager for Agriculture service resource, navigate to diag
 
 Now you can navigate to the destination you specified in the diagnostic setting to access logs. You can access your logging information 10 minutes (at most) after the Data Manager for Agriculture operation. In most cases, it's quicker.
 
->!Note
-Currently, collecting logs in the log analytics workspace is not enabled. This feature will be made available in a future release.
-
-
 ## Interpret your logs
 Each log follows the schema listed in the table. The table contains the field names and descriptions:
 
