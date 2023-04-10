@@ -2,8 +2,10 @@
 title: Create an OpenID Connect provider for your Azure Kubernetes Service (AKS) cluster
 description: Learn how to configure the OpenID Connect (OIDC) provider for a cluster in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 04/04/2023
+ms.date: 04/10/2023
 ---
+
+
 
 # Create an OpenID Connect provider on Azure Kubernetes Service (AKS)
 
@@ -58,6 +60,81 @@ az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 
 > [!IMPORTANT]
 > Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
+
+### Check the OIDC keys in OIDC document
+
+#### Get the OIDC Issuer URL
+To get the OIDC Issuer URL, run the [az aks show][az-aks-show] command. Replace the default values for the cluster name and the resource group name.
+
+```azurecli-interactive
+az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+```
+#### Get the `jwks_uri`
+To get the `jwks_uri`, copy `<OIDC issuer Url>.well-known/openid-configuration` in the browser.
+
+The output should resemble the following:
+
+```output
+{
+  "issuer": "https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/",
+  "jwks_uri": "https://eastus.oic.prod-aks.azure.com/00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000/openid/v1/jwks",
+  "response_types_supported": [
+    "id_token"
+  ],
+  "subject_types_supported": [
+    "public"
+  ],
+  "id_token_signing_alg_values_supported": [
+    "RS256"
+  ]
+}
+```
+
+#### Get the OIDC document
+To get the OIDC document, copy `jwks_uri` in the browser.
+
+The output of one key should resemble the following:
+
+```output
+{
+  "keys": [
+    {
+      "use": "sig",
+      "kty": "RSA",
+      "kid": "xxx",
+      "alg": "xxx",
+      "n": "xxx",
+      "e": "AQAB"
+    }
+  ]
+}
+```
+
+The output of two keys should resemble the following:
+```output
+{
+  "keys": [
+    {
+      "use": "sig",
+      "kty": "RSA",
+      "kid": "xxx",
+      "alg": "RS256",
+      "n": "xxxx",
+      "e": "AQAB"
+    },
+    {
+      "use": "sig",
+      "kty": "RSA",
+      "kid": "xxx",
+      "alg": "RS256",
+      "n": "xxxx",
+      "e": "AQAB"
+    }
+  ]
+}
+```
+
+
 
 ## Next steps
 
