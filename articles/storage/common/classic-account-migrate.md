@@ -150,7 +150,7 @@ For more information about errors that may occur when deleting disk artifacts an
 
 For more information about how to locate and delete disk artifacts in classic storage accounts with PowerShell or Azure CLI, see one of the following articles:
 
-- [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account)
+- [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account.md)
 - [Migrate VMs to Resource Manager using Azure CLI](../../virtual-machines/migration-classic-resource-manager-cli#step-5-migrate-a-storage-account.md)
 
 ## See also
