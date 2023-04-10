@@ -64,6 +64,8 @@ When you're debugging application crashes, start by checking the running status 
     * Gradual memory leaks.
 
    For more information, see [Metrics](./concept-metrics.md).
+   > [!NOTE]
+   > These metrics are available only for spring-boot applications, and you need to [add spring-boot-starter-actuator dependency](concept-manage-monitor-app-spring-boot-actuator.md#add-actuator-dependency) to enable these metrics.
 
 * If the application fails to start, verify that the application has valid jvm parameters. If jvm memory is set too high, the following error message might appear in your logs:
 
