@@ -316,7 +316,7 @@ To see the GPU in action, you can schedule a GPU-enabled workload with the appro
     kubectl logs samples-tf-mnist-demo-smnr6
     ```
 
-    The following condensed example output of the pod logs confirm that the appropriate GPU device, `Tesla K80`, has been discovered:
+    The following condensed example output of the pod logs confirms that the appropriate GPU device, `Tesla K80`, has been discovered:
 
     ```console
     2019-05-16 16:08:31.258328: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
