@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure DB for MariaDB - ARM template'
+title: 'Quickstart: Create an Azure Database for MariaDB - ARM template'
 description: In this Quickstart article, learn how to create an Azure Database for MariaDB server by using an Azure Resource Manager template.
 ms.service: mariadb
 author: savjani
