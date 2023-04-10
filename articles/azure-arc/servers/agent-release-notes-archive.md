@@ -274,6 +274,8 @@ Download for [Windows](https://download.microsoft.com/download/1/c/4/1c4a0bde-0b
 
 ## Version 1.9 - July 2021
 
+Download for [Windows](https://download.microsoft.com/download/5/1/d/51d4340b-c927-4fc9-a0da-0bb8556338d0/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
 ### New features
 
 Added support for the Indonesian language
@@ -283,6 +285,8 @@ Added support for the Indonesian language
 Fixed a bug that prevented extension management in the West US 3 region
 
 ## Version 1.8 - July 2021
+
+Download for [Windows](https://download.microsoft.com/download/1/7/5/1758f4ea-3114-4a20-9113-6bc5fff1c3e8/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -299,6 +303,8 @@ Fixed a bug that prevented extension management in the West US 3 region
 
 ## Version 1.7 - June 2021
 
+Download for [Windows](https://download.microsoft.com/download/6/1/c/61c69f31-8e22-4298-ac9d-47cd2090c81d/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
 ### New features
 
 - Improved reliability during onboarding:
@@ -307,6 +313,8 @@ Fixed a bug that prevented extension management in the West US 3 region
 - Improved reliability when installing the Log Analytics agent for Linux extension on Red Hat and CentOS systems
 
 ## Version 1.6 - May 2021
+
+Download for [Windows](https://download.microsoft.com/download/d/3/d/d3df034a-d231-4ca6-9199-dbaa139b1eaf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -318,6 +326,8 @@ Fixed a bug that prevented extension management in the West US 3 region
 
 ## Version 1.5 - April 2021
 
+Download for [Windows](https://download.microsoft.com/download/1/d/4/1d44ef2e-dcc9-42e4-b76c-2da6a6e852af/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
 ### New features
 
 - Added support for Red Hat Enterprise Linux 8 and CentOS Linux 8.
@@ -326,6 +336,8 @@ Fixed a bug that prevented extension management in the West US 3 region
 - Collect other instance metadata - Manufacturer, model, and cluster resource ID (for Azure Stack HCI nodes).
 
 ## Version 1.4 - March 2021
+
+Download for [Windows](https://download.microsoft.com/download/e/b/1/eb128465-8830-47b0-b89e-051eefd33f7c/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### New features
 
@@ -340,6 +352,8 @@ Network endpoint checks are now faster.
 
 ## Version 1.3 - December 2020
 
+Download for [Windows](https://download.microsoft.com/download/5/4/c/54c2afd8-e559-41ab-8aa2-cc39bc13156b/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
 ### New features
 
 Added support for Windows Server 2008 R2 SP1.
@@ -349,6 +363,8 @@ Added support for Windows Server 2008 R2 SP1.
 Resolved issue preventing the Custom Script Extension on Linux from installing successfully.
 
 ## Version 1.2 - November 2020
+
+Download for [Windows](https://download.microsoft.com/download/4/c/2/4c287d81-6657-4cd8-9254-881ae6a2d1f4/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 
