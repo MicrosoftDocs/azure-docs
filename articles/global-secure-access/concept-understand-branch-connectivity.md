@@ -14,7 +14,7 @@ ms.custom:
 Global Secure Access supports two connectivity options. The first is to install a client on each device. The second is to configure equipment, such as a router, in a branch office. Equipment in a branch office is also referred to as Customer Premises Equipment (CPE).
 
 ## What is a branch office? 
-Branches are remote locations or networks that require internet connectivity. For example, many organizations have a headquarters and also have branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. Hence, the security of branch offices is crucial for organizations.
+Branches are remote locations or networks that require internet connectivity. For example, many organizations have a central headquarters and also have branch office locations in different geographic areas. These branch offices need access to corporate data and services. They need a secure way to talk to the data center, headquarters, and remote workers. Hence, the security of branch offices is crucial for organizations.
 
 ## Current challenges of branch security 
 
