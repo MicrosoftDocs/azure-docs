@@ -4,8 +4,9 @@ description: Learn how to authenticate and access the Azure Monitor Application 
 ms.date: 04/11/2023
 author: CourtGoodson
 ms.author: cogoodson
+ms.topic: article
 ---
-# Access the Azure Monitor Log Analytics API
+# Application Insights API Access with Microsoft Azure Active Directory (Azure AD) Authentication
 
 You can submit a query request to a workspace by using the Azure Monitor Log Analytics endpoint `https://api.loganalytics.azure.com`. To access the endpoint, you must authenticate through Azure Active Directory (Azure AD).
 
