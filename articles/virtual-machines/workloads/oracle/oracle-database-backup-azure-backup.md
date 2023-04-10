@@ -1052,7 +1052,7 @@ Now the database has been restored you must recover the database. Please follow 
    ```
    Copy the logfile path and file name for the CURRENT online log, in this example it is `/u02/oradata/ORATEST1/redo01.log`. Switch back to the ssh session running the recover command, input the logfile information and press return:
 
-   ```bash
+   ```output
    Specify log: {<RET>=suggested | filename | AUTO | CANCEL}
    /u02/oradata/ORATEST1/redo01.log
    ```
