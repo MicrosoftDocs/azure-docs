@@ -253,12 +253,11 @@ Sign in to the [Azure portal](https://portal.azure.com/), browse to **Azure Acti
 
     - If you select **Pass-through authentication** option button, and if SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**.
 
-    - If you select the **Password hash synchronization** option button, make sure to select the **Do not convert user accounts** check box. The option is deprecated. If SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**. 
-
-      Learn more: [Enable seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
+    - If you select the **Password hash synchronization** option button, make sure to select the **Do not convert user accounts** check box. The option is deprecated. If SSO is needed for Windows 7 and 8.1 devices, check **Enable single sign-on**, and then select **Next**.
 
       ![Check enable single sign-on on User sign-in page](media/deploy-cloud-user-authentication/user-sign-in.png)
 
+   Learn more: [Enable seamless SSO by using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso). 
 5. On the **Enable single sign-on** page, enter the credentials of a Domain Administrator account, and then select **Next**.
 
     ![Enable single sign-on page](media/deploy-cloud-user-authentication/enable-single-sign-on.png)
