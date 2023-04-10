@@ -25,7 +25,7 @@ There are three triggers supported in Azure Cache for Redis:
 
 ## How to get started
 See [Azure Cache for Redis trigger for Azure Functions overview (preview)]() for information on how to install the Functions extension.
-See [Get started with Functions triggers in Azure Cache for Redis]() for a step-by-step tutorial on how to get started.
+See [Get started with Functions triggers in Azure Cache for Redis](cache-tutorial-functions-getting-started.md) for a step-by-step tutorial on how to get started.
 
 ## Prerequisites and limitations
 
