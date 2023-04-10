@@ -1078,9 +1078,9 @@ items:
   - name: Custom (preview)
     items:
     - name: Custom text analytics for health overview
-      href: /custom-text-analytics-for-health/overview.md  
+      href: custom-text-analytics-for-health/overview.md  
     - name: Custom text analytics for health quickstart
-      href: /custom-text-analytics-for-health/quickstart.md
+      href: custom-text-analytics-for-health/quickstart.md
 - name: Summarization (preview)
   items:
   - name: Summarization overview

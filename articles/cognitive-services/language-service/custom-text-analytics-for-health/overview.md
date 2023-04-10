@@ -73,7 +73,7 @@ An AI system includes not only the technology, but also the people who will use 
 
 * Use the [quickstart article](quickstart.md) to start using custom Text Analytics for health.  
 
-* As you go through the project development lifecycle, review the [glossary](reference/glossary.md) to learn more about the terms used throughout the documentation for this feature. 
+* As you go through the project development lifecycle, review the glossary to learn more about the terms used throughout the documentation for this feature. 
 <!--
 * Remember to view the [service limits](reference/service-limits.md) for information such as [regional availability](reference/service-limits.md#regional-availability).
 -->
