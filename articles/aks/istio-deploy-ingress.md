@@ -38,7 +38,7 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
     aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   20.69.150.235   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
     ```
 
-1. The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway mapped to the ingress you deployed in previous step. Apply the following:
+1. The sample application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway mapped to the ingress you deployed in previous step:
 
     ```bash
     kubectl apply -f - <<EOF
@@ -97,13 +97,13 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
     export GATEWAY_URL_EXTERNAL=$INGRESS_HOST_EXTERNAL:$INGRESS_PORT_EXTERNAL
     ```
 
-1. Run the following command to retrieve the external address of the Bookinfo application:
+1. Run the following command to retrieve the external address of the sample application:
 
     ```bash
     echo "http://$GATEWAY_URL_EXTERNAL/productpage"
     ```
 
-    Paste the output from the previous command into your web browser and confirm that the Bookinfo product page is displayed. Or run the following command:
+    Paste the output from the previous command into your web browser and confirm that the sample application's product page is displayed. Or run the following command:
 
     ```bash
     curl -s "http://${GATEWAY_URL_EXTERNAL}/productpage" | grep -o "<title>.*</title>"
@@ -131,7 +131,7 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
     aks-istio-ingressgateway-internal   LoadBalancer   10.0.182.240  10.224.0.7      15021:30764/TCP,80:32186/TCP,443:31713/TCP   87s
     ```
 
-1. Create an Istio Ingress Gateway mapped to the ingress you deployed in previous step. Apply the following:
+1. Create an Istio Ingress Gateway mapped to the ingress you deployed in previous step:
 
     ```bash
     kubectl apply -f - <<EOF
@@ -182,7 +182,7 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
     > [!NOTE]
     > The selector used in the Gateway object points to `istio: aks-istio-ingressgateway-internal`, which can be found as label on the service mapped to the internal ingress that was enabled earlier.
 
-1. Set environment variables for external ingress host and ports:
+1. Set environment variables for internal ingress host and ports:
 
     ```bash
     export INGRESS_HOST_INTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-internal -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
@@ -190,13 +190,13 @@ Complete the steps listed in the [Istio add-on deployment document][istio-deploy
     export GATEWAY_URL_INTERNAL=$INGRESS_HOST_INTERNAL:$INGRESS_PORT_INTERNAL
     ```
 
-1. Run the following command to retrieve the external address of the Bookinfo application:
+1. Run the following command to retrieve the address of the sample application:
 
     ```bash
     echo "http://$GATEWAY_URL_INTERNAL/productpage"
     ```
 
-    Paste the output from the previous command into your web browser and confirm that the Bookinfo product page is **not displayed**, or try running the following curl command:
+    Paste the output from the previous command into your web browser and confirm that the sample application's product page is **not displayed**, or try running the following curl command:
 
     ```bash
     curl -s "http://${GATEWAY_URL_INTERNAL}/productpage" | grep -o "<title>.*</title>"
