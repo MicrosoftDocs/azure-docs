@@ -1,4 +1,4 @@
-# Getting started with Functions
+# Get started with Azure Functions triggers in Azure Cache for Redis
 
 The following tutorial shows how to implement basic triggers with Azure Cache for Redis and Azure Functions. This tutorial uses VS Code to write and deploy the Azure Function in C#. 
 
