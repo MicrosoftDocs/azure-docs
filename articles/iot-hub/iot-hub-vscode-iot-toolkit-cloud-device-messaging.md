@@ -8,6 +8,7 @@ ms.service: iot-hub
 ms.topic: how-to
 ms.date: 01/18/2019
 ms.custom: ['Role: Cloud Development']
+ROBOTS: NOINDEX
 ---
 
 # Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub
