@@ -24,7 +24,28 @@ Ready to get started? [Create a workspace](#create-a-workspace).
 
 :::image type="content" source="./media/concept-workspace/workspace.png" alt-text="Screenshot of the Azure Machine Learning workspace.":::
 
-## Working with workspaces
+## Tasks performed within a workspace 
+
+For machine learning teams, the workspace is a place to organize their work. Below are some of the tasks you can start from a workspace:
+
++ [Create jobs](how-to-train-model.md). Jobs are training runs you use to build your models. You can group your jobs into [Experiments](how-to-log-view-metrics.md) to compare metrics between jobs.
++ [Author pipelines](concept-ml-pipelines.md) are reusable workflows for training and retraining your model.
++ [Register data assets](concept-data.md) aid in management of the data you use for model training and pipeline creation.
++ [Register models](how-to-log-mlflow-models.md). Once you have a model you want to deploy, you create a registered model.
+:::moniker range="azureml-api-2"
++ [Create online endpoints](concept-endpoints.md). Use a registered model and a scoring script to create an online endpoint.
+:::moniker-end
+:::moniker range="azureml-api-1"
++ [Deploy a model](./v1/how-to-deploy-and-where.md) Use the registered model and a scoring script to deploy a model.
+:::moniker-end
+
+Besides grouping your machine learning results, workspaces also host resource configurations:
+
++ [Compute targets](concept-compute-target.md) are used to run your experiments.
++ [Datastores](how-to-datastore.md) define how you and others can connect to data sources when using data assets.
++ [Security](tutorial-create-secure-workspace.md). Networking, identity and access control, and encryption settings.
+
+## Organizing workspaces
 
 For machine learning teams, the workspace is a place to organize their work. To administrators, workspaces serve as containers for access management, cost management and data isolation. Below are some tips for working with workspaces:
 
@@ -38,22 +59,6 @@ For machine learning teams, the workspace is a place to organize their work. To 
 ## What content is stored in a workspace?
 
 Your workspace keeps a history of all training runs, with logs, metrics, output, lineage metadata, and a snapshot of your scripts. As you perform tasks in Azure Machine Learning, artifacts are generated. Their metadata and data are stored in the workspace and on its [associated resources](#associated-resources).  
-
-## Tasks performed within a workspace 
-
-The following constructs you can find and manage within the workspace boundary. 
-
-+ [Compute targets](concept-compute-target.md) are used to run your experiments.
-+ Jobs are training runs you use to build your models. You can organize your jobs into Experiments.
-+ [Pipelines](concept-ml-pipelines.md) are reusable workflows for training and retraining your model.
-+ [Data assets](concept-data.md) aid in management of the data you use for model training and pipeline creation.
-+ Once you have a model you want to deploy, you create a registered model.
-:::moniker range="azureml-api-2"
-+ Use the registered model and a scoring script to create an [online endpoint](concept-endpoints.md).
-:::moniker-end
-:::moniker range="azureml-api-1"
-+ Use the registered model and a scoring script to [deploy the model](./v1/how-to-deploy-and-where.md)
-:::moniker-end
 
 ## Tools for workspace interaction
 
