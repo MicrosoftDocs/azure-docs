@@ -46,5 +46,4 @@ Sometimes, clients cannot be installed on all devices. Global Secure Access prov
 The guest devices on your network may not have the client installed. To ensure that those devices adhere to your network security policies you need their traffic routed through the Global Secure Access endpoint. Branch connectivity solves this problem. No additional clients need to be installed on guest devices. All outgoing traffic from the branch is going through security evaluation by default.  
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
 - [Configure branch Office locations](how-to-configure-branch-office-locations.md)
