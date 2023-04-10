@@ -15,7 +15,12 @@ ms.custom: ignite-fall-2021
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group. These tasks vary in number and availability, based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule. You can schedule a task to auto start/stop a virtual machine n number of times every Day/Week/Month by mentioning the values of **Interval** as "n" and **Frequency** as “Day”,"Week"or "Month" in the Task configuration.The automation task continues to work until you delete or disbale it.   
+To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group. These tasks vary in number and availability, based on the resource type, for example:
+
+- For an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends the monthly cost for that storage account.
+
+- For an [Azure virtual machine](../virtual-machines/overview.md), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule. Specifically, you can create a task that automatically starts or stops the virtual machine a specific number of times every day, week, or month, on the task's **Configure** tab, set the **Interval** value to the number of times and the **Frequency** value to **Day**, **Week**, or **Month**. The automation task continues to work until you delete or disable the task.
+ 
 For example, you can schedule a task to auto start a VM **once every day** by mentioning the values of Interval as “1” and Frequency as “Day” in the Task **configure** tab. 
 
 You can create an automation task from a specific automation task template. The following table lists the currently supported resource types and available task templates in this preview:
