@@ -104,7 +104,7 @@ The recommended pattern is:
 It is required to configure MSAL with the window that the interactive experience should be parented to, using `WithParentActivityOrWindow` APIs.
 
 ### UI applications
-For UI apps like WinForms, WPF, WinUI3 see https://learn.microsoft.com/en-us/windows/apps/develop/ui-input/retrieve-hwnd
+For UI apps like WinForms, WPF, WinUI3 see https://learn.microsoft.com/windows/apps/develop/ui-input/retrieve-hwnd
 
 ### Console applications
 
