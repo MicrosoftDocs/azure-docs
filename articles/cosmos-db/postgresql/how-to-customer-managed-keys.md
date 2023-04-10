@@ -54,7 +54,7 @@ ms.date: 04/06/2023
 
    1. If you create a new Azure Key Vault instance, enable these properties during creation:
 
-    [ ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png)](media/how-to-customer-managed-keys/key-vault-soft-delete.png#lightbox)
+   [ ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png) ](media/how-to-customer-managed-keys/key-vault-soft-delete.png#lightbox)
  
    1. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles.
 
@@ -70,13 +70,13 @@ ms.date: 04/06/2023
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
 
-    [ ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png)](media/how-to-customer-managed-keys/access-policy.png#lightbox)
+   [ ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png) ](media/how-to-customer-managed-keys/access-policy.png#lightbox)
 
    1. Select + Create.
 
    1. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
 
-   [ ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png)] (media/how-to-customer-managed-keys/access-policy-permissions.png#lightbox)
+   [ ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png) ] (media/how-to-customer-managed-keys/access-policy-permissions.png#lightbox)
 
    1. In the Principal Tab, select the User Assigned Managed Identity you had created in prerequisite step.
 
@@ -88,7 +88,7 @@ ms.date: 04/06/2023
 
    1. Select Keys from the left menu and then select +Generate/Import.
 
-    [ ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png)](media/how-to-customer-managed-keys/create-key.png#lightbox)
+   [ ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png) ](media/how-to-customer-managed-keys/create-key.png#lightbox)
 
    1. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
 
