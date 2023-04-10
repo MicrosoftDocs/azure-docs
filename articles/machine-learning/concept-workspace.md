@@ -28,15 +28,15 @@ Ready to get started? [Create a workspace](#create-a-workspace).
 
 For machine learning teams, the workspace is a place to organize their work. Below are some of the tasks you can start from a workspace:
 
-+ [Create jobs](how-to-train-model.md). Jobs are training runs you use to build your models. You can group your jobs into [Experiments](how-to-log-view-metrics.md) to compare metrics between jobs.
-+ [Author pipelines](concept-ml-pipelines.md) are reusable workflows for training and retraining your model.
-+ [Register data assets](concept-data.md) aid in management of the data you use for model training and pipeline creation.
-+ [Register models](how-to-log-mlflow-models.md). Once you have a model you want to deploy, you create a registered model.
++ [Create jobs](how-to-train-model.md) - Jobs are training runs you use to build your models. You can group your jobs into [Experiments](how-to-log-view-metrics.md) to compare metrics between jobs.
++ [Author pipelines](concept-ml-pipelines.md) - Pipelines are reusable workflows for training and retraining your model.
++ [Register data assets](concept-data.md) - Data assets aid in management of the data you use for model training and pipeline creation.
++ [Register models](how-to-log-mlflow-models.md) - Once you have a model you want to deploy, you create a registered model.
 :::moniker range="azureml-api-2"
-+ [Create online endpoints](concept-endpoints.md). Use a registered model and a scoring script to create an online endpoint.
++ [Create online endpoints](concept-endpoints.md) - Use a registered model and a scoring script to create an online endpoint.
 :::moniker-end
 :::moniker range="azureml-api-1"
-+ [Deploy a model](./v1/how-to-deploy-and-where.md) Use the registered model and a scoring script to deploy a model.
++ [Deploy a model](./v1/how-to-deploy-and-where.md) - Use the registered model and a scoring script to deploy a model.
 :::moniker-end
 
 Besides grouping your machine learning results, workspaces also host resource configurations:
@@ -56,62 +56,13 @@ For machine learning teams, the workspace is a place to organize their work. To 
 + **Enable self-serve**: Pre-create and secure [associated resources](#associated-resources) as an IT admin, and use [user roles](how-to-assign-roles.md) to let data scientists create workspaces on their own.
 + **Share assets**: You can share assets between workspaces using [Azure Machine Learning registries (preview)](how-to-share-models-pipelines-across-workspaces-with-registries.md).
 
-## What content is stored in a workspace?
+## What content and resources are stored in a workspace?
 
-Your workspace keeps a history of all training runs, with logs, metrics, output, lineage metadata, and a snapshot of your scripts. As you perform tasks in Azure Machine Learning, artifacts are generated. Their metadata and data are stored in the workspace and on its [associated resources](#associated-resources).  
+Your workspace keeps a history of all training runs, with logs, metrics, output, lineage metadata, and a snapshot of your scripts. As you perform tasks in Azure Machine Learning, artifacts are generated. Their metadata and data are stored in the workspace and on its [associated resources](#associated-resources).
 
-## Tools for workspace interaction
+### Sub resources
 
-You can interact with your workspace in the following ways:
-
-+ On the web:
-    + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer](concept-designer.md) 
-:::moniker range="azureml-api-2"
-+ In any Python environment with the [Azure Machine Learning SDK v2 for Python](https://aka.ms/sdk-v2-install).
-+ On the command line using the Azure Machine Learning [CLI extension v2](how-to-configure-cli.md)
-:::moniker-end
-:::moniker range="azureml-api-1"
-+ In any Python environment with the [Azure Machine Learning SDK v1 for Python](/python/api/overview/azure/ml/)
-+ On the command line using the Azure Machine Learning [CLI extension v1](./v1/reference-azure-machine-learning-cli.md)
-:::moniker-end
-+ [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
-
-## Workspace management
-
-You can also perform the following workspace management tasks:
-
-| Workspace management task           | Portal      | Studio      | Python SDK  | Azure CLI   | VS Code     |
-|-------------------------------------|-------------|-------------|-------------|-------------|-------------|
-| Create a workspace                  | **&check;** | **&check;** | **&check;** | **&check;** | **&check;** |
-| Manage workspace access             | **&check;** |             |             | **&check;** |             |
-| Create and manage compute resources | **&check;** | **&check;** | **&check;** | **&check;** | **&check;** |
-| Create a compute instance           |             | **&check;** | **&check;** | **&check;** | **&check;** |
-
-> [!WARNING]
-> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
-
-## Create a workspace
-
-There are multiple ways to create a workspace:  
-
-* Use [Azure Machine Learning studio](quickstart-create-resources.md) to quickly create a workspace with default settings.
-* Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more options. 
-* Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks.
-:::moniker range="azureml-api-2"
-* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
-:::moniker-end
-:::moniker range="azureml-api-1"
-* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
-:::moniker-end
-* If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
-
-> [!NOTE]
-> The workspace name is case-insensitive.
-
-## Sub resources
-
-These sub resources are the main resources that are made in the Azure Machine Learning workspace.
+When you create compute clusters and compute instances in Azure Machine Learning, sub resources are created.
 
 * VMs: provide computing power for your Azure Machine Learning workspace and are an integral part in deploying and training models.
 * Load Balancer: a network load balancer is created for each compute instance and compute cluster to manage traffic even while the compute instance/cluster is stopped.
@@ -120,7 +71,7 @@ These sub resources are the main resources that are made in the Azure Machine Le
 
 ## Associated resources
 
-When you create a new workspace, you're required to bring other Azure resources to store your data:
+When you create a new workspace, you're required to bring other Azure resources to store your data. If not provided by you, these resources will automatically be created by Azure Machine Learning.
 
 + [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well. 
   
@@ -156,8 +107,54 @@ When you create a new workspace, you're required to bring other Azure resources 
 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
+## Create a workspace
+
+There are multiple ways to create a workspace:  
+
+* Use [Azure Machine Learning studio](quickstart-create-resources.md) to quickly create a workspace with default settings.
+* Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more options. 
+* Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks.
+:::moniker range="azureml-api-2"
+* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
+:::moniker-end
+:::moniker range="azureml-api-1"
+* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
+:::moniker-end
+* If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
+
 > [!NOTE]
-> You can instead use existing Azure resource instances when you create the workspace with the [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace) or the Azure Machine Learning CLI [using an ARM template](how-to-create-workspace-template.md).
+> The workspace name is case-insensitive.
+
+## Tools for workspace interaction
+
+You can interact with your workspace in the following ways:
+
++ On the web:
+    + [Azure Machine Learning studio ](https://ml.azure.com) 
+    + [Azure Machine Learning designer](concept-designer.md) 
+:::moniker range="azureml-api-2"
++ In any Python environment with the [Azure Machine Learning SDK v2 for Python](https://aka.ms/sdk-v2-install).
++ On the command line using the Azure Machine Learning [CLI extension v2](how-to-configure-cli.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
++ In any Python environment with the [Azure Machine Learning SDK v1 for Python](/python/api/overview/azure/ml/)
++ On the command line using the Azure Machine Learning [CLI extension v1](./v1/reference-azure-machine-learning-cli.md)
+:::moniker-end
++ [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
+
+## Workspace management
+
+You can also perform the following workspace management tasks:
+
+| Workspace management task           | Portal      | Studio      | Python SDK  | Azure CLI   | VS Code     |
+|-------------------------------------|-------------|-------------|-------------|-------------|-------------|
+| Create a workspace                  | **&check;** | **&check;** | **&check;** | **&check;** | **&check;** |
+| Manage workspace access             | **&check;** |             |             | **&check;** |             |
+| Create and manage compute resources | **&check;** | **&check;** | **&check;** | **&check;** | **&check;** |
+| Create a compute instance           |             | **&check;** | **&check;** | **&check;** | **&check;** |
+
+> [!WARNING]
+> Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 ## Next steps
 
