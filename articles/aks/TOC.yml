@@ -567,6 +567,10 @@
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
           href: open-service-mesh-uninstall-add-on.md
+    - name: Deploy the Istio service mesh AKS add-on
+      items:
+        - name: About Istio
+          href: istio-about.md
     - name: Track releases and region availability
       href: release-tracker.md
     - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on (preview)
