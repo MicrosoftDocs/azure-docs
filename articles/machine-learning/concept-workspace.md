@@ -47,7 +47,7 @@ Besides grouping your machine learning results, workspaces also host resource co
 
 ## Organizing workspaces
 
-For machine learning teams, the workspace is a place to organize their work. To administrators, workspaces serve as containers for access management, cost management and data isolation. Below are some tips for working with workspaces:
+For machine learning team leads and administrators, workspaces serve as containers for access management, cost management and data isolation. Below are some tips for organizing workspaces:
 
 + **Use [user roles](how-to-assign-roles.md)** for permission management in the workspace between users. For example a data scientist, a machine learning engineer or an admin.
 + **Assign access to user groups**: By using Azure Active Directory user groups, you don't have to add individual users to each workspace and other resources the same group of users requires access to.
