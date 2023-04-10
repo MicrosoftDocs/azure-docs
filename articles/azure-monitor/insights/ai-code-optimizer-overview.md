@@ -1,44 +1,44 @@
 ---
-title: Monitor and analyze runtime behavior with Optimization Insights (Preview)
-description: Identify and remove CPU and memory bottlenecks using Azure Monitor's Optimization Insights feature
+title: Monitor and analyze runtime behavior with AI Code Optimizer (Preview)
+description: Identify and remove CPU and memory bottlenecks using Azure Monitor's AI Code Optimizer feature
 ms.topic: conceptual
 author: hhunter-ms
 ms.author: hannahhunter
-ms.date: 02/23/2023
+ms.date: 04/10/2023
 ms.reviewer: ryankahng
 ---
 
-# Monitor and analyze runtime behavior with Optimization Insights (Preview)
+# Monitor and analyze runtime behavior with AI Code Optimizer (Preview)
 
-Optimization Insights, an AI-based service in Azure Application Insights, works in tandem with the Application Insights Profiler to help you help create better and more efficient applications. 
+AI Code Optimizer, an AI-based service in Azure Application Insights, works in tandem with the Application Insights Profiler to help you help create better and more efficient applications. 
 
-With its advanced AI algorithms, Optimization Insights detects CPU and memory usage performance issues at a code level and provides recommendations on how to fix them. Optimization Insights identifies these CPU and memory bottlenecks by:
+With its advanced AI algorithms, AI Code Optimizer detects CPU and memory usage performance issues at a code level and provides recommendations on how to fix them. AI Code Optimizer identifies these CPU and memory bottlenecks by:
 
 - Analyzing the runtime behavior of your application.
 - Comparing the behavior to performance engineering best practices.
 
-With Optimization Insights, you can:
+With AI Code Optimizer, you can:
 - View real-time performance data and insights gathered from your production environment. 
 - Make informed decisions about optimizing your code.
 
-## Requirements for using Optimization Insights
+## Requirements for using AI Code Optimizer
 
-Before you can use Optimization Insights on your application:
+Before you can use AI Code Optimizer on your application:
 
 - [Enable the Application Insights Profiler](../profiler/profiler-overview.md).
 - Verify your application:
   - Is .NET.
   - Uses [Application Insights](../app/app-insights-overview.md).
 
-## Application Insights Profiler vs. Optimization Insights
+## Application Insights Profiler vs. AI Code Optimizer
 
-Application Insights Profiler and Optimization Insights work together to provide a holistic approach to performance issue detection.
+Application Insights Profiler and AI Code Optimizer work together to provide a holistic approach to performance issue detection.
 
 ### Application Insights Profiler
 [The Profiler](../profiler/profiler-overview.md) focuses on tracing specific requests, down to the millisecond. It provides an excellent "big picture" view of issues within your application and general best practices to address them.
 
-### Optimization Insights
-Optimization Insights analyzes the profiling data collected by the Application Insights Profiler. As the Profiler uploads data to Application Insights, our machine learning model analyzes some of the data to find where the application's code can be optimized. Optimization Insight:
+### AI Code Optimizer
+AI Code Optimizer analyzes the profiling data collected by the Application Insights Profiler. As the Profiler uploads data to Application Insights, our machine learning model analyzes some of the data to find where the application's code can be optimized. Optimization Insight:
 
 - Displays aggregated data gathered over time.
 - Connects data with the methods and functions in your application code.
@@ -46,11 +46,11 @@ Optimization Insights analyzes the profiling data collected by the Application I
 
 ## Cost
 
-While Optimization Insights incurs no extra costs, you may encounter [indirect costs associated with Application Insights](/azure/azure-monitor/faq#is-it-free-). 
+While AI Code Optimizer incurs no extra costs, you may encounter [indirect costs associated with Application Insights](/azure/azure-monitor/faq#is-it-free-). 
 
 ## Supported regions
 
-Optimization Insights is available in the same regions as Application Insights. You can check the available regions using the following command:
+AI Code Optimizer is available in the same regions as Application Insights. You can check the available regions using the following command:
 
 ```sh
 az account list-locations -o table
@@ -58,15 +58,15 @@ az account list-locations -o table
 
 You can set an explicit region using connection strings. [Learn more about connection strings with examples.](../app/sdk-connection-string.md#connection-string-examples)
 
-## Access Optimization Insights results
+## Access AI Code Optimizer results
 
-You can access Optimization Insights through the **Performance** blade from the left navigation pane and select **Optimization Insights (preview)** from the top menu.
+You can access AI Code Optimizer through the **Performance** blade from the left navigation pane and select **AI Code Optimizer (preview)** from the top menu.
 
-:::image type="content" source="./media/optimization-insights-overview/optimization-insights-performance-blade.png" alt-text="Screenshot of Optimization Insights located in the Performance blade.":::
+:::image type="content" source="./media/ai-code-optimizer-overview/ai-code-optimizer-performance-blade.png" alt-text="Screenshot of AI Code Optimizer located in the Performance blade.":::
 
 ### Interpret estimated Memory and CPU percentages
 
-The estimated CPU and Memory are determined based on the amount of activity in your application. In addition to the Memory and CPU percentages, Optimization Insights also includes:
+The estimated CPU and Memory are determined based on the amount of activity in your application. In addition to the Memory and CPU percentages, AI Code Optimizer also includes:
 
 - The actual allocation sizes (in bytes)
 - A breakdown of the allocated types made within the call
@@ -79,7 +79,7 @@ For CPU, the percentage is based on the number of CPUs in your machine (four cor
 
 ### Filter and sort results
 
-On the Optimization Insights page, you can filter the results by:
+On the AI Code Optimizer page, you can filter the results by:
 
 - Using the search bar to filter by field.
 - Setting the time range via the **Time Range** drop-down menu.
@@ -91,17 +91,17 @@ You can also sort columns in the insights results based on:
 - Issue frequency within a specific time period (count).
 - Corresponding role, if your service has multiple roles (role).
 
-:::image type="content" source="./media/optimization-insights-overview/optimization-insights-filter.png" alt-text="Screenshot of available filters for Optimization Insights results.":::
+:::image type="content" source="./media/ai-code-optimizer-overview/ai-code-optimizer-filter.png" alt-text="Screenshot of available filters for AI Code Optimizer results.":::
 
 ### View insights
 
-After sorting and filtering the Optimization Insights results, you can then select each insight to view the following details in a pane:
+After sorting and filtering the AI Code Optimizer results, you can then select each insight to view the following details in a pane:
 
 - Detailed description of the performance bug insight.
 - The full call stack.
 - Recommendations on how to fix the performance issue.
 
-:::image type="content" source="./media/optimization-insights-overview/optimization-insights-details.png" alt-text="Screenshot of the detail pane for a specific Optimization Insights C-P-U result.":::
+:::image type="content" source="./media/optimization-insights-overview/optimization-insights-details.png" alt-text="Screenshot of the detail pane for a specific AI Code Optimizer C-P-U result.":::
 
 #### Call stack
 
@@ -123,6 +123,6 @@ You can also view a graph depicting a specific performance issue's impact and th
 
 ## Next Steps
 
-Get started with Optimization Insights by enabling the following features on your application:
+Get started with AI Code Optimizer by enabling the following features on your application:
 - [Application Insights](../app/create-workspace-resource.md)
 - [Application Insights Profiler](../profiler/profiler-overview.md)

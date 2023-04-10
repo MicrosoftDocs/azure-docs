@@ -859,9 +859,9 @@ items:
           href: profiler/profiler-trackrequests.md
         - name: Troubleshooting
           href: profiler/profiler-troubleshooting.md
-      - name: Optimization Insights
+      - name: AI Code Optimizer
         displayName: opt insights, optimization insights, code optimization, perflens
-        href: insights/optimization-insights-overview.md
+        href: insights/ai-code-optimizer-overview.md
       - name: Snapshot Debugger
         items:
         - name: Overview
