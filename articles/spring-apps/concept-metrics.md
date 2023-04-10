@@ -82,6 +82,9 @@ You can also use the **Apply splitting** option, which will draw multiple lines 
 
 ## User metrics options
 
+> [!NOTE]
+> For spring boot applications, you need to [add spring-boot-starter-actuator dependency](concept-manage-monitor-app-spring-boot-actuator.md#add-actuator-dependency) to see metrics from spring boot actuator.
+
 The following tables show the available metrics and details.
 
 ### Error
