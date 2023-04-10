@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 04/10/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -54,7 +54,7 @@ Key properties of VNet flow logs include:
 - Logs are written in the JSON (JavaScript Object Notation) format 
 - Each log record contains the network interface (NIC) the flow applies to, 5-tuple information, traffic direction, flow state, encryption state & throughput information.
 - All traffic flows in your network are evaluated through the rules in the applicable network security group (NSG) rules (../virtual-network/network-security-groups-overview.md) or AVNM security admin rules (../virtual-network-manager/concept-security-admins.md)
--   See [Log Format](#log-format) for more details.
+-   For more information, see [Log Format](#log-format).
 
 ## Log format
 
@@ -99,6 +99,20 @@ VNet flow logs have the following properties:
 				- `Bytes sent`: Total number of packet bytes sent from source to destination since the last update. Packet bytes include the packet header and payload. 
 				- `Packets received`: Total number of packets sent from destination to source since the last update. 
 				- `Bytes received`: Total number of packet bytes sent from destination to source since the last update. Packet bytes include packet header and payload. 
+
+`Flow encryption` has the following possible values:
+
+| Encryption Status | Description |
+| ----------------- | ----------- |
+| `X` | **Connection is encrypted**. Encryption is configured and the platform has encrypted the connection. |
+| `NX` | **Connection isn't encrypted**. This event is logged in two scenarios: <br> - When encryption isn't configured. <br> - When an encrypted virtual machine communicates with an endpoint that lacks encryption (such as an internet endpoint). |
+| `NX_HW_NOT_SUPPORTED` | **Unsupported hardware**. Encryption is configured, but the virtual machine is running on a host that doesn't support encryption. This issue can usually be the case where the FPGA isn't attached to the host, or could be faulty. Report this issue to Microsoft for investigation. |
+| `NX_SW_NOT_READY` | **Software not ready**. Encryption is configured, but the software component (GFT) in the host networking stack isn't ready to process encrypted connections. This issue can happen when the virtual machine is booting for the first time / restarting / redeployed. It can also happen in the case where there's an update to the networking components on the host where virtual machine is running. In all these scenarios, the packet gets dropped. The issue should be temporary and encryption should start working once either the virtual machine is fully up and running or the software update on the host is complete. If the issue is seen for longer durations, report it to Microsoft for investigation. |
+| `NX_NOT_ACCEPTED` | **Drop due to no encryption**. Encryption is configured on both source and destination endpoints with drop on unencrypted policy. If there's a failure to encrypt traffic, packet is dropped. | 
+| `NX_NOT_SUPPORTED` | **Discovery not supported**. Encryption is configured, but the encryption session wasn't established, as discovery isn't supported in the host networking stack. In this case, packet is dropped. If you encounter this issue, report it to Microsoft for investigation. |
+| `NX_LOCAL_DST` | **Destination on same host**. Encryption is configured, but the source and destination virtual machines are running on the same Azure host. In this case, the connection isn't encrypted by design. |
+| `NX_FALLBACK` | **Fall back to no encryption**. Encryption is configured with the allow unencrypted policy for both source and destination endpoints. Encryption was attempted, but ran into an issue. In this case, connection is allowed but it isn't encrypted. An example of this can be, the virtual machine initially landed on a node that supports encryption, but later, this support was disabled. |
+
 
 ## Sample log record
 
