@@ -134,7 +134,7 @@ The output of two keys should resemble the following:
 }
 ```
 
-
+With one key in the OIDC document, you only have one primary key. With two keys in the OIDC document, you have one primary and one backup key. With three keys in the OIDC document, you have one primary, one backup key and one key is in rotation
 
 ## Next steps
 
