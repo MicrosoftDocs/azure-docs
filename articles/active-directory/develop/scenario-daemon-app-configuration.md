@@ -542,7 +542,7 @@ Again, for details, see [Client assertions](msal-net-client-assertions.md).
 # [.NET](#tab/idweb)
 
 Move on to the next article in this scenario,
-[Acquire a token for the app](./scenario-daemon-acquire-token.md?tabs=dotnet).
+[Acquire a token for the app](./scenario-daemon-acquire-token.md?tabs=idweb).
 
 # [Java](#tab/java)
 
