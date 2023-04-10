@@ -106,14 +106,15 @@ There are multiple ways to create a workspace. To get started use one of the fol
 * Use [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more security options. 
 * Use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace) if you work in Visual Studio code.
 
-To automate the creation of workspaces including security configuration, consider using infrastructure template options or to use the Azure CLI and SDK:
-* [Azure Resource Manager/Bicep templates](how-to-create-workspace-template.md) provide a declarative syntax to deploy Azure resources.
+To automate creation of workspaces using your preferred security settings:
+* [Azure Resource Manager / Bicep templates](how-to-create-workspace-template.md) provide a declarative syntax to deploy Azure resources. Alternative options include [Terraform](how-to-manage-workspace-terraform.md) and [Powershell](how-to-manage-workspace-powershell.md).
 :::moniker range="azureml-api-2"
 * Use the [Azure Machine Learning CLI](how-to-configure-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment).
 :::moniker range="azureml-api-2"
 :::moniker range="azureml-api-1"
 * Use the [Azure Machine Learning CLI](./v1/reference-azure-machine-learning-cli.md) or [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) for prototyping and as part of your [MLOps workflows](concept-model-management-and-deployment).
 :::moniker-end
+* Use [REST APIs] directly in scripting environment, for platform integration or in MLOps workfows.
 
 ## Tools for workspace interaction and management
 
