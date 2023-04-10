@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/09/2023
+ms.date: 04/10/2023
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -177,7 +177,7 @@ You can manage virtual network rules for storage accounts through the Azure port
     > [!NOTE]
     > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
-    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , PowerShell, CLI or REST APIs.
+    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use PowerShell, Azure CLI or REST APIs.
 
 5. To remove a virtual network or subnet rule, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
@@ -196,7 +196,7 @@ You can manage virtual network rules for storage accounts through the Azure port
 3. Enable service endpoint for Azure Storage on an existing virtual network and subnet.
 
     ```powershell
-    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
     ```
 
 4. Add a network rule for a virtual network and subnet.
@@ -232,7 +232,7 @@ You can manage virtual network rules for storage accounts through the Azure port
 3. Enable service endpoint for Azure Storage on an existing virtual network and subnet.
 
     ```azurecli
-    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
+    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage.Global"
     ```
 
 4. Add a network rule for a virtual network and subnet.
