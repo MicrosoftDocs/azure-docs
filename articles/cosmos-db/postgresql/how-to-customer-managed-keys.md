@@ -34,7 +34,7 @@ ms.date: 04/06/2023
 
 ## Detailed steps
 
-1. ### User Assigned Managed Identity
+### User Assigned Managed Identity
 
    1. Search for Managed Identities in the global search bar.
 
@@ -54,7 +54,7 @@ ms.date: 04/06/2023
 
    1. If you create a new Azure Key Vault instance, enable these properties during creation:
 
-     [ ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png)](media/how-to-customer-managed-keys/key-vault-soft-delete.png#lightbox)
+   [ ![Screenshot of Key Vault's properties.](media/how-to-customer-managed-keys/key-vault-soft-delete.png)](media/how-to-customer-managed-keys/key-vault-soft-delete.png#lightbox)
  
    1. If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the Properties section on the Azure portal. If any of these properties aren’t enabled, see the "Enabling soft delete" and "Enabling Purge Protection" sections in one of the following articles.
 
@@ -70,13 +70,13 @@ ms.date: 04/06/2023
 
    1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select Access configuration from the left menu and then select Go to access policies.
 
-     [ ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png)](media/how-to-customer-managed-keys/access-policy.png#lightbox)
+   [ ![Screenshot of Key Vault's access configuration.](media/how-to-customer-managed-keys/access-policy.png)](media/how-to-customer-managed-keys/access-policy.png#lightbox)
 
    1. Select + Create.
 
    1. In the Permissions Tab under the Key permissions drop-down menu, select Get, Unwrap Key, and Wrap Key permissions.
 
-     [ ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png)] (media/how-to-customer-managed-keys/access-policy-permissions.png#lightbox)
+   [ ![Screenshot of Key Vault's permissions settings.](media/how-to-customer-managed-keys/access-policy-permissions.png)] (media/how-to-customer-managed-keys/access-policy-permissions.png#lightbox)
 
    1. In the Principal Tab, select the User Assigned Managed Identity you had created in prerequisite step.
 
@@ -88,7 +88,7 @@ ms.date: 04/06/2023
 
    1. Select Keys from the left menu and then select +Generate/Import.
 
-     [  ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png)](media/how-to-customer-managed-keys/create-key.png#lightbox)
+   [ ![Screenshot of Key generation page.](media/how-to-customer-managed-keys/create-key.png)](media/how-to-customer-managed-keys/create-key.png#lightbox)
 
    1. The customer-managed key to be used for encrypting the DEK can only be asymmetric RSA Key type. All RSA Key sizes 2048, 3072 and 4096 are supported.
 
@@ -100,7 +100,7 @@ ms.date: 04/06/2023
 
    1. If you're manually rotating the key, the old key version shouldn't  be deleted for at least 24 hours.
 
-1. ### Enable CMK encryption during the provisioning for a new cluster
+### Enable CMK encryption during the provisioning for a new cluster
 
    # [Portal](#tab/portal)
 
@@ -116,7 +116,7 @@ ms.date: 04/06/2023
    1. Select the Key created in the previous step, and then select Review+create.
 
    1. Verify that CMK is encryption is enabled by Navigating to the Data Encryption(preview) blade of the Cosmos DB for PostgreSQL cluster in the Azure portal.
-      ![Sreenshot of data encryption tab.](media/how-to-customer-managed-keys/data-encryption-tab-note.png)
+      ![Screenshot of data encryption tab.](media/how-to-customer-managed-keys/data-encryption-tab-note.png)
 
    > [!NOTE]
    > Data encryption can only be configured during the creation of a new cluster and can't be updated on an existing cluster. A workaround for updating the encryption configuration on an existing cluster is to restore an existing PITR backup to a new cluster and configure the data encryption during the creation of the newly restored cluster.
