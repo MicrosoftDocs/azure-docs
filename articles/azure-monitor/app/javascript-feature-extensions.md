@@ -120,7 +120,7 @@ If you want to set the authenticated user context:
 
     - If you declare the tag `parentDataTag`, specify the path for identifying the parent node when traversing up the Document Object Model (DOM). It must be declared alongside the `parentid` data attribute.
      
-      If `parentDataTag` is declared, `useDefaultContentNameOrId` is set to true, and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the attributes and values from its closest parent element. First, it fetches the closest `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id`. If no such attribute exists, it fetches the closest `data-id` or `customDataPrefix-id`. If no such attribute exists, it fetches the closest `element.id` or `element.contentName`. If no such attribute exists, the value `"not_specified"` is used.
+      If `parentDataTag` is declared, `useDefaultContentNameOrId` is set to true, and parentid/name attributes aren't set for the clicked HTML element, the plug-in fetches the attributes and values from its closest parent element. First, it fetches the closest `data-{parentDataTag}id` or `customDataPrefix-{parentDataTag}id`. If no such attribute exists, it fetches the closest `data-*-id` or `customDataPrefix-*-id`. If no such attribute exists, it fetches the closest `element.id` or `element.contentName`. If no such attribute exists, the value `"not_specified"` is used.
      
       For example:
 
