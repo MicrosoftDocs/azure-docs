@@ -495,7 +495,7 @@
           href: how-to-secure-kubernetes-inferencing-environment.md
         - name: Configure a secure online endpoint with TLS/SSL
           displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
-          href: configure-a-secure-online-endpoint-with-tls-ssl.md
+          href: how-to-secure-kubernetes-online-endpoint.md
         - name: Troubleshoot Azure Machine Learning extension
           displayName: AKS, Arc Kubernetes, Azure Machine Learning extension, troubleshoot
           href: how-to-troubleshoot-kubernetes-extension.md
