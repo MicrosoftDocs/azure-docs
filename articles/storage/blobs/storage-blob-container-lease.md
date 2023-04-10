@@ -16,17 +16,19 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 # Create and manage container leases with .NET
 
-This article shows how to create and manage container leases using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can use the .NET client library to acquire, renew, release, and break container leases.
+This article shows how to create and manage container leases using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can use the client library to acquire, renew, release, and break container leases.
 
 ## About container leases
 
 [!INCLUDE [storage-dev-guide-about-container-lease](../../../includes/storage-dev-guides/storage-dev-guide-about-container-lease.md)]
 
-To learn more about blob leases using the client library, see [Create and manage blob leases with .NET](storage-blob-lease.md).
+Lease operations are handled by the [BlobLeaseClient](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient) class, which provides a client containing all lease operations for blobs and containers. To learn more about blob leases using the client library, see [Create and manage blob leases with .NET](storage-blob-lease.md).
 
 ## Acquire a lease
 
-When you acquire a container lease, you obtain a lease ID that your code can use to operate on the container. If the container already has an active lease, you can only request a new lease by using the active lease ID. However, you can specify a new lease duration. To acquire a lease, create an instance of the [BlobLeaseClient](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient) class, and then use one of the following methods:
+When you acquire a container lease, you obtain a lease ID that your code can use to operate on the container. If the container already has an active lease, you can only request a new lease by using the active lease ID. However, you can specify a new lease duration.
+
+To acquire a lease, create an instance of the [BlobLeaseClient](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient) class, and then use one of the following methods:
 
 - [Acquire](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.acquire)
 - [AcquireAsync](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.acquireasync)
@@ -68,7 +70,7 @@ You can break a container lease if the container has an active lease. Any author
 You can break a lease using one of the following methods on a [BlobLeaseClient](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient) instance:
 
 - [Break](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.break)
-- [BreakAsync](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.breakasync);
+- [BreakAsync](/dotnet/api/azure.storage.blobs.specialized.blobleaseclient.breakasync)
 
 The following example breaks a lease on a container:
 
