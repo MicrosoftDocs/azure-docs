@@ -21,7 +21,7 @@ To help you manage [Azure resources](../azure-resource-manager/management/overvi
 
 - For an [Azure virtual machine](../virtual-machines/overview.md), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule. Specifically, you can create a task that automatically starts or stops the virtual machine a specific number of times every day, week, or month, on the task's **Configure** tab, set the **Interval** value to the number of times and the **Frequency** value to **Day**, **Week**, or **Month**. The automation task continues to work until you delete or disable the task.
  
-For example, you can schedule a task to auto start a VM **once every day** by mentioning the values of Interval as “1” and Frequency as “Day” in the Task **configure** tab. 
+  For example, you can create a task that automatically starts a virtual machine once every day. On the task's **Configure** tab, set **Interval** to **1** and **Frequency** to **Day**. 
 
 You can create an automation task from a specific automation task template. The following table lists the currently supported resource types and available task templates in this preview:
 
