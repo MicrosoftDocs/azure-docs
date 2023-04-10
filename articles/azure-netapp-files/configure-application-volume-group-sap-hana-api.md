@@ -105,7 +105,7 @@ The following table describes the request body parameters and group level proper
 | `applicationIdentifier` | Application specific identifier string, following application naming rules | The SAP System ID, which should follow aforementioned naming rules, for example `SH9` | 
 | `deploymentSpecId` | Deployment specification identifier defining the rules to deploy the specific application volume group type | Must be: “20542149-bfca-5618-1879-9863dc6767f1” |
 | `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes)</li><li>**Required**: _data_, _log_ and _shared_. **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-Host (two volumes)
-Required: _data_ and _log_.</li><ul> |
+**Required**: _data_ and _log_.</li><ul> |
 
 This table describes the request body parameters and volume properties for creating a volume in a SAP HANA application volume group.   
 
