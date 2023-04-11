@@ -48,7 +48,7 @@ HTTP 400 response codes are commonly observed when:
 - Not compliant to RFC. 
 
 Some of the common reasons for the request to be non-compliant to RFC is listed.So review the urls/requests from the clients and ensure it's compliant to RFC.
-| Subcategory | Examples |
+| Category | Examples |
 | ---------- | ---------- | 
 | Invalid Host in request line  | Host containing two colons (example.com:8090:8080) |
 | Missing Host Header | Request doesn't have Host Header |
