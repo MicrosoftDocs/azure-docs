@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Overview 
-description: Learn how you can use Azure Functions to build and deploy code in robust serverless apps and are triggered based on events in your cloud-computing infrastruture and can scale dynamically as needed.
+description: Learn how you can use Azure Functions to build and deploy code in robust serverless apps and are triggered based on events in your cloud-computing infrastructure and can scale dynamically as needed.
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 04/11/2023
@@ -13,7 +13,7 @@ Azure Functions is a serverless solution that allows you to write less code, mai
 
 ## Serverless compute
 
-First and foremost, Azure Functions provides a simple, affordable, and scaleable way to run your code in the cloud. Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called _functions_. Different functions can run on-demand, when scheduled, or anytime you need to respond to events in your cloud services. 
+First and foremost, Azure Functions provides a simple, affordable, and scalable way to run your code in the cloud. Azure Functions allows you to implement your system's logic into readily available blocks of code. These code blocks are called _functions_. Different functions can run on-demand, when scheduled, or anytime you need to respond to events in your cloud services. 
 
 Providing compute resources on-demand is the essence of [serverless computing](https://azure.microsoft.com/solutions/serverless/) in Azure Functions. When running in the [Consumption](./consumption-plan.md) plan, you only pay while your functions are running. 
 
@@ -21,9 +21,9 @@ For more information, see [Azure Functions hosting options](./functions-scale.md
 
 ## Event-driven execution
 
-Any cloud-based compute service or web API must be responsive HTTP requests and scheduled exection, which Functions supports with HTTP and timer triggers, respectively. However, we also need systems that react to a series of critical events. Whether you're building a web API, responding to database changes, processing IoT data streams, or even managing message queues, every application needs a way to run some code as these events occur. 
+Any cloud-based compute service or web API must be responsive HTTP requests and scheduled executions, which Functions supports with HTTP and timer triggers, respectively. However, we also need systems that react to a series of critical events. Whether you're building a web API, responding to database changes, processing IoT data streams, or even managing message queues, every application needs a way to run some code as these events occur. 
 
-In addition to scheduled jobs and HTTP requests, Functions also integrates with other Azure services so that your functions can eaasily consume events and related data from other Azure Services and select partner services. Functions includes a set of binding extensions that makes it easy to connect to and respond to event from other Azure services, including: Azure Cosmos DB, Azure Event Hubs, Azure IoT Hubs, Azure Service Bus, Azure SignalR, Azure SQL, and Azure Storage. Supported third-party and open-source binding extensions include: Dapr, Kafka, RabbitMQ, SendGrid, and Twilio. 
+In addition to scheduled jobs and HTTP requests, Functions also integrates with other Azure services so that your functions can easily consume events and related data from other Azure Services and select partner services. Functions includes a set of binding extensions that makes it easy to connect to and respond to event from other Azure services, including: Azure Cosmos DB, Azure Event Hubs, Azure IoT Hubs, Azure Service Bus, Azure SignalR, Azure SQL, and Azure Storage. Supported third-party and open-source binding extensions include: Dapr, Kafka, RabbitMQ, SendGrid, and Twilio. 
 
 For more information, see [Azure Functions triggers and bindings concepts](./functions-triggers-bindings.md). 
 
@@ -32,6 +32,8 @@ For more information, see [Azure Functions triggers and bindings concepts](./fun
 As demands on your functions increase, Azure Functions meets the demand with as many resources and function instances as necessary, and only for as long as needed. As requests fall, any extra resources and application instances drop-off automatically. Dynamic scaling is offered in both [Consumption](./consumption-plan.md) and [Premium](./functions-premium-plan.md) plans. 
 
 For more information, see [Event-driven scaling in Azure Functions](./event-driven-scaling.md).
+
+Functions also supports Kubernetes-based event-driven autoscaling (KEDA) to dynamically scale your functions when deployed to Kubernetes clusters. For more information, see [Azure Functions on Kubernetes with KEDA](./functions-kubernetes-keda.md).
 
 ## App Service infrastructure
 
@@ -51,13 +53,15 @@ The Azure Functions Core Tools provides a local development and runtime environm
 
 ## Quickstart templates
 
-To make it easy to get started writing your function code, Azure Functions provides a set of code templates in each natively-supported language. You can use these templates to create new functions using any supported trigger. To learn how to use language-specific templates, see [Getting started with Azure Functions](./functions-get-started.md), and choose the option for your programming language at the top of the article. 
+To make it easy to get started writing your function code, Azure Functions provides a set of code templates in each natively supported language. You can use these templates to create new functions using any supported trigger. To learn how to use language-specific templates, see [Getting started with Azure Functions](./functions-get-started.md), and choose the option for your programming language at the top of the article. 
 
 ## Scenarios
 
 These scenarios allow you to build event-driven systems using modern architectural patterns.
 
 `<<Pending>>`
+
+For more information, see [Azure Functions scenarios](./functions-scenarios.md).
 
 ## Watch a video
 

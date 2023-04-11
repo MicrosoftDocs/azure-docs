@@ -45,3 +45,5 @@ Collect and process [data from IoT devices](./functions-bindings-event-iot.md)
 
 Use [Functions and SignalR](./functions-bindings-signalr-service.md) to respond to data in the moment 
 
+## Next steps
+
