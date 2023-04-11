@@ -24,20 +24,20 @@ Three different configmaps can be configured to change the default settings of t
 The [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) can be downloaded, edited, and applied to the cluster to customize the out-of-the-box features of the metrics add-on.
 
 ### Enable and disable default targets
-The following table has a list of all the default targets that the Azure Monitor metrics add-on can scrape by default and whether it's initially enabled. Default targets are scraped every 30 seconds.
+The following table has a list of all the default targets that the Azure Monitor metrics add-on can scrape by default and whether it's initially enabled. Default targets are scraped every 30 seconds. A replicaset is deployed to scrape cluster-wide targets such as kube-state-metrics. A daemonset is also deployed to scrape node-wide targets such as kubelet.
 
-| Key | Type | Enabled | Description |
-|-----|------|----------|-------------|
-| kubelet | bool | `true` | Scrape kubelet in every node in the K8s cluster without any extra scrape config. |
-| cadvisor | bool | `true` | Scrape cadvisor in every node in the K8s cluster without any extra scrape config.<br>Linux only. |
-| kubestate | bool | `true` | Scrape kube-state-metrics in the K8s cluster (installed as a part of the add-on) without any extra scrape config. |
-| nodeexporter | bool | `true` | Scrape node metrics without any extra scrape config.<br>Linux only. |
-| coredns | bool | `false` | Scrape coredns service in the K8s cluster without any extra scrape config. |
-| kubeproxy | bool | `false` | Scrape kube-proxy in every Linux node discovered in the K8s cluster without any extra scrape config.<br>Linux only. |
-| apiserver | bool | `false` | Scrape the Kubernetes API server in the K8s cluster without any extra scrape config. |
-| windowsexporter | bool | `false` | Scrape windows-exporter in every node in the K8s cluster without any extra scrape config.<br>Windows only. |
-| windowskubeproxy | bool | `false` | Scrape windows-kube-proxy in every node in the K8s cluster without any extra scrape config.<br>Windows only. |
-| prometheuscollectorhealth | bool | `false` | Scrape information about the prometheus-collector container, such as the amount and size of time series scraped. |
+| Key | Type | Enabled | Pod | Description |
+|-----|------|----------|----|-------------|
+| kubelet | bool | `true` | Linux daemonset | Scrape kubelet in every node in the K8s cluster without any extra scrape config. |
+| cadvisor | bool | `true` | Linux daemosnet | Scrape cadvisor in every node in the K8s cluster without any extra scrape config.<br>Linux only. |
+| kubestate | bool | `true` | Linux replicaset | Scrape kube-state-metrics in the K8s cluster (installed as a part of the add-on) without any extra scrape config. |
+| nodeexporter | bool | `true` | Linux daemonset | Scrape node metrics without any extra scrape config.<br>Linux only. |
+| coredns | bool | `false` | Linux replicaset | Scrape coredns service in the K8s cluster without any extra scrape config. |
+| kubeproxy | bool | `false` | Linux daemonset | Scrape kube-proxy in every Linux node discovered in the K8s cluster without any extra scrape config.<br>Linux only. |
+| apiserver | bool | `false` | Linux replicaset | Scrape the Kubernetes API server in the K8s cluster without any extra scrape config. |
+| windowsexporter | bool | `false` | Windows daemonset | Scrape windows-exporter in every node in the K8s cluster without any extra scrape config.<br>Windows only. |
+| windowskubeproxy | bool | `false` | Windows daemonset | Scrape windows-kube-proxy in every node in the K8s cluster without any extra scrape config.<br>Windows only. |
+| prometheuscollectorhealth | bool | `false` | Linux replicaset | Scrape information about the prometheus-collector container, such as the amount and size of time series scraped. |
 
 If you want to turn on the scraping of the default targets that aren't enabled by default, edit the [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) `ama-metrics-settings-configmap` to update the targets listed under `default-scrape-settings-enabled` to `true`. Apply the configmap to your cluster.
 
