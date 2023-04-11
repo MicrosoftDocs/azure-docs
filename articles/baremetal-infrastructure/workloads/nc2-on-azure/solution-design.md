@@ -4,7 +4,7 @@ description: Learn about topologies and constraints for NC2 on Azure.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 10/13/2022
+ms.date: 04/01/2023
 ---
 
 # Solution design
@@ -20,17 +20,17 @@ The following table describes the network topologies supported by each network f
 |Connectivity to BareMetal (BM) in a local VNet| Yes |
 |Connectivity to BM in a peered VNet (Same region)|Yes |
 |Connectivity to BM in a peered VNet (Cross region or global peering)|No |
-|On-premises Connectivity to Delegated Subnet via Global and Local Expressroute |Yes|
+|On-premises connectivity to Delegated Subnet via Global and Local Expressroute |Yes|
 |ExpressRoute (ER) FastPath |No |
 |Connectivity from on-premises to a BM in a spoke VNet over ExpressRoute gateway and VNet peering with gateway transit|Yes |
-|On-premises Connectivity to Delegated Subnet via VPN GW| Yes |
+|On-premises connectivity to Delegated Subnet via VPN GW| Yes |
 |Connectivity from on-premises to a BM in a spoke VNet over VPN gateway and VNet peering with gateway transit| Yes |
 |Connectivity over Active/Passive VPN gateways| Yes |
 |Connectivity over Active/Active VPN gateways| No |
 |Connectivity over Active/Active Zone Redundant gateways| No |
 |Transit connectivity via vWAN for Spoke Delegated VNETS| No |
 |On-premises connectivity to Delegated subnet via vWAN attached SD-WAN| No|
-|On-premises Connectivity via Secured HUB(Az Firewall NVA) | No|
+|On-premises connectivity via Secured HUB(Az Firewall NVA) | No|
 
 ## Constraints
 

@@ -21,9 +21,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## March 2023
 
-* [Disable showmount](disable-showmount.md) (Preview)
+* [Disable `showmount`](disable-showmount.md) (Preview)
 
-    By default, Azure NetApp Files enables [showmount functionality](/windows-server/administration/windows-commands/showmount) to show NFS exported paths. The setting allows NFS clients tp use the `showmount -e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use showmount to see what is being returned. In those scenarios, you might want to disable showmount on Azure NetApp Files. This setting allows you to enable/disable showmount for your NFS-enabled storage endpoints. 
+    By default, Azure NetApp Files enables [`showmount` functionality](/windows-server/administration/windows-commands/showmount) to show NFS exported paths. The setting allows NFS clients to use the `showmount -e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use `showmount` to see what is being returned. In those scenarios, you might want to disable `showmount` on Azure NetApp Files. This setting allows you to enable/disable `showmount` for your NFS-enabled storage endpoints. 
 
 * [Active Directory support improvement](create-active-directory-connections.md#preferred-server-ldap) (Preview)
 
@@ -33,7 +33,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cross region replication enhancement: snapshot revert on replication source volume](snapshots-revert-volume.md)
 
-    When using cross-region replication, reverting a snapshot in a source or destination volume with an active replication configuration was not initially supported. Restoring a snapshot on the source volume from the latest local snapshot was not possible. Instead you had to use either client copy using the .snapshot directory, single file snapshot restore, or needed to break the replication in order to apply a volume revert. With this new feature, a snapshot revert on a replication source volume is possible provided you select a snapshot that is newer than the latest SnapMirror snapshot. This enables data recovery (revert) from a snapshot while cross region replication stays active, improving data protection SLA.
+    When using cross-region replication, reverting a snapshot in a source or destination volume with an active replication configuration was not initially supported. Restoring a snapshot on the source volume from the latest local snapshot was not possible. Instead you had to use either client copy using the `.snapshot` directory, single file snapshot restore, or needed to break the replication in order to apply a volume revert. With this new feature, a snapshot revert on a replication source volume is possible provided you select a snapshot that is newer than the latest SnapMirror snapshot. This enables data recovery (revert) from a snapshot while cross region replication stays active, improving data protection SLA.
 
 * [Access-based enumeration](azure-netapp-files-create-volumes-smb.md#access-based-enumeration) (Preview)
 
