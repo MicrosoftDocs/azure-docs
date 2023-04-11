@@ -120,7 +120,7 @@ Use the following commands to create an environment with a workload profile.
         --ingress external \
         --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
         --environment "<ENVIRONMENT_NAME>" \
-        --workload-profile-name "consumption"
+        --workload-profile-name "Consumption"
       ```
 
     This command deploys the application to the built in Consumption workload profile. If you want to create an app in a dedicated workload profile, you first need to [add the profile to the environment](#add-profiles).

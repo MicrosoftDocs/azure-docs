@@ -25,8 +25,6 @@
     href: tutorial-enrich-ip-information.md
   - name: Detect Log4j vulnerability exploits
     href: tutorial-log4j-detection.md
-  - name: Get started with notebooks and MSTICPy
-    href: notebook-get-started.md
   - name: Build and monitor Zero Trust
     href: sentinel-solution.md
   - name: Integrate with Microsoft Defender for IoT
@@ -863,6 +861,8 @@
     items:
     - name: Hunt with Jupyter notebooks
       items:
+      - name: Get started with notebooks and MSTICPy
+        href: notebook-get-started.md
       - name: Launch Jupyter notebook
         href: notebooks-hunt.md      
       - name: Advanced MSTICPy settings for Jupyter notebooks
