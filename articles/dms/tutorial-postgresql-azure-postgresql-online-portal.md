@@ -142,7 +142,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Specify target details
 
-1. On the **Target details** screen, specify the connection details for the target Azure Database for PostgreSQL - Flexible server, which is the pre-provisioned instance to which the schema was deployed by using pg_dump.
+1. On the **Target details** screen, specify the connection details for the target Azure Database for PostgreSQL - Flexible server, which is the preprovisioned instance to which the schema was deployed by using pg_dump.
 
     :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-target-details-classic.png" alt-text="Screenshot of an Add target details screen.":::
 
@@ -150,11 +150,11 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
 
-    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-map-target-databases-classic.png" alt-text="Screenshot of an map databases with the target screen.":::
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-map-target-databases-classic.png" alt-text="Screenshot of a map databases with the target screen.":::
 
-3. Click on **Next:Select tables**, and then on the **Select tables** screen, select the required tables that needs to be migrated.
+3. Click on **Next:Select tables**, and then on the **Select tables** screen, select the required tables that need to be migrated.
 
-    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-select-tables-classic.png" alt-text="Screenshot of an selecting the tables for migration screen.":::
+    :::image type="content" source="media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-select-tables-classic.png" alt-text="Screenshot of a selecting the tables for migration screen.":::
  
 4. Click on **Next:Configure migration settings**, and then on the **Configure migration settings** screen, accept the default values.
 
