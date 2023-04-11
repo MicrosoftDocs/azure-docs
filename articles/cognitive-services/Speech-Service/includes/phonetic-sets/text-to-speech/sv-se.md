@@ -1,4 +1,4 @@
-### Vowels
+### Vowels for sv-SE
 
 | `ipa` | `viseme` | Example 1    | Example 2      | Example 3       |
 |-------|----------|--------------|----------------|-----------------|
@@ -27,7 +27,7 @@
 | `y`   | 4        | **y**tterst  | r**y**kte      | Tomm**y**       |
 | `yː`  | 4        | **y**ta      | fört**y**dliga | parapl**y**     |
 
-### Consonant
+### Consonant for sv-SE
 
 | `ipa` | `viseme` | Example 1    | Example 2      | Example 3       |
 |-------|----------|--------------|----------------|-----------------|
