@@ -7,7 +7,7 @@ ms.author: lucianopa
 
 services: azure-communication-services
 ms.date: 04/06/2023
-ms.topic: conceptual
+ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
@@ -69,7 +69,7 @@ mediaDiagnostics.removeOnSpeakerNotFunctioningChangedListener(listener);
 
 ## Get the latest User Facing Diagnostics
 
-- Get the latest diagnostic values that were raised in current call. If a we still didn't receive a value for the diagnostic, an exception is thrown.
+- Get the latest diagnostic values that were raised in current call. If we still didn't receive a value for the diagnostic, an exception is thrown.
 
 ```java
 DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGNOSTICS_CALL);

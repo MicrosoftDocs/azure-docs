@@ -7,7 +7,7 @@ ms.author: lucianopa
 
 services: azure-communication-services
 ms.date: 04/06/2023
-ms.topic: conceptual
+ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
