@@ -149,7 +149,7 @@ To connect to a compute instance:
     1. Enter into the text box `AzureML: Connect to Compute instance Jupyter server`.
 
 1. Choose `Azure Machine Learning Compute Instances` from the list of Jupyter server options.
-1. Select your subscription from the list of subscriptions. If you have have previously configured your default Azure Machine Learning workspace, this step is skipped.
+1. Select your subscription from the list of subscriptions. If you have previously configured your default Azure Machine Learning workspace, this step is skipped.
 1. Select your workspace.
 1. Select your compute instance from the list. If you don't have one, select **Create new Azure Machine Learning Compute Instance** and follow the prompts to create one.
 1. For the changes to take effect, you have to reload Visual Studio Code.
