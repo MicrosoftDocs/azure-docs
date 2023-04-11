@@ -175,7 +175,7 @@
     - name: Configure access to compute nodes
       displayName: rdp, ssh, network, remote
       href: pool-endpoint-configuration.md
-    - name: Create a pool with the Shared Image Gallery
+    - name: Create a pool with Azure Compute Gallery
       displayName: managed image, sig
       href: batch-sig-images.md
     - name: Create a pool with a managed image resource

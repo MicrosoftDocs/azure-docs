@@ -24,7 +24,7 @@ This article shows you how to use PowerShell to create a Site-to-Site VPN gatewa
 
 A Site-to-Site VPN gateway connection is used to connect your on-premises network to an Azure virtual network over an IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
-![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
+:::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Site-to-site VPN Gateway cross-premises connection diagram.":::
 
 ## <a name="before"></a>Before you begin
 
@@ -47,19 +47,19 @@ The examples in this article use the following values. You can use these values 
 
 VnetName                = VNet1
 ResourceGroup           = TestRG1
-Location                = East US 
-AddressSpace            = 10.1.0.0/16 
-SubnetName              = Frontend 
-Subnet                  = 10.1.0.0/24 
+Location                = East US 
+AddressSpace            = 10.1.0.0/16 
+SubnetName              = Frontend 
+Subnet                  = 10.1.0.0/24 
 GatewaySubnet           = 10.1.255.0/27
 LocalNetworkGatewayName = Site1
-LNG Public IP           = <On-premises VPN device IP address> 
-Local Address Prefixes  = 10.101.0.0/24, 10.101.1.0/24
+LNG Public IP           = <On-premises VPN device IP address> 
+Local Address Prefixes  = 10.0.0.0/24, 20.0.0.0/24
 Gateway Name            = VNet1GW
 PublicIP                = VNet1GWPIP
-Gateway IP Config       = gwipconfig1 
-VPNType                 = RouteBased 
-GatewayType             = Vpn 
+Gateway IP Config       = gwipconfig1 
+VPNType                 = RouteBased 
+GatewayType             = Vpn 
 ConnectionName          = VNet1toSite1
 
 ```
@@ -137,14 +137,14 @@ To add a local network gateway with a single address prefix:
 
   ```azurepowershell-interactive
   New-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.101.0.0/24'
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.0.0.0/24'
   ```
 
 To add a local network gateway with multiple address prefixes:
 
   ```azurepowershell-interactive
   New-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
+  -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('20.0.0.0/24','10.0.0.0/24')
   ```
 
 To modify IP address prefixes for your local network gateway:
@@ -160,7 +160,7 @@ VPN Gateway currently only supports *Dynamic* Public IP address allocation. You 
 Request a Public IP address that will be assigned to your virtual network VPN gateway.
 
 ```azurepowershell-interactive
-$gwpip= New-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Static -Sku Standard
 ```
 
 ## <a name="GatewayIPConfig"></a>4. Create the gateway IP addressing configuration
@@ -179,7 +179,7 @@ Create the virtual network VPN gateway.
 
 Use the following values:
 
-* The *-GatewayType* for a Site-to-Site configuration is *Vpn*. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute.
+* The *-GatewayType* for a site-to-site configuration is *Vpn*. The gateway type is always specific to the configuration that you are implementing. For example, other gateway configurations may require -GatewayType ExpressRoute.
 * The *-VpnType* can be *RouteBased* (referred to as a Dynamic Gateway in some documentation), or *PolicyBased* (referred to as a Static Gateway in some documentation). For more information about VPN gateway types, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 * Select the Gateway SKU that you want to use. There are configuration limitations for certain SKUs. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku). If you get an error when creating the VPN gateway regarding the -GatewaySku, verify that you have installed the latest version of the PowerShell cmdlets.
 

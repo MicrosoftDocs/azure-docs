@@ -16,7 +16,8 @@
           "**/includes/**",
           "**/obj/**",
           "**/*.graffle",
-          "healthcare-apis/**"
+          "healthcare-apis/**",
+          "machine-learning/**"
         ]
       },
       {
@@ -59,6 +60,34 @@
             "**/_themes/**",
             "**/includes/**",
             "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learning",
+        "src": "articles/machine-learning",
+        "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v1",
+        "dest": "./machine-learning",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/includes/**",
+          "**/obj/**"
         ]
       },
       {
@@ -91,7 +120,8 @@
           "applied-ai-services/form-recognizer/**",
           "**/_themes/**",
           "**/obj/**",
-          "healthcare-apis/**"
+          "healthcare-apis/**",
+          "machine-learning/**"
         ]
       },
       {
@@ -130,6 +160,39 @@
         "group": "healthcare-apis",
         "src": "articles/healthcare-apis",
         "dest": "./healthcare-apis/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learning",
+        "src": "articles/machine-learning",
+        "dest": "./machine-learning/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**",
+          "**/v1/**"
+        ]
+      },
+      {
+        "group": "grp-machine-learningv1",
+        "src": "articles/machine-learning/v1",
+        "dest": "./machine-learning/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -166,6 +229,14 @@
       "grp-form-recognizer": {
         "dest": "destformrecognizer",
         "moniker_range": ">=form-recog-2.1.0"
+      },
+      "grp-machine-learning": {
+        "dest": "destmachinelearning",
+        "moniker_range": "azureml-api-2 || azureml-api-1"
+      },
+      "grp-machine-learningv1": {
+        "dest": "destmachinelearningv1",
+        "moniker_range": "azureml-api-1"
       }
     },
     "overwrite": [],
@@ -978,7 +1049,9 @@
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-1.4",
-        "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0"
+        "articles/applied-ai-services/form-recognizer/**/*.md": ">=form-recog-2.1.0",
+        "articles/machine-learning/**/*.md": "azureml-api-2",
+        "articles/machine-learning/v1/**/*.md": "azureml-api-1"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
