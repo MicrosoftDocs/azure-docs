@@ -162,11 +162,12 @@ Forwarding alert rules run only on alerts triggered after the forwarding rule is
     | **Username** | Enter the Panorama server username. |
     | **Password** | Enter the Panorama server password. |
     | **Report Address**: Define how the blocking is executed, as follows: <br><br> - **By IP Address**: Always creates blocking policies on Panorama based on the IP address. <br> - **By FQDN or IP Address**: Creates blocking policies on Panorama based on FQDN if it exists, otherwise by the IP Address. |
-    | **Email** | Set the email address for the policy notification email. <br> <br> 
-    > [!NOTE]
-    > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email. |
+    | **Email** | Set the email address for the policy notification email. | 
     | **Execute a DNS lookup upon alert detection (Checkbox)** | When the FQDN, or IP Address option is set in the Report Address. <br> This checkbox is selected by default. <br> If only the IP address is set, this option is disabled. |
     | **Configure** | Set up the following options to allow blocking of the suspicious sources by the Palo Alto Panorama: <br><br> - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS, protocol specification (potential exploit). <br> - **Block unauthorized PLC programming/firmware updates**: Unauthorized PLC changes. <br> - **Block unauthorized PLC stop**: PLC stop (downtime). <br> - **Block malware-related alerts**: Blocking of industrial malware attempts (TRITON, NotPetya, etc.). <br> You can select the option of **Automatic blocking**. <br> In that case, the blocking is executed automatically and immediately. <br> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance).
+    
+    > [!NOTE]
+    > Make sure you have configured a Mail Server in the Defender for IoT. If no email address is entered, Defender for IoT does not send a notification email.
 
     :::image type="content" source="media/tutorial-palo-alto/edit.png" alt-text="Screenshot of the Select action screen.":::
 
