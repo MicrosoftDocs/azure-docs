@@ -1,6 +1,6 @@
 ---
-title: Availability zone migration baseline
-description: Learn about availability zone migration baseline
+title: Azure availability zone migration baseline
+description: Learn how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support.
 author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
@@ -10,8 +10,7 @@ ms.author: anaharris
 ms.custom: references_regions
 ---
 
-# Availability zone migration baseline
-
+# Azure availability zone migration baseline
 
 This article shows you how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support. We'll take you through the steps you'll need to determine which how to take advantage of availability zone support in alignment with your application and regional requirements.  For more detailed information on availability zones and the regions that support them, see [What are Azure regions and availability zones?](availability-zones-overview.md).
 
@@ -71,10 +70,6 @@ The recommended approach to achieving high availability, if low latency isn't a 
 For critical application components that require physical proximity and low latency, such as gaming, engineering simulation, and high-frequency trading (HFT), we recommend that you configure a zonal deployment. [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) provides zone aligned compute along with attached storage disks. 
 
 
-
-
-
-
 #### Does your application code have the readiness to handle a distributed model?
 
 For a [distributed microservices model](/azure/architecture/guide/architecture-styles/microservices) and depending on your application, there is the possibility of ongoing data exchange between microservices across zones. This continual data exchange through APIs, could affect performance. To improve performance and maintain a reliable architecture, you can choose zonal deployment. 
@@ -110,9 +105,9 @@ For specialized workload on Azure as below examples, please refer to the respect
     - [Oracle on Azure architecture design](/azure/architecture/solution-ideas/articles/oracle-on-azure-start-here  )
 
 
-#### Do you want to achieve business continuity and disaster recovery (BCDR) in the **same** Azure region due to compliance, data residency, or governance requirements? 
+#### Do you want to achieve BCDR in the same Azure region due to compliance, data residency, or governance requirements? 
 
-To achieve BCDR within the same region and when there **is no regional pair**, we highly recommend that you configure your workload with zone-redundancy. A single-region approach is also applicable to certain industries that have strict data residency and governance requirements within the same Azure region.  To learn how to replicate, failover, and failback Azure virtual machines from one availability zone to another within the same Azure region, see [Enable Azure VM disaster recovery between availability zones](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
+To achieve business continuity and disaster recovery within the same region and when there **is no regional pair**, we highly recommend that you configure your workload with zone-redundancy. A single-region approach is also applicable to certain industries that have strict data residency and governance requirements within the same Azure region.  To learn how to replicate, failover, and failback Azure virtual machines from one availability zone to another within the same Azure region, see [Enable Azure VM disaster recovery between availability zones](/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery).
 
 If multi-region is needed, or when availability zones aren't available in the Azure region, we recommend that you use regional pairs.  Regional pairs are situated at far distance at around 100 miles apart, and give you blast radius protection from regional level failures such as fire, flooding, earthquake and other natural or unforeseen calamities. For more information see [Cross-region replication in Azure: Business continuity and disaster recovery](/azure/reliability/cross-region-replication-azure).
 
