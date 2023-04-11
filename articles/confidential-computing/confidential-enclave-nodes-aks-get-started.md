@@ -239,7 +239,9 @@ sgx-test-rchvg   0/1     Completed   0          25s
 
 ```bash
 kubectl logs -l app=sgx-test
+```
 
+```output
 Hello world from the enclave
 Enclave called into host to print: Hello World!
 ```
