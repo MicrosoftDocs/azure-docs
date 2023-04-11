@@ -130,8 +130,8 @@ The following JSON shows the schema for the Key Vault VM extension. Before you c
                     "url": <Example: "https://myvault.vault.azure.net/secrets/mycertificate2">,
                     "certificateStoreName": <Example: "MY">,
                     "certificateStoreLocation": <Example: "CurrentUser">,
-                    "keyExportable": <Optional. Lets the private key be exportable. Example: "false">
-                    "accounts": Example: ["Local Service"]>
+                    "keyExportable": <Optional. Lets the private key be exportable. Example: "false">,
+                    "accounts": <Example: ["Local Service"]>
                 }
              ]>
          },
@@ -249,7 +249,8 @@ The following JSON snippets provide example settings for an ARM template deploym
       "settings": {
          "secretsManagementSettings": {
              "pollingIntervalInS": <A string that specifies the polling interval in seconds. Example: 3600>,
-             "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,"observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location and ACL permission to certificate private key. Example:
+             "linkOnRenewal": <Windows only. Ensures s-channel binding when the certificate renews without necessitating redeployment. Example: true>,
+             "observedCertificates": <An array of KeyVault URIs that represent monitored certificates, including certificate store location and ACL permission to certificate private key. Example:
              [
                 {
                     "url": <A Key Vault URI to the secret portion of the certificate. Example: "https://myvault.vault.azure.net/secrets/mycertificate1">,
@@ -261,7 +262,7 @@ The following JSON snippets provide example settings for an ARM template deploym
                     "url": <Example: "https://myvault.vault.azure.net/secrets/mycertificate2">,
                     "certificateStoreName": <Example: "MY">,
                     "certificateStoreLocation": <Example: "CurrentUser">,
-                    "keyExportable": <Optional. Lets the private key be exportable. Example: "false">
+                    "keyExportable": <Optional. Lets the private key be exportable. Example: "false">,
                     "accounts": <Example: ["Local Service"]>
                 },
                 {
@@ -415,7 +416,7 @@ Use PowerShell to deploy the version 1.0 Key Vault VM extension to an existing V
 > [!WARNING]
 > PowerShell clients often prefix a quote mark `"` with a backslash `\` in the settings JSON file. The extraneous characters cause the akvvm_service to fail with the error, "[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object."
 >
-> You can see the supplied backslash `\` and quote `"` characters in the Azure portal. Check the contents of the settings JSON file under **Settings** > **Extensions + Applications**. To avoid the error, initialize the `$settings` property as a PowerShell `HashTable` as follows:
+> You can see the supplied backslash `\` and quote `"` characters in the Azure portal. Check the contents of the settings JSON file under **Settings** > **Extensions + Applications**. To avoid the error, initialize the `$settings` property as a PowerShell `Hashtable` as follows:
 > 
 > ```powershell
 > $settings = @{"secretsManagementSettings" = @{"pollingIntervalInS"="<pollingInterval>"; "certificateStoreName"="<certStoreName>";"certificateStoreLocation"="<certStoreLoc>";"observedCertificates"=@("<observedCert1>", "<observedCert2>")};"authenticationSettings"=@{"msiEndpoint"="<msiEndpoint>";"msiClientId"="<msiClientId>"} }
