@@ -10,32 +10,32 @@ ms.reviewer: azfuncdf
 # Guide to the standalone Durable Functions PowerShell SDK
 
 The Durable Functions (DF) PowerShell SDK is now available as a standalone package in the PowerShell Gallery: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK).
-Moving forward, this package will be the recommended means of developing Durable Functions SDK. In this article, we explain the benefits of this change, as well as what changes you can expect when adopting this new package.
+Moving forward, this package will be the recommended means of developing Durable Functions SDK. In this article, we explain the benefits of this change, and what changes you can expect when adopting this new package.
 
 ## Motivation behind the standalone SDK
 
-The previous DF SDK was built-in to the PowerShell language worker. This approach came with the benefit that Durable Functions apps could be authored out of the box from any Azure Functions PowerShell app.
+The previous DF SDK was built in to the PowerShell language worker. This approach came with the benefit that Durable Functions apps could be authored out of the box from any Azure Functions PowerShell app.
 However, it also came with various shortcomings:
 1. New features, bug fixes, and other changes were dependent on the PowerShell worker's release cadence.
-2. By the auto-upgrading nature of the PowerShell worker, the DF SDK needed to be very conservative not to introduce breaking changes, which makes fixing certain bugs very difficult.
+2. By the auto-upgrading nature of the PowerShell worker, the DF SDK needed to be conservative not to introduce breaking changes, which makes fixing certain bugs difficult.
 3. The replay algorithm utilized by the built-in DF SDK was out of date: other DF SDKs already utilized a faster and more reliable implementation.
 
-By creating a standalone DF PowerShell SDK, we are able to overcome these shortcomings at the expense of requiring an additional SDK installation step. See below for the explicit benefits of utilizing new standalone DF SDK:
+By creating a standalone DF PowerShell SDK, we're able to overcome these shortcomings at the expense of requiring an extra SDK installation step. See below for the explicit benefits of utilizing new standalone DF SDK:
 1. The package is versioned independently of the PowerShell worker. This allows users to incorporate new features and fixes as soon as they're available, while also avoiding breaking changes during an auto-ugprade.
-2. This SDK includes many highly requested improvements requested by the community, such as better exception and null-value handling, as well as serialization improvements.
-3. The replay logic is faster, and more reliable: it leverages the same replay engine as the DF isolated SDK for C#.
+2. This SDK includes many highly requested improvements requested by the community, such as better exception and null-value handling, and serialization improvements.
+3. The replay logic is faster, and more reliable: it uses the same replay engine as the DF isolated SDK for C#.
 
 ## Deprecation plan for the built-in DF PowerShell SDK
 
-The built-in DF SDK in the PowerShell worker will remain in existing and supported versions of the PowerShell worker. This means that existing apps will be able to continue leveraging the built-in SDK as long as their language workers are supported. 
+The built-in DF SDK in the PowerShell worker will remain in existing and supported versions of the PowerShell worker. This means that existing apps will be able to continue using the built-in SDK as long as their language workers are supported. 
 
-After the standalone DF PS SDK is GA, new releases of the PowerShell worker supporting _new_ versions of PowerShell will not include the built-in SDK. Users leveraging these future workers will need to incorporate the standalone DF SDK package.
+After the standalone DF PowerShell SDK is GA, new releases of the PowerShell worker supporting _new_ versions of PowerShell won't include the built-in SDK. Users leveraging these future workers will need to incorporate the standalone DF SDK package.
 
 ## Install and enable the SDK
 
 See this section to learn how to install and enable new standalone SDK in your existing app.
 
-### Pre-requisites
+### Prerequisites
 
 The standalone PowerShell SDK requires the following minimum versions:
 
@@ -44,7 +44,7 @@ The standalone PowerShell SDK requires the following minimum versions:
 - Azure Functions PowerShell app for PowerShell 7.2 or greater
 
 
-### Opt-in to the standalone DF SDK
+### Opt in to the standalone DF SDK
 
 The following application setting is required to run the standalone PowerShell SDK while it is in preview: 
 - Name: `ExternalDurablePowerShellSDK`
@@ -79,7 +79,13 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 ### Install and import the SDK
 
-TODO: provide installation steps.
+To install the standalone DF SDK, you'll need to follow the [guidance regarding creating an app-level modules folder](./../functions-reference-powershell.md#function-app-level-modules-folder). Make sure to review the aforementioned docs for details. In summary, you will need to place the SDK package inside a `".\Modules"` directory located at the root of your app.
+
+For example, from within your application's root, and after creating a `".\Modules"` directory, you may download the standalone SDK into the modules directory as such:
+
+```powershell
+Save-Module -Name AzureFunctions.PowerShell.Durable.SDK -AllowPrerelease -Path ".\Modules"
+```
 
 The final step is importing the SDK into your code's session. To do this, import the PowerShell SDK via `Import-Module AzureFunctions.PowerShell.Durable.SDK -ErrorAction Stop` in your `profile.ps1` file.
 For example, if your app was scaffolded through templates, your `profile.ps1` file may end up looking as such:
@@ -120,14 +126,13 @@ In this section, we describe the interface and behavioral changes you can expect
 
 #### New CmdLets
 
-TODO: how to show the entire signature of the sub-orchestrator CmdLet.
+TODO: how to show the entire signature of the suborchestrator CmdLet.
 
-* `Invoke-DurableSubOrchestratorE` is a new CmdLet that allows users to leverage sub-orchestrators in their workflows.
+* `Invoke-DurableSubOrchestratorE` is a new CmdLet that allows users to leverage suborchestrators in their workflows.
 
-#### Dropped CmdLets
+#### Modified CmdLets
 
-TODO: check that the claim below is true.
-* The CmdLet `Get-DurableTaskResult`, used to get the result of a task, is now longer available. Instead, you may obtain a task's result through its `.Result` property.
+* The CmdLet `Get-DurableTaskResult` now only allows accepts a single Task as it's argument, instead of a list of Tasks. To obtain the results of a successful list of tasks, use `Wait-DurableTask`.
 
 #### Behavioral changes
 
