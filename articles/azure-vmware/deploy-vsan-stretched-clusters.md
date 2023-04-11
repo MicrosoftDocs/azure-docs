@@ -85,7 +85,7 @@ Next, repeat the process to [peer ExpressRoute Global Reach](./tutorial-expressr
 
 :::image type="content" source="media/stretch-clusters/express-route-global-reach-peer-availability-zones.png" alt-text="Screenshot shows page to peer both availability zones to on-premises Express Route Global Reach."lightbox="media/stretch-clusters/express-route-global-reach-peer-availability-zones.png":::
 
-## Supported scenarios
+## Storage policies supported
 
 The following scenarios are supported:
 
