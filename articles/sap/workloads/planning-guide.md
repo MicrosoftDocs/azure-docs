@@ -321,7 +321,7 @@ A [best practice architecture](/azure/architecture/guide/sap/sap-internet-inboun
 
 ## Azure virtual machines for SAP workload
 
-For SAP workload, we narrowed down the selection to different VM families that are suitable for SAP workload and SAP HANA workload more specifically. The way how you find the correct VM type and its capability to work through SAP workload is described in the document [What SAP software is supported for Azure deployments](./ssupported-product-on-azure.md). Additionally, SAP note [1928533] lists all certified Azure VMs, their performance capability as measured by SAPS benchmark and limitation as applicable. The VM types that are certified for SAP workload do not use over-provisioning of CPU and memory resources.
+For SAP workload, we narrowed down the selection to different VM families that are suitable for SAP workload and SAP HANA workload more specifically. The way how you find the correct VM type and its capability to work through SAP workload is described in the document [What SAP software is supported for Azure deployments](supported-product-on-azure.md). Additionally, SAP note [1928533] lists all certified Azure VMs, their performance capability as measured by SAPS benchmark and limitation as applicable. The VM types that are certified for SAP workload do not use over-provisioning of CPU and memory resources.
 
 Beyond the selection of purely supported VM types, you also need to check whether those VM types are available in a specific region based on the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). But more important, you need to evaluate whether:
 
