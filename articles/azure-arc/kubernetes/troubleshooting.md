@@ -1,6 +1,6 @@
 ---
 title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
-ms.date: 03/13/2023
+ms.date: 03/28/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
@@ -81,7 +81,7 @@ For more information, see [Debugging DNS Resolution](https://kubernetes.io/docs/
 
 Issues with outbound network connectivity from the cluster may arise for different reasons. First make sure all of the [network requirements](network-requirements.md) have been met.
 
-If you encounter this issue, and your cluster is behind an outbound proxy server, make sure you have passed proxy parameters during the onboarding of your cluster and that the proxy is configured correctly. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+If you encounter this issue, and your cluster is behind an outbound proxy server, make sure you've passed proxy parameters during the onboarding of your cluster and that the proxy is configured correctly. For more information, see [Connect using an outbound proxy server](quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 ### Unable to retrieve MSI certificate
 
@@ -89,7 +89,7 @@ Problems retrieving the MSI certificate are usually due to network issues. Check
 
 ### Insufficient cluster permissions
 
-If the provided kubeconfig file doesn't have sufficient permissions to install the Azure Arc agents, the Azure CLI command will return an error.
+If the provided kubeconfig file doesn't have sufficient permissions to install the Azure Arc agents, the Azure CLI command returns an error.
 
 ```azurecli
 az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
@@ -159,7 +159,7 @@ To resolve this issue, try the following steps.
     config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
      ```
 
-3. If the certificate below isn't present, the system assigned managed identity hasn't been installed.
+3. If the `azure-identity-certificate` isn't present, the system assigned managed identity hasn't been installed.
 
    ```console
    kubectl get secret -n azure-arc -o yaml | grep name:
@@ -169,7 +169,7 @@ To resolve this issue, try the following steps.
    name: azure-identity-certificate
    ```
 
-   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Please also verify if all the [network prerequisites](network-requirements.md) have been met.
+   To resolve this issue, try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If the issue continues to happen, it could be an issue with your proxy settings. In that case, [try connecting your cluster to Azure Arc via a proxy](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy. Also verify that all of the [network prerequisites](network-requirements.md) have been met.
 
 4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
 
@@ -183,7 +183,7 @@ To resolve this issue, try the following steps.
    name: kube-aad-proxy-certificate
    ```
 
-   If the certificate is missing, [delete the deployment](quickstart-connect-cluster.md#clean-up-resources) and re-onboard with a different name for the cluster. If the problem continues, please contact support.
+   If the certificate is missing, [delete the deployment](quickstart-connect-cluster.md#clean-up-resources) and re-onboard with a different name for the cluster. If the problem continues, contact support.
 
 ### Helm validation error
 
@@ -197,7 +197,7 @@ az connectedk8s connect -n AzureArcTest -g AzureArcTest
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
-Please check if the azure-arc namespace was deployed and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the Kubernetes cluster to onboard to arc.
+Check if the azure-arc namespace was deployed, and run 'kubectl get pods -n azure-arc' to check if all the pods are in running state. A possible cause for pods stuck in pending state could be insufficientresources on the Kubernetes cluster to onboard to Azure Arc.
 ValidationError: Unable to install helm release: Error: customresourcedefinitions.apiextensions.k8s.io "connectedclusters.arc.azure.com" not found
 ```
 
@@ -243,66 +243,6 @@ az extension add --name k8s-configuration
 
 ## GitOps management
 
-### Flux v1 - General
-
-> [!NOTE]
-> Eventually Azure will stop supporting GitOps with Flux v1, so begin using [Flux v2](./tutorial-use-gitops-flux2.md) as soon as possible.
-
-To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
-
-```azurecli
-az provider show -n Microsoft.KubernetesConfiguration --debug
-az k8s-configuration create <parameters> --debug
-```
-
-### Flux v1 - Create configurations
-
-Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
-
-### `sourceControlConfigurations` remains `Pending` (Flux v1)
-
-```console
-kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
-$ k -n pending get gitconfigs.clusterconfig.azure.com  -o yaml
-apiVersion: v1
-items:
-- apiVersion: clusterconfig.azure.com/v1beta1
-  kind: GitConfig
-  metadata:
-    creationTimestamp: "2020-04-13T20:37:25Z"
-    generation: 1
-    name: pending
-    namespace: pending
-    resourceVersion: "10088301"
-    selfLink: /apis/clusterconfig.azure.com/v1beta1/namespaces/pending/gitconfigs/pending
-    uid: d9452407-ff53-4c02-9b5a-51d55e62f704
-  spec:
-    correlationId: ""
-    deleteOperator: false
-    enableHelmOperator: false
-    giturl: git@github.com:slack/cluster-config.git
-    helmOperatorProperties: null
-    operatorClientLocation: azurearcfork8s.azurecr.io/arc-preview/fluxctl:0.1.3
-    operatorInstanceName: pending
-    operatorParams: '"--disable-registry-scanning"'
-    operatorScope: cluster
-    operatorType: flux
-  status:
-    configAppliedTime: "2020-04-13T20:38:43.081Z"
-    isSyncedWithAzure: true
-    lastPolledStatusTime: ""
-    message: 'Error: {exit status 1} occurred while doing the operation : {Installing
-      the operator} on the config'
-    operatorPropertiesHashed: ""
-    publicKey: ""
-    retryCountPublicKey: 0
-    status: Installing the operator
-kind: List
-metadata:
-  resourceVersion: ""
-  selfLink: ""
-```
-
 ### Flux v2 - General
 
 To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these Azure CLI commands with the `--debug` parameter specified:
@@ -322,7 +262,7 @@ For more information, see [How do I resolve `webhook does not support dry run` e
 
 The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. If the extension isn't already installed in a cluster and you create a GitOps configuration resource for that cluster, the extension will be installed automatically.
 
-If you experience an error during installation, or if the extension is in a failed state, run a script to investigate. The cluster-type parameter can be set to `connectedClusters` for an Arc-enabled cluster or `managedClusters` for an AKS cluster. The name of the `microsoft.flux` extension will be "flux" if the extension was installed automatically during creation of a GitOps configuration. Look in the "statuses" object for information.
+If you experience an error during installation, or if the extension is in a failed state, run a script to investigate. The cluster-type parameter can be set to `connectedClusters` for an Arc-enabled cluster or `managedClusters` for an AKS cluster. The name of the `microsoft.flux` extension is "flux" if the extension was installed automatically during creation of a GitOps configuration. Look in the "statuses" object for information.
 
 One example:
 
@@ -384,15 +324,15 @@ kubectl delete namespaces flux-system
 
 Some other aspects to consider:
 
-* For an AKS cluster, assure that the subscription has the `Microsoft.ContainerService/AKS-ExtensionManager` feature flag enabled.
+* For an AKS cluster, ensure that the subscription has the `Microsoft.ContainerService/AKS-ExtensionManager` feature flag enabled.
 
      ```azurecli
      az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
      ```
 
-* Assure that the cluster doesn't have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
+* Ensure that the cluster doesn't have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
 
-With these actions accomplished, you can either [recreate a flux configuration](./tutorial-use-gitops-flux2.md), which will install the flux extension automatically, or you can reinstall the flux extension manually.
+With these actions accomplished, you can either [recreate a flux configuration](./tutorial-use-gitops-flux2.md), which installs the flux extension automatically, or you can reinstall the flux extension manually.
 
 ### Flux v2 - Installing the `microsoft.flux` extension in a cluster with Azure AD Pod Identity enabled
 
@@ -410,7 +350,7 @@ The extension status also returns as "Failed".
 
 The extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure, but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
 
-You can fix this issue by upgrading to the latest version of the `microsoft.flux` extension. For version 1.6.1 or earlier, the workaround is to create an `AzurePodIdentityException` that will tell Azure AD Pod Identity to ignore the token requests from flux-extension pods.
+You can fix this issue by upgrading to the latest version of the `microsoft.flux` extension. For version 1.6.1 or earlier, the workaround is to create an `AzurePodIdentityException` that tells Azure AD Pod Identity to ignore the token requests from flux-extension pods.
 
 ```console
 apiVersion: aadpodidentity.k8s.io/v1
@@ -439,17 +379,77 @@ The controllers installed in your Kubernetes cluster with the Microsoft Flux ext
 
 | Container Name | CPU limit | Memory limit |
 | -------------- | ----------- | -------- |
-| fluxconfig-agent | 50m | 150Mi |
-| fluxconfig-controller | 100m | 150Mi |
-| fluent-bit | 20m | 150Mi |
-| helm-controller | 1000m | 1Gi |
-| source-controller | 1000m | 1Gi |
-| kustomize-controller | 1000m | 1Gi |
-| notification-controller | 1000m | 1Gi |
-| image-automation-controller | 1000m | 1Gi |
-| image-reflector-controller | 1000m | 1Gi |
+| fluxconfig-agent | 50 m | 150 Mi |
+| fluxconfig-controller | 100 m | 150 Mi |
+| fluent-bit | 20 m | 150 Mi |
+| helm-controller | 1000 m | 1 Gi |
+| source-controller | 1000 m | 1 Gi |
+| kustomize-controller | 1000 m | 1 i |
+| notification-controller | 1000 m | 1 Gi |
+| image-automation-controller | 1000 m | 1 Gi |
+| image-reflector-controller | 1000 m | 1 Gi |
 
-If you have enabled a custom or built-in Azure Gatekeeper Policy, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, that limits the resources for containers on Kubernetes clusters, you will need to either ensure that the resource limits on the policy are greater than the limits shown above or the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
+If you've enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown above or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
+
+### Flux v1
+
+> [!NOTE]
+> We recommend [migrating to Flux v2](conceptual-gitops-flux2.md#migrate-from-flux-v1) as soon as possible. Support for Flux v1-based cluster configuration resources created prior to May 1, 2023 will end on [May 24, 2025](https://azure.microsoft.com/updates/migrate-your-gitops-configurations-from-flux-v1-to-flux-v2-by-24-may-2025/). Starting on May 1, 2023, you won't be able to create new Flux v1-based cluster configuration resources.
+
+To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these Azure CLI commands with `--debug` parameter specified:
+
+```azurecli
+az provider show -n Microsoft.KubernetesConfiguration --debug
+az k8s-configuration create <parameters> --debug
+```
+
+#### Flux v1 - Create configurations
+
+Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
+
+#### `sourceControlConfigurations` remains `Pending` (Flux v1)
+
+```console
+kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
+$ k -n pending get gitconfigs.clusterconfig.azure.com  -o yaml
+apiVersion: v1
+items:
+- apiVersion: clusterconfig.azure.com/v1beta1
+  kind: GitConfig
+  metadata:
+    creationTimestamp: "2020-04-13T20:37:25Z"
+    generation: 1
+    name: pending
+    namespace: pending
+    resourceVersion: "10088301"
+    selfLink: /apis/clusterconfig.azure.com/v1beta1/namespaces/pending/gitconfigs/pending
+    uid: d9452407-ff53-4c02-9b5a-51d55e62f704
+  spec:
+    correlationId: ""
+    deleteOperator: false
+    enableHelmOperator: false
+    giturl: git@github.com:slack/cluster-config.git
+    helmOperatorProperties: null
+    operatorClientLocation: azurearcfork8s.azurecr.io/arc-preview/fluxctl:0.1.3
+    operatorInstanceName: pending
+    operatorParams: '"--disable-registry-scanning"'
+    operatorScope: cluster
+    operatorType: flux
+  status:
+    configAppliedTime: "2020-04-13T20:38:43.081Z"
+    isSyncedWithAzure: true
+    lastPolledStatusTime: ""
+    message: 'Error: {exit status 1} occurred while doing the operation : {Installing
+      the operator} on the config'
+    operatorPropertiesHashed: ""
+    publicKey: ""
+    retryCountPublicKey: 0
+    status: Installing the operator
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+```
 
 ## Monitoring
 
@@ -511,7 +511,7 @@ This warning occurs when you use a service principal to log into Azure. The serv
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
     ```
 
-1. Sign in into Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations on the cluster:
+1. Sign in into Azure CLI using the service principal. Use the `<objectId>` value from the previous step to enable custom locations on the cluster:
 
    * To enable custom locations when connecting the cluster to Arc, run the following command:
 
@@ -527,7 +527,7 @@ This warning occurs when you use a service principal to log into Azure. The serv
 
 ## Azure Arc-enabled Open Service Mesh
 
-The steps below provide guidance on validating the deployment of all the Open Service Mesh (OSM) extension components on your cluster.
+This section shows how to validate the deployment of all the Open Service Mesh (OSM) extension components on your cluster.
 
 ### Check OSM Controller **Deployment**
 
@@ -727,7 +727,7 @@ Example output:
 1845
 ```
 
-The number in the output indicates the number of bytes, or the size of the CA Bundle. If this is empty, 0, or a number under 1000, the CA Bundle is not correctly provisioned. Without a correct CA Bundle, the `ValidatingWebhook` will throw an error.
+The number in the output indicates the number of bytes, or the size of the CA Bundle. If the output is empty, 0, or a number under 1000, the CA Bundle isn't correctly provisioned. Without a correct CA Bundle, the `ValidatingWebhook` will throw an error.
 
 ### Check the `osm-mesh-config` resource
 
@@ -819,7 +819,7 @@ metadata:
 ### Check namespaces
 
 >[!Note]
->The arc-osm-system namespace will never participate in a service mesh and will never be labeled or annotated with the key/values below.
+>The arc-osm-system namespace will never participate in a service mesh and will never be labeled or annotated with the key/values shown here.
 
 We use the `osm namespace add` command to join namespaces to a given service mesh. When a Kubernetes namespace is part of the mesh, confirm the following:
 
@@ -851,7 +851,7 @@ The following label must be present:
 }
 ```
 
-If you aren't using `osm` CLI, you could also manually add these annotations to your namespaces. If a namespace isn't annotated with `"openservicemesh.io/sidecar-injection": "enabled"`, or isn't labeled with `"openservicemesh.io/monitored-by": "osm"`, the OSM Injector will not add Envoy sidecars.
+If you aren't using `osm` CLI, you could also manually add these annotations to your namespaces. If a namespace isn't annotated with `"openservicemesh.io/sidecar-injection": "enabled"`, or isn't labeled with `"openservicemesh.io/monitored-by": "osm"`, the OSM Injector won't add Envoy sidecars.
 
 >[!Note]
 >After `osm namespace add` is called, only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment` command.

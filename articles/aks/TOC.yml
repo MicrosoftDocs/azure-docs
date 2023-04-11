@@ -187,8 +187,6 @@
       items:
         - name: Maintaining and upgrading an AKS cluster
           href: upgrade.md
-        - name: Stop cluster upgrades on API breaking changes (preview)
-          href: stop-api-upgrade.md
         - name: Abort long running operations
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
@@ -363,9 +361,9 @@
                   href: workload-identity-deploy-cluster.md
                 - name: Modernize your app with workload identity
                   href: workload-identity-migrate-from-pod-identity.md
-            - name: Use Azure AD pod identity
+            - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
-            - name: Use Pod Sandboxing
+            - name: Use Pod Sandboxing (preview)
               href: use-pod-sandboxing.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md
@@ -595,8 +593,6 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-        - name: Deployment Center Launcher
-          href: deployment-center-launcher.md
         - name: GitHub Actions for Kubernetes
           href: ../aks/kubernetes-action.md
         - name: Configure automated deployments (preview)

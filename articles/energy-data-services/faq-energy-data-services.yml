@@ -22,7 +22,7 @@ sections:
       questions:
         - question: How can I get access to Azure Data Manager for Energy Preview?
           answer: >
-            Azure Data Manager for Energy Preview is available to all customers and partners with a valid subscription. Customers can create an instance by going directly to the Azure Marketplace and searching for "Microsoft Energy Data Services."
+            Azure Data Manager for Energy Preview is available to all customers and partners with a valid subscription. Customers can create an instance by going directly to the Azure Marketplace and searching for "Microsoft Energy Data Services".
 
 
     - name: Data Residency

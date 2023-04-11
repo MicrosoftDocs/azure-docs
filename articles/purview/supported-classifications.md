@@ -53,13 +53,19 @@ Currently the address model supports the following formats in the same column:
 - landmark, city
 
 ### Person's Gender
-Person's Gender machine learning model has been trained using US Census data and other public data sources in English language.
+Person's Gender machine learning model has been trained using US Census data and other public data sources in English language. It supports classifying 50+ genders out of the box.
+
+#### Keywords
+- sex
+- gender
+- orientation
+
 
 ### Person's Age
 Person's Age machine learning model detects age of an individual specified in various different formats. The qualifiers for days, months, and years must be in English language.
 
 #### Keywords
-- Age
+- age
 
 #### Supported formats
 - {%y} y, {%m} m

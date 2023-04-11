@@ -108,7 +108,7 @@ items:
         href: iot-dps-https-x509-support.md
   - name: Manage
     items:
-    - name: Manage enrollments - Portal
+    - name: Manage enrollments
       href: how-to-manage-enrollments.md
     - name: Manage linked IoT hubs
       href: how-to-manage-linked-iot-hubs.md

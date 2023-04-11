@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/24/2023
+ms.date: 04/10/2023
 
 
 ---
@@ -195,7 +195,7 @@ The [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-cr
 az redisenterprise create --cluster-name "cache1" --resource-group "rg1" --location "East US" --sku "Enterprise_E10" --persistence rdb-enabled=true rdb-frequency="1h" 
 ```
 
-Existing caches can be updated using the [az redisenterprise update](/cli/azure/redisenterprise#az-redisenterprise-update) command. This example adds RDB persistence with 12 hour frequency to an existing cache instance:
+Existing caches can be updated using the [az redisenterprise database update](/cli/azure/redisenterprise/database#az-redisenterprise-database-update) command. This example adds RDB persistence with 12 hour frequency to an existing cache instance:
 
 ```azurecli
 az redisenterprise database update --cluster-name "cache1" --resource-group "rg1" --persistence rdb-enabled=true rdb-frequency="12h" 
@@ -349,7 +349,7 @@ With the Premium tier, you can't use Append-only File (AOF) persistence with mul
 
 ### How do I check if soft delete is enabled on my storage account?
 
-Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of *Enable soft delete for blobs*.
+Select the storage account that your cache is using for persistence. Select **Data Protection** from the Resource menu. In the working pane, check the state of *Enable soft delete for blobs*. For more information on soft delete in Azure storage accounts, see [Enable soft delete for blobs](/azure/storage/blobs/soft-delete-blob-enable?tabs=azure-portal).
 
 ## Next steps
 

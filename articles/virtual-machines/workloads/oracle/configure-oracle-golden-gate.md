@@ -39,6 +39,9 @@ The following is a summary of the environment configuration:
 > | **Golden Gate owner/replicate** |C##GGADMIN |REPUSER |
 > | **Golden Gate process** |EXTORA |REPORA|
 
+> [!NOTE]
+> Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded images that are, at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)
+
 
 ### Sign in to Azure 
 
@@ -164,6 +167,10 @@ az network nsg rule create --resource-group myResourceGroup\
 
 ### Connect to the virtual machine
 
+> [!NOTE]
+> Be aware of versions that are End Of Life (EOL) and no longer supported by Redhat. Uploaded images that are, at or beyond EOL will be supported on a reasonable business effort basis. Link to Redhat's [Product Lifecycle](https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204)
+
+
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the `publicIpAddress` of your virtual machine.
 
 ```bash
@@ -183,7 +190,7 @@ sudo su - oracle
 Create the database:
 
 ```bash
-$ dbca -silent \
+ dbca -silent \
    -createDatabase \
    -templateName General_Purpose.dbc \
    -gdbname cdb1 \
@@ -237,9 +244,9 @@ Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more d
 Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
-$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=cdb1; export ORACLE_SID
-$ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
+ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+ORACLE_SID=cdb1; export ORACLE_SID
+LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
 Optionally, you can add ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future sign-ins:
@@ -256,7 +263,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ### Start Oracle listener
 
 ```bash
-$ lsnrctl start
+lsnrctl start
 ```
 
 ### Create the database on myVM2 (replicate)
@@ -268,7 +275,7 @@ sudo su - oracle
 Create the database:
 
 ```bash
-$ dbca -silent \
+ dbca -silent \
    -createDatabase \
    -templateName General_Purpose.dbc \
    -gdbname cdb1 \
@@ -290,9 +297,9 @@ $ dbca -silent \
 Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
-$ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-$ ORACLE_SID=cdb1; export ORACLE_SID
-$ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
+ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
+ORACLE_SID=cdb1; export ORACLE_SID
+LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
 Optionally, you can added ORACLE_HOME and ORACLE_SID to the .bashrc file, so that these settings are saved for future sign-ins.
@@ -309,8 +316,8 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ### Start Oracle listener
 
 ```bash
-$ sudo su - oracle
-$ lsnrctl start
+sudo su - oracle
+lsnrctl start
 ```
 
 ## Configure Golden Gate 
@@ -319,7 +326,7 @@ To configure Golden Gate, take the steps in this section.
 ### Enable archive log mode on myVM1 (primary)
 
 ```bash
-$ sqlplus / as sysdba
+sqlplus / as sysdba
 SQL> SELECT log_mode FROM v$database;
 
 LOG_MODE
@@ -351,28 +358,28 @@ To download and prepare the Oracle Golden Gate software, complete the following 
 2. After you download the .zip files to your client computer, use Secure Copy Protocol (SCP) to copy the files to your VM:
 
    ```bash
-   $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
+   scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
    ```
 
 3. Move the .zip files to the **/opt** folder. Then change the owner of the files as follows:
 
    ```bash
-   $ sudo su -
-   # mv <folder>/*.zip /opt
+   sudo su -
+   mv <folder>/*.zip /opt
    ```
 
 4. Unzip the files (install the Linux unzip utility if it's not already installed):
 
    ```bash
-   # yum install unzip
-   # cd /opt
-   # unzip fbo_ggs_Linux_x64_shiphome.zip
+   yum install unzip
+   cd /opt
+   unzip fbo_ggs_Linux_x64_shiphome.zip
    ```
 
 5. Change permission:
 
    ```bash
-   # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
+   chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
    ```
 
 ### Prepare the client and VM to run x11 (for Windows clients only)
@@ -397,9 +404,9 @@ This is an optional step. You can skip this step if you are using a Linux client
 4. In your VM, run these commands:
 
    ```bash
-   # sudo su - oracle
-   $ mkdir .ssh (if not already created)
-   $ cd .ssh
+   sudo su - oracle
+   mkdir .ssh (if not already created)
+   cd .ssh
    ```
 
 5. Create a file named **authorized_keys**. Paste the contents of the key in this file, and then save the file.
@@ -427,8 +434,8 @@ To install Oracle Golden Gate, complete the following steps:
 1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) Make sure that Xming is running before you begin the installation.
 
    ```bash
-   $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
-   $ ./runInstaller
+   cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
+   ./runInstaller
    ```
 
 2. Select 'Oracle GoldenGate for Oracle Database 12c'. Then select **Next** to continue.
@@ -460,8 +467,8 @@ To install Oracle Golden Gate, complete the following steps:
 1. Create or update the tnsnames.ora file:
 
    ```bash
-   $ cd $ORACLE_HOME/network/admin
-   $ vi tnsnames.ora
+   cd $ORACLE_HOME/network/admin
+   vi tnsnames.ora
 
    cdb1=
     (DESCRIPTION=
@@ -497,7 +504,7 @@ To install Oracle Golden Gate, complete the following steps:
    >
 
     ```bash
-    $ sqlplus / as sysdba
+    sqlplus / as sysdba
     SQL> CREATE USER C##GGADMIN identified by ggadmin;
     SQL> EXEC dbms_goldengate_auth.grant_admin_privilege('C##GGADMIN',container=>'ALL');
     SQL> GRANT DBA to C##GGADMIN container=all;
@@ -509,8 +516,8 @@ To install Oracle Golden Gate, complete the following steps:
 3. Create the Golden Gate test user account:
 
    ```bash
-   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-   $ sqlplus system/OraPasswd1@pdb1
+   cd /u01/app/oracle/product/12.1.0/oggcore_1
+   sqlplus system/OraPasswd1@pdb1
    SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
    SQL> GRANT connect, resource, dba TO test;
    SQL> ALTER USER test QUOTA 100M on USERS;
@@ -525,9 +532,9 @@ To install Oracle Golden Gate, complete the following steps:
    Start the Golden gate command-line interface (ggsci):
 
    ```bash
-   $ sudo su - oracle
-   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-   $ ./ggsci
+   sudo su - oracle
+   cd /u01/app/oracle/product/12.1.0/oggcore_1
+   ./ggsci
    GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
    Successfully logged into database  pdb1
    GGSCI>  ADD SCHEMATRANDATA pdb1.test
@@ -555,8 +562,8 @@ To install Oracle Golden Gate, complete the following steps:
 6. Register extract--integrated extract:
 
    ```bash
-   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-   $ ./ggsci
+   cd /u01/app/oracle/product/12.1.0/oggcore_1
+   ./ggsci
 
    GGSCI> dblogin userid C##GGADMIN, password ggadmin
    Successfully logged into database CDB$ROOT.
@@ -571,7 +578,7 @@ To install Oracle Golden Gate, complete the following steps:
 7. Set up extract checkpoints and start real-time extract:
 
    ```bash
-   $ ./ggsci
+   ./ggsci
    GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
    EXTRACT (Integrated) added.
 
@@ -594,7 +601,7 @@ To install Oracle Golden Gate, complete the following steps:
    In this step, you find the starting SCN, which will be used later, in a different section:
 
    ```bash
-   $ sqlplus / as sysdba
+   sqlplus / as sysdba
    SQL> alter session set container = pdb1;
    SQL> SELECT current_scn from v$database;
    CURRENT_SCN
@@ -604,7 +611,7 @@ To install Oracle Golden Gate, complete the following steps:
    ```
 
    ```bash
-   $ ./ggsci
+   ./ggsci
    GGSCI> EDIT PARAMS INITEXT
    ```
 
@@ -626,8 +633,8 @@ To install Oracle Golden Gate, complete the following steps:
 1. Create or update the tnsnames.ora file:
 
    ```bash
-   $ cd $ORACLE_HOME/network/admin
-   $ vi tnsnames.ora
+   cd $ORACLE_HOME/network/admin
+   vi tnsnames.ora
 
    cdb1=
     (DESCRIPTION=
@@ -659,7 +666,7 @@ To install Oracle Golden Gate, complete the following steps:
 2. Create a replicate account:
 
    ```bash
-   $ sqlplus / as sysdba
+   sqlplus / as sysdba
    SQL> alter session set container = pdb1;
    SQL> create user repuser identified by rep_pass container=current;
    SQL> grant dba to repuser;
@@ -671,8 +678,8 @@ To install Oracle Golden Gate, complete the following steps:
 3. Create a Golden Gate test user account:
 
    ```bash
-   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-   $ sqlplus system/OraPasswd1@pdb1
+   cd /u01/app/oracle/product/12.1.0/oggcore_1
+   sqlplus system/OraPasswd1@pdb1
    SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
    SQL> GRANT connect, resource, dba TO test;
    SQL> ALTER USER test QUOTA 100M on USERS;
@@ -684,8 +691,8 @@ To install Oracle Golden Gate, complete the following steps:
 4. REPLICAT parameter file to replicate changes: 
 
    ```bash
-   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-   $ ./ggsci
+   cd /u01/app/oracle/product/12.1.0/oggcore_1
+   ./ggsci
    GGSCI> EDIT PARAMS REPORA  
    ```
 
@@ -727,8 +734,8 @@ To install Oracle Golden Gate, complete the following steps:
 #### 1. Set up the replication on myVM2 (replicate)
 
   ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
+  cd /u01/app/oracle/product/12.1.0/oggcore_1
+  ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
 
@@ -752,8 +759,8 @@ Then restart the Manager service:
 Start the initial load and check for errors:
 
 ```bash
-$ cd /u01/app/oracle/product/12.1.0/oggcore_1
-$ ./ggsci
+cd /u01/app/oracle/product/12.1.0/oggcore_1
+./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
@@ -763,8 +770,8 @@ GGSCI> VIEW REPORT INITEXT
 Change the SCN number with the number you obtained before:
 
   ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
+  cd /u01/app/oracle/product/12.1.0/oggcore_1
+  ./ggsci
   START REPLICAT REPORA, AFTERCSN 1857887
   ```
 

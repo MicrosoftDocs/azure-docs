@@ -1454,6 +1454,11 @@
         "source_path_from_root": "/articles/postgresql/flexible-server/application-best-practices.md",
         "redirect_url": "/azure/postgresql/flexible-server/overview",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/single-server/overview-postgres-choose-server-options.md",
+        "redirect_url": "/azure/postgresql/flexible-server/overview-postgres-choose-server-options",
+        "redirect_document_id": true
     }
     ]
 }

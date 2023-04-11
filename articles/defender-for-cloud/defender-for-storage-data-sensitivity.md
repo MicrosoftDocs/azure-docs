@@ -15,7 +15,7 @@ This is a configurable feature in the new Defender for Storage plan. You can cho
 
 Learn more about [scope and limitations of sensitive data scanning](concept-data-security-posture-prepare.md).
 
-## How the Sensitive Data Discovery work?
+## How does the Sensitive Data Discovery work?
 
 Sensitive Data Threat Detection is powered by the Sensitive Data Discovery engine, an agentless engine that uses a smart sampling method to find resources with sensitive data.
 
