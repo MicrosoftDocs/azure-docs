@@ -85,46 +85,19 @@ Next, repeat the process to [peer ExpressRoute Global Reach](./tutorial-expressr
 
 :::image type="content" source="media/stretch-clusters/express-route-global-reach-peer-availability-zones.png" alt-text="Screenshot shows page to peer both availability zones to on-premises Express Route Global Reach."lightbox="media/stretch-clusters/express-route-global-reach-peer-availability-zones.png":::
 
-## Supported scenarios
+## Storage policies supported
 
-The following scenarios are supported:
+The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" and SFTT of "RAID 1 (Mirroring)" enabled as the default policies for the cluster:
 
-- Workload connectivity to internet from both AZs via Customer vWAN or On-premises data center
-- Private DNS resolution
-- Placement policies (except for VM-AZ affinity)
-- Cluster scale out and scale in
-- The following SPBM policies are supported, with a PFTT of “Dual Site Mirroring” and SFTT of “RAID 1 (Mirroring)” enabled as the default policies for the cluster:
-    - Site disaster tolerance settings (PFTT):
-        - Dual site mirroring
-        - None - keep data on preferred
-        - None - keep data on non-preferred
-    - Local failures to tolerate (SFTT):
-        - 1 failure – RAID 1 (Mirroring)
-        - 1 failure – RAID 5 (Erasure coding), requires a minimum of 4 hosts in each AZ
-        - 2 failures – RAID 1 (Mirroring)
-        - 2 failures – RAID 6 (Erasure coding), requires a minimum of 6 hosts in each AZ
-        - 3 failures – RAID 1 (Mirroring)
-
-In this phase, while the creation of the private cloud and the first stretched cluster is enabled via the Azure portal, open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for other supported scenarios and configurations listed below. While doing so, make sure you select **Stretched Clusters** as a Problem Type.  
-
-Once stretched clusters are made generally available, it's expected that all the following supported scenarios will be enabled in an automated self-service fashion.
-
-- HCX installation, deployment, removal, and support for migration
-- Connect a private cloud in another region to a stretched cluster private cloud
-- Connect two stretched cluster private clouds in a single region
-- Configure Active Directory as an identity source for vCenter Server
-- A PFTT of “Keep data on preferred” or “Keep data on non-preferred” requires keeping VMs on either one of the availability zones. For such VMs, open a support ticket to ensure that those VMs are pinned to an availability zone.
-- Cluster addition
-- Cluster deletion
-- Private cloud deletion
-
-## Supported regions
-
-Azure VMware Solution stretched clusters are available in the following regions:
-
-- UK South
-- West Europe
-- Germany West Central
+- Dual site mirroring
+    - None - keep data on preferred
+    - None - keep data on non-preferred
+- Local failures to tolerate (SFTT):
+    - 1 failure – RAID 1 (Mirroring)
+    - 1 failure – RAID 5 (Erasure coding), requires a minimum of 4 hosts in each AZ
+    - 2 failures – RAID 1 (Mirroring)
+    - 2 failures – RAID 6 (Erasure coding), requires a minimum of 6 hosts in each AZ
+    - 3 failures – RAID 1 (Mirroring)
 
 ## FAQ
 
