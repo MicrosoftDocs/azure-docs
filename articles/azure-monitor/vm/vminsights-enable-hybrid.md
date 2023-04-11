@@ -156,7 +156,7 @@ If your Dependency agent installation succeeded, but you don't see your computer
 
     **Linux**: Look for the running process "microsoft-dependency-agent."
 
-2. Are you on the [Free pricing tier of Log Analytics](../insights/solutions.md)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
+2. Are you on the [Free pricing tier of Log Analytics](/previous-versions/azure/azure-monitor/insights/solutions)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
 
 3. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer:
 

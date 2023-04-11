@@ -17,7 +17,7 @@ In REST APIs, the identifier is a polymorphic type: you construct a JSON object 
 
 ### Communication user
 
-The `CommunicationUserIdentifierModel` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
+The `CommunicationUserIdentifierModel` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/identity/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
 
 
 #### Basic usage

@@ -11,6 +11,7 @@ ms.author: vaidyas
 author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 09/09/2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)
@@ -24,6 +25,8 @@ When to use Event Grid for event driven actions:
 * Use an Azure function after a model is registered
 * Streaming events from Azure Machine Learning to various of endpoints
 * Trigger an ML pipeline when drift is detected
+
+[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -179,7 +182,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to configure emails for all your
 
     ![Screenshot shows the Save As and Create buttons in the Logic Apps Designer.](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
-
+:::moniker range="azureml-api-1"
 ### Example: Data drift triggers retraining
 
 > [!IMPORTANT]
@@ -229,6 +232,7 @@ In this example, a simple Data Factory pipeline is used to copy files into a blo
 Now the data factory pipeline is triggered when drift occurs. View details on your data drift run and machine learning pipeline in [Azure Machine Learning studio](https://ml.azure.com). 
 
 :::image type="content" source="./media/how-to-use-event-grid/view-in-workspace.png" alt-text="Screenshot showing pipeline endpoints.":::
+:::moniker-end
 
 ## Next steps
 

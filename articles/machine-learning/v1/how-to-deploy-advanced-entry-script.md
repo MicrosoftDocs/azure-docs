@@ -10,7 +10,7 @@ ms.date: 08/15/2022
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.custom: deploy, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Advanced entry script authoring

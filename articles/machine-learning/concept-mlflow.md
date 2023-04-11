@@ -18,18 +18,18 @@ ms.custom: devx-track-python, cliv2, sdkv2, event-tier1-build-2022, ignite-2022
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Machine Learning developer platform that you're using:"]
-> * [v1](v1/concept-mlflow-v1.md)
+> * [v1](v1/concept-mlflow-v1.md?view=azureml-api-1&preserve-view=true)
 > * [v2 (current version)](concept-mlflow.md)
 
 [MLflow](https://www.mlflow.org) is an open-source framework that's designed to manage the complete machine learning lifecycle. Its ability to train and serve models on different platforms allows you to use a consistent set of tools regardless of where your experiments are running: locally on your computer, on a remote compute target, on a virtual machine, or on an Azure Machine Learning compute instance.
 
-> [!TIP]
-> Azure Machine Learning workspaces are MLflow-compatible, which means you can use Azure Machine Learning workspaces in the same way that you use an MLflow tracking server. Such compatibility has the following advantages:
-> * We don't host MLflow server instances under the hood. The workspace can talk the MLflow standard.
-> * You can use Azure Machine Learning workspaces as your tracking server for any MLflow code, whether it runs on Azure Machine Learning or not. You only need to configure MLflow to point to the workspace where the tracking should happen.
-> * You can run any training routine that uses MLflow in Azure Machine Learning without any change.
+Azure Machine Learning **workspaces are MLflow-compatible**, which means you can use Azure Machine Learning workspaces in the same way that you'd use an MLflow server. Such compatibility has the following advantages:
 
-> [!NOTE]
+* We don't host MLflow server instances under the hood. The workspace can talk the MLflow API language.
+* You can use Azure Machine Learning workspaces as your tracking server for any MLflow code, whether it runs on Azure Machine Learning or not. You only need to configure MLflow to point to the workspace where the tracking should happen.
+* You can run any training routine that uses MLflow in Azure Machine Learning without any change.
+
+> [!TIP]
 > Unlike the Azure Machine Learning SDK v1, there's no logging functionality in the SDK v2 and we recommend using MLflow for logging. Such strategy allows your training routines to become cloud-agnostic and portable, removing any dependency in your code with Azure Machine Learning.
 
 ## Tracking with MLflow
@@ -88,6 +88,11 @@ You can submit training jobs to Azure Machine Learning by using [MLflow projects
 
 Learn more at [Train machine learning models with MLflow projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
 
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### Example notebooks
 
 * [Track an MLflow project in Azure Machine Learning workspaces](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow/train-projects-local/train-projects-local.ipynb)
@@ -102,7 +107,7 @@ The following table shows which operations are supported by each of the tools av
 | Track and log metrics, parameters, and models | **&check;** | | |
 | Retrieve metrics, parameters, and models | **&check;** | <sup>1</sup> | **&check;** |
 | Submit training jobs | **&check;** <sup>2</sup> | **&check;** | **&check;** |
-| Submit training jobs with Azure Machine learning data assets |  | **&check;** | **&check;** |
+| Submit training jobs with Azure Machine Learning data assets |  | **&check;** | **&check;** |
 | Submit training jobs with machine learning pipelines | | **&check;** | **&check;** |
 | Manage experiments and runs | **&check;** | **&check;** | **&check;** |
 | Manage MLflow models | **&check;**<sup>3</sup> | **&check;** | **&check;** |

@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 02/15/2022
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Configure a virtual network for injection of Azure-SSIS integration runtime

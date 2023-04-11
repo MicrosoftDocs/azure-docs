@@ -2,6 +2,7 @@
 title: Connect BareMetal Infrastructure instances in Azure
 description: Learn how to identify and interact with BareMetal instances in the Azure portal or Azure CLI.
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 07/13/2021
 ---
 

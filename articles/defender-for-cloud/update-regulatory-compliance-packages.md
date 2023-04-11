@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 03/20/2023
 ms.custom: ignite-2022
 ---
 
@@ -21,17 +21,18 @@ To see compliance data mapped as assessments in your dashboard, add a compliance
 
 When you've assigned a standard or benchmark to your selected scope, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. You can also download summary reports for any of the standards that have been assigned.
 
-Microsoft tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative, it will appear automatically in your dashboard as new policies mapped to controls in the standard.
+Microsoft tracks the regulatory standards themselves and automatically improves its coverage in some of the packages over time. When Microsoft releases new content for the initiative, it appears automatically in your dashboard as new policies mapped to controls in the standard.
 
 ## What regulatory compliance standards are available in Defender for Cloud?
 
 By default, every Azure subscription has the Microsoft cloud security benchmark assigned. This is the Microsoft-authored, cloud specific guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Microsoft cloud security benchmark](/security/benchmark/azure/introduction).
 
-Available regulatory standards:
+**Available regulatory standards**:
 
-- PCI-DSS v3.2.1
+- PCI-DSS v3.2.1 **(deprecated)**
 - PCI DSS v4
 - SOC TSP
+- SOC 2 Type 2
 - ISO 27001:2013
 - Azure CIS 1.1.0
 - Azure CIS 1.3.0
@@ -51,11 +52,11 @@ Available regulatory standards:
 - Australian Government ISM Protected
 - RMIT Malaysia
 
-**AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+**AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned and can be viewed under Recommendations. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 
 Users that have one Defender bundle enabled can enable other standards. 
 
-Available AWS regulatory standards:
+**Available AWS regulatory standards**:
 
 - CIS 1.2.0
 - CIS 1.5.0
@@ -71,15 +72,13 @@ To add regulatory compliance standards on AWS accounts:
 1. Choose a standard from the drop-down menu.
 1. Select **Save**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
-
-More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+    :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
 
 **GCP**: When users onboard, every GCP project has the "GCP Default" standard assigned. 
 
 Users that have one Defender bundle enabled can enable other standards. 
 
-Available GCP regulatory standards:
+**Available GCP regulatory standards**:
 
 - CIS 1.1.0, 1.2.0
 - PCI DSS 3.2.1
@@ -140,7 +139,7 @@ To add regulatory compliance standards on AWS accounts:
 1. Choose a standard from the drop-down menu.
 1. Select **Save**.
 
-    :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
+    :::image type="content" source="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/add-aws-regulatory-compliance.png":::
 
 ## Remove a standard from your dashboard
 
@@ -163,7 +162,7 @@ To remove a standard:
 
     :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Screenshot showing to confirm that you really want to remove the regulatory standard you selected." lightbox="media/update-regulatory-compliance-packages/remove-standard-confirm.png":::
 
-1. Select **Yes**. The standard will be removed.
+1. Select **Yes**.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/22/2023
+ms.date: 02/27/2023
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -108,6 +108,14 @@ You can select an individual scene from the home page to open it in **Build** mo
 You can switch to **View** mode to enable filtering on specific elements and visualization of element behaviors that you've created.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view.png" alt-text="Screenshot of 3D Scenes Studio, showing a scene in the viewer." lightbox="media/how-to-use-3d-scenes-studio/scene-view.png":::
+
+You can view **All properties** of an element from here, as well as their values over time if [data history](concepts-data-history.md) is enabled on your instance. To view property history, select the **Open data history explorer** icon.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view-data-history.png" alt-text="Screenshot of 3D Scenes Studio, showing the icon to open the data history explorer." lightbox="media/how-to-use-3d-scenes-studio/scene-view-data-history.png":::
+
+This will open the **Data history explorer** for the property. For more information about using the data history explorer, see [Validate and explore historized properties](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/data-history-explorer.png" alt-text="Screenshot of data history explorer for 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/data-history-explorer.png":::
 
 ### Embed scenes in custom applications
 
@@ -228,7 +236,7 @@ To create a rule, start by selecting **Add Rule**.
 
 Choose a **Display name** for the rule.
 
-Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The result of your expression must match the result type that you specify in the **Type** field. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
 Once you've defined your property expression, select **Add condition** to define the conditional visual effects.
 
@@ -236,7 +244,7 @@ Once you've defined your property expression, select **Add condition** to define
 
 In the **Add condition** options, enter a **Label** for the condition in the visualization.
 
-Under **Conditions**, use the **Min** and **Max** fields to identify value boundaries for the condition. The min of each value range is inclusive, and the max is exclusive.
+Then, set the **Values** to identify value boundaries for the condition (the exact selection will change depending on the property type). For numerical properties, the min of each value range is inclusive, and the max is exclusive.
 
 Under **Actions**, define what happens in the scene visualization when the condition is met. You can use **Mesh coloring** to control the color of the property expression in the viewer, or **Badge** to display a badge of a certain color and icon when the condition for the property expression is met.
 
@@ -284,7 +292,7 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png" alt-text="Screenshots showing the notification text being entered on the value widget dialog, and how the widget appears in the Viewer." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png":::
 
-* **Data history**: For displaying property values over time. This widget works with Azure Digital Twins' [data history feature](concepts-data-history.md), so it's only available if you've [enabled data history](how-to-use-data-history.md) for the instance being used in this 3D scene. Once a data history connection exists for the instance, you'll be able to display that data with this widget.
+* **Data history**: For displaying property values over time. This widget works with Azure Digital Twins' [data history feature](concepts-data-history.md), so it's only available if you've [enabled data history](how-to-create-data-history-connection.md) for the instance being used in this 3D scene. Once a data history connection exists for the instance, you'll be able to display that data with this widget.
     
     The widget will fill the **Connection string** field automatically, by targeting data in the Azure Data Explorer instance that's already connected to this Azure Digital Twins instance.
 

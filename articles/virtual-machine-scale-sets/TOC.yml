@@ -68,8 +68,6 @@
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
       href: tutorial-autoscale-powershell.md
-    - name: Template
-      href: tutorial-autoscale-template.md
 - name: Scale
   items:
   - name: Autoscale
@@ -108,7 +106,7 @@
   items: 
   - name: Azure Spot Virtual Machines
     href: use-spot.md
-  - name: Spot Priority Mix (preview)
+  - name: Spot Priority Mix
     href: spot-priority-mix.md
   - name: Reserved instances
     href: ../cost-management-billing/reservations/save-compute-costs-reservations.md

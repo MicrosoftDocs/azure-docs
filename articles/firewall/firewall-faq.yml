@@ -5,10 +5,10 @@ metadata:
   services: firewall
   author: vhorne
   ms.service: firewall
+  ms.custom: devx-track-azurepowershell
   ms.topic: conceptual
   ms.date: 01/04/2023
   ms.author: victorh
-
 title: Azure Firewall FAQ
 summary: |
 
@@ -38,7 +38,7 @@ sections:
 
           There are three types of rule collections:
 
-          * *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a subnet.
+          * *Application rules*: Configure fully qualified domain names (FQDNs) that can be accessed from a Virtual Network.
           * *Network rules*: Configure rules that contain source addresses, protocols, destination ports, and destination addresses.
           * *NAT rules*: Configure DNAT rules to allow incoming Internet connections.
 
@@ -293,3 +293,9 @@ sections:
 
       - question: Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?
         answer: No, currently Azure Firewall in secured virtual hubs (vWAN) is not supported in Qatar.
+
+      - question: How many parallel connections can Azure Firewall support?
+        answer: |
+          Azure Firewall uses Azure Virtual Machines underneath that have a [hard limit number of connections](/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations). The total number of flows per virtual machine is 250k.
+
+          The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.

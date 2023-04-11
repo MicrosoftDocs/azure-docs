@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 12/14/2022
+ms.date: 03/27/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -58,6 +58,9 @@ When you look up the price list for Azure managed disks, then it becomes apparen
 
 Since we don't want to define which direction you should go, we're leaving the decision to you on whether to take the single disk approach or to take the multiple disk approach. Though keep in mind that the single disk approach can hit its limitations with the 1,200MB/sec throughput. There might be a point where you need to stretch /hana/data across multiple volumes. also keep in mind that the capabilities of Azure VMs in providing storage throughput are going to grow over time. And that HANA savepoints are extremely critical and demand high throughput for the **/hana/data** volume
 
+> [!IMPORTANT]
+> You have the possibility to define the sector size of Azure Premium SSD v2 as 512 Bytes or 4096 Bytes. All the tests conducted and the certification as storage for SAP HANA were done with a sector size of 4096 Bytes. Therefore, you should make sure that this is the sector size of choice when you deploy disks. This sector size is different than stripe sizes that you need to define when using a logical volume manager.
+
 **Recommendation: The recommended configurations with Azure premium storage for production scenarios look like:**
 
 Configuration for SAP **/hana/data** volume:
@@ -77,7 +80,7 @@ Configuration for SAP **/hana/data** volume:
 | M32ls | 256 GiB | 500 MBps | 20,000 | 304 GB | 425 MBps | 3,000 | 
 | M64ls | 512 GiB | 1,000 MBps | 40,000 | 608 GB | 425 MBps | 3,000 | 
 | M32dms_v2, M32ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1056 GB | 425 MBps | 3,000 | 
-| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 680 MBps | 5,000 | 
+| M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 600 MBps | 5,000 | 
 | M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2144 GB | 600 MBps | 5,000 |  
 | M128s, M128ds_v2, M128s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2464 GB | 800 MBps | 12,000| 
 | M192ids_v2, M192is_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2464 GB | 800 MBps | 12,000| 

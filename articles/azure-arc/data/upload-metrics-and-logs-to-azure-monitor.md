@@ -4,6 +4,7 @@ description: Upload resource inventory, usage data, metrics, and logs to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray

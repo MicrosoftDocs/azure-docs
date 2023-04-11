@@ -4,6 +4,7 @@ description: Uninstall Azure Arc-enabled data services
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: devx-track-azurecli
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

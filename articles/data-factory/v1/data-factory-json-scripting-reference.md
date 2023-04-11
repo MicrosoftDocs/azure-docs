@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.custom: devx-track-azurepowershell, ignite-2022
+ms.custom: ignite-2022
 ---
 
 # Azure Data Factory - JSON Scripting Reference
