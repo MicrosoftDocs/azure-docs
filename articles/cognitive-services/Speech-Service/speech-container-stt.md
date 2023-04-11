@@ -171,18 +171,18 @@ Starting in v2.6.0 of the speech-to-text container, you can get the output with 
 To configure a phrase list, you need to add your own phrases when you make the call. For example:
 
 ```python
-    phrase="the tall man"
-    recognizer = speechsdk.SpeechRecognizer(
-        speech_config=dict_speech_config,
-        audio_config=audio_config)
-    phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
-    phrase_list_grammer.addPhrase(phrase)
-    
-    dict_speech_config.set_service_property(
-        name='setflight',
-        value='xonlineinterp',
-        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
-    )
+phrase="the tall man"
+recognizer = speechsdk.SpeechRecognizer(
+    speech_config=dict_speech_config,
+    audio_config=audio_config)
+phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
+phrase_list_grammer.addPhrase(phrase)
+
+dict_speech_config.set_service_property(
+    name='setflight',
+    value='xonlineinterp',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
 ```
 
 If you have multiple phrases to add, call `.addPhrase()` for each phrase to add it to the phrase list.

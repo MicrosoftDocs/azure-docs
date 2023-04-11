@@ -39,9 +39,9 @@ The following table lists the Speech containers available in the Microsoft Conta
 
 ## Request approval to run the container
 
-To use the Speech containers, you must submit a request form and wait for approval. Fill out and submit a request form to request access to a connected or disconnected container. 
-* For connected containers, you must submit [this request form](https://aka.ms/csgate) and wait for approval.
-* For disconnected containers (not connected to the internet), you must submit [this request form](https://aka.ms/csdisconnectedcontainers) and wait for approval. When you are approved for a disconnected container, you are also permitted to use the corresponding connected container. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
+To use the Speech containers, you must submit one of the following request forms and wait for approval:
+-	[Connected containers request form](https://aka.ms/csgate) if you want to run containers regularly, in environments that are only connected to the internet.
+-	[Disconnected Container request form](https://aka.ms/csdisconnectedcontainers) if you want to run containers in environments that can either be connected or disconnected from the internet. For more information about applying and purchasing a commitment plan to use containers in disconnected environments, see [Use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. 
 
@@ -54,16 +54,13 @@ After you submit the form, the Azure Cognitive Services team reviews it and emai
 > [!IMPORTANT]
 > To use the Speech containers, your request must be approved. 
 
-While you're waiting for approval, you can [setup the prerequisites](speech-containers-howto.md#prerequisites) on your host computer. You can also download the container from the Microsoft Container Registry (MCR). You can run the container after your request is approved.
-
+While you're waiting for approval, you can [setup the prerequisites](speech-container-howto.md#prerequisites) on your host computer. You can also download the container from the Microsoft Container Registry (MCR). You can run the container after your request is approved.
 
 ## Billing
 
 The Speech containers send billing information to Azure by using a Speech resource on your Azure account. 
 
 Speech containers aren't licensed to run without being connected to Azure for metering. You must configure your container to communicate billing information with the metering service at all times. For more information, see [billing arguments](speech-container-howto.md#billing-arguments). 
-
-
 
 ## Next steps
 
