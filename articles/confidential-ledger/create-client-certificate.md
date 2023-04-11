@@ -5,7 +5,7 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 0411/2023
 ms.author: mbaldwin
 
 ---
@@ -20,7 +20,24 @@ You will need a certificate in PEM format. You can create more than one certific
 We recommend using OpenSSL to generate certificates. If you have git installed, you can run OpenSSL in the git shell. Otherwise, you can install OpenSSL for your OS.
 
 - **Windows**: Install [chocolatey for Windows](https://chocolatey.org/install), open a PowerShell terminal windows in admin mode, and run `choco install openssl`. Alternatively, you can install OpenSSL for Windows directly from [here](http://gnuwin32.sourceforge.net/packages/openssl.htm).
-- **Linux**: Run `sudo apt-get install openssl`
+- **Linux**:
+  - Ubuntu:
+
+  ```bash
+  sudo apt-get install openssl
+  ```
+
+  - RHEL/CentOS:
+
+  ```bash
+  sudo yum install openssl -y
+  ```
+
+  - SUSE:
+
+  ```bash
+  sudo zypper install openssl
+  ```
 
 You can then generate a certificate by running `openssl` in a Bash or PowerShell terminal window:
 
