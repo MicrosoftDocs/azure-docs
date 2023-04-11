@@ -47,7 +47,7 @@ HTTP 400 response codes are commonly observed when:
 - Mutual authentication is configured and unable to properly negotiate.
 - Not compliant to RFC. 
 
-Below are the common reasons for the request to be non-compliant to RFC. So please review the urls/requests from the clients for the below patterns.
+Some of the common reasons for the request to be non-compliant to RFC is listed below . So please review the urls/requests from the clients and ensure it is compliant to RFC.
 | Subcategory | Examples |
 | ---------- | ---------- | 
 | Invalid Host in request line  | Host containing two colons ( example.com:8090:8080) |
