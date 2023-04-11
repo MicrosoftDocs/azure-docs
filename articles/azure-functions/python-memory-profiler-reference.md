@@ -1,8 +1,8 @@
 ---
-title: Memory profiling on Python apps in Azure Functions
-description: Learn how to profile Python apps memory usage and identify memory bottleneck.
+title: Memory profiling of Python apps in Azure Functions
+description: Learn how to profile the memory usage of Python apps and identify memory bottleneck.
 ms.topic: how-to
-ms.date: 3/22/2021
+ms.date: 4/11/2023
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -11,15 +11,15 @@ ms.custom: devx-track-python, py-fresh-zinc
 During development or after deploying your local Python function app project to Azure, it's a good practice to analyze for potential memory bottlenecks in your functions. Such bottlenecks can decrease the performance of your functions and lead to errors. The following instruction show you how to use the [memory-profiler](https://pypi.org/project/memory-profiler) Python package, which provides line-by-line memory consumption analysis of your functions as they execute.
 
 > [!NOTE]
-> Memory profiling is intended only for memory footprint analysis on development environment. Please do not apply the memory profiler on production function apps.
+> Memory profiling is intended only for memory footprint analysis in development environments. Please do not apply the memory profiler on production function apps.
 
 ## Prerequisites
 
 Before you start developing a Python function app, you must meet these requirements:
 
-* [Python 3.6.x or above](https://www.python.org/downloads/release/python-374/). To check the full list of supported Python versions in Azure Functions, please visit [Python developer guide](functions-reference-python.md#python-version).
+* [Python 3.7 or above](https://www.python.org/downloads). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#python-version).
 
-* The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
+* The [Azure Functions Core Tools](functions-run-local.md#v2), version 3.x or greater. Check your version with `func --version`. To learn about updating, see [Azure Functions Core Tools on GitHub](https://github.com/Azure/azure-functions-core-tools).
 
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
@@ -31,7 +31,7 @@ Before you start developing a Python function app, you must meet these requireme
 
 1. In your requirements.txt, add `memory-profiler` to ensure the package will be bundled with your deployment. If you are developing on your local machine, you may want to [activate a Python virtual environment](create-first-function-cli-python.md#create-venv) and do a package resolution by `pip install -r requirements.txt`.
 
-2. In your function script (usually \_\_init\_\_.py), add the following lines above the `main()` function. This will ensure the root logger reports the child logger names, so that the memory profiling logs are distinguishable by the prefix `memory_profiler_logs`.
+2. In your function script (usually *\_\_init\_\_.py* for the Python v1 programming model and *function_app.py* for the v2 model), add the following lines above the `main()` function. This will ensure the root logger reports the child logger names, so that the memory profiling logs are distinguishable by the prefix `memory_profiler_logs`.
 
     ```python
     import logging
