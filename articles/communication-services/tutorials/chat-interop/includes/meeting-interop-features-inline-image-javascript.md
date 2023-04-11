@@ -7,7 +7,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this tutorial, you'll learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
+In this tutorial, you learn how to enable inline image support using the Azure Communication Services Chat SDK for JavaScript.
 
 ## Sample Code
 Find the finalized code of this tutorial on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting).
@@ -87,7 +87,7 @@ export interface ChatAttachment {
 }
 ```
 
-Now let's go back to the previous code to add some extra logic like the following: 
+Now let's go back to the previous code to add some extra logic like the following code snippets: 
 
 ```js
 chatClient.on("chatMessageReceived", (e) => {
@@ -312,13 +312,13 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ## Demo
 Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID. Send some inline images from Teams client like this:
 
-:::image type="content" source="../../media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message aslo contains two inline images of room interior mockups":::
+:::image type="content" source="../../media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message also contains two inline images of room interior mockups":::
 
 Then you should see the new message being rendered along with preview images:
 
 :::image type="content" source="../../media/meeting-interop-features-inline-1.png" alt-text="A screenshot of sample app shown an incoming message with inline images being presented":::
 
-Upon clicking the preview image, an overlay would be shown with the full scale image sent by the Teams user:
+Upon clicking the preview image by the ACS user, an overlay would be shown with the full scale image sent by the Teams user:
 
  :::image type="content" source="../../media/meeting-interop-features-inline-2.png" alt-text="A screenshot of sample app shown an overlay of a full scale image being presented":::
 
