@@ -20,7 +20,7 @@ ms.custom: developer
 
 This how-to guide uses a sample Node.js web application to show how to add authentication to a web application by using Microsoft Entra. The sample application enables users to sign in and sign out. The sample web application uses [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for Node to handle authentication.
 
-In this article, you’ll do the following tasks:
+In this article, you do the following tasks:
 
 - Register a web application in the Microsoft Entra admin center. 
 
@@ -66,7 +66,7 @@ In this article, you’ll do the following tasks:
 
 ## Clone or download sample web application
 
-To get the web app sample code, you can do either of the following:
+To get the web app sample code, you can do either of the following tasks:
 
 - [Download the .zip file](https://github.com/Azure-Samples/ms-identity-ciam-javascript-tutorial/archive/refs/heads/main.zip). You need to extract the zip file to get the sample web app.
 
@@ -117,9 +117,9 @@ You can now test the sample Node.js web app. You need to start the Node.js serve
 
 1. After the page completes loading, select **Sign in** link. You're prompted to sign in.
 
-1. On the sign-in page, type your **Email address**. If you don't have an account, select **No account? Create one**, which will start the sign-up flow.
+1. On the sign-in page, type your **Email address**. If you don't have an account, select **No account? Create one**, which starts the sign-up flow.
 
-1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and additional account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
+1. If you choose the sign-up option, after filling in your email, one-time passcode, new password and more account details, you complete the whole sign-up flow. You see a page similar to the following screenshot. You see a similar page if you choose the sign-in option.
 
     :::image type="content" source="media/how-to-web-app-node-sample-sign-in/web-app-node-view-claims.png" alt-text="Screenshot of view I D token claims.":::
 
