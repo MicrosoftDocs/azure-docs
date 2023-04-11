@@ -347,7 +347,7 @@ You must place all virtual machines that host SAP application server instances i
 * All virtual machines are not part of the same update domain.  
     An update domain ensures that the virtual machines aren't updated at the same time during planned maintenance downtime.
 
-    The basic functionality, which builds on different update and fault domains within an Azure scale unit, was already introduced in the [update domains][planning-guide-3.2.2] section.
+    The basic functionality, which builds on different update and fault domains within an Azure scale unit, was already introduced in the [update domains](./planning-guide.md#update-domains) section.
 
 * All virtual machines are not part of the same fault domain.  
     A fault domain ensures that virtual machines are deployed so that no single point of failure affects the availability of all virtual machines.
@@ -361,7 +361,7 @@ _**Figure 2:** High availability of SAP application servers in an Azure availabi
 
 For more information, see [Manage the availability of Windows virtual machines in Azure][azure-virtual-machines-manage-availability].
 
-For more information, see the [Azure availability sets][planning-guide-3.2.3] section of the Azure virtual machines planning and implementation for SAP NetWeaver document.
+For more information, see the [Azure availability sets](./planning-guide.md#availability-sets) section of the Azure virtual machines planning and implementation for SAP NetWeaver document.
 
 **Unmanaged disks only:** Because the Azure storage account is a potential single point of failure, it's important to have at least two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, the disks of each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
 

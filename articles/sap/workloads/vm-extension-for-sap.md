@@ -43,7 +43,7 @@ ms.author: oldoll
 > General Support Statement:
 > Support for the Azure Extension for SAP is provided through SAP support channels. If you need assistance with the Azure VM extension for SAP solutions, please open a support case with SAP Support.
  
-When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-9.1].
+When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters.
  
 To be sure SAP supports your environment, enable the Azure VM extension for SAP solutions as described in Configure the Azure Extension for SAP.
 
