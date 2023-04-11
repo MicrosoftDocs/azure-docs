@@ -10,7 +10,9 @@ ms.date: 05/05/2022
 ms.author: aahi
 ---
 
-Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).
+Submit a **POST** request using the following URL, headers, and JSON body to import your labels file. 
+
+<!--Make sure that your labels file follow the [accepted format](../../concepts/data-formats.md).-->
 
 If a project with the same name already exists, the data of that project is replaced.
 
