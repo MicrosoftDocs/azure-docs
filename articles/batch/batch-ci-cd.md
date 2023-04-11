@@ -399,8 +399,8 @@ The following example demonstrates how to deploy an infrastructure with template
    |**location**|Location for the Azure resources to be deployed|
    |**resourceGroupName**|Name of the resource group where your resources are deployed|
    |**storageAccountName**|Name of the storage account that holds the linked ARM templates|
-   |**StorageContainerSasToken**|*$(\<Reference name from Azure File Copy Output Variables>.StorageContainerSasToken)*.
-   |**StorageContainerUri**|*$(\<Reference name from Azure File Copy Output Variables>.StorageContainerUri)*.
+   |**StorageContainerSasToken**|*$(\<Reference name from Azure File Copy Output Variables>.StorageContainerSasToken)*
+   |**StorageContainerUri**|*$(\<Reference name from Azure File Copy Output Variables>.StorageContainerUri)*
 
    ![Screenshot showing variables set for the Azure Pipelines release.](media/batch-ci-cd/variables.png)
 
@@ -433,68 +433,68 @@ For each new task that the following steps specify:
    ![Screenshot showing the tasks used to release the HPC Application to Azure Batch.](media/batch-ci-cd/release-pipeline.png)
 
 1. Select the **Download Pipeline Artifacts** task, and set the following properties:
-   - **Display name**: *Download ApplicationPackage to Agent*
-   - **Artifact name**: *hpc-application*
-   - **Destination directory**: *$(System.DefaultWorkingDirectory)*
+   - **Display name**: Enter *Download ApplicationPackage to Agent*.
+   - **Artifact name**: Enter *hpc-application*.
+   - **Destination directory**: Enter *$(System.DefaultWorkingDirectory)*.
 
 1. Create a Storage account to store your ARM templates. You could use an existing storage account, but to support this self-contained example and isolation of content, make a dedicated storage account.
 
    Select the **ARM Template deployment: Resource Group scope** task, and set the following properties:
-   - **Display name:** *Deploy storage account for ARM templates*
+   - **Display name:** Enter *Deploy storage account for ARM templates*.
    - **Azure Resource Manager connection**: Select the service connection to use.
    - **Subscription:** Select the appropriate Azure subscription.
    - **Action**: Select **Create or update resource group**.
-   - **Resource group**: *$(resourceGroupName)*
-   - **Location**: *$(location)*
-   - **Template**: *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json*
-   - **Override template parameters**: `-accountName $(storageAccountName)`
+   - **Resource group**: Enter *$(resourceGroupName)*.
+   - **Location**: Enter *$(location)*.
+   - **Template**: Enter *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json*.
+   - **Override template parameters**: Enter *-accountName $(storageAccountName)*.
 
 1. Upload the artifacts from source control into the storage account. As part of this Azure Pipelines task, the Storage account container URI and SAS token are output to a variable in Azure Pipelines, so they can be reused throughout this agent phase.
 
    Select the **Azure File Copy** task, and set the following properties:
-   - **Display name:** *AzureBlob File Copy*
-   - **Source:** *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/*
+   - **Display name:** Enter *AzureBlob File Copy*.
+   - **Source:** Enter *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/*.
    - **Azure Subscription:** Select the appropriate Azure subscription.
-   - **Destination Type**: *Azure Blob*
-   - **RM Storage Account**: *$(storageAccountName)*
-   - **Container Name**: *templates*
-   - **Reference name** under **Output Variables**: *ffmpeg*
+   - **Destination Type**: Select **Azure Blob**.
+   - **RM Storage Account**: Enter *$(storageAccountName)*.
+   - **Container Name**: Enter *templates*.
+   - **Reference name**: Expand **Output Variables**, then enter *ffmpeg*.
 
    >[!NOTE]
-   >If this step fails, make sure your Azure DevOps organization has **Storage Blob Contributor** role in the storage account created.
+   >If this step fails, make sure your Azure DevOps organization has **Storage Blob Contributor** role in the storage account.
 
 1. Deploy the orchestrator ARM template to create the Batch account and pool. This template includes parameters for the Storage account container URI and SAS token. The variables required in the ARM template are held in the variables section of the release definition and were set from the AzureBlob File Copy task.
 
    Select the **ARM Template deployment: Resource Group scope** task, and set the following properties:
-   - **Display name:** *Deploy Azure Batch*
+   - **Display name:** Enter *Deploy Azure Batch*.
    - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
    - **Subscription:** Select the appropriate Azure subscription.
    - **Action**: Select **Create or update resource group**.
-   - **Resource group**: *$(resourceGroupName)*
-   - **Location**: *$(location)*
+   - **Resource group**: Enter *$(resourceGroupName)*.
+   - **Location**: Enter *$(location)*.
    - **Template location**: Select **URL of the file**.
-   - **Template link:** *$(StorageContainerUri)arm-templates/deployment.json$(StorageContainerSasToken)*
-   - **Override template parameters**: `-StorageContainerUri $(StorageContainerUri) -StorageContainerSasToken $(StorageContainerSasToken) -applicationStorageAccountName $(applicationStorageAccountName) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName)`
+   - **Template link:** Enter *$(StorageContainerUri)arm-templates/deployment.json$(StorageContainerSasToken)*.
+   - **Override template parameters**: Enter *-StorageContainerUri $(StorageContainerUri) -StorageContainerSasToken $(StorageContainerSasToken) -applicationStorageAccountName $(applicationStorageAccountName) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName)*.
 
    A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policy set, it can download secrets from Key Vault and be used as a variable in your pipeline. The name of the secret is set with the associated value. For example, you could reference a secret of **sshPassword** with *$(sshPassword)* in the release definition.
 
 1. Call Azure CLI to create an application in Azure Batch and upload associated packages.
 
    Select the **Azure CLI** task, and set the following properties:
-   - **Display name:** *Create application in Azure Batch account*
+   - **Display name:** Enter *Create application in Azure Batch account*.
    - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
    - **Script Type**: Select **PowerShell Core**.
    - **Script Location**: Select **Inline script**.
-   - **Inline Script**: `az batch application create --application-name $(batchAccountApplicationName) --name $(batchAccountName) --resource-group $(resourceGroupName)`
+   - **Inline Script**: Enter *az batch application create --application-name $(batchAccountApplicationName) --name $(batchAccountName) --resource-group $(resourceGroupName)*.
 
 1. Call Azure CLI to upload associated packages to the application, in this case the ffmpeg files.
 
    Select the **Azure CLI** task, and set the following properties:
-   - **Display name:** *Upload package to Azure Batch account*
+   - **Display name:** Enter *Upload package to Azure Batch account*.
    - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
    - **Script Type**: Select **PowerShell Core**.
    - **Script Location**: Select **Inline script**.
-   - **Inline Script**: `az batch application package create --application-name $(batchAccountApplicationName)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.<AzureBuildArtifactSourceAlias>.BuildId).zip`
+   - **Inline Script**: Enter *az batch application package create --application-name $(batchAccountApplicationName)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.<AzureBuildArtifactSourceAlias>.BuildId).zip*.
 
    > [!NOTE]
    > The version number of the application package is set to a variable. The variable allows overwriting previous versions of the package and lets you manually control the package version pushed to Azure Batch.
