@@ -1,10 +1,21 @@
+---
+title: Transparency Note for Onco Phenotype
+description: Transparency Note for Onco Phenotype
+services: azure-health-insights
+author: psanapathi
+ms.service: azure-health-insights
+ms.topic: overview
+ms.date: 04/11/2023
+ms.author: prsanapa
+---
+
 # Transparency note for Onco Phenotype
 
 ## What is a transparency note?
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Creating a system that is fit for its intended purpose requires an understanding of how the technology works, what its capabilities and limitations are, and how to achieve the best performance. Microsoft’s Transparency Notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment. You can use Transparency Notes when developing or deploying your own system, or share them with the people who will use or be affected by your system.
 
-Microsoft’s Transparency Notes are part of a broader effort at Microsoft to put our AI Principles into practice. To find out more, see the [Microsoft AI principles](https://www.microsoft.com/en-us/ai/responsible-ai).
+Microsoft’s Transparency Notes are part of a broader effort at Microsoft to put our AI Principles into practice. To find out more, see the [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai).
 
 ## The basics of Onco Phenotype
 
@@ -87,7 +98,7 @@ Microsoft has also tested the generalizability of the model by evaluating the tr
 
 #### Fairness considerations
 
-At Microsoft, we strive to empower every person on the planet to achieve more. An essential part of this goal is working to create technologies and products that are fair and inclusive. Fairness is a multi-dimensional, sociotechnical topic and impacts many different aspects of our product development. You can learn more about Microsoft’s approach to fairness [here](https://www.microsoft.com/en-us/ai/responsible-ai?rtc=1&activetab=pivot1:primaryr6).
+At Microsoft, we strive to empower every person on the planet to achieve more. An essential part of this goal is working to create technologies and products that are fair and inclusive. Fairness is a multi-dimensional, sociotechnical topic and impacts many different aspects of our product development. You can learn more about Microsoft’s approach to fairness [here](https://www.microsoft.com/ai/responsible-ai?rtc=1&activetab=pivot1:primaryr6).
 
 One dimension we need to consider is how well the system performs for different groups of people. This might include looking at the accuracy of the model and measuring the performance of the complete system. Research has shown that without conscious effort focused on improving performance for all groups, it is often possible for the performance of an AI system to vary across groups based on factors such as race, ethnicity, language, gender, and age.
 
@@ -112,11 +123,11 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 ## Learn more about responsible AI
 
-[Microsoft AI Principles](https://www.microsoft.com/en-us/ai/responsible-ai?activetab=pivot1%3aprimaryr6)
+[Microsoft AI Principles](https://www.microsoft.com/ai/responsible-ai?activetab=pivot1%3aprimaryr6)
 
-[Microsoft responsible AI resources](https://www.microsoft.com/en-us/ai/responsible-ai-resources)
+[Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
 
-[Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/en-us/training/paths/responsible-ai-business-principles/)
+[Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
 
 ## Learn more about Onco Phenotype
 
