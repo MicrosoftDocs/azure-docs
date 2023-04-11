@@ -16,14 +16,14 @@ To deploy your model from within the [Language Studio](https://aka.ms/LanguageSt
 
 2. Click on **Add deployment** to start a new deployment job.
 
-    :::image type="content" source="../../media/deploy-model.png" alt-text="A screenshot showing the deployment button" lightbox="../../media/deploy-model.png":::
+    :::image type="content" source="../../media/deploy-model.png" alt-text="A screenshot showing the deployment button in Language Studio." lightbox="../../media/deploy-model.png":::
 
 3. Select **Create new deployment** to create a new deployment and assign a trained model from the dropdown below. You can also **Overwrite an existing deployment** by selecting this option and select the trained model you want to assign to it from the dropdown below.
 
     > [!NOTE]
     > Overwriting an existing deployment doesn't require changes to your [prediction API](https://aka.ms/ct-runtime-swagger) call but the results you get will be based on the newly assigned model.
     
-   :::image type="content" source="../../media/add-deployment.png" alt-text="A screenshot showing the deployment screen" lightbox="../../media/add-deployment.png":::
+   :::image type="content" source="../../media/add-deployment.png" alt-text="A screenshot showing the model deployment options in Language Studio." lightbox="../../media/add-deployment.png":::
      
 4. Click on **Deploy** to start the deployment job.
 

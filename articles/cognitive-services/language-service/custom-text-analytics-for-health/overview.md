@@ -35,22 +35,22 @@ Similarly to Text Analytics for health, custom Text Analytics for health can be 
 
 Using custom Text Analytics for health typically involves several different steps. 
 
-:::image type="content" source="media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
+:::image type="content" source="media/development-lifecycle.png" alt-text="A diagram showing the project development lifecycle when working with custom models." lightbox="media/development-lifecycle.png":::
 
-1. **Define your schema**: Know your data and define the new entities you want extracted on top of the existing Text Analytics for health entity map. Avoid ambiguity.
+* **Define your schema**: Know your data and define the new entities you want extracted on top of the existing Text Analytics for health entity map. Avoid ambiguity.
 
-2. **Label your data**: Labeling data is a key factor in determining model performance. Label precisely, consistently and completely.
-    1. **Label precisely**: Label each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your labels.
-    2. **Label consistently**:  The same entity should have the same label across all the files.
-    3. **Label completely**: Label all the instances of the entity in all your files.
+* **Label your data**: Labeling data is a key factor in determining model performance. Label precisely, consistently and completely.
+    * **Label precisely**: Label each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your labels.
+    * **Label consistently**:  The same entity should have the same label across all the files.
+    * **Label completely**: Label all the instances of the entity in all your files.
 
-3. **Train the model**: Your model starts learning from your labeled data.
+* **Train the model**: Your model starts learning from your labeled data.
 
-4. **View the model's performance**: After training is completed, view the model's evaluation details, its performance and guidance on how to improve it. 
+* **View the model's performance**: After training is completed, view the model's evaluation details, its performance and guidance on how to improve it. 
 
-6. **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
+* **Deploy the model**: Deploying a model makes it available for use via the [Analyze API](https://aka.ms/ct-runtime-swagger).
 
-7. **Extract entities**: Use your custom models for entity extraction tasks.
+* **Extract entities**: Use your custom models for entity extraction tasks.
 
 ## Reference documentation and code samples
 

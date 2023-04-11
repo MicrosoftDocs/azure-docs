@@ -18,7 +18,7 @@ To start training your model from within the [Language Studio](https://aka.ms/La
 
 3. Select **Train a new model** and type in the model name in the text box. You can also **overwrite an existing model** by selecting this option and choosing the model you want to overwrite from the dropdown menu. Overwriting a trained model is irreversible, but it won't affect your deployed models until you deploy the new model.
 
-    :::image type="content" source="../../media/train-model.png" alt-text="Create a new training job" lightbox="../../media/train-model.png":::
+    :::image type="content" source="../../media/train-model.png" alt-text="A screenshot showing the training job creation screen in Language Studio." lightbox="../../media/train-model.png":::
     
 4. Select data splitting method. You can choose **Automatically splitting the testing set from training data** where the system will split your labeled data between the training and testing sets, according to the specified percentages. Or you can **Use a manual split of training and testing data**, this option is only enabled if you have added documents to your testing set.
 
