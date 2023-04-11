@@ -310,7 +310,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ```
 
 ## Demo
-Open your browser and navigate to http://localhost:8080/. Enter the meeting URL and the thread ID. Send some inline images from Teams client like this:
+Open your browser and navigate to `http://localhost:8080/`. Enter the meeting URL and the thread ID. Send some inline images from Teams client like this:
 
 :::image type="content" source="../../media/meeting-interop-features-inline-3.png" alt-text="A screenshot of Teams client shown a sent message reads: Here are some ideas, let me know what you think! The message aslo contains two inline images of room interior mockups":::
 
