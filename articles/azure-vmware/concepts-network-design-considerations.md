@@ -14,16 +14,16 @@ There are several networking considerations to review before you set up your Azu
 
 ## Azure VMware Solution compatibility with AS-Path Prepend
 
-Azure VMware Solution has considerations relating to the use of AS-Path Prepend for redundant ExpressRoute configurations. If you're running two or more ExpressRoute paths between on-premises and Azure, consider the following guidance for influencing traffic out of Azure VMware Solution towards your On-Premises location via ExpressRoute GlobalReach.
+Azure VMware Solution has considerations relating to the use of AS-Path Prepend for redundant ExpressRoute configurations. If you're running two or more ExpressRoute paths between on-premises and Azure, consider the following guidance for influencing traffic out of Azure VMware Solution towards your on-premises location via ExpressRoute GlobalReach.
 
-Connectivity issues can occur, due to asymmetric routing, when Azure VMware Solution doesn't observe AS-Path Prepend and therefore uses equal-cost multipath (ECMP) routing to send traffic toward your environment over both ExpressRoute circuits. This behaviour can cause problems with stateful firewall inspection devices placed behind existing ExpressRoute circuits.
+Due to asymmetric routing, connectivity issues can occur when Azure VMware Solution doesn't observe AS-Path Prepend and therefore uses equal-cost multipath (ECMP) routing to send traffic toward your environment over both ExpressRoute circuits. This behavior can cause problems with stateful firewall inspection devices placed behind existing ExpressRoute circuits.
 
 ### Prerequisites
 
 For AS-Path Prepend, consider the following:
 
 > [!div class="checklist"]
-> * The key point is that you must prepend **Public** ASN numbers to influence how AVS route's traffic back to On-Premises. If you prepend using _Private_ ASN, AVS will ignore the prepend, and the ECMP behaviour above will occur. Please note that even if you operate a Private BGP ASN On-Premises, it is still possible to configure your On-Premises devices to utilises Public ASN when prepending routes outbound, to ensure compatibiliy with Azure VMware Solution.
+> * The key point is that you must prepend **Public** ASN numbers to influence how AVS route's traffic back to on-premises. If you prepend using _Private_ ASN, AVS will ignore the prepend, and the ECMP behavior above will occur. Even if you operate a Private BGP ASN on-premises, it's still possible to configure your on-premises devices to utilizes Public ASN when prepending routes outbound, to ensure compatibility with Azure VMware Solution.
 > * Both or all circuits are connected to Azure VMware Solution through ExpressRoute Global Reach.
 > * The same netblocks are being advertised from two or more circuits.
 > * You wish to use AS-Path Prepend to force Azure VMware solution to prefer one circuit over another.
