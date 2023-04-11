@@ -22,15 +22,15 @@ App Configuration has two libraries for Spring.
 
 Both libraries support manual triggering to check for refreshed configuration values.
 
-Refresh allows you to update your configuration values without having to restart your application, though it will cause all beans in the `@RefreshScope` to be recreated. It checks for any changes to configured triggers, including metadata. By default, the minimum amount of time between checks for changes, refresh interval, is set to 30 seconds.
+Refresh allows you to update your configuration values without having to restart your application, though it causes all beans in the `@RefreshScope` to be recreated. It checks for any changes to configured triggers, including metadata. By default, the minimum amount of time between checks for changes, refresh interval, is set to 30 seconds.
 
-`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based on activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered, `spring-cloud-azure-appconfiguration-config-web`'s automated refresh will not trigger a refresh even if the cache expiration time has expired.
+`spring-cloud-azure-appconfiguration-config-web`'s automated refresh is triggered based on activity, specifically Spring Web's `ServletRequestHandledEvent`. If a `ServletRequestHandledEvent` is not triggered, `spring-cloud-azure-appconfiguration-config-web`'s automated refresh does not trigger a refresh even if the cache expiration time has expired.
 
 ## Use manual refresh
 
 To use manual refresh, start with a Spring Boot app that uses App Configuration, such as the app you create by following the [Spring Boot quickstart for App Configuration](quickstart-java-spring-app.md).
 
-App Configuration exposes `AppConfigurationRefresh` which can be used to check if the cache is expired and if it is expired trigger a refresh.
+App Configuration exposes `AppConfigurationRefresh`, which can be used to check if the cache is expired and if it is expired a refresh is triggered.
 
 1. Update HelloController to use `AppConfigurationRefresh`.
 
@@ -103,7 +103,7 @@ App Configuration exposes `AppConfigurationRefresh` which can be used to check i
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the refresh interval has passed.
+1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval has passed.
 
     | Key | Value |
     |---|---|
@@ -169,7 +169,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change will trigger the application to refresh all configuration keys once the refresh interval has passed.
+1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval has passed.
 
     | Key | Value |
     |---|---|
