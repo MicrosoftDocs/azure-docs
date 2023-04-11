@@ -6,19 +6,19 @@ ms.date: 04/11/2023
 ms.custom: seodec18
 ---
 
-# Use Spot VMs with Batch
+# Use Spot VMs with Batch workloads
 
 Azure Batch offers Spot virtual machines (VMs) to reduce the cost of Batch workloads. Spot VMs make new types of Batch workloads possible by enabling a large amount of compute power to be used for a low cost.
 
 Spot VMs take advantage of surplus capacity in Azure. When you specify Spot VMs in your pools, Azure Batch can use this surplus, when available.
 
-The tradeoff for using Spot VMs is that those VMs might not always be available to be allocated, or might be preempted at any time, depending on available capacity. For this reason, Spot VMs are most suitable for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
+The tradeoff for using Spot VMs is that those VMs might not always be available, or they might get preempted at any time, depending on available capacity. For this reason, Spot VMs are most suitable for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
 
 Spot VMs are offered at a reduced price compared with dedicated VMs. To learn more about pricing, see [Batch pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 ## Differences between Spot and low-priority VMs
 
-Batch offers two types of low-cost VMs that could be preempted:
+Batch offers two types of low-cost preemptible VMs:
 
 - [Spot VMs](../virtual-machines/spot-vms.md), a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
 - Low-priority VMs, a legacy offering only available through Azure Batch.
@@ -78,7 +78,7 @@ Keep in mind the following practices when planning your use of Spot VMs:
 
 A Batch pool can contain both dedicated and Spot VMs (also referred to as compute nodes). You can set the target number of compute nodes for both dedicated and Spot VMs. The target number of nodes specifies the number of VMs you want to have in the pool.
 
-For example, to create a pool using Azure virtual machines, in this case Linux VMs, with a target of 5 dedicated VMs and 20 Spot VMs:
+The following example creates a pool using Azure virtual machines, in this case Linux VMs, with a target of 5 dedicated VMs and 20 Spot VMs:
 
 ```csharp
 ImageReference imageRef = new ImageReference(
@@ -112,7 +112,7 @@ Pool nodes have a property to indicate if the node is a dedicated or Spot VM:
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-VMs might occasionally be preempted. When preemption happens, tasks that were running on the preempted node VMs are requeued and run again.
+Spot VMs might occasionally be preempted. When preemption happens, tasks that were running on the preempted node VMs are requeued and run again when capacity returns.
 
 For Virtual Machine Configuration pools, Batch also performs the following behaviors:
 
@@ -163,11 +163,11 @@ To view these metrics in the Azure portal:
 
 - Spot VMs in Batch don't support setting a max price and don't support price-based evictions. They can only be evicted for capacity reasons.
 - Spot VMs are only available for Virtual Machine Configuration pools and not for Cloud Service Configuration pools, which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
-- Spot VMs aren't available for some clouds, VM sizes, and subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations).
+- Spot VMs aren't available for some clouds, VM sizes, and subscription offer types. See more about [Spot VM limitations](../virtual-machines/spot-vms.md#limitations).
 - Currently, [ephemeral OS disks](create-pool-ephemeral-os-disk.md) aren't supported with Spot VMs due to the service-managed eviction policy of *Stop-Deallocate*.
 
 ## Next steps
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
-- Start to plan the move from low-priority VMs to Spot VMs. If you use low-priority VMs with **Cloud Services Configuration** pools (which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024)), plan to migrate to [Virtual Machine configuration pools](nodes-and-pools.md#configurations) instead.
+- Start to plan the move from low-priority VMs to Spot VMs. If you use low-priority VMs with *Cloud Services Configuration* pools (which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024)), plan to migrate to [Virtual Machine Configuration pools](nodes-and-pools.md#configurations) instead.
