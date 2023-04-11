@@ -266,6 +266,8 @@ items:
           href: how-tos/ui-library-sdk/theming.md
         - name: Participant view data injection
           href: how-tos/ui-library-sdk/data-model.md
+        - name: Bypass Setup Screen
+          href: how-tos/ui-library-sdk/skip-setup-screen.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
