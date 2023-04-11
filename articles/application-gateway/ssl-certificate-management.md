@@ -24,7 +24,7 @@ Here is a sample application gateway configuration. The SSLCertificates property
 ## Understanding the portal section (Preview)
 
 > [!IMPORTANT]
-> The **TLS certificate for Listeners** (TLS termination/End-to-end TLS) is a **Generally available** feature. Only its Portal management experience ([released in March 2023](https://azure.microsoft.com/en-in/updates/public-preview-listener-tls-certificates-management-available-in-the-azure-portal/)) is referred to as Preview.
+> The **TLS certificate for Listeners** (TLS termination/End-to-end TLS) is a **Generally available** feature. Only its Portal management experience ([released in March 2023](https://azure.microsoft.com/updates/public-preview-listener-tls-certificates-management-available-in-the-azure-portal/)) is referred to as Preview.
 
 ### Listener SSL certificates 
 
