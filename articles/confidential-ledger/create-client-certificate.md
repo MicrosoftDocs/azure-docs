@@ -5,7 +5,7 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: confidential-ledger
 ms.topic: overview
-ms.date: 0411/2023
+ms.date: 04/11/2023
 ms.author: mbaldwin
 
 ---
@@ -13,13 +13,13 @@ ms.author: mbaldwin
 
 The Azure confidential ledger APIs require client certificate-based authentication. Only those certificates added to an allowlist during ledger creation or a ledger update can be used to call the confidential ledger Functional APIs.
 
-You will need a certificate in PEM format. You can create more than one certificate and add or delete them using ledger Update API.
+You need a certificate in PEM format. You can create more than one certificate and add or delete them using ledger Update API.
 
 ## OpenSSL
 
 We recommend using OpenSSL to generate certificates. If you have git installed, you can run OpenSSL in the git shell. Otherwise, you can install OpenSSL for your OS.
 
-- **Windows**: Install [chocolatey for Windows](https://chocolatey.org/install), open a PowerShell terminal windows in admin mode, and run `choco install openssl`. Alternatively, you can install OpenSSL for Windows directly from [here](http://gnuwin32.sourceforge.net/packages/openssl.htm).
+- **Windows**: Install [chocolatey for Windows](https://chocolatey.org/install), open a PowerShell terminal window in admin mode, and run `choco install openssl`. Alternatively, you can install OpenSSL for Windows directly from [here](http://gnuwin32.sourceforge.net/packages/openssl.htm).
 - **Linux**:
   - Ubuntu:
 
