@@ -60,61 +60,171 @@ To manually configure Live Metrics:
 1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
 1. The following sample console app code shows setting up Live Metrics:
 
-    ```csharp
-    using Microsoft.ApplicationInsights;
-    using Microsoft.ApplicationInsights.Extensibility;
-    using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-    using System;
-    using System.Threading.Tasks;
-    
-    namespace LiveMetricsDemo
+# [.NET 6.0+](#tab/dotnet6)
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+
+// Create a TelemetryConfiguration instance.
+TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+QuickPulseTelemetryProcessor quickPulseProcessor = null;
+config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+    .Use((next) =>
     {
-        class Program
+        quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+        return quickPulseProcessor;
+    })
+    .Build();
+
+var quickPulseModule = new QuickPulseTelemetryModule();
+
+// Secure the control channel.
+// This is optional, but recommended.
+quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+quickPulseModule.Initialize(config);
+quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+// Create a TelemetryClient instance. It is important
+// to use the same TelemetryConfiguration here as the one
+// used to set up Live Metrics.
+TelemetryClient client = new TelemetryClient(config);
+
+// This sample runs indefinitely. Replace with actual application logic.
+while (true)
+{
+    // Send dependency and request telemetry.
+    // These will be shown in Live Metrics.
+    // CPU/Memory Performance counter is also shown
+    // automatically without any additional steps.
+    client.TrackDependency("My dependency", "target", "http://sample",
+        DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+    client.TrackRequest("My Request", DateTimeOffset.Now,
+        TimeSpan.FromMilliseconds(230), "200", true);
+    Task.Delay(1000).Wait();
+}
+```
+
+# [.NET 5.0](#tab/dotnet5)
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using System;
+using System.Threading.Tasks;
+
+namespace LiveMetricsDemo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                // Create a TelemetryConfiguration instance.
-                TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
-                config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
-                QuickPulseTelemetryProcessor quickPulseProcessor = null;
-                config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
-                    .Use((next) =>
-                    {
-                        quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
-                        return quickPulseProcessor;
-                    })
-                    .Build();
-    
-                var quickPulseModule = new QuickPulseTelemetryModule();
-    
-                // Secure the control channel.
-                // This is optional, but recommended.
-                quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
-                quickPulseModule.Initialize(config);
-                quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
-    
-                // Create a TelemetryClient instance. It is important
-                // to use the same TelemetryConfiguration here as the one
-                // used to set up Live Metrics.
-                TelemetryClient client = new TelemetryClient(config);
-    
-                // This sample runs indefinitely. Replace with actual application logic.
-                while (true)
+            // Create a TelemetryConfiguration instance.
+            TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+            config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+            QuickPulseTelemetryProcessor quickPulseProcessor = null;
+            config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+                .Use((next) =>
                 {
-                    // Send dependency and request telemetry.
-                    // These will be shown in Live Metrics.
-                    // CPU/Memory Performance counter is also shown
-                    // automatically without any additional steps.
-                    client.TrackDependency("My dependency", "target", "http://sample",
-                        DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
-                    client.TrackRequest("My Request", DateTimeOffset.Now,
-                        TimeSpan.FromMilliseconds(230), "200", true);
-                    Task.Delay(1000).Wait();
-                }
+                    quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+                    return quickPulseProcessor;
+                })
+                .Build();
+
+            var quickPulseModule = new QuickPulseTelemetryModule();
+
+            // Secure the control channel.
+            // This is optional, but recommended.
+            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+            quickPulseModule.Initialize(config);
+            quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+            // Create a TelemetryClient instance. It is important
+            // to use the same TelemetryConfiguration here as the one
+            // used to set up Live Metrics.
+            TelemetryClient client = new TelemetryClient(config);
+
+            // This sample runs indefinitely. Replace with actual application logic.
+            while (true)
+            {
+                // Send dependency and request telemetry.
+                // These will be shown in Live Metrics.
+                // CPU/Memory Performance counter is also shown
+                // automatically without any additional steps.
+                client.TrackDependency("My dependency", "target", "http://sample",
+                    DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+                client.TrackRequest("My Request", DateTimeOffset.Now,
+                    TimeSpan.FromMilliseconds(230), "200", true);
+                Task.Delay(1000).Wait();
             }
         }
     }
-    ```
+}
+
+```
+
+# [.NET Framework](#tab/dotnet-framework)
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using System;
+using System.Threading.Tasks;
+
+namespace LiveMetricsDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a TelemetryConfiguration instance.
+            TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+            config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+            QuickPulseTelemetryProcessor quickPulseProcessor = null;
+            config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+                .Use((next) =>
+                {
+                    quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+                    return quickPulseProcessor;
+                })
+                .Build();
+
+            var quickPulseModule = new QuickPulseTelemetryModule();
+
+            // Secure the control channel.
+            // This is optional, but recommended.
+            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+            quickPulseModule.Initialize(config);
+            quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+            // Create a TelemetryClient instance. It is important
+            // to use the same TelemetryConfiguration here as the one
+            // used to set up Live Metrics.
+            TelemetryClient client = new TelemetryClient(config);
+
+            // This sample runs indefinitely. Replace with actual application logic.
+            while (true)
+            {
+                // Send dependency and request telemetry.
+                // These will be shown in Live Metrics.
+                // CPU/Memory Performance counter is also shown
+                // automatically without any additional steps.
+                client.TrackDependency("My dependency", "target", "http://sample",
+                    DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+                client.TrackRequest("My Request", DateTimeOffset.Now,
+                    TimeSpan.FromMilliseconds(230), "200", true);
+                Task.Delay(1000).Wait();
+            }
+        }
+    }
+}
+```
+
+---
 
 The preceding sample is for a console app, but the same code can be used in any .NET applications. If any other telemetry modules are enabled to autocollect telemetry, it's important to ensure that the same configuration used for initializing those modules is used for the Live Metrics module.
 
@@ -198,23 +308,24 @@ It's possible to try custom filters without having to set up an authenticated ch
 
 You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService, and Azure Functions apps.
 
-#### ASP.NET
+# [.NET 6.0+](#tab/dotnet6)
 
-In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
+In the *Program.cs* file, add the following namespace:
 
-```xml
-<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
-      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add>
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
-#### ASP.NET Core
+Then add the following service registration:
 
-For [ASP.NET Core](./asp-net-core.md) applications, follow these instructions.
+```csharp
+// Existing code which includes services.AddApplicationInsightsTelemetry() to enable Application Insights.
+builder.Services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+```
 
-Modify `ConfigureServices` of your *Startup.cs* file as shown.
+# [.NET 5.0](#tab/dotnet5)
 
-Add the following namespace:
+In the *Startup.cs* file, add the following namespace:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
@@ -229,6 +340,19 @@ public void ConfigureServices(IServiceCollection services)
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 }
 ```
+
+# [.NET Framework](#tab/dotnet-framework)
+
+In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+      <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
+</Add>
+```
+
+
+---
 
 For more information on how to configure ASP.NET Core applications, see [Configuring telemetry modules in ASP.NET Core](./asp-net-core.md#configure-or-remove-default-telemetrymodules).
 
