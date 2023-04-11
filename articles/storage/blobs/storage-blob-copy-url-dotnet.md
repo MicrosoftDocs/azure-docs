@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp, devguide-csharp
 
 This article shows how to copy a blob from a source object URL using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). You can copy a blob from a source within the same storage account, from a source in a different storage account, or from any accessible object retrieved via HTTP GET request on a given URL.
 
-The client library methods covered in this article use the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) and [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operations. These methods are preferred for copy scenarios where you want to move data into a storage account and have a URL for the source object. For copy operations that require asynchronous scheduling, see [Copy a blob with asynchronous scheduling using .NET](storage-blob-copy.md).
+The client library methods covered in this article use the [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) and [Put Block From URL](/rest/api/storageservices/put-block-from-url) REST API operations. These methods are preferred for copy scenarios where you want to move data into a storage account and have a URL for the source object. For copy operations where you want asynchronous scheduling, see [Copy a blob with asynchronous scheduling using .NET](storage-blob-copy-async-dotnet.md).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To work with the code examples in this article, make sure you have:
 
 ## About copying blobs from a source object URL
 
-The `Put Blob From URL` operation creates a new block blob where the contents of the blob are read from a given URL. The operation completes synchronously. For append blobs, use [Append Block From URL](/rest/api/storageservices/append-block-from-url). For page blobs, use [Put Page From URL](/rest/api/storageservices/put-page-from-url).
+The `Put Blob From URL` operation creates a new block blob where the contents of the blob are read from a given URL. The operation completes synchronously.
 
 The source can be any object retrievable via a standard HTTP GET request on the given URL. This includes block blobs, append blobs, page blobs, blob snapshots, blob versions, or any accessible object inside or outside Azure.
 
