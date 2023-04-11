@@ -181,7 +181,7 @@ No, you're unable to restore your cluster after deleting it. When you delete you
 
 Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support does not include anything related to Kubernetes functionality and components, cluster or node pool creation, hotfixes, bug fixes, security patches, retired components, etc. See [platform support policy][supported-kubernetes-versions] for additional restrictions.
 
-AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee full support (link to full support definition) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
+AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee [full support](./supported-kubernetes-versions.md#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
 
 ## Will AKS automatically upgrade my unsupported clusters?
 

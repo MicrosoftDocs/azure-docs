@@ -136,7 +136,7 @@ Platform support policy is a reduced support plan for certain unsupported kubern
 
 Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 will be considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then be auto-upgraded to v1.26.
 
-AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee full support (link to full support definition) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
+AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee [full support](#kubernetes-version-support-policy) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
 
 This table outlines support guidelines for Community Support compared to Platform support.
 
@@ -163,7 +163,7 @@ This table outlines support guidelines for Community Support compared to Platfor
 | Node image upgrade| Supported | Not supported|
 
  > [!NOTE]
-  > The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components will not be supported for N-3. For further clarification, customers can open a docs issue or create a support ticket.
+  > The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components will not be supported for N-3. For further support, see [Support and troubleshooting for AKS](./aks-support-help.md).
 
 ### Supported `kubectl` versions
 
