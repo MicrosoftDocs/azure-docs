@@ -39,7 +39,7 @@ Aim to run the latest patch release of the minor version you're running. For exa
 View the upcoming version releases on the AKS Kubernetes release calendar. To see real-time updates of region release status and version release notes, visit the [AKS release status webpage][aks-release]. To learn more about the release status webpage, see [AKS release tracker][aks-tracker].
 
 > [!NOTE]
-> AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](https://learn.microsoft.com/azure/aks/supported-kubernetes-versions?tabs=azure-cli#faq).
+> AKS follows 12 months of support for a generally available (GA) Kubernetes version. To read more about our support policy for Kubernetes versioning, please read our [FAQ](#faq).
 
 For the past release history, see [Kubernetes history](https://en.wikipedia.org/wiki/Kubernetes#History).
 
@@ -59,7 +59,7 @@ For the past release history, see [Kubernetes history](https://en.wikipedia.org/
 
 With AKS, you can create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster will run the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster will run **`1.21.7`**, which is the latest GA patch version of *1.21*.
 
-When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch. If you wish to upgrade your patch version in the same minor version, please use [auto-upgrade](https://learn.microsoft.com/azure/aks/auto-upgrade-cluster#using-cluster-auto-upgrade).
+When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` won't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` will trigger an upgrade to the latest GA `1.15` patch. If you wish to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md#using-cluster-auto-upgrade).
 
 To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
 
@@ -83,7 +83,7 @@ AKS defines a GA version as a version enabled in all SLO or SLA measurements and
 
 AKS may also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
-AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". See [platform support policy][platform-suport-policy]].
+AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". For more information, see [platform support policy](#platform-support-policy).
 
 > [!NOTE]
 > AKS uses safe deployment practices which involve gradual region deployment. This means it may take up to 10 business days for a new release or a new version to be available in all regions.
@@ -131,13 +131,14 @@ New Supported Version List
 ```
 
 ## Platform Support Policy
+
 Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers will only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components will not be supported. 
 
 Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 will be considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then be auto-upgraded to v1.26.
 
 AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee full support (link to full support definition) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
 
-This table outlines suppport guidelines for Community Support compared to Platform support.
+This table outlines support guidelines for Community Support compared to Platform support.
 
 | Support category | Community Support (N-2) | Platform Support (N-3) | 
 |---|---|---|

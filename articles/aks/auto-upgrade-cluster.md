@@ -24,11 +24,11 @@ AKS follows a strict versioning window with regard to supportability. With prope
 
 ## Customer versus AKS-initiated auto-upgrades
 
-Customers can specify cluster auto-upgrade specifics in the guidance below. These upgrades will occur based on the cadence that the customer specifies and are recommended for customers to remain on supported kubernetes versions.
+Customers can specify cluster auto-upgrade specifics in the guidance below. These upgrades will occur based on the cadence that the customer specifies and are recommended for customers to remain on supported Kubernetes versions.
 
 AKS will also initiate auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS will automatically upgrade the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
 
- For example, kubernetes v1.25 will be upgraded to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance].
+For example, Kubernetes v1.25 will be upgraded to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance].
 
 ## Cluster auto-upgrade limitations
 
@@ -104,9 +104,9 @@ The following best practices will help maximize your success when using auto-upg
 - Follow [PDB best practices][pdb-best-practices].
 
 <!-- INTERNAL LINKS -->
-[supported-kubernetes-versions]: supported-kubernetes-versions.md
-[upgrade-aks-cluster]: upgrade-cluster.md
-[planned-maintenance]: planned-maintenance.md
+[supported-kubernetes-versions]: ./supported-kubernetes-versions.md
+[upgrade-aks-cluster]: ./upgrade-cluster.md
+[planned-maintenance]: ./planned-maintenance.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets
 [node-image-auto-upgrade]: auto-upgrade-node-image.md 
 

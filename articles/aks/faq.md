@@ -181,7 +181,7 @@ No, you're unable to restore your cluster after deleting it. When you delete you
 
 Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support does not include anything related to Kubernetes functionality and components, cluster or node pool creation, hotfixes, bug fixes, security patches, retired components, etc. See [platform support policy][supported-kubernetes-versions] for additional restrictions.
 
-AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee full support (link to full support definition) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
+AKS relies on the releases and patches from [Kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee full support (link to full support definition) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
 
 ## Will AKS automatically upgrade my unsupported clusters?
 
@@ -345,8 +345,8 @@ The extension **does not** require any additional outbound access to any URLs, I
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
-[auto-upgrade-cluster]: auto-upgrade-cluster.md
-[planned-maintenance]: planned-maintenance.md
+[auto-upgrade-cluster]: ./auto-upgrade-cluster.md
+[planned-maintenance]: ./planned-maintenance.md
 [aks-cluster-autoscale]: ./cluster-autoscaler.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration-cli.md
@@ -363,7 +363,7 @@ The extension **does not** require any additional outbound access to any URLs, I
 [multi-node-pools]: ./use-multiple-node-pools.md
 [availability-zones]: ./availability-zones.md
 [private-clusters]: ./private-clusters.md
-[supported-kubernetes-versions]: supported-kubernetes-versions.md
+[supported-kubernetes-versions]: ./supported-kubernetes-versions.md
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
