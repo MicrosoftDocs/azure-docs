@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/04/2022
+ms.date: 04/11/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
 # Plan an automatic user provisioning deployment in Azure Active Directory
 
-Many organizations rely on software as a service (SaaS) applications such as ServiceNow, Zscaler, and Slack for end-user productivity. Historically IT staff have relied on manual provisioning methods such as uploading CSV files, or using custom scripts to securely manage user identities in each SaaS application. These processes are error prone, insecure, and hard to manage.
+Many organizations rely on software as a service (SaaS) applications such as ServiceNow, Zscaler, and Slack for end-user productivity. Historically IT staff has relied on manual provisioning methods such as uploading CSV files, or using custom scripts to securely manage user identities in each SaaS application. These processes are error prone, insecure, and hard to manage.
 
 Azure Active Directory (Azure AD) automatic user provisioning simplifies this process by securely automating the creation, maintenance, and removal of user identities in SaaS applications based on business rules. This automation allows you to effectively scale your identity management systems on both cloud-only and hybrid environments as you expand their dependency on cloud-based solutions.
 
@@ -33,7 +33,7 @@ The key benefits of enabling automatic user provisioning are:
 
 * **Manage risk**. You can increase security by automating changes based on employee status or group memberships that define roles and/or access.
 
-* **Address compliance and governance**. Azure AD supports native audit logs for every user provisioning request. Requests are executed in both the source and target systems. This enables you to track who has access to applications from a single screen.
+* **Address compliance and governance**. Azure AD supports native audit logs for every user provisioning request. Requests are executed in both the source and target systems. Audit logs let you track who has access to applications from a single screen.
 
 * **Reduce cost**. Automatic user provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions, scripts, and audit logs.
 
@@ -43,7 +43,7 @@ Azure AD provides self-service integration of any application using templates pr
 
 #### Application licensing
 
-You'll need the appropriate licenses for the application(s) you want to automatically provision. Discuss with the application owners whether the users assigned to the application have the proper licenses for their application roles. If Azure AD manages automatic provisioning based on roles, the roles assigned in Azure AD must align to application licenses. Incorrect licenses owned in the application may lead to errors during the provisioning/updating of a user.
+You need the appropriate licenses for the application(s) you want to automatically provision. Discuss with the application owners whether the users assigned to the application have the proper licenses for their application roles. If Azure AD manages automatic provisioning based on roles, the roles assigned in Azure AD must align to application licenses. Incorrect licenses owned in the application may lead to errors during the provisioning/updating of a user.
 
 ### Terms
 
@@ -106,7 +106,7 @@ In this example, user creation occurs in Azure AD and the  Azure AD provisioning
 
 #### Automatic user provisioning for cloud HR applications 
 
-In this example, the users and or groups are created in a cloud HR application like such as Workday and SuccessFactors. The Azure AD provisioning service and Azure AD Connect provisioning agent provisions the user data from the cloud HR app tenant into AD. Once the accounts are updated in AD, it is synced with Azure AD through Azure AD Connect, and the email addresses and username attributes can be written back to the cloud HR app tenant.
+In this example, the users and or groups are created in a cloud HR application like such as Workday and SuccessFactors. The Azure AD provisioning service and Azure AD Connect provisioning agent provisions the user data from the cloud HR app tenant into AD. Once the accounts are updated in AD, it's synced with Azure AD through Azure AD Connect, and the email addresses and username attributes can be written back to the cloud HR app tenant.
 
 ![Picture 2](./media/plan-auto-user-provisioning/workdayprovisioning.png)
 
@@ -132,7 +132,7 @@ Communication is critical to the success of any new service. Proactively communi
 
 ### Plan a pilot
 
-We recommend that the initial configuration of automatic user provisioning be in a test environment with a small subset of users before scaling it to all users in production. See [best practices](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) for running a pilot.
+We recommend that the initial configuration of automatic user provisioning is in a test environment with a small subset of users before scaling it to all users in production. See [best practices](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) for running a pilot.
 
 #### Best practices for a pilot  
 
@@ -251,7 +251,7 @@ Choose the steps that align to your solution requirements.
 
 When the Azure AD provisioning service runs for the first time, the initial cycle against the source system and target systems creates a snapshot of all user objects for each target system.
 
-When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning.
+When you enable automatic provisioning for an application, the initial cycle takes anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning.
 
 The provisioning service stores the state of both systems after the initial cycle, improving performance of subsequent incremental cycles.
 
