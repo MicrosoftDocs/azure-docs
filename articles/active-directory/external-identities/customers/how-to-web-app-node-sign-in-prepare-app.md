@@ -1,6 +1,6 @@
 ---
-title: Sign in users in a sample Node.js web application by using Microsoft Entra
-description: Learn how to configure a sample web app to sign in and sign out users by using Microsoft Entra.
+title: Sign in users in my own Node.js web application by using Microsoft Entra- Prepare your web app
+description: Learn about how to prepare an app that Signs in users by using Microsoft Entra.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -16,4 +16,6 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in a sample Node.js web application by using Microsoft Entra
+# Sign in users in my own Node.js web application by using Microsoft Entra- Prepare your web app
+
+
