@@ -7,7 +7,7 @@ ms.date: 04/11/2023
 
 # Azure Batch job and task errors
 
-Various errors can happen when you add Azure Batch jobs and tasks or when you schedule and run jobs and tasks. It's usually straightforward to detect errors that occur when you add jobs and tasks. The API, command line, or user interface returns any failures immediately. This article covers how to check for and handle errors that occur after jobs and tasks are submitted.
+Various errors can happen when you add Azure Batch jobs and tasks or when you schedule and run jobs and tasks. It's straightforward to detect errors that occur when you add jobs and tasks. The API, command line, or user interface usually returns any failures immediately. This article covers how to check for and handle errors that occur after jobs and tasks are submitted.
 
 ## Job failures
 
