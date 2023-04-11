@@ -42,7 +42,7 @@ To connect to your remote compute instance:
 
 # [Studio -> VS Code (Web)](#tab/vscode-web)
 
-VS Code for the Web provides you with a **full-featured development environment** for building your machine learning projects, all from the browser and **without required installations or dependencies**. And by connecting your Azure Machine Learning compute instance, you get the the rich and integrated development experience VS Code offers, enhanced by the power of Azure Machine Learning.
+VS Code for the Web provides you with a **full-featured development environment** for building your machine learning projects, all from the browser and **without required installations or dependencies**. And by connecting your Azure Machine Learning compute instance, you get the rich and integrated development experience VS Code offers, enhanced by the power of Azure Machine Learning.
 
 Launch VS Code for the Web with one click from the Azure Machine Learning studio, and seamlessly continue your work.
 
