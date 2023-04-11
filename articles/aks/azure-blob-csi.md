@@ -2,7 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 03/09/2023
+ms.date: 03/29/2023
 
 ---
 
@@ -103,6 +103,10 @@ To use these storage classes, create a PVC and respective pod that references an
 To have a storage volume persist for your workload, you can use a StatefulSet. This makes it easier to match existing volumes to new Pods that replace any that have failed. The following examples demonstrate how to set up a StatefulSet for Blob storage using either Blobfuse or the NFS protocol.
 
 # [NFS](#tab/NFS)
+
+### Prerequisites
+
+- Your AKS cluster *Control plane* identity (that is, your AKS cluster name) is added to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role on the VNet and network security group.
 
 1. Create a file named `azure-blob-nfs-ss.yaml` and copy in the following YAML.
 

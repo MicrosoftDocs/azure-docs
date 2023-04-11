@@ -6,8 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
+ms.reviewer: erd
 ms.collection: windows
-ms.date: 12/05/2016
+ms.date: 03/29/2023
 
 ---
 
@@ -32,7 +33,7 @@ To export a Resource Group into a reusable template, complete the following step
 1. Sign in to the Azure portal
 2. On the Hub Menu, click Resource Groups
 3. Select the target resource group from the list
-4. In the Resource Group blade, click Automation Script
+4. In the Resource Group blade, select **Export template** under the **Automation** section
 
 ![Template Export](./media/export-templates/template-export.png)
 

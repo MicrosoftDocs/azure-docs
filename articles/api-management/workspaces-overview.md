@@ -139,6 +139,8 @@ Therefore, the following sample scenarios aren't currently supported in workspac
 
 * Specifying API authorization server information (for example, for the developer portal)
    
+Workspace APIs can't be published to self-hosted gateways.
+
 All resources in an API Management service need to have unique names, even if they are located in different workspaces.
 
 ## Next steps

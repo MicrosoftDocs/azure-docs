@@ -1,8 +1,7 @@
 ---
 title: Design your Azure Private Link setup
 description: This article shows how to design your Azure Private Link setup.
-author: noakup
-ms.author: noakuper
+ms.reviewer: noakuper
 ms.topic: conceptual
 ms.date: 12/14/2022
 ---
