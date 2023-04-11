@@ -26,7 +26,7 @@ your behalf in the supported region that's nearest to you:
 - Storage account: `cs<uniqueGuid>`
 - fileshare: `cs-<user>-<domain>-com-<uniqueGuid>`
 
-![Screenshot of choosing the subscription for your storage account][06]
+![Screenshot of choosing the subscription for your storage account.][06]
 
 The fileshare mounts as `clouddrive` in your `$HOME` directory. This is a one-time action, and the
 fileshare mounts automatically in subsequent sessions.
@@ -49,7 +49,7 @@ and zone-redundant storage (ZRS) accounts.
 > share. Which type of redundancy depends on your goals and price preference.
 > [Learn more about replication options for Azure Storage accounts][03].
 
-![Screenshot of configuring your storage account][05]
+![Screenshot of configuring your storage account.][05]
 
 ## Securing storage access
 
@@ -128,7 +128,7 @@ Cloud Shell persists files through both of the following methods:
 In Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the
 fileshare that's mounted to Cloud Shell.
 
-![Screenshot of running the clouddrive command in bash][07]
+![Screenshot of running the clouddrive command in bash.][07]
 
 ### List `clouddrive`
 
@@ -172,7 +172,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 
 To view more details, run `clouddrive mount -h`, as shown here:
 
-![Screenshot of running the clouddrive mount command in bash][12]
+![Screenshot of running the clouddrive mount command in bash.][12]
 
 ### Unmount clouddrive
 
@@ -187,7 +187,7 @@ The unmounted fileshare continues to exist until you manually delete it. After u
 Shell no longer searches for this fileshare in subsequent sessions. To view more details, run
 `clouddrive unmount -h`, as shown here:
 
-![Screenshot of running the clouddrive unmount command in bash][13]
+![Screenshot of running the clouddrive unmount command in bash.][13]
 
 > [!WARNING]
 > Although running this command doesn't delete any resources, manually deleting a resource group,
@@ -201,7 +201,7 @@ Shell no longer searches for this fileshare in subsequent sessions. To view more
 The `Get-CloudDrive` cmdlet retrieves the Azure fileshare information currently mounted by the
 `clouddrive` in Cloud Shell.
 
-![Screenshot of running the Get-CloudDrive command in PowerShell][11]
+![Screenshot of running the Get-CloudDrive command in PowerShell.][11]
 
 ### Unmount `clouddrive`
 
@@ -212,7 +212,7 @@ Dismounting the `clouddrive` terminates the current session.
 If the Azure fileshare has been removed, you'll be prompted to create and mount a new Azure
 fileshare in the next session.
 
-![Screenshot of running the Dismount-CloudDrive command in PowerShell][08]
+![Screenshot of running the Dismount-CloudDrive command in PowerShell.][08]
 
 ## Transfer local files to Cloud Shell
 
@@ -220,9 +220,9 @@ The `clouddrive` directory syncs with the Azure portal storage blade. Use this b
 local files to or from your file share. Updating files from within Cloud Shell is reflected in the
 file storage GUI when you refresh the blade.
 
-### Download files from the Azure Portal
+### Download files from the Azure portal
 
-![Screenshot listing local files in the Azure portal][09]
+![Screenshot listing local files in the Azure portal.][09]
 
 1. In the Azure portal, go to the mounted file share.
 1. Select the target file.
@@ -234,14 +234,14 @@ file storage GUI when you refresh the blade.
    **Download** option.
 1. In the **Download a file** dialog, enter the path to the file you want to download.
 
-   ![Screenshot of the download dialog box in Cloud Shell][10]
+   ![Screenshot of the download dialog box in Cloud Shell.][10]
 
    You can only download files located under your `$HOME` folder.
 1. Click the **Download** button.
 
 ### Upload files
 
-![Screenshot showing how to upload files in the Azure portal][14]
+![Screenshot showing how to upload files in the Azure portal.][14]
 
 1. Go to your mounted file share.
 1. Select the **Upload** button.
