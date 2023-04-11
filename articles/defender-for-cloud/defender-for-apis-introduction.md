@@ -24,16 +24,17 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 ## What can I do with Defender for APIs?
 
 - **Inventory**: Get an aggregated view of all managed APIs.  
-- **Insights**: Get insights into your APIs. Analyze APIs for security insights. Identify external, unused, and unauthenticated APIs. Review and get recommendations to harden at-risk surfaces. 
-- **Real time detection: Ingest API traffic and monitor it with runtime anomaly detection on traffic, using machine-learning and rule-based analytics. Detect security threats, including exploitation of the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats. 
-- **Defender for CSPM integration**: Integrate with Cloud Security Graph provided by the [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan, for API asset visibility and risk assessment.
+- **Insights**: Get API security insights. Review and implement security recommendations, and harden at-risk surfaces.
+- **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
+- **Defender for CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md), for API asset visibility and risk assessment.
 
 
-## Viewing your API inventory information
+## Reviewing inventory and insights
 
-In the Defender for Cloud portal, you can view information about APIs onboarded to Defender for APIs.
+Get insights on onboarded APIs in the API Security dashboard. The dashboard provides information about API collections and endpoints, as well as security posture recommendations and alerts.
 
-**Information** | **Details**
+
+**Dashboard information** | **Details**
 --- | ---
 Endpoint name | The name of API endpoint/operation as defined in Azure API Management.
 Endpoint | The URL path of the API endpoints, and the HTTPS method. 
@@ -46,18 +47,26 @@ Data classification | Classifies API request and response bodies based for suppo
 > [!NOTE]
 > API endpoints that haven't received any traffic since onboarding to Defender for APIs display the status *Awaiting data* in the API dashboard.
 
-## Hardening configurations and remediating risk
+## Reviewing security recommendations
+
+API recommendations include recommendations for onboarding APIs to Defender for APIs, disabling and removing unused APIs, and security, authentication, access control best practices.
+
+[Review the recommendations reference](recommendations-reference.md).
+
+
+## Hardening API configuration
 
 To identify and harden API configurations, you can apply API gateway security controls that support for monitoring controls against best practices. In addition, you can use Defender for Cloud's security recommendations to further identify critical API risks, and mitigate by risk priority.
 
 ## Detecting runtime threats
 
-Defender for APIs monitors runtime traffic and threat intelligence feeds to provide threat detection capabilities with security alerts. API alerts detect the top 10 OWASP threats, data exfiltration, volumetric attacks, anomalous and suspicious API usage patterns.
+Defender for APIs monitors runtime traffic and threat intelligence feeds and issues threat detection alerts. API alerts detect the top 10 OWASP threats, data exfiltration, volumetric attacks, anomalous and suspicious API parameters, traffic, IP access, and usage patterns.
 
+[Review the security alerts reference](alerts-reference.md)
 
-## Threat response 
+## Responding to threats
 
-Integrate or export Defender for Cloud alerts and recommendations into SIEM systems such as Microsoft Sentinel, for investigation within existing threat response workflows, for fast abd efficient remediation. [Learn more](export-to-siem.md).
+Act on recommendations and alerts to mitigate threats. Defender for Cloud alerts and recommendations can be exported into SIEM systems such as Microsoft Sentinel, for investigation within existing threat response workflows for fast and efficient remediation. [Learn more](export-to-siem.md).
 
 ## Investigating security risks
 
