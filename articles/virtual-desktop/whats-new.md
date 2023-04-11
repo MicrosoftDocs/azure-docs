@@ -24,9 +24,9 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in March 2023:
 
-### Redesigned connection bar for the Windows Desktop client in Insider
+### Redesigned connection bar for the Windows Desktop client
 
-The latest version of the Insider build for the Windows Desktop client includes a redesigned connection bar. For more information, see [Updates for version 1.2.4155 (Insider)](whats-new-client-windows.md#updates-for-version-124155-insider). 
+The latest version of the Windows Desktop client includes a redesigned connection bar. For more information, see [Updates for version 1.2.4155](whats-new-client-windows.md#updates-for-version-124157). 
 
 ### Shutdown session host status
 
