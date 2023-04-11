@@ -221,3 +221,4 @@ On Azure portal, add settings as follows:
 See the following related articles:
 - [Overview of Azure AD for SignalR](signalr-concept-authorize-azure-active-directory.md)
 - [Authorize request to SignalR resources with Azure AD from managed identities](signalr-howto-authorize-managed-identity.md)
+- [Disable local authentication](./howto-disable-local-auth.md)

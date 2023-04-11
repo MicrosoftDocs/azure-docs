@@ -13,6 +13,12 @@ ms.topic: conceptual
 
 There are two ways to authenticate to Azure Web PubSub Service resources: Azure Active Directory (Azure AD) and Access Key. Azure AD provides superior security and ease of use over access key. With Azure AD, there’s no need to store the tokens in your code and risk potential security vulnerabilities. We recommend that you use Azure AD with your Azure Web PubSub Service resources when possible.
 
+> [!IMPORTANT]
+> Disabling local authentication can have following influences.
+> - The current set of access keys will be permanently deleted. 
+> - Tokens signed with current set of access keys will become unavailable. 
+> - Signature will **NOT** be attached in the upstream request header. Please visit *[how to validate access token](./howto-use-managed-identity.md#validate-access-tokens)* to learn how to validate requests via Azure AD token.
+
 ## Use Azure portal
 
 In this section, you will learn how to use the Azure portal to disable local authentication.
@@ -89,5 +95,6 @@ You can assign the [Azure Web PubSub Service should have local authentication me
 
 See the following docs to learn about authentication methods.
 
+- [Overview of Azure AD for Web PubSub](concept-azure-ad-authorization.md)
 - [Authenticate with Azure applications](./howto-authorize-from-application.md)
 - [Authenticate with managed identities](./howto-authorize-from-managed-identity.md)

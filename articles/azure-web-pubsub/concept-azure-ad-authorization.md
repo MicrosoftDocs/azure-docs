@@ -78,10 +78,10 @@ You can scope access to Azure SignalR resources at the following levels, beginni
 
 ## Next steps
 
-To learn how to create an Azure application and use AAD Auth, see
+To learn how to create an Azure application and use Azure AD auth, see
 - [Authorize request to Web PubSub resources with Azure AD from Azure applications](howto-authorize-from-application.md)
 
-To learn how to configure a managed identity and use AAD Auth, see
+To learn how to configure a managed identity and use Azure AD auth, see
 - [Authorize request to Web PubSub resources with Azure AD from managed identities](howto-authorize-from-managed-identity.md)
 
 To learn more about roles and role assignments, see 
@@ -89,3 +89,6 @@ To learn more about roles and role assignments, see
 
 To learn how to create custom roles, see 
 - [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
+
+To learn how to use only Azure AD authentication, see
+- [Disable local authentication](./howto-disable-local-auth.md)

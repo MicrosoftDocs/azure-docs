@@ -104,5 +104,7 @@ We officially support 4 programming languages:
 ## Next steps
 
 See the following related articles:
+
 - [Overview of Azure AD for Web PubSub](concept-azure-ad-authorization.md)
 - [Authorize request to Web PubSub resources with Azure AD from Azure applications](howto-authorize-from-application.md)
+- [Disable local authentication](./howto-disable-local-auth.md)
