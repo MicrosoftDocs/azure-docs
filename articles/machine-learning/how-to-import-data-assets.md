@@ -43,7 +43,8 @@ To create and work with data assets, you need:
 
 ## Importing from external database sources / import from external sources to create a meltable data asset
 
->NOTE: The external databases can have Snowflake, Azure SQL, etc. formats.
+> [!NOTE] 
+> The external databases can have Snowflake, Azure SQL, etc. formats.
 
 The following code samples can import data from external databases. The `connection` that handles the import action determines the external database data source metadata. In this sample, the code imports data from a Snowflake resource. The connection points to a Snowflake source. With a little modification, the connection can point to an Azure SQL database source and an Azure SQL database source. The imported asset `type` from an external database source is `mltable`.
 

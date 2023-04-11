@@ -632,11 +632,11 @@
           href: how-to-administrate-data-authentication.md
         - name: Access data
           items:
-            - name: Use Connections
-              displayName: Use Connections
+            - name: Use connections
+              displayName: Use connections
               href: how-to-connection.md
-            - name: Import Data
-              displayName: Import Data
+            - name: Import data
+              displayName: Import data
               href: how-to-import-data-assets.md
         # v1
         - name: Access data
