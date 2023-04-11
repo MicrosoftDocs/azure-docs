@@ -39,134 +39,33 @@ The table below provides information on the required log categories for each tro
 | High temporary file usage                       | "PostgreSQL Query Store Runtime", "PostgreSQL Query Store Wait Statistics"                                                  | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity |
 
 
-
 > [!NOTE]
-> When deploying read replicas for persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica.
+> Please note that if you have recently enabled diagnostic settings, query store, or enhanced metrics, it may take some time for the data to be populated. Additionally, if there has been no activity on the database within a certain time frame, the charts might appear empty. In such cases, try changing the time range to capture relevant data. Be patient and allow the system to collect and display the necessary data before proceeding with your troubleshooting efforts.
 
-## Create a read replica
+## Using Troubleshooting guides
 
-To create a read replica, follow these steps:
+To use troubleshooting guides, follow these steps:
 
-1. Select an existing Azure Database for PostgreSQL server to use as the primary server.
+1. Open the Azure portal and find a Postgres instance that you want to examine.
 
-2. On the server sidebar, under **Settings**, select **Replication**.
+2. From the left-side menu, open Help > Troubleshooting guides.
 
-3. Select **Add Replica**.
+3. Navigate to the top of the page where you will find a series of tabs, each representing one of the six problems you may wish to resolve. Click on the relevant tab.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/add-replica.png" alt-text="Add a replica":::
+   :::image type="content" source="./media/how-to-troubleshooting-guides/portal-blade-overview.png" alt-text="Troubleshooting guides - tabular view":::
 
-4. Enter the Basics form with the following information.
+4. Select the time range during which the problem occurred.
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/basics.png" alt-text="Enter the Basics information":::
+    :::image type="content" source="./media/how-to-troubleshooting-guides/time-range.png" alt-text="Choose the time range of interest":::
 
-   > [!NOTE]
-   > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md).
+5. Follow the step-by-step instructions provided by the guide. Pay close attention to the charts and data visualizations plotted within the troubleshooting steps, as they can help you identify any inaccuracies or anomalies. Use this information to effectively diagnose and resolve the problem at hand.
 
-6. Select **Review + create** to confirm the creation of the replica or **Next: Networking** if you want to add, delete or modify any firewall rules.
-    :::image type="content" source="./media/how-to-read-replicas-portal/networking.png" alt-text="Modify firewall rules":::
-7. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page or proceed to the next forms to add tags or change data encryption method.
-8. Review the information in the final confirmation window. When you're ready, select **Create**.
-    :::image type="content" source="./media/how-to-read-replicas-portal/review.png" alt-text="Review the information in the final confirmation window":::
-
-After the read replica is created, it can be viewed from the **Replication** window.
-
-:::image type="content" source="./media/how-to-read-replicas-portal/list-replica.png" alt-text="View the new replica in the Replication window":::
-
-> [!IMPORTANT]
-> Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
->
-> To avoid issues during promotion of replicas always change the following server parameters on the replicas first, before applying them on the primary: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
-
-## Promote replicas
-
-You can promote replicas to become stand-alone servers serving read-write requests.
-
-> [!IMPORTANT]
-> Promotion of replicas cannot be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
-
-To promote replica from the Azure portal, follow these steps:
-
-1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
-
-2. On the server menu, under **Settings**, select **Replication**.
-
-3. Select the replica server for which to stop replication and hit **Promote**.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/select-replica.png" alt-text="Select the replica":::
-
-4. Confirm promote operation.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/confirm-promote.png" alt-text="Confirm to promote replica":::
-
-## Delete a primary server
-You can only delete primary server once all read replicas have been deleted. Follow the instruction in [Delete a replica](#delete-a-replica) section to delete replicas and then proceed with steps below.  
-
-To delete a server from the Azure portal, follow these steps:
-
-1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
-
-2. Open the **Overview** page for the server and select **Delete**.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-server.png" alt-text="On the server Overview page, select to delete the primary server":::
-
-3. Enter the name of the primary server to delete. Select **Delete** to confirm deletion of the primary server.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/confirm-delete.png" alt-text="Confirm to delete the primary server":::
-
-## Delete a replica
-
-You can delete a read replica similar to how you delete a standalone Azure Database for PostgreSQL server.
-
-- In the Azure portal, open the **Overview** page for the read replica. Select **Delete**.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica.png" alt-text="On the replica Overview page, select to delete the replica":::
-
-You can also delete the read replica from the **Replication** window by following these steps:
-
-1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
-
-2. On the server menu, under **Settings**, select **Replication**.
-
-3. Select the read replica to delete and hit the **Delete** button.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-replica02.png" alt-text="Select the replica to delete":::
-
-4. Acknowledge **Delete** operation.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/delete-confirm.png" alt-text="Confirm to delete te replica":::
-
-## Monitor a replica
-
-Two metrics are available to monitor read replicas.
-
-### Max Physical Replication Lag
-> Available only on the primary.
-
-The **Max Physical Replication Lag** metric shows the lag in bytes between the primary server and the most-lagging replica.
-
-1.	In the Azure portal, select the primary server.
-
-2.	Select **Metrics**. In the **Metrics** window, select **Max Physical Replication Lag**.
-
-    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Screenshot of the Metrics blade showing Max Physical Replication Lag metric.":::
-
-3.	For your **Aggregation**, select **Max**.
-
-### Read Replica Lag metric
-> Available only on replicas.
-
-The **Read Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your primary, the metric reflects this time lag. For instance if there are no transactions occurring on your primary server, and the last transaction was replayed 5 seconds ago, then the Read Replica Lag will show 5 second delay.
-
-1. In the Azure portal, select read replica.
-
-2. Select **Metrics**. In the **Metrics** window, select **Read Replica Lag**.
-
-   :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="  screenshot of the Metrics blade showing Read Replica Lag metric.":::
-    
-3. For your **Aggregation**, select **Max**.
 
 ## Next steps
 
-* Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
+* Learn more about [Troubleshoot high CPU utilization](how-to-high-cpu-utilization.md).
+* Learn more about [High memory utilization](how-to-high-memory-utilization.md).
+* Learn more about [Troubleshoot high IOPS utilization](how-to-high-io-utilization.md).
+* Learn more about [Autovacuum Tuning](how-to-autovacuum-tuning.md).
 
 [//]: # (* Learn how to [create and manage read replicas in the Azure CLI and REST API]&#40;how-to-read-replicas-cli.md&#41;.)
