@@ -321,7 +321,7 @@ az group create --name $RG --location $LOC
 
 Create a virtual network with two subnets to host the AKS cluster and the Azure Firewall. Each will have their own subnet. Let's start with the AKS network.
 
-```
+```azurecli
 # Dedicated virtual network with AKS subnet
 
 az network vnet create \
@@ -560,7 +560,7 @@ If you used authorized IP ranges for the cluster on the previous step, you must 
 
 Add another IP address to the approved ranges with the following command
 
-```bash
+```azurecli
 # Retrieve your IP address
 CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
