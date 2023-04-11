@@ -496,7 +496,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Private endpoint |
-> | **Description** | The private endpoint from which an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
+> | **Description** | The private endpoint over which an object is accessed.<br/>Use to restrict access over a specific private endpoint. |
 > | **Attribute** | `Microsoft.Network/privateEndpoints` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -524,7 +524,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Subnet name |
-> | **Description** | The subnet from which an object is accessed.<br/>Use to restrict access to a specific subnet. |
+> | **Description** | The subnet over which an object is accessed.<br/>Use to restrict access to a specific subnet. |
 > | **Attribute** | `Microsoft.Network/virtualNetworks/subnets` |
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
