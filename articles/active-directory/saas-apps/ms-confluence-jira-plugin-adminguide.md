@@ -59,7 +59,7 @@ Note the following information before you install the plug-in:
 
 The plug-in supports the following versions of Jira and Confluence:
 
-* Jira Core and Software: 6.0 to 9.1.0
+* Jira Core and Software: 6.0 to 9.7.0
 * Jira Service Desk: 3.0.0 to 4.22.1.
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md).
 * Confluence: 5.0 to 5.10.
@@ -129,7 +129,7 @@ JIRA:
 |Plugin Version   |                                   Release Notes                                           |       Supported JIRA versions       |
 |-----------------|-------------------------------------------------------------------------------------------|-------------------------------------|
 |  1.0.20         |   Bug Fixes:                                                                              | Jira Core and Software:             |
-|                 |   JIRA SAML SSO add-on redirects to incorrect URL from mobile browser.                 |  7.0.0 to 9.5.0                     |
+|                 |   JIRA SAML SSO add-on redirects to incorrect URL from mobile browser.                 |  7.0.0 to 9.7.0                     |
 |                 |   The mark log section after enabling the JIRA plugin.                                 |                                     |
 |                 |   The last login date for a user doesn't update when user signs in via SSO.           |                                     |
 |                 |                                                                                           |                                     |

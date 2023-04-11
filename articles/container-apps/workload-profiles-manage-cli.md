@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 03/28/2023
+ms.date: 04/10/2023
 ms.author: cshoe
 ---
 
@@ -93,19 +93,10 @@ Use the following commands to create an environment with a workload profile.
       --name "<NAME>" \
       --location "<LOCATION>" \
       --infrastructure-subnet-resource-id "<SUBNET_ID>"
-      --internal--only
+      --internal-only true
     ```
 
     ---
-
-      ```bash
-      az containerapp env create \
-        --enable-workload-profiles \
-        --resource-group "<RESOURCE_GROUP>" \
-        --name "<NAME>" \
-        --location "<LOCATION>" \
-        --infrastructure-subnet-resource-id "<SUBNET_ID>"
-      ```
 
       This command can take up to 10 minutes to complete.
 
@@ -129,7 +120,7 @@ Use the following commands to create an environment with a workload profile.
         --ingress external \
         --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
         --environment "<ENVIRONMENT_NAME>" \
-        --workload-profile-name "consumption"
+        --workload-profile-name "Consumption"
       ```
 
     This command deploys the application to the built in Consumption workload profile. If you want to create an app in a dedicated workload profile, you first need to [add the profile to the environment](#add-profiles).

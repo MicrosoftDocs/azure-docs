@@ -52,7 +52,7 @@ Upon error, the `key/release` POST method response carries a `StatusForbidden` h
 
 ## Custom implementation with your container application
 
-To perform a custom container application that extends the capability of Azure Key Vault (AKV) - Secure Key Release and Microsoft Azure Attestation (MAA), use the below as a high level reference flow. An easy approach is to review the current side-car implementation code in this [side-car Github project](https://github.com/microsoft/confidential-sidecar-containers/tree/d933d0f4e3d5498f7ed9137189ab6a23ade15466/pkg/common).
+To perform a custom container application that extends the capability of Azure Key Vault (AKV) - Secure Key Release and Microsoft Azure Attestation (MAA), use the below as a high level reference flow. An easy approach is to review the current side-car implementation code in this [side-car GitHub project](https://github.com/microsoft/confidential-sidecar-containers/tree/d933d0f4e3d5498f7ed9137189ab6a23ade15466/pkg/common).
 
 ![Image of the aforementioned operations, which you should be performing.](media/skr-flow-azure-container-instance-sev-snp-attestation/skr-flow-custom-container.png)
 

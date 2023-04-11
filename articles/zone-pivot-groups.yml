@@ -1016,6 +1016,20 @@ groups:
     title: Windows container
   - id: code-windows
     title: Windows code
+- id: app-service-getting-started-stacks
+  title: Language stacks
+  prompt: Choose a stack
+  pivots:
+  - id: stack-net
+    title: .NET
+  - id: stack-python
+    title: Python
+  - id: stack-nodejs
+    title: Node.js
+  - id: stack-java
+    title: Java
+  - id: stack-php
+    title: PHP       
 - id: programming-languages-spring-apps
 # Owner: karler
   title: Programming languages
@@ -1839,7 +1853,7 @@ groups:
   - id: client-clitier
     title: CLI
 # Owner: prakulka
-- id: acs-tollfree-shortcode
+- id: acs-tollfree-shortcode-alphanumeric
   title: Number Type
   prompt: Choose a Number Type
   pivots:
@@ -1847,6 +1861,8 @@ groups:
     title: Toll-Free
   - id: shortcode
     title: Short Code
+  - id: alphanumeric-senderid
+    title: Alphanumeric Sender ID
 # Owner: timlt
 - id: iot-develop-nxp-toolset
   title: IoT Devices
@@ -2224,6 +2240,16 @@ groups:
     title: Application provisioning
   - id: cross-tenant-synchronization
     title: Cross-tenant synchronization
+# Owner: rolyon
+- id: multi-tenant-organizations-powershell-graph
+  title: Microsoft Graph PowerShell or Microsoft Graph
+  prompt: Choose an option
+  pivots:
+  - id: ms-powershell
+    title: Microsoft Graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph
+# Owner:
 - id: deploy-python-web-app-postgressql
   title: Workflows
   prompt: Choose your path

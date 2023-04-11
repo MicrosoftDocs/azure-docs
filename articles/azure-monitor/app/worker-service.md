@@ -569,7 +569,7 @@ This section provides answers to common questions.
 
 | .NET Core app scenario | Package  |
 |---------|---------|
-| Without HostedServices                              | AspNetCore                     |
+| Without HostedServices                              | WorkerService                     |
 | With HostedServices                                 | AspNetCore (not WorkerService) |
 | With HostedServices, monitoring only HostedServices | WorkerService (rare scenario)  |
 
