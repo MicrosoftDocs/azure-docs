@@ -7,18 +7,17 @@
 
 
 ### How to access foundation models in AzureML
-'Model catalog' (preview) provides a catalog view of all models that you have access to via system registries. You can view the complete list of suported foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the 'azureml' registry.
+'Model catalog' (preview) provides a catalog view of all models that you have access to via system registries. You can view the complete list of supported foundation models in the [Model catalog](https://ml.azure.com/model/catalog), under the 'azureml' registry.
 ![image](./model_catalog.png)
 
 You can filter the list of models in the Model catalog by Task, or by license. Clicking on a specific model name will take you to the model card for that model, which lists detailed information about that specific model. For e.g. -
 ![image](./model_card.png)
 
 
-	* The 'task' tag on each model calls out the inferencing task that this pre-trained model can be used for. 
-	* The 'finetuning-tasks' property lists the tasks that this model can be fine tuned for. 
-	* The 'license' property calls out the licensing info NOTE: Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
-	* For more details about any given Hugging Face <modelID>, please view the model card at https://huggingface.co/<modelID>
-
+* The 'task' calls out the inferencing task that this pre-trained model can be used for. 
+* The 'finetuning-tasks' list the tasks that this model can be fine tuned for. 
+* The 'license' calls out the licensing info NOTE: Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
+Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
 
 
 ### How to finetune foundation models using your own training data
