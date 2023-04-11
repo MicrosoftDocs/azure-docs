@@ -376,7 +376,7 @@
       href: defender-for-apis-prepare.md
     - name: Deploy Defender for APIs
       href: defender-for-apis-deploy.md
-    - name: Review security alerts and posture
+    - name: Investigate recommendations, alerts, and risks
       href: defender-for-apis-posture.md
     - name: Manage Defender for APIs
       href: defender-for-apis-manage.md

@@ -7,7 +7,7 @@ ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
 ---
-# Review API security insights, alerts, and risks
+# Investigate API recommendations, alerts, and risks
 
 This article describes how to review security settings, security posture recommendations, security alerts, risk insights for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
 
