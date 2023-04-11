@@ -31,14 +31,14 @@ The following diagram outlines the basic elements of how the MedTech service tra
 
 ### Deployment
 
-In order to implement the MedTech service, you need to have these resources:
+In order to implement the MedTech service, you need to have these Azure resources available:
 
 * An Azure subscription.
 * A resource group.
 * An Azure Event Hubs namespace containing an event hub.
 * An Azure Health Data service workspace. 
 
-With the resources in place, you can now deploy the MedTech service and the FHIR service within the workspace. This setup creates the PaaS configuration required to receive and process device data from Internet of Things (IoT) devices.
+With the resources in place, you can now deploy the MedTech service and the FHIR service within the workspace. Granting the required MedTech service system-assigned managed identity permissions to the event hub and FHIR service creates the final configurations required to receive and process device data.
 
 ### Devices
 
