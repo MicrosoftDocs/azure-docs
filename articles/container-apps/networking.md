@@ -27,7 +27,7 @@ There are two architectures in Container Apps: the Consumption only architecture
 
 | Architecture Type | Description |
 |-----------|-------------|
-| Workload profiles architecture (preview) | Supports user defined routes (UDR) and egress through NAT Gateway when using a custom VNet. The minimum required subnet size is /27. |
+| Workload profiles architecture (preview) | Supports user defined routes (UDR) and egress through NAT Gateway when using a custom virtual network. The minimum required subnet size is /27. |
 | Consumption only architecture | Doesn't support user defined routes (UDR) and egress through NAT Gateway. The minimum required subnet size is /23. |
 
 ## Accessibility Levels
@@ -53,7 +53,7 @@ As you create a custom VNet, keep in mind the following situations:
   - You can restrict inbound requests to the environment exclusively to the VNet by deploying the environment as [internal](vnet-custom-internal.md).
 
 > [!NOTE]
-> When you provide your own VNet, additional [managed resources](networking.md#managed-resources) are created which incur billing.
+> When you provide your own virtual network, additional [managed resources](networking.md#managed-resources) are created, which incur billing.
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md) for important concerns surrounding running virtual networks on Azure.
 
