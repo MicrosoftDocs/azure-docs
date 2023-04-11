@@ -69,8 +69,12 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
-* When you use *ExchangeOnlineManagement* module version: 3.0.0 or higher, you may experience errors. To resolve the issue, ensure that you explicitly upload *PowerShellGet* and *PackageManagement* modules as well.
-* When you use `New-item` cmdlet, jobs might be suspended. To resolve the issue, follow the mitigation steps:
+* PowerShell runbooks can't retrieve an unencrypted [variable asset](./shared-resources/variables.md) with a null value.
+* PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
+* A [Get-Process](/powershell/module/microsoft.powershell.management/get-process) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
+* A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
+* When you use [ExchangeOnlineManagement](https://learn.microsoft.com/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or higher, you may experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](https://learn.microsoft.com/powershell/module/powershellget/?view=powershell-7.3) and [PackageManagement](https://learn.microsoft.com/powershell/module/packagemanagement/?view=powershell-7.3) modules as well.
+* When you use [New-item cmdlet](https://learn.microsoft.com/powershell/module/microsoft.powershell.management/new-item?view=powershell-5.1), jobs might be suspended. To resolve the issue, follow the mitigation steps:
     1. Consume the output of `new-item` cmdlet in a variable and **do not** write it to the output stream using `write-output` command. 
        - You can use debug or progress stream after you enable it from **Logging and Tracing** setting of the runbook.
         ```powershell-interactive
@@ -83,10 +87,6 @@ The following are the current limitations and known issues with PowerShell runbo
         if($item) { write-output "File Created" }
         ```
     1. You can also upgrade your runbooks to PowerShell 7.1 or PowerShell 7.2 where the same runbook will work as expected.
-* PowerShell runbooks can't retrieve an unencrypted [variable asset](./shared-resources/variables.md) with a null value.
-* PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
-* A [Get-Process](/powershell/module/microsoft.powershell.management/get-process) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
-* A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
 
 
 # [PowerShell 7.1 (preview)](#tab/lps71)
@@ -106,7 +106,6 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
-- When you use *ExchangeOnlineManagement* module version: 3.0.0 or higher, you may experience job failures. We recommend that you use    *ExchangeOnlineManagement* module version: 3.0.0 or lower.
 - Executing child scripts using `.\child-runbook.ps1` isn't supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference is not supported in PowerShell 7 runtime.
@@ -120,6 +119,7 @@ The following are the current limitations and known issues with PowerShell runbo
 - You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
 - When you import a PowerShell 7.1 module that's dependent on other modules, you may find that the import button is gray even when PowerShell 7.1 version of the dependent module is installed. For example, Az.Compute version 4.20.0, has a dependency on Az.Accounts being >= 2.6.0. This issue occurs when an equivalent dependent module in PowerShell 5.1 doesn't meet the version requirements. For example, 5.1 version of Az.Accounts were < 2.6.0.
 - When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
+- We recommend that you use [ExchangeOnlineManagement](https://learn.microsoft.com/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or lower because version: 3.0.0 or higher may lead to job failures.
 
 
 # [PowerShell 7.2 (preview)](#tab/lps72)
@@ -143,7 +143,6 @@ The following are the current limitations and known issues with PowerShell runbo
 
 **Known issues**
 
-- When you use *ExchangeOnlineManagement* module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload `PowerShellGet` and `PackageManagement` modules.
 - Executing child scripts using `.\child-runbook.ps1` is not supported in this preview.
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - Runbook properties defining logging preference is not supported in PowerShell 7 runtime.
@@ -153,6 +152,7 @@ The following are the current limitations and known issues with PowerShell runbo
 
       $ProgressPreference = "Continue"
   ```
+- When you use [ExchangeOnlineManagement](https://learn.microsoft.com/powershell/exchange/exchange-online-powershell?view=exchange-ps) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](https://learn.microsoft.com/powershell/module/powershellget/?view=powershell-7.3) and [PackageManagement](https://learn.microsoft.com/powershell/module/packagemanagement/?view=powershell-7.3) modules.
 ---
 
 ## PowerShell Workflow runbooks
