@@ -30,10 +30,14 @@ You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on th
 <b>Finetuning Settings</b>
 ![image](./finetune_quick_wizard.png)
 
-* <b>Finetuning task</b> Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (e.g. Text classification, Token classification, Question answering, etc). Select the task you would like to use from the drop down.
-* <b>Training Data</b> Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL, CSV or TSV format) or select an existing regsistered dataset from your workspace. Once you've selected the dataset, you will need to map the data columns based on the schema needed for the task. For e.g. map the column names that correspond to the 'sentence' and 'label' keys 
-* <b>Validation data</b> Pass in the data you would like to use to validate your model. Selecting 'Automatic' will reserve an automatic split of training data for validation
-* <b>Test data</b> Pass in the test data you would like to use to evaluate your model. Selecting 'Automatic' will reserve an automatic split of training data for test. Selecting 'None' will result in no evaluation being run on the fine-tuned model
+* <b>Finetuning task type</b> Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (e.g. Text classification, Token classification, Question answering, etc). Select the task you would like to use from the drop down.
+* <b>Training Data</b> Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL, CSV or TSV format) or select an existing regsistered dataset from your workspace. 
+
+	Once you've selected the dataset, you will need to map the columns from your input data, based on the schema needed for the task. For e.g. map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
+![image](./finetune_map_data_columns.png)
+
+* <b>Validation data</b> Pass in the data you would like to use to validate your model. Selecting 'Automatic split' will reserve an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
+* <b>Test data</b> Pass in the test data you would like to use to evaluate your finetuned model. Selecting 'Automatic split' will reserve an automatic split of training data for test. Selecting 'No test data' will result in no evaluation being run on the fine-tuned model. 
 * <b>Compute</b> Provide the AzureML Compute cluster you would like to use for finetuning the model. Fine tuning needs to run on GPU compute. We recommend using compute SKUs with A100 / V100 GPUs for this. Please ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
 
