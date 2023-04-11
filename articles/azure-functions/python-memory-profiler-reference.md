@@ -84,7 +84,7 @@ func new -l python -t HttpTrigger -n HttpTriggerSync -a anonymous
 
 ### Update file contents
 
-The requirements.txt defines the packages that are used in our project. Besides the Azure Functions SDK and memory-profiler, we introduce `aiohttp` for asynchronous HTTP requests and `requests` for synchronous HTTP calls.
+The *requirements.txt* defines the packages that are used in our project. Besides the Azure Functions SDK and memory-profiler, we introduce `aiohttp` for asynchronous HTTP requests and `requests` for synchronous HTTP calls.
 
 ```text
 # requirements.txt
@@ -164,7 +164,7 @@ After making all the above changes, there are a few more steps to initialize a P
 1. Open a Windows PowerShell or any Linux shell as you prefer.
 2. Create a Python virtual environment by `py -m venv .venv` in Windows, or `python3 -m venv .venv` in Linux.
 3. Activate the Python virtual environment with `.venv\Scripts\Activate.ps1` in Windows PowerShell or `source .venv/bin/activate` in Linux shell.
-4. Restore the Python dependencies with `pip install requirements.txt`
+4. Restore the Python dependencies with `pip install -r requirements.txt`
 5. Start the Azure Functions runtime locally with Azure Functions Core Tools `func host start`
 6. Send a GET request to `https://localhost:7071/api/HttpTriggerAsync` or `https://localhost:7071/api/HttpTriggerSync`.
 7. It should show a memory profiling report similar to the following section in Azure Functions Core Tools.
