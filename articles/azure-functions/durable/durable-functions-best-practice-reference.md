@@ -79,7 +79,7 @@ The Durable extension emits tracking events that allow you to trace the end-to-e
 #### Durable Task Framework
 Starting in v2.3.0 of the Durable extension, logs emitted by the underlying Durable Task Framework (DTFx) are also available for collection. See [details on how to enable these logs](durable-functions-diagnostics.md#durable-task-framework-logging).  
 
-### Azure Portal
+### Azure portal
 
 #### Diagnose and solve problems
 Azure Function App Diagnostics is a useful resource on Azure portal for monitoring and diagnosing potential issues in your application. It also provides suggestions to help resolve problems based on the diagnosis. See [Azure Function App Diagnostics](function-app-diagnostics.md). 

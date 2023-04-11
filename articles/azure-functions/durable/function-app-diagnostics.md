@@ -17,13 +17,13 @@ Azure Functions App Diagnostics is a useful resource in the Azure portal for mon
 
 2. Search for “Durable Functions” and select on the result.
 
-:::image type="content" source="media/durable-functions-best-practice/search-for-detector.png" alt-text="Screenshot showing how to search for Durable Functions detector.":::
+    :::image type="content" source="media/durable-functions-best-practice/search-for-detector.png" alt-text="Screenshot showing how to search for Durable Functions detector.":::
 
 3. You're now inside the Durable Functions detector, which checks for common problems Durable Functions apps tend to have. The detector also gives you links to tools and documentation you might find helpful. Go through the various insights in the detector to learn about the application’s health. Some examples of what the detector tells you include the Durable Functions extension version your app is using, performance issues, and any errors or warnings. If there are issues, you'll see suggestions on how to mitigate and resolve them.
 
-:::image type="content" source="media/durable-functions-best-practice/durable-functions-detector.png" alt-text="Screenshot of Durable Functions detector.":::
+    :::image type="content" source="media/durable-functions-best-practice/durable-functions-detector.png" alt-text="Screenshot of Durable Functions detector.":::
  
-### Other useful detectors
+## Other useful detectors
 On the left side of the window, there's a list of detectors designed to check for different problems. This section highlights a few. 
 
 The *Functions App Down or Report Errors* detector pulls results from different detectors checking key areas of your application that may be the cause of your application being down or reporting errors. The screenshot below shows the checks performed (not all 15 are captured in the screenshot) and the two issues requiring attention. 
