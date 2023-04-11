@@ -238,7 +238,7 @@ sections:
       - question: |
           Why am I getting 404 errors when attempting to POST data to speech-to-text container?
         answer: |        
-          Speech-to-text containers do not support REST API. The Speech SDK uses WebSockets. For more information, see [host URLs](speech-container-howto.md##use-the-speech-service).
+          Speech-to-text containers do not support REST API. The Speech SDK uses WebSockets. For more information, see [host URLs](speech-container-howto.md#use-the-speech-service).
           
           
       - question:  Why is the container running as a non-root user? What issues might occur because of this?
