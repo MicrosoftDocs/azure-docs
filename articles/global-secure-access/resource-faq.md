@@ -35,10 +35,10 @@ sections:
 
   - name: Branch connectivity
     questions:
-      question: |
-          What happens if a client is installed on a device and a branch is connected too?
-      answer: |
-          TBD      
+        - question: |
+            What happens if a client is installed on a device and a branch is connected too?
+          answer: |
+            TBD      
 
 additionalContent: |
     ## Next steps
