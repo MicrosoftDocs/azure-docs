@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 04/10/2023
+ms.date: 04/11/2023
 ms.author: jasteppe
 ---
 
@@ -96,7 +96,7 @@ The MedTech service enables you to easily modify and extend the capabilities of 
 
 ### Integration
 
-The MedTech service may also be integrated into our [open-source projects](git-projects.md) for ingesting device data from these wearables:
+The MedTech service may also be integrated for ingesting device data from these wearables using our [open-source projects](git-projects.md): 
 
 - Fitbit&#174;
 
