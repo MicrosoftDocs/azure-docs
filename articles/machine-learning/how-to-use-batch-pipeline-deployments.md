@@ -183,7 +183,7 @@ First, let's create the endpoint that is going to host the batch deployments. Re
 
 The `endpoint.yml` file contains the endpoint's configuration.
 
-```yml
+```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json
 name: hello-batch
 description: A hello world endpoint for component deployments
@@ -317,7 +317,7 @@ print(" [DONE]")
 
 The `deployment.yml` file contains the deployment's configuration.
 
-```yml
+```yaml
 $schema: http://azureml/sdk-2-0/BatchDeployment.json
 name: hello-batch-dpl
 description: A hello world deployment with a single step.
@@ -454,13 +454,13 @@ ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 ml_client.compute.begin_delete(name=compute_name)
 ```
 
+---
+
 ## Next steps
 
 - [Use batch model deployments for batch scoring](how-to-use-batch-model-deployments.md)
 - [How to deploy a training pipeline with batch endpoints](how-to-use-batch-training-pipeline.md)
-- [How to create a batch endpoint to perform batch scoring with pre-processing](how-to-use-batch-scoring-pipeline.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing](how-to-use-batch-scoring-pipeline.md)
 - [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
 - [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
-- [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md)
-- [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
