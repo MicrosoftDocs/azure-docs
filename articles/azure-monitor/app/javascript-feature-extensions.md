@@ -41,7 +41,7 @@ const clickPluginConfig = {
 };
 // Application Insights Configuration
 const configObj = {
-  instrumentationKey: "YOUR INSTRUMENTATION KEY",
+  connectionString: "YOUR CONNECTION STRING",
   extensions: [clickPluginInstance],
   extensionConfig: {
     [clickPluginInstance.identifier]: clickPluginConfig
@@ -69,7 +69,7 @@ Ignore this setup if you use the npm setup.
   }
   // Application Insights configuration
   var configObj = {
-    instrumentationKey: "YOUR INSTRUMENTATION KEY",
+    connectionString: "YOUR CONNECTION STRING",
     extensions: [
       clickPluginInstance
     ],
