@@ -65,7 +65,7 @@ To enable automatic guest VM patching on your Azure VMs now, follow these steps:
 You can update the patch orchestration option for existing VMs that either already have schedules associated or are to be newly associated with a schedule:  
 
 > [!NOTE]
-> If you set **Patch orchestration** as *Azure orchestrated*, the **BypassPlatformSafetyChecksOnUserSchedule** to *False* and there is no schedule associated, the VM(s) will be autopatched.
+> If the **Patch orchestration** is set as *Azure orchestrated*, the **BypassPlatformSafetyChecksOnUserSchedule** is set to *False* and there is no schedule associated, the VM(s) will be autopatched.
 
 # [Azure portal](#tab/prereq-portal)
 
