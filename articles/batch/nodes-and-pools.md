@@ -75,12 +75,12 @@ There are two types of pool configurations available in Batch.
 > [!IMPORTANT]
 > While you can currently create pools using either configuration, new pools should be configured using Virtual Machine Configuration and not Cloud Services Configuration. All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Services Configuration pools do not support all features and no new capabilities are planned. You won't be able to create new 'CloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
-> [!IMPORTANT]
-> To create VMSS resources with the **TrustedLaunch** feature, you must set the *securityType* property under the *securityProfile* section of the ARM template so that Batch sends *securityProfile* with **TrustedLauch** enabled in the ARM template to use this image. Currently, Batch does not support **TrustedLaunch** feature or configure *securityType* property in the ARM template, and does not include the *securityProfile* section of the template that is sent to ARM. 
-
 ### Virtual Machine Configuration
 
 The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
+
+> [!IMPORTANT]
+> Currently, Batch does not support [Trusted Launch VMs](../virtual-machines/trusted-launch.md). 
 
 The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
 
