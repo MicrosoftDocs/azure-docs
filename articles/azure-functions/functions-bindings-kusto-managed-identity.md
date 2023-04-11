@@ -1,3 +1,13 @@
+---
+title: Connect a function app to Kusto with managed identity - Preview
+description: Use mnagaed identity in Kusto bindings
+author: ramacg
+ms.topic: reference
+ms.date: 03/27/2023
+ms.author: ramacg
+ms.reviewer: 
+zone_pivot_groups: programming-languages-set-functions-lang-workers
+---
 # Tutorial: Connect a function app to Kusto with managed identity
 
 Azure Functions provides a [managed identity](../active-directory/managed-identities-azure-resources/overview.md), that can be used to access Kusto other Azure services. Managed identities makes it easy to centrally manage authentication without having to worry about storing Keys/Secrets in the code.
@@ -21,21 +31,21 @@ az identity create -g <RESOURCE GROUP> -n <managed-user-identity>
 
 ## Grant database access to the identity
 
-The permissions to the database can be granted as explained [here](https://learn.microsoft.com/en-us/azure/data-explorer/manage-database-permissions). From the portal, the created managed-user-identity (created in the above step)  can be assigned as a Database User or with Ingestor privileges depending on if we want to query (Input bindings) or ingest (Output bindings).
+The permissions to the database can be granted as explained [here](https://learn.microsoft.com/azure/data-explorer/manage-database-permissions). From the portal, the created managed-user-identity (created in the above step)  can be assigned as a Database User or with Ingestor privileges depending on if we want to query (Input bindings) or ingest (Output bindings).
 
-![alt](./media/functions-identity-access-kusto-with-managed-identity/managed-identity-permissions.png)
+![Managed identity permissions](./media/functions-identity-access-kusto-with-managed-identity/managed-identity-permissions.png)
 
 ## Enable user managed identity on Azure Function
 
 The created managed user identity can be attached as a user managed identity to the function
 
-![alt](./media/functions-identity-access-kusto-with-managed-identity/attach-managed-identity.png)
+![Attach a managed identity](./media/functions-identity-access-kusto-with-managed-identity/attach-managed-identity.png)
 
 ## Using the ManagedIdentity attribute in the function
 
 The client id created on the first step can then be used in the bindings to pass the identity to use in the function
 
-![alt](./media/functions-identity-access-kusto-with-managed-identity/choose-client-id.png)
+![Choose the client-id to use](./media/functions-identity-access-kusto-with-managed-identity/choose-client-id.png)
 
 The client id can be passed into the ManagedServiceIdentity attribute.
 
