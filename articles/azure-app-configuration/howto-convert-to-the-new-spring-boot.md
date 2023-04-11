@@ -52,7 +52,7 @@ All of the Azure Spring Boot libraries have had their Group and Artifact IDs upd
 > NOTE:
 > The 4.7.0 version is the first 4.x version of the library. This is to match the version of the other Spring Cloud Azure libraries.
 
-As of the 4.7.0 version, the App Configuration and Feature Management libraries are now part of the spring-cloud-azure-dependencies BOM. The BOM files makes it so that you no longer need to specify the version of the libraries in your project. The BOM will automatically manage the version of the libraries.
+As of the 4.7.0 version, the App Configuration and Feature Management libraries are now part of the spring-cloud-azure-dependencies BOM. The BOM file makes it so that you no longer need to specify the version of the libraries in your project. The BOM automatically manages the version of the libraries.
 
 ```xml
 <dependency>
@@ -71,7 +71,7 @@ The package path for the `spring-cloud-azure-feature-managment` and `spring-clou
 
 * `ConfigurationClientBuilderSetup` has been renamed to `ConfigurationClientCustomizer` and its `setup` method has been renamed to `customize`
 * `SecretClientBuilderSetup` has been renamed to `SecretClientCustomizer` and its `setup` method has been renamed to `customize`
-* `AppConfigurationCredentialProvider` and `KeyVaultCredentialProvider` have been removed. Instead you can use [Azure Spring common configuration properties](/azure/developer/java/spring-framework/configuration.md) or modify the credentials using `ConfigurationClientCustomizer`/`SecretClientCustomizer`.
+* `AppConfigurationCredentialProvider` and `KeyVaultCredentialProvider` have been removed. Instead you can use [Azure Spring common configuration properties](../developer/java/spring-framework/configuration.md) or modify the credentials using `ConfigurationClientCustomizer`/`SecretClientCustomizer`.
 
 ## Feature flag loading
 
@@ -89,7 +89,7 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.feature-flag-refresh-in
 
 ## Possible conflicts with Azure Spring global properties
 
-[Azure Spring common configuration properties](/azure/developer/java/spring-framework/configuration.md) enables you to customize your connections to Azure services. The new App Configuration library will picks up any global or app configuration setting configured with Azure Spring common configuration properties. Your connection to app configuration will change if the configurations have been set for another Azure Spring library.
+[Azure Spring common configuration properties](../developer/java/spring-framework/configuration.md) enables you to customize your connections to Azure services. The new App Configuration library will picks up any global or app configuration setting configured with Azure Spring common configuration properties. Your connection to app configuration will change if the configurations have been set for another Azure Spring library.
 
 > NOTE:
 > You can override this by using `ConfigurationClientCustomizer`/`SecretClientCustomizer` to modify the clients.
