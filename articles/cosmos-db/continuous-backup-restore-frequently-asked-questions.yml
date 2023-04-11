@@ -73,7 +73,6 @@ sections:
       - question: |
           Is continuous backup supported for Azure Synapse Link enabled accounts?
         answer: |
-
           No. Currently, continuous backup mode and Azure Synapse Link can't coexist in the same database account.
      
 additionalContent: |
