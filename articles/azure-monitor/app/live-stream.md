@@ -118,7 +118,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 using System;
 using System.Threading.Tasks;
 
-namespace LiveStream50
+namespace LiveMetricsDemo
 {
     internal class Program
     {
@@ -312,15 +312,13 @@ You can add an API key to configuration for ASP.NET, ASP.NET Core, WorkerService
 
 # [.NET 6.0+](#tab/dotnet6)
 
-Modify `ConfigureServices` of your *Program.cs* file as shown.
-
-Add the following namespace:
+In the *Program.cs* file, add the following namespace:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
-Then modify the `ConfigureServices` method:
+Then add the following service registration:
 
 ```csharp
 // Existing code which includes services.AddApplicationInsightsTelemetry() to enable Application Insights.
@@ -329,9 +327,7 @@ builder.Services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o
 
 # [.NET 5.0](#tab/dotnet5)
 
-Modify `ConfigureServices` of your *Startup.cs* file as shown.
-
-Add the following namespace:
+In the *Startup.cs* file, add the following namespace:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
