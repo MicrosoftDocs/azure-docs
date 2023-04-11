@@ -234,7 +234,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap created from the data in your App Configuration store with the following behavior:
     >
     > - The ConfigMap will fail to be created if a ConfigMap with the same name already exists in the same namespace.
-    > - The ConfigMap will be reset base on the present data in your App Configuration store if it's deleted or modified by any other means.
+    > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
 2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` for environment variables.
