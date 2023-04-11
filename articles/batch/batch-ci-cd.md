@@ -435,7 +435,7 @@ For each new task that the following steps specify:
 1. Select the **Download Pipeline Artifacts** task, and set the following properties:
    - **Display name**: Enter *Download ApplicationPackage to Agent*.
    - **Artifact name**: Enter *hpc-application*.
-   - **Destination directory**: Enter *$(System.DefaultWorkingDirectory)*.
+   - **Destination directory**: Enter `$(System.DefaultWorkingDirectory)`.
 
 1. Create a Storage account to store your ARM templates. You could use an existing storage account, but to support this self-contained example and isolation of content, make a dedicated storage account.
 
@@ -444,19 +444,19 @@ For each new task that the following steps specify:
    - **Azure Resource Manager connection**: Select the service connection to use.
    - **Subscription:** Select the appropriate Azure subscription.
    - **Action**: Select **Create or update resource group**.
-   - **Resource group**: Enter *$(resourceGroupName)*.
-   - **Location**: Enter *$(location)*.
-   - **Template**: Enter *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json*.
-   - **Override template parameters**: Enter *-accountName $(storageAccountName)*.
+   - **Resource group**: Enter `$(resourceGroupName)`.
+   - **Location**: Enter `$(location)`.
+   - **Template**: Enter `$(System.ArtifactsDirectory)/<AzureRepoArtifactSourceAlias>/arm-templates/storageAccount.json`.
+   - **Override template parameters**: Enter `-accountName $(storageAccountName)`.
 
 1. Upload the artifacts from source control into the storage account. As part of this Azure Pipelines task, the Storage account container URI and SAS token are output to a variable in Azure Pipelines, so they can be reused throughout this agent phase.
 
    Select the **Azure File Copy** task, and set the following properties:
    - **Display name:** Enter *AzureBlob File Copy*.
-   - **Source:** Enter *$(System.ArtifactsDirectory)/\<AzureRepoArtifactSourceAlias>/arm-templates/*.
+   - **Source:** Enter `$(System.ArtifactsDirectory)/<AzureRepoArtifactSourceAlias>/arm-templates/`.
    - **Azure Subscription:** Select the appropriate Azure subscription.
    - **Destination Type**: Select **Azure Blob**.
-   - **RM Storage Account**: Enter *$(storageAccountName)*.
+   - **RM Storage Account**: Enter `$(storageAccountName)`.
    - **Container Name**: Enter *templates*.
    - **Reference name**: Expand **Output Variables**, then enter *ffmpeg*.
 
@@ -470,11 +470,11 @@ For each new task that the following steps specify:
    - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
    - **Subscription:** Select the appropriate Azure subscription.
    - **Action**: Select **Create or update resource group**.
-   - **Resource group**: Enter *$(resourceGroupName)*.
-   - **Location**: Enter *$(location)*.
+   - **Resource group**: Enter `$(resourceGroupName)`.
+   - **Location**: Enter `$(location)`.
    - **Template location**: Select **URL of the file**.
-   - **Template link:** Enter *$(StorageContainerUri)arm-templates/deployment.json$(StorageContainerSasToken)*.
-   - **Override template parameters**: Enter *-StorageContainerUri $(StorageContainerUri) -StorageContainerSasToken $(StorageContainerSasToken) -applicationStorageAccountName $(applicationStorageAccountName) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName)*.
+   - **Template link:** Enter `$(StorageContainerUri)arm-templates/deployment.json$(StorageContainerSasToken)`.
+   - **Override template parameters**: Enter `-StorageContainerUri $(StorageContainerUri) -StorageContainerSasToken $(StorageContainerSasToken) -applicationStorageAccountName $(applicationStorageAccountName) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName)`.
 
    A common practice is to use Azure Key Vault tasks. If the service principal connected to your Azure subscription has an appropriate access policy set, it can download secrets from Key Vault and be used as a variable in your pipeline. The name of the secret is set with the associated value. For example, you could reference a secret of **sshPassword** with *$(sshPassword)* in the release definition.
 
@@ -485,7 +485,7 @@ For each new task that the following steps specify:
    - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
    - **Script Type**: Select **PowerShell Core**.
    - **Script Location**: Select **Inline script**.
-   - **Inline Script**: Enter *az batch application create --application-name $(batchAccountApplicationName) --name $(batchAccountName) --resource-group $(resourceGroupName)*.
+   - **Inline Script**: Enter `az batch application create --application-name $(batchAccountApplicationName) --name $(batchAccountName) --resource-group $(resourceGroupName)`.
 
 1. Call Azure CLI to upload associated packages to the application, in this case the ffmpeg files.
 
@@ -494,7 +494,7 @@ For each new task that the following steps specify:
    - **Azure Resource Manager connection:** Select the appropriate Azure subscription.
    - **Script Type**: Select **PowerShell Core**.
    - **Script Location**: Select **Inline script**.
-   - **Inline Script**: Enter *az batch application package create --application-name $(batchAccountApplicationName)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.<AzureBuildArtifactSourceAlias>.BuildId).zip*.
+   - **Inline Script**: Enter `az batch application package create --application-name $(batchAccountApplicationName)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.<AzureBuildArtifactSourceAlias>.BuildId).zip`.
 
    > [!NOTE]
    > The version number of the application package is set to a variable. The variable allows overwriting previous versions of the package and lets you manually control the package version pushed to Azure Batch.
