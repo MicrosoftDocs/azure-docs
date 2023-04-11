@@ -66,6 +66,12 @@ There are some ways to decrease the impact of vulnerabilities:
 - Compartmentalize your environment so you can scope and fix issues in one place.
 - Understand flagged vulnerabilities and their relevance to your scenario.
 
+### Scan for Vulnerabilities 
+
+You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
+
+To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
+
 ### Vulnerabilities vs Reproducibility
 
 Reproducibility is one of the foundations of software development. When you're developing production code, a repeated operation must guarantee the same
@@ -96,15 +102,9 @@ You use system-managed environments when you want conda to manage the Python env
 latest image may be a tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
 for your jobs or model deployments while using system-managed environments.
 
-### Scan for Vulnerabilities 
-
-You can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md) to help scan images for vulnerabilities. 
-
-To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
-
 ### Vulnerabilities: Common Issues 
 
-### Vulnerabilities in Base Docker Images 
+### *Vulnerabilities in Base Docker Images* 
 
 System vulnerabilities in an environment are usually introduced from the base image. For example, vulnerabilities marked as "Ubuntu" or "Debian" are from the system level of the environment–the base Docker image. If the base image is from a third-party issuer, please check if the latest version has fixes for the flagged vulnerabilities. Most common sources for the base images in Azure Machine Learning are:
 
@@ -119,7 +119,7 @@ If the latest version of your base image does not resolve your vulnerabilities, 
 apt-get install -y library_name
 ```
 
-### Vulnerabilities in Python Packages 
+### *Vulnerabilities in Python Packages* 
 
 Vulnerabilities can also be from installed Python packages on top of the system-managed base image. These Python-related vulnerabilities should be resolved by updating your Python dependencies. Python (pip) vulnerabilities in the image usually come from user-defined dependencies.
 
@@ -133,7 +133,7 @@ or if you're using a conda environment, update the reference in the conda depend
 
 In some cases, Python packages will be automatically installed during conda's setup of your environment on top of a base Docker image. Mitigation steps for those are the same as those for user-introduced packages. Conda installs necessary dependencies for every environment it materializes. Packages like cryptography, setuptools, wheel, etc. will be automatically installed from conda's default channels. There's a known issue with the default anaconda channel missing latest package versions, so it's recommended to prioritize the community-maintained conda-forge channel. Otherwise, please explicitly specify packages and versions, even if you don't reference them in the code you plan to execute on that environment.
 
-### Cache issues 
+### *Cache issues* 
 
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's a cache for container images. Any image
 materialized is pushed to the container registry and used if you trigger experimentation or deployment for the corresponding environment. Azure
