@@ -75,7 +75,7 @@ On the initial connection, you may be prompted to install the Azure Machine Lear
 
 Navigate to [ml.azure.com](https://ml.azure.com)
 
-You can create the connection from either the Notebooks or Compute section of Azure Machine Learning studio.
+You can create the connection from either the **Notebooks** or **Compute** section of Azure Machine Learning studio.
 
 * Notebooks
 
