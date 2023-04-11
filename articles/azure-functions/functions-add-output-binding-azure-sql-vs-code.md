@@ -45,17 +45,17 @@ More details on the settings for [Azure SQL bindings and trigger for Azure Funct
     |**Password**|Enter a password that meets the complexity requirements.|
     |**Allow Azure services and resources to access this server**|Select **Yes**.|
 
-1. Once the creation has completed, navigate to the database blade in the Azure Portal, and, under **Settings**, select **Connection strings**. Copy the **ADO.NET** connection string for **SQL authentication**. Paste the connection string into a temporary document for later use.
+1. Once the creation has completed, navigate to the database blade in the Azure portal, and, under **Settings**, select **Connection strings**. Copy the **ADO.NET** connection string for **SQL authentication**. Paste the connection string into a temporary document for later use.
 
-    :::image type="content" source="./media/functions-add-output-binding-azure-sql-vs-code/adonet-connection-string.png" alt-text="Copying the Azure SQL Database connection string" border="true":::
+    :::image type="content" source="./media/functions-add-output-binding-azure-sql-vs-code/adonet-connection-string.png" alt-text="Screenshot of copying the Azure SQL Database connection string in the Azure portal." border="true":::
 
-1. Create a table to store the data from the HTTP request. In the Azure Portal, navigate to the database blade and select **Query editor**. Enter the following query to create a table named `dbo.ToDo`:
+1. Create a table to store the data from the HTTP request. In the Azure portal, navigate to the database blade and select **Query editor**. Enter the following query to create a table named `dbo.ToDo`:
 
     :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-1. Verify that your Azure Function will be able to access the Azure SQL Database by checking the [server's firewall settings](/azure/azure-sql/database/network-access-controls-overview#allow-azure-services). Navigate to the **server blade** on the Azure Portal, and under **Security**, select **Networking**.  The exception for **Allow Azure services and resources to access this server** should be checked.
+1. Verify that your Azure Function will be able to access the Azure SQL Database by checking the [server's firewall settings](/azure/azure-sql/database/network-access-controls-overview#allow-azure-services). Navigate to the **server blade** on the Azure portal, and under **Security**, select **Networking**.  The exception for **Allow Azure services and resources to access this server** should be checked.
 
-    :::image type="content" source="./media/functions-add-output-binding-azure-sql-vs-code/manage-server-firewall.png" alt-text="Checking the Azure SQL Database firewall settings" border="true":::
+    :::image type="content" source="./media/functions-add-output-binding-azure-sql-vs-code/manage-server-firewall.png" alt-text="Screenshot of checking the Azure SQL Database firewall settings in the Azure portal." border="true":::
 
 ## Update your function app settings
 
@@ -481,7 +481,7 @@ def test_function(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> fu
 
 1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the `HttpExample` function and choose **Execute Function Now...**.
 
-    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Execute function now from Visual Studio Code":::
+    :::image type="content" source="../../includes/media/functions-run-function-test-local-vs-code/execute-function-now.png" alt-text="Screenshot of execute function now menu item from Visual Studio Code.":::
 
 1. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.
 
@@ -492,7 +492,7 @@ def test_function(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> fu
 
 1. On the Azure portal, go back to your Azure SQL Database and select **Query editor**.
 
-    :::image type="content" source="./media/functions-add-output-binding-azure-sql-vs-code/query-editor-login.png" alt-text="Logging in to query editor" border="true":::
+    :::image type="content" source="./media/functions-add-output-binding-azure-sql-vs-code/query-editor-login.png" alt-text="Screenshot of logging in to query editor on the Azure portal." border="true":::
 
 1. Connect to your database and expand the **Tables** node in object explorer on the left. Right-click on the `dbo.ToDo` table and select **Select Top 1000 Rows**.
 

@@ -132,7 +132,7 @@ In addition to the required ConnectionStringSetting [application setting](./func
 |---------|---------|
 |**Sql_Trigger_BatchSize** |The maximum number of changes processed with each iteration of the trigger loop before being sent to the triggered function. The default value is 100.|
 |**Sql_Trigger_PollingIntervalMs**|The delay in milliseconds between processing each batch of changes. The default value is 1000 (1 second).|
-|**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
+|**Sql_Trigger_MaxChangesPerWorker**|The upper limit on the number of pending changes in the user table that are allowed per application-worker. If the count of changes exceeds this limit, it may result in a scale-out. The setting only applies for Azure Function Apps with [runtime driven scaling enabled](#enable-runtime-driven-scaling). The default value is 1000.|
 
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -176,12 +176,12 @@ Optionally, your functions can scale automatically based on the number of change
 Further information on the SQL trigger [retry support](https://github.com/Azure/azure-functions-sql-extension/blob/release/trigger/docs/BindingsOverview.md#retry-support-for-trigger-bindings) and [leases tables](https://github.com/Azure/azure-functions-sql-extension/blob/release/trigger/docs/TriggerBinding.md#internal-state-tables) is available in the GitHub repository.
 
 ### Startup retries
-If an exception occurs during startup then the host runtime automatically attempts to restart the trigger listener with an exponential backoff strategy. These retries continue until either the listener is successfully started or the startup is cancelled.
+If an exception occurs during startup then the host runtime automatically attempts to restart the trigger listener with an exponential backoff strategy. These retries continue until either the listener is successfully started or the startup is canceled.
 
 ### Broken connection retries
 If the function successfully starts but then an error causes the connection to break (such as the server going offline) then the function continues to try and reopen the connection until the function is either stopped or the connection succeeds. If the connection is successfully re-established then it picks up processing changes where it left off.
 
-Note that these retries are outside the built in idle connection retry logic that SqlClient has which can be configured with the `ConnectRetryCount` and `ConnectRetryInterval` [connection string options](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString). The built-in idle connection retries are attempted first and if those fail to reconnect then the trigger binding attempts to re-establish the connection itself.
+Note that these retries are outside the built-in idle connection retry logic that SqlClient has which can be configured with the `ConnectRetryCount` and `ConnectRetryInterval` [connection string options](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString). The built-in idle connection retries are attempted first and if those fail to reconnect then the trigger binding attempts to re-establish the connection itself.
 
 ### Function exception retries
 If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the timeout period has elapsed.
