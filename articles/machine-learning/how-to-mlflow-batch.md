@@ -1,5 +1,5 @@
 ---
-title: "Using MLflow models in batch model deployments"
+title: "Using MLflow models in batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy MLflow models in batch deployments
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: devplatv2, devx-track-azurecli
 ---
 
-# Use MLflow models in batch model deployments
+# Use MLflow models in batch deployments
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
