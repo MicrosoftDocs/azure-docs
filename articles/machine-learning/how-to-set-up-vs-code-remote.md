@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: lebaro-msft
-author: lebaro
+ms.author: lebaro
+author: lebaro-msft
 ms.reviewer: sgilley 
 ms.date: 04/10/2023
 # As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
