@@ -98,7 +98,7 @@ To generalize your Windows VM, follow these steps:
    Registry key Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\cdrom\start (Value 4 = disabled, expected value 1 = automatic) Make sure it is set to 1.
    ```
 > [!NOTE]
-   > Verify if any policies applied restricting removable storage access (example: Computer configuration\Administrative Templates\System\Removalble Storage Access\All Removalble Storage classes: Deny all access)
+   > Verify if any policies applied restricting removable storage access (example: Computer configuration\Administrative Templates\System\Removable Storage Access\All Removable Storage classes: Deny all access)
 
 
 5. Then change the directory to %windir%\system32\sysprep, and then run:
