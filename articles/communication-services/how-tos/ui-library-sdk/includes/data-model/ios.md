@@ -12,22 +12,22 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Local Participant View Data Injection
 
-The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a UIimage that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a UIimage that represents the avatar to render, and a display name they can optionally display instead. None of this information is sent to Azure Communication Services and is held locally in the UI library.
 
 #### Local Options
 
-`LocalOptions` is data model that consists of `ParticipantViewData` and `SetupScreenViewData`.  By default for `ParticipantViewData`, the UI library displays the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components. 
+`LocalOptions` is data model that consists of `ParticipantViewData` and `SetupScreenViewData`.  By default for `ParticipantViewData`, the UI library displays the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` are displayed in all avatar components. 
 
-Similarly, for 'SetupScreenViewData', by default the UI library displays 'Setup' as the title and subtitle is set to hidden. The `title` and `subtitle` in 'SetupScreenViewData' would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. 
+Similarly, for 'SetupScreenViewData', by default, the UI library displays 'Setup' as the title and nothing as subtitle. The `title` and `subtitle` in 'SetupScreenViewData' overwrites the navigation bar's title and subtitle in premeeting screen respectively. 
 
-#### Participant View Data
+#### Local Participant View Data
 
-`ParticipantViewData` is an object that sets the `displayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information, and it will always be locally stored and never sent up to the server.
+`ParticipantViewData` is an object that sets the `displayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information. It's stored locally and never sent up to the server.
 
 #### Setup Screen View Data
 
-`SetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (also known as Setup View). If `SetupScreenViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, isn't required. 
-If `subtitle` isn't defined, then the subtitle would always be set to hidden. This class is locally stored and its information won't be sent up to the server.
+`SetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on premeeting screen (also known as Setup View). If `SetupScreenViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, isn't required. 
+If `subtitle` isn't defined, then it's hidden. This class is locally stored and its information isn't sent up to the server.
 
 #### Usage
 
@@ -53,7 +53,7 @@ callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 
 ### Remote Participant View Data Injection
 
-On remote participant join, developers can inject the participant view data for remote participant. This participant view data can contain a UIImage that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+On remote participant join, developers can inject the participant view data for remote participant. This participant view data can contain a UIImage that represents the avatar to render, and a display name they can optionally display instead. None of this information is sent to Azure Communication Services and is held locally in the UI library.
 
 #### Usage
 
