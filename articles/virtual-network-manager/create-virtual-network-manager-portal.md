@@ -35,7 +35,7 @@ Deploy a network manager instance with the defined scope and access you need.
 
 1. On the **Basics** tab, enter or select the following information:
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics-thumbnail.png" alt-text="Screenshot of Create a network manager Basics page." lightbox=".media/create-virtual-network-manager-portal/network-manager-basics.png":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics-thumbnail.png" alt-text="Screenshot of Create a network manager Basics page." lightbox="./media/create-virtual-network-manager-portal/network-manager-basics-thumbnail.png":::
 
     | Setting | Value |
     | ------- | ----- |
