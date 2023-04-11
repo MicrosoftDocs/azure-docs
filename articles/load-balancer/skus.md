@@ -6,7 +6,8 @@ author: mbender-ms
 ms.service: load-balancer
 ms.topic: reference
 ms.workload: infrastructure-services
-ms.date: 12/22/2021
+ms.date: 04/11/2023
+ms.custom: engagement-fy23
 ms.author: mbender
 ---
 
