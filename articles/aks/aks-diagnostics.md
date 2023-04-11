@@ -30,7 +30,7 @@ To access AKS Diagnostics:
 
 ## View a diagnostic report
 
-To initiate the tool and retrieve the results in a seamless manner, click on the tile to troubleshoot. The left navigation pane has an _Overview_ bar that provides an overview check of your clusters. The issues that are found with this cluster will be displayed on the right panel. To obtain a comprehensive understanding of the issue, click on View details for each tile, which will provide a detailed description of:
+To initiate the tool and retrieve the results in a seamless manner, click on the tile to troubleshoot. The left navigation pane has an _Overview_ option which runs all the diagnostics in that particular category. The issues that are found with the cluster will be displayed on the right panel. To obtain a comprehensive understanding of the issue, click on View details for each tile, which will provide a detailed description of:
 
 * Issue summary
 * Error details
