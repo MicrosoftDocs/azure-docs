@@ -84,9 +84,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ## Request approval to run the container
 
-To request access to the container, fill out and submit one of the following:
--	[Connected containers request form](https://aka.ms/csgate) if you want to run containers regularly, in environments that are only connected to the internet.
--	[Disconnected Container request form](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments) if you want to run containers in environments that can either be connected or disconnected from the internet.
+Fill out and submit the [request form](https://aka.ms/csgate) to request access to the container.
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
