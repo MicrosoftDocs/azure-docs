@@ -233,7 +233,7 @@ items:
         href: agents/azure-monitor-agent-migration-tools.md
     - name: Performance
       displayName: Performance
-      href: /azure/azure-monitor/agents/azure-monitor-agent-performance.md
+      href: agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
       href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -1252,6 +1252,8 @@ items:
           items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
+          - name: Application Insights API access with Azure Active Directory
+            href: logs/api/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 
           - name: Request format

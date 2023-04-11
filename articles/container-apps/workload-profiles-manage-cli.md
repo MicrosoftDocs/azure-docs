@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 03/28/2023
+ms.date: 04/10/2023
 ms.author: cshoe
 ---
 
@@ -93,7 +93,7 @@ Use the following commands to create an environment with a workload profile.
       --name "<NAME>" \
       --location "<LOCATION>" \
       --infrastructure-subnet-resource-id "<SUBNET_ID>"
-      --internal--only
+      --internal-only true
     ```
 
     ---
