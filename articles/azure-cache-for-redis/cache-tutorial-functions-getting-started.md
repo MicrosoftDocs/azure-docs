@@ -71,7 +71,84 @@ Second, go to the **Access keys** blade and write down/copy the Primary connecti
 
 ### 5. Set up the example code
 
-Go back to VS Code, add a file to the project called “RedisFunctions.cs” Copy and paste the [RedisSamples.cs](https://github.com/Azure/azure-functions-redis-extension/blob/main/samples/RedisSamples.cs) code found in the _Samples_ folder of this repo.
+Go back to VS Code, add a file to the project called “RedisFunctions.cs” Copy and paste the code sample below:
+
+```c#
+using Microsoft.Extensions.Logging;
+using System.Text.Json;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples
+{
+    public static class RedisSamples
+    {
+        public const string localhostSetting = "redisLocalhost";
+
+        [FunctionName(nameof(PubSubTrigger))]
+        public static void PubSubTrigger(
+            [RedisPubSubTrigger(localhostSetting, "pubsubTest")] RedisMessageModel model,
+            ILogger logger)
+        {
+            logger.LogInformation(JsonSerializer.Serialize(model));
+        }
+
+        [FunctionName(nameof(PubSubTriggerResolvedChannel))]
+        public static void PubSubTriggerResolvedChannel(
+            [RedisPubSubTrigger(localhostSetting, "%pubsubChannel%")] RedisMessageModel model,
+            ILogger logger)
+        {
+            logger.LogInformation(JsonSerializer.Serialize(model));
+        }
+
+        [FunctionName(nameof(KeyspaceTrigger))]
+        public static void KeyspaceTrigger(
+            [RedisPubSubTrigger(localhostSetting, "__keyspace@0__:keyspaceTest")] RedisMessageModel model,
+            ILogger logger)
+        {
+            logger.LogInformation(JsonSerializer.Serialize(model));
+        }
+
+        [FunctionName(nameof(KeyeventTrigger))]
+        public static void KeyeventTrigger(
+            [RedisPubSubTrigger(localhostSetting, "__keyevent@0__:del")] RedisMessageModel model,
+            ILogger logger)
+        {
+            logger.LogInformation(JsonSerializer.Serialize(model));
+        }
+
+        [FunctionName(nameof(ListsTrigger))]
+        public static void ListsTrigger(
+            [RedisListTrigger(localhostSetting, "listTest")] RedisMessageModel model,
+            ILogger logger)
+        {
+            logger.LogInformation(JsonSerializer.Serialize(model));
+        }
+
+        [FunctionName(nameof(ListsMultipleTrigger))]
+        public static void ListsMultipleTrigger(
+            [RedisListTrigger(localhostSetting, "listTest1 listTest2")] RedisMessageModel model,
+            ILogger logger)
+        {
+            logger.LogInformation(JsonSerializer.Serialize(model));
+        }
+
+        [FunctionName(nameof(StreamsTrigger))]
+        public static void StreamsTrigger(
+            [RedisStreamTrigger(localhostSetting, "streamTest")] RedisMessageModel model,
+            ILogger logger)
+        {
+            logger.LogInformation(JsonSerializer.Serialize(model));
+        }
+
+        [FunctionName(nameof(StreamsMultipleTriggers))]
+        public static void StreamsMultipleTriggers(
+            [RedisStreamTrigger(localhostSetting, "streamTest1 streamTest2")] RedisMessageModel model,
+            ILogger logger)
+        {
+            logger.LogInformation(JsonSerializer.Serialize(model));
+        }
+    }
+}
+```
 
 This example shows multiple different triggers:
 1.	_PubSubTrigger_, which is triggered when activity is published to the a pub/sub channel named `pubsubTest`
