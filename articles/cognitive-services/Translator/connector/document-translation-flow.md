@@ -50,7 +50,7 @@ To get started, you need:
 
   1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 
-  1. Copy and paste your key and document translation endpoint URL in a convenient location, such as *Microsoft Notepad*. Note that Text and Document Translation have different endpoint URLs.
+  1. Copy and paste your key and document translation endpoint URL in a convenient location, such as *Microsoft Notepad*. Text and Document Translation have different endpoint URLs.
 
    :::image type="content" source="../media/keys-and-endpoint-resource.png" alt-text="Get key and endpoint.":::
 
@@ -81,7 +81,7 @@ To get started, you need:
 
 ### Create a managed identity with RBAC
 
- Before you can use the V3 connector's operations for document translations, You must grant the Translator resource access to your storage account using a managed identity with a role based identity control (RBAC).
+ Before you can use the V3 connector's operations for document translations, you must grant the Translator resource access to your storage account using a managed identity with a role based identity control (RBAC).
 
   :::image type="content" source="../document-translation/media/managed-identity-rbac-flow.png" alt-text="Screenshot of managed identity flow (RBAC).":::
 
@@ -143,21 +143,19 @@ Now that completed the prerequisites and initial setup, let's get started using 
 
 1. In the popup window, name your flow, choose **Manually trigger a flow**, and select **Create**.
 
-  :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
+      :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
 
 1. The first step for your instant flow—**Manually trigger a flow**—appears on screen. Select **New step**.
 
   :::image type="content" source="../media/connectors/add-new-step.png" alt-text="Screenshot of add new flow step page.":::
 
-Now, we're ready to select an action.
-
 ## Start Document Translation
 
-In this section, you'll learn to translate documents and get the status of the operation using your [**Azure blob storage**](#use-azure-blob-storage) or [**Microsoft SharePoint**](#use-microsoft-sharepoint) account.
+Now, we're ready to select an action. Here, you learn to translate documents and get the status of the operation using your [**Azure blob storage**](#use-azure-blob-storage) or [**Microsoft SharePoint**](#use-microsoft-sharepoint) account.
 
 ### [Use Azure blob storage](#tab/blob-storage)
 
-1. In the **Choose an operation** pop-up window enter Translator V3 in the **Search connectors and actions** search bar and select the **Microsoft Translator V3** icon.
+1. In the Choose an operation pop-up window, enter Translator V3 in the **Search connectors and actions** search bar and select the **Microsoft Translator V3** icon.
 
    :::image type="content" source="../media/connectors/choose-operation.png" alt-text="Screenshot showing the selection of Translator V3 as the next flow step.":::
 
@@ -165,7 +163,8 @@ In this section, you'll learn to translate documents and get the status of the o
 1. If you're using the Translator V3 connector for the first time, you need to enter your resource credentials:
 
    * **Connection name**. Enter a name for your connection.
-   * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys. The Translator V3 connector requires managed identity for authentication. Managed identity isn't supported the global region. **Make certain that your Translator resource is assigned to a geographical region such as West US**.
+   * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys.
+   * **Make certain that your Translator resource is assigned to a geographical region such as West US** (not global).
 
     :::image type="content" source="../media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
 
@@ -176,54 +175,52 @@ In this section, you'll learn to translate documents and get the status of the o
    > [!NOTE]
    > After you've setup your connection, you won't be required to reenter your credentials for subsequent flows.
 
-1. Next, the **Start document translation** action window appears.
-1. **Storage type of the input documents**. Select **File** or **Folder**.
-1. Select a **Source Language** from the dropdown menu or keep the default **Auto-detect** option.
-1. **Location of the source documents**. Enter the URL for your document(s) in your Azure storage source document container.
-1. **Location of the translated documents**. Enter the URL for your Azure storage target document container.
+1. Next, the **Start document translation** action window appears. Complete the fields as follows:
 
-   To find your source and target URLs:
+   * **Storage type of the input documents**. Select **File** or **Folder**.
+   * Select a **Source Language** from the dropdown menu or keep the default **Auto-detect** option.
+   * **Location of the source documents**. Enter the URL for your document(s) in your Azure storage source document container.
+   * **Location of the translated documents**. Enter the URL for your Azure storage target document container.
+      To find your source and target URLs:
+      1. Navigate to your storage account in the Azure portal.
+      1. In the left sidebar, under  **Data storage** , select **Containers**.
 
-   1. Navigate to your storage account in the Azure Portal.
-   1. In the left sidebar, under  **Data storage** , select **Containers**.
-
-      |c. Source| c. Target|
-      |------|-------|
-      |Select the checkbox next to the source container|Select the checkbox next to the target container.|
-      | From the main window area, select a file or document for translation.| Select the ellipses located at the right, then choose **Properties**.|
-      | The source URL is located at the top of the Properties list. Select the **Copy to Clipboard** icon.|The target URL is located at the top of the Properties list. Select the **Copy to Clipboard** icon.|
-      | Navigate to your Power automate flow and paste the source URL in the **Location of the source documents** field.|Navigate to your Power automate flow and paste the target URL in the **Location of the translated documents** field.|
-
-1. Choose a **Target Language** from the dropdown menu.
+         |c. Source| c. Target|
+         |------|-------|
+         |Select the checkbox next to the source container|Select the checkbox next to the target container.|
+         | From the main window area, select a file or document for translation.| Select the ellipses located at the right, then choose **Properties**.|
+         | The source URL is located at the top of the Properties list. Select the **Copy to Clipboard** icon.|The target URL is located at the top of the Properties list. Select the **Copy to Clipboard** icon.|
+         | Navigate to your Power automate flow and paste the source URL in the **Location of the source documents** field.|Navigate to your Power automate flow and paste the target URL in the **Location of the translated documents** field.|
+   * Choose a **Target Language** from the dropdown menu.
 
    :::image type="content" source="../media/connectors/start-document-translation-window.png" alt-text="Screenshot of the Start document translation dialog window.":::
 
 1. Select **New step**.
 
 1. Enter Translator V3 in the search box and choose **Microsoft Translator V3**.
-1. Select **Get documents status** (not Get *document* status).
+1. Select **Get documents status** (not the singular Get *document* status action).
 
    :::image type="content" source="../media/connectors/get-documents-status-step.png" alt-text="Screenshot of the get documents status step.":::
 
-1. Next, you are going to enter an expression to retrieve the `**operation ID**` value.
+1. Next, you're going to enter an expression to retrieve the **`operation ID`** value.
 
 1. Select the operation ID field. A **Dynamic content** / **Expression** dropdown window appears.
 
-1. Select the **Expression** tab and enter the following expression into the function field.:
+1. Select the **Expression** tab and enter the following expression into the function field:
 
-   ```powerappsfl
+      ```powerappsfl
 
-     body('Start_document_translation').operationID
+         body('Start_document_translation').operationID
 
-   ```
+      ```
 
       :::image type="content" source="../media/connectors/create-function-expression.png" alt-text="Screenshot showing function creation window.":::
 
-1. Select **OK**. The function will appear in the **Operation ID** window. Select **Save**.
+1. Select **OK**. The function appears in the **Operation ID** window. Select **Save**.
 
    :::image type="content" source="../media/connectors/operation-id-function.png" alt-text="Screenshot showing the operation ID field with an expression function value.":::
 
-## Test your connector flow
+## Test the connector flow
 
 Time to check our flow and document translation results. A green bar appears at the top of the page indicating that **Your flow is ready to go.**. Let's test it:
 
@@ -233,22 +230,22 @@ Time to check our flow and document translation results. A green bar appears at 
 
 1. Select **Manually** from the **Test Flow** side window and select **Save & Test**
 
-      :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manually test flow button.":::
+      :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manual test flow button.":::
 
 1. The **Run flow** side window appears next. Select **Continue**, select **Run flow**. and then select **Done**.
 
       :::image type="content" source="../media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
 
-1. The **Your flow ran successfully** message appears and there will be a green checkmark next to each successful step.
+1. The **Your flow ran successfully** message appears and a green checkmark appears next to each successful step.
 
    :::image type="content" source="../media/connectors/successful-document-translation-flow.png" alt-text="Screenshot of successful document translation flow.":::
 
 1. Select the **Get documents status** step, then select **Show raw outputs** from the **Outputs** section.
-1. A **Get documents status** window appears. At the top of the JSON response, you will see `"statusCode":200` indicating that the request was successful.
+1. A **Get documents status** window appears. At the top of the JSON response, you see `"statusCode":200` indicating that the request was successful.
 
    :::image type="content" source="../media/connectors/get-documents-status.png" alt-text="Screenshot showing the 'Get documents status' JSON response.":::
 
-1. As a final check, navigate to your Azure blob storage target source container. You will see the translated document in the **Overview** section. The document may be in a folder labeled with the translation language code.
+1. As a final check, navigate to your Azure blob storage target source container. You see the translated document in the **Overview** section. The document may be in a folder labeled with the translation language code.
 
 #### [Use Microsoft SharePoint](#tab/sharepoint)
 
@@ -256,15 +253,17 @@ Time to check our flow and document translation results. A green bar appears at 
 >
 > * Get the source file from your SharePoint site (**Get file content**)
 > * Create a Azure storage blob from the source file and upload it to your Azure storage account.
-> *
+> * Translate the source file
+> * Get documents status
+> * 
 
 ##### Get file content
 
- 1. In the **Choose an operation** pop-up window enter **SharePoint**, then select the **Get file content** content. Power Automate will automatically sign you into your SharePoint account.
+ 1. In the **Choose an operation** pop-up window enter **SharePoint**, then select the **Get file content** content. Power Automate automatically signs you into your SharePoint account.
 
    :::image type="content" source="../media/connectors/get-file-content.png" alt-text="Screenshot of the SharePoint Get file content action.":::
 
-1. On the  **Get file content** step window complete the following fields:
+1. On the **Get file content** step window, complete the following fields:
     * **Site Address**. Select the SharePoint site URL where your file is located from the dropdown list.
     * **File Identifier**. Select the folder icon and choose the document(s) for translation.
 
@@ -309,9 +308,9 @@ Time to check our flow and document translation results. A green bar appears at 
 
 1. The **Create blob** step now appears. Complete the fields as follows:
 
-   * **Storage account name or blob endpoint**. Select **Add a custom item** and enter your storage account name.
+   * **Storage account name or blob endpoint**. Select **Enter custom value** and enter your storage account name.
    * **Folder path**. Select the folder icon and select your source document container.
-   * **Blob name**. Enter the name of the file you are translating.
+   * **Blob name**. Enter the name of the file you're translating.
    * **Blob content**. Select the **Blob content** field to reveal the **Dynamic content** dropdown list and choose the SharePoint **File Content** icon.
 
       :::image type="content" source="../media/connectors/file-dynamic-content.png" alt-text="Screenshot of the file content icon on the dynamic content menu.":::
@@ -346,7 +345,7 @@ Time to check our flow and document translation results. A green bar appears at 
 
    To find your target container URL:
 
-   1. Navigate to your storage account in the Azure Portal.
+   1. Navigate to your storage account in the Azure portal.
    1. In the left sidebar, under  **Data storage** , select **Containers**.
    1. Select the checkbox next to the target container.
    1. Select the ellipses located at the right, then choose **Properties**.
@@ -357,6 +356,8 @@ Time to check our flow and document translation results. A green bar appears at 
 
    :::image type="content" source="../media/connectors/start-document-translation-window.png" alt-text="Screenshot of the Start document translation dialog window.":::
 
+##### Get documents status
+
 1. Select **New step**.
 
 1. Enter Translator V3 in the search box and choose **Microsoft Translator V3**.
@@ -364,11 +365,11 @@ Time to check our flow and document translation results. A green bar appears at 
 
    :::image type="content" source="../media/connectors/get-documents-status-step.png" alt-text="Screenshot of the get documents status step.":::
 
-1. Next, you are going to enter an expression to retrieve the operation ID value.
+1. Next, you're going to enter an expression to retrieve the operation ID value.
 
 1. Select the operation ID field. A **Dynamic content** / **Expression** dropdown window appears.
 
-1. Select the **Expression** tab and enter the following expression into the function field.:
+1. Select the **Expression** tab and enter the following expression into the function field:
 
    ```powerappsfl
 
@@ -378,9 +379,53 @@ Time to check our flow and document translation results. A green bar appears at 
 
       :::image type="content" source="../media/connectors/create-function-expression.png" alt-text="Screenshot showing function creation window.":::
 
-1. Select **OK**. The function will appear in the **Operation ID** window. Select **Save**.
+1. Select **OK**. The function appears in the **Operation ID** window. Select **Save**.
 
    :::image type="content" source="../media/connectors/operation-id-function.png" alt-text="Screenshot showing the operation ID field with an expression function value.":::
+
+##### Get blob content
+
+In this step, you retrieve the translated document from Azure blob storage to store in SharePoint.
+
+1. Select **New Step**, enter **Control** in the search box and select **Apply to each** from the **Actions** list.
+1. Select the input field to show the **Dynamic content** window and select **value**.
+1. Select **Add an action**.
+
+    :::image type="content" source="../media/connectors/apply-to-each.png" alt-text="Screenshot showing the 'Apply to each' control step.":::
+1. Enter **Control** in the search box and select **Do until** from the **Actions** list.
+1. Select the **Choose a value** field to show the **Dynamic content** window and select **progress**.
+1. Complete the three fields as follows: **progress** → **is equal to** → **1**:
+
+   :::image type="content" source="../media/connectors/do-until-progress.png" alt-text="Screenshot showing the **Do until** control.":::
+
+1. Select **Add an action**, enter **Azure blob Storage** in the search box, and select the **Get blob content using path (V2)** action.
+1. In the **Storage account name or blob endpoint** field, select **Enter custom value** and enter your storage account name.
+1. Select the **Blob path** field to show the **Dynamic content** window, select **Expression** and enter the following logic in the formula field:
+
+   ```powerappsfl
+
+      concat(split(outputs('Get_document_status')?['body/path'],'/')[3],'/',split(outputs('Get_document_status')?['body/path'],'/')[4],'/',split(outputs('Get_document_status')?['body/path'],'/')[5])
+
+   ```
+
+1. Select **Add an action**, enter **Azure blob Storage** in the search box, and select the **Get Blob Metadata using path (V2)** action.
+1. In the **Storage account name or blob endpoint** field, select **Enter custom value** and enter your storage account name.
+1. In the **Blob path** field, select the path to your translated (target container) document.
+
+##### Create new folder
+
+1. Select **Add an action**, enter **SharePoint** in the search box, and select the **Create new folder** action.
+1. Select your SharePoint URL from the **Site Address** dropdown window.
+1. In the next field, select a **List or Library** from the dropdown.
+1. Name your new folder and enter it in the **/Folder Path/** field (be sure to enclose the path name with forward slashes).
+
+##### Create file
+
+1. Select **Add an action**, enter **SharePoint** in the search box, and select the **Create file** action.
+1. Select your SharePoint URL from the **Site Address** dropdown window.
+1. In the **Folder Path** field, select *Create new folder* → **Full Path** from the **Dynamic content** list.
+1. In the **File Name** field, select *Get Blob Metadata using path (V2)* → **Name** from the **Dynamic content** list.
+1. In the **File Content** field, select *Get Blob Metadata using path (V2)* → **body** from the **Dynamic content** list.
 
 Time to check our flow and document translation results. A green bar appears at the top of the page indicating that **Your flow is ready to go.**. Let's test it:
 
@@ -390,15 +435,17 @@ Time to check our flow and document translation results. A green bar appears at 
 
 1. Select **Manually** from the **Test Flow** side window and select **Save & Test**
 
-      :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manually test flow button.":::
+      :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the manual test flow button.":::
 
 1. The **Run flow** side window appears next. Select **Continue**, select **Run flow**. and then select **Done**.
 
       :::image type="content" source="../media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
 
-1. The "Your flow ran successfully" message appears and there will be a green checkmark next to each successful step.
+1. The "Your flow ran successfully" message appears and there's a green checkmark next to each successful step.
 
    :::image type="content" source="../media/connectors/successful-document-translation-flow.png" alt-text="Screenshot of successful document translation flow.":::
+
+   :::image type="content" source="../media/connectors/sharepoint.flow" alt-text="Screenshot showing a successful flow using SharePoint and Azure blob storage.":::
 
 ---
 
