@@ -55,27 +55,13 @@ Defender for APIs provides threat detection capabilities with security alerts th
 
 Defender for APIs integrates with popular SIEM solutions to enable SOC teams with faster and more efficient remediation efforts.
 
-## Improving security posture
+## Investigating security risk posture
 
-The Defender Cloud Security Posture Management (CSPM) plan provides Cloud Security Graph, a graph-based context engine that collects data, and builds a graph that represents your multicloud environment. Cloud Security Graph includes:
+The Defender Cloud Security Posture Management (CSPM) plan provides [Cloud Security Graph](concept-attack-path.md). Cloud Security Graph collects multicloud data to provide a map of assets, connections across your organization, to expose risks, vulnerabilities, and lateral movement possibilities. 
 
-- Cloud Security Explorer to run graph-based queries to efficiently navigate and search through large volumes of security recommendations, to locate risks using proactive exploration.
-- Attack path analysis to scan your graph and expose exploiters paths that attackers might use to breach your environment.
+When Defender for APIs is enabled together with the Defender CSPM plan, you can query your organization's Cloud Security Graph using Cloud Security Explorer. With Cloud Security Explorer you have improved visibility into your API resources, and can efficiently query, navigate and locate security issues and risks using proactive exploration.
 
-When Defender for APIs is enabled together with the Defender CSPM plan, you can query API resources to quickly identify potential API-specific threats, and prioritize responses. You can search for these resources
-
-- API collections for Azure API Management APIs
-- API endpoints for Azure API Management operations.
-
-### Predefined queries
-
-Defender for API provides these predefined Cloud Security Explorer queries:
-
-- Unauthenticated API endpoints  
-- API Endpoints that contain sensitive data 
-- API Management service  security best practice policy recommendations
-- Inactive API endpoints
-
+You can perform a customize search for API issues, or use the predefined API query *Uauthenticated API endpoints containing sensitive data are outside the virtual network**.
 
 ## Next steps
 
