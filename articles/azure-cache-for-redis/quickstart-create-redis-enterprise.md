@@ -54,7 +54,7 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 1. Select **Next: Advanced**.
 
-   Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however. You can't change the eviction policy or clustering policy of an Enterprise cache instance after you create it. If you are using this cache instance in a replication group, be sure to know the policies of your primary nodes before you create the cache.
+   Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. Disabling TLS is **not** recommended, however. You can't change the eviction policy or clustering policy of an Enterprise cache instance after you create it. If you're using this cache instance in a replication group, be sure to know the policies of your primary nodes before you create the cache. For more information on replication, see [Active geo-replication prerequisites](cache-how-to-active-geo-replication.md#active-geo-replication-prerequisites).
 
    Set **Clustering policy** to **Enterprise** for a nonclustered cache. For more information on choosing **Clustering policy**, see [Clustering Policy](#clustering-policy).
 
