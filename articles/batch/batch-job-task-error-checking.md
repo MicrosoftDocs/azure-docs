@@ -7,7 +7,7 @@ ms.date: 04/11/2023
 
 # Azure Batch job and task errors
 
-Various errors can happen when you add Azure Batch jobs and tasks or when you schedule and run jobs and tasks. It's straightforward to detect errors that occur when you add jobs and tasks. The API, command line, or user interface usually returns any failures immediately. This article covers how to check for and handle errors that occur after jobs and tasks are submitted.
+Various errors can happen when you add, schedule, or run Azure Batch jobs and tasks. It's straightforward to detect errors that occur when you add jobs and tasks. The API, command line, or user interface usually returns any failures immediately. This article covers how to check for and handle errors that occur after jobs and tasks are submitted.
 
 ## Job failures
 
@@ -37,7 +37,7 @@ You can use the [Job - List Preparation and Release Task Status](/rest/api/batch
 
 When a job preparation task runs, the task that triggered the job preparation task moves to a [taskState](/rest/api/batchservice/task/get#taskstate) of `preparing`. If the job preparation task fails, the triggering task reverts to the `active` state and doesn't run.
 
-If a job preparation task fails, the triggering job task doesn't run. The job doesn't complete and is stuck. The pool might not be used if there are no other jobs with tasks that can be scheduled.
+If a job preparation task fails, the triggering job task doesn't run. The job doesn't complete and is stuck. If there are no other jobs with tasks that can be scheduled, the pool might not be used.
 
 ### Job release tasks
 
@@ -67,13 +67,15 @@ Consider the impact of task failures on the job and on any task dependencies. Yo
 - [DependencyAction](/rest/api/batchservice/task/add#dependencyaction) controls whether to block or run tasks that depend on the failed task.
 - [JobAction](/rest/api/batchservice/task/add#jobaction) controls whether the failed task causes the job to be disabled, terminated, or unchanged.
 
-### Task command lines, output files, and logs
+### Task command lines
 
 Task command lines don't run under a shell on compute nodes, so they can't natively use shell features such as environment variable expansion. To take advantage of such features, you must invoke the shell in the command line. For more information, see [Command-line expansion of environment variables](batch-compute-node-environment-variables.md#command-line-expansion-of-environment-variables).
 
 Task command line output writes to *stderr.txt* and *stdout.txt* files. Your application might also write to application-specific log files. Make sure to implement comprehensive error checking for your application to promptly detect and diagnose issues.
 
-If the pool node that ran a task still exists, you can get and view the log files. Several APIs allow listing and getting task files, such as [File - Get From Task](/rest/api/batchservice/file/getfromtask). You can also list and view log files for a task or pool node by using the Azure portal.
+### Task logs
+
+If the pool node that ran a task still exists, you can get and view the task log files. Several APIs allow listing and getting task files, such as [File - Get From Task](/rest/api/batchservice/file/getfromtask). You can also list and view log files for a task or node by using the [Azure portal](https://portal.azure.com).
 
 1. At the top of the **Overview** page for a node, select **Upload batch logs**.
 
@@ -83,13 +85,13 @@ If the pool node that ran a task still exists, you can get and view the log file
 
    ![Screenshot of the Upload batch logs page.](media/batch-job-task-error-checking/upload-batch-logs.png)
 
-1. On the storage container page, you can view, open, or download the logs.
+1. You can view, open, or download the logs from the storage container page.
 
    ![Screenshot of task logs in a storage container.](media/batch-job-task-error-checking/task-logs.png)
 
-Because Batch pools and pool nodes are often ephemeral, with nodes being continuously added and deleted, it's best to save the log files from job runs. You can use task output files for a convenient way to save log files to Azure Storage. For more information, see [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md).
+### Output files
 
-### Output file failures
+Because Batch pools and pool nodes are often ephemeral, with nodes being continuously added and deleted, it's best to save the log files when the job runs. Task output files are a convenient way to save log files to Azure Storage. For more information, see [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md).
 
 On every file upload, Batch writes two log files to the compute node, *fileuploadout.txt* and *fileuploaderr.txt*. You can examine these log files to learn more about a specific failure. If the file upload wasn't attempted, for example because the task itself couldn't run, these log files don't exist.
 
