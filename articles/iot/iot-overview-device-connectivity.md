@@ -133,6 +133,5 @@ The open source IoT Central Device Bridge acts as a translator that forwards tel
 
 Now that you've seen an overview of device connectivity in Azure IoT solutions, some suggested next steps include
 
-- [IoT device development](iot-overview-device-development.md)
 - [Device management and control in IoT solutions](iot-overview-device-management.md)
 - [Process and route messages](iot-overview-message-processing.md)

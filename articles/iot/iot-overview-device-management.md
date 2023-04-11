@@ -139,6 +139,5 @@ To learn more, see:
 
 Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include
 
-- [IoT device development](iot-overview-device-development.md)
-- [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
 - [Process and route messages](iot-overview-message-processing.md)
+- [Extend your IoT solution](iot-overview-solution-extensibility.md)

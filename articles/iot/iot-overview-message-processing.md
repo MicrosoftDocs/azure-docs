@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 03/31/2023
+ms.date: 04/03/2023
 ms.custom: template-overview
 
 # As a solution builder or device developer I want a high-level overview of the message processing in IoT solutions so that I can easily find relevant content for my scenario.
@@ -109,6 +109,5 @@ To learn more, see:
 
 Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include
 
-- [IoT device development](iot-overview-device-development.md)
-- [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
-- [IoT device management and control](iot-overview-device-management.md)
+- [Extend your IoT solution](iot-overview-solution-extensibility.md)
+- [Analyze and visualize your IoT data](iot-overview-analyze-visualize.md)
