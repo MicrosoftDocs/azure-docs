@@ -27,17 +27,17 @@ Using an authentication broker such as WAM has numerous benefits.
 - Better support for Windows Hello, Conditional Access and FIDO keys
 - Integration with Windows' "Email and Accounts" view
 - Better Single Sign-On 
-- Ability to sign-in silently with the current Windows account
+- Ability to sign in silently with the current Windows account
 - Most bug fixes and enhancements will be shipped with Windows
 
 ## WAM limitations
 
-- Available on Win10+ and Win Server 2019+. On Mac, Linux, and earlier versions of Windows, MSAL will automatically fall back to a browser.
+- Available on Windows 10 and later and on Windows Server 2019 and later. On Mac, Linux, and earlier versions of Windows, MSAL will automatically fall back to a browser.
 - B2C and ADFS authorities aren't supported. MSAL will fall back to a browser.
 
 ## WAM integration package
 
-Most apps will need to reference `Microsoft.Identity.Client.Broker` package to use this integration. MAUI apps are not required to do this, the functionality is inside MSAL when targetting `net6-windows` and above.
+Most apps will need to reference `Microsoft.Identity.Client.Broker` package to use this integration. MAUI apps are not required to do this; the functionality is inside MSAL when the target is `net6-windows` and later.
 
 ## WAM calling pattern
 
