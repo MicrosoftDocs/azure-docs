@@ -5,7 +5,7 @@ author: kof-f
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/05/2023
+ms.date: 04/11/2023
 ms.reviewer: erd
 ms.subservice: image-builder
 ms.custom: references_regions
@@ -36,6 +36,8 @@ This article contains all major API changes and feature updates for the Azure VM
 - Added new 'File' validation type. For more information, see the [validate properties](/azure/virtual-machines/linux/image-builder-json?tabs=json%2Cazure-powershell#properties-validate&preserve-view=true)
 - `replicationRegions` is deprecated for gallery distributions. For more information, use [gallery-replicated-regions](/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples&preserve-view=true)
 - VHDs can now be distributed to a custom blob or container in a custom storage account
+- `targetRegions` array added and applied only to "SharedImage" type distribute. `targetRegions` corresponds loosely to the the same titled parameter in [Azure Compute Gallery](../../articles/virtual-machines/azure-compute-gallery.md)
+- `replicaitonRegions` is now deprecated but still supported.
 
 
 ### Version 2022-02-14
