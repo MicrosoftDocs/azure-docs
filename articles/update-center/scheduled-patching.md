@@ -182,9 +182,7 @@ You can create a new Guest OS update maintenance configuration or modify an exis
 1. Go to **Machines** and select machines from the list.
 1. In the **Updates (Preview)**, select **Scheduled updates**.
 1. In **Create a maintenance configuration**, follow step 3 in this [procedure](#schedule-recurring-updates-on-single-vm) to create a maintenance configuration.
-
-> [!NOTE]
-> The default option selected for **Maintenance scope** is *Host (dedicated/isolated infrastructure)*. Ensure that you select it as *Guest (Azure VM, Arc-enabled VMs/servers)*.
+1. In **Basics** tab, The **Maintenance scope** should be *Guest (Azure VM, Arc-enabled VMs/servers)*.
 
 :::image type="content" source="./media/scheduled-updates/create-maintenance-configuration.png" alt-text="Create Maintenance configuration.":::
 	
