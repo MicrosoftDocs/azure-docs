@@ -32,7 +32,6 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-|`Content-Type`| application/json |
 
 ### Body
 
@@ -43,8 +42,7 @@ Use the following sample JSON as your body.
   "projectName": "{PROJECT-NAME}",
   "language": "{LANGUAGE-CODE}",
   "projectKind": "Orchestration",
-  "description": "Project description",
-  "multilingual": true
+  "description": "Project description"
  }
 ```
 

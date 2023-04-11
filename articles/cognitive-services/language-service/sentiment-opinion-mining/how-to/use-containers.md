@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 02/09/2023
+ms.date: 04/11/2023
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 keywords: on-premises, Docker, container, sentiment analysis, natural language processing
@@ -120,7 +120,7 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 [!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-### Run the container disconnected from the internet
+## Run the container disconnected from the internet
 
 [!INCLUDE [configure-disconnected-container](../../../containers/includes/configure-disconnected-container.md)]
 
