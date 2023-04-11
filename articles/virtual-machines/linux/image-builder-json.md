@@ -151,6 +151,7 @@ The location is the region where the custom image will be created. The following
 - USGov Virginia (Public Preview)
 - China North 3 (Public Preview)
 
+
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
 
