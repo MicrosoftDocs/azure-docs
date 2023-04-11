@@ -71,7 +71,7 @@ The package path for the `spring-cloud-azure-feature-managment` and `spring-clou
 
 * `ConfigurationClientBuilderSetup` has been renamed to `ConfigurationClientCustomizer` and its `setup` method has been renamed to `customize`
 * `SecretClientBuilderSetup` has been renamed to `SecretClientCustomizer` and its `setup` method has been renamed to `customize`
-* `AppConfigurationCredentialProvider` and `KeyVaultCredentialProvider` have been removed. Instead you can use [Azure Spring common configuration properties](azure/developer/java/spring-framework/configuration) or modify the credentials using `ConfigurationClientCustomizer`/`SecretClientCustomizer`.
+* `AppConfigurationCredentialProvider` and `KeyVaultCredentialProvider` have been removed. Instead you can use [Azure Spring common configuration properties](/azure/developer/java/spring-framework/configuration.md) or modify the credentials using `ConfigurationClientCustomizer`/`SecretClientCustomizer`.
 
 ## Feature flag loading
 
@@ -89,7 +89,7 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.feature-flag-refresh-in
 
 ## Possible conflicts with Azure Spring global properties
 
-[Azure Spring common configuration properties](azure/developer/java/spring-framework/configuration) enables you to customize your connections to Azure services. The new App Configuration library will picks up any global or app configuration setting configured with Azure Spring common configuration properties. Your connection to app configuration will change if the configurations have been set for another Azure Spring library.
+[Azure Spring common configuration properties](/azure/developer/java/spring-framework/configuration.md) enables you to customize your connections to Azure services. The new App Configuration library will picks up any global or app configuration setting configured with Azure Spring common configuration properties. Your connection to app configuration will change if the configurations have been set for another Azure Spring library.
 
 > NOTE:
 > You can override this by using `ConfigurationClientCustomizer`/`SecretClientCustomizer` to modify the clients.
