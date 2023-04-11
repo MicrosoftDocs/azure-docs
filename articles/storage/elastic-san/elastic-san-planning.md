@@ -14,30 +14,6 @@ ms.custom: ignite-2022
 
 There are three main aspects to an elastic storage area network (SAN): the SAN itself, volume groups, and volumes. When deploying a SAN, you make selections while configuring the SAN, including the redundancy of the entire SAN, and how much performance and storage the SAN has. Then you create volume groups that are used to manage volumes at scale. Any settings applied to a volume group are inherited by volumes inside that volume group. Finally, you partition the storage capacity that was allocated at the SAN-level into individual volumes.
 
-As an example of how this would work in practice: Say you have a large installbase with three primary workloads, SQL, AKS, and MariaDB. The total amount of storage for each of these workloads is quite sizeable and you need 150 TiB. But, you don't need every volume to operate at its highest performance levels constantly. So you deploy a SAN like so
-
-
-|Capacity  |Provisioned amount (TiB)  |IOPS  |Throughput (MB/s)  |
-|---------|---------|---------|---------|
-|Base     |30         |150,000         |2,400         |
-|Additional|5         |N/A         |N/A         |
-|Total     |35         |150,000         |2,400         |
-
-After deploying the SAN, divide it into volume groups, one for each workload.
-
-- AKS volume group
-    - Volume1 - 10 TiB, up to 64,000 IOPS, up to 2,400 throughput
-- SQL volume group
-    - Volume1 - 10 TiB, up to 64,000 IOPS, up to 2,400 throughput
-    - Volume2 - 1 TiB, up to 64,000 IOPS, up to 2,400 throughput
-    - Volume3 - 1 TiB, up to 64,000 IOPS, up to 2,400 throughput
-- MariaDB volume group
-    - Volume1 - 10 TiB, up to 64,000 IOPS, up to 2,400 throughput
-    - Volume2 - 1 TiB, up to 64,000 IOPS, up to 2,400 throughput
-    - Volume3 - 1 TiB, up to 64,000 IOPS, up to 2,400 throughput
-
-An Elastic SAN's performance is distributed amongst all its volumes. In this case, we have a SAN with 150,000 IOPS and 2,400 MB/s. multiple volumes that, collectively, could exceed 150,000 IOPS. With this configuration, it's still possible that all your workloads can be served. An Elastic SAN automatically distributes its IOPS and MB/s amongst its volumes, on a first use basis, as they request it. So if one volume demands 64,000 IOPS, and 64,000 IOPS are available on the SAN, it will perform at that level.
-
 Before deploying an Elastic SAN Preview, consider the following:
 
 - How much storage do you need?
