@@ -4,7 +4,7 @@ description: This quickstart shows how to create a Batch account by using a Bice
 author: FuzziWumpus
 ms.date: 03/22/2022
 ms.topic: quickstart
-ms.author: mkluck
+ms.author: padmalathas
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 tags: azure-resource-manager, bicep
 ---
