@@ -121,7 +121,7 @@ apt-get install -y library_name
 
 ### Vulnerabilities in Python Packages 
 
-Vulnerabilities can also be from installed python packages on top of the system managed base image. These python related vulnerabilities should be resolved by updating your python dependencies. Python (Pip) vulnerabilities in the image usually come from user-defined dependencies.
+Vulnerabilities can also be from installed Python packages on top of the system-managed base image. These Python-related vulnerabilities should be resolved by updating your Python dependencies. Python (pip) vulnerabilities in the image usually come from user-defined dependencies.
 
 To search for known Python vulnerabilities and solutions please see [GitHub Advisory Database](https://github.com/advisories). To address Python vulnerabilities, update the package to the version that has fixes for the flagged issue:
 
