@@ -33,10 +33,10 @@ kubectl get svc aks-istio-ingressgateway-external -n aks-istio-ingress
 
 Check external IP address of the service. For example:
 
-    ```
-    NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                                      AGE
-    aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
-    ```
+```
+NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                                      AGE
+aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
+```
 
 Applications aren't accessible from outside the cluster after enabling the ingress gateway. To make an application accessible, map the deployment's ingress to the Istio Ingress Gate. For example, the following manifest creates this mapping for the sample application:
 
@@ -212,7 +212,7 @@ kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.
 Confirm you see the sample application's product page is accessible. For example:
 
 ```
-<title>Simple Bookstore App</title>
+Simple Bookstore App
 ```
 
 ## Delete resources
