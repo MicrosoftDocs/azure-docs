@@ -2231,22 +2231,13 @@ groups:
     title: Microsoft Graph PowerShell
   - id: ms-graph
     title: Microsoft Graph
-## Zone pivot with Azure AD PowerShell, Microsoft Graph PowerShell, Microsoft Graph
-- id: identity-pivot-aadpowershell-mspowershell-msgraph
+## Zone pivot with Azure portal, Microsoft Graph PowerShell, Microsoft Graph
+- id: identity-pivot-portal-mspowershell-msgraph
   title: Manage identity
   prompt: Choose an option
   pivots:
-  - id: aad-powershell
-    title: Azure AD PowerShell
-  - id: ms-powershell
-    title: Microsoft Graph PowerShell
-  - id: ms-graph
-    title: Microsoft Graph
-## Zone pivot with Microsoft Graph PowerShell, Microsoft Graph
-- id: identity-pivot-mspowershell-msgraph
-  title: Manage identity
-  prompt: Choose an option
-  pivots:
+  - id: portal
+    title: Azure portal
   - id: ms-powershell
     title: Microsoft Graph PowerShell
   - id: ms-graph
