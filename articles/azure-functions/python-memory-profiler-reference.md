@@ -75,12 +75,25 @@ Here's an example of performing memory profiling on an asynchronous and a synchr
 
 A Python function app should follow Azure Functions specified [folder structure](functions-reference-python.md#folder-structure). To scaffold the project, we recommend using the Azure Functions Core Tools by running the following commands:
 
+# [v1](#tab/v1)
+
 ```bash
 func init PythonMemoryProfilingDemo --python
 cd PythonMemoryProfilingDemo
 func new -l python -t HttpTrigger -n HttpTriggerAsync -a anonymous
 func new -l python -t HttpTrigger -n HttpTriggerSync -a anonymous
 ```
+
+# [v2](#tab/v2)
+
+```bash
+func init PythonMemoryProfilingDemov2 --python -m v2
+cd PythonMemoryProfilingDemov2
+```
+
+For the Python V2 programming model, triggers and bindings are created as decorators within the Python file itself, the *function_app.py* file. For information on how to create a new function with the new programming model, see the [Azure Functions Python developer guide](https://aka.ms/pythonprogrammingmodel). Note that `func new` is not supported for the preview of the V2 Python programming model.
+
+---
 
 ### Update file contents
 
@@ -94,6 +107,8 @@ memory-profiler
 aiohttp
 requests
 ```
+
+# [v1](#tab/v1)
 
 We also need to rewrite the asynchronous HTTP trigger `HttpTriggerAsync/__init__.py` and configure the memory profiler, root logger format, and logger streaming binding.
 
@@ -128,7 +143,38 @@ async def get_microsoft_page_async(url: str):
     # GitHub Issue: https://github.com/pythonprofilers/memory_profiler/issues/289
 ```
 
+# [v2](#tab/v2)
+
+```python
+import azure.functions as func
+import logging
+import requests
+import memory_profiler
+
+app = func.FunctionApp()
+
+# Update root logger's format to include the logger name. Ensure logs generated
+# from memory profiler can be filtered by "memory_profiler_logs" prefix.
+root_logger = logging.getLogger()
+root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
+profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
+
+@app.function_name(name="HttpTriggerAsyncv2")
+@app.route(route="HttpTriggerAsyncv2") # HTTP Trigger
+def test_function(req: func.HttpRequest) -> func.HttpResponse:
+    content = profile_get_request('https://microsoft.com')
+    return func.HttpResponse(f"Microsoft Page Is Loaded {len(content)}!!!")
+
+@memory_profiler.profile(stream=profiler_logstream)
+def profile_get_request(url: str):
+    response = requests.get(url)
+```
+
+---
+
 For synchronous HTTP trigger, refer to the following `HttpTriggerSync/__init__.py` code section:
+
+# [v1](#tab/v1)
 
 ```python
 # HttpTriggerSync/__init__.py
@@ -156,6 +202,36 @@ def profile_get_request(url: str):
     response = requests.get(url)
     return response.content
 ```
+
+# [v2](#tab/v2)
+
+```python
+import azure.functions as func
+import logging
+import requests
+import memory_profiler
+
+app = func.FunctionApp()
+
+# Update root logger's format to include the logger name. Ensure logs generated
+# from memory profiler can be filtered by "memory_profiler_logs" prefix.
+root_logger = logging.getLogger()
+root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
+profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
+
+@app.function_name(name="HttpTriggerv2")
+@app.route(route="HttpTriggerAsyncv2") # HTTP Trigger
+def test_function(req: func.HttpRequest) -> func.HttpResponse:
+    content = profile_get_request('https://microsoft.com')
+    return func.HttpResponse(f"Microsoft Page Response Size: {len(content)}!!!")
+
+@memory_profiler.profile(stream=profiler_logstream)
+def profile_get_request(url: str):
+    response = requests.get(url)
+
+```
+
+---
 
 ### Profile Python function app in local development environment
 
