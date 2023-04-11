@@ -18,14 +18,14 @@ items:
     href: qumulo-how-to-manage.md
   - name: Troubleshoot Azure Native Qumulo Scalable File Service
     href: qumulo-troubleshoot.md
-#- name: Reference
-#  items:
+- name: Reference
+  items:
 #  - name: Python
 #    href: /python/api/overview/azure/qumulo
 #  - name: JavaScript
 #    href: /javascript/api/overview/azure/qumulo
-#  - name: .NET
-#    href: /dotnet/api/overview/azure/qumulo
+  - name: .NET
+    href: /dotnet/api/overview/azure/qumulo
 #  - name: Java
 #    href: /java/api/overview/azure/qumulo
 #  - name: REST API
