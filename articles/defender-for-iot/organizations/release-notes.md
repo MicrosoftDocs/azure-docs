@@ -101,7 +101,9 @@ To understand whether a feature is supported in your sensor version, check the r
 
 **Supported until**: 03/2024
 
-- add items here
+- [Download WMI script from OT sensor console](detect-windows-endpoints-script.md#download-the-script)
+- [Automatically resolved notifications for operating system changes and device type changes](how-to-work-with-the-sensor-device-map.md#device-notification-responses)
+- [UI enhancements when uploading SSL/TLS certificates](how-to-deploy-certificates.md#deploy-a-certificate-on-an-ot-sensor)
 
 ### 22.3.6 / 22.3.7
 

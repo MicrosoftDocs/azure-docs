@@ -45,24 +45,23 @@ The script described in this article is supported for the following Windows oper
 
 ## Download the script
 
-Offline WMI
-To preform offline WMI complete the following steps:
-1. Download the script, extract it and run 'run.bat' as administrator directly on the Windows endpoint
-2. Import the received output file to the sensor - cx_snapshot_[machinename]_[current date time].
-3. In Data mining's Devices applications report, you can view the device applications.
-4. Based on this information, the Windows device CVE list will be displayed in Azure if the sensor is cloud-connected
+In order to run the script, you first need to download it from the OT sensor console.
 
-:::image type="content" source="media/detect-windows-endpoints-script/download-wmi-script.png" alt-text="Screenshot of where to download WMI script." lightbox="media/detect-windows-endpoint-script/download-wmi-script.png":::
+1. Sign into your OT sensor console, and select **System Settings** > **Import Settings** > **Windows Information**.
+
+1. Select **Download script**.
+
+    :::image type="content" source="media/detect-windows-endpoints-script/download-wmi-script.png" alt-text="Screenshot of where to download WMI script." lightbox="media/detect-windows-endpoint-script/download-wmi-script.png":::
 
 ## Run the script
 
-This procedure describes how to obtain, deploy, and run the script on the Windows workstation and servers that you want to monitor in Defender for IoT.
+This procedure describes how to deploy and run the script on the Windows workstation and servers that you want to monitor in Defender for IoT.
 
 The script you run to detect enriched Windows data is run as a utility and not as an installed program. Running the script doesn't affect the endpoint.
 
-1. To acquire the script, [contact customer support](mailto:support.microsoft.com).
-
 1. Deploy the script once, or using ongoing automation, using standard automated deployment methods and tools.
+
+1. Download the WMI script as described [earlier](#download-the-script).
 
 1. Copy the script to a local drive and unzip it. The following files appear:
 
@@ -95,11 +94,34 @@ After having run the script as described [earlier](#run-the-script), import the 
 
 1. Select **Import File**, and then select all the files (Ctrl+A).
 
+    :::image type="content" source="media/detect-windows-endpoints-script/import-wmi-script.png" alt-text="Screenshot of where to import WMI script." lightbox="media/detect-windows-endpoint-script/import-wmi-script.png":::
+
 1. Select **Close**. The device registry information is imported and a successful confirmation message is shown.
 
     If there's a problem uploading one of the files, you'll be informed which file upload failed.
 
+## Offline WMI
+
+To preform offline WMI:
+
+1. [Download the script](#download-the-script), then extract it.
+
+1. Run `run.bat` as administrator directly on the Windows endpoint.
+
+    After the script runs to probe the registry, a CX-snapshot file appears with the registry information. The filename indicates the machine name and the current date and time of the snapshot with the following syntax: `cx_snapshot_[machinename]_[current date time]`.
+
+1. [Import](#import-device-details) the received output file to the sensor.
+
+**To view the devices applications:**
+
+1. Sign into your OT sensor console, and select **Data mining**.
+
+1. Select **+ Create report** to [create a custom report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report). In the **Choose Category** field, select **Devices Applications**. For example:
+
+    :::image type="content" source="media/detect-windows-endpoints-script/devices-applications-report.png" alt-text="Screenshot of where to import WMI script." lightbox="media/detect-windows-endpoint-script/devices-applications-report.png":::
+
+Based on this information, the Windows device CVE list will be displayed in Azure if the sensor is cloud-connected.
+
 ## Next steps
 
 For more information, see [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md) and [Import extra data for detected OT devices](how-to-import-device-information.md).
-
