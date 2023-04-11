@@ -112,7 +112,7 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default value for the arguments `-n`, which is the name of the cluster and `-g`, the resource group name:
 
-``````azurecli-interactive
+```azurecli-interactive
 export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
 ```
 
