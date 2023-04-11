@@ -27,12 +27,6 @@ sections:
           | Feature C | X | X |
           | Feature D | X |   |
           
-      - question: Question.
-        answer: |
-          A multiline or formatted answer to the question.
-          Use any markdown formatting you want, provided that you maintain the indent
-          on the lines after the | characters.
-
   - name: Branch connectivity
     questions:
         - question: |
