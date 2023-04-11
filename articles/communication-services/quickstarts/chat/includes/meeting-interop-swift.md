@@ -288,5 +288,5 @@ After you join the Team's meeting you will need to admit the user to the meeting
 :::image type="content" source="../join-teams-meeting-chat-quickstart-ios.png" alt-text="Screenshot of the completed iOS Application.":::
 
 > [!NOTE] 
-> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please [visit here](../../../concepts/interop/guest/capabilities.md)
+> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md)
 
