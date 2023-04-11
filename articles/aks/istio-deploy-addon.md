@@ -9,58 +9,62 @@ ms.author: shasb
 
 # Deploy Istio based service mesh add-on for Azure Kubernetes Service (preview)
 
-This article shows you how to install the Istio based service mesh add-on for Azure Kubernetes Service (AKS) cluster.
+This article shows you how to install the Istio-based service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 
-A conceptual overview of Istio and the service mesh add-on is available [here][istio-about].
+For more details on Istio and the service mesh add-on, see [Istio based service mesh add-on for Azure Kubernetes Service][istio-about].
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Before you begin
 
-## Prerequisites
+You need the Azure CLI version 2.44.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-* An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI][azure-cli-install] and the CLI extension `aks-preview` of version >= 0.5.135 are installed.
+Set environment variables:
 
-    * If `aks-preview` isn't already installed, run the following command:
+```bash
+export CLUSTER=<cluster-name>
+export RESOURCE_GROUP=<resource-group-name>
+export LOCATION=<location>
+```
 
-        ```azurecli
-        az extension add --name aks-preview
-        ```
+## Install the aks-preview Azure CLI extension
 
-    * If `aks-preview` is already installed, run the following command to update it to the latest version:
+You need the `aks-preview` Azure CLI extension of version 0.5.133 or later installed and configured. Run `az --version` to find the version.
 
-        ```azurecli
-        az extension update --name aks-preview
-        ```
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-* Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command:
+To install the aks-preview extension, run the following command:
 
-    ```azurecli
-    az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-    ```
+```azurecli
+az extension add --name aks-preview
+```
 
-    It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+Run the following command to update to the latest version of the extension released:
 
-    ```azurecli
-    az feature show --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
-    ```
+```azurecli
+az extension update --name aks-preview
+```
 
-    When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+## Register the 'AzureServiceMeshPreview' feature flag
 
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.ContainerService
-    ```
+Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
-* Set environment variables:
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
+```
 
-    ```bash
-    export CLUSTER=<cluster-name>
-    export RESOURCE_GROUP=<resource-group-name>
-    export LOCATION=<location>
-    ```
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
-## Install the Istio add-on on your cluster
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
+```
 
-**Install add-on at the time of cluster creation:**
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+## Install Istio add-on at the time of cluster creation
+
 To install the Istio add-on when creating the cluster, use `--enable-asm` or `--enable-azure-service-mesh` parameters.
 
 ```azurecli-interactive
@@ -72,52 +76,51 @@ az aks create \
 --enable-asm
 ```
 
-**Install add-on for existing cluster:**
+## Install Istio add-on for existing cluster
 
 The following example enables Istio add-on for an existing AKS cluster:
+
+> [!IMPORTANT]
+> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. [Uninstall OSM add-on on your cluster][uninstall-osm-addon] before enabling the Istio add-on.
+> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. Uninstall the OSM add-on before installing the Istio add-on. For more details, see [Uninstall the OSM add-on from your AKS cluster][uninstall-osm-addon].
+> Istio add-on can only be enabled on AKS clusters of version >= 1.23.
 
 ```azurecli-interactive
 az aks mesh enable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
 ```
 
-> [!IMPORTANT]
-> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. [Uninstall OSM add-on on your cluster][uninstall-osm-addon] before enabling the Istio add-on.
-> You can't enable the Istio add-on on an existing cluster if Istio was already installed outside the add-on installation. [Uninstall non-add-on Istio][uninstall-istio-oss] before enabling the Istio add-on.
-> Istio add-on can only be enabled on AKS clusters of version >= 1.23
-
-
 ## Verify add-on was installed successfully
 
-1. To see if the Istio add-on is installed on your cluster, run the following command:
+To verify the Istio add-on is installed on your cluster, run the following command:
 
-    ```azurecli-interactive
-    az aks show --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}  --query 'serviceMeshProfile.mode'
-    ```
+```azurecli-interactive
+az aks show --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}  --query 'serviceMeshProfile.mode'
+```
 
-    **Expected response:**
+Confirm the output shows Istio, for example:
 
-    ```
-    Istio
-    ```
+```
+Istio
+```
 
-1. Get the credentials for your AKS cluster:
+Use `az aks get-credentials` to the credentials for your AKS cluster:
 
-    ```azurecli-interactive
-    az aks get-credentials --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
-    ```
+```azurecli-interactive
+az aks get-credentials --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
+```
 
-1. Verify that `istiod` (Istio control plane) pods are running successfully:
+Use `kubectl` to verify that `istiod` (Istio control plane) pods are running successfully:
 
-    ```bash
-    kubectl get pods -n aks-istio-system
-    ```
+```bash
+kubectl get pods -n aks-istio-system
+```
 
-    **Expected response:**
+Confirm the `istiod` pod has a status of `Running`. For example:
 
-    ```
-    NAME                               READY   STATUS    RESTARTS   AGE
-    istiod-asm-1-17-74f7f7c46c-xfdtl   1/1     Running   0          2m
-    ```
+```
+NAME                               READY   STATUS    RESTARTS   AGE
+istiod-asm-1-17-74f7f7c46c-xfdtl   2/2     Running   0          2m
+```
 
 ## Enable sidecar injection
 
@@ -127,70 +130,80 @@ To automatically install sidecar to any new pods, annotate your namespaces:
 kubectl label namespace default istio.io/rev=asm-1-17
 ```
 
+> [!IMPORTANT]
+>  The default `istio-injection=enabled` labeling doesn't work. Explicit versioning (`istio.io/rev=asm-1-17`) is required.
+
 ## Deploy sample application
 
-1. Deploy sample application on the cluster:
+Use `kubectl apply` to deploy sample application on the cluster:
 
-    ```bash
-    kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/bookinfo/platform/kube/bookinfo.yaml
-    ```
+```bash
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/bookinfo/platform/kube/bookinfo.yaml
+```
 
-    **Expected response:**
+Confirm several deployments and services are created on your cluster. For example:
 
-    ```
-    service/details created
-    serviceaccount/bookinfo-details created
-    deployment.apps/details-v1 created
-    service/ratings created
-    serviceaccount/bookinfo-ratings created
-    deployment.apps/ratings-v1 created
-    service/reviews created
-    serviceaccount/bookinfo-reviews created
-    deployment.apps/reviews-v1 created
-    deployment.apps/reviews-v2 created
-    deployment.apps/reviews-v3 created
-    service/productpage created
-    serviceaccount/bookinfo-productpage created
-    deployment.apps/productpage-v1 created
-    ```
+```
+service/details created
+serviceaccount/bookinfo-details created
+deployment.apps/details-v1 created
+service/ratings created
+serviceaccount/bookinfo-ratings created
+deployment.apps/ratings-v1 created
+service/reviews created
+serviceaccount/bookinfo-reviews created
+deployment.apps/reviews-v1 created
+deployment.apps/reviews-v2 created
+deployment.apps/reviews-v3 created
+service/productpage created
+serviceaccount/bookinfo-productpage created
+deployment.apps/productpage-v1 created
+```
 
-1. Verify that the pods and services were created successfully:
+Use `kubectl get services` to verify that the services were created successfully:
 
-    ```bash
-    kubectl get services
-    ```
+```bash
+kubectl get services
+```
 
-    **Expected response:**
+Confirm the following services were deployed:
 
-    ```
-    NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-    details       ClusterIP   10.0.180.193   <none>        9080/TCP   87s
-    kubernetes    ClusterIP   10.0.0.1       <none>        443/TCP    15m
-    productpage   ClusterIP   10.0.112.238   <none>        9080/TCP   86s
-    ratings       ClusterIP   10.0.15.201    <none>        9080/TCP   86s
-    reviews       ClusterIP   10.0.73.95     <none>        9080/TCP   86s
-    ```
+```
+NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+details       ClusterIP   10.0.180.193   <none>        9080/TCP   87s
+kubernetes    ClusterIP   10.0.0.1       <none>        443/TCP    15m
+productpage   ClusterIP   10.0.112.238   <none>        9080/TCP   86s
+ratings       ClusterIP   10.0.15.201    <none>        9080/TCP   86s
+reviews       ClusterIP   10.0.73.95     <none>        9080/TCP   86s
+```
 
-    ```bash
-    kubectl get pods
-    ```
+```bash
+kubectl get pods
+```
 
-    **Expected response:**
+Confirm that all the pods have status of `Running`.
 
-    ```
-    NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-    details-v1-558b8b4b76-2llld       2/2     Running   0          2m41s
-    productpage-v1-6987489c74-lpkgl   2/2     Running   0          2m40s
-    ratings-v1-7dc98c7588-vzftc       2/2     Running   0          2m41s
-    reviews-v1-7f99cc4496-gdxfn       2/2     Running   0          2m41s
-    reviews-v2-7d79d5bd5d-8zzqd       2/2     Running   0          2m41s
-    reviews-v3-7dbcdcbc56-m8dph       2/2     Running   0          2m41s
-    ```
+```
+NAME          TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+details-v1-558b8b4b76-2llld       2/2     Running   0          2m41s
+productpage-v1-6987489c74-lpkgl   2/2     Running   0          2m40s
+ratings-v1-7dc98c7588-vzftc       2/2     Running   0          2m41s
+reviews-v1-7f99cc4496-gdxfn       2/2     Running   0          2m41s
+reviews-v2-7d79d5bd5d-8zzqd       2/2     Running   0          2m41s
+reviews-v3-7dbcdcbc56-m8dph       2/2     Running   0          2m41s
+```
 
-    Expect to see each pod ready with two containers, one of which is the envoy sidecar injected by Istio.
+> [!NOTE]
+> Each pod has two containers, one of which is the envoy sidecar injected by Istio and the other is the application container.
 
 
 ## Delete resources
+
+Use `kubectl delete` to delete the sample application:
+
+```bash
+kubectl delete -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/bookinfo/platform/kube/bookinfo.yaml
+```
 
 If you don't intend to enable Istio ingress on your cluster and want to disable the Istio add-on, run the following command:
 
@@ -198,7 +211,10 @@ If you don't intend to enable Istio ingress on your cluster and want to disable 
 az aks mesh disable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
 ```
 
-If you want to clean up all the resources created from this document, run the following command:
+> [!CAUTION]
+> Disabling the service mesh addon will completely remove the Istio control plane from the cluster.
+
+Use `az group delete` to delete your cluster and the associated resources. For example:
 
 ```azurecli-interactive
 az group delete --name ${RESOURCE_GROUP} --yes --no-wait

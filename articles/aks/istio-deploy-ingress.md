@@ -15,204 +15,205 @@ This article shows you how to deploy external or internal ingresses for Istio se
 
 ## Prerequisites
 
-Complete the steps listed in the [Istio add-on deployment document][istio-deploy-addon]. The rest of this ingress enablement guide builds on top of the Istio add-on and the sample application that were deployed in the previous document.
+This guide assumes an existing AKS cluster with the Istio add-on enabled and an application deployed. For more details on enabling the Istio add-on in your cluster and deploying a sample application, see [Deploy Istio based service mesh add-on for AKS][istio-deploy-addon].
 
 ## Enable external ingress gateway
 
-1. Enable externally accessible Istio ingress on your AKS cluster:
+Use `az aks mesh enable-ingress-gateway` to enable an externally accessible Istio ingress on your AKS cluster. For example:
 
-    ```azurecli-interactive
-    az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type external
-    ```
+```azurecli-interactive
+az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type external
+```
 
-    Check the service mapped to the ingress gateway:
+Use `kubectl get svc` to check the service mapped to the ingress gateway:
 
-    ```bash
-    kubectl get svc aks-istio-ingressgateway-external -n aks-istio-ingress
-    ```
+```bash
+kubectl get svc aks-istio-ingressgateway-external -n aks-istio-ingress
+```
 
-    **Expected output:**
+Check external IP address of the service. For example:
 
     ```
     NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                                      AGE
-    aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   20.69.150.235   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
+    aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
     ```
 
-1. The sample application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway mapped to the ingress you deployed in previous step:
+Applications are not accessible from outside the cluster after enabling the ingress gateway. To make an application accessible, map the deployment's ingress to the Istio Ingress Gate. For example, the following manifest creates this mapping for the sample application:
 
-    ```bash
-    kubectl apply -f - <<EOF
-    apiVersion: networking.istio.io/v1alpha3
-    kind: Gateway
-    metadata:
-    name: bookinfo-gateway-external
-    spec:
-    selector:
-        istio: aks-istio-ingressgateway-external
-    servers:
-    - port:
-        number: 80
-        name: http
-        protocol: HTTP
-        hosts:
-        - "*"
-    ---
-    apiVersion: networking.istio.io/v1alpha3
-    kind: VirtualService
-    metadata:
-    name: bookinfo-vs-external
-    spec:
+```bash
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+name: bookinfo-gateway-external
+spec:
+selector:
+    istio: aks-istio-ingressgateway-external
+servers:
+- port:
+    number: 80
+    name: http
+    protocol: HTTP
     hosts:
     - "*"
-    gateways:
-    - bookinfo-gateway-external
-    http:
-    - match:
-        - uri:
-            exact: /productpage
-        - uri:
-            prefix: /static
-        - uri:
-            exact: /login
-        - uri:
-            exact: /logout
-        - uri:
-            prefix: /api/v1/products
-        route:
-        - destination:
-            host: productpage
-            port:
-            number: 9080
-    EOF
-    ```
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+name: bookinfo-vs-external
+spec:
+hosts:
+- "*"
+gateways:
+- bookinfo-gateway-external
+http:
+- match:
+    - uri:
+        exact: /productpage
+    - uri:
+        prefix: /static
+    - uri:
+        exact: /login
+    - uri:
+        exact: /logout
+    - uri:
+        prefix: /api/v1/products
+    route:
+    - destination:
+        host: productpage
+        port:
+        number: 9080
+EOF
+```
 
-    > [!NOTE]
-    > The selector used in the Gateway object points to `istio: aks-istio-ingressgateway-external`, which can be found as label on the service mapped to the external ingress that was enabled earlier.
+> [!NOTE]
+> The selector used in the Gateway object points to `istio: aks-istio-ingressgateway-external`, which can be found as label on the service mapped to the external ingress that was enabled earlier.
 
-1. Set environment variables for external ingress host and ports:
+Set environment variables for external ingress host and ports:
 
-    ```bash
-    export INGRESS_HOST_EXTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-external -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-    export INGRESS_PORT_EXTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-external -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
-    export GATEWAY_URL_EXTERNAL=$INGRESS_HOST_EXTERNAL:$INGRESS_PORT_EXTERNAL
-    ```
+```bash
+export INGRESS_HOST_EXTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-external -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export INGRESS_PORT_EXTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-external -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+export GATEWAY_URL_EXTERNAL=$INGRESS_HOST_EXTERNAL:$INGRESS_PORT_EXTERNAL
+```
 
-1. Retrieve the external address of the sample application:
+Retrieve the external address of the sample application:
 
-    ```bash
-    echo "http://$GATEWAY_URL_EXTERNAL/productpage"
-    ```
+```bash
+echo "http://$GATEWAY_URL_EXTERNAL/productpage"
+```
 
-    Paste the output from the previous command into your web browser and confirm that the sample application's product page is displayed. Or run the following command:
+Navigate to the URL from the output of the previous command and confirm that the sample application's product page is displayed. Alternatively, you can also use `curl` to confirm the sample application is accessible. For example:
 
-    ```bash
-    curl -s "http://${GATEWAY_URL_EXTERNAL}/productpage" | grep -o "<title>.*</title>"
-    ```
+```bash
+curl -s "http://${GATEWAY_URL_EXTERNAL}/productpage" | grep -o "<title>.*</title>"
+```
 
 
 ## Enable internal ingress gateway
 
-1. Enable internal Istio ingress on your AKS cluster:
+Use `az aks mesh enable-ingress-gateway` to enable an internal Istio ingress on your AKS cluster. For example:
 
-    ```azurecli-interactive
-    az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type internal
-    ```
+```azurecli-interactive
+az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type internal
+```
 
-    Check the service mapped to the ingress gateway:
 
-    ```bash
-    kubectl get svc aks-istio-ingressgateway-internal -n aks-istio-ingress
-    ```
+Use `kubectl get svc` to check the service mapped to the ingress gateway:
 
-    **Expected output:**
+```bash
+kubectl get svc aks-istio-ingressgateway-internal -n aks-istio-ingress
+```
 
-    ```
-    NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                                      AGE
-    aks-istio-ingressgateway-internal   LoadBalancer   10.0.182.240  10.224.0.7      15021:30764/TCP,80:32186/TCP,443:31713/TCP   87s
-    ```
+Check value of the external IP address of the service. For example:
 
-1. Create an Istio Ingress Gateway mapped to the ingress you deployed in previous step:
+```
+NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                                      AGE
+aks-istio-ingressgateway-internal   LoadBalancer   10.0.182.240  <IP>      15021:30764/TCP,80:32186/TCP,443:31713/TCP   87s
+```
 
-    ```bash
-    kubectl apply -f - <<EOF
-    apiVersion: networking.istio.io/v1alpha3
-    kind: Gateway
-    metadata:
-    name: bookinfo-internal-gateway
-    spec:
-    selector:
-        istio: aks-istio-ingressgateway-internal
-    servers:
-    - port:
-        number: 80
-        name: http
-        protocol: HTTP
-        hosts:
-        - "*"
-    ---
-    apiVersion: networking.istio.io/v1alpha3
-    kind: VirtualService
-    metadata:
-    name: bookinfo-vs-internal
-    spec:
+Applications are not mapped to the Istio Ingress Gateway after enabling the ingress gateway. The following manifest maps the deployment's ingress to the Istio Ingress Gateway. For example, the following manifest creates this mapping for the sample application:
+
+```bash
+kubectl apply -f - <<EOF
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+name: bookinfo-internal-gateway
+spec:
+selector:
+    istio: aks-istio-ingressgateway-internal
+servers:
+- port:
+    number: 80
+    name: http
+    protocol: HTTP
     hosts:
     - "*"
-    gateways:
-    - bookinfo-internal-gateway
-    http:
-    - match:
-        - uri:
-            exact: /productpage
-        - uri:
-            prefix: /static
-        - uri:
-            exact: /login
-        - uri:
-            exact: /logout
-        - uri:
-            prefix: /api/v1/products
-        route:
-        - destination:
-            host: productpage
-            port:
-            number: 9080
-    EOF
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+name: bookinfo-vs-internal
+spec:
+hosts:
+- "*"
+gateways:
+- bookinfo-internal-gateway
+http:
+- match:
+    - uri:
+        exact: /productpage
+    - uri:
+        prefix: /static
+    - uri:
+        exact: /login
+    - uri:
+        exact: /logout
+    - uri:
+        prefix: /api/v1/products
+    route:
+    - destination:
+        host: productpage
+        port:
+        number: 9080
+EOF
+```
+
+> [!NOTE]
+> The selector used in the Gateway object points to `istio: aks-istio-ingressgateway-internal`, which can be found as label on the service mapped to the internal ingress that was enabled earlier.
+
+Set environment variables for internal ingress host and ports:
+
+```bash
+export INGRESS_HOST_INTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-internal -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export INGRESS_PORT_INTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-internal -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+export GATEWAY_URL_INTERNAL=$INGRESS_HOST_INTERNAL:$INGRESS_PORT_INTERNAL
+```
+
+Retrieve the address of the sample application:
+
+```bash
+echo "http://$GATEWAY_URL_INTERNAL/productpage"
+```
+
+Navigate to the URL from the output of the previous command and confirm that the sample application's product page is  **NOT** displayed. Alternatively, you can also use `curl` to confirm the sample application is **NOT** accessible. For example:
+
+```bash
+curl -s "http://${GATEWAY_URL_INTERNAL}/productpage" | grep -o "<title>.*</title>"
+```
+
+Use `kubectl exec` to confirm application is accessible from inside the cluster's virtual network:
+
+```bash
+kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c ratings -- curl -sS  "http://$GATEWAY_URL_INTERNAL/productpage"  | grep -o "<title>.*</title>"
     ```
 
-    > [!NOTE]
-    > The selector used in the Gateway object points to `istio: aks-istio-ingressgateway-internal`, which can be found as label on the service mapped to the internal ingress that was enabled earlier.
+Confirm you see the sample application's product page is accessible. For example:
 
-1. Set environment variables for internal ingress host and ports:
-
-    ```bash
-    export INGRESS_HOST_INTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-internal -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-    export INGRESS_PORT_INTERNAL=$(kubectl -n aks-istio-ingress get service aks-istio-ingressgateway-internal -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
-    export GATEWAY_URL_INTERNAL=$INGRESS_HOST_INTERNAL:$INGRESS_PORT_INTERNAL
-    ```
-
-1. Retrieve the address of the sample application:
-
-    ```bash
-    echo "http://$GATEWAY_URL_INTERNAL/productpage"
-    ```
-
-    Paste the output from the previous command into your web browser and confirm that the sample application's product page is **not displayed**, or try running the following curl command:
-
-    ```bash
-    curl -s "http://${GATEWAY_URL_INTERNAL}/productpage" | grep -o "<title>.*</title>"
-    ```
-
-1. Verify application is accessible from inside the cluster's virtual network:
-
-    ```bash
-    kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c ratings -- curl -sS  "http://$GATEWAY_URL_INTERNAL/productpage"  | grep -o "<title>.*</title>"
-    ```
-
-    **Expected output:**
-
-    ```
-    <title>Simple Bookstore App</title>
-    ```
+```
+<title>Simple Bookstore App</title>
+```
 
 ## Delete resources
 
