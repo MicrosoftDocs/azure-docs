@@ -89,7 +89,7 @@ Training could take sometime between 10 and 30 minutes for this sample dataset. 
 
 ## Deploy your model
 
-Generally after training a model you would review it's evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
+Generally after training a model you would review its evaluation details and make improvements if necessary. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/ct-runtime-swagger).
 
 ### Start deployment job
 
@@ -105,7 +105,7 @@ Generally after training a model you would review it's evaluation details and ma
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Custom-text-analytics-for-health&Page=quickstart&Section=Get-deployment-job-status" target="_target">I ran into an issue</a>
 
-## Make predictions using your trained model
+## Make predictions with your trained model
 
 After your model is deployed, you can start using it to extract entities from your text using the [prediction API](https://aka.ms/ct-runtime-swagger). In the sample dataset you downloaded earlier you can find some test documents that you can use in this step.
 

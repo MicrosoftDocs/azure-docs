@@ -10,7 +10,7 @@ ms.date: 06/29/2022
 ms.author: aahi
 ---
 
-Submit a **POST** request using the following URL, headers, and JSON body to submit a training job. Replace the placeholder values below with your own values. 
+Submit a **POST** request using the following URL, headers, and JSON body to submit a training job. Replace the placeholder values with your own values. 
 
 ```rest
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/:train?api-version={API-VERSION}
@@ -32,7 +32,7 @@ Use the following header to authenticate your request.
 
 #### Request body
 
-Use the following JSON in your request body. The model will be given the `{MODEL-NAME}` once training is complete. Only successful training jobs will produce models. 
+Use the following JSON in your request body. The model is given the `{MODEL-NAME}` once training is complete. Only successful training jobs produce models. 
 
 
 ```json
@@ -52,7 +52,7 @@ Use the following JSON in your request body. The model will be given the `{MODEL
 | modelLabel | `{MODEL-NAME}` | The model name that will be assigned to your model once trained successfully.  | `myModel` |
 | trainingConfigVersion | `{CONFIG-VERSION}` | This is the [model version](../../../concepts/model-lifecycle.md) that will be used to train the model. | `2022-05-01`| 
 | evaluationOptions |  | Option to split your data across training and testing sets. | `{}` |
-| kind | `percentage` |  Split methods. Possible values are `percentage` or `manual`. See [How to train a model](../../how-to/train-model.md#data-splitting) for more information. |`percentage`|
+| kind | `percentage` |  Split methods. Possible values are `percentage` or `manual`. <!--See [How to train a model](../../how-to/train-model.md#data-splitting) for more information.--> |`percentage`|
 | trainingSplitPercentage | `80`| Percentage of your tagged data to be included in the training set. Recommended value is `80`. | `80`|
 | testingSplitPercentage | `20` | Percentage of your tagged data to be included in the testing set. Recommended value is `20`.   | `20` |
 
