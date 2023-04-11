@@ -27,9 +27,9 @@ The `proxy` policy allows you to route requests forwarded to backends via an HTT
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| url      | Proxy URL in the form of `http://host:port`.             | Yes      | N/A     |
-| username | Username to be used for authentication with the proxy. | No       | N/A     |
-| password | Password to be used for authentication with the proxy. | No       | N/A     |
+| url      | Proxy URL in the form of `http://host:port`. Policy expressions are allowed.           | Yes      | N/A     |
+| username | Username to be used for authentication with the proxy. Policy expressions are allowed. | No       | N/A     |
+| password | Password to be used for authentication with the proxy. Policy expressions are allowed. | No       | N/A     |
 
 ## Usage
 

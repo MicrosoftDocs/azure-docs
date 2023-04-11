@@ -39,10 +39,10 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 
 ### `Containerd` limitations/differences
 
-* For `containerd`, we recommend using [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (for example, `crictl ps`).
+* For `containerd`, we recommend using [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes. For more information on `crictl`, see [General usage][general-usage] and [Client configuration options][client-config-options].
 
    * `Containerd` doesn't provide the complete functionality of the docker CLI. It's available for troubleshooting only.
-   * `crictl` offers a more kubernetes-friendly view of containers, with concepts like pods, etc. being present.
+   * `crictl` offers a more Kubernetes-friendly view of containers, with concepts like pods, etc. being present.
 
 * `Containerd` sets up logging using the standardized `cri` logging format (which is different from what you currently get from docker's json driver). Your logging solution needs to support the `cri` logging format (like [Azure Monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md))
 * You can no longer access the docker engine, `/var/run/docker.sock`, or use Docker-in-Docker (DinD).
@@ -406,6 +406,8 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases
 [azurerm-mariner]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_node_pool#os_sku
+[general-usage]: https://kubernetes.io/docs/tasks/debug/debug-cluster/crictl/#general-usage
+[client-config-options]: https://github.com/kubernetes-sigs/cri-tools/blob/master/docs/crictl.md#client-configuration-options
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

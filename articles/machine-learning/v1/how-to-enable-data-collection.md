@@ -28,6 +28,24 @@ Once collection is enabled, the data you collect helps you:
 
 * Retrain your model with the collected data.
 
+## Limitations
+
+* The model data collection feature can only work with Ubuntu 18.04 image.
+
+>[!IMPORTANT]
+>
+> As of 03/10/2023, the Ubuntu 18.04 image is now deprecated. **Support for Ubuntu 18.04 images will be dropped starting January 2023 when it reaches EOL on April 30, 2023.** 
+>
+> The MDC feature is incompatible with any other image than Ubuntu 18.04, which is no available after the Ubuntu 18.04 image is deprecated.
+>
+> mMore information you can refer to:
+> * [openmpi3.1.2-ubuntu18.04 release-notes](https://github.com/Azure/AzureML-Containers/blob/master/base/cpu/openmpi3.1.2-ubuntu18.04/release-notes.md)
+> * [data science virtual machine release notes](../data-science-virtual-machine/release-notes.md#september-20-2022)
+
+>[!NOTE]
+>
+> The data collection feature is currently in preview, any preview features are not recommended for production workloads.
+
 ## What is collected and where it goes
 
 The following data can be collected:

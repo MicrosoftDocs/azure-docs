@@ -51,7 +51,7 @@ The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 |----|---|----|
 |1|	P44111-B21 | HPE DL20 Gen10+ NHP 2LFF CTO Server|
 |1|	P45252-B21 | Intel Xeon E-2334 FIO CPU for HPE|
-|2|	P28610-B21 | HPE 1 TB SATA 7.2K SFF BC HDD|
+|2|	P28610-B21 | HPE 1-TB SATA 7.2K SFF BC HDD|
 |1|	P43016-B21 | HPE 8 GB 1Rx8 PC4-3200AA-E Standard Kit|
 |1|	869079-B21 | HPE Smart Array E208i-a SR G10 LH Ctrlr (RAID10)|
 |1|	P21106-B21 | INT I350 1GbE 4p BASE-T Adapter|
@@ -73,9 +73,9 @@ Optional modules for port expansion include:
 
 |Location |Type|Specifications|
 |--------------|--------------|---------|
-| PCI Slot 1 (Low profile)  | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25 Gb 2-port SFP28 Adapter for HPE |
-| PCI Slot 1 (Low profile)  | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10 Gb 2-port SFP+ Adapter for HPE |
-| PCI Slot 2 (High profile) | Quad Port Ethernet NIC| P21106-B21 - Intel I350-T4 Ethernet 1 Gb 4-port BASE-T Adapter for HPE |
+| PCI Slot 1 (Low profile)  | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25-Gb 2-port SFP28 Adapter for HPE |
+| PCI Slot 1 (Low profile)  | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10-Gb 2-port SFP+ Adapter for HPE |
+| PCI Slot 2 (High profile) | Quad Port Ethernet NIC| P21106-B21 - Intel I350-T4 Ethernet 1-Gb 4-port BASE-T Adapter for HPE |
 | PCI Slot 2 (High profile) | DP F/O NIC |P26262-B21 - Broadcom BCM57414 Ethernet 10/25 Gb 2-port SFP28 Adapter for HPE |
 | PCI Slot 2 (High profile) | DP F/O NIC |P28787-B21 - Intel X710-DA2 Ethernet 10 Gb 2-port SFP+ Adapter for HPE |
 | SFPs for Fiber Optic NICs|MultiMode, Short Range|455883-B21 - HPE BLc 10G SFP+ SR Transceiver|
@@ -188,6 +188,5 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
-- [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
+- [Download software files for an on-premises management console](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

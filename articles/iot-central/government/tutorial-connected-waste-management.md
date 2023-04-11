@@ -137,8 +137,9 @@ Try to customize the following features:
 
 Here's how:
 
-1. From the device template menu, select **Cloud property**.
-1. Select **+ Add Cloud Property**. In Azure IoT Central, you can add a property that is relevant to the device but isn't expected to be sent by a device. For example, a cloud property might be an alerting threshold specific to installation area, asset information, or maintenance information. 
+1. Navigate to the **Connected Waste Bin** device template, and select **+ Add capability**.
+1. Add a new cloud property by selecting **Cloud Property** as **Capability type**.
+    In Azure IoT Central, you can add a property that is relevant to the device but isn't expected to be sent by a device. For example, a cloud property might be an alerting threshold specific to installation area, asset information, or maintenance information.
 1. Select **Save**.
 
 ### Views
