@@ -92,7 +92,7 @@ There are multiple ways to create a workspace. To get started use one of the fol
 
 * The [Azure Machine Learning studio](quickstart-create-resources.md) lets you quickly create a workspace with default settings.
 * Use [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface with more security options. 
-* Use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace) if you work in Visual Studio code.
+* Use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace) if you work in Visual Studio Code.
 
 To automate workspace creation using your preferred security settings:
 * [Azure Resource Manager / Bicep templates](how-to-create-workspace-template.md) provide a declarative syntax to deploy Azure resources. An alternative option is to use [Terraform](how-to-manage-workspace-terraform.md). Also see [How to create a secure workspace by using a template](tutorial-create-secure-workspace-template.md).
