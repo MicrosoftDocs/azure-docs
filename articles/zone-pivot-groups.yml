@@ -1920,10 +1920,10 @@ groups:
   title: Virtual network
   prompt: Select a virtual network configuration
   pivots:
-  - id: aca-vnet-system
-    title: System generated VNet
+  - id: aca-vnet-managed
+    title: Managed
   - id: aca-vnet-custom
-    title: Custom VNet
+    title: Custom
 # Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types

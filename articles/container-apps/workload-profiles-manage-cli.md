@@ -5,19 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 04/10/2023
+ms.date: 04/11/2023
 ms.author: cshoe
 zone_pivot_groups: container-apps-vnet-types
 ---
 
-<!-- 
-::: zone pivot="aca-vnet-system"
-::: zone-end
-::: zone pivot="aca-vnet-custom"
-::: zone-end
- -->
-
 # Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview)
+
+Learn to manage a Container Apps environment with workload profile support.
 
 ## Supported regions
 
@@ -32,9 +27,16 @@ The following regions support workload profiles during preview:
 
 ## Create a container app in a profile
 
-::: zone pivot="aca-vnet-system"
+::: zone pivot="aca-vnet-managed"
 
-A system-generated VNet manages the complexity of running a virtual network for you, which means you don't have direct control over the VNet configuration. Without direction access to the configuration, you can't use [user defined routes](user-defined-routes.md). If you want to use user defined routes, you need to create a container apps environment with a [custom VNet](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom).
+Azure Container Apps run in an environment, which uses a virtual network (VNet). By default, your Container App environment is created with a managed VNet that is automatically generated for you. Generated VNets are inaccessible to you as they're created in Microsoft's tenant.
+
+Create a container apps environment with a [custom VNet](./workload-profiles-manage-cli.md?pivots=aca-vnet-custom) if you need any of the following features:
+
+- [User defined routes](user-defined-routes.md)
+- Integration with Application Gateway
+- Network Security Groups
+- Communicating with resources behind private endpoints in your virtual network
 
 ::: zone-end
 
@@ -44,11 +46,11 @@ When you create an environment with a custom VNet, you have full control over th
 
 ::: zone-end
 
-Use the following commands to create an environment with a workload profile.
+Use the following commands to create an environment with workload profile support.
 
 ::: zone pivot="aca-vnet-custom"
 
-1. Create a VNet
+1. Create a VNet.
 
       ```bash
       az network vnet create \
@@ -58,7 +60,7 @@ Use the following commands to create an environment with a workload profile.
         --name "<VNET_NAME>"
       ```
 
-1. Create a subnet
+1. Create a subnet delegated to `Microsoft.App/environments`.
 
       ```bash
       az network vnet subnet create \
@@ -88,8 +90,10 @@ Use the following commands to create an environment with a workload profile.
 
 1. Create *Consumption + Dedicated* environment with workload profile support
 
+    ::: zone pivot="aca-vnet-custom"
+
     >[!Note]
-    > In Container Apps, you can configure whether your Container Apps will allow public ingress or only ingress from within your VNet at the environment level. In order to restrict ingress to just your VNet, you will need to set the `--internal-only` flag.
+    > In Container Apps, you can configure whether your Container Apps will allow public ingress or only ingress from within your VNet at the environment level. In order to restrict ingress to just your VNet, you need to set the `--internal-only` flag.
 
     # [External environment](#tab/external-env)
 
@@ -98,13 +102,26 @@ Use the following commands to create an environment with a workload profile.
       --enable-workload-profiles \
       --resource-group "<RESOURCE_GROUP>" \
       --name "<NAME>" \
-      --location "<LOCATION>" \
-      --infrastructure-subnet-resource-id "<SUBNET_ID>"
+      --location "<LOCATION>"
     ```
 
     # [Internal environment](#tab/internal-env)
 
-    ::: zone pivot="aca-vnet-system"
+    ```bash
+    az containerapp env create \
+      --enable-workload-profiles \
+      --resource-group "<RESOURCE_GROUP>" \
+      --name "<NAME>" \
+      --location "<LOCATION>" \
+      --infrastructure-subnet-resource-id "<SUBNET_ID>" \
+      --internal-only true
+    ```
+
+    ---
+
+    ::: zone-end
+
+    ::: zone pivot="aca-vnet-managed"
 
     ```bash
     az containerapp env create \
@@ -115,22 +132,6 @@ Use the following commands to create an environment with a workload profile.
     ```
 
     ::: zone-end
-
-    ::: zone pivot="aca-vnet-custom"
-
-    ```bash
-    az containerapp env create \
-      --enable-workload-profiles \
-      --resource-group "<RESOURCE_GROUP>" \
-      --name "<NAME>" \
-      --location "<LOCATION>" \
-      --infrastructure-subnet-resource-id "<SUBNET_ID>"
-      --internal-only true
-    ```
-
-    ::: zone-end
-
-    ---
 
       This command can take up to 10 minutes to complete.
 
@@ -146,6 +147,8 @@ Use the following commands to create an environment with a workload profile.
 
 1. Create a new container app.
 
+    # [External environment](#tab/external-env)
+
       ```azurecli
       az containerapp create \
         --resource-group "<RESOURCE_GROUP>" \
@@ -156,6 +159,21 @@ Use the following commands to create an environment with a workload profile.
         --environment "<ENVIRONMENT_NAME>" \
         --workload-profile-name "Consumption"
       ```
+
+    # [Internal environment](#tab/internal-env)
+
+      ```azurecli
+      az containerapp create \
+        --resource-group "<RESOURCE_GROUP>" \
+        --name "<CONTAINER_APP_NAME>" \
+        --target-port 80 \
+        --ingress internal \
+        --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
+        --environment "<ENVIRONMENT_NAME>" \
+        --workload-profile-name "Consumption"
+      ```
+
+    ---
 
     This command deploys the application to the built-in Consumption workload profile. If you want to create an app in a dedicated workload profile, you first need to [add the profile to the environment](#add-profiles).
 
