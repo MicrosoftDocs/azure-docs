@@ -102,7 +102,7 @@ The goal of a geo-distributed set of search services is to have two or more inde
 You can implement this architecture by creating multiple services and designing a strategy for data synchronization. Optionally, you can include a resource like Azure Traffic Manager for routing requests. 
 
 > [!TIP]
-> For help in deploying multiple search services across multiple regions, see this [Bicep sample on GitHub](https://github.com/Azure-Samples/azure-search-multiple-regions) that gives you options for index synchronization and request redirection using Traffic Manager.
+> For help in deploying multiple search services across multiple regions, see this [Bicep sample on GitHub](https://github.com/Azure-Samples/azure-search-multiple-regions) that deploys a fully configured, multi-regional search solution. The sample gives you two options for index synchronization, and request redirection using Traffic Manager.
 
 <a name="data-sync"></a>
 

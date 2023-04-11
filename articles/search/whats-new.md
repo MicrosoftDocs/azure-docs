@@ -22,7 +22,7 @@ Learn about the latest updates to Azure Cognitive Search functionality, docs, an
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
-| [**Multi-region deployment of Azure Cognitive Search for business continuity and disaster recovery**](https://github.com/Azure-Samples/azure-search-multiple-regions) | Sample | Deployment scripts that configure two instances of Azure Cognitive Search in different regions, with options for synchronizing content and managing request redirection if an endpoint fails.|
+| [**Multi-region deployment of Azure Cognitive Search for business continuity and disaster recovery**](https://github.com/Azure-Samples/azure-search-multiple-regions) | Sample | Deployment scripts that fully configure a multi-regional solution for Azure Cognitive Search, with options for synchronizing content and managing request redirection if an endpoint fails.|
 
 ## March 2023
 
