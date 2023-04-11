@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Azure availability zone migration baseline
 
-This article shows you how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support. We'll take you through the steps you'll need to determine which how to take advantage of availability zone support in alignment with your application and regional requirements.  For more detailed information on availability zones and the regions that support them, see [What are Azure regions and availability zones?](availability-zones-overview.md).
+This article shows you how to assess the availability-zone readiness of your application for the purposes of migrating from non-availability zone to availability zone support. We'll take you through the steps you'll need to determine how you can take advantage of availability zone support in alignment with your application and regional requirements. For more detailed information on availability zones and the regions that support them, see [What are Azure regions and availability zones?](availability-zones-overview.md).
 
 When creating reliable workloads, you can choose at least one of the following availability zone configurations: 
 
