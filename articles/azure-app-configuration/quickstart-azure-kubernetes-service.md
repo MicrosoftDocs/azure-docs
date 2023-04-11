@@ -179,7 +179,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 1. Open a browser window, and navigate to the IP address obtained in the previous step. The web page looks like this:
 
-    ![Kubernetes Provider before using configMap ](./media/quickstarts/kubernetes-provider-app-launch-before.png)
+    ![Screenshot showing Kubernetes Provider before using configMap.](./media/quickstarts/kubernetes-provider-app-launch-before.png)
 
 ## Use App Configuration Kubernetes Provider
 
@@ -262,7 +262,7 @@ Now that you have an application running in AKS, you'll deploy the App Configura
 
 4. Refresh the browser. The page shows updated content.
 
-    ![Kubernetes Provider after using configMap](./media/quickstarts/kubernetes-provider-app-launch-after.png)
+    ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
 ### Troubleshooting
 
