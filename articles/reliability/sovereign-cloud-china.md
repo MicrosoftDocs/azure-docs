@@ -106,7 +106,7 @@ For IP rangers for Azure in China, download [Azure Datacenter IP Ranges in China
 | Azure Bot Services | <\*.botframework.com> | <\*.botframework.azure.cn> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
 | Sign in with PowerShell: <br>- Azure classic portal <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
-| Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external enviromment. The [custom domain](https://learn.microsoft.com/azure/container-apps/custom-domains-certificates) is required.  |
+| Azure Container Apps Default Domain | \*.azurecontainerapps.io | No default domain is provided for external enviromment. The [custom domain](/azure/container-apps/custom-domains-certificates) is required.  |
 | Azure Container Apps Event Stream Endpoint | \<region\>.azurecontainerapps.dev | \<region\>.chinanorth3.azurecontainerapps-dev.cn  |
 
 ### Application Insights
