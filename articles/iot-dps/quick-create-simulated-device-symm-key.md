@@ -71,7 +71,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device, during the device's boot sequence.
+In this section, you prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device, during the device's boot sequence.
 
 1. Download the latest [CMake build system](https://cmake.org/download/).
 
@@ -110,7 +110,7 @@ In this section, you'll prepare a development environment that's used to build t
     >[!TIP]
     >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-8. When the build completes successfully, the last few output lines will look similar to the following output:
+8. When the build completes successfully, the last few output lines look similar to the following output:
 
     ```output
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -192,63 +192,16 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 
 This article demonstrates an individual enrollment for a single device to be provisioned with an IoT hub.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-key.md](../../includes/iot-dps-individual-enrollment-key.md)]
 
-2. On the left-hand menu or on the portal page, select **All resources**.
+Once you create the individual enrollment, a **primary key** and **secondary key** are generated and added to the enrollment entry. You use the primary key in the device sample later in this quickstart.
 
-3. Select your Device Provisioning Service.
+1. To view your simulated symmetric key device enrollment, select the **Individual enrollments** tab.
 
-4. In the **Settings** menu, select **Manage enrollments**.
+1. Select your device's registration ID from the list of individual enrollments.
 
-5. At the top of the page, select **+ Add individual enrollment**.
-
-6. In the **Add Enrollment** page, enter the following information.
-
-   * **Mechanism**: Select *Symmetric Key* as the identity attestation Mechanism.
-
-   * **Auto-generate keys**: Check this box.
-
-   * **Registration ID**: Enter a registration ID to identify the enrollment. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`). For example, *symm-key-device-007*.
-
-   * **IoT Hub Device ID:** Enter a device identifier. The device ID must comply with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
-
-    :::zone pivot="programming-language-ansi-c"
-
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png" alt-text="Enter device enrollment information.":::
-
-    ::: zone-end
-
-    :::zone pivot="programming-language-csharp"
-
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment-csharp.png" alt-text="Enter C# device enrollment information.":::
-
-    ::: zone-end
-
-    :::zone pivot="programming-language-nodejs"
-
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment-nodejs.png" alt-text="Enter Node.js device enrollment information.":::
-
-    ::: zone-end
-
-    :::zone pivot="programming-language-python"
-
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment-python.png" alt-text="Enter Python device enrollment information.":::
-
-    ::: zone-end
-
-    ::: zone pivot="programming-language-java"
-
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment-java.png" alt-text="Enter Java device enrollment information.":::
-
-    ::: zone-end
-
-7. Select **Save**. A **Primary Key** and **Secondary Key** are generated and added to the enrollment entry, and you are taken back to the **Manage enrollments** page.
-
-8. To view your simulated symmetric key device enrollment, select the **Individual Enrollments** tab.
-
-9. Select your device (*symm-key-device-007*).
-
-10. Copy the value of the generated **Primary Key**.
+1. Copy the value of the generated **Primary key**.
 
     :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-device-enrollment-primary-key.png" alt-text="Copy the primary key of the device enrollment":::
 
@@ -258,7 +211,7 @@ This article demonstrates an individual enrollment for a single device to be pro
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll update the device sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning Service instance.
+In this section, you update the device sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence causes the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
 The sample provisioning code accomplishes the following tasks, in order:
 
@@ -313,7 +266,7 @@ To update and run the provisioning sample with your device information:
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function call, and replace the placeholder values (including the angle brackets) with your registration ID and the primary key value you copied earlier.
+    Uncomment the function call, and replace the placeholder values (including the angle brackets) with your device's registration ID and the primary key value you copied earlier.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -371,7 +324,7 @@ To update and run the provisioning sample with your device information:
     cd '.\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample\'
     ```
 
-4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters that are supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
+4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters that are supported by the sample. Only the first three required parameters are used in this article when running the sample. Review the code in this file. No changes are needed.
 
     | Parameter                         | Required | Description     |
     | :-------------------------------- | :------- | :-------------- |
@@ -386,7 +339,7 @@ To update and run the provisioning sample with your device information:
 6. Build and run the sample code using the following command:
 
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
+    * Replace `<registration-id>` with the **Registration ID** that you provided for the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```cmd
@@ -456,7 +409,7 @@ To update and run the provisioning sample with your device information:
 
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
+    * Replace `<registration-id>` with the **Registration ID** that you provided for the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```cmd
@@ -537,7 +490,7 @@ To update and run the provisioning sample with your device information:
 
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
+    * Replace `<registration-id>` with the **Registration ID** that you provided for the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```cmd
@@ -628,13 +581,13 @@ To update and run the provisioning sample with your device information:
 
 3. Open the Java device sample code for editing. The full path to the device sample code is:
 
-    `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-individual-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeyIndividualEnrollmentSample.java`
+    `azure-iot-sdk-java/provisioning/provisioning-device-client-samples/provisioning-symmetrickey-individual-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeyIndividualEnrollmentSample.java`
 
 4. Set the value of the following variables for your DPS and device enrollment:
 
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
+    * Replace `<registration-id>` with the **Registration ID** that you provided for the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```java
@@ -745,9 +698,9 @@ If you plan to continue working on and exploring the device client sample, don't
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
-5. Select the **Individual Enrollments** tab.
+5. Select the **Individual enrollments** tab.
 
-6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart.
+6. Select the check box next to the registration ID of the device you enrolled in this quickstart.
 
 7. At the top of the page, select  **Delete**.
 
@@ -759,7 +712,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the device you registered in this quickstart.
+4. Select the check box next to the device ID of the device you registered in this quickstart.
 
 5. At the top of the page, select  **Delete**.
 

@@ -2,7 +2,7 @@
 title: Enable Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to enable Azure Monitor on applications by using OpenTelemetry.
 ms.topic: conceptual
-ms.date: 02/22/2023
+ms.date: 03/31/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.reviewer: mmcc
 ---
@@ -27,7 +27,7 @@ OpenTelemetry offerings are available for .NET, Node.js, Python and Java applica
 - <a name="PREVIEW"> :warning: 2</a>: OpenTelemetry is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!NOTE] 
-> For a feature-by-feature release status, see the [FAQ](../faq.yml#what-is-the-current-release-state-of-features-within-each-opentelemetry-offering-).
+> For a feature-by-feature release status, see the [FAQ](../faq.yml#what-s-the-current-release-state-of-features-within-each-opentelemetry-offering-).
 
 ## Get started
 
@@ -56,7 +56,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 
 ### [Python](#tab/python)
 
-- Python Application using version 3.7+
+- Python Application using Python 3.7+
 
 ---
 
@@ -79,7 +79,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://
 
 #### [Java](#tab/java)
 
-Download the [applicationinsights-agent-3.4.10.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.10/applicationinsights-agent-3.4.10.jar) file.
+Download the [applicationinsights-agent-3.4.11.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.11/applicationinsights-agent-3.4.11.jar) file.
 
 > [!WARNING]
 >
@@ -122,10 +122,10 @@ npm install @opentelemetry/instrumentation-http
 
 #### [Python](#tab/python)
 
-Install the latest [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) PyPI package:
+Install the latest [azure-monitor-opentelemetry](https://pypi.org/project/azure-monitor-opentelemetry/) PyPI package:
 
 ```sh
-pip install azure-monitor-opentelemetry-exporter --pre
+pip install azure-monitor-opentelemetry --pre
 ```
 
 ---
@@ -181,7 +181,7 @@ public class Program
 
 Java auto-instrumentation is enabled through configuration changes; no code changes are required.
 
-Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.10.jar"` to your application's JVM args.
+Point the JVM to the jar file by adding `-javaagent:"path/to/applicationinsights-agent-3.4.11.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -257,22 +257,19 @@ function doWork(parent) {
 The following code demonstrates how to enable OpenTelemetry in a simple Python application:
 
 ```python
-import os
+from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
+configure_azure_monitor(
+    connection_string="<Your Connection String>",
+)
 
-exporter = AzureMonitorTraceExporter(connection_string="<Your Connection String>")
-
-trace.set_tracer_provider(TracerProvider())
 tracer = trace.get_tracer(__name__)
-span_processor = BatchSpanProcessor(exporter)
-trace.get_tracer_provider().add_span_processor(span_processor)
 
 with tracer.start_as_current_span("hello"):
     print("Hello, World!")
+
+input()
 
 ```
 
@@ -303,7 +300,7 @@ Use one of the following two ways to point the jar file to your Application Insi
    APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
    ```
     
-- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.10.jar` with the following content:
+- Create a configuration file named `applicationinsights.json`, and place it in the same directory as `applicationinsights-agent-3.4.11.jar` with the following content:
     
    ```json
    {
@@ -407,22 +404,23 @@ Set the Cloud Role Name and the Cloud Role Instance via [Resource](https://githu
 
 ```python
 ...
-from opentelemetry.sdk.resources import SERVICE_NAME, SERVICE_NAMESPACE, SERVICE_INSTANCE_ID, Resource
-trace.set_tracer_provider(
-    TracerProvider(
-        resource=Resource.create(
-            {
-                SERVICE_NAME: "my-helloworld-service",
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry.sdk.resources import Resource, ResourceAttributes
+
+configure_azure_monitor(
+    connection_string="<your-connection-string>",
+    resource=Resource.create(
+        {
+            ResourceAttributes.SERVICE_NAME: "my-helloworld-service",
 # ----------------------------------------
 # Setting role name and role instance
 # ----------------------------------------
-                SERVICE_NAMESPACE: "my-namespace",
-                SERVICE_INSTANCE_ID: "my-instance",
+            ResourceAttributes.SERVICE_NAMESPACE: "my-namespace",
+            ResourceAttributes.SERVICE_INSTANCE_ID: "my-instance",
 # ----------------------------------------------
 # Done setting role name and role instance
 # ----------------------------------------------
-            }
-        )
+        }
     )
 )
 ...
@@ -486,25 +484,24 @@ provider.register();
 
 #### [Python](#tab/python)
 
-In this example, we utilize the `ApplicationInsightsSampler`, which offers compatibility with Application Insights SDKs.
+The `configure_azure_monitor()` function will automatically utilize
+ApplicationInsightsSampler for compatibility with Application Insights SDKs and
+to sample your telemetry. The `sampling_ratio` parameter can be used to specify
+the sampling rate, with a valid range of 0 to 1, where 0 is 0% and 1 is 100%.
+For example, a value of 0.1 means 10% of your traces will be sent.
 
 ```python
+from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from azure.monitor.opentelemetry.exporter import (
-    ApplicationInsightsSampler,
-    AzureMonitorTraceExporter,
+
+configure_azure_monitor(
+    # connection_string="<your-connection-string>",
+    # Sampling ratio of between 0 and 1 inclusive
+    # 0.1 means approximately 10% of your traces are sent
+    sampling_ratio=0.1,
 )
 
-# Sampler expects a sample rate of between 0 and 1 inclusive
-# 0.1 means approximately 10% of your traces are sent
-sampler = ApplicationInsightsSampler(0.1)
-trace.set_tracer_provider(TracerProvider(sampler=sampler))
 tracer = trace.get_tracer(__name__)
-exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
-span_processor = BatchSpanProcessor(exporter)
-trace.get_tracer_provider().add_span_processor(span_processor)
 
 for i in range(100):
     # Approximately 90% of these spans should be sampled out
@@ -645,15 +642,21 @@ Dependencies
 
 Requests
 - [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.34b0/)
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.36b0/)
+- [FastApi](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-fastapi) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-fastapi/0.36b0/)
 - [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.34b0/)
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.36b0/)
 
 Dependencies
 - [Psycopg2](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-psycopg2) version:
-  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.34b0/)
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-psycopg2/0.36b0/)
 - [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) <sup>[1](#FOOTNOTEONE)</sup> version:
-  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.34b0/)
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.36b0/)
+- [Urllib](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-urllib/0.36b0/)
+- [Urllib3](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-urllib3) <sup>[1](#FOOTNOTEONE)</sup> version:
+  [0.36b0](https://pypi.org/project/opentelemetry-instrumentation-urllib3/0.36b0/)
 
 ---
 
@@ -685,12 +688,14 @@ Autocollected metrics
 
 #### [Python](#tab/python)
 
-- [Django](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-django) version:
-  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-django/0.34b0/)
-- [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) version:
-  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-flask/0.34b0/)
-- [Requests](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-requests) version:
-  [0.34b0](https://pypi.org/project/opentelemetry-instrumentation-requests/0.34b0/)
+Autocollected metrics
+
+- [Django](https://pypi.org/project/Django/)
+- [FastApi](https://pypi.org/project/requests/)
+- [Flask](https://pypi.org/project/Flask/)
+- [Requests](https://pypi.org/project/requests/)
+- [Urllib](https://docs.python.org/3/library/urllib.html)
+- [Urllib3](https://pypi.org/project/urllib3/)
 
 ---
 
@@ -718,13 +723,18 @@ Coming soon.
 
 #### [Python](#tab/python)
 
-Coming soon.
+Autocollected logs
+
+* [Python logging library](https://docs.python.org/3/howto/logging.html) <sup>[3](#FOOTNOTETHREE)</sup>
+
+See [this](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples/logging) for examples of using the Python logging library.
 
 ---
 
 **Footnotes**
 - <a name="FOOTNOTEONE">1</a>: Supports automatic reporting of unhandled exceptions
 - <a name="FOOTNOTETWO">2</a>: By default, logging is only collected when that logging is performed at the INFO level or higher. To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
+- <a name="FOOTNOTETHREE">3</a>: By default, logging is only collected when that logging is performed at the WARNING level or higher. To change this level, see the [configuration options](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry#usage) and specify `logging_level`.
 
 ## Collect custom telemetry
 
@@ -738,7 +748,7 @@ Depending on your language and signal type, there are different ways to collect 
  
 The following table represents the currently supported custom telemetry types:
 
-|                                           | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
+|    Custom Telemetry Types                 | Custom Events | Custom Metrics | Dependencies | Exceptions | Page Views | Requests | Traces |
 |-------------------------------------------|---------------|----------------|--------------|------------|------------|----------|--------|
 | **.NET**                                  |               |                |              |            |            |          |        |
 | &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                | Yes          | Yes        |            | Yes      |        |
@@ -757,9 +767,8 @@ The following table represents the currently supported custom telemetry types:
 | &nbsp;&nbsp;&nbsp;AI Classic API          | Yes           | Yes            | Yes          | Yes        | Yes        | Yes      | Yes    |
 |                                           |               |                |              |            |            |          |        |
 | **Python**                                |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;Python Logging Module   |               |                |              |            |            |          |        |
-| &nbsp;&nbsp;&nbsp;AI Classic API          |               |                |              |            |            |          |        |
+| &nbsp;&nbsp;&nbsp;OpenTelemetry API       |               | Yes            | Yes          | Yes        |            | Yes      |        |
+| &nbsp;&nbsp;&nbsp;Python Logging Module   |               |                |              |            |            |          | Yes    |
 
 > [!NOTE]
 > Application Insights Java 3.x listens for telemetry that's sent to the Application Insights Classic API. Similarly, Application Insights Node.js 3.x collects events created with the Application Insights Classic API. This makes upgrading easier and fills a gap in our custom telemetry support until all custom telemetry types are supported via the OpenTelemetry API.
@@ -885,15 +894,12 @@ public class Program {
 #### [Python](#tab/python)
 
 ```python
+from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
-from opentelemetry.sdk.metrics import MeterProvider
-from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
 
-from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
-
-exporter = AzureMonitorMetricExporter(connection_string="<your-connection-string")
-reader = PeriodicExportingMetricReader(exporter)
-metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
+configure_azure_monitor(
+    connection_string="<your-connection-string>",
+)
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_histogram_demo")
 
 histogram = meter.create_histogram("histogram")
@@ -1000,15 +1006,12 @@ public class Program {
 #### [Python](#tab/python)
 
 ```python
+from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
-from opentelemetry.sdk.metrics import MeterProvider
-from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
 
-from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
-
-exporter = AzureMonitorMetricExporter(connection_string="<your-connection-string")
-reader = PeriodicExportingMetricReader(exporter)
-metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
+configure_azure_monitor(
+    connection_string="<your-connection-string>",
+)
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_counter_demo")
 
 counter = meter.create_counter("counter")
@@ -1117,16 +1120,13 @@ public class Program {
 ```python
 from typing import Iterable
 
+from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import metrics
 from opentelemetry.metrics import CallbackOptions, Observation
-from opentelemetry.sdk.metrics import MeterProvider
-from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
 
-from azure.monitor.opentelemetry.exporter import AzureMonitorMetricExporter
-
-exporter = AzureMonitorMetricExporter(connection_string="<your-connection-string")
-reader = PeriodicExportingMetricReader(exporter)
-metrics.set_meter_provider(MeterProvider(metric_readers=[reader]))
+configure_azure_monitor(
+    connection_string="<your-connection-string>",
+)
 meter = metrics.get_meter_provider().get_meter("otel_azure_monitor_gauge_demo")
 
 def observable_gauge_generator(options: CallbackOptions) -> Iterable[Observation]:
@@ -1225,18 +1225,13 @@ catch(error){
 The OpenTelemetry Python SDK is implemented in such a way that exceptions thrown will automatically be captured and recorded. See below for an example of this behavior.
 
 ```python
+from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
-from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
-
-exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
-
-trace.set_tracer_provider(TracerProvider())
+configure_azure_monitor(
+    connection_string="<your-connection-string>",
+)
 tracer = trace.get_tracer("otel_azure_monitor_exception_demo")
-span_processor = BatchSpanProcessor(exporter)
-trace.get_tracer_provider().add_span_processor(span_processor)
 
 # Exception events
 try:
@@ -1248,7 +1243,8 @@ except Exception:
 
 ```
 
-If you would like to record exceptions manually, you can disable that option when creating the span as show below.
+If you would like to record exceptions manually, you can disable that option
+within the context manager and use `record_exception()` directly as shown below:
 
 ```python
 ...
@@ -1349,7 +1345,46 @@ Coming soon.
   
 #### [Python](#tab/python)
 
-Coming soon.
+#### Use the OpenTelemetry API
+
+The OpenTelemetry API can be used to add your own spans, which will appear in
+the `requests` and `dependencies` tables in Application Insights.
+
+The code example shows how to use the `tracer.start_as_current_span()` method to
+start, make the span current, and end the span within its context.
+
+```python
+...
+from opentelemetry import trace
+
+tracer = trace.get_tracer(__name__)
+
+# The "with" context manager starts, makes the span current, and ends the span within it's context
+with tracer.start_as_current_span("my first span") as span:
+    try:
+        # Do stuff within the context of this
+    except Exception as ex:
+        span.record_exception(ex)
+...
+
+```
+
+By default, the span will be in the `dependencies` table with a dependency type of `InProc`.
+
+If your method represents a background job that isn't already captured by
+auto-instrumentation, we recommend that you set the attribute `kind =
+SpanKind.SERVER` so that it will end up in the Application Insights `requests`
+table.
+
+```python
+...
+from opentelemetry import trace
+from opentelemetry.trace import SpanKind
+
+tracer = trace.get_tracer(__name__)
+with tracer.start_as_current_span("my request span", kind=SpanKind.SERVER) as span:
+...
+```
 
 ---
 
@@ -1418,7 +1453,7 @@ This is not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.10</version>
+      <version>3.4.11</version>
     </dependency>
     ```
 
@@ -1612,19 +1647,17 @@ provider.addSpanProcessor(new SimpleSpanProcessor(azureExporter));
 
 Use a custom processor:
 
-> [!TIP]
-> Add the processor shown here *before* the Azure Monitor Exporter.
-
 ```python
 ...
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
+from azure.monitor.opentelemetry import configure_azure_monitor
+from opentelemetry import trace
 
-trace.set_tracer_provider(TracerProvider())
-span_processor = BatchSpanProcessor(exporter)
+configure_azure_monitor(
+    connection_string="<your-connection-string>",
+)
 span_enrich_processor = SpanEnrichingProcessor()
+# Add the processor shown below to the current `TracerProvider`
 trace.get_tracer_provider().add_span_processor(span_enrich_processor)
-trace.get_tracer_provider().add_span_processor(span_processor)
 ...
 ```
 
@@ -1767,7 +1800,14 @@ Coming soon.
 
 #### [Python](#tab/python)
   
-Coming soon.
+The Python [logging](https://docs.python.org/3/howto/logging.html) library is [auto-instrumented](#logs). You can attach custom dimensions to your logs by passing a dictionary into the `extra` argument of your logs.
+
+```python
+...
+logger.warning("WARNING: Warning log with properties", extra={"key1": "value1"})
+...
+
+```
 
 ---
 
@@ -1881,20 +1921,28 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 
 1. Exclude the URL option provided by many HTTP instrumentation libraries.
 
-    The following example shows how to exclude a certain URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation:
+    The following example shows how to exclude a specific URL from being tracked by using the [Flask](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation/opentelemetry-instrumentation-flask) instrumentation configuration options in the `configure_azure_monitor()` function.
     
     ```python
     ...
     import flask
+    from azure.monitor.opentelemetry import configure_azure_monitor
     
-    from opentelemetry.instrumentation.flask import FlaskInstrumentor
-    
-    # You might also populate OTEL_PYTHON_FLASK_EXCLUDED_URLS env variable
-    # List will consist of comma delimited regexes representing which URLs to exclude
-    excluded_urls = "client/.*/info,healthcheck"
-    
-    FlaskInstrumentor().instrument(excluded_urls=excluded_urls) # Do this before flask.Flask
+    # Configure Azure monitor collection telemetry pipeline
+    configure_azure_monitor(
+        connection_string="<your-connection-string>",
+        # Pass in instrumentation configuration via kwargs
+        # Key: <instrumentation-name>_config
+        # Value: Dictionary of configuration keys and values
+        flask_config={"excluded_urls": "http://localhost:8080/ignore"},
+    )
     app = flask.Flask(__name__)
+
+    # Requests sent to this endpoint will not be tracked due to
+    # flask_config configuration
+    @app.route("/ignore")
+    def ignore():
+        return "Request received but not tracked."
     ...
     ```
 
@@ -1902,14 +1950,13 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
     
     ```python
     ...
-    from opentelemetry.sdk.trace import TracerProvider
-    from opentelemetry.sdk.trace.export import BatchSpanProcessor
-    
-    trace.set_tracer_provider(TracerProvider())
-    span_processor = BatchSpanProcessor(exporter)
-    span_filter_processor = SpanFilteringProcessor()
-    trace.get_tracer_provider().add_span_processor(span_filter_processor)
-    trace.get_tracer_provider().add_span_processor(span_processor)
+    from azure.monitor.opentelemetry import configure_azure_monitor
+    from opentelemetry import trace
+
+    configure_azure_monitor(
+        connection_string="<your-connection-string>",
+    )
+    trace.get_tracer_provider().add_span_processor(SpanFilteringProcessor())
     ...
     ```
     
@@ -1976,7 +2023,14 @@ Coming soon.
 
 #### [Python](#tab/python)
 
-Coming soon.
+Get the request trace ID and the span ID in your code:
+
+   ```python
+   from opentelemetry import trace
+
+   trace_id = trace.get_current_span().get_span_context().trace_id
+   span_id = trace.get_current_span().get_span_context().span_id
+   ```
 
 ---
 
@@ -2042,15 +2096,15 @@ Coming soon.
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see this [README](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter/samples/traces#collector).
     
     ```python
-    from opentelemetry import trace 
-    
+    from azure.monitor.opentelemetry import configure_azure_monitor
+    from opentelemetry import trace
     from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
     from opentelemetry.sdk.trace import TracerProvider
     from opentelemetry.sdk.trace.export import BatchSpanProcessor
-    
-    from azure.monitor.opentelemetry.exporter import AzureMonitorTraceExporter
-    
-    trace.set_tracer_provider(TracerProvider())
+
+    configure_azure_monitor(
+        connection_string="<your-connection-string>",
+    )
     tracer = trace.get_tracer(__name__) 
     
     exporter = AzureMonitorTraceExporter(connection_string="<your-connection-string>")
@@ -2136,7 +2190,10 @@ To override the default directory, you should set `storage_directory` to the dir
 For example:
 ```python
 ...
-exporter = AzureMonitorTraceExporter(connection_string="your-connection-string", storage_directory="C:\\SomeDirectory")
+configure_azure_monitor(
+    connection_string="your-connection-string",
+    storage_directory="C:\\SomeDirectory",
+)
 ...
 
 ```
@@ -2146,7 +2203,10 @@ To disable this feature, you should set `disable_offline_storage` to `True`. Def
 For example:
 ```python
 ...
-exporter = AzureMonitorTraceExporter(connection_string="your-connection-string", disable_offline_storage=True)
+configure_azure_monitor(
+    connection_string="your-connection-string",
+    disable_offline_storage=True,
+)
 ...
 
 ```
@@ -2257,7 +2317,7 @@ To get support:
 ### [Python](#tab/python)
 
 - For OpenTelemetry issues, contact the [OpenTelemetry Python community](https://github.com/open-telemetry/opentelemetry-python) directly.
-- For a list of open issues related to Azure Monitor Exporter, see the [GitHub Issues Page](https://github.com/Azure/azure-sdk-for-python/issues?q=is%3Aopen+is%3Aissue+label%3A%22Monitor+-+Exporter%22).
+- For a list of open issues related to Azure Monitor Distro, see the [GitHub Issues Page](https://github.com/microsoft/ApplicationInsights-Python/issues/new).
 
 ---
 
@@ -2298,10 +2358,13 @@ To provide feedback:
 
 ### [Python](#tab/python)
 
-- To review the source code, see the [Azure Monitor Exporter GitHub repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md).
-- To install the PyPI package, check for updates, or view release notes, see the [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) page.
+- To review the source code and additional documentation, see the [Azure Monitor Distro GitHub repository](https://github.com/microsoft/ApplicationInsights-Python/blob/main/azure-monitor-opentelemetry/README.md).
+- To see additional samples and use cases, see [Azure Monitor Distro samples](https://github.com/microsoft/ApplicationInsights-Python/tree/main/azure-monitor-opentelemetry/samples).
+- See the [release notes](https://github.com/microsoft/ApplicationInsights-Python/releases) on GitHub.
+- To install the PyPI package, check for updates, or view release notes, see the [Azure Monitor Distro PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry/) page.
 - To become more familiar with Azure Monitor Application Insights and OpenTelemetry, see the [Azure Monitor Example Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python).
+- To see available OpenTelemetry instrumentations and components, see the [OpenTelemetry Contrib Python GitHub repository](https://github.com/open-telemetry/opentelemetry-python-contrib).
 - To enable usage experiences, [enable web or browser user monitoring](javascript.md).
 
 ---

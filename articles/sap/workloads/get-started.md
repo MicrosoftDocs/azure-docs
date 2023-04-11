@@ -14,7 +14,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2023
+ms.date: 04/06/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -65,6 +65,8 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- April 6, 2023: Updates for RHEL 9 in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md)
+- March 26, 2023: Adding recommended sector size in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 - March 1, 2023: Change in [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md) to add configuration for cluster default properties
 - February 21, 2023: Correct link to HANA hardware directory in [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md) and fixed a bug in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 - February 17, 2023: Add support and Sentinel sections, few other minor updates in [RISE with SAP integration](rise-integration.md)

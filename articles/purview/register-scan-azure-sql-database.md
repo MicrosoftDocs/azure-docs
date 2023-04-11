@@ -4,8 +4,9 @@ description: Learn how to register, authenticate with, and interact with an Azur
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 04/04/2023
 ms.custom: template-how-to
 ---
 # Discover and govern Azure SQL Database in Microsoft Purview
@@ -16,7 +17,7 @@ This article outlines the process to register an Azure SQL database source in Mi
 
 |Metadata extraction| Full scan |Incremental scan|Scoped scan|Classification|Access policy|Lineage|Data sharing|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register-the-data-source) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan)| [Yes (preview)](#set-up-access-policies) | [Yes (preview)](#extract-lineage-preview) | No |
+| [Yes](#register-the-data-source) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan)| [Yes](#set-up-access-policies) | [Yes (preview)](#extract-lineage-preview) | No |
 
 > [!NOTE]
 > Data lineage extraction is currently supported only for stored procedure runs. Lineage is also supported if Azure SQL tables or views are used as a source/sink in [Azure Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md). 
@@ -410,14 +411,19 @@ After your data source has the **Data use management** option set to **Enabled**
 
 ![Screenshot that shows the panel for registering a data source for a policy, including areas for name, server name, and data use management.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
 
+[!INCLUDE [Access policies Azure SQL Database pre-requisites](./includes/access-policies-configuration-azure-sql-db.md)]
+
 ### Create a policy
 
 To create an access policy for Azure SQL Database, follow these guides:
 
-* [Provision access to system metadata in Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy). Use this guide to apply a DevOps policy on a single SQL database.
-* [Provision access by data owner for Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy). Use this guide to provision access on a single SQL database account in your subscription.
-* [Resource group and subscription access provisioning by data owner](./how-to-policies-data-owner-resource-group.md). Use this guide to provision access on all enabled data sources in a resource group or across an Azure subscription. The prerequisite is that the subscription or resource group must be registered with the **Data use management** option enabled. 
-* [Self-service policies for Azure SQL Database](./how-to-policies-self-service-azure-sql-db.md). Use this guide to allow data consumers to request access to data assets by using a self-service workflow.
+* [Provision access to system health, performance and audit information in Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy). Use this guide to apply a DevOps policy on a single SQL database.
+* [Provision read/modify access on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy). Use this guide to provision access on a single SQL database account in your subscription.
+* [Self-service access policies for Azure SQL Database](./how-to-policies-self-service-azure-sql-db.md). Use this guide to allow data consumers to request access to data assets by using a self-service workflow.
+
+To create policies that cover all data sources inside a resource group or Azure subscription, see [Discover and govern multiple Azure sources in Microsoft Purview](register-scan-azure-multiple-sources.md#access-policy).
+
+
 
 ## Extract lineage (preview) 
 <a id="lineagepreview"></a>

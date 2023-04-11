@@ -1,5 +1,5 @@
 ---
-title: Conditional Access templates - Azure Active Directory
+title: Conditional Access templates
 description: Deploy commonly used Conditional Access policies with templates
 
 services: active-directory

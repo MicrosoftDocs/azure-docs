@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 03/23/2023
 ms.custom:
 ---
 # Create, list, update and delete Microsoft Purview DevOps policies
@@ -80,7 +80,9 @@ To delete a DevOps policy, ensure first that you have the Microsoft Purview Poli
 ![Screenshot shows to enter SQL DevOps policies to delete.](./media/how-to-policies-devops-authoring-generic/enter-devops-policies-to-delete.png)
 
 ## Test the DevOps policy
-After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here some examples. For more, you can consult the [Microsoft Purview DevOps policies concept guide](/azure/purview/concept-policies-devops.md#mapping-of-popular-dmvsdmfs)
+After creating the policy, any of the Azure AD users in the Subject should now be able to connect to the data sources in the scope of the policy. To test, use SSMS or any SQL client and try to query some DMVs/DMFs. We list here a few examples. For more, you can consult the mapping of popular DMVs/DMFs in the [Microsoft Purview DevOps policies concept guide](./concept-policies-devops.md#mapping-of-popular-dmvs-and-dmfs)
+
+If you require additional troubleshooting, see the [Next steps](#next-steps) section in this guide.
 
 ### Testing SQL Performance Monitor access
 If you provided the Subject(s) of the policy SQL Performance Monitor role, you can issue the following commands
@@ -113,9 +115,12 @@ SELECT * FROM [databaseName].schemaName.tableName
 
 
 ## Role definition detail
-This section contains a reference of how actions in Microsoft Purview data policies map to specific actions in Azure SQL MI.
+This section contains a reference of how relevant Microsoft Purview data policy roles map to specific actions in SQL data sources.
 
-| **DevOps role definition** | **Data source specific actions**     |
+>[!NOTE]
+> The roles below may be expanded in the future to include additional actions that become available as long as they are are consistent with the spirit of the role.
+
+| **Microsoft Purview policy role definition** | **Data source specific actions**     |
 |-------------------------------------|--------------------------------------|
 |                                     |                                      |
 | *SQL Performance Monitor* |Microsoft.Sql/sqlservers/Connect |
@@ -131,6 +136,34 @@ This section contains a reference of how actions in Microsoft Purview data polic
 ||Microsoft.Sql/sqlservers/databases/SystemViewsAndFunctions/DatabaseSecurityMetadata/rows/select |
 |||
 
+>[!NOTE]
+> The role definition for SQL Performance Monitor will be expanded around April 2023 to include the following actions.
+
+- /Sqlservers/Databases/SystemViewsAndFunctions/DatabasePerformanceState/Rows/Select
+- /Sqlservers/SystemViewsAndFunctions/ServerPerformanceState/Rows/Select
+- /Sqlservers/Databases/SystemViewsAndFunctions/DatabaseGeneralMetadata/Rows/Select
+- /Sqlservers/SystemViewsAndFunctions/ServerGeneralMetadata/Rows/Select
+- /Sqlservers/Databases/DBCCs/ViewDatabasePerformanceState/Execute
+- /Sqlservers/DBCCs/ViewServerPerformanceState/Execute
+- /Sqlservers/Databases/ExtendedEventSessions/Create
+- /Sqlservers/Databases/ExtendedEventSessions/Options/Alter
+- /Sqlservers/Databases/ExtendedEventSessions/Events/Add
+- /Sqlservers/Databases/ExtendedEventSessions/Events/Drop
+- /Sqlservers/Databases/ExtendedEventSessions/State/Enable
+- /Sqlservers/Databases/ExtendedEventSessions/State/Disable
+- /Sqlservers/Databases/ExtendedEventSessions/Drop
+- /Sqlservers/Databases/ExtendedEventSessions/Target/Add
+- /Sqlservers/Databases/ExtendedEventSessions/Target/Drop
+- /Sqlservers/ExtendedEventSessions/Create
+- /Sqlservers/ExtendedEventSessions/Options/Alter
+- /Sqlservers/ExtendedEventSessions/Events/Add
+- /Sqlservers/ExtendedEventSessions/Events/Drop
+- /Sqlservers/ExtendedEventSessions/State/Enable
+- /Sqlservers/ExtendedEventSessions/State/Disable
+- /Sqlservers/ExtendedEventSessions/Drop
+- /Sqlservers/ExtendedEventSessions/Target/Add
+- /Sqlservers/ExtendedEventSessions/Target/Drop
+
 
 ## Next steps
 Check the blogs, videos and related documents
@@ -144,3 +177,4 @@ Check the blogs, videos and related documents
 * Doc: [Microsoft Purview DevOps policies on Azure Arc-enabled SQL Server](./how-to-policies-devops-arc-sql-server.md)
 * Doc: [Microsoft Purview DevOps policies on Azure SQL Database](./how-to-policies-devops-azure-sql-db.md)
 * Doc: [Microsoft Purview DevOps policies on entire resource groups or subscriptions](./how-to-policies-devops-resource-group.md)
+* Doc: [Troubleshoot Microsoft Purview policies for SQL data sources](./troubleshoot-policy-sql.md)

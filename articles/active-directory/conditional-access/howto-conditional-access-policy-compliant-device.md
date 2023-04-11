@@ -1,5 +1,5 @@
 ---
-title: Require compliant, hybrid joined devices, or MFA - Azure Active Directory
+title: Require compliant, hybrid joined devices, or MFA
 description: Create a custom Conditional Access policy to require compliant, hybrid joined devices, or multifactor authentication
 
 services: active-directory

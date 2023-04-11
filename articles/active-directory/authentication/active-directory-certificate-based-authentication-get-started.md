@@ -1,5 +1,5 @@
 ---
-title: Certificate-based authentication with federation - Azure Active Directory
+title: Certificate-based authentication with federation
 description: Learn how to configure certificate-based authentication with federation in your environment
 
 services: active-directory

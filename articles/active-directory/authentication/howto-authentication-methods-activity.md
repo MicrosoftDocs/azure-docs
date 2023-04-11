@@ -1,5 +1,5 @@
 ---
-title: Authentication Methods Activity - Azure Active Directory
+title: Authentication Methods Activity
 description: Overview of the authentication methods that users register to sign in and reset passwords. 
 
 services: active-directory

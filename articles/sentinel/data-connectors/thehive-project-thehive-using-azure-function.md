@@ -1,6 +1,6 @@
 ---
-title: "TheHive Project - TheHive (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector TheHive Project - TheHive (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "TheHive Project - TheHive (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector TheHive Project - TheHive (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# TheHive Project - TheHive (using Azure Function) connector for Microsoft Sentinel
+# TheHive Project - TheHive (using Azure Functions) connector for Microsoft Sentinel
 
 The [TheHive](http://thehive-project.org/) data connector provides the capability to ingest common TheHive events into Microsoft Sentinel through Webhooks. TheHive can notify external system of modification events (case creation, alert update, task assignment) in real time. When a change occurs in the TheHive, an HTTPS POST request with event information is sent to a callback data connector URL.  Refer to [Webhooks documentation](https://docs.thehive-project.org/thehive/legacy/thehive3/admin/webhooks/) for more information. The connector provides ability to get events which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
 
@@ -17,7 +17,7 @@ The [TheHive](http://thehive-project.org/) data connector provides the capabilit
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | TheHiveBearerToken<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-TheHive-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-TheHive-functionapp |
 | **Log Analytics table(s)** | TheHive_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -35,7 +35,7 @@ TheHive
 
 ## Prerequisites
 
-To integrate with TheHive Project - TheHive (using Azure Function) make sure you have: 
+To integrate with TheHive Project - TheHive (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Webhooks Credentials/permissions**: **TheHiveBearerToken**, **Callback URL** are required for working Webhooks. See the documentation to learn more about [configuring Webhooks](https://docs.thehive-project.org/thehive/installation-and-configuration/configuration/webhooks/).

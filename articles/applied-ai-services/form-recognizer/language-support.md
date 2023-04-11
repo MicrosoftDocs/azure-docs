@@ -7,8 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: reference
-ms.date: 02/13/2023
-ms.author: lajanuar
+ms.date: 03/03/2023
 ---
 
 # Language support for Form Recognizer
@@ -26,7 +25,7 @@ This article covers the supported languages for text and field **extraction (by 
 
 ## Read, layout, and custom form (template) model
 
-The following lists include the currently GA languages in the most recent v3.0 version. These languages are supported by Read, Layout, and Custom form (template) model features.
+The following lists include the currently GA languages in the most recent v3.0 version for Read, Layout, and Custom template (form) models.
 
 > [!NOTE]
 > **Language code optional**
@@ -214,27 +213,31 @@ Use the parameter `api-version=2022-06-30-preview` when using the REST API or th
 
 ## Custom neural model
 
-Language| Locale code |
+Language| API Version |
 |:-----|:----:|
-|English (United States)|en-us|
+|English | `2022-08-31` (GA), `2023-02-28-preview`|
+|Spanish | `2023-02-28-preview`|
+|German | `2023-02-28-preview`|
+|French | `2023-02-28-preview`|
+|Italian | `2023-02-28-preview`|
+|Dutch | `2023-02-28-preview`|
 
 ## Receipt model
 
 >[!NOTE]
  > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
+Receipt supports all English receipts and the following locales:
+
 |Language| Locale code |
 |:-----|:----:|
-|English (Australia)|`en-au`|
+|English |`en-au`|
 |English (Canada)|`en-ca`|
 |English (United Kingdom)|`en-gb`|
 |English (India)|`en-in`|
 |English (United States)| `en-us`|
-|French (France) | `fr` |
-|French (Canada)| `fr-ca`|
-|German | `de`|
-|Italian| `it`|
-|Spanish | `es` |
+|French | `fr` |
+| Spanish | `es` |
 
 ## Business card model
 
@@ -245,11 +248,12 @@ Business Card supports all English business cards with the following locales:
 
 |Language| Locale code |
 |:-----|:----:|
-|English (Australia)|`en-au`|
-|English (Canada)|`en-ca`|
-|English (United Kingdom)|`en-gb`|
-|English (India|`en-in`|
-|English (United States)| `en-us`|
+|English |`en-US`, `en-CA`, `en-GB`, `en-IN`|
+|German | de|
+|French | fr|
+|Italian |it|
+|Portuguese |pt|
+|Dutch | nl|
 
 The **2022-06-30** and later releases  include Japanese language support:
 
@@ -261,13 +265,13 @@ The **2022-06-30** and later releases  include Japanese language support:
 
 Language| Locale code |
 |:-----|:----:|
-|English |en-US, en-IN, en-GB, en-CA, en-AU|
+|English |`en-US`, `en-CA`, `en-GB`, `en-IN`|
 |Spanish| es|
-|German (**2022-06-30** and later)| de|
-|French (**2022-06-30** and later)| fr|
-|Italian (**2022-06-30** and later)|it|
-|Portuguese (**2022-06-30** and later)|pt|
-|Dutch (**2022-06-30** and later)| nl|
+|German | de|
+|French | fr|
+|Italian |it|
+|Portuguese |pt|
+|Dutch | nl|
 
 ## ID document model
 
@@ -506,30 +510,23 @@ This table lists the written languages supported by each Form Recognizer service
 ## Prebuilt receipt and business card
 
 >[!NOTE]
- >The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
+ > It's not necessary to specify a locale. This is an optional parameter. The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
 
 Prebuilt Receipt and Business Cards support all English receipts and business cards with the following locales:
 
-|Supported Languages| Details |
+|Language| Locale code |
 |:-----|:----:|
-|English| United States (-us), Australia (-au), Great Britain (-gb), India (-in|
-|French | France (FR) |
-|Spanish | Spain (ES) |
+|English (Australia)|`en-au`|
+|English (Canada)|`en-ca`|
+|English (United Kingdom)|`en-gb`|
+|English (India|`en-in`|
+|English (United States)| `en-us`|
 
 ## Prebuilt invoice
 
->[!NOTE]
- >The Form Recognizer deep-learning technology will auto-detect the language of the text in your image.
-
-| Supported languages | Details |
-|:----------------------|:---------|
-| <ul><li>English</li></ul>| United States (-us), Australia (-au), Canada (-ca), Great Britain (-gb), India (-in)|
-| <ul><li>Spanish</li></ul>|Spain (ES)|
-| <ul><li>German</li></ul>| Germany (DE)|
-| <ul><li>French</li></ul>| France (FR) |
-| <ul><li>Italian</li></ul>| Italy (IT)|
-| <ul><li>Portuguese</li></ul>| Portugal (-pt), Brazil (-br)|
-| <ul><li>Dutch</li></ul>| Netherlands (DE)|
+Language| Locale code |
+|:-----|:----:|
+|English (United States)|en-us|
 
 ## Prebuilt identity documents
 

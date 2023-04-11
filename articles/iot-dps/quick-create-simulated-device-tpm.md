@@ -222,10 +222,11 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
     npm install node-gyp -g
     npm install ffi-napi -g
     ```
+
     > [!NOTE]
-    > There are some known issues to installing the above packages. To resolve these issues, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then rerun the above installation commands. 
+    > There are some known issues to installing the above packages. To resolve these issues, run `npm install --global --production windows-build-tools` using a command prompt in **Run as administrator** mode, run `SET VCTargetsPath=C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140` after replacing the path with your installed version, and then rerun the above installation commands.
     >
-    
+
 5. Install all required packages running the following command at your command prompt in the **registerdevice** folder:
 
     ```cmd/sh
@@ -406,58 +407,17 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 ::: zone-end
 ::: zone pivot="programming-language-ansi-c, programming-language-nodejs, programming-language-java"
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. On the left-hand menu or on the portal page, select **All resources**.
-
-3. Select your Device Provisioning Service.
-
-4. In the **Settings** menu, select **Manage enrollments**.
-
-5. At the top of the page, select **+ Add individual enrollment**.
-
-6. In the **Add Enrollment** panel, enter the following information:
-
-   * Select **TPM** as the identity attestation *Mechanism*.
-   * Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, you may provide the following information:
-       * Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
-       * Update the **Initial device twin state** with the desired initial configuration for the device.
-   * Once complete, press the **Save** button.
-
-      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
-
-7. Select **Save**.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-tpm.md](../../includes/iot-dps-individual-enrollment-tpm.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+The C# TPM sample for this quickstart doesn't provide a registration ID. When prompted to add one for the individual enrollment, provide your own value.
 
-2. On the left-hand menu or on the portal page, select **All resources**.
-
-3. Select your Device Provisioning Service.
-
-4. In the **Settings** menu, select **Manage enrollments**.
-
-5. At the top of the page, select **+ Add individual enrollment**.
-
-6. In the **Add Enrollment** panel, enter the following information:
-
-   * Select **TPM** as the identity attestation *Mechanism*.
-   * Enter the *Endorsement key* you retrieved earlier from your HSM.
-   * Enter a unique *Registration ID* for your device. You'll also use this registration ID when registering your device, so make a note of it for later.
-   * Select an IoT hub linked with your provisioning service.
-   * Optionally, you may provide the following information:
-       * Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
-       * Update the **Initial device twin state** with the desired initial configuration for the device.
-   * Once complete, press the **Save** button.
-
-      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
-
-7. Select **Save**.
+<!-- INCLUDE -->
+[!INCLUDE [iot-dps-individual-enrollment-tpm.md](../../includes/iot-dps-individual-enrollment-tpm.md)]
 
 ::: zone-end
 ::: zone pivot="programming-language-csharp, programming-language-ansi-c, programming-language-nodejs, programming-language-java"
@@ -728,9 +688,9 @@ If you plan to continue working on and exploring the device client sample, don't
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
-5. Select the **Individual Enrollments** tab.
+5. Select the **Individual enrollments** tab.
 
-6. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart.
+6. Select the check box next to the registration ID of the device you enrolled in this quickstart.
 
 7. At the top of the page, select  **Delete**.
 
@@ -742,7 +702,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 3. In the **Explorers** menu, select **IoT devices**.
 
-4. Select the check box next to the *DEVICE ID* of the device you registered in this quickstart.
+4. Select the check box next to the device ID of the device you registered in this quickstart.
 
 5. At the top of the page, select  **Delete**.
 

@@ -6,9 +6,32 @@ items:
   items:   
     - name: What is Azure AD for customers?  
       href: overview-customers-ciam.md 
+- name: Concepts
+  expanded: true
+  items: 
+    - name: Planning for CIAM
+      href: concept-planning-your-solution.md
+    - name: Supported features in customer tenants
+      href: concept-supported-features-customers.md
+    - name: Customizing the sign-in look and feel
+      href: concept-branding-customers.md
+    - name: Designing the flow of sign-in steps
+      href: concept-user-flows-customers.md
+    - name: Collecting info from users
+      href: concept-customize-claims-customers.md
+    - name: Integrating with other systems
+      href: concept-extensions-customers.md
+    - name: Authentication methods and identity providers
+      href: concept-authentication-methods-customers.md
+    - name: Understanding tokens, claims, endpoints
+      href: concept-tokens-claims-endpoints-customers.md
+    - name: Security and governance
+      href: concept-security-customers.md  	  	  
 - name: Quickstarts
   expanded: true
   items: 
+    - name: Explore a free trial
+      href: quickstart-trial-explore-features.md 
     - name: Customer tenant and sign-in (portal)
       href: quickstart-customer-tenant-portal.md
     - name: Add sign-in to your app (developers)
@@ -44,3 +67,4 @@ items:
           href: how-to-customize-branding-customers.md
         - name: Language-specific branding
           href: how-to-customize-languages-customers.md
+

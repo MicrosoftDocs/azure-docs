@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Block access - Azure Active Directory
+title: Conditional Access - Block access
 description: Create a custom Conditional Access policy to Block access
 
 services: active-directory

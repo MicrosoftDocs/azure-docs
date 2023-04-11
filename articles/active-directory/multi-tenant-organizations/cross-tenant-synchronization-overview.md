@@ -6,6 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
+ms.subservice: multi-tenant-organizations
 ms.topic: overview
 ms.date: 02/22/2023
 ms.author: rolyon
@@ -27,6 +28,8 @@ Here are the primary goals of cross-tenant synchronization:
 - Seamless collaboration for a multi-tenant organization
 - Automate lifecycle management of B2B collaboration users in a multi-tenant organization
 - Automatically remove B2B accounts when a user leaves the organization 
+
+> [!VIDEO https://www.youtube.com/embed/7B-PQwNfGBc]
 
 ## Why use cross-tenant synchronization?
 
