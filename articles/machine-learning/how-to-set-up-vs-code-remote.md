@@ -22,7 +22,7 @@ In this article, you'll learn how to connect to an Azure Machine Learning comput
 There are two ways you can connect to a compute instance from Visual Studio Code:
 
 1. **Remote compute instance.** This option provides you with a **full-featured development environment** for building your machine learning projects.
-    * You can connect VS Code to a remote compute instance either in the browser [VS Code for the Web](#connect-remote-compute-instance-to-vs-code&tabs=vscode-web) or desktop application [VS Code Desktop](#connect-remote-compute-instance-to-vs-code&tabs=vscode-desktop).
+    * You can connect VS Code to a remote compute instance either in the browser [VS Code for the Web](?tabs=vscode-web#connect-remote-compute-instance-to-vs-code) or desktop application [VS Code Desktop](?tabs=vscode-desktop#connect-remote-compute-instance-to-vs-code).
     * We recommend **VS Code for the Web**, as you can do all your machine learning work directly from the browser, and without any required installations or dependencies.
 
 1. **Remote Jupyter Notebook server**. This option allows you to set a compute instance as a remote Jupyter Notebook server.
