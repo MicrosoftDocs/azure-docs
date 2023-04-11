@@ -186,8 +186,8 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 > [!NOTE]
 >After configuring automatic OS image upgrades for your scale set, you must also bring the scale set VMs to the latest scale set model if your scale set uses the 'Manual' [upgrade policy](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
-### ARM Templates
-The following example describes how to set automatic OS upgrades on a scale set model via ARM Templates:
+### ARM templates
+The following example describes how to set automatic OS upgrades on a scale set model via Azure Resource Manager templates (ARM templates):
 
 ```json
 "properties": { 
