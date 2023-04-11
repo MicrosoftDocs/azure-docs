@@ -131,7 +131,7 @@ pip install -u my_package=={good.version}
 
 or if you're using a conda environment, update the reference in the conda dependencies file.
 
-In some cases python packages will be automatically installed during conda's setup of your environment on top of a base Docker image. Mitigation steps for those are the same as user-introduced packages. Conda installs necessary dependencies for every environment it materializes. Packages like cryptography, setuptools, wheel, etc. will be automatically installed from conda's default channels. There is a known issue with the default anaconda channel missing latest package versions, it is recommended to prioritize community-maintained conda-forge. Otherwise, please explicitely specify packages and versions, even if you do not reference them in the code you plan to execute on that environment.
+In some cases, Python packages will be automatically installed during conda's setup of your environment on top of a base Docker image. Mitigation steps for those are the same as those for user-introduced packages. Conda installs necessary dependencies for every environment it materializes. Packages like cryptography, setuptools, wheel, etc. will be automatically installed from conda's default channels. There's a known issue with the default anaconda channel missing latest package versions, so it's recommended to prioritize the community-maintained conda-forge channel. Otherwise, please explicitly specify packages and versions, even if you don't reference them in the code you plan to execute on that environment.
 
 ### Cache issues 
 
