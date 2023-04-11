@@ -23,14 +23,14 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 ## What can I do with Defender for APIs?
 
 - **Inventory and insights**: In a single dashboard, get an aggregated view of all managed APIs. Review security insights, identify misconfigurations, and detect threats.
-- **Security posture*: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
+- **Security posture**: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
 - **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
 - **Defender for CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your security graph.
 
 
 ## Reviewing inventory and insights
 
-Get insights on onboarded APIs in the API Security dashboard. The dashboard provides information about API collections and endpoints, as well as security posture recommendations and alerts.
+Get security insights on onboarded APIs in the API Security dashboard. The dashboard provides information about API collections and endpoints, as well as security posture recommendations, and security alerts.
 
 
 **Dashboard information** | **Details**
@@ -61,7 +61,7 @@ To identify and harden API configurations, you can apply API gateway security co
 
 Defender for APIs monitors runtime traffic and threat intelligence feeds and issues threat detection alerts. API alerts detect the top 10 OWASP threats, data exfiltration, volumetric attacks, anomalous and suspicious API parameters, traffic, IP access, and usage patterns.
 
-[Review the security alerts reference](alerts-reference.md)
+[Review the security alerts reference](alerts-reference.md).
 
 ## Responding to threats
 
@@ -69,9 +69,9 @@ Act on recommendations and alerts to mitigate threats. Defender for Cloud alerts
 
 ## Investigating security risks
 
-[Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan collects multicloud data and presents a map (graph) of assets and connections across your organization, to expose risks, vulnerabilities, and lateral movement possibilities. 
+[Cloud Security Graph](concept-attack-path.md) in the Defender CSPM plan collects multicloud data and presents a map (graph) of assets and connections across your organization, to expose risks, vulnerabilities, and possible lateral movement paths. 
 
-When Defender for APIs is enabled together with the Defender CSPM plan, you can query the API resources within your organization's security graph. Cloud Security Explorer gives you broad visibility into your API resources, and the ability to proactively and efficiently query, navigate and identify API assets, security issues, and risks.
+When Defender for APIs is enabled together with the Defender CSPM plan, you can use Cloud Security Explorer to proactive and efficiently query your organizational security graph to navigate, identify, and remediate API assets, security issues, and risks.
 
 ## Next steps
 
