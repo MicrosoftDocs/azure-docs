@@ -99,7 +99,7 @@ try
 { 
 
     "Logging in to Azure..." 
-    Connect-AzAccount -Identity -AccountId <Client Id of myUserAssignedIdentity>
+    Connect-AzAccount -Identity -AccountId <Client Id of myUserAssignedIdentity>
 } 
 catch { 
     Write-Error -Message $_.Exception 
