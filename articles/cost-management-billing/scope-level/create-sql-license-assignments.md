@@ -3,7 +3,7 @@ title: Create SQL Server license assignments for Azure Hybrid Benefit
 description: This article explains how to create SQL Server license assignments for Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2022
+ms.date: 04/06/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -12,7 +12,11 @@ ms.reviewer: chrisri
 
 # Create SQL Server license assignments for Azure Hybrid Benefit
 
-The new centralized Azure Hybrid Benefit experience in the Azure portal supports SQL Server license assignments at the account level or at a particular subscription level. When the assignment is created at the account level, Azure Hybrid Benefit discounts are automatically applied to SQL resources in all subscriptions in the account up to the license count specified in the assignment.
+The new centralized Azure Hybrid Benefit (preview) experience in the Azure portal supports SQL Server license assignments at the account level or at a particular subscription level. When the assignment is created at the account level, Azure Hybrid Benefit discounts are automatically applied to SQL resources in all subscriptions in the account up to the license count specified in the assignment.
+
+> [!IMPORTANT]
+> Centrally-managed Azure Hybrid Benefit is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For each license assignment, a scope is selected and then licenses are assigned to the scope. Each scope can have multiple license entries.
 
@@ -31,8 +35,8 @@ The prerequisite roles differ depending on the agreement type.
 
 | Agreement type | Required role | Supported offers |
 | --- | --- | --- |
-| Enterprise Agreement | _Enterprise Administrator_<p> If you are an Enterprise admin with read-only access, you’ll need your organization to give you **full** access to assign licenses using centrally managed Azure Hybrid Benefit. <p>If you're not an Enterprise admin, you must be assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator). | - MS-AZR-0017P (Microsoft Azure Enterprise)<br>- MS-AZR-USGOV-0017P (Azure Government Enterprise) |
-| Microsoft Customer Agreement | *Billing account owner*<br> *Billing account contributor* <br> *Billing profile owner*<br> *Billing profile contributor*<br> If you don't have one of the roles above, your organization must assign one to you. For more information about how to become a member of the roles, see [Manage billing roles](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal). | MS-AZR-0017G (Microsoft Azure Plan)|
+| Enterprise Agreement | _Enterprise Administrator_<p> If you're an Enterprise admin with read-only access, you need your organization to give you **full** access to assign licenses using centrally managed Azure Hybrid Benefit. <p>If you're not an Enterprise admin, you must get assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator). | - MS-AZR-0017P (Microsoft Azure Enterprise)<br>- MS-AZR-USGOV-0017P (Azure Government Enterprise) |
+| Microsoft Customer Agreement | *Billing account owner*<br> *Billing account contributor* <br> *Billing profile owner*<br> *Billing profile contributor*<br> If you don't have one of the preceding roles, your organization must assign one to you. For more information about how to become a member of the roles, see [Manage billing roles](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal). | MS-AZR-0017G (Microsoft Azure Plan)|
 | WebDirect / Pay-as-you-go | Not available | None |
 | CSP / Partner led customers | Not available | None |
 
@@ -42,7 +46,7 @@ The prerequisite roles differ depending on the agreement type.
 
 ## Create a SQL license assignment
 
-In the following procedure, you navigate from **Cost Management + Billing** to **Reservations + Hybrid Benefit**. Don't navigate to **Reservations** from the Azure home page. By doing so you won't have the necessary scope to view the license assignment experience. 
+In the following procedure, you navigate from **Cost Management + Billing** to **Reservations + Hybrid Benefit**. Don't navigate to **Reservations** from the Azure home page. By doing so, you don't have the necessary scope to view the license assignment experience. 
 
 1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-cost-management.png" alt-text="Screenshot showing Azure portal navigation to Cost Management + Billing." lightbox="./media/create-sql-license-assignments/select-cost-management.png" :::
@@ -57,7 +61,7 @@ In the following procedure, you navigate from **Cost Management + Billing** to *
     :::image type="content" source="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" alt-text="Screenshot showing Azure Hybrid Benefit selection." lightbox="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" :::
 1. On the next screen, select **Begin to assign licenses**.  
     :::image type="content" source="./media/create-sql-license-assignments/get-started-centralized.png" alt-text="Screenshot showing Add SQL hybrid benefit selection" lightbox="./media/create-sql-license-assignments/get-started-centralized.png" :::  
-    If you don't see the page and instead see the message `You are not the Billing Admin on the selected billing scope` then you don't have the required permission to assign a license. If so, you need to get the required permission. For more information, see [Prerequisites](#prerequisites).
+    If you don't see the page, and instead see the message `You are not the Billing Admin on the selected billing scope` then you don't have the required permission to assign a license. If so, you need to get the required permission. For more information, see [Prerequisites](#prerequisites).
 1. Choose a scope and then enter the license count to use for each SQL Server edition. If you don't have any licenses to assign for a specific edition, enter zero.  
     > [!NOTE]
     > You are accountable to determine that the entries that you make in the scope-level managed license experience are accurate and will satisfy your licensing obligations. The license usage information is shown to assist you as you make your license assignments. However, the information shown could be incomplete or inaccurate due to various factors.
@@ -103,7 +107,7 @@ After you create SQL license assignments, your experience with Azure Hybrid Bene
 
 ## Cancel a license assignment
 
-Review your license situation before you cancel your license assignments. When you cancel a license assignment, you no longer receive discounts for them. Consequently, your Azure bill might increase. If you cancel the last remaining license assignment, Azure Hybrid Benefit management reverts to the individual resource level.
+Review your license situation before you cancel your license assignments. When you cancel a license assignment, you no longer receive discounts for them. So, your Azure bill might increase. If you cancel the last remaining license assignment, Azure Hybrid Benefit management reverts to the individual resource level.
 
 ### To cancel a license assignment
 

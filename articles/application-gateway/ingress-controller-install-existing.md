@@ -4,6 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
+ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: greglin

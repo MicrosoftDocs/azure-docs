@@ -54,6 +54,9 @@ By default, the Azure Cosmos DB client SDKs and data import tools suc
 #### Recommended solution
 In general, for a production workload, **if you see between 1-5% of requests with 429 responses, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized**. No action is required. Otherwise, move to the next troubleshooting steps.
 
+> [!IMPORTANT]
+> This 1-5% range is assuming that your account partitions are evenly distributed. If your partitions are not evenly distributed, your problem partition may return a large amount of 429 errors while the overall rate may be low.
+
 If you're using autoscale, it's possible to see 429 responses on your database or container, even if the RU/s wasn't scaled to the maximum RU/s. See the section [Request rate is large with autoscale](#request-rate-is-large-with-autoscale) for an explanation.
 
 One common question that arises is, **"Why am I seeing 429 responses in the Azure Monitor metrics, but none in my own application monitoring?"** If Azure Monitor Metrics show you have 429 responses, but you've not seen any in your own application, this is because by default, the Azure Cosmos DB client SDKs [`automatically retried internally on the 429 responses`](xref:Microsoft.Azure.Cosmos.CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests) and the request succeeded in subsequent retries. As a result, the 429 status code isn't returned to the application. In these cases, the overall rate of 429 responses is typically minimal and can be safely ignored, assuming the overall rate is between 1-5% and end to end latency is acceptable to your application.

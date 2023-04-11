@@ -6,36 +6,12 @@ ms.topic: how-to
 ---
 # About high availability
 
-Increase the resiliency of your Defender for IoT deployment by configuring high availability on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+Increase the resiliency of your Defender for IoT deployment by configuring [high availability](ot-deploy/air-gapped-deploy.md#high-availability-for-on-premises-management-consoles) on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with an on-premises management console pair that includes a primary and secondary appliance.
 
 > [!NOTE]
 > In this document, the principal on-premises management console is referred to as the primary, and the agent is referred to as the secondary.
-
-## About primary and secondary communication
-
-When a primary and secondary on-premises management console is paired:
-
-- An on-premises management console SSL certificate is applied to create a secure connection between the primary and secondary appliances. The SSL may be the self-signed certificate installed by default or a certificate installed by the customer.
-
-    When validation is `ON`, the appliance should be able to establish connection to the CRL server defined by the certificate.
-
-- The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. The on-premises management console configurations and device data are backed up. PCAP files and logs are not included in the backup. You can back up and restore PCAPs and logs manually.
-
-- The primary setup on the management console is duplicated on the secondary. For example, if the system settings are updated on the primary, they're also updated on the secondary.
-
-- Before the license of the secondary expires, you should define it as the primary in order to update the license.
-
-## About failover and failback
-
-If a sensor can't connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Failover from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
-
-During failover, sensors continue attempts to communicate with the primary appliance. When more than half the managed sensors succeed in communicating with the primary, the primary is restored. The following message appears on the secondary console when the primary is restored:
-
-:::image type="content" source="media/how-to-set-up-high-availability/secondary-console-message.png" alt-text="Screenshot of a message that appears at the secondary console when the primary is restored.":::
-
-Sign back in to the primary appliance after redirection.
 
 ## Prerequisites
 
@@ -44,9 +20,9 @@ Before you perform the procedures in this article, verify that you've met the fo
 - Make sure that you have an [on-premises management console installed](./ot-deploy/install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
 
     - Both your primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
-    - You must be able to access to both the primary and secondary on-premises management consoles as a [privileged user](references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](roles-on-premises.md).
+    - You must be able to access both the primary and secondary on-premises management consoles as a [privileged user](references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](roles-on-premises.md).
 
-- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](how-to-manage-individual-sensors.md#connect-a-sensor-to-the-management-console) and visible in the console UI, and scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
+- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](ot-deploy/connect-sensors-to-management.md) and visible in the console UI, as well as the scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
 
 - Make sure that your SSL/TLS certificates meet required criteria. For more information, see [Deploy OT appliance certificates](how-to-deploy-certificates.md).
 
@@ -67,7 +43,7 @@ Before you perform the procedures in this article, verify that you've met the fo
 
 1. **On the secondary appliance**, use the following steps to copy the connection string to your clipboard:
 
-    1. Sign in to the secondary on-premises management console, and select **System Settings** on the left.
+    1. Sign in to the secondary on-premises management console, and select **System Settings**.
 
     1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
 
@@ -128,7 +104,7 @@ The core application logs can be exported to the Defender for IoT support team t
 
 **To access the core logs**:
 
-1. Sign into the on-premises management console and select **System Settings** > **Export**. For more information on exporting logs to send to the support team, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
+1. Sign into the on-premises management console and select **System Settings** > **Export**. For more information on exporting logs to send to the support team, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
 
 ## Update the on-premises management console with high availability
 
@@ -194,7 +170,27 @@ Perform the update in the following order. Make sure each step is complete befor
 
 1. Set up high availability again, on both the primary and secondary appliances. For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 
+## Failover process
+
+After setting up high availability, OT sensors automatically connect to a secondary on-premises management console if it can't connect to the primary.
+If less than half of the OT sensors are currently communicating with the secondary machine, your system is supported by both the primary and secondary machines simultaneously. If more than half of the OT sensors are communicating with the secondary machine, the secondary machine takes over all OT sensor communication. Failover from the primary to the secondary machine takes approximately three minutes.
+
+When failover occurs, the primary on-premises management console freezes and you can sign in to the secondary using the same sign-in credentials.
+
+During failover, sensors continue attempts to communicate with the primary appliance. When more than half the managed sensors succeed in communicating with the primary, the primary is restored. The following message appears on the secondary console when the primary is restored:
+
+:::image type="content" source="media/how-to-set-up-high-availability/secondary-console-message.png" alt-text="Screenshot of a message that appears at the secondary console when the primary is restored.":::
+
+Sign back in to the primary appliance after redirection.
+
+## Handle expired activation files
+
+Activation files can only be updated on the primary on-premises management console. 
+
+Before the activation file expires on the secondary machine, define it as the primary machine so that you can update the license.
+
+For more information, see [Upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 ## Next steps
 
-For more information, see [Activate and set up your on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md).
+For more information, see [Activate and set up an on-premises management console](ot-deploy/activate-deploy-management.md).

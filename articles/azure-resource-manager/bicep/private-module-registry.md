@@ -2,6 +2,7 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
+ms.custom: devx-track-bicep
 ms.date: 01/10/2023
 ---
 
