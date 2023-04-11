@@ -115,7 +115,7 @@ The JSON schema includes the following properties.
 | `workspaceId (e.g)`__*__ | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | `workspaceKey (e.g)` | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
-\__*__ The `workspaceId` schema property maps to the `consumerId` property in the Log Analytics API.
+__\*__ The `workspaceId` schema property maps to the `consumerId` property in the Log Analytics API.
 
 <!-- Reviewers: There's no information about properties in the following article.
 
@@ -184,7 +184,7 @@ When you place the extension JSON at the root of the ARM template, the resource 
 }
 ```
 
-## Azure PowerShell deployment
+## PowerShell deployment
 
 The `Set-AzVMExtension` command can be used to deploy the Log Analytics agent VM extension to an existing VM. Before you run the command, store the public and private configurations in a [PowerShell hashtable](/powershell/scripting/learn/deep-dives/everything-about-hashtable). 
 
