@@ -3,14 +3,14 @@ title: Deploy an IPv6 dual stack application with Basic Load Balancer in Azure v
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy an IPv6 dual stack application in Azure virtual network using Azure Resource Manager VM templates.
 services: virtual-network
-documentationcenter: na
 author: mbender-ms
-manager: mtillman
+manager: kumudd
 ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 03/31/2020
+ms.date: 04/11/2023
 ms.author: mbender
+ms.custom: engagement-fy23
 ---
 
 # Deploy an IPv6 dual stack application with Basic Load Balancer in Azure - Template
