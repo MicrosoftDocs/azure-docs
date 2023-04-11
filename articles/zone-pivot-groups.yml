@@ -1016,6 +1016,20 @@ groups:
     title: Windows container
   - id: code-windows
     title: Windows code
+- id: app-service-getting-started-stacks
+  title: Language stacks
+  prompt: Choose a stack
+  pivots:
+  - id: stack-net
+    title: .NET
+  - id: stack-python
+    title: Python
+  - id: stack-nodejs
+    title: Node.js
+  - id: stack-java
+    title: Java
+  - id: stack-php
+    title: PHP       
 - id: programming-languages-spring-apps
 # Owner: karler
   title: Programming languages

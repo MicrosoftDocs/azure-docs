@@ -31,6 +31,8 @@
           href: quickstart-javascript.md
         - name: Azure Container Apps
           href: quickstart-container-apps.md
+        - name: Azure Kubernetes Service
+          href: quickstart-azure-kubernetes-service.md
     - name: Feature management
       items:
         - name: ASP.NET Core
