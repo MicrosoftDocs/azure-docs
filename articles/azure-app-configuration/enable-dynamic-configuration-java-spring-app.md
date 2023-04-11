@@ -62,7 +62,7 @@ App Configuration exposes `AppConfigurationRefresh`, which can be used to check 
     }
     ```
 
-    `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Future` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
+    `AppConfigurationRefresh`'s `refreshConfigurations()` returns a `Mono` that is true if a refresh has been triggered, and false if not. False means either the cache expiration time hasn't expired, there was no change, or another thread is currently checking for a refresh.
 
 1. Update `bootstrap.properties` to enable refresh
 
