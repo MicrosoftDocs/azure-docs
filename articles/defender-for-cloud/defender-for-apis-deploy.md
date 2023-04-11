@@ -15,13 +15,13 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 
 - Review [Defender for APIs support, permissions, and requirements](defender-for-apis-introduction.md) before you begin deployment.
 - Make sure that Defender for Cloud is enabled in your Azure subscription. You enable Defender for APIs at the subscription level.
-- Ensure that APIs you want to secure are published in [Azure API management](/azure/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) if you need to set up Azure API management.
+- Ensure that APIs you want to secure are published in [Azure API management](/azure/api-management/api-management-key-concepts). Follow [these instructions](/azure/api-management/get-started-create-service-instance) to set up Azure API management.
 
 ## Enable the plan
 
-1. In the Azure portal > Defender for Cloud, select **Environment settings**.
+1. In the Defender for Cloud portal, select **Environment settings**.
 1. Select the subscription that contains the managed APIs that you want to protect. 
-1. Select **On** in the **APIs** plan, and select **Save**.
+1. In the **APIs** plan, select **On**. Then select **Save**.
 
 :::image type="content" source="media/defender-for-apis-deploy/enable-plan.png" alt-text="Button for turning on the Defender for APIs plan.":::
 
@@ -33,13 +33,13 @@ This article describes how to deploy the [Microsoft Defender for APIs](defender-
 
     :::image type="content" source="media/defender-for-apis-deploy/api-recommendations.png" alt-text="Page showing the recommendation for Defender for APIs.":::
 
-1. In the details page for the recommendation, you can review the recommendation severity, update interval, description, and remediation steps.
+1. In the recommendation page, you can review the recommendation severity, update interval, description, and remediation steps.
 1. Review the resources in scope for the recommendations:
     - **Unhealthy resources**: Resources that aren't onboarded to Defender for APIs.
     - **Healthy resources**: API resources that are onboarded to Defender for APIs.
     - **Not applicable resources**: API resources that aren't applicable for protection.
 
-1. In **Unhealthy resources**, select the APIs you want to protect with Defender for APIs.
+1. In **Unhealthy resources**, select the APIs that you want to protect with Defender for APIs.
 
     :::image type="content" source="media/defender-for-apis-deploy/api-recommendation-details.png" alt-text="Page showing the recommendation details for Defender for APIs.":::
 
