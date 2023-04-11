@@ -9,7 +9,6 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2023
 ms.author: halkazwini
 ms.custom: template-concept, engagement-fy23
-
 ---
 
 # Schema and data aggregation in Azure Network Watcher traffic analytics
