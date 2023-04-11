@@ -7,7 +7,7 @@ author: jimmart-dev
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/09/2023
+ms.date: 04/11/2023
 ms.author: jammart
 ms.custom: engagement-fy23
 ---
@@ -50,7 +50,7 @@ Azure ABAC builds on Azure RBAC by adding role assignment conditions based on at
 
 For more information on using Azure ABAC to control access to Azure Storage, see [Authorize access to Azure Blob Storage using Azure role assignment conditions](storage-auth-abac.md).
 
-For the status of attributes applicable to Data Lake Storage Gen2, see [Status of condition features in Azure Storage](../common/authorize-data-access.md#status-of-condition-features-in-azure-storage).
+For the status of attributes applicable to Data Lake Storage Gen2, see [Status of condition features in Azure Storage](storage-auth-abac.md#status-of-condition-features-in-azure-storage).
 
 ## Access control lists (ACLs)
 
