@@ -32,4 +32,4 @@ To disable the analyzer, refer to these [instructions](/visualstudio/code-qualit
 
 Open **Settings** by clicking the wheel icon on the lower left corner, then search for “rosyln”. “Enable Rosyln Analyzers” should show up as one of the results. Check the enable support box.
 
-:::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-vscode.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio Code.":::
+:::image type="content" source="media/durable-functions-best-practice/roslyn-analyzer-vs-code.png" alt-text="Screenshot of configuring Roslyn Analyzer in Visual Studio Code.":::
