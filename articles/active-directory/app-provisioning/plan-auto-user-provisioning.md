@@ -43,7 +43,7 @@ Azure AD provides self-service integration of any application using templates pr
 
 #### Application licensing
 
-You'll need the appropriate licenses for the application(s) you want to automatically provision. Discuss with the application owners whether the users assigned to the application have the proper licenses for their application roles. If Azure AD manages automatic provisioning based on roles, the roles assigned in Azure AD must align to application licenses. Incorrect licenses owned in the application may lead to errors during the provisioning/updating of a user.
+You need the appropriate licenses for the application(s) you want to automatically provision. Discuss with the application owners whether the users assigned to the application have the proper licenses for their application roles. If Azure AD manages automatic provisioning based on roles, the roles assigned in Azure AD must align to application licenses. Incorrect licenses owned in the application may lead to errors during the provisioning/updating of a user.
 
 ### Terms
 
