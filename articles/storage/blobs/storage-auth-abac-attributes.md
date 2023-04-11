@@ -6,7 +6,7 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 04/11/2023
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -335,8 +335,8 @@ The following table summarizes the available attributes by source:
 | :--------------- | :----------------------- | :----------------------------------------------------------------- |
 | **Environment**  | | |
 | | [Is private link](#is-private-link)       | Whether access is over a private link.                             |
-| | [Private endpoint](#private-endpoint)     | The private endpoint from which an object is accessed. |
-| | [Subnet name](#subnet-name)               | The subnet from which an object is accessed.           |
+| | [Private endpoint](#private-endpoint)     | The private endpoint over which an object is accessed.             |
+| | [Subnet name](#subnet-name)               | The subnet over which an object is accessed.                       |
 | | [UTC now](#utc-now)                       | The current date and time in Coordinated Universal Time.           |
 | **Request**       | | |
 | | [Blob index tags [Keys]](#blob-index-tags-keys) | Index tags on a blob resource (keys).                        |

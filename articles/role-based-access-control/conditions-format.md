@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/27/2023
+ms.date: 04/11/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
@@ -257,7 +257,7 @@ Depending on the selected actions, the attribute might be found in different pla
 
 #### Environment attributes
 
-Environment attributes are associated with the circumstances under which the access request is made, such as the date and time of day or the network environment. The network environment of the access request might be whether it is over a specific private endpoint or virtual network subnet, or perhaps over any private link.
+Environment attributes are associated with the circumstances under which the access request is made, such as the date and time of day or the network environment. The network environment might be whether access is over a specific private endpoint or a virtual network subnet, or perhaps over any private link.
 
 > [!IMPORTANT]
 > Environment attributes are currently in PREVIEW.
@@ -265,13 +265,12 @@ Environment attributes are associated with the circumstances under which the acc
 
 The following table lists the the supported environment attributes for conditions.
 
-> [!div class="mx-tableFixed"]
-> | Display name | Description | Attribute | Type |
-> | --- | --- | --- | --- |
-> | Subnet name | Use this attribute in conditions to restrict access to a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | String |
-> | Private endpoint name | Use this attribute in conditions to restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | String |
-> | Is private link | Use this attribute in conditions to require access over any private link. | `isPrivateLink` | Boolean |
-> | UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | DateTime |
+| Display name | Description | Attribute | Type |
+| --- | --- | --- | --- |
+| Subnet name | Use this attribute in conditions to restrict access over a specific subnet. | `Microsoft.Network/virtualNetworks/subnets` | String |
+| Private endpoint name | Use this attribute in conditions to restrict access over a specific private endpoint. | `Microsoft.Network/privateEndpoints` | String |
+| Is private link | Use this attribute in conditions to require access over any private link. | `isPrivateLink` | Boolean |
+| UTC now | Use this attribute in conditions to restrict access to objects during specific time periods. | `UtcNow` | DateTime |
 
 For a complete list of the storage attributes you can use in conditions, see:
 
