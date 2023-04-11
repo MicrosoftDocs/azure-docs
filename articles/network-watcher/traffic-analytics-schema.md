@@ -7,8 +7,9 @@ ms.service: network-watcher
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/11/2023
-ms.custom: template-concept, engagement-fy23
 ms.author: halkazwini
+ms.custom: template-concept, engagement-fy23
+
 ---
 
 # Schema and data aggregation in Azure Network Watcher traffic analytics
@@ -23,12 +24,12 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 
 ## Data aggregation
 
-1. All flow logs at a network security group between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t` are captured at one-minute intervals as blobs in a storage account.
-2. Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
-3. Flows that have the same `Source IP`, `Destination IP`, `Destination port`, `NSG name`, `NSG rule`, `Flow Direction`, and `Transport layer protocol` (TCP or UDP) (Note: source port is excluded for aggregation) are clubbed into a single flow by traffic analytics.
-4. This single record is decorated (details in the section below) and ingested in Log Analytics by traffic analytics. This process can take up to 1 hour max.
-5. `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
-6. For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Log Analytics user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
+- All flow logs at a network security group between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t` are captured at one-minute intervals as blobs in a storage account.
+- Default processing interval of traffic analytics is 60 minutes, meaning that every hour, traffic analytics picks blobs from the storage account for aggregation. However, if a processing interval of 10 minutes is selected, traffic analytics will instead pick blobs from the storage account every 10 minutes.
+- Flows that have the same `Source IP`, `Destination IP`, `Destination port`, `NSG name`, `NSG rule`, `Flow Direction`, and `Transport layer protocol` (TCP or UDP) (Note: source port is excluded for aggregation) are clubbed into a single flow by traffic analytics.
+- This single record is decorated (details in the section below) and ingested in Log Analytics by traffic analytics. This process can take up to 1 hour max.
+- `FlowStartTime_t` field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between `FlowIntervalStartTime_t` and `FlowIntervalEndTime_t`.
+- For any resource in traffic analytics, the flows indicated in the Azure portal are total flows seen by the network security group, but in Log Analytics user sees only the single, reduced record. To see all the flows, use the `blob_id` field,  which can be referenced from storage. The total flow count for that record matches the individual flows seen in the blob.
 
 The following query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
 
@@ -196,11 +197,12 @@ List of threat types:
 | WatchList | A generic bucket into which indicators are placed when it can't be determined exactly what the threat is or will require manual interpretation. `WatchList` should typically not be used by partners submitting data into the system. |
 
 
+
 ## Notes
 
-1. In case of `AzurePublic` and `ExternalPublic` flows, customer owned Azure virtual machine IP is populated in `VMIP_s` field, while the Public IP addresses are populated in the `PublicIPs_s` field. For these two flow types, you should use `VMIP_s` and `PublicIPs_s` instead of `SrcIP_s` and `DestIP_s` fields. For AzurePublic and ExternalPublic IP addresses, we aggregate further, so that the number of records ingested to log analytics workspace is minimal. (This field will be deprecated soon and you should be using SrcIP_ and DestIP_s depending on whether the virtual machine was the source or the destination in the flow).
-1. Some field names are appended with `_s` or `_d`, which don't signify source and destination but indicate the data types *string* and *decimal* respectively.
-1. Based on the IP addresses involved in the flow, we categorize the flows into the following flow types:
+- In case of `AzurePublic` and `ExternalPublic` flows, customer owned Azure virtual machine IP is populated in `VMIP_s` field, while the Public IP addresses are populated in the `PublicIPs_s` field. For these two flow types, you should use `VMIP_s` and `PublicIPs_s` instead of `SrcIP_s` and `DestIP_s` fields. For AzurePublic and ExternalPublic IP addresses, we aggregate further, so that the number of records ingested to log analytics workspace is minimal. (This field will be deprecated soon and you should be using SrcIP_ and DestIP_s depending on whether the virtual machine was the source or the destination in the flow).
+- Some field names are appended with `_s` or `_d`, which don't signify source and destination but indicate the data types *string* and *decimal* respectively.
+- Based on the IP addresses involved in the flow, we categorize the flows into the following flow types:
     - `IntraVNet`: Both IP addresses in the flow reside in the same Azure virtual network.
     - `InterVNet`: IP addresses in the flow reside in two different Azure virtual networks.
     - `S2S` (Site-To-Site): One of the IP addresses belongs to an Azure virtual network, while the other IP address belongs to customer network (Site) connected to the virtual network through VPN gateway or ExpressRoute.
@@ -212,5 +214,8 @@ List of threat types:
     - `Unknown`: Unable to map either of the IP addresses in the flow with the customer topology in Azure and on-premises (site).
 
 ## Next Steps
+
 - To learn more about traffic analytics, see [Azure Network Watcher Traffic analytics](traffic-analytics.md).
 - See [Traffic analytics FAQ](traffic-analytics-faq.yml) for answers to traffic analytics frequently asked questions.
+
+
