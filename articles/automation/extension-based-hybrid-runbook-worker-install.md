@@ -301,11 +301,11 @@ Follow the steps mentioned below as an example:
 
 1. Create a Hybrid Worker Group.
 1. Create either an Azure VM or Arc-enabled server. Alternatively, you can also use an existing Azure VM or Arc-enabled server.
-1. Connect the Azure VM or Arc-enabled Server to the above created Hybrid Worker Group. 
+1. Connect the Azure VM or Arc-enabled server to the above created Hybrid Worker Group. 
 1. Generate a new GUID and pass it as the name of the Hybrid Worker.
 1. Enable System-assigned managed identity on the VM.
 1. Install Hybrid Worker Extension on the VM.
-1. To confirm if the extension has been successfully installed on the VM, In **Azure portal**, go to the VM > **Extensions** tab and check the status of Hybrid Worker extension installed on the VM.
+1. To confirm if the extension has been successfully installed on the VM, in **Azure portal**, go to the VM > **Extensions** tab and check the status of the Hybrid Worker extension installed on the VM.
 
 ```Bicep
 param automationAccount string
@@ -538,11 +538,11 @@ Follow the steps mentioned below as an example:
 
 1. Create a Hybrid Worker Group.
 1. Create either an Azure VM or Arc-enabled server. Alternatively, you can also use an existing Azure VM or Arc-enabled server.
-1. Connect the Azure VM or Arc-enabled Server to the above created Hybrid Worker Group. 
+1. Connect the Azure VM or Arc-enabled server to the above created Hybrid Worker Group. 
 1. Generate a new GUID and pass it as the name of the Hybrid Worker.
 1. Enable System-assigned managed identity on the VM.
 1. Install Hybrid Worker Extension on the VM.
-1. To confirm if the extension has been successfully installed on the VM, In **Azure portal**, go to the VM > **Extensions** tab and check the status of Hybrid Worker extension installed on the VM.
+1. To confirm if the extension has been successfully installed on the VM, in **Azure portal**, go to the VM > **Extensions** tab and check the status of the Hybrid Worker extension installed on the VM.
 
 
 **Review the template**
@@ -974,15 +974,15 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
 #### [Azure CLI](#tab/cli)
 
-You can use Azure CLI to create a new Hybrid Worker group, create a new Azure VM, add it to an existing Hybrid Worker Group and install the Hybrid Worker extension. Learn more about [Azure CLI](https://learn.microsoft.com/cli/azure/what-is-azure-cli)
+You can use Azure CLI to create a new Hybrid Worker group, create a new Azure VM, add it to an existing Hybrid Worker Group and install the Hybrid Worker extension. Learn more about [Azure CLI](https://learn.microsoft.com/cli/azure/what-is-azure-cli).
 
 Follow the steps mentioned below as an example:
 
-1. Create a Hybrid Worker Group
+1. Create a Hybrid Worker Group.
    ```azurecli-interactive
       az automation hrwg create --automation-account-name accountName --resource-group groupName --name hybridrunbookworkergroupName
    ```
-1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as `hybridRunbookWorkerGroupName. vmResourceId`. To fetch it, go to the **Properties** tab of the VM on Azure portal.
+1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as `hybridRunbookWorkerGroupName`. To fetch `vmResourceId`, go to the **Properties** tab of the VM on Azure portal.
 
    ```azurecli-interactive
     az automation hrwg hrw create --automation-account-name accountName --resource-group groupName --hybrid-runbook-worker-group-name hybridRunbookWorkerGroupName --hybrid-runbook-worker-id
@@ -994,7 +994,7 @@ Follow the steps mentioned below as an example:
        az vm extension set --name HybridWorkerExtension --publisher Microsoft.Azure.Automation.HybridWorker --version 1.1 --vm-name <vmname> -g <resourceGroupName> \ 
       --settings '{"AutomationAccountURL" = "<registration-url>";}' --enable-auto-upgrade true 
    ```
-1. To confirm if the extension has been successfully installed on the VM, In **Azure portal**, go to the VM > **Extensions** tab and check the status of Hybrid Worker extension installed on the VM.
+1. To confirm if the extension has been successfully installed on the VM, in **Azure portal**, go to the VM > **Extensions** tab and check the status of the Hybrid Worker extension installed on the VM.
 
 **Manage Hybrid Worker Extension**
 
@@ -1010,12 +1010,12 @@ You can use PowerShell cmdlets to create a new Hybrid Worker group, create a new
 
 Follow the steps mentioned below as an example:
 
-1. Create a Hybrid Worker Group
+1. Create a Hybrid Worker Group.
 
    ```powershell-interactive
        New-AzAutomationHybridRunbookWorkerGroup -AutomationAccountName "Contoso17" -Name "RunbookWorkerGroupName" -ResourceGroupName "ResourceGroup01" 
    ```
-1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as `RunbookWorkerName. VmResourceId`. To fetch it, go to the **Properties** tab of the VM on Azure portal.
+1. Create an Azure VM or Arc-enabled server and add it to the above created Hybrid Worker Group. Use the below command to add an existing Azure VM or Arc-enabled Server to the Hybrid Worker Group. Generate a new GUID and pass it as `hybridRunbookWorkerGroupName`. To fetch `vmResourceId`, go to the **Properties** tab of the VM on Azure portal.
 
     ```azurepowershell
       New-AzAutomationHybridRunbookWorker -AutomationAccountName "Contoso17" -Name "RunbookWorkerName" -HybridRunbookWorkerGroupName "RunbookWorkerGroupName" -VmResourceId "VmResourceId" -ResourceGroupName "ResourceGroup01" 
