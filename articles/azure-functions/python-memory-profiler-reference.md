@@ -31,7 +31,7 @@ Before you start developing a Python function app, you must meet these requireme
 
 1. In your requirements.txt, add `memory-profiler` to ensure the package is bundled with your deployment. If you're developing on your local machine, you may want to [activate a Python virtual environment](create-first-function-cli-python.md#create-venv) and do a package resolution by `pip install -r requirements.txt`.
 
-2. In your function script (usually *\_\_init\_\_.py* for the Python v1 programming model and *function_app.py* for the v2 model), add the following lines above the `main()` function. This ensures the root logger reports the child logger names, so that the memory profiling logs are distinguishable by the prefix `memory_profiler_logs`.
+2. In your function script (for example, *\_\_init\_\_.py* for the Python v1 programming model and *function_app.py* for the v2 model), add the following lines above the `main()` function. These lines ensure the root logger reports the child logger names, so that the memory profiling logs are distinguishable by the prefix `memory_profiler_logs`.
 
     ```python
     import logging
@@ -40,14 +40,14 @@ Before you start developing a Python function app, you must meet these requireme
     root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
     profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
 
-3. Apply the following decorator above any functions that need memory profiling. This doesn't work directly on the trigger entrypoint `main()` method. You need to create subfunctions and decorate them. Also, due to a memory-profiler known issue, when applying to an async coroutine, the coroutine return value will always be None.
+3. Apply the following decorator above any functions that need memory profiling. The decorator doesn't work directly on the trigger entrypoint `main()` method. You need to create subfunctions and decorate them. Also, due to a memory-profiler known issue, when applying to an async coroutine, the coroutine return value is always `None`.
 
     ```python
     @memory_profiler.profile(stream=profiler_logstream)
 
-4. Test the memory profiler on your local machine by using Azure Functions Core Tools command `func host start`. This should generate a memory usage report with file name, line of code, memory usage, memory increment, and the line content in it.
+4. Test the memory profiler on your local machine by using Azure Functions Core Tools command `func host start`. When you invoke the functions, they should generate a memory usage report. The report contains file name, line of code, memory usage, memory increment, and the line content in it.
 
-5. To check the memory profiling logs on an existing function app instance in Azure, you can query the memory profiling logs in recent invocations by pasting the following [Kusto](/azure/azure-monitor/logs/log-query-overview) queries in Application Insights, Logs.
+5. To check the memory profiling logs on an existing function app instance in Azure, you can query the memory profiling logs for recent invocations with [Kusto](/azure/azure-monitor/logs/log-query-overview) queries in Application Insights, Logs.
 
     :::image type="content" source="media/python-memory-profiler-reference/application-insights-query.png" alt-text="Query memory usage of a Python app in Application Insights":::
 
@@ -91,7 +91,7 @@ func init PythonMemoryProfilingDemov2 --python -m v2
 cd PythonMemoryProfilingDemov2
 ```
 
-For the Python V2 programming model, triggers and bindings are created as decorators within the Python file itself, the *function_app.py* file. For information on how to create a new function with the new programming model, see the [Azure Functions Python developer guide](https://aka.ms/pythonprogrammingmodel). Note that `func new` is not supported for the preview of the V2 Python programming model.
+For the Python V2 programming model, triggers and bindings are created as decorators within the Python file itself, the *function_app.py* file. For information on how to create a new function with the new programming model, see the [Azure Functions Python developer guide](https://aka.ms/pythonprogrammingmodel). `func new` isn't supported for the preview of the V2 Python programming model.
 
 ---
 
@@ -183,7 +183,7 @@ async def get_microsoft_page_async(url: str):
 
 ---
 
-Add the following for the synchronous HTTP trigger.
+Create the synchronous HTTP trigger.
 
 # [v1](#tab/v1)
 
@@ -237,7 +237,7 @@ def profile_get_request(url: str):
 
 ### Profile Python function app in local development environment
 
-After making all the above changes, there are a few more steps to initialize a Python virtual environment for Azure Functions runtime.
+After you make the above changes, there are a few more steps to initialize a Python virtual environment for Azure Functions runtime.
 
 1. Open a Windows PowerShell or any Linux shell as you prefer.
 2. Create a Python virtual environment by `py -m venv .venv` in Windows, or `python3 -m venv .venv` in Linux.
