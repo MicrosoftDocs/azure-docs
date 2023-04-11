@@ -174,11 +174,32 @@ appInsights.defaultClient.context.tags[appInsights.defaultClient.context.keys.cl
 appInsights.start();
 ```
 
-### Automatic web snippet injection (preview)
+### Automatic web Instrumentation[Preview]
 
-You can use automatic web snippet injection to enable [Application Insights usage experiences](usage-overview.md) and browser diagnostic experiences with a simple configuration. It's an easier alternative to manually adding the JavaScript snippet or npm package to your JavaScript web code.
+ Automatic web Instrumentation can be enabled for node server via configuration 
 
-For node server with configuration, set `enableAutoWebSnippetInjection` to `true`. Alternatively, set the environment variable as `APPLICATIONINSIGHTS_WEB_SNIPPET_ENABLED = true`. Automatic web snippet injection is available in Application Insights Node.js SDK version 2.3.0 or greater. For more information, see [Application Insights Node.js GitHub Readme](https://github.com/microsoft/ApplicationInsights-node.js#automatic-web-snippet-injectionpreview).
+```javascript
+let appInsights = require("applicationinsights");
+appInsights.setup("<connection_string>")
+    .enableWebInstrumentation(true)
+    .start();
+```
+
+or by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_ENABLED = true`.
+
+Web Instrumentation will be enabled on node server responses when all of the following requirements are met:
+
+- Response has status code `200`.
+- Response method is `GET`.
+- Sever response has `Content-Type` html.
+- Server response contains both `<head>` and `</head>` Tags.
+- If response is compressed, it must have only one `Content-Encoding` type, and encoding type must be one of `gzip`, `br` or `deflate`.
+- Response does not contain current /backup web Instrumentation CDN endpoints.  (current and backup Web Instrumentation CDN endpoints [here](https://github.com/microsoft/ApplicationInsights-JS#active-public-cdn-endpoints))
+
+web Instrumentation CDN endpoint can be changed by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_SOURCE = "web Instrumentation CDN endpoints"`.
+web Instrumentation connection string can be changed by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_CONNECTION_STRING = "web Instrumentation connection string"`
+
+**Note:** web Instrumentation may slow down server response time, especially when response size is large or response is compressed. For the case in which some middle layers are applied, it may result in web Instrumentation not working and original response will be returned.
 
 ### Automatic third-party instrumentation
 
