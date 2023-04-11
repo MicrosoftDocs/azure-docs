@@ -483,6 +483,10 @@ JavaScript correlation is turned off by default to minimize the telemetry we sen
 
 [Simple web app with the Click Analytics Autocollection Plug-in enabled](https://go.microsoft.com/fwlink/?linkid=2152871)
 
+## Troubleshooting
+
+See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/javascript-sdk-troubleshooting).
+
 ## Next steps
 
 - See the [documentation on utilizing HEART workbook](usage-heart.md) for expanded product analytics.
