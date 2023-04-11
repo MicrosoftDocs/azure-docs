@@ -75,6 +75,9 @@ There are two types of pool configurations available in Batch.
 > [!IMPORTANT]
 > While you can currently create pools using either configuration, new pools should be configured using Virtual Machine Configuration and not Cloud Services Configuration. All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Services Configuration pools do not support all features and no new capabilities are planned. You won't be able to create new 'CloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
+> [!IMPORTANT]
+> To create VMSS resources with the **TrustedLaunch** feature, you must set the *securityType* property under the *securityProfile* section of the ARM template so that Batch sends *securityProfile* with **TrustedLauch** enabled in the ARM template to use this image. Currently, Batch does not support **TrustedLaunch** feature or configure *securityType* property in the ARM template, and does not include the *securityProfile* section of the template that is sent to ARM. 
+
 ### Virtual Machine Configuration
 
 The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
@@ -99,11 +102,6 @@ When you create a pool, you need to select the appropriate **nodeAgentSkuId**, d
 ### Custom images for Virtual Machine pools
 
 To learn how to create a pool with custom images, see [Use the Azure Compute Gallery to create a custom pool](batch-sig-images.md).
-
-> [!IMPORTANT]
-> To create VMSS resources with the **TrustedLaunch** feature, you must set the *securityType* property under the *securityProfile* section of the ARM template so that Batch sends *securityProfile* with **TrustedLauch** enabled in the ARM template to use this image. Currently, Batch does not support **TrustedLaunch** feature or configure *securityType* property in the ARM template, and does not include the *securityProfile* section of the template that is sent to ARM. 
-
-Alternatively, you can create a custom pool of virtual machines using a [managed image](batch-custom-images.md) resource. For information about preparing custom Linux images from Azure VMs, see [How to create an image of a virtual machine or VHD](../virtual-machines/linux/capture-image.md). For information about preparing custom Windows images from Azure VMs, see [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
 ### Container support in Virtual Machine pools
 
