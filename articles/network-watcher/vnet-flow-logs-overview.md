@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 04/11/2023
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -195,7 +195,7 @@ Here's an example bandwidth calculation for flow tuples from a TCP conversation 
 
 For continuation (C) and end (E) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
 
-## Considerations for NSG flow logs
+## Considerations for VNet flow logs
 
 ### Storage account
 
