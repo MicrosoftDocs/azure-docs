@@ -69,7 +69,7 @@ You can use a condition to evaluate whether a specified variable is present, whe
 
 ### Pattern Matching 
 
-Application Gateway uses regular expressions for pattern matching in the condition. You should use Regular Expression 2 (RE2) compatible expressions when writing your conditions. If you are running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you may run into issues when using [Perl Compatible Regular Expressions (PCRE)](https://www.pcre.org/) while doing lokahead and lookbehind (negative or positive) assertions.
+Application Gateway uses regular expressions for pattern matching in the condition. You should use Regular Expression 2 (RE2) compatible expressions when writing your conditions. If you are running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you may run into issues when using [Perl Compatible Regular Expressions (PCRE)](https://www.pcre.org/) while doing lookahead and lookbehind (negative or positive) assertions.
 
 
 ### Capturing
