@@ -33,22 +33,22 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 1. Select your subscription and workspace.
 
-* Navigate to the Azure ML Studio and enable the feature by clicking open the preview panel.
-[![Azure Machine Learning studio preview panel](media/how-to-train-with-ui/preview-panel.png)](media/how-to-train-with-ui/preview-panel.png)
+* Navigate to the Azure Machine Learning Studio and enable the feature by clicking open the preview panel.
+[![Azure Machine Learning studio preview panel allowing users to enable preview features.](media/how-to-train-with-ui/preview-panel.png)](media/how-to-train-with-ui/preview-panel.png)
 
  
 * You may enter the job creation UI from the homepage. Click **Create new** and select **Job**. 
 [![Azure Machine Learning studio homepage](media/how-to-train-with-ui/home-entry.png)](media/how-to-train-with-ui/home-entry.png)
 
-In this wizard, you can select your method of training, complete the rest of the submission wizard based on your selection, and submit the training job. Below we will walkthrough the wizard for running a custom script (command job). 
+In this wizard, you can select your method of training, complete the rest of the submission wizard based on your selection, and submit the training job. Below we will walk through the wizard for running a custom script (command job). 
 
-[![Azure Machine Learning studio choose training method](media/how-to-train-with-ui/training-method.png)](media/how-to-train-with-ui/training-method.png)
+[![Azure Machine Learning studio wizard landing page for users to choose method of training.](media/how-to-train-with-ui/training-method.png)](media/how-to-train-with-ui/training-method.png)
 
 ## Configure basic settings
 
 The first step is configuring basic information about your training job. You can proceed next if you're satisfied with the defaults we have chosen for you or make changes to your desired preference. 
 
-[![Azure Machine Learning studio job submission wizard basic settings](media/how-to-train-with-ui/basic-settings.png)](media/how-to-train-with-ui/basic-settings.png)
+[![Azure Machine Learning studio job submission wizard for users to configure their basic settings.](media/how-to-train-with-ui/basic-settings.png)](media/how-to-train-with-ui/basic-settings.png)
 
 These are the fields available:
 
@@ -89,13 +89,13 @@ If the code isn't in the root directory, you should use the relative path. For e
 ```
 Here, the source code is in the `src` subdirectory. The command would be `python ./src/main.py` (plus other command-line arguments).
 
-[![Refer code in the command](media/how-to-train-with-ui/trainingscript-code.png)](media/how-to-train-with-ui/trainingscript-code.png)
+[![Image of referencing your code in the command in the training job submission wizard.](media/how-to-train-with-ui/training-script-code.png)](media/how-to-train-with-ui/training-script-code.png)
 
 ### Inputs
 
 When you use an input in the command, you need to specify the input name. To indicate an input variable, use the form `${{inputs.input_name}}`. For instance, `${{inputs.wiki}}`. You can then refer to it in the command, for instance, `--data ${{inputs.wiki}}`.
 
-[![Refer input name in the command](media/how-to-train-with-ui/trainingscript-inputs.png)](media/how-to-train-with-ui/trainingscript-inputs.png)
+[![Image of referencing your inputs in the command in the training job submission wizard.](media/how-to-train-with-ui/training-script-inputs.png)](media/how-to-train-with-ui/training-script-inputs.png)
 
 ## Select compute resources
 
@@ -111,7 +111,7 @@ Next step is to select the compute target on which you'd like your job to run. T
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.
 1. For a compute cluster or a Kubernetes cluster, you may also specify how many nodes you want for the job in **Instance count**. The default number of instances is 1. 
 1. When you're satisfied with your choices, choose **Next**. 
- [![Select a compute cluster](media/how-to-train-with-ui/compute.png)](media/how-to-train-with-ui/compute.png)
+ [![Select a compute cluster dropdown selector image.](media/how-to-train-with-ui/compute.png)](media/how-to-train-with-ui/compute.png)
 
 If you're using Azure Machine Learning for the first time, you'll see an empty list and a link to create a new compute. For more information on creating the various types, see:
 
@@ -133,7 +133,7 @@ After selecting a compute target, you need to specify the runtime environment fo
 
 Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the job preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](resource-curated-environments.md).
 
- [![Curated environments](media/how-to-train-with-ui/curated-environments.png)](media/how-to-train-with-ui/curated-environments.png)
+ [![Image of curated environments selector page showing various environment cards.](media/how-to-train-with-ui/curated-environments.png)](media/how-to-train-with-ui/curated-environments.png)
 
 ### Custom environments
 
@@ -147,7 +147,7 @@ If you don't want to use the Azure Machine Learning curated environments or spec
 ## Review and Create 
 
 Once you've configured your job, choose **Next** to go to the **Review** page. To modify a setting, choose the pencil icon and make the change. 
- [![AzureML Studio job submission review](media/how-to-train-with-ui/review.png)](media/how-to-train-with-ui/review.png)
+ [![Azure Machine Learning studio job submission review pane image to validate selections before submission.](media/how-to-train-with-ui/review.png)](media/how-to-train-with-ui/review.png)
 
 To launch the job, choose **Submit training job**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
 
