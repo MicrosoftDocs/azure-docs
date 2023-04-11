@@ -25,7 +25,7 @@ In order to restrict what extensions can be installed, you need to have a [rule]
 
 This example shows you how to deny extensions published by 'Microsoft. Compute' by creating a rules file in Azure Cloud Shell, but if you're working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
 
-1. In a [Cloud Shell](https://shell.azure.com/powershell), create the file `$home/clouddrive/rules.json` using any text editor:
+1. In a [Cloud Shell](https://shell.azure.com/powershell), create the file `$home/clouddrive/rules.json` using any text editor.
 
 2. Copy and paste the following .json contents into the file and save it:
 
@@ -59,7 +59,7 @@ You also need a [parameters](../../governance/policy/concepts/definition-structu
 
 This example shows you how to create a parameters file for VMs in Cloud Shell, but if you're working in PowerShell locally, you can also create a local file and replace the path ($home/clouddrive) with the path to the local file on your machine.
 
-1. In [Cloud Shell](https://shell.azure.com/powershell), create the file `$home/clouddrive/parameters.json`:
+1. In [Cloud Shell](https://shell.azure.com/powershell), create the file `$home/clouddrive/parameters.json` using any text editor.
 
 2. Copy and paste the following .json contents into the file and save it:
 
