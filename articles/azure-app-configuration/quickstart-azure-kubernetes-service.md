@@ -25,6 +25,7 @@ In this quickstart, you incorporate Azure App Configuration Kubernetes Provider 
 * An Azure Kubernetes Service (AKS) cluster that is granted permission to pull images from your Azure Container Registry. [Create an AKS cluster](/azure/aks/tutorial-kubernetes-deploy-cluster#create-a-kubernetes-cluster).
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Azure CLI](/cli/azure/install-azure-cli)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 * [helm](https://helm.sh/docs/intro/install/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 
@@ -115,7 +116,7 @@ In this section, you will create a simple ASP.NET Core web application running i
 
 ### Deploy the application
 
-1.  Create an *Deployment* directory in the root directory of your project.
+1.  Create a *Deployment* directory in the root directory of your project.
 
 1. Add a *deployment.yaml* file to the *Deployment* directory with the following content to create a deployment. Replace the value of `template.spec.containers.image` with the image you created in the previous step.
 
@@ -230,14 +231,14 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     ```
     
     > [!NOTE]
-    > `AzureAppConfigurationProvider` is a declarative API, it defines the desired state of the ConfigMap that retrieves the key-values from the App Configuration store with following behavior:
+    > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap that retrieves the key-values from the App Configuration store with following behavior:
     >
+    > - The ConfigMap will fail to be created if a ConfigMap with the same name already exists in same namespace.
     > - The ConfigMap will be recreated if it's deleted by any other means.
     > - The ConfigMap will be overwritten based on the data in your App Configuration store at the moment if it's modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
-    > - The provider doesn't update a preexisting ConfigMap that is not created by the provider.
 
-1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` for environment variable.
+1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` for environment variables.
    
     Replace the `env` section 
     ```yaml
@@ -302,13 +303,6 @@ kubectl logs deployment/az-appconfig-k8s-provider -n azappconfig-system
 Use the logs for further troubleshooting. For example, if you see requests to your App Configuration store are responded with *RESPONSE 403: 403 Forbidden*, it may indicate the App Configuration Kubernetes Provider doesn't have the necessary permission to access your App Configuration store. Follow the instructions in [Setup the Azure App Configuration store](#setup-the-azure-app-configuration-store) to ensure the managed identity is enabled and it's assigned the proper permission.
 
 ## Clean up resources
-
-Remove the resources that have been deployed to AKS.
-
-```console
-kubectl delete -f ./Deployment -n appconfig-demo
-kubectl delete namespace appconfig-demo
-```
 
 Uninstall the App Configuration Kubernetes Provider from your AKS cluster if you want to keep the AKS cluster.
 
