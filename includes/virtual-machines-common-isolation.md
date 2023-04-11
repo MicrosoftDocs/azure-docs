@@ -12,7 +12,7 @@
 
 Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be deprecated when the hardware generation is retired or new hardware generation is available.
 
-Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads for reasons that include meeting compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance. 
+Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads for reasons that include meeting compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine is the only one running on that specific server instance. 
 
 
 Additionally, as the Isolated size VMs are large, customers may choose to subdivide the resources of these VMs by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -37,7 +37,7 @@ The current Isolated virtual machine offerings include:
 
 ## Deprecation of Isolated VM Sizes
 
-Isolated VM sizes have a hardware limited lifespan. Azure will issue reminders 12 months in advance of the official deprecation date of the sizes and will provide an updated isolated offering for your consideration. The following sizes have retirement announced.
+Isolated VM sizes have a hardware limited lifespan. Azure issues reminders 12 months in advance of the official deprecation date of the sizes and provides an updated isolated offering for your consideration. The following sizes have retirement announced.
 
 | Size | Isolation Retirement Date | 
 | --- | --- |
@@ -55,13 +55,13 @@ Isolated VM sizes have a hardware limited lifespan. Azure will issue reminders 1
 
 ### Q: Is there a downtime when my vm lands on a non-isolated hardware?
 **A**: For VM sizes, where only isolation is deprecating but not the size, no action is needed and there will be no downtime. 
-On contrary if isolation is required, announcement will include the recommended replacement size. Selecting the replacement size will require customers to resize their VMs.  
+On contrary if isolation is required, announcement includes the recommended replacement size. Selecting the replacement size requires customers to resize their VMs.  
 
 ### Q: Is there any cost delta for moving to a non-isolated virtual machine?
 **A**: No
 
 ### Q: When are the other isolated sizes going to retire?
-**A**: We will provide reminders 12 months in advance of the official deprecation of the isolated size. Our latest announcement includes isolation feature retirement of Standard_G5, Standard_GS5, Standard_E64i_v3 and Standard_E64i_v3.  
+**A**: We provide reminders 12 months in advance of the official deprecation of the isolated size. Our latest announcement includes isolation feature retirement of Standard_G5, Standard_GS5, Standard_E64i_v3 and Standard_E64i_v3.  
 
 ### Q: I'm an Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
 **A**: No. The guarantees provided by Service Fabric's [Durability Tiers](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 
