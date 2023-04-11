@@ -309,7 +309,7 @@ keyVaultKeyUri="https://<key-vault-name>.vault.azure.net/keys/<key-name>"
 az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
-    --locations regionName=$location \
+    --location $location \
     --key-uri $keyVaultKeyUri
 ```
 
