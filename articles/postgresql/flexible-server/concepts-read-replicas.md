@@ -9,12 +9,9 @@ author: AwdotiaRomanowna
 ms.date: 10/21/2022
 ---
 
-# Read replicas in Azure Database for PostgreSQL - Flexible Server Preview
+# Read replicas in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
-
-> [!NOTE]
-> Read replicas for PostgreSQL Flexible Server is currently in preview.
 
 The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only replica. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. Streaming replication by using replication slots is the default operation mode. When necessary, file-based log shipping is used to catch up. You can replicate from the primary server to up to five replicas.
 
@@ -53,6 +50,7 @@ You can have a primary server in any [Azure Database for PostgreSQL region](http
 [//]: # (If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.)
 
 ## Create a replica
+A primary server for Azure Database for PostgreSQL - Flexible Server can be deployed in [any region that supports the service](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=postgresql&regions=all). You can create replicas of the primary server within the same region or across different global Azure regions where Azure Database for PostgreSQL - Flexible Server is available. However, it is important to note that replicas cannot be created in [special Azure regions](../../virtual-machines/regions.md#special-azure-regions), regardless of whether they are in-region or cross-region.
 
 When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the primary server. For creation of replicas in the same region snapshot approach is used, therefore the time of creation doesn't depend on the size of data. Geo-replicas are created using base backup of the primary instance, which is then transmitted over the network therefore time of creation might range from minutes to several hours depending on the primary size. 
 

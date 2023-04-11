@@ -245,6 +245,9 @@ for communication to the machine configuration service. Apply tag with the name
 applied before or after machine configuration policy definitions are applied to
 the machine.
 
+> [!IMPORTANT]
+> In order to communicate over private link for custom packages, the link to the location of the package must be added to the list of allowed URLS. 
+
 Traffic is routed using the Azure
 [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish a secure, authenticated channel with Azure platform resources.

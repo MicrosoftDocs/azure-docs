@@ -303,7 +303,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is similar to Oracle Linux
       - device: ephemeral0.2
         filesystem: swap
     mounts:
-      - ["ephemeral0.1", "/mnt"]
+      - ["ephemeral0.1", "/mnt/resource"]
       - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
     EOF
     ```

@@ -123,7 +123,7 @@
       href: howto-shared-private-endpoints-key-vault.md
     - name: Use managed identity
       href: howto-use-managed-identity.md
-    - name: Authorize from Azure Application
+    - name: Authorize from Azure Applications
       href: signalr-howto-authorize-application.md
     - name: Authorize from Managed Identity
       href: signalr-howto-authorize-managed-identity.md
