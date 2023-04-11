@@ -48,7 +48,7 @@ Deployment permissions for Defender for APIs are as follows.
 **Permission** | **Details**
 --- | ---
 Azure account | You need an Azure account to sign into the Azure portal.
-Contributor role | To deploy Defender for APIs, you need the Contributor role on  the Azure subscriptions, resource groups, or APIM service that you want to secure. If you don't have the Contributor role, you need to enable these roles:<br/><br/> - Security Admin role for full access in Defender for Cloud.<br/> - Security Reader role to view inventory and recommendations in Defender for Cloud.
+Contributor role | To deploy Defender for APIs, you need the Contributor role on  the Azure subscriptions, resource groups, or Azure API Management instance that you want to secure. If you don't have the Contributor role, you need to enable these roles:<br/><br/> - Security Admin role for full access in Defender for Cloud.<br/> - Security Reader role to view inventory and recommendations in Defender for Cloud.
 
 ## Next steps
 
