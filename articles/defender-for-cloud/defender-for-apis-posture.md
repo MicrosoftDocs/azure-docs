@@ -20,9 +20,9 @@ This article describes how to review API insights, security alerts, and recommen
 
 1. In the Defender for Cloud portal, select **Workload protections**.
 1. Select **API security**.
-1. In the **API Security** dashboard,  drill down into API collections.  
-1. In the API collection page, to drill down into an API endpoint, in the endpoint row, select the ellipses (...) > **View resource**.
-1. In the **Resource health** page > **Recommendations** for the API endpoint, review recommendation details and status.
+1. In the **API Security** dashboard,  select an API collection to drill down.  
+1. In the API collection page, to drill down into an API endpoint, select the ellipses (...) > **View resource**.
+1. In the **Resource health** page > **Recommendations** for the endpoint, review recommendation details and status.
 1. In **Alerts**, review security alerts for the endpoint. Defender for Endpoint monitors API traffic to and and from endpoints, to provide runtime protection against suspicious behavior and malicious attacks.
 
 ## Create sample security alerts
@@ -31,14 +31,17 @@ In Defender for Cloud you can use sample alerts to evaluate your Defender for Cl
 
 ## Explore risks with Cloud Security Explorer
 
-When you have the Defender CSPM plan enabled together with Defender for APIs, you can review and analyze your API security risks and posture within your organization security graph/map, provided by [Cloud Security Graph](concept-attack-path.md). Cloud Security Graph collects data to provide a map of assets, connections within your organization, to expose risks, vulnerabilities, and lateral movement possibilities. 
+In Defender CSPM, [Cloud Security Graph](concept-attack-path.md) collects data to provide a map of assets and connections across organization, to expose security risks, vulnerabilities, and possible lateral movement paths,
+
+When the Defender CSPM plan is enabled together with Defender for APIs, you can use Cloud Security Explorer to query Cloud Security Graph, to identify, review and analyze API security risks across your organization. 
 
 1. In the Defender for Cloud portal, select **Cloud Security Explorer**.
 1. You can build your own query, or select the API query template.
-    1. To build your own query, in **What would you like to search?** select the **APIs** category. Within **APIs**, you can query:
+    1. To build your own query, in **What would you like to search?** select the **APIs** category. You can query:
         - API collections that contain one or more API endpoints.
         - API endpoints for Azure API Management operations.
-    Select **Search**. The search result displays each API resources with its associated insights, so that you can review, prioritize, and fix any issues.
+    
+    The search result displays each API resources with its associated insights, so that you can review, prioritize, and fix any issues.
 
     1. Alternatively, select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query preturns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
     
