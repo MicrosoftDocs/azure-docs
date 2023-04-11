@@ -162,11 +162,6 @@ sections:
           Yes.
 
       - question: |
-          Can multiple incremental snapshots of the same disk be copied in parallel from one region to another?
-        answer: |
-          No, they must wait for the previous copy to finish.
-      
-      - question: |
           Can I copy snapshots in an order other than their order of creation to another region?
         answer: |
           No. Snapshots must be copied to other regions in creation order.

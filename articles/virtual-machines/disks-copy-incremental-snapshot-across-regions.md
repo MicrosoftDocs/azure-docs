@@ -4,7 +4,7 @@ description: Learn how to copy an incremental snapshot of a managed disk to a di
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 04/10/2023
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -25,6 +25,8 @@ This article covers copying an incremental snapshot from one region to another. 
 
 - You can copy 100 incremental snapshots in parallel at the same time per subscription per region.
 - If you use the REST API, you must use version 2020-12-01 or newer of the Azure Compute REST API.
+- You can only copy one incremental snapshot of a particular disk at a time.
+- Snapshots must be copied in the order they were created.
 
 ## Managed copy
 
