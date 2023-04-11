@@ -4,7 +4,7 @@ description: This article describes the impact of the CycleCloud 7 retirement an
 author: harperche
 ms.author: harpercheng
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 03/27/2023
 ---
 
 # CycleCloud 7 Retirement Guide

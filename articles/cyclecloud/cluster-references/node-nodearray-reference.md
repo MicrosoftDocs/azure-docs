@@ -2,7 +2,7 @@
 title: Cluster Template Reference - Nodes
 description: Attributes for nodes and nodearrays within cluster templates for use with Azure CycleCloud
 author: adriankjohnson
-ms.date: 03/10/2020
+ms.date: 03/27/2023
 ms.author: adjohnso
 ---
 
@@ -100,6 +100,7 @@ ThrottleCapacity (8.2.2+) | Boolean | If true, this nodearray will report 0 capa
 ThrottleCapacityTime (8.2.2+) | Relative Time | If `ThrottleCapacity` is enabled, this is how long to report 0 availability after capacity is constrained. Default is "5m".
 HybridBenefitLicense (8.3.0+)| String | If `HybridBenefit` is true, this specifies the license to use: `RHEL_BYOS`, `SLES_BYOS`, or `Windows_Server`. Default is  `Windows_Server`.
 FlexScaleSetId (8.3.0+) | String | If set, this is the fully qualified id of a scaleset in [Flex orchestration mode](../how-to/flex-scalesets.md) that is used for the VM for this node.
+EncryptionAtHost (8.4.0+) | Boolean | If true, the virtual machine will have [Encryption At Host](https://learn.microsoft.com/en-us/azure/virtual-machines/disk-encryption) enabled.
 
 > [!NOTE]
 > A Proximity Placement Group is a general Azure feature, and one must be created before it can be referenced on a node. 

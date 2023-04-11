@@ -2,8 +2,9 @@
 title: Cluster Template Reference - Endpoints
 description: Read a reference guide for input endpoints to be used with Azure CycleCloud. See an attribute reference and an example.
 author: adriankjohnson
-ms.date: 03/10/2020
+ms.date: 03/27/2023
 ms.author: adjohnso
+ms.custom: compute-evergreen
 ---
 
 # Input-Endpoint

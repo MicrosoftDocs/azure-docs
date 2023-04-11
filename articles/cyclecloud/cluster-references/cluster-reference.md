@@ -2,8 +2,9 @@
 title: Cluster Reference Docs
 description: CycleCloud template reference for the Cluster section
 author: adriankjohnson
-ms.date: 03/10/2020
+ms.date: 03/27/2023
 ms.author: adjohnso
+ms.custom: compute-evergreen
 ---
 
 # Cluster Section
