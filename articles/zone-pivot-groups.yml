@@ -2259,6 +2259,7 @@ groups:
     title: Microsoft Graph PowerShell
   - id: ms-graph
     title: Microsoft Graph
+# Owner: barclayn, rolyon
 ## Zone pivot with Azure portal, Microsoft Graph PowerShell, Microsoft Graph
 - id: identity-pivot-portal-mspowershell-msgraph
   title: Manage identity
