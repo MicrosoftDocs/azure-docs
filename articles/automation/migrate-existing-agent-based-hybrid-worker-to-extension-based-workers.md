@@ -841,7 +841,24 @@ Follow the steps mentioned below as an example:
 1. Follow the steps [here](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
 1. Install Hybrid Worker Extension on the VM.
   
-   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-extension-settings-powershell-inline.png" alt-text="Screenshot of Hybrid Worker Extension settings in PowerShell." lightbox="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-extension-settings-powershell-expanded.png":::
+    **Hybrid Worker extension settings**
+
+    ```powershell-interactive
+      $settings = @{
+    "AutomationAccountURL"  = "<registrationurl>";
+    };
+    ```
+    
+    **Azure VMs**
+
+   ```powershell
+    Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Settings $settings -EnableAutomaticUpgrade $true/$false
+   ```
+    **Azure Arc-enabled VMs**
+
+   ```powershell
+     New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
+   ```
 
 1.  To confirm if the extension has been successfully installed on the VM, In **Azure portal**, go to the VM > **Extensions** tab and check the status of Hybrid Worker extension installed on the VM.
 
