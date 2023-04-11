@@ -14,11 +14,11 @@ ms.reviewer: quentinb
 
 # Azure Certificate Authority details
 
-This article provides the details of the root and subordinate Certificate Authorities (CAs) utilized by Azure. The scope includes government and national clouds. The minimum requirements for public key encryption and signature algorithms, links to certificate downloads and revocation lists, and information about key concepts are provided below the CA details tables. The host names for the URIs that should be added to your firewall allow lists are also provided.
+This article provides the details of the root and subordinate Certificate Authorities (CAs) utilized by Azure. The scope includes government and national clouds. The minimum requirements for public key encryption and signature algorithms, links to certificate downloads and revocation lists, and information about key concepts are provided below the CA details tables. The host names for the URIs that should be added to your firewall allowlists are also provided.
 
 ## Certificate Authority details
 
-Any entity trying to access Azure Active Directory (Azure AD) identity services via the TLS/SSL protocols will be presented with certificates from the CAs listed below. Different services may use different root or intermediate CAs. The following root and subordinate CAs are relevant to entities that use [certificate pinning](certificate-pinning.md).
+Any entity trying to access Azure Active Directory (Azure AD) identity services via the TLS/SSL protocols will be presented with certificates from the CAs listed in this article. Different services may use different root or intermediate CAs. The following root and subordinate CAs are relevant to entities that use [certificate pinning](certificate-pinning.md).
 
 
 **How to read the certificate details:**
@@ -251,7 +251,7 @@ Microsoft updated Azure services to use TLS certificates from a different set of
 
 ### Article change log
 
-- February 7, 2023: Added 8 new subordinate Certificate Authorities
+- February 7, 2023: Added eight new subordinate Certificate Authorities
 - March 1, 2023: Provided timelines for upcoming sub CA expiration
 
 ## Next steps

@@ -26,7 +26,7 @@ For several years, certificate pinning was considered good security practice. Ov
 
 ## How to address certificate pinning in your application
 
-Typically, an application will contain a list of authorized certificates or properties of certificates including Subject Distinguished Names, thumbprints, serial numbers, and public keys. Applications may pin against individual leaf or end-entity certificates, subordinate CA certificates, or even Root CA certificates.
+Typically, an application contains a list of authorized certificates or properties of certificates including Subject Distinguished Names, thumbprints, serial numbers, and public keys. Applications may pin against individual leaf or end-entity certificates, subordinate CA certificates, or even Root CA certificates.
 
 If your application explicitly specifies a list of acceptable CAs, you may periodically need to update pinned certificates when Certificate Authorities change or expire. To detect certificate pinning, we recommend the taking the following steps:
 
