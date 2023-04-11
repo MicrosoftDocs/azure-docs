@@ -83,7 +83,7 @@ items:
   expanded: false
   items:
   - name: Global Secure Access FAQ
-    href: reference-network-access-faq.md
+    href: reference-faq.md
   - name: Troubleshoot Global Secure Access
     href: /troubleshoot
 - name: Resources
