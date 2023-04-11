@@ -126,10 +126,28 @@ using Microsoft.Identity.Web;
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
     .EnableTokenAcquisitionToCallDownstreamApi()
-    .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+    .AddDownstreamWebApi("MyApi", Configuration.GetSection("MyApiScope"))
     .AddInMemoryTokenCaches();
 // ...
 ```
+If the web app needs to call another APIAPI resource, you could repeat the `.AddDownstreamWebApi()` method with the relavent scope as below.
+
+```csharp
+using Microsoft.Identity.Web;
+
+// ...
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+    .EnableTokenAcquisitionToCallDownstreamApi()
+    .AddDownstreamWebApi("MyApi", Configuration.GetSection("MyApiScope"))
+    .AddDownstreamWebApi("MyApi2", Configuration.GetSection("MyApi2Scope"))
+    .AddInMemoryTokenCaches();
+// ...
+```
+
+Please do note that, in the above code snippets `.EnableTokenAcquisitionToCallDownstreamApi` is called without any parameter which means, access token will be acquired just in time as the controller requests the token by specifying the scope.  
+
+You could also pass-in the scope when calling the `.EnableTokenAcquisitionToCallDownstreamApi` which would make the web app to acquire the token during the initial user login itself and then the token will be served from the cache when controller requests it.  
 
 Similar to web apps, various token cache implementations can be chosen. For details, see [Microsoft identity web - Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) on GitHub.
         
