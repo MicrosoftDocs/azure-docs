@@ -102,7 +102,7 @@ You can monitor and maintain environment hygiene with [Microsoft Defender for Co
 
 To automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
 
-## Vulnerabilities: Common Issues 
+### Vulnerabilities: Common Issues 
 
 ### Vulnerabilities in Base Docker Images 
 
