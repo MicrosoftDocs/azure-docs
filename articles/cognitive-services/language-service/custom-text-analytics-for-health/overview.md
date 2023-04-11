@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: language-service-custom-ta4h, ignite-fall-2021, event-tier1-build-2022
 ---
 
-# What is custom Text Analytics for health ? 
+# What is custom Text Analytics for health? 
 
 Custom Text Analytics for health is one of the custom features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models on top of [Text Analytics for health)(../text-analytics-for-health/overview.md) for custom healthcare entity recognition tasks.
 
