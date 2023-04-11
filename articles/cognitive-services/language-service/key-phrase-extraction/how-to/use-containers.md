@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 04/11/2023
 ms.author: jboback
 ms.custom: language-service-key-phrase, ignite-fall-2021
 keywords: on-premises, Docker, container, natural language processing
@@ -104,6 +104,11 @@ Use the host, `http://localhost:5000`, for container APIs.
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../../../includes/cognitive-services-containers-api-documentation.md)]
+
+
+## Run the container disconnected from the internet
+
+[!INCLUDE [configure-disconnected-container](../../../containers/includes/configure-disconnected-container.md)]
 
 ## Stop the container
 
