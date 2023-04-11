@@ -49,24 +49,24 @@ Before you start developing a Python function app, you must meet these requireme
 
 5. To check the memory profiling logs on an existing function app instance in Azure, you can query the memory profiling logs in recent invocations by pasting the following Kusto queries in Application Insights, Logs.
 
-:::image type="content" source="media/python-memory-profiler-reference/application-insights-query.png" alt-text="Query memory usage of a Python app in Application Insights":::
-
-```text
-traces
-| where timestamp > ago(1d)
-| where message startswith_cs "memory_profiler_logs:"
-| parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurences "  " Contents
-| union (
+    :::image type="content" source="media/python-memory-profiler-reference/application-insights-query.png" alt-text="Query memory usage of a Python app in Application Insights":::
+    
+    ```text
     traces
     | where timestamp > ago(1d)
-    | where message startswith_cs "memory_profiler_logs: Filename: "
-    | parse message with "memory_profiler_logs: Filename: " FileName
-    | project timestamp, FileName, itemId
-)
-| project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
-| order by timestamp asc
-```
-
+    | where message startswith_cs "memory_profiler_logs:"
+    | parse message with "memory_profiler_logs: " LineNumber "  " TotalMem_MiB "  " IncreMem_MiB "  " Occurences "  " Contents
+    | union (
+        traces
+        | where timestamp > ago(1d)
+        | where message startswith_cs "memory_profiler_logs: Filename: "
+        | parse message with "memory_profiler_logs: Filename: " FileName
+        | project timestamp, FileName, itemId
+    )
+    | project timestamp, LineNumber=iff(FileName != "", FileName, LineNumber), TotalMem_MiB, IncreMem_MiB, Occurences, Contents, RequestId=itemId
+    | order by timestamp asc
+    ```
+    
 ## Example
 
 Here's an example of performing memory profiling on an asynchronous and a synchronous HTTP trigger, named "HttpTriggerAsync" and "HttpTriggerSync" respectively. We'll build a Python function app that simply sends out GET requests to the Microsoft's home page.
