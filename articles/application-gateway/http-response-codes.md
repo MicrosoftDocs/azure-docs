@@ -45,20 +45,20 @@ HTTP 400 response codes are commonly observed when:
 - Non-HTTP / HTTPS traffic is initiated to an application gateway with an HTTP or HTTPS listener.
 - HTTP traffic is initiated to a listener with HTTPS, with no redirection configured.
 - Mutual authentication is configured and unable to properly negotiate.
-- Not compliant to RFC. 
+- The request is not compliant to RFC. 
 
 Some of the common reasons for the request to be non-compliant to RFC is listed.So review the urls/requests from the clients and ensure it's compliant to RFC.
 | Category | Examples |
 | ---------- | ---------- | 
-| Invalid Host in request line  | Host containing two colons (example.com:8090:8080) |
+| Invalid Host in request line  | Host containing two colons (example.com:**8090:8080**) |
 | Missing Host Header | Request doesn't have Host Header |
-| Presence of malformed or illegal character | Reserved characters are &,!. Workaround is to percent code it like  %& |
-| Invalid HTTP version | Get /content.css HTTP/0.3 |
-| Header field name and URI contains non-ASCII Character | GET /«úü¡»¿.doc HTTP/1.1  |
-| Missing Content Length header for POST request | NA |
-| Invalid HTTP Method | GET123 / HTTP/1.1 |
-| Duplicate Headers | Authorization: <based64 encoded content> , Authorization: <based64 encoded content> |
-| Invalid value in Content-Length | Content-Length: abc |
+| Presence of malformed or illegal character | Reserved characters are **&,!.** Workaround is to percent code it like %& |
+| Invalid HTTP version | Get /content.css HTTP/**0.3** |
+| Header field name and URI contains non-ASCII Character | GET /**«úü¡»¿**.doc HTTP/1.1  |
+| Missing Content Length header for POST request | Self Explanatory |
+| Invalid HTTP Method | **GET123** /index.html HTTP/1.1 |
+| Duplicate Headers | Authorization:\<base64 encoded content\>,Authorization: \<base64 encoded content\> |
+| Invalid value in Content-Length | Content-Length: **abc**,Content-Length: **-10**|
 
 
 
