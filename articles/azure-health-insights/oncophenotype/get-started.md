@@ -1,6 +1,6 @@
 ---
 title: Use Onco Phenotype 
-titleSuffix: Azure Health Insights
+titleSuffix: Project Health Insights
 description: This article describes how to use the Onco Phenotype
 services: azure-health-insights
 author: iBoonZ
@@ -17,7 +17,7 @@ ms.author: behoorne
 This quickstart provides an overview on how to use the Onco Phenotype.
 
 ## Prerequisites
-To use the Onco Phenotype model, you must have a Cognitive Services account created. If you haven't already created a Cognitive Services account, see [Deploy Azure Health Insights using the Azure portal.](../deploy-portal.md)
+To use the Onco Phenotype model, you must have a Cognitive Services account created. If you haven't already created a Cognitive Services account, see [Deploy Project Health Insights using the Azure portal.](../deploy-portal.md)
 
 Once deployment is complete, you use the Azure portal to navigate to the newly created Cognitive Services account to see the details, including your Service URL. The Service URL to access your service is: https://```YOUR-NAME```.cognitiveservices.azure.com/. 
 

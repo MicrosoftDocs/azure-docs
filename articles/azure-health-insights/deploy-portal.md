@@ -1,7 +1,7 @@
 ---
-title: Deploy Azure Health Insights using the Azure portal
-titleSuffix: Azure Health Insights
-description: This article describes how to deploy Azure Health Insights in the Azure portal.
+title: Deploy Project Health Insights using the Azure portal
+titleSuffix: Project Health Insights
+description: This article describes how to deploy Project Health Insights in the Azure portal.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
@@ -12,22 +12,22 @@ ms.author: behoorne
 ---
 
 
-# Quickstart: Deploy Azure Health Insights using the Azure portal
+# Quickstart: Deploy Project Health Insights using the Azure portal
 
-In this quickstart, you learn how to deploy Azure Health Insights using the Azure portal.
+In this quickstart, you learn how to deploy Project Health Insights using the Azure portal.
 
-Once deployment is complete, you can use the Azure portal to navigate to the newly created Azure Health Insights, and retrieve the needed details  such your service URL, keys and manage your access controls.
+Once deployment is complete, you can use the Azure portal to navigate to the newly created Project Health Insights, and retrieve the needed details  such your service URL, keys and manage your access controls.
 
 ## Prerequisite 
-To deploy Azure Health Insights, you must register your subscription. Let us know the Azure subscription ID you plan to use for Azure Health Insights so that we can register necessary feature flags on our end.
+To deploy Project Health Insights, you must register your subscription. Let us know the Azure subscription ID you plan to use for Project Health Insights so that we can register necessary feature flags on our end.
 
-## Deploy Azure Health Insights
+## Deploy Project Health Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Create a new **Resource group**.
-3. Add a new Cognitive Services account to your Resource group and search for **Azure Health Insights**.
+3. Add a new Cognitive Services account to your Resource group and search for **Project Health Insights**.
 
-    ![Screenshot of how to create the new Azure Health Insights service.](media/oncophenotype/deploy-to-azure/create-service.png) 
+    ![Screenshot of how to create the new Project Health Insights service.](media/oncophenotype/deploy-to-azure/create-service.png) 
 
     or Use this [link](https://portal.azure.com/#create/Microsoft.CognitiveServicesHealthInsights) to create a new Cognitive Services account.
 
@@ -53,7 +53,7 @@ Once the Cognitive Services account is successfully created, configure private e
 
 ## Next steps
 
-To get started using Azure Health Insights, get started with one of the following models:
+To get started using Project Health Insights, get started with one of the following models:
 
 >[!div class="nextstepaction"]
 > [Onco Phenotype](oncophenotype/index.yml) 

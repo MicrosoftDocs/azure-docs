@@ -1,6 +1,6 @@
 ---
 title: Trial Matcher modes
-titleSuffix: Azure Health Insights
+titleSuffix: Project Health Insights
 description:  This article explains the different modes of Trial Matcher
 services: azure-health-insights
 author: iBoonZ
