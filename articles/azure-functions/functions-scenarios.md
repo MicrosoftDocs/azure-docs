@@ -1,13 +1,11 @@
 ---
-title: Azure Functions scenarios 
+title: Azure Functions Scenarios 
 description: Identify key scenarios that leverage Azure Functions to provide serverless compute resources in aa Azur cloud-based topology. 
 ms.topic: conceptual
 ms.date: 03/23/2023
 ---
 
 # Azure Functions scenarios
-
-
 
 In many cases, a function [integrates with an array of cloud services](./functions-triggers-bindings.md) to provide feature-rich implementations.
 
