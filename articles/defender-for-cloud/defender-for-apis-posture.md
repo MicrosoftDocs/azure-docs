@@ -7,9 +7,9 @@ ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
 ---
-# Review API security insights and posture
+# Review API security insights, alerts, and risks
 
-This article describes how to review API insights, security alerts, and recommendations, and how to use Cloud Security Explorer to gain insights into security posture and risk for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
+This article describes how to review security settings, security posture recommendations, security alerts, risk insights for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
 
 ## Before you start
 
@@ -20,8 +20,9 @@ This article describes how to review API insights, security alerts, and recommen
 
 1. In the Defender for Cloud portal, select **Workload protections**.
 1. Select **API security**.
-1. In the **API Security** dashboard,  select an API collection to drill down.  
+1. In the **API Security** dashboard, select an API collection to drill down.  
 1. In the API collection page, to drill down into an API endpoint, select the ellipses (...) > **View resource**.
+1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-inventory-and-insights)
 1. In the **Resource health** page > **Recommendations** for the endpoint, review recommendation details and status.
 1. In **Alerts**, review security alerts for the endpoint. Defender for Endpoint monitors API traffic to and and from endpoints, to provide runtime protection against suspicious behavior and malicious attacks.
 
