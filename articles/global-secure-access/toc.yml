@@ -82,13 +82,13 @@ items:
 - name: Reference
   expanded: false
   items:
-  - name: Global Secure Access FAQ
-    href: reference-faq.md
   - name: Troubleshoot Global Secure Access
     href: /troubleshoot
 - name: Resources
   expanded: false
   items:
+  - name: Global Secure Access FAQ
+    href: resource-faq.md
   - name: Training videos
     expanded: false
     items:
