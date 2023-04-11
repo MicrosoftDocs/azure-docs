@@ -274,7 +274,7 @@
         - name: Virtual WAN  
           href: /azure/virtual-wan/virtual-wan-faq?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#update-router
         - name: Classic Storage  
-          href: azure/storage/common/classic-account-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+          href: /azure/storage/common/classic-account-migration-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic Virtual Network  
           href: /azure/virtual-network/migrate-classic-vnet-powershell?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
         - name: Classic Application Gateway  
