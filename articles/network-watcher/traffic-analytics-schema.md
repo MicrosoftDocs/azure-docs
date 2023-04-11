@@ -77,7 +77,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 
 ```
 
-## Fields used in traffic analytics schema
+## Traffic analytics schema
 
 > [!IMPORTANT]
 > The traffic analytics schema was updated on August 22, 2019. The new schema provides source and destination IPs separately, removing need to parse the `FlowDirection` field so that queries are simpler. These are changes in the updated schema:
@@ -158,11 +158,11 @@ The following table lists the fields in the schema and what they signify.
 | SrcPublicIPs_s | <SOURCE_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 | DestPublicIPs_s | <DESTINATION_PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries separated by bars. |
 
-## Public IP Details Schema
+## Public IP details schema
 
 Traffic analytics provides WHOIS data and geographic location for all public IPs in your environment. For a malicious IP, traffic analytics provides DNS domain, threat type and thread descriptions as identified by Microsoft security intelligence solutions. IP Details are published to your Log Analytics workspace so you can create custom queries and put alerts on them. You can also access prepopulated queries from the traffic analytics dashboard.
 
-The following table details public ip schema:
+The following table details public IP schema:
 
 | Field | Format | Comments |
 | ----- | ------ | -------- |
