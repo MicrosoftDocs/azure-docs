@@ -11,9 +11,7 @@ ms.custom: template-concept
 
 Identify security risks in containers and Kubernetes realms with an agentless discovery and visibility capability across SDLC and runtime.
 
-Agentless Container Posture offers container vulnerability assessment insights as part of [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) and Kubernetes [Attack Path](attack-path-reference.md#attack-paths) analysis.
-
-Agentless Container Posture maximizes coverage on container posture issues and extends beyond the reach of agent-based assessments, providing a holistic approach to your posture improvement.
+With container vulnerability assessment insights as part of [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md) and Kubernetes [Attack Path](attack-path-reference.md#attack-paths) analysis, you can maximize coverage on container posture issues and extend beyond the reach of agent-based assessments, providing a holistic approach to your posture improvement.
 
 Learn more about [Cloud Security Posture Management](concept-cloud-security-posture-management.md).
 
@@ -24,14 +22,13 @@ Learn more about [Cloud Security Posture Management](concept-cloud-security-post
 
 Agentless Container Posture provides the following capabilities:
 
-- Enabling agentless discovery and visibility within Kubernetes parameters.
-- Enabling agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) to enable queries on the Cloud Security Explorer.
+- Using Kubernetes Attack Path analysis to visualize risks and threats to Kubernetes environments.
+- Using Cloud Security Explorer for risk hunting by querying various risk scenarios.
+- Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, search for "Kubernetes" in the [list of Insights](attack-path-reference.md#insights).
+- Agentless discovery and visibility within Kubernetes components.
+- Agentless container registry vulnerability assessment, using the image scanning results of your Azure Container Registry (ACR) with Cloud Security Explorer.
 
     A [vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) for Containers in Defender Cloud Security Posture Management (CSPM) gives you frictionless, wide, and instant visibility on actionable posture issues without installed agents, network connectivity requirements, or container performance impact.
-
-- Viewing security insights, such as internet exposure, and other pre-defined security scenarios. For more information, see the [list of Insights](attack-path-reference.md#insights).
-- Using Cloud Security Explorer for risk hunting by querying various risk scenarios.
-- Using Kubernetes Attack Path analysis to visualize risks and threats to Kubernetes environments.
 
 All of these capabilities are available as part of the [Defender Cloud Security Posture Management](concept-cloud-security-posture-management.md) plan.
 
@@ -75,17 +72,17 @@ Learn more about [trusted versions that AKS supports](/azure/aks/supported-kuber
 
 Verify that the settings were saved successfully - a notification message pops up in the top right corner.
 
-### Image scanning intervals
+### Image refresh intervals
 
 Agentless information in Defender CSPM is updated once an hour via snapshotting mechanism. It can take up to **24 hours** to see results in Cloud Security Explorer and Attack Path.
 
-Learn more about [agentless scanning](concept-agentless-data-collection.md).
+Recommendations are available based on vulnerability assessment timeline. Learn more about [agentless scanning](concept-agentless-data-collection.md).
 
 ## How agentless containers works
 
 The system’s architecture is based on a snapshot mechanism at intervals.
 
-:::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png":::
+<!--- :::image type="content" source="media/concept-agentless-containers/diagram-permissions-architecture.png" alt-text="Diagram of the permissions architecture." lightbox="media/concept-agentless-containers/diagram-permissions-architecture.png"::: --->
 
 By enabling the Agentless discovery for Kubernetes extension, the following process occurs:
 

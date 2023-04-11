@@ -63,8 +63,8 @@ The following table summarizes each plan and their cloud availability.
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Attack path analysis](how-to-manage-attack-path.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
-| Agentless discovery for Kubernetes | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
-| Agentless vulnerability assessments for container images, including registry scanning (\* Up to 20 unique images per billable resource) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
+| [Agentless discovery for Kubernetes](concept-agentless-containers.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
+| [Agentless vulnerability assessments for container images](defender-for-containers-vulnerability-assessment-azure.md), including registry scanning (\* Up to 20 unique images per billable resource) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
 | Sensitive data discovery | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | Data flows discovery | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
 | EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |

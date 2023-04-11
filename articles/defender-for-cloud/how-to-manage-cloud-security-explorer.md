@@ -23,10 +23,6 @@ Learn more about [the cloud security graph, attack path analysis, and the cloud 
 
 - You must [enable Defender for CSPM](enable-enhanced-security.md).
 
-- You must [enable Defender for Containers](defender-for-containers-enable.md), and install the relevant agents in order to view attack paths that are related to containers. 
-
-    When you enable Defender for Containers, you also gain the ability to [query](how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) containers data plane workloads in the security explorer. 
-
 - Required roles and permissions: 
     - Security Reader
     - Security Admin

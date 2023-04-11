@@ -166,7 +166,7 @@
       href: concept-data-security-posture.md
     - name: Support and prerequisites
       href: concept-data-security-posture-prepare.md
-  - name: Improve your cloud security posture
+  - name: Improve your container security posture
     href: concept-agentless-containers.md
   - name: Security recommendations
     items:
