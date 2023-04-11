@@ -37,10 +37,12 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
 
-The image version must meet the [Windows 365 image requirements](/windows-365/enterprise/device-images#image-requirements):
+The image version must meet the following requirements:
 - Generation 2.
 - Hyper-V v2.
 - Windows OS.
+    - Windows 10 Enterprise version 20H2 or later.
+    - Windows 11 Enterprise 21H2 or later.
 - Generalized VM image.
     - You must create the image using the following sysprep options: `/mode:vm flag: Sysprep /generalize /oobe /mode:vm`. </br>
       For more information, see: [Sysprep Command-Line Options](/windows-hardware/manufacture/desktop/sysprep-command-line-options?view=windows-11#modevm&preserve-view=true).
