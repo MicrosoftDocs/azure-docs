@@ -45,7 +45,7 @@ Now that completed the prerequisites, let's get started using the V3 connector t
 
   :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
 
-1. The first step for your instant flow appears on screen. Select **New step**.
+1. The first step for your instant flow—**Manually trigger a flow**—appears on screen. Select **New step**.
 
   :::image type="content" source="../media/connectors/add-new-step.png" alt-text="Screenshot of add new flow step page.":::
 
