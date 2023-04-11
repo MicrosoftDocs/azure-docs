@@ -2,7 +2,7 @@
 title: Scheduling recurring updates in Update management center (preview)
 description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
 ms.service: update-management-center
-ms.date: 12/27/2022
+ms.date: 04/11/2023
 ms.topic: conceptual
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -168,9 +168,9 @@ A notification appears that the deployment is created.
 
 You can browse and manage all your maintenance configurations from a single place. 
 
-1. Search **Maintenance configurations** in the Azure portal. It shows a list of all maintenance configurations along with the maintenance scope, resource group, location, and the subscription to which it belongs. 
+1. Search **Maintenance configurations** in the Azure portal. It shows a list of all maintenance configurations along with the Guest, resource group, location, and the subscription to which it belongs. 
 
-1. You can filter maintenance configurations using filters at the top. Maintenance configurations related to Guest OS updates are the ones that have Maintenance scope as **InGuestPatch**.
+1. You can filter maintenance configurations using filters at the top. Maintenance configurations related to Guest OS updates are the ones that have Guest as **InGuestPatch**.
 
 You can create a new Guest OS update maintenance configuration or modify an existing configuration:
 
