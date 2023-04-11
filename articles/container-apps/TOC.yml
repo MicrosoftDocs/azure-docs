@@ -75,8 +75,12 @@
       href: authentication.md
     - name: Workload profiles
       href: workload-profiles-overview.md
-    - name: Dapr integration
-      href: dapr-overview.md
+    - name: Dapr
+      items:
+      - name: Dapr integration
+        href: dapr-overview.md
+      - name: Scale Dapr components with KEDA
+        href: dapr-keda-scaling.md
     - name: Azure Arc-enabled Kubernetes clusters
       href: azure-arc-overview.md
 - name: How-to guides
@@ -161,10 +165,6 @@
       href: storage-mounts.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
-    - name: Dapr
-      items:
-      - name: Scale Dapr components with KEDA
-        href: dapr-keda-scaling.md
 - name: Tutorials
   expanded: true
   items: 
