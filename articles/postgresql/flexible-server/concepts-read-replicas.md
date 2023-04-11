@@ -173,7 +173,7 @@ It is essential to monitor storage usage and replication lag closely, and take n
 
 ### Server parameters
 
-You are free to change server parameters on your read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes. Please ensure these parameters ale always [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the standby does not run out of shared memory during recovery.
+You are free to change server parameters on your read replica server and set different values than on the primary server. The only exception are parameters that might affect recovery of the replica, mentioned also in the "Scaling" section below: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes. Please ensure these parameters are always [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the replica does not run out of shared memory during recovery.
 
 ### Scaling
 
@@ -181,7 +181,7 @@ You are free to scale up and down compute (vCores), changing the service tier fr
 
 For compute scaling: 
 
-* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the standby does not run out of shared memory during recovery. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN) to ensure that the replica does not run out of shared memory during recovery. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
 
 * **Scaling up**: First scale up a replica's compute, then scale up the primary.
 
