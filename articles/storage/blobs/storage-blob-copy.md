@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp
 ---
 
-## Copy a blob with .NET
+# Copy a blob with .NET
 
 This article provides an overview of copy operations using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
