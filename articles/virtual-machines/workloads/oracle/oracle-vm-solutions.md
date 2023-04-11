@@ -19,7 +19,7 @@ This article covers information about Oracle solutions based on virtual machine 
 To get a list of currently available images, run the following command:
 
 ```azurecli-interactive
-az vm image list --publisher oracle -o table --all
+az vm image list --publisher oracle --output table --all
 ```
 
 As of April 2023, the following images are available:
@@ -232,7 +232,7 @@ You can use a single disk if that meets your performance needs. However, you can
 
 ### Shared storage configuration options
 
-Azure NetApp Files was designed to run high-performance workloads like databases in the cloud. It provides the following advantages:
+Azure NetApp Files was designed to run high-performance workloads like databases in the cloud. The service provides the following advantages:
 
 - Azure native shared NFS storage service for running Oracle workloads either through VM native NFS client, or Oracle dNFS
 - Scalable performance tiers that reflect the real-world range of IOPS demands
@@ -303,7 +303,7 @@ Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Mar
 
 - **Multiple instances of Oracle WebLogic Server on a VM.** Depending on your deployment requirements, you might consider running multiple instances of Oracle WebLogic Server on the same VM, if the VM is large enough. For example, on a midsize VM, which contains two cores, you could choose to run two instances of Oracle WebLogic Server. However, we still recommend that you avoid introducing single points of failure into your architecture. Running multiple instances of Oracle WebLogic Server on just one VM would be such a single point.
 
-  Using at least two VMs could be a better approach. Each VM can run multiple instances of Oracle WebLogic Server. Each instance of Oracle WebLogic Server could still be part of the same cluster. However, it's currently not possible to use Azure to load-balance endpoints that are exposed by such Oracle WebLogic Server deployments within the same VM. Azure load balancer requires the load-balanced servers to be distributed among unique VMs.
+  Using at least two VMs could be a better approach. Each VM can run multiple instances of Oracle WebLogic Server. Each instance of Oracle WebLogic Server could still be part of the same cluster. However, it's currently not possible to use Azure to load-balance endpoints that are exposed by such Oracle WebLogic Server deployments within the same VM. Azure Load Balancer requires the load-balanced servers to be distributed among unique VMs.
 
 ## Next steps
 
