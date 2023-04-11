@@ -48,7 +48,7 @@ Launch VS Code for the Web with one click from the Azure Machine Learning studio
 
 Navigate to [ml.azure.com](https://ml.azure.com) and follow the steps to launch a VS Code (Web) browser tab, connected to your Azure Machine Learning compute instance.
 
-You can create the connection from either the Notebooks or Compute section of Azure Machine Learning studio.
+You can create the connection from either the **Notebooks** or **Compute** section of Azure Machine Learning studio.
 
 * Notebooks
 
