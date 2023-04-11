@@ -20,7 +20,7 @@ This guide describes all of the content categories and ratings that Content Safe
 
 ## Content categories
 
-Content Safety recognized four distinct categories of objectionable content.
+Content Safety recognizes four distinct categories of objectionable content.
 
 | Category  | Description         |
 | --------- | ------------------- |
@@ -29,6 +29,7 @@ Content Safety recognized four distinct categories of objectionable content.
 | Violence  | **Violence** describes content related to physical actions intended to hurt, injure, damage, or kill someone or something. It also includes weapons, guns and related entities, such as manufacturers, associations, legislation, and similar. |
 | Self-harm | **Self-harm** describes content related to physical actions intended to purposely hurt, injure, or damage one’s body or kill oneself. |
 
+Classification can be multi-labeled. For example, when a text sample is run through the text moderation model, it could be classified as both Sexual content and Violence.
 
 ## Risk levels
 
@@ -40,6 +41,8 @@ Every content flag the service applies also comes with a risk level rating. The 
 | 2        | Low         |
 | 4        | Medium      |
 | 6        | High        |
+
+A risk level of 0 or "Safe" indicates a negative result: no objectionable content was detected for that category.
 
 ## Next steps
 

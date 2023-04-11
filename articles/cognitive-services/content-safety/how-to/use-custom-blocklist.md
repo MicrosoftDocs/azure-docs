@@ -38,7 +38,7 @@ The below fields must be included in the url:
 
 ### Create or modify a terms list
 
-> **NOTE:**
+> [!NOTE]
 >
 > There is a maximum limit of **5 term lists** per resource, with each list **not to exceed 10,000 terms**.
 
@@ -79,9 +79,8 @@ The response code should be `201` and the URL to get the created list should be 
 
 ### Add or modify a term in the list
 
-
-> **NOTE:**
->
+> [!NOTE]
+> 
 > There will be some delay after you add or edit a term before it takes effect on text analysis, usually **not exceeding 5 minutes**.
 
 1. Use method **PATCH**.
@@ -135,7 +134,7 @@ The response code should be `201` and the URL to get the created list should be 
 1. Verify that the term has been added to the list. In the **blocklistName** parameter, enter the list Name **in the url** that you generated in the previous step. 
 1. Set `breakByBlocklists: True`, so that once a blocklist is matched, the analysis will return immediately without model output. The default setting is `false`.
 1. Enter your subscription key, and then select **Send**.
-1. In the **Response content** box, verify the terms you entered. The custom list is literally matched by characters and do NOT support regex.
+1. In the **Response content** box, verify the terms you entered. The custom list is literally matched by characters and does not support regex.
 
 ```python
 import requests
@@ -187,14 +186,14 @@ In addition to the operations mentioned in the quickstart, There are more operat
 #### Get all terms in a term list
 
 1. Use method **GET**.
-2. The relative path should be "/text/lists/{blocklistName}/items?api-version=2022-12-30-preview".
+2. The relative path should be `"/text/lists/{blocklistName}/items?api-version=2022-12-30-preview"`.
 3. In the **blocklistName** parameter, enter the Name of the list that you want to get (in our example, **1234**). 
 4. Substitute [Endpoint] with your endpoint.
 5. Paste your subscription key into the **Ocp-Apim-Subscription-Key** field.
 6. Enter the following JSON in the **Request body** field, for example:
 
 
-**Request content** with sample url: [Endpoint]/contentmoderator/text/lists/1234/items?api-version=2022-12-30-preview
+**Request content** with sample url: `[Endpoint]/contentmoderator/text/lists/1234/items?api-version=2022-12-30-preview`
 
 ```python
 import requests
@@ -263,7 +262,7 @@ The status code should be `200` .
 
 #### Delete a term
 
-> **NOTE:**
+> [!NOTE]
 >
 > There will be some delay after you delete a term before it takes effect on text analysis, usually **not exceed 5 minutes**.
 
@@ -305,7 +304,7 @@ print(response.text)
 
 #### Delete a term list and all of its contents
 
-> **NOTE:**
+> [!NOTE]
 >
 > There will be some delay after you delete a list before it takes effect on text analysis, usually **not exceeding 5 minutes**.
 

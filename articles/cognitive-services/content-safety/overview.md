@@ -12,6 +12,7 @@ ms.topic: overview
 ms.date: 04/02/2023
 ms.author: pafarley
 keywords: content safety, azure content safety, online content safety, content filtering software, content moderation service, content moderation
+ms.custom: references_regions
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Safety is the right solution for my moderation needs.
 ---
@@ -61,7 +62,7 @@ The following are a few scenarios in which a software developer or team would re
 
 ### Language availability
 
-Currently, this API supports eight languages, English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese. New languages are coming soon.
+Currently, this API supports eight languages, English, German, Japanese, Spanish, French, Italian, Portuguese, Chinese.
 
 You don't need to specify language code for text analysis. we'll automatically detect you r input text languages.
 
