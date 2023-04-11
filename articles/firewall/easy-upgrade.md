@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/15/2023
+ms.date: 04/06/2023
 ms.author: victorh
 ---
 
@@ -24,7 +24,7 @@ This new capability is available through the Azure portal as shown here. It's al
 :::image type="content" source="media/premium-features/upgrade.png" alt-text="Screenshot showing SKU upgrade." lightbox="media/premium-features/upgrade.png":::
 
 > [!NOTE]
-> This new upgrade/downgrade capability also supports the Azure Firewall Basic SKU.
+> This new upgrade/downgrade capability doesn't currently support the [Azure Firewall Basic SKU](overview.md#azure-firewall-basic).
 
 ## Next steps
 

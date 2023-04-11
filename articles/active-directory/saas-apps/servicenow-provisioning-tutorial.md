@@ -10,32 +10,35 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 3/10/2023
+ms.date: 04/04/2023
 ms.author: thwimmer
 ---
 
 # Configure ServiceNow for automatic user provisioning
 
-This article describes the steps that you'll take in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When Azure AD is configured, it automatically provisions and deprovisions users and groups to [ServiceNow](https://www.servicenow.com/) by using the Azure AD provisioning service. 
+This article describes the steps that you'll take in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When Azure AD is configured, it automatically provisions and deprovisions users and groups to [ServiceNow](https://www.servicenow.com) by using the Azure AD provisioning service. 
 
 For more information on the Azure AD automatic user provisioning service, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## Capabilities supported
 
 > [!div class="checklist"]
-> - Create users in ServiceNow
-> - Remove users in ServiceNow when they don't need access anymore
-> - Keep user attributes synchronized between Azure AD and ServiceNow
-> - Provision groups and group memberships in ServiceNow
-> - Allow [single sign-on](servicenow-tutorial.md) to ServiceNow (recommended)
+> - Create users in ServiceNow.
+> - Remove users in ServiceNow when they don't need access anymore.
+> - Keep user attributes synchronized between Azure AD and ServiceNow.
+> - Provision groups and group memberships in ServiceNow.
+> - Allow [single sign-on](servicenow-tutorial.md) to ServiceNow (recommended).
 
 ## Prerequisites
 
 - An Azure AD user account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
-- A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
-- A user account in ServiceNow with the admin role
+- A [ServiceNow instance](https://www.servicenow.com) of Calgary or higher.
+- A [ServiceNow Express instance](https://www.servicenow.com) of Helsinki or higher.
+- A user account in ServiceNow with the admin role.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Step 1: Plan your provisioning deployment
 

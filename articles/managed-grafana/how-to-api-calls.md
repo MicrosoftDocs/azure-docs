@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: managed-grafana 
 ms.topic: tutorial
-ms.date: 03/23/2023
+ms.date: 04/05/2023
 ms.custom: engagement-fy23
 ---
 
@@ -83,7 +83,34 @@ You now need to gather some information, which you'll use to get a Grafana API a
 
 ## Get an access token
 
-To access Grafana APIs, you need to get an access token. Follow the example below to call Azure AD and retrieve a token. Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step.
+To access Grafana APIs, you need to get an access token. You can get the access token using the Azure CLI or making a POST request.
+
+### [Azure CLI](#tab/azure-cli)
+
+Sign in to the Azure CLI by running the [az login](/cli/azure/reference-index#az-login) command and replace `<client-id>`, `<client-secret>`, and `<tenant-id>` with the application (client) ID, client secret, and tenant ID collected in the previous step:
+
+```
+az login --service-principal --username "<client-id>" --password "<client-secret>" --tenant "<tenant-id>"
+```
+
+Use the command [az grafana api-key create](/cli/azure/grafana/api-key#az-grafana-api-key-create) to create a key. Here's an example output:
+
+```
+az grafana api-key create --key keyname --name <name> --resource-group <rg> --resource-group editor --output json
+
+{
+  "id": 3,
+  "key": "<redacted>",
+  "name": "keyname"
+}
+```
+
+> [!NOTE] 
+> You can only view this key here once. Save it in a secure place.
+
+### [POST request](#tab/post)
+
+Follow the example below to call Azure AD and retrieve a token. Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step.
 
 ```bash
 curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -104,6 +131,8 @@ Here's an example of response:
   "access_token": "eyJ0eXAiOiJ......AARUQ"
 }
 ```
+
+---
 
 ## Call Grafana APIs
 
