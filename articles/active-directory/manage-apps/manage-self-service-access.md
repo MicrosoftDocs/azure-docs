@@ -58,7 +58,7 @@ To enable self-service application access to an application, follow the steps be
 
 1. In the left navigation menu, select **Self-service**.
     > [!NOTE]
-    > The **Self-service** menu item isn't available if your app registration's setting for public client flows is enabled. To access this menu item, select **Authentication** in the left navigation, then set the **Allow public client flows** to **No**.
+    > The **Self-service** menu item isn't available if the corresponding app registration's setting for public client flows is enabled. To access this setting, the app registration needs to exist in your tenant. Locate the app registration, select **Authentication** in the left navigation, then locate **Allow public client flows**.
 1. To enable Self-service application access for this application, set **Allow users to request access to this application?** to **Yes.**
 
 1. Next to **To which group should assigned users be added?**, select **Select group**. Choose a group, and then select **Select**. When a user's request is approved, they'll be added to this group. When viewing this group's membership, you'll be able to see who has been granted access to the application through self-service access.

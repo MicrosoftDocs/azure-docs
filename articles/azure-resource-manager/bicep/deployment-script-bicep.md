@@ -4,6 +4,7 @@ description: use deployment scripts in Bicep.
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
+ms.custom: devx-track-bicep
 ms.topic: conceptual
 ms.date: 01/25/2023
 ms.author: jgao

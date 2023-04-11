@@ -5,7 +5,7 @@ author: EdB-MSFT
 services: azure-monitor
 ms.topic: reference
 ms.custom: ignite-2022
-ms.date: 03/12/2023
+ms.date: 04/02/2023
 ms.author: edbaynash
 ms.reviewer: priyamishra
 ---
@@ -15,7 +15,7 @@ ms.reviewer: priyamishra
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
-Date list was last updated: 03/12/2023.
+Date list was last updated: 04/02/2023.
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI (Command Line Interface).  
 
@@ -886,14 +886,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ActionIdOccurrences |Yes |Action Occurences |Count |Total |Number of times each action appears. |ActionId, Mode, RunId |
 |ActionNamespacesPerEvent |Yes |Action Namespaces Per Event |Count |Average |Average number of action namespaces per event. |Mode, RunId |
 |ActionsPerEvent |Yes |Actions Per Event |Count |Average |Number of actions per event. |Mode, RunId |
-|AdaFineTunedTokenTransaction |Yes |Processed Ada FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on an Ada FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|AdaFineTunedTrainingHours |Yes |Processed Ada FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on an Ada FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|AdaTokenTransaction |Yes |Processed Ada Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on an Ada Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |AudioSecondsTranscribed |Yes |Audio Seconds Transcribed |Count |Total |Number of seconds transcribed |ApiName, FeatureName, UsageChannel, Region |
 |AudioSecondsTranslated |Yes |Audio Seconds Translated |Count |Total |Number of seconds translated |ApiName, FeatureName, UsageChannel, Region |
-|BabbageFineTunedTokenTransaction |Yes |Processed Babbage FineFuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a Babbage FineFuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|BabbageFineTunedTrainingHours |Yes |Processed Babbage FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Babbage FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|BabbageTokenTransaction |Yes |Processed Babbage Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Babbage Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |BaselineEstimatorOverallReward |Yes |Baseline Estimator Overall Reward |Count |Average |Baseline Estimator Overall Reward. |Mode, RunId |
 |BaselineEstimatorSlotReward |Yes |Baseline Estimator Slot Reward |Count |Average |Baseline Estimator Reward by slot. |SlotId, SlotIndex, Mode, RunId |
 |BaselineRandomEstimatorOverallReward |Yes |Baseline Random Estimator Overall Reward |Count |Average |Baseline Random Estimator Overall Reward. |Mode, RunId |
@@ -901,26 +895,18 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BaselineRandomEventCount |Yes |Baseline Random Event count |Count |Total |Estimation for baseline random event count. |Mode, RunId |
 |BaselineRandomReward |Yes |Baseline Random Reward |Count |Total |Estimation for baseline random reward. |Mode, RunId |
 |BlockedCalls |Yes |Blocked Calls |Count |Total |Number of calls that exceeded rate or quota limit. |ApiName, OperationName, Region, RatelimitKey |
+|CarnegieInferenceCount |Yes |Inference Count |Count |Total |Inference Count of Carnegie Frontdoor Service |Region, Modality, Category, Language, SeverityLevel, UseCustomList |
 |CharactersTrained |Yes |Characters Trained (Deprecated) |Count |Total |Total number of characters trained. |ApiName, OperationName, Region |
 |CharactersTranslated |Yes |Characters Translated (Deprecated) |Count |Total |Total number of characters in incoming text request. |ApiName, OperationName, Region |
 |ClientErrors |Yes |Client Errors |Count |Total |Number of calls with client side error (HTTP response code 4xx). |ApiName, OperationName, Region, RatelimitKey |
-|CodeCushman001FineTunedTokenTransaction |Yes |Processed Code-Cushman-001 FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CodeCushman001FineTunedTrainingHours |Yes |Processed Code-Cushman-001 FineTuned Traning Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Code-Cushman-001 FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|CodeCushman001TokenTransaction |Yes |Processed Code-Cushman-001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Code-Cushman-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |ComputerVisionTransactions |Yes |Computer Vision Transactions |Count |Total |Number of Computer Vision Transactions |ApiName, FeatureName, UsageChannel, Region |
 |ContextFeatureIdOccurrences |Yes |Context Feature Occurrences |Count |Total |Number of times each context feature appears. |FeatureId, Mode, RunId |
 |ContextFeaturesPerEvent |Yes |Context Features Per Event |Count |Average |Number of context features per event. |Mode, RunId |
 |ContextNamespacesPerEvent |Yes |Context Namespaces Per Event |Count |Average |Number of context namespaces per event. |Mode, RunId |
-|CurieFineTunedTokenTransaction |Yes |Processed Curie FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a Curie FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|CurieFineTunedTrainingHours |Yes |Processed Curie FineTuned Training Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Curie FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|CurieTokenTransaction |Yes |Processed Curie Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Curie Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |CustomVisionTrainingTime |Yes |Custom Vision Training Time |Seconds |Total |Custom Vision training time |ApiName, FeatureName, UsageChannel, Region |
 |CustomVisionTransactions |Yes |Custom Vision Transactions |Count |Total |Number of Custom Vision prediction transactions |ApiName, FeatureName, UsageChannel, Region |
 |DataIn |Yes |Data In |Bytes |Total |Size of incoming data in bytes. |ApiName, OperationName, Region |
 |DataOut |Yes |Data Out |Bytes |Total |Size of outgoing data in bytes. |ApiName, OperationName, Region |
-|DavinciFineTunedTokenTransaction |Yes |Processed Davinci FineTuned Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Davinci FineTuned Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|DavinciFineTunedTrainingHours |Yes |Processed Davinci FineTuned Traning Hours (deprecated) |Count |Total |Number of Training Hours Processed on a Davinci FineTuned Model |ApiName, FeatureName, UsageChannel, Region |
-|DavinciTokenTransaction |Yes |Processed Davinci Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a Davinci Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |DocumentCharactersTranslated |Yes |Document Characters Translated |Count |Total |Number of characters in document translation request. |ApiName, FeatureName, UsageChannel, Region |
 |DocumentCustomCharactersTranslated |Yes |Document Custom Characters Translated |Count |Total |Number of characters in custom document translation request. |ApiName, FeatureName, UsageChannel, Region |
 |FaceImagesTrained |Yes |Face Images Trained |Count |Total |Number of images trained. 1,000 images trained per transaction. |ApiName, FeatureName, UsageChannel, Region |
@@ -964,13 +950,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessfulCalls |Yes |Successful Calls |Count |Total |Number of successful calls. |ApiName, OperationName, Region, RatelimitKey |
 |SuccessRate |No |Availability |Percent |Average |Availability percentage with the following calculation: (Total Calls - Server Errors)/Total Calls. Server Errors include any HTTP responses >=500. |ApiName, OperationName, Region, RatelimitKey |
 |SynthesizedCharacters |Yes |Synthesized Characters |Count |Total |Number of Characters. |ApiName, FeatureName, UsageChannel, Region |
-|TextAda001TokenTransaction |Yes |Processed Text Ada 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a text-ada-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextBabbage001TokenTransaction |Yes |Processed Text Babbage 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens processed on a text-babbage-001 model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextCharactersTranslated |Yes |Text Characters Translated |Count |Total |Number of characters in incoming text translation request. |ApiName, FeatureName, UsageChannel, Region |
-|TextCurie001TokenTransaction |Yes |Processed Text Curie 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-curie-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextCustomCharactersTranslated |Yes |Text Custom Characters Translated |Count |Total |Number of characters in incoming custom text translation request. |ApiName, FeatureName, UsageChannel, Region |
-|TextDavinci001TokenTransaction |Yes |Processed Text Davinci 001 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-davinci-001 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
-|TextDavinci002TokenTransaction |Yes |Processed Text Davinci 002 Inference Tokens (deprecated) |Count |Total |Number of Inference Tokens Processed on a text-davinci-002 Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TextTrainedCharacters |Yes |Text Trained Characters |Count |Total |Number of characters trained using text translation. |ApiName, FeatureName, UsageChannel, Region |
 |TokenTransaction |Yes |Processed Inference Tokens |Count |Total |Number of Inference Tokens Processed on an OpenAI Model |ApiName, ModelDeploymentName, FeatureName, UsageChannel, Region |
 |TotalCalls |Yes |Total Calls |Count |Total |Total number of calls. |ApiName, OperationName, Region, RatelimitKey |
@@ -995,8 +976,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |APIRequestChat |Yes |Chat API Requests |Count |Count |Count of all requests against the Communication Services Chat endpoint. |Operation, StatusCode, StatusCodeClass |
 |APIRequestNetworkTraversal |No |Network Traversal API Requests |Count |Count |Count of all requests against the Communication Services Network Traversal endpoint. |Operation, StatusCode, StatusCodeClass |
 |ApiRequestRooms |Yes |Rooms API Requests |Count |Count |Count of all requests against the Communication Services Rooms endpoint. |Operation, StatusCode, StatusCodeClass |
+|ApiRequestRouter |Yes |Job Router API Requests |Count |Count |Count of all requests against the Communication Services Job Router endpoint. |OperationName, StatusCode, StatusCodeSubClass, ApiVersion |
 |ApiRequests |Yes |Email Service API Requests |Count |Count |Email Communication Services API request metric for the data-plane API surface. |Operation, StatusCode, StatusCodeClass, StatusCodeReason |
-|APIRequestSMS |Yes |SMS API Requests |Count |Count |Count of all requests against the Communication Services SMS endpoint. |Operation, StatusCode, StatusCodeClass, ErrorCode, NumberType |
+|APIRequestSMS |Yes |SMS API Requests |Count |Count |Count of all requests against the Communication Services SMS endpoint. |Operation, StatusCode, StatusCodeClass, ErrorCode, NumberType, Country, OptAction |
 |DeliveryStatusUpdate |Yes |Email Service Delivery Status Updates |Count |Count |Email Communication Services message delivery results. |MessageStatus, Result |
 |UserEngagement |Yes |Email Service User Engagement |Count |Count |Email Communication Services user engagement metrics. |EngagementType |
 
@@ -1458,8 +1440,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaxAllowedResourceCount |Yes |Maximum allowed entities count |Count |Maximum |Maximum allowed entities count |No Dimensions |
 |PipelineCancelledRuns |Yes |Cancelled pipeline runs metrics |Count |Total |Cancelled pipeline runs metrics |FailureType, CancelledBy, Name |
 |PipelineElapsedTimeRuns |Yes |Elapsed Time Pipeline Runs Metrics |Count |Total |Elapsed Time Pipeline Runs Metrics |RunId, Name |
-|PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Pipeline |
-|PipelineSucceededRuns |Yes |Succeeded pipeline runs metrics |Count |Total |Succeeded pipeline runs metrics |FailureType, Pipeline |
+|PipelineFailedRuns |Yes |Failed pipeline runs metrics |Count |Total |Failed pipeline runs metrics |FailureType, Name |
+|PipelineSucceededRuns |Yes |Succeeded pipeline runs metrics |Count |Total |Succeeded pipeline runs metrics |FailureType, Name |
 |ResourceCount |Yes |Total entities count |Count |Maximum |Total entities count |No Dimensions |
 |SSISIntegrationRuntimeStartCancel |Yes |Cancelled SSIS integration runtime start metrics |Count |Total |Cancelled SSIS integration runtime start metrics |IntegrationRuntimeName |
 |SSISIntegrationRuntimeStartFailed |Yes |Failed SSIS integration runtime start metrics |Count |Total |Failed SSIS integration runtime start metrics |IntegrationRuntimeName |
@@ -1469,9 +1451,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SSISPackageExecutionCancel |Yes |Cancelled SSIS package execution metrics |Count |Total |Cancelled SSIS package execution metrics |IntegrationRuntimeName |
 |SSISPackageExecutionFailed |Yes |Failed SSIS package execution metrics |Count |Total |Failed SSIS package execution metrics |IntegrationRuntimeName |
 |SSISPackageExecutionSucceeded |Yes |Succeeded SSIS package execution metrics |Count |Total |Succeeded SSIS package execution metrics |IntegrationRuntimeName |
-|TriggerCancelledRuns |Yes |Cancelled trigger runs metrics |Count |Total |Cancelled trigger runs metrics |Pipeline, FailureType |
-|TriggerFailedRuns |Yes |Failed trigger runs metrics |Count |Total |Failed trigger runs metrics |Pipeline, FailureType |
-|TriggerSucceededRuns |Yes |Succeeded trigger runs metrics |Count |Total |Succeeded trigger runs metrics |Pipeline, FailureType |
+|TriggerCancelledRuns |Yes |Cancelled trigger runs metrics |Count |Total |Cancelled trigger runs metrics |Name, FailureType |
+|TriggerFailedRuns |Yes |Failed trigger runs metrics |Count |Total |Failed trigger runs metrics |Name, FailureType |
+|TriggerSucceededRuns |Yes |Succeeded trigger runs metrics |Count |Total |Succeeded trigger runs metrics |Name, FailureType |
 
 
 ## Microsoft.DataLakeAnalytics/accounts  
@@ -2080,6 +2062,19 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |UpdateDiagnosticsSettings |No |Account Diagnostic Settings Updated |Count |Count |Account Diagnostic Settings Updated |DiagnosticSettingsName, ResourceGroupName |
 
 
+## Microsoft.DocumentDB/mongoClusters  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|CommittedMemoryPercent |No |Committed Memory percent |Percent |Average |Percentage of Commit Memory Limit allocated by applications on node |ServerName |
+|CpuPercent |No |CPU percent |Percent |Average |Percent CPU utilization on node |ServerName |
+|IOPS |Yes |IOPS |Count |Average |Disk IO operations per second on node |ServerName |
+|MemoryPercent |No |Memory percent |Percent |Average |Percent memory utilization on node |ServerName |
+|StoragePercent |No |Storage percent |Percent |Average |Percent of available storage used on node |ServerName |
+|StorageUsed |No |Storage used |Bytes |Average |Quantity of available storage used on node |ServerName |
+
+
 ## microsoft.edgezones/edgezones  
 <!-- Data source : naam-->
 
@@ -2430,11 +2425,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ApiCallReceived_Count |Yes |Call Received |Count |Count |Number of requests received via Log Ingestion API or from the agent |InputStreamId, ResponseCode |
-|RowsDropped_Count |Yes |Rows Dropped |Count |Count |Number of rows dropped while running transformation. |InputStreamId |
-|RowsReceived_Count |Yes |Rows Received |Count |Count |Total number of rows recevied for transformation. |InputStreamId |
+|ApiCallReceived_Count |Yes |Request Received |Count |Count |Number of requests received via Log Ingestion API or from the agent |InputStreamId, ResponseCode |
+|RowsDropped_Count |Yes |Rows Dropped |Count |Total |Number of rows dropped while running transformation. |InputStreamId |
+|RowsReceived_Count |Yes |Rows Received |Count |Total |Total number of rows recevied for transformation. |InputStreamId |
 |TransformationErrors_Count |Yes |Transformation Errors |Count |Count |The number of times when execution of KQL transformation resulted in an error, e.g. KQL syntax error or going over a service limit. |InputStreamId, ErrorType |
-|TransformationRuntime_DurationMs |Yes |Transformation Runtime Duration |Count |Count |Total time taken to transform given set of records, measured in milliseconds. |InputStreamId |
+|TransformationRuntime_DurationMs |Yes |Transformation Runtime Duration |MilliSeconds |Average |Total time taken to transform given set of records, measured in milliseconds. |InputStreamId |
 
 
 ## Microsoft.IoTCentral/IoTApps  
@@ -2496,6 +2491,47 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |capacity_cpu_cores |Yes |Total number of cpu cores in a connected cluster |Count |Total |Total number of cpu cores in a connected cluster |No Dimensions |
 
 
+## microsoft.kubernetesconfiguration/extensions  
+<!-- Data source : naam-->
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|AuthAttempt |Yes |Authentication Attempts |Count |Total |Authentication attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|AuthFailure |Yes |Authentication Failures |Count |Total |Authentication failure rate (per minute) |3gppGen, PccpId, SiteId, Result |
+|AuthSuccess |Yes |Authentication Successes |Count |Total |Authentication success rate (per minute) |3gppGen, PccpId, SiteId |
+|ConnectedNodebs |Yes |Connected NodeBs |Count |Total |Number of connected gNodeBs or eNodeBs |3gppGen, PccpId, SiteId |
+|DeRegistrationAttempt |Yes |DeRegistration Attempts |Count |Total |UE deregistration attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|DeRegistrationSuccess |Yes |DeRegistration Successes |Count |Total |UE deregistration success rate (per minute) |3gppGen, PccpId, SiteId |
+|PagingAttempt |Yes |Paging Attempts |Count |Total |Paging attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|PagingFailure |Yes |Paging Failures |Count |Total |Paging failure rate (per minute) |3gppGen, PccpId, SiteId |
+|ProvisionedSubscribers |No |Provisioned Subscribers |Count |Total |Number of provisioned subscribers |PccpId, SiteId |
+|RanSetupFailure |Yes |RAN Setup Failures |Count |Total |RAN setup failure rate (per minute) |3gppGen, PccpId, SiteId, Cause |
+|RanSetupRequest |Yes |RAN Setup Requests |Count |Total |RAN setup reuests rate (per minute) |3gppGen, PccpId, SiteId |
+|RanSetupResponse |Yes |RAN Setup Responses |Count |Total |RAN setup response rate (per minute) |3gppGen, PccpId, SiteId |
+|RegisteredSubscribers |Yes |Registered Subscribers |Count |Total |Number of registered subscribers |3gppGen, PccpId, SiteId |
+|RegisteredSubscribersConnected |Yes |Registered Subscribers Connected |Count |Total |Number of registered and connected subscribers |3gppGen, PccpId, SiteId |
+|RegisteredSubscribersIdle |Yes |Registered Subscribers Idle |Count |Total |Number of registered and idle subscribers |3gppGen, PccpId, SiteId |
+|RegistrationAttempt |Yes |Registration Attempts |Count |Total |Registration attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|RegistrationFailure |Yes |Registration Failures |Count |Total |Registration failure rate (per minute) |3gppGen, PccpId, SiteId, Result |
+|RegistrationSuccess |Yes |Registration Successes |Count |Total |Registration success rate (per minute) |3gppGen, PccpId, SiteId |
+|ServiceRequestAttempt |Yes |Service Request Attempts |Count |Total |Service request attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|ServiceRequestFailure |Yes |Service Request Failures |Count |Total |Service request failure rate (per minute) |3gppGen, PccpId, SiteId, Result, Tai |
+|ServiceRequestSuccess |Yes |Service Request Successes |Count |Total |Service request success rate (per minute) |3gppGen, PccpId, SiteId |
+|SessionEstablishmentAttempt |Yes |Session Establishment Attempts |Count |Total |PDU session establishment attempts rarte (per minute) |3gppGen, PccpId, SiteId |
+|SessionEstablishmentFailure |Yes |Session Establishment Failures |Count |Total |PDU session establishment failure rate (per minute) |3gppGen, PccpId, SiteId |
+|SessionEstablishmentSuccess |Yes |Session Establishment Successes |Count |Total |PDU session establishment success rate (per minute) |3gppGen, PccpId, SiteId |
+|SessionRelease |Yes |Session Releases |Count |Total |Session release rate (per minute) |3gppGen, PccpId, SiteId |
+|UeContextReleaseCommand |Yes |UE Context Release Commands |Count |Total |UE context release command message rate (per minute) |3gppGen, PccpId, SiteId |
+|UeContextReleaseComplete |Yes |UE Context Release Completes |Count |Total |UE context release complete message rate (per minute) |3gppGen, PccpId, SiteId |
+|UeContextReleaseRequest |Yes |UE Context Release Requests |Count |Total |UE context release request message rate (per minute) |3gppGen, PccpId, SiteId |
+|UserPlaneBandwidth |No |User Plane Bandwidth |BitsPerSecond |Total |User plane bandwidth in bits/second. |PcdpId, SiteId, Direction, Interface |
+|UserPlanePacketDropRate |No |User Plane Packet Drop Rate |CountPerSecond |Total |User plane packet drop rate (packets/sec) |PcdpId, SiteId, Cause, Direction, Interface |
+|UserPlanePacketRate |No |User Plane Packet Rate |CountPerSecond |Total |User plane packet rate (packets/sec) |PcdpId, SiteId, Direction, Interface |
+|XnHandoverAttempt |Yes |Xn Handover Attempts |Count |Total |Handover attempts rate (per minute) |3gppGen, PccpId, SiteId |
+|XnHandoverFailure |Yes |Xn Handover Failures |Count |Total |Handover failure rate (per minute) |3gppGen, PccpId, SiteId |
+|XnHandoverSuccess |Yes |Xn Handover Successes |Count |Total |Handover success rate (per minute) |3gppGen, PccpId, SiteId |
+
+
 ## Microsoft.Kusto/clusters  
 <!-- Data source : naam-->
 
@@ -2508,7 +2544,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BlobsDropped |Yes |Blobs Dropped |Count |Total |Number of blobs permanently rejected by a component. |Database, ComponentType, ComponentName |
 |BlobsProcessed |Yes |Blobs Processed |Count |Total |Number of blobs processed by a component. |Database, ComponentType, ComponentName |
 |BlobsReceived |Yes |Blobs Received |Count |Total |Number of blobs received from input stream by a component. |Database, ComponentType, ComponentName |
-|CacheUtilization |Yes |Cache utilization (deprecated) |Percent |Average |Utilization level in the cluster scope. The metric is deprecated and presented for backward compatibility only, you should use the ‘Cache utilization factor' metric instead. |No Dimensions |
+|CacheUtilization |Yes |Cache utilization (deprecated) |Percent |Average |Utilization level in the cluster scope. The metric is deprecated and presented for backward compatibility only, you should use the 'Cache utilization factor' metric instead. |No Dimensions |
 |CacheUtilizationFactor |Yes |Cache utilization factor |Percent |Average |Percentage of utilized disk space dedicated for hot cache in the cluster. 100% means that the disk space assigned to hot data is optimally utilized. No action is needed in terms of the cache size. More than 100% means that the cluster's disk space is not large enough to accommodate the hot data, as defined by your caching policies. To ensure that sufficient space is available for all the hot data, the amount of hot data needs to be reduced or the cluster needs to be scaled out. Enabling auto scale is recommended. |No Dimensions |
 |ContinuousExportMaxLatenessMinutes |Yes |Continuous Export Max Lateness |Count |Maximum |The lateness (in minutes) reported by the continuous export jobs in the cluster |No Dimensions |
 |ContinuousExportNumOfRecordsExported |Yes |Continuous export – num of exported records |Count |Total |Number of records exported, fired for every storage artifact written during the export operation |ContinuousExportName, Database |
@@ -3064,11 +3100,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |ErGatewayConnectionBitsInPerSecond |No |Bits In Per Second |BitsPerSecond |Average |Bits per second ingressing Azure via ExpressRoute Gateway which can be further split for specific connections |ConnectionName |
 |ErGatewayConnectionBitsOutPerSecond |No |Bits Out Per Second |BitsPerSecond |Average |Bits per second egressing Azure via ExpressRoute Gateway which can be further split for specific connections |ConnectionName |
+|ExpressRouteGatewayActiveFlows |Yes |Active Flows |Count |Maximum |Number of Active Flows on ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayBitsPerSecond |No |Bits Received Per second |BitsPerSecond |Average |Total Bits received on ExpressRoute Gateway per second |roleInstance |
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer |Yes |Count Of Routes Advertised to Peer |Count |Maximum |Count Of Routes Advertised To Peer by ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer |Yes |Count Of Routes Learned from Peer |Count |Maximum |Count Of Routes Learned From Peer by ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayCpuUtilization |Yes |CPU utilization |Percent |Average |CPU Utilization of the ExpressRoute Gateway |roleInstance |
 |ExpressRouteGatewayFrequencyOfRoutesChanged |No |Frequency of Routes change |Count |Total |Frequency of Routes change in ExpressRoute Gateway |roleInstance |
+|ExpressRouteGatewayMaxFlowsCreationRate |No |Max Flows Created Per Second |CountPerSecond |Maximum |Maximum Number of Flows Created Per Second on ExpressRoute Gateway |roleInstance, direction |
 |ExpressRouteGatewayNumberOfVmInVnet |No |Number of VMs in the Virtual Network |Count |Maximum |Number of VMs in the Virtual Network |No Dimensions |
 |ExpressRouteGatewayPacketsPerSecond |No |Packets received per second |CountPerSecond |Average |Total Packets received on ExpressRoute Gateway per second |roleInstance |
 
@@ -3831,8 +3869,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|allocated_data_storage |Yes |Data space allocated |Bytes |Average |Data space allocated |No Dimensions |
-|allocated_data_storage_percent |Yes |Data space allocated percent |Percent |Maximum |Data space allocated percent |No Dimensions |
+|allocated_data_storage |Yes |Data space allocated |Bytes |Average |Data space allocated. Not applicable to hyperscale |No Dimensions |
+|allocated_data_storage_percent |Yes |Data space allocated percent |Percent |Maximum |Data space allocated percent. Not applicable to hyperscale |No Dimensions |
+|app_cpu_billed |Yes |App CPU billed |Count |Total |App CPU billed. Applies to serverless elastic pools. |No Dimensions |
+|app_cpu_percent |Yes |App CPU percentage |Percent |Average |App CPU percentage. Applies to serverless elastic pools. |No Dimensions |
+|app_memory_percent |Yes |App memory percentage |Percent |Average |App memory percentage. Applies to serverless elastic pools. |No Dimensions |
 |cpu_limit |Yes |CPU limit |Count |Average |CPU limit. Applies to vCore-based elastic pools. |No Dimensions |
 |cpu_percent |Yes |CPU percentage |Percent |Average |CPU percentage |No Dimensions |
 |cpu_used |Yes |CPU used |Count |Average |CPU used. Applies to vCore-based elastic pools. |No Dimensions |
@@ -3845,14 +3886,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |sessions_percent |Yes |Sessions percentage |Percent |Average |Sessions percentage |No Dimensions |
 |sqlserver_process_core_percent |Yes |SQL Server process core percent |Percent |Maximum |CPU usage as a percentage of the SQL DB process. Applies to elastic pools. |No Dimensions |
 |sqlserver_process_memory_percent |Yes |SQL Server process memory percent |Percent |Maximum |Memory usage as a percentage of the SQL DB process. Applies to elastic pools. |No Dimensions |
-|storage_limit |Yes |Data max size |Bytes |Average |Data max size |No Dimensions |
-|storage_percent |Yes |Data space used percent |Percent |Average |Data space used percent |No Dimensions |
-|storage_used |Yes |Data space used |Bytes |Average |Data space used |No Dimensions |
+|storage_limit |Yes |Data max size |Bytes |Average |Data max size. Not applicable to hyperscale |No Dimensions |
+|storage_percent |Yes |Data space used percent |Percent |Average |Data space used percent. Not applicable to hyperscale |No Dimensions |
+|storage_used |Yes |Data space used |Bytes |Average |Data space used. Not applicable to hyperscale |No Dimensions |
 |tempdb_data_size |Yes |Tempdb Data File Size Kilobytes |Count |Maximum |Space used in tempdb data files in kilobytes. |No Dimensions |
 |tempdb_log_size |Yes |Tempdb Log File Size Kilobytes |Count |Maximum |Space used in tempdb transaction log file in kilobytes. |No Dimensions |
 |tempdb_log_used_percent |Yes |Tempdb Percent Log Used |Percent |Maximum |Space used percentage in tempdb transaction log file |No Dimensions |
 |workers_percent |Yes |Workers percentage |Percent |Average |Workers percentage |No Dimensions |
-|xtp_storage_percent |Yes |In-Memory OLTP storage percent |Percent |Average |In-Memory OLTP storage percent |No Dimensions |
+|xtp_storage_percent |Yes |In-Memory OLTP storage percent |Percent |Average |In-Memory OLTP storage percent. Not applicable to hyperscale |No Dimensions |
 
 
 ## Microsoft.Storage/storageAccounts  
@@ -4065,6 +4106,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ServerSyncSessionResult |Yes |Sync Session Result |Count |Average |Metric that logs a value of 1 each time the Server Endpoint successfully completes a Sync Session with the Cloud Endpoint |SyncGroupName, ServerEndpointName, SyncDirection |
 |StorageSyncBatchTransferredFileBytes |Yes |Bytes synced |Bytes |Total |Total file size transferred for Sync Sessions |SyncGroupName, ServerEndpointName, SyncDirection |
 |StorageSyncComputedCacheHitRate |Yes |Cloud tiering cache hit rate |Percent |Average |Percentage of bytes that were served from the cache |SyncGroupName, ServerName, ServerEndpointName |
+|StorageSyncDataSizeByAccessPattern |No |Cache data size by last access time |Bytes |Average |Size of data by last access time |SyncGroupName, ServerName, ServerEndpointName, LastAccessTime |
+|StorageSyncIncrementalTieredDataSizeBytes |Yes |Cloud tiering size of data tiered by last maintenance job |Bytes |Total |Size of data tiered during last maintenance job |SyncGroupName, ServerName, ServerEndpointName, TieringReason |
 |StorageSyncRecallComputedSuccessRate |Yes |Cloud tiering recall success rate |Percent |Average |Percentage of all recalls that were successful |SyncGroupName, ServerName, ServerEndpointName |
 |StorageSyncRecalledNetworkBytesByApplication |Yes |Cloud tiering recall size by application |Bytes |Total |Size of data recalled by application |SyncGroupName, ServerName, ApplicationName |
 |StorageSyncRecalledTotalNetworkBytes |Yes |Cloud tiering recall size |Bytes |Total |Size of data recalled |SyncGroupName, ServerName, ServerEndpointName |
@@ -4072,6 +4115,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |StorageSyncServerHeartbeat |Yes |Server Online Status |Count |Maximum |Metric that logs a value of 1 each time the resigtered server successfully records a heartbeat with the Cloud Endpoint |ServerName |
 |StorageSyncSyncSessionAppliedFilesCount |Yes |Files Synced |Count |Total |Count of Files synced |SyncGroupName, ServerEndpointName, SyncDirection |
 |StorageSyncSyncSessionPerItemErrorsCount |Yes |Files not syncing |Count |Average |Count of files failed to sync |SyncGroupName, ServerEndpointName, SyncDirection |
+|StorageSyncTieredDataSizeBytes |Yes |Cloud tiering size of data tiered |Bytes |Average |Size of data tiered to Azure file share |SyncGroupName, ServerName, ServerEndpointName |
 |StorageSyncTieringCacheSizeBytes |Yes |Server cache size |Bytes |Average |Size of data cached on the server |SyncGroupName, ServerName, ServerEndpointName |
 
 
@@ -4481,4 +4525,4 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 - [Export metrics to storage, Event Hub, or Log Analytics](../essentials/platform-logs-overview.md)
 
 
-<!--Gen Date:  Sun Mar 12 2023 11:30:35 GMT+0200 (Israel Standard Time)-->
+<!--Gen Date:  Sun Apr 02 2023 09:56:30 GMT+0300 (Israel Daylight Time)-->

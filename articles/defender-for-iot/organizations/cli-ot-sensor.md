@@ -28,7 +28,7 @@ For more information, see [Access the CLI](../references-work-with-defender-for-
 
 Use the following commands to verify that the Defender for IoT application on the OT sensor are working correctly, including the web console and traffic analysis processes.
 
-Health checks are also available from the OT sensor console. For more information, see [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
+Health checks are also available from the OT sensor console. For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.md).
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|

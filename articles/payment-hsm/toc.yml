@@ -57,6 +57,10 @@
     href: deployment-scenarios.md
   - name: Solution design
     href: solution-design.md
+  - name: Fastpathenabled
+    href: fastpathenabled.md
+  - name: Azure Payment HSM traffic inspection
+    href: inspect-traffic.md
 
 - name: Support
   items:

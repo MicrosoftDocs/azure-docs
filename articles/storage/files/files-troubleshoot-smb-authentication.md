@@ -4,7 +4,7 @@ description: Troubleshoot problems using identity-based authentication to connec
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 03/28/2023
+ms.date: 03/31/2023
 ms.author: kendownie
 ms.subservice: files 
 ---
@@ -326,7 +326,7 @@ If you're connecting to a storage account via a private endpoint/private link us
 
 #### Cause 
 
-This is because the SMB client has tried to use Kerberos but failed, so it falls back to using NTLM authentication, which Azure Files doesn't support. The client can't get a Kerberos ticket to the storage account because the private link FQDN isn't registered to any existing Azure AD application.
+This is because the SMB client has tried to use Kerberos but failed, so it falls back to using NTLM authentication, and Azure Files doesn't support using NTLM authentication for domain credentials. The client can't get a Kerberos ticket to the storage account because the private link FQDN isn't registered to any existing Azure AD application.
 
 #### Solution
 

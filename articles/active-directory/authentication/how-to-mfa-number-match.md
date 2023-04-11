@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 04/10/2023
 ms.author: justinha
 author: justinha
 ms.collection: M365-identity-device-management
@@ -310,9 +310,7 @@ Number match will be enabled for all users of Microsoft Authenticator push notif
 
 Relevant services will begin deploying these changes after May 8, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
-### Will the changes after May 8th, 2023, override number matching settings that are configured for a group in the Authentication methods policy?
-
-No, the changes after May 8th won't affect the **Enable and Target** tab for Microsoft Authenticator in the Authentication methods policy. Administrators can continue to target specific users and groups or **All Users** for Microsoft Authenticator **Push** or **Any** authentication mode. 
+### What happens to number matching settings that are currently configured for a group in the Authentication methods policy after number matching is enabled for Authenticator push notifications after May 8th, 2023?
 
 When Microsoft begins protecting all organizations by enabling number matching after May 8th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
 
@@ -371,21 +369,15 @@ No, number matching isn't enforced because it's not a supported feature for MFA 
 
 ### What happens if a user runs an older version of Microsoft Authenticator?  
 
-If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in if they use Android versions prior to 6.2006.4198, or iOS versions prior to 6.4.12.
+If a user is running an older version of Microsoft Authenticator that doesn't support number matching, authentication won't work if number matching is enabled. Users need to upgrade to the latest version of Microsoft Authenticator to use it for sign-in.
 
 ### Why is my user prompted to tap on one of three numbers rather than enter the number in their Microsoft Authenticator app?
 
-Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator if they use Android versions prior to 6.2108.5654, or iOS versions prior to 6.5.82, so they can use number match.
+Older versions of Microsoft Authenticator prompt users to tap and select a number rather than enter the number in Microsoft Authenticator. These authentications won't fail, but Microsoft highly recommends that users upgrade to the latest version of Microsoft Authenticator.
 
-Minimum Microsoft Authenticator version supporting number matching:
+### How can users recheck the number on mobile iOS devices after the match request appears?
 
-- Android: 6.2006.4198
-- iOS: 6.4.12
-
-Minimum Microsoft Authenticator version for number matching which prompts to enter a number:
-
-- Android 6.2111.7701
-- iOS 6.5.85
+During mobile iOS broker flows, the number match request appears over the number after a two-second delay. To recheck the number, click **Show me the number again**. This action only occurs in mobile iOS broker flows. 
 
 ## Next steps
 
