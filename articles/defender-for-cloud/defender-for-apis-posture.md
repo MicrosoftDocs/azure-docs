@@ -22,7 +22,7 @@ This article describes how to review security settings, security posture recomme
 1. Select **API security**.
 1. In the **API Security** dashboard, select an API collection to drill down.  
 1. In the API collection page, to drill down into an API endpoint, select the ellipses (...) > **View resource**.
-1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-inventory-and-insights)
+1. Review API endpoint status details. [Learn more about status settings](defender-for-apis-introduction.md#reviewing-inventory-and-insights).
 1. In the **Resource health** page > **Recommendations** for the endpoint, review recommendation details and status.
 1. In **Alerts**, review security alerts for the endpoint. Defender for Endpoint monitors API traffic to and and from endpoints, to provide runtime protection against suspicious behavior and malicious attacks.
 
