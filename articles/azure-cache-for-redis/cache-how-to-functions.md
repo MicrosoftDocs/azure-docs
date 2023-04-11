@@ -10,6 +10,8 @@ There are three triggers supported in Azure Cache for Redis:
 - `RedisListTrigger` triggers on [Redis lists](https://redis.io/docs/data-types/lists/)
 - `RedisStreamTrigger` triggers on [Redis streams](https://redis.io/docs/data-types/streams/)
 
+[Keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/) can also be used as triggers through `RedisPubSubTrigger`. 
+
 ## Scope of Availability for Functions Triggers
 
 |Tier     | Basic | Standard & Premium  | Enterprise, Enterprise Flash  |
@@ -21,6 +23,22 @@ There are three triggers supported in Azure Cache for Redis:
 > [!IMPORTANT]
 > The Pub/Sub trigger is not supported with consumption functions.
 >
+
+## Triggering on keyspace notifications
+
+Redis offers a built-in concept called [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/). When enabled, this feature publishes notifications of a wide range of cache actions to a dedicated pub/sub channel. Supported actions include actions that affect specific keys, called _keyspace notifications, and specific commands, called _keyevent notifications_. A huge range of Redis actions are supported, such as `SET`, `DEL`, and `EXPIRE`. The full list can be found in the [keyspace notification documentation](https://redis.io/docs/manual/keyspace-notifications/). 
+
+Keyspace and keyevent notifications are published with the following syntax:
+
+```
+PUBLISH __keyspace@0__:<affectedKey> <command>
+PUBLISH __keyevent@0__:<affectedCommand> <key>
+```
+
+Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](#redispubsubtrigger) section for more examples.
+
+> [!IMPORTANT]
+> In Azure Cache for Redis, keyspace events must be enabled before notifications are published. See (Advanced Settings)[cache-configure.md#keyspace-notifications-advanced-settings] for more information.
 
 
 ## How to get started
@@ -50,8 +68,8 @@ The `RedisPubSubTrigger` subscribes to a specific channel pattern using [`PSUBSC
 - `ConnectionString`: connection string to the redis cache (eg `<cacheName>.redis.cache.windows.net:6380,password=...`).
 - `Channel`: name of the pubsub channel that the trigger should listen to.
 
+This sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 #### [C#](#tab/Csharp)
-The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
 ```c#
 [FunctionName(nameof(PubSubTrigger))]
@@ -63,54 +81,62 @@ public static void PubSubTrigger(
 }
 ```
 #### [Java](#tab/Java)
-The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
-```c#
-[FunctionName(nameof(PubSubTrigger))]
-public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+```java
+TBD!
 ```
 #### [JavaScript](#tab/JavaScript)
-The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
-```c#
-[FunctionName(nameof(PubSubTrigger))]
-public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+```javascript
+TBD!
 ```
 #### [Python](#tab/Python)
-The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
 
-```c#
-[FunctionName(nameof(PubSubTrigger))]
-public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+```python
+TBD!
 ```
 #### [PowerShell](#tab/Powershell)
-The following sample listens to the channel "channel" at a localhost Redis instance at "127.0.0.1:6379"
+
+```powershell
+TBD!
+```
+---
+
+This sample listens to any keyspace notifications for the key `myKey` in a localhost Redis instance at "127.0.0.1:6379.
+
+#### [C#](#tab/Csharp)
 
 ```c#
 [FunctionName(nameof(PubSubTrigger))]
 public static void PubSubTrigger(
-    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "channel")] RedisMessageModel model,
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyspace@0__:myKey")] RedisMessageModel model,
     ILogger logger)
 {
     logger.LogInformation(JsonSerializer.Serialize(model));
 }
 ```
+#### [Java](#tab/Java)
+
+```java
+TBD!
+```
+#### [JavaScript](#tab/JavaScript)
+
+```javascript
+TBD!
+```
+#### [Python](#tab/Python)
+
+```python
+TBD!
+```
+#### [PowerShell](#tab/Powershell)
+
+```powershell
+TBD!
+```
 ---
+
 
 ### `RedisListsTrigger`
 
@@ -145,48 +171,28 @@ public static void ListsTrigger(
 
 #### [Java](#tab/Java)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
-[FunctionName(nameof(ListsTrigger))]
-public static void ListsTrigger(
-    [RedisListsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "listTest")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+
+```java
+TBD
 ```
 
 #### [JavaScript](#tab/JavaScript)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
-[FunctionName(nameof(ListsTrigger))]
-public static void ListsTrigger(
-    [RedisListsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "listTest")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+
+```javascript
+Coming Soon
 ```
 #### [Python](#tab/Python)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
-[FunctionName(nameof(ListsTrigger))]
-public static void ListsTrigger(
-    [RedisListsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "listTest")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+
+```python
+Coming soon
 ```
 #### [PowerShell](#tab/Powershell)
 The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
-[FunctionName(nameof(ListsTrigger))]
-public static void ListsTrigger(
-    [RedisListsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "listTest")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+
+```powershell
+Coming Soon
 ```
 ---
 
@@ -228,50 +234,29 @@ public static void StreamsTrigger(
 #### [Java](#tab/Java)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
-[FunctionName(nameof(StreamsTrigger))]
-public static void StreamsTrigger(
-    [RedisStreamsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+```java
+Coming Soon
 ```
 #### [JavaScript](#tab/JavaScript)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
-[FunctionName(nameof(StreamsTrigger))]
-public static void StreamsTrigger(
-    [RedisStreamsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+
+```javascsript
+Coming Soon
 ```
 #### [Python](#tab/Python)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
-[FunctionName(nameof(StreamsTrigger))]
-public static void StreamsTrigger(
-    [RedisStreamsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+
+```python
+Coming Soon
 ```
 #### [PowerShell](#tab/Powershell)
 
 The following sample polls the key "streamTest" at a localhost Redis instance at "127.0.0.1:6379"
-```c#
-[FunctionName(nameof(StreamsTrigger))]
-public static void StreamsTrigger(
-    [RedisStreamsTrigger(ConnectionString = "127.0.0.1:6379", Keys = "streamTest")] RedisMessageModel model,
-    ILogger logger)
-{
-    logger.LogInformation(JsonSerializer.Serialize(model));
-}
+
+```powershell
+coming soon
 ```
 ---
 
