@@ -33,7 +33,7 @@ The key benefits of enabling automatic user provisioning are:
 
 * **Manage risk**. You can increase security by automating changes based on employee status or group memberships that define roles and/or access.
 
-* **Address compliance and governance**. Azure AD supports native audit logs for every user provisioning request. Requests are executed in both the source and target systems. Audit logs let you to track who has access to applications from a single screen.
+* **Address compliance and governance**. Azure AD supports native audit logs for every user provisioning request. Requests are executed in both the source and target systems. Audit logs let you track who has access to applications from a single screen.
 
 * **Reduce cost**. Automatic user provisioning reduces costs by avoiding inefficiencies and human error associated with manual provisioning. It reduces the need for custom-developed user provisioning solutions, scripts, and audit logs.
 
