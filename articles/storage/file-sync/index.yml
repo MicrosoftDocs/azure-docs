@@ -52,10 +52,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Files Windows troubleshooting
-            url: ../files/storage-troubleshoot-windows-file-connection-problems.md?toc=/azure/storage/filesync/toc.json
+          - text: Azure Files troubleshooting
+            url: ../files/files-troubleshoot.md?toc=/azure/storage/filesync/toc.json
           - text: Azure Files performance troubleshooting
-            url: ../files/storage-troubleshooting-files-performance.md?toc=/azure/storage/filesync/toc.json
+            url: ../files/files-troubleshoot-performance.md?toc=/azure/storage/filesync/toc.json
           - text: Azure File Sync troubleshooting
             url: file-sync-troubleshoot.md
 

@@ -249,6 +249,8 @@
       href: front-door-faq.yml
   - name: CDN
     items:
+    - name: Migrate CDN provider
+      href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
       href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/TOC.json
     - name: DDoS protection
@@ -311,6 +313,8 @@
             href: standard-premium/how-to-enable-private-link-storage-account.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-storage-account-cli.md
+        - name: Connect to a storage static website
+          href: how-to-enable-private-link-storage-static-website.md
         - name: Connect to an App service
           items:
           - name: Azure portal

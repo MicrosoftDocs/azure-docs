@@ -268,7 +268,7 @@ If a custom `PageView` duration isn't provided, `PageView` duration defaults to 
 
 ### Sample app
 
-Check out the [Application Insights React demo](https://github.com/Azure-Samples/application-insights-react-demo).
+Check out the [Application Insights React demo](https://github.com/microsoft/applicationinsights-react-js/tree/main/sample/applicationinsights-react-sample).
 
 ## [React Native](#tab/reactnative)
 

@@ -2,8 +2,8 @@
 title: Render coverage
 titleSuffix: Microsoft Azure Maps
 description: Render coverage tables list the countries that support Azure Maps road tiles.
-author: stevemunk
-ms.author: v-munksteve
+author: eriklindeman
+ms.author: eriklind
 ms.date: 03/23/2022
 ms.topic: conceptual
 ms.service: azure-maps
@@ -138,7 +138,7 @@ The render coverage tables below list the countries that support Azure Maps road
 | Spain              |    ✓     |
 | Sweden             |    ✓     |
 | Switzerland        |    ✓     |
-| Turkey             |    ✓     |
+| Türkiye            |    ✓     |
 | Ukraine            |    ✓     |
 | United Kingdom     |    ✓     |
 | Vatican City       |    ✓     |

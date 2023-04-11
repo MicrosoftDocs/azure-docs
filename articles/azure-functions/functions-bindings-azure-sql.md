@@ -49,13 +49,27 @@ Add the extension to your project by installing this [NuGet package](https://www
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
 ```
 
-<!-- awaiting bundle support
 # [C# script](#tab/csharp-script)
 
-Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
+Functions run as C# script, which is supported primarily for C# portal editing.  The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.
 
-You can install this version of the extension in your function app by registering the [extension bundle], version 3.x, or a later version.
--->
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+<!-- To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions]. -->
+
+<!-- You can install this version of the extension in your function app by registering the [extension bundle], version 3.x, or a later version. -->
+
 
 ---
 
@@ -98,7 +112,7 @@ Azure SQL bindings for Azure Functions aren't available for the v3 version of th
 ## Functions runtime
 
 > [!NOTE]
-> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.  Learn more about determining the runtime in Azure regions from the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
+> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You may need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development.
 
 
 ## Install bundle
@@ -124,17 +138,6 @@ You can add the preview extension bundle by adding or replacing the following co
 Azure SQL bindings for Azure Functions aren't available for the v3 version of the functions runtime.
 
 ---
-
-## Configure Python Worker
-
-Currently, you will need to update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings. Locally, this is set in the `local.settings.json` file as seen below:
-
-```json
-"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"
-```
-
-Support for Python durable functions with SQL bindings isn't yet available.
-
 
 ::: zone-end
 

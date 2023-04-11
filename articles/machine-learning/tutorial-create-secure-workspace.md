@@ -11,6 +11,7 @@ author: jhirono
 ms.date: 09/06/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # How to create a secure workspace
 
@@ -86,7 +87,7 @@ To create a virtual network, use the following steps:
     Use the following steps to configure the IP address and configure a subnet for training and scoring resources:
 
     > [!TIP]
-    > While you can use a single subnet for all Azure ML resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
+    > While you can use a single subnet for all Azure Machine Learning resources, the steps in this article show how to create two subnets to separate the training & scoring resources.
     >
     > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 
@@ -327,10 +328,13 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
 > [!NOTE]
 > For more information on securing Azure Monitor and Application Insights, see the following links:
-> * [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
-> * [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
+> * [Migrate to workspace-based Application Insights resources](../azure-monitor/app/convert-classic-resource.md).
+> * [Configure your Azure Monitor private link](../azure-monitor/logs/private-link-configure.md).
 
 1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning workspace. From __Overview__, select the __Application Insights__ link.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/workspace-application-insight.png" alt-text="Screenshot of the Application Insights link.":::
+
 1. In the __Properties__ for Application Insights, check the __WORKSPACE__ entry to see if it contains a value. If it _doesn't_, select __Migrate to Workspace-based__, select the __Subscription__ and __Log Analytics Workspace__ to use, then select __Apply__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/migrate-workspace-based.png" alt-text="Screenshot of the link to migrate to workspace-based.":::
@@ -546,4 +550,9 @@ To delete all resources created in this tutorial, use the following steps:
 1. Enter the resource group name, then select __Delete__.
 ## Next steps
 
+:::moniker range="azureml-api-2"
 Now that you've created a secure workspace and can access studio, learn how to [deploy a model to an online endpoint with network isolation](how-to-secure-online-endpoint.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+Now that you've created a secure workspace, learn how to [deploy a model](./v1/how-to-deploy-and-where.md).
+:::moniker-end

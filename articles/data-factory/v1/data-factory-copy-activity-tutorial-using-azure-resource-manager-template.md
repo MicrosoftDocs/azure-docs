@@ -7,7 +7,6 @@ ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
 ms.author: jianleishen 
-ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Tutorial: Use Azure Resource Manager template to create a Data Factory pipeline to copy data 

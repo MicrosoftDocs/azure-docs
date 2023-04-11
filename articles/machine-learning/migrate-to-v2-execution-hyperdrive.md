@@ -11,6 +11,7 @@ ms.author: xunwan
 ms.date: 09/16/2022
 ms.reviewer: sgilley
 ms.custom: migration
+monikerRange: 'azureml-api-1 || azureml-api-2'
 ---
 
 # Upgrade hyperparameter tuning to SDK v2
@@ -21,7 +22,7 @@ A job has a type. Most jobs are command jobs that run a `command`, like `python 
 
 A sweep job is another type of job, which defines sweep settings and can be initiated by calling the sweep method of command.
 
-To upgrade, you'll need to change your code for defining and submitting your hyperparameter tuning experiment to SDK v2. What you run _within_ the job doesn't need to be upgraded to SDK v2. However, it's recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more information, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
+To upgrade, you'll need to change your code for defining and submitting your hyperparameter tuning experiment to SDK v2. What you run _within_ the job doesn't need to be upgraded to SDK v2. However, it's recommended to remove any code specific to Azure Machine Learning from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more information, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
 
 This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 

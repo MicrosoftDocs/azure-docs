@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/26/2022
 ms.author: rosouz
-ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell, ignite-2022
+ms.custom: references_regions, synapse-cosmos-db, ignite-2022
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB
@@ -34,6 +34,9 @@ The first step to use Synapse Link is to enable it for your Azure Cosmos DB data
 
 > [!NOTE]
 > If you want to use Full Fidelity Schema for API for NoSQL accounts, you can't use the Azure portal to enable Synapse Link. This option can't be changed after Synapse Link is enabled in your account and to set it you must use Azure CLI or PowerShell. For more information, check [analytical store schema representation documentation](analytical-store-introduction.md#schema-representation). 
+
+> [!NOTE]
+> You need [Contributor role](role-based-access-control.md) to enable Synapse Link at account level. And you need at least [Operator role](role-based-access-control.md) to enable Synapse Link in your containers or collections.
 
 ### Azure portal
 
