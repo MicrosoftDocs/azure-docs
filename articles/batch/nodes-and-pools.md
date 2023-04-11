@@ -2,7 +2,7 @@
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 04/11/2023
 
 ---
 # Nodes and pools in Azure Batch
@@ -99,6 +99,9 @@ When you create a pool, you need to select the appropriate **nodeAgentSkuId**, d
 ### Custom images for Virtual Machine pools
 
 To learn how to create a pool with custom images, see [Use the Azure Compute Gallery to create a custom pool](batch-sig-images.md).
+
+> [!IMPORTANT]
+> To create VMSS resources with the **TrustedLaunch** feature, you must set the *securityType* property under the *securityProfile* section of the ARM template so that Batch sends *securityProfile* with **TrustedLauch** enabled in the ARM template to use this image. Currently, Batch does not support **TrustedLaunch** feature or configure *securityType* property in the ARM template, and does not include the *securityProfile* section of the template that is sent to ARM. 
 
 Alternatively, you can create a custom pool of virtual machines using a [managed image](batch-custom-images.md) resource. For information about preparing custom Linux images from Azure VMs, see [How to create an image of a virtual machine or VHD](../virtual-machines/linux/capture-image.md). For information about preparing custom Windows images from Azure VMs, see [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
