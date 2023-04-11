@@ -95,6 +95,7 @@ The final tab captures several key details from the user creation process. Revie
  ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator//guest-user-type.png)
 
 ### External user invitations
+<a resend-invitations></a>
 
 When you invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details. If they haven't redeemed their invitation, you can resend the invitation email.
 
