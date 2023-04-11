@@ -1,6 +1,6 @@
 ---
 title: Sign in users in my own Node.js web application by using Microsoft Entra- Prepare your tenant
-description: Learn about how prepare you Azure Active Directory (Azure AD) tenant for customers to sign in users in your own Node.js web application by using Microsoft Entra.
+description: Learn about how to prepare your Azure Active Directory (Azure AD) tenant for customers to sign in users in your own Node.js web application by using Microsoft Entra.
 services: active-directory
 author: kengaderdus
 manager: mwongerapk
@@ -26,7 +26,7 @@ In this article, you prepare your Azure Active Directory (Azure AD) for customer
 
 - Associate your web application with the user flow. 
 
-After you complete the tasks, you'll collect a *Application (client) ID*, a *Client secret* and a *Directory (tenant) ID*.
+After you complete the tasks, you'll collect an *Application (client) ID*, a *Client secret* and a *Directory (tenant) ID*.
 
 If you've already registered a web application in the Microsoft Entra admin center, and associated it with a user flow, you can skip the steps in this article and move to [Prepare your Node.js web app](how-to-web-app-node-sign-in-prepare-app.md).
 

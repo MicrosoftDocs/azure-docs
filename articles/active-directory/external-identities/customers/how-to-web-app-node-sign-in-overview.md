@@ -18,11 +18,11 @@ ms.custom: developer
 
 # Sign in users in my own Node.js web application by using Microsoft Entra 
 
-In this article, you learn how to sign in users in your own Node.js web application that you build. This article uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application. You authenticate your wen app against your Azure Active Directory (Azure AD) for customers tenant. 
+In this article, you learn how to sign in users in your own Node.js web application that you build. This article uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application. You authenticate your web application against your Azure Active Directory (Azure AD) for customers tenant. 
 
 We've broken down this article into three separate articles so it's easy for you to follow: 
 
-- [Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-prepare-tenant.md) tenant guides you how register your app and configure user flows in the Microsoft Entra admin center.
+- [Prepare your Azure AD for customers tenant](how-to-web-app-node-sign-in-prepare-tenant.md) tenant guides you how to register your app and configure user flows in the Microsoft Entra admin center.
 
 - [Prepare your web application](how-to-web-app-node-sign-in-prepare-app.md) guides you how to set up your Node.js app structure.
 
