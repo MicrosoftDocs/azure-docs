@@ -1439,7 +1439,7 @@ productDirectory:
       url: dedicated-hsm/index.yml
     # Card
     - title: Microsoft Defender for External Attack Surface Management
-      summary: Continuously map and monitor your diigtal attack surface 
+      summary: Safeguard the digital experience by discovering all internet-exposed resources
       imageSrc: ./media/index/Defender-easm.svg
       azureCategories:
         - security
