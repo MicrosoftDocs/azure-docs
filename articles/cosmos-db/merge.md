@@ -213,7 +213,7 @@ To enroll in the preview, your Azure Cosmos DB account must meet all the followi
   - Logic Apps
   - Azure Functions
   - Azure Search
-  - Azure Cosmos DB Spark connector
+  - Azure Cosmos DB Spark connector < 4.18.0
   - Any third party library or tool that has a dependency on an Azure Cosmos DB SDK that isn't .NET v3 SDK >= v3.27.0 or Java v4 SDK >= 4.42.0
 
 ### Account resources and configuration
@@ -257,7 +257,7 @@ If you enroll in the preview, the following connectors fail.
 - Logic Apps ¹
 - Azure Functions ¹
 - Azure Search ¹
-- Azure Cosmos DB Spark connector ¹
+- Azure Cosmos DB Spark connector < 4.18.0
 - Any third party library or tool that has a dependency on an Azure Cosmos DB SDK that isn't .NET v3 SDK >= v3.27.0 or Java v4 SDK >= 4.42.0
 
 ¹ Support for these connectors is planned for the future.
