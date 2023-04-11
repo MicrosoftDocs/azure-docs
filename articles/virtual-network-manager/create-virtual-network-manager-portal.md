@@ -35,7 +35,7 @@ Deploy a network manager instance with the defined scope and access you need.
 
 1. On the **Basics** tab, enter or select the following information:
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics-thumbnail.png" alt-text="Screenshot of Create a network manager Basics page." lightbox="media/create-virtual-network-manager-portal/network-manager-basics.png":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics-thumbnail.png" alt-text="Screenshot of Create a network manager Basics page." lightbox=".media/create-virtual-network-manager-portal/network-manager-basics.png":::
 
     | Setting | Value |
     | ------- | ----- |
@@ -69,7 +69,7 @@ Create three virtual networks using the portal. Each virtual network has a tag o
 
 1. Select **Next** or the **IP addresses** tab and configure the following network address spaces:
 
-     :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of create a virtual network ip addresses page.":::
+     :::image type="content" source="./media/create-virtual-network-manager-portal/create-vnet-ip.png" alt-text="Screenshot of create a virtual network IP addresses page." lightbox="./media/create-virtual-network-manager-portal/create-vnet-ip.png":::
 
     | Setting | Value |
     | -------- | ----- |
@@ -102,7 +102,7 @@ Virtual Network Manager applies configurations to groups of VNets by placing the
 
 1. On the **Create a network group** page, enter **ng-learn-prod-eastus-001** and Select **Create**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-network-group.png" alt-text="Screenshot of create a network group page.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/create-network-group.png" alt-text="Screenshot of create a network group page."  lightbox="./media/create-virtual-network-manager-portal/create-network-group.png":::
 
 1. The new network group is now listed on the **Network Groups** page.
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
@@ -125,7 +125,7 @@ In this task, you manually add two virtual networks for your Mesh configuration 
     :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
 
 1. On the **Network Group** page under **Settings**, select **Group Members** to view the membership of the group you manually selected.
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of group membership under Group Membership.":::
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
 # [Azure Policy](#tab/azurepolicy)
 ### Create Azure Policy for dynamic membership
@@ -157,7 +157,7 @@ Using [Azure Policy](concept-azure-policy-integration.md), you define a conditio
 
 1. On the **Network Group** page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy. You'll note the **Source** is listed as **azpol-learn-prod-eastus-001 - subscriptions/subscription_id**.
 
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of group membership under Group Membership.":::
+    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
 ---
 
@@ -232,7 +232,7 @@ Use the **Network Manager** section for each virtual network to verify whether c
 
 1. Go to **vnet-learn-prod-eastus-001** virtual network and select **Network Manager** under **Settings**. Verify that **cc-learn-prod-eastus-001** is listed under **Connectivity Configurations** tab.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of connectivity configuration associated with vnet-learn-prod-eastus-001 virtual network.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of connectivity configuration associated with vnet-learn-prod-eastus-001 virtual network." lightbox="./media/create-virtual-network-manager-portal/vnet-configuration-association.png":::
 
 1. Repeat the previous step on **vnet-learn-prod-eastus-002**. 
 
@@ -270,7 +270,7 @@ If you no longer need Azure Virtual Network Manager, the following steps will re
 
 1. On the **Delete a network group** page, select the following options:
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-delete-options.png" alt-text="Screenshot of Network group to be deleted option selection.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-delete-options.png" alt-text="Screenshot of Network group to be deleted option selection." lightbox="./media/create-virtual-network-manager-portal/network-group-delete-options.png":::
 
     | Setting | Value |
     | ------- | ----- |
