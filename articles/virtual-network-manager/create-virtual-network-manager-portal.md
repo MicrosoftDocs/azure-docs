@@ -98,7 +98,7 @@ Virtual Network Manager applies configurations to groups of VNets by placing the
 
 1. Select **Network Groups** under **Settings**, then select **+ Create**.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group.":::
 
 1. On the **Create a network group** page, enter **ng-learn-prod-eastus-001** and Select **Create**.
 
@@ -290,7 +290,7 @@ If you no longer need Azure Virtual Network Manager, the following steps will re
     | Delete option | Select **Force delete the resource and all dependent resources**. |
     | Confirm deletion | Enter the name of the network manager. In this example, it's **vnm-learn-eastus-001**. |
 
-1. To delete the resource group and virtual networks, locate the resource group and select the **Delete resource group**. Confirm that you want to delete by entering the name of the resource group, then select **Delete**
+1. To delete the resource group and virtual networks, locate **rg-learn-eastus-001** and select the **Delete resource group**. Confirm that you want to delete by entering **rg-learn-eastus-001** in the textbox, then select **Delete**
 
 ## Next steps
 
