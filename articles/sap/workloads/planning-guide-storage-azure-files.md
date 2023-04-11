@@ -36,9 +36,9 @@ For SAP workloads the supported use of Azure Files' shares can be used for:
 
 When you plan your deployment with Azure Files, consider the following important points:  
 
-- The minimum share size is 100 gibibytes (GiB). With Azure Premium Files, you pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing#provisioned-model). 
-- Size your file shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure files share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
-- Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../storage/files/storage-troubleshooting-files-performance.md).
+- The minimum share size is 100 gibibytes (GiB). With Azure Premium Files, you pay for the [capacity of the provisioned shares](/azure/storage/files/understanding-billing#provisioned-model). 
+- Size your file shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure files share targets](/azure/storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+- Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](/azure/storage/files/storage-troubleshooting-files-performance.md).
 - Deploy a separate `sapmnt` share for each SAP system.
 - Don't use the `sapmnt` share for any other activity, such as interfaces.
 - Don't use the `saptrans` share for any other activity, such as interfaces.
