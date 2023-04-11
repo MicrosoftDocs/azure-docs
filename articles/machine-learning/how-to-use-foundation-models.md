@@ -22,30 +22,19 @@ Additionally, the model card for each model includes a brief description of the 
 
 
 ### How to finetune foundation models using your own training data
-In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these foundation models using either code based notebook samples or by using the Finetune UI wizard linked from the model card.
-
-#### Finetuning using notebook samples
-Currently, AzureML supports finetuning models for the following language tasks -
-
-* Text classification (Both single label and multi-label)
-* Token classification
-* Question answering
-* Summarization
-* Translation
-
-To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks as well as CLI examples) for each task in this git repo at [https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines](https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines) 
+In order to improve model performance in your workload, you might want to fine tune a foundation model using your own training data. You can easily finetune these foundation models by using either the Finetune UI wizard or by using the code based notebook samples linked from the model card.
 		
 #### Finetuning using the UI wizard
-You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on the model card for any foundtaion model. 
+You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on the model card for any foundation model. 
 
-<b>Finetuning Task Settings</b>
+<b>Finetuning Settings</b>
 ![image](./finetune_quick_wizard.png)
 
-	* Finetuning task <br> Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (e.g. Text classification, Token classification, Question answering, etc). Select the task you would like to use from the drop down.
-	* Training Data <br> Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL, CSV or TSV format) or select an existing regsistered dataset from your workspace. Once you've selected the dataset, you will need to map the data columns based on the schema needed for the task. For e.g. map the column names that correspond to the 'sentence' and 'label' keys 
-	* Validation data <br> Pass in the data you would like to use to validate your model. Selecting 'Automatic' will reserve an automatic split of training data for validation
-	* Test data <br> Pass in the test data you would like to use to evaluate your model. Selecting 'Automatic' will reserve an automatic split of training data for test. Selecting 'None' will result in no evaluation being run on the fine-tuned model
-	* Compute <br> Provide the AzureML Compute cluster you would like to use for finetuning the model. Fine tuning needs to run on GPU compute. We recommend using compute SKUs with A100 / V100 GPUs for this. Please ensure that you have sufficient compute quota for the compute SKUs you wish to use.
+* <b>Finetuning task</b> Every pre-trained model from the model catalog can be finetuned for a specific set of tasks (e.g. Text classification, Token classification, Question answering, etc). Select the task you would like to use from the drop down.
+* <b>Training Data</b> Pass in the training data you would like to use to finetune your model. You can choose to either upload a local file (in JSONL, CSV or TSV format) or select an existing regsistered dataset from your workspace. Once you've selected the dataset, you will need to map the data columns based on the schema needed for the task. For e.g. map the column names that correspond to the 'sentence' and 'label' keys 
+* <b>Validation data</b> Pass in the data you would like to use to validate your model. Selecting 'Automatic' will reserve an automatic split of training data for validation
+* <b>Test data</b> Pass in the test data you would like to use to evaluate your model. Selecting 'Automatic' will reserve an automatic split of training data for test. Selecting 'None' will result in no evaluation being run on the fine-tuned model
+* <b>Compute</b> Provide the AzureML Compute cluster you would like to use for finetuning the model. Fine tuning needs to run on GPU compute. We recommend using compute SKUs with A100 / V100 GPUs for this. Please ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
 
 Finetuning Task Parameters
@@ -53,6 +42,17 @@ Finetuning Task Parameters
 You can configure parameters such as learning rate, epochs, batch size, etc via Advanced Settings. Each of these settings have default values, but can be customized if needed.
 
 Clicking on 'Finish' in the Finetune Wizard will submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then go ahead and register the finetuned model output by the finetuning job and deploy this model to an endpoint for inferencing.
+
+#### Finetuning using code based samples
+Currently, AzureML supports finetuning models for the following language tasks -
+
+* Text classification 
+* Token classification
+* Question answering
+* Summarization
+* Translation
+
+To enable users to quickly get started with fine tuning, we have published samples (both Python notebooks as well as CLI examples) for each task in this git repo at [https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines](https://github.com/Azure/azureml-foundation-models/tree/main/finetune/sample_pipelines). Each model card links to Finetuning samples for supported finetuning tasks.
 
 ### Evaluating foundation models using your own test data
 You can evaluate a foundation model against your test dataset, by using either code based notebook samples or by using the Evaluate UI wizard linked from the model card.
