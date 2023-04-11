@@ -1189,7 +1189,7 @@ The `CommandText` property is the name of the table where the data is to be stor
 
 The output bindings use the T-SQL [MERGE](/sql/t-sql/statements/merge-transact-sql) statement which requires [SELECT](/sql/t-sql/statements/merge-transact-sql#permissions) permissions on the target database.
 
-If an exception occurs when a SQL input binding is executed then the function code stop executing.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.  If the `IAsyncCollector` is used in a .NET function then the function code can handle exceptions throw by the call to `FlushAsync()`.
+If an exception occurs when a SQL output binding is executed then the function code stop executing.  This may result in an error code being returned, such as an HTTP trigger returning a 500 error code.  If the `IAsyncCollector` is used in a .NET function then the function code can handle exceptions throw by the call to `FlushAsync()`.
 
 
 ::: zone-end

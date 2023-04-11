@@ -32,11 +32,11 @@ while (true) {
 }
 ```
 
-Changes are be processed in the order that their changes were made, with the oldest changes being processed first. A couple notes about change processing:
+Changes are processed in the order that their changes were made, with the oldest changes being processed first. A couple notes about change processing:
 
 1. If changes to multiple rows are made at once the exact order that they are sent to the function is based on the order returned by the CHANGETABLE function
-2. Changes are "batched" together for a row. If multiple changes are made to a row between each iteration of the loop then only a single change entry exists for that row that shows the difference between the last processed state and the current state
-3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows, then the half of the rows that wasn't changed a second time are processed first. This processing logic is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
+2. Changes are "batched" together for a row. If multiple changes are made to a row between each iteration of the loop then only a single change entry exists for that row which will show the difference between the last processed state and the current state
+3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows, then the half of the rows that weren't changed a second time are processed first. This processing logic is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
 
 For more information on change tracking and how it's used by applications such as Azure SQL triggers, see [work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) .
 
