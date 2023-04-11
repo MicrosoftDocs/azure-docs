@@ -29,6 +29,7 @@ New for this release:
 
 - Azure Arc-enabled SQL Managed Instance
   - Direct mode for failover groups is generally available az CLI
+  - Schedule the HA orchestrator replicas on different nodes when available
 
 - Arc PostgreSQL
   - Ensure postgres extensions work per database/role
