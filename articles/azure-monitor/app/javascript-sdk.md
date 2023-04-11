@@ -25,11 +25,11 @@ The JavaScript snippet can be added to your webpages manually or via the automat
 
 ### Enable Application Insights SDK for JavaScript automatically
 
-The automatic Snippet injection feature available in the ApplicationInsights .NET core SDK and the ApplicationInsights Node.js SDK (preview)
-allows you to automatically inject the ApplicationInsights JavaScript SDK into every webpage of your web application. 
-See [ApplicationInsights .NET core SDK Snippet Injection](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications)
-and [ApplicationInsights Node.js SDK Snippet Injection (preview)](./nodejs.md#automatic-web-instrumentationpreview)
-for more details. However, if you want more control over which pages to add the ApplicationInsights JavaScript SDK 
+The automatic Snippet injection feature available in the Application Insights .NET core SDK and the Application Insights Node.js SDK (preview)
+allows you to automatically inject the Application Insights JavaScript SDK into every webpage of your web application. 
+For more information, see [Application Insights .NET core SDK Snippet Injection](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications)
+and [Application Insights Node.js SDK Snippet Injection (preview)](./nodejs.md#automatic-web-instrumentationpreview).
+However, if you want more control over which pages to add the Application Insights JavaScript SDK 
 or if you're using a programming language other than .NET and Node.js, please follow the manual configuration steps below.
 
 ### Enable Application Insights SDK for JavaScript manually

@@ -199,7 +199,8 @@ Web Instrumentation will be enabled on node server responses when all of the fol
 web Instrumentation CDN endpoint can be changed by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_SOURCE = "web Instrumentation CDN endpoints"`.
 web Instrumentation connection string can be changed by setting environment variable `APPLICATIONINSIGHTS_WEB_INSTRUMENTATION_CONNECTION_STRING = "web Instrumentation connection string"`
 
-**Note:** web Instrumentation may slow down server response time, especially when response size is large or response is compressed. For the case in which some middle layers are applied, it may result in web Instrumentation not working and original response will be returned.
+> [!Note] 
+> Web Instrumentation may slow down server response time, especially when response size is large or response is compressed. For the case in which some middle layers are applied, it may result in web Instrumentation not working and original response will be returned.
 
 ### Automatic third-party instrumentation
 
