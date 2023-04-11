@@ -67,8 +67,6 @@ using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 
-Console.WriteLine("Hello, World!");
-
 // Create a TelemetryConfiguration instance.
 TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
 config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
@@ -343,7 +341,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-# [.NET 5.0](#tab/dotnet-framework)
+# [.NET Framework](#tab/dotnet-framework)
 
 In the *applicationinsights.config* file, add `AuthenticationApiKey` to `QuickPulseTelemetryModule`:
 
