@@ -14,8 +14,6 @@ items:
 - name: Responsible use of AI
   expanded: true
   items:
-    - name: Transparency note
-      href: /legal/azure-health-insights/oncophenotype/transparency-note?context=/azure/azure-health-insights/oncophenotype/context/context
     - name: Data, privacy, and security
       href: ../responsible-ai/data-privacy-security.md
 - name: Concepts
@@ -32,14 +30,8 @@ items:
   items:
      - name: REST API
        href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
-     - name: SDKs
-       items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/health.insights.cancerprofiling-readme
-        - name: Java
-          href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
-        - name: Python
-          href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
+     - name: .NET SDK
+       href: /dotnet/api/overview/azure/health.insights.cancerprofiling-readme
 - name: Resources
   items:
      - name: FAQ

@@ -1,6 +1,6 @@
 ---
 title: Trial Matcher Inference information
-titleSuffix: Azure Health Insights
+titleSuffix: Project Health Insights
 description: This article provides Trial Matcher inference information.
 services: azure-health-insights
 author: iBoonZ

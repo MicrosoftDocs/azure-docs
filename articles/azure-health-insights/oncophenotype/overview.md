@@ -1,6 +1,6 @@
 ---
-title: What is Onco Phenotype - Azure Health Insights
-titleSuffix: Azure Health Insights
+title: What is Onco Phenotype - Project Health Insights
+titleSuffix: Project Health Insights
 description: Enable healthcare organizations to rapidly identify key cancer attributes within their patient populations.
 services: azure-health-insights
 author: iBoonZ
@@ -12,9 +12,9 @@ ms.author: behoorne
 ---
 
 
-# What is Onco Phenotype - Azure Health Insights
+# What is Onco Phenotype - Project Health Insights
 
-Onco Phenotype is an AI model that’s offered within the context of the broader Azure Health Insights. It augments traditional clinical Natural Language Processing tools by enabling healthcare organizations to rapidly identify key cancer attributes within their patient populations.
+Onco Phenotype is an AI model that’s offered within the context of the broader Project Health Insights. It augments traditional clinical Natural Language Processing tools by enabling healthcare organizations to rapidly identify key cancer attributes within their patient populations.
 
 
 > [!IMPORTANT] 
@@ -22,7 +22,7 @@ Onco Phenotype is an AI model that’s offered within the context of the broader
 
 
 ## Onco Phenotype features
-The Onco Phenotype model, available in the Azure Health Insights cognitive service as an API, augments traditional clinical natural language processing (NLP) tools by helping healthcare providers rapidly identify key attributes of a cancer within their patient populations with an existing cancer diagnosis. You can use this model to infer tumor site; histology; clinical stage tumor (T), node (N), and metastasis (M) categories; and pathologic stage TNM categories from unstructured clinical documents, along with confidence scores and relevant evidence.
+The Onco Phenotype model, available in the Project Health Insights cognitive service as an API, augments traditional clinical natural language processing (NLP) tools by helping healthcare providers rapidly identify key attributes of a cancer within their patient populations with an existing cancer diagnosis. You can use this model to infer tumor site; histology; clinical stage tumor (T), node (N), and metastasis (M) categories; and pathologic stage TNM categories from unstructured clinical documents, along with confidence scores and relevant evidence.
 
 - **Tumor site** refers to the primary tumor location. 
 

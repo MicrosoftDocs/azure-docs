@@ -1,6 +1,6 @@
 ---
 title: Onco Phenotype patient info 
-titleSuffix: Azure Health Insights
+titleSuffix: Project Health Insights
 description: This article describes how and which patient information can be sent to the Onco Phenotype model
 services: azure-health-insights
 author: iBoonZ

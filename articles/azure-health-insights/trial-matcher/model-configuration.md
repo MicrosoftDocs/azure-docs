@@ -1,6 +1,6 @@
 ---
 title: Trial Matcher model configuration
-titleSuffix: Azure Health Insights
+titleSuffix: Project Health Insights
 description: This article provides Trial Matcher model configuration information.
 services: azure-health-insights
 author: iBoonZ
