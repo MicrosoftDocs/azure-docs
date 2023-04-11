@@ -20,7 +20,6 @@ By using containers, you can use a subset of the Speech service features in your
 > [!NOTE]
 > Connected and disconnected container pricing and commitment tiers vary. For more information, see [Speech Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-
 ## Prerequisites
 
 You must meet the following prerequisites before you use Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. You need:
