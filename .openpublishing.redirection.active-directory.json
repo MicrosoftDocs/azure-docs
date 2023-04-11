@@ -6,8 +6,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/develop/configure-token-lifetimes.md",
-      "redirect_url": "/azure/active-directory/develop/active-directory-saml-claims-customization",
+      "source_path_from_root": "/articles/active-directory/develop/registration-config-change-token-lifetime-how-to.md",
+      "redirect_url": "/azure/active-directory/develop/configure-token-lifetimes",
       "redirect_document_id": false
     },
     {
@@ -58,6 +58,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/trello-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/atlassian-cloud-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/easy-metrics-auth0-connector-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/easy-metrics-connector-tutorial",
       "redirect_document_id": false
     },
     {
@@ -133,6 +138,11 @@
     {
       "source_path_from_root": "/articles/active-directory/saas-apps/headerf5-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/f5-big-ip-headers-easy-button",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/tripactions-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/navan-tutorial",
       "redirect_document_id": false
     },
     {
@@ -7224,7 +7234,7 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md",
@@ -7542,6 +7552,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/roles/groups-pim-eligible.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/directory-administrative-units.md",
       "redirect_url": "/azure/active-directory/roles/administrative-units",
       "redirect_document_id": true
@@ -7658,8 +7673,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-groups-pim-eligible.md",
-      "redirect_url": "/azure/active-directory/roles/groups-pim-eligible",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-groups-remove-assignment.md",
