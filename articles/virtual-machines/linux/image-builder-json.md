@@ -897,7 +897,19 @@ Before you can distribute to the gallery, you must create a gallery and an image
   "replicationRegions": [
       "<region where the gallery is deployed>",
       "<region>"
-  ]
+  ],
+"targetRegions": [
+     {
+      "name": "eastus",
+      "replicaCount": 2,
+      "storageAccountType": "Standard_ZRS"
+     },
+     {
+      "name": "eastus2",
+      "replicaCount": 3,
+      "storageAccountType": "Premium_LRS"
+     }
+]
 }
 ```
 
@@ -940,7 +952,7 @@ Distribute properties for galleries:
   - "Standard_ZRS"","
 
 > [!NOTE]
->`replicationRegions` is deprecated for gallery distributions. For more information, use [gallery-replicated-regions](/cli/azure/image/builder/output?view=azure-cli-latest#az-image-builder-output-add-examples&preserve-view=true)
+>`replicationRegions` is deprecated for gallery distributions as `targetRegions` is updated property. For more information, see [targetRegions](../image-builder-api-update-release-notes.md#version-2022-07-01).
 
 > [!NOTE]
 > If the image template and referenced `image definition` aren't in the same location, you'll see additional time to create images. Image Builder currently doesn't have a `location` parameter for the image version resource, we take it from its parent `image definition`. For example, if an image definition is in `westus` and you want the image version replicated to `eastus`, a blob is copied to `westus`, an image version resource in `westus` is created, and then replicate to `eastus`. To avoid the additional replication time, ensure the `image definition` and image template are in the same location.
