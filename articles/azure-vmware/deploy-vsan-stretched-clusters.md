@@ -51,7 +51,7 @@ It's important to understand that stretched cluster private clouds only offer an
 
 It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of those types of rare failures, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. It's important you understand that a stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. The reason is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region. For example, one vCenter Server, one NSX-T Manager cluster, one NSX-T Data Center Edge VM pair.
 
-##Stretched clusters region availablility
+## Stretched clusters region availablility
 
 Azure VMware Solution stretched clusters are available in the following regions: 
 
@@ -103,7 +103,7 @@ The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" a
 
 ### Are any other regions planned?
 
-As of now, the only 3 regions listed above are planned for support of stretched clusters.
+As of now, there are [four regions supported](#Stretched-clusters-region-availability) for stretched clusters.
 
 ### What kind of SLA does Azure VMware Solution provide with the stretched clusters (preview) release?
 
