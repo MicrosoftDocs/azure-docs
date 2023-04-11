@@ -26,7 +26,7 @@ There are three triggers supported in Azure Cache for Redis:
 
 ## Triggering on keyspace notifications
 
-Redis offers a built-in concept called [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/). When enabled, this feature publishes notifications of a wide range of cache actions to a dedicated pub/sub channel. Supported actions include actions that affect specific keys, called _keyspace notifications, and specific commands, called _keyevent notifications_. A huge range of Redis actions are supported, such as `SET`, `DEL`, and `EXPIRE`. The full list can be found in the [keyspace notification documentation](https://redis.io/docs/manual/keyspace-notifications/). 
+Redis offers a built-in concept called [keyspace notifications](https://redis.io/docs/manual/keyspace-notifications/). When enabled, this feature publishes notifications of a wide range of cache actions to a dedicated pub/sub channel. Supported actions include actions that affect specific keys, called _keyspace notifications_, and specific commands, called _keyevent notifications_. A huge range of Redis actions are supported, such as `SET`, `DEL`, and `EXPIRE`. The full list can be found in the [keyspace notification documentation](https://redis.io/docs/manual/keyspace-notifications/). 
 
 Keyspace and keyevent notifications are published with the following syntax:
 
@@ -38,7 +38,7 @@ PUBLISH __keyevent@0__:<affectedCommand> <key>
 Because these events are published on pub/sub channels, the `RedisPubSubTrigger` is able to pick them up. See the [RedisPubSubTrigger](#redispubsubtrigger) section for more examples.
 
 > [!IMPORTANT]
-> In Azure Cache for Redis, keyspace events must be enabled before notifications are published. See (Advanced Settings)[cache-configure.md#keyspace-notifications-advanced-settings] for more information.
+> In Azure Cache for Redis, keyspace events must be enabled before notifications are published. See [Advanced Settings](cache-configure.md#keyspace-notifications-advanced-settings) for more information.
 
 
 ## How to get started
@@ -110,6 +110,41 @@ This sample listens to any keyspace notifications for the key `myKey` in a local
 [FunctionName(nameof(PubSubTrigger))]
 public static void PubSubTrigger(
     [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyspace@0__:myKey")] RedisMessageModel model,
+    ILogger logger)
+{
+    logger.LogInformation(JsonSerializer.Serialize(model));
+}
+```
+#### [Java](#tab/Java)
+
+```java
+TBD!
+```
+#### [JavaScript](#tab/JavaScript)
+
+```javascript
+TBD!
+```
+#### [Python](#tab/Python)
+
+```python
+TBD!
+```
+#### [PowerShell](#tab/Powershell)
+
+```powershell
+TBD!
+```
+---
+
+This sample listens to any keyevent notifications for the delete command [`DEL`](https://redis.io/commands/del/) in a localhost Redis instance at "127.0.0.1:6379.
+
+#### [C#](#tab/Csharp)
+
+```c#
+[FunctionName(nameof(PubSubTrigger))]
+public static void PubSubTrigger(
+    [RedisPubSubTrigger(ConnectionString = "127.0.0.1:6379", Channel = "__keyevent@0__:del")] RedisMessageModel model,
     ILogger logger)
 {
     logger.LogInformation(JsonSerializer.Serialize(model));
@@ -264,6 +299,7 @@ coming soon
 
 All triggers return a [`RedisMessageModel`](./src/Models/RedisMessageModel.cs) object that has two fields:
 
+#### [C#](#tab/Csharp)
 ```c#
 namespace Microsoft.Azure.WebJobs.Extensions.Redis
 {
@@ -274,6 +310,32 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis
   }
 }
 ```
+#### [Java](#tab/Java)
+The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+```java
+TBD
+```
+
+#### [JavaScript](#tab/JavaScript)
+The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+```javascript
+Coming Soon
+```
+#### [Python](#tab/Python)
+The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+```python
+Coming soon
+```
+#### [PowerShell](#tab/Powershell)
+The following sample polls the key "listTest" at a localhost Redis instance at "127.0.0.1:6379"
+
+```powershell
+Coming Soon
+```
+---
 - `Trigger`: The pubsub channel, list key, or stream key that the function is listening to.
 - `Message`: The pubsub message, list element, or stream element.
 
