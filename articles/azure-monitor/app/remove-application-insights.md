@@ -47,7 +47,7 @@ The following sections show two ways to remove NuGet packages and what was autom
 
 # [.NET](#tab/net)
 
-1. In the Solution Explorer on the right, right-click **Solution** and select **Manage NuGet Packages for Solution**.
+1. In the Solution Explorer on the right,right-click **Solution** and select **Manage NuGet Packages for Solution**.
 
     On the screen that appears, you can edit all the NuGet packages that are part of the project.
     
