@@ -16,11 +16,11 @@ ms.custom: it-pro
 
 # Prepare an ASP.NET Core application for authentication
 
-After registering an application and created a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core Web App using an IDE. You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.
+After registering an application and created a user flow in a CIAM tenant, an ASP.NET web application can be created using an integrated development environment (IDE). This how-to guide demonstrates how to create an ASP.NET Core Web App using an IDE. <!--You'll also create and upload a self-signed certificate to the Azure portal and configure the application for authentication.>
 
 ## Prerequisites
 
-- Completion of the prerequisites and steps in [Register an application in a CIAM tenant](./how-to-dotnet-web-app-01-register-application.md).
+- Completion of the prerequisites and steps in [Register an application in a CIAM tenant](./how-to-dotnet-web-app-01-prepare-tenant.md).
 - 
 - A minimum requirement of [.NET Core 6.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet).
 
@@ -90,3 +90,4 @@ dotnet new webapp
 1. In **Request API permissions**, select **Delegated permissions**.
 1. Under the **OpenId permissions** dropdown, select the checkboxes for **openid** and **offline_access**.
 1. Select **Grant admin consent for <CIAM_tenant>**, and select **Yes** in the **Grant admin consent conformation** dialog box.
+
