@@ -1,21 +1,19 @@
 ---
 title: Reset access to an Azure Linux VM 
-description: Learn how to manage administrative users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI.
+description: Learn how to manage administrative users and reset access on Linux VMs by using the VMAccess Extension and the Azure CLI.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
-ms.date: 04/06/2023
+ms.date: 04/11/2023
 ms.custom: GGAL-freshness822, devx-track-azurecli
 ---
 
-# Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI
+# Manage administrative users, SSH, and check or repair disks on Linux VMs by using the VMAccess Extension with the Azure CLI
 
-## Overview
-
-The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
+The VMAccess Extension with the Azure CLI allows you to manage administrative users and reset access on Linux VMs.
 
 This article shows you how to:
 
@@ -96,7 +94,7 @@ az vm user reset-ssh \
 
 ## Create an administrative/sudo user
 
-The following example creates a user named `myNewUser` with **sudo** permissions. The account uses an SSH key for authentication on the VM named `myVM`. This method is designed to help you regain access to a VM when current credentials are lost or forgotten. As a best practice, accounts with **sudo** permissions should be limited.
+The following example creates a user named `myNewUser` with **sudo** permissions. The account uses an SSH key for authentication on the VM named `myVM`. This method helps you regain access to a VM when current credentials are lost or forgotten. As a best practice, accounts with **sudo** permissions should be limited.
 
 ```azurecli-interactive
 az vm user update \
@@ -235,7 +233,7 @@ az vm extension set \
 
 ### Check or repair the disk
 
-By using VMAccess you can also check and repair a disk that you added to the Linux VM.
+By using VMAccess, you can check and repair a disk that you added to the Linux VM.
 
 To check and then repair the disk, create a file named `disk_check_repair.json` and add settings in the following format. Change the data for `repair_disk` to the disk you're trying to repair:
 
@@ -260,7 +258,7 @@ az vm extension set \
 
 ## Troubleshoot
 
-Data about the state of extension deployments can be retrieved from the Azure portal and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command by using the Azure CLI.
+Data about the state of extension deployments is retrieved from the Azure portal and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command by using the Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -268,4 +266,4 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ## Support
 
-For additional help, can contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to [Azure support](https://azure.microsoft.com/support/options/) and select **Get support**. For more information about Azure Support, read the [Azure support plans FAQ](https://azure.microsoft.com/support/faq/).
+For more help, you can contact the Azure experts at [Azure Community Support](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to [Azure support](https://azure.microsoft.com/support/options/) and select **Get support**. For more information about Azure Support, read the [Azure support plans FAQ](https://azure.microsoft.com/support/faq/).
