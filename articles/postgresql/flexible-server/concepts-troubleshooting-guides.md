@@ -24,6 +24,8 @@ including:
 * high usage of temporary files, 
 * autovacuum monitoring and blockers. 
 
+:::image type="content" source="./media/concepts-troubleshooting-guides/overview-troubleshooting-guides.jpg" alt-text="Troubleshooting Guides":::
+
 Each guide is packed with multiple charts, guidelines, recommendations tailored to the specific problem you may encounter, which can help expedite the troubleshooting process.
 The troubleshooting guides are directly integrated into the Azure portal and your Azure Database for PostgreSQL - Flexible Server, making them convenient and easy to use. 
 
