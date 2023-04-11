@@ -14,9 +14,10 @@ You can filter the list of models in the Model catalog by Task, or by license. C
 ![image](./model_card.png)
 
 
-* The 'task' calls out the inferencing task that this pre-trained model can be used for. 
-* The 'finetuning-tasks' list the tasks that this model can be fine tuned for. 
-* The 'license' calls out the licensing info NOTE: Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
+* The 'Task' calls out the inferencing task that this pre-trained model can be used for. 
+* The 'Finetuning-tasks' list the tasks that this model can be fine tuned for. 
+* The 'License' calls out the licensing info NOTE: Models from Hugging Face are subject to third party license terms available on the Hugging Face model details page. It is your responsibility to comply with the model's license terms.
+
 Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, finetuning and evaluation of the model.
 
 
