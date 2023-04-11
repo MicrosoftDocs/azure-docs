@@ -87,7 +87,7 @@ To access Grafana APIs, you need to get an access token. You can get the access 
 
 ### [Azure CLI](#tab/azure-cli)
 
-Sign in to the Azure CLI by running the [az login](/cli/azure/reference-index#azlogin) command and replace `<client-id>`, `<client-secret>`, and `<tenant-id>` with the application (client) ID, client secret, and tenant ID collected in the previous step:
+Sign in to the Azure CLI by running the [az login](/cli/azure/reference-index#az-login) command and replace `<client-id>`, `<client-secret>`, and `<tenant-id>` with the application (client) ID, client secret, and tenant ID collected in the previous step:
 
 ```
 az login --service-principal --username "<client-id>" --password "<client-secret>" --tenant "<tenant-id>"
