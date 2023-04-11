@@ -108,9 +108,11 @@ aiohttp
 requests
 ```
 
+Create the asynchronous HTTP trigger.
+
 # [v1](#tab/v1)
 
-We also need to rewrite the asynchronous HTTP trigger `HttpTriggerAsync/__init__.py` and configure the memory profiler, root logger format, and logger streaming binding.
+Replace the code in the asynchronous HTTP trigger *HttpTriggerAsync/\_\_init\_\_.py* with the following code, which configures the memory profiler, root logger format, and logger streaming binding.
 
 ```python
 # HttpTriggerAsync/__init__.py
@@ -129,7 +131,7 @@ profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
 async def main(req: func.HttpRequest) -> func.HttpResponse:
     await get_microsoft_page_async('https://microsoft.com')
     return func.HttpResponse(
-        f"Microsoft Page Is Loaded",
+        f"Microsoft page loaded.",
         status_code=200
     )
 
@@ -145,9 +147,13 @@ async def get_microsoft_page_async(url: str):
 
 # [v2](#tab/v2)
 
+Replace the code in the *function_app.py* file with the following code, which configures the memory profiler, root logger format, and logger streaming binding.
+
 ```python
+# function_app.py
 import azure.functions as func
 import logging
+import aiohttp
 import requests
 import memory_profiler
 
@@ -160,21 +166,28 @@ root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
 profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
 
 @app.function_name(name="HttpTriggerAsyncv2")
-@app.route(route="HttpTriggerAsyncv2") # HTTP Trigger
-def test_function(req: func.HttpRequest) -> func.HttpResponse:
-    content = profile_get_request('https://microsoft.com')
-    return func.HttpResponse(f"Microsoft Page Is Loaded {len(content)}!!!")
+@app.route(route="HttpTriggerAsyncv2")
+async def test_function(req: func.HttpRequest) -> func.HttpResponse:
+    await get_microsoft_page_async('https://microsoft.com')
+    return func.HttpResponse(f"Microsoft page loaded.")
 
 @memory_profiler.profile(stream=profiler_logstream)
-def profile_get_request(url: str):
-    response = requests.get(url)
+async def get_microsoft_page_async(url: str):
+    async with aiohttp.ClientSession() as client:
+        async with client.get(url) as response:
+            await response.text()
+    # @memory_profiler.profile does not support return for coroutines.
+    # All returns become None in the parent functions.
+    # GitHub Issue: https://github.com/pythonprofilers/memory_profiler/issues/289
 ```
 
 ---
 
-For synchronous HTTP trigger, refer to the following `HttpTriggerSync/__init__.py` code section:
+Add the following for the synchronous HTTP trigger.
 
 # [v1](#tab/v1)
+
+Replace the code in the asynchronous HTTP trigger *HttpTriggerSync/\_\_init\_\_.py* with the following code.
 
 ```python
 # HttpTriggerSync/__init__.py
@@ -193,7 +206,7 @@ profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
 def main(req: func.HttpRequest) -> func.HttpResponse:
     content = profile_get_request('https://microsoft.com')
     return func.HttpResponse(
-        f"Microsoft Page Response Size: {len(content)}",
+        f"Microsoft page response size: {len(content)}",
         status_code=200
     )
 
@@ -205,30 +218,19 @@ def profile_get_request(url: str):
 
 # [v2](#tab/v2)
 
+Add this code to the bottom of the existing *function_app.py* file.
+
 ```python
-import azure.functions as func
-import logging
-import requests
-import memory_profiler
-
-app = func.FunctionApp()
-
-# Update root logger's format to include the logger name. Ensure logs generated
-# from memory profiler can be filtered by "memory_profiler_logs" prefix.
-root_logger = logging.getLogger()
-root_logger.handlers[0].setFormatter(logging.Formatter("%(name)s: %(message)s"))
-profiler_logstream = memory_profiler.LogFile('memory_profiler_logs', True)
-
-@app.function_name(name="HttpTriggerv2")
-@app.route(route="HttpTriggerAsyncv2") # HTTP Trigger
+@app.function_name(name="HttpTriggerSyncv2") 
+@app.route(route="HttpTriggerSyncv2") 
 def test_function(req: func.HttpRequest) -> func.HttpResponse:
     content = profile_get_request('https://microsoft.com')
-    return func.HttpResponse(f"Microsoft Page Response Size: {len(content)}!!!")
+    return func.HttpResponse(f"Microsoft Page Response Size: {len(content)}")
 
 @memory_profiler.profile(stream=profiler_logstream)
 def profile_get_request(url: str):
     response = requests.get(url)
-
+    return response.content
 ```
 
 ---
