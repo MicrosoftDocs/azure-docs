@@ -1,17 +1,17 @@
 ---
 title: Check for job and task errors
-description: Learn how to check for and handle errors that occur after Azure Batch jobs and tasks are submitted..
+description: Learn how to check for and handle errors that occur after Azure Batch jobs and tasks are submitted.
 ms.topic: how-to
 ms.date: 04/11/2023
 ---
 
 # Azure Batch job and task errors
 
-Various errors can happen when you add Azure Batch jobs and tasks or when you schedule and run jobs and tasks. It's straightforward to detect errors that occur when you add jobs and tasks, because any failures are returned immediately by the API, command line, or user interface. This article covers how to check for and handle errors that occur after jobs and tasks are submitted.
+Various errors can happen when you add Azure Batch jobs and tasks or when you schedule and run jobs and tasks. It's usually straightforward to detect errors that occur when you add jobs and tasks, because the API, command line, or user interface returns any failures immediately. This article covers how to check for and handle errors that occur after jobs and tasks are submitted.
 
 ## Job failures
 
-A job is a group of one or more tasks, which specify command lines to run. You can specify the following optional parameters when you add a job, which influence how the job can fail:
+A job is a group of one or more tasks, which specify command lines to run. You can specify the following optional parameters when you add a job. These parameters influence how the job can fail.
 
 - [JobConstraints](/rest/api/batchservice/job/add#jobconstraints). You can optionally use the `maxWallClockTime` property to set the maximum amount of time a job can be active or running. If the job exceeds the `maxWallClockTime`, the job terminates with the `terminateReason` property set in the [JobExecutionInformation](/rest/api/batchservice/job/get#jobexecutioninformation).
 
@@ -31,17 +31,17 @@ Check the following job properties in the [JobExecutionInformation](/rest/api/ba
 
 ### Job preparation tasks
 
-If you specify a [job preparation task](batch-job-prep-release.md#job-preparation-task) for a job, an instance of the job preparation task runs on a node the first time the node runs a task for that job. You can think of the job preparation task as a task template, with multiple instances being run, up to the number of nodes in a pool. Check the job preparation task instances to determine if there were errors.
+An instance of a [job preparation task](batch-job-prep-release.md#job-preparation-task) runs on a node the first time the node runs a task for the job. You can think of the job preparation task as a task template, with multiple instances being run, up to the number of nodes in a pool. Check the job preparation task instances to determine if there were errors.
 
 You can use the [Job - List Preparation and Release Task Status](/rest/api/batchservice/job/listpreparationandreleasetaskstatus) API to list the execution status of all instances of job preparation and release tasks for a specified job. As with other tasks, [JobPreparationTaskExecutionInformation](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationtaskexecutioninformation) is available with properties such as `failureInfo`, `exitCode`, and `result`.
 
 When a job preparation task runs, the task that triggered the job preparation task moves to a [taskState](/rest/api/batchservice/task/get#taskstate) of `preparing`. If the job preparation task fails, the triggering task reverts to the `active` state and doesn't run.
 
-If job preparation tasks fail and the triggering job task doesn't run, the job doesn't complete and is stuck. The pool might not be used if there are no other jobs with tasks that can be scheduled.
+If a job preparation task fails, the triggering job task doesn't run. The job doesn't complete and is stuck. The pool might not be used if there are no other jobs with tasks that can be scheduled.
 
 ### Job release tasks
 
-If you specify a [job release task](batch-job-prep-release.md#job-release-task) for a job, an instance of the job release task runs on each pool node where a job preparation task ran when the job is being terminated. Check the job release task instances to determine if there were errors.
+An instance of a [job release task](batch-job-prep-release.md#job-release-task) runs when the job is being terminated on each node that ran a job preparation task. Check the job release task instances to determine if there were errors.
 
 You can use the [Job - List Preparation and Release Task Status](/rest/api/batchservice/job/listpreparationandreleasetaskstatus) API to list the execution status of all instances of job preparation and release tasks for a specified job. As with other tasks, [JobReleaseTaskExecutionInformation](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobreleasetaskexecutioninformation) is available with properties such as `failureInfo`, `exitCode`, and `result`.
 
@@ -51,7 +51,7 @@ If one or more job release tasks fail, the job is still terminated and moves to 
 
 Job tasks can fail for the following reasons:
 
-- The task command line fails and returns with a non-zero exit code.
+- The task command line fails and returns with a nonzero exit code.
 - One or more `resourceFiles` specified for a task don't download.
 - One or more `outputFiles` specified for a task don't upload.
 - The elapsed time for the task exceeds the `maxWallClockTime` property specified in the [TaskConstraints](/rest/api/batchservice/task/add#taskconstraints).
