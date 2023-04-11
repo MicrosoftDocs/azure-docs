@@ -15,7 +15,7 @@ This article shows you how to deploy external or internal ingresses for Istio se
 
 ## Prerequisites
 
-This guide assumes an existing AKS cluster with the Istio add-on enabled and an application deployed. For more details on enabling the Istio add-on in your cluster and deploying a sample application, see [Deploy Istio based service mesh add-on for AKS][istio-deploy-addon].
+This guide assumes an existing AKS cluster with the Istio add-on enabled and an application deployed. For more information on enabling the Istio add-on in your cluster and deploying a sample application, see [Deploy Istio based service mesh add-on for AKS][istio-deploy-addon].
 
 ## Enable external ingress gateway
 
@@ -38,7 +38,7 @@ Check external IP address of the service. For example:
     aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
     ```
 
-Applications are not accessible from outside the cluster after enabling the ingress gateway. To make an application accessible, map the deployment's ingress to the Istio Ingress Gate. For example, the following manifest creates this mapping for the sample application:
+Applications aren't accessible from outside the cluster after enabling the ingress gateway. To make an application accessible, map the deployment's ingress to the Istio Ingress Gate. For example, the following manifest creates this mapping for the sample application:
 
 ```bash
 kubectl apply -f - <<EOF
@@ -132,7 +132,7 @@ NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP    
 aks-istio-ingressgateway-internal   LoadBalancer   10.0.182.240  <IP>      15021:30764/TCP,80:32186/TCP,443:31713/TCP   87s
 ```
 
-Applications are not mapped to the Istio Ingress Gateway after enabling the ingress gateway. The following manifest maps the deployment's ingress to the Istio Ingress Gateway. For example, the following manifest creates this mapping for the sample application:
+Applications aren't mapped to the Istio Ingress Gateway after enabling the ingress gateway. The following manifest maps the deployment's ingress to the Istio Ingress Gateway. For example, the following manifest creates this mapping for the sample application:
 
 ```bash
 kubectl apply -f - <<EOF

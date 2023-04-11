@@ -11,7 +11,7 @@ ms.author: shasb
 
 This article shows you how to install the Istio-based service mesh add-on for Azure Kubernetes Service (AKS) cluster.
 
-For more details on Istio and the service mesh add-on, see [Istio based service mesh add-on for Azure Kubernetes Service][istio-about].
+For more information on Istio and the service mesh add-on, see [Istio based service mesh add-on for Azure Kubernetes Service][istio-about].
 
 ## Before you begin
 
@@ -82,7 +82,7 @@ The following example enables Istio add-on for an existing AKS cluster:
 
 > [!IMPORTANT]
 > You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. [Uninstall OSM add-on on your cluster][uninstall-osm-addon] before enabling the Istio add-on.
-> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. Uninstall the OSM add-on before installing the Istio add-on. For more details, see [Uninstall the OSM add-on from your AKS cluster][uninstall-osm-addon].
+> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. Uninstall the OSM add-on before installing the Istio add-on. For more information, see [uninstall the OSM add-on from your AKS cluster][uninstall-osm-addon].
 > Istio add-on can only be enabled on AKS clusters of version >= 1.23.
 
 ```azurecli-interactive
