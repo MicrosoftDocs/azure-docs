@@ -25,5 +25,7 @@ items:
 - name: About Responsible AI
   expanded: true
   items:
+    - name: Transparency note for Project Health Insights
+      href: responsible-ai/transparency-note.md
     - name: Data, privacy, and security
       href: responsible-ai/data-privacy-security.md

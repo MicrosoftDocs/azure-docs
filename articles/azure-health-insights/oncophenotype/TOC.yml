@@ -12,6 +12,8 @@ items:
        href: get-started.md
 - name: Responsible use of AI
   items:
+    - name: Transparency note for Onco Phenotype
+      href: transparency-note.md
     - name: Data, privacy, and security
       href: ../responsible-ai/data-privacy-security.md
 - name: Concepts
