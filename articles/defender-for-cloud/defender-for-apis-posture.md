@@ -7,9 +7,9 @@ ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 03/23/2023
 ---
-# Review API security alerts and risks
+# Review API security insights and posture
 
-This article describes how to review security alerts and recommendations, and gain insights into security posture and risk, for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
+This article describes how to review API insights, security alerts, and recommendations, and how to use Cloud Security Explorer to gain insights into security posture and risk for APIs protected by [Microsoft Defender for APIs](defender-for-apis-introduction.md). Defender for APIs is currently in preview.
 
 ## Before you start
 
@@ -21,17 +21,8 @@ This article describes how to review security alerts and recommendations, and ga
 1. In the Defender for Cloud portal, select **Workload protections**.
 1. Select **API security**.
 1. In the **API Security** dashboard,  drill down into API collections.  
-
-    :::image type="content" source="media/defender-for-apis-posture/api-collection.png" alt-text="Page for drilling into API collections.":::
-
 1. In the API collection page, to drill down into an API endpoint, in the endpoint row, select the ellipses (...) > **View resource**.
-
-    :::image type="content" source="media/defender-for-apis-posture/view-resource.png" alt-text="Click the button to view the details for an API endpoint.":::
-
 1. In the **Resource health** page > **Recommendations** for the API endpoint, review recommendation details and status.
-
-    :::image type="content" source="media/defender-for-apis-posture/endpoint-health.png" alt-text="Review the health of an API endpoint, and get recommendations.":::
-
 1. In **Alerts**, review security alerts for the endpoint. Defender for Endpoint monitors API traffic to and and from endpoints, to provide runtime protection against suspicious behavior and malicious attacks.
 
 ## Create sample security alerts
@@ -47,10 +38,7 @@ When you have the Defender CSPM plan enabled together with Defender for APIs, yo
     1. To build your own query, in **What would you like to search?** select the **APIs** category. Within **APIs**, you can query:
         - API collections that contain one or more API endpoints.
         - API endpoints for Azure API Management operations.
-        
     Select **Search**. The search result displays each API resources with its associated insights, so that you can review, prioritize, and fix any issues.
-
-    :::image type="content" source="media/defender-for-apis-posture/api-insights.png" alt-text="Page showing API insights.":::
 
     1. Alternatively, select the predefined query **Unauthenticated API endpoints containing sensitive data are outside the virtual network** > **Open query**. The query preturns all unauthenticated API endpoints that contain sensitive data and aren't part of the Azure API management network.
     
