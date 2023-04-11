@@ -264,7 +264,7 @@ The Shared AD feature enables all NetApp accounts to share an Active Directory (
 >[!NOTE]
 >If you have registered for [Multiple AD accounts](#multi-ad), you cannot subsequently register for the Shared AD feature.
 >
->You can register for Multiple AD accounts if you are already enrolled in the preview for Shared AD. If you currently meet the maximum of 10 NetApp accounts per Azure region per subscription, you will have to initiate a [support request](azure-netapp-files-resource-limits.md#request-limit-increase) to increase the limit. 
+>You can register for Multiple AD accounts if you are already enrolled in the preview for Shared AD. If you currently meet the maximum of 10 NetApp accounts per Azure region per subscription, you will have to initiate a [support request](azure-netapp-files-resource-limits.md#request-limit-increase) to increase the limit. You can confirm your configuration in your account overview page in the [AD type](#active-directory-type) field. 
 
 This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
@@ -285,12 +285,12 @@ This feature is currently in preview. You need to register the feature before us
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 
-## <a name="multi-ad"></a> Create multiple Active Directory configurations in a region scoped to each NetApp account only (preview)
+## <a name="multi-ad"></a> Create multiple Active Directory configurations in a subscription (preview)
 
-The multiple Active Directory feature enables each NetApp account within a subscription to have its own Active Directory (AD) connection. All NetApp accounts can use their own AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md)
+The multiple Active Directory accounts feature enables each NetApp account within a subscription to have its own AD connection. Once enabled, you can select the desired AD connection when you create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md)
 
 >[!NOTE]
->If a subscription has both [Shared Active Directory](#shared_ad) and Multiple Active Directory features enabled, its existing accounts will still share the AD configuration. Any new NetApp accounts created on the subscription can use their own AD configurations.
+>If a subscription has both [Shared Active Directory](#shared_ad) and Multiple Active Directory features enabled, its existing accounts will still share the AD configuration. Any new NetApp accounts created on the subscription can use their own AD configurations. You can confirm your configuration in your account overview page in the [AD type](#active-directory-type) field. 
 
 ### Considerations
 
@@ -334,6 +334,14 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetA
 ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
 
+## Active Directory type
+
+You can use the NetApp account overview to confirm the Active Directory  There are three values for AD type:
+
+* **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD  configuration is not shared with other other NetApp accounts in the subscription.
+* **SharedAD**: Account supports only one AD configuration per subscription and region, but is shared across all NetApp accounts in the subscription and region.
+* **MultiAD**: Account supports one AD configuration in each NetApp account in the subscription.
+
 ### Steps
 
 1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**.
@@ -342,14 +350,6 @@ Alternately, navigate to the **Volumes** menu. Identify the volume for which you
 :::image type="content" source="../media/azure-netapp-files/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-list.png":::
 2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
 :::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
-
-## Account type
-
-You can use the NetApp account overview to confirm the AD type. There are three values for AD type:
-
-* **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD  configuration is not shared with other other NetApp accounts in the subscription.
-* **SharedAD**: Account supports only one AD configuration per subscription and region, but is shared across all NetApp accounts in the subscription and region.
-* **MultiAD**: Account supports one AD configuration in each NetApp account in the subscription.
 
 ## Next steps  
 
