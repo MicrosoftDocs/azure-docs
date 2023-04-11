@@ -195,8 +195,6 @@ List of threat types:
 | PUA |	Potentially Unwanted Application. |
 | WatchList | A generic bucket into which indicators are placed when it can't be determined exactly what the threat is or will require manual interpretation. `WatchList` should typically not be used by partners submitting data into the system. |
 
-
-
 ## Notes
 
 - In case of `AzurePublic` and `ExternalPublic` flows, customer owned Azure virtual machine IP is populated in `VMIP_s` field, while the Public IP addresses are populated in the `PublicIPs_s` field. For these two flow types, you should use `VMIP_s` and `PublicIPs_s` instead of `SrcIP_s` and `DestIP_s` fields. For AzurePublic and ExternalPublic IP addresses, we aggregate further, so that the number of records ingested to log analytics workspace is minimal. (This field will be deprecated soon and you should be using SrcIP_ and DestIP_s depending on whether the virtual machine was the source or the destination in the flow).
