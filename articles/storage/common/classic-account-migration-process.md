@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 04/10/2023
 ms.author: tamram
 ms.subservice: common
 ---
@@ -51,7 +51,7 @@ There are four steps to the migration process, as shown in the following diagram
     If there are any problems with the migration, then you can abort the migration at this point. If you choose to abort, the new resource group and new storage account are deleted. Your classic account remains available. You can address any problems and attempt the migration again.
 
 > [!NOTE]
-> The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation. Azure tries the action again.
+> The operations described in the following sections are all idempotent. If you have a problem other than an unsupported feature or a configuration error, retry the prepare, abort, or commit operation.
 
 ### Validate
 
@@ -59,8 +59,11 @@ The Validation step is the first step in the migration process. The goal of this
 
 The Validation step analyzes the state of resources in the classic deployment model. It checks for failures and unsupported scenarios due to different configurations of the storage account in the classic deployment model.
 
-> [!NOTE]
-> The Validation step does not check for virtual machine (VM) disks that may be associated with the storage account. You must check your storage accounts manually to determine whether they support VM disks.
+The Validation step does not check for virtual machine (VM) disks that may be associated with the storage account. You must check your storage accounts manually to determine whether they support VM disks. For more information, see the following articles:
+
+- [How to migrate your classic storage accounts to Azure Resource Manager](classic-account-migrate.md)
+- [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account)
+- [Migrate VMs to Resource Manager using Azure CLI](../../virtual-machines/migration-classic-resource-manager-cli#step-5-migrate-a-storage-account.md
 
 Keep in mind that it's not possible to check for every constraint that the Azure Resource Manager stack might impose on the storage account during migration. Some constraints are only checked when the resources undergo transformation in the next step of migration (the Prepare step).
 
@@ -98,7 +101,7 @@ To revert your changes to the classic deployment model, you can choose to abort 
 After you are satisfied that your classic storage account has been migrated successfully, you can commit the migration. Committing the migration deletes your classic storage account. Your data is now available only in the newly migrated account in the Resource Manager deployment model.
 
 > [!NOTE]
-> Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html)
+> Committing the migration is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or ask a question on [Microsoft Q&A](/answers/index.html).
 
 ## After the migration
 
