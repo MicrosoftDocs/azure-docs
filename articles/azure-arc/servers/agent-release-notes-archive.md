@@ -78,7 +78,7 @@ Download for [Windows](https://download.microsoft.com/download/1/3/5/135f1f2b-7b
 - The agent now supports Red Hat Enterprise Linux 8 servers that have FIPS mode enabled.
 - Agent telemetry uses the proxy server when configured.
 - Improved accuracy of network connectivity checks
-- The agent retains extension allow and blocklists when switching the agent from monitoring mode to full mode. Use [azcmagent clear](manage-agent.md#config) to reset individual configuration settings to the default state.
+- The agent retains extension allow and blocklists when switching the agent from monitoring mode to full mode. Use [azcmagent config clear](manage-agent.md#config) to reset individual configuration settings to the default state.
 
 ## Version 1.21 - August 2022
 
