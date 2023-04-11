@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Azure Content Safety"
+title: "Quickstart: Analyze image and text content"
 titleSuffix: Azure Cognitive Services
-description: Get started moderating text and image content using the Content Safety APIs.
+description: Get started using Content Safety to analyze image and text content for objectionable material.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,9 +14,13 @@ zone_pivot_groups: programming-languages-content-safety
 keywords: 
 ---
 
-# Quickstart: Azure Content Safety
+# QuickStart: Analyze image and text content
 
-Get started with the Content Safety REST API or Content Safety Studio to do basic image and text moderation. The Content Safety service provides you with AI algorithms for flagging objectionable content. Follow these steps to try it out.
+Get started with the Content Studio, REST API, or client SDKs to do basic image and text moderation. The Content Safety service provides you with AI algorithms for flagging objectionable content. Follow these steps to try it out.
+
+> [!NOTE]
+> 
+> The sample data and code may contain offensive content rated by the service as TBD risk level. User discretion is advised.
 
 ::: zone pivot="content-safety-studio"
 
@@ -47,4 +51,4 @@ The API may return the following HTTP response codes:
 | 429           | Too many requests – The user has sent too many requests in a given amount of time. Refer to "Quota Limit" section for limitations. |
 | 500           | Internal server error – An unexpected condition was encountered on the server side. |
 | 503           | Service unavailable – The server can't handle the request temporarily. Try again at a later time. |
-| 504           | Gateway timeout – The server didn't receive a timely response from the upstream service. Try again at a later time. |
+| 504           | Gateway time out – The server didn't receive a timely response from the upstream service. Try again at a later time. |
