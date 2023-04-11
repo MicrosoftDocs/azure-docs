@@ -31,17 +31,30 @@ See the following sections to learn how an API can validate and use the claims i
 > [!NOTE]
 > All documentation on this page, except where noted, applies only to tokens issued for registered APIs. It doesn't apply to tokens issued for Microsoft-owned APIs, nor can those tokens be used to validate how the Microsoft identity platform issues tokens for a registered API.  
 
-## Token formats
+## Prerequisites
 
-There are two versions of access tokens available in the Microsoft identity platform: v1.0 and v2.0. These versions determine the claims that are in the token and make sure that a web API can control the contents of the token.
+The following article will be beneficial before going through this article:
+
+* [OAuth 2.0 and OpenID Connect protocols](active-directory-v2-protocols.md) on the Microsoft identity platform
+
+## Claims in an access token
+
+There are two versions of access tokens available in the Microsoft identity platform: v1.0 and v2.0. The v1.0 and v2.0 have differences in the information they carry. The version is based on the endpoint from where it was requested. While existing applications likely use the Azure AD endpoint (v1.0), new applications should use the "Microsoft identity platform" endpoint(v2.0).
+
+* v1.0: Azure AD endpoint: `https://login.microsoftonline.com/common/oauth2/authorize`
+* v2.0: Microsoft identity Platform endpoint: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 Web APIs have one of the following versions selected as a default during registration:
+
+### Sample v1.0 Access token
 
 - v1.0 for Azure AD-only applications. The following example shows a v1.0 token (the keys are changed and personal information is removed, which prevents token validation):
 
     ```
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9.eyJhdWQiOiJlZjFkYTlkNC1mZjc3LTRjM2UtYTAwNS04NDBjM2Y4MzA3NDUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTUyMjIyOS8iLCJpYXQiOjE1MzcyMzMxMDYsIm5iZiI6MTUzNzIzMzEwNiwiZXhwIjoxNTM3MjM3MDA2LCJhY3IiOiIxIiwiYWlvIjoiQVhRQWkvOElBQUFBRm0rRS9RVEcrZ0ZuVnhMaldkdzhLKzYxQUdyU091TU1GNmViYU1qN1hPM0libUQzZkdtck95RCtOdlp5R24yVmFUL2tES1h3NE1JaHJnR1ZxNkJuOHdMWG9UMUxrSVorRnpRVmtKUFBMUU9WNEtjWHFTbENWUERTL0RpQ0RnRTIyMlRJbU12V05hRU1hVU9Uc0lHdlRRPT0iLCJhbXIiOlsid2lhIl0sImFwcGlkIjoiNzVkYmU3N2YtMTBhMy00ZTU5LTg1ZmQtOGMxMjc1NDRmMTdjIiwiYXBwaWRhY3IiOiIwIiwiZW1haWwiOiJBYmVMaUBtaWNyb3NvZnQuY29tIiwiZmFtaWx5X25hbWUiOiJMaW5jb2xuIiwiZ2l2ZW5fbmFtZSI6IkFiZSAoTVNGVCkiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMjIyNDcvIiwiaXBhZGRyIjoiMjIyLjIyMi4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJvaWQiOiIwMjIyM2I2Yi1hYTFkLTQyZDQtOWVjMC0xYjJiYjkxOTQ0MzgiLCJyaCI6IkkiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJsM19yb0lTUVUyMjJiVUxTOXlpMmswWHBxcE9pTXo1SDNaQUNvMUdlWEEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6ImFiZWxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJGVnNHeFlYSTMwLVR1aWt1dVVvRkFBIiwidmVyIjoiMS4wIn0.D3H6pMUtQnoJAGq6AHd
     ```
+
+### Sample v2.0 Access token
 
 - v2.0 for applications that support consumer accounts. The following example shows a v2.0 token (the keys are changed and personal information is removed, which prevents token validation):  
 
@@ -80,7 +93,7 @@ The Microsoft identity platform uses some claims to help secure tokens for reuse
 | `typ` | String - always `JWT` | Indicates that the token is a JWT.|
 | `alg` | String | Indicates the algorithm used to sign the token, for example, `RS256`. |
 | `kid` | String | Specifies the thumbprint for the public key used for validating the signature of the token. Emitted in both v1.0 and v2.0 access tokens. |
-| `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` and is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
+| `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
 
 ### Payload claims
 
