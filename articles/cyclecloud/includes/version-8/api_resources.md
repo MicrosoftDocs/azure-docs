@@ -109,10 +109,24 @@ Usage and optional cost information for the cluster
 
 |Name|Description|Schema|
 |---|---|---|
-|**category**  <br>*optional*|"cluster" for the overall usage; "node" for a single non-array head node; "nodearray" for a whole nodearray  <br>**Example** : `"string"`|enum (cluster, node, nodearray)|
+|**category**  <br>*required*|"cluster" for the overall usage; "node" for a single non-array head node; "nodearray" for a whole nodearray  <br>**Example** : `"string"`|enum (cluster, node, nodearray)|
 |**cost**  <br>*optional*|The amount that would be charged for this usage, in US dollars and at retail rates. Note: all cost amounts are estimates and are not reflective of the actual bill!  <br>**Example** : `0.0`|number|
-|**hours**  <br>*optional*|The number of core-hours of usage for this category  <br>**Example** : `0.0`|number|
+|**details**  <br>*optional*|Details of VM size used by a nodearray including hours, core_count, region priority and operating system.  <br>**Example** : `[ "object" ]`|< [details](#clusterusageitem-details) > array|
+|**hours**  <br>*required*|The number of core-hours of usage for this category  <br>**Example** : `0.0`|number|
 |**node**  <br>*optional*|The name of the node or nodearray the usage is for (absent for cluster-level data)  <br>**Example** : `"string"`|string|
+
+<a name="clusterusageitem-details"></a>
+**details**
+
+|Name|Description|Schema|
+|---|---|---|
+|**core_count**  <br>*optional*|The number of cores in this VM size  <br>**Example** : `0.0`|number|
+|**cost**  <br>*optional*|Cost of this VM size  <br>**Example** : `0.0`|number|
+|**hours**  <br>*optional*|The number of core-hours of usage for this VM size  <br>**Example** : `0.0`|number|
+|**os**  <br>*optional*|Type of operating system  <br>**Example** : `"string"`|enum (Windows, Linux)|
+|**priority**  <br>*optional*|Priority of the VM Sku  <br>**Example** : `"string"`|enum (Regular, Spot)|
+|**region**  <br>*optional*|The region the VM size is instantiated in  <br>**Example** : `"string"`|string|
+|**vm_size**  <br>*optional*|VM Sku size  <br>**Example** : `"string"`|string|
 
 
 <a name="node"></a>
