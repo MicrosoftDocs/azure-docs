@@ -327,7 +327,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -VirtualMachineScaleSet $vmScaleSet
   
 # Upgrade instances to install the extension
-Update-AzVmssInstances -ResourceGroupName $vmScaleSetResourceGroup `
+Update-AzVmssInstance -ResourceGroupName $vmScaleSetResourceGroup `
   -VMScaleSetName $vmScaleSetName `
   -InstanceId '*'
 ```
@@ -453,7 +453,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -VirtualMachineScaleSet $vmScaleSet
 
 # Upgrade instances to install the extension
-Update-AzVmssInstances -ResourceGroupName $vmScaleSetResourceGroup `
+Update-AzVmssInstance -ResourceGroupName $vmScaleSetResourceGroup `
   -VMScaleSetName $vmScaleSetName `
   -InstanceId '*'
 ```
