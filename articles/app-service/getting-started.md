@@ -17,7 +17,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | Action | Resources |
 | --- | --- |
 | **Create your first .NET app** | Using one of the following tools:<br><br>- [Visual Studio](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs)<br>- [Visual Studio Code](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vscode)<br>- [Command line](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-cli)<br>- [Azure PowerShell](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-ps)<br>- [Azure portal](./quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-azure-portal) |
-| **Deploy your app** | <br>-[Configure ASP.NET](./configure-language-dotnet-framework.md)<br>- [Configure ASP.NET core](./configure-language-dotnetcore.md?pivots=platform-linux)<br>- [GitHub actions](./deploy-github-actions.md) |
+| **Deploy your app** | - [Configure ASP.NET](./configure-language-dotnet-framework.md)<br>- [Configure ASP.NET core](./configure-language-dotnetcore.md?pivots=platform-linux)<br>- [GitHub actions](./deploy-github-actions.md) |
 | **Monitor your app**| - [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [.NET with Azure SQL Database](./app-service-web-tutorial-dotnet-sqldatabase.md)<br>- [.NET Core with Azure SQL DB](./tutorial-dotnetcore-sqldb-app.md)|
@@ -69,7 +69,7 @@ zone_pivot_groups: app-service-getting-started-stacks
 | Action | Resources |
 | --- | --- |
 | **Create your first PHP app** | Using one of the following tools:<br><br>- [Linux - CLI](./quickstart-php.md?tabs=cli&pivots=platform-linux)<br>- [Linux - Azure portal](./quickstart-php.md?tabs=portal&pivots=platform-linux) |
-| **Deploy your app** | <br>- [Configure PHP](./configure-language-php.md?pivots=platform-linux)<br>- [Deploy via FTP](./deploy-ftp.md?tabs=portal)|
+| **Deploy your app** | - [Configure PHP](./configure-language-php.md?pivots=platform-linux)<br>- [Deploy via FTP](./deploy-ftp.md?tabs=portal)|
 | **Monitor your app**|- [Troubleshoot with Azure Monitor](./tutorial-troubleshoot-monitor.md)<br>- [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [MySQL with PHP](./tutorial-php-mysql-app.md)|
