@@ -55,14 +55,14 @@ You can create the connection from either the **Notebooks** or **Compute** secti
     1. Select the **Notebooks** tab
     1. In the *Notebooks* tab, select the file you want to edit.
     1. Select **Editors > Edit in VS Code (Web)**.
-    :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code (Web) Azure Machine Learning Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+    :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Screenshot of how to connect to Compute Instance VS Code (Web) Azure Machine Learning Notebook." lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
 
 * Compute
 
     1. Select the **Compute** tab
     1. In the *Application URI* column, select **VS Code (Web)** for the compute instance you want to connect to.
     
-    :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure Machine Learning studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
+    :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Screenshot of how to connect to Compute Instance VS Code Azure Machine Learning studio." lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
 
 # [Studio -> VS Code (Desktop)](#tab/vscode-desktop)
 
@@ -82,14 +82,14 @@ You can create the connection from either the **Notebooks** or **Compute** secti
     1. Select the **Notebooks** tab
     1. In the *Notebooks* tab, select the file you want to edit.
     1. Select **Edit in VS Code (Desktop)**.
-    :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure Machine Learning Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
+    :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Screenshot of how to connect to Compute Instance VS Code Azure Machine Learning Notebook." lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
 
 * Compute
 
     1. Select the **Compute** tab
     1. In the *Application URI* column, select **VS Code (Desktop)** for the compute instance you want to connect to.
     
-    :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure Machine Learning studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
+    :::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Screenshot of how to connect to Compute Instance VS Code Azure Machine Learning studio." lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
 
 # [From VS Code](#tab/extension)
 
