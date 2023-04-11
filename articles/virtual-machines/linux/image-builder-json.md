@@ -151,7 +151,6 @@ The location is the region where the custom image will be created. The following
 - USGov Virginia (Public Preview)
 - China North 3 (Public Preview)
 
-
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
 
@@ -678,7 +677,7 @@ If there's an error trying to download the file, or put it in a specified direct
 
 ### Windows update customizer
 
-The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://packer.io/docs/provisioners/community-supported.html) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
+The `WindowsUpdate` customizer is built on the [community Windows Update Provisioner](https://developer.hashicorp.com/packer/docs/provisioners/community-supported) for Packer, which is an open source project maintained by the Packer community. Microsoft tests and validate the provisioner with the Image Builder service, and will support investigating issues with it, and work to resolve issues, however the open source project isn't officially supported by Microsoft. For detailed documentation on and help with the Windows Update Provisioner, see the project repository.
 
 # [JSON](#tab/json)
 
