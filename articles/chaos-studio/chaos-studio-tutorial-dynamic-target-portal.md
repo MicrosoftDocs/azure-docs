@@ -5,13 +5,13 @@ author: rsgel
 ms.author: carlsonr
 ms.service: chaos-studio
 ms.topic: how-to
-ms.date: 4/3/2023
+ms.date: 4/11/2023
 ms.custom: template-how-to
 ---
 
 # Create a chaos experiment to shut down all targets in a zone
 
-You can use dynamic targeting in a chaos experiment to choose a set of targets to run an experiment against. This guide shows how you can dynamically target a Virtual Machine Scale Set to shut down based on availability zone. Running this experiment can help you test failover to a Virtual Machine Scale Sets instance in a different region if there's an outage.
+You can use dynamic targeting in a chaos experiment to choose a set of targets to run an experiment against, based on criteria evaluated at experiment runtime. This guide shows how you can dynamically target a Virtual Machine Scale Set to shut down instances based on availability zone. Running this experiment can help you test failover to a Virtual Machine Scale Sets instance in a different region if there's an outage.
 
 These same steps can be used to set up and run an experiment for any fault that supports dynamic targeting. Currently, only Virtual Machine Scale Sets shutdown supports dynamic targeting.
 
@@ -82,7 +82,7 @@ In this example, the chaos experiment successfully shut down the instance in Zon
 ## Next steps
 
 > [!TIP]
-> If your Virtual Machine Scale Set uses an Autoscale policy, try improving this experiment by adding a parallel branch with the **Disable Autoscale** fault against the Virtual Machine Scale Set's `microsoft.insights/autoscaleSettings` resource.
+> If your Virtual Machine Scale Set uses an autoscale policy, the policy will provision new VMs after this experiment shuts down existing VMs. To prevent this, add a parallel branch in your experiment that includes the **Disable Autoscale** fault against the Virtual Machine Scale Set's `microsoft.insights/autoscaleSettings` resource. Remember to onboard the autoscaleSettings resource as a Target and assign the role.
 
 Now that you've run a dynamically targeted Virtual Machine Scale Sets shutdown experiment, you're ready to:
 - [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)
