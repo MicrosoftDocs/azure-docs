@@ -14,7 +14,7 @@ ms.date: 04/10/2023
 
 This tutorial shows you how to use the Azure portal to create a site-to-site VPN gateway connection between your on-premises network and a virtual network (VNet). You can also create this configuration using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
-:::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Site-to-site VPN Gateway cross-premises connection diagram." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
+:::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram of site-to-site VPN Gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 
 In this tutorial, you learn how to:
 

@@ -23,7 +23,7 @@ This article helps you add additional site-to-site (S2S) connections to a VPN ga
 **About ExpressRoute/site-to-site coexisting connections**
 
 * You can use the steps in this article to add a new VPN connection to an already existing ExpressRoute/site-to-site coexisting connection.
-* You can't use the steps in this article to configure a new ExpressRoute/site-to-site coexisting connection. To create a new coexsiting connection see: [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md).
+* You can't use the steps in this article to configure a new ExpressRoute/site-to-site coexisting connection. To create a new coexisting connection see: [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md).
 
 ## <a name="before"></a>Prerequisites
 
