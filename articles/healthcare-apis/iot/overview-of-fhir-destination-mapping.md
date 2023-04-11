@@ -32,6 +32,9 @@ This diagram provides an illustration of what happens during the transformation 
 
 :::image type="content" source="media/overview-of-fhir-destination-mapping/transformation-stage-diagram.png" alt-text="Diagram example of the MedTech service device message transformation stage." lightbox="media/overview-of-fhir-destination-mapping/transformation-stage-diagram.png":::
 
+> [!NOTE]
+> The FHIR Observation in this diagram is not the complete resource. See [Example](#example) in this overview for the entire FHIR Observation.
+
 ## FHIR destination mappings validation
 
 The validation process validates the FHIR destination mapping before allowing them to be saved for use. These elements are required in the FHIR destination mapping.
