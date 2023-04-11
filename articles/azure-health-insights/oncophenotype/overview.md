@@ -45,8 +45,7 @@ The service currently supports the English language.
 
 ## Limits and quotas
 
-For the public preview, you can select the F0 (free) sku. 
-The Official prices will be released after public preview 
+For the Public Preview, you can select the Free F0 SKU. The official pricing will be released after Public Preview. 
 
 ## Next steps
 

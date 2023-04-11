@@ -84,7 +84,7 @@ In many AI systems, performance is often defined in relation to accuracy or by  
 
 For each inference, the Onco Phenotype model returns a confidence score that expresses how confident the model is with the response. Confidence scores range from 0 to 1. The higher the confidence score, the more certain the model is about the inference value it provided. However, the system is not designed for workflows or scenarios without a human in the loop. Also, inference values cannot be consumed without human review, irrespective of the confidence score. You can choose to completely discard an inference value if its confidence score is below a confidence score threshold that best suits the scenario.
 
-## Evaluation of the Onco Phenotype
+## Evaluation of Onco Phenotype
 
 ### Evaluation methods
 
@@ -127,7 +127,7 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
 
-[Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles/)
+[Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles/)
 
 ## Learn more about Onco Phenotype
 
