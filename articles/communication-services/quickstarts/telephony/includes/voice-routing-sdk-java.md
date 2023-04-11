@@ -108,9 +108,9 @@ SipRoutingAsyncClient sipRoutingAsyncClient = new SipRoutingClientBuilder()
 
 Direct routing configuration consists of:
 
-1. Domain ownership verification - see [prerequisites](#prerequisites)
-1. Creating trunks (adding SBCs)
-1. Creating voice routes
+- Domain ownership verification - see [prerequisites](#prerequisites)
+- Creating trunks (adding SBCs)
+- Creating voice routes
 
 ### Create or Update Trunks
 

@@ -68,7 +68,7 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 
 ## Managing inbound calls
 For general inbound call management use [Call Automation SDKs](../call-automation/incoming-call-notification.md) to build an application that listens for and manage inbound calls placed to a phone number or received via ACS direct routing. 
-Omnichannel for Customer Service customers refer to [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
+Omnichannel for Customer Service customers, refer to [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
 
 ## Next steps
 
