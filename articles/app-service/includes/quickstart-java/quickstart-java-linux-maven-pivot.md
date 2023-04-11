@@ -44,7 +44,7 @@ If you intend to run the Java SE sections of this quickstart, the sample app req
 
    ```azurecli-interactive
    wget https://aka.ms/download-jdk/microsoft-jdk-17-linux-x64.tar.gz
-   tar -zxf jdk17*.tar.gz
+   tar -zxf microsoft-jdk-17*.tar.gz
    ```
 1. Enter these commands to override the built-in Open JDK installed in Azure Cloud Shell. 
 
@@ -54,6 +54,7 @@ If you intend to run the Java SE sections of this quickstart, the sample app req
    ```azurecli-interactive
    cd jdk-17*
    export JAVA_HOME=`pwd`
+   cd ..
    export PATH=${JAVA_HOME}/bin:$PATH
    java -version
    ```
