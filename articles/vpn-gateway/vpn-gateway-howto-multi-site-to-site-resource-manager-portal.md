@@ -18,7 +18,7 @@ ms.author: cherylmc
 
 This article helps you add additional site-to-site (S2S) connections to a VPN gateway that has an existing connection. This architecture is often referred to as a "multi-site" configuration. You can add a S2S connection to a VNet that already has a S2S connection, point-to-site connection, or VNet-to-VNet connection. There are some limitations when adding connections. Check the [Prerequisites](#before) section in this article to verify before you start your configuration.
 
-:::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/multi-site.png" alt-text="Site-to-site VPN Gateway cross-premises connection with multiple sites." lightbox="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/multi-site.png":::
+:::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/multi-site.png" alt-text="Diagram of site-to-site VPN Gateway cross-premises connection with multiple sites." lightbox="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/multi-site.png":::
 
 **About ExpressRoute/site-to-site coexisting connections**
 
