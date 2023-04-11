@@ -36,7 +36,7 @@ The following snippet shows how to build a container image from source code and 
 
 ```yaml
 steps:
-- task: AzureContainerAppsRC@0
+- task: AzureContainerApps@0
   inputs:
     appSourcePath: '$(Build.SourcesDirectory)/src'
     azureSubscription: 'my-subscription-service-connection'
@@ -53,7 +53,7 @@ The following snippet shows how to deploy an existing container image to Contain
 
 ```yaml
 steps:
-  - task: AzureContainerAppsRC@0
+  - task: AzureContainerApps@0
     inputs:
       azureSubscription: 'my-subscription-service-connection'
       acrName: 'myregistry'
@@ -187,7 +187,7 @@ To learn more about service connections, see [Connect to Microsoft Azure](/azure
       vmImage: ubuntu-latest
 
     steps:
-      - task: AzureContainerAppsRC@0
+      - task: AzureContainerApps@0
         inputs:
           appSourcePath: '$(Build.SourcesDirectory)/src'
           azureSubscription: '<AZURE_SUBSCRIPTION_SERVICE_CONNECTION>'
