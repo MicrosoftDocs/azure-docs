@@ -24,7 +24,7 @@ The Linux agent provides the following functionality for Linux and FreeBSD Azure
 - Deploys SSH public keys and key pairs
 - Sets the host name
 - Publishes the host name to the platform DNS
-- Reports SSH host key fingerprints to the platform
+- Reports the SSH host key fingerprint to the platform
 - Manages the resource disk
 - Formats and mounts the resource disk
 - Configures swap space
