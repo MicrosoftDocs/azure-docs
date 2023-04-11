@@ -21,13 +21,13 @@ When creating reliable workloads, you can choose at least one of the following a
  
  - **Zone-redundant**.  A zone-redundant configuration provides resources that are replicated or distributed across zones automatically.
 
-In addition to the two availability zone options, zonal and zone-redundant, Azure offers **Global (always available) services**. Because these services are always available across geographies, they're resilient to both regional and zonal outages. You don't need to configure or enable these services.
+In addition to the two availability zone options, zonal and zone-redundant, Azure offers **Global services**, meaning that they are available globally regardless of region. Because these services are always available across regions, they're resilient to both regional and zonal outages. You don't need to configure or enable these services.
 
 To see which Azure services support availability zones, see [Availability zone service and regional support](availability-zones-service-support.md).
  
 
 >[!NOTE] 
->When you don't select a zone configuration for your resource, whether zonal or zone-redundant, the resource and it's sub-components won't be zone resilient and can go down during a zonal outage in that region.
+>When you don't select a zone configuration for your resource, whether zonal or zone-redundant, the resource and its sub-components won't be zone resilient and can go down during a zonal outage in that region.
 
 ## Considerations for migrating to availability zone support
 
@@ -53,7 +53,7 @@ To list the available VM SKUs by Azure region and zone, see [Check VM SKU availa
 
 If your region doesn't support the services and SKUs that your application requires, you'll need to go back to [Step 1: Check the product availability in the Azure region](#step-1-check-if-the-azure-region-supports-availability-zones) to find a new region.  
 
- the services and SKUs that your application requires, we highly recommended that you configure your workload with with zone-redundancy. For zonal high availability of Azure IaaS Virtual Machines, use [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes). to spread VMs across multiple fault domains in a region or within an availability zone.
+ the services and SKUs that your application requires, we highly recommended that you configure your workload with with zone-redundancy. For zonal high availability of Azure IaaS Virtual Machines, use [VMSS Flex](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes) to spread VMs across multiple availability zones.
 
 
 ### Step 3: Consider your application requirements
@@ -123,7 +123,7 @@ If multi-region is needed, or when availability zones aren't available in the Az
 
 - To learn about testing your applications for availability and resiliency, see [Testing applications for availability and resiliency](/azure/architecture/framework/resiliency/testing).
 
-- Each data center in a region is assigned to a physical zone. Physical zones are mapped to the logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM API, [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers?tabs=HTTP) to compare zone mapping for resilient solutions that span across multiple subscriptions. 
+- Each data center in a region is assigned to a physical zone. Physical zones are mapped to the logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM REST API, [listLocations](rest/api/resources/subscriptions/list-locations?tabs=HTTP) and set the API version to 2022-12-01 to list the logical zone mapping to physical zone for your subscription. This information is important for critical application components that require co-location with Azure resources categorized as [Strategic services](/azure/reliability/availability-service-by-category#strategic-services) which may not be available in all physical zones.
 
 - Inter-zone bandwidth charges apply when traffic moves across zones. To learn more about bandwidth pricing, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).  
 
