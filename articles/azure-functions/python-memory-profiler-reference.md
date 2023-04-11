@@ -47,11 +47,11 @@ Before you start developing a Python function app, you must meet these requireme
 
 4. Test the memory profiler on your local machine by using Azure Functions Core Tools command `func host start`. This should generate a memory usage report with file name, line of code, memory usage, memory increment, and the line content in it.
 
-5. To check the memory profiling logs on an existing function app instance in Azure, you can query the memory profiling logs in recent invocations by pasting the following Kusto queries in Application Insights, Logs.
+5. To check the memory profiling logs on an existing function app instance in Azure, you can query the memory profiling logs in recent invocations by pasting the following [Kusto](/azure/azure-monitor/logs/log-query-overview) queries in Application Insights, Logs.
 
     :::image type="content" source="media/python-memory-profiler-reference/application-insights-query.png" alt-text="Query memory usage of a Python app in Application Insights":::
-    
-    ```text
+
+    ```kusto
     traces
     | where timestamp > ago(1d)
     | where message startswith_cs "memory_profiler_logs:"
