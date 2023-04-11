@@ -3,7 +3,7 @@ title: Tutorial - Access your private cloud
 description: Learn how to access an Azure VMware Solution private cloud
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 4/6/2023
+ms.date: 4/11/2023
 ms.custom: engagement-fy23
 ---
 
@@ -51,7 +51,7 @@ In this tutorial, you learn how to:
 
 1. From the jump box, sign in to vSphere Client with VMware vCenter Server SSO using a cloudadmin username and verify that the user interface displays successfully.
 
-1. In the Azure portal, select your private cloud, and then **Manage** > **Identity**.
+1. In the Azure portal, select your private cloud, and then **Manage** > **VMware credentials**.
 
    The URLs and user credentials for private cloud vCenter Server and NSX-T Manager display.
 
@@ -82,6 +82,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a Windows VM to use to connect to vCenter Server
 > * Login to vCenter Server from your VM
+> * Login to NSX-T Manager from your VM
 
 Continue to the next tutorial to learn how to create a virtual network to set up local management for your private cloud clusters.
 

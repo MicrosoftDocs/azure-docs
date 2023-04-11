@@ -38,7 +38,15 @@ Use this article to learn which natural languages are supported by document and 
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
+| Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
 | English               | `en`          |                     |
+| French                | `fr`          |                     |
+| German                | `de`          |                     |
+| Italian               | `it`          |                     |
+| Japanese              | `ja`          |                     |
+| Korean                | `ko`          |                     |
+| Spanish               | `es`          |                     |
+| Portuguese            | `pt`          |                     |
 
 # [Conversation summarization (preview)](#tab/conversation-summarization)
 
