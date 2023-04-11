@@ -9,11 +9,10 @@ ms.topic: overview
 
 # Overview of Microsoft Defender for APIs
 
-Microsoft Defender for APIs is a plan provided by Microsoft Defender for Cloud that offers lifecycle protection, detection, and response coverage for APIs.
+Microsoft Defender for APIs is a plan provided by [Microsoft Defender for Cloud](defender-for-cloud-introduction) that offers security protection for APIs.
 
-Defender for APIs helps you to gain visibility into business-critical APIs. You can analyze your API security posture, identify risks and vulnerabilities, detect active runtime threats, and prioritize remediation.
+Defender for APIs helps you to gain visibility into business-critical APIs. You can analyze your API security posture, identify risks and vulnerabilities, detect real-time threats, and prioritize remediation.
 
-In a single console you can see security insights, recommendations and alerts, making it easier to view your API inventory, identify critical risks, and prioritize remediation efforts.
 
 > [!IMPORTANT]
 > Defender for APIs is currently in PREVIEW.
@@ -23,10 +22,10 @@ Defender for APIs currently provides security for APIs published in Azure API Ma
 
 ## What can I do with Defender for APIs?
 
-- **Inventory**: Get an aggregated view of all managed APIs.  
-- **Insights**: Get API security insights. Review and implement security recommendations, and harden at-risk surfaces.
-- **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
-- **Defender for CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md), for API asset visibility and risk assessment.
+- **Inventory and insights**: In a single dashboard, get an aggregated view of all managed APIs. Review security insights, identify misconfigurations, and detect threats.
+- **Security posture*: Review and implement security recommendations to improve API security posture, and harden at-risk surfaces.
+- **Real time threat detection**: Ingest API traffic and monitor it with runtime anomaly detection, using machine-learning and rule-based analytics, to detect API security threats, including the [OWASP Top 10](https://owasp.org/www-project-top-ten/) critical threats.
+- **Defender for CSPM integration**: Integrate with Cloud Security Graph in [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) for API visibility and risk assessment across your security graph.
 
 
 ## Reviewing inventory and insights
