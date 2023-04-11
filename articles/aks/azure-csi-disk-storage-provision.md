@@ -25,7 +25,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 * You need an Azure [storage account][azure-storage-account].
 * Make sure you have Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* The Azure Disks CSI driver has a limit of 32 volumes per node. The volume count changes based on the size of the node/node pool. Run the [kubectl get][kubectl-get] command to determine the number of volumes that can be allocated per node:
+* The Azure Disk CSI driver has have a per-node volume limit. The volume count changes based on the size of the node/node pool. Run the [kubectl get][kubectl-get] command to determine the number of volumes that can be allocated per node:
 
     ```console
     kubectl get CSINode <nodename> -o yaml
@@ -71,7 +71,7 @@ Each AKS cluster includes four pre-created storage classes, two of them configur
 1. The *default* storage class provisions a standard SSD Azure Disk.
     * Standard storage is backed by Standard SSDs and delivers cost-effective storage while still delivering reliable performance.
 1. The *managed-csi-premium* storage class provisions a premium Azure Disk.
-    * Premium disks are backed by SSD-based high-performance, low-latency disks. They're ideal for VMs running production workloads. When you use the Azure Disks CSI driver on AKS, you can also use the `managed-csi` storage class, which is backed by Standard SSD locally redundant storage (LRS).
+    * Premium disks are backed by SSD-based high-performance, low-latency disks. They're ideal for VMs running production workloads. When you use the Azure Disk CSI driver on AKS, you can also use the `managed-csi` storage class, which is backed by Standard SSD locally redundant storage (LRS).
 
 It's not supported to reduce the size of a PVC (to prevent data loss). You can edit an existing storage class using the `kubectl edit sc` command, or you can create your own custom storage class. For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger][disk-host-cache-setting]. For more information about storage classes and creating your own storage class, see [Storage options for applications in AKS][storage-class-concepts].
 
