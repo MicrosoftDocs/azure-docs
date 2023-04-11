@@ -23,10 +23,10 @@ Microsoft’s Transparency Notes are part of a broader effort at Microsoft to pu
 
 ### Introduction
 
-Project Health Insights is an Azure Applied AI Service built with the Azure Cognitive Services Framework, that leverages multiple Cognitive Services, Healthcare API services and other Azure resources. It currently includes the following features 
+Project Health Insights is an Azure Applied AI Service built with the Azure Cognitive Services Framework, that uses multiple Cognitive Services, Healthcare API services and other Azure resources. It currently includes the following features: 
 
 - [Trial Matcher](../trial-matcher/overview.md) 
-- [OncoPhenotye](../oncophenotype/overview.md) 
+- [Onco Phenotype](../oncophenotype/overview.md) 
 
 Read the overview to get an introduction to each feature and review the example use cases. See the How-to guides and the API reference to understand more details about what each feature does and what gets returned by the system.
 

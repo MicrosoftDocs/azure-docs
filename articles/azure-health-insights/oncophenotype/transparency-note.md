@@ -45,7 +45,7 @@ The Onco Phenotype model can be used in the following  scenario. The system’s 
 We encourage customers to leverage the Onco Phenotype model in their innovative solutions or applications. However, here are some considerations when choosing a use case:
 
 - **Avoid scenarios that use personal health information for a purpose not permitted by patient consent or applicable law.** Health information has special protections regarding privacy and consent. Make sure that all data you use has patient consent for the way you use the data in your system or you are otherwise compliant with applicable law as it relates to the use of health information.
-- **Facilitate human review and inference error corrections.** Given the sensitive nature of health information, it is essential that a human reviews the source data and correct any inference errors.
+- **Facilitate human review and inference error corrections.** Given the sensitive nature of health information, it is essential that a human review the source data and correct any inference errors.
 - **Avoid scenarios that use this service as a medical device, for clinical support, or as a diagnostic tool or workflow without a human in the loop.** The system was not designed for use as a medical device, for clinical support, or as a diagnostic tool for the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions without human intervention. A qualified professional should always verify the inferences and relevant evidence before finalizing or relying on the information.
 
 ## Limitations
@@ -55,14 +55,15 @@ We encourage customers to leverage the Onco Phenotype model in their innovative 
 Specific characteristics and limitations of the Onco Phenotype model include:
 
 - **Multiple cancer cases for a patient:** The model infers only a single set of phenotype values (tumor site, histology, and clinical/pathologic stage TNM categories) per patient. If the model is given an input with multiple primary cancer diagnoses, the behavior is undefined and might mix elements from the separate diagnoses.
-- **Inference values for tumor site and histology:** The inference values are only as exhaustive as the training dataset labels. If the model is presented with a cancer case for which the true tumor site or histology was not encountered during training (for example, a very rare tumor site or histology), the model will be unable to produce a correct inference result.
+- **Inference values for tumor site and histology:** The inference values are only as exhaustive as the training dataset labels. If the model is presented with a cancer case for which the true tumor site or histology was not encountered during training (for example, a rare tumor site or histology), the model will be unable to produce a correct inference result.
 - **Clinical/pathologic stage (TNM categories):** The model does not currently identify the initiation of a patient's definitive treatment. Therefore, it might use clinical stage evidence to infer a pathologic stage value or vice-versa. Manual review should verify that appropriate evidence supports clinical and pathologic stage results. The model does not predict subcategories or isolated tumor cell modifiers. For instance, T3a would be predicted as T3, and N0(i+) would be predicted as N0.
 
 ## System performance
 
-In many AI systems, performance is often defined in relation to accuracy or by  – that is, how often the AI system offers a correct prediction or output. Depending on the workflow or scenario, the usersyou can leverage the  confidence scores that are returned along with each inference and choose to set thresholds based on the tolerance for incorrect inferences. The performance of the system can be assessed by computing statistics based on true positive, true negative, false positive, and false negative instances. For example, in the tumor site predictions, one can consider a tumor site (like lung) being the positive class and other sites, including not having one, being the negative class. Using the lung tumor site as an example positive class, the following table illustrates different outcomes.
+In many AI systems, performance is often defined in relation to accuracy or by  – that is, how often the AI system offers a correct prediction or output. Depending on the workflow or scenario, you can leverage the  confidence scores that are returned along with each inference and choose to set thresholds based on the tolerance for incorrect inferences. The performance of the system can be assessed by computing statistics based on true positive, true negative, false positive, and false negative instances. For example, in the tumor site predictions, one can consider a tumor site (like lung) being the positive class and other sites, including not having one, being the negative class. Using the lung tumor site as an example positive class, the following table illustrates different outcomes.
 
 | **Outcome**    | **Correct/Incorrect** | **Definition** | **Example** |
+| -------------- | --------------------- | -------------- | ----------- |
 | True Positive  | Correct   | The system returns the tumor site as lung and that would be expected from a human judge. | The system correctly infers the tumor site as lung on the clinical documents of a lung cancer patient. |
 | True Negative  | Correct   | The system does not return the tumor site as lung, and this aligns with what would be expected from a human judge. | The system returns the tumor site as breast on the clinical documents of a breast cancer patient. |
 | False Positive | Incorrect | The system returns the tumor site as lung where a human judge would not. | The system returns the tumor site as lung on the clinical documents of a breast cancer patient. |
@@ -70,17 +71,17 @@ In many AI systems, performance is often defined in relation to accuracy or by  
 
 ### Best practices for improving system performance
 
-For each inference, the Onco Phenotype model returns a confidence score that expresses how confident the model is with the response. Confidence scores range from 0 to 1. The higher the confidence score, the more certain the model is about the inference value it provided. However, the system is not designed for workflows or scenarios without a human in the loop. Also, inference values cannot be consumed without additional human review, irrespective of the confidence score. You can choose to completely discard an inference value if its confidence score is below a confidence score threshold that best suits the scenario.
+For each inference, the Onco Phenotype model returns a confidence score that expresses how confident the model is with the response. Confidence scores range from 0 to 1. The higher the confidence score, the more certain the model is about the inference value it provided. However, the system is not designed for workflows or scenarios without a human in the loop. Also, inference values cannot be consumed without human review, irrespective of the confidence score. You can choose to completely discard an inference value if its confidence score is below a confidence score threshold that best suits the scenario.
 
 ## Evaluation of the Onco Phenotype
 
 ### Evaluation methods
 
-The Onco Phenotype model was evaluated on a held-out dataset that shares the same characteristics as the training dataset. The training and held-out datasets consist of patients located only in the United States. The patient races include White or Caucasian, Black or African American, Asian, Native Hawaiian or Pacific Islander, American Indian or Alaska native, and Other. During model development and training, a separate development dataset was used for the purpose of error analysis and model improvement.
+The Onco Phenotype model was evaluated on a held-out dataset that shares the same characteristics as the training dataset. The training and held-out datasets consist of patients located only in the United States. The patient races include White or Caucasian, Black or African American, Asian, Native Hawaiian or Pacific Islander, American Indian or Alaska native, and Other. During model development and training, a separate development dataset was used for error analysis and model improvement.
 
 ### Evaluation results
 
-Although the Onco Phenotype model makes mistakes on the held-out dataset, it was observed that the inferences and the evidence spans identified by the model are helpful in speeding up manual curation effort.
+Although the Onco Phenotype model makes mistakes on the held-out dataset, it was observed that the inferences, and the evidence spans identified by the model are helpful in speeding up manual curation effort.
 
 Microsoft has also tested the generalizability of the model by evaluating the trained model on a secondary dataset that was collected from a different hospital system, and which was unavailable during training. A limited performance decrease was observed on the secondary dataset.
 
