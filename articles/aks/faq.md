@@ -179,13 +179,15 @@ No, you're unable to restore your cluster after deleting it. When you delete you
 
 ## What is platform support, and what does it include?
 
-Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support does not include cluster or node pool creation, hotfixes, bug fixes, security patches, retired components, Kubernetes components, etc. See [platform support policy][supported-kubernetes-versions] for additional restrictions.
+Platform support is a reduced support plan for unsupported "N-3" version clusters. Platform support only includes Azure infrastructure support. Platform support does not include anything related to Kubernetes functionality and components, cluster or node pool creation, hotfixes, bug fixes, security patches, retired components, etc. See [platform support policy][supported-kubernetes-versions] for additional restrictions.
+
+AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee full support (link to full support definition) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
 
 ## Will AKS automatically upgrade my unsupported clusters?
 
-AKS will initiate auto-upgrades for unsupported clusters. All clusters with kubernetes versions N-3 and below will be automatically upgraded to remain in an AKS support [policy][supported-kubernetes-versions].
+AKS will initiate auto-upgrades for unsupported clusters. When a cluster in an n-3 version (where n is the latest supported AKS GA minor version) is about to drop to n-4, AKS will automatically upgrade the cluster to n-2 to remain in an AKS support [policy][supported-kubernetes-versions]. Automatically upgrading a platform supported cluster to a supported version is enabled by default.
 
-AKS will automatically upgrade N-3 clusters to N-2 before they become N-4. For example, kubernetes v1.25 will be upgraded to v1.26 during the v1.29 release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
+For example, kubernetes v1.25 will be upgraded to v1.26 during the v1.29 GA release. To minimize disruptions, set up [maintenance windows][planned-maintenance]. See [auto-upgrade][auto-upgrade-cluster] for details on automatic upgrade channels.
 
 ## If I have pod / deployments in state 'NodeLost' or 'Unknown' can I still upgrade my cluster?
 

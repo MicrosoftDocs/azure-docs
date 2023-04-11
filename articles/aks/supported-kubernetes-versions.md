@@ -83,7 +83,7 @@ AKS defines a GA version as a version enabled in all SLO or SLA measurements and
 
 AKS may also support preview versions, which are explicitly labeled and subject to [preview terms and conditions][preview-terms].
 
-AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". See platform support policy.
+AKS provides platform support only for one GA minor version of Kubernetes after the regular supported versions. The platform support window of Kubernetes versions on AKS is known as "N-3". See [platform support policy][platform-suport-policy]].
 
 > [!NOTE]
 > AKS uses safe deployment practices which involve gradual region deployment. This means it may take up to 10 business days for a new release or a new version to be available in all regions.
@@ -131,36 +131,38 @@ New Supported Version List
 ```
 
 ## Platform Support Policy
-For one GA minor version after the Kubernetes support policy, AKS provides platform support. The platform support window of Kubernetes versions on AKS is known as "N-3".
+Platform support policy is a reduced support plan for certain unsupported kubernetes versions. During platform support, customers will only receive support from Microsoft for AKS/Azure platform related issues. Any issues related to Kubernetes functionality and components will not be supported. 
 
-During platform support, customers running N-3 versions will only receive support from Microsoft for AKS platform related issues. Any issues related to the upstream Kubernetes community will not be supported. 
+Platform support policy applies to clusters in an n-3 version (where n is the latest supported AKS GA minor version), before the cluster drops to n-4. For example, kubernetes v1.25 will be considered platform support when v1.28 is the latest GA version. However, during the v1.29 GA release, v1.25 will then be auto-upgraded to v1.26.
 
-This table outlines suppport guidelines for Community Support compared to platform support.
+AKS relies on the releases and patches from [kubernetes](https://kubernetes.io/releases/), which is an Open Source project that only supports a sliding window of 3 minor versions. AKS can only guarantee full support (link to full support definition) while those versions are being serviced upstream. Since there's no more patches being produced upstream, AKS can either leave those versions unpatched or fork. Due to this limitation, platform support will not support anything from relying on kubernetes upstream.
+
+This table outlines suppport guidelines for Community Support compared to Platform support.
 
 | Support category | Community Support (N-2) | Platform Support (N-3) | 
 |---|---|---|
+| Upgrades from N-3 to a supported version| Supported | Supported|
+| Platform (Azure) availability | Supported | Supported|
+| Node pool scaling| Supported | Supported|
+| VM availability| Supported | Supported|
+| Storage, Networking related issues| Supported | Supported with the exception of bug fixes and retired components |
+| Start/stop | Supported | Supported|
+| Rotate certificates | Supported | Supported|
+| Infrastructure SLA| Supported | Supported|
+| Control Plane SLA| Supported | Supported|
+| Platform (AKS) SLA| Supported | Not supported|
 | Kubernetes components (including Add-ons) | Supported | Not supported|
 | Component updates | Supported | Not supported|
 | Component hotfixes | Supported | Not supported|
 | Applying bug fixes | Supported | Not supported|
 | Applying security patches | Supported | Not supported|
 | Kubernetes API support | Supported | Not supported|
-| Platform (Azure) availability | Supported | Supported|
-| Infrastructure SLA| Supported | Supported|
-| Platform (AKS) SLA| Supported | Not supported|
-|Control Plane SLA| Supported | Supported|
 | Cluster or node pool creation| Supported | Not supported|
-| Node pool scaling| Supported | Supported|
-| VM availability| Supported | Supported|
-| Storage, Networking related issues| Supported | Supported with the exception of bug fixes and retired components |
-| Upgrades from N-3 to a supported version| Supported | Supported|
-| Start/stop | Supported | Supported|
-| Rotate certificates | Supported | Supported|
 | Node pool snapshot| Supported | Not supported|
 | Node image upgrade| Supported | Not supported|
 
  > [!NOTE]
-  > The above table is subject to change and outlines common support scenarios. Any scenarios including kubernetes components, fixes, or retirements will not be supported for N-3.
+  > The above table is subject to change and outlines common support scenarios. Any scenarios related to Kubernetes functionality and components will not be supported for N-3. For further clarification, customers can open a docs issue or create a support ticket.
 
 ### Supported `kubectl` versions
 
