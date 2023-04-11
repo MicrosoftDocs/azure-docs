@@ -1811,15 +1811,15 @@ To add the condition using the code editor, choose one of the condition code sam
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})
  )
- OR 
+ OR
  (
   (
    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
@@ -1942,21 +1942,21 @@ Use the values in the following table to build the expression portion of the con
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
 ```
-( 
- ( 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) 
- ) 
- OR  
- ( 
-  ( 
-   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] 
-   AND 
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+ )
+ OR
+ (
+  (
+   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:sensitivity] StringEqualsIgnoreCase @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>]
+   AND
    @Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/<your subscription id>/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'
-  ) 
-  OR 
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' 
- ) 
-) 
+  )
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high'
+ )
+)
 ```
 
 After entering your code, switch back to the visual editor to validate it.
