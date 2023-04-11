@@ -76,7 +76,7 @@ user-managed, and system-managed.
 
 ### *Curated Environments*
 
-Curated environments are pre-created environments that Azure Machine Learning manages and are available by default in every Azure Machine Learning workspace provisioned. New versions are released by AzureML to address vulnerabilities. Whether you use the latest image may be a tradeoff between reproducibility and vulnerability management. 
+Curated environments are pre-created environments that Azure Machine Learning manages and are available by default in every Azure Machine Learning workspace provisioned. New versions are released by Azure Machine Learning to address vulnerabilities. Whether you use the latest image may be a tradeoff between reproducibility and vulnerability management. 
 
 Curated Environments contain collections of Python packages and settings to help you get started with various machine learning frameworks. You're meant to use them as is. These pre-created environments also allow for faster deployment time.
 
