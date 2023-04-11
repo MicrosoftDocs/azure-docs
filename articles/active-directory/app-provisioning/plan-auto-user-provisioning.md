@@ -251,7 +251,7 @@ Choose the steps that align to your solution requirements.
 
 When the Azure AD provisioning service runs for the first time, the initial cycle against the source system and target systems creates a snapshot of all user objects for each target system.
 
-When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning.
+When you enable automatic provisioning for an application, the initial cycle takes anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning.
 
 The provisioning service stores the state of both systems after the initial cycle, improving performance of subsequent incremental cycles.
 
