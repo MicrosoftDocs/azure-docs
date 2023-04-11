@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 03/22/2023
 
 ms.author: justinha
 author: justinha
@@ -165,7 +165,7 @@ To improve awareness of password events, SSPR lets you configure notifications f
 
 ### Notify users on password resets
 
-If this option is set to **Yes**, users resetting their password receive an email notifying them that their password has been changed. The email is sent via the SSPR portal to their primary and alternate email addresses that are stored in Azure AD. No one else is notified of the reset event.
+If this option is set to **Yes**, users resetting their password receive an email notifying them that their password has been changed. The email is sent via the SSPR portal to their primary and alternate email addresses that are stored in Azure AD. If no primary or alternate email address is defined SSPR will attempt email notification via the users User Principal Name (UPN). No one else is notified of the reset event.
 
 ### Notify all admins when other admins reset their passwords
 

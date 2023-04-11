@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn how to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 02/14/2023
+ms.date: 03/22/2023
 ms.reviewer: cawa
 ---
 
@@ -368,7 +368,7 @@ Most of the columns have the same name with different capitalization. KQL is cas
 
 #### AppAvailabilityResults
 
-Legacy table: availability
+Legacy table: availabilityResults
 
 |ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|

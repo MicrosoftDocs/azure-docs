@@ -4,7 +4,7 @@ description: Quickstart showing how to create Azure an Azure Key Vault Managed H
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/22/2022
+ms.date: 03/21/2023
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: managed-hsm
@@ -63,7 +63,7 @@ You can now deploy the ARM template:
 
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new**, enter "myResourceGroup" as the name, and then select **OK**.
-    - **Location**: Select a location. For example, **West US 3**.
+    - **Location**: Select a location. For example, **East US 2**.
     - **managedHSMName**: Enter a name for your Managed HSM.
     - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved above.
     - **initialAdminObjectIds**: Enter the Object ID that you retrieved above.

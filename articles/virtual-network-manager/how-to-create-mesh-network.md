@@ -1,22 +1,26 @@
 ---
-title: 'Create a mesh network topology with Azure Virtual Network Manager (Preview)'
+title: 'Create a mesh network topology with Azure Virtual Network Manager'
 description: Learn how to create a mesh network topology with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 03/22/2023
 ms.custom: ignite-fall-2021
 ---
 
-# Create a mesh network topology with Azure Virtual Network Manager (Preview)
+# Create a mesh network topology with Azure Virtual Network Manager
 
 In this article, you'll learn how to create a mesh network topology using Azure Virtual Network Manager. With this configuration, all the virtual networks of the same region in the same network group can communicate with one another. You can enable cross region connectivity by enabling the global mesh setting in the connectivity configuration.
 
 > [!IMPORTANT]
-> *Azure Virtual Network Manager* is currently in public preview.
+> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
+>
+> Mesh connectivity configurations and security admin rules remain in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [**Supplemental Terms of Use for Microsoft Azure Previews**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Prerequisites
 
 * Read about [mesh](concept-connectivity-configuration.md#mesh-network-topology) network topology.
 * Created a [Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md#create-virtual-network-manager).
@@ -24,7 +28,7 @@ In this article, you'll learn how to create a mesh network topology using Azure 
 
 ## <a name="group"></a> Create a network group
 
-This section will help you create a network group containing the virtual networks you'll be using for the hub-and-spoke network topology.
+This section will help you create a network group containing the virtual networks you'll be using for the mesh network topology.
 
 1. Go to your Azure Virtual Network Manager instance. This how-to guide assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
@@ -42,7 +46,7 @@ This section will help you create a network group containing the virtual network
 1. Once your network group is created, you'll add virtual networks as members. Choose one of the options: *[Manually add membership](concept-network-groups.md#static-membership)* or *[Create policy to dynamically add members](concept-network-groups.md#dynamic-membership)*.
 
 ## Define network group members
-Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. Choose the option below for your mesh membership configuration:
+Azure Virtual Network manager allows you two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to dynamically add virtual networks based on conditions. This how-to covers [manually adding membership](concept-network-groups.md#static-membership). For information on defining group membership with Azure Policy, see [Define network group membership with Azure Policy](concept-network-groups.md#dynamic-membership).
 
 ### Manually adding members
 To manually add the desired virtual networks for your Mesh configuration to your Network Group, follow the steps below:
@@ -58,18 +62,6 @@ To manually add the desired virtual networks for your Mesh configuration to your
 1. To review the network group membership manually added, select **Group Members** on the *Network Group* page under **Settings**.
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list-thumb.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
-### Dynamic membership with Azure Policy
-To dynamically add members using [Azure Policy](concept-azure-policy-integration.md), follow the steps below:
-
-1. From the list of network groups, select your network group and select **Create Azure Policy** under *Create policy to dynamically add members*.
-
-    :::image type="content" source="media/create-virtual-network-manager-portal/define-dynamic-membership.png" alt-text="Screenshot of Create Azure Policy button.":::
-
-1. On the **Create Azure Policy** page, create a conditional statement to populate your network group. You can choose different conditional parameters including *Name* and *Tags*.
-    
-    :::image type="content" source="media/how-to-create-hub-and-spoke/create-azure-policy.png" alt-text="Screenshot of Create Azure Policy page with conditional parameters displayed.":::
-
-1. To review the network group membership based on the conditions defined in Azure Policy, select **Group Members** on the *Network Group* page under **Settings**
 ## Create a mesh connectivity configuration
 
 This section will guide you through how to create a mesh configuration with the network group you created in the previous section.

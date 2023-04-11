@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 4/01/2023
+ms.date: 5/01/2023
 ms.reviewer: larryfr
 ms.custom: devplatv2
 ---
@@ -19,15 +19,15 @@ Batch endpoints can be used to perform long batch operations over large amounts 
 
 ## Prerequisites
 
-* This example assumes that you've created a batch endpoints with at least one deployment. To create an endpoint, follow the steps at [How to use batch endpoints for production workloads](how-to-use-batch-endpoints.md).
+* This example assumes that you've created a batch endpoint with at least one deployment. To create an endpoint, follow the steps at [How to use batch endpoints for production workloads](how-to-use-batch-endpoints.md).
 
 * You would need permissions to run a batch endpoint deployment. Read [Authorization on batch endpoints](how-to-authenticate-batch-endpoint.md) for details.
 
 ## Understanding inputs and outputs
 
-Batch endpoints provide a durable API that consumers can use to create batch jobs. The same interface can be used to indicate the inputs and the outputs your deployment expects. Use inputs to pass any information your endpoint needs to perform the job. As a best practice, try to treat this inputs are the public contract of your endpoint, thinking about how you consumers will indicate values, and how you are thinking on evolving the interface on the future.
+Batch endpoints provide a durable API that consumers can use to create batch jobs. The same interface can be used to indicate the inputs and the outputs your deployment expects. Use inputs to pass any information your endpoint needs to perform the job. As a best practice, try to treat these inputs are the public contract of your endpoint, thinking about how your consumers will indicate values, and how you are thinking on evolving the interface on the future.
 
-Depending on the [type of batch deployment](how-to-use-batch-endpoints.md#batch-deployments), the inputs and outputs you will be indicating:
+Depending on the [type of batch deployment](how-to-use-batch-endpoints.md#batch-deployments), the inputs and outputs you are indicating:
 
 | Deployment type        | Input's number | Input's types              | Output's number | Output's types              |
 | ---------------------- | -------------- | -------------------------- | --------------- | --------------------------- |
@@ -41,7 +41,7 @@ Model deployments always require 1 input and produce 1 output. Input and outputs
 
 ## Data inputs
 
-Data inputs refer to inputs that point to a location where data is placed. Since batch endpoints usually consume large amounts of data, you can't pass the input data as part of the invocation request. Instead, you indicate the location where the batch endpoint should go to look for the data. Input data is usually mounted and streamed on the target compute to improve performance. 
+Data inputs refer to inputs that point to a location where data is placed. Since batch endpoints usually consume large amounts of data, you can't pass the input data as part of the invocation request. Instead, you indicate the location where the batch endpoint should go to look for the data. Input data is mounted and streamed on the target compute to improve performance. 
 
 Batch endpoints support reading files located in the following storage options:
 
@@ -121,7 +121,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
     # [REST](#tab/rest)
 
-    Use the Azure Machine Learning CLI, Azure Machine Learning SDK for Python, or Studio to get the location (region), workspace, and data asset name and version. You will need them later.
+    Use the Azure Machine Learning CLI, Azure Machine Learning SDK for Python, or Studio to get the location (region), workspace, and data asset name and version. You need them later.
 
 
 1. Create a data input:
@@ -171,7 +171,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $DATASET_ID
     ```
 
-    If you endpoint serves a model deployment, you can use the short form:
+    If your endpoint serves a model deployment, you can use the short form:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $DATASET_ID
@@ -285,7 +285,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_PATH
     ```
 
-    If you endpoint serves a model deployment, you can use the short form:
+    If your endpoint serves a model deployment, you can use the short form:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_PATH --input-type uri_folder
@@ -398,7 +398,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
         --set inputs.heart_dataset.type uri_folder inputs.heart_dataset.path $INPUT_DATA
     ```
 
-    If you endpoint serves a model deployment, you can use the short form:
+    If your endpoint serves a model deployment, you can use the short form:
 
     ```azurecli
     az ml batch-endpoint invoke --name $ENDPOINT_NAME --input $INPUT_DATA --input-type uri_folder
@@ -430,7 +430,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
 ### Security considerations when reading data
 
-Batch endpoints ensure that only authorized users are able to invoke batch deployments and generate jobs. However, depending on how the input data is configured, other credentials may be used to read the underlying data. Use the following table to understand which credentials are used and any additional requirements.
+Batch endpoints ensure that only authorized users are able to invoke batch deployments and generate jobs. However, depending on how the input data is configured, other credentials may be used to read the underlying data. Use the following table to understand which credentials are used:
 
 | Data input type              | Credential in store             | Credentials used                                              | Access granted by |
 |------------------------------|---------------------------------|---------------------------------------------------------------|-------------------|
@@ -450,7 +450,7 @@ The managed identity of the compute cluster is used for mounting and configuring
 
 ## Literal inputs
 
-Literal inputs refer to inputs that can be represented and resolved at invocation time, like strings, numbers, and boolean values. You typically use literal inputs to pass parameters to your endpoint as part of a pipeline component deployments.
+Literal inputs refer to inputs that can be represented and resolved at invocation time, like strings, numbers, and boolean values. You typically use literal inputs to pass parameters to your endpoint as part of a pipeline component deployment.
 
 Batch endpoints support the following literal types:
 
@@ -463,7 +463,7 @@ The following example shows how to indicate an input named `score_mode`, of type
 
 # [Azure CLI](#tab/cli)
 
-Use the parameter `--file` to indicate the inputs you need for you endpoint invocation.
+Use the parameter `--file` to indicate the inputs you need for your endpoint invocation.
 
 __inputs.yml__
 
@@ -478,7 +478,7 @@ inputs:
 az ml batch-endpoint invoke --name $ENDPOINT_NAME --file inputs.yml
 ```
 
-You can also use the argument `--set` to indicate the value. However, it tend to produce long commands when multiple inputs are indicated:
+You can also use the argument `--set` to indicate the value. However, it tends to produce long commands when multiple inputs are indicated:
 
 ```azurecli
 az ml batch-endpoint invoke --name $ENDPOINT_NAME \

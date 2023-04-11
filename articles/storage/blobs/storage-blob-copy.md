@@ -34,9 +34,7 @@ The source blob for a copy operation may be one of the following types:
 - Blob snapshot
 - Blob version
 
-If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
-
-The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. One way to enforce this requirement is to use a blob lease, as shown in the code example.
+If the destination blob already exists, it must be of the same blob type as the source blob, and the existing destination blob will be overwritten. The destination blob can't be modified while a copy operation is in progress, and a destination blob can only have one outstanding copy operation.
 
 The entire source blob or file is always copied. Copying a range of bytes or set of blocks isn't supported. When a blob is copied, its system properties are copied to the destination blob with the same values.
 
@@ -49,9 +47,24 @@ To copy a blob, call one of the following methods:
 
 The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation.
 
-The following code example gets a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) representing an existing blob and copies it to a new blob in a different container within the same storage account. This example also acquires a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is released.
+The following code example gets a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) representing an existing blob and copies it to a new blob in a different container within the same storage account.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CopyBlob.cs" id="Snippet_CopyBlob":::
+```csharp
+public static async Task CopyBlobAsync(BlobServiceClient blobServiceClient)
+{
+    // Instantiate BlobClient for the source blob and destination blob
+    BlobClient sourceBlob = blobServiceClient
+        .GetBlobContainerClient("source-container")
+        .GetBlobClient("sample-blob.txt");
+    BlobClient destinationBlob = blobServiceClient
+        .GetBlobContainerClient("destination-container")
+        .GetBlobClient("sample-blob.txt");
+
+    // Start the copy operation and wait for it to complete
+    CopyFromUriOperation copyOperation = await destinationBlob.StartCopyFromUriAsync(sourceBlob.Uri);
+    await copyOperation.WaitForCompletionAsync();
+}
+```
 
 To check the status of a copy operation, you can call [UpdateStatusAsync](/dotnet/api/azure.storage.blobs.models.copyfromurioperation.updatestatusasync#azure-storage-blobs-models-copyfromurioperation-updatestatusasync(system-threading-cancellationtoken)) and parse the response to get the value for the `x-ms-copy-status` header. 
 
