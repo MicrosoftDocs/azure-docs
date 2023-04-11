@@ -29,8 +29,8 @@ In this tutorial, you learn how to:
 >
 > * [Create a blob storage account with containers](#setup-azure-storage) for your source and target files.
 > * [Set-up a managed identity](#create-a-managed-identity-with-rbac) with role-based access control (RBAC).
-> * [Translate documents from your Azure storage account](#azure-blob-storage).
-> * [Translate documents from your SharePoint site](#microsoft-sharepoint).
+> * [Translate documents from your Azure storage account](#use-azure-blob-storage).
+> * [Translate documents from your SharePoint site](#use-microsoft-sharepoint).
 
 ## Prerequisites
 
@@ -68,14 +68,14 @@ To get started, you need:
    1. In the **Security + networking** group in the left pane, select **Networking**.
    1. In the **Firewalls and virtual networks** tab, select **Enabled from selected virtual networks and IP addresses**.
 
-         :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
+      :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Screenshot: Selected networks radio button selected.":::
 
    1. Deselect all check boxes.
    1. Make sure **Microsoft network routing** is selected.
    1. Under the **Resource instances** section, select **Microsoft.CognitiveServices/accounts** as the resource type and select your Translator resource as the instance name.
-   1. Make certain that the **Allow Azure services on the trusted services list to access this storage account** box is checked. For more information about managing exceptions, _see_ [Configure Azure Storage firewalls and virtual networks](../../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions).
+   1. Make certain that the **Allow Azure services on the trusted services list to access this storage account** box is checked. For more information about managing exceptions, *see* [Configure Azure Storage firewalls and virtual networks](../../../storage/common/storage-network-security.md).
 
-         :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view.":::
+      :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view.":::
 
    1. Select **Save**. It may take up to 5 min for the network changes to propagate.
 
@@ -445,7 +445,7 @@ Time to check our flow and document translation results. A green bar appears at 
 
    :::image type="content" source="../media/connectors/successful-document-translation-flow.png" alt-text="Screenshot of successful document translation flow.":::
 
-   :::image type="content" source="../media/connectors/sharepoint.flow" alt-text="Screenshot showing a successful flow using SharePoint and Azure blob storage.":::
+   :::image type="content" source="../media/connectors/successful-sharepoint-flow.png" alt-text="Screenshot showing a successful flow using SharePoint and Azure blob storage.":::
 
 ---
 

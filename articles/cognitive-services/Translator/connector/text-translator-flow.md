@@ -122,7 +122,7 @@ Now, it's time to check your flow and view the translated text.
 
 1. You should receive a "Your flow ran successfully" message and there's a green checkmark next to each successful step.
 
-   :::image type="content" source="../media/connectors/successful-flow.png" alt-text="Screenshot of successful flow.":::
+   :::image type="content" source="../media/connectors/successful-text-translation-flow.png" alt-text="Screenshot of successful flow.":::
 
 #### [Translate text](#tab/translate)
 
