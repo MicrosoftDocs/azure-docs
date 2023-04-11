@@ -37,15 +37,13 @@ You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on th
 ![image](./finetune_map_data_columns.png)
 
 * <b>Validation data</b> Pass in the data you would like to use to validate your model. Selecting 'Automatic split' will reserve an automatic split of training data for validation. Alternatively, you can provide a different validation dataset.
-* <b>Test data</b> Pass in the test data you would like to use to evaluate your finetuned model. Selecting 'Automatic split' will reserve an automatic split of training data for test. Selecting 'No test data' will result in no evaluation being run on the fine-tuned model. 
+* <b>Test data</b> Pass in the test data you would like to use to evaluate your finetuned model. Selecting 'Automatic split' will reserve an automatic split of training data for test. 
 * <b>Compute</b> Provide the AzureML Compute cluster you would like to use for finetuning the model. Fine tuning needs to run on GPU compute. We recommend using compute SKUs with A100 / V100 GPUs for this. Please ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
-
-Finetuning Task Parameters
-![image](./finetune_task_parameters.png)
-You can configure parameters such as learning rate, epochs, batch size, etc via Advanced Settings. Each of these settings have default values, but can be customized if needed.
-
 Clicking on 'Finish' in the Finetune Wizard will submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then go ahead and register the finetuned model output by the finetuning job and deploy this model to an endpoint for inferencing.
+
+<b>Advanced Finetuning Parameters</b>
+THe Finetuning UI wizard described above, allows you to perform basic finetuning by providing your own training data. Additionally, there are several advanced finetuning parameters described here ![image](./finetune_map_data_columns.png), such as learning rate, epochs, batch size, etc. Each of these settings have default values, but can be customized via code based samples, if needed.
 
 #### Finetuning using code based samples
 Currently, AzureML supports finetuning models for the following language tasks -
