@@ -35,9 +35,13 @@ Using an authentication broker such as WAM has numerous benefits.
 - Available on Win10+ and Win Server 2019+. On Mac, Linux, and earlier versions of Windows, MSAL will automatically fall back to a browser.
 - B2C and ADFS authorities aren't supported. MSAL will fall back to a browser.
 
+## WAM integration package
+
+Most apps will need to reference `Microsoft.Identity.Client.Broker` package to use this integration. MAUI apps are not required to do this, the functionality is inside MSAL when targetting `net6-windows` and above.
+
 ## WAM calling pattern
 
-You can use the following pattern to use WAM.
+You can use the following pattern to use WAM. 
 
 ```csharp
     // 1. Configuration - read below about redirect URI
