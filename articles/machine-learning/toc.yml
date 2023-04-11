@@ -935,8 +935,6 @@
                   href: how-to-use-event-grid-batch.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
-<<<<<<< HEAD
-=======
         # v1
         - name: Where and how to deploy
           displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
@@ -1005,7 +1003,6 @@
           displayName: docker file download
           href: ./v1/how-to-deploy-package-models.md
         # end v1
->>>>>>> 8b6228fe5a0d617ec0edeccd997a1b2851c9af45
     - name: Work with MLflow
       items:
         - name: Configure MLflow for Azure Machine Learning

@@ -1,5 +1,5 @@
 ---
-title: "Using MLflow models in batch model deployments"
+title: "Using MLflow models in batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy MLflow models in batch deployments
 services: machine-learning
@@ -13,19 +13,17 @@ ms.reviewer: larryfr
 ms.custom: devplatv2, devx-track-azurecli
 ---
 
-# Use MLflow models in batch model deployments
+# Use MLflow models in batch deployments
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure Machine Learning for both batch inference using batch endpoints. Azure Machine Learning supports no-code deployment of models created and logged with MLflow. This means that you don't have to provide a scoring script or an environment.
-
-For no-code-deployment, Azure Machine Learning 
+In this article, learn how to deploy [MLflow](https://www.mlflow.org) models to Azure Machine Learning for both batch inference using batch endpoints. When deploying MLflow models to batch endpoints, Azure Machine Learning:
 
 * Provides a MLflow base image/curated environment that contains the required dependencies to run an Azure Machine Learning Batch job.
 * Creates a batch job pipeline with a scoring script for you that can be used to process data using parallelization.
 
 > [!NOTE]
-> For more information about the supported file types in batch endpoints with MLflow, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
+> For more information about the supported input file types in model deployments with MLflow, view [Considerations when deploying to batch inference](#considerations-when-deploying-to-batch-inference).
 
 ## About this example
 

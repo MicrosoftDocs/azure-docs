@@ -1,5 +1,5 @@
 ---
-title: "Text processing with batch model deployments"
+title: "Text processing with batch deployments"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text and output results.
 services: machine-learning
@@ -13,11 +13,11 @@ ms.reviewer: mopeakande
 ms.custom: devplatv2
 ---
 
-# Text processing with batch model deployments
+# Text processing with batch deployments
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
-Batch Endpoints can be used for processing tabular data that contain text. Those deployments are supported in both MLflow and custom models. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
+Batch Endpoints can be to deploy models processing tabular data that contain text. In this tutorial we will learn how to deploy a model that can perform text summarization of long sequences of text using a model from HuggingFace.
 
 ## About this sample
 

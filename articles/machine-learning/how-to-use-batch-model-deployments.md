@@ -10,7 +10,7 @@ author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
-ms.custom: how-to, devplatv2, event-tier1-build-2023
+ms.custom: how-to, devplatv2, event-tier1-build-2022, ignite-2022
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
@@ -348,27 +348,22 @@ A deployment is a set of resources required for hosting the model that does the 
     # [Python](#tab/python)
     
     ```python
-    deployment = ModelBatchDeployment(
+    deployment = BatchDeployment(
         name="mnist-torch-dpl",
         description="A deployment using Torch to solve the MNIST classification dataset.",
         endpoint_name=batch_endpoint_name,
         model=model,
+        code_path="deployment-torch/code",
+        scoring_script="batch_driver.py",
         environment=env,
-        code_configuration=CodeConfiguration(
-            code="./mnist/code/",
-            scoring_script="batch_driver.py",
-        )
         compute=compute_name,
-        settings=ModelBatchDeploymentSettings(
-            mini_batch_size=5,
-            instance_count=2,
-            max_concurrency_per_instance=1,
-            output_action=BatchDeploymentOutputAction.APPEND_ROW,
-            output_file_name="predictions.csv",
-            retry_settings=BatchRetrySettings(max_retries=3, timeout=300),
-            error_threshold=-1,
-            logging_level="info",
-        )
+        instance_count=2,
+        max_concurrency_per_instance=2,
+        mini_batch_size=10,
+        output_action=BatchDeploymentOutputAction.APPEND_ROW,
+        output_file_name="predictions.csv",
+        retry_settings=BatchRetrySettings(max_retries=3, timeout=30),
+        logging_level="info",
     )
     ```
     
