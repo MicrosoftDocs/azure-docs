@@ -1655,21 +1655,21 @@ The following image shows the condition after the settings have been entered int
 To add the condition using the code editor, copy the condition code sample below and paste it into the code editor.
 
 ```
-( 
- ( 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'}) 
- ) 
- OR  
- ( 
-  ( 
-   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high' 
-   AND 
-   @Environment[isPrivateLink] BoolEquals true 
-  ) 
-  OR 
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high' 
- ) 
-) 
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})
+ )
+ OR
+ (
+  (
+   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringEquals 'high'
+   AND
+   @Environment[isPrivateLink] BoolEquals true
+  )
+  OR
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:sensitivity<$key_case_sensitive$>] StringNotEquals 'high'
+ )
+)
 ```
 
 After entering your code, switch back to the visual editor to validate it.
@@ -1783,17 +1783,17 @@ To add the condition using the code editor, choose one of the condition code sam
 ```
 (
  (
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'}) 
-  AND 
-  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'}) 
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})
   AND
   !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
  )
- OR 
+ OR
  (
   (
    @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'container1'
