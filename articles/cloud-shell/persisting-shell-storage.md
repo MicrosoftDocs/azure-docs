@@ -227,6 +227,13 @@ file storage GUI when you refresh the blade.
 2. Select the target file.
 3. Select the **Download** button.
 
+++ To download files directly from Azure cloudshell session 
+
+1.On the Azure cloud shell session, click on "upload/Download option" icon.
+2.Select the download option
+3.Enter the fully qualified path and click on "download" button.
+4.you will receive the link to download your file and click on the link and the file will be downloaded to your local machine
+
 ### Upload files
 
 ![Screenshot showing how to upload files in the Azure portal][14]
