@@ -5,12 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 04/04/2023
+ms.date: 04/11/2023
 ms.author: cshoe
 ms.custom: references_regions
 ---
 
 # Manage workload profiles in a Consumption + Dedicated workload profiles plan structure (preview) in the Azure portal
+
+Learn to manage Container Apps environments with workload profile support.
 
 ## Supported regions
 
@@ -25,27 +27,31 @@ The following regions support workload profiles during preview:
 
 ## Create a container app in a workload profile
 
-At a high level, when you create a container app into a workload profile, you go through the following steps:
+1. Open the Azure portal.
 
-- Create a new environment
-- Select a workload profile
+1. Search for *Container Apps* in the search bar, and select **Container Apps**.
 
-1. Project details
+1. Select **Create**.
+
+1. Create a new container app and environment.
+
+    :::image type="content" source="media/workload-profiles/azure-container-apps-new-environment.png" alt-text="Create a container apps environment.":::
+
+    Enter the following values to create your new container app.
 
     | Property | Value |
     | --- | --- |
     | Subscription | Select your subscription |
     | Resource group | Select or create a resource group |
     | Container app name | Enter your container app name |
-
-1. Container Apps Environment
-
-    | Property | Value |
-    | --- | --- |
     | Region | Select your region. |
     | Container Apps Environment | Select **Create New**. |
 
-1. Environment details
+1. Configure the new environment.
+
+    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Create an Azure Container Apps Consumption + Dedicated plan environment.":::
+
+    Enter the following values to create your environment.
 
     | Property | Value |
     | --- | --- |
@@ -53,14 +59,16 @@ At a high level, when you create a container app into a workload profile, you go
     | Plan | Select **(Preview) Consumption and Dedicated workload profiles** |
   
     Select the new **Workload profiles** tab at the top of this section.
-  
-    :::image type="content" source="media/workload-profiles/azure-container-apps-dedicated-environment.png" alt-text="Create an Azure Container Apps Consumption + Dedicated plan environment.":::
 
 1. Select the **Add workload profile** button.
+
+    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile.png" alt-text="Add a workload profile to the container apps environment.":::
 
 1. For *Workload profile name*, enter a name.
 
 1. Next to *Workload profile size*, select **Choose size**.
+
+    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile-details.png" alt-text="Select a workload profile for your container apps environment.":::
 
 1. In the *Select a workload profile size* window, select a profile from the list.
 
