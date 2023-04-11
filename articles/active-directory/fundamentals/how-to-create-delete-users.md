@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # How to create, invite, and delete users (preview)
 
-This article explains how to create a new user, invite an external guest, and delete a user in your Azure Active Directory (Azure AD) tenant. The **User Administrator** or **Global Administrator** role is required.
+This article explains how to create a new user, invite an external guest, and delete a user in your Azure Active Directory (Azure AD) tenant. 
 
 The updated experience for creating new users covered in this article is available as an Azure AD preview feature. This feature is enabled by default, but you can opt out by going to **Azure AD** > **Preview features** and disabling the **Create user experience** feature. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -39,6 +39,17 @@ For more information abut the differences between internal and external guests a
 Authentication methods vary based on the type of user you create. Internal guests and members have credentials in your Azure AD tenant that can be managed by administrators. These users can also reset their own password. External members authenticate to their home Azure AD tenant and your Azure AD tenant authenticates the user through a federated sign-in with the external member's Azure AD tenant. If external members forget their password, the administrator in their Azure AD tenant can reset their password. External guests set up their own password using the link they receive in email when their account is created.
 
 Reviewing the default user permissions may also help you determine the type of user you need to create. For more information, see [Set default user permissions](users-default-permissions.md)
+
+## Required roles
+
+The required role of least privilege varies based on the type of user you're adding and if you need to assign Azure AD roles at the same time. **Global Administrator** can create users and assign roles, but whenever possible you should use the least privileged role. 
+
+| Role | Task |
+| -- | -- |
+| Create a new user | User Administrator |
+| Invite an external guest | Guest Inviter | 
+| Assign Azure AD roles | Privileged Role Administrator |
+
 
 ## Create a new user
 
@@ -68,6 +79,8 @@ Either select the **Review + create** button to create the new user or **Next: P
 
 ![Screenshot of the create new user Basics tab.](media/how-to-create-delete-users/create-new-user-basics-tab.png)
 
+Either select the **Review + create** button to create the new user or **Next: Properties** to complete the next section.
+
 ### Properties
 
 There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Azure AD** > **Users** and select a user to update.
@@ -96,6 +109,18 @@ You can assign the user to an administrative unit, group, or Azure AD role when 
 
     ![Screenshot of the add group assignment process.](media/how-to-create-delete-users/add-group-assignment.png)
 
+**To assign a role to the new user**:
+
+1. Select **+ Add role**.
+1. From the menu that appears, choose up to 20 roles from the list and select the **Select** button.
+1. Select the **Review + create** button.
+
+**To add an administrative unit to the new user**:
+
+1. Select **+ Add administrative unit**.
+1. From the menu that appears, choose one administrative unit from the list and select the **Select** button.
+1. Select the **Review + create** button.
+
 ### Review and create
 
 The final tab captures several key details from the user creation process. Review the details and select the **Create** button if everything looks good.
@@ -104,7 +129,7 @@ The final tab captures several key details from the user creation process. Revie
 
 The overall process for inviting an external guest user is similar, except for a few details on the **Basics** tab. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role.
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
 
 1. Navigate to **Azure Active Directory** > **Users**.
 
@@ -123,6 +148,7 @@ In this section, you're inviting the guest to your tenant using *their email add
 -  **Invitation message**: Select the **Send invite message** checkbox to customize a brief message to the guest. Provide a Cc recipient, if necessary.
 
 ![Screenshot of the invite external user Basics tab.](media/how-to-create-delete-users/invite-external-user-basics-tab.png)
+
 ### Guest user invitations
 
 When you invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details.

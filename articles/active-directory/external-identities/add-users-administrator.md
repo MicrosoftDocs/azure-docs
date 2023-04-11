@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 04/11/2023
 
 ms.author: cmulligan
 author: csmulligan
@@ -32,31 +32,87 @@ Make sure your organization's external collaboration settings are configured suc
 
 To add B2B collaboration users to the directory, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a user who is assigned a limited administrator directory role or the Guest Inviter role.
-2. Search for and select **Azure Active Directory** from any page.
-3. Under **Manage**, select **Users**.
-4. Select **New user** > **Invite external user**. (Or, if you're using the legacy experience, select **New guest user**).
-5. On the **New user** page, select **Invite user** and then add the guest user's information.
+1. Sign in to the [Azure portal](https://portal.azure.com/) in the **User Administrator** role. A role with Guest Inviter privileges can also invite external users.
 
-   ![Screenshot showing the new user page.](media/add-users-administrator/invite-user.png)
+1. Navigate to **Azure Active Directory** > **Users**.
 
-      - **Name.** The first and last name of the guest user.
-   - **Email address (required)**. The email address of the guest user.
-   - **Personal message (optional)** Include a personal welcome message to the guest user.
-   - **Groups**: You can add the guest user to one or more existing groups, or you can do it later.
-   -  **Roles**: If you require Azure AD administrative permissions for the user, you can add them to an Azure AD role by selecting **User** next to **Roles**.  [Learn more](../../role-based-access-control/role-assignments-external-users.md) about Azure roles for external guest users.
+1. Select **Invite external user** from the menu. 
 
-   > [!NOTE]
-   > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
-6. Select **Invite** to automatically send the invitation to the guest user. 
- 
-After you send the invitation, the user account is automatically added to the directory as a guest. 
+    ![Screenshot of the invite external user menu option.](media/add-users-administrator/invite-external-user-menu.png)
+
+### Basics
+
+In this section, you're inviting the guest to your tenant using *their email address*. If you need to create a guest user with a domain account, use the [create new user process](../fundamentals/how-to-create-delete-users.md#create-a-new-user) but change the **User type** to **Guest**. 
+
+- **Email**: Enter the email address for the guest user you're inviting.
+
+- **Display name**: Provide the display name.
+
+-  **Invitation message**: Select the **Send invite message** checkbox to customize a brief message to the guest. Provide a Cc recipient, if necessary.
+
+![Screenshot of the invite external user Basics tab.](media/add-users-administrator/invite-external-user-basics-tab.png)
+
+Either select the **Review + invite** button to create the new user or **Next: Properties** to complete the next section.
+
+### Properties
+
+There are six categories of user properties you can provide. These properties can be added or updated after the user is created. To manage these details, go to **Azure AD** > **Users** and select a user to update.
+
+- **Identity:** Enter the user's first and last name. Set the User type as either Member or Guest. For more information about the difference between external guests and members, see [B2B collaboration user properties](user-properties.md)
+
+- **Job information:** Add any job-related information, such as the user's job title, department, or manager.
+
+- **Contact information:** Add any relevant contact information for the user.
+
+- **Parental controls:** For organizations like K-12 school districts, the user's age group may need to be provided. *Minors* are 12 and under, *Not adult* are 13-18 years old, and *Adults* are 18 and over. The combination of age group and consent provided by parent options determine the Legal age group classification. The Legal age group classification may limit the user's access and authority.
+
+- **Settings:** Specify the user's global location.
+
+Either select the **Review + invite** button to create the new user or **Next: Assignments** to complete the next section.
+
+### Assignments
+
+You can assign external users to a group, or Azure AD role when the account is created. You can assign the user to up to 20 groups or roles. Group and role assignments can be added after the user is created. The **Privileged Role Administrator** role is required to assign Azure AD roles.
+
+**To assign a group to the new user**:
+
+1. Select **+ Add group**.
+1. From the menu that appears, choose up to 20 groups from the list and select the **Select** button.
+1. Select the **Review + create** button.
+
+    ![Screenshot of the add group assignment process.](media/add-users-administrator/invite-external-user-assignments-tab.png)
+
+**To assign a role to the new user**:
+
+1. Select **+ Add role**.
+1. From the menu that appears, choose up to 20 roles from the list and select the **Select** button.
+1. Select the **Review + invite** button.
+
+### Review and create
+
+The final tab captures several key details from the user creation process. Review the details and select the **Invite** button if everything looks good. An email invitation is automatically sent to the user. After you send the invitation, the user account is automatically added to the directory as a guest.
 
  ![Screenshot showing the user list including the new Guest user.](media/add-users-administrator//guest-user-type.png)
 
+### External user invitations
+
+When you invite an external guest user by sending an email invitation, you can check the status of the invitation from the user's details. If they haven't redeemed their invitation, you can resend the invitation email.
+
+1. Go to **Azure AD** > **Users** and select the invited guest user.
+1. In the **My Feed** section, locate the **B2B collaboration** tile. 
+    - If the invitation state is **PendingAcceptance**, select the **Resend invitation** link to send another email and follow the prompts.
+    - You can also select the **Properties** for the user and view the **Invitation state**.
+
+![Screenshot of the My Feed section of the user overview page.](media/add-users-administrator/external-user-invitation-state.png)
+
+   > [!NOTE]
+   > Group email addresses aren’t supported; enter the email address for an individual. Also, some email providers allow users to add a plus symbol (+) and additional text to their email addresses to help with things like inbox filtering. However, Azure AD doesn’t currently support plus symbols in email addresses. To avoid delivery issues, omit the plus symbol and any characters following it up to the @ symbol.
+
 The user is added to your directory with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*, for example, *john_contoso.com#EXT#\@fabrikam.onmicrosoft.com*, where fabrikam.onmicrosoft.com is the organization from which you sent the invitations. ([Learn more about B2B collaboration user properties](user-properties.md).)
+
 ## Add guest users to a group
-If you need to manually add B2B collaboration users to a group, follow these steps:
+
+If you need to manually add B2B collaboration users to a group after the user was invited, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Search for and select **Azure Active Directory** from any page.
@@ -122,21 +178,6 @@ To add B2B collaboration users to an application, follow these steps:
     c. Choose **Select**.
     
     d. Select **Assign**.
-
-## Resend invitations to guest users
-
-If a guest user hasn't yet redeemed their invitation, you can resend the invitation email.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
-2. Search for and select **Azure Active Directory** from any page.
-3. Under **Manage**, select **Users**.
-4. In the list, select the user's name to open their user profile.
-5. Under **My Feed**, in the **B2B collaboration** tile, select the **Manage (resend invitation / reset status** link.
-6. If the user hasn't yet accepted the invitation, Select the **Yes** option to resend.
-
-    ![Screenshot showing the Resend Invite radio button.](./media/add-users-administrator/resend-invitation.png)
-
-7. In the confirmation message, select **Yes** to confirm that you want to send the user a new email invitation for redeeming their guest account. An invitation URL will be generated and sent to the user.
 
 ## Next steps
 
