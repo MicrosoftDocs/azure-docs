@@ -7,17 +7,14 @@ items:
     - name: About Onco Phenotype
       href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
      - name: Use the Onco Phenotype model
        href: get-started.md
 - name: Responsible use of AI
-  expanded: true
   items:
     - name: Data, privacy, and security
       href: ../responsible-ai/data-privacy-security.md
 - name: Concepts
-  expanded: true
   items:
      - name: Model configuration
        href: model-configuration.md
@@ -26,7 +23,6 @@ items:
      - name: Inference information
        href: inferences.md
 - name: Reference
-  expanded: true
   items:
      - name: REST API
        href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
