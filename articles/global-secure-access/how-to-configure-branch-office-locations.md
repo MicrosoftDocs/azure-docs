@@ -37,7 +37,7 @@ There are multiple ways to connect a branch location to the Microsoft network. I
 ### Create a branch location using the Entra portal
 
 1. Navigate to the Microsoft Entra portal at `https://entra.microsoft.com` and login with administrator credentials.
-1. In the left hand navigation choose **Global Secure Access*.
+1. In the left hand navigation choose **Global Secure Access**.
 1. Select **Add branch location**.
 1. Select **Add a link**.
 1. Enter the following details: 
