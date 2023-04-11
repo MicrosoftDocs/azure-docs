@@ -6,8 +6,8 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 02/24/2023
-ms.custom: event-tier1-build-2022
+ms.date: 04/10/2023
+ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Import a GraphQL API
