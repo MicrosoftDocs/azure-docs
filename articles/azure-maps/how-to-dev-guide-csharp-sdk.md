@@ -236,7 +236,7 @@ if (searchResult.Results.Count > 0)
 }
 ```
 
-The `SearchAddress` method returns results ordered by confidence score and since `searchResult.Results.First()` is used, only the coordinates of the first result is returned.
+The `SearchAddress` method returns results ordered by confidence score and since `searchResult.Results.First()` is used, only the coordinates of the first result are returned.
 
 ## Batch reverse search
 
