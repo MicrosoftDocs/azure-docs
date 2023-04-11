@@ -12,7 +12,6 @@ ms.author: rongzhang
 
 Troubleshooting Azure Kubernetes Service (AKS) cluster issues plays an important role in maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics is an intelligent, self-diagnostic experience that:
 * Helps you identify and resolve problems in your cluster. 
-* Is cloud-native.
 * Requires no extra configuration or billing cost.
  
 
@@ -26,12 +25,12 @@ To access AKS Diagnostics:
     * Referring the keywords in each tile description on the homepage.
     * Typing a keyword that best describes your issue in the search bar.
 
-![Homepage](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
+![Homepage](./media/concepts-diagnostics/aks-diagnostics-homepage.PNG)
 
 
 ## View a diagnostic report
 
-To initiate the tool and retrieve the results in a seamless manner, click on **Troubleshoot**. The left navigation pane has an _Overview_ bar that provides an overview check of your clusters. The issues that are found with this cluster will be displayed on the right panel. To obtain a comprehensive understanding of the issue, click on View details for each tile, which will provide a detailed description of:
+To initiate the tool and retrieve the results in a seamless manner, click on the tile to troubleshoot. The left navigation pane has an _Overview_ bar that provides an overview check of your clusters. The issues that are found with this cluster will be displayed on the right panel. To obtain a comprehensive understanding of the issue, click on View details for each tile, which will provide a detailed description of:
 
 * Issue summary
 * Error details
