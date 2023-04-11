@@ -7,15 +7,15 @@ ms.date: 04/11/2023
 
 # Azure Batch job and task errors
 
-Various errors can happen when you add Azure Batch jobs and tasks or when you schedule and run jobs and tasks. It's usually straightforward to detect errors that occur when you add jobs and tasks, because the API, command line, or user interface returns any failures immediately. This article covers how to check for and handle errors that occur after jobs and tasks are submitted.
+Various errors can happen when you add Azure Batch jobs and tasks or when you schedule and run jobs and tasks. It's usually straightforward to detect errors that occur when you add jobs and tasks. The API, command line, or user interface returns any failures immediately. This article covers how to check for and handle errors that occur after jobs and tasks are submitted.
 
 ## Job failures
 
 A job is a group of one or more tasks, which specify command lines to run. You can specify the following optional parameters when you add a job. These parameters influence how the job can fail.
 
-- [JobConstraints](/rest/api/batchservice/job/add#jobconstraints). You can optionally use the `maxWallClockTime` property to set the maximum amount of time a job can be active or running. If the job exceeds the `maxWallClockTime`, the job terminates with the `terminateReason` property set in the [JobExecutionInformation](/rest/api/batchservice/job/get#jobexecutioninformation).
+- [JobConstraints](/rest/api/batchservice/job/add#jobconstraints). You can optionally use the `maxWallClockTime` property to set the maximum amount of time a job can be active or running. If the job exceeds the `maxWallClockTime`, the job terminates with the `terminateReason` property set to `MaxWallClockTimeExpiry` in the [JobExecutionInformation](/rest/api/batchservice/job/get#jobexecutioninformation).
 
-- [JobPreparationTask](/rest/api/batchservice/job/add#jobpreparationtask). You can optionally specify a job preparation task to run on a node the first time it runs a task for the job. If the job preparation task fails, the task doesn't run and the job doesn't complete.
+- [JobPreparationTask](/rest/api/batchservice/job/add#jobpreparationtask). You can optionally specify a job preparation task to run on each compute node scheduled to run a job task. The node runs the job preparation task before the first time it runs a task for the job. If the job preparation task fails, the task doesn't run and the job doesn't complete.
 
 - [JobReleaseTask](/rest/api/batchservice/job/add#jobreleasetask). You can optionally specify a job release task for jobs that have a job preparation task. When a job is being terminated, the job release task runs on each pool node that ran a job preparation task. If a job release task fails, the job still moves to a `completed` state.
 
@@ -31,7 +31,7 @@ Check the following job properties in the [JobExecutionInformation](/rest/api/ba
 
 ### Job preparation tasks
 
-An instance of a [job preparation task](batch-job-prep-release.md#job-preparation-task) runs on a node the first time the node runs a task for the job. You can think of the job preparation task as a task template, with multiple instances being run, up to the number of nodes in a pool. Check the job preparation task instances to determine if there were errors.
+An instance of a [job preparation task](batch-job-prep-release.md#job-preparation-task) runs on each compute node the first time the node runs a task for the job. You can think of the job preparation task as a task template, with multiple instances being run, up to the number of nodes in a pool. Check the job preparation task instances to determine if there were errors.
 
 You can use the [Job - List Preparation and Release Task Status](/rest/api/batchservice/job/listpreparationandreleasetaskstatus) API to list the execution status of all instances of job preparation and release tasks for a specified job. As with other tasks, [JobPreparationTaskExecutionInformation](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationtaskexecutioninformation) is available with properties such as `failureInfo`, `exitCode`, and `result`.
 
@@ -71,21 +71,21 @@ Consider the impact of task failures on the job and on any task dependencies. Yo
 
 Task command lines don't run under a shell on compute nodes, so they can't natively use shell features such as environment variable expansion. To take advantage of such features, you must invoke the shell in the command line. For more information, see [Command-line expansion of environment variables](batch-compute-node-environment-variables.md#command-line-expansion-of-environment-variables).
 
-Task command line output writes to *stderr.txt* and *stdout.txt*. Your application might also write to application-specific log files. Make sure to implement comprehensive error checking for your application to promptly detect and diagnose issues.
+Task command line output writes to *stderr.txt* and *stdout.txt* files. Your application might also write to application-specific log files. Make sure to implement comprehensive error checking for your application to promptly detect and diagnose issues.
 
 If the pool node that ran a task still exists, you can get and view the log files. Several APIs allow listing and getting task files, such as [File - Get From Task](/rest/api/batchservice/file/getfromtask). You can also list and view log files for a task or pool node by using the Azure portal.
 
 1. At the top of the **Overview** page for a node, select **Upload batch logs**.
 
-   ![Screenshot of a node overview page with Upload batch logs highlighted.](media/node-page.png)
+   ![Screenshot of a node overview page with Upload batch logs highlighted.](media/batch-job-task-error-checking/node-page.png)
 
 1. On the **Upload Batch logs** page, select **Pick storage container**, select an Azure Storage container to upload to, and then select **Start upload**.
 
-   ![Screenshot of the Upload batch logs page.](media/upload-batch-logs.png)
+   ![Screenshot of the Upload batch logs page.](media/batch-job-task-error-checking/upload-batch-logs.png)
 
 1. On the storage container page, you can view, open, or download the logs.
 
-   ![Screenshot of task logs in a storage container.](media/task-logs.png)
+   ![Screenshot of task logs in a storage container.](media/batch-job-task-error-checking/task-logs.png)
 
 Because Batch pools and pool nodes are often ephemeral, with nodes being continuously added and deleted, it's best to save the log files from job runs. You can use task output files for a convenient way to save log files to Azure Storage. For more information, see [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md).
 
