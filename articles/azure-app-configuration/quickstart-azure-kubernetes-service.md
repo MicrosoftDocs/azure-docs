@@ -62,7 +62,7 @@ In this section, you will create a simple ASP.NET Core web application running i
     </style>
 
     <div class="text-center">
-        <h1 class="display-4">@Configuration["Settings:Message"]</h1>
+        <h1>@Configuration["Settings:Message"]</h1>
     </div>
     ```
 
@@ -231,9 +231,9 @@ Now that you have an application running in AKS, you'll deploy the App Configura
     ```
     
     > [!NOTE]
-    > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap that retrieves the key-values from the App Configuration store with following behavior:
+    > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap created from the data in your App Configuration store with the following behavior:
     >
-    > - The ConfigMap will fail to be created if a ConfigMap with the same name already exists in same namespace.
+    > - The ConfigMap will fail to be created if a ConfigMap with the same name already exists in the same namespace.
     > - The ConfigMap will be recreated if it's deleted by any other means.
     > - The ConfigMap will be overwritten based on the data in your App Configuration store at the moment if it's modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
