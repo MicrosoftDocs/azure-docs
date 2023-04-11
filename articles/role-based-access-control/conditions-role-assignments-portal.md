@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/24/2022
+ms.date: 04/11/2023
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -107,13 +107,16 @@ Once you have the Add role assignment condition page open, you can review the ba
 
 1. In the **Attribute source** list, select where the attribute can be found.
 
+    - **Environment** (preview) indicates that the attribute is associated with the network environment over which the resource is accessed, such as a private link, or the current date and time.
     - **Resource** indicates that the attribute is on the resource, such as container name.
     - **Request** indicates that the attribute is part of the action request, such as setting the blob index tag.
-    - **Principal** indicates that the attribute is an Azure AD custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.
+    - **Principal** (preview) indicates that the attribute is an Azure AD custom security attribute principal, such as a user, enterprise application (service principal), or managed identity.
 
 1. In the **Attribute** list, select an attribute for the left side of the expression.
 
-    Depending on the attribute you select, boxes might be added to specify additional attribute details. For more information, see [Attributes](conditions-format.md#attributes).
+    For more information about supported attribute sources and individual attributes, see [Attributes](conditions-format.md#attributes).
+
+    Depending on the attribute you select, boxes might be added to specify additional attribute details or operators. For example, some attributes support [the *Exists* function operator](conditions-format.md#exists).
 
 1. In the **Operator** list, select an operator.
 
