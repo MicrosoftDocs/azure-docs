@@ -89,6 +89,20 @@ To reenable discovery of the environmental variables, apply the same process you
 - name: AZMON_COLLECT_ENV  
   value: "True"  
 ```  
+## Semantic version update of container insights agent version
+
+Container insights has shifted the image version and naming convention to semver format to meet the following requirement for AKS Partner Addons: 
+
+1. If added functionality is independent of Kubernetes version, the addons will upgrade for all clusters. 
+2. If it’s coupled with Kubernetes version, the addons will upgrade for the clusters in supported Kubernetes versions. 
+
+Semver is a universal software versioning schema which is defined in the format MAJOR.MINOR.PATCH, which follows the following constraints: 
+
+1. Increment the MAJOR version when you make incompatible API changes. 
+2. Increment the MINOR version when you add functionality in a backwards compatible manner. 
+3. Increment the PATCH version when you make backwards compatible bug fixes. 
+
+With the rise of Kubernetes and the OSS ecosystem, container insights migrate to use semver image following the K8s recommended standard wherein with each minor version introduced, all breaking changes were required to be publicly documented with each new Kubernetes release.  
 
 ## Next steps
 
