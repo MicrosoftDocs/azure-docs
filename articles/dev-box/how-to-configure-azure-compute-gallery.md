@@ -57,7 +57,8 @@ The image version must meet the following requirements:
     :::image type="content" source="media/how-to-configure-azure-compute-gallery/image-definition.png" alt-text="Screenshot that shows Windows 365 image requirement settings.":::
 
 > [!NOTE]
-> If you have existing images that don't meet the Windows 365 image requirements, those images won't be listed for image creation.
+> - Dev Box image requirements exceed [Windows 365 image requirements](/windows-365/enterprise/device-images) and include settings to optimize dev box creation time and performance. 
+> - Images that do not meet Windows 365 requirements will not be listed for creation.
 
 ## Provide permissions for services to access a gallery
 
