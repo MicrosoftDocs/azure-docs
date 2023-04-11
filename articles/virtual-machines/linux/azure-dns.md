@@ -64,7 +64,7 @@ Some Linux distributions do not include caching by default. We recommend that yo
 
 Several different DNS caching packages, such as dnsmasq, are available. Here are the steps to install dnsmasq on the most common distributions:
 
-# [Ubuntu](#ubuntu)
+# [Ubuntu](#tab/ubuntu)
 
 1. Install the dnsmasq package:
 
@@ -84,7 +84,7 @@ sudo systemctl enable dnsmasq.service
 sudo systemctl start dnsmasq.service
 ```
 
-# [SUSE](#sles)
+# [SUSE](#tab/sles)
 
 1. Install the dnsmasq package:
 
@@ -111,7 +111,7 @@ sudo systemctl start dnsmasq.service
 sudo netconfig update
 ```
 
-# [CentOS/RHEL](#rhel)
+# [CentOS/RHEL](#tab/rhel)
 
 1. Install the dnsmasq package:
 
