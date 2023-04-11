@@ -618,7 +618,13 @@ items:
           - name: Download blobs
             href: storage-blob-download.md
           - name: Copy blobs
-            href: storage-blob-copy.md
+            items:
+            - name: Overview
+              href: storage-blob-copy.md
+            - name: Copy from a source object URL
+              href: storage-blob-copy-url-dotnet.md
+            - name: Copy with asynchronous scheduling
+              href: storage-blob-copy-async-dotnet.md
           - name: List blobs
             href: storage-blobs-list.md
           - name: Delete and restore blobs
