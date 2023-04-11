@@ -50,6 +50,7 @@ The image version must meet the following requirements:
       For more information, see: [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
 - Single-session virtual machine (VM) images. (Multiple-session VM images aren't supported.)
 - No recovery partition.
+    - For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size. The OS disk size is automatically adjusted to the size specified in the SKU description of the Windows 365 license.
 - The image definition must have [trusted launch enabled as the security type](../virtual-machines/trusted-launch.md). You configure the security type when you create the image definition.
 
