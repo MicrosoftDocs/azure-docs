@@ -21,7 +21,7 @@ In the following scenario, we examine the Bicep for:
 
 The `checkout` publisher is a headless service that runs indefinitely and never scales down to zero. 
 
-We do this by setting the `minReplicas` to "1", which ensures the container app doesn't follow the default behavior. 
+Below, we've set the `minReplicas` to "1", which ensures the container app doesn't follow the default behavior. 
 
 ```bicep
 resource checkout 'Microsoft.App/containerApps@2022-03-01' = {
@@ -216,7 +216,7 @@ metadata: {
 }
 ```
 
-This property tells KEDA how many messages each instance of our application can process at the same time. Since the application is single-threaded, we'd normally set this value to 1, resulting in KEDA scaling up our application to match the number of messages waiting in the queue. For example, if 5 messages are waiting, KEDA will scale our app up to 5 instances. In our scenario, we set a `maxReplicas` value of 10, so KEDA scales upt to 10 instances.
+This property tells KEDA how many messages each instance of our application can process at the same time. Since the application is single-threaded, we'd normally set this value to 1, resulting in KEDA scaling up our application to match the number of messages waiting in the queue. For example, if five messages are waiting, KEDA scales our app up to five instances. In our scenario, we set a `maxReplicas` value of 10, so KEDA scales up to 10 instances.
 
 ## Next steps
 
