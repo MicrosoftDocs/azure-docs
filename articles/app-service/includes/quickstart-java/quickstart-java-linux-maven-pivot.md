@@ -35,9 +35,9 @@ If Maven isn't your preferred development tool, check out our similar tutorials 
 
 [!INCLUDE [cloud-shell-try-it-no-header.md](../../../../includes/cloud-shell-try-it-no-header.md)]
 
-### Install Java 17 if necessary
+### Install Java 17, if desired
 
-If you intend to run the Java SE sections of this quickstart, the sample app requires Java 17. The steps in this section show you how to check if your Cloud Shell instance supports Java 17, and how to install it if not.
+If you intend to run the Java SE sections of this quickstart, the sample app requires Java 17. The steps in this section show you how to check if your Cloud Shell instance supports Java 17, and how to install it does not.
 
 1. In the Azure Cloud Shell, enter `java -version`. If the output includes a version 17 or later, skip the rest of the steps in this section.
 1. Enter these commands to download and extract the Microsoft build of OpenJDK.
@@ -51,12 +51,12 @@ If you intend to run the Java SE sections of this quickstart, the sample app req
    > [!TIP]
    > You must do this every time you open a new cloud shell, because the environment variables do not persist across cloud shell invocations. However, the files do persist.
 
-  ```azurecli-interactive
-  cd jdk-17*
-  export JAVA_HOME=`pwd`
-  export PATH=${JAVA_HOME}/bin:$PATH
-  java -version
-  ```
+   ```azurecli-interactive
+   cd jdk-17*
+   export JAVA_HOME=`pwd`
+   export PATH=${JAVA_HOME}/bin:$PATH
+   java -version
+   ```
   
 You should see output stating the version of Java is 17 or greater. If not, troubleshoot and resolve the problem before continuing.
 
