@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with xMatters OnDemand | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with xMatters OnDemand'
 description: Learn how to configure single sign-on between Azure Active Directory and xMatters OnDemand.
 services: active-directory
 author: jeevansd

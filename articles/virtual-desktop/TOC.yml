@@ -44,7 +44,7 @@
 - name: Concepts
   items:
   - name: Azure Virtual Desktop terminology
-    href: environment-setup.md
+    href: terminology.md
   - name: Deploy
     items:
     - name: Session hosts
@@ -159,6 +159,8 @@
         href: compare-remote-desktop-clients.md
       - name: Supported RDP properties
         href: rdp-properties.md
+      - name: Uniform Resource Identifier schemes
+        href: uri-scheme.md
     - name: Multimedia redirection
       href: multimedia-redirection-intro.md
     - name: Printing using Universal Print
@@ -199,7 +201,7 @@
             href: app-attach-azure-portal.md
           - name: Set up MSIX app attach with PowerShell
             href: app-attach-powershell.md
-          - name: Create PowerShell scripts
+          - name: Test and troubleshoot MSIX packages
             href: app-attach.md
           - name: Prepare an MSIX image
             href: app-attach-image-prep.md
@@ -207,6 +209,8 @@
             href: app-attach-file-share.md
           - name: Set up the MSIXMGR tool
             href: app-attach-msixmgr.md
+          - name: MSIXMGR tool parameters
+            href: msixmgr-tool-syntax-description.md 
         - name: Use Microsoft Teams
           href: teams-on-avd.md
         - name: Set up Windows Sandbox
@@ -363,11 +367,13 @@
           href: ./users/client-features-microsoft-store.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json
       - name: Configure device redirections
         href: configure-device-redirections.md
+      - name: Install the Remote Desktop client for Windows on a per-user basis
+        href: install-client-per-user.md
     - name: Set up email discovery
       href: /windows-server/remote/remote-desktop-services/rds-email-discovery?context=/azure/virtual-desktop/context/context
     - name: Customize feed
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Set up multimedia redirection (preview)
+    - name: Set up multimedia redirection
       href: multimedia-redirection.md
   - name: Monitor
     items:

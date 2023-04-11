@@ -40,7 +40,7 @@ In the [portal](https://portal.azure.com) page for your Azure Cognitive Search s
 
 ## 1 - Set up Application Insights
 
-Select an existing Application Insights resource or [create one](../azure-monitor/app/create-new-resource.md) if you don't have one already. If you use the Search Traffic Analytics page, you can copy the instrumentation key your application needs to connect to Application Insights.
+Select an existing Application Insights resource or [create one](/previous-versions/azure/azure-monitor/app/create-new-resource) if you don't have one already. If you use the Search Traffic Analytics page, you can copy the instrumentation key your application needs to connect to Application Insights.
 
 Once you have an Application Insights resource, you can follow [instructions for supported languages and platforms](../azure-monitor/app/app-insights-overview.md#supported-languages) to register your app. Registration is simply adding the instrumentation key from Application Insights to your code, which sets up the association. You can find the key in the portal, or from the Search Traffic Analytics page when you select an existing resource.
 

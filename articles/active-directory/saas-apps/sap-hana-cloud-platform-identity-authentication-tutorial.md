@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP Cloud Identity Services | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SAP Cloud Identity Services'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP Cloud Identity Services.
 services: active-directory
 author: jeevansd

@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 03/16/2022
-ms.custom: template-quickstart
+ms.date: 04/10/2023
+ms.custom: template-quickstart, devx-track-azurecli
 ---
 
 # Quickstart: Create a basic public load balancer using the Azure CLI

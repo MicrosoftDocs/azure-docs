@@ -2,7 +2,7 @@
 title: Back up SAP HANA System Replication databases on Azure VMs (preview)    
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
-ms.date: 12/23/2022
+ms.date: 03/08/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: jyothisuri
@@ -78,7 +78,7 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    
    If the password of this custom backup key expires, it could lead to the backup and restore operations failure.
 
-1. Create the same customer backup user (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
+1. Create the same *Custom backup user* (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
 
 1. Run the SAP HANA backup configuration script (preregistration script) in the VMs where HANA is installed as the root user. This script sets up the HANA system for backup. For more information about the script actions, see the [What the preregistration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
 

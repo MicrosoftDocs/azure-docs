@@ -8,7 +8,6 @@ ms.date: 09/01/2022
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
-ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments

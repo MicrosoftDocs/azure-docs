@@ -2,8 +2,8 @@
 title: Create Data Registry (preview)
 titleSuffix: Azure Maps
 description: Learn how to create Data Registry.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 2/14/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -12,7 +12,7 @@ services: azure-maps
 
 # How to create data registry (preview)
 
-The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing Service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
+The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
 
 ## Prerequisites
 
@@ -22,14 +22,14 @@ The [data registry] service enables you to register data content in an Azure Sto
 
 >[!IMPORTANT]
 >
-> - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services](how-to-manage-creator.md#access-to-creator-services).
+> - This article uses the `us.atlas.microsoft.com` geographical URL. If your account wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator services](how-to-manage-creator.md#access-to-creator-services).
 > - In the URL examples in this article you will need to replace:
 >   - `{Azure-Maps-Subscription-key}` with your Azure Maps [subscription key].
 >   - `{udid}` with the user data ID of your data registry. For more information, see [The user data ID](#the-user-data-id).
 
 ## Prepare to register data in Azure Maps
 
-Before you can register data in Azure Maps, you need to create an environment containing all of the required components. You need a storage account with one or more containers that hold the files you wish to register and managed identities for authentication. This section explains how to prepare your Azure environment to register data in Azure Maps.
+Before you can register data in Azure Maps, you need to create an environment containing all required components. You need a storage account with one or more containers that hold the files you wish to register and managed identities for authentication. This section explains how to prepare your Azure environment to register data in Azure Maps.
 
 ### Create managed identities
 
@@ -317,7 +317,7 @@ The data returned when running the list request is similar to the data provided 
 
 ## Get content from a data registry
 
-Once you've uploaded one or more files to an Azure storage account, created and Azure Maps datastore to link to those files, then registered them using the [register][register or replace] API, you can access the data contained in the files.
+Once you've uploaded one or more files to an Azure storage account, created and Azure Maps datastore to link to those files, then registered them using the [register] API, you can access the data contained in the files.
 
 Use the `udid` to get the content of a file registered in an Azure Maps account:
 
@@ -363,14 +363,14 @@ When you register a file in Azure Maps using the data registry API, an MD5 hash 
 
 [data registry]: /rest/api/maps/data-registry
 [list]: /rest/api/maps/data-registry/list
-[Register Or Replace]: /rest/api/maps/data-registry/register-or-replace
+[Register]: /rest/api/maps/data-registry/register-or-replace
 [Get operation]: /rest/api/maps/data-registry/get-operation
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [storage account overview]: /azure/storage/common/storage-account-overview
 [create storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [managed identity]: /azure/active-directory/managed-identities-azure-resources/overview
-[subscription key]: quick-demo-map-app.md#get-the-primary-key-for-your-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Azure portal]: https://portal.azure.com/
 [Visual Studio]: https://visualstudio.microsoft.com/downloads/
 [geographic scope]: geographic-scope.md

@@ -168,7 +168,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | automationaccounts | **Yes** | **Yes** | **Yes** (using template) <br/><br/> [Using geo-replication](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |
+> | automationaccounts | **Yes** | **Yes** | **Yes** [PowerShell script](../../automation/automation-disaster-recovery.md)  |
 > | automationaccounts / configurations | **Yes** | **Yes** | No |
 > | automationaccounts / runbooks | **Yes** | **Yes** | No |
 
@@ -1348,7 +1348,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | trafficmanagerprofiles / heatmaps | No | No | No |
 > | trafficmanagerusermetricskeys | No | No | No |
 > | virtualhubs | No | No | No |
-> | virtualnetworkgateways | **Yes** | **Yes** - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
+> | virtualnetworkgateways | **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md)| **Yes** except Basic SKU - see [Networking move guidance](./move-limitations/networking-move-limitations.md) | No |
 > | virtualnetworks | **Yes** | **Yes** | No |
 > | virtualnetworktaps | No | No | No |
 > | virtualrouters | **Yes** | **Yes** | No |

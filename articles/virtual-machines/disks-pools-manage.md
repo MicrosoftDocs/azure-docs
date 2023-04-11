@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 02/28/2023
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage an Azure disk pool (preview)

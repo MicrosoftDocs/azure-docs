@@ -216,9 +216,9 @@ To log web service request information, add `print` statements to your score.py 
 ## Export data for retention and processing
 
 >[!Important]
-> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](../../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
+> Azure Application Insights only supports exports to blob storage. For more information on the limits of this implementation, see [Export telemetry from App Insights](/previous-versions/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Use Application Insights' [continuous export](../../azure-monitor/app/export-telemetry.md) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
+Use Application Insights' [continuous export](/previous-versions/azure/azure-monitor/app/export-telemetry) to export data to a blob storage account where you can define retention settings. Application Insights exports the data in JSON format. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Continuous export":::
 

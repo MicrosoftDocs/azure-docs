@@ -4,6 +4,7 @@ description: This article provides process and technical guidance for customers 
 ms.date: 03/06/2023
 ms.topic: how-to
 ms.service: machine-configuration
+ms.custom: devx-track-azurepowershell
 ms.author: timwarner
 author: timwarner-msft
 ---

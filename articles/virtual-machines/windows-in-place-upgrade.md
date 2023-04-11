@@ -4,9 +4,9 @@ description: This article describes how to do an in-place upgrade for VMs runnin
 services: virtual-machines
 author: cynthn
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ms.date: 01/19/2023
 ms.author: cynthn
-
 ---
 
 # In-place upgrade for VMs running Windows Server in Azure

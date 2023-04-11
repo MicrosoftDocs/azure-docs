@@ -17,6 +17,8 @@ ms.custom: devx-track-python, event-tier1-build-2022, ignite-2022
 
 In this article, learn how to troubleshoot common problems you may encounter with environment image builds.
 
+We are actively seeking your feedback! If you navigated to this page via your Environment Definition or Build Failure Analysis logs, we'd like to know if the feature was helpful to you, or if you'd like to report a failure scenario that isn't yet covered by our analysis. You can also leave feedback on this documentation. Leave your thoughts [here](https://aka.ms/azureml/environment/log-analysis-feedback). 
+
 ## Azure Machine Learning environments
 
 Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens.
@@ -1195,6 +1197,25 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 * [Enable Azure Container Registry (ACR)](https://aka.ms/azureml/environment/acr-private-endpoint)
 * [How To Use Environments](https://aka.ms/azureml/environment/how-to-use-environments)
 
+### Unexpected Dockerfile Format
+<!--issueDescription-->
+This issue can happen when your Dockerfile is formatted incorrectly.
+
+**Potential causes:**
+* Your Dockerfile contains invalid syntax
+* Your Dockerfile contains characters that aren't compatible with UTF-8
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure Dockerfile is formatted correctly and is encoded in UTF-8
+
+**Resources**
+* [Dockerfile format](https://docs.docker.com/engine/reference/builder/#format)
+
 ## *Docker pull issues*
 ### Failed to pull Docker image
 <!--issueDescription-->
@@ -1330,7 +1351,7 @@ Ensure that you've spelled all listed packages correctly and that you've pinned 
 
 ### Missing command
 <!--issueDescription-->
-This issue can happen when a command isn't recognized during an image build.
+This issue can happen when a command isn't recognized during an image build or in the specified Python package requirement.
 
 **Potential causes:**
 * You didn't spell the command correctly
@@ -1717,6 +1738,48 @@ pip install --ignore-installed [package]
 
 Try creating a separate environment using conda
 
+### Invalid operator
+<!--issueDescription-->
+This issue can happen when pip fails to install a Python package due to an invalid operator found in the requirement.
+
+**Potential causes:**
+* There's an invalid operator found in the Python package requirement
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that you've spelled the package correctly and that the specified version exists
+* Ensure that your package version specifier is formatted correctly and that you're using valid comparison operators. See [Version specifiers](https://peps.python.org/pep-0440/#version-specifiers)
+* Replace the invalid operator with the operator recommended in the error message
+
+### No matching distribution 
+<!--issueDescription-->
+This issue can happen when there's no package found that matches the version you specified.
+
+**Potential causes:**
+* You spelled the package name incorrectly
+* The package and version can't be found on the channels or feeds that you specified
+* The version you specified doesn't exist
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that you've spelled the package correctly and that it exists
+* Ensure that the version you specified for the package exists
+* Run `pip install --upgrade pip` and then run the original command again
+* Ensure the pip you're using can install packages for the desired Python version. See [Should I use pip or pip3?](https://stackoverflow.com/questions/61664673/should-i-use-pip-or-pip3)
+
+**Resources**
+* [Running Pip](https://pip.pypa.io/en/stable/user_guide/#running-pip)
+* [pypi](https://aka.ms/azureml/environment/pypi)
+* [Installing Python Modules](https://docs.python.org/3/installing/index.html)
+
 ## *Make issues*
 ### No targets specified and no makefile found
 <!--issueDescription-->
@@ -1729,6 +1792,7 @@ This issue can happen when you haven't specified any targets and no makefile is 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
 * Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
 
 **Troubleshooting steps**
 * Ensure that you've spelled the makefile correctly
@@ -1740,7 +1804,58 @@ This issue can happen when you haven't specified any targets and no makefile is 
 
 **Resources**
 * [GNU Make](https://www.gnu.org/software/make/manual/make.html)
+
+## *Copy issues*
+### File not found 
+<!--issueDescription-->
+This issue can happen when Docker fails to find and copy a file.
+
+**Potential causes:**
+* Source file not found in Docker build context
+* Source file excluded by `.dockerignore`
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
 <!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that the source file exists in the Docker build context
+* Ensure that the source and destination paths exist and are spelled correctly
+* Ensure that the source file isn't listed in the `.dockerignore` of the current and parent directories
+* Remove any trailing comments from the same line as the `COPY` command
+
+**Resources**
+* [Docker COPY](https://docs.docker.com/engine/reference/builder/#copy)
+* [Docker Build Context](https://docs.docker.com/engine/context/working-with-contexts/)
+
+## *Apt-Get Issues*
+### Failed to run apt-get command
+<!--issueDescription-->
+This issue can happen when apt-get fails to run.
+
+**Potential causes:**
+* Network connection issue, which could be temporary
+* Broken dependencies related to the package you're running apt-get on
+* You don't have the correct permissions to use the apt-get command
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Check your network connection and DNS settings
+* Run `apt-get check` to check for broken dependencies
+* Run `apt-get update` and then run your original command again
+* Run the command with the `-f` flag, which will try to resolve the issue coming from the broken dependencies
+* Run the command with `sudo` permissions, such as `sudo apt-get install <package-name>`
+
+**Resources**
+* [Package management with APT](https://help.ubuntu.com/community/AptGet/Howto)
+* [Ubuntu Apt-Get](https://manpages.ubuntu.com/manpages/xenial/man8/apt-get.8.html)
+* [What to do when apt-get fails](https://www.linux.com/news/what-do-when-apt-get-fails/#:~:text=Check%20the%20broken%20dependencies%E2%80%99%20availability.%20Run%20apt-get%20update,adding%20another%20source%2C%20then%20run%20apt-get%20install%20again)
+* [apt-get command in Linux with Examples](https://www.geeksforgeeks.org/apt-get-command-in-linux-with-examples/)
 
 ## *Docker push issues*
 ### Failed to store Docker image
@@ -1769,6 +1884,51 @@ If you aren't using a virtual network, or if you've configured it correctly, tes
 * Log in to your ACR using `docker login <myregistry.azurecr.io> -u "username" -p "password"`
 * For an image "helloworld", test pushing to your ACR by running `docker push helloworld`
 * See [Quickstart: Build and run a container image using Azure Container Registry Tasks](../container-registry/container-registry-quickstart-task-cli.md)
+
+## *Unknown Docker command*
+### Unknown Docker instruction
+<!--issueDescription-->
+This issue can happen when Docker doesn't recognize an instruction in the Dockerfile.  
+
+**Potential causes:**
+* Unknown Docker instruction being used in Dockerfile
+* Your Dockerfile contains invalid syntax
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**  
+* Ensure that the Docker command is valid and spelled correctly
+* Ensure there's a space between the Docker command and arguments
+* Ensure there's no unnecessary whitespace in the Dockerfile
+* Ensure Dockerfile is formatted correctly and is encoded in UTF-8
+
+**Resources**
+* [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+
+## *Command Not Found*
+### Command not recognized
+<!--issueDescription-->
+This issue can happen when the command being run isn't recognized.
+
+**Potential causes:**
+* You haven't installed the command via your Dockerfile before you try to execute the command
+* You haven't included the command in your path, or you haven't added it to your path
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+Ensure that you have an installation step for the command in your Dockerfile before trying to execute the command
+* Review this [example](https://stackoverflow.com/questions/67186341/make-install-in-dockerfile)
+
+If you've tried installing the command and are experiencing this issue, ensure that you've added the command to your path 
+* Review this [example](https://stackoverflow.com/questions/27093612/in-a-dockerfile-how-to-update-path-environment-variable)
+* Review how to set [environment variables in a Dockerfile](https://docs.docker.com/engine/reference/builder/#env)
 
 ## *Miscellaneous build issues*
 ### Build log unavailable

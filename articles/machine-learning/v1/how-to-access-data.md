@@ -18,7 +18,7 @@ ms.custom: UpdateFrequency5, contperf-fy21q1, devx-track-python, data4ml, event-
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v1](how-to-access-data.md)
-> * [v2 (current version)](../how-to-datastore.md)
+> * [v2 (current version)](../how-to-datastore.md?view=azureml-api-2&preserve-view=true)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]

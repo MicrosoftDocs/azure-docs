@@ -5,7 +5,8 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: resource-mover
 ms.topic: whats-new 
-ms.date: 02/01/2023
+ms.custom: UpdateFrequency.5
+ms.date: 03/09/2023
 ---
 
 # What's new in Resource Mover
@@ -15,9 +16,9 @@ The [Azure Resource Mover](overview.md) service is updated and improved on an on
 
 ## What's new for Resource Mover
 
-### Updates (month-year)
+### Updates (September-2020)
 
-Features added this month are summarized in the following table:
+Azure Resource Mover is now in public preview.
 
 
 ## Next steps

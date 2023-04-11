@@ -8,7 +8,6 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/20/2023
 ms.author: mbaldwin 
-ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure Key Vault firewalls and virtual networks
@@ -27,7 +26,7 @@ By default, when you create a new key vault, the Azure Key Vault firewall is dis
 
 ### Key Vault Firewall Enabled (Trusted Services Only)
 
-When you enable the Key Vault Firewall, you'll be given an option to 'Allow Trusted Microsoft Services to bypass this firewall.' The trusted services list does not cover every single Azure service. For example, Azure DevOps isn't on the trusted services list. **This does not imply that services that do not appear on the trusted services list not trusted or insecure.** The trusted services list encompasses services where Microsoft controls all of the code that runs on the service. Since users can write custom code in Azure services such as Azure DevOps, Microsoft does not provide the option to create a blanket approval for the service. Furthermore, just because a service appears on the trusted service list, doesn't mean it is allowed for all scenarios.
+When you enable the Key Vault Firewall, you'll be given an option to 'Allow Trusted Microsoft Services to bypass this firewall.' The trusted services list does not cover every single Azure service. For example, Azure DevOps isn't on the trusted services list. **This does not imply that services that do not appear on the trusted services list are not trusted or insecure.** The trusted services list encompasses services where Microsoft controls all of the code that runs on the service. Since users can write custom code in Azure services such as Azure DevOps, Microsoft does not provide the option to create a blanket approval for the service. Furthermore, just because a service appears on the trusted service list, doesn't mean it is allowed for all scenarios.
 
 To determine if a service you are trying to use is on the trusted service list, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#trusted-services).
 For how-to guide, follow the instructions here for [Portal, Azure CLI and PowerShell](how-to-azure-key-vault-network-security.md)

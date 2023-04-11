@@ -5,7 +5,6 @@ metadata:
   services: database-migration
   author: croblesm
   ms.author: roblescarlos
-  manager: craigg
   ms.reviewer: craigg
   ms.service: dms
   ms.workload: data-services

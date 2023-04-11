@@ -64,8 +64,7 @@ Follow these steps to [enable these Azure Marketplace images available to lab cr
 
 1. When you create a lab with the **Small GPU (Visualization)** size, follow these steps to [set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
-    > [!WARNING]
-    > The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience and meets [Adobe’s system requirements for each application](https://helpx.adobe.com/creative-cloud/system-requirements.html).  Make sure to choose Small GPU (Visualization) not Small GPU (Compute).
+    The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience and meets [Adobe’s system requirements for each application](https://helpx.adobe.com/creative-cloud/system-requirements.html).  Make sure to choose Small GPU (Visualization) not Small GPU (Compute).
 
 ## Template machine configuration
 

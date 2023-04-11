@@ -1325,7 +1325,7 @@ productDirectory:
       azureCategories:
         - networking
         - security
-      url: ./ddos-protection/ddos-protection-overview.md
+      url: ddos-protection/index.yml
     # Card
     - title: Azure DNS
       summary: Host your DNS domain in Azure
@@ -1548,6 +1548,7 @@ productDirectory:
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
+        - 5g-space
       url: orbital/index.yml
     # Card
     - title: Azure Web PubSub

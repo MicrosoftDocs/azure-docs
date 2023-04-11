@@ -20,7 +20,7 @@ In this article, you learn how to set up a virtual machine template in a lab wit
 
 To set up this lab, you need an Azure subscription and lab account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-When you get an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+When you get an Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./quick-create-resources.md). You can also use an existing lab plan.
 
 ### Lab plan settings
 

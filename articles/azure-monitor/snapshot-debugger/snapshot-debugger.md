@@ -7,7 +7,7 @@ ms.reviewer: charles.weininger
 reviewer: cweining
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devdivchpfy22
-ms.date: 08/18/2022
+ms.date: 04/10/2023
 ---
 
 # Debug snapshots on exceptions in .NET apps
@@ -28,9 +28,9 @@ You can view debug snapshots in the portal to see the call stack and inspect var
 
 Snapshot collection is available for:
 
-* .NET Framework and ASP.NET applications running .NET Framework [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or later.
-* .NET Core and ASP.NET Core applications running .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) on Windows.
-* .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications on Windows.
+- .NET Framework and ASP.NET applications running .NET Framework 4.6.2 and newer versions.
+- .NET and ASP.NET applications running .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) and newer versions on Windows.
+- .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) (and newer versions) applications on Windows.
 
 We don't recommend using .NET Core versions prior to LTS since they're out of support.
 
@@ -40,13 +40,13 @@ The following environments are supported:
 * [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running OS family 4 or later
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running on Windows Server 2012 R2 or later
-* [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later
+* [Azure Virtual Machines and Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later
 * [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) running Windows Server 2012 R2 or later or Windows 8.1 or later
 
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms or UWP) aren't supported.
 
-If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Troubleshooting guide](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
+If you've enabled Snapshot Debugger but aren't seeing snapshots, check our [Troubleshooting guide](snapshot-debugger-troubleshoot.md).
 
 ## Grant permissions
 
@@ -107,7 +107,6 @@ If there's a match, then a snapshot of the running process is created. The snaps
 The main process continues to run and serve traffic to users with little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader creates a minidump and uploads it to Application Insights along with any relevant symbol (*.pdb*) files.
 
 > [!TIP]
-
 > * A process snapshot is a suspended clone of the running process.
 > * Creating the snapshot takes about 10 to 20 milliseconds.
 > * The default value for `ThresholdForSnapshotting` is 1. This is also the minimum value. Therefore, your app has to trigger the same exception **twice** before a snapshot is created.
@@ -151,7 +150,7 @@ Enable Application Insights Snapshot Debugger for your application:
 * [Azure Function](snapshot-debugger-function-app.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Virtual Machines and virtual machine scale sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines and Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Beyond Application Insights Snapshot Debugger:

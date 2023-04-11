@@ -47,15 +47,13 @@ You can change user passwords or recover access to privileged users on both the 
 
 ## How do I activate the sensor and on-premises management console
 
-For information on how to activate your sensor, see [Sign in and activate the sensor](how-to-activate-and-set-up-your-sensor.md#sign-in-and-activate-the-sensor).
-
-For information on how to activate your on-premises management console, see [Activate the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#activate-the-on-premises-management-console).
+For information on how to activate your on-premises management console, see [Activate and set up an on-premises management console](ot-deploy/activate-deploy-management.md).
 
 ## How to change the network configuration
 
 Change network configuration settings before or after you activate your sensor using either of the following options:
 
-- **From the sensor UI**: [Update the sensor network configuration](how-to-manage-individual-sensors.md#update-the-sensor-network-configuration)
+- **From the sensor UI**: [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration)
 - **From the sensor CLI**: [Network configuration](cli-ot-sensor.md#network-configuration)
 
 For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md), [Getting started with advanced CLI commands](references-work-with-defender-for-iot-cli-commands.md), and [CLI command reference from OT network sensors](cli-ot-sensor.md).
@@ -64,9 +62,9 @@ For more information, see [Activate and set up your sensor](how-to-activate-and-
 
 After installing the software for your sensor or on-premises management console, you'll want to perform the [Post-installation validation](ot-deploy/post-install-validation-ot-software.md).
 
-You can also use our [UI and CLI tools](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) to check system health and review your overall system statistics.
+You can also use our [UI and CLI tools](how-to-troubleshoot-sensor.md#check-system-health) to check system health and review your overall system statistics.
 
-For more information, see [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
+For more information, see [Troubleshoot the sensor](how-to-troubleshoot-sensor.md) and [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md).
 
 ## Next steps
 

@@ -70,14 +70,14 @@ Supported distributions and versions:
 
 * **Azure Linux Agent version 2.2.0 or later**. Most Azure VM Linux gallery images include version 2.2.7 or later. Run `/usr/sbin/waagent -version` to confirm the version installed on the VM. If the VM is running an older version, [Update the guest agent](./update-linux-agent.md).
 * The **Azure CLI**. If necessary, [set up the Azure CLI](/cli/azure/install-azure-cli) environment on your machine.
-* The **wget command**. If you don't already have it, run `sudo apt-get install wget`.
+* The **wget command**. If you don't already have it, install it using the corresponding package manager.
 * An existing **Azure subscription**. 
 * An existing **general purpose storage account** to store the data. General purpose storage accounts must support table storage. A blob storage account won't work.
 * **Python 2**.
 
 ### Python requirement
 
-The Linux diagnostic extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, you must install it. The following sample commands install Python 2 on various distributions:	
+The Linux diagnostic extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, you must install it. The following sample commands install Python 2 on various distributions:
 
 - Red Hat, CentOS, Oracle: `yum install -y python2`
 - Ubuntu, Debian: `apt-get install -y python2`
@@ -87,13 +87,13 @@ The `python2` executable file must be aliased to *python*. Here's one method to 
 
 1. Run the following command to remove any existing aliases.
  
-    ```
+    ```bash
     sudo update-alternatives --remove-all python
     ```
 
 2. Run the following command to create the alias.
 
-    ```
+    ```bash
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
     ```
 
@@ -104,7 +104,7 @@ The sample configuration downloaded in the following examples collects a set of 
 In most cases, you should download a copy of the portal settings JSON file and customize it for your needs. Then use templates or your own automation to use a customized version of the configuration file rather than downloading from the URL each time.
 
 > [!NOTE]
-> For the following samples, fill in the correct values for the variables in the first section before you run the code. 
+> For the following samples, fill in the correct values for the variables in the first section before you run the code.
 #### Azure CLI sample
 
 ```azurecli

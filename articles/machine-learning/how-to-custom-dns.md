@@ -10,7 +10,8 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/06/2022
 ms.topic: how-to
-ms.custom: contperf-fy21q3, devx-track-azurepowershell, event-tier1-build-2022
+ms.custom: contperf-fy21q3, event-tier1-build-2022
+monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # How to use your workspace with a custom DNS server
@@ -24,16 +25,28 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 >
 > * [Virtual network overview](how-to-network-security-overview.md)
+:::moniker range="azureml-api-2"
 > * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
 > * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+> * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+> * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+:::moniker-end
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 ## Prerequisites
 
 - An Azure Virtual Network that uses [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
+:::moniker range="azureml-api-2"
 - An Azure Machine Learning workspace with a private endpoint. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+:::moniker-end
+:::moniker range="azureml-api-1"
+- An Azure Machine Learning workspace with a private endpoint. For more information, see [Create an Azure Machine Learning workspace](./v1/how-to-manage-workspace.md).
+:::moniker-end
 
 - Familiarity with using [Network isolation during training & inference](./how-to-network-security-overview.md).
 
@@ -381,7 +394,7 @@ If you cannot access the workspace from a virtual machine or jobs fail on comput
     - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
-    Navigate to the Private Endpoint to the Azure Machine Learning workspace. The workspace FQDNs will be listed on the “Overview” tab.
+    Navigate to the Private Endpoint to the Azure Machine Learning workspace. The workspace FQDNs will be listed on the "Overview" tab.
 
 1. **Access compute resource in Virtual Network topology**:
 
@@ -608,7 +621,7 @@ If after running through the above steps you are unable to access the workspace 
     - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
-    Navigate to the Private Endpoint to the Azure Machine Learning workspace. The workspace FQDNs will be listed on the “Overview” tab.
+    Navigate to the Private Endpoint to the Azure Machine Learning workspace. The workspace FQDNs will be listed on the "Overview" tab.
 
 1. **Access compute resource in Virtual Network topology**:
 
@@ -633,9 +646,16 @@ If after running through the above steps you are unable to access the workspace 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
 * [Virtual network overview](how-to-network-security-overview.md)
+:::moniker range="azureml-api-2"
 * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
 * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+:::moniker-end
+:::moniker range="azureml-api-1"
+* [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
+* [Secure the training environment](./v1/how-to-secure-training-vnet.md)
+* [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
+:::moniker-end
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 

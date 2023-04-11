@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 09/20/2022
 ms.author: evanhi
 author: MSEvanhi
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create Azure Custom Resource Provider and deploy custom resources

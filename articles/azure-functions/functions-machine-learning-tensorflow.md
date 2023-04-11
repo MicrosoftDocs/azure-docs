@@ -6,7 +6,7 @@ author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc, devx-track-python, devx-track-azurepowershell, py-fresh-zinc
+ms.custom: mvc, devx-track-python, py-fresh-zinc
 ---
 
 # Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow

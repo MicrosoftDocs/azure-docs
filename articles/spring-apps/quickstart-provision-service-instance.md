@@ -96,8 +96,8 @@ You can provision an instance of the Azure Spring Apps service using the Azure p
 
 - [JDK 17](/azure/developer/java/fundamentals/java-jdk-install)
 - An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Optionally, [Azure CLI version 2.44.0 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
-- Optionally, [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
+- (Optional) [Azure CLI version 2.44.0 or higher](/cli/azure/install-azure-cli). Install the Azure Spring Apps extension with the following command: `az extension add --name spring`
+- (Optional) [the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/).
 
 ## Provision an instance of Azure Spring Apps
 
