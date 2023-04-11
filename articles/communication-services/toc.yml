@@ -661,6 +661,7 @@ items:
       - name: Metrics overview
         href: concepts/metrics.md
   - name: Email
+    items:
     - name: Overview
       href: concepts/email/prepare-email-communication-resource.md
     - name: Concepts
