@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 03/14/2023
+ms.date: 04/12/2023
 ---
 
 # Push messages from server
@@ -68,7 +68,7 @@ This URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/h
 
 ![The diagram shows how to get client access url.](./media/quickstart-live-demo/push_messages_from_server.png)
 
-As shown in the diagram above, the client will join the hub named `myHub1`.
+As shown in the diagram above, the client joins the hub named `myHub1`.
 
 In the `subscriber` project folder, create a file named `subscribe.js` with the following code
 
@@ -93,7 +93,7 @@ await client.start();
 ```bash
 node subscribe.js
 ```
-Now this client establishes a connection with your Web PubSub resource and and is ready to receive messages pushed from your application server.
+Now this client establishes a connection with your Web PubSub resource and is ready to receive messages pushed from your application server.
 
 
 # [C#](#tab/csharp)
@@ -132,7 +132,7 @@ await client.StartAsync();
 ```bash
 dotnet run "myHub1"
 ```
-Now this client establishes a connection with your Web PubSub resource and and is ready to receive messages pushed from your application server.
+Now this client establishes a connection with your Web PubSub resource and is ready to receive messages pushed from your application server.
 
 # [Python](#tab/python)
 
@@ -346,13 +346,13 @@ let server = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, h
 server.sendToAll(process.argv[2], { contentType: "text/plain" });
 ```
 
-Note that the `server.sendToAll()` call sends a message to all connected clients in a hub.
+The `server.sendToAll()` call sends a message to all connected clients in a hub.
 
 #### Get the connection string 
 > [!Important]
 > A connection string includes authorization information required for your application to access Web PubSub service. The access key inside the connection string is similar to a root password for your service. 
 
-For this quickstart guide, we will get it from Azure portal as shown below.
+For this quickstart guide, we'll get it from Azure portal as shown below.
 ![A diagram shows how to get client access url.](./media/quickstart-live-demo/get_connection_string.png)
 
 #### Run the server program
@@ -369,12 +369,12 @@ node publish.js "Hello World"
 
 :::image type="content" source="media/quickstart-live-demo/push_messages_from_server.gif" alt-text="GIF of demonstrating an app server pushing data to connected client":::
 
-Try running the same "subscribe" program in multiple command shells to simluate more than clients. As soon as the "publish" program is run, you should see messages being delivered in real-time to all these clients.   
+Try running the same "subscribe" program in multiple command shells to stimulate more than clients. As soon as the "publish" program is run, you should see messages being delivered in real-time to all these clients.   
 
 
 # [C#](#tab/csharp)
 
-#### Ceate a project directory named `publisher` and install required dependencies:
+#### Create a project directory named `publisher` and install required dependencies:
 
 ```bash
 mkdir publisher
@@ -548,17 +548,17 @@ Message received: Hello World
 ---
 
 ## Summary
-This quickstart demonstrates how easy it is to push messages from an application server to all connected clients in a hub. Additionally, Web PubSub allows you to push messages to 
+This quickstart demonstrates how easy it's to push messages from an application server to all connected clients in a hub. Additionally, Web PubSub allows you to push messages to 
 
 > [!div class="checklist"]
 > * a subset of the clients in a **hub**
 > * a particular group in a **hub**
 > * a subset of clients in a **group**
 
-These APIs enable a wealth of use cases, allowing developers to focus on unique business logic while be assured that Web PubSub offers **low latency (<100ms)**, **high availability** and **massive scale (million+ simultanenous connections)**.  
+These APIs enable a wealth of use cases, allowing developers to focus on unique business logic while be assured that Web PubSub offers **low latency (<100ms)**, **high availability** and **massive scale (million+ simultaneous connections)**.  
 
 ## Next steps
-In the next step, we will explore how to work with the event system of Web PubSub, necessary to build complete web applications.
+In the next step, we'll explore how to work with the event system of Web PubSub, necessary to build complete web applications.
 
 > [!div class="nextstepaction"]
 > [Event notifications from clients](./quickstarts-event-notifications-from-clients.md)

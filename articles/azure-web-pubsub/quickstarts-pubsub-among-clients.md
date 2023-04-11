@@ -1,11 +1,11 @@
 ---
 title: PubSub among clients
-description: A quickstarts guide that shows to how to subsribe to messages in a group and send messages to a group without the involvement of a typical application server
+description: A quickstarts guide that shows to how to subscribe to messages in a group and send messages to a group without the involvement of a typical application server
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 03/13/2023
+ms.date: 04/12/2023
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -136,7 +136,7 @@ await client.JoinGroupAsync("group1");
 ---
 
 ## Publish a message to a group
-In the previous step, we've set up everything needed to receive messages from `group1`, now we will send messages to that group. 
+In the previous step, we've set up everything needed to receive messages from `group1`, now we send messages to that group. 
 
 # [JavaScript](#tab/javascript)
 
@@ -164,6 +164,6 @@ By using the client SDK, you now know how to
 > * **subscribe** to group messages
 > * **publish** messages to groups
 
-Next, you will learn how to **push messages in real-time** from an application server to your clients.
+Next, you learn how to **push messages in real-time** from an application server to your clients.
 > [!div class="nextstepaction"]
 > [Push message from application server](quickstarts-push-messages-from-server.md)

@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 03/13/2023
+ms.date: 04/12/2023
 ---
 
 # Event notifications from clients
@@ -13,10 +13,10 @@ ms.date: 03/13/2023
 ## Intro
 
 In the first three articles of "quickstarts", we learned two useful communication patterns using Web PubSub for real-time messaging at scale ***(million+)***.
-- **Pub/Sub** among clients which frees your application server from the complexity of managing persistent connections
+- **Pub/Sub** among clients that free your application server from the complexity of managing persistent connections
 - **Push messages** to clients from your application server as soon as new data is available
 
-In this quickstart guide, we will learn about the event system of Web PubSub so that your application server can react to events like when 
+In this quickstart guide, we learn about the event system of Web PubSub so that your application server can react to events like when 
 > [!div class="checklist"]
 > * a client is `connected`
 > * a client sends a `message`, which requires further processing 
@@ -34,7 +34,7 @@ In this quickstart guide, we will learn about the event system of Web PubSub so 
 ---
 
 ## Create the application
-Web PubSub is a standalone service to your application server. While your application retains its role as a traditional HTTP server, Web PubSub takes care of the real-time message passing between your application server and the clients. We will first create the client program and then the server program.
+Web PubSub is a standalone service to your application server. While your application retains its role as a traditional HTTP server, Web PubSub takes care of the real-time message passing between your application server and the clients. We first create the client program and then the server program.
 
 ### Create the client
 # [JavaScript](#tab/javascript)
@@ -126,12 +126,12 @@ app.use(handler.getMiddleware());
 app.listen(8080, () => console.log('Server started, listening on port 8080'));
 ```
 
-As configured in the code above, when a client connects with your Web PubSub resource, Web PubSub invokes the Webhook served by your application server at the path `/eventhandler`. Here, we simply print out the `userId` to the console when a user is connected.
+As configured in the code above, when a client connects with your Web PubSub resource, Web PubSub invokes the Webhook served by your application server at the path `/eventhandler`. Here, we simply print the `userId` to the console when a user is connected.
 
 ---
 
 ## Expose localhost
-If your run the program on your computer, it is running on `localhost` at port `8080`. For our purposes, it means your local express app cannot be reached on the internet. Consequently, Web PubSub can not invoke the Webhook served at the path `/eventhandler`.
+If your run the program on your computer, it's running on `localhost` at port `8080`. For our purposes, it means your local express app can't be reached on the internet. So, Web PubSub can't invoke the Webhook served at the path `/eventhandler`.
 
 What we need is to expose localhost to be accessible on the internet. There are several tools available for this. 
 > [!div class="checklist"]
@@ -148,18 +148,18 @@ You can download ngrok from https://ngrok.com/download
 ngrok http 8080
 ```
 #### 3. Make note of the generated URL 
-"ngrok" will output a URL like this `https://<domain-name>.ngrok.io`. Now your port `8080` is accessible on the internet.
+"ngrok" outputs a URL like this `https://<domain-name>.ngrok.io`. Now your port `8080` is accessible on the internet.
 
 ---
 
 ## Set event handler on your Web PubSub resource
-Now, we need to let your Web PubSub resource know about this Webhook URL. You can set the event handlers either from Azure Portal or Azure CLI. 
+Now, we need to let your Web PubSub resource know about this Webhook URL. You can set the event handlers either from Azure portal or Azure CLI. 
 
 # [Azure portal](#tab/portal)
-1. Select **"Settings"** from the menu and click **"Add"**
+1. Select **"Settings"** from the menu and select **"Add"**
 :::image type="content" source="media/howto-develop-eventhandler/configure-event-handler_menu.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - menu":::
 
-1. Enter a hub name. For our purposes, enter "**myHub1**" and click "**Add**"
+1. Enter a hub name. For our purposes, enter "**myHub1**" and select "**Add**"
 
 1. In the event handler page, configure the following fields
 :::image type="content" source="media/howto-develop-eventhandler/configure-event-handler_details.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - details":::
@@ -238,7 +238,7 @@ let handler = new WebPubSubEventHandler(HUB_NAME, {
 You should see both the  `userId` and the `Received message: sending custom event!` printed to the console.
 
 ## Summary
-This tutorial provides you with a basic idea of how the event system works in Web PubSub. In real-world applications, the event system can help you implement additional logic to process system and user generated events. 
+This tutorial provides you with a basic idea of how the event system works in Web PubSub. In real-world applications, the event system can help you implement more logic to process system and user generated events. 
 
 ## Next steps
 > [!div class="nextstepaction"]
