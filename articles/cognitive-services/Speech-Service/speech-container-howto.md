@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/18/2023
+ms.date: 03/02/2023
 ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -237,6 +237,8 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 # [Speech-to-text](#tab/stt)
 
+### Run the container connected to the internet 
+
 To run the standard speech-to-text container, execute the following `docker run` command:
 
 ```bash
@@ -259,7 +261,21 @@ This command:
 > To install GStreamer in a container, 
 > follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
 
-#### Diarization on the speech-to-text output
+### Run the container disconnected from the internet
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
+
+The speech-to-text container provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
+### Diarization on the speech-to-text output
 
 Diarization is enabled by default. To get diarization in your response, use `diarize_speech_config.set_service_property`.
 
@@ -284,7 +300,7 @@ Diarization is enabled by default. To get diarization in your response, use `dia
     > "Identity" mode returns `"SpeakerId": "Customer"` or `"SpeakerId": "Agent"`.
     > "Anonymous" mode returns `"SpeakerId": "Speaker 1"` or `"SpeakerId": "Speaker 2"`.
     
-#### Analyze sentiment on the speech-to-text output
+### Analyze sentiment on the speech-to-text output
 
 Starting in v2.6.0 of the speech-to-text container, you should use Language service 3.0 API endpoint instead of the preview one. For example:
 
@@ -318,7 +334,7 @@ This command:
 * Performs the same steps as the preceding command.
 * Stores a Language service API endpoint and key, for sending sentiment analysis requests.
 
-#### Phraselist v2 on the speech-to-text output
+### Phraselist v2 on the speech-to-text output
 
 Starting in v2.6.0 of the speech-to-text container, you can get the output with your own phrases, either the whole sentence or phrases in the middle. For example, *the tall man* in the following sentence:
 
@@ -469,6 +485,75 @@ ApiKey={API_KEY}
 
 Starting in v2.5.0 of the custom-speech-to-text container, you can get custom pronunciation results in the output. All you need to do is have your own custom pronunciation rules set up in your custom model and mount the model to a custom-speech-to-text container.
 
+
+### Run the container disconnected from the internet
+
+To use this container disconnected from the internet, you must first request access by filling out an application, and purchasing a commitment plan. See [Use Docker containers in disconnected environments](../containers/disconnected-containers.md) for more information.
+
+In order to prepare and configure the Custom Speech-to-Text container you will need two separate speech resources:
+
+1. A regular Azure Speech Service resource which is either configured to use a "**S0 - Standard**" pricing tier or a "**Speech to Text (Custom)**" commitment tier pricing plan. This will be used to train, download, and configure your custom speech models for use in your container.
+1. An Azure Speech Service resource which is configured to use the "**DC0 Commitment (Disconnected)**" pricing plan. This is used to download your disconnected container license file required to run the container in disconnected mode.
+
+Download the docker container and run it to get the required speech model as [described above](#get-the-container-image-with-docker-pull) using the regular Azure Speech resource. Next, you will need to download your disconnected license file.
+
+The `DownloadLicense=True` parameter in your `docker run` command will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you can't use a license file for a speech-to-text container with a form recognizer container.
+
+| Placeholder | Value | Format or example |
+|-------------|-------|---|
+| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
+| `{LICENSE_MOUNT}` | The path where the license will be downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
+| `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
+| `{API_KEY}` | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
+
+```bash
+docker run --rm -it -p 5000:5000 \ 
+-v {LICENSE_MOUNT} \
+{IMAGE} \
+eula=accept \
+billing={ENDPOINT_URI} \
+apikey={API_KEY} \
+DownloadLicense=True \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY} 
+```
+
+Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
+
+Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with `Mounts:License=`. An output mount must also be specified so that billing usage records can be written.
+
+Placeholder | Value | Format or example |
+|-------------|-------|---|
+| `{IMAGE}` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice` |
+ `{MEMORY_SIZE}` | The appropriate size of memory to allocate for your container. | `4g` |
+| `{NUMBER_CPUS}` | The appropriate number of CPUs to allocate for your container. | `4` |
+| `{LICENSE_MOUNT}` | The path where the license will be located and mounted.  | `/host/license:/path/to/license/directory` |
+| `{OUTPUT_PATH}` | The output path for logging [usage records](../containers/disconnected-containers.md#usage-records). | `/host/output:/path/to/output/directory` |
+| `{MODEL_PATH}` | The path where the model is located. | `/path/to/model/` |
+| `{CONTAINER_LICENSE_DIRECTORY}` | Location of the license folder on the container's local filesystem.  | `/path/to/license/directory` |
+| `{CONTAINER_OUTPUT_DIRECTORY}` | Location of the output folder on the container's local filesystem.  | `/path/to/output/directory` |
+
+```bash
+docker run --rm -it -p 5000:5000 --memory {MEMORY_SIZE} --cpus {NUMBER_CPUS} \ 
+-v {LICENSE_MOUNT} \ 
+-v {OUTPUT_PATH} \
+-v {MODEL_PATH} \
+{IMAGE} \
+eula=accept \
+Mounts:License={CONTAINER_LICENSE_DIRECTORY}
+Mounts:Output={CONTAINER_OUTPUT_DIRECTORY}
+```
+
+The [Custom Speech-to-Text](../speech-service/speech-container-howto.md?tabs=cstt) container provides a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
 # [Neural text-to-speech](#tab/ntts)
 
 To run the neural text-to-speech container, execute the following `docker run` command:
@@ -487,6 +572,23 @@ This command:
 * Allocates 6 CPU cores and 12 GB of memory.
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
+
+
+### Run the container disconnected from the internet
+
+[!INCLUDE [configure-disconnected-container](../containers/includes/configure-disconnected-container.md)]
+
+
+The neural text-to-speech container provide a default directory for writing the license file and billing log at runtime. The default directories are /license and /output respectively. 
+
+When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container.
+
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
+
 
 # [Speech language identification](#tab/lid)
 
@@ -518,12 +620,6 @@ Increasing the number of concurrent calls can affect reliability and latency. Fo
 ***
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container. Otherwise, the container won't start. For more information, see [Billing](#billing).
-
-## Run the container in disconnected environments
-
-You must request access to use containers disconnected from the internet. For more information, see [Request access to use containers in disconnected environments](../containers/disconnected-containers.md#request-access-to-use-containers-in-disconnected-environments).
-
-For Speech Service container configuration, see [Disconnected containers](../containers/disconnected-containers.md#speech-containers).
 
 ## Query the container's prediction endpoint
 
