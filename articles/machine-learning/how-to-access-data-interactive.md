@@ -96,7 +96,7 @@ from azureml.fsspec import AzureMachineLearningFileSystem
 # instantiate file system using following URI
 fs = AzureMachineLearningFileSystem('azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<workspace_name>/datastore/datastorename')
 
-fs.ls() # list folders/files in datastore datastorename
+fs.ls() # list folders/files in datastore 'datastorename'
 
 # output example:
 # folder1
@@ -122,6 +122,8 @@ fs.upload(lpath='data/upload_files/crime-spring.csv', rpath='data/fsspec', recur
 # you need to specify recursive as True to upload a folder
 fs.upload(lpath='data/upload_folder/', rpath='data/fsspec_folder', recursive=True, **{'overwrite': MERGE_WITH_OVERWRITE})
 ```
+`lpath` is the local path, and `rpath` is the remote path.
+If the folders you specify in `rpath` do not exist yet, we will create the folders for you.
 
 We support 3 modes for 'overwrite':
 - APPEND: if there is already a file with the same name in the destination path, will keep the original file
@@ -131,7 +133,7 @@ We support 3 modes for 'overwrite':
 ### Download files via AzureMachineLearningFileSystem
 ```python
 # you can specify recursive as False to download a file
-# downloading overwrite option is set to be MERGE_WITH_OVERWRITE
+# downloading overwrite option is determined by local system, and it is MERGE_WITH_OVERWRITE
 fs.download(rpath='data/fsspec/crime-spring.csv', lpath='data/download_files/, recursive=False)
 
 # you need to specify recursive as True to download a folder
@@ -207,7 +209,7 @@ fs = AzureMachineLearningFileSystem(uri)
 
 # append csv files in folder to a list
 dflist = []
-for path in fs.ls('/<folder>/*.parquet'):
+for path in fs.glob('/<folder>/*.parquet'):
     with fs.open(path) as f:
         dflist.append(pd.read_parquet(f))
 
