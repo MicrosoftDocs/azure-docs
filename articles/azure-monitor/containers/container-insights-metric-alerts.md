@@ -39,9 +39,9 @@ The methods currently available for creating Prometheus alert rules are Azure Re
    - [Community alerts](https://aka.ms/azureprometheus-communityalerts)
    - [Recommended alerts](https://aka.ms/azureprometheus-recommendedalerts)
 
-   For using Bicep templates to deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep).
+   For using Bicep templates to deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep) and follow the README.md file in the same folder for how to deploy.
 
-1. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md#deploy-the-sample-templates).
+2. Deploy the template by using any standard methods for installing ARM templates. For guidance, see [ARM template samples for Azure Monitor](../resource-manager-samples.md#deploy-the-sample-templates).
 
 > [!NOTE]
 > Although you can create the Prometheus alert in a resource group different from the target resource, use the same resource group as your target resource.
