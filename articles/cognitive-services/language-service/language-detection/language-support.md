@@ -137,7 +137,7 @@ If you have content expressed in a less frequently used language, you can try La
 | Tongan              | `to`          | 2020-09-01                   |
 | Turkish             | `tr`          | 2021-01-05                   |
 | Turkmen             | `tk`          | 2021-01-05                   |
-| Upper Sorbian       | `fo`          | 2022-10-01                   |
+| Upper Sorbian       | `hsb`          | 2022-10-01                   |
 | Uyghur              | `ug`          | 2022-10-01                   |
 | Ukrainian           | `uk`          |                              |
 | Urdu                | `ur`          |                              |
