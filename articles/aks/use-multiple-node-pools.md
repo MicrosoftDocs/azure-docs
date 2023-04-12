@@ -448,9 +448,9 @@ az provider register --namespace Microsoft.ContainerService
 
 Associating a node pool with an existing capacity reservation group can be done using [`az aks nodepool add`][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag". The capacity reservation group should already exist, otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated.
 
-    ```azurecli-interactive
-    az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
-    ```
+```azurecli-interactive
+az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
+```
 
 Associating a system node pool with an existing capacity reservation group can be done using [`az aks create`][az-aks-create] command. If the capacity reservation group specified doesn't exist, then a warning is issued and the cluster gets created without any capacity reservation group association.
 
