@@ -78,7 +78,7 @@ The following steps show you how to create a dev box definition by using an exis
    |**Compute**|Select the compute combination for your dev box definition.|
    |**Storage**|Select the amount of storage for your dev box definition.|
 
-   :::image type="content" source="./media/how-to-manage-dev-box-definitions/recommended-test-image.png" alt-text="Screenshot that shows the pane for creating a dev box definition.":::
+
 
 1. Select **Create**.
 
@@ -104,7 +104,7 @@ You can update the image, image version, compute, and storage settings for a dev
 
 1. On the page for editing a dev box definition, you can select a new image, change the image version, change the compute, or modify the available storage.
 
-   :::image type="content" source="./media/how-to-manage-dev-box-definitions/update-dev-box-definition-page.png" alt-text="Screenshot of the page for editing a dev box definition.":::
+
 
 1. Select **Save**.
 
