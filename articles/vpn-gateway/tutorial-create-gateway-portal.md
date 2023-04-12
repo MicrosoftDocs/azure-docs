@@ -27,6 +27,8 @@ The following diagram shows the virtual network and the VPN gateway created as p
 
 :::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of VNet and VPN gateway.":::
 
+:::image type="content" source="./media/tutorial-create-gateway-portal/diagram2.png" alt-text="Diagram of VNet and VPN gateway.":::
+
 ## Prerequisites
 
 An Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
