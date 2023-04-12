@@ -33,7 +33,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 To begin your configuration, sign in to your Azure account. Use the following examples to help you connect:
 
-Login to Azure
+Sign in to Azure
 
 ```azurepowershell
 Connect-AzAccount
@@ -295,7 +295,7 @@ In this task, you create a connectivity configuration with the network group **n
 1. Create a configuration group and add connectivity group item to it.
 
     ```azurepowershell-interactive
-    [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.PSNetworkManagerConnectivityGroupItem]]$configGroup = @()
+    [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.NetworkManager.PSNetworkManagerConnectivityGroupItem]]$configGroup = @()
     $configGroup.Add($groupItem)
     ```
     
@@ -360,34 +360,34 @@ If you no longer need the Azure Virtual Network Manager, you need to make sure a
 
     ```azurepowershell-interactive
     
-    Remove-AzNetworkManagerConnectivityConfiguration @connectivityconfig.Id   
+    Remove-AzNetworkManagerConnectivityConfiguration -Name $connectivityconfig.Name -ResourceGroupName $rg.Name -NetworkManagerName $networkManager.Name
     
     ```
 2. Remove the policy resources with Remove-AzPolicy*
 
     ```azurepowershell-interactive
     
-    Remove-AzPolicyAssignment $policyAssignment.Id
-    Remove-AzPolicyAssignment $policyDefinition.Id
+    Remove-AzPolicyAssignment -Name $policyAssignment.Name
+    Remove-AzPolicyAssignment -Name $policyDefinition.Name
     
     ```
 
 3. Remove the network group with Remove-AzNetworkManagerGroup.
 
     ```azurepowershell-interactive
-    Remove-AzNetworkManagerGroup ng.Id
+    Remove-AzNetworkManagerGroup -Name $ng.Name -ResourceGroupName $rg.Name -NetworkManagerName $networkManager.Name
     ```
 
 4. Delete the network manager instance with Remove-AzNetworkManager.
 
     ```azurepowershell-interactive
-    Remove-AzNetworkManager $networkManager.Id
+    Remove-AzNetworkManager -name $networkManager.Name -ResourceGroupName $rg.Name
     ```
 
 5. If you no longer need the resource created, delete the resource group with [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell-interactive
-    Remove-AzResourceGroup -Name $rg.Name
+    Remove-AzResourceGroup -Name $rg.Name -Force
     ```
 
 ## Next steps
