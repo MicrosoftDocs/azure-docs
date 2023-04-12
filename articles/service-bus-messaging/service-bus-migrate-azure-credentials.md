@@ -8,7 +8,7 @@ ms.reviewer: randolphwest
 ms.date: 04/12/2023
 ms.service: service-bus
 ms.topic: how-to
-ms.custom: |
+ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
 - devx-track-azurepowershell
