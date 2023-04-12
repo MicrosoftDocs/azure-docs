@@ -18,14 +18,8 @@ sections:
       - question: | 
           What features are part of Microsoft Entra Private Access and Microsoft Entra Internet Access?
         answer: |
-          Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
-
-          | Feature   | Microsoft Entra Private Access | Microsoft Entra Internet Access |
-          |----------|-----------|------------|
-          | Feature A | X |   |
-          | Feature B |   | X |
-          | Feature C | X | X |
-          | Feature D | X |   |
+          Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access.
+          To learn more about specific features in each product, see [What is Global Secure Access?](overview-what-is-global-secure-access.md).
           
   - name: Branch connectivity
     questions:
