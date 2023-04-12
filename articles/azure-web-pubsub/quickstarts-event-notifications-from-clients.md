@@ -19,7 +19,7 @@ In this quickstart guide, we learn about the event system of Web PubSub so that 
 > * a client is `connected`
 > * a client sends a `message`, which requires further processing 
 
-:::image type="content" source="media/quickstarts-push-messages-from-server/notification.gif" alt-text="GIF of application server receiving client events.":::
+:::image type="content" source="media/quickstarts-event-notifications-from-clients/notification.gif" alt-text="GIF of application server receiving client events.":::
 
 ## Prerequisites
 - A Web PubSub resource. If you haven't created one, you can follow the guidance: [Create a Web PubSub resource](./howto-develop-create-instance.md)
@@ -50,7 +50,7 @@ A client, be it a browser, a mobile app, or an IoT device, uses a **Client Acces
 This URL follows a pattern of `wss://<service_name>.webpubsub.azure.com/client/hubs/<hub_name>?access_token=<token>`. 
 A client can have a few ways to obtain the Client Access URL. For this quick start, you can copy and paste one from Azure portal shown in the following diagram.
 
-![The diagram shows how to get **Client Access Url**.](./media/quickstarts-push-messages-from-server/generate-client-url-no-group.png)
+![The diagram shows how to get **Client Access Url**.](./media/quickstarts-event-notifications-from-clients/generate-client-url-no-group.png)
 
 Create a file with name `client.js` and add the following code
 
@@ -129,7 +129,7 @@ As configured in the code above, when a client connects with your Web PubSub res
 ---
 
 ## Expose localhost
-If your run the program on your computer, it's running on `localhost` at port `8080`. For our purposes, it means your local express app can't be reached on the internet. So, Web PubSub can't invoke the Webhook served at the path `/eventhandler`.
+Run the program, it should be running on `localhost` at port `8080`. For our purposes, it means your local express app can't be reached on the internet. So, Web PubSub can't invoke the Webhook served at the path `/eventhandler`.
 
 What we need is to expose localhost to be accessible on the internet. There are several tools available for this. 
 > [!div class="checklist"]
@@ -155,15 +155,15 @@ Now, we need to let your Web PubSub resource know about this Webhook URL. You ca
 
 # [Azure portal](#tab/portal)
 1. Select **"Settings"** from the menu and select **"Add"**
-:::image type="content" source="media/howto-develop-eventhandler/configure-event-handler-menu.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - menu.":::
+:::image type="content" source="media/quickstarts-event-notifications-from-clients/configure-event-handler-menu.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - menu.":::
 
 1. Enter a hub name. For our purposes, enter "**myHub1**" and select "**Add**"
 
 1. In the event handler page, configure the following fields
-:::image type="content" source="media/quickstarts-push-messages-from-server/configure-event-handler-details.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - details.":::
+:::image type="content" source="media/quickstarts-event-notifications-from-clients/configure-event-handler-details.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - details.":::
 
 1. Save configuration
-:::image type="content" source="media/quickstarts-push-messages-from-server/configure-event-handler-save.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - save.":::
+:::image type="content" source="media/quickstarts-event-notifications-from-clients/configure-event-handler-save.png" alt-text="Screenshot of Azure Web PubSub Configure Event Handler - save.":::
 
 # [Azure CLI](#tab/cli)
 > [!Important]

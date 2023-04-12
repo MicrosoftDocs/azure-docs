@@ -11,7 +11,7 @@ ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
 ---
 # Publish/subscribe among clients
-:::image type="content" source="media/quickstarts-push-messages-from-server/among-clients.gif" alt-text="GIF of pub/sub among clients without an application server.":::
+:::image type="content" source="media/quickstarts-pubsub-among-clients/among-clients.gif" alt-text="GIF of pub/sub among clients without an application server.":::
 
 This quickstart guide demonstrates how to
 > [!div class="checklist"]
