@@ -317,14 +317,14 @@ You can take the `$(imageUri)` Azure DevOps Services (formerly Visual Studio Tea
 
 ## Output DevOps variables
 
-Here are the publisher, offer, SKU, and version of the source marketplace image:
+Here is the publisher, offer, SKU, and version of the source marketplace image:
 
 * `$(pirPublisher)`
 * `$(pirOffer)`
 * `$(pirSku)`
 * `$(pirVersion)`
 
-Here's the image URI, which is the resource ID of the distributed image:
+Here is the image URI, which is the resource ID of the distributed image:
 
 * `$(imageUri)`
 
