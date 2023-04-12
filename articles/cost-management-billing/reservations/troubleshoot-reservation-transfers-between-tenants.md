@@ -39,7 +39,7 @@ Use the following steps to change a reservation order's directory and its depend
 
 After the reservation moves the new tenant, you can change the reservation target scope to a *shared* or *management group scope*. For more information about changing the scope, see [Change the reservation scope](manage-reserved-vm-instance.md#change-the-reservation-scope). The following example explains how changing the scope might work.
 
-Currently, a reservation covers subscription A1 and A2. The reservation scope is set to either a shared scope or management group scope.
+Currently, a reservation covers subscriptions A1 and A2. The reservation scope is set to either a shared scope or a management group scope.
 
 | Initial reservation location | Final reservation location |
 | --- | ---|
@@ -47,7 +47,7 @@ Currently, a reservation covers subscription A1 and A2. The reservation scope is
 | Subscription A-1 | Subscription B-1 |
 | Subscription A-2 | Subscription B-2 |
 
-Assume that the reservation is set to a shared scope. When subscription B1 and B2 are under the same billing profile (for MCA) or enrollment (for EA), then B1 and B2 already receive the reservation benefit. Changing the tenant doesn’t change the scope. In this situation, you don’t have to change the scope after you change the reservation tenant.
+Assume that the reservation is set to a shared scope. When subscriptions B1 and B2 are under the same billing profile (for MCA) or enrollment (for EA), then B1 and B2 already receive the reservation benefit. Changing the tenant doesn’t change the scope. In this situation, you don’t have to change the scope after you change the reservation tenant.
 
 Assume that the reservation is set to a management group scope. After you change the reservation tenant, you need to change the reservation’s scope to a management group scope that targets subscriptions B1 and B2.
 
