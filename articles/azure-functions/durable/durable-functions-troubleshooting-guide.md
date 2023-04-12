@@ -21,7 +21,7 @@ This article provides a guide for troubleshooting common scenarios in Durable Fu
 > [!TIP]
 > When debugging and diagnosing issues, it's recommended that you start by ensuring your app is using the latest Durable Functions extension version. Most of the time, using the latest version mitigates known issues already reported by other users. Please read the [Upgrade Durable Functions extension version](./durable-functions-extension-upgrade.md) article for instructions on how to upgrade your extension version. 
 
-The **Diagnose and solve problems** tab in the Azure portal is a useful resource to monitor and diagnose possible issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [Azure Function app iagnostics](./function-app-diagnostics.md) for more details. 
+The **Diagnose and solve problems** tab in the Azure portal is a useful resource to monitor and diagnose possible issues related to your application. It also supplies potential solutions to your problems based on the diagnosis. See [Azure Function app diagnostics](./function-app-diagnostics.md) for more details. 
 
 If the resources above didn't solve your problem, the following sections provide advice for specific application symptoms:
 
