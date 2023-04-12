@@ -6,15 +6,14 @@ documentationcenter: ''
 author: amsliu
 manager: amycolannino
 editor: ''
-
 ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/07/2021
+ms.date: 4/10/2023
 ms.author: amsliu
-ms.reviewer: shaunliu
+ms.reviewer: rianakarim
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
