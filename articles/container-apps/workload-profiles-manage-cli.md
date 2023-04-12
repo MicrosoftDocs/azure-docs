@@ -42,7 +42,12 @@ Create a container apps environment with a [custom VNet](./workload-profiles-man
 
 ::: zone pivot="aca-vnet-custom"
 
-When you create an environment with a custom VNet, you have full control over the VNet configuration. This amount of control gives you the option to implement [user defined routes](user-defined-routes.md) if necessary in your container app environment.
+When you create an environment with a custom VNet, you have full control over the VNet configuration. This amount of control gives you the option to implement the following features:
+
+- [User defined routes](user-defined-routes.md)
+- Integration with Application Gateway
+- Network Security Groups
+- Communicating with resources behind private endpoints in your virtual network
 
 ::: zone-end
 
