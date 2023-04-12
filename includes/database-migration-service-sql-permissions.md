@@ -2,7 +2,7 @@
 author: ajithkr-ms
 ms.service: sql-database
 ms.topic: include
-ms.date: 12/19/2022
+ms.date: 04/12/2023
 ms.author: ajithkr-ms
 ---
 
@@ -32,13 +32,14 @@ The login used to connect to a source SQL Server instance needs certain minimal 
 |All User Databases|VIEW DATABASE STATE||
 |All User Databases|SELECT|sys.sql_expression_dependencies|
   
-## Special considerations for Always On Avalability Groups
-For SQL Server instances that host availability group replicas, it's recommended to provision a Windows Domain accounts with required permissions for assessment. 
+## Special considerations for Always On Availability Groups
+For SQL Server instances that host availability group replicas, it's recommended to provision a Windows Domain account with required permissions for assessment. 
   
-When SQL Server Authentication or a local Windows login is used, mismatched SIDs can prevent the custom login from resolving on the other replicas of the Always On Availability Group. To prevent this issue, after the login is created on the first of all the instances that hosts an Always On Availability Group, note the SID of the login so created. Provide this SID as a parameter when creating the login in the instances hosting the remaining replicas of the Always On Availability Group.
+When SQL Server Authentication or a local Windows login is used, mismatched SIDs can prevent the custom login from resolving on the other replicas of the Always On Availability Group. To prevent this issue, after the login is created on the first of all the instances that host an Always On Availability Group, note the SID of the login created. Provide this SID as a parameter when creating the login in the instances hosting the remaining replicas of the Always On Availability Group.
    
 ## Configure the custom login for Assessment
-The following are example scripts that show creation of a login and provisioning it with the requisite permissions.
+
+The following are sample scripts for creating a login and provisioning it with the necessary permissions.
 
 ### Windows Authentication 
   
@@ -168,11 +169,12 @@ The following are example scripts that show creation of a login and provisioning
 
 ## How to use the permissions script
 
-The script above can be used as follows:
+The permissions script can be used as follows:
+
 - Save the appropriate permissions script (with valid password string) as an _.sql_ file, say _c:\workspace\MinPermissions.sql_
 - Connect to the instance(s) using an account with sysadmin permissions and execute the script. You can use **SQL Server Management Studio** or **sqlcmd**. The following example uses a trusted connection.
 
    ```cmd
       sqlcmd.exe -S sourceserver\sourceinstance -d master -E -i c:\workspace\MinPermissions.sql
    ```
-- Use the minimal permissions account so created for further connections.
+- Use the minimal permissions account for further connections.
