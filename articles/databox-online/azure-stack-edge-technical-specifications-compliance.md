@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/10/2023
+ms.date: 04/12/2023
 ms.author: alkohli
 ---
 # Azure Stack Edge Pro FPGA technical specifications
@@ -23,7 +23,7 @@ The Azure Stack Edge Pro FPGA device has the following specifications for comput
 | CPU type                | Dual Intel Xeon Silver 4114 2.2 G |
 | CPU: raw                | 20 total cores, 40 total vCPUs    |
 | CPU: usable             | 32 vCPUs                          |
-| Memory type             | 8 x 16 GB RDIMM                   |
+| Memory type             | 8 x 16 GiB RDIMM                   |
 | Memory: raw             | 128 GiB RAM (8 x 16 GiB)           |
 | Memory: usable          | 102 GiB RAM                        |
 

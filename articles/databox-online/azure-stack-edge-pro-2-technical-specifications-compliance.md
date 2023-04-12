@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 04/10/2023
+ms.date: 04/12/2023
 ms.author: sipastak
 ---
 
@@ -25,7 +25,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type     | 2 x 32 GB DDR4-2933 RDIMM |
+| Memory type     | 2 x 32 GiB DDR4-2933 RDIMM |
 | Memory: raw   | 64 GiB RAM |
 | Memory: usable | 48 GiB RAM |
 | GPU | None |
@@ -38,7 +38,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type     | 4 x 32 GB DDR4-2933 RDIMM |
+| Memory type     | 4 x 32 GiB DDR4-2933 RDIMM |
 | Memory: raw   | 128 GiB RAM |
 | Memory: usable | 96 GiB RAM |
 | GPU | 1 NVIDIA A2 GPU <br> For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
@@ -51,7 +51,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type     | 4 x 64 GB DDR4-2933 RDIMM |
+| Memory type     | 4 x 64 GiB DDR4-2933 RDIMM |
 | Memory: raw   | 256 GiB RAM |
 | Memory: usable | 224 GiB RAM |
 | GPU | 2 NVIDIA A2 GPUs <br> For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
