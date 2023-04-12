@@ -91,37 +91,24 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 ## Verify the deployment
 
+1. If necessary, sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Resource groups** from the left pane.
 1. Select the resource group used in the deployment. The default resource group name is the **project name** with **-rg** appended. For example, **crlb-learn-arm-rg**.
-1. Select the cross-region load balancer. It will be the load balancer ending in **-cr**. For example, **crlb-learn-arm-cr**.
-1. Note the public IP address of the cross-region load balancer listed under **Public IP address**.
-1. Enter the public IP address in your webbrowser. The page will resovlve to the default IIS Windows Server web page.
+1. Select the cross-region load balancer. Its default name is the project name with **-cr** appended. For example, **crlb-learn-arm-cr**.
+1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser. The page will resolve to a default IIS Windows Server web page.
 
     :::image type="content" source="media/tutorial-deploy-cross-region-load-balancer-template/default-web-page.png" alt-text="Screenshot of default IIS Windows Server web page in web browser.":::
 
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Select **Resource groups** from the left pane.
-
-1. 
-
-1. Select the load balancer. Its default name is the project name with **-lb** appended.
-
-1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser.
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+When you no longer need them, delete the:
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+* Resource group
+* Load balancer
+* Related resources
 
-<!-- 7. Next steps
-Required: A single link in the blue box format. Point to the next logical tutorial 
-in a series, or, if there are no other tutorials, to some other cool thing the 
-customer can do. 
--->
+1. Go to the Azure portal, select the resource group that contains the load balancer, and then select **Delete resource group**.
+1. Select **apply force delete for selected Virtual machines and Virtual machine scale sets**, enter the name of the resource group, and then select **Delete > Delete **.
 
 ## Next steps
 
@@ -135,9 +122,4 @@ In this tutorial, you:
 Learn more about cross-region load balancer.  
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-tutorial.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+> [Tutorial: Create a load balancer with more than one availability set in the backend pool](tutorial-multi-availability-sets-portal.md)
