@@ -21,7 +21,7 @@ In this guide, learn how to move chat messages into your own storage in real-tim
 
 - An Azure account with an active subscription. 
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
-- A storage account, in this guide we take an example of Azure Blob Storage. You can use the portal to set up an [account](../../../event-grid/blob-event-quickstart-portal). You can use any other storage option that you prefer.
+- A storage account, in this guide we take an example of Azure Blob Storage. You can use the portal to set up an [account](../../../event-grid/blob-event-quickstart-portal.md). You can use any other storage option that you prefer.
 - If you would like to archive messages in near real time, enable Azure Event Grid, which is a paid service (this prerequisite is only for option 2).
 
 ## About Event Grid
@@ -59,7 +59,7 @@ Create a backend application to perform jobs to move chat threads into your own 
 
 The backend application would run a job to do the following steps: 
 
-1. [List](../../quickstarts/chat/get-started?tabs=windows&pivots=platform-azcli#list-chat-messages-in-a-chat-thread) the messages in the chat thread you wish to archive 
+1. [List](../../quickstarts/chat/get-started?tabs=windows&pivots=platform-azcli#list-chat-messages-in-a-chat-thread.md) the messages in the chat thread you wish to archive 
 2. Write the chat thread in the desired format you wish to store it in i.e JSON, CSV
 3. Copy the thread in the format as a blob into Azure Blob storage 
 
@@ -71,18 +71,18 @@ This option is suited if the chat volume is low as conversations are happening i
 
 Follow these steps for archiving messages:
 
-- Subscribe to Event Grid events which come with Azure Event grid through web hooks. Azure Communications Chat service supports the following [events](../../concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event).
-- Validate the [events](../../how-tos/event-grid/view-events-request-bin) by configuring your resource to receive these events
-- Test your Event Grid handler [locally](../../how-tos/event-grid/local-testing-event-grid) to ensure that you are receiving events that you need for archiving.
+- Subscribe to Event Grid events which come with Azure Event grid through web hooks. Azure Communications Chat service supports the following [events](../../concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessageedited-event.md), and Message Deleted [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event.md).
+- Validate the [events](../../how-tos/event-grid/view-events-request-bin.md) by configuring your resource to receive these events
+- Test your Event Grid handler [locally](../../how-tos/event-grid/local-testing-event-grid.md) to ensure that you are receiving events that you need for archiving.
 
 Note: you would have to pay for [events](https://azure.microsoft.com/pricing/details/event-grid/). 
 
 ## Next Steps
 
 * For an introduction to Azure Event Grid Concepts, see [Concepts in Event Grid](../../../event-grid/concepts.md)
-* Service [Limits](../../concepts/service-limits)
-* [Troubleshooting](../../concepts/troubleshooting-info)
-* Help and support [options](../../support)
+* Service [Limits](../../concepts/service-limits.md)
+* [Troubleshooting](../../concepts/troubleshooting-info.md)
+* Help and support [options](../../support.md)
 
 
 
