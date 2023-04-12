@@ -18,7 +18,9 @@ items:
 - name: Tutorials
   expanded: false
   items:
-  - name: Configure Internet access for edge devices
+  - name: Configure end-to-end Microsoft Entra Private Access
+    href: tutorial-configure-private-access.md
+  - name: Configure end-to-end Microsoft Entra Internet Access
     href: tutorial-configure-internet-access.md
 - name: Samples
   expanded: false
