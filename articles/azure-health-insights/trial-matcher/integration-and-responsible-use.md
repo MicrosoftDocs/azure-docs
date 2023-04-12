@@ -37,7 +37,7 @@ When getting ready to integrate and use AI-powered products or features, the fol
 
 ## Integration and responsible use for Patient Health Information (PHI)
 
-  - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has [articles](https://learn.microsoft.com/azure/architecture/example-scenario/data/azure-health-data-consortium) on storing health data and engineering compliance with HIPAA and HITRUST that you may find helpful.
+  - **Healthcare related data protections**: Healthcare data has special protections in various jurisdictions. Given the sensitive nature of health related data, make sure you know the regulations for your jurisdiction and take special care for security and data requirements when building your system. The Azure architecture center has [articles](/azure/architecture/example-scenario/data/azure-health-data-consortium) on storing health data and engineering compliance with HIPAA and HITRUST that you may find helpful.
   - **Protecting PHI**: The health feature doesn't anonymize the data you send to the service. If your system presents the response from the system with the original data, you may want to consider appropriate measures to identify and remove these entities.
 
 

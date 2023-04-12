@@ -22,7 +22,7 @@ items:
   items:
      - name: Deploy Project Health Insights using the portal
        href: deploy-portal.md
-- name: About Responsible AI
+- name: Responsible use of AI
   expanded: true
   items:
     - name: Data, privacy, and security
