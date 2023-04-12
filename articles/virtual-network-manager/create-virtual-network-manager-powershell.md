@@ -173,10 +173,13 @@ $ng = @{
 
 ## Define membership for a mesh configuration
 
-Once your network group is created, you define a network group's membership by adding virtual networks. Choose one of the options: *[Manually add membership](#manually-add-membership)* or *[Create policy to dynamically add members](#create-azure-policy-for-dynamic-membership)* with Azure Policy.      
+Once your network group is created, you define a network group's membership by adding virtual networks. Choose one of the options to define network group membership:
+
+- Add membership manually
+- Create a policy for dynamic membership   
 # [Manual membership](#tab/manualmembership)
 
-### Manually add membership
+### Add membership manually
 
 In this task, you add the static members **vnet-learn-prod-eastus-001** and **vnet-learn-prod-eastus-002** to the network group **ng-learn-prod-eastus-001** using [New-AzNetworkManagerStaticMember](/powershell/module/az.network/new-aznetworkmanagerstaticmember).
 
@@ -217,13 +220,14 @@ $sm_vnet002 = @{
 
 ### Create a policy for dynamic membership
 
-Using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the name of the virtual network name includes **-prod** using these steps:
+Using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the name of the virtual network name includes **-prod** in the virtual network name.
 
-1. Define the conditional statement and store it in a variable.
 > [!NOTE]
 > It is recommended to scope all of your conditionals to only scan for type `Microsoft.Network/virtualNetworks` for efficiency.
 
-     ```azurepowershell
+1. Define the conditional statement and store it in a variable.
+
+    ```azurepowershell
     $conditionalMembership = '{
         "if": {
             "allOf": [
