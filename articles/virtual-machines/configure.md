@@ -58,7 +58,7 @@ All of the VM sizes in the N-series support [Gen 2 VMs](generation-2.md), though
 
 ### SR-IOV enabled VMs
 
-# [CentOS-HPC VM images](#tab/centoshpc)
+# <a id=#centos-hpc-vm-images></a>[CentOS-HPC VM images](#tab/centos-hpc-vm-images)
 
 For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and CentOS-HPC VM images version 7.6 and later are suitable. These VM images come preconfigured with the Mellanox OFED drivers for RDMA and commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images).
 
@@ -85,7 +85,7 @@ For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), [Ubu
 >- OpenLogic:CentOS-HPC:8_1:8.1.2020062400
 >- OpenLogic:CentOS-HPC:8_1-gen2:8.1.2020062401
 
-# [Ubuntu-HPC VM images](#tab/ubuntuhpc)
+# <a id=#ubuntu-hpc-vm-images></a>[Ubuntu-HPC VM images](#tab/ubuntu-hpc-vm-images)
 
 For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), Ubuntu-HPC VM images versions 18.04 and 20.04 are suitable. These VM images come preconfigured with the Mellanox OFED drivers for RDMA, NVIDIA GPU drivers, GPU compute software stack (CUDA, NCCL), and commonly used MPI libraries and scientific computing packages. Refer to the [VM size support matrix](#vm-sizes-supported-by-the-hpc-vm-images).
 
@@ -113,7 +113,7 @@ The base RHEL or CentOS-based non-HPC VM images on the Marketplace can be config
 
 - Scripts used in the creation of the CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image from the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos) can also be used.
 
-# [Ubuntu VM images](#tab/ubuntunonhpc)
+# [Ubuntu VM images](#tab/ubuntunonhpc) 
 
 The base Ubuntu Server 16.04 LTS, 18.04 LTS, and 20.04 LTS VM images in the Marketplace are supported for both SR-IOV and non-SR-IOV [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances). Learn more about [enabling InfiniBand](./extensions/enable-infiniband.md) and [setting up MPI](setup-mpi.md) on the VMs.
 
