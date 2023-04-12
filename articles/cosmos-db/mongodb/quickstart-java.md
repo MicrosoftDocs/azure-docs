@@ -26,7 +26,7 @@ In this quickstart, you create and manage an Azure Cosmos DB for API for MongoDB
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with the connection string `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
-- [Java Development Kit (JDK) version 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). 
+- [Java Development Kit (JDK) version 8](https://adoptium.net/temurin/releases/?version=8). 
 - [Maven](https://maven.apache.org/download.cgi). Or run `apt-get install maven` to install Maven.
 - [Git](https://git-scm.com/downloads). 
 
@@ -112,7 +112,7 @@ Now go back to the Azure portal to get your connection string information and co
     
 ## Run the console app
 
-1. Run `mvn package` in a terminal to install required npm modules
+1. Run `mvn package` in a terminal to install required packages
 
 2. Run `mvn exec:java -D exec.mainClass=GetStarted.Program` in a terminal to start your Java application.
 

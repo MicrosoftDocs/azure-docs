@@ -1,5 +1,5 @@
 ---
-title: Block legacy authentication - Azure Active Directory
+title: Block legacy authentication
 description: Block legacy authentication using Azure AD Conditional Access.
 
 services: active-directory

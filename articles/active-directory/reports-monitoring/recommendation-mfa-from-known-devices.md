@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation - Minimize MFA prompts from known devices in Azure AD | Microsoft Docs
+title: Azure Active Directory recommendation - Minimize MFA prompts from known devices in Azure AD
 description: Learn why you should minimize MFA prompts from known devices in Azure AD.
 services: active-directory
 author: shlipsey3

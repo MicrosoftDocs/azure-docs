@@ -12,7 +12,7 @@ Container insights provides a rich monitoring experience for the Azure Kubernete
 
 ## Supported configurations
 
-The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, send an email to askcoin@microsoft.com.
+The following configurations are officially supported with Container insights. If you have a different version of Kubernetes and operating system versions, please open a support ticket..
 
 - Environments:
     - Kubernetes on-premises.

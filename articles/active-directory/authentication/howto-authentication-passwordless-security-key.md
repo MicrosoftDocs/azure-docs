@@ -1,5 +1,5 @@
 ---
-title: Passwordless security key sign-in - Azure Active Directory
+title: Passwordless security key sign-in
 description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys
 
 services: active-directory
@@ -47,7 +47,7 @@ Registration features for passwordless authentication methods rely on the combin
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy**.
-1. Under the method **FIDO2 Security Key**, click **All users**, or click **Add groups** to select specific groups.
+1. Under the method **FIDO2 Security Key**, click **All users**, or click **Add groups** to select specific groups. *Only security groups are supported*.
 1. **Save** the configuration.
 
    >[!NOTE]

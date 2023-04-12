@@ -21,4 +21,4 @@ keywords: speech to text, openai
 ## Next steps
 
 - [Learn more about Speech](overview.md)
-- [Learn more about Azure OpenAI](/azure/cognitive-services/openai/overview)
+- [Learn more about Azure OpenAI](../openai/overview.md)

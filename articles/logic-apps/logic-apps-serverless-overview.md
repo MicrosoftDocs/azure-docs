@@ -26,7 +26,7 @@ If no connector is available to meet your needs, you can use the built-in HTTP o
 
 Based on the logic app resource type that you choose, the associated workflow runs in either multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or a dedicated integration service environment (ISE). Each has their own capabilities, benefits, and billing models. The Azure portal provides the fastest way to get started creating logic app workflows. However, you can also use other tools such as Visual Studio Code, Visual Studio, Azure PowerShell, and others. For more information, review [What is Azure Logic Apps](logic-apps-overview.md)?
 
-To get started with Azure Logic Apps, try a [quickstart to create your first logic app workflow in the Azure portal](quickstart-create-first-logic-app-workflow.md). Or, try these [steps that create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio](create-serverless-apps-visual-studio.md).
+To get started with Azure Logic Apps, try a [quickstart to create an example Consumption logic app workflow in multi-tenant Azure Logic Apps using the Azure portal](quickstart-create-example-consumption-workflow.md). Or, try these [steps that create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio](create-serverless-apps-visual-studio.md).
 
 For other information, review the following documentation:
 

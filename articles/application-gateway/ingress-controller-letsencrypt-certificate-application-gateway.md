@@ -27,13 +27,13 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     #!/bin/bash
 
     # Install the CustomResourceDefinition resources separately
-    kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.8/deploy/manifests/00-crds.yaml
+    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.crds.yaml
 
     # Create the namespace for cert-manager
     kubectl create namespace cert-manager
 
     # Label the cert-manager namespace to disable resource validation
-    kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
+    kubectl label namespace cert-manager cert-manager.io/disable-validation=true
 
     # Add the Jetstack Helm repository
     helm repo add jetstack https://charts.jetstack.io
@@ -46,17 +46,9 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     helm install \
       cert-manager jetstack/cert-manager \
       --namespace cert-manager \
-      --version v1.0.4 \
+      --version v1.10.1 \
       # --set installCRDs=true
-
-    # Helm v2
-    helm install \
-      --name cert-manager \
-      --namespace cert-manager \
-      --version v1.0.4 \
-      jetstack/cert-manager \
-      # --set installCRDs=true
-      
+     
     #To automatically install and manage the CRDs as part of your Helm release, 
     #   you must add the --set installCRDs=true flag to your Helm installation command.
     ```
@@ -81,12 +73,12 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     ```bash
     #!/bin/bash
     kubectl apply -f - <<EOF
-    apiVersion: certmanager.k8s.io/v1alpha1
+    apiVersion: cert-manager.io/v1
     kind: ClusterIssuer
     metadata:
-    name: letsencrypt-staging
+      name: letsencrypt-staging
     spec:
-    acme:
+      acme:
         # You must replace this email address with your own.
         # Let's Encrypt will use this to contact you about expiring
         # certificates, and issues related to your account.
@@ -97,12 +89,15 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
         # before moving to production
         server: https://acme-staging-v02.api.letsencrypt.org/directory
         privateKeySecretRef:
-        # Secret resource used to store the account's private key.
-        name: example-issuer-account-key
+          # Secret resource used to store the account's private key.
+          name: example-issuer-account-key
         # Enable the HTTP-01 challenge provider
         # you prove ownership of a domain by ensuring that a particular
         # file is present at the domain
-        http01: {}
+        solvers:
+          - http01:
+               ingress:
+                  class: azure/application-gateway
     EOF
     ```
 
@@ -127,7 +122,7 @@ Follow the steps below to install [cert-manager](https://docs.cert-manager.io) o
     name: guestbook-letsencrypt-staging
     annotations:
         kubernetes.io/ingress.class: azure/application-gateway
-        certmanager.k8s.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-staging
     spec:
     tls:
     - hosts:

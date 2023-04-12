@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 03/14/2023
+ms.date: 03/20/2023
 ms.service: backup
 author: jyothisuri
 ms.author: jsuri
@@ -17,6 +17,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - March 2023
+  - [Multiple backups per day for Azure VMs is now generally available](#multiple-backups-per-day-for-azure-vms-is-now-generally-available)
+  - [Immutable vault for Azure Backup is now generally available](#immutable-vault-for-azure-backup-is-now-generally-available)
+  - [Support for selective disk backup with enhanced policy for Azure VM (preview)](#support-for-selective-disk-backup-with-enhanced-policy-for-azure-vm-preview)
   - [Azure Kubernetes Service backup (preview)](#azure-kubernetes-service-backup-preview)
   - [Azure Blob vaulted backups (preview)](#azure-blob-vaulted-backups-preview)
 - October 2022
@@ -52,6 +55,30 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## Multiple backups per day for Azure VMs is now generally available
+
+Azure Backup now enables you to create a backup policy to take multiple backups a day. With this capability, you can also define the duration in which your backup jobs would trigger and align your backup schedule with the working hours when there are frequent updates to Azure Virtual Machines.
+
+For more information, see [Back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+
+## Immutable vault for Azure Backup is now generally available
+
+Azure Backup now supports immutable vaults that help you ensure that recovery points once created can't be deleted before their expiry as per the backup policy (expiry at the time at which the recovery point was created). You can also choose to make the immutability irreversible to offer maximum protection to your backup data, thus helping you protect your data better against various threats, including ransomware attacks and malicious actors.
+
+For more information, see the [concept of Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
+
+## Support for selective disk backup with enhanced policy for Azure VM (preview)
+
+Azure Backup now provides *Selective Disk backup and restore* capability to Enhanced policy. Using this capability, you can selectively back up a subset of the data disks that are attached to your VM, and then restore a subset of the disks that are available in a recovery point, both from instant restore and vault tier.
+
+This is useful when you:
+
+- Manage critical data in a subset of the VM disks.
+- Use database backup solutions and want to back up only their OS disk to reduce cost. 
+
+For more information, see [Selective disk backup and restore](selective-disk-backup-restore.md).
 
 ## Azure Kubernetes Service backup (preview)
 

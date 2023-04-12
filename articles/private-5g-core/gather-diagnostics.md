@@ -23,7 +23,7 @@ You must already have an AP5GC site deployed to collect diagnostics.
 
 ## Collect values for diagnostics package gathering
 
-1. [Create a storage account](../storage/common/storage-account-create.md) for diagnsotics with the following additional configuration:
+1. [Create a storage account](../storage/common/storage-account-create.md) for diagnostics with the following additional configuration:
     1. In the **Advanced** tab, select **Enable storage account key access**. This will allow your support representative to download traces stored in this account using the URLs you share with them.
     1. In the **Data protection** tab, under **Access control**, select **Enable version-level immutability support**. This will allow you to specify a time-based retention policy for the account in the next step.
     1. If you would like the content of your storage account to be automatically deleted after a period of time, [configure a default time-based retention policy](../storage/blobs/immutable-policy-configure-version-scope.md#configure-a-default-time-based-retention-policy) for your storage account.
@@ -63,7 +63,9 @@ You must already have an AP5GC site deployed to collect diagnostics.
 1. Select **Diagnostics collection**.
 1. AP5GC online service will generate a package and upload it to the provided storage account URL. Once AP5GC reports that the upload has succeeded, report the SAS URL to Azure support.
     1. Generate a SAS URL by selecting **Generate SAS** on the blob details blade.
-    1. Copy the contents of the **Blob SAS URL** field and share the URL with your support representative.
+    1. Copy the contents of the **Blob SAS URL** field and share the URL with your support representative via a [support request ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+    > [!IMPORTANT]
+    > You must always set **Service type** to **Azure Private 5G Core** when raising a support request for any issues related to AP5GC.
 1. Azure support will access the diagnostics using the provided SAS URL and provide support based on the information.
 
 ## Troubleshooting
@@ -72,7 +74,9 @@ You must already have an AP5GC site deployed to collect diagnostics.
   - If an invalid container URL was passed, the request will be rejected and report **400 Bad Request**. Repeat the process with the correct container URL.
   - If the asynchronous part of the operation fails, the asynchronous operation resource is set to **Failed** and reports a failure reason.
 - Additionally, check that the same user-assigned identity was added to both the site and storage account.
-- If this does not resolve the issue, share the correlation ID of the failed request with AP5GC support for investigation.
+- If this does not resolve the issue, share the correlation ID of the failed request with AP5GC support for investigation via a [support request ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+    > [!IMPORTANT]
+    > You must always set **Service type** to **Azure Private 5G Core** when raising a support request for any issues related to AP5GC.
 
 ## Next steps
 

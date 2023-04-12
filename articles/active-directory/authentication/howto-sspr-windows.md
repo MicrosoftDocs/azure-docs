@@ -1,12 +1,12 @@
 ---
-title: Self-service password reset for Windows devices - Azure Active Directory
+title: Self-service password reset for Windows devices
 description: Learn how to enable Azure Active Directory self-service password reset at the Windows sign-in screen.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/29/2023
+ms.date: 04/05/2023
 
 ms.author: justinha
 author: justinha

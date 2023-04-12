@@ -125,7 +125,7 @@ Some PowerShell cmdlets require you to provide the object ID of Azure Virtual De
 - To retrieve the object IDs of all RemoteApp applications in an application group, run the following command:
 
    ```azurepowershell
-   Get-AzWvdApplication -ApplicationGroupName <ApplicationGroupName> -ResourceGroupName <ResourceGroupName> | FT Name, FilePath, ObjectId
+   Get-AzWvdApplication -ApplicationGroupName <ApplicationGroupName> -ResourceGroupName <ResourceGroupName> | Select-Object Name, FilePath, ObjectId
    ```
 
 ---

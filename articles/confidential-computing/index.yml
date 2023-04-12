@@ -166,3 +166,20 @@ landingContent:
             url: ../virtual-machines/dcv2-series.md
           - text: DCsv3 and DCdsv3-series virtual machines
             url: ../virtual-machines/dcv3-series.md
+## Row 2
+# Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links: 
+          - text: Secure Key Release(SKR) with AKV and Azure Confidential Computing
+            url: concept-skr-attestation.md
+          - text: Secure Key Release(SKR) with AKV example policies
+            url: skr-policy-examples.md
+      - linkListType: quickstart
+        links:
+          - text: Confidential VM's SKR with guest attestation application
+            url: skr-flow-confidential-vm-sev-snp.md
+          - text: Confidential containers with Azure Container Instances SKR Side-Car
+            url: skr-flow-confidential-containers-azure-container-instance.md
+     

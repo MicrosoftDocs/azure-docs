@@ -38,7 +38,7 @@ githubscanaudit_CL
 
 To integrate with GitHub (using Webhooks) (using Azure Function) make sure you have: 
 
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
+- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](../../azure-functions/index.yml).
 
 
 ## Vendor installation instructions
@@ -48,7 +48,7 @@ To integrate with GitHub (using Webhooks) (using Azure Function) make sure you h
    >  This connector has been built on http trigger based Azure Function. And it provides an endpoint to which github will be connected through it's webhook capability and posts the subscribed events into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
 
 
 **Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**

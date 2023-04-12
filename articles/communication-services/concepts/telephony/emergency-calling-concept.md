@@ -50,7 +50,7 @@ Emergency calling is automatically enabled for all users of the Azure Communicat
 
     - If you don't provide the country/region code to the SDK, Microsoft uses the IP address to determine the country or region of the caller.
 
-      If the IP address can't provide reliable geolocation (for example, the caller is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Azure Communication Services Calling SDK. See the example in the [quickstart for adding emergency calling](/azure/communication-services/quickstarts/telephony/emergency-calling).
+      If the IP address can't provide reliable geolocation (for example, the caller is on a virtual private network), you must set the ISO code of the calling country or region by using the API in the Azure Communication Services Calling SDK. See the example in the [quickstart for adding emergency calling](../../quickstarts/telephony/emergency-calling.md).
 
     - If the caller is dialing from a US territory (for example, Guam, US Virgin Islands, Northern Mariana Islands, or American Samoa), you must set the ISO code to US.
 

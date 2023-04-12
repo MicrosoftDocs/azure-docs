@@ -29,6 +29,8 @@ Here are the primary goals of cross-tenant synchronization:
 - Automate lifecycle management of B2B collaboration users in a multi-tenant organization
 - Automatically remove B2B accounts when a user leaves the organization 
 
+> [!VIDEO https://www.youtube.com/embed/7B-PQwNfGBc]
+
 ## Why use cross-tenant synchronization?
 
 Cross-tenant synchronization automates creating, updating, and deleting B2B collaboration users. Users created with cross-tenant synchronization are able to access both Microsoft applications (such as Teams and SharePoint) and non-Microsoft applications (such as [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), [Adobe](../saas-apps/adobe-identity-management-provisioning-tutorial.md), and many more), regardless of which tenant the apps are integrated with. These users continue to benefit from the security capabilities in Azure AD, such as [Azure AD Conditional Access](../conditional-access/overview.md) and [cross-tenant access settings](../external-identities/cross-tenant-access-overview.md), and can be governed through features such as [Azure AD entitlement management](../governance/entitlement-management-overview.md).

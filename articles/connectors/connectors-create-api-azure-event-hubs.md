@@ -31,7 +31,7 @@ For all the operations and other technical information, such as properties, limi
 
 * The logic app workflow where you want to access your event hub
 
-  To start a workflow with an Event Hubs trigger, you need an empty workflow. If you're new to [Azure Logic Apps](../logic-apps/logic-apps-overview.md), try this [quickstart to create an example logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  To start a workflow with an Event Hubs trigger, you need an empty workflow. If you're new to [Azure Logic Apps](../logic-apps/logic-apps-overview.md), try this [quickstart to create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 <a name="permissions-connection-string"></a>
 

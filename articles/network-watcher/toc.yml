@@ -153,7 +153,7 @@
           href: network-watcher-using-open-source-tools.md
   - name: Flow log traffic monitoring
     items:
-    - name: Configure NSG flow logs
+    - name: Manage NSG flow logs
       items:
       - name: PowerShell
         href: network-watcher-nsg-flow-logging-powershell.md

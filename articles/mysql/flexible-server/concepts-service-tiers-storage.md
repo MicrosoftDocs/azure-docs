@@ -15,7 +15,7 @@ ms.date: 05/24/2022
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-You can create an Azure Database for MySQL Flexible Server in one of three different service tiers: Burstable, General Purpose, and Business Critical. The service tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all service tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
+You can create an Azure Database for MySQL - Flexible Server in one of three different service tiers: Burstable, General Purpose, and Business Critical. The service tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all service tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
