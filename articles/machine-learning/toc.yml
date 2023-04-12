@@ -527,7 +527,7 @@
           displayName: automl, auto ml
           href: ./v1/concept-automated-ml-v1.md
         # end v1
-       - name: Time series forecasting
+        - name: Time series forecasting
           items:
             - name: Forecasting methods
               displayName: auto ML, time series, forecasting, methods
@@ -544,9 +544,9 @@
             - name: Lag features
               displayName: auto ML, time series, lags
               href: concept-automl-forecasting-lags.md
-          - name: Overfitting & imbalanced data
-              displayName: automl, auto ml, risks
-              href: concept-manage-ml-pitfalls.md
+        - name: Overfitting & imbalanced data
+          displayName: automl, auto ml, risks
+          href: concept-manage-ml-pitfalls.md
     - name: How-to
 - name: How-to guides
   items:
