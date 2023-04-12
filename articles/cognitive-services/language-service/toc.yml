@@ -1081,6 +1081,14 @@ items:
       href: custom-text-analytics-for-health/overview.md  
     - name: Custom text analytics for health quickstart
       href: custom-text-analytics-for-health/quickstart.md
+    - name: Concepts
+      items:
+      - name: Data formats
+        href: custom-text-analytics-for-health/concepts/data-formats.md
+      - name: Entity components 
+        href: custom-text-analytics-for-health/concepts/entity-components.md
+      - name: Evaluation metrics
+        href: custom-text-analytics-for-health/concepts/evaluation-metrics.md
 - name: Summarization (preview)
   items:
   - name: Summarization overview
