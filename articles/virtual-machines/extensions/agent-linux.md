@@ -1,6 +1,6 @@
 ---
-title: Azure Linux Agent overview 
-description: Learn how to install and configure the Azure Linux Agent (waagent) to manage your virtual machine's interaction with the Azure fabric controller.
+title: Azure Linux VM Agent overview 
+description: Learn how to install and configure the Azure Linux VM Agent (waagent) to manage your virtual machine's interaction with the Azure fabric controller.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
@@ -11,11 +11,11 @@ ms.collection: linux
 ms.date: 03/28/2023
 
 ---
-# Azure Linux Agent overview
+# Azure Linux VM Agent overview
 
-The Microsoft Azure Linux Agent (waagent) manages Linux and FreeBSD provisioning, along with virtual machine (VM) interaction with the Azure fabric controller. In addition to the Linux agent providing provisioning functionality, Azure provides the option of using cloud-init for some Linux operating systems.
+The Microsoft Azure Linux VM Agent (waagent) manages Linux and FreeBSD provisioning, along with virtual machine (VM) interaction with the Azure fabric controller. In addition to the Linux agent providing provisioning functionality, Azure provides the option of using cloud-init for some Linux operating systems.
 
-The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
+The Linux agent provides the following functionality for Linux and FreeBSD Azure Virtual Machines deployments. For more information, see the [Azure Linux VM Agent readme on GitHub](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 
 ### Image provisioning
 
@@ -24,7 +24,7 @@ The Linux agent provides the following functionality for Linux and FreeBSD Azure
 - Deploys SSH public keys and key pairs
 - Sets the host name
 - Publishes the host name to the platform DNS
-- Reports SSH host key fingerprints to the platform
+- Reports the SSH host key fingerprint to the platform
 - Manages the resource disk
 - Formats and mounts the resource disk
 - Configures swap space
@@ -63,7 +63,7 @@ Information flow from the platform to the agent occurs through two channels:
 
 ## Requirements
 
-Testing has confirmed that the following systems work with the Azure Linux Agent.
+Testing has confirmed that the following systems work with the Azure Linux VM Agent.
 
 > [!NOTE]
 > This list might differ from the [endorsed Linux distributions on Azure](../linux/endorsed-distros.md).
@@ -86,7 +86,7 @@ Testing has confirmed that the following systems work with the Azure Linux Agent
 
 Other supported systems:
 
-- FreeBSD 10+ (Azure Linux Agent v2.0.10+)
+- FreeBSD 10+ (Azure Linux VM Agent v2.0.10+)
 
 The Linux agent depends on these system packages to function properly:
 
@@ -103,9 +103,9 @@ Ensure that your VM has access to IP address 168.63.129.16. For more information
 
 ## Installation
 
-The preferred method of installing and upgrading the Azure Linux Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux Agent package into their images and repositories.
+The preferred method of installing and upgrading the Azure Linux VM Agent uses an RPM or a DEB package from your distribution's package repository. All the [endorsed distribution providers](../linux/endorsed-distros.md) integrate the Azure Linux VM Agent package into their images and repositories.
 
-For advanced installation options, such as installing from a source or to custom locations or prefixes, see [Microsoft Azure Linux Agent](https://github.com/Azure/WALinuxAgent).
+For advanced installation options, such as installing from a source or to custom locations or prefixes, see [Microsoft Azure Linux VM Agent](https://github.com/Azure/WALinuxAgent).
 
 ## Command-line options
 
@@ -384,7 +384,7 @@ You can disable this option by editing */etc/waagent.conf*. Update `Logs.Collect
 
 ## Ubuntu Cloud Images
 
-Ubuntu Cloud Images use [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to do many configuration tasks that the Azure Linux Agent would otherwise manage. The following differences apply:
+Ubuntu Cloud Images use [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to do many configuration tasks that the Azure Linux VM Agent would otherwise manage. The following differences apply:
 
 - `Provisioning.Enabled` defaults to `n` on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
 - The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
