@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 3/30/2023
+ms.date: 04/12/2023
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -137,7 +137,7 @@ If you use a new VNet, you can create a subnet and delegate the subnet to Azure 
 
 If the VNet is peered with another VNet, you can't expand the VNet address space. For that reason, the new delegated subnet needs to be created within the VNet address space. If you need to extend the address space, you must delete the VNet peering before expanding the address space.
 
-The address space size of the Azure NetApp Files VNet should be larger than its delegated subnet. If it is not, SMB volume creation will fail.
+Ensure that the address space size of the Azure NetApp Files delegated subnet is smaller than the address space of the virtual network to avoid unforeseen issues.
 
 ### UDRs and NSGs
 
