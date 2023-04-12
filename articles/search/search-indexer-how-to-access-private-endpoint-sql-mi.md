@@ -18,11 +18,12 @@ On a private connection to a SQL Managed Instance, the fully qualified domain na
 
 Although you can call the Management REST API directly, it's easier to use the Azure CLI `az rest` module to send Management REST API calls from a command line.
 
-> [!NOTE] This article relies on Azure portal for obtaining properties and confirming steps. However, when creating the shared private link for SQL Managed Instance, be sure to use the REST API. Although the Networking tab lists `Microsoft.Sql/managedInstances` as an option, the portal doesn't currently support the extended URL format used by SQL Managed Instance.
+> [!NOTE]
+> This article relies on Azure portal for obtaining properties and confirming steps. However, when creating the shared private link for SQL Managed Instance, be sure to use the REST API. Although the Networking tab lists `Microsoft.Sql/managedInstances` as an option, the portal doesn't currently support the extended URL format used by SQL Managed Instance.
 
 ## Prerequisites
 
-+ [Azure CLI](/azure/install-azure-cli)
++ [Azure CLI](/cli/azure/install-azure-cli)
 
 + Azure Cognitive Search, Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
@@ -50,7 +51,7 @@ Retrieve the FQDN of the managed instance, including the DNS zone. The DNS zone 
 
 1. On the **Connection strings** tab, copy the ADO.NET connection string for a later step. It's needed for the data source connection when testing the private connection.
 
-For more information about connection properties, see [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql#retrieve-connection-details-to-sql-managed-instance).
+For more information about connection properties, see [Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart?view=azuresql#retrieve-connection-details-to-sql-managed-instance&preserve-view=true).
 
 ## 3 - Create the body of the request
 
@@ -94,11 +95,11 @@ For more information about connection properties, see [Create an Azure SQL Manag
    az rest --method put --uri https://management.azure.com/subscriptions/{{search-service-subscription-ID}}/resourceGroups/{{search service-resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}/sharedPrivateLinkResources/{{shared-private-link-name}}?api-version=2021-04-01-preview --body @create-pe.json
    ```
 
-  Provide the subscription ID, resource group name, and service name of your Cognitive Search resource.
+   Provide the subscription ID, resource group name, and service name of your Cognitive Search resource.
 
-  Provide the same shared private link name that you specified in the JSON body.
+   Provide the same shared private link name that you specified in the JSON body.
 
-  Provide a path to the create-pe.json file if you've navigated away from the file location. You can type `dir` at the command line to confirm the file is in the current directory.
+   Provide a path to the create-pe.json file if you've navigated away from the file location. You can type `dir` at the command line to confirm the file is in the current directory.
 
 1. Press Enter to run the command.
 
@@ -130,6 +131,8 @@ You can use the portal for this step, or any client that you would normally use 
 
 1. [Create the data source definition](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) as you would normally for Azure SQL. There are no properties in any of these definitions that vary when using a shared private endpoint.
 
+    Provide the connection string that you copied earlier.
+
     ```http
     POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
      Content-Type: application/json
@@ -150,7 +153,7 @@ You can use the portal for this step, or any client that you would normally use 
      }
     ```
 
-1. [Create the indexer definition](search-howto-create-indexers.md), 
+1. [Create the indexer definition](search-howto-create-indexers.md), setting the indexer execution environment to "private".
 
    [Indexer execution](search-indexer-securing-resources.md#indexer-execution-environment) occurs in either a private environment that's specific to the search service, or a multi-tenant environment that's used internally to offload expensive skillset processing for multiple customers. **When connecting over a private endpoint, indexer execution must be private.**
 
@@ -220,6 +223,6 @@ Assuming that your search service isn't also configured for a private connection
 
 + [Make outbound connections through a private endpoint](search-indexer-howto-access-private.md)
 + [Indexer connections to Azure SQL Managed Instance through a public endpoint](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
-+ [Index data from Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers)
++ [Index data from Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Management REST API](/rest/api/searchmanagement/)
 + [Search REST API](/rest/api/searchservice/)
