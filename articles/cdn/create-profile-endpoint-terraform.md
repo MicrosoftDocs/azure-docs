@@ -9,7 +9,6 @@ ms.date: 4/12/2023
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
-ms.service: cdn
 ---
 
 # Quickstart: Create an Azure CDN profile and endpoint using Terraform
@@ -141,4 +140,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Azure CDN profile and endpoint using the Azure portal](/azure/cdn/cdn-create-endpoint)
+> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)
