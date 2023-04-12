@@ -17,11 +17,11 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD001 -->
 
-# Create a text translation  flow with the Translator V3 connector
+# Create a text translation flow with the Translator V3 connector
 
-This how-to guide details how to configure a Translator V3 connector cloud flow that supports text translation and transliteration. The V3 connector creates a connection between your Translator instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
+In this how-to guide, you learn to configure a Translator V3 connector cloud flow that supports text translation and transliteration. The V3 connector creates a connection between your Translator instance and Microsoft Power Automate enabling you to use one or more prebuilt operations as steps in your apps and workflows.
 
-Text translation is a cloud-based REST API feature of the Azure Translator service. The text translation API enables quick and accurate source-to-target text translations in real time. 
+Text translation is a cloud-based REST API feature of the Azure Translator service. The text translation API enables quick and accurate source-to-target text translations in real time.
 
 ## Prerequisites
 
@@ -29,11 +29,13 @@ To get started, you need  an active Azure subscription. If you don't have an Azu
 
 * Once you have your Azure subscription, create a [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
-* You need the key and endpoint from your resource to connect your application to Power Automate. Copy and paste your key and endpoint URL in a convenient location, such as *Microsoft Notepad*.
+* You need the key and name from your resource to connect your application to Power Automate. Your Translator resource keys are found under the Resource Management section in the Azure portal and your resource name is located at the top of the page. Copy and paste your key and endpoint URL in a convenient location, such as *Microsoft Notepad*.
 
-   :::image type="content" source="../media/keys-and-endpoint-resource.png" alt-text="Get key and endpoint.":::
+   :::image type="content" source="../media/connectors/keys-and-endpoint-resource.png" alt-text="Get key and endpoint.":::
 
-Now that completed the prerequisites, let's get started.
+## Configure the Translator V3 connector
+
+Now that you've completed the prerequisites, let's get started.
 
 1. Sign in to [Power Automate](https://powerautomate.microsoft.com/).
 
@@ -43,7 +45,7 @@ Now that completed the prerequisites, let's get started.
 
    :::image type="content" source="../media/connectors/create-a-flow.png" alt-text="Screenshot showing how to create an instant cloud flow.":::
 
-1. In the popup window, name your flow, choose **Manually trigger a flow**, and select **Create**.
+1. In the popup window → name your flow → choose **Manually trigger a flow** → select **Create**.
 
    :::image type="content" source="../media/connectors/select-manual-flow.png" alt-text="Screenshot showing how to manually trigger a flow.":::
 
@@ -57,7 +59,7 @@ Now that completed the prerequisites, let's get started.
 
 ## Configure your cloud flow
 
-Now, we're ready to select an action.
+Let's select an action. Choose to translate or transliterate text.
 
 #### [Translate text](#tab/translate)
 
@@ -67,13 +69,13 @@ Now, we're ready to select an action.
 1. If you're using the Translator V3 connector for the first time, you need to enter your resource credentials:
 
    * **Connection name**. Enter a name for your connection.
-   * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys.
+   * **Subscription Key**. Enter one of your keys that you copied from the Azure portal.
    * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
 
       :::image type="content" source="../media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
 
       > [!NOTE]
-      > After you've setup your connection, you won't be required to reenter your credentials for subsequent flows.
+      > After you've setup your connection, you won't be required to reenter your credentials for subsequent Translator flows.
 
 1. The **Translate text** action window appears next.
 1. Select a **Source Language** from the dropdown menu or keep the default **Auto-detect** option.
@@ -87,14 +89,11 @@ Now, we're ready to select an action.
 
 ### Transliterate
 
-1. Select the **Transliterate text** action.
+1. Select the **Transliterate** action.
 1. If you're using the Translator V3 connector for the first time, you need to enter your resource credentials:
 
    * **Connection name**. Enter a name for your connection.
-   * **Subscription Key**. Your Translator resource keys are found under the  **Resource Management** section of the resource sidebar in the Azure portal. Enter one of your keys.
-
-    :::image type="content" source="../media/connectors/keys-endpoint-sidebar.png" alt-text="Screenshot showing keys and endpoint listed in the resource sidebar.":::
-
+   * **Subscription Key**. Enter one of your keys that you copied from the Azure portal.
    * **Translator resource name**. Enter the name of your Translator resource found at the top of your resource page in the Azure portal. Select **Create**.
 
       :::image type="content" source="../media/connectors/add-connection.png" alt-text="Screenshot showing the add connection window.":::
@@ -114,23 +113,16 @@ Now, we're ready to select an action.
 Let's test the cloud flow and view the translated text.
 
 1. There is a green bar at the top of the page indicating that **Your flow is ready to go.**.
-1. Select Test from the upper-right corner of the page.
+1. Select **Test** from the upper-right corner of the page.
 
    :::image type="content" source="../media/connectors/test-flow.png" alt-text="Screenshot showing the test icon/button.":::
 
-1. Select **Manually** from the **Test Flow** side window and select **Test**
-
-   :::image type="content" source="../media/connectors/manually-test-flow.png" alt-text="Screenshot showing the 'manually test flow' button.":::
-
-1. The **Run flow** side window appears next. Select **Continue** and then Select **Run flow**.
-
-      :::image type="content" source="../media/connectors/run-flow.gif" alt-text="Screenshot showing the run-flow side window.":::
-
-1. You should receive a "Your flow ran successfully" message and there's a green checkmark next to each successful step.
+1. Select **Test Flow** → **Manually** → **Test** from the right-side window.
+1. In the next window, select the  **Run flow** button. 
+1. Finally, select  the **Done** button.
+1. You should receive a "Your flow ran successfully" message and green checkmarks align with each successful step.
 
    :::image type="content" source="../media/connectors/successful-text-translation-flow.png" alt-text="Screenshot of successful flow.":::
-
-1. If you don't receive the success message, a 
 
 #### [Translate text](#tab/translate)
 
@@ -151,7 +143,7 @@ Let's test the cloud flow and view the translated text.
 > * Check on the status of your flow by selecting **My flows** tab on the navigation sidebar.
 > * Edit or update your connection by selecting **Connections** under the **Data** tab on the navigation sidebar.
 
-That's it! You can now automate text translation processes using the Microsoft Translator V3 connector and Power Automate.
+That's it! You now know how to automate text translation processes using the Microsoft Translator V3 connector and Power Automate.
 
 ## Next steps
 
