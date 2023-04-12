@@ -25,7 +25,7 @@ Although you can call the Management REST API directly, it's easier to use the A
 
 + [Azure CLI](/cli/azure/install-azure-cli)
 
-+ Azure Cognitive Search, Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
++ Azure Cognitive Search, Basic or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, use Standard 2 (S2) or higher. See [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits) for details.
 
 + Azure SQL Managed Instance, configured to run in a virtual network, with a private endpoint created through Azure Private Link.
 
@@ -99,7 +99,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
 
    Provide the same shared private link name that you specified in the JSON body.
 
-   Provide a path to the create-pe.json file if you've navigated away from the file location. You can type `dir` at the command line to confirm the file is in the current directory.
+   Provide a path to the *create-pe.json* file if you've navigated away from the file location. You can type `dir` at the command line to confirm the file is in the current directory.
 
 1. Press Enter to run the command.
 
@@ -127,9 +127,11 @@ On the Azure Cognitive Search side, you can confirm request approval by revisiti
 
 You can now configure an indexer and its data source to use an outbound private connection to your managed instance.
 
-You can use the portal for this step, or any client that you would normally use for indexer setup. This article uses the REST APIs to make it easier to see all of the properties. Recall that REST API calls for indexers and data sources use the [Search REST APIs](/rest/api/searchservice/), not the [Management REST APIs](/rest/api/searchmanagement/). The syntax and API versions are different.
+You could use the [**Import data**](search-get-started-portal.md) wizard for this step, but the indexer that's generated won't be valid for this scenario. You'll need to modify the indexer JSON property as described in this step to make it compliant for this scenario. You'll then need to [reset and rerun the indexer](search-howto-run-reset-indexers.md) to fully test the pipeline using the updated indexer.
 
-1. [Create the data source definition](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) as you would normally for Azure SQL. There are no properties in any of these definitions that vary when using a shared private endpoint.
+This article assumes Postman or equivalent tool, and uses the REST APIs to make it easier to see all of the properties. Recall that REST API calls for indexers and data sources use the [Search REST APIs](/rest/api/searchservice/), not the [Management REST APIs](/rest/api/searchmanagement/) used to create the shared private link. The syntax and API versions are different between the two REST APIs.
+
+1. [Create the data source definition](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) as you would normally for Azure SQL. Although the format of the connection string is different, the data source type and other properties are valid for SQL Managed Instance.
 
     Provide the connection string that you copied earlier.
 
@@ -141,7 +143,9 @@ You can use the portal for this step, or any client that you would normally use 
          "name" : "my-sql-datasource",
          "description" : "A database for testing Azure Cognitive Search indexes.",
          "type" : "azuresql",
-         "credentials" : { "connectionString" : "Server=tcp:contoso.public.0000000000.database.windows.net,1433; Persist Security Info=false; User ID=<your user name>; Password=<your password>;MultipleActiveResultsSets=False; Encrypt=True;Connection Timeout=30;" },
+         "credentials" : { 
+             "connectionString" : "Server=tcp:contoso.public.0000000000.database.windows.net,1433; Persist Security Info=false; User ID=<your user name>; Password=<your password>;MultipleActiveResultsSets=False; Encrypt=True;Connection Timeout=30;" 
+            },
          "container" : { 
              "name" : "Name of table or view to index",
              "query" : null (not supported in the Azure SQL indexer)
@@ -152,6 +156,9 @@ You can use the portal for this step, or any client that you would normally use 
          "identity": null
      }
     ```
+
+   > [!NOTE]
+   > If you're familiar with data source definitions in Cognitive Search, you'll notice that data source properties don't vary when using a shared private link. That's because the private connection is detected and handled internally.
 
 1. [Create the indexer definition](search-howto-create-indexers.md), setting the indexer execution environment to "private".
 
@@ -174,50 +181,29 @@ You can use the portal for this step, or any client that you would normally use 
         }
     ```
 
-After the indexer is created successfully, it should connect over the private endpoint connection. You can monitor the status of the indexer by using the [Indexer Status API](/rest/api/searchservice/get-indexer-status).
+1. Run the indexer. If the indexer execution succeeds and the search index is populated, the shared private link is working.
+
+You can monitor the status of the indexer in Azure portal or by using the [Indexer Status API](/rest/api/searchservice/get-indexer-status).
+
+You can use [**Search explorer**](search-explorer.md) in Azure portal to check the contents of the index.
 
 ## 8 - Test the shared private link
 
-Choose a tool that can invoke an outbound request from an indexer. An easy choice is using the [**Import data**](search-get-started-portal.md) wizard in Azure portal, but you can also try the Postman and REST APIs for more precision. 
+If you ran the indexer in the previous step and successfully indexed content from your managed instance, then the test was successful. However, if the indexer fails or there's no content in the index, you can modify your objects and repeat testing by choosing any client that can invoke an outbound request from an indexer. 
 
-Assuming that your search service isn't also configured for a private connection, the REST client connection to Search can be over the public internet.
+An easy choice is [running an indexer](search-howto-run-reset-indexers.md) in Azure portal, but you can also try Postman and REST APIs for more precision. Assuming that your search service isn't also configured for a private connection, the REST client connection to Search can be over the public internet.
 
-1. In the data source definition, set the connection string to the managed instance. The format of the connection string doesn't change for shared private link. The search service invokes the shared private link internally.
+Here are some reminders for testing:
 
-   ```http
-    POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
-     Content-Type: application/json
-     api-key: admin-key
-    {
-      "name": "my-sql-datasource",
-      "type": "azuresql",
-      "subtype": null,
-      "credentials": {
-        "connectionString": "..."
-      }
-   ```
++ If you use Postman or another web testing tool, use the [Management REST API](/rest/api/searchmanagement/) and a [preview API version](/rest/api/searchmanagement/management-api-versions) to create the shared private link. Use the [Search REST API](/rest/api/searchservice/) and a [stable API version](/rest/api/searchservice/search-service-api-versions) to create and invoke indexers and data sources.
 
-1. In the indexer definition, remember to set the execution environment in the indexer definition:
++ You can use the Import data wizard to create an indexer, data source, and index. However, the generated indexer won't have the correct execution environment setting.
 
-   ```http
-    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
-     Content-Type: application/json
-     api-key: admin-key
-    {
-       "name": "indexer",
-       "dataSourceName": "my-sql-datasource",
-       "targetIndexName": "my-index",
-       "parameters": {
-          "configuration": {
-              "executionEnvironment": "private"
-              }
-          },
-       "fieldMappings": []
-       }
-    }
-   ```
++ You can edit data source and indexer JSON in Azure portal to change properties, including the execution environment and the connection string.
 
-1. Run the indexer. If the indexer execution succeeds and the search index is populated, the shared private link is working.
++ You can reset and rerun the indexer in Azure portal. Reset is important for this scenario because it forces a full reprocessing of all documents.
+
++ You can use Search explorer to check the contents of the index.
 
 ## See also
 
@@ -226,3 +212,4 @@ Assuming that your search service isn't also configured for a private connection
 + [Index data from Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Management REST API](/rest/api/searchmanagement/)
 + [Search REST API](/rest/api/searchservice/)
++ [Quickstart: Get started with REST](search-get-started-rest.md)
