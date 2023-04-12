@@ -318,6 +318,14 @@ The multiple Active Directory accounts feature is currently in preview. You need
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
+## Active Directory type
+
+You can use the NetApp account overview to confirm the Active Directory  There are three values for AD type:
+
+* **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD  configuration is not shared with other other NetApp accounts in the subscription.
+* **SharedAD**: Account supports only one AD configuration per subscription and region, but is shared across all NetApp accounts in the subscription and region.
+* **MultiAD**: Account supports one AD configuration in each NetApp account in the subscription.
+
 ## <a name="reset-active-directory"></a> Reset Active Directory computer account password
 
 If you accidentally reset the password of the AD computer account on the AD server or the AD server is unreachable, you can safely reset the computer account password to preserve connectivity to your volumes. A reset affects all volumes on the SMB server. 
@@ -335,14 +343,6 @@ Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFR
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFResetADAccountForVolume
 ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
-
-## Active Directory type
-
-You can use the NetApp account overview to confirm the Active Directory  There are three values for AD type:
-
-* **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD  configuration is not shared with other other NetApp accounts in the subscription.
-* **SharedAD**: Account supports only one AD configuration per subscription and region, but is shared across all NetApp accounts in the subscription and region.
-* **MultiAD**: Account supports one AD configuration in each NetApp account in the subscription.
 
 ### Steps
 
