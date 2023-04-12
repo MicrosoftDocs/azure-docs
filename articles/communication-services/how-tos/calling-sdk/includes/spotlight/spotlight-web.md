@@ -41,7 +41,7 @@ spotLightFeature.startParticipantsSpotLight([acsUser, teamsUser]);
 ```
 
 ### stop spotlight for some remote participants
-Any pinned participant in the call or meeting can be unpinned. Only Microsoft 365 users who have an organizer or presenter role can unpin other participants. This action is idempotent, trying to stop spotlight on an unpinned participant does nothing 
+Any pinned participant in the call or meeting can be unpinned. Only Microsoft 365 users who have an organizer, coorganizer or presenter role can unpin other participants. This action is idempotent, trying to stop spotlight on an unpinned participant does nothing 
 ```js
 // Specify list of participants to be spotlighted
 CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
