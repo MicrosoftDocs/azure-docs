@@ -1,7 +1,7 @@
 ---
 title: (Preview) SSH access to Azure Arc-enabled servers
 description: Leverage SSH remoting to access and manage Azure Arc-enabled servers.
-ms.date: 03/25/2022
+ms.date: 04/12/2023
 ms.topic: conceptual
 ms.custom: references_regions
 ---
