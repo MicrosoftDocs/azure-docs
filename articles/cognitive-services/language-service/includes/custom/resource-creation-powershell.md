@@ -22,8 +22,8 @@ Edit the following values in the parameters file:
 | Parameter name | Value description |
 |--|--|
 |`name`| Name of your Language resource|
-|`location`| Region in which your resource is hosted. for more information, see [Service limits](../service-limits.md#regional-availability).|
-|`sku`| [Pricing tier](../service-limits.md#language-resource-limits) of your resource. |
+|`location`| Region in which your resource is hosted. |
+|`sku`| The pricing tier of your resource. |
 |`storageResourceName`| Name of your storage account|
 |`storageLocation`| Region in which your storage account is hosted.|
 |`storageSkuType`| SKU of your [storage account](/rest/api/storagerp/srp_sku_types).|

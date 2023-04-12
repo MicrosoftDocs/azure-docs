@@ -23,11 +23,11 @@ Create a Language resource with following details.
 |Azure subscription| **Your Azure subscription**|
 |Azure resource group| **Your Azure resource group**|
 |Azure resource name| **Your Azure resource name**|
-|Location | The [region](../../service-limits.md#regional-availability) of your Language resource.      |
-|Pricing tier     | The [pricing tier](../../service-limits.md#language-resource-limits) of your Language resource.        |
+|Location | The region      |
+|Pricing tier     | The pricing tier of your Language resource.        |
 
 > [!IMPORTANT]
 > * Make sure to to enable **Managed Identity** when you create a Language resource. 
 > * Read and confirm Responsible AI notice
 
-To use custom named entity recognition, you'll need to [create an Azure storage account](../../../../../storage/common/storage-account-create.md) if you don't have one already. 
+To use custom named entity recognition, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
