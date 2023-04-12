@@ -24,7 +24,7 @@ If you're interested in deploying Oracle solutions entirely on Azure infrastruct
 
 ## Scenario overview
 
-*Cross-cloud connectivity* provides a solution for you to run Oracle's industry-leading applications and your own custom applications, on Azure virtual machines while enjoying the benefits of hosted database services in OCI.
+*Cross-cloud connectivity* provides a solution for you to run Oracle's industry-leading applications and your own custom applications on Azure virtual machines while enjoying the benefits of hosted database services in OCI.
 
 The following applications are certified in a cross-cloud configuration:
 
@@ -34,7 +34,7 @@ The following applications are certified in a cross-cloud configuration:
 - Oracle Retail applications
 - Oracle Hyperion Financial Management
 
-The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecture, your solution could include other tiers such as a WebLogic Server cluster or web tier in Azure. For more information, see the following sections.
+The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecture, your solution could include other tiers such as a WebLogic Server cluster or web tier in Azure.
 
 :::image type="content" source="media/oracle-oci-overview/crosscloud.png" alt-text="Diagram shows a connected solution with Azure and Oracle clouds.":::
 
@@ -57,9 +57,9 @@ Cross-cloud connectivity is limited to the following regions:
 
 ## Networking
 
-Enterprise customers often choose to diversify and deploy workloads over multiple clouds for various business and operational reasons. To diversify, customers interconnect cloud networks using the internet, IPSec VPN, or using the cloud provider's direct connectivity solution with your on-premises network. Interconnecting cloud networks can require significant investments in time, money, design, procurement, installation, testing, and operations.
+Enterprise customers often choose to diversify and deploy workloads over multiple clouds for various business and operational reasons. To diversify, you can interconnect cloud networks using the internet, IPSec VPN, or using the cloud provider's direct connectivity solution with your on-premises network. Interconnecting cloud networks can require significant investments in time, money, design, procurement, installation, testing, and operations.
 
-To address these customer challenges, Oracle and Microsoft have enabled an integrated multicloud experience. Establish *cross-cloud networking* by connecting an [ExpressRoute](../../../expressroute/expressroute-introduction.md) circuit in Microsoft Azure with a [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) circuit in OCI. This connectivity is possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. This setup allows for secure, fast connectivity between the two clouds without the need for an intermediate service provider.
+To address these challenges, Oracle and Microsoft have enabled an integrated multicloud experience. Establish *cross-cloud networking* by connecting an [ExpressRoute](../../../expressroute/expressroute-introduction.md) circuit in Microsoft Azure with a [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) circuit in OCI. This connectivity is possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. This setup allows for secure, fast connectivity between the two clouds without the need for an intermediate service provider.
 
 Using ExpressRoute and FastConnect, you can peer a virtual network in Azure with a virtual cloud network in OCI, if the private IP address space doesn't overlap. Peering the two networks allows a resource in the virtual network to communicate to a resource in the OCI virtual cloud network as if they're both in the same network.
 
@@ -75,10 +75,9 @@ The [WebLogic Server Azure Applications](oracle-weblogic.md) each create a netwo
 
 Identity is one of the core pillars of the partnership between Microsoft and Oracle. Significant work has been done to integrate [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) with [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD is Microsoft's cloud-based identity and access management service. Your users can sign in and access various resources with help from Azure AD. Azure AD also allows you to manage your users and their permissions.
 
-Currently, this integration allows you to manage in one central location, which is Azure Active Directory. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
+Currently, this integration allows you to manage in one central location. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
 
 - Get started with a [cross-cloud network](configure-azure-oci-networking.md) between Azure and OCI.
-
 - For more information and whitepapers about OCI, see [Oracle Cloud Infrastructure](https://docs.cloud.oracle.com/iaas/Content/home.htm).
