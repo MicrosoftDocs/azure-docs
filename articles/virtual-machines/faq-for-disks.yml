@@ -229,7 +229,7 @@ sections:
       - question: |
           Can I use an ultra disk as the OS disk for my VM?
         answer: |
-          No, ultra Disks are only supported as data disks.
+          No, ultra Disks are only supported as data disks. You can migrate data from an existing data disk to an Ultra Disk. Attach both disks to the same VM and directly copy the data to the Ultra Disk, or utilize a third party solution for data migration.
 
       - question: |
           Can I convert an existing disk to an ultra disk?
@@ -390,17 +390,17 @@ sections:
       - question: |
           What is the largest umanaged Disk size supported for operating system and data disks?
         answer: |
-          The partition type that Azure supports for an operating system disk using unmanaged disks is the master boot record (MBR).  While you can allocate up to a 4 TiB OS disk, the MBR partition type can only use up to 2 TiB of this disk space for the operating system. Azure supports up to 4 TiB for Unmanaged data disks.
+          The partition type that Azure supports for an operating system disk using unmanaged disks is the master boot record (MBR). While you can allocate up to 4 TiB for an OS disk, the MBR partition type can only use up to 2 TiB of this disk space for the operating system. Azure supports up to 4 TiB for unmanaged data disks.
           
       - question: |
-          What is the largest page blob size that's supported?
+          What is the largest supported page blob size?
         answer: |
           The largest page blob size that Azure supports is 8 TiB (8,191 GiB). The maximum page blob size when attached to a VM as data or operating system disks is 4 TiB (4,095 GiB).
           
       - question: |
           Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?
         answer: |
-          P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy a unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MB/s and the mapped pricing tier.
+          P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy an unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MB/s and the mapped pricing tier.
           
       - question: |
           If my existing premium managed disk less than 64 GiB was created before the small disk was enabled (around June 15, 2017), how is it billed?
@@ -413,7 +413,7 @@ sections:
           You can take a snapshot of your small disks and then create a disk to automatically switch the pricing tier to P4 or P6 based on the provisioned size. You can also use performance tiers, see the articles for changing performance tiers with either the [Azure CLI/PowerShell module](disks-performance-tiers.md) or the [Azure portal](disks-performance-tiers-portal.md).
 
       - question: |
-          Can you resize existing managed disks from sizes fewer than 4 tebibytes (TiB) to 32 TiB?
+          Can I resize existing managed disks from sizes fewer than 4 tebibytes (TiB) to 32 TiB?
         answer: |
           Yes.
 
