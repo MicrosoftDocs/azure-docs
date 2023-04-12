@@ -15,6 +15,8 @@ ms.date: 02/15/2023
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
 
+[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+
 **APPLIES TO:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Flexible Server
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/).
@@ -131,7 +133,7 @@ You'll use the connection string as a GitHub secret.
        with:
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
         server-name: POSTGRESQL_SERVER_NAME
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
     ```
 
 3. Complete your workflow by adding an action to logout of Azure. Here's the completed workflow. The file appears in the `.github/workflows` folder of your repository.
@@ -161,7 +163,7 @@ You'll use the connection string as a GitHub secret.
       with:
         server-name: POSTGRESQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
 
         # Azure logout
     - name: logout
@@ -196,7 +198,7 @@ You'll use the connection string as a GitHub secret.
       with:
         server-name: POSTGRESQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_POSTGRESQL_CONNECTION_STRING }}
-        sql-file: './data.sql'
+        plsql-file: './data.sql'
 
         # Azure logout
     - name: logout

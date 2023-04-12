@@ -1,6 +1,6 @@
 ---
-title: "Cisco Secure Endpoint (AMP) (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Cisco Secure Endpoint (AMP) (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Cisco Secure Endpoint (AMP) (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Cisco Secure Endpoint (AMP) (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Cisco Secure Endpoint (AMP) (using Azure Function) connector for Microsoft Sentinel
+# Cisco Secure Endpoint (AMP) (using Azure Functions) connector for Microsoft Sentinel
 
 The Cisco Secure Endpoint (formerly AMP for Endpoints) data connector provides the capability to ingest Cisco Secure Endpoint [audit logs](https://api-docs.amp.cisco.com/api_resources/AuditLog?api_host=api.amp.cisco.com&api_version=v1) and [events](https://api-docs.amp.cisco.com/api_actions/details?api_action=GET+%2Fv1%2Fevents&api_host=api.amp.cisco.com&api_resource=Event&api_version=v1) into Microsoft Sentinel.
 
@@ -16,7 +16,7 @@ The Cisco Secure Endpoint (formerly AMP for Endpoints) data connector provides t
 
 | Connector attribute | Description |
 | --- | --- |
-| **Azure function app code** | https://aka.ms/sentinel-ciscosecureendpoint-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-ciscosecureendpoint-functionapp |
 | **Log Analytics table(s)** | CiscoSecureEndpoint_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
@@ -34,7 +34,7 @@ CiscoSecureEndpoint_CL
 
 ## Prerequisites
 
-To integrate with Cisco Secure Endpoint (AMP) (using Azure Function) make sure you have: 
+To integrate with Cisco Secure Endpoint (AMP) (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **Cisco Secure Endpoint API credentials**: Cisco Secure Endpoint Client ID and API Key are required. [See the documentation to learn more about Cisco Secure Endpoint API](https://api-docs.amp.cisco.com/api_resources?api_host=api.amp.cisco.com&api_version=v1). [API domain](https://api-docs.amp.cisco.com) must be provided as well.
@@ -47,7 +47,7 @@ To integrate with Cisco Secure Endpoint (AMP) (using Azure Function) make sure y
    >  This connector uses Azure Functions to connect to the Cisco Secure Endpoint API to pull logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
+>**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Functions App.
 
 
 > [!NOTE]

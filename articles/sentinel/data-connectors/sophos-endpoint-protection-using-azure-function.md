@@ -1,6 +1,6 @@
 ---
-title: "Sophos Endpoint Protection (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector Sophos Endpoint Protection (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "Sophos Endpoint Protection (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector Sophos Endpoint Protection (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 02/23/2023
@@ -8,7 +8,7 @@ ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Sophos Endpoint Protection (using Azure Function) connector for Microsoft Sentinel
+# Sophos Endpoint Protection (using Azure Functions) connector for Microsoft Sentinel
 
 The [Sophos Endpoint Protection](https://www.sophos.com/en-us/products/endpoint-antivirus.aspx) data connector provides the capability to ingest [Sophos events](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/common/concepts/Events.html) into Microsoft Sentinel. Refer to [Sophos Central Admin documentation](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/Logs.html) for more information.
 
@@ -17,7 +17,7 @@ The [Sophos Endpoint Protection](https://www.sophos.com/en-us/products/endpoint-
 | Connector attribute | Description |
 | --- | --- |
 | **Application settings** | SOPHOS_TOKEN<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-SophosEP-functionapp |
+| **Azure functions app code** | https://aka.ms/sentinel-SophosEP-functionapp |
 | **Log Analytics table(s)** | SophosEP_CL<br/> |
 | **Data collection rules support** | Not currently supported |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com/) |
@@ -35,7 +35,7 @@ SophosEP_CL
 
 ## Prerequisites
 
-To integrate with Sophos Endpoint Protection (using Azure Function) make sure you have: 
+To integrate with Sophos Endpoint Protection (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
 - **REST API Credentials/permissions**: **API token** is required. [See the documentation to learn more about API token](https://docs.sophos.com/central/Customer/help/en-us/central/Customer/concepts/ep_ApiTokenManagement.html)

@@ -4,6 +4,7 @@ description: This article provides a guideline to understand and strategize pric
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 06/27/2022
 ms.custom: ignite-fall-2021

@@ -115,7 +115,8 @@ Start by preparing your environment for the Azure CLI:
 
    ```azurecli
    az costmanagement export create --name DemoExport --type ActualCost \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
+   --storage-account-id /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/TreyNetwork/providers/Microsoft.Storage/storageAccounts/cmdemo \
    --storage-container democontainer --timeframe MonthToDate --recurrence Daily \
    --recurrence-period from="2020-06-01T00:00:00Z" to="2020-10-31T00:00:00Z" \
    --schedule-status Active --storage-directory demodirectory

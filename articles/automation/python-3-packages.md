@@ -3,7 +3,7 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2022
+ms.date: 03/29/2023
 ms.topic: conceptual
 ms.custom: has-adal-ref, references_regions, devx-track-azurepowershell
 ---
@@ -81,8 +81,8 @@ Perform the following steps using a 64-bit Linux machine with Python 3.10.x and 
 1. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file for Python 3.8 (preview) and **.whl** file for Python 3.10 (preview). 
 1. Enter a name and select the **Runtime Version** as Python 3.8 (preview) or Python 3.10 (preview).
    > [!NOTE]
-   > Python 3.10 (preview) runtime version is currently supported in five regions for Cloud jobs only: West Central US, East US, South Africa North, North Europe, Australia Southeast.                       
-1. Select **Import**
+   > Currently, Python 3.10 (preview) runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Australia Central2, Korea South, Sweden South, Jio India Central, Brazil Southeast, Central India, West India, UAE Central, and Gov clouds.               
+1. Select **Import**.
 
    :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3.8 (preview) Package page with an uploaded tar.gz file selected.":::
 

@@ -490,3 +490,6 @@ Appendix 1 shows proxy URLs required by the Azure Arc-enabled private cloud. The
 
 - [Google Container Registry](http://gcr.io/)
 - [Red Hat Quay.io](http://quay.io/)
+- [Docker](https://hub.docker.com/)
+- [Harbor](https://goharbor.io/)
+- [Container Registry](https://container-registry.com/)

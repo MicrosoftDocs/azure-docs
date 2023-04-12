@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: troubleshooting
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 01/27/2023
+ms.date: 03/16/2023
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ---
@@ -74,6 +74,7 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
     * Currently, the collation **Latin1_General_BIN2** is not supported as there is a known issue where the link cannot be stopped nor underlying tables could be removed from replication.
 * Single row updates (including off-page storage) of > 370 MB are not supported.
 * Currently, if the primary key column(s) of the table are not the first columns in the table, and columns to the left of primary key column(s) are deleted, replication may fail. To troubleshoot, see [Troubleshoot: Azure Synapse Link for SQL initial snapshot fails on source table with primary key not listed as the first column in sequence](troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md).
+* When Azure Synapse Link for SQL on Azure SQL Database or SQL Server 2022 is enabled, the aggressive log truncation feature of Accelerated Database Recovery (ADR) is automatically disabled. This is because Azure Synapse Link for SQL accesses the database transaction log. This behavior is similar to changed data capture (CDC). Active transactions continue to hold the transaction log truncation until the transaction commits and Azure Synapse Link for SQL catches up, or transaction aborts. This might result in the transaction log filling up more than usual and should be monitored so that the transaction log does not fill.
 
 ### Azure SQL Database only
 * Azure Synapse Link for SQL isn't supported on Free, Basic or Standard tier with fewer than 100 DTUs.
@@ -83,7 +84,7 @@ The following is the list of known limitations for Azure Synapse Link for SQL.
 * Azure Synapse Link can't be enabled on the secondary database once a GeoDR failover has happened if the secondary database has a different name from the primary database.
 * If you enable Azure Synapse Link for SQL on your database as a Microsoft Azure Active Directory (Azure AD) user, Point-in-time restore (PITR) will fail. PITR only works when you enable Azure Synapse Link for SQL on your database as a SQL user.
 * If you create a database as an Azure AD user and enable Azure Synapse Link for SQL, a SQL authentication user (for example, even sysadmin role) won't be able to disable/make changes to Azure Synapse Link for SQL artifacts.  However, another Azure AD user is able to enable/disable Azure Synapse Link for SQL on the same database. Similarly, if you create a database as an SQL authentication user, enabling/disabling Azure Synapse Link for SQL as an Azure AD user won't work.
-* When Azure Synapse Link for SQL on Azure SQL Database or SQL Server is enabled, the aggressive log truncation feature of Accelerated Database Recovery (ADR) is automatically disabled. This is because Azure Synapse Link for SQL accesses the database transaction log. This behavior is similar to changed data capture (CDC). Active transactions continue to hold the transaction log truncation until the transaction commits and Azure Synapse Link for SQL catches up, or transaction aborts. This might result in the transaction log filling up more than usual and should be monitored so that the transaction log does not fill.
+
 
 ### SQL Server 2022 only
 * Azure Synapse Link for SQL can't be enabled on databases that are transactional replication publishers or distributors.

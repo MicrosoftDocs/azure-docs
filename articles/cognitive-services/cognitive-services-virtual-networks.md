@@ -40,6 +40,7 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 
 > [!div class="checklist"]
 > * Anomaly Detector
+> * Azure OpenAI
 > * Computer Vision
 > * Content Moderator
 > * Custom Vision
@@ -53,12 +54,13 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 
 
 > [!NOTE]
-> If you're using LUIS, Speech Services, or Language services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use LUIS portal , Speech Studio or Language Studio from a virtual network, you will need to use the following tags: 
+> If you're using, Azure OpenAI, LUIS, Speech Services, or Language services, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use Azure OpenAI Studio, LUIS portal , Speech Studio or Language Studio from a virtual network, you will need to use the following tags:
+
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
 > * **CognitiveServicesManagement**
-
+> * **CognitiveServicesFrontEnd**
 
 
 ## Change the default network access rule
@@ -502,6 +504,9 @@ When creating the private endpoint, you must specify the Cognitive Services reso
 * [Create a private endpoint using Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### Connecting to private endpoints
+
+> [!NOTE]
+> Azure OpenAI Service uses a different private DNS zone and public DNS zone forwarder than other Azure Cognitive Services. Refer to the [Azure services DNS zone configuration article](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the correct zone and forwader names.  
 
 Clients on a VNet using the private endpoint should use the same connection string for the Cognitive Services resource as clients connecting to the public endpoint. The exception is the Speech Services, which require a separate endpoint. See the section on [Private endpoints with the Speech Services](#private-endpoints-with-the-speech-services). We rely upon DNS resolution to automatically route the connections from the VNet to the Cognitive Services resource over a private link. 
 

@@ -36,7 +36,7 @@ The message can appear for customers with the following Azure subscription agree
 
 Expect a delay before you can create another subscription.
 
-If you're new to Azure and don't have any consumption usage, read the [Get started guide for Azure developers](/azure/guides/developer/azure-developer-guide) to help you get started with Azure services.
+If you're new to Azure and don't have any consumption usage, read the [Get started guide for Azure developers](../../guides/developer/azure-developer-guide.md) to help you get started with Azure services.
 
 ## Need help? Contact us.
 
