@@ -5,16 +5,15 @@ ms.service: azure-arc
 ms.topic: include
 ms.date: 12/7/2022
 ---
-<!---
+
 At this time, a test or preview build is not available for the next release.
--->
 
-
-April 2023 test release is now available.
+<!---
+April 2023 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.18.0_2023-04-11`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1|
@@ -31,7 +30,7 @@ April 2023 test release is now available.
 |`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`| v1beta1, v1|
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
-|Azure Resource Manager (ARM) API version|2022-06-15-preview|
+|Azure Resource Manager (ARM) API version|2023-01-15-preview|
 |`arcdata` Azure CLI extension version|1.4.13 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc-enabled Kubernetes helm chart extension version|1.18.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
@@ -45,3 +44,4 @@ April 2023 test release is now available.
 - Arc SQL Server | Azure Policy to enable best practices assessment at scale
 - Arc PostgreSQL | Ensure postgres extensions work per database/role.
 - Arc PostgreSQL | Upload metrics/logs to Azure Monitor
+-->

@@ -58,7 +58,7 @@ Learn how to migrate from Azure Database for PostgreSQL - Single Server to Azure
 
 **Q. Can I continue running my Azure Database for PostgreSQL - Single Server beyond the sunset date of March 28, 2025?**
 
-**A.** We plan to support Single Server at the sunset date of March 28, 2025, and we strongly advise that you start planning your migration as soon as possible. We plan to end support for single server deployments at the sunset data of March 28, 2025.
+**A.** We plan to support Single Server until the sunset date of March 28, 2025, and we strongly advise that you start planning your migration as soon as possible. We plan to end support for single server deployments at the sunset data of March 28, 2025.
 
 **Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?**
 
