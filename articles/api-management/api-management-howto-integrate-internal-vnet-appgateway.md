@@ -129,7 +129,7 @@ The following example shows how to create a virtual network by using Resource Ma
         "NSG-APPGW" -SecurityRules $appGwRule1, $appGwRule2
     ```
     
-1.  Create a network security group (NSG) and NSG rules for the API Management subnet. [API Management stv2 requires several specific rules](https://learn.microsoft.com/en-us/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2#configure-nsg-rules).
+1.  Create a network security group (NSG) and NSG rules for the API Management subnet. [API Management stv2 requires several specific rules](api-management-using-with-internal-vnet?tabs=stv2#configure-nsg-rules).
 
     ```powershell
     $apimRule1 = New-AzNetworkSecurityRuleConfig -Name APIM-Management -Description "APIM inbound" `
