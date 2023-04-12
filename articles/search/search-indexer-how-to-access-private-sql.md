@@ -131,7 +131,7 @@ You could use the [**Import data**](search-get-started-portal.md) wizard for thi
 
 This article assumes Postman or equivalent tool, and uses the REST APIs to make it easier to see all of the properties. Recall that REST API calls for indexers and data sources use the [Search REST APIs](/rest/api/searchservice/), not the [Management REST APIs](/rest/api/searchmanagement/) used to create the shared private link. The syntax and API versions are different between the two REST APIs.
 
-1. [Create the data source definition](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) as you would normally for Azure SQL. There are no properties in any of these definitions that vary when using a shared private endpoint.
+1. [Create the data source definition](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) as you would normally for Azure SQL. Although the format of the connection string is different, the data source type and other properties are valid for SQL Managed Instance.
 
     Provide the connection string that you copied earlier.
 
@@ -156,6 +156,9 @@ This article assumes Postman or equivalent tool, and uses the REST APIs to make 
          "identity": null
      }
     ```
+
+   > [!NOTE]
+   > If you're familiar with data source definitions in Cognitive Search, you'll notice that data source properties don't vary when using a shared private link. That's because the private connection is detected and handled internally.
 
 1. [Create the indexer definition](search-howto-create-indexers.md), setting the indexer execution environment to "private".
 
@@ -182,20 +185,24 @@ This article assumes Postman or equivalent tool, and uses the REST APIs to make 
 
 You can monitor the status of the indexer in Azure portal or by using the [Indexer Status API](/rest/api/searchservice/get-indexer-status).
 
+You can use [**Search explorer**](search-explorer.md) in Azure portal to check the contents of the index.
+
 ## 8 - Test the shared private link
 
-If you ran the indexer in the previous step and successfully indexed content from your managed instance, then the test was successful. You can use [**Search explorer**](search-explorer.md) in Azure portal to check the contents of the index.
+If you ran the indexer in the previous step and successfully indexed content from your managed instance, then the test was successful. However, if the indexer fails or there's no content in the index, you can modify your objects and repeat testing by choosing any client that can invoke an outbound request from an indexer. 
 
-However, if the indexer fails or there's no content in the index, you can modify your objects and repeat testing by choosing any client that can invoke an outbound request from an indexer. An easy choice is [running an indexer](search-howto-run-reset-indexers.md) in Azure portal, but you can also try Postman and REST APIs for more precision. 
-
-Assuming that your search service isn't also configured for a private connection, the REST client connection to Search can be over the public internet.
+An easy choice is [running an indexer](search-howto-run-reset-indexers.md) in Azure portal, but you can also try Postman and REST APIs for more precision. Assuming that your search service isn't also configured for a private connection, the REST client connection to Search can be over the public internet.
 
 Here are some reminders for testing:
 
 + If you use Postman or another web testing tool, use the [Management REST API](/rest/api/searchmanagement/) and a [preview API version](/rest/api/searchmanagement/management-api-versions) to create the shared private link. Use the [Search REST API](/rest/api/searchservice/) and a [stable API version](/rest/api/searchservice/search-service-api-versions) to create and invoke indexers and data sources.
+
 + You can use the Import data wizard to create an indexer, data source, and index. However, the generated indexer won't have the correct execution environment setting.
+
 + You can edit data source and indexer JSON in Azure portal to change properties, including the execution environment and the connection string.
+
 + You can reset and rerun the indexer in Azure portal. Reset is important for this scenario because it forces a full reprocessing of all documents.
+
 + You can use Search explorer to check the contents of the index.
 
 ## See also
