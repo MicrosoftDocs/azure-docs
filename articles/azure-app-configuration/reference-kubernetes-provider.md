@@ -41,6 +41,7 @@ Following is the references of properties that user can specify in `spec` of `Az
 |servicePrincipalReference|Name of Secret, which contains the credentials used for service principal authentication|conditional|string|
 
 `spec.keyValues` is optional and has the following child properties.
+
 |Name|Description|Required|type|
 |---|---|---|---|
 |trimKeyPrefixes|List of key prefixes that to be trimmed| false| string array|
@@ -76,7 +77,7 @@ Following is the references of properties that user can specify in `spec` of `Az
 |---|---|---|---|
 |managedIdentityClientId|System assigned or user-assigned managed identity client ID for accessing key vaults by default| false| string|
 |servicePrincipalReference|Name of Secret that contains the credentials used for service principal authentication for accessing key vaults by default| false| string|
-|vaults|Array of object which user can specify authentication method for each key vault uri|false|string|
+|vaults|List of object which user can specify authentication method for each key vault uri|false|object array|
 
 `spec.keyValues.keyVaults.auth.vaults` is an optional *vault* array. No specifying `spec.keyValues.keyVaults.auth.vaults` means that all key vaults are accessed through the default authentication method that specified in `spec.keyValues.keyVaults.auth`. If there are any key vaults that need to be accessed through different authentication method, user can specify the authentication method for each *vault* with following properties.
 
