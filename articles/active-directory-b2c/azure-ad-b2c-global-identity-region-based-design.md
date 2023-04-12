@@ -83,7 +83,7 @@ This use case demonstrates how a user from their home country/region performs a 
 
 This use case demonstrates how a user can travel across regions and maintain their user profile and credentials stored in their regional tenant respective to their sign-up.
 
-![Screenshot shows the traveling user sign-in flow.](media/azure-ad-b2c-global-identity-regional-design/traveling-user-sign-in.png)
+![Screenshot shows the traveling user sign-in flow](media/azure-ad-b2c-global-identity-regional-design/traveling-user-sign-in.png)
 
 1. User from North America (NOAM) attempts to sign in at **myapp.fr**, since they are on holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
