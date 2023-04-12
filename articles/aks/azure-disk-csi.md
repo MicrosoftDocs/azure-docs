@@ -2,7 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Disks on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Disks in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 04/12/2023
 ---
 
 # Use the Azure Disks Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
@@ -158,6 +158,9 @@ The following table provides details for all of the parameters.
 |subscriptionID | Specify Azure subscription ID where Azure Disks will be created  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided, `incremental` must set as `false`
 
 ### Create a volume snapshot
+
+> [!NOTE]
+> Before proceeding, ensure that the application is not writing data to the source disk.
 
 For an example of this capability, create a [volume snapshot class](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) with the [kubectl apply][kubectl-apply] command:
 
