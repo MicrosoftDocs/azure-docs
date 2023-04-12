@@ -205,8 +205,6 @@ You must set these up in addition to the [ports required for Azure Stack Edge (A
 |TCP 31000 (HTTPS)|In|LAN|Yes|Required for Kubernetes dashboard to monitor your device.|
 |TCP 6443 (HTTPS)|In|LAN|Yes|Required for kubectl access|
 
-:::zone-end
-
 ### Outbound firewall ports required
 
 Review and apply the firewall recommendations for the following services:
