@@ -19,15 +19,6 @@ content meets their needs. H1 format is # What is <product/service>?
 # Learn how to create web gateway policies for Global Secure Access
 Global Secure Access provides the ability to restrict network traffic based on groups or domains. For example, you can block a category of network traffic, such as social media, or a Fully Qualified Domain Name (FQDN), such as example.com.
 
-Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
-
-| Feature   | Microsoft Entra Private Access | Microsoft Entra Internet Access |
-|----------|-----------|------------|
-| Feature A | X |   |
-| Feature B |   | X |
-| Feature C | X | X |
-| Feature D | X |   |
-
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
 fundamental “why would I want to know this?” question. Keep it short.

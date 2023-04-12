@@ -40,10 +40,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Understand Secure Access Service Edge (SASE)
-            url: concept-understand-sase.md
-          - text: Understand Security Service Edge (SSE)
-            url: concept-understand-sse.md
+          - text: Understand branch connectivity
+            url: concept-understand-branch-connectivity.md
 
   - title: Connect
     linkLists:

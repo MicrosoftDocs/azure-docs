@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Configure Global Secure Access
-description: Learn how to configure Global Secure Access for edge devices.
+title: Tutorial - Configure Microsoft Entra Internet Access end-to-end
+description: Learn how to configure Microsoft Entra Internet Access end-to-end.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: overview
-ms.date: 02/08/2023
+ms.date: 04/12/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -16,7 +16,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Tutorial - Configure Global Secure Access
+# Tutorial - Configure Microsoft Entra Internet Access end-to-end
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 

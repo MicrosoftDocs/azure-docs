@@ -27,7 +27,7 @@ Branches are remote locations or networks that require internet connectivity. Fo
 **No holistic solution for network and security** – Software Defined Wide Area Network (SD-WAN) is definitely a step up from legacy WAN, but these SD-WAN appliances aren't designed to meet all security requirements. As a result, enterprises have to manage a patchwork of network and security offerings from multiple vendors.  
 
 ## How does Global Secure Access branch connectivity work? 
-To connect a branch office to Global Secure Access, you set up an Internet Protocol Security (IPSec) tunnel between your on-premises equipment and the Microsoft service endpoint. Traffic that you specify is routed through the IPSec tunnel to the Microsoft cloud. You apply security policies in the Microsoft Entra admin portal.
+To connect a branch office to Global Secure Access, you set up an Internet Protocol Security (IPSec) tunnel between your on-premises equipment and the Microsoft service endpoint. Traffic that you specify is routed through the IPSec tunnel to the Microsoft cloud. You apply security policies in the Microsoft Entra admin center.
 
 > [!NOTE]
 > Global Secure Access branch connectivity provides a secure solution between a branch office and the

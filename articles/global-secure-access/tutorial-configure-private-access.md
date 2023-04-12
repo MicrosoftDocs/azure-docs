@@ -1,11 +1,11 @@
 ---
-title: Sample - Configure Tenant for Global Secure Access
-description: Use PowerShell to configure a tenant for Global Secure Access.
+title: Tutorial - Configure Microsoft Entra Private Access end-to-end
+description: Learn how to configure Microsoft Entra Private Access end-to-end.
 author: kenwith
 ms.author: kenwith
 manager: amycolannino
 ms.topic: overview
-ms.date: 02/08/2023
+ms.date: 04/12/2023
 ms.service: network-access
 ms.custom: 
 ---
@@ -16,7 +16,7 @@ Required. Set expectations for what the content covers, so customers know the
 content meets their needs. H1 format is # What is <product/service>?
 -->
 
-# Sample - Use PowerShell to configure a tenant for Global Secure Access
+# Tutorial - Configure Microsoft Entra Private Access end-to-end
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes what the article covers. Answer the 
@@ -24,6 +24,7 @@ fundamental “why would I want to know this?” question. Keep it short.
 -->
 
 A 
+
 
 <!-- 3. H2s
 Required. Give each H2 a heading that sets expectations for the content that follows. 
