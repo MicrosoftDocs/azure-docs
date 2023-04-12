@@ -35,9 +35,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 |                                    | Organizer | Presenter | Attendee |
 |----------------------------------------------|--------|--------|--------|
 | startSpotlight | ✔️ | ✔️  | ✔️ |
-| startParticipantsSpotlight | ✔️ | ✔️ | ✔️ |
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
-| stopParticipantsSpotlight | ✔️ | ✔️ | ✔️ |
 | stopAllSpotlight |  ✔️ | ✔️ | ✔️ |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
@@ -45,9 +43,7 @@ Communication Services or Microsoft 365 users can call the spotlight APIs based 
 |                                    | Organizer | Presenter | Attendee |
 |----------------------------------------------|--------|--------|--------|
 | startSpotlight | ✔️ | ✔️  |  |
-| startParticipantsSpotlight | ✔️ | ✔️ |  |
 | stopSpotlight | ✔️ | ✔️ | ✔️ |
-| stopParticipantsSpotlight | ✔️ | ✔️ |  |
 | stopAllSpotlight |  ✔️ | ✔️ |  |
 | getSpotlightedParticipants |  ✔️ | ✔️ | ✔️ |
 
