@@ -11,11 +11,11 @@ This article describes how to use [Azure Diagnostics][azure-diagnostics-overview
 
 ## Prerequisites
 
-* A [Log Analytics workspace][log-analytics-workspace-overview]. If you already have a cluster monitored by [Container insights][container-insights-overview], you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment][design-log-analytics-deployment]. 
+* A [Log Analytics workspace][log-analytics-workspace-overview]. If you already have a cluster monitored by [Container insights][container-insights-overview], consider using that one. For more information, see [Designing your Azure Monitor Logs deployment][design-log-analytics-deployment]. 
 
 ## Collect Kubernetes audit logs
 
-Kubernetes audit logging is not enabled by default on an AKS cluster on account of Microsoft manages the AKS control plane. You can create diagnostic settings for your cluster resource using any one of the multiple methods described in the [Create diagnostic settings][create-diagnostic settings] article. While configuring diagnostic settings, specify the following:
+Kubernetes audit logging isn't enabled by default on an AKS cluster on account of Microsoft manages the AKS control plane. You can create diagnostic settings for your cluster resource using any one of the multiple methods described in the [Create diagnostic settings][create-diagnostic settings] article. While configuring diagnostic settings, specify the following:
 
 * **Logs and metrics to route:** For logs, choose the category **Kubernetes Audit** to send to the destination specified later.
 * **Destination details:** Select the checkbox for **Log Analytics**.
@@ -24,7 +24,7 @@ Kubernetes audit logging is not enabled by default on an AKS cluster on account 
 > There could be substantial cost involved once kube-audit logs are enabled. Consider disabling kube-audit logging when not required.
 > For strategies to reduce your Azure Monitor costs, see [Cost optimization and Azure Monitor][cost-optimization-azure-monitor].
 
-After a few moments, the new setting appears in your list of settings for this resource. Logs are streamed to the specified destinations as new event data is generated. It might take up to 15 minutes between when an event is emitted and when it appears in a [Log Analytics workspace][log-analytics-workspace-overview]. 
+After a few moments, the new setting appears in your list of settings for this resource. Logs are streamed to the specified destinations as new event data is generated. It might take up to 15 minutes between when an event is emitted and when it appears in a [Log Analytics workspace][log-analytics-workspace-overview].
 
 After creating the diagnostic setting to collect kube-audit events, the data can be queried from the [AzureDiagnostics][azure-diagnostics-table] table.
 
