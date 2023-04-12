@@ -38,7 +38,7 @@ Application Insights Profiler and AI Code Optimizer work together to provide a h
 [The Profiler](../profiler/profiler-overview.md) focuses on tracing specific requests, down to the millisecond. It provides an excellent "big picture" view of issues within your application and general best practices to address them.
 
 ### AI Code Optimizer
-AI Code Optimizer analyzes the profiling data collected by the Application Insights Profiler. As the Profiler uploads data to Application Insights, our machine learning model analyzes some of the data to find where the application's code can be optimized. Optimization Insight:
+AI Code Optimizer analyzes the profiling data collected by the Application Insights Profiler. As the Profiler uploads data to Application Insights, our machine learning model analyzes some of the data to find where the application's code can be optimized. AI Code Optimizer:
 
 - Displays aggregated data gathered over time.
 - Connects data with the methods and functions in your application code.
