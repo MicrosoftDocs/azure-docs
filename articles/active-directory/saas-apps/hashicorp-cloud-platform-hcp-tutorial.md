@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with HashiCorp Cloud Platform (HCP)
 
-In this article, you learn how to integrate HashiCorp Cloud Platform (HCP) with Azure Active Directory (Azure AD). HashiCorp Cloud platform hosting managed services of the developer tools created by HashiCorp, such Terraform, Vault, Boundary, and Consul. When you integrate HashiCorp Cloud Platform (HCP) with Azure AD, you can:
+In this article, you learn how to integrate HashiCorp Cloud Platform (HCP) with Azure Active Directory (Azure AD). HashiCorp Cloud Platform hosting managed services of the developer tools created by HashiCorp, such Terraform, Vault, Boundary, and Consul. When you integrate HashiCorp Cloud Platform (HCP) with Azure AD, you can:
 
 * Control in Azure AD who has access to HashiCorp Cloud Platform (HCP).
 * Enable your users to be automatically signed-in to HashiCorp Cloud Platform (HCP) with their Azure AD accounts.
@@ -31,7 +31,7 @@ To integrate Azure Active Directory with HashiCorp Cloud Platform (HCP), you nee
 * An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* HashiCorp Cloud Platform (HCP) single sign-on (SSO) enabled subscription.
+* HashiCorp Cloud Platform (HCP) single sign-on (SSO) enabled organization.
 
 ## Add application and assign a test user
 
@@ -99,6 +99,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * [What is single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Plan a single sign-on deployment](../manage-apps/plan-sso-deployment.md).
+* [HashiCorp Cloud Platform (HCP) | Azure Active Directory SAML SSO Configuration](https://developer.hashicorp.com/hcp/docs/hcp/security/sso/sso-aad)
 
 ## Next steps
 
