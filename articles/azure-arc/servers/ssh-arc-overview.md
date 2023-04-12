@@ -41,16 +41,8 @@ Authenticating with Azure AD credentials has additional requirements:
     > The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshooting.md#limits) per subscription.
 
 ### Availability
-SSH access to Arc-enabled servers is currently supported in the following regions:
-- eastus2euap, eastus, eastus2, westus2, southeastasia, westeurope, northeurope, westcentralus, southcentralus, uksouth, australiaeast, francecentral, japaneast, eastasia, koreacentral, westus3, westus, centralus, northcentralus.
-
-### Supported operating systems
- - Windows: Windows 7+ and Windows Server 2012+
- - Linux: 
-   - CentOS: CentOS 7, CentOS 8
-   - RedHat Enterprise Linux (RHEL): RHEL 7.4 to RHEL 7.10, RHEL 8.3+
-   - SUSE Linux Enterprise Server (SLES): SLES 12, SLES 15.1+
-   - Ubuntu Server: Ubuntu Server 16.04 to Ubuntu Server 20.04
+SSH access to Arc-enabled servers is currently supported in all regions supported by Arc-Enabled Servers with the following exceptions:
+ - Germany West Central
 
 ## Getting started
 
