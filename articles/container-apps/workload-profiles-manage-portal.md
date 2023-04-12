@@ -74,7 +74,7 @@ The following regions support workload profiles during preview:
 
     General purpose profiles offer a balanced mix cores vs memory for most applications.
   
-    Memory optimized profiles offer specialized hardware with increased memory or compute capabilities.
+    Memory optimized profiles offer specialized hardware with increased memory capabilities.
 
 1. Select the **Select** button.
 
