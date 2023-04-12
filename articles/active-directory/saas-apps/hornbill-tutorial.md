@@ -116,37 +116,37 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, log in to Hornbill as a Security Administrator.
 
-2. On the Home page, click **System**.
+2. On the Home page, click the **Configuration** cog icon at the bottom-left of the page.
 
-	![Screenshot shows the Hornbill system.](./media/hornbill-tutorial/system.png   "Hornbill system")
+	![Screenshot shows the Hornbill system.](./media/hornbill-tutorial/hb-config.png   "Hornbill system")
 
-3. Navigate to **Security**.
+3. Navigate to **Platform Configuration**.
 
-	![Screenshot shows the Hornbill security.](./media/hornbill-tutorial/security.png "Hornbill security")
+	![Screenshot shows the Hornbill platform configuration.](./media/hornbill-tutorial/hb-config-platform.png "Hornbill security")
 
-4. Click **SSO Profiles**.
+4. Click **SSO Profiles** under Security.
 
-	![Screenshot shows the Hornbill single.](./media/hornbill-tutorial/profile.png "Hornbill single")
+	![Screenshot shows the Hornbill single.](./media/hornbill-tutorial/hb-config-sso-menu.png "Hornbill single")
 
-5. On the right side of the page, click on **Add logo**.
+5. On the right side of the page, click on **+ Create New Profile**.
 
-	![Screenshot shows to add the logo.](./media/hornbill-tutorial/add-logo.png "Hornbill add")
+	![Screenshot shows to add the logo.](./media/hornbill-tutorial/hb-config-sso-create.png "Hornbill create")
 
-6. On the **Profile Details** bar, click on **Import SAML Meta logo**.
+6. On the **Profile Details** bar, click on the **Import IDP Meta Data** button.
 
-	![Screenshot shows Hornbill Meta logo.](./media/hornbill-tutorial/logo.png "Hornbill logo")
+	![Screenshot shows Hornbill Meta logo.](./media/hornbill-tutorial/hb-config-sso-import.png "Hornbill logo")
 
-7. On the Pop-up page in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
+7. On the pop-up, in the **URL** text box, paste the **App Federation Metadata Url**, which you have copied from Azure portal and click **Process**.
 
-	![Screenshot shows Hornbill process.](./media/hornbill-tutorial/process.png "Hornbill process")
+	![Screenshot shows Hornbill process.](./media/hornbill-tutorial/hb-config-sso-xml.png "Hornbill process")
 
 8. After clicking process the values get auto populated automatically under **Profile Details** section.
 
-	![Screenshot shows Hornbill profile](./media/hornbill-tutorial/page.png "Hornbill profile")
+	![Screenshot shows Hornbill profile](./media/hornbill-tutorial/hb-config-sso-details.png "Hornbill profile")
 
-	![Screenshot shows Hornbill details.](./media/hornbill-tutorial/services.png "Hornbill details")
+	![Screenshot shows Hornbill details.](./media/hornbill-tutorial/hb-config-sso-ap.png "Hornbill details")
 
-	![Screenshot shows Hornbill certificate.](./media/hornbill-tutorial/details.png "Hornbill certificate")
+	![Screenshot shows Hornbill Services.](./media/hornbill-tutorial/hb-config-sso-services.png "Hornbill services")
 
 9. Click **Save Changes**.
 
