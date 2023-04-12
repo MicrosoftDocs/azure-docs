@@ -9,8 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/23/2023
 ms.author: oriwolman 
-ms.custom: devx-track-azurecli compute-evergreen
-
+ms.custom: devx-track-azurecli compute-evergreen, devx-track-arm-template
 ---
 
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure CLI

@@ -2,8 +2,7 @@
 title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
-author: yossi-y
-ms.author: yossiy
+ms.reviewer: yossiy
 ms.date: 01/01/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---

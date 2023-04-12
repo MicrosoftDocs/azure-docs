@@ -231,6 +231,9 @@ items:
         href: agents/azure-monitor-agent-migration.md
       - name: Migration tools
         href: agents/azure-monitor-agent-migration-tools.md
+    - name: Performance
+      displayName: Performance
+      href: agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
       href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -278,6 +281,8 @@ items:
             href: agents/data-sources-custom-logs.md
           - name: Custom fields
             href: logs/custom-fields.md
+          - name: Migrate from custom fields
+            href: logs/custom-fields-migrate.md
       - name: Azure Diagnostics extension
         items:
         - name: Overview
@@ -541,14 +546,12 @@ items:
           href: logs/private-storage.md
         - name: Personal log data handling
           href: logs/personal-data-mgmt.md
-        - name: Application data collection, retention, and storage
-          href: app/data-retention-privacy.md
-    - name: Integrate with Logic Apps
+    - name: Integrate with Azure Logic Apps
       items:
         - name: Azure Monitor Logs connector
-          href: logs/logicapp-flow-connector.md
+          href: ../connectors/connectors-azure-monitor-logs.md
         - name: Application Insights connector
-          href: app/automate-with-logic-apps.md
+          href: ../connectors/connectors-azure-application-insights.md
     - name: Data export
       items:
           - name: Workspace data export
@@ -628,6 +631,17 @@ items:
               href: app/worker-service.md
             - name: Advanced ASP.NET SDK topics
               items:
+              - name: Metrics
+                items:
+                - name: GetMetric
+                  displayName: get metric, custom metrics, metrics, TrackMetric
+                  href: app/get-metric.md
+                - name: Log-based & pre-aggregated metrics
+                  href: app/pre-aggregated-metrics-log-metrics.md
+                - name: Log-based metrics definitions
+                  href: essentials/app-insights-metrics.md
+                - name: Standard metrics
+                  href: app/standard-metrics.md
               - name: EventCounters
                 href: app/eventcounters.md
               - name: Dependencies
@@ -672,6 +686,9 @@ items:
           href: app/sdk-support-guidance.md
         - name: Advanced SDK topics
           items:
+          - name: Distributed tracing and telemetry correlation
+            href: app/distributed-tracing-telemetry-correlation.md
+            displayName: correlation headers, w3c, distributed tracing, tracing
           - name: TelemetryProcessors
             displayName: processors, filtering, telemetry filtering, telemetry processor
             href: app/api-filtering-sampling.md
@@ -748,7 +765,7 @@ items:
           href: app/availability-standard-tests.md
         - name: Private testing
           href: app/availability-private-test.md
-        - name: Availability + Azure Functions
+        - name: TrackAvailability()
           href: app/availability-azure-functions.md
           displayName: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
         - name: Availability alerts
@@ -759,27 +776,9 @@ items:
       - name: Transaction diagnostics
         href: app/transaction-diagnostics.md
         displayName: e2e, end-to-end, component, dependency, cross-component transaction, operation ID, dependencies
-      - name: Distributed tracing
-        items:
-        - name: Overview
-          href: app/distributed-tracing.md
-        - name: Telemetry correlation
-          href: app/correlation.md
-          displayName: correlation headers, w3c, distributed tracing, tracing
-      - name: Metrics
-        items:
-        - name: Live Metric stream
-          displayName: live, quickpulse, quick pulse, live metrics
-          href: app/live-stream.md
-        - name: GetMetric
-          displayName: get metric, custom metrics, metrics, TrackMetric
-          href: app/get-metric.md
-        - name: Log-based & pre-aggregated metrics
-          href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Log-based metrics definitions
-          href: essentials/app-insights-metrics.md
-        - name: Standard metrics
-          href: app/standard-metrics.md
+      - name: Live Metric stream
+        displayName: live, quickpulse, quick pulse, live metrics
+        href: app/live-stream.md
       - name: Transaction search
         href: app/diagnostic-search.md
       - name: Smart Detection
@@ -888,9 +887,11 @@ items:
         href: app/powershell.md
       - name: Access control
         href: app/resources-roles-access-control.md
+      - name: Application data collection, retention, and storage
+        href: app/data-retention-privacy.md
       - name: Azure AD authentication
         href: app/azure-ad-authentication.md
-      - name: IP addresses and ports
+      - name: IP addresses, ports, and firewall settings
         href: app/ip-addresses.md
         displayName: firewall, firewall exceptions, whitelist
       - name: IP address collection
@@ -1251,6 +1252,8 @@ items:
           items:
           - name: API access, authentication and authorization
             href: logs/api/access-api.md
+          - name: Application Insights API access with Azure Active Directory
+            href: logs/api/app-insights-azure-ad-api.md
           - name: Register an app for API access
             href: logs/api/register-app-for-token.md 
           - name: Request format

@@ -38,10 +38,13 @@ In this how-to guide, you'll learn how to register an existing SAP system with *
 - Check that your Azure account has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
 - A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** and **Tag Contributor** role access on the Compute resource group and **Reader** and **Tag Contributor** role access on the Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
 - Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.
-- sapcontrol and saphostctrl exe files must exist in the path /usr/sap/hostctrl/exe on ASCS, App server and Database.
+- sapcontrol and saphostctrl exe files must exist on ASCS, App server and Database.
+    - File path on Linux VMs: /usr/sap/hostctrl/exe
+    - File path on Windows VMs: C:\Program Files\SAP\hostctrl\exe\
 - Make sure the **sapstartsrv** process is running on all **SAP instances** and for **SAP hostctrl agent** on all the VMs in the SAP system.
-    - To start hostctrl sapstartsrv use the command: 'hostexecstart -start'
+    - To start hostctrl sapstartsrv use this command for Linux VMs: 'hostexecstart -start'
     - To start instance sapstartsrv use the command: 'sapcontrol -nr 'instanceNr' -function StartService S0S'
+    - To check status of hostctrl sapstartsrv use this command for Windows VMs: C:\Program Files\SAP\hostctrl\exe\saphostexec –status
 - For successful discovery and registration of the SAP system, ensure there is network connectivity between ASCS, App and DB VMs. 'ping' command for App instance hostname must be successful from ASCS VM. 'ping' for Database hostname must be successful from App server VM.
 - On App server profile, SAPDBHOST, DBTYPE, DBID parameters must have the right values configured for the discovery and registration of Database instance details.
 
@@ -123,25 +126,25 @@ This error happens when the Database identifier is incorrectly configured on the
 
 1. Stop the Application Server instance:
     
-    `sapcontrol -nr -function Stop`
+    `sapcontrol -nr <instance number> -function Stop`
 
 1. Stop the ASCS instance:
 
-    `sapcontrol -nr -function Stop`
+    `sapcontrol -nr <instance number> -function Stop`
 
 1. Open the Application Server profile.
 
 1. Add the profile parameter for the HANA Database: 
 
-    `rsdb/dbid = HanaDbSid`
+    `rsdb/dbid = <SID of HANA Database>`
 
 1. Restart the Application Server instance: 
 
-    `sapcontrol -nr -function Start`
+    `sapcontrol -nr <instance number> -function Start`
 
 1. Restart the ASCS instance: 
 
-    `sapcontrol -nr -function Start`
+    `sapcontrol -nr <instance number> -function Start`
 
 1. Delete the VIS resource whose registration failed.
 
@@ -160,7 +163,7 @@ This error happens when the Database identifier is incorrectly configured on the
 4. If this does not solve the issue, try updating the VM Agent using [this document](../../virtual-machines/extensions/update-linux-agent.md)
 5. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](../../virtual-machines/extensions/update-linux-agent.md).
 
-To fix the Windows VM Agent, follow [Troubleshooting Azure Windows VM Agent](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent.md).
+To fix the Windows VM Agent, follow [Troubleshooting Azure Windows VM Agent](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent).
 
 ## Next steps
 

@@ -17,12 +17,19 @@ items:
   - name: Schedule a contact
     href: schedule-contact.md
     
+- name: Concepts
+  items:
+  - name: Spacecraft
+    href: spacecraft-object.md
+  - name: Contact
+    href: concepts-contact.md
+  - name: Contact profile
+    href: concepts-contact-profile.md
+    
 - name: How-to guides
   items:
   - name: Prepare network to send and receive data
     href: prepare-network.md
-  - name: License your spacecraft
-    href: license-spacecraft.md
   - name: Integrate partner network ground stations
     href: partner-network-integration.md 
   - name: Configure the RF chain
@@ -40,15 +47,6 @@ items:
     href: downlink-aqua.md 
   - name: Collect and process AQUA satellite payload
     href: satellite-imagery-with-orbital-ground-station.md
-    
-- name: Concepts
-  items:
-  - name: Contact
-    href: concepts-contact.md
-  - name: Contact profile
-    href: concepts-contact-profile.md
-  - name: Spacecraft object
-    href: spacecraft-object.md
   - name: Geospatial reference architecture
     href: geospatial-reference-architecture.md          
   - name: Organize spaceborne geospatial data with STAC
