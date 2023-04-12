@@ -228,8 +228,14 @@
               href: how-to-select-algorithms.md
     - name: Deploy models
       items:
-        - name: Endpoints
+        - name: Endpoints for inference
           href: concept-endpoints.md
+        - name: Endpoints
+          items:
+            - name: Online endpoints
+              href: concept-endpoints-online.md
+            - name: Batch endpoints
+              href: concept-endpoints-batch.md
         - name: Model portability (ONNX)
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
@@ -895,7 +901,7 @@
               href: how-to-access-data-batch-endpoints-jobs.md
             - name: Deploy models
               items:
-                - name: Batch model scoring with batch endpoints
+                - name: Deploy models for scoring in batch endpoints
                   href: how-to-use-batch-model-deployments.md
                 - name: Author scoring scripts
                   href: how-to-batch-scoring-script.md

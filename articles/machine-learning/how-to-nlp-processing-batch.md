@@ -53,43 +53,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
-
-### Connect to your workspace
-
-First, let's connect to Azure Machine Learning workspace where we're going to work on.
-
-# [Azure CLI](#tab/cli)
-
-```azurecli
-az account set --subscription <subscription>
-az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-```
-
-# [Python](#tab/python)
-
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
-
-1. Import the required libraries:
-
-```python
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
-from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
-from azure.identity import DefaultAzureCredential
-```
-
-2. Configure workspace details and get a handle to the workspace:
-
-```python
-subscription_id = "<subscription>"
-resource_group = "<resource-group>"
-workspace = "<workspace>"
-
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-```
-
----
+[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
 
 ### Registering the model
 

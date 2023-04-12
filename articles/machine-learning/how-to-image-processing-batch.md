@@ -39,10 +39,8 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
 
-* You must have a batch endpoint already created. This example assumes the endpoint is named `imagenet-classifier-batch`. If you don't have one, follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
-* You must have a compute created where to deploy the deployment. This example assumes the name of the compute is `cpu-cluster`. If you don't, follow the instructions at [Create compute](how-to-use-batch-endpoint.md#create-compute).
 
 ## Image classification with batch deployments
 
@@ -52,7 +50,7 @@ In this example, we are going to learn how to deploy a deep learning model that 
 
 First, let's create the endpoint that will host the model:
 
-# [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/cli)
 
 Decide on the name of the endpoint:
 

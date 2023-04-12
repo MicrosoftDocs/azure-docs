@@ -1,5 +1,5 @@
 ---
-title: 'Use batch endpoints for batch scoring'
+title: 'Deploy models for scoring in batch endpoints'
 titleSuffix: Azure Machine Learning
 description: In this article, learn how to create a batch endpoint to continuously batch score large data.
 services: machine-learning
@@ -10,11 +10,11 @@ author: santiagxf
 ms.author: fasantia
 ms.reviewer: mopeakande
 ms.date: 11/04/2022
-ms.custom: how-to, devplatv2, event-tier1-build-2022, ignite-2022
+ms.custom: how-to, devplatv2
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
-# Use batch model deployments for batch scoring
+# Deploy models for scoring in batch endpoints
 
 [!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -47,47 +47,7 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
-
-### Connect to your workspace
-
-First, let's connect to Azure Machine Learning workspace where we're going to work on.
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az account set --subscription <subscription>
-az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-```
-
-# [Python](#tab/python)
-
-The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
-
-1. Import the required libraries:
-
-```python
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
-from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
-from azure.identity import DefaultAzureCredential
-```
-
-2. Configure workspace details and get a handle to the workspace:
-
-```python
-subscription_id = "<subscription>"
-resource_group = "<resource-group>"
-workspace = "<workspace>"
-
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-```
-
-# [Studio](#tab/azure-studio)
-
-Open the [Azure Machine Learning studio portal](https://ml.azure.com) and sign in using your credentials.
-
----
+[!INCLUDE [machine-learning-batch-prereqs-studio](../../includes/machine-learning/azureml-batch-prereqs-with-studio.md)]
 
 ### Create compute
 
@@ -170,7 +130,6 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
     # [Python](#tab/python)
     
     ```python
-    # create a batch endpoint
     endpoint = BatchEndpoint(
         name=endpoint_name,
         description="A batch endpoint for scoring images from the MNIST dataset.",
@@ -207,7 +166,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
 
 ## Create a batch deployment
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. To create a batch deployment, you need all the following items:
+A model deployment is a set of resources required for hosting the model that does the actual inferencing. To create a batch model deployment, you need all the following items:
 
 * A registered model in the workspace.
 * The code to score the model.
@@ -222,10 +181,7 @@ A deployment is a set of resources required for hosting the model that does the 
    
     # [Azure CLI](#tab/azure-cli)
 
-    ```azurecli
-    MODEL_NAME='mnist-classifier-torch'
-    az ml model create --name $MODEL_NAME --type "custom_model" --path "deployment-torch/model"
-    ```
+    :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/mnist-classifier/deploy-and-run.sh" ID="create_batch_endpoint" :::
 
     # [Python](#tab/python)
 
@@ -977,16 +933,16 @@ Run the following code to delete the batch endpoint and all the underlying deplo
 
 # [Python](#tab/python)
 
-Delete endpoint:
+If you aren't going to use the old batch deployment, you should delete it by running the following code. 
 
 ```python
-ml_client.batch_endpoints.begin_delete(name=batch_endpoint_name)
+ml_client.batch_deployments.begin_delete(name=deployment.name, endpoint_name=endpoint.name)
 ```
 
-Delete compute: optional, as you may choose to reuse your compute cluster with later deployments.
+Run the following code to delete the batch endpoint and all the underlying deployments. Batch scoring jobs won't be deleted.
 
 ```python
-ml_client.compute.begin_delete(name=compute_name)
+ml_client.batch_endpoints.begin_delete(name=endpoint.name)
 ```
 
 # [Studio](#tab/azure-studio)

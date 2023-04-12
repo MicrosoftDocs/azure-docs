@@ -44,46 +44,11 @@ You can follow along this sample in the following notebooks. In the cloned repos
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
-
-* You must have a MLflow model. If your model is not in MLflow format and you want to use this feature, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).
+[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
 
 ## Steps
 
 Follow these steps to deploy an MLflow model to a batch endpoint for running batch inference over new data:
-
-1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
-
-   # [Azure CLI](#tab/cli)
-   
-   ```azurecli
-   az account set --subscription <subscription>
-   az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-   ```
-   
-   # [Python](#tab/sdk)
-   
-   The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
-   
-   1. Import the required libraries:
-   
-   ```python
-   from azure.ai.ml import MLClient, Input
-   from azure.ai.ml.entities import BatchEndpoint, BatchDeployment, Model, AmlCompute, Data, BatchRetrySettings
-   from azure.ai.ml.constants import AssetTypes, BatchDeploymentOutputAction
-   from azure.identity import DefaultAzureCredential
-   ```
-   
-   2. Configure workspace details and get a handle to the workspace:
-   
-   ```python
-   subscription_id = "<subscription>"
-   resource_group = "<resource-group>"
-   workspace = "<workspace>"
-   
-   ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-   ```
-
 
 1. Batch Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
    

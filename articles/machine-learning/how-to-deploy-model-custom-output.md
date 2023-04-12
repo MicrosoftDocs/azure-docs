@@ -46,11 +46,7 @@ You can follow along this sample in a Jupyter Notebook. In the cloned repository
 
 ## Prerequisites
 
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
-
-* A model registered in the workspace. In this tutorial, we'll use an MLflow model. Particularly, we are using the *heart condition classifier* created in the tutorial [Using MLflow models in batch deployments](how-to-mlflow-batch.md).
-* You must have an endpoint already created. If you don't, follow the instructions at [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md). This example assumes the endpoint is named `heart-classifier-batch`.
-* You must have a compute created where to deploy the deployment. If you don't, follow the instructions at [Create compute](how-to-use-batch-endpoint.md#create-compute). This example assumes the name of the compute is `cpu-cluster`.
+[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
 
 ## Creating a batch deployment with a custom output
 
@@ -97,6 +93,59 @@ __Remarks:__
 
 > [!WARNING]
 > Take into account that all the batch executors will have write access to this path at the same time. This means that you need to account for concurrency. In this case, we are ensuring each executor writes its own file by using the input file name as the name of the output folder.
+
+## Creating the endpoint
+
+We are going to create a batch endpoint named `heart-classifier-batch` where to deploy the model.
+
+1. Decide on the name of the endpoint. The name of the endpoint will end-up in the URI associated with your endpoint. Because of that, __batch endpoint names need to be unique within an Azure region__. For example, there can be only one batch endpoint with the name `mybatchendpoint` in `westus2`.
+
+    # [Azure CLI](#tab/cli)
+    
+    In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
+    
+    ```azurecli
+    ENDPOINT_NAME="heart-classifier-batch"
+    ```
+    
+    # [Python](#tab/python)
+    
+    In this case, let's place the name of the endpoint in a variable so we can easily reference it later.
+
+    ```python
+    endpoint_name="heart-classifier-batch"
+    ```
+
+1. Configure your batch endpoint
+
+    # [Azure CLI](#tab/cli)
+
+    The following YAML file defines a batch endpoint:
+    
+    __endpoint.yml__
+
+    :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/endpoint.yml":::
+    
+    # [Python](#tab/python)
+    
+    ```python
+    endpoint = BatchEndpoint(
+        name=endpoint_name,
+        description="A heart condition classifier for batch inference.",
+    )
+    ```
+    
+1. Create the endpoint:
+
+   # [Azure CLI](#tab/cli)
+
+   :::code language="azurecli" source="~/azureml-examples-main/cli/endpoints/batch/deploy-models/custom-outputs-parquet/deploy-and-run.sh" ID="create_batch_endpoint" :::
+
+   # [Python](#tab/python)
+
+   ```python
+   ml_client.batch_endpoints.begin_create_or_update(endpoint)
+   ```
 
 ### Creating the deployment
 

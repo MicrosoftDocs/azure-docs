@@ -43,16 +43,7 @@ You can follow along with this example in the following notebook. In the cloned 
 
 ## Prerequisites
 
-# [Azure CLI](#tab/azure-cli)
-
-<!-- Update this... -->
-[!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
-
-# [Python](#tab/python)
-
-[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
-
----
+[!INCLUDE [machine-learning-batch-prereqs-studio](../../includes/machine-learning/azureml-batch-prereqs-with-studio.md)]
 
 ## Prepare your system
 
