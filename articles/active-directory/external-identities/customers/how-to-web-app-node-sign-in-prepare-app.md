@@ -18,4 +18,4 @@ ms.custom: developer
 
 # Sign in users in my own Node.js web application by using Microsoft Entra - Prepare your web app
 
-In this article, you 
+In this article, you create a Node.js(Express) project and organize all the folders and files you require.
