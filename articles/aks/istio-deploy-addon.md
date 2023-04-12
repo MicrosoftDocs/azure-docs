@@ -46,7 +46,7 @@ az extension update --name aks-preview
 
 ### Register the _AzureServiceMeshPreview_ feature flag
 
-Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command below:
+Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
@@ -212,9 +212,9 @@ az aks mesh disable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
 > [!CAUTION]
 > Disabling the service mesh addon will completely remove the Istio control plane from the cluster.
 
-Note that Istio CRDs will not be deleted by default. To clean up CRDs, use:
+Istio `CustomResourceDefintion`s (CRDs) won't be deleted by default. To clean them up, use:
 
-```azurecli-interactive
+```bash
 kubectl delete crd $(kubectl get crd -A | grep "istio.io" | awk '{print $1}')
 ```
 

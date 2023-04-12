@@ -31,7 +31,7 @@ Use `kubectl get svc` to check the service mapped to the ingress gateway:
 kubectl get svc aks-istio-ingressgateway-external -n aks-istio-ingress
 ```
 
-Check the external IP address of the service in the output:
+Observe from the output that the external IP address of the service is a publicly accessible one:
 
 ```
 NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                                      AGE
@@ -109,6 +109,11 @@ Navigate to the URL from the output of the previous command and confirm that the
 curl -s "http://${GATEWAY_URL_EXTERNAL}/productpage" | grep -o "<title>.*</title>"
 ```
 
+Confirm that the sample application's product page is accessible. The expected output is:
+
+```html
+<title>Simple Bookstore App</title>
+```
 
 ## Enable internal ingress gateway
 
@@ -125,7 +130,7 @@ Use `kubectl get svc` to check the service mapped to the ingress gateway:
 kubectl get svc aks-istio-ingressgateway-internal -n aks-istio-ingress
 ```
 
-Check value of the external IP address of the service. For example:
+Observe from the output that the external IP address of the service isn't a publicly accessible one and is instead only locally accessible:
 
 ```
 NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                                      AGE

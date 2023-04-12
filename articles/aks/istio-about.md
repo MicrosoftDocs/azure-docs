@@ -36,7 +36,7 @@ This service mesh add-on uses and builds on top of open-source Istio. The add-on
 
 * Istio versions are tested and verified to be compatible with supported versions of Azure Kubernetes Service.
 * Scaling of Istio control plane configured and handled by Microsoft.
-* Adjust configuration of AKS components like `coredns` when Istio is enabled.
+* Adjust scaling of AKS components like `coredns` when Istio is enabled.
 * Verified external and internal ingress set-up.
 * Verified to work with [Azure Monitor managed service for Prometheus][managed-prometheus-overview] and [Azure Managed Grafana][managed-grafana-overview].
 * Official Azure support provided for the add-on.
@@ -49,6 +49,7 @@ Istio-based service mesh add-on for AKS has the following limitations:
 * The add-on doesn't work on AKS clusters that are using [Open Service Mesh addon for AKS][open-service-mesh-about].
 * The add-on doesn't work on AKS clusters that have Istio installed on them already outside the add-on installation.
 * Istio doesn't support Windows Server containers.
+* Customization of mesh based on the following custom resources is blocked for now - `EnvoyFilter, ProxyConfig, WorkloadEntry, WorkloadGroup, Telemetry, IstioOperator, WasmPlugin`
 
 ## Next steps
 
