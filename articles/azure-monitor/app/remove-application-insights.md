@@ -25,7 +25,7 @@ The following sections show two ways to remove NuGet packages and what was autom
     > [!NOTE]
     > If trace collection is enabled, you need to first uninstall Microsoft.ApplicationInsights.TraceListener. Enter `Uninstall-package Microsoft.ApplicationInsights.TraceListener`. Then follow the next step to remove Microsoft.ApplicationInsights.Web.
 
-1. Enter the following command:<br> `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
+1. Enter the following command:<br>`Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
     After you enter the command, the Application Insights package and all its dependencies are uninstalled from the project.
     
@@ -37,7 +37,7 @@ The following sections show two ways to remove NuGet packages and what was autom
 
     ![Screenshot that shows Tools > NuGet Package Manager > Package Manager Console.](./media/remove-application-insights/package-manager.png)
 
-1. Enter the following command:<br> `Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
+1. Enter the following command:<br>`Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
 
     After you enter the command, the Application Insights package and all its dependencies are uninstalled from the project.
 
@@ -49,7 +49,7 @@ The following sections show two ways to remove NuGet packages and what was autom
 
 1. In the Solution Explorer on the right, right-click **Solution** and select **Manage NuGet Packages for Solution**.
 
-    A screen appears where you can edit all the NuGet packages that are part of the project.
+   A screen appears where you can edit all the NuGet packages that are part of the project.
     
      ![Screenshot that shows right-clicking Solution in the Solution Explorer, and then selecting Manage NuGet Packages for Solution.](./media/remove-application-insights/manage-nuget-framework.png)
 
@@ -75,8 +75,8 @@ The following sections show two ways to remove NuGet packages and what was autom
 # [.NET Core](#tab/netcore)
 
 1. In the Solution Explorer on the right, right-click **Solution** and select **Manage NuGet Packages for Solution**.
-
-   A screen appears where you can edit all the NuGet packages that are part of the project.
+   
+   A screen appears where you can edit all the NuGet packages that are part of the project.
 
     ![Screenshot that shows right-clicking Solution in the Solution Explorer and then select Manage NuGet Packages for Solution.](./media/remove-application-insights/manage-nuget-core.png)
 
