@@ -56,9 +56,6 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the Azure portal, on the **Vera Suite** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
-
-   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
@@ -76,7 +73,13 @@ In this section, a user called B.Simon is created in Vera Suite. Vera Suite supp
 
 ## Test SSO 
 
-Click on **Test this application** in Azure portal and you should be automatically signed in to the Vera Suite for which you set up the SSO.
+In this section, you test your Azure AD single sign-on configuration with following options. 
+
+* Click on **Test this application** in Azure portal. This will redirect to Vera Suite Sign-on URL where you can initiate the login flow. 
+
+* Go to Vera Suite Sign-on URL directly and initiate the login flow from there.
+
+* You can use Microsoft My Apps. When you click the Vera Suite tile in the My Apps, this will redirect to Vera Suite Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
