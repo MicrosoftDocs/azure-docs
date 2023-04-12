@@ -158,78 +158,6 @@ You can download individual packages for platform specific package managers, but
 
 Figuring out the dependencies can be a bit tricky. There are third party tools that can show you the entire dependency tree.
 
-# [Red Hat](#tab/rhel)
-
-In Red Hat, you can run `sudo yum deplist <package_name>` to show all the packages that will be installed when executing the `sudo yum install <package_name>` command. Then you can use that output to download all .rpm files to create an archive that can be used as the application package.
-
-1. Example, to create a VM application package to install PowerShell for Red Hat, first run the following commands to enable the repository where PowerShell can be downloaded from and also to identify the package dependencies on a new RHEL VM.
-
-- RHEL 7:
-
-```bash
-# Register the Microsoft RedHat repository
-curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo
-
-sudo yum deplist powershell
-```
-
-- RHEL 8:
-
-```bash
-# Register the Microsoft RedHat repository
-curl https://packages.microsoft.com/config/rhel/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo
-
-sudo dnf deplist powershell
-```
-
-2. Check the output of each of the dependency lines which lists the dependency packages as `provider`:
-
-```output
-  dependency: /bin/sh
-   provider: bash.x86_64 4.2.46-35.el7_9
-  dependency: libicu
-   provider: libicu.x86_64 50.2-4.el7_7
-   provider: libicu.i686 50.2-4.el7_7
-  dependency: openssl-libs
-   provider: openssl-libs.x86_64 1:1.0.2k-26.el7_9
-   provider: openssl-libs.i686 1:1.0.2k-26.el7_9
-```
-
-3. Download each of these files using `sudo yum install --downloadonly <package_name>`, to download a package when is not yet installed in the system, or `sudo yum reinstall --downloadonly <package_name>`, to download a package that's already installed in the system, and create a tar compressed archive with all files.
-
-
-```bash
-mkdir /tmp/powershell
-cd /tmp/powershell
-sudo yum reinstall --downloadonly --downloaddir=/tmp/powershell bash
-sudo yum reinstall --downloadonly --downloaddir=/tmp/powershell libicu
-sudo yum reinstall --downloadonly --downloaddir=/tmp/powershell openssl-libs
-sudo yum install --downloadonly --downloaddir=/tmp/powershell powershell
-sudo tar -cvzf powershell.tar.gz *.rpm
-```
-
-4. This tar archive will be the application package file. 
-
-- The install command in this case is:
-
-```bash
-sudo tar -xvzf powershell.tar.gz && sudo yum install *.rpm -y
-```
-
-- And the remove command is:
-
-```bash
-sudo yum remove powershell
-```
-
-In case you don't want to resolve the dependencies yourself and yum/dnf is able to connect to the repositories, you can install an application with just one .rpm file and let yum/dnf handle the dependencies.
-
-Example install command:
-
-```bash
-yum install <package.rpm> -y
-```
-
 # [Ubuntu](#tab/ubuntu)
 
 In Ubuntu, you can run `sudo apt show <package_name> | grep Depends` to show all the packages that will be installed when executing the `sudo apt-get install <packge_name>` command. Then you can use that output to download all .deb files to create an archive that can be used as the application package.
@@ -324,6 +252,78 @@ Example install command:
 
 ```bash
 dpkg -i <package_name> || apt --fix-broken install -y
+```
+
+# [Red Hat](#tab/rhel)
+
+In Red Hat, you can run `sudo yum deplist <package_name>` to show all the packages that will be installed when executing the `sudo yum install <package_name>` command. Then you can use that output to download all .rpm files to create an archive that can be used as the application package.
+
+1. Example, to create a VM application package to install PowerShell for Red Hat, first run the following commands to enable the repository where PowerShell can be downloaded from and also to identify the package dependencies on a new RHEL VM.
+
+- RHEL 7:
+
+```bash
+# Register the Microsoft RedHat repository
+curl https://packages.microsoft.com/config/rhel/7/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo
+
+sudo yum deplist powershell
+```
+
+- RHEL 8:
+
+```bash
+# Register the Microsoft RedHat repository
+curl https://packages.microsoft.com/config/rhel/8/prod.repo | sudo tee /etc/yum.repos.d/microsoft.repo
+
+sudo dnf deplist powershell
+```
+
+2. Check the output of each of the dependency lines which lists the dependency packages as `provider`:
+
+```output
+  dependency: /bin/sh
+   provider: bash.x86_64 4.2.46-35.el7_9
+  dependency: libicu
+   provider: libicu.x86_64 50.2-4.el7_7
+   provider: libicu.i686 50.2-4.el7_7
+  dependency: openssl-libs
+   provider: openssl-libs.x86_64 1:1.0.2k-26.el7_9
+   provider: openssl-libs.i686 1:1.0.2k-26.el7_9
+```
+
+3. Download each of these files using `sudo yum install --downloadonly <package_name>`, to download a package when is not yet installed in the system, or `sudo yum reinstall --downloadonly <package_name>`, to download a package that's already installed in the system, and create a tar compressed archive with all files.
+
+
+```bash
+mkdir /tmp/powershell
+cd /tmp/powershell
+sudo yum reinstall --downloadonly --downloaddir=/tmp/powershell bash
+sudo yum reinstall --downloadonly --downloaddir=/tmp/powershell libicu
+sudo yum reinstall --downloadonly --downloaddir=/tmp/powershell openssl-libs
+sudo yum install --downloadonly --downloaddir=/tmp/powershell powershell
+sudo tar -cvzf powershell.tar.gz *.rpm
+```
+
+4. This tar archive will be the application package file. 
+
+- The install command in this case is:
+
+```bash
+sudo tar -xvzf powershell.tar.gz && sudo yum install *.rpm -y
+```
+
+- And the remove command is:
+
+```bash
+sudo yum remove powershell
+```
+
+In case you don't want to resolve the dependencies yourself and yum/dnf is able to connect to the repositories, you can install an application with just one .rpm file and let yum/dnf handle the dependencies.
+
+Example install command:
+
+```bash
+yum install <package.rpm> -y
 ```
 
 # [SUSE](#tab/sles)
