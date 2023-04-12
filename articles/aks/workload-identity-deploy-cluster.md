@@ -140,13 +140,6 @@ az identity federated-credential create --name myfederatedIdentity --identity-na
 
 ## Deploy your application
 
-> [!IMPORTANT]
-> Ensure your application pods using workload identity have added the following label [azure.workload.identity/use: "true"] to your running pods/deployments, otherwise the pods will fail once restarted.
-
-```azurecli-interactive
-kubectl apply -f <your application>
-```
-
 When deploying your application pods, it should reference the service account created in the Create Kubernetes service account step. The following manifest demonstrates how to reference the account, specifically `metadata\namespace` and `spec\serviceAccountName` properties:
 
 ```yml
@@ -171,6 +164,25 @@ spec:
   nodeSelector:
     kubernetes.io/os: linux
 EOF
+```
+
+> [!IMPORTANT]
+> Ensure your application pods using workload identity have added the following label [azure.workload.identity/use: "true"] to your running pods/deployments, otherwise the pods will fail once restarted.
+
+```azurecli-interactive
+kubectl apply -f <your application>
+```
+
+To check whether all properties are injected properly by the webhook, use the [kubectl describe][kubectl-describe] command:
+
+```bash
+kubectl describe pod containerName
+```
+
+To verify that pod is able to get a token and access the resource, use the kubectl logs command:
+
+```bash
+kubectl logs containerName
 ```
 
 ## Optional - Grant permissions to access Azure Key Vault
