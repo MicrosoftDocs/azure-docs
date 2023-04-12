@@ -18,7 +18,7 @@ ms.reviewer: tigorman
 
 Azure is home for all Oracle workloads, including workloads that need to continue to run optimally in Azure with Oracle. If you have the [Oracle Diagnostic Pack](https://www.oracle.com/technetwork/database/enterprise-edition/overview/diagnostic-pack-11g-datasheet-1-129197.pdf) or the [Automatic Workload Repository](https://docs.oracle.com/en-us/iaas/operations-insights/doc/analyze-automatic-workload-repository-awr-performance-data.html) (AWR), you can gather data about your workloads. Use this data to assess the Oracle workload, size the resource needs, and migrate the workload to Azure. The various metrics provided by Oracle in these reports can provide an understanding of application performance and platform usage.
 
-This article helps you to size out an Oracle workload to run in Azure and explore the best architecture solutions to provide optimal cloud performance. The data provided by Oracle in the Statspack and even more so in its descendent, the AWR, assists you in developing clear expectations. These expectations include the limits of physical tuning through architecture, the advantages of logical tuning of database code, and the overall database design.
+This article helps you to prepare an Oracle workload to run in Azure and explore the best architecture solutions to provide optimal cloud performance. The data provided by Oracle in the Statspack and even more so in its descendent, the AWR, assists you in developing clear expectations. These expectations include the limits of physical tuning through architecture, the advantages of logical tuning of database code, and the overall database design.
 
 ## Differences between the two environments
 
@@ -30,7 +30,7 @@ The following table lists some of the differences between an on-premises impleme
 
 |  | On-premises implementation | Azure implementation |
 |:--- |:--- |:--- |
-| **Networking** |LAN/WAN  | software-defined networking (SDN) |
+| **Networking** |LAN/WAN  | Software-defined networking (SDN) |
 | **Security group** | IP/port restriction tools | [Network security group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resilience** | MTBF | MTTR |
 | **Planned maintenance** | Patching/upgrades| [Availability sets](/previous-versions/azure/virtual-machines/windows/infrastructure-example) with patching/upgrades managed by Azure |
@@ -43,7 +43,7 @@ The following table lists some of the differences between an on-premises impleme
 
 Consider the following requirements before you start your migration:
 
-- Determine the real CPU usage. Oracle licenses by core, which means that sizing the vCPU needs can be essential to help you reduce costs.
+- Determine the real CPU usage. Oracle licenses by core, which means that sizing your vCPU needs can be essential to help you reduce costs.
 - Determine the database size, backup storage, and growth rate.
 - Determine the I/O requirements, which you can estimate based on Oracle Statspack and the AWR reports. You can also estimate the requirements from storage monitoring tools available from the operating system.
 
@@ -67,8 +67,8 @@ For a datacenter migration, you should gather reports for sizing on the producti
 To run an AWR report from the command line, use the following command:
 
 ```bash
-$ sqlplus / as sysdba
-SQL> @$ORACLE_HOME/rdbms/admin/awrrpt.sql;
+sqlplus / as sysdba
+@$ORACLE_HOME/rdbms/admin/awrrpt.sql;
 ```
 
 ### Key metrics
@@ -120,7 +120,7 @@ Based on the information that you collected from the AWR report, the next step i
 
 #### Fine-tune the VM sizing with a similar VM series based on the ACU
 
-After you've chosen the VM, pay attention to the Azure compute unit (ACU) for the VM. You might choose a different VM based on the ACU value that better suits your requirements. For more information, see [Azure compute unit](../../acu.md).
+After you choose the VM, pay attention to the Azure compute unit (ACU) for the VM. You might choose a different VM based on the ACU value that better suits your requirements. For more information, see [Azure compute unit](../../acu.md).
 
 :::image type="content" source="./media/oracle-design/acu_units.png" alt-text="Screenshot of the ACU units page.":::
 
@@ -161,7 +161,7 @@ Here are some tips as you consider disks.
 
 After you configure your storage on a VM, you might want to load test the disks before you create a database. Knowing the I/O rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets. There are several tools for application load testing, such as Oracle Orion, Sysbench, SLOB, and Fio.
 
-Run the load test again after you've deployed an Oracle database. Start your regular and peak workloads, and the results show you the baseline of your environment. Be realistic in the workload test. It doesn't make sense to run a workload that is nothing like what you run on the VM in reality.
+Run the load test again after you deploy an Oracle database. Start your regular and peak workloads, and the results show you the baseline of your environment. Be realistic in the workload test. It doesn't make sense to run a workload that is nothing like what you run on the VM in reality.
 
 Because Oracle can be an I/O intensive database, it's important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS value is 5,000, but you only need 200 GB, you might still get the P30 class premium disk even though it comes with more than 200 GB of storage.
 
