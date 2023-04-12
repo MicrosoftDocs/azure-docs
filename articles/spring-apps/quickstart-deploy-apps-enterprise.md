@@ -317,7 +317,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
        --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> --query properties.uri --output tsv)
+       --service <Azure-Spring-Apps-service-instance-name> --query properties.url --output tsv)
 
    az spring gateway update \
        --resource-group <resource-group-name> \
