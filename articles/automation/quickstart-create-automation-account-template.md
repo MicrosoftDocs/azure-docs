@@ -22,9 +22,6 @@ The sample template does the following steps:
 * Links the Automation account to the Log Analytics workspace.
 * Adds sample Automation runbooks to the account.
 
-> [!NOTE]
-> Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](create-run-as-account.md).
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
