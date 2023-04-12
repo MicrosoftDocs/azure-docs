@@ -266,13 +266,13 @@ The pipeline we want to operationalize has two components (steps):
 
 1. `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives three inputs:
     - `data`: a folder containing the input data to transform and score
-    - `transformations`: (optional) the path to the transformations that will be applied, if available. If this value isn't provided, then the transformations will be learned from the input data. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
+    - `transformations`: (optional) the path to the transformations that will be applied, if available. If the path isn't provided, then the transformations will be learned from the input data. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
     - `categorical_encoding`: the encoding strategy for the categorical features (`ordinal` or `onehot`).
 1. `train_job`: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model.
 
 The pipeline is configured in the following `pipeline.yml` file:
 
-```yml
+```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineComponent.schema.json
 type: pipeline
 
@@ -334,7 +334,7 @@ A visualization of the pipeline is as follows:
 
 ### Test the pipeline
 
-Let's test the pipeline with same sample data. To do that, we will create a job using the pipeline and the `batch-cluster` compute cluster created previously.
+Let's test the pipeline with some sample data. To do that, we'll create a job using the pipeline and the `batch-cluster` compute cluster created previously.
 
 The job is described in the following `pipeline-job.yml` file:
 
@@ -376,7 +376,7 @@ The pipeline we want to operationalize has two components (steps): a preprocessi
 
 1. **preprocessing component**: This step reads the input data and returns the prepared data and the transformations parameters used. The step receives three inputs:
     - `data`: a folder containing the input data to transform and score
-    - `transformations`: (optional) the path to the transformations that will be applied, if available. If this value isn't provided, then the transformations will be learned from the input data. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
+    - `transformations`: (optional) the path to the transformations that will be applied, if available. If the path isn't provided, then the transformations will be learned from the input data. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
     - `categorical_encoding`: the encoding strategy for the categorical features (`ordinal` or `onehot`).
 1. **training component**: This step will train an XGBoost model based on the prepared data and return the evaluation results and the trained model.
 
@@ -473,7 +473,7 @@ First, let's create the endpoint that is going to host the batch deployments. Re
 
 The `endpoint.yml` file contains the endpoint's configuration.
 
-```yml
+```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json
 name: uci-classifier-train
 description: An endpoint to perform training of the Heart Disease Data Set prediction task
@@ -568,9 +568,11 @@ A deployment is a set of resources required for hosting the model that does the 
 
 ### Configure the deployment
 
+The batch deployment will run on the `batch-cluster` compute cluster that was created earlier in the [Create a compute cluster](#create-a-compute-cluster) section.
+
 The `deployment-ordinal.yml` file contains the deployment's configuration.
 
-```yml
+```yaml
 $schema: http://azureml/sdk-2-0/BatchDeployment.json
 name: uci-classifier-train-xgb
 description: A sample deployment that trains an XGBoost model for the UCI dataset.
@@ -599,7 +601,7 @@ az ml batch-deployment create --endpoint $ENDPOINT_NAME -f deployment-ordinal.ym
 
 ### Configure the deployment
 
-Once the compute is created, let's configure the deployment:
+The batch deployment will run on the `batch-cluster` compute cluster that was created earlier in the [Create a compute cluster](#create-a-compute-cluster-1) section. Let's configure the deployment:
 
 ```python
 deployment = BatchDeployment(
@@ -644,7 +646,7 @@ Once the deployment is created, it's ready to receive jobs. In this section, we'
 
 The input data asset definition is contained in the `inputs.yml` file:
 
-```azurecli
+```yaml
 inputs:
   input_data:
     type: uri_folder
@@ -791,7 +793,7 @@ By default, we used `ordinal` previously. Let's now change the categorical encod
 
 The pipeline component has the following modification: `categorical_encoding: onehot`.
 
-```yml
+```yaml
 jobs:
   preprocess_job:
     type: command
@@ -812,7 +814,7 @@ jobs:
 
 The `deployment-onehot.yml` file contains the modified deployment's configuration.
 
-```yml
+```yaml
 $schema: http://azureml/sdk-2-0/BatchDeployment.json
 name: uci-classifier-train-onehot
 description: A sample deployment that trains an XGBoost model for the UCI dataset using One hot encoding for variables.
@@ -901,11 +903,11 @@ ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 ml_client.compute.begin_delete(name=compute_name)
 ```
 
+---
+
 ## Next steps
 
-- [How to create a batch endpoint to perform batch scoring with pre-processing](how-to-use-batch-scoring-pipeline.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing](how-to-use-batch-scoring-pipeline.md)
 - [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
 - [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
-- [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md)
-- [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

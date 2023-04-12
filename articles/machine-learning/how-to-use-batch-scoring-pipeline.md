@@ -208,7 +208,7 @@ print(" [DONE]")
 
 ## Register the required assets
 
-This example shows how you deploy an inference pipeline that performs preprocessing (before) and postprocessing (after) a model is executed to perform inference. The model is registered in the model registry and some of the transformations are also registered as they're fitted to the data. These assets (model and transformations) are the same ones from the training job (training component) of the pipeline in the [Operationalize a training routine with Batch Endpoints](how-to-use-batch-training-pipeline.md#configure-the-pipeline) article.
+This example shows how you deploy an inference pipeline that performs preprocessing before and postprocessing after a model is executed to perform inference. The model is registered in the model registry and some of the transformations are also registered as they're fitted to the data. These assets (model and transformations) are the same ones from the training job (training component) of the pipeline in the [Operationalize a training routine with Batch Endpoints](how-to-use-batch-training-pipeline.md#configure-the-pipeline) article.
 
 A visualization of the pipeline is as follows:
 
@@ -232,17 +232,19 @@ az ml model create --name heart-classifier-transforms --type custom_model --path
 
 ### Register the components
 
-To achieve reusability, we'll reuse components from training the model as described in the [Operationalize a training routine with Batch Endpoints](how-to-use-batch-training-pipeline.md#configure-the-pipeline) article. Hence, instead of referencing components using YAML, we'll reference them from the workspace. We'll also register another component to run inference.
+To achieve reusability, we'll reuse components from training the model as described in the [Operationalize a training routine with Batch Endpoints](how-to-use-batch-training-pipeline.md#configure-the-pipeline) article. In particular, we'll register the preprocess component so that we can reference it from the workspace instead of referencing it using YAML. 
 
-Register the prepare component:
+Register the preprocess component:
 
 ```azurecli
 az ml component create -f ../../components/prepare/prepare.yml
 ```
 
-Now this component can be referenced from the workspace. For example: `azureml:uci_heart_prepare@latest` will get the last version of the prepare component.
+Now this component can be referenced from the workspace. For example: `azureml:uci_heart_prepare@latest` will get the last version of the prepare (preprocess) component.
 
 # [Python](#tab/python)
+
+### Register the model and transformations in the workspace
 
 ```python
 model_name = "heart-classifier"
@@ -266,7 +268,7 @@ if not any(filter(lambda m: m.name == model_name, ml_client.models.list())):
 model = ml_client.models.get(name=model_name, label="latest")
 ```
 
-The model registered before was not trained directly on the input data. Instead, data preprocessing (transformation) was done on the input data before training. Among the  transformations, data normalization was performed to ensure predictors were centered and in the range [-1, 1]. The transformation parameters were captured in a scikit-learn transformation that we can also register in the registry so that we can apply the same transformation to new data:
+The model registered before was not trained directly on the input data. Instead, data preprocessing (transformation) was done on the input data before training. Among the  transformations, data normalization was performed to ensure predictors were centered and in the range of [-1, 1]. The transformation parameters were captured in a scikit-learn transformation that we can also register in the registry so that we can apply the same transformation to new data.
 
 ```python
 if not any(filter(lambda m: m.name == transformation_name, ml_client.models.list())):
@@ -292,12 +294,12 @@ The pipeline has two components (steps):
 
 1. `preprocess_job`: This step reads the input data and returns the prepared data and the applied transformations. The step receives two inputs:
     - `data`: a folder containing the input data to score
-    - `transformations`: (optional) the path to the transformations that will be applied. When provided, the transformations are read from the model that is indicated. However, if this value isn't provided, then the transformations will be learned from the input data. When performing inference, you can't learn the transformation parameters (in this example, the normalization coefficients) from the input data because you need to use exactly the same parameters from training. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
-1. `score_job`: This step will perform inference on the transformed data using the input model. Notice that the component uses an MLflow model to perform inference. Finally, the scores are wrritten back in the same format as they were read.
+    - `transformations`: (optional) the path to the transformations that will be applied. When provided, the transformations are read from the model that is indicated at the path. However, if the path isn't provided, then the transformations will be learned from the input data. For inferencing, though, you can't learn the transformation parameters (in this example, the normalization coefficients) from the input data because you need to use the exact parameters that were learned during training. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
+1. `score_job`: This step will perform inferencing on the transformed data using the input model. Notice that the component uses an MLflow model to perform inference. Finally, the scores are written back in the same format as they were read.
 
 The pipeline is configured in the following `pipeline.yml` file:
 
-```yml
+```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineComponent.schema.json
 type: pipeline
 
@@ -348,6 +350,37 @@ A visualization of the pipeline is as follows:
 
 :::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png" alt-text="Pipeline showing batch scoring with preprocessing." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png":::
 
+### Test the pipeline
+
+Let's test the pipeline with some sample data. To do that, we'll create a job using the pipeline and the `batch-cluster` compute cluster created previously.
+
+The job is described in the following `pipeline-job.yml` file:
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+
+display_name: batch-scoring-uci-heart
+description: This pipeline demostrates how to make batch inference using a model from the Heart Disease Data Set problem, where pre and post processing is required as steps. The pre and post processing steps can be components reusable from the training pipeline.
+
+compute: batch-cluster
+component: pipeline.yml
+inputs:
+  input_data:
+    type: uri_folder
+  score_mode: append
+outputs: 
+  scores:
+    mode: upload
+```
+
+Create the test job:
+
+```bash
+az ml job create -f pipeline-job.yml --set inputs.input_data.path=data/unlabeled
+```
+
+
 # [Python](#tab/python)
 
 ### Load the pipeline components
@@ -356,8 +389,8 @@ The pipeline has two components (steps):
 
 1. **preprocessing component**: This step reads the input data and returns the prepared data and the applied transformations. The step receives two inputs:
     - `data`: a folder containing the input data to score
-    - `transformations`: (optional) the path to the transformations that will be applied. When provided, the transformations are read from the model that is indicated. However, if this value isn't provided, then the transformations will be learned from the input data. When performing inference, you can't learn the transformation parameters (in this example, the normalization coefficients) from the input data because you need to use exactly the same parameters from training. Since this input is optional, the `preprocess_job` component can be used for both training and serving.
-1. **scoring component**: This step will perform inference on the transformed data using the input model. Notice that the component uses an MLflow model to perform inference. Finally, the scores are wrritten back in the same format as they were read.
+    - `transformations`: (optional) the path to the transformations that will be applied. When provided, the transformations are read from the model that is indicated at the path. However, if the path isn't provided, then the transformations will be learned from the input data. For inferencing, though, you can't learn the transformation parameters (in this example, the normalization coefficients) from the input data because you need to use the exact parameters that were learned during training. Since this input is optional, the preprocessing component can be used for both training and serving.
+1. **scoring component**: This step will perform inferencing on the transformed data using the input model. Notice that the component uses an MLflow model to perform inference. Finally, the scores are written back in the same format as they were read.
 
 ```python
 prepare_data = load_component(source="../../components/prepare/prepare.yml")
@@ -395,16 +428,9 @@ A visualization of the pipeline is as follows:
 
 :::image type="content" source="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png" alt-text="Pipeline showing batch scoring with preprocessing." lightbox="media/how-to-use-batch-scoring-pipeline/pipeline-for-batch-scoring-with-preprocessing.png":::
 
-<!-- --------------------------------- -->
-
 ### Test the pipeline
 
-
-
-### 3.4 Test the pipeline first
-
-Let's test the pipeline with same sample data. To do that, let's create a pipeline job:
-
+Let's test the pipeline with some sample data. To do that, let's create a pipeline job:
 
 ```python
 pipeline_job = uci_heart_classifier_scorer(
@@ -413,8 +439,7 @@ pipeline_job = uci_heart_classifier_scorer(
 )
 ```
 
-Configure the pipeline defaults
-
+Now, we'll configure some run settings to run the test:
 
 ```python
 # set pipeline level compute
@@ -425,7 +450,6 @@ pipeline_job.settings.default_datastore = "workspaceblobstore"
 
 Finally, let's run the job:
 
-
 ```python
 pipeline_job_run = ml_client.jobs.create_or_update(
     pipeline_job, experiment_name="uci-heart-score-pipeline"
@@ -433,32 +457,85 @@ pipeline_job_run = ml_client.jobs.create_or_update(
 pipeline_job_run
 ```
 
-### 3.5 Create the pipeline component to include in the deployment
+### Create the pipeline component to include in the deployment
 
 Pipeline components are reusable compute graphs that can be included in Batch Deployments or to compose more complex pipelines.
-
 
 ```python
 pipeline_component = uci_heart_classifier_scorer._pipeline_builder.build()
 ```
 
-## 4 Create Batch Endpoint
+---
+
+## Create a batch endpoint
 
 Batch endpoints receive pointers to data and run jobs asynchronously to process the data on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
-To create an batch endpoint we will use `BatchEndpoint`. This class allows user to configure the following key aspects:
-- `name` - Name of the endpoint. Needs to be unique at the Azure region level
-- `auth_mode` - The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based (`aad_token`) authentication is supported. 
-- `defaults` - Default settings for the endpoint.
-   - `deployment_name` - Name of the deployment that will serve as the default deployment for the endpoint.
-- `description`- Description of the endpoint.
+# [Azure CLI](#tab/azure-cli)
 
-### 4.1 Configure the endpoint
+To create a batch endpoint, we'll use the `BatchEndpoint` class. This class allows a user to configure the following key aspects of the endpoint:
+- `name`: Name of the endpoint. It needs to be unique at the Azure region level.
+- `auth_mode`: The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based (`aad_token`) authentication is supported.
+- `properties.ComponentDeployment.Enabled`: Set this property to `True` to use component deployments in batch endpoints.
 
-First, let's create the endpoint that is going to host the batch deployments. Remember that each endpoint can host multiple deployments at any time. To ensure that our endpoint name is unique, let's create a random suffix to append to it.
+### Configure the endpoint
 
-> In general, you won't need to use this technique but you will use more meaningful names. Please skip the following cell if your case:
+First, let's create the endpoint that is going to host the batch deployments. Remember that each endpoint can host multiple deployments at any time.
 
+The `endpoint.yml` file contains the endpoint's configuration.
+
+```yaml
+$schema: https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json
+name: uci-classifier-score
+description: Batch scoring endpoint of the Heart Disease Data Set prediction task
+auth_mode: aad_token
+properties:
+  ComponentDeployment.Enabled: True
+```
+
+### Create the endpoint
+
+A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, we'll append a random suffix to the endpoint's name in this tutorial.
+
+> [!TIP]
+> In practice, you won't need to use this technique to name an endpoint but will use a more meaningful name.
+
+Let's configure the name:
+
+```azurecli
+ENDPOINT_SUFIX=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-5} | head -n 1)
+ENDPOINT_NAME="uci-classifier-score-$ENDPOINT_SUFIX"
+```
+
+Now create the endpoint:
+
+```azurecli
+az ml batch-endpoint create -n $ENDPOINT_NAME -f endpoint.yml
+```
+
+You can query the endpoint URI as follows:
+
+```azurecli
+az ml batch-endpoint show -name $ENDPOINT_NAME
+```
+
+# [Python](#tab/python)
+
+To create a batch endpoint, we'll use the `BatchEndpoint` class. This class allows a user to configure the following key aspects of the endpoint:
+- `name`: Name of the endpoint. It needs to be unique at the Azure region level.
+- `auth_mode`: The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based (`aad_token`) authentication is supported.
+- `defaults`: Default settings for the endpoint.
+   - `deployment_name`: Name of the deployment that will serve as the default deployment for the endpoint.
+- `description`: Description of the endpoint.
+
+### Configure the endpoint
+
+We'll create the endpoint that is going to host the batch deployments. Remember that each endpoint can host multiple deployments at any time.
+
+First, we'll configure the endpoint's name. A batch endpoint's name needs to be unique in each region since the name is used to construct the invocation URI. To ensure uniqueness, we'll append a random suffix to the endpoint's name in this tutorial.
+
+> [!TIP]
+> In practice, you won't need to use this technique to name an endpoint but will use a more meaningful name.
 
 ```python
 import random
@@ -472,6 +549,7 @@ endpoint_name = "uci-classifier-score-" + endpoint_suffix
 print(f"Endpoint name: {endpoint_name}")
 ```
 
+Configure the batch endpoint:
 
 ```python
 endpoint = BatchEndpoint(
@@ -483,49 +561,59 @@ endpoint = BatchEndpoint(
 )
 ```
 
-### 4.2 Create the endpoint
-Using the `MLClient` created earlier, we will now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+### Create the endpoint
 
+Using the `MLClient` created earlier, we'll now create the endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
 ```python
 ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
 ```
 
-## 5. Create a batch deployment
+---
 
-A deployment is a set of resources required for hosting the model that does the actual inferencing. We will create a deployment for our endpoint using the `BatchDeployment` class.
+## Create a batch deployment
 
-### 4.1 Creating the compute
+A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `BatchDeployment` class.
 
-Batch deployments can run on any Azure ML compute that already exists in the workspace. That means that multiple batch deployments can share the same compute infrastructure. In this example, we are going to work on an AzureML compute cluster called `batch-cluster`. Let's verify the compute exists on the workspace or create it otherwise.
+# [Azure CLI](#tab/azure-cli)
 
+### Configure the deployment
 
-```python
-compute_name = "batch-cluster"
-if not any(filter(lambda m: m.name == compute_name, ml_client.compute.list())):
-    print(f"Compute {compute_name} is not created. Creating...")
-    compute_cluster = AmlCompute(
-        name=compute_name, description="amlcompute", min_instances=0, max_instances=5
-    )
-    ml_client.begin_create_or_update(compute_cluster)
+The batch deployment will run on the `batch-cluster` compute cluster that was created earlier in the [Create a compute cluster](#create-a-compute-cluster) section.
+
+The `deployment-ordinal.yml` file contains the deployment's configuration.
+
+```yaml
+$schema: http://azureml/sdk-2-0/BatchDeployment.json
+name: uci-classifier-prepros-xgb
+description: A sample deployment with pre-processing done before and after inference.
+endpoint: uci-classifier-score
+compute: azureml:batch-cluster
+type: component
+job_definition:
+   type: pipeline
+   job: pipeline.yml
+   settings:
+       continue_on_step_failure: false
+       default_compute: azureml:batch-cluster
 ```
 
-Compute may take time to be created. Let's wait for it:
+### Create the deployment
 
+Run the following code to create a batch deployment under the batch endpoint and set it as the default deployment.
 
-```python
-from time import sleep
-
-print(f"Waiting for compute {compute_name}", end="")
-while ml_client.compute.get(name=compute_name).provisioning_state == "Creating":
-    sleep(1)
-    print(".", end="")
-
-print(" [DONE]")
+```azurecli
+az ml batch-deployment create --endpoint $ENDPOINT_NAME -f deployment.yml --set-default
 ```
 
- ### 4.2 Configuring the deployment
+> [!TIP]
+> Notice the use of the `--set-default` flag to indicate that this new deployment is now the default.
 
+# [Python](#tab/python)
+
+### Configure the deployment
+
+The batch deployment will run on the `batch-cluster` compute cluster that was created earlier in the [Create a compute cluster](#create-a-compute-cluster-1) section. Let's configure the deployment:
 
 ```python
 deployment = BatchDeployment(
@@ -543,9 +631,8 @@ deployment = BatchDeployment(
 )
 ```
 
-### 4.3 Create the deployment
-Using the `MLClient` created earlier, we will now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
-
+### Create the deployment
+Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
 ```python
 ml_client.batch_deployments.begin_create_or_update(deployment).result()
@@ -553,33 +640,105 @@ ml_client.batch_deployments.begin_create_or_update(deployment).result()
 
 Once created, let's configure this new deployment as the default one:
 
-
 ```python
 endpoint = ml_client.batch_endpoints.get(endpoint.name)
 endpoint.defaults.deployment_name = deployment.name
 ml_client.batch_endpoints.begin_create_or_update(endpoint).result()
 ```
 
-### 5.4 Testing the deployment
+---
 
-Once the deployment is created, it is ready to recieve jobs.
+## Test the deployment
 
-#### 5.4.1 Creating inputs
+Once the deployment is created, it's ready to receive jobs. In this section, we'll create the input data, create a job to invoke the deployment, and access the job output.
 
+# [Azure CLI](#tab/azure-cli)
+
+### Create input data
+
+The input data asset definition is contained in the `inputs.yml` file:
+
+```yaml
+inputs:
+  input_data:
+    type: uri_folder
+    path: data/unlabeled
+  score_mode:
+    type: string
+    default: append
+outputs:
+  scores:
+    type: uri_folder
+    mode: upload
+    path: azureml://datastores/workspaceblobstore/paths/uci-classifier-prepros-xgb/batch-job
+```
+
+> [!TIP]
+> To learn more about how to indicate inputs, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
+
+### Invoke the deployment
+
+Invoke the default deployment:
+
+```azurecli
+az ml batch-endpoint invoke -n $ENDPOINT_NAME --file inputs.yml
+```
+
+You can monitor the progress of the show and stream the logs using:
+
+```azurecli
+az ml job stream --name $JOB_NAME
+```
+
+### Access job output
+
+Once the job is completed, we can access some of its outputs. This pipeline produces the following outputs:
+- UPDATE this
+
+To read the outputs of the preprocess job:
+
+```azurecli
+UPDATE this
+```
+
+You can download the associated results using `az ml job download`.
+
+```azurecli
+UPDATE this
+```
+
+To read the outputs of the train job:
+
+```azurecli
+UPDATE this```
+
+You can download the associated results using `az ml job download`.
+
+```azurecli
+UPDATE this
+UPDATE this
+```
+
+# [Python](#tab/python)
+
+### Create input data
+
+Create the data asset:
 
 ```python
 input_data = Input(type=AssetTypes.URI_FOLDER, path="data/unlabeled/")
 ```
 
-> __Tip__: To learn more about how to indicate inputs please visit [Accessing data from batch endpoints jobs](https://learn.microsoft.com/en-us/azure/machine-learning/batch-inference/how-to-access-data-batch-endpoints-jobs?tabs=cli).
+> [!TIP]
+> To learn more about how to indicate inputs, see [Create jobs and input data for batch endpoints](how-to-access-data-batch-endpoints-jobs.md).
 
-#### 4.4.2 Invoke the deployment
+### Invoke the deployment
 
-Using the `MLClient` created earlier, we will get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
-- `name` - Name of the endpoint
-- `input_path` - Path where input data is present
-- `deployment_name` - Name of the specific deployment to test in an endpoint
+Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
+- `name`: name of the endpoint
+- `input_path`: path where input data is present
+- `deployment_name`: name of the specific deployment to test in an endpoint
 
 ```python
 job = ml_client.batch_endpoints.invoke(
@@ -592,15 +751,13 @@ job = ml_client.batch_endpoints.invoke(
 )
 ```
 
-You can monitor the job in Azure ML studio:
-
+You can monitor the job in Azure Machine Learning studio:
 
 ```python
 ml_client.jobs.get(name=job.name)
 ```
 
 We can wait for the job to finish by:
-
 
 ```python
 print(f"Waiting for batch deployment job {job.name}", end="")
@@ -611,10 +768,9 @@ while ml_client.jobs.get(name=job.name).status not in ["Completed", "Failed"]:
 print(f" [STATUS={ml_client.jobs.get(name=job.name).status}]")
 ```
 
-#### 5.4.3 Accessing results
+### Access job output
 
-We can get access to the outputs of the job as follows:
-
+We can access the outputs of the job as follows:
 
 ```python
 pipeline_job_steps = list(ml_client.jobs.list(parent_job_name=job.name))
@@ -623,13 +779,11 @@ score_step = pipeline_job_steps[1]
 
 Download the outputs of the scoring step:
 
-
 ```python
 ml_client.jobs.download(name=score_step.name, download_path=".", output_name="scores")
 ```
 
-Let's read the scored data:
-
+Read the scored data:
 
 ```python
 import pandas as pd
@@ -640,11 +794,40 @@ score = pd.concat((pd.read_csv(f) for f in output_files))
 score
 ```
 
-## 5. Clean un resources
+---
 
-Once done, delete the associated resources from the workspace:
+## Clean up resources
 
+Once you're done, delete the associated resources from the workspace:
+
+# [Azure CLI](#tab/azure-cli)
+
+Run the following code to delete the batch endpoint and its underlying deployment. `--yes` is used to confirm the deletion.
+
+```azurecli
+az ml batch-endpoint delete --name $ENDPOINT_NAME --yes
+```
+
+# [Python](#tab/python)
+
+Delete the endpoint:
 
 ```python
 ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 ```
+
+(Optional) Delete compute, unless you plan to reuse your compute cluster with later deployments.
+
+```python
+ml_client.compute.begin_delete(name=compute_name)
+```
+
+---
+
+## Next steps
+
+- [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
+- [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
+- [Authentication on batch endpoints](how-to-authenticate-batch-endpoint.md)
+- [Network isolation in batch endpoints](how-to-secure-batch-endpoint.md)
+- [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)
