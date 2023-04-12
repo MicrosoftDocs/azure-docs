@@ -175,7 +175,7 @@ uri = 'azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<works
 # create the filesystem
 fs = AzureMachineLearningFileSystem(uri)
 
-# append csv files in folder to a list
+# append parquet files in folder to a list
 dflist = []
 for path in fs.ls():
     with fs.open(path) as f:
