@@ -25,7 +25,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 * You need an Azure [storage account][azure-storage-account].
 * Make sure you have Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* The Azure Disk CSI driver has have a per-node volume limit. The volume count changes based on the size of the node/node pool. Run the [kubectl get][kubectl-get] command to determine the number of volumes that can be allocated per node:
+* The Azure Disk CSI driver has a per-node volume limit. The volume count changes based on the size of the node/node pool. Run the [kubectl get][kubectl-get] command to determine the number of volumes that can be allocated per node:
 
     ```console
     kubectl get CSINode <nodename> -o yaml
@@ -42,7 +42,6 @@ This section provides guidance for cluster administrators who want to provision 
 |skuName | Azure Disks storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `PremiumV2_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
 |cachingMode | [Azure Data Disk Host Cache Setting][disk-host-cache-setting] | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
-|location | Specify Azure region where Azure Disks will be created | `eastus`, `westus`, etc. | No | If empty, driver will use the same location name as current AKS cluster|
 |resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver will use the same resource group name as current AKS cluster|
 |DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] IOPS Capability (minimum: 2 IOPS/GiB ) | 100~160000 | No | `500`|
 |DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
@@ -55,10 +54,8 @@ This section provides guidance for cluster administrators who want to provision 
 |diskAccessID | Azure Resource ID of the DiskAccess resource to use private endpoints on disks | | No  | ``|
 |enableBursting | [Enable on-demand bursting][on-demand-bursting] beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512 GB. Ultra and shared disk isn't supported. Bursting is disabled by default. | `true`, `false` | No | `false`|
 |useragent | User agent used for [customer usage attribution][customer-usage-attribution] | | No  | Generated Useragent formatted `driverName/driverVersion compiler/version (OS-ARCH)`|
-|enableAsyncAttach | Allow multiple disk attach operations (in batch) on one node in parallel.<br> While this parameter can speed up disk attachment, you may encounter Azure API throttling limit when there are large number of volume attachments. | `true`, `false` | No | `false`|
 |subscriptionID | Specify Azure subscription ID where the Azure Disks is created.  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
 |--- | **Following parameters are only for v2** | --- | --- | --- |
-| enableAsyncAttach | The v2 driver uses a different strategy to manage Azure API throttling and ignores this parameter. | | No | |
 | maxShares | The total number of shared disk mounts allowed for the disk. Setting the value to 2 or more enables attachment replicas. | Supported values depend on the disk size. See [Share an Azure managed disk][share-azure-managed-disk] for supported values. | No | 1 |
 | maxMountReplicaCount | The number of replicas attachments to maintain. | This value must be in the range `[0..(maxShares - 1)]` | No | If `accessMode` is `ReadWriteMany`, the default is `0`. Otherwise, the default is `maxShares - 1` |
 
