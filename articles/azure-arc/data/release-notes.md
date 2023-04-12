@@ -36,7 +36,7 @@ New for this release:
   - Arc PostgreSQL | Upload metrics/logs to Azure Monitor
 
 - Bug fixes and optimizations in the following areas:
-  - Deploying Arc data controller using the individual create experience has been removed as it sets the `autoupgrade` parameter incorrectly. Use the all-in-one create experience. This experience creates the extension, custom location, and data controller. It also sets all the parameters correctly. For specific information, see [Create Azure Arc data controller in direct connectivity mode using CLI](create-data-controller-direct-cli.md).
+  - Deploying Arc data controller using the individual create experience has been removed as it sets the auto upgrade parameter incorrectly. Use the all-in-one create experience. This experience creates the extension, custom location, and data controller. It also sets all the parameters correctly. For specific information, see [Create Azure Arc data controller in direct connectivity mode using CLI](create-data-controller-direct-cli.md).
 
 ## March 14, 2023
 
