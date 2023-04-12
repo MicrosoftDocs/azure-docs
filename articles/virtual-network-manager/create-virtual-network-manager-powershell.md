@@ -68,14 +68,14 @@ New-AzResourceGroup @rg
 
 ## Define the scope and access type
 
-Define the scope and access type for the Azure Virtual Network Manager instance with [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope)  This example defines a scope with a single subscription and sets the access type to **Connectivity**. Replace **<subscription id>** with the subscription ID of the subscription you want to manage with Azure Virtual Network Manager.
+Define the scope and access type for the Azure Virtual Network Manager instance with [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope)  This example defines a scope with a single subscription and sets the access type to **Connectivity**. Replace  with the **<subscription_id>** of the subscription you want to manage with Azure Virtual Network Manager.
 
 ```azurepowershell
 
 Import-Module -Name Az.Network -RequiredVersion "5.3.0"
 
 [System.Collections.Generic.List[string]]$subGroup = @()  
-$subGroup.Add("/subscriptions/<subscription id>")
+$subGroup.Add("/subscriptions/<subscription_id>")
 
 [System.Collections.Generic.List[String]]$access = @()  
 $access.Add("Connectivity"); 
@@ -240,7 +240,7 @@ Using [Azure Policy](concept-azure-policy-integration.md), you define a conditio
         "then": {
             "effect": "addToNetworkGroup",
             "details": {
-                "networkGroupId": "/subscriptions/dec492d3-4f4e-493b-aa47-7bdf2f96a6fc/resourceGroups/rg-learn-eastus-001/providers/Microsoft.Network/networkManagers/vnm-learn-eastus-001/networkGroups/ng-learn-prod-eastus-001"}
+                "networkGroupId": "/subscriptions/<subscription_id>/resourceGroups/rg-learn-eastus-001/providers/Microsoft.Network/networkManagers/vnm-learn-eastus-001/networkGroups/ng-learn-prod-eastus-001"}
         },
     }'
     
