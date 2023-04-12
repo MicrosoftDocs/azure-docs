@@ -60,9 +60,9 @@ It's a good idea to generate an AWR report and obtain some metrics from it to he
 
 If you have an existing an Oracle Enterprise Edition database and are planning to migrate to Azure, you have several options. If you have the [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) for your Oracle instances, you can run the Oracle AWR report to get the metrics, such as IOPS, Mbps, and GiBs. For those databases without the Diagnostics Pack license, or for an Oracle Standard Edition database, you can collect the same important metrics with a Statspack report after you collect manual snapshots. The main differences between these two reporting methods are that AWR is automatically collected, and that it provides more information about the database than does Statspack.
 
-Consider running your AWR report during both regular and peak workloads, so you can compare. To collect the more accurate workload, consider an extended window report of one week, as opposed to one day. AWR provides averages as part of its calculations in the report. By default, the AWR repository retains eight days of data and takes snapshots at hourly intervals. 
+Consider running your AWR report during both regular and peak workloads, so you can compare. To collect the more accurate workload, consider an extended window report of one week, as opposed to one day. AWR provides averages as part of its calculations in the report. By default, the AWR repository retains eight days of data and takes snapshots at hourly intervals.
 
-For a datacenter migration, it's a good idea to gather reports for sizing on the production systems. Estimate remaining database copies used for user testing, test, and development by percentages. For example, estimate 50 percent of production sizing.
+For a datacenter migration, you should to gather reports for sizing on the production systems. Estimate remaining database copies used for user testing, test, and development by percentages. For example, estimate 50 percent of production sizing.
 
 To run an AWR report from the command line, use the following command:
 
@@ -157,7 +157,7 @@ Here are some tips as you consider disks.
 
 - **Managed disks:** Azure manages the storage accounts that you use for your VM disks. You specify the disk type and the size of the disk that you need. The type is most often Premium (SSD) for Oracle workloads. Azure creates and manages the disk for you. A premium SSD-managed disk is only available for memory-optimized and designed VM series. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
 
-  :::image type="content" source="./media/oracle-design/premium_disk01.png" alt-text="Screenshot of the managed disk page.":::
+  :::image type="content" source="./media/oracle-design/premium_disk01.png" alt-text="Screenshot of the managed disk page." lightbox="./media/oracle-design/premium_disk01.png":::
 
 After you configure your storage on a VM, you might want to load test the disks before you create a database. Knowing the I/O rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets. There are several tools for application load testing, such as Oracle Orion, Sysbench, SLOB, and Fio.
 
@@ -191,7 +191,7 @@ Although you have three options for host caching, only read-only caching is reco
 
 To maximize throughput, start with read-only for host caching whenever possible. For premium storage, keep in mind that you must disable the barriers when you mount the file system with the read-only options. Update the */etc/fstab* file with the universally unique identifier to the disks.
 
-:::image type="content" source="./media/oracle-design/premium_disk02.png" alt-text="Screenshot of the managed disk page that shows the read-only option.":::
+:::image type="content" source="./media/oracle-design/premium_disk02.png" alt-text="Screenshot of the managed disk page that shows the read-only option." lightbox="./media/oracle-design/premium_disk02.png":::
 
 - For operating system disks, use premium SSD with read-write host caching.
 - For data disks that contain the following, use premium SSD with read-only host caching: Oracle data files, temp files, control files, block change tracking files, BFILEs, files for external tables, and flashback logs.
@@ -207,7 +207,7 @@ After you set up and configure your Azure environment, you need to secure your n
 
 - **Jumpbox:** For more secure access, administrators shouldn't directly connect to the application service or database. Use a jumpbox between the administrator machine and Azure resources.
 
-  :::image type="content" source="./media/oracle-design/jumpbox.png" alt-text="Diagram that shows the jumpbox topology.":::
+  :::image type="content" source="./media/oracle-design/jumpbox.png" alt-text="Diagram that shows the jumpbox topology." lightbox="./media/oracle-design/jumpbox.png":::
 
   The administrator machine should only offer IP-restricted access to the jumpbox. The jumpbox should have access to the application and database.
 
