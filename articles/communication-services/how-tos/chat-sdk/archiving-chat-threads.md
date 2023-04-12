@@ -47,7 +47,7 @@ It might take a moment for the registration to finish. Select **Refresh** to upd
 
 ### Deploy the Event Grid viewer
 
-You need to use an Event Grid viewer to view events in near-real time. The viewer provides the user with the experience of a real-time feed. Also, the payload of each event should be available for inspection.
+You need to use an Event Grid viewer to view events in near-real time. The viewer provides the user with the experience of a real-time feed. 
 
 There are two methods for archiving chat threads. You can choose to archive messages when the thread is inactive or in near real time.
 
@@ -59,7 +59,7 @@ Create a backend application to perform jobs to move chat threads into your own 
 
 The backend application would run a job to do the following steps: 
 
-1. [List](../../quickstarts/chat/get-started?tabs=windows&pivots=platform-azcli#list-chat-messages-in-a-chat-thread.md) the messages in the chat thread you wish to archive 
+1. [List](../../quickstarts/chat/get-started.md?tabs=windows&pivots=platform-azcli#list-chat-messages-in-a-chat-thread) the messages in the chat thread you wish to archive 
 2. Write the chat thread in the desired format you wish to store it in i.e JSON, CSV
 3. Copy the thread in the format as a blob into Azure Blob storage 
 
@@ -71,7 +71,7 @@ This option is suited if the chat volume is low as conversations are happening i
 
 Follow these steps for archiving messages:
 
-- Subscribe to Event Grid events which come with Azure Event grid through web hooks. Azure Communications Chat service supports the following [events](../../concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessageedited-event.md), and Message Deleted [event](../../../event-grid/communication-services-chat-events#microsoftcommunicationchatmessagedeleted-event.md).
+- Subscribe to Event Grid events which come with Azure Event grid through web hooks. Azure Communications Chat service supports the following [events](../../concepts/chat/concepts#real-time-notifications) for real-time notifications. The following events are recommended: Message Received [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessagereceived-event), Message Edited [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessageedited-event), and Message Deleted [event](../../../event-grid/communication-services-chat-events.md#microsoftcommunicationchatmessagedeleted-event).
 - Validate the [events](../../how-tos/event-grid/view-events-request-bin.md) by configuring your resource to receive these events
 - Test your Event Grid handler [locally](../../how-tos/event-grid/local-testing-event-grid.md) to ensure that you are receiving events that you need for archiving.
 
