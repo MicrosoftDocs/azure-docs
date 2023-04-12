@@ -317,6 +317,11 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
 Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
+  
+# Upgrade instances to install the extension
+Update-AzVmssInstance -ResourceGroupName $vmScaleSetResourceGroup `
+  -VMScaleSetName $vmScaleSetName `
+  -InstanceId '*'
 
 ```
 
@@ -439,6 +444,11 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
 Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
+  
+# Upgrade instances to install the extension
+Update-AzVmssInstance -ResourceGroupName $vmScaleSetResourceGroup `
+  -VMScaleSetName $vmScaleSetName `
+  -InstanceId '*'
 
 ```
 
