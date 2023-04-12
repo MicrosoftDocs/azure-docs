@@ -34,4 +34,45 @@ This category emits one log per network group membership change. So, when a virt
 | level | Always Info. |
 | properties | Collection of properties of the log. |
 
+Within the properties attribute are several nested attributes:
+
+| properties attributes | Description |
+|--------------------|-------------|
+| Message | Basic success or failure message. |
+| MembershipId | Default membership ID of the virtual network. |
+| GroupMemberships | Collection of what network groups the virtual network belongs to. There may be multiple `NetworkGroupId` and `Sources` listed within this property since a virtual network can belong to multiple network groups simultaneously. |
+| MemberResourceIds | Resource ID of the virtual network that was added to or removed from a network group. |
+
+Within the `GroupMemberships` attribute are several nested attributes:
+
+| GroupMemberships attributes | Description |
+|-----------------------------|-------------|
+| NetworkGroupId | ID of a network group the virtual network belongs to. |
+| Sources | Collection of how the virtual network is a member of the network group. |
+
+Within the Sources attribute are several nested attributes:
+
+| Sources attributes | Description |
+|-------------------|-------------|
+| Type | Denotes whether the virtual network was added manually (StaticMembership) or conditionally via Azure Policy (Policy). |
+| StaticMemberId | If the Type value is StaticMembership, this property will appear. |
+| PolicyAssignmentId | If the Type value is Policy, this property will appear. ID of the Azure Policy assignment that associates the Azure Policy definition to the network group. |
+| PolicyDefinitionId | If the Type value is Policy, this property will appear. ID of the Azure Policy definition that contains the conditions for the network group’s membership. |
+
+## Accessing logs
+
+Depending on how you'll consume event logs, you’ll need to set up a Log Analytics workspace or a storage account for storing your log events. 
+- Learn to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
+- Learn to [create a storage account](../storage/common/storage-account-create.md).
+
+When setting up a Log Analytics workspace or a storage account, you’ll need to select a region. If you’re using a storage account or [event hub](../event-hubs/event-hubs-create.md), it will need to be in the same region of the virtual network manager you’re accessing logs from. If you’re using a Log Analytics workspace, it can be in any region. 
+
+The network manager you’re accessing the logs of won’t need to belong to the same subscription as your Log Analytics workspace or storage account, but permissions may restrict your ability to access logs across different subscriptions. 
+
+> [!NOTE]
+> At least one virtual network must be added or removed from a network group in order to generate logs. A log will generate for this event a couple minutes after network group membership change occurs. 
+
+## Next steps
+- Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance using the Azure portal.
+- Learn more about [network groups](concept-network-groups.md) in Azure Virtual Network Manager.
 
