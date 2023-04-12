@@ -62,7 +62,7 @@ The following regions support workload profiles during preview:
 
 1. Select the **Add workload profile** button.
 
-    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile.png" alt-text="Screenshot of the add a workload profile to the container apps environment window.":::
+    :::image type="content" source="media/workload-profiles/azure-container-apps-add-workload-profile.png" alt-text="Screenshot of the window to add a workload profile to the container apps environment.":::
 
 1. For *Workload profile name*, enter a name.
 
