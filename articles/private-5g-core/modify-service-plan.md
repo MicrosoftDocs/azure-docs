@@ -19,17 +19,12 @@ The *service plan* determines an allowance for the throughput and the number of 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Verify pricing and charges associated with the service plan to which you want to move. See the [Azure Private 5G Core Pricing page](https://azure.microsoft.com/pricing/details/private-5g-core/) for pricing information.
 
-## Choose the new service plan
+## Choose a new service plan
 
-Use the following table to choose the new service plan that will best fit your requirements.
+Choose the new service plan that will best fit your requirements. Refer to the following resources:
 
-| Service Plan | Licensed Throughput | Licensed Activated SIMs | Licensed RANs |
-|------|------|------|------|
-| G0 |  100 Mbps | 20 | 2 |
-| G1 |  1 Gbps | 100 | 5 |
-| G2 |  2 Gbps | 200 | 10 |
-| G5 |  5 Gbps | 500 | Unlimited |
-| G10 |  10 Gbps | 1000 | Unlimited |
+- [Azure Private 5G Core pricing](https://azure.microsoft.com/en-us/pricing/details/private-5g-core/)
+- [Pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=private-5g-core)
 
 ## View the current service plan
 
