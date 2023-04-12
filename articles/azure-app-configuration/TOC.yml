@@ -287,6 +287,8 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
+    - name: Kubernetes provider
+      href: reference-kubernetes-provider.md
 - name: Resources
   items:
     - name: Pricing
