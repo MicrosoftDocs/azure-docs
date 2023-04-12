@@ -28,7 +28,7 @@ To follow the steps in this article, you need:
 The example in this article uses several ARM templates and an existing open-source video processing application, [FFmpeg](https://ffmpeg.org). You can copy or download these resources and push them to your Azure Repos repository.
 
 >[!IMPORTANT]
->This example deploys Windows software on Windows-based Batch nodes. Azure Pipelines, ARM templates, and Batch also fully support Linux and macOS software and nodes.
+>This example deploys Windows software on Windows-based Batch nodes. Azure Pipelines, ARM templates, and Batch also fully support Linux software and nodes.
 
 ### Understand the ARM templates
 
