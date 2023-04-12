@@ -15,8 +15,8 @@ There are multiple channels available to give you help and support in Microsoft 
 
 In the following table, select your role to see how to get help for urgent issues. For non-urgent issues, select an option.
 
-|Urgent issues                                                                        |Non-urgent |
-|-------------------------------------------------------------------------------------|-----------|
+|My issue is urgent:                                                                  |My issue is not urgent: |
+|-------------------------------------------------------------------------------------|------------------------|
 |[Administrator </br>(IT admin, Dev infra admin)](get-help/get-help-project-admin.md) |[Learn about the Microsoft Developer Community](get-help/get-support-non-urgent.md)|
 |[Dev team lead </br>(Project Admin)](get-help/get-help-it-admin.md)                  |[Search Microsoft Developer Community](https://developercommunity.microsoft.com/devbox) |
 |[Developer </br>(Dev Box User)](get-help/get-help-developer.md)                      |[Report to Microsoft Developer Community](https://developercommunity.microsoft.com/devbox/report) |
