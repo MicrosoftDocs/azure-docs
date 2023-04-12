@@ -18,7 +18,7 @@ ms.date: 04/17/2023
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-To transform data between formats in an Azure Logic Apps workflow, you need to create and use a map that describes the relationships between a source schema and a target schema. For this task, you can visually create and edit such maps in Visual Studio Code by using the Data Mapper extension within the context of a Standard logic app project. You can then directly call these maps from workflows in your logic app project by using the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**.
+To transform data between formats in an Azure Logic Apps workflow, you need to create and use a map that describes the relationships between a source schema and a target schema. For this task, you can visually create and edit such maps in Visual Studio Code by using the Data Mapper extension within the context of a Standard logic app project. You can then directly call these maps from workflows in your logic app project by using the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**. You can use maps for XML to XML, JSON to JSON, XML to JSON, and JSON to XML transformations.
 
 The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
@@ -57,7 +57,7 @@ The Data Mapper extension currently supports only schemas in flat folder-structu
 
 1. Go to your local project folder, and expand the **Artifacts** > **Schemas** folder.
 
-1. Add your source schema (.xsd) file and target schema (.json) file to the **Schemas** folder.
+1. Add your source and target schema files to the **Schemas** folder.
 
    In Visual Studio Code, these schema files now also appear in your logic app project.
 
