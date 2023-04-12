@@ -4,11 +4,11 @@ titleSuffix: Azure OpenAI
 description: Learn about the different model capabilities that are available with Azure OpenAI. 
 ms.service: cognitive-services
 ms.topic: conceptual 
-ms.date: 03/21/2023
+ms.date: 03/31/2023
 ms.custom: event-tier1-build-2022, references_regions
 manager: nitinme
-author: ChrisHMSFT
-ms.author: chrhoder
+author: mrbullwinkle #ChrisHMSFT
+ms.author: mbullwin #chrhoder
 recommendations: false
 keywords: 
 ---
@@ -128,7 +128,10 @@ Cushman is powerful, yet fast. While Davinci is stronger when it comes to analyz
 
 ## Embeddings models
 
-Currently, we offer three families of Embeddings models for different functionalities: 
+> [!IMPORTANT]
+> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+
+Currently, we offer three families of Embeddings models for different functionalities:
 
 - [Similarity](#similarity-embedding)
 - [Text search](#text-search-embedding)
@@ -177,11 +180,11 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 
 |  Model ID  |   Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --------- |  --------------------- | ------------------- | -------------------- | ---------------------- |
-| ada        |	N/A	                  | South Central US <sup>2</sup> | 2,049 | Oct 2019|
+| ada        |	N/A	                  | East US <sup>2</sup> | 2,049 | Oct 2019|
 | text-ada-001 | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019|
-| babbage | N/A | South Central US<sup>2</sup> | 2,049 | Oct 2019 |
+| babbage | N/A | East US<sup>2</sup> | 2,049 | Oct 2019 |
 | text-babbage-001 | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
-| curie | N/A | South Central US<sup>2</sup> | 2,049 | Oct 2019 |
+| curie | N/A | East US<sup>2</sup> | 2,049 | Oct 2019 |
 | text-curie-001  | East US, South Central US, West Europe | N/A | 2,049 | Oct 2019 |
 | davinci<sup>1</sup> | N/A | Currently unavailable | 2,049 | Oct 2019|
 | text-davinci-001 | South Central US, West Europe | N/A |  |  |
@@ -191,10 +194,8 @@ These models can be used with Completion API requests. `gpt-35-turbo` is the onl
 | gpt-35-turbo<sup>3</sup> (ChatGPT) (preview) | East US, South Central US | N/A | 4,096 | Sep 2021 |
 
 <sup>1</sup> The model is available by request only. Currently we aren't accepting new requests to use the model.
-<br><sup>2</sup> East US and West Europe were previously available, but due to high demand they are currently unavailable for new customers to use for fine-tuning. Please use US South Central region for fine-tuning.
+<br><sup>2</sup> South Central US and West Europe were previously available, but due to high demand they are currently unavailable for new customers to use for fine-tuning. Please use the East US region for fine-tuning.
 <br><sup>3</sup> Currently, only version `0301` of this model is available. This version of the model will be deprecated on 8/1/2023 in favor of newer version of the gpt-35-model. See [ChatGPT model versioning](../how-to/chatgpt.md#model-versioning) for more details.
-
-[!INCLUDE [Fine-tuning guidance](../includes/fine-tuning.md)]
 
 ### GPT-4 Models
 
@@ -219,15 +220,17 @@ These models can only be used with Completions API requests.
 
 <sup>1</sup> The model is available for fine-tuning by request only. Currently we aren't accepting new requests to fine-tune the model.
 
-[!INCLUDE [Fine-tuning guidance](../includes/fine-tuning.md)]
-
 ### Embeddings Models
 
 These models can only be used with Embedding API requests.
 
+> [!NOTE]
+> We strongly recommend using `text-embedding-ada-002 (Version 2)`. This model/version provides parity with OpenAI's `text-embedding-ada-002`. To learn more about the improvements offered by this model, please refer to [OpenAI's blog post](https://openai.com/blog/new-and-improved-embedding-model). Even if you are currently using Version 1 you should migrate to Version 2 to take advantage of the latest weights/updated token limit. Version 1 and Version 2 are not interchangeable, so document embedding and document search must be done using the same version of the model.
+
 |  Model ID  |  Base model Regions   | Fine-Tuning Regions | Max Request (tokens) | Training Data (up to)  |
 |  --- | --- | --- | --- | --- |
-| text-embedding-ada-002 | East US, South Central US, West Europe | N/A |2,046 | Sep 2021 |
+| text-embedding-ada-002 (version 2) | East US, South Central US | N/A |8,191 | Sep 2021 |
+| text-embedding-ada-002 (version 1) | East US, South Central US, West Europe | N/A |4,095 | Sep 2021 |
 | text-similarity-ada-001| East US, South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-babbage-001  | South Central US, West Europe | N/A | 2,046 | Aug 2020 |
 | text-similarity-curie-001 | East US, South Central US, West Europe | N/A |  2046 | Aug 2020 |
@@ -247,4 +250,5 @@ These models can only be used with Embedding API requests.
 
 ## Next steps
 
-[Learn more about Azure OpenAI](../overview.md)
+- [Learn more about Azure OpenAI](../overview.md)
+- [Learn more about fine-tuning Azure OpenAI models](../how-to/fine-tuning.md)

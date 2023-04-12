@@ -368,6 +368,8 @@ items:
       items:
         - name: Enable logs in SDK
           href: how-to-use-logging.md
+        - name: Log audio and transcriptions
+          href: logging-audio-transcription.md
         - name: Troubleshoot the Speech SDK
           href: troubleshooting.md
           displayName: help, faq, tsg, error

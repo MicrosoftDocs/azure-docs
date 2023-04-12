@@ -19,14 +19,6 @@
     href: tutorial-create-managed-app-with-custom-provider.md
 - name: Samples
   items:
-  - name: Azure CLI
-    items:
-    - name: Overview
-      href: cli-samples.md
-    - name: Create managed application
-      href: scripts/managed-application-define-create-cli-sample.md
-  - name: Azure PowerShell
-    href: powershell-samples.md
   - name: Managed application solutions
     href: sample-projects.md
 - name: Concepts

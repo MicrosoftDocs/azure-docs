@@ -23,7 +23,7 @@ This article shows you how to deploy your static files to Azure Spring Apps Ente
 
 - An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 - One or more applications running in Azure Spring Apps. For more information on creating apps, see [How to Deploy Spring Boot applications from Azure CLI](./how-to-launch-from-source.md).
-- [Azure CLI](/cli/azure/install-azure-cli), version 2.0.67 or higher.
+- [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
 - Your static files or dynamic front-end application.
 
 ## Deploy your static files

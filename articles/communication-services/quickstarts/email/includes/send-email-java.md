@@ -166,30 +166,30 @@ try
 
     Duration timeElapsed = Duration.ofSeconds(0);
 
-        while (pollResponse == null
-                || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED
-                || pollResponse.getStatus() == LongRunningOperationStatus.IN_PROGRESS)
-        {
-            pollResponse = poller.poll();
-            System.out.println("Email send poller status: " + pollResponse.getStatus());
+    while (pollResponse == null
+            || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED
+            || pollResponse.getStatus() == LongRunningOperationStatus.IN_PROGRESS)
+    {
+        pollResponse = poller.poll();
+        System.out.println("Email send poller status: " + pollResponse.getStatus());
 
-            Thread.sleep(POLLER_WAIT_TIME.toMillis());
-            timeElapsed = timeElapsed.plus(POLLER_WAIT_TIME);
+        Thread.sleep(POLLER_WAIT_TIME.toMillis());
+        timeElapsed = timeElapsed.plus(POLLER_WAIT_TIME);
 
-            if (timeElapsed.compareTo(POLLER_WAIT_TIME.multipliedBy(18)) >= 0)
-            {
-                throw new RuntimeException("Polling timed out.");
-            }
+        if (timeElapsed.compareTo(POLLER_WAIT_TIME.multipliedBy(18)) >= 0)
+        {
+            throw new RuntimeException("Polling timed out.");
         }
+    }
 
-        if (poller.getFinalResult().getStatus() == EmailSendStatus.SUCCEEDED)
-        {
-            System.out.printf("Successfully sent the email (operation id: %s)", poller.getFinalResult().getId());
-        }
-        else
-        {
-            throw new RuntimeException(poller.getFinalResult().getError().getMessage());
-        }
+    if (poller.getFinalResult().getStatus() == EmailSendStatus.SUCCEEDED)
+    {
+        System.out.printf("Successfully sent the email (operation id: %s)", poller.getFinalResult().getId());
+    }
+    else
+    {
+        throw new RuntimeException(poller.getFinalResult().getError().getMessage());
+    }
 }
 catch (Exception exception)
 {
@@ -221,6 +221,8 @@ Make these replacements in the code:
    ```console
    mvn exec:java -D"exec.mainClass"="com.communication.quickstart.App" -D"exec.cleanupDaemonThreads"="false"
    ```
+
+If you see that your application is hanging it could be due to email sending being throttled. You can [handle this through logging or by implementing a custom policy](#throw-an-exception-when-email-sending-tier-limit-is-reached).
 
 ### Sample code
 
@@ -300,3 +302,39 @@ System.out.println("Operation Id: " + response.getValue().getId());
 For more information on acceptable MIME types for email attachments, see the [allowed MIME types](../../../concepts/email/email-attachment-allowed-mime-types.md) documentation.
 
 You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced)
+
+### Throw an exception when email sending tier limit is reached
+
+The Email API has throttling with limitations on the number of email messages that you can send. Email sending has limits applied per minute and per hour as mentioned in [API Throttling and Timeouts](https://learn.microsoft.com/azure/communication-services/concepts/service-limits). When you have reached these limits, additional email sends with `beginSend` calls will receive an error response of “429: Too Many Requests”. By default, the SDK is configured to retry these requests after waiting a certain period of time. We recommend you [set up logging with the Azure SDK](https://learn.microsoft.com/azure/developer/java/sdk/logging-overview) to capture these response codes.
+
+Alternatively, you can manually define a custom policy as shown below. 
+
+```java
+import com.azure.core.http.HttpResponse;
+import com.azure.core.http.policy.ExponentialBackoff;
+
+public class CustomStrategy extends ExponentialBackoff {
+    @Override
+    public boolean shouldRetry(HttpResponse httpResponse) {
+        int code = httpResponse.getStatusCode();
+
+        if (code == HTTP_STATUS_TOO_MANY_REQUESTS) {
+            throw new RuntimeException(httpResponse);
+        }
+        else {
+            return super.shouldRetry(httpResponse);
+        }
+    }
+}
+```
+
+Add this retry policy to your email client. This will ensure that 429 response codes throw an exception rather than being retried.
+
+```java
+import com.azure.core.http.policy.RetryPolicy;
+
+EmailClient emailClient = new EmailClientBuilder()
+    .connectionString(connectionString)
+    .retryPolicy(new RetryPolicy(new CustomStrategy()))
+    .buildClient();
+```

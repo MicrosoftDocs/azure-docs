@@ -23,7 +23,7 @@ The following diagram depicts a simple hub and spoke design with a hub VNet and 
 
 :::image type="content" source="./media/scenarios/route-injection.png" alt-text="Diagram showing a basic hub and spoke topology.":::
 
-With the Route Server in the hub VNet, there's no need to use user-defined routes. The NVA advertises network prefixes to the Route Server, which injects them so they appear in the effective routes of any virtual machine deployed in the hub VNet or spoke VNets that are peered with the hub VNet with the setting *Use the remote virtual network's gateway or Route Server*.
+With the Route Server in the hub VNet, there's no need to use user-defined routes. The NVA advertises network prefixes to the Route Server, which injects them so they appear in the effective routes of any virtual machine deployed in the hub VNet or spoke VNets that are peered with the hub VNet with the setting ***Use the remote virtual network's gateway or Route Server***.
 
 ## Connectivity to on-premises through the NVA
 
@@ -83,9 +83,9 @@ However, there's an alternative, more dynamic approach. It's possible using diff
 
 :::image type="content" source="./media/scenarios/route-injection-split-route-server.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via ExpressRoute and two Route Servers.":::
 
-Route Server 1 in the hub is used to inject the prefixes from the SDWAN into ExpressRoute. Since the spoke VNets are peered with the hub VNet without the *Use the remote virtual network's gateway or Route Server* (in the spoke VNet peering) and *Use this virtual network's gateway or Route Server* (in the hub VNet peering), the spoke VNets don't learn these routes (neither the SDWAN prefixes nor the ExpressRoute prefixes).
+Route Server 1 in the hub is used to inject the prefixes from the SDWAN into ExpressRoute. Since the spoke VNets are peered with the hub VNet without the ***Use the remote virtual network's gateway or Route Server*** (in the spoke VNet peering) and ***Use this virtual network's gateway or Route Server*** (***Gateway transit*** in the hub VNet peering), the spoke VNets don't learn these routes (neither the SDWAN prefixes nor the ExpressRoute prefixes).
 
-To propagate routes to the spoke VNets, the NVA uses Route Server 2, deployed in a new auxiliary VNet. The NVA will only propagate a single `0.0.0.0/0` route to Route Server 2. Since the spoke VNets are peered with this auxiliary VNet with *Use the remote virtual network's gateway or Route Server* (in the spoke VNet peering) and *Use this virtual network's gateway or Route Server* (in the hub VNet peering), the `0.0.0.0/0` route will be learned by all the virtual machines in the spokes.
+To propagate routes to the spoke VNets, the NVA uses Route Server 2, deployed in a new auxiliary VNet. The NVA will only propagate a single `0.0.0.0/0` route to Route Server 2. Since the spoke VNets are peered with this auxiliary VNet with ***Use the remote virtual network's gateway or Route Server*** (in the spoke VNet peering) and ***Use this virtual network's gateway or Route Server*** (***Gateway transit*** in the hub VNet peering), the `0.0.0.0/0` route will be learned by all the virtual machines in the spokes.
 
 The next hop for the `0.0.0.0/0` route is the NVA, so the spoke VNets still need to be peered to the hub VNet. Another important aspect to notice is that the hub VNet needs to be peered to the VNet where Route Server 2 is deployed, otherwise it won't be able to create the BGP adjacency.
 
@@ -99,3 +99,5 @@ This design allows automatic injection of routes in spoke VNets without interfer
 
 * Learn more about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md)
 * Learn how to [Configure peering between Azure Route Server and Network Virtual Appliance](tutorial-configure-route-server-with-quagga.md)
+
+

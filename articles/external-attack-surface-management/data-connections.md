@@ -13,9 +13,7 @@ ms.topic:    how-to
 ms.date:     03/20/2023
 ---
 
-# Defender EASM data connections
-
-## **Overview**
+# Leveraging data connections
 
 Microsoft Defender External Attack Surface Management (Defender EASM) now offers data connections to help users seamlessly integrate their attack surface data into other Microsoft solutions to supplement existing workflows with new insights.  Users must get data from Defender EASM into the other security tools they use for remediation purposes to best operationalize their attack surface data. 
 
@@ -26,11 +24,11 @@ The data connector sends Defender EASM asset data to two different platforms: Mi
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a big data analytics platform that helps users analyze high volumes of data from various sources with flexible customization capabilities. Defender EASM asset and insights data can be integrated to leverage visualization, query, ingestion and management capabilities within the platform. Whether building custom reports with Power BI or hunting for assets that match precise KQL queries, exporting Defender EASM data to Azure Data Explorer enables users to leverage their attack surface data with endless customization potential.
 
 
-**Data content options**
+## Data content options
+
 <br>Defender EASM data connections offers users the ability to integrate two different kinds of attack surface data into the tool of their choice. Users can elect to migrate asset data, attack surface insights or both data types. Asset data provides granular details about your entire inventory, whereas attack surface insights provide immediately actionable insights based on Defender EASM dashboards. 
 
 To accurately present the infrastructure that matters most to your organization, please note that both content options will only include assets in the “Approved Inventory” state.
-
 
 
 **Asset data**
@@ -39,6 +37,7 @@ To accurately present the infrastructure that matters most to your organization,
 
 **Attack surface insights**
 <br>Attack Surface Insights provide an actionable set of results based on the key insights delivered through dashboards in Defender EASM. This option provides less granular metadata on each asset; instead, it categorizes assets based on the corresponding insight(s) and provides the high-level context required to investigate further. This option is ideal for those who want to integrate these pre-determined insights into custom reporting workflows in conjunction with data from other tools.
+
 
 ## **Configuring data connections**
 

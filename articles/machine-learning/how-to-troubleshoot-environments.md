@@ -1351,7 +1351,7 @@ Ensure that you've spelled all listed packages correctly and that you've pinned 
 
 ### Missing command
 <!--issueDescription-->
-This issue can happen when a command isn't recognized during an image build.
+This issue can happen when a command isn't recognized during an image build or in the specified Python package requirement.
 
 **Potential causes:**
 * You didn't spell the command correctly
@@ -1738,6 +1738,48 @@ pip install --ignore-installed [package]
 
 Try creating a separate environment using conda
 
+### Invalid operator
+<!--issueDescription-->
+This issue can happen when pip fails to install a Python package due to an invalid operator found in the requirement.
+
+**Potential causes:**
+* There's an invalid operator found in the Python package requirement
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that you've spelled the package correctly and that the specified version exists
+* Ensure that your package version specifier is formatted correctly and that you're using valid comparison operators. See [Version specifiers](https://peps.python.org/pep-0440/#version-specifiers)
+* Replace the invalid operator with the operator recommended in the error message
+
+### No matching distribution 
+<!--issueDescription-->
+This issue can happen when there's no package found that matches the version you specified.
+
+**Potential causes:**
+* You spelled the package name incorrectly
+* The package and version can't be found on the channels or feeds that you specified
+* The version you specified doesn't exist
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because Azure Machine Learning implicitly builds the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that you've spelled the package correctly and that it exists
+* Ensure that the version you specified for the package exists
+* Run `pip install --upgrade pip` and then run the original command again
+* Ensure the pip you're using can install packages for the desired Python version. See [Should I use pip or pip3?](https://stackoverflow.com/questions/61664673/should-i-use-pip-or-pip3)
+
+**Resources**
+* [Running Pip](https://pip.pypa.io/en/stable/user_guide/#running-pip)
+* [pypi](https://aka.ms/azureml/environment/pypi)
+* [Installing Python Modules](https://docs.python.org/3/installing/index.html)
+
 ## *Make issues*
 ### No targets specified and no makefile found
 <!--issueDescription-->
@@ -1786,6 +1828,34 @@ This issue can happen when Docker fails to find and copy a file.
 **Resources**
 * [Docker COPY](https://docs.docker.com/engine/reference/builder/#copy)
 * [Docker Build Context](https://docs.docker.com/engine/context/working-with-contexts/)
+
+## *Apt-Get Issues*
+### Failed to run apt-get command
+<!--issueDescription-->
+This issue can happen when apt-get fails to run.
+
+**Potential causes:**
+* Network connection issue, which could be temporary
+* Broken dependencies related to the package you're running apt-get on
+* You don't have the correct permissions to use the apt-get command
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Check your network connection and DNS settings
+* Run `apt-get check` to check for broken dependencies
+* Run `apt-get update` and then run your original command again
+* Run the command with the `-f` flag, which will try to resolve the issue coming from the broken dependencies
+* Run the command with `sudo` permissions, such as `sudo apt-get install <package-name>`
+
+**Resources**
+* [Package management with APT](https://help.ubuntu.com/community/AptGet/Howto)
+* [Ubuntu Apt-Get](https://manpages.ubuntu.com/manpages/xenial/man8/apt-get.8.html)
+* [What to do when apt-get fails](https://www.linux.com/news/what-do-when-apt-get-fails/#:~:text=Check%20the%20broken%20dependencies%E2%80%99%20availability.%20Run%20apt-get%20update,adding%20another%20source%2C%20then%20run%20apt-get%20install%20again)
+* [apt-get command in Linux with Examples](https://www.geeksforgeeks.org/apt-get-command-in-linux-with-examples/)
 
 ## *Docker push issues*
 ### Failed to store Docker image
@@ -1837,6 +1907,28 @@ This issue can happen when Docker doesn't recognize an instruction in the Docker
 
 **Resources**
 * [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+
+## *Command Not Found*
+### Command not recognized
+<!--issueDescription-->
+This issue can happen when the command being run isn't recognized.
+
+**Potential causes:**
+* You haven't installed the command via your Dockerfile before you try to execute the command
+* You haven't included the command in your path, or you haven't added it to your path
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+Ensure that you have an installation step for the command in your Dockerfile before trying to execute the command
+* Review this [example](https://stackoverflow.com/questions/67186341/make-install-in-dockerfile)
+
+If you've tried installing the command and are experiencing this issue, ensure that you've added the command to your path 
+* Review this [example](https://stackoverflow.com/questions/27093612/in-a-dockerfile-how-to-update-path-environment-variable)
+* Review how to set [environment variables in a Dockerfile](https://docs.docker.com/engine/reference/builder/#env)
 
 ## *Miscellaneous build issues*
 ### Build log unavailable
