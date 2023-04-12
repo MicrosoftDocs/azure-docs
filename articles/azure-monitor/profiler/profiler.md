@@ -134,6 +134,5 @@ We recommend that you have Profiler enabled on all your apps to discover any per
 Profiler's files can be deleted when using WebDeploy to deploy changes to your web application. You can prevent the deletion by excluding the App_Data folder from being deleted during deployment. 
 
 ## Next steps
-Learn how to...
-> [!div class="nextstepaction"]
-> [Generate load and view Profiler traces](./profiler-data.md)
+- Learn how to [generate load and view Profiler traces](./profiler-data.md)
+- Learn how to use the [AI Code Optimizer](../insights/ai-code-optimizer-overview.md) alongside the Application Insights Profiler

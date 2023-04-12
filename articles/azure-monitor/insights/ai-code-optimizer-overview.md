@@ -101,7 +101,7 @@ After sorting and filtering the AI Code Optimizer results, you can then select e
 - The full call stack.
 - Recommendations on how to fix the performance issue.
 
-:::image type="content" source="./media/optimization-insights-overview/optimization-insights-details.png" alt-text="Screenshot of the detail pane for a specific AI Code Optimizer C-P-U result.":::
+:::image type="content" source="./media/ai-code-optimizer-overview/ai-code-optimizer-details.png" alt-text="Screenshot of the detail pane for a specific AI Code Optimizer C-P-U result.":::
 
 #### Call stack
 
@@ -110,15 +110,15 @@ In the insights details pane, under the **Call Stack** heading, you can:
 - Select **Expand** to view the full call stack surrounding the performance issue
 - Select **Copy** to copy the call stack.
 
-:::image type="content" source="./media/optimization-insights-overview/optimization-insights-call-stack-2.png" alt-text="Screenshot of the call stack heading in the detail pane for the specific C-P-U result from earlier.":::
+:::image type="content" source="./media/ai-code-optimizer-overview/ai-code-optimizer-call-stack-2.png" alt-text="Screenshot of the call stack heading in the detail pane for the specific C-P-U result from earlier.":::
 
-:::image type="content" source="./media/optimization-insights-overview/optimization-insights-call-stack.png" alt-text="Screenshot of the expanded call stack for the specific C-P-U result from earlier.":::
+:::image type="content" source="./media/ai-code-optimizer-overview/ai-code-optimizer-call-stack.png" alt-text="Screenshot of the expanded call stack for the specific C-P-U result from earlier.":::
 
 #### Trend impact
 
 You can also view a graph depicting a specific performance issue's impact and threshold. The trend impact results vary depending on the filters you've set. For example, a CPU `String.SubString()` performance issue's insights seen over a seven day time frame may look like:
 
-:::image type="content" source="./media/optimization-insights-overview/optimization-insights-trend-impact.png" alt-text="Screenshot of the C-P-U trend impact over the course of seven days.":::
+:::image type="content" source="./media/ai-code-optimizer-overview/ai-code-optimizer-trend-impact.png" alt-text="Screenshot of the C-P-U trend impact over the course of seven days.":::
 
 
 ## Next Steps
