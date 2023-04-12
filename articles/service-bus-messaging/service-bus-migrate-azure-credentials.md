@@ -34,6 +34,19 @@ await using var client = new ServiceBusClient("<CONNECTION-STRING>");
 
 ## [Java](#tab/java)
 
+**Receiver client:**
+
+```java
+ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
+    .connectionString("<CONNECTION-STRING>")
+    .receiver()
+    .topicName("<TOPIC-NAME>")
+    .subscriptionName("<SUBSCRIPTION-NAME>")
+    .buildClient();
+```
+
+**Sender client:**
+
 ```java
 ServiceBusSenderClient client = new ServiceBusClientBuilder()
     .connectionString("<CONNECTION-STRING>")
@@ -102,7 +115,7 @@ Next, update your code to use passwordless connections.
    using Azure.Identity;
    ```
 
-1. Identify the locations in your code that create a `ServiceBusClient` to connect to Azure Service Bus. Update your code to match the following example:
+1. Identify the locations in your code that create a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
    ```csharp
     //TODO: Replace the <SERVICE-BUS-NAMESPACE-NAME> placeholder.
@@ -123,7 +136,23 @@ Next, update your code to use passwordless connections.
     import com.azure.identity.DefaultAzureCredentialBuilder;
     ```
 
-1. Identify the locations in your code that create a `ServiceBusSenderClient` or `ServiceBusSenderAsyncClient` object to connect to Azure Service Bus. Update your code to match the following example:
+1. Identify the locations in your code that create a Service Bus sender or receiver client object to connect to Azure Service Bus. Update your code to match one of the following examples:
+
+    **Receiver client:**
+    
+    ```java
+    DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .build();
+
+    ServiceBusReceiverClient receiver = new ServiceBusClientBuilder()
+        .credential("<SERVICE-BUS-NAMESPACE-NAME>.servicebus.windows.net", credential)
+        .receiver()
+        .topicName("<TOPIC-NAME>")
+        .subscriptionName("<SUBSCRIPTION-NAME>")
+        .buildClient();
+    ```
+
+    **Sender client:**
 
     ```java
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
@@ -156,7 +185,7 @@ Next, update your code to use passwordless connections.
     import com.azure.identity.DefaultAzureCredentialBuilder;
     ```
 
-1. Identify the locations in your code that currently create a `ServiceBusJmsConnectionFactory` to connect to Azure Service Bus. Update your code to match the following example:
+1. Identify the locations in your code that currently create a `ServiceBusJmsConnectionFactory` object to connect to Azure Service Bus. Update your code to match the following example:
 
    ```java
     DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
@@ -209,7 +238,7 @@ Next, update your code to use passwordless connections.
     from azure.identity import DefaultAzureCredential
     ```
 
-1. Identify the locations in your code that create a `ServiceBusClient` to connect to Azure Service Bus. Update your code to match the following example:
+1. Identify the locations in your code that create a `ServiceBusClient` object to connect to Azure Service Bus. Update your code to match the following example:
 
     ```python
     credential = DefaultAzureCredential()
