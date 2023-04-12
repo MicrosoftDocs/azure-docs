@@ -25,20 +25,22 @@ To pin the video of the current/local participant, use the following code. This 
 spotLightFeature.startSpotlight();
 ```
 
-### Stop spotlight for current participant:
-To unpin the video of the current/local participant, use the following code. This action is idempotent, trying to stop spotlight on an unpinned participant does nothing
-```js
-spotLightFeature.stopSpotlight();
-```
-
 ### Spotlight specific participants
 Any participant in the call or meeting can be pinned. Only Microsoft 365 users who have an organizer, coorganizer or presenter role can start spotlight for other participants. This action is idempotent, trying to start spotlight on a pinned participant does nothing
 ```js
 // Specify list of participants to be spotlighted
 CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
 MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>)
-spotLightFeature.startParticipantsSpotLight([acsUser, teamsUser]);
+spotLightFeature.startSpotlight([acsUser, teamsUser]);
 ```
+
+### Stop spotlight for current participant:
+To unpin the video of the current/local participant, use the following code. This action is idempotent, trying to stop spotlight on an unpinned participant does nothing
+```js
+spotLightFeature.stopSpotlight();
+```
+
+
 
 ### Remove spotlight from participants
 Any pinned participant in the call or meeting can be unpinned. Only Microsoft 365 users who have an organizer, coorganizer or presenter role can unpin other participants. This action is idempotent, trying to stop spotlight on an unpinned participant does nothing 
@@ -46,7 +48,7 @@ Any pinned participant in the call or meeting can be unpinned. Only Microsoft 36
 // Specify list of participants to be spotlighted
 CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>);
 MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>)
-spotLightFeature.stopParticipantsSpotLight([acsUser, teamsUser]);
+spotLightFeature.stopSpotlight([acsUser, teamsUser]);
 ```
 
 ### Remove all spotlights
@@ -60,8 +62,8 @@ spotLightFeature.stopAllSpotLight();
 ### Handle changed states
 The `Spotlight` API allows you to subscribe to `spotlightUpdated` events. A `spotlightUpdated` event comes from a `call` instance and contains information about newly spotlighted participants and participants whose spotlight were stopped
 ```js
-// event : { added: ParticipantSpotlight[]; removed: ParticipantSpotlight[] }
-// ParticipantSpotlight = { identifier: CommunicationIdentifier, order?: number }
+// event : { added: SpotlightedParticipant[]; removed: SpotlightedParticipant[] }
+// SpotlightedParticipant = { identifier: CommunicationIdentifier, order?: number }
 // where: 
 //  identifier: ID of participant whos spotlight state is changed
 //  order: sequence of the event
@@ -78,7 +80,7 @@ Use the following to stop receiving spotlightUpdated events
 spotLightFeature.off('spotlightChanged', spotlightChangedHandler);
 ```
 ### Get List of all participants currently spotlighted
-To get information about all participants that are spotlighted on the current call, use the following API call. It returns an array of ParticipantSpotlight
+To get information about all participants that are spotlighted on the current call, use the following API call. It returns an array of SpotlightedParticipant
 ```js
 let spotlightedParticipants = spotLightFeature.getSpotlightedParticipants();
 ```
