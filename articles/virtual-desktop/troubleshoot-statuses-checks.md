@@ -3,7 +3,7 @@ title: Azure Virtual Desktop session host statuses and health checks
 description: How to troubleshoot the failed session host statuses and failed health checks
 author: jakejohnson-21
 ms.topic: troubleshooting
-ms.date: 02/28/2023
+ms.date: 04/13/2023
 ms.author: jakejohnson
 manager: rkiran
 ---
@@ -39,6 +39,17 @@ The health check is a test run by the agent on the session host. The following t
 | Side-by-side (SxS) Stack Listener | Verifies that the side-by-side stack is up and running, listening, and ready to receive connections. | If this check fails, it's fatal, and users won't be able to connect to the session host. Try restarting your virtual machine (VM). If this doesn't work, contact Microsoft support. |
 | UrlsAccessibleCheck | Verifies that the required Azure Virtual Desktop service and Geneva URLs are reachable from the session host, including the RdTokenUri, RdBrokerURI, RdDiagnosticsUri, and storage blob URLs for Geneva agent monitoring. | If this check fails, it isn't always fatal. Connections may succeed, but if certain URLs are inaccessible, the agent can't apply updates or log diagnostic information. To resolve this, follow the directions in [Error: VMs are stuck in the Needs Assistance state](troubleshoot-agent.md#error-vms-are-stuck-in-the-needs-assistance-state). |
 | TURN (Traversal Using Relay NAT) Relay Access Health Check | When using [RDP Shortpath for public networks](rdp-shortpath.md?tabs=public-networks#how-rdp-shortpath-works) with an indirect connection, TURN uses User Datagram Protocol (UDP) to relay traffic between the client and session host through an intermediate server when direct connection isn't possible. | If this check fails, it's not fatal. Connections will revert to the websocket TCP and the session host will enter the "Needs assistance" state. To resolve the issue, follow the instructions in [Disable RDP shortpath on managed and unmanaged windows clients using group policy](configure-rdp-shortpath.md?tabs=public-networks#disable-rdp-shortpath-on-managed-and-unmanaged-windows-clients-using-group-policy). |
+| App attach health check | Verifies that the [MSIX app attach](what-is-app-attach.md) service is working as intended during package staging or destaging. | If this check fails, it isn't fatal. However, certain apps will stop working for end-users. |
+| Domain reachable | Verifies the domain the session host is joined to is still reachable. | If this check fails, it's fatal. The service won't be able to connect if it can't reach the domain. |
+| Domain trust check | Verifies the session host isn't experiencing domain trust issues that could prevent authentication when a user connects to a session. | If this check fails, it's fatal. The service won't be able to connect if it can't reach the authentication domain for the session host. |
+| FSLogix health check | Verifies the FSLogix service is up and running to make sure user profiles are loading properly in the session. | If this check fails, it's fatal. Even if the connection succeeds, the profile won't load, forcing the user to use a temporary profile instead. |
+| Metadata service check | Verifies the metadata service is accessible and returns compute properties. | If this check fails, it isn't fatal. |
+| Monitoring agent check | Verifies that the required monitoring agent is running. | If this check fails, it isn't fatal. Connections will still work, but the monitoring agent will either be missing or running an earlier version. |
+| Supported encryption check | Checks the value of the SecurityLayer registration key. | If the key's value is 0, the check will fail and is fatal. If the value is 1, the check will fail but be non-fatal. |
+| Agent provisioning service health check | Verifies the provisioning status of the Azure Virtual Desktop agent installation. | If this check fails, it's fatal. |
+| Stack provisioning service health check | Verifies the provisioning status of the Azure Virtual Desktop Stack installation. | If this check fails, it's fatal. |
+| Monitoring agent provisioning service health check | Verifies the provisioning status of the Monitoring agent installation | If this check fails, it's fatal. |
+| Remote Interactive Logon Right check | Verifies if the Remote Desktop Users user group has permission to sign in through Remote Desktop Services and generates a corresponding health check report. | If this check fails, it's fatal. |
 
 ## Next steps
 
