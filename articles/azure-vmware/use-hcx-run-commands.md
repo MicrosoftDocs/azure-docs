@@ -61,8 +61,8 @@ Use the Scale HCX manager run command to increase the resource allocation of you
 1. Select **Run** to execute.  
 This process may take between 10-15 minutes.  
 
-> [!NOTE] 
-> HCX cloud manager will be unavailable during the scaling. 
+   > [!NOTE] 
+   > HCX cloud manager will be unavailable during the scaling. 
 
  ## Next step
 To learn more on run commands, see [Run commands](concepts-run-command.md)
