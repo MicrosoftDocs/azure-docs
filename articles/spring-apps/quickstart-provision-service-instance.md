@@ -83,7 +83,7 @@ az extension add --name spring
    ```
 
    ```azurecli
-   az config set defaults.spring-cloud=<service instance name>
+   az config set defaults.spring=<service instance name>
    ```
 
 ::: zone-end
@@ -164,7 +164,7 @@ The following procedure uses the Azure CLI extension to provision an instance of
 1. Set your default resource group name and Spring Cloud service name using the following command:
 
    ```azurecli
-   az config set defaults.group=<resource group name> defaults.spring-cloud=<service name>
+   az config set defaults.group=<resource group name> defaults.spring=<service name>
    ```
 
 ---
