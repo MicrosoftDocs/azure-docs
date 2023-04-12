@@ -10,7 +10,7 @@ ms.date: 04/11/2023
 
 # Scale Dapr applications with KEDA scalers
 
-Using [KEDA scalers](https://keda.sh/), you can scale your application and its [Dapr](https://docs.dapr.io/) sidecar when it has scaled to zero with inbound events and messages. In this guide, we demonstrate scaling a Dapr pub/sub application by setting up a KEDA scaler to watch for messages coming into the queue and triggers the Dapr sidecar to spin up. 
+Using [KEDA scalers](https://keda.sh/), you can scale your application and its [Dapr](https://docs.dapr.io/) sidecar when it has scaled to zero with inbound events and messages. In this guide, we demonstrate scaling a Dapr pub/sub application by setting up a KEDA scaler to watch for messages coming into the queue and triggers the app to scale up and down as needed. 
 
 In the following scenario, we examine the Bicep for:
 1. A `checkout` publisher container app continuously publishes messages via the Dapr pub/sub API to the `orders` topic in Azure Service Bus.
@@ -113,7 +113,7 @@ resource daprComponent 'daprComponents' = {
 
 ## Subscriber container app
 
-In the `order-processor` subscriber, we've added a custom scale rule on the resource for the type `azure-servicebus`. With this scale rule, KEDA can scale up the container app and its Dapr sidecar, allowing incoming messages to be processed.
+By default, [Container Apps assigns an http-based scale rule to applications](./scale-app.md), scaling apps based on the number of incoming HTTP requests. In the `order-processor` subscriber, we've added a custom scale rule on the resource for the type `azure-servicebus`. With this scale rule, KEDA can scale up the container app and its Dapr sidecar, allowing incoming messages to be processed.
 
 ```bicep
 resource orders 'Microsoft.App/containerApps@2022-03-01' = {
@@ -203,10 +203,6 @@ resource orders 'Microsoft.App/containerApps@2022-03-01' = {
   }
 }
 ```
-
-## What happened?
-
-By default, [Container Apps assigns an http-based scale rule to applications](./scale-app.md), scaling apps based on the number of incoming http requests. However, since the `order-processor` application is using the Dapr pub/sub abstraction to pull messages from a queue, it needs to define a custom scaler based on the number of messages waiting to be processed.
 
 Behind the scenes, KEDA scales our `order-processor` appropriately (even down to zero). Notice the `messageCount` property on the scaler's configuration:
 
