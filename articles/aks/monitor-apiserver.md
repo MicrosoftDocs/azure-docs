@@ -11,57 +11,30 @@ This article describes how to use [Azure Diagnostics][azure-diagnostics-overview
 
 ## Prerequisites
 
-* A [Log Analytics workspace][log-analytics-workspace-overview]. If you already have a cluster monitored by [Container insights][container-insights-overview], you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment][design-log-analytics-deployment].
+* A [Log Analytics workspace][log-analytics-workspace-overview]. If you already have a cluster monitored by [Container insights][container-insights-overview], you'll probably want to use that one. For more information, see [Designing your Azure Monitor Logs deployment][design-log-analytics-deployment]. 
 
-## Scenario
+## Collect Kubernetes audit logs
 
-* Monitor the requests that are coming to the API Server.
-* To find which apiserver pod is serving the request.
-* Which user agent is sending the request.
-* What is the http method for the calls.
-* Number of calls from each source.
+Kubernetes audit logging is not enabled by default on an AKS cluster on account of Microsoft manages the AKS control plane. You can create diagnostic settings for your cluster resource using any one of the multiple methods described in the [Create diagnostic settings][create-diagnostic settings] article. While configuring diagnostic settings, specify the following:
 
-Since AKS control plane is managed by Microsoft, the Kubernetes Audit logging is not enabled by default.
+* **Logs and metrics to route:** For logs, choose the category **Kubernetes Audit** to send to the destination specified later.
+* **Destination details:** Select the checkbox for **Log Analytics**.
 
 > [!NOTE]
->
-> Please note that there could be substantial cost involved once kube-audit logs are enabled.
-> 
-> Refer to Azure Monitoring under [Azure Pricing Calculater](https://azure.microsoft.com/en-au/pricing/calculator/) to estimate the costs involved.
-> 
-> Consider disabling kube-audit logging when not required.
+> There could be substantial cost involved once kube-audit logs are enabled. Consider disabling kube-audit logging when not required.
+> For strategies to reduce your Azure Monitor costs, see [Cost optimization and Azure Monitor][cost-optimization-azure-monitor].
 
-## Enable Kubernetes Audit Logging:
+After a few moments, the new setting appears in your list of settings for this resource. Logs are streamed to the specified destinations as new event data is generated. It might take up to 15 minutes between when an event is emitted and when it appears in a [Log Analytics workspace][log-analytics-workspace-overview]. 
 
-### To enable kubernetes audit logs 
+After creating the diagnostic setting to collect kube-audit events, the data can be queried from the [AzureDiagnostics][azure-diagnostics-table] table.
 
-Go to Diagnostic settings under Monitoring
-Click on + Add diagnostic setting
+## Query the apiserver requests
 
-
-
-![Screenshot that shows how to enable diagnostics for aks cluster](https://user-images.githubusercontent.com/17014671/221720712-31409209-0860-4bd5-b6f6-39967d96eb4c.png)
-
-### Diagnostic setting
-1.  Give a name to the Diagnostic setting
-2.  Select Kubernetes Audit under Categories
-3.  Choose Send to Log Analytics workspace under Destination details
-4.  Select the subscription for the Log Analytics workspace
-5.  Choose the Log Analytics workspace to send the logs
-6.  Save the settings
-
-
-![Screenshot that shows how to enable diagnostics for aks cluster](https://user-images.githubusercontent.com/17014671/221721006-02f5f7f6-3e1c-40cc-a26a-9d24297a4235.png)
-
-
-Once the kube-audit is enabled the data can be queried from the AzureDiagnostics table:
-
-
-### Query the apiserver requests
+It's often useful to build queries that start with an example or two and then modify them to fit your requirements. To help build more advanced queries, you can experiment with the following sample query.
 
 ```kusto
-let starttime = datetime("2023-02-23T01:16:12.374Z");
-let endtime = datetime("2023-02-24T12:16:12.374Z");
+let starttime = datetime("2023-02-23");
+let endtime = datetime("2023-02-24");
 AzureDiagnostics
 | where TimeGenerated between(starttime..endtime)
 | where Category == "kube-audit"
@@ -73,11 +46,16 @@ AzureDiagnostics
 | project TimeGenerated, Category, HttpMethod, User, Apiserver, SourceIP, OperationName, event
 ```
 
+## Next steps
+
 <!-- LINKS - external -->
 [kube-audit-overview]: https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/
 [kube-apiserver-overview]: https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
 
 <!-- LINKS - internal -->
 [azure-diagnostics-overview]: ../azure-monitor/essentials/diagnostic-settings.md
-[log-anlaytics-workspace-overview]: ../azure-monitor/logs/log-analytics-workspace-overview.md
+[log-analytics-workspace-overview]: ../azure-monitor/logs/log-analytics-workspace-overview.md
 [design-log-analytics-deployment]: ../azure-monitor/logs/design-logs-deployment.md
+[create-diagnostic settings]: ../azure-monitor/essentials/diagnostic-settings.md#create-diagnostic-settings
+[cost-optimization-azure-monitor]: ../azure-monitor/best-practices-cost.md
+[azure-diagnostics-table]: /azure/azure-monitor/reference/tables/azurediagnostics
