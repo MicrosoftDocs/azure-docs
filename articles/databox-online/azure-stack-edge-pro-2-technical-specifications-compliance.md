@@ -91,7 +91,7 @@ Here are the details for the Mellanox card:
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model              | ConnectX®-6 Dx network interface card             |
-| Model Description  | 100 GbE dual-port QSFP56 |
+| Model Description  | 100-GbE dual-port QSFP56 |
 | Device Part Number | MCX623106AC-CDAT, with crypto or with secure boot |
 
 ## Storage specifications
@@ -172,18 +172,18 @@ The following table lists the dimensions of the shipping package in millimeters 
 |--------|------------------------------------------------------------------------------------|------------|
 | 1      | Model 64G2T                                                                        | 21.0       |
 |        |                                                                                    |            |
-| 2      | Shipping weight, with 4-post mount                                                 | 35.3       |
-| 3      | Model 64G2T install handling, 4-post (without bezel and with inner rails attached) | 20.4       |
+| 2      | Shipping weight, with four-post mount                                                 | 35.3       |
+| 3      | Model 64G2T install handling, four-post (without bezel and with inner rails attached) | 20.4       |
 |        |                                                                                    |            |
-| 4      | Shipping weight, with 2-post mount                                                 | 32.1       |
-| 5      | Model 64G2T install handling, 2-post (without bezel and with inner rails attached) | 20.4       |
+| 4      | Shipping weight, with two-post mount                                                 | 32.1       |
+| 5      | Model 64G2T install handling, two-post (without bezel and with inner rails attached) | 20.4       |
 |        |                                                                                    |            |
 | 6      | Shipping weight with wall mount                                                    | 31.1       |
 | 7      | Model 64G2T install handling without bezel                                         | 19.8       |
 |        |                                                                                    |            |
-| 8      | 4-post in box                                                                      | 6.28       |
-| 9      | 2-post in box                                                                      | 3.08       |
-| 10      | Wallmount as packaged                                                             | 2.16       |
+| 8      | four-post in box                                                                      | 6.28       |
+| 9      | two-post in box                                                                      | 3.08       |
+| 10      | Wall mounts as packaged                                                             | 2.16       |
 
 # [Model 128G4T1GPU](#tab/sku-b)
 
@@ -191,18 +191,18 @@ The following table lists the dimensions of the shipping package in millimeters 
 |--------|------------------------------------------------------------------------------------|------------|
 | 1      | Model 128G4T1GPU                                                                   | 21.9         |
 |        |                                                                                    |            |
-| 2      | Shipping weight, with 4-post mount                                                 | 36.2       |
-| 3      | Model 128G4T1GPU install handling, 4-post (without bezel and with inner rails attached) | 21.3       |
+| 2      | Shipping weight, with four-post mount                                                 | 36.2       |
+| 3      | Model 128G4T1GPU install handling, four-post (without bezel and with inner rails attached) | 21.3       |
 |        |                                                                                    |            |
-| 4      | Shipping weight, with 2-post mount                                                 | 33.0       |
-| 5      | Model 128G4T1GPU install handling, 2-post (without bezel and with inner rails attached) | 21.3      |
+| 4      | Shipping weight, with two-post mount                                                 | 33.0       |
+| 5      | Model 128G4T1GPU install handling, two-post (without bezel and with inner rails attached) | 21.3      |
 |        |                                                                                    |            |
 | 6     | Shipping weight with wall mount                                                     | 32.0      |
 | 7      | Model 128G4T1GPU install handling without bezel                                    | 20.7       |
 |        |                                                                                    |            |
-| 8      | 4-post in box                                                                      | 6.28       |
-| 9      | 2-post in box                                                                      | 3.08       |
-| 10      | Wallmount as packaged                                                             | 2.16       |
+| 8      | four-post in box                                                                      | 6.28       |
+| 9      | two-post in box                                                                      | 3.08       |
+| 10      | Wall mounts as packaged                                                             | 2.16       |
 
 # [Model 256G6T2GPU](#tab/sku-c)
 
@@ -210,18 +210,18 @@ The following table lists the dimensions of the shipping package in millimeters 
 |--------|--------------------------------------------------------------------|------------|
 | 1      | Model 256G6T2GPU                                                  | 22.9       |
 |        |                                                                   |            |
-| 2      | Shipping weight, with 4-post mount                                | 37.1      |
-| 3 | Model 256G6T2GPU install handling, 4-post (without bezel and with inner rails attached)|22.3 |
+| 2      | Shipping weight, with four-post mount                                | 37.1      |
+| 3 | Model 256G6T2GPU install handling, four-post (without bezel and with inner rails attached)|22.3 |
 |        |                                                                      |            |
-| 4      | Shipping weight, with 2-post mount                                   | 33.9       |
-| 5      | Model 256G6T2GPU install handling, 2-post (without bezel and with inner rails attached) | 22.3       |
+| 4      | Shipping weight, with two-post mount                                   | 33.9       |
+| 5      | Model 256G6T2GPU install handling, two-post (without bezel and with inner rails attached) | 22.3       |
 |        |                                                                      |            |
 | 6      | Shipping weight with wall mount                                        | 33.0       |
 | 7      | Model 256G6T2GPU install handling without bezel                      | 21.7       |
 |        |                                                                     |            |
-| 8      | 4-post in box                                                       | 6.28       |
-| 9      | 2-post in box                                                       | 3.08       |
-| 10     | Wallmount as packaged                                              | 2.16       |
+| 8      | four-post in box                                                       | 6.28       |
+| 9      | two-post in box                                                       | 3.08       |
+| 10     | Wall mounts as packaged                                              | 2.16       |
 
 
 ---
