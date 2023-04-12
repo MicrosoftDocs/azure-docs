@@ -140,20 +140,20 @@ Once the persistent volume claim has been created and the disk successfully prov
         name: mypod
       spec:
         containers:
-       - name: mypod
-          image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-          resources:
-            requests:
-               cpu: 100m
-               memory: 128Mi
-            limits:
-              cpu: 250m
-              memory: 256Mi
-          volumeMounts:
-         - mountPath: "/mnt/azure"
-            name: volume
+          - name: mypod
+            image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+            resources:
+              requests:
+                cpu: 100m
+                memory: 128Mi
+              limits:
+                cpu: 250m
+                memory: 256Mi
+           volumeMounts:
+             - mountPath: "/mnt/azure"
+               name: volume
         volumes:
-         - name: volume
+          - name: volume
             persistentVolumeClaim:
               claimName: azure-managed-disk
        ```
