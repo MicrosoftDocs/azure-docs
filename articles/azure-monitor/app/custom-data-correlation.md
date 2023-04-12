@@ -30,7 +30,7 @@ To start sending log data into Azure Monitor. Several options exist:
 
 - For a synchronous mechanism, you can either directly call the [data collector API](../logs/data-collector-api.md) or use our Logic App connector – simply look for "Azure Log Analytics" and pick the "Send Data" option:
 
-  ![Screenshot choose and action](./media/custom-data-correlation/01-logic-app-connector.png)  
+  :::image type="content" source="./media/custom-data-correlation/01-logic-app-connector.png" lightbox="./media/custom-data-correlation/01-logic-app-connector.png" alt-text="Screenshot choose and action":::  
 
 - For an asynchronous option, use the Data Collector API to build a processing pipeline. See [this article](../logs/create-pipeline-datacollector-api.md) for details.
 

@@ -40,27 +40,27 @@ Application Insights collects any failures in your application. It lets you view
 1. Select **Application Insights** and then select your subscription.
 1. To open the **Failures** pane, either select **Failures** under the **Investigate** menu or select the **Failed requests** graph.
 
-	![Screenshot that shows failed requests.](media/tutorial-runtime-exceptions/failed-requests.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/failed-requests.png" lightbox="media/tutorial-runtime-exceptions/failed-requests.png" alt-text="Screenshot that shows failed requests.":::
 
 1. The **Failed requests** pane shows the count of failed requests and the number of users affected for each operation for the application. By sorting this information by user, you can identify those failures that most affect users. In this example, **GET Employees/Create** and **GET Customers/Details** are likely candidates to investigate because of their large number of failures and affected users. Selecting an operation shows more information about this operation in the right pane.
 
-	![Screenshot that shows the Failed requests pane.](media/tutorial-runtime-exceptions/failed-requests-blade.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/failed-requests-blade.png" lightbox="media/tutorial-runtime-exceptions/failed-requests-blade.png" alt-text="Screenshot that shows the Failed requests pane.":::
 
 1. Reduce the time window to zoom in on the period where the failure rate shows a spike.
 
-	![Screenshot that shows the Failed requests window.](media/tutorial-runtime-exceptions/failed-requests-window.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/failed-requests-window.png" lightbox="media/tutorial-runtime-exceptions/failed-requests-window.png" alt-text="Screenshot that shows the Failed requests window.":::
 
 1. See the related samples by selecting the button with the number of filtered results. The **Suggested** samples have related telemetry from all components, even if sampling might have been in effect in any of them. Select a search result to see the details of the failure.
 
-	![Screenshot that shows the Failed request samples.](media/tutorial-runtime-exceptions/failed-requests-search.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/failed-requests-search.png" lightbox="media/tutorial-runtime-exceptions/failed-requests-search.png" alt-text="Screenshot that shows the Failed request samples.":::
 
 1. The details of the failed request show the Gantt chart that shows that there were two dependency failures in this transaction, which also contributed to more than 50% of the total duration of the transaction. This experience presents all telemetry across components of a distributed application that are related to this operation ID. To learn more about the new experience, see [Unified cross-component transaction diagnostics](../app/transaction-diagnostics.md). You can select any of the items to see their details on the right side.
 
-	![Screenshot that shows Failed request details.](media/tutorial-runtime-exceptions/failed-request-details.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/failed-request-details.png" lightbox="media/tutorial-runtime-exceptions/failed-request-details.png" alt-text="Screenshot that shows Failed request details.":::
 
 1. The operations detail also shows a format exception, which appears to have caused the failure. You can see that it's because of an invalid Zip Code. You can open the debug snapshot to see code-level debug information in Visual Studio.
 
-	![Screenshot that shows exception details.](media/tutorial-runtime-exceptions/failed-requests-exception.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/failed-requests-exception.png" lightbox="media/tutorial-runtime-exceptions/failed-requests-exception.png" alt-text="Screenshot that shows exception details.":::
 
 ## Identify failing code
 The Snapshot Debugger collects snapshots of the most frequent exceptions in your application to assist you in diagnosing its root cause in production. You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. Afterward, you can debug the source code by downloading the snapshot and opening it in Visual Studio 2019 Enterprise.
@@ -68,28 +68,28 @@ The Snapshot Debugger collects snapshots of the most frequent exceptions in your
 1. In the properties of the exception, select **Open debug snapshot**.
 1. The **Debug Snapshot** pane opens with the call stack for the request. Select any method to view the values of all local variables at the time of the request. Starting from the top method in this example, you can see local variables that have no value.
 
-	![Screenshot that shows the Debug Snapshot pane.](media/tutorial-runtime-exceptions/debug-snapshot-01.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/debug-snapshot-01.png" lightbox="media/tutorial-runtime-exceptions/debug-snapshot-01.png" alt-text="Screenshot that shows the Debug Snapshot pane.":::
 
 1. The first call that has valid values is **ValidZipCode**. You can see that a Zip Code was provided with letters that can't be translated into an integer. This issue appears to be the error in the code that must be corrected.
 
-	![Screenshot that shows an error in the code that must be corrected.](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/debug-snapshot-02.png" lightbox="media/tutorial-runtime-exceptions/debug-snapshot-02.png" alt-text="Screenshot that shows an error in the code that must be corrected.":::
 
 1. You can then download this snapshot into Visual Studio where you can locate the actual code that must be corrected. To do so, select **Download Snapshot**.
 1. The snapshot is loaded into Visual Studio.
 1. You can now run a debug session in Visual Studio Enterprise that quickly identifies the line of code that caused the exception.
 
-	![Screenshot that shows an exception in the code.](media/tutorial-runtime-exceptions/exception-code.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/exception-code.png" lightbox="media/tutorial-runtime-exceptions/exception-code.png" alt-text="Screenshot that shows an exception in the code.":::
 
 ## Use analytics data
 All data collected by Application Insights is stored in Azure Log Analytics, which provides a rich query language that you can use to analyze the data in various ways. You can use this data to analyze the requests that generated the exception you're researching.
 
 1. Select the CodeLens information above the code to view telemetry provided by Application Insights.
 
-	![Screenshot that shows code in CodeLens.](media/tutorial-runtime-exceptions/codelens.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/codelens.png" lightbox="media/tutorial-runtime-exceptions/codelens.png" alt-text="Screenshot that shows code in CodeLens.":::
 
 1. Select **Analyze impact** to open Application Insights Analytics. It's populated with several queries that provide details on failed requests, such as affected users, browsers, and regions.<br><br>
 
-   ![Screenshot that shows Application Insights window that includes several queries.](media/tutorial-runtime-exceptions/analytics.png)<br>
+   :::image type="content" source="media/tutorial-runtime-exceptions/analytics.png" lightbox="media/tutorial-runtime-exceptions/analytics.png" alt-text="Screenshot that shows Application Insights window that includes several queries.":::<br>
 
 ## Add a work item
 If you connect Application Insights to a tracking system, such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.
@@ -98,7 +98,7 @@ If you connect Application Insights to a tracking system, such as Azure DevOps o
 1. Select **New Work Item**.
 1. The **New Work Item** pane opens with details about the exception already populated. You can add more information before you save it.
 
-	![Screenshot that shows the New Work Item pane.](media/tutorial-runtime-exceptions/new-work-item.png)
+	:::image type="content" source="media/tutorial-runtime-exceptions/new-work-item.png" lightbox="media/tutorial-runtime-exceptions/new-work-item.png" alt-text="Screenshot that shows the New Work Item pane.":::
 
 ## Next steps
 Now that you've learned how to identify runtime exceptions, advance to the next tutorial to learn how to identify and diagnose performance issues.
