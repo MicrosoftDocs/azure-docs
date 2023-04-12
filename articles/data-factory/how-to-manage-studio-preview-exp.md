@@ -191,10 +191,9 @@ Click the button next to the iteration or conditional activity to collapse the n
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the collapsed container monitoring view.":::
 
-
 #### Simplified default monitoring view 
 
-The default monitoring view has been simplified with fewer default column. You can add/remove columns if you’d like to personalize your monitoring view. Changes to the default will be cached.
+The default monitoring view has been simplified with fewer default columns. You can add/remove columns if you’d like to personalize your monitoring view. Changes to the default will be cached.
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-20.png" alt-text="Screenshot of the new default column view on the monitoring page.":::
 
@@ -221,7 +220,7 @@ Add columns by clicking **Add column** or remove columns by clicking the trashca
 
 You can also now view **Pipeline run details** in a new pane in the detailed pipeline monitoring view by clicking **View run detail**.
 
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-40.png" alt-text="Screenshot of the new Pipeline run details pane in the detailed monitoring view.":::
+:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-exp-41.png" alt-text="Screenshot of the new Pipeline run details pane in the detailed monitoring view.":::
 
 ## Provide feedback
 
