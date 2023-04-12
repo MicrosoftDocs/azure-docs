@@ -1,8 +1,6 @@
 ---
 title: Use Azure Pipelines to build and deploy an HPC solution
 description: Use Azure Pipelines CI/CD build and release pipelines to deploy Azure Resource Manager templates for an Azure Batch high performance computing (HPC) solution.
-author: chrisreddington
-ms.author: chredd
 ms.date: 04/12/2023
 ms.topic: how-to
 ---
@@ -387,21 +385,19 @@ The following example demonstrates how to deploy an infrastructure and applicati
 
 1. Select the **Variables** tab. Create the following variables in your pipeline so you don't have to reenter the same information into multiple tasks.
 
-   - Replace the placeholders in **StorageContainerSasToken** and **StorageContainerUri** with the value you enter into 
-
    |Name|Value|
    |----|-----|
    |**applicationStorageAccountName**|Name for the storage account to hold the HPC application binaries.|
    |**batchAccountApplicationName**|Name for the application in the Batch account.|
    |**batchAccountName**|Name for the Batch account.|
    |**batchAccountPoolName**|Name for the pool of virtual machines (VMs) to do the processing.|
-   |**batchApplicationId**|Unique ID for the Batch application, of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Batch/batchAccounts/<batchAccountName>/applications/<batchAccountApplicationName>`. Replace the `<subscriptionId>` placeholder with your Azure subscription ID, and the other placeholders with the values you set for the other variables in this list.|
+   |**batchApplicationId**|Unique ID for the Batch application, of the form: */subscriptions/\<subscriptionId>/resourceGroups/\<resourceGroupName>/providers/Microsoft.Batch/batchAccounts/\<batchAccountName>/applications/\<batchAccountApplicationName>*. Replace the `<subscriptionId>` placeholder with your Azure subscription ID, and the other placeholders with the values you set for the other variables in this list.|
    |**batchApplicationVersion**|Semantic version of your Batch application, in this case *4.3.1*.|
    |**location**|Azure region for the resources to be deployed.|
    |**resourceGroupName**|Name for the resource group to deploy resources in.|
    |**storageAccountName**|Name for the storage account to hold the linked ARM templates.|
-   |**StorageContainerSasToken**|`$(<Azure File Copy output variables reference name>.StorageContainerSasToken)`. Replace the `<Azure File Copy output variables reference name` placeholder with the **Reference name** value you configure in the **Output Variables** section of the following **Azure File Copy** step.
-   |**StorageContainerUri**|`$(<Azure File Copy output variables reference name>.StorageContainerUri)`. Replace the `<Azure File Copy output variables reference name>` placeholder with the **Reference name** value you configure in the **Output Variables** section of the following Azure File Copy step.
+   |**StorageContainerSasToken**|`$(<referenceName>.StorageContainerSasToken)`. Replace the `<referenceName` placeholder with the **Reference name** value you configure in the **Output Variables** section of the following **Azure File Copy** step.
+   |**StorageContainerUri**|`$(<referenceName>.StorageContainerUri)`. Replace the `<referenceName>` placeholder with the **Reference name** value you configure in the **Output Variables** section of the Azure File Copy step.
 
    ![Screenshot showing variables set for the Azure Pipelines release.](media/batch-ci-cd/variables.png)
 
@@ -432,6 +428,8 @@ For each new task that the following steps specify:
 1. Select **Add**.
 
    ![Screenshot showing the tasks used to release the HPC application to Azure Batch.](media/batch-ci-cd/release-pipeline.png)
+
+Create the tasks as follows:
 
 1. Select the **Download Pipeline Artifacts** task, and set the following properties:
    - **Display name**: Enter *Download ApplicationPackage to Agent*.
