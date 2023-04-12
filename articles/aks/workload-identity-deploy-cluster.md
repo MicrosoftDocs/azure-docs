@@ -19,7 +19,7 @@ This article assumes you have a basic understanding of Kubernetes concepts. For 
 
 - This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more information about access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account][az-account] command.
 
@@ -140,7 +140,7 @@ az identity federated-credential create --name myfederatedIdentity --identity-na
 
 ## Deploy your application
 
-When deploying your application pods, it should reference the service account created in the Create Kubernetes service account step. The following manifest demonstrates how to reference the account, specifically `metadata\namespace` and `spec\serviceAccountName` properties:
+When you deploy your application pods, the manifest should reference the service account created in the **Create Kubernetes service account** step. The following manifest shows how to reference the account, specifically *metadata\namespace* and *spec\serviceAccountName* properties:
 
 ```yml
 cat <<EOF | kubectl apply -f -
@@ -153,16 +153,6 @@ metadata:
     azure.workload.identity/use: "true"
 spec:
   serviceAccountName: workload-identity-sa
-  containers:
-    - image: ghcr.io/azure/azure-workload-identity/msal-go
-      name: oidc
-      env:
-      - name: KEYVAULT_URL
-        value: KEYVAULT_URL
-      - name: SECRET_NAME
-        value: KEYVAULT_SECRET_NAME
-  nodeSelector:
-    kubernetes.io/os: linux
 EOF
 ```
 
