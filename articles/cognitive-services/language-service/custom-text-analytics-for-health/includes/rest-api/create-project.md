@@ -57,9 +57,9 @@ Use the following JSON in your request. Replace the placeholder values below wit
 |Key  |Placeholder|Value  | Example |
 |---------|---------|---------|--|
 | projectName | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive. | `myProject` |
-| language | `{LANGUAGE-CODE}` |  A string specifying the language code for the documents used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. See [language support](../../language-support.md) to learn more about supported language codes. |`en-us`|
+| language | `{LANGUAGE-CODE}` |  A string specifying the language code for the documents used in your project. If your project is a multilingual project, choose the language code of the majority of the documents. <!--See [language support](../../language-support.md) to learn more about supported language codes.--> |`en-us`|
 | projectKind | `CustomHealthcare` | Your project kind. | `CustomHealthcare` |
-| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../../language-support.md) to learn more about multilingual support.  | `true`|
+| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. <!--See [language support](../../language-support.md) to learn more about multilingual support.-->  | `true`|
 | storageInputContainerName | `{CONTAINER-NAME` | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
 
 
