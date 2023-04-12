@@ -23,7 +23,7 @@ Both Azure Functions and App Services have built in support for Azure Active Dir
 ## Prerequisites
 
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli)
+* [Install the Azure CLI version 2.45.0 or higher](/cli/azure/install-azure-cli)
 * [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 * [Install the Azure Functions Core Tools version 3.0.2009 or higher](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
