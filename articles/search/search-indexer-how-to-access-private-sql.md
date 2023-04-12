@@ -99,7 +99,7 @@ For more information about connection properties, see [Create an Azure SQL Manag
 
    Provide the same shared private link name that you specified in the JSON body.
 
-   Provide a path to the create-pe.json file if you've navigated away from the file location. You can type `dir` at the command line to confirm the file is in the current directory.
+   Provide a path to the *create-pe.json* file if you've navigated away from the file location. You can type `dir` at the command line to confirm the file is in the current directory.
 
 1. Press Enter to run the command.
 
@@ -180,22 +180,23 @@ This article assumes Postman or equivalent tool, and uses the REST APIs to make 
 
 1. Run the indexer. If the indexer execution succeeds and the search index is populated, the shared private link is working.
 
-After the indexer is created successfully, it should connect over the private endpoint connection. You can monitor the status of the indexer by using the [Indexer Status API](/rest/api/searchservice/get-indexer-status).
+You can monitor the status of the indexer in Azure portal or by using the [Indexer Status API](/rest/api/searchservice/get-indexer-status).
 
 ## 8 - Test the shared private link
 
 If you ran the indexer in the previous step and successfully indexed content from your managed instance, then the test was successful. You can use [**Search explorer**](search-explorer.md) in Azure portal to check the contents of the index.
 
-However, if the test failed or there's no content, you can modify your objects and repeat testing by choosing any client that can invoke an outbound request from an indexer. An easy choice is [running an indexer](search-howto-run-reset-indexers.md) in Azure portal, but you can also try the Postman and REST APIs for more precision. 
+However, if the indexer fails or there's no content in the index, you can modify your objects and repeat testing by choosing any client that can invoke an outbound request from an indexer. An easy choice is [running an indexer](search-howto-run-reset-indexers.md) in Azure portal, but you can also try Postman and REST APIs for more precision. 
 
 Assuming that your search service isn't also configured for a private connection, the REST client connection to Search can be over the public internet.
 
 Here are some reminders for testing:
 
-+ If you use Postman or another web testing tool, make sure the API version is a [preview Management REST API version](/rest/api/searchmanagement/management-api-versions) to create the shared private link. You can use a [stable Search REST API version](/rest/api/searchservice/search-service-api-versions) to create and invoke indexers and data sources.
-+ You can use the Import data wizard, but initially the generated indexer won't have the correct execution environment setting.
++ If you use Postman or another web testing tool, use the [Management REST API](/rest/api/searchmanagement/) and a [preview API version](/rest/api/searchmanagement/management-api-versions) to create the shared private link. Use the [Search REST API](/rest/api/searchservice/) and a [stable API version](/rest/api/searchservice/search-service-api-versions) to create and invoke indexers and data sources.
++ You can use the Import data wizard to create an indexer, data source, and index. However, the generated indexer won't have the correct execution environment setting.
 + You can edit data source and indexer JSON in Azure portal to change properties, including the execution environment and the connection string.
 + You can reset and rerun the indexer in Azure portal. Reset is important for this scenario because it forces a full reprocessing of all documents.
++ You can use Search explorer to check the contents of the index.
 
 ## See also
 
