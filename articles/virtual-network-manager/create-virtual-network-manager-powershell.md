@@ -178,133 +178,132 @@ Once your network group is created, you define a network group's membership by a
 
 ### Manually add membership
 
-In this task, you manually add two virtual networks for your Mesh configuration to your network group using these steps:
+In this task, you add the static members **vnet-learn-prod-eastus-001** and **vnet-learn-prod-eastus-002** to the network group **ng-learn-prod-eastus-001** using [New-AzNetworkManagerStaticMember](/powershell/module/az.network/new-aznetworkmanagerstaticmember).
+
+> [!NOTE] 
+> Static members must have a network group scoped unique name. It's recommended to use a consistent hash of the virtual network ID. This is an approach using the ARM Templates uniqueString() implementation.
+
+```azurepowershell-interactive
+    function Get-UniqueString ([string]$id, $length=13)
+    {
+    $hashArray = (new-object System.Security.Cryptography.SHA512Managed).ComputeHash($id.ToCharArray())
+    -join ($hashArray[1..$length] | ForEach-Object { [char]($_ % 26 + [byte][char]'a') })
+    }
+```
     
-1. Add the static member to the network group with the following commands:
-    1. Static members must have a network group scoped unique name. It's recommended to use a consistent hash of the virtual network ID. This is an approach using the ARM Templates uniqueString() implementation.
-   
-    ```azurepowershell-interactive
-        function Get-UniqueString ([string]$id, $length=13)
+```azurepowershell-interactive
+$sm_vnet001 = @{
+        Name = Get-UniqueString $vnet_learn_prod_eastus_001.Id
+        ResourceGroupName = $rg.Name
+        NetworkGroupName = $ng.Name
+        NetworkManagerName = $networkManager.Name
+        ResourceId = $vnet_learn_prod_eastus_001.Id
+    }
+    $sm_vnet001 = New-AzNetworkManagerStaticMember @sm_vnet001
+```
+    
+```azurepowershell-interactive
+$sm_vnet002 = @{
+        Name = Get-UniqueString $vnet_learn_prod_eastus_002.Id
+        ResourceGroupName = $rg.Name
+        NetworkGroupName = $ng.Name
+        NetworkManagerName = $networkManager.Name
+        ResourceId = $vnet_learn_prod_eastus_002.Id
+    }
+    $sm_vnet002 = New-AzNetworkManagerStaticMember @sm_vnet002
+```
+  
+# [Azure Policy](#tab/azurepolicy)
+
+### Create a policy for dynamic membership
+
+Using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the name of the virtual network name includes **-prod** using these steps:
+
+1. Define the conditional statement and store it in a variable.
+> [!NOTE]
+> It is recommended to scope all of your conditionals to only scan for type `Microsoft.Network/virtualNetworks` for efficiency.
+
+     ```azurepowershell-interactive
+    $conditionalMembership = '{
+        "if": {
+            "allOf": [
+                {
+                    "field": "type",
+                    "equals": "Microsoft.Network/virtualNetworks"
+                },
+                {
+                    "field": "name",
+                    "contains": "prod"
+                }
+            ]
+        },
+        "then": {
+            "effect": "addToNetworkGroup",
+            "details": {
+                "networkGroupId": "/subscriptions/dec492d3-4f4e-493b-aa47-7bdf2f96a6fc/resourceGroups/rg-learn-eastus-001/providers/Microsoft.Network/networkManagers/vnm-learn-eastus-001/networkGroups/ng-learn-prod-eastus-001"}
+        },
+    }'
+    
+    ```
+        
+1. Create the Azure Policy definition using the conditional statement defined in the last step using [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).  In this example, the policy definition name is prefixed with **poldef-learn-prod-** and suffixed with a unique string generated from a consistent hash the network group ID. Policy resources must have a scope unique name.
+
+     ```azurepowershell-interactive
+    function Get-UniqueString ([string]$id, $length=13)
         {
         $hashArray = (new-object System.Security.Cryptography.SHA512Managed).ComputeHash($id.ToCharArray())
         -join ($hashArray[1..$length] | ForEach-Object { [char]($_ % 26 + [byte][char]'a') })
         }
-    ```
-       
-    ```azurepowershell-interactive
-    $smA = @{
-            Name = Get-UniqueString $vnet_learn_prod_eastus_001.Id
-            ResourceGroupName = $rg.Name
-            NetworkGroupName = ng.Name
-            NetworkManagerName = $networkManager.Name
-            ResourceId = $vnet_learn_prod_eastus_001.Id
-        }
-        $statimemberA = New-AzNetworkManagerStaticMember @sm
-    ```
-        
-    ```azurepowershell-interactive
-    $smB = @{
-            Name = Get-UniqueString $vnet_learn_prod_eastus_002.Id
-            ResourceGroupName = $rg.Name
-            NetworkGroupName = ng.Name
-            NetworkManagerName = $networkManager.Name
-            ResourceId = $vnet_learn_prod_eastus_002.Id
-        }
-        $statimemberB = New-AzNetworkManagerStaticMember @sm
-    ```
     
-    ```azurepowershell-interactive
-    $smC = @{
-            Name = Get-UniqueString $virtualNetworkC.Id
-            ResourceGroupName = $rg.Name
-            NetworkGroupName = ng.Name
-            NetworkManagerName = $networkManager.Name
-            ResourceId = $virtualNetworkC.Id
-        }
-        $statimemberC = New-AzNetworkManagerStaticMember @sm
-    ```
+    $UniqueString = Get-UniqueString $ng.Id
+     ```
     
-# [Azure Policy](#tab/azurepolicy)
-### Create Azure Policy for dynamic membership
-
-Using [Azure Policy](concept-azure-policy-integration.md), you define a condition to dynamically add two virtual networks to your network group when the name of the virtual network includes **prod** using these steps:
-
-1. Define the conditional statement and store it in a variable.
-> [!NOTE]
-> It is recommended to scope all of your conditionals to only scan for type `Microsoft.Network/virtualNetwork` for efficiency.
-
- ```azurepowershell-interactive
- $conditionalMembership = '{ 
-     "allof":[
-         { 
-         "field": "type", 
-         "equals": "Microsoft.Network/virtualNetwork" 
-         }
-         { 
-         "field": "name", 
-         "contains": "VNet" 
-         } 
-     ] 
- }' 
-```
-        
-1. Create the Azure Policy definition using the conditional statement defined in the last step using New-AzPolicyDefinition.
-
-> [!IMPORTANT]
-> Policy resources must have a scope unique name. It is recommended to use a consistent hash of the network group. This is an approach using the ARM Templates uniqueString() implementation.
-   
- ```azurepowershell-interactive
-     function Get-UniqueString ([string]$id, $length=13)
-     {
-     $hashArray = (new-object System.Security.Cryptography.SHA512Managed).ComputeHash($id.ToCharArray())
-     -join ($hashArray[1..$length] | ForEach-Object { [char]($_ % 26 + [byte][char]'a') })
-     }
- ```
-
- ```azurepowershell-interactive
- $defn = @{
-     Name = Get-UniqueString ng.Id
-     Mode = 'Microsoft.Network.Data'
-     Policy = $conditionalMembership
- }
-
- $policyDefinition = New-AzPolicyDefinition @defn
- ```
+     ```azurepowershell-interactive
+    $polDef = @{
+        Name = "poldef-learn-prod-"+$UniqueString
+        Mode = 'Microsoft.Network.Data'
+        Policy = $conditionalMembership
+    }
+    
+    $policyDefinition = New-AzPolicyDefinition @polDef 
+     ```
    
 1. Assign the policy definition at a scope within your network managers scope for it to begin taking effect.
 
     ```azurepowershell-interactive
-    $assgn = @{
-        Name = Get-UniqueString ng.Id
+    $polAssign = @{
+        Name = "polassign-learn-prod-"+$UniqueString
         PolicyDefinition  = $policyDefinition
     }
     
-    $policyAssignment = New-AzPolicyAssignment @assgn
+    $policyAssignment = New-AzPolicyAssignment @polAssign
     ```
 ---    
-## Create a configuration
+## Create a connectivity configuration
+In this task, you create a connectivity configuration with the network group **ng-learn-prod-eastus-001** using [New-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/new-aznetworkmanagerconnectivityconfiguration) and [New-AzNetworkManagerConnectivityGroupItem](/powershell/module/az.network/new-aznetworkmanagerconnectivitygroupitem).
 
-1. Create a connectivity group item to add a network group to with New-AzNetworkManagerConnectivityGroupItem.
+
+1. Create a connectivity group item.
 
     ```azurepowershell-interactive
     $gi = @{
-        NetworkGroupId = ng.Id
+        NetworkGroupId = $ng.Id
     }
     $groupItem = New-AzNetworkManagerConnectivityGroupItem @gi
     ```
     
-1. Create a configuration group and add the group item from the previous step.
+1. Create a configuration group and add connectivity group item to it.
 
     ```azurepowershell-interactive
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.PSNetworkManagerConnectivityGroupItem]]$configGroup = @()
     $configGroup.Add($groupItem)
     ```
     
-1. Create the connectivity configuration with New-AzNetworkManagerConnectivityConfiguration.
+1. Create the connectivity configuration with the configuration group.
 
     ```azurepowershell-interactive
     $config = @{
-        Name = 'connectivityconfig'
+        Name = 'cc-learn-prod-eastus-001'
         ResourceGroupName = $rg.Name
         NetworkManagerName = $networkManager.Name
         ConnectivityTopology = 'Mesh'
@@ -313,7 +312,7 @@ Using [Azure Policy](concept-azure-policy-integration.md), you define a conditio
     $connectivityconfig = New-AzNetworkManagerConnectivityConfiguration @config
         ```                        
 
-## Commit deployment
+### Commit deployment
 
 Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit. This triggers your configuration to begin taking effect.
 
