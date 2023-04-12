@@ -40,7 +40,7 @@ az login
 
 ### Set environment variables
 
-Adjust the <b>LOCATION</b> variable for your environment.
+Adjust the **LOCATION** variable for your environment.
 ```azurecli
 LOCATION=eastus
 RESOURCE_GROUP="Oracle-Lab"
@@ -175,31 +175,31 @@ https://portal.azure.com
 
 In the search textbox at the top of the window, search for OracleVM1 and click it from the list to launch.
 
-   ![Screenshot of the search window](./media/oracle-dataguard/search-oraclevm1.png)
+   ![Screenshot of the search window.](./media/oracle-dataguard/search-oraclevm1.png)
 
 At the top of the screen, click Connect and select Bastion.
     
-   ![Screenshot of connect via Bastion](./media/oracle-dataguard/connect-bastion.png)
+   ![Screenshot of connect via Bastion.](./media/oracle-dataguard/connect-bastion.png)
 
 Enter the Username and Password and click the Connect button.
       
-   ![Screenshot of connect via Bastion with credentials](./media/oracle-dataguard/connect-bastion-credentials.png)
+   ![Screenshot of connect via Bastion with credentials.](./media/oracle-dataguard/connect-bastion-credentials.png)
 
 This will open a new tab with a secure connection to your virtual machine where the Oracle software is already installed from an Azure Marketplace image.
 
-   ![Screenshot of connect via Bastion on browser](./media/oracle-dataguard/connect-bastion-browser-tab.png)
+   ![Screenshot of connect via Bastion on browse.r](./media/oracle-dataguard/connect-bastion-browser-tab.png)
    
 ### Configure OracleVM1 (primary)
 ```bash
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 ```
-Set the <b>oracle</b> user password.
+Set the **oracle** user password.
 ```bash
 sudo passwd oracle
 ```
-Enter the azureuser password: <b>OracleLab123</b>
-Change the <b>oracle</b> user password to: <b>OracleLab123</b>  (enter again to verify)     
+Enter the azureuser password: **OracleLab123**
+Change the **oracle** user password to: **OracleLab123**  (enter again to verify)     
       
 ### Create the database on OracleVM1 (primary)
 
@@ -328,7 +328,7 @@ SQL> EXIT;
 
 ### Set up service on OracleVM1 (primary)
 
-Edit or create the <b>tnsnames.ora</b> file, which is in the <b>$ORACLE_HOME/network/admin</b> folder.
+Edit or create the **tnsnames.ora** file, which is in the **$ORACLE_HOME/network/admin** folder.
 
 Add the following entries:
 
@@ -354,7 +354,7 @@ cdb1_stby =
   )
 ```
 
-Edit or create the <b>listener.ora></b> file, which is in the <b>$ORACLE_HOME/network/admin</b> folder.
+Edit or create the **listener.ora>** file, which is in the **$ORACLE_HOME/network/admin** folder.
 
 Add the following entries:
 
@@ -403,15 +403,15 @@ $ lsnrctl start
 
 Return to the tab with the Azure portal.  Search for OracleVM2 and click it.
 
-   ![Screenshot of search for OracleVM2](./media/oracle-dataguard/search-oraclevm2.png)
+   ![Screenshot of search for OracleVM2.](./media/oracle-dataguard/search-oraclevm2.png)
 
 At the top of the screen, click Connect and select Bastion.
 
-   ![Screenshot of connecting to VM via Bastion](./media/oracle-dataguard/connect-bastion.png)
+   ![Screenshot of connecting to VM via Bastion.](./media/oracle-dataguard/connect-bastion.png)
 
 Enter the Username and Password and click the Connect button.
       
-   ![Screenshot of connecting via Bastion with credentials](./media/oracle-dataguard/connect-bastion-credentials.png)
+   ![Screenshot of connecting via Bastion with credentials.](./media/oracle-dataguard/connect-bastion-credentials.png)
       
 ### Disable the Firewall on OracleVM2 (standby)
 ```bash
@@ -420,14 +420,14 @@ sudo systemctl disable firewalld
 ```
 
 ### Configure the environment for OracleVM1
-Set the <b>oracle</b> user password.
+Set the **oracle** user password.
 ```bash
 sudo passwd oracle
 ```
-Enter the <b>azureuser</b> password: <b>OracleLab123</b>
-Change the <b>oracle</b> user password to: <b>OracleLab123</b>  (enter again to verify)
+Enter the **azureuser** password: **OracleLab123**
+Change the **oracle** user password to: **OracleLab123**  (enter again to verify)
 
-Switch to the <b>oracle</b> superuser:
+Switch to the **oracle** superuser:
 ```bash
 $ sudo su – oracle
 ```
@@ -438,7 +438,7 @@ ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Optionally, you can add ORACLE_HOME and ORACLE_SID to the <b>/home/oracle/.bashrc</b> file, so that these settings are saved for future logins:
+Optionally, you can add ORACLE_HOME and ORACLE_SID to the **/home/oracle/.bashrc** file, so that these settings are saved for future logins:
 ```bash
 # add oracle home
 export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1
@@ -446,7 +446,7 @@ export ORACLE_HOME=/u01/app/oracle/product/19.0.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-Edit or create the <b>tnsnames.ora</b> file, which is in the <b>$ORACLE_HOME/network/admin</b> folder.
+Edit or create the **tnsnames.ora** file, which is in the **$ORACLE_HOME/network/admin** folder.
 
 Add the following entries:
 
@@ -472,7 +472,7 @@ cdb1_stby =
   )
 ```
 
-Edit or create the <b>listener.ora</b> file, which is in the <b>$ORACLE_HOME/network/admin</b> folder.
+Edit or create the **listener.ora** file, which is in the **$ORACLE_HOME/network/admin** folder.
 
 Add the following entries:
 
@@ -507,7 +507,7 @@ $ lsnrctl start
 
 ### Restore the database to OracleVM2 (standby)
 
-      Create the parameter file <b>/tmp/initcdb1_stby.ora</b> with the following contents:
+Create the parameter file **/tmp/initcdb1_stby.ora** with the following contents:
 
 ```bash
 *.db_name='cdb1'
@@ -619,7 +619,7 @@ You've completed the Oracle Data Guard setup. The next section shows you how to 
 
 ### Connect the database from the client machine
 
-Update the <b>tnsnames.ora</b> file on your client machine. This file is usually in <b>$ORACLE_HOME/network/admin</b>.
+Update the **tnsnames.ora** file on your client machine. This file is usually in **$ORACLE_HOME/network/admin**.
 
 ```bash
 cdb1=
