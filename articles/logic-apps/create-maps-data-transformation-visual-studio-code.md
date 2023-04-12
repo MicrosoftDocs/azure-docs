@@ -12,11 +12,19 @@ ms.date: 04/17/2023
 
 # Create maps to transform data in Azure Logic Apps with Visual Studio Code (preview)
 
+> [!IMPORTANT]
+> This capability is in preview and is subject to the 
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
 To transform data between formats in an Azure Logic Apps workflow, you need to create and use a map that describes the relationships between a source schema and a target schema. For this task, you can visually create and edit such maps in Visual Studio Code by using the Data Mapper extension within the context of a Standard logic app project. You can then directly call these maps from workflows in your logic app project by using the **Data Mapper Operations** action named **Transform using Data Mapper XSLT**.
 
 The Data Mapper tool provides a unified experience for XSLT mapping and transformation using drag and drop gestures, a prebuilt functions library for creating expressions, and a way to manually test the maps that you create and use in your workflows.
 
 ## Limitations
+
+- The Data Mapper tool currently applies only to Standard logic app projects, not Consumption.
 
 - The Data Mapper tool is currently available only in Visual Studio Code, not the Azure portal.
 
