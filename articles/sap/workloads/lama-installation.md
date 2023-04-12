@@ -34,15 +34,12 @@ ms.custom: subject-rbac-steps
 [planning-guide]:planning-guide.md
 [hana-ops-guide]:hana-vm-operations.md
 
-> [!NOTE]
-> General Support Statement: Please always open an incident with SAP on component BC-VCM-LVM-HYPERV if you need support for SAP LaMa or the Azure connector.
+Many customers use SAP Landscape Management (LaMa) to operate and monitor their SAP landscape. Since SAP LaMa 3.0 SP05, it ships with a connector to Azure by default. You can use this connector to deallocate and start virtual machines (VMs), copy and relocate managed disks, and delete managed disks. With these basic operations, you can relocate, copy, clone, and refresh SAP systems by using SAP LaMa.
 
-SAP LaMa is used by many customers to operate and monitor their SAP landscape. Since SAP LaMa 3.0 SP05, it ships with a connector to Azure by default. You can use this connector to deallocate and start virtual machines, copy and relocate managed disks, and delete managed disks. With these basic operations, you can relocate, copy, clone, and refresh SAP systems using SAP LaMa.
-
-This guide describes how you set up the Azure connector for SAP LaMa, create virtual machines that can be used to install adaptive SAP systems and how to configure them.
+This guide describes how to set up the SAP LaMa connector for Azure. It also describes how to create and configure virtual machines that you can use to install adaptive SAP systems.
 
 > [!NOTE]
-> The connector is only available in the SAP LaMa Enterprise Edition
+> The connector is available only in the SAP LaMa Enterprise Edition.
 
 ## Resources
 
@@ -55,99 +52,105 @@ The following SAP Notes are related to the topic of SAP LaMa on Azure:
 
 Also read the [SAP Help Portal for SAP LaMa](https://help.sap.com/viewer/p/SAP_LANDSCAPE_MANAGEMENT_ENTERPRISE).
 
+> [!NOTE]
+> If you need support for SAP LaMa or the connector for Azure, open an incident with SAP on component BC-VCM-LVM-HYPERV.
+
 ## General remarks
 
-* Make sure to enable *Automatic Mountpoint Creation* in Setup -> Settings -> Engine  
-  If SAP LaMa mounts volumes using the SAP Adaptive Extensions on a virtual machine, the mount point must exist if this setting is not enabled.
+* Be sure to enable **Automatic Mountpoint Creation** in **Setup** > **Settings** > **Engine**.  
+  
+  If SAP LaMa mounts volumes by using the SAP Adaptive Extensions on a virtual machine, the mount point must exist if this setting is not enabled.
 
-* Use a separate subnet and don't use dynamic IP addresses to prevent IP address "stealing" when deploying new VMs and SAP instances are unprepared  
-   -  If you use dynamic IP address allocation in the subnet, which is also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
+* Use a separate subnet, and don't use dynamic IP addresses to prevent IP address "stealing" when you're deploying new VMs and SAP instances are unprepared.
+  
+  If you use dynamic IP address allocation in the subnet that's also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
 
-* If you sign in to managed hosts, make sure to not block file systems from being unmounted  
-   -  If you sign in to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
+* If you sign in to managed hosts, don't block file systems from being unmounted.
+  
+  If you sign in to a Linux virtual machine and change the working directory to a directory in a mount point (for example, */usr/sap/AH1/ASCS00/exe*), the volume can't be unmounted and a relocate or unprepare operation fails.
 
-* Make sure to disable CLOUD_NETCONFIG_MANAGE on SUSE SLES Linux virtual machines. For more details, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+* Be sure to disable CLOUD_NETCONFIG_MANAGE on SUSE SLES Linux virtual machines. For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
 
-## Set up Azure connector for SAP LaMa
+## Set up the SAP LaMa connector for Azure
 
-The Azure connector is shipped as of SAP LaMa 3.0 SP05. We recommend always installing the latest support package and patch for SAP LaMa 3.0.
+The connector for Azure is shipped as of SAP LaMa 3.0 SP05. We recommend always installing the latest support package and patch for SAP LaMa 3.0.
 
-The Azure connector uses the Azure Resource Manager API to manage your Azure resources. SAP LaMa can use a Service Principal or a Managed Identity to authenticate against this API. If your SAP LaMa is running on an Azure VM, we recommend using a Managed Identity as described in chapter [Use a Managed Identity to get access to the Azure API](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d). If you want to use a Service Principal, follow the steps in chapter [Use a Service Principal to get access to the Azure API](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e).
+The connector for Azure uses the Azure Resource Manager API to manage your Azure resources. SAP LaMa can use a service principal or a managed identity to authenticate against this API. If your SAP LaMa instance is running on an Azure VM, we recommend using a managed identity.
 
-### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>Use a Service Principal to get access to the Azure API
+### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>Use a service principal to get access to the Azure API
 
-The Azure connector can use a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal for SAP Landscape Management (LaMa).
+Follow these steps to create a service principal for the SAP LaMa connector for Azure:
 
-1. Go to https://portal.azure.com
-1. Open the Azure Active Directory blade
-1. Click on App registrations
-1. Click on New registration
-1. Enter a name and click on Register
-1. Select the new App and click on Certificates & secrets in the Settings tab
-1. Create a new client secret, enter a description for a new key, select when the secret should expire and click on Save
-1. Write down the Value. It is used as the password for the Service Principal
-1. Write down the Application ID. It is used as the username of the Service Principal
+1. Go to the [Azure portal](https://portal.azure.com).
+1. Open the **Azure Active Directory** pane.
+1. Select **App registrations**.
+1. Select **New registration**.
+1. Enter a name, and then select **Register**.
+1. Select the new app, and then on the **Settings** tab, select **Certificates & secrets**.
+1. Create a new client secret, enter a description for a new key, select when the secret should expire, and then select **Save**.
+1. Write down the value. You'll use it as the password for the service principal.
+1. Write down the application ID. You'll use it as the username of the service principal.
 
-By default the Service Principal doesn't have permissions to access your Azure resources.
-Assign the Contributor role to the Service Principal at resource group scope for all resource groups that contain SAP systems that should be managed by SAP LaMa.
-
-For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
-### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use a Managed Identity to get access to the Azure API
-
-To be able to use a Managed Identity, your SAP LaMa instance has to run on an Azure VM that has a system or user assigned identity. For more information about Managed Identities, read [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
-
-By default the Managed Identity doesn't have permissions to access your Azure resources.
-Assign the Contributor role to the Virtual Machine identity at resource group scope for all resource groups that contain SAP systems that should be managed by SAP LaMa.
+By default, the service principal doesn't have permissions to access your Azure resources. Assign the Contributor role to the service principal at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage.
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the use of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity ID into the User Name field.
+### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use a managed identity to get access to the Azure API
+
+To be able to use a managed identity, your SAP LaMa instance has to run on an Azure VM that has a system-assigned or user-assigned identity. For more information about managed identities, read [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
+
+By default, the managed identity doesn't have permissions to access your Azure resources. Assign the Contributor role to the VM identity at resource group scope for all resource groups that contain SAP systems that SAP LaMa should manage.
+
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+In your configuration of the SAP LaMa connector for Azure, select **Use Managed Identity** to enable the use of the managed identity. If you want to use a system-assigned identity, leave the **User Name** field empty. If you want to use a user-assigned identity, enter the user-assigned identity ID in the **User Name** field.
 
 ### Create a new connector in SAP LaMa
 
-Open the SAP LaMa website and navigate to Infrastructure. Go to tab Cloud Managers and click on Add. Select the Microsoft Azure Cloud Adapter and click Next. Enter the following information:
+Open the SAP LaMa website and go to **Infrastructure**. On the **Cloud Managers** tab, select **Add**. Select **Microsoft Azure Cloud Adapter**, and then select **Next**. Enter the following information:
 
-* Label: Choose a name for the connector instance
-* User Name: Service Principal Application ID or ID of the user assigned identity of the virtual machine. See [Using a System or User Assigned Identity] for more information
-* Password: Service Principal key/password. You can leave this field empty if you use a system or user assigned identity.
-* URL: Keep default `https://management.azure.com/`
-* Monitoring Interval (Seconds): Should be at least 300
-* Use Managed Identity: SAP LaMa can use a system or user assigned identity to authenticate against the Azure API. See chapter [Use a Managed Identity to get access to the Azure API](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) in this guide.
-* Subscription ID: Azure subscription ID
-* Azure Active Directory Tenant ID: ID of the Active Directory tenant
-* Proxy host: Hostname of the proxy if SAP LaMa needs a proxy to connect to the internet
-* Proxy port: TCP port of the proxy
-* Change Storage Type to save costs: Enable this setting if the Azure Adapter should change the storage type of the Managed Disks to save costs when the disks are not in use. For data disks that are referenced in an SAP instance configuration, the adapter changes the disk type to Standard Storage during an instance unprepare and back to the original storage type during an instance prepare. If you stop a virtual machine in SAP LaMa, the adapter changes the storage type of all attached disks, including the OS disk to Standard Storage. If you start a virtual machine in SAP LaMa, the adapter changes the storage type back to the original storage type.
+* **Label**: Choose a name for the connector instance.
+* **User Name**: Enter the service principal application ID or the ID of the user-assigned identity of the virtual machine.
+* **Password**: Enter the service principal key/password. You can leave this field empty if you use a system-assigned or user-assigned identity.
+* **URL**: Keep the default `https://management.azure.com/`.
+* **Monitoring Interval (Seconds)**: Enter an interval of at least 300.
+* **Use Managed Identity**: Select to enable SAP LaMa to use a system-assigned or user-assigned identity to authenticate against the Azure API.
+* **Subscription ID**: Enter the Azure subscription ID.
+* **Azure Active Directory Tenant ID**: Enter the ID of the Active Directory tenant.
+* **Proxy host**: Enter the host name of the proxy if SAP LaMa needs a proxy to connect to the internet.
+* **Proxy port**: Enter the TCP port of the proxy.
+* **Change Storage Type to save costs**: Enable this setting if the Azure adapter should change the storage type of the managed disks to save costs when the disks are not in use.
 
-Click on Test Configuration to validate your input. You should see
+  For data disks that are referenced in an SAP instance configuration, the adapter changes the disk type to Standard Storage during an instance unprepare operation and back to the original storage type during an instance prepare operation.
 
-Connection successful: Connection to Microsoft cloud was successful. 7 resource groups found (only 10 groups requested)
+  If you stop a virtual machine in SAP LaMa, the adapter changes the storage type of all attached disks, including the OS disk, to Standard Storage. If you start a virtual machine in SAP LaMa, the adapter changes the storage type back to the original storage type.
 
-at the bottom of the website.
+Select **Test Configuration** to validate your input. You should see the following message at the bottom of the website:
+
+"Connection successful: Connection to Microsoft cloud was successful. 7 resource groups found (only 10 groups requested)."
 
 ## Provision a new adaptive SAP system
 
-You can manually deploy a new virtual machine or use one of the Azure templates in the [quickstart repository](https://github.com/Azure/azure-quickstart-templates). It contains templates for [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-ascs), [SAP NetWeaver application servers](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-apps), and the [database](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-database). You can also use these templates to provision new hosts as part of a system copy/clone etc.
+You can manually deploy a new virtual machine or use one of the Azure templates in the [quickstart repository](https://github.com/Azure/azure-quickstart-templates). The repository contains templates for [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-ascs), [SAP NetWeaver application servers](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-apps), and the [database](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/sap/sap-lama-database). You can also use these templates to provision new hosts as part of a system copy, clone, or similar activity.
 
-We recommend using a separate subnet for all virtual machines that you want to manage with SAP LaMa and don't use dynamic IP addresses to prevent IP address "stealing" when deploying new virtual machines and SAP instances are unprepared.
+We recommend using a separate subnet for all virtual machines that you want to manage with SAP LaMa. We also recommend that you don't use dynamic IP addresses to prevent IP address "stealing" when you're deploying new virtual machines and SAP instances are unprepared.
 
 > [!NOTE]
-> If possible, remove all virtual machine extensions as they might cause long runtimes for detaching disks from a virtual machine.
+> If possible, remove all virtual machine extensions. They might cause long runtimes for detaching disks from a virtual machine.
 
-Make sure that user \<hanasid>adm, \<sapsid>adm and group sapsys exist on the target machine with the same ID and gid or use LDAP. Enable and start the NFS server on the virtual machines that should be used to run the SAP NetWeaver (A)SCS.
+Make sure that the user *<hanasid>adm*, the user *<sapsid>adm* and the group *sapsys* exist on the target machine with the same ID and group ID, or use LDAP. Enable and start the Network File Sharing (NFS) server on the virtual machines that should be used to run SAP NetWeaver ASCS/SCS.
 
-### Manual Deployment
+### Manual deployment
 
-SAP LaMa communicates with the virtual machine using the SAP Host Agent. If you deploy the virtual machines manually or not using the Azure Resource Manager template from the quickstart repository, make sure to install the latest SAP Host Agent and the SAP Adaptive Extensions. For more information about the required patch levels for Azure, see SAP Note [2343511].
+SAP LaMa communicates with the virtual machine by using the SAP Host Agent. If you deploy the virtual machines manually or are not using the Azure Resource Manager template from the quickstart repository, be sure to install the latest SAP Host Agent and the SAP Adaptive Extensions. For more information about the required patch levels for Azure, see SAP Note [2343511].
 
-#### Manual deployment of a Linux Virtual Machine
+#### Manual deployment of a Linux virtual machine
 
-Create a new virtual machine with one of the supported operation systems listed in SAP Note [2343511]. Add more IP configurations for the SAP instances. Each instance needs at least on IP address and must be installed using a virtual hostname.
+Create a new virtual machine with one of the supported operating systems listed in SAP Note [2343511]. Add more IP configurations for the SAP instances. Each instance needs at least one IP address and must be installed using a virtual host name.
 
-The SAP NetWeaver ASCS instance needs disks for /sapmnt/\<SAPSID>, /usr/sap/\<SAPSID>, /usr/sap/trans, and /usr/sap/\<sapsid>adm. The SAP NetWeaver application servers do not need more disks. Everything related to the SAP instance must be stored on the ASCS and exported via NFS. Otherwise, it is currently not possible to add more application servers using SAP LaMa.
+The SAP NetWeaver ASCS instance needs disks for */sapmnt/<SAPSID>*, */usr/sap/<SAPSID>*, */usr/sap/trans*, and */usr/sap/<sapsid>adm*. The SAP NetWeaver application servers don't need more disks. Everything related to the SAP instance must be stored on the ASCS and exported via NFS. Otherwise, you currently can't add more application servers by using SAP LaMa.
 
-![SAP NetWeaver ASCS on Linux](media/lama/sap-lama-ascs-app-linux.png)
+![Diagram that illustrates manual deployment of SAP NetWeaver ASCS on Linux.](media/lama/sap-lama-ascs-app-linux.png)
 
 #### Manual deployment for SAP HANA
 
@@ -177,7 +180,7 @@ Make sure to install a supported Microsoft ODBC driver for SQL Server on a virtu
 
 SAP LaMa cannot relocate SQL Server itself so a virtual machine that you want to use to relocate a database instance to or as a system copy/clone target needs SQL Server preinstalled.
 
-### Deploy Virtual Machine Using an Azure Template
+### Deploy a virtual machine by using an Azure template
 
 Download the following latest available archives from the [SAP Software Marketplace](https://support.sap.com/swdc) for the operating system of the virtual machines:
 
@@ -238,7 +241,7 @@ The templates have the following parameters:
 
 In the following examples, we assume that you install SAP HANA with system ID HN1 and the SAP NetWeaver system with system ID AH1. The virtual hostnames are hn1-db for the HANA instance, ah1-db for the HANA tenant used by the SAP NetWeaver system, ah1-ascs for the SAP NetWeaver ASCS and ah1-di-0 for the first SAP NetWeaver application server.
 
-#### Install SAP NetWeaver ASCS for SAP HANA using Azure Managed Disks
+#### Install SAP NetWeaver ASCS for SAP HANA by using Azure managed disks
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the ASCS. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
@@ -264,46 +267,46 @@ Add the following profile parameter to the SAP Host Agent profile, which is loca
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
 
-#### Install SAP NetWeaver ASCS for SAP HANA on Azure NetAppFiles (ANF)
+#### Install SAP NetWeaver ASCS for SAP HANA on Azure NetApp Files
 
-ANF provides NFS for Azure. In the context of SAP LaMa this simplifies the creation of the ABAP Central Services (ASCS) instances and the subsequent installation of application servers. Previously the ASCS instance had to act as NFS server as well and the parameter acosprep/nfs_paths had to be added to the host_profile of the SAP Hostagent.
+Azure NetApp Files provides NFS for Azure. In the context of SAP LaMa this simplifies the creation of the ABAP Central Services (ASCS) instances and the subsequent installation of application servers. Previously the ASCS instance had to act as NFS server as well and the parameter acosprep/nfs_paths had to be added to the host_profile of the SAP Hostagent.
 
-#### Network Requirements
+#### Network requirements
 
-ANF requires a delegated subnet, which must be part of the same VNET as the SAP servers. Here's an example for such a configuration.
+Azure NetApp Files requires a delegated subnet, which must be part of the same VNET as the SAP servers. Here's an example for such a configuration.
 This screen shows the creation of the VNET and the first subnet:
 
-![SAP LaMa create virtual network for Azure ANF ](media/lama/sap-lama-createvn-50.png)
+![SAP LaMa create virtual network for Azure Azure NetApp Files.](media/lama/sap-lama-createvn-50.png)
 
 The next step creates the delegated subnet for Microsoft.NetApp/volumes.
 
-![SAP LaMa add delegated subnet ](media/lama/sap-lama-addsubnet-50.png)
+![SAP LaMa add delegated subnet.](media/lama/sap-lama-addsubnet-50.png)
 
-![SAP LaMa list of subnets ](media/lama/sap-lama-subnets.png)
+![SAP LaMa list of subnets.](media/lama/sap-lama-subnets.png)
 
 Now a NetApp account needs to be created within the Azure portal:
 
-![SAP LaMa create NetApp account ](media/lama/sap-lama-create-netappaccount-50.png)
+![SAP LaMa create NetApp account.](media/lama/sap-lama-create-netappaccount-50.png)
 
-![SAP LaMa NetApp account created ](media/lama/sap-lama-netappaccount.png)
+![SAP LaMa NetApp account created.](media/lama/sap-lama-netappaccount.png)
 
 Within the NetApp account, the capacity pool specifies the size and type of disks for each pool:
 
-![SAP LaMa create NetApp capacity pool ](media/lama/sap-lama-capacitypool-50.png)
+![SAP LaMa create NetApp capacity pool.](media/lama/sap-lama-capacitypool-50.png)
 
-![SAP LaMa NetApp capacity pool created ](media/lama/sap-lama-capacitypool-list.png)
+![SAP LaMa NetApp capacity pool created.](media/lama/sap-lama-capacitypool-list.png)
 
 The NFS volumes can now be defined. Since there might be volumes for multiple systems in one pool, a self-explaining naming scheme should be chosen. Adding the SID helps to group related volumes together. For the ASCS and the AS instance, the following mounts are needed: */sapmnt/\<SID\>*, */usr/sap/\<SID\>*, and */home/\<sid\>adm*. Optionally, */usr/sap/trans* is needed for the central transport directory, which is at least used by all systems of one landscape.
 
-![SAP LaMa create a volume 1 ](media/lama/sap-lama-createvolume-80.png)
+![SAP LaMa create a volume 1.](media/lama/sap-lama-createvolume-80.png)
 
-![SAP LaMa create a volume 2 ](media/lama/sap-lama-createvolume2-80.png)
+![SAP LaMa create a volume 2.](media/lama/sap-lama-createvolume2-80.png)
 
-![SAP LaMa create a volume 3 ](media/lama/sap-lama-createvolume3-80.png)
+![SAP LaMa create a volume 3.](media/lama/sap-lama-createvolume3-80.png)
 
 These steps need to be repeated for the other volumes as well.
 
-![SAP LaMa list of created volumes ](media/lama/sap-lama-volumes.png)
+![SAP LaMa list of created volumes.](media/lama/sap-lama-volumes.png)
 
 Now these volumes need to be mounted to the systems where the initial installation with the SAP SWPM is performed.
 
@@ -315,7 +318,7 @@ mkdir -p /sapmnt/AN1
 mkdir -p /usr/sap/AN1
 mkdir -p /usr/sap/trans
 ```
-Next the ANF volumes are mounted with the following commands:
+Next the Azure NetApp Files volumes are mounted with the following commands:
 
 ```bash
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
@@ -323,11 +326,12 @@ Next the ANF volumes are mounted with the following commands:
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
 # sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
 ```
+
 The mount commands can also be looked up from the portal. The local mount points need to be adjusted.
 
-Use the df -h command to verify.
+Use the `df -h` command to verify.
 
-![SAP LaMa mount points OS level ](media/lama/sap-lama-mounts.png)
+![SAP LaMa mount points OS level.](media/lama/sap-lama-mounts.png)
 
 Now the installation with SWPM must be performed.
 
@@ -337,9 +341,10 @@ After the successful installation, the system must be discovered within SAP LaMa
 
 The mount points should look like this for the ASCS and the AS instance:
 
-![SAP LaMa mount points in LaMa ](media/lama/sap-lama-ascs.png)
-(This is an example. The IP addresses and export path are different from the ones used before)
+![SAP LaMa mount points in LaMa.](media/lama/sap-lama-ascs.png)
 
+> [!NOTE]
+> This is an example. The IP addresses and export path are different from the ones used before.
 
 #### Install SAP HANA
 
@@ -391,7 +396,7 @@ If you set it manually, you also need to create new HDB userstore entries.
 
 Use *ah1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application Server Instance*.
 
-#### Post-Installation Steps for SAP HANA
+#### Post-installation steps for SAP HANA
 
 Make sure to back up the SYSTEMDB and all tenant databases before you try to do a tenant copy, tenant move or create a system replication.
 
@@ -436,7 +441,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
 
 ## Troubleshooting
 
-### Errors and Warnings during Discover
+### Errors and warnings during discovery
 
 * The SELECT permission was denied
   * [Microsoft][ODBC SQL Server Driver][SQL Server]The SELECT permission was denied on the object 'log_shipping_primary_databases', database 'msdb', schema 'dbo'. [SOAPFaultException]  
@@ -444,8 +449,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
   * Solution  
     Make sure that *NT AUTHORITY\SYSTEM* can access the SQL Server. See SAP Note [2562184]
 
-
-### Errors and Warnings for Instance Validation
+### Errors and warnings for instance validation
 
 * An exception was raised in validation of the HDB userstore  
   * see Log Viewer  
@@ -454,7 +458,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
   * Solution  
     Make sure that /usr/sap/AH1/hdbclient/install/installation.ini is correct
 
-### Errors and Warnings during a System Copy
+### Errors and warnings during a system copy
 
 * An error occurred when validating the system provisioning step
   * Caused by: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException
@@ -467,7 +471,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
   * Solution  
     Make sure that *NT AUTHORITY\SYSTEM* can access the SQL Server. See SAP Note [2562184]
 
-### Errors and Warnings during a System Clone
+### Errors and warnings during a system clone
 
 * Error occurred when trying to register instance agent in step *Forced Register and Start Instance Agent* of application server or ASCS
   * Error occurred when trying to register instance agent. (RemoteException: 'Failed to load instance data from profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0':  Cannot access profile '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No such file or directory.')
@@ -479,9 +483,9 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
   * Solution  
     The computer account of the application server needs write access to the profile
 
-### Errors and Warnings during Create System Replication
+### Errors and warnings during creation of system replication
 
-* Exception when clicking on Create System Replication
+* Exception when selecting **Create System Replication**
   * Caused by: com.sap.nw.lm.aci.engine.base.api.util.exception.HAOperationException
       Calling '/usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r' | /usr/sap/hostctrl/exe/sapacext -a ShowHanaBackups -m HN1 -f 50 -h hn1-db -o level=0\;status=5\;port=35013 pf=/usr/sap/hostctrl/exe/host_profile -R -T dev_lvminfo -u SYSTEM -p hook -r
   * Solution  
@@ -492,7 +496,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
   * Solution  
     Ignore Warnings in step and try again. This issue is fixed in a new support package/patch of SAP LaMa.
 
-### Errors and Warnings during Relocate
+### Errors and warnings during relocation
 
 * Path '/usr/sap/AH1' is not allowed for nfs reexports.
   * Check SAP Note [2628497] for details.
@@ -504,7 +508,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
   * Solution  
     Make sure that the NFS server service is enabled on the relocate target virtual machine
 
-### Errors and Warnings during Application Server Installation
+### Errors and warnings during Application Server installation
 
 * Error executing SAPinst step: getProfileDir
   * ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. Start SAPinst in interactive mode to solve this problem)
@@ -566,6 +570,7 @@ Use *as1-di-0* for the *PAS Instance Host Name* in dialog *Primary Application S
     Make sure to add a Host rule in step *Isolation* to allow communication from the VM to the domain controller
 
 ## Next steps
+
 * [SAP HANA on Azure operations guide][hana-ops-guide]
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
