@@ -233,7 +233,7 @@ items:
         href: agents/azure-monitor-agent-migration-tools.md
     - name: Performance
       displayName: Performance
-      href: /azure/azure-monitor/agents/azure-monitor-agent-performance.md
+      href: agents/azure-monitor-agent-performance.md
     - name: FAQ
       displayName: Azure Monitor agent FAQ
       href: /azure/azure-monitor/faq#azure-monitor-agent

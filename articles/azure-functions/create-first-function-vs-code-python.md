@@ -208,6 +208,7 @@ You have used [Visual Studio Code](functions-develop-vs-code.md?tabs=python) to 
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
+> [Connect to Azure SQL](functions-add-output-binding-azure-sql-vs-code.md?pivots=programming-language-python)
 
 [Having issues? Let us know.](https://aka.ms/python-functions-qs-survey)
 
