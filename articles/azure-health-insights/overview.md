@@ -23,7 +23,7 @@ Project Health Insights is a Cognitive Service providing an API that serves insi
 Health and Life Sciences organizations have multiple high-value business problems that require clinical insights inferences that are based on clinical data. 
 Project Health Insights is a Cognitive Service that provides prebuilt models that assist with solving those business problems.
 
-## Available decision support models
+## Available models
 
 There are currently two models available in Project Health Insights: 
 

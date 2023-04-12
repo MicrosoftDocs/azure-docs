@@ -52,4 +52,4 @@ For the Public Preview, you can select the Free F0 SKU. The official pricing wil
 Get started using the Onco Phenotype model:
 
 >[!div class="nextstepaction"]
-> [deploy the service via the portal](../deploy-portal.md) 
+> [Deploy the service via the portal](../deploy-portal.md) 
