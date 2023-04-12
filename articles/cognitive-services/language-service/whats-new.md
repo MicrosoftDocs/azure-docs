@@ -22,6 +22,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 * You can now use Azure OpenAI to automatically label or generate data during authoring. Learn more with the links below. 
     * Auto-label your documents in [Custom text classification](./custom-text-classification/how-to/use-autolabeling.md) or [Custom named entity recognition](./custom-named-entity-recognition/how-to/use-autolabeling.md).
     * Generate suggested utterances in [Conversational language understanding](./conversational-language-understanding/how-to/tag-utterances.md#suggest-utterances-with-azure-openai).
+* The latest model version (2022-10-01) for Language Detection now supports 6 more International languages and 12 Romanized Indic languages.
 
 ## March 2023
 
