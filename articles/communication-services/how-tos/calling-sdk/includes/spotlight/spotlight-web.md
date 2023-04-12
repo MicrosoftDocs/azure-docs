@@ -31,7 +31,7 @@ To unpin the video of the current/local participant, use the following code. Thi
 spotLightFeature.stopSpotlight();
 ```
 
-### start spotlight some remote participants
+### Spotlight specific participants
 Any participant in the call or meeting can be pinned. Only Microsoft 365 users who have an organizer or presenter role can start spotlight for other participants. This action is idempotent, trying to start spotlight on a pinned participant does nothing
 ```js
 // Specify list of participants to be spotlighted
