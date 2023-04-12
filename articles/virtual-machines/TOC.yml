@@ -40,6 +40,20 @@
     - name: ARM template
       displayName: Resource Manager
       href: ./windows/quick-create-template.md
+  - name: Create a Virtual Machine Scale Set
+    displayName: Flex, flexible, scaling, auto-scale, VMSS
+    items:
+    - name: Portal
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal.md
+    - name: Azure CLI
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli.md
+    - name: Azure PowerShell
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-powershell.md
+    - name: Bicep
+      displayName: ARM, Template, Resource Manager, Bicep
+      href: ../virtual-machine-scale-sets/quick-create-bicep-windows.md
+    - name: ARM template
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-rest-api.md
   expanded: true
 - name: Tutorials
   items:
@@ -57,8 +71,8 @@
       href: ./linux/tutorial-virtual-network.md
     - name: Load Balance VMs
       href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
-    - name: Create a scale set
-      href: ./linux/tutorial-create-vmss.md
+    - name: Create and manage a scale set
+      href: ../virtual-machine-scale-sets/tutorial-create-and-manage-cli.md
   - name: Windows
     items:
     - name: Create / manage a VM
@@ -73,8 +87,8 @@
       href: ./windows/tutorial-virtual-network.md  
     - name: Load Balance VMs
       href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
-    - name: Create a scale set
-      href: ./windows/tutorial-create-vmss.md
+    - name: Create and manage a scale set
+      href: ../virtual-machine-scale-sets/tutorial-create-and-manage-powershell.md
 - name: Develop
   items:
   - name: REST API
