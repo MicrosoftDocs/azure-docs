@@ -416,11 +416,8 @@ Use PowerShell to deploy the version 1.0 Key Vault VM extension to an existing V
 > [!WARNING]
 > PowerShell clients often prefix a quote mark `"` with a backslash `\` in the settings JSON file. The extraneous characters cause the akvvm_service to fail with the error, "[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object."
 >
-> You can see the supplied backslash `\` and quote `"` characters in the Azure portal. Check the contents of the settings JSON file under **Settings** > **Extensions + Applications**. To avoid the error, initialize the `$settings` property as a PowerShell `Hashtable` as follows:
-> 
-> ```powershell
-> $settings = @{"secretsManagementSettings" = @{"pollingIntervalInS"="<pollingInterval>"; "certificateStoreName"="<certStoreName>";"certificateStoreLocation"="<certStoreLoc>";"observedCertificates"=@("<observedCert1>", "<observedCert2>")};"authenticationSettings"=@{"msiEndpoint"="<msiEndpoint>";"msiClientId"="<msiClientId>"} }
-> ```
+> You can see the supplied backslash `\` and quote `"` characters in the Azure portal under **Settings** > **Extensions + Applications**. To avoid the error, initialize the `$settings` property as a PowerShell `Hashtable`. Avoid using extra quote mark `"` characters, and ensure the variable types match. For more information, see [Everything you wanted to know about hashtables](/powershell/scripting/learn/deep-dives/everything-about-hashtable). 
+>
 
 #### Deploy on a VM
 
