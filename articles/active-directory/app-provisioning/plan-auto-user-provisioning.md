@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/11/2023
+ms.date: 04/12/2023
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -57,7 +57,7 @@ This article uses the following terms:
 
 * Target system - The repository of users that the Azure AD provisions to. The Target system is typically a SaaS application such as ServiceNow, Zscaler, and Slack. The target system can also be an on-premises system such as AD.
 
-* [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview) -  An open standard that allows for the automation of user provisioning. SCIM communicates user identity data between identity providers such as Microsoft, and service providers like Salesforce or other SaaS apps that require user identity information.
+* [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview) -  An open standard that allows for the automation of user provisioning. SCIM communicates user identity data between identity providers and service providers. Microsoft is an example of an identity provider. Salesforce is an example of a service provider. Service providers require user identity information and an identity provider fulfills that need. SCIM is the mechanism the identity provider and service provider use to send information back and forth.
 
 ### Training resources
 
@@ -128,7 +128,7 @@ When technology projects fail, it's typically because of mismatched expectations
 
 ### Plan communications
 
-Communication is critical to the success of any new service. Proactively communicate with your users how their experience will change, when it will change, and how to gain support if they experience issues.
+Communication is critical to the success of any new service. Proactively communicate to your users about their experience, how the experience is changing, when to expect any change, and how to gain support if they experience issues.
 
 ### Plan a pilot
 
@@ -140,7 +140,7 @@ A pilot allows you to test with a small group before deploying a capability for 
 
 In your first wave, target IT, usability, and other appropriate users who can test and provide feedback. Use this feedback to further develop the communications and instructions you send to your users, and to give insights into the types of issues your support staff may see.
 
-Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
+Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. Increasing the scope of the group(s) is done through [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
 
 ## Plan application connections and administration
 
@@ -150,7 +150,7 @@ Use the Azure portal to view and manage all the applications that support provis
 
 The actual steps required to enable and configure automatic provisioning vary depending on the application. If the application you wish to automatically provision is listed in the [Azure AD SaaS app gallery](../saas-apps/tutorial-list.md), then you should select the [app-specific integration tutorial](../saas-apps/tutorial-list.md) to configure its pre-integrated user provisioning connector.
 
-If not, follow the steps below:
+If not, follow the steps:
 
 1. [Create a request](../manage-apps/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
 
@@ -164,7 +164,7 @@ For more information, see [What applications and systems can I use with Azure AD
 
 Setting up automatic user provisioning is a per-application process. For each application, you need to provide [administrator credentials](../app-provisioning/configure-automatic-user-provisioning-portal.md) to connect to the target system’s user management endpoint.
 
-The image below shows one version of the required admin credentials:
+The image shows one version of the required admin credentials:
 
 ![Provisioning screen to manage user account provisioning settings](./media/plan-auto-user-provisioning/userprovisioning-admincredentials.png)
 
@@ -235,7 +235,7 @@ It's common for a security review to be required as part of a deployment. If you
 
 ### Plan rollback
 
-If the automatic user provisioning implementation fails to work as desired in the production environment, the following rollback steps below can assist you in reverting to a previous known good state:
+If the automatic user provisioning implementation fails to work as desired in the production environment, the following rollback steps can assist you in reverting to a previous known good state:
 
 1. Review the [provisioning logs](../app-provisioning/check-status-user-account-provisioning.md) to determine what incorrect operations occurred on the affected users and/or groups.
 
