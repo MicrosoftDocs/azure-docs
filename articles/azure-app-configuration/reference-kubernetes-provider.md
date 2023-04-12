@@ -92,7 +92,7 @@ Note `uri` is required in each *vault* item and one of `managedIdentityClientId`
 
 ### Authentication 
 
-* To use AAD **System Assigned Managed Identity** to authenticate Azure App Configuration in Kubernetes, first you need to enable the System Assigned Managed identity of the corresponding Virtual Machine Scale Sets resource of AKS cluster, see this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) to learn how to enable it.
+* To use **System Assigned Managed Identity** to authenticate Azure App Configuration in Kubernetes, first you need to enable the System Assigned Managed identity of the corresponding Virtual Machine Scale Sets resource of AKS cluster, see this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) to learn how to enable it.
 
     After [granting its read access](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) to the Azure App Configuration, you can just deploy the following sample yaml, nothing more authentication information is required in this case.
 
@@ -108,7 +108,7 @@ Note `uri` is required in each *vault* item and one of `managedIdentityClientId`
         configMapName: configmap-name-to-create
     ```
 
-* To use AAD **User Assigned Managed Identity** to authenticate Azure App Configuration in Kubernetes, first, you need to [create a User Assigned Managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity), and [assign](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) it to the corresponding Virtual Machine Scale Sets of your AKS cluster.
+* To use **User Assigned Managed Identity** to authenticate Azure App Configuration in Kubernetes, first, you need to [create a User Assigned Managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity), and [assign](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) it to the corresponding Virtual Machine Scale Sets of your AKS cluster.
 
     After [granting its read access](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) to the Azure App Configuration, you should set `spec.auth.managedIdentityClientId` to the Client ID of the managed identity, see the following yaml as an example:
 
@@ -126,7 +126,7 @@ Note `uri` is required in each *vault* item and one of `managedIdentityClientId`
         managedIdentityClientId: <your-managed-identity-client-id>
     ```
 
-* To use AAD **Service Principal** to authenticate Azure App Configuration, you need to [create a Service Principal](/azure/active-directory/develop/howto-create-service-principal-portal) and [grant](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) it with the `App Configuration Data Reader` role.
+* To use **Service Principal** to authenticate Azure App Configuration, you need to [create a Service Principal](/azure/active-directory/develop/howto-create-service-principal-portal) and [grant](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity#grant-access-to-app-configuration) it with the `App Configuration Data Reader` role.
 
     Then you need create a Secret in the same namespace of `AzureAppConfigurationProvider` and set *azure_client_id*, *azure_client_secret* and *azure_tenant_id* in it. Set `spec.auth.servicePrincipalReference` to the name of the Secret, which contains the credentials of the service principal, see the following yaml as an example:
 
