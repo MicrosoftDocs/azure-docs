@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 01/07/2022
+ms.date: 04/05/2023
 ms.custom: subject-armqs, mode-arm
 ---
 

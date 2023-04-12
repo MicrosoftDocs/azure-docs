@@ -32,6 +32,8 @@
       href: how-to-use-nutrient-apis.md
     - name: Set up Private Links
       href: how-to-set-up-private-links.md
+    - name: Set up audit logs
+      href: how-to-set-up-audit-logs.md
 - name: References
   items:
   - name: REST API

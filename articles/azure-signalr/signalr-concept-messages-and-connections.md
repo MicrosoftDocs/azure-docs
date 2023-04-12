@@ -44,7 +44,7 @@ Messages larger than 2 KB are counted as multiple messages of 2 KB each. The mes
 
 For example, imagine you have one application server, and three clients:
 
-* When the application server broadcasts a 1-KB message to all connected clients, the message from the application server to the service is considered a free inbound message.
+* When the application server broadcasts a 1-KB message to all connected clients, the message from the application server to the service is considered a free inbound message. The three messages sent from service to each of the clients are outbound messages and are billed.
 
 * When *client A* sends a 1 KB inbound message to *client B*, without going through app server, the message is a free inbound message. The message routed from service to *client B* is billed as an outbound message.
 
