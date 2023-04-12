@@ -170,7 +170,7 @@ To reassign a personal desktop in the Azure portal:
 1. Select the user you want to assign the session host to from the list of available users.
 1. When you're done, select **Select**.
 
-#### [Azure portal](#tab/powershell)
+#### [PowerShell](#tab/powershell)
 
 Before you start, first define the `$reassignUserUpn` variable by running the following command:
 
