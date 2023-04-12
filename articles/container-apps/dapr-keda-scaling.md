@@ -14,14 +14,15 @@ Using [KEDA scalers](https://keda.sh/), you can scale your application and its [
 
 In the following scenario, we examine the Bicep for:
 1. A `checkout` publisher container app continuously publishes messages via the Dapr pub/sub API to the `orders` topic in Azure Service Bus.
-1. The Dapr Azure Service Bus component
+1. The Dapr Azure Service Bus component.
 1. An `order-processor` subscriber container app subscribed to the `orders` topic receives and processes messages as they arrive.
+1. The scale rule for Azure Service Bus, which is responsible for scaling up the `order-processor` service and its Dapr sidecar when messages start to arrive to the`orders` topic.
 
 ## Publisher container app
 
 The `checkout` publisher is a headless service that runs indefinitely and never scales down to zero. 
 
-Below, we've set the `minReplicas` to "1", which ensures the container app doesn't follow the default behavior. 
+Below, we've set the `minReplicas` to "1", which ensures the container app doesn't follow the default behavior of scaling to zero with no incoming HTTP traffic. 
 
 ```bicep
 resource checkout 'Microsoft.App/containerApps@2022-03-01' = {
@@ -112,7 +113,7 @@ resource daprComponent 'daprComponents' = {
 
 ## Subscriber container app
 
-In the `order-processor` subscriber, we've added a custom scale rule on the resource for the type `azure-servicebus`. With this scale rule, KEDA can scale up the container app and its Dapr sidecar, allowing incoming messages to be processed while `order-processor` is scaled to zero.
+In the `order-processor` subscriber, we've added a custom scale rule on the resource for the type `azure-servicebus`. With this scale rule, KEDA can scale up the container app and its Dapr sidecar, allowing incoming messages to be processed.
 
 ```bicep
 resource orders 'Microsoft.App/containerApps@2022-03-01' = {
@@ -216,7 +217,7 @@ metadata: {
 }
 ```
 
-This property tells KEDA how many messages each instance of our application can process at the same time. Since the application is single-threaded, we'd normally set this value to 1, resulting in KEDA scaling up our application to match the number of messages waiting in the queue. For example, if five messages are waiting, KEDA scales our app up to five instances. In our scenario, we set a `maxReplicas` value of 10, so KEDA scales up to 10 instances.
+This property tells KEDA how many messages each instance of our application can process at the same time. Since the application is single-threaded, we'd normally set this value to 1, resulting in KEDA scaling up our application to match the number of messages waiting in the queue. For example, if five messages are waiting, KEDA scales our app up to five instances. In our scenario, we set a `maxReplicas` value of 10, so KEDA scales up the `order-processor` container app to a max of 10 replicas.
 
 ## Next steps
 
