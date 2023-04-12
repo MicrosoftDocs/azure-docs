@@ -2281,3 +2281,14 @@ groups:
     title: Automated host pool
   - id: host-pool-standard
     title: Standard host pool
+# Owner: kevinguo-ed
+- id: azure-web-pubsub-create-resource-methods
+  title: Create a resource using any one of the methods
+  prompt: Choose an option
+  pivots: 
+  - id: method-azure-portal
+    title: Azure portal
+  - id: method-azure-cli
+    title: Azure CLI
+  - id: method-bicep
+    title: Bicep template
