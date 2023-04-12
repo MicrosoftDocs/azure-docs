@@ -13,45 +13,44 @@ This article shows you how to install the Istio-based service mesh add-on for Az
 
 For more information on Istio and the service mesh add-on, see [Istio-based service mesh add-on for Azure Kubernetes Service][istio-about].
 
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
 ## Before you begin
 
-You need the Azure CLI version 2.44.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+### Set environment variables:
 
-Set environment variables:
+    ```bash
+    export CLUSTER=<cluster-name>
+    export RESOURCE_GROUP=<resource-group-name>
+    export LOCATION=<location>
+    ```
 
-```bash
-export CLUSTER=<cluster-name>
-export RESOURCE_GROUP=<resource-group-name>
-export LOCATION=<location>
-```
+### Verify Azure CLI and aks-preview extension versions
+* You need the Azure CLI version 2.44.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You need the `aks-preview` Azure CLI extension of version 0.5.133 or later installed. Run `az --version` to find the version.
 
-## Install the aks-preview Azure CLI extension
-
-You need the `aks-preview` Azure CLI extension of version 0.5.133 or later installed and configured. Run `az --version` to find the version.
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
-```azurecli
+```azurecli-interactive
 az extension add --name aks-preview
 ```
 
 Run the following command to update to the latest version of the extension released:
 
-```azurecli
+```azurecli-interactive
 az extension update --name aks-preview
 ```
 
-## Register the 'AzureServiceMeshPreview' feature flag
+### Register the _AzureServiceMeshPreview_ feature flag
 
-Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command below:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
 az feature show --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
@@ -65,7 +64,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Install Istio add-on at the time of cluster creation
 
-To install the Istio add-on when creating the cluster, use `--enable-asm` or `--enable-azure-service-mesh` parameters.
+To install the Istio add-on when creating the cluster, use the `--enable-azure-service-mesh` or`--enable-asm` parameter.
 
 ```azurecli-interactive
 az group create --name ${RESOURCE_GROUP} --location ${LOCATION}
@@ -82,14 +81,14 @@ The following example enables Istio add-on for an existing AKS cluster:
 
 > [!IMPORTANT]
 > You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. [Uninstall OSM add-on on your cluster][uninstall-osm-addon] before enabling the Istio add-on.
-> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. Uninstall the OSM add-on before installing the Istio add-on. For more information, see [uninstall the OSM add-on from your AKS cluster][uninstall-osm-addon].
+> For more information, see [uninstall the OSM add-on from your AKS cluster][uninstall-osm-addon].
 > Istio add-on can only be enabled on AKS clusters of version >= 1.23.
 
 ```azurecli-interactive
 az aks mesh enable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
 ```
 
-## Verify add-on was installed successfully
+## Verify successful installation
 
 To verify the Istio add-on is installed on your cluster, run the following command:
 
@@ -135,7 +134,7 @@ kubectl label namespace default istio.io/rev=asm-1-17
 
 ## Deploy sample application
 
-Use `kubectl apply` to deploy sample application on the cluster:
+Use `kubectl apply` to deploy the sample application on the cluster:
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.17/samples/bookinfo/platform/kube/bookinfo.yaml
@@ -194,8 +193,9 @@ reviews-v3-7dbcdcbc56-m8dph       2/2     Running   0          2m41s
 ```
 
 > [!NOTE]
-> Each pod has two containers, one of which is the envoy sidecar injected by Istio and the other is the application container.
+> Each pod has two containers, one of which is the Envoy sidecar injected by Istio and the other is the application container.
 
+To test this sample application against ingress, check out [next-steps](#next-steps).
 
 ## Delete resources
 
@@ -214,7 +214,13 @@ az aks mesh disable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
 > [!CAUTION]
 > Disabling the service mesh addon will completely remove the Istio control plane from the cluster.
 
-Use `az group delete` to delete your cluster and the associated resources. For example:
+Note that Istio CRDs will not be deleted by default. To clean up CRDs, use:
+
+```azurecli-interactive
+kubectl delete crd $(kubectl get crd -A | grep "istio.io" | awk '{print $1}')
+```
+
+Use `az group delete` to delete your cluster and the associated resources:
 
 ```azurecli-interactive
 az group delete --name ${RESOURCE_GROUP} --yes --no-wait

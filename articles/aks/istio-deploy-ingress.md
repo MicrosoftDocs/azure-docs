@@ -15,11 +15,11 @@ This article shows you how to deploy external or internal ingresses for Istio se
 
 ## Prerequisites
 
-This guide assumes an existing AKS cluster with the Istio add-on enabled and an application deployed. For more information on enabling the Istio add-on in your cluster and deploying a sample application, see [Deploy Istio-based service mesh add-on for AKS][istio-deploy-addon].
+This guide assumes you followed the [documentation][istio-deploy-addon] to enable the Istio add-on on an AKS cluster, deploy a sample application and set environment variables.
 
 ## Enable external ingress gateway
 
-Use `az aks mesh enable-ingress-gateway` to enable an externally accessible Istio ingress on your AKS cluster. For example:
+Use `az aks mesh enable-ingress-gateway` to enable an externally accessible Istio ingress on your AKS cluster:
 
 ```azurecli-interactive
 az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type external
@@ -31,14 +31,14 @@ Use `kubectl get svc` to check the service mapped to the ingress gateway:
 kubectl get svc aks-istio-ingressgateway-external -n aks-istio-ingress
 ```
 
-Check external IP address of the service. For example:
+Check the external IP address of the service in the output:
 
 ```
 NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                                      AGE
 aks-istio-ingressgateway-external   LoadBalancer   10.0.10.249   <EXTERNAL_IP>   15021:30705/TCP,80:32444/TCP,443:31728/TCP   4m21s
 ```
 
-Applications aren't accessible from outside the cluster after enabling the ingress gateway. To make an application accessible, map the deployment's ingress to the Istio Ingress Gate. For example, the following manifest creates this mapping for the sample application:
+Applications aren't accessible from outside the cluster by default after enabling the ingress gateway. To make an application accessible, map the sample deployment's ingress to the Istio ingress gateway using the following manifest:
 
 ```bash
 kubectl apply -f - <<EOF
@@ -112,7 +112,7 @@ curl -s "http://${GATEWAY_URL_EXTERNAL}/productpage" | grep -o "<title>.*</title
 
 ## Enable internal ingress gateway
 
-Use `az aks mesh enable-ingress-gateway` to enable an internal Istio ingress on your AKS cluster. For example:
+Use `az aks mesh enable-ingress-gateway` to enable an internal Istio ingress on your AKS cluster:
 
 ```azurecli-interactive
 az aks mesh enable-ingress-gateway --resource-group $RESOURCE_GROUP --name $CLUSTER --ingress-gateway-type internal
@@ -132,7 +132,7 @@ NAME                                TYPE           CLUSTER-IP    EXTERNAL-IP    
 aks-istio-ingressgateway-internal   LoadBalancer   10.0.182.240  <IP>      15021:30764/TCP,80:32186/TCP,443:31713/TCP   87s
 ```
 
-Applications aren't mapped to the Istio Ingress Gateway after enabling the ingress gateway. The following manifest maps the deployment's ingress to the Istio Ingress Gateway. For example, the following manifest creates this mapping for the sample application:
+Applications aren't mapped to the Istio ingress gateway after enabling the ingress gateway. Use the following manifest to map the sample deployment's ingress to the Istio ingress gateway:
 
 ```bash
 kubectl apply -f - <<EOF
@@ -209,7 +209,7 @@ Use `kubectl exec` to confirm application is accessible from inside the cluster'
 kubectl exec "$(kubectl get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c ratings -- curl -sS  "http://$GATEWAY_URL_INTERNAL/productpage"  | grep -o "<title>.*</title>"
 ```
 
-Confirm you see the sample application's product page is accessible. For example:
+Confirm that the sample application's product page is accessible. The expected output is:
 
 ```html
 <title>Simple Bookstore App</title>
@@ -217,7 +217,7 @@ Confirm you see the sample application's product page is accessible. For example
 
 ## Delete resources
 
-If you want to clean up the Istio service mesh and the ingresses while leaving behind the cluster, run the following command:
+If you want to clean up the Istio service mesh and the ingresses (leaving behind the cluster), run the following command:
 
 ```azurecli-interactive
 az aks mesh disable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
