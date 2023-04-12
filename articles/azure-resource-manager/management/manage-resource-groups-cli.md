@@ -4,7 +4,7 @@ description: Use Azure CLI to manage your resource groups through Azure Resource
 author: mumian
 ms.topic: conceptual
 ms.date: 03/31/2023
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-arm-template
 ---
 
 # Manage Azure Resource Groups by using Azure CLI
