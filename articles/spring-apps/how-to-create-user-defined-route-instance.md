@@ -37,7 +37,7 @@ This diagram illustrates the following features of the architecture:
 
 - Public ingress traffic must flow through firewall filters.
 - Each Azure Spring Apps instance is isolated within a dedicated subnet.
-- The firewall is owned and managed by customers.
+- Customers own and manage the firewall.
 - This structure ensures that the firewall enables a healthy environment for all the functions you need.
 - Azure Spring Apps doesn't automatically generate public IP resources.
 
