@@ -16,7 +16,7 @@ ms.date: 02/22/2023
 
 If you have an Azure PaaS resource that has a private connection enabled through [Azure Private Link](../private-link/private-link-overview.md), you'll need to create a *shared private link* to reach those resources from Azure Cognitive Search. This article walks you through the steps for creating, testing, and managing a private link.
 
-If you're setting up a private connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-endpoint-sql-mi.md) instead.
+If you're setting up a private connection to a SQL Managed Instance, see [this article](search-indexer-how-to-access-private-sql.md) instead.
 
 ## When to use a shared private link
 
@@ -80,7 +80,7 @@ You can create a shared private link for the following resources.
 
 <sup>3</sup> The `Microsoft.Web/sites` resource type is used for App service and Azure functions. In the context of Azure Cognitive Search, an Azure function is the more likely scenario. An Azure function is commonly used for hosting the logic of a custom skill. Azure Function has Consumption, Premium and Dedicated [App Service hosting plans](../app-service/overview-hosting-plans.md). The [App Service Environment (ASE)](../app-service/environment/overview.md) and [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md) aren't supported at this time.
 
-<sup>4</sup> See [Create a shared private link for a SQL Managed Instance](search-indexer-how-to-access-private-endpoint-sql-mi.md) for instructions.
+<sup>4</sup> See [Create a shared private link for a SQL Managed Instance](search-indexer-how-to-access-private-sql.md) for instructions.
 
 ### Private endpoint verification
 
