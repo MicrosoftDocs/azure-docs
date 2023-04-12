@@ -70,7 +70,7 @@ You can invoke the Finetune UI wizard by clicking on the 'Finetune' button on th
 Clicking on 'Finish' in the Finetune Wizard will submit your finetuning job. Once the job completes, you can view evaluation metrics for the finetuned model. You can then go ahead and register the finetuned model output by the finetuning job and deploy this model to an endpoint for inferencing.
 
 <b>Advanced Finetuning Parameters</b>
-THe Finetuning UI wizard described above, allows you to perform basic finetuning by providing your own training data. Additionally, there are several advanced finetuning parameters described here ![image](./finetune_map_data_columns.png), such as learning rate, epochs, batch size, etc. Each of these settings have default values, but can be customized via code based samples, if needed.
+The Finetuning UI wizard described above, allows you to perform basic finetuning by providing your own training data. Additionally, there are several advanced finetuning parameters, such as learning rate, epochs, batch size, etc, described in the Readme file for each task [here](https://github.com/Azure/azureml-assets/tree/main/training/finetune_acft_hf_nlp/components/finetune). Each of these settings have default values, but can be customized via code based samples, if needed.
 
 #### Finetuning using code based samples
 Currently, AzureML supports finetuning models for the following language tasks -
