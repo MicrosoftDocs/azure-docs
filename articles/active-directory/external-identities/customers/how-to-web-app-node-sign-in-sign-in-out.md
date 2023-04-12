@@ -1,5 +1,5 @@
 ---
-title: Sign in users in my own Node.js web application by using Microsoft Entra - Add sign-in and sign-out
+title: Sign in users in your own Node.js web application by using Microsoft Entra - Add sign-in and sign-out
 description: Learn about how to add sign-in and sign-out in your own Node.js web application by using Microsoft Entra.
 services: active-directory
 author: kengaderdus
@@ -16,4 +16,4 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in my own Node.js web application by using Microsoft Entra - Add sign-in and sign-out
+# Sign in users in your own Node.js web application by using Microsoft Entra - Add sign-in and sign-out

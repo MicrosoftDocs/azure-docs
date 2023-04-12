@@ -1,5 +1,5 @@
 ---
-title: Sign in users in my own Node.js web application by using Microsoft Entra - Overview
+title: Sign in users in your own Node.js web application by using Microsoft Entra - Overview
 description: Learn about how to Sign in users in your own Node.js web application by using Microsoft Entra.
 services: active-directory
 author: kengaderdus
@@ -16,7 +16,7 @@ ms.custom: developer
 #Customer intent: As a dev, devops, I want to learn about how to enable authentication in my own Node.js web app with Azure Active Directory (Azure AD) for customers tenant
 ---
 
-# Sign in users in my own Node.js web application by using Microsoft Entra 
+# Sign in users in your own Node.js web application by using Microsoft Entra 
 
 In this article, you learn how to sign in users in your own Node.js web application that you build. This article uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application. You authenticate your web application against your Azure Active Directory (Azure AD) for customers tenant. 
 
