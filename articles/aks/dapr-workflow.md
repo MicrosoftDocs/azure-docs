@@ -30,7 +30,7 @@ The workflow example is an ASP.NET Core project with:
 > [!NOTE]
 > Dapr Workflow is currently an [alpha][dapr-workflow-alpha] feature and is on a self-service, opt-in basis. Alpha Dapr APIs and components are provided "as is" and "as available," and are continually evolving as they move toward stable status. Alpha APIs and components are not covered by customer support.
 
-## Pre-requisites
+## Prerequisites
 
 - An [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) with Owner or Admin role.
 - The latest version of the [Azure CLI][install-cli]
