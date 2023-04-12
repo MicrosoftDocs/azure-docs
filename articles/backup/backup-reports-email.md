@@ -2,7 +2,7 @@
 title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 04/06/2023
 author: jyothisuri
 ms.service: backup
 ms.author: jsuri
@@ -47,6 +47,9 @@ To perform the authorization, follow the steps below:
     ![Authorize connection](./media/backup-azure-configure-backup-reports/authorize-connections.png)
 
 6.	To test whether the logic app works after authorization, you can go back to the logic app, open **Overview** and select **Run Trigger** in the top pane, to test whether an email is being generated successfully.
+
+>[!Note]
+>The *sender* account associated with the email is the same as the account that is used to authorize the Office 365 connection during configuration of the email report. To change the sender, you need to use a different account to authorize the connection.
 
 ## Contents of the email
 

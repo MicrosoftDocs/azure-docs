@@ -20,7 +20,7 @@ manager: femila
 >
 >Multimedia redirection video playback redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 > 
->Multimedia redirection call redirection (preview) on Azure Virtual Deskto pis only available for the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
+>Multimedia redirection call redirection (preview) on Azure Virtual Desktop is only available for the Windows Desktop client, version x.x.xxxx or later with Insider releases enabled.
 
 This article describes known issues and troubleshooting instructions for multimedia redirection (MMR) for Azure Virtual Desktop.
 
@@ -35,6 +35,10 @@ The following issues are ones we're already aware of, so you won't need to repor
 - Multimedia redirection won't work as expected if the VMs in your deployment are blocking cmd.exe.
   
 - Multimedia redirection is disabled by default on all sites except for the ones listed in [Websites that work with multimedia redirection](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection features for all websites by following the directions in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites) and [Enable call redirection for all sites](multimedia-redirection.md#enable-webrtc-call-redirection). We added the option to enable multimedia redirection on sites that aren't officially supported so organizations can test the feature on their company websites.
+
+- If you aren't using the default Windows size settings for video players, such as not fitting the player to window, not maximizing the window, and so on), parts of video players may not appear correctly. If you encounter this issue, you should change the settings back to Default mode.
+
+- If your monitor or browser scale factor isn't set to 100%, you may see a gray pattern appear on the video screen.
 
 ### The MSI installer doesn't work
 

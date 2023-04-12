@@ -197,6 +197,10 @@ To use multimedia redirection with Teams live events:
 
    :::image type="content" source="./media/teams-live-events.png" alt-text="A screenshot of the 'Watch the live event in Microsoft Teams' page. The status icon and 'watch on the web instead' options are highlighted in red.":::
 
+## Advanced settings
+
+The following sections describe additional settings you can configure in MMR.
+
 ## Enable video playback redirection
 
 The following sections will show you how to enable video playback redirection for Azure Virtual Desktop.

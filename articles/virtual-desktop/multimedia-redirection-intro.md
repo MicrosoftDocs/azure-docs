@@ -71,7 +71,6 @@ The following sites work with video playback redirection:
       - The New York Times
       - Pluralsight
       - Politico
-      - Reddit
       - Reuters
    :::column-end:::
    :::column span="":::

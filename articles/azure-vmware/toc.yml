@@ -18,7 +18,7 @@
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: 4 - Install and activate VMware HCX in Azure VMware Solution
     href: install-vmware-hcx.md
-  - name: 5 - Configure on-premises HCX Connector
+  - name: 5 - Configure on-premises VMware HCX Connector
     href: configure-vmware-hcx.md
   - name: 6 - Uninstall VMware HCX in Azure VMware Solution
     href: uninstall-vmware-hcx.md
