@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Jobs in Azure Container Apps (preview)
+description: Learn about jobs in Azure Container Apps (preview)
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -9,7 +9,7 @@ ms.date: 04/12/2023
 ms.author: cshoe
 ---
 
-# TBD
+# Jobs in Azure Container Apps (preview)
 
 ## Jobs in Azure Container Apps
 
