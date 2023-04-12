@@ -27,7 +27,7 @@ When you create a connection, you must specify a connection type. The connection
 Azure Automation makes the following built-in connection types available:
 
 * `Azure` - Represents a connection used to manage classic resources.
-* `AzureServicePrincipal` - Represents a connection used to manage resources in Azuer using a service principal.
+* `AzureServicePrincipal` - Represents a connection used to manage resources in Azure using a service principal.
 * `AzureClassicCertificate` - This connection type is used to manage resources in Azure that were created using the classic deployment model that doesn't support Service Principal authentication.
 
 ## PowerShell cmdlets to access connections
@@ -81,7 +81,7 @@ Create a new connection with Windows PowerShell using the `New-AzAutomationConne
 You can use the following example commands to create a connection that can be used for authentication using Azure Service Principal.
 
 ```powershell
-$ConnectionAssetName = "AzureRunAsConnection"
+$ConnectionAssetName = "AzureConnection"
 $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
@@ -143,16 +143,16 @@ def get_automation_credential(azure_connection):
     from msrestazure import azure_active_directory
     import adal
 
-    # Get the Azure Automation Run As service principal certificate
-    cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+    # Get the Azure Automation service principal certificate
+    cert = automationassets.get_automation_certificate("MyCertificate")
     pks12_cert = crypto.load_pkcs12(cert)
     pem_pkey = crypto.dump_privatekey(
         crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
 
     # Get information for the Azure Automation service principal
-    application_id = runas_connection["ApplicationId"]
-    thumbprint = runas_connection["CertificateThumbprint"]
-    tenant_id = runas_connection["TenantId"]
+    application_id = my_connection["ApplicationId"]
+    thumbprint = my_connection["CertificateThumbprint"]
+    tenant_id = my_connection["TenantId"]
 
     # Authenticate with service principal certificate
     resource = "https://management.core.windows.net/"
