@@ -1089,6 +1089,12 @@ items:
         href: custom-text-analytics-for-health/concepts/entity-components.md
       - name: Evaluation metrics
         href: custom-text-analytics-for-health/concepts/evaluation-metrics.md
+    - name: How-to guides
+      items:
+      - name: How to create projects
+        href: custom-text-analytics-for-health/how-to/create-project.md
+      - name: How to label data
+        href: custom-text-analytics-for-health/how-to/label-data.md
 - name: Summarization (preview)
   items:
   - name: Summarization overview

@@ -92,7 +92,7 @@ Use the following steps to label your data:
    * *Total instances* where you can view count of all labeled instances of a specific entity type.
    * *Documents with at least one label* where each document is counted if it contains at least one labeled instance of this entity.
   
-7. When you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
+7. When you're labeling, your changes are synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
 
 ## Remove labels
 
@@ -103,7 +103,7 @@ To remove a label
 
 ## Delete entities
 
-You cannot delete any of the Text Analytics for health pretrained entities because they have a prebuilt component. You are only permitted to delete newly defined entity categories. To delete an entity, select the delete icon next to the entity you want to remove. Deleting an entity will remove all its labeled instances from your dataset. 
+You cannot delete any of the Text Analytics for health pretrained entities because they have a prebuilt component. You are only permitted to delete newly defined entity categories. To delete an entity, select the delete icon next to the entity you want to remove. Deleting an entity removes all its labeled instances from your dataset. 
 
 ## Next steps
 
