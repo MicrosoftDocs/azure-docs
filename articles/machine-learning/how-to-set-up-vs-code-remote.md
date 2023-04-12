@@ -37,7 +37,7 @@ Before you get started, you will need:
 * A compute instance. An [Azure Machine Learning compute instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators. You can create a compute instance from the Azure Machine Learning studio, or [Use the Azure Machine Learning Visual Studio Code extension to create a new compute instance](how-to-manage-resources-vscode.md#create-compute-instance).
 * In the **Manage preview features** panel, scroll down and enable **Connect compute instances to Visual Studio Code for the Web**.
 
-    :::image type="content" source="media/how-to-set-up-vs-code-remote/enable-web-preview.png" alt-text="Enable the VS Code for the web preview.":::
+    :::image type="content" source="media/how-to-set-up-vs-code-remote/enable-web-preview.png" alt-text="Screenshot showing enable the VS Code for the web preview.":::
 
 ## Connect remote compute instance to VS Code
 
