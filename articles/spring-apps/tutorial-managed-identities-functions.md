@@ -110,7 +110,7 @@ Functions in <your-functionapp-name>:
 After installing the spring extension, create an Azure Spring Apps instance with the Azure CLI command `az spring create`.
 
 ```azurecli
-az extension add --name spring
+az extension add --upgrade --name spring
 az spring create --name mymsispringcloud --resource-group myResourceGroup --location eastus
 ```
 
