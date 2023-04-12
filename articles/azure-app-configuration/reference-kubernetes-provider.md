@@ -91,7 +91,7 @@ Note `uri` is required in each *vault* item and one of `managedIdentityClientId`
 
 ## Examples
 
-### Authentication 
+### Authenticate Azure App Configuration
 
 * To use **System Assigned Managed Identity** to authenticate Azure App Configuration in Kubernetes, first you need to enable the System Assigned Managed identity of the corresponding Virtual Machine Scale Sets resource of AKS cluster, see this [doc](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set) to learn how to enable it.
 
@@ -209,7 +209,7 @@ spec:
 ```
 
 > [!NOTE]
-If there is key overlap among the subsets of key-values returned from the selectors, the value of that key would be set by the last selector.
+> If there is key overlap among the subsets of key-values returned from the selectors, the value of that key would be set by the last selector.
 
 ### Trim the prefix of the configuration setting key
 
