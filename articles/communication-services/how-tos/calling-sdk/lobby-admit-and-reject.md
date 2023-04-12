@@ -53,7 +53,7 @@ const state = remoteParticipant.state;
 ```
 
 You could check remote participant state in subscription method:
-[Learn more about events and subscription ](../../how-tos/calling-sdk/includes/events/events-web.md)
+[Learn more about events and subscription ](./events.md)
 
 ```js
 // Subscribe to a call obj.
