@@ -92,13 +92,23 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 ## Verify the deployment
 
 1. Select **Resource groups** from the left pane.
-1. Select the resource group used for the deployment.
-1. Select the cross-region load balancer. It will be the load balancer ending in **-cr**.
+1. Select the resource group used in the deployment. The default resource group name is the **project name** with **-rg** appended. For example, **crlb-learn-arm-rg**.
+1. Select the cross-region load balancer. It will be the load balancer ending in **-cr**. For example, **crlb-learn-arm-cr**.
 1. Note the public IP address of the cross-region load balancer listed under **Public IP address**.
 1. Enter the public IP address in your webbrowser. The page will resovlve to the default IIS Windows Server web page.
 
     :::image type="content" source="media/tutorial-deploy-cross-region-load-balancer-template/default-web-page.png" alt-text="Screenshot of default IIS Windows Server web page in web browser.":::
 
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Resource groups** from the left pane.
+
+1. 
+
+1. Select the load balancer. Its default name is the project name with **-lb** appended.
+
+1. Copy only the IP address part of the public IP address, and then paste it into the address bar of your browser.
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
