@@ -212,7 +212,7 @@ az aks mesh disable --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}
 > [!CAUTION]
 > Disabling the service mesh addon will completely remove the Istio control plane from the cluster.
 
-Istio `CustomResourceDefintion`s (CRDs) won't be deleted by default. To clean them up, use:
+Istio `CustomResourceDefintion`s (CRDs) aren't be deleted by default. To clean them up, use:
 
 ```bash
 kubectl delete crd $(kubectl get crd -A | grep "istio.io" | awk '{print $1}')
