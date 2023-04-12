@@ -19,16 +19,6 @@ content meets their needs. H1 format is # What is <product/service>?
 # Learn how to manage admin access for Global Secure Access
 Certain Active Directory roles are required to manage Global Secure Access. In particular, you must understand these roles: global administrator, applications administrator, conditional access administrator, compliance administrator, and global reader. To learn more about these roles in Active Directory, see [Active Directory built-in roles](../active-directory/roles/permissions-reference.md).
 
-Global Secure Access includes Microsoft Entra Private Access and Microsoft Entra Internet Access. The table outlines which product is required for each feature in this article. To learn more about Microsoft Entra Private Access, see [What is Microsoft Entra Private Access?](overview-what-is-private-access.md). To learn more about Microsoft Entra Internet Access, see [What is Microsoft Entra Internet Access?](overview-what-is-internet-access.md).
-
-| Feature   | Microsoft Entra Private Access | Microsoft Entra Internet Access |
-|----------|-----------|------------|
-| Feature A | X |   |
-| Feature B |   | X |
-| Feature C | X | X |
-| Feature D | X |   |
-
-
 ## Active Directory roles with access to Global Secure Access
 
 By default, the following existing Active Directory admin roles have access to Global Secure Access.

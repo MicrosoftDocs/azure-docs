@@ -22,11 +22,6 @@ items:
     href: tutorial-configure-private-access.md
   - name: Configure end-to-end Microsoft Entra Internet Access
     href: tutorial-configure-internet-access.md
-- name: Samples
-  expanded: false
-  items:
-  - name: Configure tenant for Global Secure Access
-    href: sample-configure-tenant.md
 - name: Concepts
   expanded: true
   items:
