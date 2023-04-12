@@ -12,7 +12,6 @@ ms.date: 03/30/2023
 > - Design a workspace architecture with the minimal number of workspaces to meet your business requirements.
 > - Use Log Analytics workspace insights to track the health and performance of your Log Analytics workspaces.
 > - Create alert rules to be proactively notified of operational issues in the workspace.
-> - Use functions for log queries commonly used by your organization.
 
 ### Configuration recommendations
 
