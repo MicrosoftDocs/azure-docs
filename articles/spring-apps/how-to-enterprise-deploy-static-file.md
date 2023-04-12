@@ -24,16 +24,16 @@ This article shows you how to deploy your static files to Azure Spring Apps Ente
 - An already provisioned Azure Spring Apps Enterprise tier instance. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 - One or more applications running in Azure Spring Apps. For more information on creating apps, see [How to Deploy Spring Boot applications from Azure CLI](./how-to-launch-from-source.md).
 - [Azure CLI](/cli/azure/install-azure-cli), version 2.45.0 or higher.
-- Your static files or dynamic front-end application (e.g. react app).
+- Your static files or dynamic front-end application - for example, a React app.
 
 ## Deploy your static files
 
 You can deploy static files to Azure Spring Apps using NGINX or HTTPD web servers in the following ways:
 
 - You can deploy static files directly. Azure Spring Apps automatically configures the specified web server to serve the static files.
-- You can create your front-end application in the JavaScript framework of your choice, and then deploy your dynamic front-end application from source code. Azure Spring Apps will build your app into static content and use your configured web server to serve the static files.
+- You can create your front-end application in the JavaScript framework of your choice, and then deploy your dynamic front-end application from source code. Azure Spring Apps builds your app into static content and uses your configured web server to serve the static files.
 
-Additionally, you can create a server configuration file to customize the web server.
+You can also create a server configuration file to customize the web server.
 
 ### Deploy static files directly
 
