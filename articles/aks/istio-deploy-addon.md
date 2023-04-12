@@ -17,18 +17,20 @@ For more information on Istio and the service mesh add-on, see [Istio-based serv
 
 ## Before you begin
 
-### Set environment variables:
+### Set environment variables
 
-    ```bash
-    export CLUSTER=<cluster-name>
-    export RESOURCE_GROUP=<resource-group-name>
-    export LOCATION=<location>
-    ```
+```bash
+export CLUSTER=<cluster-name>
+export RESOURCE_GROUP=<resource-group-name>
+export LOCATION=<location>
+```
 
 ### Verify Azure CLI and aks-preview extension versions
-* You need the Azure CLI version 2.44.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* You need the `aks-preview` Azure CLI extension of version 0.5.133 or later installed. Run `az --version` to find the version.
+The add-on requires:
+* Azure CLI version 2.44.0 or later installed. To install or upgrade, see [Install Azure CLI][install-azure-cli].
+* `aks-preview` Azure CLI extension of version 0.5.133 or later installed
 
+You can run `az --version` to verify above versions.
 
 To install the aks-preview extension, run the following command:
 
@@ -80,7 +82,7 @@ az aks create \
 The following example enables Istio add-on for an existing AKS cluster:
 
 > [!IMPORTANT]
-> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. [Uninstall OSM add-on on your cluster][uninstall-osm-addon] before enabling the Istio add-on.
+> You can't enable the Istio add-on on an existing cluster if an OSM add-on is already on your cluster. Uninstall the OSM add-on before installing the Istio add-on.
 > For more information, see [uninstall the OSM add-on from your AKS cluster][uninstall-osm-addon].
 > Istio add-on can only be enabled on AKS clusters of version >= 1.23.
 
@@ -96,11 +98,7 @@ To verify the Istio add-on is installed on your cluster, run the following comma
 az aks show --resource-group ${RESOURCE_GROUP} --name ${CLUSTER}  --query 'serviceMeshProfile.mode'
 ```
 
-Confirm the output shows Istio, for example:
-
-```
-Istio
-```
+Confirm the output shows `Istio`.
 
 Use `az aks get-credentials` to the credentials for your AKS cluster:
 
